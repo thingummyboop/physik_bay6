@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌈 Avantura optike 🌈</title>
+    <style>
+        /* --- GRUNDDESIGN & FARBEN (Mix aus den Vorlagen) --- */
+        :root {
+            --primary: #FFD600; 
+            --secondary: #9C27B0; 
+            --bg: #F3E5F5; 
+            --text: #2c3e50;
+            --correct: #4CAF50; 
+            --wrong: #F44336; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; 
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px; 
+        }
+
+        /* --- PUNKTEANZEIGE --- */
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: #2c3e50; color: white;
+            text-align: center; padding: 15px;
+            font-size: 1.8em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease-in-out;
+        }
+        .score-highlight { color: var(--primary); }
+
+        /* --- LAYOUT --- */
+        .card {
+            background: var(--card-bg); border-radius: 15px;
+            padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
+        }
+        h1 { text-align: center; font-size: 2.8em; color: #333; }
+        h2 { color: var(--secondary); border-bottom: 4px solid var(--primary); padding-bottom: 10px; }
+        
+        .lexikon-box {
+            background: #F3E5F5; border: 2px solid #E1BEE7;
+            padding: 15px; border-radius: 15px; margin: 15px 0;
+        }
+
+        .diagram-box {
+            text-align: center; margin: 25px 0;
+            background: #fff; border: 2px solid #eee;
+            padding: 20px; border-radius: 15px;
+        }
+
+        .exercise-box {
+            background-color: #F3E5F5; border-radius: 10px;
+            padding: 20px; margin: 30px 0; border: 3px dashed var(--secondary);
+        }
+
+        .quiz-box {
+            background-color: #FFFDE7; border-radius: 10px;
+            padding: 20px; margin: 30px 0; border-left: 8px solid var(--primary);
+        }
+
+        /* --- INTERAKTIVE ELEMENTE --- */
+        button {
+            background-color: #4a5568; color: white; border: none;
+            padding: 14px 24px; border-radius: 12px;
+            cursor: pointer; font-size: 1em; font-weight: bold;
+            margin: 8px; transition: all 0.2s;
+        }
+        button:hover:not(:disabled) { transform: scale(1.05); background-color: var(--secondary); }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 15px; min-height: 28px; }
+
+        /* Animation für Lichtstrahlen */
+        @keyframes beam-glow {
+            0% { opacity: 0.6; stroke-width: 2; }
+            50% { opacity: 1; stroke-width: 4; }
+            100% { opacity: 0.6; stroke-width: 2; }
+        }
+        .light-beam { stroke: #FFEB3B; animation: beam-glow 2s infinite; }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Poeni za optiku: <span id="score" class="score-highlight">0</span>
+    </div>
+
+    <h1>🌈 Svetlosna avantura 🌈</h1>
+    <div class="card" style="text-align: center;">
+        <p>Dobrodošli u svet optike! Ovde ćeš saznati kako putuju svetlosni zraci, zašto ogledala funkcionišu i kako nastaje duga. Sakupljaj poene za svoju diplomu iz optike!</p>
+    </div>
+
+    <div class="card">
+        <h2>1. Licht wandert geradeaus</h2>
+        <p>Svetlost je ekstremno brza (skoro 300.000 kilometara u sekundi!). Ali najvažnije je: svetlosni zraci su kao super-prava lenjira. Oni uvek lete direktnim putem, sve dok im se nešto ne nađe na putu.</p>
+        
+        <div class="lexikon-box">
+            📖 <strong>Pametna reč: Izvor svetlosti</strong><br>
+            Sve što samo od sebe svetli (Sunce, baterijska lampa, svitac), zovemo izvor svetlosti. Druge stvari vidimo samo zato što one <em>reflektuju</em> (odbijaju) svetlost.
+        </div>
+
+        <div class="diagram-box">
+            <svg width="400" height="150" viewBox="0 0 400 150">
+                <rect x="20" y="60" width="60" height="30" fill="#444" rx="5" />
+                <path d="M 80 60 L 100 50 L 100 100 L 80 90 Z" fill="#666" />
+                <line x1="100" y1="75" x2="350" y2="75" stroke="#FFEB3B" stroke-width="3" class="light-beam" marker-end="url(#arrow)" />
+                <line x1="100" y1="75" x2="340" y2="40" stroke="#FFEB3B" stroke-width="2" opacity="0.6" />
+                <line x1="100" y1="75" x2="340" y2="110" stroke="#FFEB3B" stroke-width="2" opacity="0.6" />
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#FFEB3B" />
+                    </marker>
+                </defs>
+            </svg>
+            <p>Svetlosni zraci se šire pravolinijski na sve strane.</p>
+        </div>
+
+        <div class="exercise-box">
+            <h3>🛠️ Vežba: Zagonetka sa senkom</h3>
+            <p><strong>Šta se dešava ako postaviš neprovidnu ruku ispred svetlosnog zraka?</strong></p>
+            <button onclick="checkAction(this, true, 'Richtig! Da Licht nicht um Ecken biegen kann, entsteht hinter der Hand ein dunkler Bereich (Schatten).', 10)">Nastaje senka</button>
+            <button onclick="checkAction(this, false, 'Leider nein. Das Licht kann nicht einfach durch die Hand fließen.', 0)">Svetlost se savija oko ruke</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Refleksija: Trik sa ogledalom</h2>
+        <p>Kada svetlost udari u veoma glatku površinu (kao što je ogledalo ili mirna voda), ona se odbija kao lopta od zida. To zovemo <strong>refleksija</strong>.</p>
+        
+        <div class="lexikon-box">
+            📖 <strong>Upadni ugao = odbojni ugao</strong><br>
+            To je najvažniji zakon: svetlost dolazi pod određenim uglom i pod istim tim uglom se i odbija.
+        </div>
+
+        <div class="diagram-box">
+            <svg width="400" height="200" viewBox="0 0 400 200">
+                <rect x="50" y="170" width="300" height="10" fill="#B0BEC5" />
+                <line x1="50" y1="170" x2="350" y2="170" stroke="#90A4AE" stroke-width="2" />
+                <line x1="80" y1="30" x2="200" y2="170" stroke="#FFEB3B" stroke-width="4" marker-end="url(#arrow)" />
+                <line x1="200" y1="170" x2="320" y2="30" stroke="#FF5722" stroke-width="4" marker-end="url(#arrowRed)" />
+                <text x="90" y="20" font-size="12">Upadni zrak</text>
+                <text x="250" y="20" font-size="12">Odbojni zrak</text>
+                <defs>
+                    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#FF5722" />
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="quiz-box">
+            <h3>🧠 Kapitel-Quiz 2</h3>
+            <p><strong>Zašto alu-folija sija više nego list papira?</strong></p>
+            <button onclick="handleQuiz(this, true, 15)">Zato što je površina glađa i pravilno reflektuje svetlost.</button>
+            <button onclick="handleQuiz(this, false, 0)">Zato što alu-folija sama proizvodi svetlost.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Lichtbrechung: Der Knick-Effekt</h2>
+        <p>Da li si ikada primetio da slamčica u čaši vode izgleda „polomljeno“? To je zato što je svetlost u vodi sporija nego u vazduhu. Prilikom prelaska, svetlost pravi mali „zalom“!</p>
+
+        <div class="diagram-box">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <rect x="60" y="80" width="80" height="100" fill="#E1F5FE" opacity="0.6" stroke="#03A9F4" />
+                <line x1="120" y1="40" x2="100" y2="80" stroke="#FF9800" stroke-width="6" />
+                <line x1="100" y1="80" x2="70" y2="160" stroke="#FF9800" stroke-width="6" />
+                <text x="10" y="110" font-size="14" fill="#03A9F4">Voda</text>
+            </svg>
+            <p>Prelamanje svetlosti čini da objekti pod vodom izgledaju pomereno.</p>
+        </div>
+
+        <div class="quiz-box">
+            <h3>🧠 Kapitel-Quiz 3</h3>
+            <p><strong>Šta se dešava sa svetlosnim zrakom kada iz vazduha uđe u staklo?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Ništa, samo nastavlja da leti dalje.</button>
+            <button onclick="handleQuiz(this, true, 20)">Menja pravac (prelama se).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid var(--secondary); background: #FFF9C4;">
+        <h2 style="text-align: center; border: none; font-size: 2.5em; color: var(--secondary);">🎓 Diploma iz optike</h2>
+        <p style="text-align: center;">Da li si majstor svetlosti? Odgovori na finalna pitanja!</p>
+        
+        <div class="quiz-box">
+            <p><strong>1. Kako se svetlosni zraci obično kreću?</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">Uvek pravolinijski.</button>
+            <button onclick="handleQuiz(this, false, 0)">U opuštenim vijugavim linijama.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>2. Koji predmet najbolje reflektuje svetlost?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Crna majica.</button>
+            <button onclick="handleQuiz(this, true, 20)">Čisto srebrno ogledalo.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>3. Šta je uslov za nastanak senke?</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">Svetlosni zrak udara u neprovidno telo.</button>
+            <button onclick="handleQuiz(this, false, 0)">Mora biti noć.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>4. Zašto su nam potrebna sočiva (npr. u naočarima)?</strong></p>
+            <button onclick="handleQuiz(this, true, 30)">Ona koriste prelamanje svetlosti da bi ciljano sakupila svetlosne zrake.</button>
+            <button onclick="handleQuiz(this, false, 0)">Da se oči ne bi ukvasile.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <p style="text-align: center; font-weight: bold; font-size: 1.2em;">🎉 Bravo! Tvoje znanje sija jače od sijalice od 100 vati! 🎉</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        function updateScoreDisplay(pts) {
+            score += pts;
+            const scoreEl = document.getElementById('score');
+            const board = document.getElementById('score-board');
+            scoreEl.innerText = score;
+            
+            board.style.transform = "scale(1.1)";
+            setTimeout(() => board.style.transform = "scale(1)", 200);
+        }
+
+        function checkAction(btn, isCorrect, msg, pts) {
+            const parent = btn.parentElement;
+            const fb = parent.querySelector('.feedback');
+            
+            if (parent.hasAttribute('data-done')) return;
+
+            if (isCorrect) {
+                btn.style.backgroundColor = "var(--correct)";
+                fb.innerText = "✅ " + msg + " (+" + pts + " Punkte)";
+                fb.style.color = "var(--correct)";
+                parent.setAttribute('data-done', 'true');
+                updateScoreDisplay(pts);
+                parent.querySelectorAll('button').forEach(b => { if(b!==btn) b.disabled = true; });
+            } else {
+                btn.style.backgroundColor = "var(--wrong)";
+                fb.innerText = "❌ Versuche es noch einmal!";
+                fb.style.color = "var(--wrong)";
+            }
+        }
+
+        function handleQuiz(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const fb = box.querySelector('.feedback');
+            
+            if (box.hasAttribute('data-answered')) return;
+
+            box.setAttribute('data-answered', 'true');
+            box.querySelectorAll('button').forEach(b => {
+                b.disabled = true;
+                b.style.opacity = "0.6";
+            });
+
+            if (isCorrect) {
+                btn.style.backgroundColor = "var(--correct)";
+                btn.style.opacity = "1";
+                fb.innerText = "🌟 Tačno! (+" + pts + " Punkte)";
+                fb.style.color = "var(--correct)";
+                updateScoreDisplay(pts);
+            } else {
+                btn.style.backgroundColor = "var(--wrong)";
+                btn.style.opacity = "1";
+                fb.innerText = "🔍 Ne baš sasvim. Pogledaj grafike još jednom.";
+                fb.style.color = "var(--wrong)";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌈 Пригода з оптики 🔦</title>
+    <style>
+        :root {
+            --primary: #f44336; 
+            --secondary: #9C27B0;
+            --bg: #fdfcf0; 
+            --text: #2d3748;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #2d3748; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
+        }
+
+        h2 { color: var(--secondary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #f0f0f0;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #f3e8ff; border: 2px solid #d8b4fe;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #f0f4f8; border: 2px solid #d1dce5;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #fffaf0; border-left: 10px solid #fbd38d; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #4a5568; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        /* Animationen für die Beugung */
+        @keyframes slide-right {
+            0% { transform: translateX(0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateX(180px); opacity: 0; }
+        }
+        .anim-line { animation: slide-right 2s infinite linear; }
+        
+        @keyframes expand-circle {
+            0% { r: 5px; opacity: 1; stroke-width: 4px; }
+            100% { r: 120px; opacity: 0; stroke-width: 1px; }
+        }
+        .anim-circle { animation: expand-circle 2s infinite linear; transform-origin: center; }
+
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Бали з оптики: <span id="score" style="color: #e9d8fd;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #2d3748;">🌈 Пригода з оптики 🔦</h1>
+    <p style="text-align: center; font-size: 1.2em;">Вітаємо, юні дослідники! Пристебніться, ми вирушаємо на світловому промені в захопливий світ оптики!</p>
+
+    <div class="card">
+        <h2>1. Reflexion: Ping-Pong mit Licht</h2>
+        <p>Частинки світла часто поводяться як ідеальні маленькі м'ячики-стрибунці. Якщо кинути такий м'ячик під кутом у гладку стіну, він відскочить під таким самим кутом в інший бік. Світло на гладкому дзеркалі робить те саме! Це відскакування у фізиці називають <strong>відбиванням</strong>.</p>
+        <div class="lexikon-box">
+            📖 <strong>Das schlaue Wörterbuch: Закон відбивання</strong><br>
+            Um zu messen, wie schräg das Licht auf den Spiegel trifft, malen Physiker eine unsichtbare Hilfslinie genau senkrecht (im 90-Grad-Winkel) auf den Spiegel. Diese Linie nennt man das <strong>Lot</strong>. <br>
+            Der Winkel zwischen dem reinkommenden Lichtstrahl und dem Lot heißt <strong>Einfallswinkel</strong>. Das Gesetz der Natur ist super einfach: <strong>Einfallswinkel = Ausfallswinkel!</strong>
+        </div>
+        <div class="interactive-zone">
+            <h3>🎮 Лазерне дзеркало</h3>
+            <p>Рухайте повзунок, щоб спрямувати лазер під більш гострим або тупим кутом до дзеркала:</p>
+            <input type="range" id="angleRange" min="20" max="140" value="80" oninput="updateReflection(this.value)" style="width: 200px;">
+            <div class="diagram-box">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <rect x="50" y="160" width="300" height="10" fill="#a0aec0" rx="2" />
+                    <line x1="50" y1="160" x2="350" y2="160" stroke="#4a5568" stroke-width="3" />
+                    <line x1="200" y1="20" x2="200" y2="160" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="6,6" />
+                    <path id="rayIn" d="M 120 40 L 200 160" stroke="#E91E63" stroke-width="4" stroke-linecap="round"/>
+                    <path id="rayOut" d="M 200 160 L 280 40" stroke="#E91E63" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Wie nennt man die unsichtbare Hilfslinie, die beim Spiegeln senkrecht auf der Oberfläche steht?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Das Lot.</button>
+            <button onclick="handleAnswer(this, false, 0)">Der Ausfallstrahl.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Заломлення: «злам» в оптиці</h2>
+        <p>У порожньому космосі світло рухається блискавично. Але коли воно проходить крізь такі матеріали, як вода чи товсте скло, йому стає важче, і воно трохи сповільнюється. Коли світловий промінь входить у такий матеріал під кутом, він через сповільнення раптово змінює напрямок. Ми називаємо це <strong>заломленням</strong>!</p>
+        <div class="lexikon-box">
+            📖 <strong>Оптична густина</strong><br>
+            Крізь воду та скло світлу пройти важче, ніж крізь повітря. Кажуть, що вони мають вищу <strong>оптичну густину</strong>. Уяви, що ти біжиш по асфальту і забігаєш під кутом у басейн із пластиліном. Нога, яка першою торкається пластиліну, одразу сповільнюється. Інша нога ще біжить швидко — через це ти автоматично повертаєш! Саме так <strong>світло заломлюється до перпендикуляра</strong>.
+        </div>
+        <div class="interactive-zone">
+            <h3>🧪 Лабораторія з басейном</h3>
+            <p>Оберіть матеріал, у який має світити лазер:</p>
+            <button onclick="setMedium('air')">Повітря в повітря</button>
+            <button onclick="setMedium('water')">Повітря у воду</button>
+            <button onclick="setMedium('glass')">Повітря в скло</button>
+            <div class="diagram-box">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <rect id="mediumBox" x="50" y="100" width="300" height="90" fill="transparent" style="transition: fill 0.5s;" />
+                    <line x1="50" y1="100" x2="350" y2="100" stroke="#4a5568" stroke-width="3" />
+                    <line x1="200" y1="20" x2="200" y2="180" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="5,5" />
+                    <path d="M 120 20 L 200 100" stroke="#E91E63" stroke-width="4" />
+                    <path id="refractedRay" d="M 200 100 L 280 180" stroke="#E91E63" stroke-width="4" style="transition: all 0.5s;" />
+                </svg>
+                <p id="mediumText" style="font-weight:bold;">Зараз: повітря (однакова густина, промінь йде прямо)</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Warum macht der Lichtstrahl einen Knick, wenn er schräg ins Wasser trifft?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Weil das Wasser nass ist und das Licht wegspült.</button>
+            <button onclick="handleAnswer(this, true, 10)">Weil das Wasser optisch dichter ist und das Licht abbremst.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Linsen: Lichtbündler und Streuer</h2>
+        <p>Ми, люди, використовуємо трюк із заломленням, виточуючи скло в особливі круглі форми. Ці шматки скла ми називаємо <strong>лінзами</strong>. Завдяки їм ми можемо створювати лупи, окуляри та камери!</p>
+        <div class="lexikon-box">
+            📖 <strong>Дві форми — два трюки:</strong><br>
+            - <strong>Збиральна лінза (опукла):</strong> вона товста посередині. Вона збирає світлові промені та спрямовує їх всередину, поки вони не зустрінуться в одній надгарячій точці — <strong>фокусі</strong>.<br>
+            - <strong>Розсіювальна лінза (увігнута):</strong> вона тонша посередині, ніж по краях. Вона відштовхує промені назовні, ніби розсіюючи їх. <br><br>
+            <em>💡 Підказка для запам'ятовування: «Опукла лінза випирає назовні, а увігнута — втиснута всередину, як вхід у печеру».</em>
+        </div>
+        <div class="interactive-zone">
+            <h3>🔍 Змінювач лінз</h3>
+            <p>Klicke, um die Linse auszutauschen:</p>
+            <button onclick="toggleLens()">Змінити лінзу ⇄</button>
+            <div class="diagram-box">
+                <svg width="400" height="240" viewBox="0 0 400 240">
+                    <line x1="20" y1="120" x2="380" y2="120" stroke="#cbd5e0" stroke-width="1" stroke-dasharray="4,4" />
+                    <path d="M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160" stroke="#f6ad55" stroke-width="3" />
+                    
+                    <path id="lensShape" d="M 200 40 Q 230 120 200 200 Q 170 120 200 40" fill="#bee3f8" stroke="#3182ce" stroke-width="2" style="transition: all 0.5s;" />
+                    
+                    <g id="lensRays" style="transition: all 0.5s;">
+                        <path id="rayTopLens" d="M 200 80 L 320 120" stroke="#f6ad55" stroke-width="3" />
+                        <path id="rayMidLens" d="M 200 120 L 380 120" stroke="#f6ad55" stroke-width="3" />
+                        <path id="rayBotLens" d="M 200 160 L 320 120" stroke="#f6ad55" stroke-width="3" />
+                    </g>
+                    <g id="virtualLensRays" stroke="#a0aec0" stroke-width="2" stroke-dasharray="5,5" style="opacity: 0; transition: opacity 0.5s;">
+                        <line x1="80" y1="120" x2="200" y2="80" />
+                        <line x1="80" y1="120" x2="200" y2="160" />
+                    </g>
+                    
+                    <circle id="focalPointReal" cx="320" cy="120" r="5" fill="#E91E63" style="transition: all 0.5s;" />
+                    <circle id="focalPointVirtual" cx="80" cy="120" r="5" fill="#3182ce" style="opacity: 0; transition: opacity 0.5s;" />
+                </svg>
+                <p id="lensText" style="font-weight:bold; color:#E91E63;">Збиральна лінза (опукла): збирає всі промені у фокусі!</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Welche Linse nimmst du, wenn du wie mit einer Lupe das Licht der Sonne in einem Punkt konzentrieren willst?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Eine bauchige Sammellinse (Konvex).</button>
+            <button onclick="handleAnswer(this, false, 0)">Eine nach innen gewölbte Zerstreuungslinse (Konkav).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Beugung: Licht geht um die Ecke!</h2>
+        <p>Досі ми думали, що світлові промені завжди рухаються лише прямо. Але сюрприз: насправді світло поводиться як хвиля в океані! Коли ця світлова хвиля зустрічає крихітну перешкоду або дуже вузьку щілину, вона проявляє свою магічну природу.</p>
+        <div class="lexikon-box">
+            📖 <strong>Дифракція (ідея Гюйгенса)</strong><br>
+            Вчений Крістіан Гюйгенс відкрив <strong>принцип Гюйгенса</strong>. Він стверджував: кожна точка світлової хвилі може стати джерелом нової сферичної хвилі! Якщо щілина надзвичайно вузька, ми змушуємо світло проходити крізь неї. Раптом ця щілина сама стає схожою на маленьку лампочку, і світло за нею поширюється колами. Це називається <strong>дифракцією</strong>.
+        </div>
+        <div class="interactive-zone">
+            <h3>🌊 Машина зі щілиною</h3>
+            <p>Натисніть на рамку, щоб поступово звужувати щілину:</p>
+            <div style="cursor: pointer; user-select: none;" onclick="narrowSlit()">
+                <div class="diagram-box" style="padding: 0; background: #0f172a; border-radius: 10px; height: 200px;">
+                    <svg width="400" height="200" viewBox="0 0 400 200" style="overflow: hidden;">
+                        <defs>
+                            <clipPath id="rightHalfClip">
+                                <rect x="187" y="0" width="220" height="200" />
+                            </clipPath>
+                        </defs>
+                        <line x1="0" y1="20" x2="0" y2="180" stroke="#60a5fa" stroke-width="4" class="anim-line" style="animation-delay: 0s;" />
+                        <line x1="0" y1="20" x2="0" y2="180" stroke="#60a5fa" stroke-width="4" class="anim-line" style="animation-delay: -0.66s;" />
+                        <line x1="0" y1="20" x2="0" y2="180" stroke="#60a5fa" stroke-width="4" class="anim-line" style="animation-delay: -1.33s;" />
+
+                        <rect x="180" y="0" width="15" height="60" fill="#94a3b8" id="wallTop" style="transition: all 0.3s;" />
+                        <rect x="180" y="140" width="15" height="60" fill="#94a3b8" id="wallBot" style="transition: all 0.3s;" />
+
+                        <g id="wavesBroad">
+                            <line x1="180" y1="60" x2="180" y2="140" stroke="#60a5fa" stroke-width="4" class="anim-line" style="animation-delay: 0s;" />
+                            <line x1="180" y1="60" x2="180" y2="140" stroke="#60a5fa" stroke-width="4" class="anim-line" style="animation-delay: -0.66s;" />
+                            <line x1="180" y1="60" x2="180" y2="140" stroke="#60a5fa" stroke-width="4" class="anim-line" style="animation-delay: -1.33s;" />
+                        </g>
+
+                        <g id="wavesNarrow" style="display: none;" clip-path="url(#rightHalfClip)">
+                            <circle cx="187" cy="100" r="10" fill="none" stroke="#60a5fa" class="anim-circle" style="animation-delay: 0s;" />
+                            <circle cx="187" cy="100" r="10" fill="none" stroke="#60a5fa" class="anim-circle" style="animation-delay: -0.66s;" />
+                            <circle cx="187" cy="100" r="10" fill="none" stroke="#60a5fa" class="anim-circle" style="animation-delay: -1.33s;" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <p id="slitText" style="font-weight: bold;">Широка щілина: світло проходить майже виключно як пряма хвиля (хвильовий фронт).</p>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Wann beugt sich das Licht am stärksten zu neuen Kreiswellen auf?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Wenn der Spalt extrem eng ist.</button>
+            <button onclick="handleAnswer(this, false, 0)">Wenn der Spalt wie ein riesiges Scheunentor offen ist.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Gekrümmte Spiegel: Das Funhouse-Kabinett</h2>
+        <p>Товсті скляні лінзи часто досить важкі! Тому іноді ми використовуємо вигнуті металеві дзеркала. Вони поводяться напрочуд схоже на лінзи.</p>
+        <div class="lexikon-box">
+            📖 <strong>Дзеркало та лінза — близнюки:</strong><br>
+            - <strong>Увігнуте дзеркало:</strong> світло потрапляє у заглибину, як у ложку. Воно поводиться як збиральна лінза! Воно збирає світло перед собою в дійсному фокусі.<br>
+            - <strong>Опукле дзеркало:</strong> світло потрапляє на круглий «живіт» (як на ялинковій кульці). Воно поводиться як розсіювальна лінза. Світло розходиться віялом і створює для нашого ока <strong>уявний фокус</strong>, який нібито знаходиться за дзеркалом!
+        </div>
+        <div class="interactive-zone">
+            <h3>🪞 Кімната дзеркал</h3>
+            <p>Klicke, um den Spiegel zu wenden:</p>
+            <button onclick="toggleMirror()">Перевернути дзеркало ⇄</button>
+            <div class="diagram-box">
+                <svg width="400" height="240" viewBox="0 0 400 240">
+                    <line x1="20" y1="120" x2="380" y2="120" stroke="#cbd5e0" stroke-width="1" stroke-dasharray="4,4" />
+                    <g id="inRays" style="transition: all 0.5s;">
+                        <path id="inRayTop" d="M 40 80 L 280 80" stroke="#f6ad55" stroke-width="3" />
+                        <path id="inRayMid" d="M 40 120 L 295 120" stroke="#f6ad55" stroke-width="3" />
+                        <path id="inRayBot" d="M 40 160 L 280 160" stroke="#f6ad55" stroke-width="3" />
+                    </g>
+                    <path id="mirrorShape" d="M 270 40 Q 320 120 270 200" fill="none" stroke="#a0aec0" stroke-width="8" stroke-linecap="round" style="transition: all 0.5s;" />
+                    <g id="mirrorRays" style="transition: all 0.5s;">
+                        <path id="mirrorRayTop" d="M 280 80 L 40 160" stroke="#E91E63" stroke-width="3" />
+                        <path id="mirrorRayMid" d="M 295 120 L 40 120" stroke="#E91E63" stroke-width="3" />
+                        <path id="mirrorRayBot" d="M 280 160 L 40 80" stroke="#E91E63" stroke-width="3" />
+                    </g>
+                    <g id="virtualMirrorRays" stroke="#a0aec0" stroke-width="2" stroke-dasharray="5,5" style="opacity: 0; transition: opacity 0.5s;">
+                        <line id="vRayTop" x1="300" y1="80" x2="390" y2="120" />
+                        <line id="vRayBot" x1="300" y1="160" x2="390" y2="120" />
+                    </g>
+                    <circle id="mirrorFocusReal" cx="160" cy="120" r="5" fill="#E91E63" style="transition: all 0.5s;" />
+                    <circle id="mirrorFocusVirtual" cx="390" cy="120" r="5" fill="#3182ce" style="opacity: 0; transition: opacity 0.5s;" />
+                </svg>
+                <p id="mirrorText" style="font-weight:bold; color:#E91E63;">Увігнуте дзеркало: збирає світло, як збиральна лінза.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>Welcher nach außen gewölbte Spiegel hängt oft an gefährlichen Straßenkreuzungen, weil man damit ein ganz breites Feld sehen kann?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Ein Wölbspiegel (Konvexspiegel).</button>
+            <button onclick="handleAnswer(this, false, 0)">Ein Hohlspiegel (Konkavspiegel).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>6. Das Mikroskop: Reise zu den kleinsten Tieren</h2>
+        <p>Щоб потрапити у світ бактерій чи клітин, ми вставляємо дві лінзи у довгу трубку — <strong>тубус</strong>. Нижня лінза знаходиться зовсім близько до об'єкта, тому її називають <strong>об'єктивом</strong>. Верхня лінза знаходиться біля самого ока — це <strong>окуляр</strong>.</p>
+        <div class="lexikon-box">
+            📖 <strong>Невидиме зображення:</strong><br>
+            Об'єктив збирає світло від крихітного зразка і проєктує перевернуте збільшене <strong>проміжне зображення</strong>, яке ніби «висить» посеред тубуса. Окуляр тепер працює як потужна лупа, яку ми спрямовуємо на це зображення. Якщо проміжне зображення опиниться точно у фіолетовому фокусі окуляра, картинка в оці стане надзвичайно чіткою!
+        </div>
+        <div class="interactive-zone" style="padding-bottom: 30px;">
+            <div style="display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                
+                <div style="text-align: center; width: 220px;">
+                    <h4 style="margin-top:0; color:#2b6cb0;">👁️ Вигляд через окуляр</h4>
+                    <div style="width: 200px; height: 200px; border-radius: 50%; border: 8px solid #2d3748; background: #ebf8ff; overflow: hidden; position: relative; margin: 0 auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.2);">
+                        <g id="microViewInner" style="transition: all 0.1s; transform-origin: center; display: block; width: 100%; height: 100%;">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%">
+                                <g stroke="#cbd5e0" stroke-width="0.5">
+                                    <line x1="0" y1="20" x2="100" y2="20"/><line x1="0" y1="40" x2="100" y2="40"/><line x1="0" y1="60" x2="100" y2="60"/><line x1="0" y1="80" x2="100" y2="80"/>
+                                    <line x1="20" y1="0" x2="20" y2="100"/><line x1="40" y1="0" x2="40" y2="100"/><line x1="60" y1="0" x2="60" y2="100"/><line x1="80" y1="0" x2="80" y2="100"/>
+                                </g>
+                                <path d="M 30 50 Q 35 20 60 30 T 80 60 T 50 80 T 30 50" fill="#9ae6b4" stroke="#48bb78" stroke-width="2" opacity="0.8"/>
+                                <circle cx="55" cy="45" r="8" fill="#2f855a"/>
+                                <path d="M 40 60 Q 45 55 50 65 Q 45 70 40 60" fill="#68d391"/>
+                                <circle cx="70" cy="40" r="3" fill="#68d391"/>
+                                <circle cx="65" cy="65" r="2" fill="#68d391"/>
+                            </svg>
+                        </g>
+                    </div>
+                    <p id="microViewStatus" style="font-weight:bold; color:#E91E63; margin-top: 15px; font-size: 0.9em;">Нечітко!</p>
+                </div>
+
+                <div style="position: relative; width: 250px; background: white; border: 2px solid #e2e8f0; border-radius: 15px;">
+                    <svg width="250" height="320" viewBox="0 0 250 320">
+                        <line x1="125" y1="10" x2="125" y2="310" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="4,4"/>
+                        <rect x="75" y="270" width="100" height="6" fill="#a0aec0" rx="2"/>
+                        <polygon points="115,270 125,270 120,260" fill="#2d3748"/>
+                        
+                        <g id="vertObjLensGrp" style="transition: transform 0.1s;">
+                            <path d="M 90 0 Q 125 -15 160 0 Q 125 15 90 0" fill="#bee3f8" stroke="#3182ce" opacity="0.8"/>
+                            <text x="165" y="4" font-size="11" fill="#3182ce">Об'єктив</text>
+                        </g>
+                        
+                        <g id="vertOcLensGrp" style="transition: transform 0.1s;">
+                            <path d="M 80 0 Q 125 -20 170 0 Q 125 20 80 0" fill="#bee3f8" stroke="#3182ce" opacity="0.8"/>
+                            <text x="175" y="4" font-size="11" fill="#3182ce">Окуляр</text>
+                            <path d="M 110 -35 Q 125 -25 140 -35 Q 125 -45 110 -35" fill="#e2e8f0" stroke="#4a5568"/>
+                            <circle cx="125" cy="-35" r="4" fill="#2d3748"/>
+                        </g>
+                        
+                        <line id="vertIntLine" x1="105" y1="150" x2="145" y2="150" stroke="#a0aec0" stroke-width="2" stroke-dasharray="2,2" style="transition: all 0.1s;"/>
+                        <polygon id="vertIntArrow" points="" fill="#a0aec0" style="transition: all 0.1s;"/>
+                        
+                        <circle id="vertOcFocus" cx="125" cy="150" r="4" fill="#9C27B0" style="transition: all 0.1s;"/>
+                        <text id="vertOcFocusText" x="135" y="155" font-size="10" fill="#9C27B0" style="transition: all 0.1s;">Фокус окуляра</text>
+                        
+                        <path id="vertRay1" d="" stroke="#E91E63" fill="none" stroke-width="2" style="transition: all 0.1s;"/>
+                        <path id="vertRay2" d="" stroke="#f6ad55" fill="none" stroke-width="2" style="transition: all 0.1s;"/>
+                    </svg>
+                </div>
+
+                <div style="width: 250px; display: flex; flex-direction: column; gap: 20px; text-align: left;">
+                    <div>
+                        <label style="font-weight:bold; font-size: 0.9em;">1. Рухати об'єктив (відстань до об'єкта):</label>
+                        <input type="range" id="microObjDist" min="22" max="45" value="25" step="0.5" oninput="updateVerticalMicroscope()" style="width: 100%;">
+                    </div>
+                    <div>
+                        <label style="font-weight:bold; font-size: 0.9em;">2. Довжина тубуса (відстань між лінзами):</label>
+                        <input type="range" id="microTubeDist" min="80" max="180" value="100" step="1" oninput="updateVerticalMicroscope()" style="width: 100%;">
+                    </div>
+                    <div style="background: #fff5f5; border: 1px solid #fed7d7; padding: 10px; border-radius: 8px; font-size: 0.85em; color: #c53030;">
+                        💡 <strong>Порада щодо фокусування:</strong> спочатку налаштуйте повзунок 1, щоб сіре проміжне зображення добре розмістилося в тубусі. Потім рухайте повзунок 2, поки <strong>фіолетова точка фокусу</strong> не торкнеться проміжного зображення!
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>7. Das Teleskop: Blick zu den Sternen</h2>
+        <p>Телескоп для астрономів не обов'язково повинен мати величезне збільшення. Набагато важливіше, щоб він збирав якомога більше слабкого світла зірок! Для цього потрібен телескоп із величезним отвором.</p>
+        <div class="lexikon-box">
+            📖 <strong>Чому дзеркала кращі за лінзи:</strong><br>
+            Класичний лінзовий телескоп (ми називаємо його <strong>рефрактором</strong>) використовує скляні лінзи. Але велетенські лінзи важать тонни! Скло деформується під власною вагою, і зображення спотворюється. Крім того, товсті лінзи створюють по краях неприємні <strong>кольорові спотворення</strong> (райдужні облямівки).<br>
+            Deshalb erbaute Isaac Newton das erste <strong>Spiegelteleskop (Reflektor)</strong>. Ganz hinten im Rohr sitzt ein riesiger, gewölbter <strong>Hauptspiegel</strong> aus Metall. Er bündelt das Licht nach vorne, wo ein kleiner, schräger <strong>Fangspiegel</strong> das Licht seitwärts in das Okular wirft. Perfekt für Riesen-Sternwarten!
+        </div>
+        <div class="interactive-zone">
+            <h3>🔭 Обсерваторія</h3>
+            <p>Klicke, um die Bauart des Teleskops zu wechseln:</p>
+            <button onclick="toggleTelescope()">Змінити тип телескопа ⇄</button>
+            <div class="diagram-box" style="background: #0f172a; border-color: #1e293b;">
+                <svg width="400" height="240" viewBox="0 0 400 240" id="telescopeSvg">
+                    
+                    <g id="refractorGrp">
+                        <path d="M 50 50 L 330 90 L 330 150 L 50 190 Z" fill="#1e293b" stroke="#64748b" stroke-width="2" />
+                        <path d="M 50 40 Q 70 120 50 200 Q 30 120 50 40" fill="#bee3f8" stroke="#3182ce" opacity="0.8"/>
+                        <path d="M 330 80 Q 345 120 330 160 Q 315 120 330 80" fill="#bee3f8" stroke="#3182ce" opacity="0.8"/>
+                        
+                        <path d="M 0 70 L 50 70 L 260 120 L 330 137 L 390 137" stroke="#fbd38d" stroke-width="2" fill="none" />
+                        <path d="M 0 170 L 50 170 L 260 120 L 330 103 L 390 103" stroke="#fbd38d" stroke-width="2" fill="none" />
+                        
+                        <circle cx="260" cy="120" r="4" fill="#E91E63" />
+                        <text x="180" y="220" fill="#cbd5e0" font-size="14">Лінзовий телескоп (рефрактор)</text>
+                    </g>
+                    
+                    <g id="reflectorGrp" style="display: none;">
+                        <path d="M 40 60 L 340 60 L 340 180 L 40 180" fill="none" stroke="#64748b" stroke-width="4" />
+                        <path d="M 340 50 Q 380 120 340 190" fill="none" stroke="#60a5fa" stroke-width="6" stroke-linecap="round"/>
+                        <line x1="200" y1="100" x2="240" y2="140" stroke="#cbd5e0" stroke-width="4" />
+                        <rect x="205" y="20" width="30" height="40" fill="#475569" />
+                        <path d="M 205 40 Q 220 30 235 40 Q 220 50 205 40" fill="#bee3f8" stroke="#3182ce" />
+                        
+                        <path d="M 0 80 L 340 80 L 212 112 L 230 40 L 230 0" stroke="#fbd38d" stroke-width="2" fill="none" />
+                        <path d="M 0 160 L 340 160 L 233.3 133.3 L 210 40 L 210 0" stroke="#fbd38d" stroke-width="2" fill="none" />
+                        
+                        <circle cx="220" cy="80" r="3" fill="#E91E63" />
+                        <text x="140" y="220" fill="#cbd5e0" font-size="14">Дзеркальний телескоп (рефлектор Ньютона)</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q7">
+            <p><strong>Welche zwei Teile nutzt das berühmte Newton-Teleskop (Reflektor), um das Licht in unser Auge zu lenken?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Einen großen Hauptspiegel und einen kleinen Fangspiegel.</button>
+            <button onclick="handleAnswer(this, false, 0)">Eine Konkav-Linse und eine Konvex-Linse.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #9C27B0; background: #faf5ff;">
+        <h2 style="text-align: center; color: #2d3748;">🎓 Великий диплом з оптики</h2>
+        <p style="text-align: center;">Ось рівно 15 хитрих запитань про всі оптичні терміни. Покажи, що ти справжній професор світла!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Wie lautet das oberste Gesetz bei der Reflexion (dem Spiegeln) von Licht?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Einfallswinkel = Halber Ausfallswinkel.</button>
+            <button onclick="handleAnswer(this, true, 5)">Einfallswinkel = Ausfallswinkel.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. Was ist das "Lot" in der Optik?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Ein Werkzeug zum Glas schneiden.</button>
+            <button onclick="handleAnswer(this, true, 5)">Eine unsichtbare Hilfslinie, die senkrecht (90 Grad) auf einem Spiegel steht.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. Warum knickt ein Lichtstrahl ab (Brechung), wenn er schräg von Luft ins Wasser taucht?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Weil Wasser eine höhere optische Dichte hat und das Licht abbremst.</button>
+            <button onclick="handleAnswer(this, false, 0)">Weil das Wasser kleine Linsen enthält.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Du hältst eine "Sammellinse" in der Hand. Wie ist sie geformt?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Konvex (wie ein bauchiger Hexenrücken, in der Mitte dick).</button>
+            <button onclick="handleAnswer(this, false, 0)">Konkav (wie eine Höhle, in der Mitte dünn).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Was passiert, wenn gerade Lichtstrahlen auf eine Zerstreuungslinse (Konkavlinse) treffen?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Sie sammeln sich im Brennpunkt.</button>
+            <button onclick="handleAnswer(this, true, 5)">Sie werden nach außen weggedrückt und gestreut.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. Herr Huygens entdeckte die Beugung. Was meinte er damit?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Dass Licht wie eine Welle ist und nach winzigen Spalten neue Kreiswellen bildet.</button>
+            <button onclick="handleAnswer(this, false, 0)">Dass sich Linsen verbiegen lassen, wenn sie warm sind.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. Eine Lichtwelle trifft auf eine Wand mit einer Öffnung. Bei welcher Öffnung ist die Beugung am besten sichtbar?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Bei einem riesigen Tor.</button>
+            <button onclick="handleAnswer(this, true, 5)">Bei einem winzig kleinen, extrem engen Spalt.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. Welcher Spiegel verhält sich genau so wie eine bauchige Sammellinse und erzeugt einen echten Brennpunkt?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Der Hohlspiegel (Konkavspiegel).</button>
+            <button onclick="handleAnswer(this, false, 0)">Der flache Spiegel im Bad.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. In Supermärkten und an Straßenkreuzungen hängen oft Wölbspiegel (Konvexspiegel), um ein weites Sichtfeld zu haben. Wie wirken diese?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Sie bündeln Licht.</button>
+            <button onclick="handleAnswer(this, true, 5)">Sie streuen Licht wie eine Zerstreuungslinse, der Fokus liegt scheinbar hinten im Spiegel.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. Wir schauen in ein Mikroskop. Wie heißt die Linse, die ganz unten in der Nähe der winzigen Probe liegt?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Das Okular.</button>
+            <button onclick="handleAnswer(this, true, 5)">Das Objektiv.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f11">
+            <p><strong>11. Das Objektiv im Mikroskop projiziert das vergrößerte Probe-Tierchen in die Mitte des leeren Rohrs (Tubus). Wie nennen Physiker dieses schwebende Bild?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Das Zwischenbild.</button>
+            <button onclick="handleAnswer(this, false, 0)">Das Schattenbild.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f12">
+            <p><strong>12. Wann sehen wir beim Mikroskopieren das Bild im Okular knackscharf und entspannt?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Wenn das Zwischenbild exakt auf dem Brennpunkt (Fokus) des Okulars liegt.</button>
+            <button onclick="handleAnswer(this, false, 0)">Wenn das Objektiv das Okular berührt.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f13">
+            <p><strong>13. Ein klassisches Teleskop mit großen Glaslinsen nennt man in der Fachsprache...?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Refraktor.</button>
+            <button onclick="handleAnswer(this, false, 0)">Reflektor.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f14">
+            <p><strong>14. Wie heißt der kleine, 45-Grad-schräge Spiegel in einem Newton-Spiegelteleskop?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Der Zwischenspiegel.</button>
+            <button onclick="handleAnswer(this, true, 5)">Der Fangspiegel.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f15">
+            <p><strong>15. Moderne, gigantische Astronomie-Teleskope sind Spiegelteleskope (Reflektoren). Warum baut man sie nicht mit gewaltigen Linsen?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">Weil gigantische Linsen zu schwer sind, sich verformen und fiese Farbfehler (Regenbogenränder) erzeugen.</button>
+            <button onclick="handleAnswer(this, false, 0)">Weil Spiegel das Licht im Weltall farbiger und hübscher aussehen lassen.</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Фантастично! Прокрути до самого верху і перевір свій фінальний рахунок!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Reflexion
+        function updateReflection(val) {
+            const rayIn = document.getElementById('rayIn');
+            const rayOut = document.getElementById('rayOut');
+            const dx = parseInt(val); 
+            rayIn.setAttribute('d', `M ${200 - dx} 40 L 200 160`);
+            rayOut.setAttribute('d', `M 200 160 L ${200 + dx} 40`);
+        }
+
+        // 2. Brechung
+        function setMedium(type) {
+            const box = document.getElementById('mediumBox');
+            const ray = document.getElementById('refractedRay');
+            const txt = document.getElementById('mediumText');
+            
+            if(type === 'air') {
+                box.setAttribute('fill', 'transparent');
+                ray.setAttribute('d', 'M 200 100 L 280 180'); 
+                txt.innerText = "Aktuell: Luft (Gleiche Dichte, Strahl geht einfach geradeaus)";
+            } else if(type === 'water') {
+                box.setAttribute('fill', '#ebf8ff'); 
+                ray.setAttribute('d', 'M 200 100 L 250 180'); 
+                txt.innerText = "Зараз: вода (промінь заломлюється до перпендикуляра)";
+            } else if(type === 'glass') {
+                box.setAttribute('fill', '#e2e8f0'); 
+                ray.setAttribute('d', 'M 200 100 L 230 180'); 
+                txt.innerText = "Зараз: скло (вища густина, сильне заломлення до перпендикуляра!)";
+            }
+        }
+
+        // 3. Linsen
+        let isConvex = true;
+        function toggleLens() {
+            const shape = document.getElementById('lensShape');
+            const rayTop = document.getElementById('rayTopLens');
+            const rayMid = document.getElementById('rayMidLens');
+            const rayBot = document.getElementById('rayBotLens');
+            const fReal = document.getElementById('focalPointReal');
+            const fVirtual = document.getElementById('focalPointVirtual');
+            const vRays = document.getElementById('virtualLensRays');
+            const txt = document.getElementById('lensText');
+            
+            isConvex = !isConvex;
+            if(isConvex) {
+                shape.setAttribute('d', 'M 200 40 Q 230 120 200 200 Q 170 120 200 40');
+                rayTop.setAttribute('d', 'M 200 80 L 320 120');
+                rayBot.setAttribute('d', 'M 200 160 L 320 120');
+                fReal.style.opacity = "1";
+                fVirtual.style.opacity = "0";
+                vRays.style.opacity = "0";
+                txt.innerText = "Збиральна лінза (опукла): збирає всі промені у фокусі!";
+                txt.style.color = "#E91E63";
+            } else {
+                shape.setAttribute('d', 'M 180 40 L 220 40 Q 200 120 220 200 L 180 200 Q 200 120 180 40 Z'); 
+                rayTop.setAttribute('d', 'M 200 80 L 320 40');  
+                rayBot.setAttribute('d', 'M 200 160 L 320 200'); 
+                fReal.style.opacity = "0";
+                fVirtual.style.opacity = "1";
+                vRays.style.opacity = "1";
+                txt.innerText = "Розсіювальна лінза (увігнута): розсіює світло!";
+                txt.style.color = "#3182ce";
+            }
+        }
+
+        // 4. Beugung
+        let slitState = 0; 
+        function narrowSlit() {
+            const wallTop = document.getElementById('wallTop');
+            const wallBot = document.getElementById('wallBot');
+            const wavesBroad = document.getElementById('wavesBroad');
+            const wavesNarrow = document.getElementById('wavesNarrow');
+            const txt = document.getElementById('slitText');
+
+            slitState = (slitState + 1) % 2;
+
+            if (slitState === 0) {
+                wallTop.setAttribute('height', '60');
+                wallBot.setAttribute('y', '140');
+                wallBot.setAttribute('height', '60');
+                wavesBroad.style.display = "block";
+                wavesNarrow.style.display = "none";
+                txt.innerText = "Широка щілина: світло проходить майже виключно як пряма хвиля (хвильовий фронт).";
+            } else {
+                wallTop.setAttribute('height', '95');
+                wallBot.setAttribute('y', '105');
+                wallBot.setAttribute('height', '95');
+                wavesBroad.style.display = "none";
+                wavesNarrow.style.display = "block";
+                txt.innerText = "Дуже вузька щілина: сильна дифракція! Виникають нові колові хвилі Гюйгенса.";
+            }
+        }
+
+        // 5. Gekrümmte Spiegel
+        let isConcave = true;
+        function toggleMirror() {
+            const shape = document.getElementById('mirrorShape');
+            const inRayTop = document.getElementById('inRayTop');
+            const inRayMid = document.getElementById('inRayMid');
+            const inRayBot = document.getElementById('inRayBot');
+            const rayTop = document.getElementById('mirrorRayTop');
+            const rayMid = document.getElementById('mirrorRayMid');
+            const rayBot = document.getElementById('mirrorRayBot');
+            const fReal = document.getElementById('mirrorFocusReal');
+            const fVirtual = document.getElementById('mirrorFocusVirtual');
+            const vRays = document.getElementById('virtualMirrorRays');
+            const txt = document.getElementById('mirrorText');
+
+            isConcave = !isConcave;
+            if(isConcave) {
+                shape.setAttribute('d', 'M 270 40 Q 320 120 270 200');
+                inRayTop.setAttribute('d', 'M 40 80 L 280 80');
+                inRayMid.setAttribute('d', 'M 40 120 L 295 120');
+                inRayBot.setAttribute('d', 'M 40 160 L 280 160');
+
+                rayTop.setAttribute('d', 'M 280 80 L 40 160');
+                rayMid.setAttribute('d', 'M 295 120 L 40 120');
+                rayBot.setAttribute('d', 'M 280 160 L 40 80');
+
+                fReal.setAttribute('cx', '160');
+                fReal.style.opacity = "1";
+                fVirtual.style.opacity = "0";
+                vRays.style.opacity = "0";
+                txt.innerText = "Увігнуте дзеркало: збирає світло, як збиральна лінза.";
+                txt.style.color = "#E91E63";
+            } else {
+                shape.setAttribute('d', 'M 310 40 Q 260 120 310 200'); 
+                inRayTop.setAttribute('d', 'M 40 80 L 300 80');
+                inRayMid.setAttribute('d', 'M 40 120 L 285 120');
+                inRayBot.setAttribute('d', 'M 40 160 L 300 160');
+
+                rayTop.setAttribute('d', 'M 300 80 L 30 -40'); 
+                rayMid.setAttribute('d', 'M 285 120 L 40 120'); 
+                rayBot.setAttribute('d', 'M 300 160 L 30 280'); 
+                
+                fReal.style.opacity = "0";
+                fVirtual.setAttribute('cx', '390');
+                fVirtual.style.opacity = "1";
+                vRays.style.opacity = "1";
+                
+                document.getElementById('vRayTop').setAttribute('x1', '300');
+                document.getElementById('vRayTop').setAttribute('y1', '80');
+                document.getElementById('vRayTop').setAttribute('x2', '390');
+                document.getElementById('vRayTop').setAttribute('y2', '120');
+                
+                document.getElementById('vRayBot').setAttribute('x1', '300');
+                document.getElementById('vRayBot').setAttribute('y1', '160');
+                document.getElementById('vRayBot').setAttribute('x2', '390');
+                document.getElementById('vRayBot').setAttribute('y2', '120');
+
+                txt.innerText = "Опукле дзеркало: розсіює світло, уявний фокус позаду.";
+                txt.style.color = "#3182ce";
+            }
+        }
+
+        // 6. MIKROSKOP VERTIKAL
+        function updateVerticalMicroscope() {
+            let g = parseFloat(document.getElementById('microObjDist').value);
+            let d = parseFloat(document.getElementById('microTubeDist').value);
+            
+            let f_obj = 20; 
+            let f_oc = 30;  
+            
+            let y_obj_base = 270;
+            let y_obj_tip = 260;
+            let x_obj_tip = 115;
+            let x_center = 125;
+            
+            let y_obj_lens = y_obj_base - g;
+            let y_oc_lens = y_obj_lens - d;
+            
+            document.getElementById('vertObjLensGrp').setAttribute('transform', `translate(0, ${y_obj_lens})`);
+            document.getElementById('vertOcLensGrp').setAttribute('transform', `translate(0, ${y_oc_lens})`);
+            
+            let b = 1 / ((1/f_obj) - (1/g));
+            let y_int = y_obj_lens - b;
+            let M1 = b / g; 
+            let x_int = x_center + (x_center - x_obj_tip) * M1; 
+            
+            let arrowTip = x_int > x_center ? x_int-5 : x_int+5;
+            document.getElementById('vertIntLine').setAttribute('y1', y_int);
+            document.getElementById('vertIntLine').setAttribute('y2', y_int);
+            document.getElementById('vertIntLine').setAttribute('x2', x_int);
+            document.getElementById('vertIntArrow').setAttribute('points', `${x_int},${y_int} ${arrowTip},${y_int-4} ${arrowTip},${y_int+4}`);
+            
+            let y_oc_focus = y_oc_lens + f_oc;
+            document.getElementById('vertOcFocus').setAttribute('cy', y_oc_focus);
+            document.getElementById('vertOcFocusText').setAttribute('y', y_oc_focus + 5);
+            
+            let x_oc_hit1 = x_int + (x_int - x_obj_tip) * (y_oc_lens - y_int) / (y_int - y_obj_lens);
+            let x_oc_hit2 = x_int + (x_int - x_center) * (y_oc_lens - y_int) / (y_int - y_obj_lens);
+            
+            document.getElementById('vertRay1').setAttribute('d', `M ${x_obj_tip} ${y_obj_tip} L ${x_obj_tip} ${y_obj_lens} L ${x_int} ${y_int} L ${x_oc_hit1} ${y_oc_lens}`);
+            document.getElementById('vertRay2').setAttribute('d', `M ${x_obj_tip} ${y_obj_tip} L ${x_center} ${y_obj_lens} L ${x_int} ${y_int} L ${x_oc_hit2} ${y_oc_lens}`);
+            
+            let error = Math.abs(y_int - y_oc_focus);
+            let blur = Math.min(15, error * 0.4);
+            let scale = Math.max(0.4, M1 * 0.55); 
+            
+            let viewInner = document.getElementById('microViewInner');
+            viewInner.style.filter = `blur(${blur}px)`;
+            viewInner.style.transform = `scale(${scale})`;
+            
+            let status = document.getElementById('microViewStatus');
+            if (error < 1.5) {
+                status.innerHTML = "✅ Дуже чітко!";
+                status.style.color = "#4CAF50";
+            } else if (y_int > y_oc_focus) {
+                status.innerHTML = "❌ Out of focus: Eyepiece too close to the image.";
+                status.style.color = "#E91E63";
+            } else {
+                status.innerHTML = "❌ Out of focus: Eyepiece too far away.";
+                status.style.color = "#E91E63";
+            }
+        }
+        updateVerticalMicroscope();
+
+        // 7. Teleskope
+        let isRefractor = true;
+        function toggleTelescope() {
+            const refractor = document.getElementById('refractorGrp');
+            const reflector = document.getElementById('reflectorGrp');
+
+            isRefractor = !isRefractor;
+            if(isRefractor) {
+                refractor.style.display = "block";
+                reflector.style.display = "none";
+            } else {
+                refractor.style.display = "none";
+                reflector.style.display = "block";
+            }
+        }
+
+        // Quiz-Logik
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Правильно, але бали нараховуються тільки за перший раз!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Правильно! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Неправильно! Прочитай текст ще раз і спробуй знову.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌈 Кольорове видовище 🎨</title>
+    <style>
+        /* --- GRUNDDESIGN & FARBEN --- */
+        :root {
+            --primary: #E91E63; 
+            --secondary: #673AB7; 
+            --bg: #FFF5F7; 
+            --text: #2d3436;
+            --correct: #4CAF50; 
+            --wrong: #FF5252; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; 
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px; 
+        }
+
+        /* --- PUNKTEANZEIGE --- */
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: #2d3436; color: white;
+            text-align: center; padding: 15px;
+            font-size: 1.8em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .score-highlight { color: #FFEB3B; }
+
+        /* --- LAYOUT --- */
+        .card {
+            background: var(--card-bg); border-radius: 20px;
+            padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
+        }
+        h1 { text-align: center; font-size: 2.8em; color: #2d3436; }
+        h2 { color: var(--secondary); border-bottom: 4px solid var(--primary); padding-bottom: 10px; }
+        
+        .lexikon-box {
+            background: #F3E5F5; border: 2px solid #D1C4E9;
+            padding: 15px; border-radius: 15px; margin: 15px 0;
+        }
+
+        .diagram-box {
+            text-align: center; margin: 25px 0;
+            background: #fdfdfd; border: 2px solid #eee;
+            padding: 20px; border-radius: 15px;
+        }
+
+        .interactive-zone {
+            background: #E8F5E9; border: 2px solid #C8E6C9;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box {
+            background-color: #FFFDE7; border-radius: 10px;
+            padding: 20px; margin: 30px 0; border-left: 8px solid #FFC107;
+        }
+
+        /* --- BUTTONS --- */
+        button {
+            background-color: #636e72; color: white; border: none;
+            padding: 12px 20px; border-radius: 12px;
+            cursor: pointer; font-size: 1em; font-weight: bold;
+            margin: 8px; transition: 0.2s;
+        }
+        button:hover:not(:disabled) { transform: scale(1.05); background-color: var(--primary); }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 15px; min-height: 28px; }
+
+        /* --- ANIMATIONEN --- */
+        @keyframes jump {
+            0%, 100% { transform: translate(0,0); }
+            50% { transform: translate(40px, -40px); }
+        }
+        .electron-jump { animation: jump 1s infinite; }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Кольорові бали: <span id="score" class="score-highlight">0</span>
+    </div>
+
+    <h1>🌈 Таємниця кольорів 🎨</h1>
+    <div class="card" style="text-align: center;">
+        <p>Чому небо блакитне, а троянда червона? Все починається в атомах і з крихітних хвиль. Розгадаймо загадку кольорів разом!</p>
+    </div>
+
+    <div class="card">
+        <h2>1. Wie Licht im Atom geboren wird</h2>
+        <p>Пам'ятаєш електрони? Коли атомам дають енергію (наприклад, через тепло чи електрику), електрони стають дуже неспокійними. Вони роблять <strong>квантовий стрибок</strong> на вищу орбіту. Але вони не можуть там залишатися!</p>
+        
+        <div class="lexikon-box">
+            📖 <strong>Розумне слово: фотони</strong><br>
+            Коли електрон повертається зі своєї високої орбіти назад, він мусить позбутися енергії. Він випускає крихітний пакет енергії — <strong>фотон</strong>. Це і є світло, яке ми бачимо!
+        </div>
+
+        <div class="diagram-box">
+            <svg width="300" height="200" viewBox="0 0 300 200">
+                <circle cx="150" cy="100" r="20" fill="#FF5252" /> <circle cx="150" cy="100" r="50" fill="none" stroke="#ddd" stroke-width="2" /> <circle cx="150" cy="100" r="80" fill="none" stroke="#ddd" stroke-dasharray="5,5" /> <circle id="electron" cx="150" cy="20" r="8" fill="#2196F3" />
+                <path id="photon-path" d="M 160 30 Q 180 10 200 30 T 240 30" fill="none" stroke="#FFEB3B" stroke-width="3" opacity="0" />
+            </svg>
+            <p>Електрон повертається = вивільняється пакет світла (фотон)!</p>
+            <button onclick="simulateJump()">Нехай електрон стрибне!</button>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>Was passiert, wenn ein Elektron wieder auf seine gemütliche, innere Bahn zurückfällt?</strong></p>
+            <button onclick="handleQuiz(this, true, 10)">Es sendet Licht aus.</button>
+            <button onclick="handleQuiz(this, false, 0)">Es verschwindet einfach.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Довжина хвилі: «розмір» кольору</h2>
+        <p>Світло рухається хвилями, як хвилі води в морі. Відстань між двома гребнями хвиль — це <strong>довжина хвилі</strong>. І саме ця довжина визначає, який колір ми бачимо!</p>
+        
+        <div class="interactive-zone">
+            <h3>🌊 Скенер хвиль</h3>
+            <p>Оберіть довжину хвилі:</p>
+            <button style="background: red;" onclick="setWave(80, 'red', 'Довгаe Wellen = Rotes Licht')">Lang</button>
+            <button style="background: green;" onclick="setWave(40, 'green', 'Середня Waves = Green Light')">Середня</button>
+            <button style="background: blue;" onclick="setWave(20, 'blue', 'Короткаe Wellen = Blaues Licht')">Kurz</button>
+            
+            <div class="diagram-box">
+                <svg width="400" height="100" style="background:#000; border-radius: 10px;">
+                    <path id="lightWave" d="M 0 50 Q 20 10 40 50 T 80 50 T 120 50 T 160 50 T 200 50 T 240 50 T 280 50 T 320 50 T 360 50 T 400 50" 
+                    fill="none" stroke="white" stroke-width="3" />
+                </svg>
+                <p id="waveDesc">Натисніть кнопку вгорі!</p>
+            </div>
+        </div>
+
+        <div class="lexikon-box">
+            🔴 <strong>Червоний: має найдовші хвилі.</strong><br>
+            🔵 <strong>Блакитний: має найкоротші хвилі (багато енергії!).</strong>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Призма: трюк із веселкою</h2>
+        <p>Біле світло (від сонця) насправді є сумішшю ВСІХ кольорів! Коли біле світло проходить крізь скляний трикутник (призму), кольори заломлюються з різною силою і шикуються поряд один з одним.</p>
+
+        <div class="diagram-box">
+            <svg width="400" height="200" viewBox="0 0 400 200">
+                <polygon points="150,50 250,150 50,150" fill="#E1F5FE" stroke="#03A9F4" />
+                <line x1="0" y1="110" x2="110" y2="110" stroke="#fff" stroke-width="4" style="filter: drop-shadow(0 0 2px #aaa);" />
+                <line x1="180" y1="110" x2="350" y2="60" stroke="red" stroke-width="3" />
+                <line x1="180" y1="115" x2="350" y2="80" stroke="orange" stroke-width="3" />
+                <line x1="180" y1="120" x2="350" y2="100" stroke="yellow" stroke-width="3" />
+                <line x1="180" y1="125" x2="350" y2="120" stroke="green" stroke-width="3" />
+                <line x1="180" y1="130" x2="350" y2="140" stroke="blue" stroke-width="3" />
+                <line x1="180" y1="135" x2="350" y2="160" stroke="purple" stroke-width="3" />
+            </svg>
+            <p>Призма розкладає біле світло на його кольорові складові.</p>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>Welche Farbe ist im weißen Sonnenlicht versteckt?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Nur Gelb.</button>
+            <button onclick="handleQuiz(this, true, 15)">Alle Farben des Regenbogens!</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #E91E63; background: #FFFDE7;">
+        <h2 style="text-align: center; color: #E91E63;">🎓 Диплом майстра кольорів</h2>
+        
+        <div class="quiz-box">
+            <p><strong>1. Was wird bei der Lichtentstehung aus dem Atom ausgespuckt?</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">Ein Photon (Licht-Paket).</button>
+            <button onclick="handleQuiz(this, false, 0)">Ein kleiner Kaugummi.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>2. Welche Wellenlänge hat blaues Licht im Vergleich zu rotem Licht?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Viel längere Wellen.</button>
+            <button onclick="handleQuiz(this, true, 25)">Viel kürzere Wellen.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box">
+            <p><strong>3. Woher kommen die Farben beim Regenbogen am Himmel?</strong></p>
+            <button onclick="handleQuiz(this, true, 30)">Wassertropfen wirken wie kleine Prismen und brechen das Sonnenlicht.</button>
+            <button onclick="handleQuiz(this, false, 0)">Die Sonne malt die Farben mit einem unsichtbaren Pinsel.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <p style="text-align: center; font-weight: bold; font-size: 1.2em;">🌈 Фантастично! Тепер ти справжній знавець кольорів! 🌈</p>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function updateScore(pts) {
+            score += pts;
+            document.getElementById('score').innerText = score;
+        }
+
+        function simulateJump() {
+            const el = document.getElementById('electron');
+            const phot = document.getElementById('photon-path');
+            
+            // Sprung nach außen
+            el.setAttribute('cy', '20'); 
+            
+            setTimeout(() => {
+                // Zurückfallen und Lichtblitz
+                el.setAttribute('cy', '50');
+                phot.style.opacity = "1";
+                setTimeout(() => { phot.style.opacity = "0"; }, 500);
+            }, 500);
+        }
+
+        function setWave(freq, color, text) {
+            const wave = document.getElementById('lightWave');
+            const desc = document.getElementById('waveDesc');
+            let d = "M 0 50 ";
+            for(let i=0; i<=400; i+=freq) {
+                d += `Q ${i + freq/2} ${i%(freq*2)===0 ? 10 : 90} ${i + freq} 50 `;
+            }
+            wave.setAttribute('d', d);
+            wave.setAttribute('stroke', color);
+            desc.innerText = text;
+            desc.style.color = color;
+        }
+
+        function handleQuiz(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            if (box.hasAttribute('data-answered')) return;
+            
+            const fb = box.querySelector('.feedback');
+            box.setAttribute('data-answered', 'true');
+            
+            box.querySelectorAll('button').forEach(b => {
+                b.disabled = true;
+                b.style.opacity = "0.5";
+            });
+
+            if (isCorrect) {
+                btn.style.backgroundColor = "var(--correct)";
+                btn.style.opacity = "1";
+                fb.innerText = "✅ Super! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                updateScore(pts);
+            } else {
+                btn.style.backgroundColor = "var(--wrong)";
+                btn.style.opacity = "1";
+                fb.innerText = "❌ Knapp daneben! Lies dir das Kapitel noch mal durch.";
+                fb.style.color = "var(--wrong)";
+            }
+        }
+    </script>
+</body>
+</html>

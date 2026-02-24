@@ -125,6 +125,9 @@
             <div style="margin-top: 15px;">
                 <button onclick="setLanguage('de')" class="lang-btn" id="btn-de">DE</button>
                 <button onclick="setLanguage('en')" class="lang-btn" id="btn-en">EN</button>
+                <button onclick="setLanguage('ar')" class="lang-btn" id="btn-ar">AR</button>
+                <button onclick="setLanguage('sr')" class="lang-btn" id="btn-sr">SR</button>
+                <button onclick="setLanguage('uk')" class="lang-btn" id="btn-uk">UK</button>
             </div>
         </div>
 
@@ -210,12 +213,74 @@
                     'linsen, spiegel.html': '🔍 9. Lenses & Mirrors',
                     'astronomie.html': '🌌 10. Astronomy & Astrophysics'
                 }
+            },
+            'ar': {
+                'site-title': '🚀 مغامرة الفيزياء',
+                'site-subtitle': 'المنهج النمساوي',
+                'section-2': '📚 الصف السادس (السنة الثانية)',
+                'section-3': '📚 الصف السابع (السنة الثالثة)',
+                'section-4': '📚 الصف الثامن (السنة الرابعة)',
+                'pages': {
+                    'licht, schatten, astronomie.html': '🌑 1. الضوء والظل',
+                    'farben.html': '🌈 2. الألوان',
+                    'akustik.html': '🎶 3. الصوتيات',
+                    'elektrizität.html': '⚡ 4. الكهرباء',
+                    'kraft und bewegung.html': '🚀 5. القوة والحركة',
+                    'drehundstatik.html': '🎡 6. الدوران والسكون',
+                    'energie.html': '🔋 7. الطاقة',
+                    'elektromagnetismus.html': '🧲 8. الكهرومغناطيسية',
+                    'linsen, spiegel.html': '🔍 9. العدسات والمرايا',
+                    'astronomie.html': '🌌 10. علم الفلك والفيزياء الفلكية'
+                }
+            },
+            'sr': {
+                'site-title': '🚀 Физичка авантура',
+                'site-subtitle': 'Аустријски наставни план',
+                'section-2': '📚 6. разред (2. година)',
+                'section-3': '📚 7. разред (3. година)',
+                'section-4': '📚 8. разред (4. година)',
+                'pages': {
+                    'licht, schatten, astronomie.html': '🌑 1. Светлост и сенка',
+                    'farben.html': '🌈 2. Боје',
+                    'akustik.html': '🎶 3. Акустика',
+                    'elektrizität.html': '⚡ 4. Електрицитет',
+                    'kraft und bewegung.html': '🚀 5. Сила и кретање',
+                    'drehundstatik.html': '🎡 6. Ротација и статика',
+                    'energie.html': '🔋 7. Енергија',
+                    'elektromagnetismus.html': '🧲 8. Електромагнетизам',
+                    'linsen, spiegel.html': '🔍 9. Сочива и огледала',
+                    'astronomie.html': '🌌 10. Астрономија и астрофизика'
+                }
+            },
+            'uk': {
+                'site-title': '🚀 Фізична пригода',
+                'site-subtitle': 'Австрійська навчальна програма',
+                'section-2': '📚 6 клас (2-й рік)',
+                'section-3': '📚 7 клас (3-й рік)',
+                'section-4': '📚 8 клас (4-й рік)',
+                'pages': {
+                    'licht, schatten, astronomie.html': '🌑 1. Світло і тінь',
+                    'farben.html': '🌈 2. Кольори',
+                    'akustik.html': '🎶 3. Акустика',
+                    'elektrizität.html': '⚡ 4. Електрика',
+                    'kraft und bewegung.html': '🚀 5. Сила і рух',
+                    'drehundstatik.html': '🎡 6. Обертання та статика',
+                    'energie.html': '🔋 7. Енергія',
+                    'elektromagnetismus.html': '🧲 8. Електромагнетизм',
+                    'linsen, spiegel.html': '🔍 9. Лінзи та дзеркала',
+                    'astronomie.html': '🌌 10. Астрономія та астрофізика'
+                }
             }
         };
 
         function setLanguage(lang) {
             currentLang = lang;
             
+            // Update Site Direction (RTL for Arabic)
+            document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            document.getElementById('sidebar').style.borderLeft = (lang === 'ar') ? 'none' : '';
+            document.getElementById('sidebar').style.borderRight = (lang === 'ar') ? '4px solid transparent' : '';
+
             // Update Text
             document.getElementById('site-title').innerText = translations[lang]['site-title'];
             document.getElementById('site-subtitle').innerText = translations[lang]['site-subtitle'];
@@ -231,8 +296,8 @@
             });
 
             // Update Active Lang Button
-            document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
 
             // Reload current page in new language
             const activeBtn = document.querySelector('.nav-btn.active');
@@ -243,8 +308,12 @@
 
         function loadPage(fileName, btnElement) {
             let targetFile = fileName;
-            if (currentLang === 'en') {
-                targetFile = fileName.replace('.html', '_en.html');
+            if (currentLang !== 'de') {
+                targetFile = fileName.replace('.html', '_' + currentLang + '.html');
+                // Use the standardized filename for electricity
+                if (targetFile.includes('elektrizität')) {
+                    targetFile = targetFile.replace('elektrizität', 'elektrizitaet');
+                }
             }
 
             document.getElementById('game-frame').src = targetFile;

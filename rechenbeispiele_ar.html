@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧮 مغامرة الحساب في الفيزياء 🚀</title>
+    <style>
+        :root {
+            --primary: #00838F; 
+            --secondary: #D84315; 
+            --bg: #E0F7FA; 
+            --text: #004D40;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #006064; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #B2EBF2;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #FFF3E0; border: 2px solid #FFCC80;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #E0F7FA; border: 2px solid #80DEEA;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #E8F5E9; border-left: 10px solid #4CAF50; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        input[type="number"] {
+            padding: 10px; font-size: 1.2em; border: 2px solid #00838F; 
+            border-radius: 8px; width: 120px; text-align: center; margin: 10px;
+        }
+
+        button { 
+            background: #0097A7; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🧮 نقاط الحساب: <span id="score" style="color: #FFD54F;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #004D40;">🧮 مغامرة الحساب في الفيزياء 🚀</h1>
+    <p style="text-align: center; font-size: 1.2em;">يا لاعب الأرقام، انتهت مرحلة الإحماء! أخرج آلتك الحاسبة. حان وقت الحساب والتحويل واختبار الفيزياء!</p>
+
+    <div class="card">
+        <h2>1. SI-Einheiten: Die Zeit-Maschine</h2>
+        <p>في الفيزياء، نحسب الوقت دائماً تقريباً بالوحدة الأساسية <strong>ثواني (s)</strong>. إذا حصلت على مسألة بالدقائق أو الساعات، يجب عليك تحويلها أولاً!</p>
+        <div class="lexikon-box">
+            💡 <strong>نصيحة للتحويل:</strong><br>
+            1 Minute = 60 Sekunden<br>
+            1 Stunde = 60 Minuten = 3.600 Sekunden (60 * 60)
+        </div>
+        <div class="interactive-zone">
+            <h3>⏱️ تحويل وقت الفيلم</h3>
+            <p>أنت تشاهد فيلماً شيقاً من نوع الخيال العلمي مدته <strong>2.5 ساعة</strong> بالضبط. كم <strong>ثانية</strong> قضيتها أمام التلفاز؟</p>
+            <input type="number" id="inputSec" placeholder="Sekunden...">
+            <button onclick="checkInput('inputSec', 9000, 10, this)">تحقق</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. الوحدات الأساسية: فحص الأمتعة (الكتلة)</h2>
+        <p>يُفضل التعبير عن الكتل بـ <strong>الكيلوجرام (kg)</strong>. ولكن غالباً ما يتم تسمية الأشياء بالجرام (g). لمعرفة الوزن الإجمالي، يجب عليك تحويل كل شيء لنفس الوحدة!</p>
+        <div class="lexikon-box">
+            💡 <strong>Umrechnungs-Tipp:</strong><br>
+            1.000 Gramm (g) = 1 Kilogramm (kg)<br>
+            Beispiel: 500 g = 0,5 kg
+        </div>
+        <div class="interactive-zone">
+            <h3>🧳 جهز الحقيبة</h3>
+            <p>أنت تجهز حقيبتك للعطلة. لديك ملابس (12.5 كجم)، أحذية (800 جرام)، كتب (1,200 جرام)، وحقيبة أدوات تجميل (0.5 كجم). <br><strong>كم كيلوجراماً (kg) تزن حقيبتك إجمالاً؟</strong></p>
+            <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
+            <button onclick="checkInput('inputKg', 15, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Präfixe: Das Laser-Messgerät</h2>
+        <p>كيلو يعني ألف (1,000)، ملي يعني جزء من الألف (0.001). عندما تجمع الأطوال، يجب أن يكون لها نفس البادئة، وإلا سيعم الفوضى!</p>
+        <div class="interactive-zone">
+            <h3>📏 إصلاح الجسر</h3>
+            <p>يبلغ طول الجسر في الأصل 2.4 كيلومتر (كم). هناك جزء بطول 350 متراً (م) يحتاج للإصلاح. <br><strong>كم متراً (م) من الجسر لا تزال سليمة تماماً؟</strong></p>
+            <input type="number" id="inputMeter" placeholder="Meter...">
+            <button onclick="checkInput('inputMeter', 2050, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Formeln: Der Geschwindigkeits-Blitzer (v = s / t)</h2>
+        <p>الآن أصبح الأمر جدياً! صيغة السرعة هي <strong>v = s / t</strong> (السرعة = المسافة / الزمن). أحياناً يتعين عليك تغيير ترتيب الصيغة: <br>لحساب المسافة: <strong>s = v * t</strong> <br>لحساب الزمن: <strong>t = s / v</strong></p>
+        
+        <div class="interactive-zone">
+            <h3>🏎️ مهمة الرادار 1: كم تبلغ السرعة؟</h3>
+            <p>الفهد يركض لمسافة <strong>s = 120 متراً</strong> في <strong>t = 4 ثوانٍ</strong> بالضبط. <br>احسب سرعته (v) بالمتر في الثانية (m/s)!</p>
+            v = <input type="number" id="inputV" placeholder="m/s"> m/s
+            <button onclick="checkInput('inputV', 30, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="interactive-zone">
+            <h3>🚀 مهمة الرادار 2: كم تبلغ المسافة؟</h3>
+            <p>راكب دراجة يسير بسرعة ثابتة <strong>v = 5 م/ث</strong>. يسير لمدة <strong>t = 12 ثانية</strong>. <br>ما المسافة (s) التي يقطعها؟ (تلميح: s = v * t)</p>
+            s = <input type="number" id="inputS" placeholder="Meter"> m
+            <button onclick="checkInput('inputS', 60, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Diagramme auswerten: Mathe mit Bildern</h2>
+        <p>يوضح لك الرسم البياني للمسافة والزمن (s-t) المسافة التي قطعها جسم في وقت معين. من هذه الخطوط يمكنك قراءة الأرقام والحساب بها!</p>
+        <div class="interactive-zone">
+            <h3>📈 قراءة الرسم البياني</h3>
+            <div class="diagram-box" style="height: 250px;">
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <line x1="40" y1="20" x2="40" y2="160" stroke="#000" stroke-width="2"/>
+                    <line x1="40" y1="160" x2="280" y2="160" stroke="#000" stroke-width="2"/>
+                    <text x="5" y="90" font-size="12" fill="#000" transform="rotate(-90 15,90)">Distance s (meters)</text>
+                    <text x="140" y="195" font-size="12" fill="#000">Time t (seconds)</text>
+                    
+                    <line x1="40" y1="100" x2="280" y2="100" stroke="#ccc" stroke-dasharray="4"/>
+                    <text x="15" y="105" font-size="12">50m</text>
+                    
+                    <line x1="160" y1="160" x2="160" y2="20" stroke="#ccc" stroke-dasharray="4"/>
+                    <text x="150" y="175" font-size="12">10s</text>
+
+                    <line x1="40" y1="160" x2="160" y2="100" stroke="#D84315" stroke-width="4"/>
+                    <circle cx="160" cy="100" r="5" fill="#00838F"/>
+                </svg>
+            </div>
+            <p>اقرأ من الرسم البياني أعلاه: ما هي المسافة s بعد 10 ثوانٍ؟ <br><strong>احسب الآن السرعة v بالمتر في الثانية (m/s)!</strong></p>
+            v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
+            <button onclick="checkInput('inputGraph', 5, 15, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #00838F; background: #E0F7FA;">
+        <h2 style="text-align: center; color: #004D40;">🎓 الامتحان النهائي للحسابات</h2>
+        <p style="text-align: center;">لا مجال للتخمين هنا، حان وقت الحساب الدقيق!</p>
+        
+        <div class="quiz-box" data-id="q1">
+            <p><strong>1. Wie viele Meter sind 3,5 Kilometer?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">350 m</button>
+            <button onclick="handleQuiz(this, true, 5)">3.500 m</button>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>2. Rechne 2 Stunden in Sekunden um.</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">7.200 s</button>
+            <button onclick="handleQuiz(this, false, 0)">120 s</button>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>3. v = 20 m/s, t = 5 s. Wie groß ist der Weg s? (s = v * t)</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">100 m</button>
+            <button onclick="handleQuiz(this, false, 0)">4 m</button>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>4. s = 200 m, v = 10 m/s. Wie lange brauchst du? (t = s / v)</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">2.000 s</button>
+            <button onclick="handleQuiz(this, true, 5)">20 s</button>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>5. Wie viel kg sind 250 g?</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">0,25 kg</button>
+            <button onclick="handleQuiz(this, false, 0)">2,5 kg</button>
+        </div>
+        <div class="quiz-box" data-id="q6">
+            <p><strong>6. Du hast 1,5 Meter Schnur. Wie viele Millimeter (mm) sind das?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">150 mm</button>
+            <button onclick="handleQuiz(this, true, 5)">1.500 mm</button>
+        </div>
+        <div class="quiz-box" data-id="q7">
+            <p><strong>7. Ein Auto fährt 150 km in 3 Stunden. Berechne v in km/h!</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">50 km/h</button>
+            <button onclick="handleQuiz(this, false, 0)">450 km/h</button>
+        </div>
+        <div class="quiz-box" data-id="q8">
+            <p><strong>8. 💡 Profi-Frage: Um von km/h in m/s umzurechnen, teilt man durch 3,6. Wie viele m/s sind 36 km/h?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">3,6 m/s</button>
+            <button onclick="handleQuiz(this, true, 10)">10 m/s</button>
+        </div>
+        <div class="quiz-box" data-id="q9">
+            <p><strong>9. s = 50 m, t = 10 s. Welche Geschwindigkeit ist das?</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">5 m/s</button>
+            <button onclick="handleQuiz(this, false, 0)">500 m/s</button>
+        </div>
+        <div class="quiz-box" data-id="q10">
+            <p><strong>10. Ein Gepäckstück wiegt 4 kg. Du nimmst 500 g heraus. Was wiegt es jetzt?</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">3,5 kg</button>
+            <button onclick="handleQuiz(this, false, 0)">3,95 kg</button>
+        </div>
+
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 حساب عبقري! قم بالتمرير للأعلى وتأمل رصيد نقاطك العالي!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        function updateScore(pts) {
+            score += pts;
+            document.getElementById('score').innerText = score;
+        }
+
+        // Funktion für die manuellen Eingabefelder
+        function checkInput(inputId, expectedValue, points, btn) {
+            let val = parseFloat(document.getElementById(inputId).value);
+            let feedback = btn.nextElementSibling;
+
+            // Verhindern, dass mehrfach Punkte vergeben werden
+            if (btn.disabled) return;
+
+            if (val === expectedValue) {
+                btn.style.background = "var(--correct)";
+                feedback.innerHTML = `✅ صحيح تماماً! <strong>+${points} Punkte</strong>`;
+                feedback.style.color = "var(--correct)";
+                updateScore(points);
+                btn.disabled = true; // Button sperren
+                document.getElementById(inputId).disabled = true; // Input sperren
+            } else {
+                btn.style.background = "var(--wrong)";
+                feedback.innerText = "❌ هذا ليس صحيحاً تماماً. أعد الحساب مرة أخرى!";
+                feedback.style.color = "var(--wrong)";
+                
+                // Kurze Animation für Fehler
+                setTimeout(() => {
+                    btn.style.background = "#0097A7";
+                }, 1500);
+            }
+        }
+
+        // Funktion für die Multiple-Choice Fragen am Ende
+        function handleQuiz(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            
+            // Falls schon eine Feedback-Zeile existiert, löschen, um sie neu zu erstellen
+            let oldFb = box.querySelector('.feedback');
+            if (oldFb) oldFb.remove();
+
+            let fb = document.createElement('p');
+            fb.className = 'feedback';
+            box.appendChild(fb);
+            
+            if (answeredQuestions.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ صحيح، لكن النقاط كانت للمحاولة الأولى فقط!";
+                    fb.style.color = "#FF9800";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Unfortunately wrong.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ تم الحساب بشكل صحيح! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                updateScore(pts);
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ خطأ في الحساب! حاول مرة أخرى.";
+                fb.style.color = "var(--wrong)";
+            }
+            answeredQuestions.add(id);
+        }
+    </script>
+</body>
+</html>

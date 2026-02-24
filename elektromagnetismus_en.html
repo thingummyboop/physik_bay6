@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧲 Magnetism Adventure ⚡</title>
+    <style>
+        :root {
+            --primary: #f44336; 
+            --secondary: #2196F3; 
+            --bg: #fdfcf0; 
+            --text: #2d3748;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #2d3748; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
+        }
+
+        h2 { color: var(--secondary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #f0f0f0;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+        }
+
+        .lexikon-box {
+            background: #e6fffa; border: 2px solid #b2f5ea;
+            padding: 15px; border-radius: 15px; margin: 15px 0; font-size: 1em;
+        }
+
+        .interactive-zone {
+            background: #f0f4f8; border: 2px solid #d1dce5;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #fffaf0; border-left: 10px solid #fbd38d; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #4a5568; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        .mag-wave { animation: pulse 2s infinite ease-in-out; transform-origin: center; }
+
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(4px, -4px); }
+            50% { transform: translate(-4px, 4px); }
+            75% { transform: translate(4px, 4px); }
+            100% { transform: translate(0, 0); }
+        }
+        .shaking { animation: shake 0.2s infinite; }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Magnet Points: <span id="score" style="color: #63b3ed;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #2d3748;">🧲 Magnetism Adventure ⚡</h1>
+
+    <div class="card">
+        <h2>1. Der Strom macht den Magneten</h2>
+        <p>Did you know that electricity has a superpower? As soon as current flows through a cable, it builds up an invisible force around the cable. We call this a <strong>magnetic field</strong>.</p>
+
+        <div class="lexikon-box">
+            📖 <strong>The Smart Word: Magnetic Field</strong><br>
+            A magnetic field is like an invisible "cloud" of force. Anything magnetic that enters this cloud is attracted or repelled. We often draw this force as rings called <strong>field lines</strong>.
+        </div>
+
+        <div class="interactive-zone">
+            <h3>🎮 The Field Slider</h3>
+            <p>Move the slider to send more current through the cable:</p>
+            <input type="range" id="currentRange" min="0" max="100" value="30" oninput="updateMagnetField(this.value)">
+            <div class="diagram-box">
+                
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <rect x="50" y="92" width="300" height="16" fill="#718096" rx="8" />
+                    <path id="currentArrow" d="M 185 100 L 215 100" stroke="white" stroke-width="3" marker-end="url(#arrowSmallWhite)" />
+                    
+                    <g id="fieldLines">
+                        <ellipse cx="120" cy="100" rx="15" ry="50" fill="none" stroke="#2196F3" stroke-width="2" class="mag-wave" />
+                        <ellipse cx="200" cy="100" rx="22" ry="70" fill="none" stroke="#2196F3" stroke-width="3" class="mag-wave" />
+                        <ellipse cx="280" cy="100" rx="15" ry="50" fill="none" stroke="#2196F3" stroke-width="2" class="mag-wave" />
+                    </g>
+                    <defs>
+                        <marker id="arrowSmallWhite" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <path d="M0,0 L0,8 L8,4 z" fill="white" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Wie wird der unsichtbare Kraft-Tunnel um das Kabel stärker?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Indem man das Kabel blau anmalt.</button>
+            <button onclick="handleAnswer(this, true, 10)">Indem man die Stromstärke erhöht.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. The Magic Coil & the Super Iron</h2>
+        <p>A straight wire is only a weak magnet. But if we wind the wire like a spring, we call it a <strong>coil</strong>. The forces of each turn then work together!</p>
+
+        <div class="lexikon-box">
+            📖 <strong>The Smart Word: Ferromagnetism</strong><br>
+            That sounds complicated, but it just means: some materials (like <strong>iron</strong>) can be magnetized extremely easily. They help the coil bundle its force and become much stronger.
+        </div>
+
+        <div class="interactive-zone">
+            <h3>🧪 The Core Lab</h3>
+            <p>Slide different materials into the coil:</p>
+            <button onclick="setMaterial('none')">No core (air)</button>
+            <button onclick="setMaterial('wood')">Wooden rod</button>
+            <button onclick="setMaterial('iron')">Iron core</button>
+            <div class="diagram-box">
+                
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <g id="spuleField" style="opacity: 0.2; transition: opacity 0.5s;">
+                        <path d="M 50 100 Q 200 10 350 100 M 50 100 Q 200 190 350 100" fill="none" stroke="#2196F3" stroke-width="2" />
+                        <path d="M 80 100 Q 200 40 320 100 M 80 100 Q 200 160 320 100" fill="none" stroke="#2196F3" stroke-width="1.5" />
+                        <line x1="120" y1="100" x2="280" y2="100" stroke="#2196F3" stroke-width="2" />
+                    </g>
+                    <rect id="materialCore" x="110" y="80" width="180" height="40" rx="5" fill="transparent" style="transition: fill 0.3s;" />
+                    <path d="M 135 60 L 150 140 M 175 60 L 190 140 M 215 60 L 230 140 M 255 60 L 270 140" stroke="#ED8936" stroke-width="8" fill="none" />
+                </svg>
+                <p id="materialText" style="font-weight:bold;">Current: Just air (field is weak)</p>
+            </div>
+        </div>
+
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Warum benutzen wir Eisen in einem Elektromagneten?</strong></p>
+            <button onclick="handleAnswer(this, true, 15)">Weil Eisen die Magnetkraft sammelt und verstärkt.</button>
+            <button onclick="handleAnswer(this, false, 0)">Damit der Strom nicht aus dem Draht rutscht.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Lorentz Force: The Magnetic Push</h2>
+        <p>When electricity and magnetism meet, a force is created that pushes things away. We call this push <strong>Lorentz force</strong>. That's why motors spin!</p>
+
+        <div class="lexikon-box">
+            📖 <strong>The Smart Word: Electric Motor</strong><br>
+            A motor transforms electricity into motion. Through the magnetic "push" (Lorentz force), a wheel inside is constantly nudged until it spins very fast.
+        </div>
+
+        <div class="interactive-zone">
+            <h3>🚀 The Push Tester</h3>
+            <p>Klicke, um die Batterie umzudrehen:</p>
+            <button onclick="changeDirection()">Change current direction ⇄</button>
+            <div class="diagram-box">
+                
+                <svg width="400" height="240" viewBox="0 0 400 240">
+                    <rect x="50" y="60" width="60" height="120" fill="#f44336" rx="10" />
+                    <rect x="290" y="60" width="60" height="120" fill="#2196F3" rx="10" />
+                    <circle cx="200" cy="120" r="15" fill="#ED8936" />
+                    <path id="forceArrow" d="M 200 100 L 200 30" stroke="#48bb78" stroke-width="7" marker-end="url(#arrowGreen)" />
+                    <defs>
+                        <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <path d="M0,0 L0,8 L8,4 z" fill="#48bb78" />
+                        </marker>
+                    </defs>
+                </svg>
+                <p id="directionText" style="font-weight:bold; color:#48bb78;">Effect: Push UP</p>
+            </div>
+        </div>
+
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Was macht die Lorentzkraft in einem Ventilator?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Sie saugt den Staub aus der Luft.</button>
+            <button onclick="handleAnswer(this, true, 20)">Sie schubst die Flügel an, damit sie sich drehen.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Induction: DIY Electricity</h2>
+        <p>It also works the other way around: if you move a magnet very fast inside a coil, the magnetic field "pushes" the electrons. This creates electricity from pure motion! This is called <strong>induction</strong>.</p>
+
+        <div class="lexikon-box">
+            📖 <strong>The Smart Word: Generator</strong><br>
+            A generator does the opposite of a motor: it makes electricity from motion (e.g., from wind). It's like a small power factory.
+        </div>
+
+        <div class="interactive-zone">
+            <h3>🔦 The Shake Flashlight</h3>
+            <p>Click the lamp many times to charge it:</p>
+            <div id="flashlight" style="cursor: pointer; font-size: 60px; user-select: none;" onclick="shakeFlashlight()">🔦</div>
+            <div id="lightBeam" style="width: 140px; height: 70px; background: radial-gradient(circle, #fffb00 0%, transparent 70%); margin: 15px auto; border-radius: 50%; opacity: 0; filter: blur(10px);"></div>
+            <p>Energy Charge: <span id="energyLevel">0</span>%</p>
+        </div>
+
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Warum entsteht kein Strom, wenn der Magnet ganz still liegt?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Weil der Magnet dann schläft.</button>
+            <button onclick="handleAnswer(this, true, 20)">Weil Induktion nur bei <u>Bewegung</u> funktioniert.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #2d3748; background: #f0f7ff;">
+        <h2 style="text-align: center; color: #2d3748;">🎓 The Great Magnet Diploma</h2>
+        <p style="text-align: center;">Show that you are now a real pro!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Was entsteht immer um ein Kabel herum, wenn Strom fließt?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Ein kleiner Regenbogen.</button>
+            <button onclick="handleAnswer(this, true, 20)">Ein Magnetfeld.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. Welches Material macht einen Elektromagneten besonders stark?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">Ein Kern aus Eisen.</button>
+            <button onclick="handleAnswer(this, false, 0)">Ein Kern aus Kaugummi.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. Was passiert bei der Lorentzkraft?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Der Magnet wird plötzlich flüssig.</button>
+            <button onclick="handleAnswer(this, true, 20)">Ein Draht im Magnetfeld bekommt einen "Schubs".</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Wie heißt es, wenn man aus Bewegung Strom macht?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Isolation.</button>
+            <button onclick="handleAnswer(this, true, 25)">Induktion.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Was macht ein Generator in einem Windrad?</strong></p>
+            <button onclick="handleAnswer(this, true, 30)">Er nutzt die Drehung, um Strom zu erzeugen.</button>
+            <button onclick="handleAnswer(this, false, 0)">Er pustet den Wind in die richtige Richtung.</button>
+            <p class="feedback"></p>
+        </div>
+
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Excellent! Look at your score above!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+        let energy = 0;
+
+        function updateMagnetField(val) {
+            const lines = document.getElementById('fieldLines').children;
+            const arrow = document.getElementById('currentArrow');
+            const arrowLength = 10 + (val * 0.4);
+            arrow.setAttribute('d', `M ${200 - arrowLength/2} 100 L ${200 + arrowLength/2} 100`);
+            
+            for(let line of lines) {
+                line.style.opacity = (val / 150) + 0.1;
+                line.style.strokeWidth = 1 + (val / 25);
+            }
+        }
+
+        function setMaterial(type) {
+            const core = document.getElementById('materialCore');
+            const field = document.getElementById('spuleField');
+            const txt = document.getElementById('materialText');
+            
+            if(type === 'none') {
+                core.setAttribute('fill', 'transparent');
+                field.style.opacity = "0.2";
+                txt.innerText = "Current: Just air (field is weak)";
+            } else if(type === 'wood') {
+                core.setAttribute('fill', '#deb887');
+                field.style.opacity = "0.2";
+                txt.innerText = "Current: Wood (No reinforcement)";
+            } else if(type === 'iron') {
+                core.setAttribute('fill', '#718096');
+                field.style.opacity = "1";
+                txt.innerText = "Current: Iron (Maximum reinforcement!)";
+            }
+        }
+
+        let isUp = true;
+        function changeDirection() {
+            const arrow = document.getElementById('forceArrow');
+            const txt = document.getElementById('directionText');
+            isUp = !isUp;
+            if(isUp) {
+                arrow.setAttribute('d', 'M 200 100 L 200 30');
+                txt.innerText = "Effect: Push UP";
+            } else {
+                arrow.setAttribute('d', 'M 200 140 L 200 210');
+                txt.innerText = "Effect: Push DOWN";
+            }
+        }
+
+        function shakeFlashlight() {
+            const fl = document.getElementById('flashlight');
+            const beam = document.getElementById('lightBeam');
+            const enDisp = document.getElementById('energyLevel');
+            fl.classList.add('shaking');
+            energy = Math.min(energy + 15, 100);
+            beam.style.opacity = energy / 100;
+            enDisp.innerText = energy;
+            setTimeout(() => fl.classList.remove('shaking'), 150);
+            
+            if(!window.isDraining) {
+                window.isDraining = true;
+                let drain = setInterval(() => {
+                    energy = Math.max(energy - 2, 0);
+                    beam.style.opacity = energy / 100;
+                    enDisp.innerText = Math.floor(energy);
+                    if(energy === 0) { clearInterval(drain); window.isDraining = false; }
+                }, 150);
+            }
+        }
+
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Falsch! Du kannst es noch mal probieren, aber die Punkte sind weg.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>
