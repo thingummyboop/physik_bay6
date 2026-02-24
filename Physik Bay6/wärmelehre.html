@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Das große Wärme-Abenteuer 🌡️</title>
+    <style>
+        :root {
+            --primary: #FF5722; 
+            --secondary: #FFC107;
+            --bg: #fff5e6; 
+            --text: #3e2723;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #3e2723; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #ffe0b2;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #fff8e1; border: 2px solid #ffca28;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #ffebee; border: 2px solid #ffcdd2;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #fbe9e7; border-left: 10px solid #ff8a65; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #5d4037; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--primary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        /* Animationen für Wärme */
+        @keyframes fireFlicker {
+            0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+            50% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+            100% { transform: scale(0.95) rotate(-2deg); opacity: 0.8; }
+        }
+        .anim-fire { animation: fireFlicker 0.4s infinite alternate; transform-origin: bottom center; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-80px); }
+        }
+        .anim-float { transition: transform 2s ease-in-out; }
+
+        @keyframes radiate {
+            0% { r: 10px; opacity: 1; stroke-width: 4px; }
+            100% { r: 100px; opacity: 0; stroke-width: 1px; }
+        }
+        .anim-radiate { animation: radiate 1.5s infinite linear; transform-origin: center; fill: none; stroke: #FF9800; }
+
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Wärme-Punkte: <span id="score" style="color: #ffca28;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #3e2723;">🔥 Das Wärme-Abenteuer 🌡️</h1>
+    <p style="text-align: center; font-size: 1.2em;">Hallo Feuer-Bändiger! Mach dich bereit, wir erforschen die heiße (und kalte) Welt der Temperatur!</p>
+
+    <div class="card">
+        <h2>1. Was ist Wärme? Das große Zittern!</h2>
+        <p>Egal ob Wasser, Holz oder Luft – alles um uns herum besteht aus winzig kleinen Bausteinen, den <strong>Teilchen</strong>. Und diese Teilchen sitzen niemals still! Sie wackeln und zittern die ganze Zeit. <strong>Wärme ist eigentlich nichts anderes als Bewegung!</strong> Je heißer etwas ist, desto wilder und schneller rasen die Teilchen umher. Wenn es kalt wird, bewegen sie sich ganz langsam.</p>
+        <div class="lexikon-box">
+            📖 <strong>Das schlaue Wörterbuch: Der absolute Nullpunkt</strong><br>
+            Gibt es einen Punkt, an dem die Teilchen komplett einfrieren und sich gar nicht mehr bewegen? Ja! Das nennt man den "absoluten Nullpunkt". Er liegt bei eiskalten <strong>-273,15 Grad Celsius</strong>. Kälter geht es im ganzen Universum nicht!
+        </div>
+        <div class="interactive-zone">
+            <h3>🔬 Das Teilchen-Mikroskop</h3>
+            <p>Dreh die Temperatur hoch und beobachte, wie die Teilchen verrücktspielen!</p>
+            <input type="range" id="tempRange" min="0" max="100" value="10" style="width: 250px;">
+            <p>Temperatur: <span id="tempValue" style="font-weight: bold; color: #1976D2;">10°C (Kalt)</span></p>
+            <div class="diagram-box" style="background: #e3f2fd;" id="particleBox">
+                <svg width="300" height="200" id="particleSvg">
+                    </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Was passiert mit den kleinsten Teilchen eines Gegenstands, wenn man ihn stark erhitzt?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Sie bewegen sich viel schneller und wilder.</button>
+            <button onclick="handleAnswer(this, false, 0)">Sie werden müde und bleiben stehen.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Wärmeleitung: Die schnelle Löffel-Rallye</h2>
+        <p>Wenn du einen heißen Kakao rührst, wird der Löffel irgendwann am Griff warm. Warum? Die schnellen, heißen Teilchen im Kakao schubsen die Teilchen unten am Löffel an. Diese schubsen ihre Nachbarn an, und so wandert die "Wackel-Energie" den Löffel hinauf. Das nennt man <strong>Wärmeleitung</strong>.</p>
+        <div class="lexikon-box">
+            📖 <strong>Das schlaue Wörterbuch: Leiter und Isolatoren</strong><br>
+            - <strong>Gute Wärmeleiter:</strong> Metalle (wie Kupfer oder Eisen) leiten Hitze rasend schnell weiter. Deshalb sind Kochtöpfe aus Metall!<br>
+            - <strong>Schlechte Wärmeleiter (Isolatoren):</strong> Holz, Plastik oder Luft lassen die Wärme kaum durch. Deshalb hat eine Winterjacke viel dicke Luftpolster – damit deine Körperwärme nicht abhaut!
+        </div>
+        <div class="interactive-zone">
+            <h3>☕ Das heiße Suppen-Experiment</h3>
+            <p>Wir stecken einen Metalllöffel und einen Holzlöffel in heiße Suppe. Klicke auf "Erhitzen"!</p>
+            <button onclick="heatSoup()" id="soupBtn">Suppe erhitzen 🔥</button>
+            <div class="diagram-box">
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <path d="M 80 100 L 80 180 Q 150 200 220 180 L 220 100 Z" fill="#bbdefb" stroke="#64b5f6" stroke-width="4"/>
+                    <path id="soupLiquid" d="M 82 110 Q 150 120 218 110 L 218 175 Q 150 190 82 175 Z" fill="#ffb74d"/>
+                    
+                    <rect x="110" y="30" width="15" height="130" fill="#8d6e63" rx="5"/>
+                    <ellipse cx="117.5" cy="150" rx="15" ry="25" fill="#8d6e63"/>
+                    
+                    <rect id="metalSpoon" x="170" y="30" width="15" height="130" fill="#cfd8dc" rx="5" style="transition: fill 2s ease-in;"/>
+                    <ellipse id="metalSpoonBowl" cx="177.5" cy="150" rx="15" ry="25" fill="#cfd8dc" style="transition: fill 0.5s ease-in;"/>
+                    
+                    <text x="100" y="20" font-size="14" fill="#5d4037">Holz</text>
+                    <text x="155" y="20" font-size="14" fill="#37474f">Metall</text>
+                </svg>
+                <p id="soupText" style="font-weight:bold; color: #718096;">Alles ist noch kalt.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Warum benutzt man oft Kochlöffel aus Holz statt aus Metall?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Weil Holz die Hitze besser in die Suppe leitet.</button>
+            <button onclick="handleAnswer(this, true, 10)">Weil Holz ein Isolator ist und der Griff nicht heiß wird, man verbrennt sich also nicht die Finger.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Wärmestrahlung: Hitze ohne Berührung</h2>
+        <p>Erinnerst du dich ans Vakuum im Weltall (ohne Luftteilchen)? Wie kommt dann die Wärme der Sonne zu uns auf die Erde, wenn dort gar nichts ist, was die Wärme "leiten" könnte? Die Antwort: <strong>Wärmestrahlung</strong> (Infrarotlicht)! Sie reist wie Licht rasend schnell durchs leere Weltall und wärmt uns auf, sobald sie unsere Haut trifft.</p>
+        <div class="lexikon-box">
+            📖 <strong>Farben machen den Unterschied: Schwarz vs. Weiß</strong><br>
+            Dunkle Dinge (wie ein schwarzes T-Shirt) "schlucken" die Wärmestrahlung (Absorption) und werden schnell extrem heiß. Helle Dinge (wie weißer Schnee) werfen die Strahlen zurück wie ein Spiegel (Reflexion) und bleiben kühler.
+        </div>
+        <div class="interactive-zone">
+            <h3>☀️ Der Parkplatz-Test</h3>
+            <p>Die Sonne scheint! Welches Auto wird im Sommer schneller heiß zum Einsteigen?</p>
+            <button onclick="sunShine()" id="sunBtn">Sonne einschalten ☀️</button>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                <div class="diagram-box" style="margin: 0;">
+                    <svg width="100" height="100">
+                        <rect x="10" y="30" width="80" height="40" fill="#212121" rx="5"/>
+                        <circle cx="25" cy="70" r="10" fill="#757575"/>
+                        <circle cx="75" cy="70" r="10" fill="#757575"/>
+                        <path id="sunRayBlack" d="M 50 0 L 50 30" stroke="#FF9800" stroke-width="4" stroke-dasharray="5,5" style="display:none;"/>
+                    </svg>
+                    <p>Schwarz: <span id="tempBlack" style="font-weight:bold; color: #E53935;">20°C</span></p>
+                </div>
+                <div class="diagram-box" style="margin: 0; background: #cfd8dc;">
+                    <svg width="100" height="100">
+                        <rect x="10" y="30" width="80" height="40" fill="#ffffff" rx="5" stroke="#9e9e9e"/>
+                        <circle cx="25" cy="70" r="10" fill="#757575"/>
+                        <circle cx="75" cy="70" r="10" fill="#757575"/>
+                        <path id="sunRayWhite" d="M 50 0 L 50 30" stroke="#FF9800" stroke-width="4" stroke-dasharray="5,5" style="display:none;"/>
+                        <path id="bounceRay" d="M 50 30 L 80 0" stroke="#FF9800" stroke-width="2" stroke-dasharray="3,3" style="display:none;"/>
+                    </svg>
+                    <p>Weiß: <span id="tempWhite" style="font-weight:bold; color: #1E88E5;">20°C</span></p>
+                </div>
+            </div>
+            <p id="sunText" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Warum haben Häuser in sehr heißen südlichen Ländern oft weiße Wände?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Weil die weiße Farbe die Wärmestrahlung der Sonne abwehrt (reflektiert).</button>
+            <button onclick="handleAnswer(this, false, 0)">Weil man Weiß besser putzen kann.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Wärmeströmung: Warum warme Luft fliegen kann</h2>
+        <p>Warme Teilchen bewegen sich schneller und brauchen mehr Platz. Dadurch dehnt sich heiße Luft aus und wird "leichter" als die kalte Luft drumherum. Was passiert? <strong>Die warme Luft steigt nach oben!</strong> Das nennt man Wärmeströmung (oder Konvektion). Kalte Luft sinkt dafür nach unten.</p>
+        <div class="lexikon-box">
+            📖 <strong>Das Heißluftballon-Geheimnis</strong><br>
+            Ein Heißluftballon hat keinen Motor! Der Pilot feuert nur einen riesigen Gasbrenner ab. Die Luft in der riesigen Hülle wird heiß, dehnt sich aus und zieht den Korb wie von Zauberhand in den Himmel. Lässt die Luft abkühlen, sinkt der Ballon wieder.
+        </div>
+        <div class="interactive-zone" id="balloonZone">
+            <h3>🎈 Die Ballon-Fahrt</h3>
+            <p>Halte den Button gedrückt (oder klicke mehrmals), um den Brenner anzufeuern!</p>
+            <button onmousedown="startBurner()" onmouseup="stopBurner()" onmouseleave="stopBurner()" ontouchstart="startBurner()" ontouchend="stopBurner()">🔥 Brenner feuern!</button>
+            
+            <div class="diagram-box" style="height: 250px; background: #81D4FA; position: relative; overflow: hidden;">
+                <svg width="200" height="250" viewBox="0 0 200 250">
+                    <path d="M 20 50 Q 40 30 60 50 Q 80 40 100 60 L 20 60 Z" fill="white" opacity="0.8"/>
+                    <path d="M 120 80 Q 140 60 160 80 Q 180 70 200 90 L 120 90 Z" fill="white" opacity="0.8"/>
+                    
+                    <g id="hotAirBalloon" style="transform: translateY(120px); transition: transform 0.5s ease-out;">
+                        <path d="M 100 30 C 140 30, 140 80, 100 120 C 60 80, 60 30, 100 30 Z" fill="#E53935"/>
+                        <path d="M 90 32 C 110 32, 110 80, 100 120 C 80 80, 80 32, 90 32 Z" fill="#FFC107"/>
+                        <rect x="90" y="130" width="20" height="15" fill="#8D6E63"/>
+                        <line x1="95" y1="120" x2="92" y2="130" stroke="#3E2723"/>
+                        <line x1="105" y1="120" x2="108" y2="130" stroke="#3E2723"/>
+                        <path id="burnerFlame" d="M 100 115 Q 105 125 100 125 Q 95 125 100 115" fill="#FF9800" style="display: none;" class="anim-fire"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Über einer brennenden Kerze spürst du die Hitze viel stärker als daneben. Warum?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Weil die Flamme nach oben wächst.</button>
+            <button onclick="handleAnswer(this, true, 10)">Weil die erhitzte Luft leichter wird und nach oben steigt (Wärmeströmung).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Aggregatzustände: Eis, Wasser, Dampf!</h2>
+        <p>Wärme kann Dinge komplett verwandeln! Fast jeder Stoff hat drei Erscheinungsformen (Aggregatzustände): <strong>fest, flüssig und gasförmig</strong>. Das liegt wieder an unseren Teilchen! Sind sie ganz kalt, kuscheln sie eng aneinander und sind starr (Eis). Wird es wärmer, lösen sie sich und fließen umher (Wasser). Wird es richtig heiß, fliegen sie wild auseinander in die Luft (Wasserdampf).</p>
+        <div class="lexikon-box">
+            📖 <strong>Die Zauberwörter der Physik:</strong><br>
+            - Fest zu flüssig = <strong>Schmelzen</strong> (Schneemann in der Sonne)<br>
+            - Flüssig zu gasförmig = <strong>Verdampfen</strong> (Kochendes Nudelwasser)<br>
+            - Gasförmig zu flüssig = <strong>Kondensieren</strong> (Spiegel beschlägt beim Duschen)
+        </div>
+        <div class="interactive-zone">
+            <h3>💧 Die Wasser-Maschine</h3>
+            <p>Verändere die Temperatur von Wasser:</p>
+            <button onclick="setPhase('ice')">🧊 -10°C (Gefrieren)</button>
+            <button onclick="setPhase('water')">🚰 20°C (Schmelzen)</button>
+            <button onclick="setPhase('steam')">☁️ 100°C (Verdampfen)</button>
+            
+            <div class="diagram-box" style="height: 180px;">
+                <svg width="200" height="150" viewBox="0 0 200 150">
+                    <g id="phaseIce">
+                        <rect x="70" y="60" width="60" height="60" fill="#E3F2FD" stroke="#2196F3" stroke-width="3" rx="5"/>
+                        <path d="M 70 60 L 90 40 L 150 40 L 130 60" fill="#BBDEFB" stroke="#2196F3" stroke-width="2"/>
+                        <path d="M 130 60 L 150 40 L 150 100 L 130 120" fill="#90CAF9" stroke="#2196F3" stroke-width="2"/>
+                    </g>
+                    <g id="phaseWater" style="display: none;">
+                        <ellipse cx="100" cy="110" rx="60" ry="15" fill="#42A5F5" opacity="0.8"/>
+                        <path d="M 80 110 Q 100 100 120 110" fill="none" stroke="#E3F2FD" stroke-width="2"/>
+                    </g>
+                    <g id="phaseSteam" style="display: none;">
+                        <ellipse cx="100" cy="110" rx="40" ry="10" fill="#90CAF9" opacity="0.4"/>
+                        <path d="M 80 100 Q 90 60 70 30" fill="none" stroke="#B0BEC5" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,10" class="anim-float"/>
+                        <path d="M 120 100 Q 110 50 130 20" fill="none" stroke="#B0BEC5" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,10" class="anim-float"/>
+                        <path d="M 100 90 Q 105 50 95 10" fill="none" stroke="#CFD8DC" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,10" class="anim-float"/>
+                    </g>
+                </svg>
+                <p id="phaseText" style="font-weight: bold; color: #1976D2;">Fest (Eis): Die Teilchen zittern nur an ihrem Platz.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>Wie nennt man den Vorgang, wenn aus flüssigem Wasser unsichtbarer Wasserdampf wird?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Verdampfen.</button>
+            <button onclick="handleAnswer(this, false, 0)">Kondensieren.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>6. Wärmeausdehnung: Alles macht sich breit!</h2>
+        <p>Weil die Teilchen bei Hitze schneller wackeln, brauchen sie mehr Platz zum "Tanzen". Die Folge: <strong>Gegenstände dehnen sich aus, wenn sie heiß werden!</strong> Das passiert bei festen Dingen, bei Flüssigkeiten und bei Gasen. Wenn es kalt wird, ziehen sie sich wieder zusammen.</p>
+        <div class="lexikon-box">
+            📖 <strong>Das Thermometer-Geheimnis</strong><br>
+            Genau diesen Trick nutzen alte Thermometer. Unten ist eine rote Flüssigkeit (oft Alkohol). Wird es draußen warm, dehnt sich die rote Flüssigkeit aus und steigt im dünnen Glasröhrchen nach oben. Wir lesen die Temperatur ab!
+        </div>
+        <div class="interactive-zone">
+            <h3>🌡️ Das Thermometer-Labor</h3>
+            <p>Erwärme das Thermometer mit dem Regler und sieh, was passiert!</p>
+            <input type="range" id="thermoRange" min="0" max="100" value="20" oninput="updateThermometer()" style="width: 250px;">
+            
+            <div class="diagram-box" style="display: flex; justify-content: center; background: #fafafa;">
+                <svg width="100" height="250" viewBox="0 0 100 250">
+                    <line x1="30" y1="20" x2="40" y2="20" stroke="black"/> <text x="10" y="25" font-size="12">100</text>
+                    <line x1="30" y1="120" x2="40" y2="120" stroke="black"/> <text x="15" y="125" font-size="12">0</text>
+                    
+                    <rect x="40" y="10" width="20" height="190" fill="none" stroke="#9E9E9E" stroke-width="4" rx="10"/>
+                    <circle cx="50" cy="200" r="25" fill="none" stroke="#9E9E9E" stroke-width="4"/>
+                    
+                    <circle cx="50" cy="200" r="21" fill="#F44336"/>
+                    <rect id="thermoLiquid" x="44" y="100" width="12" height="100" fill="#F44336" style="transition: all 0.2s;"/>
+                </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q6">
+            <p><strong>Warum müssen Brücken aus Beton und Stahl kleine Rillen (Fugen) haben?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Damit die Brücke Platz hat, sich im heißen Sommer auszudehnen, ohne zu brechen.</button>
+            <button onclick="handleAnswer(this, false, 0)">Damit das Regenwasser besser ablaufen kann.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #FF5722; background: #fbe9e7;">
+        <h2 style="text-align: center; color: #3e2723;">🎓 Das glühende Wärmelehre-Diplom</h2>
+        <p style="text-align: center;">Hier kommen exakt 15 knifflige Fragen. Zeig, dass du ein echter Thermo-Professor bist!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Was ist "Wärme" im Grunde genommen auf mikroskopischer Ebene?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Unsichtbare heiße Strahlen in der Luft.</button>
+            <button onclick="handleAnswer(this, true, 5)">Die ständige Bewegung und das Zittern der kleinsten Teilchen.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. Was passiert mit den Teilchen eines Stoffes, wenn man ihn stark abkühlt?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Sie bewegen sich immer langsamer.</button>
+            <button onclick="handleAnswer(this, false, 0)">Sie werden größer und platzen.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. Bei welcher Temperatur liegt der "absolute Nullpunkt", an dem sich Teilchen nicht mehr bewegen?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Bei 0 Grad Celsius.</button>
+            <button onclick="handleAnswer(this, true, 5)">Bei -273,15 Grad Celsius.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Wenn Hitze durch einen festen Körper (wie einen Metallstab) wandert, nennt man das...?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Wärmeleitung.</button>
+            <button onclick="handleAnswer(this, false, 0)">Wärmestrahlung.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Welches Material ist ein besonders GUTER Wärmeleiter?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Eisen / Metall.</button>
+            <button onclick="handleAnswer(this, false, 0)">Holz.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. Wie nennt man Materialien, die Hitze sehr SCHLECHT weiterleiten (z.B. Styropor, Luft)?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Generatoren.</button>
+            <button onclick="handleAnswer(this, true, 5)">Isolatoren.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. Wie gelangt die Wärme der Sonne zu uns auf die Erde durch das Vakuum des Weltalls?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Durch Wärmestrahlung.</button>
+            <button onclick="handleAnswer(this, false, 0)">Durch Wärmeleitung an Meteoriten entlang.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. Welche Farbe heizt sich in der Sonne schneller auf, weil sie das Licht verschluckt?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Weiß.</button>
+            <button onclick="handleAnswer(this, true, 5)">Schwarz.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. Was passiert mit warmer Luft in einem Zimmer oder Heißluftballon?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Sie ist leichter und steigt nach oben (Konvektion).</button>
+            <button onclick="handleAnswer(this, false, 0)">Sie wird schwer wie Blei und fällt zu Boden.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. Ein Schneemann schmilzt. Welcher Aggregatzustand-Wechsel findet statt?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Von fest zu flüssig.</button>
+            <button onclick="handleAnswer(this, false, 0)">Von flüssig zu gasförmig.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f11">
+            <p><strong>11. Wie nennt man den Vorgang, wenn sich Wasserdampf abkühlt und zu Wassertröpfchen am Spiegel wird?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Erfrieren.</button>
+            <button onclick="handleAnswer(this, true, 5)">Kondensieren.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f12">
+            <p><strong>12. Was machen die meisten festen Stoffe, wenn man sie stark erhitzt?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Sie dehnen sich aus (brauchen mehr Platz).</button>
+            <button onclick="handleAnswer(this, false, 0)">Sie schrumpfen zusammen.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f13">
+            <p><strong>13. Warum steigt die rote Flüssigkeit im Thermometer, wenn es wärmer wird?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Weil sich die Flüssigkeit durch die Wärme ausdehnt und im Rohr nach oben gedrückt wird.</button>
+            <button onclick="handleAnswer(this, false, 0)">Weil kleine Pumpen in der Spitze sie anziehen.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f14">
+            <p><strong>14. Wie schützt eine dicke Winterjacke davor, dass dir kalt wird?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Sie produziert selbst heiße Wärmestrahlung.</button>
+            <button onclick="handleAnswer(this, true, 5)">Sie schließt Luftpolster ein, und ruhende Luft ist ein toller Wärme-Isolator.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f15">
+            <p><strong>15. Wenn du dir im Winter kalte Hände an einer warmen Tasse Tee wärmst – welches Prinzip nutzt du hauptsächlich?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">Wärmeleitung (die Hitze wandert von der Tasse in deine Haut).</button>
+            <button onclick="handleAnswer(this, false, 0)">Wärmeströmung (Konvektion).</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Puh, ganz schön heiß hier! Scroll ganz nach oben und check deinen finalen Punktestand!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Teilchenmodell
+        const particleSvg = document.getElementById('particleSvg');
+        let particlesData = [];
+        for(let i=0; i<60; i++) {
+            let p = {
+                x: 20 + Math.random() * 260,
+                y: 20 + Math.random() * 160,
+                el: document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+            };
+            p.el.setAttribute('cx', p.x);
+            p.el.setAttribute('cy', p.y);
+            p.el.setAttribute('r', '5');
+            p.el.setAttribute('fill', '#1976D2');
+            particleSvg.appendChild(p.el);
+            particlesData.push(p);
+        }
+
+        let animationId;
+        function animateParticles() {
+            let temp = parseFloat(document.getElementById('tempRange').value);
+            let speed = temp * 0.1; // Je wärmer, desto mehr Wackeln
+            let color = temp < 40 ? '#1976D2' : (temp < 70 ? '#FF9800' : '#E53935');
+            
+            let bgBox = document.getElementById('particleBox');
+            bgBox.style.background = temp < 40 ? '#e3f2fd' : (temp < 70 ? '#fff3e0' : '#ffebee');
+            
+            let tempLabel = temp < 40 ? "Kalt" : (temp < 70 ? "Warm" : "Heiß!");
+            let txt = document.getElementById('tempValue');
+            txt.innerText = `${temp}°C (${tempLabel})`;
+            txt.style.color = color;
+
+            particlesData.forEach(p => {
+                let jitterX = (Math.random() - 0.5) * speed;
+                let jitterY = (Math.random() - 0.5) * speed;
+                
+                // Begrenzen in der Box
+                let newX = p.x + jitterX;
+                let newY = p.y + jitterY;
+                if(newX > 10 && newX < 290) p.x = newX;
+                if(newY > 10 && newY < 190) p.y = newY;
+
+                p.el.setAttribute('cx', p.x);
+                p.el.setAttribute('cy', p.y);
+                p.el.setAttribute('fill', color);
+            });
+
+            animationId = requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // 2. Wärmeleitung
+        function heatSoup() {
+            let btn = document.getElementById('soupBtn');
+            let mSpoon = document.getElementById('metalSpoon');
+            let mSpoonBowl = document.getElementById('metalSpoonBowl');
+            let soup = document.getElementById('soupLiquid');
+            let txt = document.getElementById('soupText');
+
+            btn.disabled = true;
+            soup.setAttribute('fill', '#FF5722'); // Suppe wird heiß
+            txt.innerText = "Suppe kocht! Die Wärme wandert den Metalllöffel hinauf...";
+            txt.style.color = "#FF5722";
+
+            setTimeout(() => {
+                mSpoonBowl.setAttribute('fill', '#ef5350');
+                mSpoon.setAttribute('fill', '#ef5350'); // Metall leitet (wird rot)
+                txt.innerText = "Aua! Der Metalllöffel ist oben heiß! Das Holz bleibt kalt.";
+                
+                setTimeout(() => {
+                    mSpoon.setAttribute('fill', '#cfd8dc');
+                    mSpoonBowl.setAttribute('fill', '#cfd8dc');
+                    soup.setAttribute('fill', '#ffb74d');
+                    txt.innerText = "Alles wieder abgekühlt.";
+                    txt.style.color = "#718096";
+                    btn.disabled = false;
+                }, 4000);
+            }, 500);
+        }
+
+        // 3. Wärmestrahlung
+        let sunTimer;
+        function sunShine() {
+            let btn = document.getElementById('sunBtn');
+            btn.disabled = true;
+            
+            document.getElementById('sunRayBlack').style.display = 'block';
+            document.getElementById('sunRayWhite').style.display = 'block';
+            document.getElementById('bounceRay').style.display = 'block';
+            
+            let tempB = 20;
+            let tempW = 20;
+            let tBlack = document.getElementById('tempBlack');
+            let tWhite = document.getElementById('tempWhite');
+            let txt = document.getElementById('sunText');
+            
+            txt.innerText = "Die Strahlung trifft auf! Schwarz absorbiert, Weiß reflektiert.";
+
+            sunTimer = setInterval(() => {
+                tempB += 2;
+                tempW += 0.5;
+                tBlack.innerText = Math.floor(tempB) + "°C";
+                tWhite.innerText = Math.floor(tempW) + "°C";
+                
+                if(tempB >= 60) {
+                    clearInterval(sunTimer);
+                    txt.innerText = "Puh! 60°C im schwarzen Auto. Im weißen ist es viel angenehmer!";
+                    setTimeout(() => {
+                        document.getElementById('sunRayBlack').style.display = 'none';
+                        document.getElementById('sunRayWhite').style.display = 'none';
+                        document.getElementById('bounceRay').style.display = 'none';
+                        tBlack.innerText = "20°C";
+                        tWhite.innerText = "20°C";
+                        txt.innerText = "";
+                        btn.disabled = false;
+                    }, 4000);
+                }
+            }, 100);
+        }
+
+        // 4. Konvektion (Ballon)
+        let balloonY = 120;
+        let burnerInterval;
+        let coolingInterval;
+        
+        function startBurner() {
+            clearInterval(coolingInterval);
+            document.getElementById('burnerFlame').style.display = 'block';
+            burnerInterval = setInterval(() => {
+                balloonY -= 2;
+                if(balloonY < -20) balloonY = -20;
+                document.getElementById('hotAirBalloon').style.transform = `translateY(${balloonY}px)`;
+            }, 20);
+        }
+
+        function stopBurner() {
+            clearInterval(burnerInterval);
+            document.getElementById('burnerFlame').style.display = 'none';
+            coolingInterval = setInterval(() => {
+                balloonY += 1;
+                if(balloonY > 120) balloonY = 120;
+                document.getElementById('hotAirBalloon').style.transform = `translateY(${balloonY}px)`;
+                if(balloonY >= 120) clearInterval(coolingInterval);
+            }, 30);
+        }
+
+        // 5. Aggregatzustände
+        function setPhase(phase) {
+            document.getElementById('phaseIce').style.display = 'none';
+            document.getElementById('phaseWater').style.display = 'none';
+            document.getElementById('phaseSteam').style.display = 'none';
+            
+            let txt = document.getElementById('phaseText');
+            
+            if(phase === 'ice') {
+                document.getElementById('phaseIce').style.display = 'block';
+                txt.innerText = "Fest (Eis): Die Teilchen sitzen starr als Gitter zusammen.";
+                txt.style.color = "#1976D2";
+            } else if(phase === 'water') {
+                document.getElementById('phaseWater').style.display = 'block';
+                txt.innerText = "Flüssig (Wasser): Die Teilchen sind gelöst und schwimmen wild durcheinander.";
+                txt.style.color = "#0288D1";
+            } else {
+                document.getElementById('phaseSteam').style.display = 'block';
+                txt.innerText = "Gasförmig (Dampf): Die Teilchen haben viel Energie und fliegen komplett auseinander!";
+                txt.style.color = "#78909C";
+            }
+        }
+
+        // 6. Ausdehnung (Thermometer)
+        function updateThermometer() {
+            let val = document.getElementById('thermoRange').value;
+            let liquid = document.getElementById('thermoLiquid');
+            
+            // val=0 -> height=0, y=200
+            // val=100 -> height=100, y=100
+            let newHeight = val * 1; 
+            let newY = 200 - newHeight;
+            
+            liquid.setAttribute('height', newHeight);
+            liquid.setAttribute('y', newY);
+        }
+
+        // Quiz-Logik (unverändert)
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Falsch! Lies den Text nochmal und probier es weiter.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>

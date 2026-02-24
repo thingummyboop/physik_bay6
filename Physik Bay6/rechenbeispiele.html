@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧮 Das große Physik-Rechen-Abenteuer 🚀</title>
+    <style>
+        :root {
+            --primary: #00838F; 
+            --secondary: #D84315; 
+            --bg: #E0F7FA; 
+            --text: #004D40;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #006064; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #B2EBF2;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #FFF3E0; border: 2px solid #FFCC80;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #E0F7FA; border: 2px solid #80DEEA;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #E8F5E9; border-left: 10px solid #4CAF50; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        input[type="number"] {
+            padding: 10px; font-size: 1.2em; border: 2px solid #00838F; 
+            border-radius: 8px; width: 120px; text-align: center; margin: 10px;
+        }
+
+        button { 
+            background: #0097A7; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🧮 Rechen-Punkte: <span id="score" style="color: #FFD54F;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #004D40;">🧮 Das große Physik-Rechen-Abenteuer 🚀</h1>
+    <p style="text-align: center; font-size: 1.2em;">Zahlen-Jongleur, die Aufwärmphase ist vorbei! Hol deinen Taschenrechner raus. Jetzt wird gerechnet, umgewandelt und die Physik auf die Probe gestellt!</p>
+
+    <div class="card">
+        <h2>1. SI-Einheiten: Die Zeit-Maschine</h2>
+        <p>In der Physik rechnen wir bei der Zeit fast immer in der Basisgröße <strong>Sekunden (s)</strong>. Wenn du eine Aufgabe bekommst, in der Minuten oder Stunden stehen, musst du sie zuerst umrechnen!</p>
+        <div class="lexikon-box">
+            💡 <strong>Umrechnungs-Tipp:</strong><br>
+            1 Minute = 60 Sekunden<br>
+            1 Stunde = 60 Minuten = 3.600 Sekunden (60 * 60)
+        </div>
+        <div class="interactive-zone">
+            <h3>⏱️ Film-Zeit umrechnen</h3>
+            <p>Du schaust einen spannenden Science-Fiction-Film, der genau <strong>2,5 Stunden</strong> dauert. Wie viele <strong>Sekunden</strong> hast du vor dem Fernseher verbracht?</p>
+            <input type="number" id="inputSec" placeholder="Sekunden...">
+            <button onclick="checkInput('inputSec', 9000, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Basisgrößen: Die Gepäck-Kontrolle (Masse)</h2>
+        <p>Massen werden am liebsten in <strong>Kilogramm (kg)</strong> angegeben. Oft sind Dinge aber in Gramm (g) beschriftet. Um zu wissen, wie schwer alles zusammen ist, musst du alles auf dieselbe Einheit bringen!</p>
+        <div class="lexikon-box">
+            💡 <strong>Umrechnungs-Tipp:</strong><br>
+            1.000 Gramm (g) = 1 Kilogramm (kg)<br>
+            Beispiel: 500 g = 0,5 kg
+        </div>
+        <div class="interactive-zone">
+            <h3>🧳 Pack den Koffer</h3>
+            <p>Für deinen Urlaub packst du deinen Koffer. Du hast Kleidung (12,5 kg), Schuhe (800 g), Bücher (1.200 g) und einen Kulturbeutel (0,5 kg). <br><strong>Wie viel Kilogramm (kg) wiegt dein Koffer insgesamt?</strong></p>
+            <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
+            <button onclick="checkInput('inputKg', 15, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Präfixe: Das Laser-Messgerät</h2>
+        <p>Kilo bedeutet Tausend (1.000), Milli bedeutet ein Tausendstel (0,001). Wenn du Längen addierst, müssen sie dieselbe Vorsilbe haben, sonst gibt es Chaos!</p>
+        <div class="interactive-zone">
+            <h3>📏 Die Brücken-Reparatur</h3>
+            <p>Eine Brücke ist eigentlich 2,4 Kilometer (km) lang. Ein Stück von 350 Metern (m) muss repariert werden. <br><strong>Wie viele Meter (m) der Brücke sind noch völlig in Ordnung?</strong></p>
+            <input type="number" id="inputMeter" placeholder="Meter...">
+            <button onclick="checkInput('inputMeter', 2050, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Formeln: Der Geschwindigkeits-Blitzer (v = s / t)</h2>
+        <p>Jetzt wird es ernst! Die Formel für Geschwindigkeit lautet <strong>v = s / t</strong> (Geschwindigkeit = Weg / Zeit). Manchmal musst du die Formel auch umstellen: <br>Weg berechnen: <strong>s = v * t</strong> <br>Zeit berechnen: <strong>t = s / v</strong></p>
+        
+        <div class="interactive-zone">
+            <h3>🏎️ Blitzer-Aufgabe 1: Wie schnell?</h3>
+            <p>Ein Gepard sprintet eine Strecke von <strong>s = 120 Metern</strong> in genau <strong>t = 4 Sekunden</strong>. <br>Berechne seine Geschwindigkeit (v) in m/s!</p>
+            v = <input type="number" id="inputV" placeholder="m/s"> m/s
+            <button onclick="checkInput('inputV', 30, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="interactive-zone">
+            <h3>🚀 Blitzer-Aufgabe 2: Wie weit?</h3>
+            <p>Ein Fahrradfahrer fährt konstant mit <strong>v = 5 m/s</strong>. Er fährt für <strong>t = 12 Sekunden</strong>. <br>Welche Strecke (s) legt er zurück? (Tipp: s = v * t)</p>
+            s = <input type="number" id="inputS" placeholder="Meter"> m
+            <button onclick="checkInput('inputS', 60, 10, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Diagramme auswerten: Mathe mit Bildern</h2>
+        <p>Ein Weg-Zeit-Diagramm (s-t-Diagramm) zeigt dir, wie weit ein Objekt zu einer bestimmten Zeit gekommen ist. Aus diesen Linien kannst du Zahlen ablesen und damit rechnen!</p>
+        <div class="interactive-zone">
+            <h3>📈 Den Graphen lesen</h3>
+            <div class="diagram-box" style="height: 250px;">
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <line x1="40" y1="20" x2="40" y2="160" stroke="#000" stroke-width="2"/>
+                    <line x1="40" y1="160" x2="280" y2="160" stroke="#000" stroke-width="2"/>
+                    <text x="5" y="90" font-size="12" fill="#000" transform="rotate(-90 15,90)">Weg s (Meter)</text>
+                    <text x="140" y="195" font-size="12" fill="#000">Zeit t (Sekunden)</text>
+                    
+                    <line x1="40" y1="100" x2="280" y2="100" stroke="#ccc" stroke-dasharray="4"/>
+                    <text x="15" y="105" font-size="12">50m</text>
+                    
+                    <line x1="160" y1="160" x2="160" y2="20" stroke="#ccc" stroke-dasharray="4"/>
+                    <text x="150" y="175" font-size="12">10s</text>
+
+                    <line x1="40" y1="160" x2="160" y2="100" stroke="#D84315" stroke-width="4"/>
+                    <circle cx="160" cy="100" r="5" fill="#00838F"/>
+                </svg>
+            </div>
+            <p>Lies aus dem Diagramm oben ab: Wie groß ist der Weg s nach 10 Sekunden? <br><strong>Berechne nun die Geschwindigkeit v in m/s!</strong></p>
+            v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
+            <button onclick="checkInput('inputGraph', 5, 15, this)">Prüfen</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #00838F; background: #E0F7FA;">
+        <h2 style="text-align: center; color: #004D40;">🎓 Die Meister-Prüfung der Berechnungen</h2>
+        <p style="text-align: center;">Hier gibt es nichts mehr zu raten, hier wird knallhart gerechnet!</p>
+        
+        <div class="quiz-box" data-id="q1">
+            <p><strong>1. Wie viele Meter sind 3,5 Kilometer?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">350 m</button>
+            <button onclick="handleQuiz(this, true, 5)">3.500 m</button>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>2. Rechne 2 Stunden in Sekunden um.</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">7.200 s</button>
+            <button onclick="handleQuiz(this, false, 0)">120 s</button>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>3. v = 20 m/s, t = 5 s. Wie groß ist der Weg s? (s = v * t)</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">100 m</button>
+            <button onclick="handleQuiz(this, false, 0)">4 m</button>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>4. s = 200 m, v = 10 m/s. Wie lange brauchst du? (t = s / v)</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">2.000 s</button>
+            <button onclick="handleQuiz(this, true, 5)">20 s</button>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>5. Wie viel kg sind 250 g?</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">0,25 kg</button>
+            <button onclick="handleQuiz(this, false, 0)">2,5 kg</button>
+        </div>
+        <div class="quiz-box" data-id="q6">
+            <p><strong>6. Du hast 1,5 Meter Schnur. Wie viele Millimeter (mm) sind das?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">150 mm</button>
+            <button onclick="handleQuiz(this, true, 5)">1.500 mm</button>
+        </div>
+        <div class="quiz-box" data-id="q7">
+            <p><strong>7. Ein Auto fährt 150 km in 3 Stunden. Berechne v in km/h!</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">50 km/h</button>
+            <button onclick="handleQuiz(this, false, 0)">450 km/h</button>
+        </div>
+        <div class="quiz-box" data-id="q8">
+            <p><strong>8. 💡 Profi-Frage: Um von km/h in m/s umzurechnen, teilt man durch 3,6. Wie viele m/s sind 36 km/h?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">3,6 m/s</button>
+            <button onclick="handleQuiz(this, true, 10)">10 m/s</button>
+        </div>
+        <div class="quiz-box" data-id="q9">
+            <p><strong>9. s = 50 m, t = 10 s. Welche Geschwindigkeit ist das?</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">5 m/s</button>
+            <button onclick="handleQuiz(this, false, 0)">500 m/s</button>
+        </div>
+        <div class="quiz-box" data-id="q10">
+            <p><strong>10. Ein Gepäckstück wiegt 4 kg. Du nimmst 500 g heraus. Was wiegt es jetzt?</strong></p>
+            <button onclick="handleQuiz(this, true, 5)">3,5 kg</button>
+            <button onclick="handleQuiz(this, false, 0)">3,95 kg</button>
+        </div>
+
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Genial kalkuliert! Scroll nach oben und bewundere deinen Punkte-Highscore!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        function updateScore(pts) {
+            score += pts;
+            document.getElementById('score').innerText = score;
+        }
+
+        // Funktion für die manuellen Eingabefelder
+        function checkInput(inputId, expectedValue, points, btn) {
+            let val = parseFloat(document.getElementById(inputId).value);
+            let feedback = btn.nextElementSibling;
+
+            // Verhindern, dass mehrfach Punkte vergeben werden
+            if (btn.disabled) return;
+
+            if (val === expectedValue) {
+                btn.style.background = "var(--correct)";
+                feedback.innerHTML = `✅ Exakt richtig! <strong>+${points} Punkte</strong>`;
+                feedback.style.color = "var(--correct)";
+                updateScore(points);
+                btn.disabled = true; // Button sperren
+                document.getElementById(inputId).disabled = true; // Input sperren
+            } else {
+                btn.style.background = "var(--wrong)";
+                feedback.innerText = "❌ Das stimmt noch nicht ganz. Rechne noch einmal nach!";
+                feedback.style.color = "var(--wrong)";
+                
+                // Kurze Animation für Fehler
+                setTimeout(() => {
+                    btn.style.background = "#0097A7";
+                }, 1500);
+            }
+        }
+
+        // Funktion für die Multiple-Choice Fragen am Ende
+        function handleQuiz(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            
+            // Falls schon eine Feedback-Zeile existiert, löschen, um sie neu zu erstellen
+            let oldFb = box.querySelector('.feedback');
+            if (oldFb) oldFb.remove();
+
+            let fb = document.createElement('p');
+            fb.className = 'feedback';
+            box.appendChild(fb);
+            
+            if (answeredQuestions.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Stimmt, aber die Punkte gab es nur beim ersten Versuch!";
+                    fb.style.color = "#FF9800";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Korrekt gerechnet! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                updateScore(pts);
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Falsch berechnet! Versuch es nochmal.";
+                fb.style.color = "var(--wrong)";
+            }
+            answeredQuestions.add(id);
+        }
+    </script>
+</body>
+</html>

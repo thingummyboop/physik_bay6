@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Das große Physik-Abenteuer (MS/AHS Unterstufe)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #1e293b;
+            color: white;
+        }
+
+        /* --- Seitenleiste (Navigation) --- */
+        #sidebar {
+            width: 320px;
+            background-color: #0f172a;
+            overflow-y: auto;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-bottom: 2px solid #1e40af;
+        }
+
+        .sidebar-header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .grade-section {
+            padding: 15px 20px 5px 20px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* --- Navigations-Buttons --- */
+        .nav-btn {
+            background: transparent;
+            color: #cbd5e0;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 15px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background-color: #1e293b;
+            color: white;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .nav-btn.active {
+            background-color: #1e293b;
+            color: #60a5fa;
+            border-left: 4px solid #60a5fa;
+            font-weight: bold;
+        }
+
+        /* --- Hauptbereich (iFrame) --- */
+        #content-area {
+            flex-grow: 1;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h1>🚀 Physik-Abenteuer</h1>
+            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #dbeafe;">Österreichischer Lehrplan</p>
+        </div>
+
+        <div class="grade-section">📚 2. Klasse (6. Schulstufe)</div>
+        <button class="nav-btn active" onclick="loadPage('licht, schatten, astronomie.html', this)">
+            🌑 1. Licht & Schatten
+        </button>
+        <button class="nav-btn" onclick="loadPage('farben.html', this)">
+            🌈 2. Farben
+        </button>
+        <button class="nav-btn" onclick="loadPage('akustik.html', this)">
+            🎶 3. Akustik
+        </button>
+        <button class="nav-btn" onclick="loadPage('elektrizität.html', this)">
+            ⚡ 4. Elektrizität
+        </button>
+
+        <div class="grade-section">📚 3. Klasse (7. Schulstufe)</div>
+        <button class="nav-btn" onclick="loadPage('kraft und bewegung.html', this)">
+            🚀 5. Kraft & Bewegung
+        </button>
+        <button class="nav-btn" onclick="loadPage('drehundstatik.html', this)">
+            🎡 6. Drehbewegungen & Statik
+        </button>
+        <button class="nav-btn" onclick="loadPage('energie.html', this)">
+            🔋 7. Energie
+        </button>
+
+        <div class="grade-section">📚 4. Klasse (8. Schulstufe)</div>
+        <button class="nav-btn" onclick="loadPage('elektromagnetismus.html', this)">
+            🧲 8. Elektromagnetismus
+        </button>
+        <button class="nav-btn" onclick="loadPage('linsen, spiegel.html', this)">
+            🔍 9. Linsen & Spiegel
+        </button>
+        <button class="nav-btn" onclick="loadPage('astronomie.html', this)">
+            🌌 10. Astronomie & Astrophysik
+        </button>
+    </div>
+
+    <div id="content-area">
+        <iframe id="game-frame" src="licht, schatten, astronomie.html" title="Physik Spiel"></iframe>
+    </div>
+
+    <script>
+        function loadPage(fileName, btnElement) {
+            // Lade die neue Datei in den iFrame
+            document.getElementById('game-frame').src = fileName;
+
+            // Markiere den aktuell geklickten Button
+            let buttons = document.getElementsByClassName('nav-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            btnElement.classList.add('active');
+        }
+    </script>
+</body>
+</html>
