@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌍 Sun, Moon and Shadows 🌑</title>
+    <title>🌍 الشمس والقمر والظلال 🌑</title>
     <style>
-        /* --- BASIC DESIGN & COLORS --- */
+        /* --- التصميم الأساسي والألوان --- */
         :root {
             --primary: #FFC107; 
             --secondary: #3F51B5; 
@@ -16,7 +16,7 @@
             --card-bg: #16213e;
         }
         body {
-            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.7;
@@ -26,7 +26,7 @@
             padding-top: 80px; 
         }
 
-        /* --- SCORE BOARD --- */
+        /* --- عرض النقاط --- */
         #score-board {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: #0f3460; color: white;
@@ -36,7 +36,7 @@
         }
         .score-highlight { color: var(--primary); }
 
-        /* --- LAYOUT --- */
+        /* --- التخطيط --- */
         .card {
             background: var(--card-bg); border-radius: 20px;
             padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -60,10 +60,10 @@
 
         .quiz-box {
             background-color: #1a1a2e; border-radius: 10px;
-            padding: 20px; margin: 30px 0; border-left: 8px solid var(--primary);
+            padding: 20px; margin: 30px 0; border-right: 8px solid var(--primary);
         }
 
-        /* --- BUTTONS --- */
+        /* --- الأزرار --- */
         button {
             background-color: #533483; color: white; border: none;
             padding: 12px 20px; border-radius: 12px;
@@ -75,7 +75,7 @@
 
         .feedback { font-weight: bold; margin-top: 15px; min-height: 28px; }
 
-        /* --- ANIMATIONS --- */
+        /* --- الرسوم المتحركة --- */
         @keyframes orbit {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -90,17 +90,17 @@
 <body>
 
     <div id="score-board">
-        🏆 Space Points: <span id="score" class="score-highlight">0</span>
+        🏆 نقاط الفضاء: <span id="score" class="score-highlight">0</span>
     </div>
 
-    <h1>🌑 Shadows in Space 🌍</h1>
+    <h1>🌑 الظلال في الفضاء 🌍</h1>
     <div class="card" style="text-align: center;">
-        <p>Light always travels exactly <strong>straight</strong>. If you draw the outermost light rays (edge rays) past an obstacle, you can calculate to the millimeter exactly where a shadow falls!</p>
+        <p>ينتقل الضوء دائماً في خطوط <strong>مستقيمة</strong> تماماً. إذا رسمنا أشعة الضوء الخارجية (الأشعة الطرفية) مارة بجسم ما، يمكننا حساب مكان سقوط الظل بدقة الملليمتر!</p>
     </div>
 
     <div class="card">
-        <h2>1. Who orbits whom?</h2>
-        <p>The sun radiates its light into space. While the earth travels around the sun, the side that faces the sun always becomes bright. On the back, the earth casts a shadow into the void (night side).</p>
+        <h2>1. من يدور حول من؟</h2>
+        <p>تطلق الشمس ضوءها في الفضاء. وبينما تسافر الأرض حول الشمس، يضيء دائماً الجانب المواجه للشمس. وعلى الجانب الخلفي، تلقي الأرض بظلها في الفراغ (جانب الليل).</p>
         
         <div class="diagram-box">
             <svg width="400" height="250" viewBox="0 0 400 250">
@@ -122,21 +122,21 @@
                 
                 <circle cx="200" cy="125" r="30" fill="#FFC107" style="filter: drop-shadow(0 0 20px #FF9800);" />
             </svg>
-            <p>Light rays travel rectilinearly from the sun to the earth.</p>
+            <p>تنتقل أشعة الضوء في خطوط مستقيمة من الشمس إلى الأرض.</p>
         </div>
 
         <div class="exercise-box" style="background: #1a1a2e; border: 2px dashed #FFC107; padding: 15px; border-radius: 10px;">
-            <h3>🛠️ Exercise: Speed Check</h3>
-            <p><strong>How long does the moon take for one round around the earth?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">A whole year</button>
-            <button onclick="handleQuiz(this, true, 10)">About a month</button>
+            <h3>🛠️ تمرين: فحص السرعة</h3>
+            <p><strong>كم من الوقت يحتاج القمر ليدور دورة واحدة حول الأرض؟</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">سنة كاملة</button>
+            <button onclick="handleQuiz(this, true, 10)">حوالي شهر</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>2. The Solar Eclipse (Construction)</h2>
-        <p>The small moon pushes itself in front of the huge sun. If we draw the light rays from the top and bottom edge of the sun past the moon, we see two areas: the deep black <strong>umbra</strong> (core shadow) and the gray <strong>penumbra</strong> (partial shadow).</p>
+        <h2>2. كسوف الشمس (التكوين)</h2>
+        <p>يندفع القمر الصغير أمام الشمس العملاقة. إذا رسمنا أشعة الضوء من الحواف العلوية والسفلية للشمس مارة بالقمر، فسنرى منطقتين: <strong>الظل التام</strong> شديد السواد و<strong>شبه الظل</strong> الرمادي.</p>
         
         <div class="diagram-box">
             <svg width="450" height="200" viewBox="0 0 450 200">
@@ -149,24 +149,24 @@
                 <line x1="50" y1="70" x2="400" y2="162.6" class="strahl" stroke-dasharray="2 6"/>
                 <line x1="50" y1="130" x2="400" y2="37.4" class="strahl" stroke-dasharray="2 6"/>
 
-                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="15" fill="#666" /> <circle cx="360" cy="100" r="35" fill="#2196F3" /> <text x="365" y="104" fill="#FFF" font-size="10" font-weight="bold">Core</text>
-                <text x="365" y="65" fill="#FFF" font-size="10">Partial</text>
-                <text x="365" y="145" fill="#FFF" font-size="10">Shadow</text>
+                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="15" fill="#666" /> <circle cx="360" cy="100" r="35" fill="#2196F3" /> <text x="355" y="104" fill="#FFF" font-size="10" font-weight="bold">الظل التام</text>
+                <text x="365" y="65" fill="#FFF" font-size="10">شبه</text>
+                <text x="365" y="145" fill="#FFF" font-size="10">الظل</text>
             </svg>
-            <p>Where not a single sun ray gets to anymore, the eclipse is total (umbra).</p>
+            <p>حيث لا يصل أي شعاع شمسي على الإطلاق، يكون الكسوف كلياً (الظل التام).</p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>Why is it suddenly dark during a total solar eclipse?</strong></p>
-            <button onclick="handleQuiz(this, true, 15)">Because we are standing directly in the moon's umbra.</button>
-            <button onclick="handleQuiz(this, false, 0)">Because the sun goes to sleep at night.</button>
+            <p><strong>لماذا يظلم الجو فجأة أثناء كسوف الشمس الكلي؟</strong></p>
+            <button onclick="handleQuiz(this, true, 15)">لأننا نقف مباشرة في الظل التام للقمر.</button>
+            <button onclick="handleQuiz(this, false, 0)">لأن الشمس تذهب للنوم ليلاً.</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>3. The Lunar Eclipse (Construction)</h2>
-        <p>The earth is much larger than the moon. The straight edge rays of the sun form a huge, long umbra tube behind the earth. The moon fits completely into it!</p>
+        <h2>3. خسوف القمر (التكوين)</h2>
+        <p>الأرض أكبر بكثير من القمر. تشكل أشعة الشمس المستقيمة خلف الأرض مخروطاً ضخماً وطويلاً من الظل التام. القمر يتسع تماماً داخل هذا الظل!</p>
 
         <div class="diagram-box">
             <svg width="450" height="200" viewBox="0 0 450 200">
@@ -179,72 +179,72 @@
                 <line x1="50" y1="70" x2="450" y2="199.4" class="strahl" stroke-dasharray="2 6"/>
                 <line x1="50" y1="130" x2="450" y2="0.6" class="strahl" stroke-dasharray="2 6"/>
                 
-                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="25" fill="#2196F3" /> <circle cx="380" cy="100" r="10" fill="#880e4f" /> <text x="260" y="104" fill="#FF5252" font-size="12" font-weight="bold">Long Umbra</text>
+                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="25" fill="#2196F3" /> <circle cx="380" cy="100" r="10" fill="#880e4f" /> <text x="250" y="104" fill="#FF5252" font-size="12" font-weight="bold">ظل تام طويل</text>
             </svg>
-            <p>The moon dives completely into the deep shadow of the earth.</p>
+            <p>يغرق القمر تماماً في ظل الأرض العميق.</p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>What stands exactly in the middle during a lunar eclipse?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">The Sun</button>
-            <button onclick="handleQuiz(this, true, 15)">The Earth</button>
+            <p><strong>ما الذي يقف في المنتصف تماماً أثناء خسوف القمر؟</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">الشمس</button>
+            <button onclick="handleQuiz(this, true, 15)">الأرض</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card" style="border: 5px solid var(--primary); background: #0f3460;">
-        <h2 style="text-align: center; color: var(--primary);">🎓 The Astro-Optics Diploma</h2>
+        <h2 style="text-align: center; color: var(--primary);">🎓 دبلوم البصريات الفلكية</h2>
         
         <div class="quiz-box">
-            <p><strong>1. What is the most important rule of optics so that eclipses can be calculated at all?</strong></p>
-            <button onclick="handleQuiz(this, true, 20)">Light propagates strictly rectilinearly.</button>
-            <button onclick="handleQuiz(this, false, 0)">Light makes curves around planets.</button>
+            <p><strong>1. ما هي أهم قاعدة في البصريات لكي يمكن حساب الكسوف والخسوف أصلاً؟</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">ينتشر الضوء في خطوط مستقيمة صارمة.</button>
+            <button onclick="handleQuiz(this, false, 0)">ينحني الضوء حول الكواكب.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>2. Why is there day and night on earth?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">Because the sun orbits the earth.</button>
-            <button onclick="handleQuiz(this, true, 20)">Because the earth rotates like a top around itself.</button>
+            <p><strong>2. لماذا يوجد ليل ونهار على الأرض؟</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">لأن الشمس تدور حول الأرض.</button>
+            <button onclick="handleQuiz(this, true, 20)">لأن الأرض تدور حول نفسها مثل البلبل.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>3. Imagine you are standing on the moon during a lunar eclipse. What would you see?</strong></p>
-            <button onclick="handleQuiz(this, true, 30)">The earth pushes itself in front of the sun (a solar eclipse seen from there!).</button>
-            <button onclick="handleQuiz(this, false, 0)">Nothing at all, it's just bright.</button>
+            <p><strong>3. تخيل أنك تقف على القمر أثناء خسوف القمر. ماذا سترى؟</strong></p>
+            <button onclick="handleQuiz(this, true, 30)">الأرض تندفع أمام الشمس (كسوف للشمس كما يُرى من هناك!).</button>
+            <button onclick="handleQuiz(this, false, 0)">لا شيء، الجو مشرق فقط.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>4. What exactly is the umbra?</strong></p>
-            <button onclick="handleQuiz(this, true, 20)">The area into which absolutely no direct light from the light source reaches anymore.</button>
-            <button onclick="handleQuiz(this, false, 0)">The area where the light is focused particularly brightly.</button>
+            <p><strong>4. ما هو الظل التام بالضبط؟</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">المنطقة التي لا يصل إليها أي ضوء مباشر من مصدر الضوء على الإطلاق.</button>
+            <button onclick="handleQuiz(this, false, 0)">المنطقة التي يتركز فيها الضوء بشكل ساطع جداً.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>5. What is the moon often called when it dives into the earth's shadow and glows reddish?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">Strawberry moon</button>
-            <button onclick="handleQuiz(this, true, 15)">Blood moon</button>
+            <p><strong>5. ماذا يُسمى القمر غالباً عندما يغوص في ظل الأرض ويضيء باللون المحمر؟</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">قمر الفراولة</button>
+            <button onclick="handleQuiz(this, true, 15)">قمر الدم</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>6. Who casts the shadow during a solar eclipse?</strong></p>
-            <button onclick="handleQuiz(this, true, 20)">The moon blocks the sun and casts its shadow on the earth.</button>
-            <button onclick="handleQuiz(this, false, 0)">The earth blocks the sun and casts its shadow on the moon.</button>
+            <p><strong>6. من الذي يلقي بالظل أثناء كسوف الشمس؟</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">القمر يحجب الشمس ويلقي بظله على الأرض.</button>
+            <button onclick="handleQuiz(this, false, 0)">الأرض تحجب الشمس وتلقي بظلها على القمر.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>7. On what kind of path does the earth travel around the sun?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">On a stone-straight zigzag line.</button>
-            <button onclick="handleQuiz(this, true, 15)">On a huge ellipse (orbit).</button>
+            <p><strong>7. في أي مسار تسافر الأرض حول الشمس؟</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">في خط متعرج مستقيم تماماً.</button>
+            <button onclick="handleQuiz(this, true, 15)">في قطع ناقص ضخم (مدار).</button>
             <p class="feedback"></p>
         </div>
 
-        <p style="text-align: center; font-weight: bold; font-size: 1.2em; color: var(--primary);">✨ Galactic! You have solved all the shadow puzzles of the universe! ✨</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2em; color: var(--primary);">✨ مذهل! لقد حللت جميع ألغاز الظلال في الفضاء! ✨</p>
     </div>
 
     <script>
@@ -273,13 +273,13 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                fb.innerText = "✅ Correct! +" + pts + " Points!";
+                fb.innerText = "✅ صحيح! +" + pts + " نقاط!";
                 fb.style.color = "var(--correct)";
                 updateScore(pts);
             } else {
                 btn.style.backgroundColor = "var(--wrong)";
                 btn.style.opacity = "1";
-                fb.innerText = "❌ That was not correct. Read the texts above again carefully!";
+                fb.innerText = "❌ لم يكن ذلك صحيحاً. اقرأ النصوص أعلاه مرة أخرى بهدوء!";
                 fb.style.color = "var(--wrong)";
             }
         }

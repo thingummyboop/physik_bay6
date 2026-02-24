@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎶 Велика акустична авантура 🥁</title>
+    <style>
+        :root {
+            --primary: #2196F3; 
+            --secondary: #FF9800;
+            --bg: #f0f8ff; 
+            --text: #2d3748;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #2d3748; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
+        }
+
+        h2 { color: var(--secondary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #e2e8f0;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #fff3e0; border: 2px solid #ffb74d;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #e3f2fd; border: 2px solid #90caf9;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #f8f9fa; border-left: 10px solid #64b5f6; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #4a5568; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        /* Animationen für Akustik */
+        @keyframes vibrate {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px) rotate(-1deg); }
+            50% { transform: translateX(3px) rotate(1deg); }
+            75% { transform: translateX(-3px) rotate(-1deg); }
+            100% { transform: translateX(0); }
+        }
+        .anim-vibrate { animation: vibrate 0.1s infinite; }
+
+        @keyframes soundwave {
+            0% { r: 10px; opacity: 1; stroke-width: 4px; }
+            100% { r: 150px; opacity: 0; stroke-width: 1px; }
+        }
+        .anim-wave { animation: soundwave 1.5s infinite linear; transform-origin: center; fill: none; stroke: #2196F3; }
+
+        /* Neue, korrigierte Echo-Animationen */
+        @keyframes ping-out {
+            0% { r: 10px; opacity: 1; stroke-width: 4px; }
+            100% { r: 270px; opacity: 0; stroke-width: 1px; }
+        }
+        @keyframes ping-in {
+            0% { r: 10px; opacity: 1; stroke-width: 4px; }
+            100% { r: 270px; opacity: 0; stroke-width: 1px; }
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .thunder-shake { animation: shake 0.5s; }
+
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Акустички поени: <span id="score" style="color: #ffcc80;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #2d3748;">🎶 Акустична авантура 🥁</h1>
+    <p style="text-align: center; font-size: 1.2em;">Здраво мајсторе звука! Подеси своје уши на пријем, зарањамо у невидљиви и гласни свет звука!</p>
+
+    <div class="card">
+        <h2>1. Настанак: Све подрхтава!</h2>
+        <p>Било да говориш, пљескаш рукама или трзаш гитару – звукови настају увек само кроз једно: <strong>кретање!</strong> Предмет се веома брзо помера тамо-амо. Физичари то зову <strong>осцилација</strong>. Када твоје гласне жице у грлу вибрирају, настаје твој глас. Стави руку на гркљан док говориш – осетићеш дрхтање!</p>
+        <div class="lexikon-box">
+            📖 <strong>Паметни речник: Извор звука</strong><br>
+            Ствар која дрхти и производи звук зове се <strong>извор звука</strong>. То може бити кожа бубња, жица виолине или метални крак звучне виљушке.
+        </div>
+        <div class="interactive-zone">
+            <h3>🪛 Магична звучна виљушка</h3>
+            <p>Кликни на звучну виљушку да би је ударио:</p>
+            <button onclick="strikeFork()">Удари виљушку 🔔</button>
+            <div class="diagram-box">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <g id="tuningFork" style="transform-origin: center;">
+                        <path d="M 180 40 L 180 120 Q 200 140 220 120 L 220 40" fill="none" stroke="#718096" stroke-width="12" stroke-linecap="round"/>
+                        <line x1="200" y1="130" x2="200" y2="180" stroke="#718096" stroke-width="12" stroke-linecap="round"/>
+                    </g>
+                    <g id="soundWavesGrp" style="display: none;">
+                        <circle cx="180" cy="80" class="anim-wave" style="animation-delay: 0s;"/>
+                        <circle cx="180" cy="80" class="anim-wave" style="animation-delay: 0.5s;"/>
+                        <circle cx="220" cy="80" class="anim-wave" style="animation-delay: 0.25s;"/>
+                        <circle cx="220" cy="80" class="anim-wave" style="animation-delay: 0.75s;"/>
+                    </g>
+                </svg>
+                <p id="forkText" style="font-weight:bold; color: #718096;">Звучна виљушка мирује.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Шта уопште узрокује настанак тона или шума?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Брзо кретање тамо-амо (осцилација).</button>
+            <button onclick="handleAnswer(this, false, 0)">Невидљива магија у ваздуху.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Медијум: Тиха празнина свемира</h2>
+        <p>Замисли да стојиш на Месецу и огроман метеорит бешумно удари у тло. Бешумно? Да! Да би звук са звучне виљушке стигао до твог уха, потребни су му сићушни "поштари". То су <strong>честице ваздуха</strong>. Звучна виљушка гура ваздух, честице ваздуха гурају своје суседе, и тако <strong>звучни талас</strong> путује до твог уха.</p>
+        <div class="lexikon-box">
+            📖 <strong>Паметни речник: Вакуум</strong><br>
+            Звуку је увек потребна материја (<strong>медијум</strong>) да би се ширио. То може бити ваздух, али и вода или чак гвожђе! Тамо где нема апсолутно ничега – као у свемиру – то се зове <strong>вакуум</strong>. Без честица ваздуха нема никога ко би пренео звук. У свемиру те нико не чује како вриштиш!
+        </div>
+        <div class="interactive-zone">
+            <h3>🌌 Вакуумска лабораторија (стаклено звоно)</h3>
+            <p>У стакленом звону звони будилнику. Исисај ваздух!</p>
+            <button onclick="toggleVacuum()" id="vacBtn">Исисај ваздух 🌬️</button>
+            <div class="diagram-box">
+                <svg width="400" height="240" viewBox="0 0 400 240">
+                    <rect x="100" y="200" width="200" height="10" fill="#4a5568"/>
+                    <rect x="190" y="210" width="20" height="30" fill="#cbd5e0"/>
+                    <path d="M 120 200 L 120 100 Q 120 40 200 40 Q 280 40 280 100 L 280 200 Z" fill="rgba(226, 232, 240, 0.3)" stroke="#a0aec0" stroke-width="4"/>
+                    <circle cx="200" cy="160" r="25" fill="#F44336"/>
+                    <circle cx="200" cy="160" r="20" fill="white"/>
+                    <line x1="200" y1="160" x2="210" y2="145" stroke="black" stroke-width="2"/>
+                    <line x1="200" y1="160" x2="190" y2="155" stroke="black" stroke-width="2"/>
+                    <path d="M 180 140 Q 190 130 200 135" fill="none" stroke="#F44336" stroke-width="4"/>
+                    <path d="M 220 140 Q 210 130 200 135" fill="none" stroke="#F44336" stroke-width="4"/>
+                    
+                    <g id="bellWaves" class="anim-vibrate" style="transform-origin: center;">
+                        <path d="M 160 140 Q 150 160 160 180" fill="none" stroke="#2196F3" stroke-width="3"/>
+                        <path d="M 150 135 Q 135 160 150 185" fill="none" stroke="#2196F3" stroke-width="3"/>
+                        <path d="M 240 140 Q 250 160 240 180" fill="none" stroke="#2196F3" stroke-width="3"/>
+                        <path d="M 250 135 Q 265 160 250 185" fill="none" stroke="#2196F3" stroke-width="3"/>
+                    </g>
+                    <g id="airParticles">
+                        </g>
+                </svg>
+                <p id="vacText" style="font-weight:bold; color: #2196F3;">Ваздух је унутра: будилни се јако чује!</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Зашто се у свемирским оделима у свемиру не чују никакви звуци споља?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Јер су шлемови превише дебели.</button>
+            <button onclick="handleAnswer(this, true, 10)">Јер у вакууму свемира нема честица ваздуха које би пренеле звук.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Осцилоскоп: Висина и јачина тона</h2>
+        <p>Научници желе да виде звучне таласе! За то користе микрофонски компјутер који се зове <strong>осцилоскоп</strong>. Он црта невидљиве звучне таласе као изломљене линије (брегове и долове таласа) на екрану.</p>
+        <div class="lexikon-box">
+            📖 <strong>Паметни речник: Фреквенција и амплитуда</strong><br>
+            - <strong>Фреквенција (висина тона):</strong> Колико често талас вибрира у секунди? Ако вибрира веома брзо (много густих таласа), тон је <strong>висок</strong> као пиштање миша. Ако вибрира споро, тон је <strong>низак</strong> као брујање медведа. Мери се у <strong>Херцима (Hz)</strong>.<br>
+            - <strong>Амплитуда (јачина тона):</strong> Колико снажно талас одступа? Ако су брегови таласа огромни, тон је <strong>гласан</strong>. Ако су сићушни и равни, тон је <strong>тихи</strong> шапат.
+        </div>
+        <div class="interactive-zone">
+            <h3>📺 Лабораторија таласа</h3>
+            <p>Управљај миксетом и посматрај како се звучни талас мења!</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                <div style="text-align: left;">
+                    <label style="font-weight:bold;">Фреквенција (висина): <span id="lblFreq">Средња</span></label><br>
+                    <input type="range" id="freqRange" min="1" max="5" value="2" step="0.5" oninput="drawWave()" style="width: 200px;">
+                    <br><br>
+                    <label style="font-weight:bold;">Амплитуда (јачина): <span id="lblAmp">Средња</span></label><br>
+                    <input type="range" id="ampRange" min="10" max="80" value="40" step="5" oninput="drawWave()" style="width: 200px;">
+                </div>
+                <div class="diagram-box" style="background: #1a202c; padding: 0; width: 300px; height: 160px; border-radius: 10px;">
+                    <svg width="300" height="160" viewBox="0 0 300 160">
+                        <line x1="0" y1="80" x2="300" y2="80" stroke="#4a5568" stroke-width="1"/>
+                        <line x1="150" y1="0" x2="150" y2="160" stroke="#4a5568" stroke-width="1"/>
+                        <path id="osciWave" d="" fill="none" stroke="#48bb78" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Шта мораш да урадиш на осцилоскопу да би тон био заиста НИЗАК (као брујање медведа)?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Смањити фреквенцију (мање и шири таласи).</button>
+            <button onclick="handleAnswer(this, false, 0)">Направити амплитуду огромном (високи брегови).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Брзина звука: Велика трка</h2>
+        <p>Звук је брз, али светлост је апсолутни шампион брзине! Светлост пројури скоро 8 пута око целе Земље у једној секунди. Звук у ваздуху постиже "само" 340 метара у секунди. Зато при невремену увек прво видимо муњу, а тек неколико секунди касније зачујемо гром у ушима!</p>
+        <div class="lexikon-box">
+            📖 <strong>Рачунање помоћу трика са грмљавином:</strong><br>
+            Пошто звуку за 1 километар треба око 3 секунде, можеш израчунати: Изброј секунде између муње и грома. Подели тај број са 3. Резултат је удаљеност невремена у километрима! (Ако избројиш 9 секунди: 9 ÷ 3 = удаљено 3 километра).
+        </div>
+        <div class="interactive-zone" id="thunderZone">
+            <h3>⚡ Симулатор невремена</h3>
+            <p>Подеси колико је невреме удаљено и кликни на "Муња!":</p>
+            <input type="range" id="distRange" min="1" max="5" value="2" style="width: 200px;">
+            <span id="distText" style="font-weight:bold;">2 km (6 секунди)</span><br>
+            <button onclick="triggerLightning()" id="btnLightning" style="background: #fbc02d; color: #2d3748;">⚡ Окини муњу!</button>
+            
+            <div class="diagram-box" id="skyBox" style="background: #2d3748; transition: background 0.1s; height: 150px; position: relative;">
+                <svg width="400" height="150" viewBox="0 0 400 150">
+                    <path d="M 50 80 Q 70 50 100 60 Q 130 30 160 60 Q 180 80 150 100 L 50 100 Z" fill="#4a5568" id="cloud"/>
+                    <path id="lightningBolt" d="M 100 100 L 80 130 L 100 130 L 70 180" stroke="#fbc02d" stroke-width="4" fill="none" style="display: none;"/>
+                    
+                    <circle cx="350" cy="120" r="15" fill="#e2e8f0"/> <line x1="350" y1="135" x2="350" y2="170" stroke="#e2e8f0" stroke-width="4"/> <line x1="350" y1="140" x2="330" y2="160" stroke="#e2e8f0" stroke-width="4"/> <circle id="thunderWave" cx="100" cy="100" r="10" stroke="white" stroke-width="3" fill="none" style="opacity: 0; transition: all linear;"/>
+                </svg>
+                <p id="thunderMsg" style="color: white; font-weight: bold; position: absolute; bottom: 10px; width: 100%; text-align: center;">Чекај муњу...</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Видиш муњу и избројиш тачно 6 секунди док не грмне. Колико је удаљено невреме?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">6 километара.</button>
+            <button onclick="handleAnswer(this, true, 10)">2 километра (6 подељено са 3).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Ехо: Звук се одбија!</h2>
+        <p>Сећаш ли се како се честице светлости одбијају од огледала као лоптице скочице? Звучни таласи то такође раде! Ако у планинама гласно викнеш, звучни таласи полете, ударе у тврду стену и врате се теби. То зовемо <strong>ехо</strong> (рефлексија звука).</p>
+        <div class="lexikon-box">
+            📖 <strong>Животиње са супермоћима: Сонар</strong><br>
+            Слепи мишеви лове у мраку. Они испуштају веома високе звукове (ултразвук, толико висок да га ми људи не чујемо). Звук се одбије од сићушног комарца и врати ехо. Уво слепог миша израчуна муњевито: Аха, ехо долази са десне стране и брзо је стигао – комарац је близу! То се зове <strong>ехолокација</strong> (или сонар код подморница).</p>
+        </div>
+        <div class="interactive-zone">
+            <h3>🦇 Лов слепог миша</h3>
+            <p>Помози слепом мишу да лоцира лептира у мраку!</p>
+            <button onclick="sendEcho()" id="btnEcho">Пошаљи ултразвук 🔊</button>
+            <div class="diagram-box" style="background: #1a202c;">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <text x="30" y="120" font-size="50">🦇</text>
+                    <text x="320" y="120" font-size="40">🦋</text>
+                    
+                    <circle id="batSignalOut" cx="70" cy="100" r="10" fill="none" stroke="#2196F3" stroke-width="3" style="opacity:0;"/>
+                    <circle id="butterflyEchoIn" cx="340" cy="100" r="10" fill="none" stroke="#4CAF50" stroke-width="3" style="opacity:0;"/>
+                </svg>
+                <p id="echoText" style="color: #63b3ed; font-weight: bold;">Мркли је мрак...</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>Како слепи миш проналази свој плен ноћу?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Испушта ултразвук и слуша ехо који се одбија од инсекта.</button>
+            <button onclick="handleAnswer(this, false, 0)">Има огромне очи које светле у мраку као батеријске лампе.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>6. Резонанца: Када звуци уништавају ствари!</h2>
+        <p>Да ли си икада видео како оперска певачица само својим гласом разбија чашу? То није трик! Све на свету има своју "омиљену осцилацију" (сопствену фреквенцију). Ако неки звук погоди баш ту фреквенцију, предмет изненада почиње дивље да вибрира. Ово заједничко вибрирање зове се <strong>резонанца</strong>.</p>
+        <div class="lexikon-box">
+            📖 <strong>Кутија гитаре (резонатор)</strong><br>
+            Жица гитаре сама по себи звучи веома тихо. Али она је натегнута преко велике дрвене кутије (гитаре). Жица приморава дрво и ваздух у кутији да вибрирају у истом ритму. Овај <strong>резонатор</strong> чини звук гласним и снажним!
+        </div>
+        <div class="interactive-zone">
+            <h3>🍷 Певајућа чаша</h3>
+            <p>Пронађи регулатором тачну <strong>сопствену фреквенцију</strong> чаше (код 4.0). Када засветли зелено, имаш резонанцу!</p>
+            <input type="range" id="resRange" min="1" max="7" value="1" step="0.1" oninput="checkResonance()" style="width: 250px;">
+            <p>Послата фреквенција: <span id="resValue">1.0</span> Hz</p>
+            <div class="diagram-box">
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <path d="M 50 140 Q 100 130 150 140 L 150 160 L 50 160 Z" fill="#a0aec0"/> <circle cx="100" cy="100" r="30" fill="#4a5568"/>
+                    <circle cx="100" cy="100" r="15" fill="#2d3748"/>
+                    
+                    <g id="glass" style="transform-origin: 300px 100px;">
+                        <path d="M 280 60 Q 280 120 300 130 Q 320 120 320 60 L 280 60" fill="rgba(156, 39, 176, 0.2)" stroke="#9C27B0" stroke-width="3"/>
+                        <line x1="300" y1="130" x2="300" y2="170" stroke="#9C27B0" stroke-width="3"/>
+                        <line x1="280" y1="170" x2="320" y2="170" stroke="#9C27B0" stroke-width="3"/>
+                    </g>
+                    <path id="crack" d="M 290 60 L 295 80 L 285 100 L 295 110" fill="none" stroke="white" stroke-width="2" style="display:none;"/>
+                </svg>
+                <p id="resText" style="font-weight:bold; color: #718096;">Чаша мирује.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q6">
+            <p><strong>Зашто је важна велика дрвена кутија на гитари?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Она је резонатор и појачава тихи звук жица.</button>
+            <button onclick="handleAnswer(this, false, 0)">Служи само томе да се гитара лакше држи.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #2196F3; background: #e3f2fd;">
+        <h2 style="text-align: center; color: #2d3748;">🎓 Велика акустична диплома</h2>
+        <p style="text-align: center;">Следи тачно 15 шкакљивих питања. Покажи да си прави професор звука!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Шта је предуслов да настане звук?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Пуно топлоте у ваздуху.</button>
+            <button onclick="handleAnswer(this, true, 5)">Осцилација (предмет се брзо креће тамо-амо).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. Како се зове предмет који ствара осцилацију (нпр. звучна виљушка)?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Извор звука.</button>
+            <button onclick="handleAnswer(this, false, 0)">Пријемник звука.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. Зашто у свемиру, који је вакуум, не чујемо експлозије?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Јер планете гутају звук.</button>
+            <button onclick="handleAnswer(this, true, 5)">Јер нема честица ваздуха (нема медијума) које би пренеле звук.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Како се зове уређај којим научници чине звучне таласе видљивим као изломљене линије на екрану?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Осцилоскоп.</button>
+            <button onclick="handleAnswer(this, false, 0)">Микроскоп.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Шта описује "фреквенција" звучног таласа?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Број осцилација у секунди (одређује висину тона).</button>
+            <button onclick="handleAnswer(this, false, 0)">Колико је широк звучни талас.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. У којој јединици се мери фреквенција?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">У метрима по секунди.</button>
+            <button onclick="handleAnswer(this, true, 5)">У Херцима (Hz).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. Имаш звучни талас са веома високом амплитудом (огромни брегови таласа). Како то звучи?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Веома гласно!</button>
+            <button onclick="handleAnswer(this, false, 0)">Веома тихо шапутање.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. Птица пишти веома високим гласом. Шта то значи за звучни талас?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Има ниску фреквенцију.</button>
+            <button onclick="handleAnswer(this, true, 5)">Има веома високу фреквенцију.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. Шта је брже: светлост или звук?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Светлост је много бржа (зато прво долази муња, па гром).</button>
+            <button onclick="handleAnswer(this, false, 0)">Звук је много бржи.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. Викнеш у правцу велике стене "Здраво!" и убрзо затим чујеш "Здраво!" назад. Како се зове ово одбијање?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Ехо (рефлексија звука).</button>
+            <button onclick="handleAnswer(this, false, 0)">Преламање.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f11">
+            <p><strong>11. Која животиња користи екстремно високе ултразвучне ехое да би ноћу хватала комарце?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Сова.</button>
+            <button onclick="handleAnswer(this, true, 5)">Слепи миш.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f12">
+            <p><strong>12. Како се зове техника којом животиње (или подморнице) емитују звук и слушају ехо да би пронашле препреке?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Сонар / Ехолокација.</button>
+            <button onclick="handleAnswer(this, false, 0)">Радарски скенер.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f13">
+            <p><strong>13. Када звук погоди тачно "омиљену осцилацију" (сопствену фреквенцију) чаше, чаша почиње снажно да дрхти. Како се зове овај ефекат?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Резонанца.</button>
+            <button onclick="handleAnswer(this, false, 0)">Кочница звука.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f14">
+            <p><strong>14. Како се зове шупља дрвена кутија гитаре која обезбеђује да тихе жице звуче заиста гласно и пуно?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Дрвено појачало.</button>
+            <button onclick="handleAnswer(this, true, 5)">Резонатор.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f15">
+            <p><strong>15. Шта вибрира у нашем гркљану када ми људи певамо или говоримо?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">Наше гласне жице.</button>
+            <button onclick="handleAnswer(this, false, 0)">Наша ресица у грлу.</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Фантастично! Скролуј скроз до горе и провери свој коначни број поена!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Stimmgabel
+        function strikeFork() {
+            const fork = document.getElementById('tuningFork');
+            const waves = document.getElementById('soundWavesGrp');
+            const txt = document.getElementById('forkText');
+            
+            fork.classList.add('anim-vibrate');
+            waves.style.display = 'block';
+            txt.innerText = "БИНГ! Виљушка вибрира и ствара звучне таласе!";
+            txt.style.color = "#FF9800";
+
+            setTimeout(() => {
+                fork.classList.remove('anim-vibrate');
+                waves.style.display = 'none';
+                txt.innerText = "Звучна виљушка мирује.";
+                txt.style.color = "#718096";
+            }, 3000);
+        }
+
+        // 2. Vakuum
+        let isVacuum = false;
+        const airParticles = document.getElementById('airParticles');
+        for(let i=0; i<40; i++) {
+            let cx = 130 + Math.random()*140;
+            let cy = 50 + Math.random()*140;
+            airParticles.innerHTML += `<circle cx="${cx}" cy="${cy}" r="2" fill="#90caf9" class="particle"/>`;
+        }
+
+        function toggleVacuum() {
+            isVacuum = !isVacuum;
+            const btn = document.getElementById('vacBtn');
+            const waves = document.getElementById('bellWaves');
+            const txt = document.getElementById('vacText');
+            const particles = document.querySelectorAll('.particle');
+
+            if(isVacuum) {
+                btn.innerText = "Врати ваздух 💨";
+                waves.style.display = 'none'; // Ton weg
+                particles.forEach(p => p.style.opacity = '0'); // Teilchen weg
+                txt.innerText = "Вакуум! Нема честица ваздуха које преносе звук. Тишина је!";
+                txt.style.color = "#E91E63";
+            } else {
+                btn.innerText = "Исисај ваздух 🌬️";
+                waves.style.display = 'block'; // Ton wieder da
+                particles.forEach(p => p.style.opacity = '1');
+                txt.innerText = "Ваздух је унутра: будилни се јако чује!";
+                txt.style.color = "#2196F3";
+            }
+        }
+
+        // 3. Oszilloskop
+        function drawWave() {
+            let freq = parseFloat(document.getElementById('freqRange').value);
+            let amp = parseFloat(document.getElementById('ampRange').value);
+            
+            let freqLbl = freq < 2 ? "Низак" : (freq > 3 ? "Висок" : "Средњи");
+            let ampLbl = amp < 30 ? "Тихи" : (amp > 50 ? "Гласан" : "Средњи");
+            
+            document.getElementById('lblFreq').innerText = freqLbl;
+            document.getElementById('lblAmp').innerText = ampLbl;
+
+            let path = `M 0 80 `;
+            for(let x=0; x<=300; x+=2) {
+                // Sinusfunktion: y = 80 - sin(x * frequenz_faktor) * amplitude
+                let y = 80 - Math.sin(x * 0.05 * freq) * amp;
+                path += `L ${x} ${y} `;
+            }
+            document.getElementById('osciWave').setAttribute('d', path);
+        }
+        drawWave(); // Init
+
+        // 4. Gewitter (Schallgeschwindigkeit)
+        document.getElementById('distRange').addEventListener('input', function(e) {
+            let dist = e.target.value;
+            let secs = dist * 3;
+            document.getElementById('distText').innerText = `${dist} km (${secs} секунди)`;
+        });
+
+        function triggerLightning() {
+            let btn = document.getElementById('btnLightning');
+            let dist = document.getElementById('distRange').value;
+            let secs = dist * 3;
+            let sky = document.getElementById('skyBox');
+            let bolt = document.getElementById('lightningBolt');
+            let msg = document.getElementById('thunderMsg');
+            let wave = document.getElementById('thunderWave');
+
+            btn.disabled = true;
+            
+            // Blitz (Licht) - sofort!
+            bolt.style.display = 'block';
+            sky.style.background = '#fef08a';
+            msg.innerText = "МУЊА! (Светлост је муњевито код тебе)";
+            
+            setTimeout(() => {
+                bolt.style.display = 'none';
+                sky.style.background = '#2d3748';
+                msg.innerText = `Звучни талас путује... броји до ${secs}!`;
+                
+                // Schallwelle animieren
+                wave.style.opacity = '1';
+                wave.style.transition = `r ${secs}s linear`;
+                wave.setAttribute('r', '250');
+
+                setTimeout(() => {
+                    // Donner kommt an
+                    document.getElementById('thunderZone').classList.add('thunder-shake');
+                    msg.innerText = "БУМ! Гром је стигао!";
+                    
+                    setTimeout(() => {
+                        document.getElementById('thunderZone').classList.remove('thunder-shake');
+                        wave.style.transition = 'none';
+                        wave.style.opacity = '0';
+                        wave.setAttribute('r', '10');
+                        msg.innerText = "Чекај муњу...";
+                        btn.disabled = false;
+                    }, 1000);
+                }, secs * 1000); // 1 Sekunde im Leben = 1 Sekunde im Code zur Veranschaulichung
+                
+            }, 200); // Blitzdauer
+        }
+
+        // 5. Echo (Komplett überarbeitet für realistischere Reflexion)
+        function sendEcho() {
+            let btn = document.getElementById('btnEcho');
+            let waveOut = document.getElementById('batSignalOut');
+            let waveIn = document.getElementById('butterflyEchoIn');
+            let txt = document.getElementById('echoText');
+            
+            btn.disabled = true;
+            txt.innerText = "Шаљем ултразвук... ПИНГ!";
+            
+            // Animationen sicherheitshalber zurücksetzen
+            waveOut.style.animation = "none";
+            waveIn.style.animation = "none";
+            void waveOut.offsetWidth; // Zwingt den Browser, das Zurücksetzen sofort umzusetzen
+            
+            // Welle 1: Von der Fledermaus zum Falter
+            waveOut.style.animation = "ping-out 1s linear forwards";
+            
+            // Nach 1 Sekunde trifft die Welle den Falter
+            setTimeout(() => {
+                txt.innerText = "Погодак! Звук се одбија...";
+                
+                // Welle 2: Vom Falter zurück zur Fledermaus
+                waveIn.style.animation = "ping-in 1s linear forwards";
+                
+                // Nach einer weiteren Sekunde ist das Echo wieder bei der Fledermaus
+                setTimeout(() => {
+                    txt.innerText = "Аха! Ехо се вратио. Укусан лептир!";
+                    txt.style.color = "#4CAF50";
+                    
+                    setTimeout(() => {
+                        waveOut.style.animation = "none";
+                        waveIn.style.animation = "none";
+                        txt.innerText = "Мркли је мрак...";
+                        txt.style.color = "#63b3ed";
+                        btn.disabled = false;
+                    }, 2500); // Kurz warten, bevor man wieder klicken kann
+                }, 1000);
+            }, 1000);
+        }
+
+        // 6. Resonanz
+        function checkResonance() {
+            let val = parseFloat(document.getElementById('resRange').value);
+            document.getElementById('resValue').innerText = val.toFixed(1);
+            let glass = document.getElementById('glass');
+            let txt = document.getElementById('resText');
+            let crack = document.getElementById('crack');
+
+            if (val >= 3.8 && val <= 4.2) {
+                glass.classList.add('anim-vibrate');
+                glass.style.stroke = "#4CAF50";
+                glass.style.fill = "rgba(76, 175, 80, 0.2)";
+                
+                if(val === 4.0) {
+                    txt.innerText = "БАМ! Пуна резонанца! Чаша се разбија!";
+                    txt.style.color = "#E91E63";
+                    crack.style.display = "block";
+                } else {
+                    txt.innerText = "Опасно близу сопствене фреквенције! Снажно вибрира.";
+                    txt.style.color = "#FF9800";
+                    crack.style.display = "none";
+                }
+            } else {
+                glass.classList.remove('anim-vibrate');
+                glass.style.stroke = "#9C27B0";
+                glass.style.fill = "rgba(156, 39, 176, 0.2)";
+                crack.style.display = "none";
+                txt.innerText = "Чаша мирује. Нема резонанце.";
+                txt.style.color = "#718096";
+            }
+        }
+
+        // Quiz-Logik
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Тачно, али поене си добио само први пут!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ То је нажалост нетачно.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Тачно! +" + pts + " поена!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Нетачно! Прочитај текст поново и покушај даље.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>

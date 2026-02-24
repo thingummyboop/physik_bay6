@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Велика пригода тепла 🌡️</title>
+    <style>
+        :root {
+            --primary: #FF5722; 
+            --secondary: #FFC107;
+            --bg: #fff5e6; 
+            --text: #3e2723;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #3e2723; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #ffe0b2;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #fff8e1; border: 2px solid #ffca28;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #ffebee; border: 2px solid #ffcdd2;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #fbe9e7; border-left: 10px solid #ff8a65; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #5d4037; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--primary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        /* Animationen für Wärme */
+        @keyframes fireFlicker {
+            0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+            50% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+            100% { transform: scale(0.95) rotate(-2deg); opacity: 0.8; }
+        }
+        .anim-fire { animation: fireFlicker 0.4s infinite alternate; transform-origin: bottom center; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-80px); }
+        }
+        .anim-float { transition: transform 2s ease-in-out; }
+
+        @keyframes radiate {
+            0% { r: 10px; opacity: 1; stroke-width: 4px; }
+            100% { r: 100px; opacity: 0; stroke-width: 1px; }
+        }
+        .anim-radiate { animation: radiate 1.5s infinite linear; transform-origin: center; fill: none; stroke: #FF9800; }
+
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        🏆 Бали за тепло: <span id="score" style="color: #ffca28;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #3e2723;">🔥 Пригода тепла 🌡️</h1>
+    <p style="text-align: center; font-size: 1.2em;">Привіт, приборкувачу вогню! Готуйся, ми досліджуємо спекотний (і холодний) світ температури!</p>
+
+    <div class="card">
+        <h2>1. Що таке тепло? Велике тремтіння!</h2>
+        <p>Неважливо, чи це вода, дерево, чи повітря – все навколо нас складається з крихітних цеглинок, <strong>частинок</strong>. І ці частинки ніколи не стоять на місці! Вони хитаються і тремтять увесь час. <strong>Тепло насправді є нічим іншим, як рухом!</strong> Чим гарячіше щось є, тим дикіше і швидше частинки гасають навколо. Коли стає холодно, вони рухаються дуже повільно.</p>
+        <div class="lexikon-box">
+            📖 <strong>Розумний словник: Абсолютний нуль</strong><br>
+            Чи є точка, в якій частинки повністю замерзають і зовсім перестають рухатися? Так! Це називається "абсолютним нулем". Він знаходиться при морозних <strong>-273,15 градусах Цельсія</strong>. Холодніше в усьому всесвіті не буває!
+        </div>
+        <div class="interactive-zone">
+            <h3>🔬 Мікроскоп для частинок</h3>
+            <p>Збільш температуру і спостерігай, як частинки божеволіють!</p>
+            <input type="range" id="tempRange" min="0" max="100" value="10" style="width: 250px;">
+            <p>Температура: <span id="tempValue" style="font-weight: bold; color: #1976D2;">10°C (Холодно)</span></p>
+            <div class="diagram-box" style="background: #e3f2fd;" id="particleBox">
+                <svg width="300" height="200" id="particleSvg">
+                    </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Що стається з найменшими частинками предмета, якщо його сильно нагріти?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Вони рухаються набагато швидше і дикіше.</button>
+            <button onclick="handleAnswer(this, false, 0)">Вони втомлюються і зупиняються.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Теплопровідність: швидка естафета ложок</h2>
+        <p>Коли ти мішаєш гаряче какао, ложка врешті-решт стає теплою на ручці. Чому? Швидкі, гарячі частинки в какао штовхають частинки внизу ложки. Ці штовхають своїх сусідів, і так "енергія тремтіння" мандрує вгору по ложці. Це називається <strong>теплопровідністю</strong>.</p>
+        <div class="lexikon-box">
+            📖 <strong>Розумний словник: Провідники та ізолятори</strong><br>
+            - <strong>Добрі провідники тепла:</strong> Метали (як мідь або залізо) передають тепло надзвичайно швидко. Тому каструлі зроблені з металу!<br>
+            - <strong>Погані провідники тепла (ізолятори):</strong> Дерево, пластик або повітря майже не пропускають тепло. Тому зимова куртка має багато товстих повітряних подушок – щоб твоє тілесне тепло не втекло!
+        </div>
+        <div class="interactive-zone">
+            <h3>☕ Експеримент з гарячим супом</h3>
+            <p>Ми занурюємо металеву ложку та дерев'яну ложку в гарячий суп. Натисни "Нагріти"!</p>
+            <button onclick="heatSoup()" id="soupBtn">Нагріти суп 🔥</button>
+            <div class="diagram-box">
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <path d="M 80 100 L 80 180 Q 150 200 220 180 L 220 100 Z" fill="#bbdefb" stroke="#64b5f6" stroke-width="4"/>
+                    <path id="soupLiquid" d="M 82 110 Q 150 120 218 110 L 218 175 Q 150 190 82 175 Z" fill="#ffb74d"/>
+                    
+                    <rect x="110" y="30" width="15" height="130" fill="#8d6e63" rx="5"/>
+                    <ellipse cx="117.5" cy="150" rx="15" ry="25" fill="#8d6e63"/>
+                    
+                    <rect id="metalSpoon" x="170" y="30" width="15" height="130" fill="#cfd8dc" rx="5" style="transition: fill 2s ease-in;"/>
+                    <ellipse id="metalSpoonBowl" cx="177.5" cy="150" rx="15" ry="25" fill="#cfd8dc" style="transition: fill 0.5s ease-in;"/>
+                    
+                    <text x="100" y="20" font-size="14" fill="#5d4037">Дерево</text>
+                    <text x="155" y="20" font-size="14" fill="#37474f">Метал</text>
+                </svg>
+                <p id="soupText" style="font-weight:bold; color: #718096;">Все ще холодне.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Чому часто використовують дерев'яні ложки для готування замість металевих?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Бо дерево краще проводить тепло в суп.</button>
+            <button onclick="handleAnswer(this, true, 10)">Бо дерево є ізолятором і ручка не нагрівається, тому ти не обпечеш пальці.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Теплове випромінювання: спека без дотику</h2>
+        <p>Пам'ятаєш про вакуум у космосі (без частинок повітря)? Як тоді тепло Сонця доходить до нас на Землю, якщо там зовсім нічого немає, що могло б "проводити" тепло? Відповідь: <strong>теплове випромінювання</strong> (інфрачервоне світло)! Воно подорожує як світло дуже швидко крізь порожній космос і зігріває нас, щойно торкається нашої шкіри.</p>
+        <div class="lexikon-box">
+            📖 <strong>Кольори мають значення: чорний проти білого</strong><br>
+            Темні речі (як чорна футболка) "ковтають" теплове випромінювання (абсорбція) і швидко стають дуже гарячими. Світлі речі (як білий сніг) відштовхують промені назад, як дзеркало (рефлексія), і залишаються прохолоднішими.
+        </div>
+        <div class="interactive-zone">
+            <h3>☀️ Тест на парковці</h3>
+            <p>Сонце світить! Яка машина влітку швидше нагріється всередині?</p>
+            <button onclick="sunShine()" id="sunBtn">Увімкнути сонце ☀️</button>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                <div class="diagram-box" style="margin: 0;">
+                    <svg width="100" height="100">
+                        <rect x="10" y="30" width="80" height="40" fill="#212121" rx="5"/>
+                        <circle cx="25" cy="70" r="10" fill="#757575"/>
+                        <circle cx="75" cy="70" r="10" fill="#757575"/>
+                        <path id="sunRayBlack" d="M 50 0 L 50 30" stroke="#FF9800" stroke-width="4" stroke-dasharray="5,5" style="display:none;"/>
+                    </svg>
+                    <p>Чорна: <span id="tempBlack" style="font-weight:bold; color: #E53935;">20°C</span></p>
+                </div>
+                <div class="diagram-box" style="margin: 0; background: #cfd8dc;">
+                    <svg width="100" height="100">
+                        <rect x="10" y="30" width="80" height="40" fill="#ffffff" rx="5" stroke="#9e9e9e"/>
+                        <circle cx="25" cy="70" r="10" fill="#757575"/>
+                        <circle cx="75" cy="70" r="10" fill="#757575"/>
+                        <path id="sunRayWhite" d="M 50 0 L 50 30" stroke="#FF9800" stroke-width="4" stroke-dasharray="5,5" style="display:none;"/>
+                        <path id="bounceRay" d="M 50 30 L 80 0" stroke="#FF9800" stroke-width="2" stroke-dasharray="3,3" style="display:none;"/>
+                    </svg>
+                    <p>Біла: <span id="tempWhite" style="font-weight:bold; color: #1E88E5;">20°C</span></p>
+                </div>
+            </div>
+            <p id="sunText" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Чому будинки в дуже жарких південних країнах часто мають білі стіни?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Бо білий колір відбиває теплове випромінювання сонця.</button>
+            <button onclick="handleAnswer(this, false, 0)">Бо білий колір легше мити.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Конвекція: чому тепле повітря може літати</h2>
+        <p>Теплі частинки рухаються швидше і потребують більше місця. Через це гаряче повітря розширюється і стає "легшим" за холодне повітря навколо нього. Що стається? <strong>Тепле повітря піднімається вгору!</strong> Це називається тепловим потоком (або конвекцією). Холодне повітря натомість опускається вниз.</p>
+        <div class="lexikon-box">
+            📖 <strong>Секрет повітряної кулі</strong><br>
+            Повітряна куля не має двигуна! Пілот лише вмикає величезний газовий пальник. Повітря у величезній оболонці стає гарячим, розширюється і тягне кошик у небо, як за помахом чарівної палички. Якщо дати повітрю охолонути, куля знову опускається.
+        </div>
+        <div class="interactive-zone" id="balloonZone">
+            <h3>🎈 Політ на кулі</h3>
+            <p>Тримай кнопку натиснутою (або натискай кілька разів), щоб розпалити пальник!</p>
+            <button onmousedown="startBurner()" onmouseup="stopBurner()" onmouseleave="stopBurner()" ontouchstart="startBurner()" ontouchend="stopBurner()">🔥 Розпалити пальник!</button>
+            
+            <div class="diagram-box" style="height: 250px; background: #81D4FA; position: relative; overflow: hidden;">
+                <svg width="200" height="250" viewBox="0 0 200 250">
+                    <path d="M 20 50 Q 40 30 60 50 Q 80 40 100 60 L 20 60 Z" fill="white" opacity="0.8"/>
+                    <path d="M 120 80 Q 140 60 160 80 Q 180 70 200 90 L 120 90 Z" fill="white" opacity="0.8"/>
+                    
+                    <g id="hotAirBalloon" style="transform: translateY(120px); transition: transform 0.5s ease-out;">
+                        <path d="M 100 30 C 140 30, 140 80, 100 120 C 60 80, 60 30, 100 30 Z" fill="#E53935"/>
+                        <path d="M 90 32 C 110 32, 110 80, 100 120 C 80 80, 80 32, 90 32 Z" fill="#FFC107"/>
+                        <rect x="90" y="130" width="20" height="15" fill="#8D6E63"/>
+                        <line x1="95" y1="120" x2="92" y2="130" stroke="#3E2723"/>
+                        <line x1="105" y1="120" x2="108" y2="130" stroke="#3E2723"/>
+                        <path id="burnerFlame" d="M 100 115 Q 105 125 100 125 Q 95 125 100 115" fill="#FF9800" style="display: none;" class="anim-fire"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Над запаленою свічкою ти відчуваєш жар набагато сильніше, ніж збоку від неї. Чому?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Бо полум'я росте вгору.</button>
+            <button onclick="handleAnswer(this, true, 10)">Бо нагріте повітря стає легшим і піднімається вгору (конвекція).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Агрегатні стани: лід, вода, пара!</h2>
+        <p>Тепло може повністю перетворювати речі! Майже кожна речовина має три форми (агрегатні стани): <strong>твердий, рідкий та газоподібний</strong>. Це знову ж таки через наші частинки! Коли вони дуже холодні, вони тісно туляться одна до одної та нерухомі (лід). Коли стає тепліше, вони звільняються і течуть (вода). Коли стає справді гаряче, вони дико розлітаються в повітря (водяна пара).</p>
+        <div class="lexikon-box">
+            📖 <strong>Чарівні слова фізики:</strong><br>
+            - Твердий у рідкий = <strong>Танення</strong> (сніговик на сонці)<br>
+            - Рідкий у газоподібний = <strong>Випаровування</strong> (кипляча вода для макаронів)<br>
+            - Газоподібний у рідкий = <strong>Конденсація</strong> (дзеркало запотіває під час душу)
+        </div>
+        <div class="interactive-zone">
+            <h3>💧 Водяна машина</h3>
+            <p>Змінюй температуру води:</p>
+            <button onclick="setPhase('ice')">🧊 -10°C (Замерзання)</button>
+            <button onclick="setPhase('water')">🚰 20°C (Танення)</button>
+            <button onclick="setPhase('steam')">☁️ 100°C (Випаровування)</button>
+            
+            <div class="diagram-box" style="height: 180px;">
+                <svg width="200" height="150" viewBox="0 0 200 150">
+                    <g id="phaseIce">
+                        <rect x="70" y="60" width="60" height="60" fill="#E3F2FD" stroke="#2196F3" stroke-width="3" rx="5"/>
+                        <path d="M 70 60 L 90 40 L 150 40 L 130 60" fill="#BBDEFB" stroke="#2196F3" stroke-width="2"/>
+                        <path d="M 130 60 L 150 40 L 150 100 L 130 120" fill="#90CAF9" stroke="#2196F3" stroke-width="2"/>
+                    </g>
+                    <g id="phaseWater" style="display: none;">
+                        <ellipse cx="100" cy="110" rx="60" ry="15" fill="#42A5F5" opacity="0.8"/>
+                        <path d="M 80 110 Q 100 100 120 110" fill="none" stroke="#E3F2FD" stroke-width="2"/>
+                    </g>
+                    <g id="phaseSteam" style="display: none;">
+                        <ellipse cx="100" cy="110" rx="40" ry="10" fill="#90CAF9" opacity="0.4"/>
+                        <path d="M 80 100 Q 90 60 70 30" fill="none" stroke="#B0BEC5" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,10" class="anim-float"/>
+                        <path d="M 120 100 Q 110 50 130 20" fill="none" stroke="#B0BEC5" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,10" class="anim-float"/>
+                        <path d="M 100 90 Q 105 50 95 10" fill="none" stroke="#CFD8DC" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,10" class="anim-float"/>
+                    </g>
+                </svg>
+                <p id="phaseText" style="font-weight: bold; color: #1976D2;">Твердий (лід): Частинки лише тремтять на своєму місці.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>Як називається процес, коли рідка вода стає невидимою водяною парою?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Випаровування.</button>
+            <button onclick="handleAnswer(this, false, 0)">Конденсація.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>6. Теплове розширення: все стає ширшим!</h2>
+        <p>Оскільки частинки при нагріванні швидше тремтять, їм потрібно більше місця для "танцю". Наслідок: <strong>Предмети розширюються, коли стають гарячими!</strong> Це стається з твердими речами, з рідинами та з газами. Коли стає холодно, вони знову стискаються.</p>
+        <div class="lexikon-box">
+            📖 <strong>Секрет термометра</strong><br>
+            Саме цей трюк використовують старі термометри. Знизу знаходиться червона рідина (часто спирт). Якщо надворі стає тепло, червона рідина розширюється і піднімається у тонкій скляній трубці вгору. Ми зчитуємо температуру!
+        </div>
+        <div class="interactive-zone">
+            <h3>🌡️ Лабораторія термометрів</h3>
+            <p>Нагрій термометр регулятором і подивись, що станеться!</p>
+            <input type="range" id="thermoRange" min="0" max="100" value="20" oninput="updateThermometer()" style="width: 250px;">
+            
+            <div class="diagram-box" style="display: flex; justify-content: center; background: #fafafa;">
+                <svg width="100" height="250" viewBox="0 0 100 250">
+                    <line x1="30" y1="20" x2="40" y2="20" stroke="black"/> <text x="10" y="25" font-size="12">100</text>
+                    <line x1="30" y1="120" x2="40" y2="120" stroke="black"/> <text x="15" y="125" font-size="12">0</text>
+                    
+                    <rect x="40" y="10" width="20" height="190" fill="none" stroke="#9E9E9E" stroke-width="4" rx="10"/>
+                    <circle cx="50" cy="200" r="25" fill="none" stroke="#9E9E9E" stroke-width="4"/>
+                    
+                    <circle cx="50" cy="200" r="21" fill="#F44336"/>
+                    <rect id="thermoLiquid" x="44" y="100" width="12" height="100" fill="#F44336" style="transition: all 0.2s;"/>
+                </svg>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q6">
+            <p><strong>Чому мости з бетону та сталі повинні мати невеликі щілини (шви)?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Щоб міст мав місце розширюватися у спекотне літо, не ламаючись.</button>
+            <button onclick="handleAnswer(this, false, 0)">Щоб дощова вода краще стікала.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #FF5722; background: #fbe9e7;">
+        <h2 style="text-align: center; color: #3e2723;">🎓 Палаючий диплом з термодинаміки</h2>
+        <p style="text-align: center;">Ось рівно 15 складних питань. Покажи, що ти справжній професор термодинаміки!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Що таке "тепло" в основі своїй на мікроскопічному рівні?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Невидимі гарячі промені в повітрі.</button>
+            <button onclick="handleAnswer(this, true, 5)">Постійний рух і тремтіння найменших частинок.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. Що стається з частинками речовини, якщо її сильно охолодити?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Вони рухаються все повільніше.</button>
+            <button onclick="handleAnswer(this, false, 0)">Вони стають більшими і лопаються.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. При якій температурі знаходиться "абсолютний нуль", при якому частинки більше не рухаються?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">При 0 градусах Цельсія.</button>
+            <button onclick="handleAnswer(this, true, 5)">При -273,15 градусах Цельсія.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Коли жар мандрує крізь тверде тіло (як металевий стрижень), це називається...?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Теплопровідність.</button>
+            <button onclick="handleAnswer(this, false, 0)">Теплове випромінювання.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Який матеріал є особливо ДОБРИМ провідником тепла?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Залізо / метал.</button>
+            <button onclick="handleAnswer(this, false, 0)">Дерево.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. Як називають матеріали, які ДУЖЕ ПОГАНО проводять тепло (наприклад, пінопласт, повітря)?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Генератори.</button>
+            <button onclick="handleAnswer(this, true, 5)">Ізолятори.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. Як тепло Сонця доходить до нас на Землю крізь вакуум космосу?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Через теплове випромінювання.</button>
+            <button onclick="handleAnswer(this, false, 0)">Через теплопровідність уздовж метеоритів.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. Який колір на сонці швидше нагрівається, бо він поглинає світло?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Білий.</button>
+            <button onclick="handleAnswer(this, true, 5)">Чорний.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. Що стається з теплим повітрям у кімнаті чи повітряній кулі?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Воно легше і піднімається вгору (конвекція).</button>
+            <button onclick="handleAnswer(this, false, 0)">Воно стає важким як свинець і падає на підлогу.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. Сніговик тане. Яка зміна агрегатного стану відбувається?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">З твердого у рідкий.</button>
+            <button onclick="handleAnswer(this, false, 0)">З рідкого у газоподібний.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f11">
+            <p><strong>11. Як називається процес, коли водяна пара охолоджується і стає крапельками води на дзеркалі?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Замерзання.</button>
+            <button onclick="handleAnswer(this, true, 5)">Конденсація.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f12">
+            <p><strong>12. Що робить більшість твердих речовин, якщо їх сильно нагріти?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Вони розширюються (потребують більше місця).</button>
+            <button onclick="handleAnswer(this, false, 0)">Вони стискаються.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f13">
+            <p><strong>13. Чому червона рідина в термометрі піднімається, коли стає тепліше?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Бо рідина розширюється від тепла і витискається вгору по трубці.</button>
+            <button onclick="handleAnswer(this, false, 0)">Бо маленькі насоси на кінчику її всмоктують.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f14">
+            <p><strong>14. Як товста зимова куртка захищає від холоду?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Вона сама виробляє гаряче теплове випромінювання.</button>
+            <button onclick="handleAnswer(this, true, 5)">Вона утримує повітряні подушки, а нерухоме повітря – чудовий теплоізолятор.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f15">
+            <p><strong>15. Коли ти взимку грієш холодні руки об теплу чашку чаю – який принцип ти в основному використовуєш?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">Теплопровідність (жар мандрує від чашки до твоєї шкіри).</button>
+            <button onclick="handleAnswer(this, false, 0)">Тепловий потік (конвекція).</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Ох, як тут гаряче! Прокрути в самий вгору і перевір свій кінцевий рахунок!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Particle Model
+        const particleSvg = document.getElementById('particleSvg');
+        let particlesData = [];
+        for(let i=0; i<60; i++) {
+            let p = {
+                x: 20 + Math.random() * 260,
+                y: 20 + Math.random() * 160,
+                el: document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+            };
+            p.el.setAttribute('cx', p.x);
+            p.el.setAttribute('cy', p.y);
+            p.el.setAttribute('r', '5');
+            p.el.setAttribute('fill', '#1976D2');
+            particleSvg.appendChild(p.el);
+            particlesData.push(p);
+        }
+
+        let animationId;
+        function animateParticles() {
+            let temp = parseFloat(document.getElementById('tempRange').value);
+            let speed = temp * 0.1; 
+            let color = temp < 40 ? '#1976D2' : (temp < 70 ? '#FF9800' : '#E53935');
+            
+            let bgBox = document.getElementById('particleBox');
+            bgBox.style.background = temp < 40 ? '#e3f2fd' : (temp < 70 ? '#fff3e0' : '#ffebee');
+            
+            let tempLabel = temp < 40 ? "Холодно" : (temp < 70 ? "Тепло" : "Гаряче!");
+            let txt = document.getElementById('tempValue');
+            txt.innerText = `${temp}°C (${tempLabel})`;
+            txt.style.color = color;
+
+            particlesData.forEach(p => {
+                let jitterX = (Math.random() - 0.5) * speed;
+                let jitterY = (Math.random() - 0.5) * speed;
+                
+                let newX = p.x + jitterX;
+                let newY = p.y + jitterY;
+                if(newX > 10 && newX < 290) p.x = newX;
+                if(newY > 10 && newY < 190) p.y = newY;
+
+                p.el.setAttribute('cx', p.x);
+                p.el.setAttribute('cy', p.y);
+                p.el.setAttribute('fill', color);
+            });
+
+            animationId = requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // 2. Thermal Conduction
+        function heatSoup() {
+            let btn = document.getElementById('soupBtn');
+            let mSpoon = document.getElementById('metalSpoon');
+            let mSpoonBowl = document.getElementById('metalSpoonBowl');
+            let soup = document.getElementById('soupLiquid');
+            let txt = document.getElementById('soupText');
+
+            btn.disabled = true;
+            soup.setAttribute('fill', '#FF5722'); 
+            txt.innerText = "Суп кипить! Тепло мандрує вгору по металевій ложці...";
+            txt.style.color = "#FF5722";
+
+            setTimeout(() => {
+                mSpoonBowl.setAttribute('fill', '#ef5350');
+                mSpoon.setAttribute('fill', '#ef5350'); 
+                txt.innerText = "Ой! Металева ложка гаряча зверху! Дерево залишається холодним.";
+                
+                setTimeout(() => {
+                    mSpoon.setAttribute('fill', '#cfd8dc');
+                    mSpoonBowl.setAttribute('fill', '#cfd8dc');
+                    soup.setAttribute('fill', '#ffb74d');
+                    txt.innerText = "Все знову охололо.";
+                    txt.style.color = "#718096";
+                    btn.disabled = false;
+                }, 4000);
+            }, 500);
+        }
+
+        // 3. Thermal Radiation
+        let sunTimer;
+        function sunShine() {
+            let btn = document.getElementById('sunBtn');
+            btn.disabled = true;
+            
+            document.getElementById('sunRayBlack').style.display = 'block';
+            document.getElementById('sunRayWhite').style.display = 'block';
+            document.getElementById('bounceRay').style.display = 'block';
+            
+            let tempB = 20;
+            let tempW = 20;
+            let tBlack = document.getElementById('tempBlack');
+            let tWhite = document.getElementById('tempWhite');
+            let txt = document.getElementById('sunText');
+            
+            txt.innerText = "Випромінювання влучає! Чорний поглинає, білий відбиває.";
+
+            sunTimer = setInterval(() => {
+                tempB += 2;
+                tempW += 0.5;
+                tBlack.innerText = Math.floor(tempB) + "°C";
+                tWhite.innerText = Math.floor(tempW) + "°C";
+                
+                if(tempB >= 60) {
+                    clearInterval(sunTimer);
+                    txt.innerText = "Хух! 60°C у чорній машині. У білій набагато приємніше!";
+                    setTimeout(() => {
+                        document.getElementById('sunRayBlack').style.display = 'none';
+                        document.getElementById('sunRayWhite').style.display = 'none';
+                        document.getElementById('bounceRay').style.display = 'none';
+                        tBlack.innerText = "20°C";
+                        tWhite.innerText = "20°C";
+                        txt.innerText = "";
+                        btn.disabled = false;
+                    }, 4000);
+                }
+            }, 100);
+        }
+
+        // 4. Convection
+        let balloonY = 120;
+        let burnerInterval;
+        let coolingInterval;
+        
+        function startBurner() {
+            clearInterval(coolingInterval);
+            document.getElementById('burnerFlame').style.display = 'block';
+            burnerInterval = setInterval(() => {
+                balloonY -= 2;
+                if(balloonY < -20) balloonY = -20;
+                document.getElementById('hotAirBalloon').style.transform = `translateY(${balloonY}px)`;
+            }, 20);
+        }
+
+        function stopBurner() {
+            clearInterval(burnerInterval);
+            document.getElementById('burnerFlame').style.display = 'none';
+            coolingInterval = setInterval(() => {
+                balloonY += 1;
+                if(balloonY > 120) balloonY = 120;
+                document.getElementById('hotAirBalloon').style.transform = `translateY(${balloonY}px)`;
+                if(balloonY >= 120) clearInterval(coolingInterval);
+            }, 30);
+        }
+
+        // 5. States of Matter
+        function setPhase(phase) {
+            document.getElementById('phaseIce').style.display = 'none';
+            document.getElementById('phaseWater').style.display = 'none';
+            document.getElementById('phaseSteam').style.display = 'none';
+            
+            let txt = document.getElementById('phaseText');
+            
+            if(phase === 'ice') {
+                document.getElementById('phaseIce').style.display = 'block';
+                txt.innerText = "Твердий (лід): Частинки сидять нерухомо як решітка.";
+                txt.style.color = "#1976D2";
+            } else if(phase === 'water') {
+                document.getElementById('phaseWater').style.display = 'block';
+                txt.innerText = "Рідкий (вода): Частинки звільнені та плавають дико одна через одну.";
+                txt.style.color = "#0288D1";
+            } else {
+                document.getElementById('phaseSteam').style.display = 'block';
+                txt.innerText = "Газоподібний (пара): Частинки мають багато енергії та повністю розлітаються!";
+                txt.style.color = "#78909C";
+            }
+        }
+
+        // 6. Expansion
+        function updateThermometer() {
+            let val = document.getElementById('thermoRange').value;
+            let liquid = document.getElementById('thermoLiquid');
+            
+            let newHeight = val * 1; 
+            let newY = 200 - newHeight;
+            
+            liquid.setAttribute('height', newHeight);
+            liquid.setAttribute('y', newY);
+        }
+
+        // Quiz Logic
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Правильно, але бали давалися лише за перший раз!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ На жаль, це неправильно.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Правильно! +" + pts + " балів!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Неправильно! Прочитай текст ще раз і спробуй далі.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>

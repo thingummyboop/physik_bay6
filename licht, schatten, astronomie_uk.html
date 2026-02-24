@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌍 Sun, Moon and Shadows 🌑</title>
+    <title>🌍 Сонце, Місяць і тінь 🌑</title>
     <style>
-        /* --- BASIC DESIGN & COLORS --- */
+        /* --- ОСНОВНИЙ ДИЗАЙН ТА КОЛЬОРИ --- */
         :root {
             --primary: #FFC107; 
             --secondary: #3F51B5; 
@@ -26,7 +26,7 @@
             padding-top: 80px; 
         }
 
-        /* --- SCORE BOARD --- */
+        /* --- ТАБЛО ОЧОК --- */
         #score-board {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: #0f3460; color: white;
@@ -36,7 +36,7 @@
         }
         .score-highlight { color: var(--primary); }
 
-        /* --- LAYOUT --- */
+        /* --- МАКЕТ --- */
         .card {
             background: var(--card-bg); border-radius: 20px;
             padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -63,7 +63,7 @@
             padding: 20px; margin: 30px 0; border-left: 8px solid var(--primary);
         }
 
-        /* --- BUTTONS --- */
+        /* --- КНОПКИ --- */
         button {
             background-color: #533483; color: white; border: none;
             padding: 12px 20px; border-radius: 12px;
@@ -75,7 +75,7 @@
 
         .feedback { font-weight: bold; margin-top: 15px; min-height: 28px; }
 
-        /* --- ANIMATIONS --- */
+        /* --- АНІМАЦІЇ --- */
         @keyframes orbit {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -90,17 +90,17 @@
 <body>
 
     <div id="score-board">
-        🏆 Space Points: <span id="score" class="score-highlight">0</span>
+        🏆 Космічні бали: <span id="score" class="score-highlight">0</span>
     </div>
 
-    <h1>🌑 Shadows in Space 🌍</h1>
+    <h1>🌑 Тіні у космосі 🌍</h1>
     <div class="card" style="text-align: center;">
-        <p>Light always travels exactly <strong>straight</strong>. If you draw the outermost light rays (edge rays) past an obstacle, you can calculate to the millimeter exactly where a shadow falls!</p>
+        <p>Світло завжди подорожує точно <strong>прямолінійно</strong>. Якщо провести крайні світлові промені повз перешкоду, можна з точністю до міліметра вирахувати, куди впаде тінь!</p>
     </div>
 
     <div class="card">
-        <h2>1. Who orbits whom?</h2>
-        <p>The sun radiates its light into space. While the earth travels around the sun, the side that faces the sun always becomes bright. On the back, the earth casts a shadow into the void (night side).</p>
+        <h2>1. Хто навколо кого обертається?</h2>
+        <p>Сонце випромінює своє світло у простір. Поки Земля подорожує навколо Сонця, завжди стає світлою саме та сторона, яка повернута до Сонця. На зворотному боці Земля відкидає тінь у порожнечу (нічна сторона).</p>
         
         <div class="diagram-box">
             <svg width="400" height="250" viewBox="0 0 400 250">
@@ -122,21 +122,21 @@
                 
                 <circle cx="200" cy="125" r="30" fill="#FFC107" style="filter: drop-shadow(0 0 20px #FF9800);" />
             </svg>
-            <p>Light rays travel rectilinearly from the sun to the earth.</p>
+            <p>Світлові промені поширюються прямолінійно від Сонця до Землі.</p>
         </div>
 
         <div class="exercise-box" style="background: #1a1a2e; border: 2px dashed #FFC107; padding: 15px; border-radius: 10px;">
-            <h3>🛠️ Exercise: Speed Check</h3>
-            <p><strong>How long does the moon take for one round around the earth?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">A whole year</button>
-            <button onclick="handleQuiz(this, true, 10)">About a month</button>
+            <h3>🛠️ Вправа: Перевірка швидкості</h3>
+            <p><strong>Скільки часу потрібно Місяцю для одного оберту навколо Землі?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Цілий рік</button>
+            <button onclick="handleQuiz(this, true, 10)">Близько місяця</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>2. The Solar Eclipse (Construction)</h2>
-        <p>The small moon pushes itself in front of the huge sun. If we draw the light rays from the top and bottom edge of the sun past the moon, we see two areas: the deep black <strong>umbra</strong> (core shadow) and the gray <strong>penumbra</strong> (partial shadow).</p>
+        <h2>2. Сонячне затемнення (побудова)</h2>
+        <p>Маленький Місяць заходить перед величезним Сонцем. Якщо ми проведемо світлові промені від верхнього та нижнього країв Сонця повз Місяць, ми побачимо дві області: глибоко чорну <strong>повну тінь</strong> (умбра) та сіру <strong>півтінь</strong> (пенумбра).</p>
         
         <div class="diagram-box">
             <svg width="450" height="200" viewBox="0 0 450 200">
@@ -149,24 +149,24 @@
                 <line x1="50" y1="70" x2="400" y2="162.6" class="strahl" stroke-dasharray="2 6"/>
                 <line x1="50" y1="130" x2="400" y2="37.4" class="strahl" stroke-dasharray="2 6"/>
 
-                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="15" fill="#666" /> <circle cx="360" cy="100" r="35" fill="#2196F3" /> <text x="365" y="104" fill="#FFF" font-size="10" font-weight="bold">Core</text>
-                <text x="365" y="65" fill="#FFF" font-size="10">Partial</text>
-                <text x="365" y="145" fill="#FFF" font-size="10">Shadow</text>
+                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="15" fill="#666" /> <circle cx="360" cy="100" r="35" fill="#2196F3" /> <text x="365" y="104" fill="#FFF" font-size="10" font-weight="bold">Повна</text>
+                <text x="365" y="65" fill="#FFF" font-size="10">Пів-</text>
+                <text x="365" y="145" fill="#FFF" font-size="10">тінь</text>
             </svg>
-            <p>Where not a single sun ray gets to anymore, the eclipse is total (umbra).</p>
+            <p>Там, куди не потрапляє жоден сонячний промінь, затемнення є повним (повна тінь).</p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>Why is it suddenly dark during a total solar eclipse?</strong></p>
-            <button onclick="handleQuiz(this, true, 15)">Because we are standing directly in the moon's umbra.</button>
-            <button onclick="handleQuiz(this, false, 0)">Because the sun goes to sleep at night.</button>
+            <p><strong>Чому під час повного сонячного затемнення раптово стає темно?</strong></p>
+            <button onclick="handleQuiz(this, true, 15)">Тому що ми стоїмо безпосередньо в повній тіні Місяця.</button>
+            <button onclick="handleQuiz(this, false, 0)">Тому що Сонце йде спати вночі.</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>3. The Lunar Eclipse (Construction)</h2>
-        <p>The earth is much larger than the moon. The straight edge rays of the sun form a huge, long umbra tube behind the earth. The moon fits completely into it!</p>
+        <h2>3. Місячне затемнення (побудова)</h2>
+        <p>Земля набагато більша за Місяць. Прямі крайні промені Сонця утворюють за Землею величезний довгий конус повної тіні. Місяць повністю вміщується в ньому!</p>
 
         <div class="diagram-box">
             <svg width="450" height="200" viewBox="0 0 450 200">
@@ -179,72 +179,72 @@
                 <line x1="50" y1="70" x2="450" y2="199.4" class="strahl" stroke-dasharray="2 6"/>
                 <line x1="50" y1="130" x2="450" y2="0.6" class="strahl" stroke-dasharray="2 6"/>
                 
-                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="25" fill="#2196F3" /> <circle cx="380" cy="100" r="10" fill="#880e4f" /> <text x="260" y="104" fill="#FF5252" font-size="12" font-weight="bold">Long Umbra</text>
+                <circle cx="50" cy="100" r="30" fill="#FFC107" /> <circle cx="220" cy="100" r="25" fill="#2196F3" /> <circle cx="380" cy="100" r="10" fill="#880e4f" /> <text x="260" y="104" fill="#FF5252" font-size="12" font-weight="bold">Довга повна тінь</text>
             </svg>
-            <p>The moon dives completely into the deep shadow of the earth.</p>
+            <p>Місяць повністю занурюється у глибоку тінь Землі.</p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>What stands exactly in the middle during a lunar eclipse?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">The Sun</button>
-            <button onclick="handleQuiz(this, true, 15)">The Earth</button>
+            <p><strong>Що стоїть точно посередині під час місячного затемнення?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Сонце</button>
+            <button onclick="handleQuiz(this, true, 15)">Земля</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card" style="border: 5px solid var(--primary); background: #0f3460;">
-        <h2 style="text-align: center; color: var(--primary);">🎓 The Astro-Optics Diploma</h2>
+        <h2 style="text-align: center; color: var(--primary);">🎓 Диплом з астрооптики</h2>
         
         <div class="quiz-box">
-            <p><strong>1. What is the most important rule of optics so that eclipses can be calculated at all?</strong></p>
-            <button onclick="handleQuiz(this, true, 20)">Light propagates strictly rectilinearly.</button>
-            <button onclick="handleQuiz(this, false, 0)">Light makes curves around planets.</button>
+            <p><strong>1. Яке найважливіше правило оптики, щоб затемнення взагалі можна було розрахувати?</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">Світло поширюється суворо прямолінійно.</button>
+            <button onclick="handleQuiz(this, false, 0)">Світло робить криві навколо планет.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>2. Why is there day and night on earth?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">Because the sun orbits the earth.</button>
-            <button onclick="handleQuiz(this, true, 20)">Because the earth rotates like a top around itself.</button>
+            <p><strong>2. Чому на Землі є день і ніч?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Тому що Сонце обертається навколо Землі.</button>
+            <button onclick="handleQuiz(this, true, 20)">Тому що Земля обертається навколо своєї осі, як дзиґа.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>3. Imagine you are standing on the moon during a lunar eclipse. What would you see?</strong></p>
-            <button onclick="handleQuiz(this, true, 30)">The earth pushes itself in front of the sun (a solar eclipse seen from there!).</button>
-            <button onclick="handleQuiz(this, false, 0)">Nothing at all, it's just bright.</button>
+            <p><strong>3. Уяви, що ти стоїш на Місяці під час місячного затемнення. Що б ти побачив?</strong></p>
+            <button onclick="handleQuiz(this, true, 30)">Земля заходить перед Сонцем (сонячне затемнення, бачене звідти!).</button>
+            <button onclick="handleQuiz(this, false, 0)">Нічого особливого, просто світло.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>4. What exactly is the umbra?</strong></p>
-            <button onclick="handleQuiz(this, true, 20)">The area into which absolutely no direct light from the light source reaches anymore.</button>
-            <button onclick="handleQuiz(this, false, 0)">The area where the light is focused particularly brightly.</button>
+            <p><strong>4. Що таке повна тінь?</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">Область, куди взагалі не потрапляє пряме світло від джерела світла.</button>
+            <button onclick="handleQuiz(this, false, 0)">Область, де світло фокусується особливо яскраво.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>5. What is the moon often called when it dives into the earth's shadow and glows reddish?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">Strawberry moon</button>
-            <button onclick="handleQuiz(this, true, 15)">Blood moon</button>
+            <p><strong>5. Як часто називають Місяць, коли він занурюється в тінь Землі і світиться червонуватим кольором?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">Полуничний місяць</button>
+            <button onclick="handleQuiz(this, true, 15)">Кривавий місяць</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>6. Who casts the shadow during a solar eclipse?</strong></p>
-            <button onclick="handleQuiz(this, true, 20)">The moon blocks the sun and casts its shadow on the earth.</button>
-            <button onclick="handleQuiz(this, false, 0)">The earth blocks the sun and casts its shadow on the moon.</button>
+            <p><strong>6. Хто відкидає тінь під час сонячного затемнення?</strong></p>
+            <button onclick="handleQuiz(this, true, 20)">Місяць блокує Сонце і відкидає свою тінь на Землю.</button>
+            <button onclick="handleQuiz(this, false, 0)">Земля блокує Сонце і відкидає свою тінь на Місяць.</button>
             <p class="feedback"></p>
         </div>
 
         <div class="quiz-box">
-            <p><strong>7. On what kind of path does the earth travel around the sun?</strong></p>
-            <button onclick="handleQuiz(this, false, 0)">On a stone-straight zigzag line.</button>
-            <button onclick="handleQuiz(this, true, 15)">On a huge ellipse (orbit).</button>
+            <p><strong>7. По якій орбіті Земля подорожує навколо Сонця?</strong></p>
+            <button onclick="handleQuiz(this, false, 0)">По суворо прямій зигзагоподібній лінії.</button>
+            <button onclick="handleQuiz(this, true, 15)">По величезному еліпсу (орбіті).</button>
             <p class="feedback"></p>
         </div>
 
-        <p style="text-align: center; font-weight: bold; font-size: 1.2em; color: var(--primary);">✨ Galactic! You have solved all the shadow puzzles of the universe! ✨</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2em; color: var(--primary);">✨ Галактично! Ти розгадав усі загадки тіней у всесвіті! ✨</p>
     </div>
 
     <script>
@@ -273,13 +273,13 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                fb.innerText = "✅ Correct! +" + pts + " Points!";
+                fb.innerText = "✅ Правильно! +" + pts + " балів!";
                 fb.style.color = "var(--correct)";
                 updateScore(pts);
             } else {
                 btn.style.backgroundColor = "var(--wrong)";
                 btn.style.opacity = "1";
-                fb.innerText = "❌ That was not correct. Read the texts above again carefully!";
+                fb.innerText = "❌ Це було неправильно. Перечитай текст вище ще раз уважно!";
                 fb.style.color = "var(--wrong)";
             }
         }

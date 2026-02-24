@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎶 The Great Acoustics Adventure 🥁</title>
+    <title>🎶 The Great Acoustic Adventure 🥁</title>
     <style>
         :root {
             --primary: #2196F3; 
@@ -84,7 +84,7 @@
         }
         .anim-wave { animation: soundwave 1.5s infinite linear; transform-origin: center; fill: none; stroke: #2196F3; }
 
-        /* Corrected Echo Animations */
+        /* New, corrected echo animations */
         @keyframes ping-out {
             0% { r: 10px; opacity: 1; stroke-width: 4px; }
             100% { r: 270px; opacity: 0; stroke-width: 1px; }
@@ -114,23 +114,23 @@
 <body>
 
     <div id="score-board">
-        🏆 Acoustics Points: <span id="score" style="color: #ffcc80;">0</span>
+        🏆 Acoustic Points: <span id="score" style="color: #ffcc80;">0</span>
     </div>
 
-    <h1 style="text-align: center; font-size: 3em; color: #2d3748;">🎶 The Acoustics Adventure 🥁</h1>
-    <p style="text-align: center; font-size: 1.2em;">Hello Sound Master! Set your ears to receive, we're diving into the invisible and loud world of sound!</p>
+    <h1 style="text-align: center; font-size: 3em; color: #2d3748;">🎶 The Acoustic Adventure 🥁</h1>
+    <p style="text-align: center; font-size: 1.2em;">Hello Sound Master! Set your ears to receive, we are diving into the invisible and loud world of sound!</p>
 
     <div class="card">
-        <h2>1. Origin: Everything Shakes!</h2>
-        <p>Whether you're speaking, clapping your hands, or plucking a guitar – sounds are always created by one thing: <strong>Movement!</strong> An object wobbles back and forth very fast. Physicists call this <strong>vibration</strong>. When your vocal cords in your throat vibrate, your voice is created. Place your hand on your larynx while speaking – you can feel the shaking!</p>
+        <h2>1. Origin: Everything jitters!</h2>
+        <p>Whether you speak, clap your hands, or pluck a guitar – sounds always arise from one thing: <strong>movement!</strong> An object wobbles back and forth extremely fast. Physicists call this <strong>vibration</strong>. When your vocal cords vibrate in your throat, your voice is created. Place your hand on your larynx while speaking – you can feel the jittering!</p>
         <div class="lexikon-box">
-            📖 <strong>Smart Dictionary: The Sound Source</strong><br>
-            The thing that shakes and creates the sound is called a <strong>sound source</strong>. It can be the skin of a drum, the string of a violin, or the metal of a tuning fork.
+            📖 <strong>The Smart Dictionary: The Sound Source</strong><br>
+            The thing that jitters and creates the sound is called the <strong>sound source</strong>. It can be the skin of a drum, the string of a violin, or the metal prong of a tuning fork.
         </div>
         <div class="interactive-zone">
             <h3>🪛 The Magic Tuning Fork</h3>
             <p>Click on the tuning fork to strike it:</p>
-            <button onclick="strikeFork()">Strike Tuning Fork 🔔</button>
+            <button onclick="strikeFork()">Strike tuning fork 🔔</button>
             <div class="diagram-box">
                 <svg width="400" height="200" viewBox="0 0 400 200">
                     <g id="tuningFork" style="transform-origin: center;">
@@ -148,23 +148,23 @@
             </div>
         </div>
         <div class="quiz-box" data-id="q1">
-            <p><strong>How is a sound or noise created in the first place?</strong></p>
-            <button onclick="handleAnswer(this, true, 10)">Through a rapid back-and-forth movement (vibration).</button>
+            <p><strong>What causes a tone or noise in the first place?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Through a fast back-and-forth movement (vibration).</button>
             <button onclick="handleAnswer(this, false, 0)">Through invisible magic in the air.</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>2. The Medium: The Silent Void of Space</h2>
-        <p>Imagine standing on the moon and a huge meteorite crashes silently into the ground. Silently? Yes! For the sound from the tuning fork to reach your ear, it needs tiny "mailmen". These are the <strong>air particles</strong>. The tuning fork pushes the air, the air particles push their neighbors, and so the <strong>sound wave</strong> travels to your ear.</p>
+        <h2>2. The Medium: The silent void of space</h2>
+        <p>Imagine standing on the moon and a huge meteorite crashes silently into the ground. Silently? Yes! For the sound to travel from the tuning fork to your ear, it needs tiny "postmen". These are the <strong>air particles</strong>. The tuning fork pushes the air, the air particles push their neighbors, and so the <strong>sound wave</strong> travels to your ear.</p>
         <div class="lexikon-box">
-            📖 <strong>Smart Dictionary: The Vacuum</strong><br>
-            Sound always needs a substance (a <strong>medium</strong>) to travel through. This can be air, but also water or even iron! Where there is absolutely nothing – like in space – it's called a <strong>vacuum</strong>. Without air particles, there's no one to carry the sound. In space, no one can hear you scream!
+            📖 <strong>The Smart Dictionary: The Vacuum</strong><br>
+            Sound always needs a substance (a <strong>medium</strong>) to spread. This can be air, but also water or even iron! Where there is absolutely nothing – like in outer space – it is called a <strong>vacuum</strong>. Without air particles, there is no one to carry the sound. In space, no one can hear you scream!
         </div>
         <div class="interactive-zone">
             <h3>🌌 The Vacuum Lab (The Bell Jar)</h3>
-            <p>An alarm clock is ringing inside the bell jar. Pump out the air!</p>
+            <p>An alarm clock rings inside the bell jar. Pump the air out!</p>
             <button onclick="toggleVacuum()" id="vacBtn">Pump out air 🌬️</button>
             <div class="diagram-box">
                 <svg width="400" height="240" viewBox="0 0 400 240">
@@ -187,28 +187,28 @@
                     <g id="airParticles">
                         </g>
                 </svg>
-                <p id="vacText" style="font-weight:bold; color: #2196F3;">Air is inside: The alarm clock is loud!</p>
+                <p id="vacText" style="font-weight:bold; color: #2196F3;">Air is inside: The alarm clock can be heard loudly!</p>
             </div>
         </div>
         <div class="quiz-box" data-id="q2">
-            <p><strong>Why can't you hear outside sounds in space suits in outer space?</strong></p>
+            <p><strong>Why do you hear no outside noises in spacesuits in space?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Because the helmets are too thick.</button>
-            <button onclick="handleAnswer(this, true, 10)">Because in the vacuum of space, there are no air particles to carry the sound.</button>
+            <button onclick="handleAnswer(this, true, 10)">Because in the vacuum of space there are no air particles to carry the sound.</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
         <h2>3. The Oscilloscope: Pitch and Volume</h2>
-        <p>Scientists want to see sound waves! For this, they use a microphone-computer called an <strong>oscilloscope</strong>. It draws the invisible sound waves as jagged lines (wave crests and troughs) on a screen.</p>
+        <p>Scientists want to see sound waves! For this, they use a microphone computer called an <strong>oscilloscope</strong>. It draws the invisible sound waves as jagged lines (wave crests and wave troughs) on a screen.</p>
         <div class="lexikon-box">
-            📖 <strong>Smart Dictionary: Frequency & Amplitude</strong><br>
-            - <strong>Frequency (Pitch):</strong> How often does the wave vibrate per second? If it vibrates very quickly (many narrow waves), the sound is <strong>high</strong> like a mouse's squeak. If it vibrates slowly, the sound is <strong>low</strong> like a bear's growl. This is measured in <strong>Hertz (Hz)</strong>.<br>
-            - <strong>Amplitude (Volume):</strong> How strongly does the wave swing out? If the wave crests are huge, the sound is <strong>loud</strong>. If they are tiny and flat, the sound is <strong>quiet</strong> and whispering.
+            📖 <strong>The Smart Dictionary: Frequency & Amplitude</strong><br>
+            - <strong>Frequency (Pitch):</strong> How often does the wave vibrate per second? If it vibrates very fast (many narrow waves), the pitch is <strong>high</strong> like the squeak of a mouse. If it vibrates slowly, the pitch is <strong>low</strong> like the growl of a bear. This is measured in <strong>Hertz (Hz)</strong>.<br>
+            - <strong>Amplitude (Volume):</strong> How strongly does the wave swing out? If the wave crests are very high, the sound is <strong>loud</strong>. If they are tiny and flat, the sound is a <strong>quiet</strong> whisper.
         </div>
         <div class="interactive-zone">
             <h3>📺 The Wave Lab</h3>
-            <p>Control the mixing console and watch how the sound wave changes!</p>
+            <p>Control the mixer and observe how the sound wave changes!</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
                 <div style="text-align: left;">
                     <label style="font-weight:bold;">Frequency (Pitch): <span id="lblFreq">Medium</span></label><br>
@@ -227,16 +227,16 @@
             </div>
         </div>
         <div class="quiz-box" data-id="q3">
-            <p><strong>What do you have to do on the oscilloscope to make the sound really LOW (like a bear's growl)?</strong></p>
+            <p><strong>What do you have to do on the oscilloscope to make the pitch really LOW (like a bear growl)?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Decrease the frequency (fewer and wider waves).</button>
-            <button onclick="handleAnswer(this, false, 0)">Make the amplitude huge (high mountains).</button>
+            <button onclick="handleAnswer(this, false, 0)">Make the amplitude huge (high peaks).</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>4. Speed of Sound: The Great Race</h2>
-        <p>Sound is fast, but light is the absolute flash champion! Light travels almost 8 times around the whole Earth in one second. Sound only manages "only" 340 meters per second in air. That's why we always see the lightning first during a thunderstorm and only hear the thunder roar in our ears seconds later!</p>
+        <h2>4. Speed of Sound: The Big Race</h2>
+        <p>Sound is fast, but light is the absolute flash champion! Light travels almost 8 times around the entire Earth in one second. Sound manages "only" 340 meters per second in air. That's why during a thunderstorm we always see the lightning first and only seconds later the thunder crashes in our ears!</p>
         <div class="lexikon-box">
             📖 <strong>Calculating with the Thunder Trick:</strong><br>
             Since sound takes about 3 seconds for 1 kilometer, you can calculate: Count the seconds between lightning and thunder. Divide the number by 3. The result is the distance of the storm in kilometers! (If you count 9 seconds: 9 ÷ 3 = 3 kilometers away).
@@ -260,18 +260,18 @@
         </div>
         <div class="quiz-box" data-id="q4">
             <p><strong>You see the lightning and count exactly 6 seconds until it thunders. How far away is the storm?</strong></p>
-            <button onclick="handleAnswer(this, false, 0)">6 kilometers.</button>
-            <button onclick="handleAnswer(this, true, 10)">2 kilometers (6 divided by 3).</button>
+            <button onclick="handleAnswer(this, false, 0)">6 Kilometers.</button>
+            <button onclick="handleAnswer(this, true, 10)">2 Kilometers (6 divided by 3).</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
         <h2>5. The Echo: Sound Bounces!</h2>
-        <p>Remember how light particles bounce off a mirror like bouncy balls? Sound waves do that too! When you shout loudly in the mountains, the sound waves fly off, hit the hard rock face, and come back to you. We call this an <strong>echo</strong> (reflection of sound).</p>
+        <p>Remember how light particles bounce off a mirror like bouncy balls? Sound waves do that too! If you shout loudly in the mountains, the sound waves fly off, bounce off the hard rock wall, and come back to you. We call this an <strong>echo</strong> (reflection of sound).</p>
         <div class="lexikon-box">
             📖 <strong>Animals with Superpowers: Sonar</strong><br>
-            Bats hunt in the dark. They shout very high (ultrasound, so high that we humans can't hear it). The sound bounces off a tiny mosquito and throws back an echo. The bat's ear calculates in a flash: Aha, the echo comes from the right and was there quickly – the mosquito is close! This is called <strong>echolocation</strong> (or sonar in submarines).
+            Bats hunt in the dark. They shout very high (ultrasound, so high that we humans cannot hear it). The sound bounces off a tiny mosquito and throws an echo back. The bat's ear calculates lightning-fast: Aha, the echo comes from the right and was there quickly – the mosquito is near! This is called <strong>echolocation</strong> (or sonar in submarines).
         </div>
         <div class="interactive-zone">
             <h3>🦇 The Bat Hunt</h3>
@@ -285,19 +285,19 @@
                     <circle id="batSignalOut" cx="70" cy="100" r="10" fill="none" stroke="#2196F3" stroke-width="3" style="opacity:0;"/>
                     <circle id="butterflyEchoIn" cx="340" cy="100" r="10" fill="none" stroke="#4CAF50" stroke-width="3" style="opacity:0;"/>
                 </svg>
-                <p id="echoText" style="color: #63b3ed; font-weight: bold;">It's pitch black...</p>
+                <p id="echoText" style="color: #63b3ed; font-weight: bold;">It is pitch black...</p>
             </div>
         </div>
         <div class="quiz-box" data-id="q5">
             <p><strong>How does a bat find its prey at night?</strong></p>
-            <button onclick="handleAnswer(this, true, 10)">It emits ultrasound and listens for the echo bouncing off the insect.</button>
+            <button onclick="handleAnswer(this, true, 10)">It emits ultrasound and listens for the echo that bounces off the insect.</button>
             <button onclick="handleAnswer(this, false, 0)">It has huge eyes that glow in the dark like flashlights.</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card">
-        <h2>6. Resonance: When Sounds Destroy Things!</h2>
+        <h2>6. Resonance: When sounds destroy things!</h2>
         <p>Have you ever seen an opera singer shatter a glass with only her voice? That's no trick! Everything in the world has its own "favorite vibration" (natural frequency). If a sound hits exactly this frequency, the object suddenly starts to vibrate wildly. This sympathetic vibration is called <strong>resonance</strong>.</p>
         <div class="lexikon-box">
             📖 <strong>The Guitar Box (Resonance Body)</strong><br>
@@ -305,9 +305,9 @@
         </div>
         <div class="interactive-zone">
             <h3>🍷 The Singing Glass</h3>
-            <p>Use the slider to find the exact <strong>natural frequency</strong> of the glass (at 4.0). When it lights up green, you have resonance!</p>
+            <p>Use the slider to find exactly the <strong>natural frequency</strong> of the glass (at 4.0). If it lights up green, you have resonance!</p>
             <input type="range" id="resRange" min="1" max="7" value="1" step="0.1" oninput="checkResonance()" style="width: 250px;">
-            <p>Sent Frequency: <span id="resValue">1.0</span> Hz</p>
+            <p>Sent frequency: <span id="resValue">1.0</span> Hz</p>
             <div class="diagram-box">
                 <svg width="400" height="200" viewBox="0 0 400 200">
                     <path d="M 50 140 Q 100 130 150 140 L 150 160 L 50 160 Z" fill="#a0aec0"/> <circle cx="100" cy="100" r="30" fill="#4a5568"/>
@@ -326,19 +326,19 @@
         <div class="quiz-box" data-id="q6">
             <p><strong>Why is the thick wooden box on a guitar important?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">It is a resonance body and amplifies the quiet sound of the strings.</button>
-            <button onclick="handleAnswer(this, false, 0)">It only serves to help you hold the guitar better.</button>
+            <button onclick="handleAnswer(this, false, 0)">It only serves to make the guitar easier to hold.</button>
             <p class="feedback"></p>
         </div>
     </div>
 
     <div class="card" style="border: 5px solid #2196F3; background: #e3f2fd;">
-        <h2 style="text-align: center; color: #2d3748;">🎓 The Great Acoustics Diploma</h2>
-        <p style="text-align: center;">Here come exactly 15 tricky questions. Show that you are a real sound professor!</p>
+        <h2 style="text-align: center; color: #2d3748;">🎓 The Mighty Acoustic Diploma</h2>
+        <p style="text-align: center;">Here come exactly 15 tricky questions. Show that you are a true sound professor!</p>
         
         <div class="quiz-box" data-id="f1">
             <p><strong>1. What is the requirement for a sound to be created?</strong></p>
-            <button onclick="handleAnswer(this, false, 0)">Lots of heat in the air.</button>
-            <button onclick="handleAnswer(this, true, 5)">A vibration (an object moves quickly back and forth).</button>
+            <button onclick="handleAnswer(this, false, 0)">A lot of heat in the air.</button>
+            <button onclick="handleAnswer(this, true, 5)">A vibration (an object moves back and forth quickly).</button>
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f2">
@@ -348,7 +348,7 @@
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f3">
-            <p><strong>3. Why do we not hear explosions in space, which is a vacuum?</strong></p>
+            <p><strong>3. Why do we hear no explosions in outer space, which is a vacuum?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Because planets swallow the sound.</button>
             <button onclick="handleAnswer(this, true, 5)">Because there are no air particles (no medium) to carry the sound.</button>
             <p class="feedback"></p>
@@ -360,7 +360,7 @@
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f5">
-            <p><strong>5. What describes the "frequency" of a sound wave?</strong></p>
+            <p><strong>5. What does the "frequency" of a sound wave describe?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">The number of vibrations per second (determines the pitch).</button>
             <button onclick="handleAnswer(this, false, 0)">How wide the sound wave is.</button>
             <p class="feedback"></p>
@@ -372,37 +372,37 @@
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f7">
-            <p><strong>7. You have a sound wave with a very high amplitude (huge wave crests). How does it sound?</strong></p>
+            <p><strong>7. You have a sound wave with a very high amplitude (huge wave peaks). How does that sound?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Very loud!</button>
-            <button onclick="handleAnswer(this, false, 0)">Very quiet and whispering.</button>
+            <button onclick="handleAnswer(this, false, 0)">Very quiet whispering.</button>
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f8">
-            <p><strong>8. A bird chirps with a very high voice. What does this mean for the sound wave?</strong></p>
+            <p><strong>8. A bird chirps with a very high voice. What does that mean for the sound wave?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">It has a low frequency.</button>
             <button onclick="handleAnswer(this, true, 5)">It has a very high frequency.</button>
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f9">
-            <p><strong>9. What is faster: light or sound?</strong></p>
+            <p><strong>9. Which is faster: light or sound?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Light is much faster (that's why lightning comes first, then thunder).</button>
             <button onclick="handleAnswer(this, false, 0)">Sound is much faster.</button>
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f10">
-            <p><strong>10. You shout "Hello!" towards a large rock face and shortly after you hear "Hello!" back. What do you call this bouncing back?</strong></p>
+            <p><strong>10. You shout "Hello!" towards a large cliff and shortly after you hear "Hello!" back. What is this bouncing back called?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Echo (reflection of sound).</button>
             <button onclick="handleAnswer(this, false, 0)">Refraction.</button>
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f11">
-            <p><strong>11. Which animal uses extremely high ultrasound echoes to catch mosquitoes at night?</strong></p>
+            <p><strong>11. Which animal uses extremely high ultrasonic echoes to catch mosquitoes at night?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">The owl.</button>
             <button onclick="handleAnswer(this, true, 5)">The bat.</button>
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f12">
-            <p><strong>12. What do you call the technique where animals (or submarines) emit sound and listen for the echo to find obstacles?</strong></p>
+            <p><strong>12. What is the technique called where animals (or submarines) emit sound and listen for the echo to find obstacles?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Sonar / Echolocation.</button>
             <button onclick="handleAnswer(this, false, 0)">Radar scanner.</button>
             <p class="feedback"></p>
@@ -414,7 +414,7 @@
             <p class="feedback"></p>
         </div>
         <div class="quiz-box" data-id="f14">
-            <p><strong>14. What do you call the hollow wooden box of a guitar that ensures the quiet strings sound loud and full?</strong></p>
+            <p><strong>14. What do you call the hollow wooden box of a guitar that ensures the quiet strings sound really loud and full?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Wood amplifier.</button>
             <button onclick="handleAnswer(this, true, 5)">Resonance body.</button>
             <p class="feedback"></p>
@@ -425,7 +425,7 @@
             <button onclick="handleAnswer(this, false, 0)">Our uvula in the throat.</button>
             <p class="feedback"></p>
         </div>
-        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Fantastic! Scroll to the very top and check your final score!</p>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Fantastic! Scroll all the way up and check your final score!</p>
     </div>
 
     <script>
@@ -477,7 +477,7 @@
                 btn.innerText = "Pump out air 🌬️";
                 waves.style.display = 'block'; // Sound back
                 particles.forEach(p => p.style.opacity = '1');
-                txt.innerText = "Air is inside: The alarm clock is loud!";
+                txt.innerText = "Air is inside: The alarm clock can be heard loudly!";
                 txt.style.color = "#2196F3";
             }
         }
@@ -495,6 +495,7 @@
 
             let path = `M 0 80 `;
             for(let x=0; x<=300; x+=2) {
+                // Sine function: y = 80 - sin(x * frequency_factor) * amplitude
                 let y = 80 - Math.sin(x * 0.05 * freq) * amp;
                 path += `L ${x} ${y} `;
             }
@@ -528,7 +529,7 @@
             setTimeout(() => {
                 bolt.style.display = 'none';
                 sky.style.background = '#2d3748';
-                msg.innerText = `Sound wave traveling... count to ${secs}!`;
+                msg.innerText = `Sound wave is traveling... count to ${secs}!`;
                 
                 // Animate sound wave
                 wave.style.opacity = '1';
@@ -538,7 +539,7 @@
                 setTimeout(() => {
                     // Thunder arrives
                     document.getElementById('thunderZone').classList.add('thunder-shake');
-                    msg.innerText = "BOOM! The thunder is here!";
+                    msg.innerText = "BOOM! The thunder has arrived!";
                     
                     setTimeout(() => {
                         document.getElementById('thunderZone').classList.remove('thunder-shake');
@@ -548,12 +549,12 @@
                         msg.innerText = "Waiting for lightning...";
                         btn.disabled = false;
                     }, 1000);
-                }, secs * 1000);
+                }, secs * 1000); // 1 second in life = 1 second in code for demonstration
                 
-            }, 200); 
+            }, 200); // Lightning duration
         }
 
-        // 5. Echo
+        // 5. Echo (Completely revised for more realistic reflection)
         function sendEcho() {
             let btn = document.getElementById('btnEcho');
             let waveOut = document.getElementById('batSignalOut');
@@ -563,28 +564,33 @@
             btn.disabled = true;
             txt.innerText = "Sending ultrasound... PING!";
             
+            // Reset animations to be safe
             waveOut.style.animation = "none";
             waveIn.style.animation = "none";
-            void waveOut.offsetWidth; 
+            void waveOut.offsetWidth; // Forces the browser to reset immediately
             
+            // Wave 1: From the bat to the moth
             waveOut.style.animation = "ping-out 1s linear forwards";
             
+            // After 1 second the wave hits the moth
             setTimeout(() => {
                 txt.innerText = "Hit! The sound bounces back...";
                 
+                // Wave 2: From the moth back to the bat
                 waveIn.style.animation = "ping-in 1s linear forwards";
                 
+                // After another second the echo is back at the bat
                 setTimeout(() => {
-                    txt.innerText = "Aha! Echo returned. A tasty moth!";
+                    txt.innerText = "Aha! Echo returned. A delicious moth!";
                     txt.style.color = "#4CAF50";
                     
                     setTimeout(() => {
                         waveOut.style.animation = "none";
                         waveIn.style.animation = "none";
-                        txt.innerText = "It's pitch black...";
+                        txt.innerText = "It is pitch black...";
                         txt.style.color = "#63b3ed";
                         btn.disabled = false;
-                    }, 2500); 
+                    }, 2500); // Wait briefly before clicking again
                 }, 1000);
             }, 1000);
         }
@@ -607,7 +613,7 @@
                     txt.style.color = "#E91E63";
                     crack.style.display = "block";
                 } else {
-                    txt.innerText = "Dangerously close to natural frequency! It vibrates strongly.";
+                    txt.innerText = "Dangerously close to the natural frequency! It vibrates strongly.";
                     txt.style.color = "#FF9800";
                     crack.style.display = "none";
                 }
@@ -630,11 +636,11 @@
             if (answered.has(id)) {
                 if (isCorrect) {
                     btn.style.background = "var(--correct)";
-                    fb.innerText = "✅ Correct, but you already got the points!";
+                    fb.innerText = "✅ Correct, but you only got points the first time!";
                     fb.style.color = "orange";
                 } else {
                     btn.style.background = "var(--wrong)";
-                    fb.innerText = "❌ That's unfortunately wrong.";
+                    fb.innerText = "❌ That is unfortunately wrong.";
                     fb.style.color = "var(--wrong)";
                 }
                 return;
@@ -642,7 +648,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Correct! +" + pts + " points!";
+                fb.innerText = "✅ Correct! +" + pts + " Points!";
                 fb.style.color = "var(--correct)";
                 score += pts;
                 document.getElementById('score').innerText = score;
