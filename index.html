@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Das große Physik-Abenteuer (MS/AHS Unterstufe)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #1e293b;
+            color: white;
+        }
+
+        /* --- Seitenleiste (Navigation) --- */
+        #sidebar {
+            width: 320px;
+            background-color: #0f172a;
+            overflow-y: auto;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-bottom: 2px solid #1e40af;
+        }
+
+        .sidebar-header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .grade-section {
+            padding: 15px 20px 5px 20px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* --- Navigations-Buttons --- */
+        .nav-btn {
+            background: transparent;
+            color: #cbd5e0;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 15px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background-color: #1e293b;
+            color: white;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .nav-btn.active {
+            background-color: #1e293b;
+            color: #60a5fa;
+            border-left: 4px solid #60a5fa;
+            font-weight: bold;
+        }
+
+        /* Language Buttons */
+        .lang-btn {
+            background: #334155;
+            color: #94a3b8;
+            border: 1px solid #475569;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 2px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: #475569;
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #60a5fa;
+        }
+
+        /* --- Hauptbereich (iFrame) --- */
+        #content-area {
+            flex-grow: 1;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h1 id="site-title">🚀 Physik-Abenteuer</h1>
+            <p id="site-subtitle" style="margin: 5px 0 0 0; font-size: 0.9em; color: #dbeafe;">Österreichischer Lehrplan</p>
+            <div style="margin-top: 15px;">
+                <button onclick="setLanguage('de')" class="lang-btn" id="btn-de">DE</button>
+                <button onclick="setLanguage('en')" class="lang-btn" id="btn-en">EN</button>
+            </div>
+        </div>
+
+        <div class="grade-section" id="section-2">📚 2. Klasse (6. Schulstufe)</div>
+        <button class="nav-btn active" data-page="licht, schatten, astronomie.html" onclick="loadPage('licht, schatten, astronomie.html', this)">
+            <span class="btn-text">🌑 1. Licht & Schatten</span>
+        </button>
+        <button class="nav-btn" data-page="farben.html" onclick="loadPage('farben.html', this)">
+            <span class="btn-text">🌈 2. Farben</span>
+        </button>
+        <button class="nav-btn" data-page="akustik.html" onclick="loadPage('akustik.html', this)">
+            <span class="btn-text">🎶 3. Akustik</span>
+        </button>
+        <button class="nav-btn" data-page="elektrizität.html" onclick="loadPage('elektrizität.html', this)">
+            <span class="btn-text">⚡ 4. Elektrizität</span>
+        </button>
+
+        <div class="grade-section" id="section-3">📚 3. Klasse (7. Schulstufe)</div>
+        <button class="nav-btn" data-page="kraft und bewegung.html" onclick="loadPage('kraft und bewegung.html', this)">
+            <span class="btn-text">🚀 5. Kraft & Bewegung</span>
+        </button>
+        <button class="nav-btn" data-page="drehundstatik.html" onclick="loadPage('drehundstatik.html', this)">
+            <span class="btn-text">🎡 6. Drehbewegungen & Statik</span>
+        </button>
+        <button class="nav-btn" data-page="energie.html" onclick="loadPage('energie.html', this)">
+            <span class="btn-text">🔋 7. Energie</span>
+        </button>
+
+        <div class="grade-section" id="section-4">📚 4. Klasse (8. Schulstufe)</div>
+        <button class="nav-btn" data-page="elektromagnetismus.html" onclick="loadPage('elektromagnetismus.html', this)">
+            <span class="btn-text">🧲 8. Elektromagnetismus</span>
+        </button>
+        <button class="nav-btn" data-page="linsen, spiegel.html" onclick="loadPage('linsen, spiegel.html', this)">
+            <span class="btn-text">🔍 9. Linsen & Spiegel</span>
+        </button>
+        <button class="nav-btn" data-page="astronomie.html" onclick="loadPage('astronomie.html', this)">
+            <span class="btn-text">🌌 10. Astronomie & Astrophysik</span>
+        </button>
+    </div>
+
+    <div id="content-area">
+        <iframe id="game-frame" src="licht, schatten, astronomie.html" title="Physik Spiel"></iframe>
+    </div>
+
+    <script>
+        let currentLang = 'de';
+
+        const translations = {
+            'de': {
+                'site-title': '🚀 Physik-Abenteuer',
+                'site-subtitle': 'Österreichischer Lehrplan',
+                'section-2': '📚 2. Klasse (6. Schulstufe)',
+                'section-3': '📚 3. Klasse (7. Schulstufe)',
+                'section-4': '📚 4. Klasse (8. Schulstufe)',
+                'pages': {
+                    'licht, schatten, astronomie.html': '🌑 1. Licht & Schatten',
+                    'farben.html': '🌈 2. Farben',
+                    'akustik.html': '🎶 3. Akustik',
+                    'elektrizität.html': '⚡ 4. Elektrizität',
+                    'kraft und bewegung.html': '🚀 5. Kraft & Bewegung',
+                    'drehundstatik.html': '🎡 6. Drehbewegungen & Statik',
+                    'energie.html': '🔋 7. Energie',
+                    'elektromagnetismus.html': '🧲 8. Elektromagnetismus',
+                    'linsen, spiegel.html': '🔍 9. Linsen & Spiegel',
+                    'astronomie.html': '🌌 10. Astronomie & Astrophysik'
+                }
+            },
+            'en': {
+                'site-title': '🚀 Physics Adventure',
+                'site-subtitle': 'Austrian Curriculum',
+                'section-2': '📚 Grade 6 (2nd Year)',
+                'section-3': '📚 Grade 7 (3rd Year)',
+                'section-4': '📚 Grade 8 (4th Year)',
+                'pages': {
+                    'licht, schatten, astronomie.html': '🌑 1. Light & Shadow',
+                    'farben.html': '🌈 2. Colors',
+                    'akustik.html': '🎶 3. Acoustics',
+                    'elektrizität.html': '⚡ 4. Electricity',
+                    'kraft und bewegung.html': '🚀 5. Force & Motion',
+                    'drehundstatik.html': '🎡 6. Rotation & Statics',
+                    'energie.html': '🔋 7. Energy',
+                    'elektromagnetismus.html': '🧲 8. Electromagnetism',
+                    'linsen, spiegel.html': '🔍 9. Lenses & Mirrors',
+                    'astronomie.html': '🌌 10. Astronomy & Astrophysics'
+                }
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update Text
+            document.getElementById('site-title').innerText = translations[lang]['site-title'];
+            document.getElementById('site-subtitle').innerText = translations[lang]['site-subtitle'];
+            document.getElementById('section-2').innerText = translations[lang]['section-2'];
+            document.getElementById('section-3').innerText = translations[lang]['section-3'];
+            document.getElementById('section-4').innerText = translations[lang]['section-4'];
+
+            // Update Navigation Buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                const page = btn.getAttribute('data-page');
+                btn.querySelector('.btn-text').innerText = translations[lang]['pages'][page];
+            });
+
+            // Update Active Lang Button
+            document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            // Reload current page in new language
+            const activeBtn = document.querySelector('.nav-btn.active');
+            if (activeBtn) {
+                loadPage(activeBtn.getAttribute('data-page'), activeBtn);
+            }
+        }
+
+        function loadPage(fileName, btnElement) {
+            let targetFile = fileName;
+            if (currentLang === 'en') {
+                targetFile = fileName.replace('.html', '_en.html');
+            }
+
+            document.getElementById('game-frame').src = targetFile;
+
+            let buttons = document.getElementsByClassName('nav-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            btnElement.classList.add('active');
+        }
+
+        // Initialize
+        setLanguage('de');
+    </script>
+</body>
+</html>

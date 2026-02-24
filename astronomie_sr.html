@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 Das große Weltraum- und Astrophysik-Abenteuer 🚀</title>
+    <style>
+        :root {
+            --primary: #4A148C; /* Deep Space Purple */
+            --secondary: #FF9800; /* Star Fire Orange */
+            --bg: #F3E5F5; 
+            --text: #1A237E;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #12005e; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #D1C4E9;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #E8EAF6; border: 2px solid #7986CB;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #EDE7F6; border: 2px solid #B39DDB;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #FFF3E0; border-left: 10px solid #FF9800; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #7E57C2; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        .anim-dash {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s linear forwards;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(3); opacity: 0.8; fill: #FFF; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        ⭐ Zvezdana prašina poeni: <span id="score" style="color: #FFCA28;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #4A148C;">🌌 Astrofizika-Avantura 🚀</h1>
+    <p style="text-align: center; font-size: 1.2em;">Zdravo istraživaču svemira! Veži se. Napuštamo Zemlju i putujemo do crnih rupa, zvezda koje eksplodiraju i granica prostora i vremena!</p>
+
+    <div class="card">
+        <h2>Kosmičke dimenzije: Koliko smo zapravo mali?</h2>
+        <p>Na Zemlji nam planina izgleda ogromno. Ali u svemiru, Zemlja je samo sićušno zrno prašine. Kada gledamo u svemir, moramo se navići na potpuno nove razmere. Jupiter je toliko veliki da bi Zemlja u njega mogla da stane preko 1.300 puta. A naše Sunce? Gigantska vatrena lopta!</p>
+        <div class="lexikon-box">
+            📖 <strong>Pametni svemirski rečnik:</strong><br>
+            Pošto su kilometri u svemiru premale brojke, astronomi mere u <strong>Astronomskim jedinicama (AJ)</strong>. 1 AJ je udaljenost od Zemlje do Sunca (oko 150 miliona kilometara).
+        </div>
+        <div class="interactive-zone">
+            <h3>🌍 Poređenje planeta</h3>
+            <p>Klikni na nebeska tela da vidiš kako izgledaju u poređenju jedno sa drugim!</p>
+            <button onclick="showPlanet('erde')">Pogledaj Zemlju</button>
+            <button onclick="showPlanet('jupiter')">Pogledaj Jupiter</button>
+            <button onclick="showPlanet('sonne')">Pogledaj Sunce</button>
+            <div class="diagram-box" style="height: 180px;">
+                <svg width="400" height="120" viewBox="0 0 400 120">
+                    <g id="planetErde" style="display: none;">
+                        <circle cx="200" cy="60" r="5" fill="#2196F3"/>
+                        <text x="200" y="100" font-size="14" text-anchor="middle" fill="#555">Zemlja (prečnik: ~12.700 km)</text>
+                    </g>
+                    
+                    <g id="planetJupiter" style="display: none;">
+                        <circle cx="200" cy="60" r="50" fill="#FFC107"/>
+                        <circle cx="100" cy="60" r="5" fill="#2196F3"/> <text x="200" y="130" font-size="14" text-anchor="middle" fill="#555">Jupiter (Zemlja levo radi poređenja)</text>
+                    </g>
+
+                    <g id="planetSonne" style="display: none;">
+                        <circle cx="200" cy="200" r="180" fill="#FF5722"/>
+                        <circle cx="200" cy="10" r="5" fill="#2196F3"/> <text x="200" y="25" font-size="14" text-anchor="middle" fill="#FFF">Zemlja (sićušna tačka na vrhu)</text>
+                    </g>
+                </svg>
+                <p id="planetText" style="font-size: 1.3em; font-weight: bold; color: #4A148C; margin-top: 10px;">Šta želiš da istražiš?</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Koju mernu jedinicu astronomi često koriste za udaljenosti u našem Sunčevom sistemu?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Milimetar.</button>
+            <button onclick="handleAnswer(this, true, 10)">Astronomska jedinica (AJ).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Brzina svetlosti: Apsolutno ograničenje brzine</h2>
+        <p>Ništa u univerzumu nije brže od svetlosti. Ona juri kroz svemir neverovatnom brzinom od <strong>300.000 kilometara u sekundi</strong>! Kada upališ baterijsku lampu, svetlost je skoro trenutno na zidu. Ali svemir je toliko ogroman da je čak i neverovatno brzoj svetlosti potrebno vreme.</p>
+        <div class="lexikon-box">
+            📖 <strong>Svetlosna godina:</strong><br>
+            Svetlosna godina <em>nije</em> vreme, već <strong>razdaljina</strong>! To je udaljenost koju svetlost pređe za čitavu godinu (skoro 9,5 biliona kilometara).
+        </div>
+        <div class="interactive-zone">
+            <h3>⏱️ Laserski eksperiment: Od Zemlje do Meseca</h3>
+            <p>Svetlosti je potrebno nešto manje od sekunde i po od Meseca do Zemlje. Klikni na „Ispali laser“ i zaustavi vreme na <strong>tačno 1,30 sekundi</strong>!</p>
+            <button onclick="startTimer()" id="startBtn">Ispali laser 🔦</button>
+            <button onclick="stopTimer()" id="stopBtn" disabled>Stoj! ⏹️</button>
+            <div class="diagram-box">
+                <p style="font-size: 3em; font-family: monospace; color: #4A148C; margin: 0;" id="timerDisplay">0.00 s</p>
+                <p id="timerResult" style="font-weight: bold; color: #E91E63; min-height: 25px;"></p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Šta je tačno „svetlosna godina“?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Udaljenost koju svetlost pređe za godinu dana.</button>
+            <button onclick="handleAnswer(this, false, 0)">Vreme potrebno da se odleti do Sunca.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Gravitacija: Kada masa savija prostor</h2>
+        <p>Zašto ne padnemo sa Zemlje? Zbog gravitacije! Albert Ajnštajn je otkrio: svako teško telo (kao kugla za kuglanje na trambolini) savija prostor oko sebe. Što je nešto teže, to jače privlači druge stvari.</p>
+        <div class="lexikon-box">
+            📖 <strong>Crna rupa:</strong><br>
+            Kada džinovska zvezda umre, može da se uruši sama u sebe. Postaje beskonačno mala, ali zadržava svoju ogromnu masu. Gravitacija tamo postaje toliko ekstremna da čak ni svetlost više ne može da pobegne – crna rupa je rođena!
+        </div>
+        <div class="interactive-zone">
+            <h3>🕳️ Izobličivač gravitacije</h3>
+            <p>Povećaj masu i posmatraj koliko se jako savijaju prostor i vreme!</p>
+            <input type="range" id="zoomRange" min="1" max="3" value="1" oninput="updateGravity()" style="width: 250px;">
+            <div class="diagram-box" style="height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <p id="gravTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;">Die Erde</p>
+                <svg width="200" height="100" viewBox="0 0 200 100">
+                    <path id="gravGrid" d="M 10 50 Q 100 50 190 50" fill="none" stroke="#B39DDB" stroke-width="2"/>
+                    <circle id="gravObject" cx="100" cy="50" r="10" fill="#2196F3"/>
+                </svg>
+                <p id="gravDesc" style="color: #757575;">Umerena gravitacija. Blago „ulegnuće“ prostora.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Zašto se crna rupa zove „crna“?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Zato što se sastoji od tamnog uglja.</button>
+            <button onclick="handleAnswer(this, true, 10)">Zato što je njegova gravitacija toliko jaka da čak ni svetlost ne može da pobegne.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Brzina oslobađanja: Pravac u svemir!</h2>
+        <p>Gravitacija nas drži čvrsto. Ako raketa želi da odleti u svemir, mora da bude ludo brza da bi pobegla Zemljinoj privlačnoj sili. Ta brzina se zove <strong>brzina oslobađanja</strong>. Za Zemlju ona iznosi oko <strong>11,2 kilometra u sekundi</strong> (oko 40.000 km/h!).</p>
+        <div class="lexikon-box">
+            📖 <strong>Raketna jednačina:</strong><br>
+            Da bi se postigla ta brzina, potrebno je mnogo goriva. Ali gorivo je teško! Što više goriva spakuješ, raketa postaje teža i ponovo ti je potrebno više potiska. Začarani krug!
+        </div>
+        <div class="interactive-zone">
+            <h3>🚀 Raketni brzinomer: Da li ćeš pobedi Zemlju?</h3>
+            <p>Dodaj gas (snagu motora) i pokušaj da dostigneš magičnih 11,2 km/s da bi pobegao u svemir!</p>
+            Potisak motora: <br>
+            <input type="range" id="tRange" min="1" max="15" value="3" oninput="calcSpeed()"><br>
+            
+            <div class="diagram-box" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="200" height="120" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#E0E0E0" stroke-width="20"/>
+                    <path d="M 140 35 A 80 80 0 0 1 180 100" fill="none" stroke="#4CAF50" stroke-width="20"/>
+                    
+                    <circle cx="100" cy="100" r="10" fill="#212121"/>
+                    <line id="tachoNeedle" x1="100" y1="100" x2="40" y2="60" stroke="#F44336" stroke-width="4" stroke-linecap="round" style="transition: all 0.5s; transform-origin: 100px 100px; transform: rotate(0deg);"/>
+                </svg>
+                <p id="speedText" style="font-weight: bold; font-size: 1.2em; color: #1A237E;">Brzina: 3.0 km/s (Previše sporo!)</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Šta raketa mora da dostigne da bi trajno napustila Zemlju?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Brzinu oslobađanja (oko 11,2 km/s).</button>
+            <button onclick="handleAnswer(this, false, 0)">Brzinu svetlosti.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Supernova: Spektakularna smrt zvezde</h2>
+        <p>Sterne leben nicht ewig. In ihrem Inneren verbrennen sie Wasserstoff zu Helium (Kernfusion). Dadurch leuchten sie. Aber irgendwann ist der Treibstoff alle! Bei sehr massereichen Sternen gewinnt dann plötzlich die Schwerkraft: Der Stern fällt in sich zusammen und prallt auf seinen eigenen Kern. Die Folge? Die gewaltigste Explosion im Universum: <strong>Eine Supernova!</strong></p>
+        <div class="interactive-zone">
+            <h3>💥 Paljenje zvezde</h3>
+            <p>Klicke auf den Button, um die Lebensdauer des Sterns zu beenden und die Supernova auszulösen!</p>
+            <button onclick="triggerSupernova()" id="novaBtn">Neka zvezda eksplodira!</button>
+            
+            <div class="diagram-box" style="height: 250px; background-color: #000; position: relative;">
+                <svg width="100%" height="100%" viewBox="0 0 350 200">
+                    <circle id="starCore" cx="175" cy="100" r="20" fill="#FFEB3B"/>
+                    <g id="explosionLines" style="display: none;" stroke="#FF9800" stroke-width="3">
+                        <line x1="175" y1="100" x2="175" y2="10" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="175" y2="190" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="85" y2="100" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="265" y2="100" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="110" y2="35" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="240" y2="165" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="240" y2="35" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="110" y2="165" class="anim-dash"/>
+                    </g>
+                </svg>
+            </div>
+            <p id="novaText" style="color: #FF5722; font-weight: bold;">Zvezda mirno gori...</p>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>Šta se dešava kod supernove?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Džinovska zvezda eksplodira na kraju svog života.</button>
+            <button onclick="handleAnswer(this, false, 0)">Dve planete se sudaraju.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #4A148C; background: #EDE7F6;">
+        <h2 style="text-align: center; color: #1A237E;">🎓 Diploma iz astrofizike</h2>
+        <p style="text-align: center;">Evo tvojih završnih pitanja. Dokaži da si spreman za NASA-u!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Kako glasi skraćenica za udaljenost od Zemlje do Sunca?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">SG (Svetlosna godina).</button>
+            <button onclick="handleAnswer(this, true, 5)">AJ (Astronomska jedinica).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. Koji je najveći planeta u našem Sunčevom sistemu?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Jupiter.</button>
+            <button onclick="handleAnswer(this, false, 0)">Zemlja.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. Koliko je otprilike brza svetlost?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">3.000 km/h.</button>
+            <button onclick="handleAnswer(this, true, 5)">300.000 kilometara u sekundi.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Šta je svetlosna godina?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Mera za udaljenost (ogromna razdaljina).</button>
+            <button onclick="handleAnswer(this, false, 0)">Mera za vreme (tačno 365 dana u svemiru).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Šta se dešava kada objekat ima više mase?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Njegova gravitacija postaje jača.</button>
+            <button onclick="handleAnswer(this, false, 0)">Gubi svoju gravitaciju.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. Zašto čak ni svetlost ne može da pobegne iz crne rupe?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Zato što se tamo završava svetlosna godina.</button>
+            <button onclick="handleAnswer(this, true, 5)">Zato što je tamo gravitacija ekstremno jaka.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. Koliko brzo mora da ide raketa da bi pobegla Zemljinoj gravitaciji?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">11,2 kilometara u sekundi (brzina oslobađanja).</button>
+            <button onclick="handleAnswer(this, false, 0)">100 kilometara na čas.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. Zašto su rakete uglavnom tako ogromne i teške?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Da bi astronauti imali mnogo mesta za vežbanje.</button>
+            <button onclick="handleAnswer(this, true, 5)">Zato što moraju da ponesu gigantske količine goriva.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. Kako se zove silna eksplozija zvezde na samrti?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Supernova.</button>
+            <button onclick="handleAnswer(this, false, 0)">Crveni džin.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. Odakle zvezde (kao naše Sunce) dobijaju energiju da sijaju?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">Putem nuklearne fuzije (spajanja elemenata u unutrašnjosti).</button>
+            <button onclick="handleAnswer(this, false, 0)">Sagorevaju tečni kiseonik.</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Misija završena! Skroluj skroz do vrha i proveri svoj skor zvezdane prašine!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Planeten-Vergleich
+        function showPlanet(planet) {
+            let txt = document.getElementById('planetText');
+            
+            document.getElementById('planetErde').style.display = 'none';
+            document.getElementById('planetJupiter').style.display = 'none';
+            document.getElementById('planetSonne').style.display = 'none';
+
+            if (planet === 'erde') {
+                document.getElementById('planetErde').style.display = 'block';
+                txt.innerText = "Die gute alte Erde. Unser Zuhause.";
+                txt.style.color = "#2196F3";
+            } else if (planet === 'jupiter') {
+                document.getElementById('planetJupiter').style.display = 'block';
+                txt.innerText = "Whoa! Der Jupiter ist der größte Planet im Sonnensystem.";
+                txt.style.color = "#FF9800";
+            } else {
+                document.getElementById('planetSonne').style.display = 'block';
+                txt.innerText = "Gigantisch! Die Sonne macht 99,8% der Masse unseres Sonnensystems aus.";
+                txt.style.color = "#E91E63";
+            }
+        }
+
+        // 2. Lichtgeschwindigkeit Reaktionszeit (Ziel: 1.30s)
+        let startTime, timerInterval;
+        let isRunning = false;
+        
+        function startTimer() {
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('timerResult').innerText = "";
+            document.getElementById('timerDisplay').style.color = "#4A148C";
+            
+            startTime = Date.now();
+            isRunning = true;
+            
+            timerInterval = setInterval(() => {
+                let elapsed = (Date.now() - startTime) / 1000;
+                document.getElementById('timerDisplay').innerText = elapsed.toFixed(2) + " s";
+            }, 10);
+        }
+
+        function stopTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            
+            let finalTime = (Date.now() - startTime) / 1000;
+            let resultTxt = document.getElementById('timerResult');
+            let display = document.getElementById('timerDisplay');
+            
+            if (Math.abs(finalTime - 1.30) <= 0.1) {
+                resultTxt.innerText = "Savršen pogodak! Tačno vreme koje je svetlosti potrebno da stigne do Zemlje.";
+                display.style.color = "#4CAF50";
+            } else if (finalTime < 1.30) {
+                resultTxt.innerText = "Prerano si zaustavio! Bio si brži od svetlosti (što je nemoguće!).";
+                display.style.color = "#E91E63";
+            } else {
+                resultTxt.innerText = "Prekasno! Svetlost je već odavno proletela pored tebe.";
+                display.style.color = "#FF9800";
+            }
+        }
+
+        // 3. Schwerkraft-Verzerrer
+        function updateGravity() {
+            let val = document.getElementById('zoomRange').value;
+            let title = document.getElementById('gravTitle');
+            let desc = document.getElementById('gravDesc');
+            let obj = document.getElementById('gravObject');
+            let grid = document.getElementById('gravGrid');
+            
+            if (val == 1) { 
+                title.innerText = "Die Erde";
+                desc.innerText = "Mäßige Schwerkraft. Ein leichtes 'Eindellen' des Raums.";
+                obj.setAttribute("fill", "#2196F3");
+                obj.setAttribute("r", "10");
+                grid.setAttribute("d", "M 10 50 Q 100 65 190 50");
+            } else if (val == 2) { 
+                title.innerText = "Unsere Sonne";
+                desc.innerText = "Jaka gravitacija. Prostor se jasno savija!";
+                obj.setAttribute("fill", "#FFC107");
+                obj.setAttribute("r", "25");
+                grid.setAttribute("d", "M 10 50 Q 100 110 190 50");
+            } else { 
+                title.innerText = "Schwarzes Loch";
+                desc.innerText = "Ekstremna gravitacija! Prostor propada u beskonačnost.";
+                obj.setAttribute("fill", "#000000");
+                obj.setAttribute("r", "15"); // Kleiner aber massiver
+                grid.setAttribute("d", "M 10 50 Q 100 250 190 50");
+            }
+        }
+
+        // 4. Fluchtgeschwindigkeits-Tacho
+        function calcSpeed() {
+            let thrust = parseFloat(document.getElementById('tRange').value);
+            
+            let v = thrust; // Simple map: 1 thrust = 1 km/s for learning purposes
+            
+            let txt = document.getElementById('speedText');
+            
+            if(v >= 11.2) {
+                txt.innerText = "Brzina: " + v.toFixed(1) + " km/s (Dobrodošao u svemir!) 🌌";
+                txt.style.color = "#4CAF50";
+            } else {
+                txt.innerText = "Brzina: " + v.toFixed(1) + " km/s (Padaš nazad na Zemlju!) 💥";
+                txt.style.color = "#F44336";
+            }
+            
+            // Map 0-15 km/s to 0-180 degrees (roughly)
+            let angle = -90 + (v * 12); 
+            if(angle > 90) angle = 90;
+            
+            document.getElementById('tachoNeedle').style.transform = `rotate(${angle}deg)`;
+        }
+
+        // 5. Supernova Animation
+        function triggerSupernova() {
+            let btn = document.getElementById('novaBtn');
+            let core = document.getElementById('starCore');
+            let lines = document.getElementById('explosionLines');
+            let txt = document.getElementById('novaText');
+            
+            btn.disabled = true;
+            txt.innerText = "Gravitacija pobeđuje! Jezgro se urušava...";
+            txt.style.color = "#FF9800";
+            
+            // Kollaps Animation
+            core.style.transition = "all 1s";
+            core.setAttribute("r", "5");
+            core.setAttribute("fill", "#F44336");
+            
+            setTimeout(() => {
+                txt.innerText = "BUM! SUPERNOVA!";
+                txt.style.color = "#fff";
+                
+                core.style.animation = "explode 0.8s forwards";
+                
+                lines.style.display = "block";
+                
+                // Reset lines animation
+                lines.querySelectorAll('line').forEach(l => {
+                    l.style.animation = "none";
+                    l.offsetHeight; /* trigger reflow */
+                    l.style.animation = "dash 1.5s ease-out forwards";
+                });
+                
+            }, 1200);
+            
+            setTimeout(() => {
+                txt.innerText = "Ostaje zvezdana prašina (i možda crna rupa).";
+                txt.style.color = "#9C27B0";
+                btn.disabled = false;
+                
+                // Reset for next click
+                core.style.animation = "none";
+                core.setAttribute("r", "20");
+                core.setAttribute("fill", "#FFEB3B");
+                lines.style.display = "none";
+            }, 4000);
+        }
+
+        // Quiz-Logik (unverändert vom Original)
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Tačno, ali poeni se dobijaju samo prvi put!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Tačno! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Netočno! Pročitaj tekst ponovo i pokušaj opet.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>

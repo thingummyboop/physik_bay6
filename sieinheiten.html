@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📏 Das große Maß- und Mathe-Abenteuer 📐</title>
+    <style>
+        :root {
+            --primary: #3F51B5; 
+            --secondary: #9C27B0; 
+            --bg: #E8EAF6; 
+            --text: #1A237E;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #1A237E; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #C5CAE9;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #F3E5F5; border: 2px solid #CE93D8;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #E8EAF6; border: 2px solid #9FA8DA;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #E3F2FD; border-left: 10px solid #2196F3; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #3949AB; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        .anim-dash {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s linear forwards;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        📐 Mathe-Punkte: <span id="score" style="color: #64B5F6;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #1A237E;">📏 Das Maß- und Mathe-Abenteuer 📐</h1>
+    <p style="text-align: center; font-size: 1.2em;">Hallo Zahlen-Jongleur! Mach dich bereit, wir erforschen die absolute Weltsprache der Wissenschaft: Das genaue Messen und Rechnen!</p>
+
+    <div class="card">
+        <h2>1. SI-Einheiten: Die Sprache, die jeder versteht</h2>
+        <p>Stell dir vor, du baust ein Baumhaus mit einem Freund in Amerika. Du sagst: "Wir brauchen ein Brett, das 5 Füße lang ist." Dein Freund misst mit <em>seinen</em> Füßen – aber die sind viel kleiner als deine! Das Brett passt nicht. Um genau dieses Chaos zu vermeiden, haben sich Wissenschaftler auf der ganzen Welt auf ein gemeinsames System geeinigt: <strong>Das Internationale Einheitensystem (SI)</strong>.</p>
+        <div class="lexikon-box">
+            📖 <strong>Das schlaue Wörterbuch: Messen heißt Vergleichen!</strong><br>
+            Wenn du misst, vergleichst du immer einen Gegenstand mit einem festgelegten Standard. 1 Meter ist auf der ganzen Welt exakt gleich lang, egal ob in Deutschland, Japan oder auf dem Mond!
+        </div>
+        <div class="interactive-zone">
+            <h3>📏 Das Maßband-Chaos</h3>
+            <p>Miss das blaue Rechteck! Klicke auf die Knöpfe, um zu sehen, wie sich das Maßband verändert.</p>
+            <button onclick="measure('cm')">In Zentimeter messen</button>
+            <button onclick="measure('feet')">In "Königs-Füßen" messen</button>
+            <button onclick="measure('hands')">In "Baby-Händen" messen</button>
+            <div class="diagram-box" style="height: 180px;">
+                <svg width="400" height="80" viewBox="0 0 400 80">
+                    <rect x="50" y="10" width="200" height="30" fill="#3F51B5" rx="5"/>
+                    <line x1="20" y1="60" x2="380" y2="60" stroke="#9E9E9E" stroke-width="2"/>
+                    
+                    <g id="ticksCm" style="display: none;">
+                        <line x1="50" y1="50" x2="50" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="70" y1="55" x2="70" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="90" y1="55" x2="90" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="110" y1="55" x2="110" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="130" y1="55" x2="130" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="150" y1="50" x2="150" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="170" y1="55" x2="170" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="190" y1="55" x2="190" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="210" y1="55" x2="210" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="230" y1="55" x2="230" y2="60" stroke="#4CAF50" stroke-width="2"/><line x1="250" y1="50" x2="250" y2="60" stroke="#4CAF50" stroke-width="2"/>
+                    </g>
+                    
+                    <g id="ticksFeet" style="display: none;">
+                        <line x1="50" y1="40" x2="50" y2="60" stroke="#FF9800" stroke-width="4"/>
+                        <line x1="200" y1="40" x2="200" y2="60" stroke="#FF9800" stroke-width="4"/>
+                        <line x1="350" y1="40" x2="350" y2="60" stroke="#FF9800" stroke-width="4"/>
+                    </g>
+
+                    <g id="ticksHands" style="display: none;">
+                        <circle cx="50" cy="55" r="3" fill="#E91E63"/><circle cx="65" cy="55" r="3" fill="#E91E63"/><circle cx="80" cy="55" r="3" fill="#E91E63"/><circle cx="95" cy="55" r="3" fill="#E91E63"/><circle cx="110" cy="55" r="3" fill="#E91E63"/><circle cx="125" cy="55" r="3" fill="#E91E63"/><circle cx="140" cy="55" r="3" fill="#E91E63"/><circle cx="155" cy="55" r="3" fill="#E91E63"/><circle cx="170" cy="55" r="3" fill="#E91E63"/><circle cx="185" cy="55" r="3" fill="#E91E63"/><circle cx="200" cy="55" r="3" fill="#E91E63"/><circle cx="215" cy="55" r="3" fill="#E91E63"/><circle cx="230" cy="55" r="3" fill="#E91E63"/><circle cx="245" cy="55" r="3" fill="#E91E63"/>
+                    </g>
+                </svg>
+                <p id="measureText" style="font-size: 1.3em; font-weight: bold; color: #9E9E9E; margin-top: 10px;">Länge: ?</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>Warum nutzen Wissenschaftler auf der ganzen Welt die SI-Einheiten?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Weil sie schöner klingen.</button>
+            <button onclick="handleAnswer(this, true, 10)">Damit jeder exakt dieselbe Länge, Zeit oder Masse meint und es keine Fehler gibt.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Die 7 Basisgrößen: Das Fundament der Welt</h2>
+        <p>Alles, was du im Universum messen kannst, lässt sich aus nur <strong>7 Grundbausteinen</strong> (Basisgrößen) zusammensetzen. Die wichtigsten drei, die du fast jeden Tag brauchst, sind: <strong>Länge</strong> (Meter, m), <strong>Masse</strong> (Kilogramm, kg) und <strong>Zeit</strong> (Sekunden, s).</p>
+        <div class="lexikon-box">
+            📖 <strong>Das komplette 7er-Team:</strong><br>
+            1. Länge (Meter) | 2. Masse (Kilogramm) | 3. Zeit (Sekunde) <br>
+            4. Stromstärke (Ampere) | 5. Temperatur (Kelvin) <br>
+            6. Stoffmenge (Mol) | 7. Lichtstärke (Candela)
+        </div>
+        <div class="interactive-zone">
+            <h3>⏱️ Das Reaktionszeit-Experiment</h3>
+            <p>Wie gut ist dein Zeit-Gefühl? Klicke auf "Start" und versuche, die Stoppuhr bei <strong>exakt 2.00 Sekunden</strong> zu stoppen!</p>
+            <button onclick="startTimer()" id="startBtn">Start ▶️</button>
+            <button onclick="stopTimer()" id="stopBtn" disabled>Stop ⏹️</button>
+            <div class="diagram-box">
+                <p style="font-size: 3em; font-family: monospace; color: #1A237E; margin: 0;" id="timerDisplay">0.00 s</p>
+                <p id="timerResult" style="font-weight: bold; color: #9C27B0; min-height: 25px;"></p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>Welche Einheit gehört zur Basisgröße "Masse"?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Kilogramm (kg).</button>
+            <button onclick="handleAnswer(this, false, 0)">Sekunde (s).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Präfixe: Von Kilo bis Milli</h2>
+        <p>Manchmal sind Meter oder Gramm einfach unpraktisch. Eine Ameise ist winzig, die Strecke nach Amerika ist riesig! Dafür haben wir "Präfixe" (Vorsilben). Sie sind wie magische Multiplikatoren: <strong>Kilo</strong> bedeutet immer "1000 mal so viel" (1 Kilometer = 1000 Meter). <strong>Milli</strong> bedeutet "ein Tausendstel" (sehr winzig).</p>
+        <div class="lexikon-box">
+            📖 <strong>Die wichtigsten Vorsilben:</strong><br>
+            - <strong>Milli (m)</strong> = 1 / 1.000 (Millimeter = winzig)<br>
+            - <strong>Zenti (c)</strong> = 1 / 100 (Zentimeter = klein)<br>
+            - <strong>Kilo (k)</strong> = 1.000 (Kilogramm = viel)<br>
+            - <strong>Mega (M)</strong> = 1.000.000 (Megabyte = riesig!)
+        </div>
+        <div class="interactive-zone">
+            <h3>🔍 Der Einheiten-Zoom</h3>
+            <p>Schiebe den Regler von winzig (Milli) bis riesig (Kilo)!</p>
+            <input type="range" id="zoomRange" min="1" max="3" value="2" oninput="updateZoom()" style="width: 250px;">
+            <div class="diagram-box" style="height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <p id="zoomTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #3F51B5;">1 Meter (m)</p>
+                <svg width="200" height="100" viewBox="0 0 200 100">
+                    <g id="zoomMilli" style="display: none;">
+                        <circle cx="100" cy="50" r="3" fill="#000"/>
+                        <circle cx="110" cy="50" r="4" fill="#000"/>
+                        <line x1="100" y1="50" x2="95" y2="45" stroke="#000" stroke-width="1"/>
+                    </g>
+                    <g id="zoomMeter" style="display: block;">
+                        <circle cx="100" cy="30" r="15" fill="#5C6BC0"/>
+                        <line x1="100" y1="45" x2="100" y2="80" stroke="#5C6BC0" stroke-width="4"/>
+                        <line x1="100" y1="50" x2="80" y2="70" stroke="#5C6BC0" stroke-width="4"/>
+                        <line x1="100" y1="50" x2="120" y2="70" stroke="#5C6BC0" stroke-width="4"/>
+                    </g>
+                    <g id="zoomKilo" style="display: none;">
+                        <polygon points="10,100 50,40 90,100" fill="#90CAF9"/>
+                        <polygon points="60,100 120,20 180,100" fill="#64B5F6"/>
+                        <rect x="80" y="60" width="20" height="40" fill="#B0BEC5"/>
+                        <rect x="110" y="50" width="25" height="50" fill="#90A4AE"/>
+                    </g>
+                </svg>
+                <p id="zoomDesc" style="color: #757575;">Etwa die Größe eines Kindes.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>Wie viele Gramm sind in einem Kilogramm (kg)?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">100 Gramm.</button>
+            <button onclick="handleAnswer(this, true, 10)">1.000 Gramm.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Formeln: Die Geheimrezepte der Physik</h2>
+        <p>In der Physik schreiben wir keine langen Romane, wir benutzen <strong>Formeln</strong>! Sie sind wie ein kurzes Kochrezept, das zeigt, wie Dinge zusammenhängen. Nehmen wir die Geschwindigkeit. Sie hängt davon ab, wie viel Weg du in einer bestimmten Zeit schaffst. Die Formel lautet: <strong>v = s / t</strong> (Geschwindigkeit = Weg geteilt durch Zeit).</p>
+        <div class="lexikon-box">
+            📖 <strong>Das Formel-ABC:</strong><br>
+            Wissenschaftler sind schreibfaul. Sie nutzen Buchstaben:<br>
+            - <strong>v</strong> steht für <em>velocitas</em> (lateinisch für Geschwindigkeit)<br>
+            - <strong>s</strong> steht für <em>spatium</em> (Weg/Strecke)<br>
+            - <strong>t</strong> steht für <em>tempus</em> (Zeit)
+        </div>
+        <div class="interactive-zone">
+            <h3>🏎️ Der Formel-Flitzer (v = s / t)</h3>
+            <p>Verändere den Weg und die Zeit. Beobachte, wie sich das Tacho (die Geschwindigkeit v) verändert!</p>
+            Weg (s): <span id="sVal">100</span> Meter <br>
+            <input type="range" id="sRange" min="10" max="200" value="100" oninput="calcSpeed()"><br>
+            Zeit (t): <span id="tVal">10</span> Sekunden <br>
+            <input type="range" id="tRange" min="2" max="20" value="10" oninput="calcSpeed()">
+            
+            <div class="diagram-box" style="display: flex; justify-content: center;">
+                <svg width="200" height="120" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#E0E0E0" stroke-width="20"/>
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#4CAF50" stroke-width="20" stroke-dasharray="250" stroke-dashoffset="120"/>
+                    <circle cx="100" cy="100" r="10" fill="#212121"/>
+                    <line id="tachoNeedle" x1="100" y1="100" x2="60" y2="40" stroke="#F44336" stroke-width="4" stroke-linecap="round" style="transition: all 0.5s; transform-origin: 100px 100px; transform: rotate(0deg);"/>
+                </svg>
+            </div>
+            <p id="speedText" style="font-weight: bold; font-size: 1.2em; color: #1A237E;">Geschwindigkeit (v) = 10 m/s</p>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>Was passiert mit deiner Geschwindigkeit, wenn du für denselben Weg plötzlich VIEL MEHR Zeit brauchst?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Die Geschwindigkeit wird kleiner (ich bin langsamer).</button>
+            <button onclick="handleAnswer(this, false, 0)">Die Geschwindigkeit wird größer (ich bin schneller).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Diagramme: Bilder aus Zahlen machen</h2>
+        <p>Listen mit hunderten Zahlen sind furchtbar langweilig und schwer zu verstehen. Deshalb zeichnen Physiker <strong>Diagramme</strong> (Graphen)! In einem Diagramm gibt es zwei Achsen (Linien): Die x-Achse liegt meistens unten auf dem Boden (waagerecht), die y-Achse steht wie ein Baumstamm nach oben (senkrecht). Ein Diagramm zeigt uns einen Verlauf als Kurve an – man sieht sofort, was passiert!</p>
+        <div class="interactive-zone">
+            <h3>📈 Der Raketen-Flug</h3>
+            <p>Klicke auf "Rakete starten", um die Höhe der Rakete über die Zeit in ein Diagramm zu zeichnen!</p>
+            <button onclick="drawGraph()" id="graphBtn">Rakete starten 🚀</button>
+            
+            <div class="diagram-box" style="height: 250px; position: relative;">
+                <svg width="350" height="200" viewBox="0 0 350 200">
+                    <line x1="40" y1="20" x2="40" y2="160" stroke="#000" stroke-width="2"/>
+                    <line x1="40" y1="160" x2="320" y2="160" stroke="#000" stroke-width="2"/>
+                    <text x="5" y="90" font-size="12" fill="#757575" transform="rotate(-90 15,90)">Höhe (m)</text>
+                    <text x="160" y="190" font-size="12" fill="#757575">Zeit (s)</text>
+                    
+                    <path id="rocketPath" d="M 40 160 Q 150 160 300 40" fill="none" stroke="#E91E63" stroke-width="4" style="stroke-dasharray: 400; stroke-dashoffset: 400;"/>
+                    
+                    <circle cx="40" cy="160" r="4" fill="#3F51B5" class="graphPoint" style="opacity: 0;"/>
+                    <circle cx="100" cy="150" r="4" fill="#3F51B5" class="graphPoint" style="opacity: 0;"/>
+                    <circle cx="170" cy="120" r="4" fill="#3F51B5" class="graphPoint" style="opacity: 0;"/>
+                    <circle cx="240" cy="80" r="4" fill="#3F51B5" class="graphPoint" style="opacity: 0;"/>
+                    <circle cx="300" cy="40" r="4" fill="#3F51B5" class="graphPoint" style="opacity: 0;"/>
+                </svg>
+            </div>
+            <p id="graphText" style="color: #5C6BC0; font-weight: bold;">Das Diagramm ist noch leer.</p>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>Welche Achse in einem Diagramm liegt in der Regel waagerecht am Boden?</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">Die x-Achse.</button>
+            <button onclick="handleAnswer(this, false, 0)">Die y-Achse.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #3F51B5; background: #E8EAF6;">
+        <h2 style="text-align: center; color: #1A237E;">🎓 Das exakte Maß- und Mathe-Diplom</h2>
+        <p style="text-align: center;">Hier kommen deine Abschlussfragen. Beweise deine absolute Präzision!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. Was bedeutet die Abkürzung "SI" beim Einheitensystem?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Super Intelligentes System.</button>
+            <button onclick="handleAnswer(this, true, 5)">Internationales Einheitensystem (Système international).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. In welcher SI-Einheit misst man die Länge?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Meter (m).</button>
+            <button onclick="handleAnswer(this, false, 0)">Fuß (ft).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. Was ist die Grundeinheit für die Zeit in der Physik?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Stunde (h).</button>
+            <button onclick="handleAnswer(this, true, 5)">Sekunde (s).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. Was bedeutet das Präfix (die Vorsilbe) "Kilo"?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Tausend (1.000) mal so viel.</button>
+            <button onclick="handleAnswer(this, false, 0)">Ein Tausendstel (1/1.000).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. Wie viele Meter sind ein Kilometer?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">1.000 Meter.</button>
+            <button onclick="handleAnswer(this, false, 0)">100 Meter.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. Was bedeutet das Präfix "Milli" (z.B. in Millimeter)?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">Eine Million mal so groß.</button>
+            <button onclick="handleAnswer(this, true, 5)">Ein Tausendstel (sehr winzig).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. Wofür steht der Buchstabe "v" in physikalischen Formeln oft?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Für Geschwindigkeit (velocitas).</button>
+            <button onclick="handleAnswer(this, false, 0)">Für Volumen.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. Wie lautet die Formel für die Geschwindigkeit?</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">v = s + t (Weg plus Zeit)</button>
+            <button onclick="handleAnswer(this, true, 5)">v = s / t (Weg geteilt durch Zeit)</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. In einem Diagramm gibt es die x-Achse und die y-Achse. Wo befindet sich die y-Achse?</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">Sie ist die senkrechte Linie (geht von unten nach oben).</button>
+            <button onclick="handleAnswer(this, false, 0)">Sie ist die waagerechte Linie am Boden.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. Wenn du in 2 Sekunden 10 Meter rennst. Wie schnell bist du (v = s / t)?</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">5 m/s (10 geteilt durch 2).</button>
+            <button onclick="handleAnswer(this, false, 0)">20 m/s (10 mal 2).</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Exakt berechnet! Scroll ganz nach oben und check deinen Punktestand!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Maßband-Chaos (Korrigiert für alle Browser)
+        function measure(unit) {
+            let txt = document.getElementById('measureText');
+            
+            // Verstecke alle Markierungen
+            document.getElementById('ticksCm').style.display = 'none';
+            document.getElementById('ticksFeet').style.display = 'none';
+            document.getElementById('ticksHands').style.display = 'none';
+
+            if (unit === 'cm') {
+                document.getElementById('ticksCm').style.display = 'block';
+                txt.innerText = "Länge: Exakt 20 Zentimeter";
+                txt.style.color = "#4CAF50";
+            } else if (unit === 'feet') {
+                document.getElementById('ticksFeet').style.display = 'block';
+                txt.innerText = "Länge: 1,3 riesige Königs-Füße?!";
+                txt.style.color = "#FF9800";
+            } else {
+                document.getElementById('ticksHands').style.display = 'block';
+                txt.innerText = "Länge: 15 winzige Baby-Hände?!";
+                txt.style.color = "#E91E63";
+            }
+        }
+
+        // 2. Reaktionszeit
+        let startTime, timerInterval;
+        let isRunning = false;
+        
+        function startTimer() {
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('timerResult').innerText = "";
+            document.getElementById('timerDisplay').style.color = "#1A237E";
+            
+            startTime = Date.now();
+            isRunning = true;
+            
+            timerInterval = setInterval(() => {
+                let elapsed = (Date.now() - startTime) / 1000;
+                document.getElementById('timerDisplay').innerText = elapsed.toFixed(2) + " s";
+            }, 10);
+        }
+
+        function stopTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            
+            let finalTime = (Date.now() - startTime) / 1000;
+            let resultTxt = document.getElementById('timerResult');
+            let display = document.getElementById('timerDisplay');
+            
+            if (Math.abs(finalTime - 2.00) <= 0.1) {
+                resultTxt.innerText = "Wahnsinn! Fast exakt 2 Sekunden! Perfektes Zeitgefühl.";
+                display.style.color = "#4CAF50";
+            } else if (finalTime < 2.00) {
+                resultTxt.innerText = "Zu früh! Du musst länger warten.";
+                display.style.color = "#E91E63";
+            } else {
+                resultTxt.innerText = "Zu spät! Du warst zu langsam.";
+                display.style.color = "#FF9800";
+            }
+        }
+
+        // 3. Zoom / Präfixe (Auch bombensicher gemacht)
+        function updateZoom() {
+            let val = document.getElementById('zoomRange').value;
+            let title = document.getElementById('zoomTitle');
+            let desc = document.getElementById('zoomDesc');
+            
+            // Alles ausblenden
+            document.getElementById('zoomMilli').style.display = 'none';
+            document.getElementById('zoomMeter').style.display = 'none';
+            document.getElementById('zoomKilo').style.display = 'none';
+            
+            if (val == 1) { 
+                title.innerText = "1 Millimeter (mm)";
+                desc.innerText = "Winzig! So klein wie eine kleine Ameise.";
+                document.getElementById('zoomMilli').style.display = 'block';
+            } else if (val == 2) { 
+                title.innerText = "1 Meter (m)";
+                desc.innerText = "Die Basis! Etwa die Größe eines Kindes oder eines großen Schrittes.";
+                document.getElementById('zoomMeter').style.display = 'block';
+            } else { 
+                title.innerText = "1 Kilometer (km)";
+                desc.innerText = "Riesig! Die Strecke durch eine halbe Stadt (1.000 Meter).";
+                document.getElementById('zoomKilo').style.display = 'block';
+            }
+        }
+
+        // 4. Formel-Flitzer
+        function calcSpeed() {
+            let s = parseFloat(document.getElementById('sRange').value);
+            let t = parseFloat(document.getElementById('tRange').value);
+            
+            document.getElementById('sVal').innerText = s;
+            document.getElementById('tVal').innerText = t;
+            
+            let v = s / t; 
+            
+            document.getElementById('speedText').innerText = "Geschwindigkeit (v) = " + v.toFixed(1) + " m/s";
+            
+            let angle = -90 + (v * 4); 
+            if(angle > 90) angle = 90;
+            
+            document.getElementById('tachoNeedle').style.transform = `rotate(${angle}deg)`;
+        }
+
+        // 5. Diagramm
+        function drawGraph() {
+            let btn = document.getElementById('graphBtn');
+            let path = document.getElementById('rocketPath');
+            let points = document.querySelectorAll('.graphPoint');
+            let txt = document.getElementById('graphText');
+            
+            btn.disabled = true;
+            txt.innerText = "Rakete steigt! Das Diagramm zeichnet den Verlauf...";
+            
+            path.style.animation = "none";
+            path.offsetHeight; 
+            path.style.animation = "dash 3s linear forwards";
+            
+            points.forEach((p, index) => {
+                setTimeout(() => {
+                    p.style.opacity = "1";
+                    p.style.transition = "opacity 0.3s";
+                }, index * 750);
+            });
+            
+            setTimeout(() => {
+                txt.innerText = "Diagramm fertig! Man sieht eine schöne steile Kurve nach oben.";
+                btn.disabled = false;
+            }, 3500);
+        }
+
+        // Quiz-Logik
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ Falsch! Lies den Text nochmal und probier es weiter.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>

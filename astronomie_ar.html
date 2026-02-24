@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 Das große Weltraum- und Astrophysik-Abenteuer 🚀</title>
+    <style>
+        :root {
+            --primary: #4A148C; /* Deep Space Purple */
+            --secondary: #FF9800; /* Star Fire Orange */
+            --bg: #F3E5F5; 
+            --text: #1A237E;
+            --correct: #4CAF50; 
+            --wrong: #E91E63; 
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        #score-board {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #12005e; color: white; text-align: center;
+            padding: 15px; font-size: 1.6em; font-weight: bold;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .card { 
+            background: var(--card-bg); border-radius: 25px; 
+            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
+        
+        .diagram-box { 
+            background: #ffffff; border: 3px solid #D1C4E9;
+            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
+            overflow: hidden; position: relative;
+        }
+
+        .lexikon-box {
+            background: #E8EAF6; border: 2px solid #7986CB;
+            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
+        }
+
+        .interactive-zone {
+            background: #EDE7F6; border: 2px solid #B39DDB;
+            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
+        }
+
+        .quiz-box { background: #FFF3E0; border-left: 10px solid #FF9800; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
+
+        button { 
+            background: #7E57C2; color: white; border: none; padding: 12px 20px; 
+            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
+            margin: 8px 4px; transition: 0.2s; 
+        }
+        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
+        button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+
+        .anim-dash {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s linear forwards;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(3); opacity: 0.8; fill: #FFF; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">
+        ⭐ نقاط غبار النجوم: <span id="score" style="color: #FFCA28;">0</span>
+    </div>
+
+    <h1 style="text-align: center; font-size: 3em; color: #4A148C;">🌌 الفيزياء الفلكية-مغامرة 🚀</h1>
+    <p style="text-align: center; font-size: 1.2em;">مرحباً بمستكشف الفضاء! استعد. نحن نغادر الأرض ونسافر إلى الثقوب السوداء والنجوم المتفجرة وحدود المكان والزمان!</p>
+
+    <div class="card">
+        <h2>الأبعاد الكونية: ما مدى صغرنا حقاً؟</h2>
+        <p>على الأرض، يبدو لنا الجبل ضخماً. لكن في الفضاء، الأرض مجرد ذرة غبار صغيرة. عندما ننظر إلى الفضاء، علينا أن نعتاد على مقاييس جديدة تماماً. كوكب المشتري كبير جداً لدرجة أن الأرض يمكن أن تسع داخله أكثر من 1300 مرة. وشمسنا؟ كرة نار عملاقة!</p>
+        <div class="lexikon-box">
+            📖 <strong>قاموس الفضاء الذكي:</strong><br>
+            لأن الكيلومترات أرقام صغيرة جداً في الفضاء، يقيس الفلكيون بـ <strong>الوحدات الفلكية (AU)</strong>. 1 وحدة فلكية هي المسافة من الأرض إلى الشمس (حوالي 150 مليون كيلومتر).
+        </div>
+        <div class="interactive-zone">
+            <h3>🌍 مقارنة الكواكب</h3>
+            <p>انقر على الأجرام السماوية لترى كيف تبدو مقارنة ببعضها البعض!</p>
+            <button onclick="showPlanet('erde')">عرض الأرض</button>
+            <button onclick="showPlanet('jupiter')">عرض المشتري</button>
+            <button onclick="showPlanet('sonne')">عرض الشمس</button>
+            <div class="diagram-box" style="height: 180px;">
+                <svg width="400" height="120" viewBox="0 0 400 120">
+                    <g id="planetErde" style="display: none;">
+                        <circle cx="200" cy="60" r="5" fill="#2196F3"/>
+                        <text x="200" y="100" font-size="14" text-anchor="middle" fill="#555">الأرض (القطر: ~12,700 كم)</text>
+                    </g>
+                    
+                    <g id="planetJupiter" style="display: none;">
+                        <circle cx="200" cy="60" r="50" fill="#FFC107"/>
+                        <circle cx="100" cy="60" r="5" fill="#2196F3"/> <text x="200" y="130" font-size="14" text-anchor="middle" fill="#555">المشتري (الأرض على اليسار للمقارنة)</text>
+                    </g>
+
+                    <g id="planetSonne" style="display: none;">
+                        <circle cx="200" cy="200" r="180" fill="#FF5722"/>
+                        <circle cx="200" cy="10" r="5" fill="#2196F3"/> <text x="200" y="25" font-size="14" text-anchor="middle" fill="#FFF">الأرض (نقطة صغيرة في الأعلى)</text>
+                    </g>
+                </svg>
+                <p id="planetText" style="font-size: 1.3em; font-weight: bold; color: #4A148C; margin-top: 10px;">ماذا تريد أن تفحص؟</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q1">
+            <p><strong>أي وحدة قياس يستخدمها الفلكيون غالباً للمسافات في نظامنا الشمسي؟</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">مليمترات.</button>
+            <button onclick="handleAnswer(this, true, 10)">الوحدة الفلكية (AU).</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>سرعة الضوء: الحد الأقصى للسرعة</h2>
+        <p>لا شيء في الكون أسرع من الضوء. إنه يتسابق عبر الفضاء بسرعة مذهلة تبلغ <strong>300,000 كيلومتر في الثانية</strong>! عندما تشغل مصباحاً يدوياً، يصل الضوء إلى الحائط فوراً تقريباً. لكن الفضاء شاسع جداً لدرجة أن حتى الضوء السريع جداً يحتاج إلى وقت.</p>
+        <div class="lexikon-box">
+            📖 <strong>السنة الضوئية:</strong><br>
+            السنة الضوئية <em>ليست</em> وقتاً، بل هي <strong>مسافة</strong>! إنها المسافة التي يقطعها الضوء في سنة كاملة (حوالي 9.5 تريليون كيلومتر).
+        </div>
+        <div class="interactive-zone">
+            <h3>⏱️ تجربة الليزر: من الأرض إلى القمر</h3>
+            <p>يستغرق الضوء أقل بقليل من ثانية ونصف من القمر إلى الأرض. انقر على "إطلاق الليزر" وأوقف الوقت عند <strong>1.30 ثانية بالضبط</strong>!</p>
+            <button onclick="startTimer()" id="startBtn">إطلاق الليزر 🔦</button>
+            <button onclick="stopTimer()" id="stopBtn" disabled>إيقاف! ⏹️</button>
+            <div class="diagram-box">
+                <p style="font-size: 3em; font-family: monospace; color: #4A148C; margin: 0;" id="timerDisplay">0.00 s</p>
+                <p id="timerResult" style="font-weight: bold; color: #E91E63; min-height: 25px;"></p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q2">
+            <p><strong>ما هو "السنة الضوئية" بالضبط؟</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">المسافة التي يقطعها الضوء في سنة.</button>
+            <button onclick="handleAnswer(this, false, 0)">الوقت الذي يستغرقه الطيران إلى الشمس.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>الجاذبية: عندما تحني الكتلة المكان</h2>
+        <p>لماذا لا نسقط من الأرض؟ بسبب الجاذبية! اكتشف ألبرت أينشتاين: كل جسم ثقيل (مثل كرة البولينج على الترامبولين) يحني المكان من حوله. كلما كان الشيء أثقل، زاد جذبه للأشياء الأخرى.</p>
+        <div class="lexikon-box">
+            📖 <strong>الثقب الأسود:</strong><br>
+            عندما يموت نجم عملاق، يمكن أن ينهار على نفسه. يصبح صغيراً بشكل لا نهائي لكنه يحتفظ بكتلته الهائلة. تصبح الجاذبية هناك شديدة لدرجة أنه حتى الضوء لا يمكنه الهروب - ولد الثقب الأسود!
+        </div>
+        <div class="interactive-zone">
+            <h3>🕳️ مشوه الجاذبية</h3>
+            <p>زد الكتلة وشاهد مدى قوة انحناء المكان والزمان!</p>
+            <input type="range" id="zoomRange" min="1" max="3" value="1" oninput="updateGravity()" style="width: 250px;">
+            <div class="diagram-box" style="height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <p id="gravTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;">Die Erde</p>
+                <svg width="200" height="100" viewBox="0 0 200 100">
+                    <path id="gravGrid" d="M 10 50 Q 100 50 190 50" fill="none" stroke="#B39DDB" stroke-width="2"/>
+                    <circle id="gravObject" cx="100" cy="50" r="10" fill="#2196F3"/>
+                </svg>
+                <p id="gravDesc" style="color: #757575;">جاذبية معتدلة. "انبعاج" طفيف في المكان.</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q3">
+            <p><strong>لماذا يسمى الثقب الأسود "أسود"؟</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">لأنه يتكون من فحم داكن.</button>
+            <button onclick="handleAnswer(this, true, 10)">لأن جاذبيته قوية جداً لدرجة أنه حتى الضوء لا يمكنه الهروب.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>سرعة الإفلات: إلى الفضاء!</h2>
+        <p>الجاذبية تمسك بنا بقوة. إذا أراد صاروخ الطيران إلى الفضاء، فعليه أن يكون سريعاً بشكل جنوني للهروب من قوة جذب الأرض. تسمى هذه السرعة <strong>سرعة الإفلات</strong>. بالنسبة للأرض، تبلغ حوالي <strong>11.2 كيلومتر في الثانية</strong> (حوالي 40,000 كم/ساعة!).</p>
+        <div class="lexikon-box">
+            📖 <strong>معادلة الصاروخ:</strong><br>
+            لكي تصبح بهذا السرعة، تحتاج إلى الكثير من الوقود. لكن الوقود ثقيل! كلما وضعت وقوداً أكثر، أصبح الصاروخ أثقل وزاد الدفع الذي تحتاجه مرة أخرى. دورة خبيثة!
+        </div>
+        <div class="interactive-zone">
+            <h3>🚀 عداد سرعة الصاروخ: هل ستهرب من الأرض؟</h3>
+            <p>اضغط على البنزين (قوة المحرك) وحاول الوصول إلى الرقم السحري 11.2 كم/ث للهروب إلى الفضاء!</p>
+            دفع المحرك: <br>
+            <input type="range" id="tRange" min="1" max="15" value="3" oninput="calcSpeed()"><br>
+            
+            <div class="diagram-box" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="200" height="120" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#E0E0E0" stroke-width="20"/>
+                    <path d="M 140 35 A 80 80 0 0 1 180 100" fill="none" stroke="#4CAF50" stroke-width="20"/>
+                    
+                    <circle cx="100" cy="100" r="10" fill="#212121"/>
+                    <line id="tachoNeedle" x1="100" y1="100" x2="40" y2="60" stroke="#F44336" stroke-width="4" stroke-linecap="round" style="transition: all 0.5s; transform-origin: 100px 100px; transform: rotate(0deg);"/>
+                </svg>
+                <p id="speedText" style="font-weight: bold; font-size: 1.2em; color: #1A237E;">السرعة: 3.0 km/s (بطيء جداً!)</p>
+            </div>
+        </div>
+        <div class="quiz-box" data-id="q4">
+            <p><strong>ماذا يجب أن يحقق الصاروخ ليغادر الأرض بشكل دائم؟</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">سرعة الإفلات (حوالي 11.2 كم/ث).</button>
+            <button onclick="handleAnswer(this, false, 0)">سرعة الضوء.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>السوبرنوفا: الموت المذهل لنجم</h2>
+        <p>Sterne leben nicht ewig. In ihrem Inneren verbrennen sie Wasserstoff zu Helium (Kernfusion). Dadurch leuchten sie. Aber irgendwann ist der Treibstoff alle! Bei sehr massereichen Sternen gewinnt dann plötzlich die Schwerkraft: Der Stern fällt in sich zusammen und prallt auf seinen eigenen Kern. Die Folge? Die gewaltigste Explosion im Universum: <strong>Eine Supernova!</strong></p>
+        <div class="interactive-zone">
+            <h3>💥 إشعال النجم</h3>
+            <p>Klicke auf den Button, um die Lebensdauer des Sterns zu beenden und die Supernova auszulösen!</p>
+            <button onclick="triggerSupernova()" id="novaBtn">اجعل النجم ينفجر!</button>
+            
+            <div class="diagram-box" style="height: 250px; background-color: #000; position: relative;">
+                <svg width="100%" height="100%" viewBox="0 0 350 200">
+                    <circle id="starCore" cx="175" cy="100" r="20" fill="#FFEB3B"/>
+                    <g id="explosionLines" style="display: none;" stroke="#FF9800" stroke-width="3">
+                        <line x1="175" y1="100" x2="175" y2="10" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="175" y2="190" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="85" y2="100" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="265" y2="100" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="110" y2="35" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="240" y2="165" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="240" y2="35" class="anim-dash"/>
+                        <line x1="175" y1="100" x2="110" y2="165" class="anim-dash"/>
+                    </g>
+                </svg>
+            </div>
+            <p id="novaText" style="color: #FF5722; font-weight: bold;">النجم يحترق بسلام...</p>
+        </div>
+        <div class="quiz-box" data-id="q5">
+            <p><strong>ماذا يحدث في السوبرنوفا؟</strong></p>
+            <button onclick="handleAnswer(this, true, 10)">ينفجر نجم عملاق في نهاية حياته.</button>
+            <button onclick="handleAnswer(this, false, 0)">كوكبان يصطدمان.</button>
+            <p class="feedback"></p>
+        </div>
+    </div>
+
+    <div class="card" style="border: 5px solid #4A148C; background: #EDE7F6;">
+        <h2 style="text-align: center; color: #1A237E;">🎓 دبلوم الفيزياء الفلكية</h2>
+        <p style="text-align: center;">إليك الأسئلة الختامية. أثبت أنك مستعد لناسا!</p>
+        
+        <div class="quiz-box" data-id="f1">
+            <p><strong>1. ما هو اختصار المسافة من الأرض إلى الشمس؟</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">س.ض (سنة ضوئية).</button>
+            <button onclick="handleAnswer(this, true, 5)">و.ف (وحدة فلكية).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f2">
+            <p><strong>2. أي كوكب في نظامنا الشمسي هو الأكبر؟</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">المشتري.</button>
+            <button onclick="handleAnswer(this, false, 0)">الأرض.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f3">
+            <p><strong>3. كم تبلغ سرعة الضوء تقريباً؟</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">3,000 كم/ساعة.</button>
+            <button onclick="handleAnswer(this, true, 5)">300,000 كيلومتر في الثانية.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f4">
+            <p><strong>4. ما هو السنة الضوئية؟</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">وحدة قياس مسافة (مسافة هائلة).</button>
+            <button onclick="handleAnswer(this, false, 0)">وحدة قياس زمن (بالضبط 365 يوماً في الفضاء).</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f5">
+            <p><strong>5. ماذا يحدث عندما يكون للجسم كتلة أكبر؟</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">تصبح جاذبيته أقوى.</button>
+            <button onclick="handleAnswer(this, false, 0)">يفقد جاذبيته.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f6">
+            <p><strong>6. لماذا لا يستطيع حتى الضوء الهروب من الثقب الأسود؟</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">لأن السنة الضوئية تنتهي هناك.</button>
+            <button onclick="handleAnswer(this, true, 5)">لأن الجاذبية هناك قوية جداً.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f7">
+            <p><strong>7. كم يجب أن تكون سرعة الصاروخ للهروب من جاذبية الأرض؟</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">11.2 كيلومتر في الثانية (سرعة الإفلات).</button>
+            <button onclick="handleAnswer(this, false, 0)">100 كيلومتر في الساعة.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f8">
+            <p><strong>8. لماذا تكون الصواريخ عادة ضخمة وثقيلة جداً؟</strong></p>
+            <button onclick="handleAnswer(this, false, 0)">ليكون لدى رواد الفضاء مساحة كبيرة للرياضة.</button>
+            <button onclick="handleAnswer(this, true, 5)">لأن عليهم أخذ كميات هائلة من الوقود معهم.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f9">
+            <p><strong>9. ماذا يسمى الانفجار الهائل لنجم يحتضر؟</strong></p>
+            <button onclick="handleAnswer(this, true, 5)">سوبرنوفا (مستعر أعظم).</button>
+            <button onclick="handleAnswer(this, false, 0)">عملاق أحمر.</button>
+            <p class="feedback"></p>
+        </div>
+        <div class="quiz-box" data-id="f10">
+            <p><strong>10. من أين تحصل النجوم (مثل شمسنا) على الطاقة لتضيء؟</strong></p>
+            <button onclick="handleAnswer(this, true, 20)">من خلال الاندماج النووي (اندماج العناصر في الداخل).</button>
+            <button onclick="handleAnswer(this, false, 0)">تحرق الأكسجين السائل.</button>
+            <p class="feedback"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 اكتملت المهمة! قم بالتمرير إلى الأعلى وتحقق من رصيد غبار النجوم الخاص بك!</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let answered = new Set();
+
+        // 1. Planeten-Vergleich
+        function showPlanet(planet) {
+            let txt = document.getElementById('planetText');
+            
+            document.getElementById('planetErde').style.display = 'none';
+            document.getElementById('planetJupiter').style.display = 'none';
+            document.getElementById('planetSonne').style.display = 'none';
+
+            if (planet === 'erde') {
+                document.getElementById('planetErde').style.display = 'block';
+                txt.innerText = "Die gute alte Erde. Unser Zuhause.";
+                txt.style.color = "#2196F3";
+            } else if (planet === 'jupiter') {
+                document.getElementById('planetJupiter').style.display = 'block';
+                txt.innerText = "Whoa! Der Jupiter ist der größte Planet im Sonnensystem.";
+                txt.style.color = "#FF9800";
+            } else {
+                document.getElementById('planetSonne').style.display = 'block';
+                txt.innerText = "Gigantisch! Die Sonne macht 99,8% der Masse unseres Sonnensystems aus.";
+                txt.style.color = "#E91E63";
+            }
+        }
+
+        // 2. Lichtgeschwindigkeit Reaktionszeit (Ziel: 1.30s)
+        let startTime, timerInterval;
+        let isRunning = false;
+        
+        function startTimer() {
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('timerResult').innerText = "";
+            document.getElementById('timerDisplay').style.color = "#4A148C";
+            
+            startTime = Date.now();
+            isRunning = true;
+            
+            timerInterval = setInterval(() => {
+                let elapsed = (Date.now() - startTime) / 1000;
+                document.getElementById('timerDisplay').innerText = elapsed.toFixed(2) + " s";
+            }, 10);
+        }
+
+        function stopTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            
+            let finalTime = (Date.now() - startTime) / 1000;
+            let resultTxt = document.getElementById('timerResult');
+            let display = document.getElementById('timerDisplay');
+            
+            if (Math.abs(finalTime - 1.30) <= 0.1) {
+                resultTxt.innerText = "إصابة مثالية! بالضبط الوقت الذي يحتاجه الضوء للوصول إلى الأرض.";
+                display.style.color = "#4CAF50";
+            } else if (finalTime < 1.30) {
+                resultTxt.innerText = "توقفت مبكراً جداً! كنت أسرع من الضوء (هذا مستحيل!).";
+                display.style.color = "#E91E63";
+            } else {
+                resultTxt.innerText = "متأخر جداً! لقد طار الضوء بجانبك بالفعل.";
+                display.style.color = "#FF9800";
+            }
+        }
+
+        // 3. Schwerkraft-Verzerrer
+        function updateGravity() {
+            let val = document.getElementById('zoomRange').value;
+            let title = document.getElementById('gravTitle');
+            let desc = document.getElementById('gravDesc');
+            let obj = document.getElementById('gravObject');
+            let grid = document.getElementById('gravGrid');
+            
+            if (val == 1) { 
+                title.innerText = "Die Erde";
+                desc.innerText = "Mäßige Schwerkraft. Ein leichtes 'Eindellen' des Raums.";
+                obj.setAttribute("fill", "#2196F3");
+                obj.setAttribute("r", "10");
+                grid.setAttribute("d", "M 10 50 Q 100 65 190 50");
+            } else if (val == 2) { 
+                title.innerText = "Unsere Sonne";
+                desc.innerText = "جاذبية قوية. المكان ينحني بوضوح!";
+                obj.setAttribute("fill", "#FFC107");
+                obj.setAttribute("r", "25");
+                grid.setAttribute("d", "M 10 50 Q 100 110 190 50");
+            } else { 
+                title.innerText = "Schwarzes Loch";
+                desc.innerText = "جاذبية قصوى! ينهار المكان إلى اللانهاية.";
+                obj.setAttribute("fill", "#000000");
+                obj.setAttribute("r", "15"); // Kleiner aber massiver
+                grid.setAttribute("d", "M 10 50 Q 100 250 190 50");
+            }
+        }
+
+        // 4. Fluchtgeschwindigkeits-Tacho
+        function calcSpeed() {
+            let thrust = parseFloat(document.getElementById('tRange').value);
+            
+            let v = thrust; // Simple map: 1 thrust = 1 km/s for learning purposes
+            
+            let txt = document.getElementById('speedText');
+            
+            if(v >= 11.2) {
+                txt.innerText = "السرعة: " + v.toFixed(1) + " km/s (مرحباً بك في الفضاء!) 🌌";
+                txt.style.color = "#4CAF50";
+            } else {
+                txt.innerText = "السرعة: " + v.toFixed(1) + " km/s (أنت تسقط عائداً إلى الأرض!) 💥";
+                txt.style.color = "#F44336";
+            }
+            
+            // Map 0-15 km/s to 0-180 degrees (roughly)
+            let angle = -90 + (v * 12); 
+            if(angle > 90) angle = 90;
+            
+            document.getElementById('tachoNeedle').style.transform = `rotate(${angle}deg)`;
+        }
+
+        // 5. Supernova Animation
+        function triggerSupernova() {
+            let btn = document.getElementById('novaBtn');
+            let core = document.getElementById('starCore');
+            let lines = document.getElementById('explosionLines');
+            let txt = document.getElementById('novaText');
+            
+            btn.disabled = true;
+            txt.innerText = "الجاذبية تفوز! اللب ينهار...";
+            txt.style.color = "#FF9800";
+            
+            // Kollaps Animation
+            core.style.transition = "all 1s";
+            core.setAttribute("r", "5");
+            core.setAttribute("fill", "#F44336");
+            
+            setTimeout(() => {
+                txt.innerText = "بوم! سوبرنوفا!";
+                txt.style.color = "#fff";
+                
+                core.style.animation = "explode 0.8s forwards";
+                
+                lines.style.display = "block";
+                
+                // Reset lines animation
+                lines.querySelectorAll('line').forEach(l => {
+                    l.style.animation = "none";
+                    l.offsetHeight; /* trigger reflow */
+                    l.style.animation = "dash 1.5s ease-out forwards";
+                });
+                
+            }, 1200);
+            
+            setTimeout(() => {
+                txt.innerText = "يبقى غبار النجوم (وربما ثقب أسود).";
+                txt.style.color = "#9C27B0";
+                btn.disabled = false;
+                
+                // Reset for next click
+                core.style.animation = "none";
+                core.setAttribute("r", "20");
+                core.setAttribute("fill", "#FFEB3B");
+                lines.style.display = "none";
+            }, 4000);
+        }
+
+        // Quiz-Logik (unverändert vom Original)
+        function handleAnswer(btn, isCorrect, pts) {
+            const box = btn.closest('.quiz-box');
+            const id = box.getAttribute('data-id');
+            const fb = box.querySelector('.feedback');
+            
+            if (answered.has(id)) {
+                if (isCorrect) {
+                    btn.style.background = "var(--correct)";
+                    fb.innerText = "✅ صحيح، لكن النقاط تعطى فقط في المرة الأولى!";
+                    fb.style.color = "orange";
+                } else {
+                    btn.style.background = "var(--wrong)";
+                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.style.color = "var(--wrong)";
+                }
+                return;
+            }
+
+            if (isCorrect) {
+                btn.style.background = "var(--correct)";
+                fb.innerText = "✅ صحيح! +" + pts + " Punkte!";
+                fb.style.color = "var(--correct)";
+                score += pts;
+                document.getElementById('score').innerText = score;
+                box.querySelectorAll('button').forEach(b => b.disabled = true);
+                btn.style.opacity = "1";
+            } else {
+                btn.style.background = "var(--wrong)";
+                fb.innerText = "❌ خطأ! اقرأ النص مرة أخرى وحاول مجدداً.";
+                fb.style.color = "var(--wrong)";
+                answered.add(id);
+            }
+            answered.add(id);
+        }
+    </script>
+</body>
+</html>
