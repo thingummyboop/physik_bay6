@@ -13,17 +13,26 @@
             height: 100vh;
             background-color: #1e293b;
             color: white;
+            /* Entfernt die Scrollbar des Hauptfensters */
+            overflow: hidden; 
         }
 
         /* --- Seitenleiste (Navigation) --- */
         #sidebar {
-            width: 320px;
+            width: 300px;
+            min-width: 300px;
             background-color: #0f172a;
             overflow-y: auto;
             box-shadow: 4px 0 15px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
             z-index: 10;
+            transition: margin-left 0.3s ease; /* Animation für das Einklappen */
+        }
+
+        /* Klasse zum Ausblenden */
+        #sidebar.collapsed {
+            margin-left: -300px;
         }
 
         .sidebar-header {
@@ -35,8 +44,31 @@
 
         .sidebar-header h1 {
             margin: 0;
-            font-size: 1.5em;
+            font-size: 1.3em;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* --- Toggle Button --- */
+        #menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 100;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #menu-toggle:hover {
+            background: #2563eb;
         }
 
         .grade-section {
@@ -82,6 +114,7 @@
             flex-grow: 1;
             background-color: #f8fafc;
             position: relative;
+            height: 100vh;
         }
 
         iframe {
@@ -94,10 +127,14 @@
 </head>
 <body>
 
+    <button id="menu-toggle" onclick="toggleMenu()" title="Menü ein/ausblenden">
+        ☰
+    </button>
+
     <div id="sidebar">
         <div class="sidebar-header">
-            <h1>🚀 Physik-Abenteuer</h1>
-            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #dbeafe;">Österreichischer Lehrplan</p>
+            <h1 style="margin-top: 40px;">🚀 Physik-Abenteuer</h1>
+            <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #dbeafe;">Österreichischer Lehrplan</p>
         </div>
 
         <div class="grade-section">📚 2. Klasse (6. Schulstufe)</div>
@@ -113,27 +150,41 @@
         <button class="nav-btn" onclick="loadPage('elektrizität.html', this)">
             ⚡ 4. Elektrizität
         </button>
+        <button class="nav-btn" onclick="loadPage('optik1.html', this)">
+            🌈 5. Optik-Abenteuer
+        </button>
 
         <div class="grade-section">📚 3. Klasse (7. Schulstufe)</div>
         <button class="nav-btn" onclick="loadPage('kraft und bewegung.html', this)">
-            🚀 5. Kraft & Bewegung
+            🚀 6. Kraft & Bewegung
         </button>
         <button class="nav-btn" onclick="loadPage('drehundstatik.html', this)">
-            🎡 6. Drehbewegungen & Statik
+            🎡 7. Drehbewegungen & Statik
         </button>
         <button class="nav-btn" onclick="loadPage('energie.html', this)">
-            🔋 7. Energie
+            🔋 8. Energie
+        </button>
+        <button class="nav-btn" onclick="loadPage('arbeit.html', this)">
+            🏗 9. Arbeit
         </button>
 
         <div class="grade-section">📚 4. Klasse (8. Schulstufe)</div>
         <button class="nav-btn" onclick="loadPage('elektromagnetismus.html', this)">
-            🧲 8. Elektromagnetismus
+            🧲 10. Elektromagnetismus
         </button>
         <button class="nav-btn" onclick="loadPage('linsen, spiegel.html', this)">
-            🔍 9. Linsen & Spiegel
+            🔍 11. Linsen & Spiegel
         </button>
         <button class="nav-btn" onclick="loadPage('astronomie.html', this)">
-            🌌 10. Astronomie & Astrophysik
+            🌌 12. Astronomie & Astrophysik
+        </button>
+
+        <div class="grade-section">🛠️ Werkzeuge & Grundlagen</div>
+        <button class="nav-btn" onclick="loadPage('sieinheiten.html', this)">
+            📏 SI-Einheiten
+        </button>
+        <button class="nav-btn" onclick="loadPage('rechenbeispiele.html', this)">
+            🧮 Rechenbeispiele
         </button>
     </div>
 
@@ -142,16 +193,24 @@
     </div>
 
     <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+
         function loadPage(fileName, btnElement) {
-            // Lade die neue Datei in den iFrame
             document.getElementById('game-frame').src = fileName;
 
-            // Markiere den aktuell geklickten Button
             let buttons = document.getElementsByClassName('nav-btn');
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('active');
             }
             btnElement.classList.add('active');
+
+            // Optional: Menü auf Mobilgeräten automatisch schließen nach Klick
+            if (window.innerWidth < 768) {
+                toggleMenu();
+            }
         }
     </script>
 </body>
