@@ -4,82 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌈 Optics Adventure 🌈</title>
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        /* --- GRUNDDESIGN & FARBEN (Mix aus den Vorlagen) --- */
-        :root {
-            --primary: #FFD600; 
-            --secondary: #9C27B0; 
-            --bg: #F3E5F5; 
-            --text: #2c3e50;
-            --correct: #4CAF50; 
-            --wrong: #F44336; 
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; 
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 80px; 
-        }
-
-        /* --- PUNKTEANZEIGE --- */
-        #score-board {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background-color: #2c3e50; color: white;
-            text-align: center; padding: 15px;
-            font-size: 1.8em; font-weight: bold;
-            z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease-in-out;
-        }
-        .score-highlight { color: var(--primary); }
-
-        /* --- LAYOUT --- */
-        .card {
-            background: var(--card-bg); border-radius: 15px;
-            padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
-        }
-        h1 { text-align: center; font-size: 2.8em; color: #333; }
-        h2 { color: var(--secondary); border-bottom: 4px solid var(--primary); padding-bottom: 10px; }
-        
-        .lexikon-box {
-            background: #F3E5F5; border: 2px solid #E1BEE7;
-            padding: 15px; border-radius: 15px; margin: 15px 0;
-        }
-
-        .diagram-box {
-            text-align: center; margin: 25px 0;
-            background: #fff; border: 2px solid #eee;
-            padding: 20px; border-radius: 15px;
-        }
-
-        .exercise-box {
-            background-color: #F3E5F5; border-radius: 10px;
-            padding: 20px; margin: 30px 0; border: 3px dashed var(--secondary);
-        }
-
-        .quiz-box {
-            background-color: #FFFDE7; border-radius: 10px;
-            padding: 20px; margin: 30px 0; border-left: 8px solid var(--primary);
-        }
-
-        /* --- INTERAKTIVE ELEMENTE --- */
-        button {
-            background-color: #4a5568; color: white; border: none;
-            padding: 14px 24px; border-radius: 12px;
-            cursor: pointer; font-size: 1em; font-weight: bold;
-            margin: 8px; transition: all 0.2s;
-        }
-        button:hover:not(:disabled) { transform: scale(1.05); background-color: var(--secondary); }
-        button:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .feedback { font-weight: bold; margin-top: 15px; min-height: 28px; }
-
-        /* Animation für Lichtstrahlen */
         @keyframes beam-glow {
             0% { opacity: 0.6; stroke-width: 2; }
             50% { opacity: 1; stroke-width: 4; }
@@ -130,7 +56,7 @@
             <p><strong>What happens if you hold an opaque hand in a beam of light?</strong></p>
             <button onclick="checkAction(this, true, 'Correct! Since light cannot bend around corners, a dark area (shadow) is created behind the hand.', 10)">A shadow is created</button>
             <button onclick="checkAction(this, false, 'Leider nein. Das Licht kann nicht einfach durch die Hand fließen.', 0)">Light bends around the hand</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -164,7 +90,7 @@
             <p><strong>Why does aluminum foil shine more than a sheet of paper?</strong></p>
             <button onclick="handleQuiz(this, true, 15)">Because the surface is smoother and reflects light properly.</button>
             <button onclick="handleQuiz(this, false, 0)">Because aluminum foil produces light itself.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -187,7 +113,7 @@
             <p><strong>What happens to the light ray when it travels from air into glass?</strong></p>
             <button onclick="handleQuiz(this, false, 0)">Nothing, it just keeps flying.</button>
             <button onclick="handleQuiz(this, true, 20)">It changes direction (it is refracted).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -199,39 +125,52 @@
             <p><strong>1. How do light rays normally move?</strong></p>
             <button onclick="handleQuiz(this, true, 20)">Always straight ahead.</button>
             <button onclick="handleQuiz(this, false, 0)">In cozy wavy lines.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>2. Which object reflects light best?</strong></p>
             <button onclick="handleQuiz(this, false, 0)">A black T-shirt.</button>
             <button onclick="handleQuiz(this, true, 20)">A clean silver mirror.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>3. What is the requirement for a shadow?</strong></p>
             <button onclick="handleQuiz(this, true, 20)">A light ray hits an opaque object.</button>
             <button onclick="handleQuiz(this, false, 0)">It must be night.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>4. Why do we need lenses (e.g., in glasses)?</strong></p>
             <button onclick="handleQuiz(this, true, 30)">They use refraction to focus light rays specifically.</button>
             <button onclick="handleQuiz(this, false, 0)">So the eyes don't get wet.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <p style="text-align: center; font-weight: bold; font-size: 1.2em;">🎉 Well done! Your knowledge shines brighter than a 100-watt bulb! 🎉</p>
     </div>
 
     <script>
-        let score = 0;
+        
+        let score = parseInt(localStorage.getItem('physik_score')) || 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+        });
+        function updateGlobalScore(pts) {
+            updateGlobalScore(pts);
+            localStorage.setItem('physik_score', score);
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+            window.parent.postMessage({ type: 'updateScore', score: score }, '*');
+        }
+
         let answeredQuestions = new Set();
 
         function updateScoreDisplay(pts) {
-            score += pts;
+            updateGlobalScore(pts);
             const scoreEl = document.getElementById('score');
             const board = document.getElementById('score-board');
             scoreEl.innerText = score;

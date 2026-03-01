@@ -4,75 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌌 Das große Weltraum- und Astrophysik-Abenteuer 🚀</title>
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        :root {
-            --primary: #4A148C; /* Deep Space Purple */
-            --secondary: #FF9800; /* Star Fire Orange */
-            --bg: #F3E5F5; 
-            --text: #1A237E;
-            --correct: #4CAF50; 
-            --wrong: #E91E63; 
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 100px;
-        }
-
-        #score-board {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: #12005e; color: white; text-align: center;
-            padding: 15px; font-size: 1.6em; font-weight: bold;
-            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-
-        .card { 
-            background: var(--card-bg); border-radius: 25px; 
-            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
-            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
-        }
-
-        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
-        
-        .diagram-box { 
-            background: #ffffff; border: 3px solid #D1C4E9;
-            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
-            overflow: hidden; position: relative;
-        }
-
-        .lexikon-box {
-            background: #E8EAF6; border: 2px solid #7986CB;
-            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
-        }
-
-        .interactive-zone {
-            background: #EDE7F6; border: 2px solid #B39DDB;
-            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
-        }
-
-        .quiz-box { background: #FFF3E0; border-left: 10px solid #FF9800; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
-
-        button { 
-            background: #7E57C2; color: white; border: none; padding: 12px 20px; 
-            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
-            margin: 8px 4px; transition: 0.2s; 
-        }
-        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
-        button:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        .feedback { font-weight: bold; margin-top: 10px; display: block; }
-
-        .anim-dash {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: dash 3s linear forwards;
-        }
         @keyframes dash {
             to { stroke-dashoffset: 0; }
         }
@@ -129,7 +62,7 @@
             <p><strong>Яку одиницю вимірювання астрономи часто використовують для відстаней у нашій Сонячній системі?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Міліметри.</button>
             <button onclick="handleAnswer(this, true, 10)">Астрономічна одиниця (АО).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -154,7 +87,7 @@
             <p><strong>Що саме таке «світловий рік»?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Відстань, яку світло долає за рік.</button>
             <button onclick="handleAnswer(this, false, 0)">Час, необхідний для того, щоб долетіти до Сонця.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -182,7 +115,7 @@
             <p><strong>Чому чорна діра називається «чорною»?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Тому що вона складається з темного вугілля.</button>
             <button onclick="handleAnswer(this, true, 10)">Тому що її гравітація настільки сильна, що навіть світло не може вирватися.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -214,7 +147,7 @@
             <p><strong>Чого повинна досягти ракета, щоб назавжди покинути Землю?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Другу космічну швидкість (приблизно 11,2 км/с).</button>
             <button onclick="handleAnswer(this, false, 0)">Швидкість світла.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -247,7 +180,7 @@
             <p><strong>Що відбувається під час спалаху наднової?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Гігантська зірка вибухає наприкінці свого життя.</button>
             <button onclick="handleAnswer(this, false, 0)">Дві планети стикаються.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -259,67 +192,80 @@
             <p><strong>1. Яка абревіатура використовується для позначення відстані від Землі до Сонця?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">св. р. (Світловий рік).</button>
             <button onclick="handleAnswer(this, true, 5)">АО (Астрономічна одиниця).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f2">
             <p><strong>2. Яка планета в нашій Сонячній системі є найбільшою?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Юпітер.</button>
             <button onclick="handleAnswer(this, false, 0)">Земля.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f3">
             <p><strong>3. Яка приблизна швидкість світла?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">3 000 км/год.</button>
             <button onclick="handleAnswer(this, true, 5)">300 000 кілометрів на секунду.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f4">
             <p><strong>4. Що таке світловий рік?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Одиниця відстані (величезна відстань).</button>
             <button onclick="handleAnswer(this, false, 0)">Одиниця часу (рівно 365 днів у космосі).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f5">
             <p><strong>5. Що відбувається, коли об'єкт має більшу масу?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Його гравітація стає сильнішою.</button>
             <button onclick="handleAnswer(this, false, 0)">Він втрачає гравітацію.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f6">
             <p><strong>6. Чому навіть світло не може вирватися з чорної діри?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Тому що там закінчується світловий рік.</button>
             <button onclick="handleAnswer(this, true, 5)">Тому що гравітація там надзвичайно сильна.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f7">
             <p><strong>7. Якою має бути швидкість ракети, щоб подолати земне тяжіння?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">11,2 кілометра на секунду (друга космічна швидкість).</button>
             <button onclick="handleAnswer(this, false, 0)">100 кілометрів на годину.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f8">
             <p><strong>8. Чому ракети зазвичай такі величезні та важкі?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Щоб астронавти мали багато місця для занять спортом.</button>
             <button onclick="handleAnswer(this, true, 5)">Тому що вони повинні брати з собою величезну кількість палива.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f9">
             <p><strong>9. Як називається потужний вибух зірки, що помирає?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Наднова.</button>
             <button onclick="handleAnswer(this, false, 0)">Червоний гігант.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f10">
             <p><strong>10. Звідки зірки (як наше Сонце) беруть енергію для того, щоб світитися?</strong></p>
             <button onclick="handleAnswer(this, true, 20)">Завдяки ядерному синтезу (злиття елементів усередині).</button>
             <button onclick="handleAnswer(this, false, 0)">Вони спалюють рідкий кисень.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Місія завершена! Прокрутіть до самого верху і перевірте свій рахунок зоряного пилу!</p>
     </div>
 
     <script>
-        let score = 0;
+        
+        let score = parseInt(localStorage.getItem('physik_score')) || 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+        });
+        function updateGlobalScore(pts) {
+            updateGlobalScore(pts);
+            localStorage.setItem('physik_score', score);
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+            window.parent.postMessage({ type: 'updateScore', score: score }, '*');
+        }
+
         let answered = new Set();
 
         // 1. Planeten-Vergleich
@@ -507,8 +453,8 @@
                 btn.style.background = "var(--correct)";
                 fb.innerText = "✅ Правильно! +" + pts + " Бали!";
                 fb.style.color = "var(--correct)";
-                score += pts;
-                document.getElementById('score').innerText = score;
+                updateGlobalScore(pts);
+                // updated globally
                 box.querySelectorAll('button').forEach(b => b.disabled = true);
                 btn.style.opacity = "1";
             } else {

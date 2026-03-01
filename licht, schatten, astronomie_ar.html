@@ -4,78 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌍 الشمس والقمر والظلال 🌑</title>
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        /* --- التصميم الأساسي والألوان --- */
-        :root {
-            --primary: #FFC107; 
-            --secondary: #3F51B5; 
-            --bg: #1a1a2e; 
-            --text: #e0e0e0;
-            --correct: #4CAF50; 
-            --wrong: #FF5252; 
-            --card-bg: #16213e;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 80px; 
-        }
-
-        /* --- عرض النقاط --- */
-        #score-board {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background-color: #0f3460; color: white;
-            text-align: center; padding: 15px;
-            font-size: 1.8em; font-weight: bold;
-            z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .score-highlight { color: var(--primary); }
-
-        /* --- التخطيط --- */
-        .card {
-            background: var(--card-bg); border-radius: 20px;
-            padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
-        }
-        h1 { text-align: center; font-size: 2.8em; color: var(--primary); }
-        h2 { color: var(--primary); border-bottom: 2px solid #533483; padding-bottom: 10px; }
-        
-        .lexikon-box {
-            background: #0f3460; border: 2px solid #533483;
-            padding: 15px; border-radius: 15px; margin: 15px 0;
-        }
-
-        .diagram-box {
-            text-align: center; margin: 25px 0;
-            background: #000; border: 2px solid #533483;
-            padding: 20px; border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quiz-box {
-            background-color: #1a1a2e; border-radius: 10px;
-            padding: 20px; margin: 30px 0; border-right: 8px solid var(--primary);
-        }
-
-        /* --- الأزرار --- */
-        button {
-            background-color: #533483; color: white; border: none;
-            padding: 12px 20px; border-radius: 12px;
-            cursor: pointer; font-size: 1em; font-weight: bold;
-            margin: 8px; transition: 0.2s;
-        }
-        button:hover:not(:disabled) { transform: scale(1.05); background-color: var(--secondary); }
-        button:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .feedback { font-weight: bold; margin-top: 15px; min-height: 28px; }
-
-        /* --- الرسوم المتحركة --- */
         @keyframes orbit {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -130,7 +60,7 @@
             <p><strong>كم من الوقت يحتاج القمر ليدور دورة واحدة حول الأرض؟</strong></p>
             <button onclick="handleQuiz(this, false, 0)">سنة كاملة</button>
             <button onclick="handleQuiz(this, true, 10)">حوالي شهر</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -160,7 +90,7 @@
             <p><strong>لماذا يظلم الجو فجأة أثناء كسوف الشمس الكلي؟</strong></p>
             <button onclick="handleQuiz(this, true, 15)">لأننا نقف مباشرة في الظل التام للقمر.</button>
             <button onclick="handleQuiz(this, false, 0)">لأن الشمس تذهب للنوم ليلاً.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -188,7 +118,7 @@
             <p><strong>ما الذي يقف في المنتصف تماماً أثناء خسوف القمر؟</strong></p>
             <button onclick="handleQuiz(this, false, 0)">الشمس</button>
             <button onclick="handleQuiz(this, true, 15)">الأرض</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -199,60 +129,73 @@
             <p><strong>1. ما هي أهم قاعدة في البصريات لكي يمكن حساب الكسوف والخسوف أصلاً؟</strong></p>
             <button onclick="handleQuiz(this, true, 20)">ينتشر الضوء في خطوط مستقيمة صارمة.</button>
             <button onclick="handleQuiz(this, false, 0)">ينحني الضوء حول الكواكب.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>2. لماذا يوجد ليل ونهار على الأرض؟</strong></p>
             <button onclick="handleQuiz(this, false, 0)">لأن الشمس تدور حول الأرض.</button>
             <button onclick="handleQuiz(this, true, 20)">لأن الأرض تدور حول نفسها مثل البلبل.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>3. تخيل أنك تقف على القمر أثناء خسوف القمر. ماذا سترى؟</strong></p>
             <button onclick="handleQuiz(this, true, 30)">الأرض تندفع أمام الشمس (كسوف للشمس كما يُرى من هناك!).</button>
             <button onclick="handleQuiz(this, false, 0)">لا شيء، الجو مشرق فقط.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>4. ما هو الظل التام بالضبط؟</strong></p>
             <button onclick="handleQuiz(this, true, 20)">المنطقة التي لا يصل إليها أي ضوء مباشر من مصدر الضوء على الإطلاق.</button>
             <button onclick="handleQuiz(this, false, 0)">المنطقة التي يتركز فيها الضوء بشكل ساطع جداً.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>5. ماذا يُسمى القمر غالباً عندما يغوص في ظل الأرض ويضيء باللون المحمر؟</strong></p>
             <button onclick="handleQuiz(this, false, 0)">قمر الفراولة</button>
             <button onclick="handleQuiz(this, true, 15)">قمر الدم</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>6. من الذي يلقي بالظل أثناء كسوف الشمس؟</strong></p>
             <button onclick="handleQuiz(this, true, 20)">القمر يحجب الشمس ويلقي بظله على الأرض.</button>
             <button onclick="handleQuiz(this, false, 0)">الأرض تحجب الشمس وتلقي بظلها على القمر.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
             <p><strong>7. في أي مسار تسافر الأرض حول الشمس؟</strong></p>
             <button onclick="handleQuiz(this, false, 0)">في خط متعرج مستقيم تماماً.</button>
             <button onclick="handleQuiz(this, true, 15)">في قطع ناقص ضخم (مدار).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <p style="text-align: center; font-weight: bold; font-size: 1.2em; color: var(--primary);">✨ مذهل! لقد حللت جميع ألغاز الظلال في الفضاء! ✨</p>
     </div>
 
     <script>
-        let score = 0;
+        
+        let score = parseInt(localStorage.getItem('physik_score')) || 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+        });
+        function updateGlobalScore(pts) {
+            updateGlobalScore(pts);
+            localStorage.setItem('physik_score', score);
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+            window.parent.postMessage({ type: 'updateScore', score: score }, '*');
+        }
+
 
         function updateScore(pts) {
-            score += pts;
-            document.getElementById('score').innerText = score;
+            updateGlobalScore(pts);
+            // updated globally
             const board = document.getElementById('score-board');
             board.style.backgroundColor = "#16213e";
             setTimeout(() => board.style.backgroundColor = "#0f3460", 300);

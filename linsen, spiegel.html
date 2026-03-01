@@ -4,71 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌈 Das große Optik-Abenteuer 🔦</title>
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        :root {
-            --primary: #f44336; 
-            --secondary: #9C27B0;
-            --bg: #fdfcf0; 
-            --text: #2d3748;
-            --correct: #4CAF50; 
-            --wrong: #E91E63; 
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 100px;
-        }
-
-        #score-board {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: #2d3748; color: white; text-align: center;
-            padding: 15px; font-size: 1.6em; font-weight: bold;
-            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .card { 
-            background: var(--card-bg); border-radius: 25px; 
-            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
-            margin-bottom: 40px; border-bottom: 6px solid var(--secondary);
-        }
-
-        h2 { color: var(--secondary); font-size: 2em; margin-top: 0; }
-        
-        .diagram-box { 
-            background: #ffffff; border: 3px solid #f0f0f0;
-            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
-            overflow: hidden; position: relative;
-        }
-
-        .lexikon-box {
-            background: #f3e8ff; border: 2px solid #d8b4fe;
-            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
-        }
-
-        .interactive-zone {
-            background: #f0f4f8; border: 2px solid #d1dce5;
-            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
-        }
-
-        .quiz-box { background: #fffaf0; border-left: 10px solid #fbd38d; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
-
-        button { 
-            background: #4a5568; color: white; border: none; padding: 12px 20px; 
-            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
-            margin: 8px 4px; transition: 0.2s; 
-        }
-        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
-        button:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        .feedback { font-weight: bold; margin-top: 10px; display: block; }
-
-        /* Animationen für die Beugung */
         @keyframes slide-right {
             0% { transform: translateX(0); opacity: 0; }
             20% { opacity: 1; }
@@ -120,7 +57,7 @@
             <p><strong>Wie nennt man die unsichtbare Hilfslinie, die beim Spiegeln senkrecht auf der Oberfläche steht?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Das Lot.</button>
             <button onclick="handleAnswer(this, false, 0)">Der Ausfallstrahl.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -152,7 +89,7 @@
             <p><strong>Warum macht der Lichtstrahl einen Knick, wenn er schräg ins Wasser trifft?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Weil das Wasser nass ist und das Licht wegspült.</button>
             <button onclick="handleAnswer(this, true, 10)">Weil das Wasser optisch dichter ist und das Licht abbremst.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -196,7 +133,7 @@
             <p><strong>Welche Linse nimmst du, wenn du wie mit einer Lupe das Licht der Sonne in einem Punkt konzentrieren willst?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Eine bauchige Sammellinse (Konvex).</button>
             <button onclick="handleAnswer(this, false, 0)">Eine nach innen gewölbte Zerstreuungslinse (Konkav).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -245,7 +182,7 @@
             <p><strong>Wann beugt sich das Licht am stärksten zu neuen Kreiswellen auf?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Wenn der Spalt extrem eng ist.</button>
             <button onclick="handleAnswer(this, false, 0)">Wenn der Spalt wie ein riesiges Scheunentor offen ist.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -289,7 +226,7 @@
             <p><strong>Welcher nach außen gewölbte Spiegel hängt oft an gefährlichen Straßenkreuzungen, weil man damit ein ganz breites Feld sehen kann?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Ein Wölbspiegel (Konvexspiegel).</button>
             <button onclick="handleAnswer(this, false, 0)">Ein Hohlspiegel (Konkavspiegel).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -417,7 +354,7 @@
             <p><strong>Welche zwei Teile nutzt das berühmte Newton-Teleskop (Reflektor), um das Licht in unser Auge zu lenken?</strong></p>
             <button onclick="handleAnswer(this, true, 10)">Einen großen Hauptspiegel und einen kleinen Fangspiegel.</button>
             <button onclick="handleAnswer(this, false, 0)">Eine Konkav-Linse und eine Konvex-Linse.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -429,97 +366,110 @@
             <p><strong>1. Wie lautet das oberste Gesetz bei der Reflexion (dem Spiegeln) von Licht?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Einfallswinkel = Halber Ausfallswinkel.</button>
             <button onclick="handleAnswer(this, true, 5)">Einfallswinkel = Ausfallswinkel.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f2">
             <p><strong>2. Was ist das "Lot" in der Optik?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Ein Werkzeug zum Glas schneiden.</button>
             <button onclick="handleAnswer(this, true, 5)">Eine unsichtbare Hilfslinie, die senkrecht (90 Grad) auf einem Spiegel steht.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f3">
             <p><strong>3. Warum knickt ein Lichtstrahl ab (Brechung), wenn er schräg von Luft ins Wasser taucht?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Weil Wasser eine höhere optische Dichte hat und das Licht abbremst.</button>
             <button onclick="handleAnswer(this, false, 0)">Weil das Wasser kleine Linsen enthält.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f4">
             <p><strong>4. Du hältst eine "Sammellinse" in der Hand. Wie ist sie geformt?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Konvex (wie ein bauchiger Hexenrücken, in der Mitte dick).</button>
             <button onclick="handleAnswer(this, false, 0)">Konkav (wie eine Höhle, in der Mitte dünn).</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f5">
             <p><strong>5. Was passiert, wenn gerade Lichtstrahlen auf eine Zerstreuungslinse (Konkavlinse) treffen?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Sie sammeln sich im Brennpunkt.</button>
             <button onclick="handleAnswer(this, true, 5)">Sie werden nach außen weggedrückt und gestreut.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f6">
             <p><strong>6. Herr Huygens entdeckte die Beugung. Was meinte er damit?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Dass Licht wie eine Welle ist und nach winzigen Spalten neue Kreiswellen bildet.</button>
             <button onclick="handleAnswer(this, false, 0)">Dass sich Linsen verbiegen lassen, wenn sie warm sind.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f7">
             <p><strong>7. Eine Lichtwelle trifft auf eine Wand mit einer Öffnung. Bei welcher Öffnung ist die Beugung am besten sichtbar?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Bei einem riesigen Tor.</button>
             <button onclick="handleAnswer(this, true, 5)">Bei einem winzig kleinen, extrem engen Spalt.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f8">
             <p><strong>8. Welcher Spiegel verhält sich genau so wie eine bauchige Sammellinse und erzeugt einen echten Brennpunkt?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Der Hohlspiegel (Konkavspiegel).</button>
             <button onclick="handleAnswer(this, false, 0)">Der flache Spiegel im Bad.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f9">
             <p><strong>9. In Supermärkten und an Straßenkreuzungen hängen oft Wölbspiegel (Konvexspiegel), um ein weites Sichtfeld zu haben. Wie wirken diese?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Sie bündeln Licht.</button>
             <button onclick="handleAnswer(this, true, 5)">Sie streuen Licht wie eine Zerstreuungslinse, der Fokus liegt scheinbar hinten im Spiegel.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f10">
             <p><strong>10. Wir schauen in ein Mikroskop. Wie heißt die Linse, die ganz unten in der Nähe der winzigen Probe liegt?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Das Okular.</button>
             <button onclick="handleAnswer(this, true, 5)">Das Objektiv.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f11">
             <p><strong>11. Das Objektiv im Mikroskop projiziert das vergrößerte Probe-Tierchen in die Mitte des leeren Rohrs (Tubus). Wie nennen Physiker dieses schwebende Bild?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Das Zwischenbild.</button>
             <button onclick="handleAnswer(this, false, 0)">Das Schattenbild.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f12">
             <p><strong>12. Wann sehen wir beim Mikroskopieren das Bild im Okular knackscharf und entspannt?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Wenn das Zwischenbild exakt auf dem Brennpunkt (Fokus) des Okulars liegt.</button>
             <button onclick="handleAnswer(this, false, 0)">Wenn das Objektiv das Okular berührt.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f13">
             <p><strong>13. Ein klassisches Teleskop mit großen Glaslinsen nennt man in der Fachsprache...?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">Refraktor.</button>
             <button onclick="handleAnswer(this, false, 0)">Reflektor.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f14">
             <p><strong>14. Wie heißt der kleine, 45-Grad-schräge Spiegel in einem Newton-Spiegelteleskop?</strong></p>
             <button onclick="handleAnswer(this, false, 0)">Der Zwischenspiegel.</button>
             <button onclick="handleAnswer(this, true, 5)">Der Fangspiegel.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f15">
             <p><strong>15. Moderne, gigantische Astronomie-Teleskope sind Spiegelteleskope (Reflektoren). Warum baut man sie nicht mit gewaltigen Linsen?</strong></p>
             <button onclick="handleAnswer(this, true, 20)">Weil gigantische Linsen zu schwer sind, sich verformen und fiese Farbfehler (Regenbogenränder) erzeugen.</button>
             <button onclick="handleAnswer(this, false, 0)">Weil Spiegel das Licht im Weltall farbiger und hübscher aussehen lassen.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
         <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;">🚀 Fantastisch! Scroll ganz nach oben und check deinen finalen Punktestand!</p>
     </div>
 
     <script>
-        let score = 0;
+        
+        let score = parseInt(localStorage.getItem('physik_score')) || 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+        });
+        function updateGlobalScore(pts) {
+            updateGlobalScore(pts);
+            localStorage.setItem('physik_score', score);
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+            window.parent.postMessage({ type: 'updateScore', score: score }, '*');
+        }
+
         let answered = new Set();
 
         // 1. Reflexion
@@ -777,8 +727,8 @@
                 btn.style.background = "var(--correct)";
                 fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
                 fb.style.color = "var(--correct)";
-                score += pts;
-                document.getElementById('score').innerText = score;
+                updateGlobalScore(pts);
+                // updated globally
                 box.querySelectorAll('button').forEach(b => b.disabled = true);
                 btn.style.opacity = "1";
             } else {

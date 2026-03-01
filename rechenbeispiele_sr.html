@@ -4,75 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🧮 Avantura fizike i računanja 🚀</title>
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        :root {
-            --primary: #00838F; 
-            --secondary: #D84315; 
-            --bg: #E0F7FA; 
-            --text: #004D40;
-            --correct: #4CAF50; 
-            --wrong: #E91E63; 
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 100px;
-        }
-
-        #score-board {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: #006064; color: white; text-align: center;
-            padding: 15px; font-size: 1.6em; font-weight: bold;
-            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .card { 
-            background: var(--card-bg); border-radius: 25px; 
-            padding: 35px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
-            margin-bottom: 40px; border-bottom: 6px solid var(--primary);
-        }
-
-        h2 { color: var(--primary); font-size: 2em; margin-top: 0; }
-        
-        .diagram-box { 
-            background: #ffffff; border: 3px solid #B2EBF2;
-            border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center;
-            overflow: hidden; position: relative;
-        }
-
-        .lexikon-box {
-            background: #FFF3E0; border: 2px solid #FFCC80;
-            padding: 18px; border-radius: 15px; margin: 15px 0; font-size: 1.05em;
-        }
-
-        .interactive-zone {
-            background: #E0F7FA; border: 2px solid #80DEEA;
-            padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;
-        }
-
-        .quiz-box { background: #E8F5E9; border-left: 10px solid #4CAF50; padding: 20px; border-radius: 0 15px 15px 0; margin: 20px 0; }
-
-        input[type="number"] {
-            padding: 10px; font-size: 1.2em; border: 2px solid #00838F; 
-            border-radius: 8px; width: 120px; text-align: center; margin: 10px;
-        }
-
-        button { 
-            background: #0097A7; color: white; border: none; padding: 12px 20px; 
-            border-radius: 12px; cursor: pointer; font-size: 1em; font-weight: bold; 
-            margin: 8px 4px; transition: 0.2s; 
-        }
-        button:hover:not(:disabled) { background: var(--secondary); transform: scale(1.03); }
-        button:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        .feedback { font-weight: bold; margin-top: 10px; display: block; }
-    </style>
+        </style>
 </head>
 <body>
 
@@ -96,7 +30,7 @@
             <p>Gledaš uzbudljiv naučnofantastični film koji traje tačno <strong>2,5 sata</strong>. Koliko si <strong>sekundi</strong> proveo ispred televizora?</p>
             <input type="number" id="inputSec" placeholder="Sekunden...">
             <button onclick="checkInput('inputSec', 9000, 10, this)">Proveri</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -113,7 +47,7 @@
             <p>Pakuješ kofer za odmor. Imaš odeću (12,5 kg), cipele (800 g), knjige (1.200 g) i neseser (0,5 kg). <br><strong>Koliko kilograma (kg) ukupno teži tvoj kofer?</strong></p>
             <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
             <button onclick="checkInput('inputKg', 15, 10, this)">Провери</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -125,7 +59,7 @@
             <p>Most je zapravo dugačak 2,4 kilometra (km). Deo od 350 metara (m) mora da se popravi. <br><strong>Koliko metara (m) mosta je još uvek potpuno u redu?</strong></p>
             <input type="number" id="inputMeter" placeholder="Meter...">
             <button onclick="checkInput('inputMeter', 2050, 10, this)">Провери</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -138,7 +72,7 @@
             <p>Gepard pretrči put od <strong>s = 120 metara</strong> za tačno <strong>t = 4 sekunde</strong>. <br>Izračunaj njegovu brzinu (v) u m/s!</p>
             v = <input type="number" id="inputV" placeholder="m/s"> m/s
             <button onclick="checkInput('inputV', 30, 10, this)">Провери</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="interactive-zone">
@@ -146,7 +80,7 @@
             <p>Biciklista vozi konstantnom brzinom od <strong>v = 5 m/s</strong>. Vozi tokom <strong>t = 12 sekundi</strong>. <br>Koji put (s) on pređe? (Savet: s = v * t)</p>
             s = <input type="number" id="inputS" placeholder="Meter"> m
             <button onclick="checkInput('inputS', 60, 10, this)">Провери</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -175,7 +109,7 @@
             <p>Očitaj sa gornjeg dijagrama: koliki je put s nakon 10 sekundi? <br><strong>Sada izračunaj brzinu v u m/s!</strong></p>
             v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
             <button onclick="checkInput('inputGraph', 5, 15, this)">Провери</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
 
@@ -238,12 +172,25 @@
     </div>
 
     <script>
-        let score = 0;
+        
+        let score = parseInt(localStorage.getItem('physik_score')) || 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+        });
+        function updateGlobalScore(pts) {
+            updateGlobalScore(pts);
+            localStorage.setItem('physik_score', score);
+            const el = document.getElementById('score');
+            if (el) el.innerText = score;
+            window.parent.postMessage({ type: 'updateScore', score: score }, '*');
+        }
+
         let answeredQuestions = new Set();
 
         function updateScore(pts) {
-            score += pts;
-            document.getElementById('score').innerText = score;
+            updateGlobalScore(pts);
+            // updated globally
         }
 
         // Funktion für die manuellen Eingabefelder

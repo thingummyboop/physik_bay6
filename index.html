@@ -156,6 +156,9 @@
         <div class="sidebar-header">
             <h1 id="site-title">🚀 Physik-Abenteuer</h1>
             <p id="site-subtitle" style="margin: 5px 0 0 0; font-size: 0.9em; color: #dbeafe;">Österreichischer Lehrplan</p>
+            <div style="margin-top: 15px; background: #1e293b; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6;">
+                <strong style="color: #FF9800;">🏆 <span id="global-score-text">Gesamtpunkte</span>: <span id="global-score">0</span></strong>
+            </div>
             <div style="margin-top: 15px;">
                 <button onclick="setLanguage('de')" class="lang-btn" id="btn-de">DE</button>
                 <button onclick="setLanguage('en')" class="lang-btn" id="btn-en">EN</button>
@@ -164,6 +167,10 @@
                 <button onclick="setLanguage('uk')" class="lang-btn" id="btn-uk">UK</button>
             </div>
         </div>
+
+        <button class="nav-btn" data-page="dashboard.html" onclick="loadPage('dashboard.html', this)" style="background: #FF9800; color: #fff; font-weight: bold; text-align: center; border-radius: 0 0 15px 15px;">
+            <span class="btn-text" id="dashboard-text">📊 Dashboard / Report Card</span>
+        </button>
 
         <div class="grade-section" id="section-2">📚 2. Klasse (6. Schulstufe)</div>
         <button class="nav-btn active" data-page="licht, schatten, astronomie.html" onclick="loadPage('licht, schatten, astronomie.html', this)">
@@ -241,7 +248,9 @@
                     'astronomie.html': '🌌 10. Astronomie & Astrophysik',
                     'sieinheiten.html': '📏 SI-Einheiten',
                     'waermelehre.html': '🌡️ Wärmelehre',
-                    'rechenbeispiele.html': '🧮 Rechenbeispiele'
+                    'rechenbeispiele.html': '🧮 Rechenbeispiele',
+                    'dashboard.html': '📊 Dashboard',
+                    'global-score-text': 'Gesamtpunkte'
                 }
             },
             'en': {
@@ -264,7 +273,9 @@
                     'astronomie.html': '🌌 10. Astronomy & Astrophysics',
                     'sieinheiten.html': '📏 SI Units',
                     'waermelehre.html': '🌡️ Thermodynamics',
-                    'rechenbeispiele.html': '🧮 Calculation Examples'
+                    'rechenbeispiele.html': '🧮 Calculation Examples',
+                    'dashboard.html': '📊 Dashboard',
+                    'global-score-text': 'Global Score'
                 }
             },
             'ar': {
@@ -287,7 +298,9 @@
                     'astronomie.html': '🌌 10. علم الفلك والفيزياء الفلكية',
                     'sieinheiten.html': '📏 وحدات SI',
                     'waermelehre.html': '🌡️ الديناميكا الحرارية',
-                    'rechenbeispiele.html': '🧮 أمثلة حسابية'
+                    'rechenbeispiele.html': '🧮 أمثلة حسابية',
+                    'dashboard.html': '📊 لوحة القيادة',
+                    'global-score-text': 'النتيجة الإجمالية'
                 }
             },
             'sr': {
@@ -310,7 +323,9 @@
                     'astronomie.html': '🌌 10. Астрономија и астрофизика',
                     'sieinheiten.html': '📏 СИ јединице',
                     'waermelehre.html': '🌡️ Термодинамика',
-                    'rechenbeispiele.html': '🧮 Примери за рачунање'
+                    'rechenbeispiele.html': '🧮 Примери за рачунање',
+                    'dashboard.html': '📊 Контролна табла',
+                    'global-score-text': 'Укупан резултат'
                 }
             },
             'uk': {
@@ -333,7 +348,9 @@
                     'astronomie.html': '🌌 10. Астрономія та астрофізика',
                     'sieinheiten.html': '📏 Одиниці SI',
                     'waermelehre.html': '🌡️ Термодинаміка',
-                    'rechenbeispiele.html': '🧮 Приклади розрахунків'
+                    'rechenbeispiele.html': '🧮 Приклади розрахунків',
+                    'dashboard.html': '📊 Інформаційна панель',
+                    'global-score-text': 'Загальний бал'
                 }
             }
         };
@@ -341,31 +358,27 @@
         function setLanguage(lang) {
             currentLang = lang;
             
-            // Update Site Direction (RTL for Arabic)
             document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
             document.getElementById('sidebar').style.borderLeft = (lang === 'ar') ? 'none' : '';
             document.getElementById('sidebar').style.borderRight = (lang === 'ar') ? '4px solid transparent' : '';
 
-            // Update Text
             document.getElementById('site-title').innerText = translations[lang]['site-title'];
             document.getElementById('site-subtitle').innerText = translations[lang]['site-subtitle'];
             document.getElementById('section-2').innerText = translations[lang]['section-2'];
             document.getElementById('section-3').innerText = translations[lang]['section-3'];
             document.getElementById('section-4').innerText = translations[lang]['section-4'];
             document.getElementById('section-extra').innerText = translations[lang]['section-extra'];
+            document.getElementById('global-score-text').innerText = translations[lang]['pages']['global-score-text'];
 
-            // Update Navigation Buttons
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => {
                 const page = btn.getAttribute('data-page');
                 btn.querySelector('.btn-text').innerText = translations[lang]['pages'][page];
             });
 
-            // Update Active Lang Button
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
 
-            // Reload current page in new language
             const activeBtn = document.querySelector('.nav-btn.active');
             if (activeBtn) {
                 loadPage(activeBtn.getAttribute('data-page'), activeBtn);
@@ -379,9 +392,8 @@
 
         function loadPage(fileName, btnElement) {
             let targetFile = fileName;
-            if (currentLang !== 'de') {
+            if (currentLang !== 'de' && fileName !== 'dashboard.html') {
                 targetFile = fileName.replace('.html', '_' + currentLang + '.html');
-                // Standardize filenames for non-German versions
                 targetFile = targetFile.replace('elektrizität', 'elektrizitaet');
                 targetFile = targetFile.replace('wärmelehre', 'waermelehre');
             }
@@ -394,13 +406,22 @@
             }
             btnElement.classList.add('active');
 
-            // Optional: Menü auf Mobilgeräten automatisch schließen nach Klick
             if (window.innerWidth < 768) {
                 toggleMenu();
             }
         }
 
-        // Initialize
+        window.addEventListener('message', (e) => {
+            if(e.data && e.data.type === 'updateScore') {
+                document.getElementById('global-score').innerText = e.data.score;
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let s = parseInt(localStorage.getItem('physik_score')) || 0;
+            document.getElementById('global-score').innerText = s;
+        });
+
         setLanguage('de');
     </script>
 </body>

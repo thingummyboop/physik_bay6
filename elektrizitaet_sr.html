@@ -4,180 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ Avantura elektriciteta ⚡</title>
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        /* --- GRUNDDESIGN & FARBEN --- */
-        :root {
-            --primary: #FF9800; 
-            --secondary: #03A9F4; 
-            --bg: #E8F5E9; 
-            --text: #2c3e50;
-            --correct: #4CAF50; 
-            --wrong: #F44336; 
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; 
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 80px; 
-        }
-
-        /* --- PUNKTEANZEIGE --- */
-        #score-board {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1.8em;
-            font-weight: bold;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease-in-out, background-color 0.3s;
-        }
-        .score-highlight {
-            color: var(--primary);
-        }
-
-        /* --- TYPOGRAFIE & LAYOUT --- */
-        h1 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        h2 {
-            color: var(--secondary);
-            border-bottom: 4px solid var(--primary);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        h3 {
-            color: #2c3e50;
-        }
-        .intro-text {
-            text-align: center;
-            font-size: 1.2em;
-            background: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        .final-card {
-            border: 5px solid #e91e63; 
-            background: #fffdf5;
-        }
-
-        /* --- ÜBUNGEN & QUIZZES --- */
-        .exercise-box {
-            background-color: #E3F2FD;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-            border: 3px dashed var(--secondary);
-        }
-        .quiz-box {
-            background-color: #FFF3E0;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-            border-left: 8px solid var(--primary);
-        }
-        .final-quiz-box {
-            background-color: #fce4ec;
-            border-radius: 10px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 8px solid #e91e63;
-        }
-        .question {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-        }
-        .question:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .question p {
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
-        /* --- BUTTONS --- */
-        button {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.05em;
-            font-weight: bold;
-            margin: 8px;
-            transition: all 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        button:hover:not(:disabled) {
-            transform: scale(1.05);
-            background-color: #0288D1;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        button:disabled {
-            cursor: not-allowed;
-            transform: none;
-            opacity: 0.7;
-            box-shadow: none;
-            color: #eee;
-        }
-        
-        /* --- FEEDBACK TEXT --- */
-        .feedback {
-            font-weight: bold;
-            margin-top: 15px;
-            min-height: 28px;
-            font-size: 1.15em;
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        /* --- GRAFIK BOXEN --- */
-        .diagram-box {
-            text-align: center;
-            margin: 35px 0;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border: 2px solid #eee;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-        }
-        .diagram-box p {
-            margin-top: 15px;
-            font-size: 1em;
-            color: #666;
-            font-style: italic;
-        }
-        svg {
-            max-width: 100%; 
-            height: auto;
-        }
-    </style>
+        </style>
 </head>
 <body>
 
@@ -251,7 +80,7 @@
             <p><strong>Elektron (-) i proton (+) se sreću:</strong></p>
             <button onclick="checkExercise(this, true, 'Richtig! Plus und Minus ziehen sich an wie Magnete.', 5)">Privlače se</button>
             <button onclick="checkExercise(this, false, 'Falsch. Denk an die Regel: Gegensätze ziehen sich an!', 0)">Odbijaju se</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
@@ -261,7 +90,7 @@
                 <button onclick="answerQuiz(this, false)">Die Protonen</button>
                 <button onclick="answerQuiz(this, true)">Die Elektronen</button>
                 <button onclick="answerQuiz(this, false)">Die gesamten Atome</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
         </div>
     </div>
@@ -315,7 +144,7 @@
             <p><strong>Ein Stück Gummi (z.B. ein Radiergummi):</strong></p>
             <button onclick="checkExercise(this, false, 'Falsch. Gummi leitet nicht, deshalb sind Kabel damit umhüllt, um uns zu schützen.', 0)">Leiter (Strom fließt)</button>
             <button onclick="checkExercise(this, true, 'Richtig! Gummi ist ein Isolator und stoppt den Strom.', 5)">Isolator (Strom stoppt)</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
@@ -324,7 +153,7 @@
                 <p>1. Warum ist das Kabel von deinem Handy-Ladegerät außen aus Plastik?</p>
                 <button onclick="answerQuiz(this, false)">Weil es schöner aussieht und sich besser anfühlt.</button>
                 <button onclick="answerQuiz(this, true)">Weil Plastik ein Isolator ist. Es verhindert, dass wir einen Stromschlag bekommen.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
         </div>
     </div>
@@ -379,7 +208,7 @@
             <p><strong>Du baust einen Stromkreis, aber ein Kabel in der Mitte ist durchgeschnitten (die Drahtenden berühren sich nicht). Was passiert?</strong></p>
             <button onclick="checkExercise(this, false, 'Falsch. Die Elektronen können nicht einfach über die Lücke springen.', 0)">Die Lampe leuchtet trotzdem.</button>
             <button onclick="checkExercise(this, true, 'Richtig! Der Kreis ist unterbrochen. Die Luft dazwischen ist ein Isolator, die Lampe bleibt aus.', 5)">Die Lampe bleibt aus.</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
@@ -388,7 +217,7 @@
                 <p>1. Was passiert, wenn Strom durch einen Draht mit sehr hohem Widerstand fließt?</p>
                 <button onclick="answerQuiz(this, true)">Der Draht bremst die Elektronen und wird dabei warm.</button>
                 <button onclick="answerQuiz(this, false)">Der Draht friert ein.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
         </div>
     </div>
@@ -424,7 +253,7 @@
             <p><strong>Wie heißt der Teil in der Batterie, der den direkten Weg für die Elektronen versperrt?</strong></p>
             <button onclick="checkExercise(this, false, 'Falsch. Die Kathode ist der Pluspol.', 0)">Die Kathode</button>
             <button onclick="checkExercise(this, true, 'Richtig! Der Elektrolyt zwingt den Strom durch das äußere Kabel.', 5)">Der Elektrolyt</button>
-            <p class="feedback"></p>
+            <p class="feedback" aria-live="polite"></p>
         </div>
 
         <div class="quiz-box">
@@ -433,7 +262,7 @@
                 <p>1. Wo starten die Elektronen ihre Reise durch den Stromkreis?</p>
                 <button onclick="answerQuiz(this, true)">Am Minuspol (Anode), weil es dort zu viele Elektronen gibt.</button>
                 <button onclick="answerQuiz(this, false)">Am Pluspol (Kathode).</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
         </div>
     </div>
@@ -477,7 +306,7 @@
                 <p>1. Was ist das Besondere an einem Kondensator im Vergleich zu einer Batterie?</p>
                 <button onclick="answerQuiz(this, true)">Er kann Energie sehr schnell auf einmal abgeben (z.B. für einen Blitz).</button>
                 <button onclick="answerQuiz(this, false)">Er liefert über viele Stunden gleichmäßig Strom.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
         </div>
     </div>
@@ -492,14 +321,14 @@
                 <p><strong>1. Wo befinden sich die Protonen in einem Atom?</strong></p>
                 <button onclick="answerFinalQuiz(this, true)">Sie sitzen schwer und fest in der Mitte, im Atomkern.</button>
                 <button onclick="answerFinalQuiz(this, false)">Sie flitzen ganz schnell auf der Außenbahn herum.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>2. Welche Aussage über die Anziehungskraft stimmt?</strong></p>
                 <button onclick="answerFinalQuiz(this, false)">Gleiche Ladungen (z.B. Plus und Plus) ziehen sich an.</button>
                 <button onclick="answerFinalQuiz(this, true)">Ungleiche Ladungen (Plus und Minus) ziehen sich an.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
@@ -507,56 +336,56 @@
                 <button onclick="answerFinalQuiz(this, false)">Ein Holzstock.</button>
                 <button onclick="answerFinalQuiz(this, true)">Ein Kupferdraht.</button>
                 <button onclick="answerFinalQuiz(this, false)">Ein Radiergummi.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>4. Was bewegt sich wirklich durch das Kabel, wenn die Lampe leuchtet?</strong></p>
                 <button onclick="answerFinalQuiz(this, true)">Milliarden kleiner, negativer Elektronen.</button>
                 <button onclick="answerFinalQuiz(this, false)">Die schweren, positiven Atomkerne.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>5. Warum wird das Innere eines Toasters heiß?</strong></p>
                 <button onclick="answerFinalQuiz(this, true)">Weil die Heizdrähte einen großen Widerstand haben und die Elektronen sich dort durchquetschen müssen.</button>
                 <button onclick="answerFinalQuiz(this, false)">Weil eine kleine Flamme in der Batterie brennt.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>6. Was braucht man zwingend, damit Strom überhaupt dauerhaft fließen kann?</strong></p>
                 <button onclick="answerFinalQuiz(this, false)">Ein offenes Kabelende.</button>
                 <button onclick="answerFinalQuiz(this, true)">Einen geschlossenen Stromkreis.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>7. Von wo nach wo wandern die Elektronen im äußeren Stromkreis?</strong></p>
                 <button onclick="answerFinalQuiz(this, true)">Vom vollen Minuspol durch das Kabel zum leeren Pluspol.</button>
                 <button onclick="answerFinalQuiz(this, false)">Sie bleiben immer genau in der Mitte stehen.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>8. Was ist die Aufgabe des "Elektrolyts" im Inneren einer Batterie?</strong></p>
                 <button onclick="answerFinalQuiz(this, true)">Er ist eine chemische Mauer, die verhindert, dass die Elektronen den kurzen Weg innen nehmen.</button>
                 <button onclick="answerFinalQuiz(this, false)">Er speichert das Wasser für die Batterie.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>9. Wie speichert ein Kondensator seine Energie?</strong></p>
                 <button onclick="answerFinalQuiz(this, true)">Indem sich positive und negative Ladungen auf zwei Platten gegenüberstehen, getrennt durch einen Isolator.</button>
                 <button onclick="answerFinalQuiz(this, false)">Durch eine Flüssigkeit, die niemals leer wird.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
             <div class="question">
                 <p><strong>10. Welches Bauteil nutzt man, um ganz viel Energie blitzschnell auf einmal abzugeben (z.B. für einen Kamerablitz)?</strong></p>
                 <button onclick="answerFinalQuiz(this, false)">Die Batterie (Kathode).</button>
                 <button onclick="answerFinalQuiz(this, true)">Den Kondensator.</button>
-                <p class="feedback"></p>
+                <p class="feedback" aria-live="polite"></p>
             </div>
 
         </div>
