@@ -103,7 +103,7 @@
             <p>Increase the mass and observe how strongly space and time are bent!</p>
             <input type="range" id="zoomRange" min="1" max="3" value="1" oninput="updateGravity()" style="width: 250px;">
             <div class="diagram-box" style="height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <p id="gravTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;">Die Erde</p>
+                <p id="gravTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;">Earth</p>
                 <svg width="200" height="100" viewBox="0 0 200 100">
                     <path id="gravGrid" d="M 10 50 Q 100 50 190 50" fill="none" stroke="#B39DDB" stroke-width="2"/>
                     <circle id="gravObject" cx="100" cy="50" r="10" fill="#2196F3"/>
@@ -278,7 +278,7 @@
 
             if (planet === 'erde') {
                 document.getElementById('planetErde').style.display = 'block';
-                txt.innerText = "Die gute alte Erde. Unser Zuhause.";
+                txt.innerText = "Good old Earth. Our home.";
                 txt.style.color = "#2196F3";
             } else if (planet === 'jupiter') {
                 document.getElementById('planetJupiter').style.display = 'block';
@@ -286,7 +286,7 @@
                 txt.style.color = "#FF9800";
             } else {
                 document.getElementById('planetSonne').style.display = 'block';
-                txt.innerText = "Gigantisch! Die Sonne macht 99,8% der Masse unseres Sonnensystems aus.";
+                txt.innerText = "Gigantic! The sun makes up 99.8% of the mass of our solar system.";
                 txt.style.color = "#E91E63";
             }
         }
@@ -341,7 +341,7 @@
             let grid = document.getElementById('gravGrid');
             
             if (val == 1) { 
-                title.innerText = "Die Erde";
+                title.innerText = "Earth";
                 desc.innerText = "Moderate gravity. A slight 'denting' of space.";
                 obj.setAttribute("fill", "#2196F3");
                 obj.setAttribute("r", "10");
