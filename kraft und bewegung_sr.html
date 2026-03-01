@@ -496,7 +496,7 @@
                     fb.style.color = "orange";
                 } else {
                     btn.style.background = "var(--wrong)";
-                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.innerText = "❌ То је нажалост нетачно.";
                     fb.style.color = "var(--wrong)";
                 }
                 return;
@@ -504,7 +504,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Tačno! +" + pts + " Punkte!";
+                fb.innerText = "✅ Tačno! +" + pts + " Поени!";
                 fb.style.color = "var(--correct)";
                 score += pts;
                 document.getElementById('score').innerText = score;

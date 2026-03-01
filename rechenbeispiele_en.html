@@ -112,7 +112,7 @@
             <h3>🧳 Pack the Suitcase</h3>
             <p>You're packing your suitcase for your vacation. You have clothes (12.5 kg), shoes (800 g), books (1,200 g), and a toiletry bag (0.5 kg). <br><strong>How many kilograms (kg) does your suitcase weigh in total?</strong></p>
             <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
-            <button onclick="checkInput('inputKg', 15, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputKg', 15, 10, this)">Check</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <h3>📏 The Bridge Repair</h3>
             <p>A bridge is actually 2.4 kilometers (km) long. A section of 350 meters (m) needs repair. <br><strong>How many meters (m) of the bridge are still perfectly fine?</strong></p>
             <input type="number" id="inputMeter" placeholder="Meter...">
-            <button onclick="checkInput('inputMeter', 2050, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputMeter', 2050, 10, this)">Check</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -137,7 +137,7 @@
             <h3>🏎️ Speed Trap Task 1: How fast?</h3>
             <p>A cheetah sprints a distance of <strong>s = 120 meters</strong> in exactly <strong>t = 4 seconds</strong>. <br>Calculate its speed (v) in m/s!</p>
             v = <input type="number" id="inputV" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputV', 30, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputV', 30, 10, this)">Check</button>
             <p class="feedback"></p>
         </div>
 
@@ -145,7 +145,7 @@
             <h3>🚀 Speed Trap Task 2: How far?</h3>
             <p>A cyclist travels at a constant speed of <strong>v = 5 m/s</strong>. He rides for <strong>t = 12 seconds</strong>. <br>What distance (s) does he cover? (Hint: s = v * t)</p>
             s = <input type="number" id="inputS" placeholder="Meter"> m
-            <button onclick="checkInput('inputS', 60, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputS', 60, 10, this)">Check</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -174,7 +174,7 @@
             </div>
             <p>Read from the diagram above: what is the distance s after 10 seconds? <br><strong>Now calculate the speed v in m/s!</strong></p>
             v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputGraph', 5, 15, this)">Prüfen</button>
+            <button onclick="checkInput('inputGraph', 5, 15, this)">Check</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -251,12 +251,12 @@
             let val = parseFloat(document.getElementById(inputId).value);
             let feedback = btn.nextElementSibling;
 
-            // Verhindern, dass mehrfach Punkte vergeben werden
+            // Verhindern, dass mehrfach Points vergeben werden
             if (btn.disabled) return;
 
             if (val === expectedValue) {
                 btn.style.background = "var(--correct)";
-                feedback.innerHTML = `✅ Exactly right! <strong>+${points} Punkte</strong>`;
+                feedback.innerHTML = `✅ Exactly right! <strong>+${points} Points</strong>`;
                 feedback.style.color = "var(--correct)";
                 updateScore(points);
                 btn.disabled = true; // Button sperren
@@ -301,7 +301,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Correctly calculated! +" + pts + " Punkte!";
+                fb.innerText = "✅ Correctly calculated! +" + pts + " Points!";
                 fb.style.color = "var(--correct)";
                 updateScore(pts);
                 box.querySelectorAll('button').forEach(b => b.disabled = true);

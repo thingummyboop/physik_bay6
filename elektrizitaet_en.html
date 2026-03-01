@@ -189,7 +189,7 @@
     <div class="intro-text">
         <p>Hallo! Schön, dass du da bist. Hier lernst du Schritt für Schritt, wie Elektrizität funktioniert.<br>
         Lies dir die Erklärungen gut durch, schau dir die Bilder an, mache die kleinen Übungen und teste dein Wissen in den Quizzes.<br>
-        <strong>Für jede richtige Aktion sammelst du Punkte! Viel Spaß!</strong></p>
+        <strong>For every correct action you collect Points! Have fun!</strong></p>
     </div>
 
     <div class="card">
@@ -249,7 +249,7 @@
         <div class="exercise-box" id="ex1">
             <h3>🛠️ Exercise: What's happening here?</h3>
             <p><strong>An electron (-) and a proton (+) meet:</strong></p>
-            <button onclick="checkExercise(this, true, 'Richtig! Plus und Minus ziehen sich an wie Magnete.', 5)">They attract each other</button>
+            <button onclick="checkExercise(this, true, 'Correct! Plus and minus attract each other like magnets.', 5)">They attract each other</button>
             <button onclick="checkExercise(this, false, 'Falsch. Denk an die Regel: Gegensätze ziehen sich an!', 0)">They repel each other</button>
             <p class="feedback"></p>
         </div>
@@ -314,7 +314,7 @@
             <h3>🛠️ Übung: Der Material-Tester</h3>
             <p><strong>Ein Stück Gummi (z.B. ein Radiergummi):</strong></p>
             <button onclick="checkExercise(this, false, 'Falsch. Gummi leitet nicht, deshalb sind Kabel damit umhüllt, um uns zu schützen.', 0)">Leiter (Strom fließt)</button>
-            <button onclick="checkExercise(this, true, 'Richtig! Gummi ist ein Isolator und stoppt den Strom.', 5)">Isolator (Strom stoppt)</button>
+            <button onclick="checkExercise(this, true, 'Correct! Rubber is an insulator and stops the current.', 5)">Isolator (Strom stoppt)</button>
             <p class="feedback"></p>
         </div>
 
@@ -378,7 +378,7 @@
             <h3>🛠️ Übung: Licht an oder aus?</h3>
             <p><strong>Du baust einen Stromkreis, aber ein Kabel in der Mitte ist durchgeschnitten (die Drahtenden berühren sich nicht). Was passiert?</strong></p>
             <button onclick="checkExercise(this, false, 'Falsch. Die Elektronen können nicht einfach über die Lücke springen.', 0)">Die Lampe leuchtet trotzdem.</button>
-            <button onclick="checkExercise(this, true, 'Richtig! Der Kreis ist unterbrochen. Die Luft dazwischen ist ein Isolator, die Lampe bleibt aus.', 5)">Die Lampe bleibt aus.</button>
+            <button onclick="checkExercise(this, true, 'Correct! The circuit is broken. The air in between is an insulator, the lamp stays off.', 5)">Die Lampe bleibt aus.</button>
             <p class="feedback"></p>
         </div>
 
@@ -423,7 +423,7 @@
             <h3>🛠️ Übung: Die Batterie-Begriffe</h3>
             <p><strong>Wie heißt der Teil in der Batterie, der den direkten Weg für die Elektronen versperrt?</strong></p>
             <button onclick="checkExercise(this, false, 'Falsch. Die Kathode ist der Pluspol.', 0)">Die Kathode</button>
-            <button onclick="checkExercise(this, true, 'Richtig! Der Elektrolyt zwingt den Strom durch das äußere Kabel.', 5)">Der Elektrolyt</button>
+            <button onclick="checkExercise(this, true, 'Correct! The electrolyte forces the current through the outer cable.', 5)">Der Elektrolyt</button>
             <p class="feedback"></p>
         </div>
 
@@ -573,7 +573,7 @@
             
             scoreElement.innerText = totalScore;
             
-            // Animation für die Punkteanzeige
+            // Animation für die Pointsanzeige
             scoreBoard.style.transform = "scale(1.1)";
             scoreBoard.style.backgroundColor = "#1abc9c"; 
             setTimeout(() => {
@@ -582,14 +582,14 @@
             }, 300);
         }
 
-        // Funktion für Übungen (mehrere Versuche möglich, Punkte nur beim ersten Mal)
+        // Funktion für Übungen (mehrere Versuche möglich, Points nur beim ersten Mal)
         function checkExercise(btn, isCorrect, message, points) {
             const parentBlock = btn.parentElement;
             
             if (parentBlock.getAttribute('data-points-awarded') === 'true') {
                  if (isCorrect) {
                     btn.style.backgroundColor = "var(--correct)";
-                    parentBlock.querySelector('.feedback').innerText = "✅ Richtig! (Du hast die Punkte dafür schon bekommen).";
+                    parentBlock.querySelector('.feedback').innerText = "✅ Correct! (You already received points for this).";
                     parentBlock.querySelector('.feedback').style.color = "var(--correct)";
                 } else {
                     btn.style.backgroundColor = "var(--wrong)";
@@ -604,7 +604,7 @@
 
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
-                feedbackElement.innerText = "✅ " + message + " (+" + points + " Punkte)";
+                feedbackElement.innerText = "✅ " + message + " (+" + points + " Points)";
                 feedbackElement.style.color = "var(--correct)";
                 updateScore(points);
                 parentBlock.setAttribute('data-points-awarded', 'true'); 
@@ -642,18 +642,18 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                feedbackElement.innerText = "✅ Hervorragend! Das ist die richtige Antwort. (+10 Punkte)";
+                feedbackElement.innerText = "✅ Excellent! That is the correct answer. (+10 Points)";
                 feedbackElement.style.color = "var(--correct)";
                 updateScore(10);
             } else {
                 btn.style.backgroundColor = "var(--wrong)";
                 btn.style.opacity = "1";
-                feedbackElement.innerText = "❌ Schade, das war nicht ganz richtig. Lies dir den Text oben nochmal in Ruhe durch.";
+                feedbackElement.innerText = "❌ Too bad, that was not quite right. Read the text above again carefully.";
                 feedbackElement.style.color = "var(--wrong)";
             }
         }
 
-        // Funktion für das Finale (nur ein Versuch, mehr Punkte)
+        // Funktion für das Finale (nur ein Versuch, mehr Points)
         function answerFinalQuiz(btn, isCorrect) {
             const questionDiv = btn.closest('.question');
             if (questionDiv.getAttribute('data-answered') === 'true') return;
@@ -672,7 +672,7 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                feedbackElement.innerText = "🏆 Fantastisch! Du hast es wirklich verstanden! (+20 Punkte)";
+                feedbackElement.innerText = "🏆 Fantastisch! Du hast es wirklich verstanden! (+20 Points)";
                 feedbackElement.style.color = "var(--correct)";
                 updateScore(20); 
             } else {

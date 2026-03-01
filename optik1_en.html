@@ -128,7 +128,7 @@
         <div class="exercise-box">
             <h3>🛠️ Exercise: Shadow Puzzle</h3>
             <p><strong>What happens if you hold an opaque hand in a beam of light?</strong></p>
-            <button onclick="checkAction(this, true, 'Richtig! Da Licht nicht um Ecken biegen kann, entsteht hinter der Hand ein dunkler Bereich (Schatten).', 10)">A shadow is created</button>
+            <button onclick="checkAction(this, true, 'Correct! Since light cannot bend around corners, a dark area (shadow) is created behind the hand.', 10)">A shadow is created</button>
             <button onclick="checkAction(this, false, 'Leider nein. Das Licht kann nicht einfach durch die Hand fließen.', 0)">Light bends around the hand</button>
             <p class="feedback"></p>
         </div>
@@ -248,14 +248,14 @@
 
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
-                fb.innerText = "✅ " + msg + " (+" + pts + " Punkte)";
+                fb.innerText = "✅ " + msg + " (+" + pts + " Points)";
                 fb.style.color = "var(--correct)";
                 parent.setAttribute('data-done', 'true');
                 updateScoreDisplay(pts);
                 parent.querySelectorAll('button').forEach(b => { if(b!==btn) b.disabled = true; });
             } else {
                 btn.style.backgroundColor = "var(--wrong)";
-                fb.innerText = "❌ Versuche es noch einmal!";
+                fb.innerText = "❌ Try again!";
                 fb.style.color = "var(--wrong)";
             }
         }
@@ -275,7 +275,7 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                fb.innerText = "🌟 Correct! (+" + pts + " Punkte)";
+                fb.innerText = "🌟 Correct! (+" + pts + " Points)";
                 fb.style.color = "var(--correct)";
                 updateScoreDisplay(pts);
             } else {

@@ -13,17 +13,47 @@
             height: 100vh;
             background-color: #1e293b;
             color: white;
+            overflow: hidden;
+        }
+
+        /* --- Toggle Button --- */
+        #menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 100;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #menu-toggle:hover {
+            background: #2563eb;
         }
 
         /* --- Seitenleiste (Navigation) --- */
         #sidebar {
             width: 320px;
+            min-width: 320px;
             background-color: #0f172a;
             overflow-y: auto;
             box-shadow: 4px 0 15px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
             z-index: 10;
+            transition: margin-left 0.3s ease;
+        }
+
+        #sidebar.collapsed {
+            margin-left: -320px;
         }
 
         .sidebar-header {
@@ -117,6 +147,10 @@
     </style>
 </head>
 <body>
+
+    <button id="menu-toggle" onclick="toggleMenu()" title="Menü ein/ausblenden">
+        ☰
+    </button>
 
     <div id="sidebar">
         <div class="sidebar-header">
@@ -338,6 +372,11 @@
             }
         }
 
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+
         function loadPage(fileName, btnElement) {
             let targetFile = fileName;
             if (currentLang !== 'de') {
@@ -354,6 +393,11 @@
                 buttons[i].classList.remove('active');
             }
             btnElement.classList.add('active');
+
+            // Optional: Menü auf Mobilgeräten automatisch schließen nach Klick
+            if (window.innerWidth < 768) {
+                toggleMenu();
+            }
         }
 
         // Initialize

@@ -356,11 +356,11 @@
             if (answered.has(id)) {
                 if (isCorrect) {
                     btn.style.background = "var(--correct)";
-                    fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                    fb.innerText = "✅ صحيح، لكنك تحصل على النقاط في المرة الأولى فقط!";
                     fb.style.color = "orange";
                 } else {
                     btn.style.background = "var(--wrong)";
-                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.innerText = "❌ هذا للأسف خطأ.";
                     fb.style.color = "var(--wrong)";
                 }
                 return;
@@ -368,7 +368,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
+                fb.innerText = "✅ صحيح! +" + pts + " نقاط!";
                 fb.style.color = "var(--correct)";
                 score += pts;
                 document.getElementById('score').innerText = score;
@@ -376,7 +376,7 @@
                 btn.style.opacity = "1";
             } else {
                 btn.style.background = "var(--wrong)";
-                fb.innerText = "❌ Falsch! Du kannst es noch mal probieren, aber die Punkte sind weg.";
+                fb.innerText = "❌ Falsch! Du kannst es noch mal probieren, aber die نقاط sind weg.";
                 fb.style.color = "var(--wrong)";
                 answered.add(id);
             }

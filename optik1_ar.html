@@ -248,14 +248,14 @@
 
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
-                fb.innerText = "✅ " + msg + " (+" + pts + " Punkte)";
+                fb.innerText = "✅ " + msg + " (+" + pts + " نقاط)";
                 fb.style.color = "var(--correct)";
                 parent.setAttribute('data-done', 'true');
                 updateScoreDisplay(pts);
                 parent.querySelectorAll('button').forEach(b => { if(b!==btn) b.disabled = true; });
             } else {
                 btn.style.backgroundColor = "var(--wrong)";
-                fb.innerText = "❌ Versuche es noch einmal!";
+                fb.innerText = "❌ حاول مرة أخرى!";
                 fb.style.color = "var(--wrong)";
             }
         }
@@ -275,7 +275,7 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                fb.innerText = "🌟 صحيح! (+" + pts + " Punkte)";
+                fb.innerText = "🌟 صحيح! (+" + pts + " نقاط)";
                 fb.style.color = "var(--correct)";
                 updateScoreDisplay(pts);
             } else {

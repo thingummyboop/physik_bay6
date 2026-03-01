@@ -189,7 +189,7 @@
     <div class="intro-text">
         <p>Hallo! Schön, dass du da bist. Hier lernst du Schritt für Schritt, wie Elektrizität funktioniert.<br>
         Lies dir die Erklärungen gut durch, schau dir die Bilder an, mache die kleinen Übungen und teste dein Wissen in den Quizzes.<br>
-        <strong>Für jede richtige Aktion sammelst du Punkte! Viel Spaß!</strong></p>
+        <strong>Für jede richtige Aktion sammelst du نقاط! Viel Spaß!</strong></p>
     </div>
 
     <div class="card">
@@ -573,7 +573,7 @@
             
             scoreElement.innerText = totalScore;
             
-            // Animation für die Punkteanzeige
+            // Animation für die نقاطanzeige
             scoreBoard.style.transform = "scale(1.1)";
             scoreBoard.style.backgroundColor = "#1abc9c"; 
             setTimeout(() => {
@@ -582,14 +582,14 @@
             }, 300);
         }
 
-        // Funktion für Übungen (mehrere Versuche möglich, Punkte nur beim ersten Mal)
+        // Funktion für Übungen (mehrere Versuche möglich, نقاط nur beim ersten Mal)
         function checkExercise(btn, isCorrect, message, points) {
             const parentBlock = btn.parentElement;
             
             if (parentBlock.getAttribute('data-points-awarded') === 'true') {
                  if (isCorrect) {
                     btn.style.backgroundColor = "var(--correct)";
-                    parentBlock.querySelector('.feedback').innerText = "✅ Richtig! (Du hast die Punkte dafür schon bekommen).";
+                    parentBlock.querySelector('.feedback').innerText = "✅ Richtig! (Du hast die نقاط dafür schon bekommen).";
                     parentBlock.querySelector('.feedback').style.color = "var(--correct)";
                 } else {
                     btn.style.backgroundColor = "var(--wrong)";
@@ -604,7 +604,7 @@
 
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
-                feedbackElement.innerText = "✅ " + message + " (+" + points + " Punkte)";
+                feedbackElement.innerText = "✅ " + message + " (+" + points + " نقاط)";
                 feedbackElement.style.color = "var(--correct)";
                 updateScore(points);
                 parentBlock.setAttribute('data-points-awarded', 'true'); 
@@ -642,7 +642,7 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                feedbackElement.innerText = "✅ Hervorragend! Das ist die richtige Antwort. (+10 Punkte)";
+                feedbackElement.innerText = "✅ Hervorragend! Das ist die richtige Antwort. (+10 نقاط)";
                 feedbackElement.style.color = "var(--correct)";
                 updateScore(10);
             } else {
@@ -653,7 +653,7 @@
             }
         }
 
-        // Funktion für das Finale (nur ein Versuch, mehr Punkte)
+        // Funktion für das Finale (nur ein Versuch, mehr نقاط)
         function answerFinalQuiz(btn, isCorrect) {
             const questionDiv = btn.closest('.question');
             if (questionDiv.getAttribute('data-answered') === 'true') return;
@@ -672,7 +672,7 @@
             if (isCorrect) {
                 btn.style.backgroundColor = "var(--correct)";
                 btn.style.opacity = "1";
-                feedbackElement.innerText = "🏆 Fantastisch! Du hast es wirklich verstanden! (+20 Punkte)";
+                feedbackElement.innerText = "🏆 Fantastisch! Du hast es wirklich verstanden! (+20 نقاط)";
                 feedbackElement.style.color = "var(--correct)";
                 updateScore(20); 
             } else {

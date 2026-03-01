@@ -112,7 +112,7 @@
             <h3>🧳 Spakuj kofer</h3>
             <p>Pakuješ kofer za odmor. Imaš odeću (12,5 kg), cipele (800 g), knjige (1.200 g) i neseser (0,5 kg). <br><strong>Koliko kilograma (kg) ukupno teži tvoj kofer?</strong></p>
             <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
-            <button onclick="checkInput('inputKg', 15, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputKg', 15, 10, this)">Провери</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <h3>📏 Popravka mosta</h3>
             <p>Most je zapravo dugačak 2,4 kilometra (km). Deo od 350 metara (m) mora da se popravi. <br><strong>Koliko metara (m) mosta je još uvek potpuno u redu?</strong></p>
             <input type="number" id="inputMeter" placeholder="Meter...">
-            <button onclick="checkInput('inputMeter', 2050, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputMeter', 2050, 10, this)">Провери</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -137,7 +137,7 @@
             <h3>🏎️ Radarski zadatak 1: Koliko brzo?</h3>
             <p>Gepard pretrči put od <strong>s = 120 metara</strong> za tačno <strong>t = 4 sekunde</strong>. <br>Izračunaj njegovu brzinu (v) u m/s!</p>
             v = <input type="number" id="inputV" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputV', 30, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputV', 30, 10, this)">Провери</button>
             <p class="feedback"></p>
         </div>
 
@@ -145,7 +145,7 @@
             <h3>🚀 Radarski zadatak 2: Koliko daleko?</h3>
             <p>Biciklista vozi konstantnom brzinom od <strong>v = 5 m/s</strong>. Vozi tokom <strong>t = 12 sekundi</strong>. <br>Koji put (s) on pređe? (Savet: s = v * t)</p>
             s = <input type="number" id="inputS" placeholder="Meter"> m
-            <button onclick="checkInput('inputS', 60, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputS', 60, 10, this)">Провери</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -174,7 +174,7 @@
             </div>
             <p>Očitaj sa gornjeg dijagrama: koliki je put s nakon 10 sekundi? <br><strong>Sada izračunaj brzinu v u m/s!</strong></p>
             v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputGraph', 5, 15, this)">Prüfen</button>
+            <button onclick="checkInput('inputGraph', 5, 15, this)">Провери</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -251,12 +251,12 @@
             let val = parseFloat(document.getElementById(inputId).value);
             let feedback = btn.nextElementSibling;
 
-            // Verhindern, dass mehrfach Punkte vergeben werden
+            // Verhindern, dass mehrfach Поени vergeben werden
             if (btn.disabled) return;
 
             if (val === expectedValue) {
                 btn.style.background = "var(--correct)";
-                feedback.innerHTML = `✅ Potpuno tačno! <strong>+${points} Punkte</strong>`;
+                feedback.innerHTML = `✅ Potpuno tačno! <strong>+${points} Поени</strong>`;
                 feedback.style.color = "var(--correct)";
                 updateScore(points);
                 btn.disabled = true; // Button sperren
@@ -301,7 +301,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Tačno sračunato! +" + pts + " Punkte!";
+                fb.innerText = "✅ Tačno sračunato! +" + pts + " Поени!";
                 fb.style.color = "var(--correct)";
                 updateScore(pts);
                 box.querySelectorAll('button').forEach(b => b.disabled = true);

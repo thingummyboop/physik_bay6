@@ -112,7 +112,7 @@
             <h3>🧳 Пакуємо валізу</h3>
             <p>Ти пакуєш валізу у відпустку. У тебе є одяг (12,5 кг), взуття (800 г), книги (1 200 г) та косметичка (0,5 кг). <br><strong>Скільки кілограмів (кг) важить твоя валіза загалом?</strong></p>
             <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
-            <button onclick="checkInput('inputKg', 15, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputKg', 15, 10, this)">Перевірити</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <h3>📏 Ремонт мосту</h3>
             <p>Довжина мосту становить 2,4 кілометра (км). Ділянка довжиною 350 метрів (м) потребує ремонту. <br><strong>Скільки метрів (м) мосту залишаються в повному порядку?</strong></p>
             <input type="number" id="inputMeter" placeholder="Meter...">
-            <button onclick="checkInput('inputMeter', 2050, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputMeter', 2050, 10, this)">Перевірити</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -137,7 +137,7 @@
             <h3>🏎️ Завдання 1: з якою швидкістю?</h3>
             <p>Гепард пробігає дистанцію <strong>s = 120 метрів</strong> рівно за <strong>t = 4 секунди</strong>. <br>Обчисли його швидкість (v) у м/с!</p>
             v = <input type="number" id="inputV" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputV', 30, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputV', 30, 10, this)">Перевірити</button>
             <p class="feedback"></p>
         </div>
 
@@ -145,7 +145,7 @@
             <h3>🚀 Завдання 2: як далеко?</h3>
             <p>Велосипедист їде зі сталою швидкістю <strong>v = 5 м/с</strong>. Він їде протягом <strong>t = 12 секунд</strong>. <br>Яку відстань (s) він подолає? (Підказка: s = v * t)</p>
             s = <input type="number" id="inputS" placeholder="Meter"> m
-            <button onclick="checkInput('inputS', 60, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputS', 60, 10, this)">Перевірити</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -174,7 +174,7 @@
             </div>
             <p>Подивись на графік: який шлях s подолано за 10 секунд? <br><strong>Тепер обчисли швидкість v у м/с!</strong></p>
             v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputGraph', 5, 15, this)">Prüfen</button>
+            <button onclick="checkInput('inputGraph', 5, 15, this)">Перевірити</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -251,12 +251,12 @@
             let val = parseFloat(document.getElementById(inputId).value);
             let feedback = btn.nextElementSibling;
 
-            // Verhindern, dass mehrfach Punkte vergeben werden
+            // Verhindern, dass mehrfach Бали vergeben werden
             if (btn.disabled) return;
 
             if (val === expectedValue) {
                 btn.style.background = "var(--correct)";
-                feedback.innerHTML = `✅ Абсолютно правильно! <strong>+${points} Punkte</strong>`;
+                feedback.innerHTML = `✅ Абсолютно правильно! <strong>+${points} Бали</strong>`;
                 feedback.style.color = "var(--correct)";
                 updateScore(points);
                 btn.disabled = true; // Button sperren
@@ -301,7 +301,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Розраховано правильно! +" + pts + " Punkte!";
+                fb.innerText = "✅ Розраховано правильно! +" + pts + " Бали!";
                 fb.style.color = "var(--correct)";
                 updateScore(pts);
                 box.querySelectorAll('button').forEach(b => b.disabled = true);

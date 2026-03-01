@@ -269,7 +269,7 @@
         <div class="quiz-box" data-id="f5">
             <p><strong>5. Was macht ein Generator in einem Windrad?</strong></p>
             <button onclick="handleAnswer(this, true, 30)">Er nutzt die Drehung, um Strom zu erzeugen.</button>
-            <button onclick="handleAnswer(this, false, 0)">Er pustet den Wind in die richtige Richtung.</button>
+            <button onclick="handleAnswer(this, false, 0)">He blows the wind in the right direction.</button>
             <p class="feedback"></p>
         </div>
 
@@ -356,11 +356,11 @@
             if (answered.has(id)) {
                 if (isCorrect) {
                     btn.style.background = "var(--correct)";
-                    fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                    fb.innerText = "✅ Correct, but you only get points the first time!";
                     fb.style.color = "orange";
                 } else {
                     btn.style.background = "var(--wrong)";
-                    fb.innerText = "❌ Das ist leider falsch.";
+                    fb.innerText = "❌ That is unfortunately wrong.";
                     fb.style.color = "var(--wrong)";
                 }
                 return;
@@ -368,7 +368,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
+                fb.innerText = "✅ Correct! +" + pts + " Points!";
                 fb.style.color = "var(--correct)";
                 score += pts;
                 document.getElementById('score').innerText = score;
@@ -376,7 +376,7 @@
                 btn.style.opacity = "1";
             } else {
                 btn.style.background = "var(--wrong)";
-                fb.innerText = "❌ Falsch! Du kannst es noch mal probieren, aber die Punkte sind weg.";
+                fb.innerText = "❌ Falsch! Du kannst es noch mal probieren, aber die Points sind weg.";
                 fb.style.color = "var(--wrong)";
                 answered.add(id);
             }

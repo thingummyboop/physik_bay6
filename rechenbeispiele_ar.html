@@ -112,7 +112,7 @@
             <h3>🧳 جهز الحقيبة</h3>
             <p>أنت تجهز حقيبتك للعطلة. لديك ملابس (12.5 كجم)، أحذية (800 جرام)، كتب (1,200 جرام)، وحقيبة أدوات تجميل (0.5 كجم). <br><strong>كم كيلوجراماً (kg) تزن حقيبتك إجمالاً؟</strong></p>
             <input type="number" id="inputKg" step="0.1" placeholder="Gewicht in kg...">
-            <button onclick="checkInput('inputKg', 15, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputKg', 15, 10, this)">تحقق</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <h3>📏 إصلاح الجسر</h3>
             <p>يبلغ طول الجسر في الأصل 2.4 كيلومتر (كم). هناك جزء بطول 350 متراً (م) يحتاج للإصلاح. <br><strong>كم متراً (م) من الجسر لا تزال سليمة تماماً؟</strong></p>
             <input type="number" id="inputMeter" placeholder="Meter...">
-            <button onclick="checkInput('inputMeter', 2050, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputMeter', 2050, 10, this)">تحقق</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -137,7 +137,7 @@
             <h3>🏎️ مهمة الرادار 1: كم تبلغ السرعة؟</h3>
             <p>الفهد يركض لمسافة <strong>s = 120 متراً</strong> في <strong>t = 4 ثوانٍ</strong> بالضبط. <br>احسب سرعته (v) بالمتر في الثانية (m/s)!</p>
             v = <input type="number" id="inputV" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputV', 30, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputV', 30, 10, this)">تحقق</button>
             <p class="feedback"></p>
         </div>
 
@@ -145,7 +145,7 @@
             <h3>🚀 مهمة الرادار 2: كم تبلغ المسافة؟</h3>
             <p>راكب دراجة يسير بسرعة ثابتة <strong>v = 5 م/ث</strong>. يسير لمدة <strong>t = 12 ثانية</strong>. <br>ما المسافة (s) التي يقطعها؟ (تلميح: s = v * t)</p>
             s = <input type="number" id="inputS" placeholder="Meter"> m
-            <button onclick="checkInput('inputS', 60, 10, this)">Prüfen</button>
+            <button onclick="checkInput('inputS', 60, 10, this)">تحقق</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -174,7 +174,7 @@
             </div>
             <p>اقرأ من الرسم البياني أعلاه: ما هي المسافة s بعد 10 ثوانٍ؟ <br><strong>احسب الآن السرعة v بالمتر في الثانية (m/s)!</strong></p>
             v = <input type="number" id="inputGraph" placeholder="m/s"> m/s
-            <button onclick="checkInput('inputGraph', 5, 15, this)">Prüfen</button>
+            <button onclick="checkInput('inputGraph', 5, 15, this)">تحقق</button>
             <p class="feedback"></p>
         </div>
     </div>
@@ -251,12 +251,12 @@
             let val = parseFloat(document.getElementById(inputId).value);
             let feedback = btn.nextElementSibling;
 
-            // Verhindern, dass mehrfach Punkte vergeben werden
+            // Verhindern, dass mehrfach نقاط vergeben werden
             if (btn.disabled) return;
 
             if (val === expectedValue) {
                 btn.style.background = "var(--correct)";
-                feedback.innerHTML = `✅ صحيح تماماً! <strong>+${points} Punkte</strong>`;
+                feedback.innerHTML = `✅ صحيح تماماً! <strong>+${points} نقاط</strong>`;
                 feedback.style.color = "var(--correct)";
                 updateScore(points);
                 btn.disabled = true; // Button sperren
@@ -301,7 +301,7 @@
 
             if (isCorrect) {
                 btn.style.background = "var(--correct)";
-                fb.innerText = "✅ تم الحساب بشكل صحيح! +" + pts + " Punkte!";
+                fb.innerText = "✅ تم الحساب بشكل صحيح! +" + pts + " نقاط!";
                 fb.style.color = "var(--correct)";
                 updateScore(pts);
                 box.querySelectorAll('button').forEach(b => b.disabled = true);
