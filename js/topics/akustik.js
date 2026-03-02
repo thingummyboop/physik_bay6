@@ -1,5 +1,8 @@
 // Logic for akustik topic
+let glassBroken = false;
+
 function topicInit() {
+    glassBroken = false;
     // 2. Vakuum: Init air particles inside the existing <g id="airParticles">
     const airParticles = document.getElementById('airParticles');
     if (airParticles) {
@@ -192,51 +195,64 @@ function sendEcho() {
 
 // 6. Resonanz
 function checkResonance() {
+    if (glassBroken) return;
+
     const val = parseFloat(document.getElementById('resRange')?.value || 1);
     const disp = document.getElementById('resValue');
     const glass = document.getElementById('glass');
     const membrane = document.getElementById('speakerMembrane');
     const waves = document.getElementById('resWaves');
-    const water = document.getElementById('glassWater');
+    const intact = document.getElementById('intactGlass');
+    const broken = document.getElementById('brokenGlass');
     const status = document.getElementById('resText');
+    const crack = document.getElementById('crack');
     
     if (disp) disp.innerText = val.toFixed(1);
     if (!glass) return;
 
-    const glassBody = document.getElementById('glassBody');
-
-    // Membrane always vibrates slightly
+    const diff = Math.abs(val - 4.0);
+    
+    // Speaker membrane vibration
     if (membrane) {
-        membrane.style.animation = `shake ${0.5 / val}s infinite`;
+        membrane.style.animation = `shake ${0.1 / (val/4)}s infinite`;
     }
 
-    if (Math.abs(val - 4.0) < 0.2) {
-        // RESONANCE!
-        glass.classList.add('anim-shake');
-        if (waves) waves.style.opacity = "1";
-        if (water) {
-            water.style.display = "block";
-            water.classList.add('anim-shake');
+    if (diff < 1.5) {
+        // Approaching resonance: Start vibrating
+        const intensity = (1.5 - diff) / 1.5; // 0 to 1
+        glass.style.animation = `shake ${0.2 / (intensity + 0.1)}s infinite`;
+        if (waves) {
+            waves.style.opacity = intensity;
+            waves.style.transform = `scale(${0.8 + intensity*0.4})`;
         }
-        if (glassBody) {
-            glassBody.setAttribute('fill', 'rgba(76, 175, 80, 0.4)');
-            glassBody.setAttribute('stroke', '#4CAF50');
-        }
-        if (status) {
-            status.innerText = "⚡ RESONANZ! Das Glas vibriert heftig!";
-            status.style.color = "#4CAF50";
+        
+        if (diff < 0.1) {
+            // PERFECT RESONANCE: BREAK!
+            glassBroken = true;
+            glass.style.animation = "none";
+            if (intact) intact.style.display = "none";
+            if (broken) broken.style.display = "block";
+            if (crack) crack.style.display = "none";
+            if (status) {
+                status.innerText = "💥 KLIRR! Das Glas ist bei 4.0 Hz zersprungen!";
+                status.style.color = "#E91E63";
+            }
+            // Add a reset button effect
+            setTimeout(() => {
+                if (status) status.innerHTML += '<br><button onclick="topicInit()" style="margin-top:10px; background:#9C27B0;">Neues Glas hinstellen 🍷</button>';
+            }, 500);
+        } else if (diff < 0.4) {
+            if (crack) crack.style.display = "block";
+            if (status) status.innerText = "⚠️ GEFÄHRLICH! Das Glas bekommt Risse!";
+        } else {
+            if (crack) crack.style.display = "none";
+            if (status) status.innerText = "⚡ RESONANZ! Das Schwingen wird stärker...";
         }
     } else {
-        // No Resonance
-        glass.classList.remove('anim-shake');
-        if (waves) waves.style.opacity = "0.2";
-        if (water) {
-            water.classList.remove('anim-shake');
-        }
-        if (glassBody) {
-            glassBody.setAttribute('fill', 'rgba(156, 39, 176, 0.2)');
-            glassBody.setAttribute('stroke', '#9C27B0');
-        }
+        // Far from resonance
+        glass.style.animation = "none";
+        if (waves) waves.style.opacity = "0.1";
+        if (crack) crack.style.display = "none";
         if (status) {
             status.innerText = val < 4.0 ? "Zu tief... erhöhe die Frequenz." : "Zu hoch... senke die Frequenz.";
             status.style.color = "#718096";
