@@ -71,11 +71,11 @@
         <p>А тепер найважливіше, що треба знати про енергію: <strong>Енергія ніколи не виникає з нічого і нікуди не зникає!</strong> Вона лише перетворюється з одного виду на інший. Це називається <strong>законом збереження енергії</strong>. Коли лампочка світить, електрична енергія перетворюється на світлову (та теплову). Ніщо не втрачається!</p>
         <div class="lexikon-box">
             📖 <strong>Розумний словник: види енергії</strong><br>
-            Es gibt viele "Kostüme" für Energie:<br>
-            - <strong>Bewegungsenergie</strong> (Ein rollendes Auto)<br>
-            - <strong>Lageenergie</strong> (Ein Stein auf einem Berg)<br>
-            - <strong>Wärmeenergie</strong> (Eine heiße Heizung)<br>
-            - <strong>Elektrische Energie</strong> (Strom in der Steckdose)
+            Енергія має багато "костюмів":<br>
+            - <strong>Bewegungsenergie</strong> (Авто, що котиться)<br>
+            - <strong>Lageenergie</strong> (Камінь на горі)<br>
+            - <strong>Wärmeenergie</strong> (Гаряча батарея)<br>
+            - <strong>Elektrische Energie</strong> (Струм у розетці)
         </div>
         <div class="interactive-zone">
             <h3>⏱️ Невтомний маятник</h3>
@@ -107,7 +107,7 @@
         <p>Звідки ТИ береш енергію, щоб бігати та гратися? З їжі! У таких продуктах, як яблука, хліб чи макарони, міститься <strong>хімічна енергія</strong>. Твій організм працює як маленький двигун: він спалює цю хімічну енергію і перетворює її на кінетичну енергію та тепло тіла. Хімічна енергія також міститься в батарейках або бензині для авто!</p>
         <div class="lexikon-box">
             📖 <strong>Kalorien = Energie!</strong><br>
-            Auf Lebensmittelverpackungen siehst du oft das Wort "Kalorien" (kcal). Das ist einfach nur eine andere Einheit für Energie (1 kcal = ca. 4184 Joule). Je mehr Kalorien, desto mehr Energie steckt im Essen!
+            На упаковках продуктів часто можна побачити слово "калорії" (ккал). Це просто інша одиниця енергії (1 ккал = прибл. 4184 джоулів). Чим більше калорій, тим більше енергії в їжі!
         </div>
         <div class="interactive-zone">
             <h3>🔋 Голодний ліхтарик</h3>
@@ -162,8 +162,8 @@
         </div>
         <div class="quiz-box" data-id="q4">
             <p><strong>Warum nennt man Windkraft und Sonnenenergie "erneuerbare" Energien?</strong></p>
-            <button onclick="handleAnswer(this, true, 10)">Weil sie nie aufgebraucht werden und unendlich zur Verfügung stehen.</button>
-            <button onclick="handleAnswer(this, false, 0)">Weil man sie im Supermarkt neu kaufen kann.</button>
+            <button onclick="handleAnswer(this, true, 10)">Тому що вони ніколи не вичерпуються і доступні нескінченно.</button>
+            <button onclick="handleAnswer(this, false, 0)">Тому що їх можна купити новими в супермаркеті.</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
@@ -197,8 +197,8 @@
         </div>
         <div class="quiz-box" data-id="q5">
             <p><strong>Warum leuchtet eine Lampe nicht, wenn das Kabel durchgeschnitten ist?</strong></p>
-            <button onclick="handleAnswer(this, false, 0)">Weil die elektrische Energie im Kabel verdampft.</button>
-            <button onclick="handleAnswer(this, true, 10)">Weil der Stromkreis unterbrochen ist und die Elektronen nicht mehr fließen können.</button>
+            <button onclick="handleAnswer(this, false, 0)">Тому що електрична енергія в кабелі випаровується.</button>
+            <button onclick="handleAnswer(this, true, 10)">Тому що коло розірване і електрони більше не можуть текти.</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
     </div>
@@ -209,8 +209,8 @@
         
         <div class="quiz-box" data-id="f1">
             <p><strong>1. Was ist "Energie" ganz einfach erklärt?</strong></p>
-            <button onclick="handleAnswer(this, false, 0)">Ein unsichtbares Gas in der Luft.</button>
-            <button onclick="handleAnswer(this, true, 5)">Die Fähigkeit, etwas zu bewegen, zu wärmen oder leuchten zu lassen.</button>
+            <button onclick="handleAnswer(this, false, 0)">Невидимий газ у повітрі.</button>
+            <button onclick="handleAnswer(this, true, 5)">Здатність рухати щось, нагрівати або змушувати світитися.</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f2">
@@ -278,7 +278,7 @@
             if (el) el.innerText = score;
         });
         function updateGlobalScore(pts) {
-            updateGlobalScore(pts);
+            score += pts;
             localStorage.setItem('physik_score', score);
             const el = document.getElementById('score');
             if (el) el.innerText = score;

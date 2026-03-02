@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌌 Das große Weltraum- und Astrophysik-Abenteuer 🚀</title>
+    <title>🌌 Велика космічна та астрофізична пригода 🚀</title>
     <link rel="stylesheet" href="css/global.css">
     <style>
         @keyframes dash {
@@ -103,7 +103,7 @@
             <p>Збільшуйте масу і спостерігайте, як сильно викривляються простір і час!</p>
             <input type="range" id="zoomRange" min="1" max="3" value="1" oninput="updateGravity()" style="width: 250px;">
             <div class="diagram-box" style="height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <p id="gravTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;">Die Erde</p>
+                <p id="gravTitle" style="font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;">Земля</p>
                 <svg width="200" height="100" viewBox="0 0 200 100">
                     <path id="gravGrid" d="M 10 50 Q 100 50 190 50" fill="none" stroke="#B39DDB" stroke-width="2"/>
                     <circle id="gravObject" cx="100" cy="50" r="10" fill="#2196F3"/>
@@ -153,10 +153,10 @@
 
     <div class="card">
         <h2>Супернова: видовищна смерть зірки</h2>
-        <p>Sterne leben nicht ewig. In ihrem Inneren verbrennen sie Wasserstoff zu Helium (Kernfusion). Dadurch leuchten sie. Aber irgendwann ist der Treibstoff alle! Bei sehr massereichen Sternen gewinnt dann plötzlich die Schwerkraft: Der Stern fällt in sich zusammen und prallt auf seinen eigenen Kern. Die Folge? Die gewaltigste Explosion im Universum: <strong>Eine Supernova!</strong></p>
+        <p>Зірки не живуть вічно. У своєму ядрі вони перетворюють водень на гелій (ядерний синтез). Завдяки цьому вони світяться. Але в якийсь момент паливо закінчується! У дуже масивних зірок тоді раптово перемагає гравітація: зірка колапсує сама в себе і врізається у власне ядро. Результат? Найпотужніший вибух у Всесвіті: <strong>Наднова!</strong></p>
         <div class="interactive-zone">
             <h3>💥 Запалювання зірки</h3>
-            <p>Klicke auf den Button, um die Lebensdauer des Sterns zu beenden und die Supernova auszulösen!</p>
+            <p>Натисніть на кнопку, щоб закінчити життя зірки та викликати наднову!</p>
             <button onclick="triggerSupernova()" id="novaBtn">Підірвати зірку!</button>
             
             <div class="diagram-box" style="height: 250px; background-color: #000; position: relative;">
@@ -278,15 +278,15 @@
 
             if (planet === 'erde') {
                 document.getElementById('planetErde').style.display = 'block';
-                txt.innerText = "Die gute alte Erde. Unser Zuhause.";
+                txt.innerText = "Стара добра Земля. Наш дім.";
                 txt.style.color = "#2196F3";
             } else if (planet === 'jupiter') {
                 document.getElementById('planetJupiter').style.display = 'block';
-                txt.innerText = "Whoa! Der Jupiter ist der größte Planet im Sonnensystem.";
+                txt.innerText = "Ого! Юпітер — найбільша планета Сонячної системи.";
                 txt.style.color = "#FF9800";
             } else {
                 document.getElementById('planetSonne').style.display = 'block';
-                txt.innerText = "Gigantisch! Die Sonne macht 99,8% der Masse unseres Sonnensystems aus.";
+                txt.innerText = "Гігантська! Сонце становить 99,8% маси нашої Сонячної системи.";
                 txt.style.color = "#E91E63";
             }
         }
@@ -341,8 +341,8 @@
             let grid = document.getElementById('gravGrid');
             
             if (val == 1) { 
-                title.innerText = "Die Erde";
-                desc.innerText = "Mäßige Schwerkraft. Ein leichtes 'Eindellen' des Raums.";
+                title.innerText = "Земля";
+                desc.innerText = "Помірна гравітація. Невелике "прогинання" простору.";
                 obj.setAttribute("fill", "#2196F3");
                 obj.setAttribute("r", "10");
                 grid.setAttribute("d", "M 10 50 Q 100 65 190 50");
@@ -356,7 +356,7 @@
                 title.innerText = "Schwarzes Loch";
                 desc.innerText = "Екстремальна гравітація! Простір обривається в нескінченність.";
                 obj.setAttribute("fill", "#000000");
-                obj.setAttribute("r", "15"); // Kleiner aber massiver
+                obj.setAttribute("r", "15"); // Менший, але масивніший
                 grid.setAttribute("d", "M 10 50 Q 100 250 190 50");
             }
         }

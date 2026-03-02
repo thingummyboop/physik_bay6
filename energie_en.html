@@ -72,8 +72,8 @@
         <div class="lexikon-box">
             📖 <strong>The Smart Dictionary: Forms of Energy</strong><br>
             There are many "costumes" for energy:<br>
-            - <strong>Bewegungsenergie</strong> (Ein rollendes Auto)<br>
-            - <strong>Lageenergie</strong> (Ein Stein auf einem Berg)<br>
+            - <strong>Kinetic energy</strong> (A rolling car)<br>
+            - <strong>Potential energy</strong> (A stone on a mountain)<br>
             - <strong>Thermal energy</strong> (A hot heater)<br>
             - <strong>Electrical energy</strong> (Electricity in the socket)
         </div>
@@ -227,13 +227,13 @@
         </div>
         <div class="quiz-box" data-id="f4">
             <p><strong>4. When you pick up a stone and hold it, what energy does it have?</strong></p>
-            <button onclick="handleAnswer(this, true, 5)">Lageenergie (Potenzielle Energie).</button>
+            <button onclick="handleAnswer(this, true, 5)">Potential energy (Potenzielle Energie).</button>
             <button onclick="handleAnswer(this, false, 0)">Electrical energy.</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f5">
             <p><strong>5. When you release the stone and it falls, what does the potential energy turn into?</strong></p>
-            <button onclick="handleAnswer(this, true, 5)">In Bewegungsenergie (Kinetische Energie).</button>
+            <button onclick="handleAnswer(this, true, 5)">In Kinetic energy (Kinetische Energie).</button>
             <button onclick="handleAnswer(this, false, 0)">In chemische Energie.</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
@@ -245,7 +245,7 @@
         </div>
         <div class="quiz-box" data-id="f7">
             <p><strong>7. A toaster gets hot when you turn it on. What transformation takes place?</strong></p>
-            <button onclick="handleAnswer(this, true, 5)">Electrical energy wird zu Thermal energy.</button>
+            <button onclick="handleAnswer(this, true, 5)">Electrical energy becomes thermal energy.</button>
             <button onclick="handleAnswer(this, false, 0)">Kinetic energy becomes chemical energy.</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
@@ -258,11 +258,11 @@
         <div class="quiz-box" data-id="f9">
             <p><strong>9. Was passiert in einem Windkraftwerk?</strong></p>
             <button onclick="handleAnswer(this, true, 5)">The kinetic energy of the wind is converted into electrical energy.</button>
-            <button onclick="handleAnswer(this, false, 0)">Electrical energy wird genutzt, um Wind zu machen (wie bei einem Ventilator).</button>
+            <button onclick="handleAnswer(this, false, 0)">Electrical energy is used to make wind (like with a fan).</button>
             <p class="feedback" aria-live="polite"></p>
         </div>
         <div class="quiz-box" data-id="f10">
-            <p><strong>10. Was muss gegeben sein, damit Strom aus einer Batterie eine Lampe zum Leuchten bringt?</strong></p>
+            <p><strong>10. What must be given for current from a battery to make a lamp light up?</strong></p>
             <button onclick="handleAnswer(this, true, 20)">The circuit must be completely closed.</button>
             <button onclick="handleAnswer(this, false, 0)">The lamp must be larger than the battery.</button>
             <p class="feedback" aria-live="polite"></p>
@@ -287,7 +287,7 @@
 
         let answered = new Set();
 
-        // 1. Hantel (Lage/Bewegungsenergie)
+        // 1. Hantel (Lage/Kinetic energy)
         function liftWeight() {
             document.getElementById('weightGroup').style.transform = 'translateY(20px)';
             document.getElementById('weightGroup').style.transition = 'transform 2s ease-out';
