@@ -67,25 +67,21 @@ function updateShadow2() {
     const p2 = `${objX},${objY} 400,${s2TopY} 400,${s2BotY} ${objX},${objY+objH}`;
 
     if (lamp1On && lamp2On) {
-        // Both lamps on: hs1 and hs2 show the individual shadows (Halbschatten)
-        // We set them to a lighter gray
         hs1.setAttribute('points', p1);
         hs1.setAttribute('fill', "rgba(0,0,0,0.3)");
         hs2.setAttribute('points', p2);
         hs2.setAttribute('fill', "rgba(0,0,0,0.3)");
         
-        // ks shows the intersection (Kernschatten)
         const top = Math.max(s1TopY, s2TopY);
         const bot = Math.min(s1BotY, s2BotY);
         if (bot > top) {
             ks.setAttribute('points', `${objX},100 400,${top} 400,${bot}`);
-            ks.setAttribute('fill', "rgba(0,0,0,0.8)"); // Same as point shadow
+            ks.setAttribute('fill', "rgba(0,0,0,0.8)");
             ks.setAttribute('display', 'block');
         } else {
             ks.setAttribute('display', 'none');
         }
     } else if (lamp1On || lamp2On) {
-        // Only one lamp on: no Kern/Halb, just one solid shadow
         ks.setAttribute('display', 'none');
         if (lamp1On) {
             hs1.setAttribute('points', p1);
@@ -97,7 +93,6 @@ function updateShadow2() {
             hs1.setAttribute('points', "");
         }
     } else {
-        // No lamps on
         hs1.setAttribute('points', "");
         hs2.setAttribute('points', "");
         ks.setAttribute('display', 'none');
@@ -113,6 +108,7 @@ function updateEclipse1() {
     const umbra = document.getElementById('moonUmbra');
     const penumbra = document.getElementById('moonPenumbra');
     const status = document.getElementById('statusText');
+    const earth = document.getElementById('earthObj');
     
     if (moon) moon.setAttribute('cx', moonX);
     
@@ -132,16 +128,24 @@ function updateEclipse1() {
     }
     if (penumbra) penumbra.setAttribute('points', `${moonX},80 400,${pY2} 400,${pY1} ${moonX},100`);
     
-    if (status) {
-        if (xV > 400 && 90 >= Math.min(uY1, uY2) && 90 <= Math.max(uY1, uY2)) {
-            status.innerText = "🌟 Totale Sonnenfinsternis!";
+    if (status && earth) {
+        const uMin = Math.min(uY1, uY2);
+        const uMax = Math.max(uY1, uY2);
+        const pMin = Math.min(pY1, pY2);
+        const pMax = Math.max(pY1, pY2);
+
+        if (xV > 400 && 90 >= uMin && 90 <= uMax) {
+            status.innerText = "🌟 TOTAL: Die Stadt liegt im Kernschatten!";
             status.setAttribute('fill', '#fbbf24');
-        } else if (90 >= Math.min(pY1, pY2) && 90 <= Math.max(pY1, pY2)) {
-            status.innerText = "🌗 Partielle Sonnenfinsternis";
+            earth.setAttribute('fill', '#1a365d'); 
+        } else if (90 >= pMin && 90 <= pMax) {
+            status.innerText = "🌗 PARTIELL: Du stehst im Halbschatten.";
             status.setAttribute('fill', '#94a3b8');
+            earth.setAttribute('fill', '#2b6cb0'); 
         } else {
-            status.innerText = "Suche die Finsternis...";
+            status.innerText = "Schiebe den Mond so, dass sein Schatten die Erde trifft!";
             status.setAttribute('fill', 'white');
+            earth.setAttribute('fill', '#2196F3');
         }
     }
 }
