@@ -141,6 +141,18 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 .ping { animation: ping 1s forwards; }
 
+@keyframes waveMove {
+  from { transform: translateX(0); opacity: 0.8; }
+  to { transform: translateX(400px); opacity: 0; }
+}
+.anim-line { animation: waveMove 2s infinite linear; }
+
+@keyframes circleGrow {
+  from { r: 5; opacity: 1; }
+  to { r: 150; opacity: 0; }
+}
+.anim-circle { animation: circleGrow 2s infinite linear; fill: none; stroke-width: 2; }
+
 @keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 @media print {
