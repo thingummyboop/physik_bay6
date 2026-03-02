@@ -88,28 +88,44 @@ function shakeFlashlight() {
 function updateTransformer(val) {
     const coil2 = document.getElementById('coil2');
     const txt = document.getElementById('transText');
-    if(!coil2) return;
+    const flux = document.getElementById('magneticFlux');
+    const voltBar = document.getElementById('voltBarSec');
+    const voltText = document.getElementById('voltValSec');
     
+    if(!coil2 || !flux) return;
+    
+    const windings1 = 5; // Primary fixed
+    const windings2 = parseInt(val);
+    const u1 = 230;
+    const u2 = Math.round(u1 * (windings2 / windings1));
+    
+    // Draw Secondary Coil
     coil2.innerHTML = '';
-    const windings = parseInt(val);
-    
-    for(let i=0; i < windings; i++) {
+    for(let i=0; i < windings2; i++) {
         const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        const y = 40 + (i * 8);
-        line.setAttribute("d", `M 280 ${y} L 300 ${y+5}`);
+        const y = 40 + (i * 100 / (windings2 + 1));
+        line.setAttribute("d", `M 285 ${y} L 315 ${y+5}`);
         line.setAttribute("stroke", "#ED8936");
         line.setAttribute("stroke-width", "4");
         coil2.appendChild(line);
     }
     
-    if(windings < 5) {
-        txt.innerText = `Abwärtstransformator (3:${windings})`;
+    // Update Voltage Display
+    if(voltBar) voltBar.setAttribute('height', (windings2 * 10));
+    if(voltBar) voltBar.setAttribute('y', 140 - (windings2 * 10));
+    if(voltText) voltText.innerText = u2 + "V";
+    
+    // Magnetic Flux Speed (Simulate AC frequency/intensity)
+    flux.style.animationDuration = "2s";
+    
+    if(windings2 < windings1) {
+        txt.innerText = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
         txt.style.color = "#E91E63";
-    } else if(windings > 5) {
-        txt.innerText = `Aufwärtstransformator (3:${windings})`;
+    } else if(windings2 > windings1) {
+        txt.innerText = `Aufwärtstransformator (${u1}V ➔ ${u2}V)`;
         txt.style.color = "#4CAF50";
     } else {
-        txt.innerText = "1:1 Übertragung (3:3)";
+        txt.innerText = `1:1 Übertragung (${u1}V ➔ ${u2}V)`;
         txt.style.color = "white";
     }
 }
