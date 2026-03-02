@@ -4,6 +4,7 @@ let isDraining = false;
 let relayClosed = false;
 
 function topicInit() {
+    console.log("EM Topic Init started");
     updateMagnetField(30);
     updateTransformer(5);
     updateRelay(false);
@@ -92,7 +93,7 @@ function updateTransformer(val) {
     const voltBar = document.getElementById('voltBarSec');
     const voltText = document.getElementById('voltValSec');
     
-    if(!coil2 || !flux) return;
+    if(!coil2) return;
     
     const windings1 = 5; // Primary fixed
     const windings2 = parseInt(val);
@@ -115,18 +116,24 @@ function updateTransformer(val) {
     if(voltBar) voltBar.setAttribute('y', 140 - (windings2 * 10));
     if(voltText) voltText.innerText = u2 + "V";
     
-    // Magnetic Flux Speed (Simulate AC frequency/intensity)
-    flux.style.animationDuration = "2s";
+    // Magnetic Flux Speed
+    if(flux) flux.style.animationDuration = "2s";
     
     if(windings2 < windings1) {
-        txt.innerText = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
-        txt.style.color = "#E91E63";
+        if(txt) {
+            txt.innerText = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
+            txt.style.color = "#E91E63";
+        }
     } else if(windings2 > windings1) {
-        txt.innerText = `Aufwärtstransformator (${u1}V ➔ ${u2}V)`;
-        txt.style.color = "#4CAF50";
+        if(txt) {
+            txt.innerText = `Aufwärtstransformator (${u1}V ➔ ${u2}V)`;
+            txt.style.color = "#4CAF50";
+        }
     } else {
-        txt.innerText = `1:1 Übertragung (${u1}V ➔ ${u2}V)`;
-        txt.style.color = "white";
+        if(txt) {
+            txt.innerText = `1:1 Übertragung (${u1}V ➔ ${u2}V)`;
+            txt.style.color = "white";
+        }
     }
 }
 
