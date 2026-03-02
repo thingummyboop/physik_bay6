@@ -2217,8 +2217,25 @@
       {
         "id": "sec2",
         "title": "2. Wellenlängen: Die \"Größe\" der Farbe",
-        "quizzes": [],
-        "content": "\n        \n        <p>Licht bewegt sich in Wellen, genau wie Wasserwellen im Meer. Der Abstand zwischen zwei Wellenbergen ist die <strong>Wellenlänge</strong>. Und genau diese Länge bestimmt, welche Farbe wir sehen!</p>\n        \n        <div class=\"interactive-zone\">\n            <h3>🌊 Der Wellen-Scanner</h3>\n            <p>Wähle eine Wellenlänge aus:</p>\n            <button style=\"background: red;\" onclick=\"setWave(80, 'red', 'Lange Wellen = Rotes Licht')\">Lang</button>\n            <button style=\"background: green;\" onclick=\"setWave(40, 'green', 'Mittlere Wellen = Grünes Licht')\">Mittel</button>\n            <button style=\"background: blue;\" onclick=\"setWave(20, 'blue', 'Kurze Wellen = Blaues Licht')\">Kurz</button>\n            \n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"100\" style=\"background:#000; border-radius: 10px;\">\n                    <path id=\"lightWave\" d=\"M 0 50 Q 20 10 40 50 T 80 50 T 120 50 T 160 50 T 200 50 T 240 50 T 280 50 T 320 50 T 360 50 T 400 50\" fill=\"none\" stroke=\"white\" stroke-width=\"3\"></path>\n                </svg>\n                <p id=\"waveDesc\">Wähle oben eine Taste!</p>\n            </div>\n        </div>\n\n        <div class=\"lexikon-box\">\n            🔴 <strong>Rot:</strong> Hat die längsten Wellen.<br>\n            🔵 <strong>Blau:</strong> Hat die kürzesten Wellen (ganz viel Energie!).\n        </div>\n    "
+        "quizzes": [
+          {
+            "id": "farben_s2_q0",
+            "question": "Welche Lichtfarbe hat die kürzesten Wellen und damit am meisten Energie?",
+            "answers": [
+              {
+                "text": "Blaues Licht.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Rotes Licht.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        \n        <p>Licht bewegt sich in Wellen, genau wie Wasserwellen im Meer. Der Abstand zwischen zwei Wellenbergen ist die <strong>Wellenlänge</strong>. Und genau diese Länge bestimmt, welche Farbe wir sehen!</p>\n        \n        <div class=\"interactive-zone\">\n            <h3>🌊 Der Wellen-Scanner</h3>\n            <p>Wähle eine Wellenlänge aus:</p>\n            <button style=\"background: red;\" onclick=\"setWave(80, 'red', 'Lange Wellen = Rotes Licht')\">Lang</button>\n            <button style=\"background: green;\" onclick=\"setWave(40, 'green', 'Mittlere Wellen = Grünes Licht')\">Mittel</button>\n            <button style=\"background: blue;\" onclick=\"setWave(20, 'blue', 'Kurze Wellen = Blaues Licht')\">Kurz</button>\n            \n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"100\" style=\"background:#000; border-radius: 10px;\">\n                    <path id=\"lightWave\" d=\"M 0 50 Q 20 10 40 50 T 80 50 T 120 50 T 160 50 T 200 50 T 240 50 T 280 50 T 320 50 T 360 50 T 400 50\" fill=\"none\" stroke=\"white\" stroke-width=\"3\"></path>\n                </svg>\n                <p id=\"waveDesc\">Wähle oben eine Taste!</p>\n            </div>\n        </div>\n\n        <div class=\"lexikon-box\">\n            🔴 <strong>Rot:</strong> Hat die längsten Wellen.<br>\n            🔵 <strong>Blau:</strong> Hat die kürzesten Wellen (ganz viel Energie!).\n        </div>\n\n        {{QUIZ_farben_s2_q0}}\n    "
       },
       {
         "id": "sec3",
@@ -2293,6 +2310,102 @@
               "correct": false,
               "pts": 5
             }
+          ]
+        },
+        {
+          "id": "farben_diplom_3",
+          "question": "4. Wie nennt man den Sprung eines Elektrons auf eine höhere Bahn?",
+          "answers": [
+            { "text": "Quantensprung", "correct": true, "pts": 5 },
+            { "text": "Hüpfer", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_4",
+          "question": "5. Welche Farbe hat Licht mit der niedrigsten Energie?",
+          "answers": [
+            { "text": "Rot", "correct": true, "pts": 5 },
+            { "text": "Blau", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_5",
+          "question": "6. Was passiert in einem Prisma mit weißem Licht?",
+          "answers": [
+            { "text": "Es wird in Spektralfarben zerlegt.", "correct": true, "pts": 5 },
+            { "text": "Es wird komplett verschluckt.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_6",
+          "question": "7. Welche Farbe wird am stärksten gebrochen?",
+          "answers": [
+            { "text": "Violett/Blau", "correct": true, "pts": 5 },
+            { "text": "Rot", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_7",
+          "question": "8. Was ist die Wellenlänge?",
+          "answers": [
+            { "text": "Abstand zwischen zwei Wellenbergen.", "correct": true, "pts": 5 },
+            { "text": "Die Höhe der Welle.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_8",
+          "question": "9. Warum ist ein Blatt grün?",
+          "answers": [
+            { "text": "Es reflektiert grünes Licht und absorbiert den Rest.", "correct": true, "pts": 5 },
+            { "text": "Es leuchtet von selbst grün.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_9",
+          "question": "10. Was ist Licht physikalisch gesehen?",
+          "answers": [
+            { "text": "Eine elektromagnetische Welle.", "correct": true, "pts": 5 },
+            { "text": "Ein fester Stoff.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_10",
+          "question": "11. Was passiert, wenn alle Farben gemischt werden (Licht)?",
+          "answers": [
+            { "text": "Es entsteht weißes Licht.", "correct": true, "pts": 5 },
+            { "text": "Es entsteht schwarzes Licht.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_11",
+          "question": "12. Welches Gerät zerlegt Licht wie ein Regenbogen?",
+          "answers": [
+            { "text": "Prisma", "correct": true, "pts": 5 },
+            { "text": "Hammer", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_12",
+          "question": "13. Wie schnell ist das Licht ungefähr?",
+          "answers": [
+            { "text": "300.000 km pro Sekunde.", "correct": true, "pts": 5 },
+            { "text": "100 km pro Stunde.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_13",
+          "question": "14. Was braucht ein Elektron, um auf eine äußere Bahn zu springen?",
+          "answers": [
+            { "text": "Energie-Zufuhr.", "correct": true, "pts": 5 },
+            { "text": "Einen Keks.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "farben_diplom_14",
+          "question": "15. Welche Farbe hat die Sonne wirklich (außerhalb der Atmosphäre)?",
+          "answers": [
+            { "text": "Weiß", "correct": true, "pts": 5 },
+            { "text": "Gelb", "correct": false, "pts": 5 }
           ]
         }
       ]
@@ -2978,8 +3091,17 @@
       {
         "id": "sec5",
         "title": "6. Das Mikroskop: Reise zu den kleinsten Tieren",
-        "quizzes": [],
-        "content": "\n        \n        <p>Um die Welt der Bakterien oder Zellen zu betreten, stecken wir zwei Linsen in ein langes Rohr, den <strong>Tubus</strong>. Die untere Linse ist ganz nah am Präparat und heißt deshalb <strong>Objektiv</strong>. Die obere Linse ist direkt am Auge – das ist das <strong>Okular</strong>.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das unsichtbare Bild:</strong><br>\n            Das Objektiv sammelt das Licht der winzigen Probe und projiziert ein umgedrehtes, vergrößertes <strong>Zwischenbild</strong> frei schwebend mitten in den Tubus. Das Okular wirkt nun wie eine starke Lupe, die wir auf dieses schwebende Bild richten. Befindet sich das Zwischenbild exakt im violetten Brennpunkt des Okulars, wird das Bild im Auge messerscharf!\n        </div>\n        <div class=\"interactive-zone\" style=\"padding-bottom: 30px;\">\n            <div style=\"display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;\">\n                \n                <div style=\"text-align: center; width: 220px;\">\n                    <h4 style=\"margin-top:0; color:#2b6cb0;\">👁️ Blick durchs Okular</h4>\n                    <div style=\"width: 200px; height: 200px; border-radius: 50%; border: 8px solid #2d3748; background: #ebf8ff; overflow: hidden; position: relative; margin: 0 auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.2);\">\n                        <g id=\"microViewInner\" style=\"transition: all 0.1s; transform-origin: center; display: block; width: 100%; height: 100%;\">\n                            <svg viewBox=\"0 0 100 100\" width=\"100%\" height=\"100%\">\n                                <g stroke=\"#cbd5e0\" stroke-width=\"0.5\">\n                                    <line x1=\"0\" y1=\"20\" x2=\"100\" y2=\"20\"></line><line x1=\"0\" y1=\"40\" x2=\"100\" y2=\"40\"></line><line x1=\"0\" y1=\"60\" x2=\"100\" y2=\"60\"></line><line x1=\"0\" y1=\"80\" x2=\"100\" y2=\"80\"></line>\n                                    <line x1=\"20\" y1=\"0\" x2=\"20\" y2=\"100\"></line><line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"100\"></line><line x1=\"60\" y1=\"0\" x2=\"60\" y2=\"100\"></line><line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"100\"></line>\n                                </g>\n                                <path d=\"M 30 50 Q 35 20 60 30 T 80 60 T 50 80 T 30 50\" fill=\"#9ae6b4\" stroke=\"#48bb78\" stroke-width=\"2\" opacity=\"0.8\"></path>\n                                <circle cx=\"55\" cy=\"45\" r=\"8\" fill=\"#2f855a\"></circle>\n                                <path d=\"M 40 60 Q 45 55 50 65 Q 45 70 40 60\" fill=\"#68d391\"></path>\n                                <circle cx=\"70\" cy=\"40\" r=\"3\" fill=\"#68d391\"></circle>\n                                <circle cx=\"65\" cy=\"65\" r=\"2\" fill=\"#68d391\"></circle>\n                            </svg>\n                        </g>\n                    </div>\n                    <p id=\"microViewStatus\" style=\"font-weight:bold; color:#E91E63; margin-top: 15px; font-size: 0.9em;\">Unscharf!</p>\n                </div>\n\n                <div style=\"position: relative; width: 250px; background: white; border: 2px solid #e2e8f0; border-radius: 15px;\">\n                    <svg width=\"250\" height=\"320\" viewBox=\"0 0 250 320\">\n                        <line x1=\"125\" y1=\"10\" x2=\"125\" y2=\"310\" stroke=\"#cbd5e0\" stroke-width=\"2\" stroke-dasharray=\"4,4\"></line>\n                        <rect x=\"75\" y=\"270\" width=\"100\" height=\"6\" fill=\"#a0aec0\" rx=\"2\"></rect>\n                        <polygon points=\"115,270 125,270 120,260\" fill=\"#2d3748\"></polygon>\n                        \n                        <g id=\"vertObjLensGrp\" style=\"transition: transform 0.1s;\">\n                            <path d=\"M 90 0 Q 125 -15 160 0 Q 125 15 90 0\" fill=\"#bee3f8\" stroke=\"#3182ce\" opacity=\"0.8\"></path>\n                            <text x=\"165\" y=\"4\" font-size=\"11\" fill=\"#3182ce\">Objektiv</text>\n                        </g>\n                        \n                        <g id=\"vertOcLensGrp\" style=\"transition: transform 0.1s;\">\n                            <path d=\"M 80 0 Q 125 -20 170 0 Q 125 20 80 0\" fill=\"#bee3f8\" stroke=\"#3182ce\" opacity=\"0.8\"></path>\n                            <text x=\"175\" y=\"4\" font-size=\"11\" fill=\"#3182ce\">Okular</text>\n                            <path d=\"M 110 -35 Q 125 -25 140 -35 Q 125 -45 110 -35\" fill=\"#e2e8f0\" stroke=\"#4a5568\"></path>\n                            <circle cx=\"125\" cy=\"-35\" r=\"4\" fill=\"#2d3748\"></circle>\n                        </g>\n                        \n                        <line id=\"vertIntLine\" x1=\"105\" y1=\"150\" x2=\"145\" y2=\"150\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"2,2\" style=\"transition: all 0.1s;\"></line>\n                        <polygon id=\"vertIntArrow\" points=\"\" fill=\"#a0aec0\" style=\"transition: all 0.1s;\"></polygon>\n                        \n                        <circle id=\"vertOcFocus\" cx=\"125\" cy=\"150\" r=\"4\" fill=\"#9C27B0\" style=\"transition: all 0.1s;\"></circle>\n                        <text id=\"vertOcFocusText\" x=\"135\" y=\"155\" font-size=\"10\" fill=\"#9C27B0\" style=\"transition: all 0.1s;\">Fokus Okular</text>\n                        \n                        <path id=\"vertRay1\" d=\"\" stroke=\"#E91E63\" fill=\"none\" stroke-width=\"2\" style=\"transition: all 0.1s;\"></path>\n                        <path id=\"vertRay2\" d=\"\" stroke=\"#f6ad55\" fill=\"none\" stroke-width=\"2\" style=\"transition: all 0.1s;\"></path>\n                    </svg>\n                </div>\n\n                <div style=\"width: 250px; display: flex; flex-direction: column; gap: 20px; text-align: left;\">\n                    <div>\n                        <label style=\"font-weight:bold; font-size: 0.9em;\">1. Objektiv bewegen (Abstand zum Tierchen):</label>\n                        <input type=\"range\" id=\"microObjDist\" min=\"22\" max=\"45\" value=\"25\" step=\"0.5\" oninput=\"updateVerticalMicroscope()\" style=\"width: 100%;\">\n                    </div>\n                    <div>\n                        <label style=\"font-weight:bold; font-size: 0.9em;\">2. Tubuslänge (Abstand zwischen Linsen):</label>\n                        <input type=\"range\" id=\"microTubeDist\" min=\"80\" max=\"180\" value=\"100\" step=\"1\" oninput=\"updateVerticalMicroscope()\" style=\"width: 100%;\">\n                    </div>\n                    <div style=\"background: #fff5f5; border: 1px solid #fed7d7; padding: 10px; border-radius: 8px; font-size: 0.85em; color: #c53030;\">\n                        💡 <strong>Fokus-Tipp:</strong> Passe erst Regler 1 an, bis das graue Zwischenbild gut im Tubus liegt. Schiebe dann Regler 2, bis der <strong>violette Fokuspunkt</strong> das Zwischenbild exakt berührt!\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    "
+        "quizzes": [
+          {
+            "id": "linsen_s6_q0",
+            "question": "Wie viele Linsen braucht ein einfaches Mikroskop mindestens?",
+            "answers": [
+              { "text": "Zwei (Objektiv und Okular).", "correct": true, "pts": 10 },
+              { "text": "Nur eine reicht.", "correct": false, "pts": 5 }
+            ]
+          }
+        ],
+        "content": "\n        \n        <p>Um die Welt der Bakterien oder Zellen zu betreten, stecken wir zwei Linsen in ein langes Rohr, den <strong>Tubus</strong>. Die untere Linse ist ganz nah am Präparat und heißt deshalb <strong>Objektiv</strong>. Die obere Linse ist direkt am Auge – das ist das <strong>Okular</strong>.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das unsichtbare Bild:</strong><br>\n            Das Objektiv sammelt das Licht der winzigen Probe und projiziert ein umgedrehtes, vergrößertes <strong>Zwischenbild</strong> frei schwebend mitten in den Tubus. Das Okular wirkt nun wie eine starke Lupe, die wir auf dieses schwebende Bild richten. Befindet sich das Zwischenbild exakt im violetten Brennpunkt des Okulars, wird das Bild im Auge messerscharf!\n        </div>\n        <div class=\"interactive-zone\" style=\"padding-bottom: 30px;\">\n            <div style=\"display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;\">\n                \n                <div style=\"text-align: center; width: 220px;\">\n                    <h4 style=\"margin-top:0; color:#2b6cb0;\">👁️ Blick durchs Okular</h4>\n                    <div style=\"width: 200px; height: 200px; border-radius: 50%; border: 8px solid #2d3748; background: #ebf8ff; overflow: hidden; position: relative; margin: 0 auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.2);\">\n                        <g id=\"microViewInner\" style=\"transition: all 0.1s; transform-origin: center; display: block; width: 100%; height: 100%;\">\n                            <svg viewBox=\"0 0 100 100\" width=\"100%\" height=\"100%\">\n                                <g stroke=\"#cbd5e0\" stroke-width=\"0.5\">\n                                    <line x1=\"0\" y1=\"20\" x2=\"100\" y2=\"20\"></line><line x1=\"0\" y1=\"40\" x2=\"100\" y2=\"40\"></line><line x1=\"0\" y1=\"60\" x2=\"100\" y2=\"60\"></line><line x1=\"0\" y1=\"80\" x2=\"100\" y2=\"80\"></line>\n                                    <line x1=\"20\" y1=\"0\" x2=\"20\" y2=\"100\"></line><line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"100\"></line><line x1=\"60\" y1=\"0\" x2=\"60\" y2=\"100\"></line><line x1=\"80\" y1=\"0\" x2=\"80\" y2=\"100\"></line>\n                                </g>\n                                <path d=\"M 30 50 Q 35 20 60 30 T 80 60 T 50 80 T 30 50\" fill=\"#9ae6b4\" stroke=\"#48bb78\" stroke-width=\"2\" opacity=\"0.8\"></path>\n                                <circle cx=\"55\" cy=\"45\" r=\"8\" fill=\"#2f855a\"></circle>\n                                <path d=\"M 40 60 Q 45 55 50 65 Q 45 70 40 60\" fill=\"#68d391\"></path>\n                                <circle cx=\"70\" cy=\"40\" r=\"3\" fill=\"#68d391\"></circle>\n                                <circle cx=\"65\" cy=\"65\" r=\"2\" fill=\"#68d391\"></circle>\n                            </svg>\n                        </g>\n                    </div>\n                    <p id=\"microViewStatus\" style=\"font-weight:bold; color:#E91E63; margin-top: 15px; font-size: 0.9em;\">Unscharf!</p>\n                </div>\n\n                <div style=\"position: relative; width: 250px; background: white; border: 2px solid #e2e8f0; border-radius: 15px;\">\n                    <svg width=\"250\" height=\"320\" viewBox=\"0 0 250 320\">\n                        <line x1=\"125\" y1=\"10\" x2=\"125\" y2=\"310\" stroke=\"#cbd5e0\" stroke-width=\"2\" stroke-dasharray=\"4,4\"></line>\n                        <rect x=\"75\" y=\"270\" width=\"100\" height=\"6\" fill=\"#a0aec0\" rx=\"2\"></rect>\n                        <polygon points=\"115,270 125,270 120,260\" fill=\"#2d3748\"></polygon>\n                        \n                        <g id=\"vertObjLensGrp\" style=\"transition: transform 0.1s;\">\n                            <path d=\"M 90 0 Q 125 -15 160 0 Q 125 15 90 0\" fill=\"#bee3f8\" stroke=\"#3182ce\" opacity=\"0.8\"></path>\n                            <text x=\"165\" y=\"4\" font-size=\"11\" fill=\"#3182ce\">Objektiv</text>\n                        </g>\n                        \n                        <g id=\"vertOcLensGrp\" style=\"transition: transform 0.1s;\">\n                            <path d=\"M 80 0 Q 125 -20 170 0 Q 125 20 80 0\" fill=\"#bee3f8\" stroke=\"#3182ce\" opacity=\"0.8\"></path>\n                            <text x=\"175\" y=\"4\" font-size=\"11\" fill=\"#3182ce\">Okular</text>\n                            <path d=\"M 110 -35 Q 125 -25 140 -35 Q 125 -45 110 -35\" fill=\"#e2e8f0\" stroke=\"#4a5568\"></path>\n                            <circle cx=\"125\" cy=\"-35\" r=\"4\" fill=\"#2d3748\"></circle>\n                        </g>\n                        \n                        <line id=\"vertIntLine\" x1=\"105\" y1=\"150\" x2=\"145\" y2=\"150\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"2,2\" style=\"transition: all 0.1s;\"></line>\n                        <polygon id=\"vertIntArrow\" points=\"\" fill=\"#a0aec0\" style=\"transition: all 0.1s;\"></polygon>\n                        \n                        <circle id=\"vertOcFocus\" cx=\"125\" cy=\"150\" r=\"4\" fill=\"#9C27B0\" style=\"transition: all 0.1s;\"></circle>\n                        <text id=\"vertOcFocusText\" x=\"135\" y=\"155\" font-size=\"10\" fill=\"#9C27B0\" style=\"transition: all 0.1s;\">Fokus Okular</text>\n                        \n                        <path id=\"vertRay1\" d=\"\" stroke=\"#E91E63\" fill=\"none\" stroke-width=\"2\" style=\"transition: all 0.1s;\"></path>\n                        <path id=\"vertRay2\" d=\"\" stroke=\"#f6ad55\" fill=\"none\" stroke-width=\"2\" style=\"transition: all 0.1s;\"></path>\n                    </svg>\n                </div>\n\n                <div style=\"width: 250px; display: flex; flex-direction: column; gap: 20px; text-align: left;\">\n                    <div>\n                        <label style=\"font-weight:bold; font-size: 0.9em;\">1. Objektiv bewegen (Abstand zum Tierchen):</label>\n                        <input type=\"range\" id=\"microObjDist\" min=\"22\" max=\"45\" value=\"25\" step=\"0.5\" oninput=\"updateVerticalMicroscope()\" style=\"width: 100%;\">\n                    </div>\n                    <div>\n                        <label style=\"font-weight:bold; font-size: 0.9em;\">2. Tubuslänge (Abstand zwischen Linsen):</label>\n                        <input type=\"range\" id=\"microTubeDist\" min=\"80\" max=\"180\" value=\"100\" step=\"1\" oninput=\"updateVerticalMicroscope()\" style=\"width: 100%;\">\n                    </div>\n                    <div style=\"background: #fff5f5; border: 1px solid #fed7d7; padding: 10px; border-radius: 8px; font-size: 0.85em; color: #c53030;\">\n                        💡 <strong>Fokus-Tipp: Passe erst Regler 1 an, bis das graue Zwischenbild gut im Tubus liegt. Schiebe dann Regler 2, bis der violette Fokuspunkt das Zwischenbild exakt berührt!</strong>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n\n        {{QUIZ_linsen_s6_q0}}\n    "
       },
       {
         "id": "sec6",
@@ -3391,9 +3513,98 @@
               "pts": 5
             }
           ]
+        },
+        {
+          "id": "optik1_diplom_4",
+          "question": "5. Wie schnell ist das Licht?",
+          "answers": [
+            { "text": "Ca. 300.000 km/s", "correct": true, "pts": 5 },
+            { "text": "Ca. 300 km/h", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_5",
+          "question": "6. Was passiert bei der Brechung am Übergang von Luft zu Wasser?",
+          "answers": [
+            { "text": "Der Strahl knickt zum Lot hin.", "correct": true, "pts": 5 },
+            { "text": "Der Strahl verschwindet.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_6",
+          "question": "7. Wie nennt man den Winkel, in dem Licht auf einen Spiegel trifft?",
+          "answers": [
+            { "text": "Einfallswinkel", "correct": true, "pts": 5 },
+            { "text": "Abprallwinkel", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_7",
+          "question": "8. Was gilt für Reflexion an ebenen Spiegeln?",
+          "answers": [
+            { "text": "Einfallswinkel = Ausfallswinkel", "correct": true, "pts": 5 },
+            { "text": "Einfallswinkel ist doppelt so groß", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_8",
+          "question": "9. Was ist eine natürliche Lichtquelle?",
+          "answers": [
+            { "text": "Die Sonne", "correct": true, "pts": 5 },
+            { "text": "Der Mond (reflektiert nur)", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_9",
+          "question": "10. Warum sehen wir den Mond?",
+          "answers": [
+            { "text": "Weil er das Sonnenlicht reflektiert.", "correct": true, "pts": 5 },
+            { "text": "Weil er aus glühendem Käse besteht.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_10",
+          "question": "11. Was ist ein 'optisch dichteres' Medium?",
+          "answers": [
+            { "text": "Ein Stoff, in dem Licht langsamer ist (z.B. Glas).", "correct": true, "pts": 5 },
+            { "text": "Ein Stoff, der sehr schwer ist.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_11",
+          "question": "12. Wohin knickt der Strahl beim Übergang vom dichteren zum dünneren Medium?",
+          "answers": [
+            { "text": "Vom Lot weg.", "correct": true, "pts": 5 },
+            { "text": "Zum Lot hin.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_12",
+          "question": "13. Was ist ein virtuelles Bild?",
+          "answers": [
+            { "text": "Ein Bild, das man im Spiegel sieht, aber nicht anfassen kann.", "correct": true, "pts": 5 },
+            { "text": "Ein Bild auf einem Computerbildschirm.", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_13",
+          "question": "14. Welches Phänomen erklärt den 'gebrochenen' Löffel im Wasserglas?",
+          "answers": [
+            { "text": "Lichtbrechung (Refraktion)", "correct": true, "pts": 5 },
+            { "text": "Reflexion", "correct": false, "pts": 5 }
+          ]
+        },
+        {
+          "id": "optik1_diplom_14",
+          "question": "15. Kann Licht um die Ecke fliegen?",
+          "answers": [
+            { "text": "Nein, nur durch Spiegelung oder Brechung umgelenkt werden.", "correct": true, "pts": 5 },
+            { "text": "Ja, es fliegt Kurven wie ein Vogel.", "correct": false, "pts": 5 }
+          ]
         }
       ]
     }
+
   },
   "rechenbeispiele": {
     "title": "🧮 Das große Physik-Rechen-Abenteuer 🚀",
