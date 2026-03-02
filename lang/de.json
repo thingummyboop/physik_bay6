@@ -2778,194 +2778,88 @@
     }
   },
   "licht_schatten_astronomie": {
-    "title": "🌑 Schatten im Weltall 🌍",
-    "subtitle": "Licht wandert immer exakt geradeaus. Zeichnet man die äußersten Lichtstrahlen (Randstrahlen) an einem Hindernis vorbei, kann man auf den Millimeter genau berechnen, wo ein Schatten hinfällt!",
+    "title": "🌑 Licht & Schatten 🔦",
+    "subtitle": "Warum gibt es Schatten? Wie entstehen Finsternisse? Hier erfährst du alles über das geradlinige Wandern des Lichts!",
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Wer kreist um wen?",
+        "title": "1. Licht wandert geradeaus",
         "quizzes": [
           {
-            "id": "licht_schatten_astronomie_s1_q0",
-            "question": "Wie lange braucht der Mond für eine Runde um die Erde?",
+            "id": "ls_s1_q1",
+            "question": "In welcher Form breitet sich Licht normalerweise aus?",
             "answers": [
-              {
-                "text": "Ein ganzes Jahr",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Etwa einen Monat",
-                "correct": true,
-                "pts": 10
-              }
+              { "text": "In Schlangenlinien.", "correct": false, "pts": 10 },
+              { "text": "In absolut geraden Strahlen.", "correct": true, "pts": 10 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Die Sonne strahlt ihr Licht in den Raum. Während die Erde um die Sonne reist, wird immer genau die Seite hell, die zur Sonne zeigt. Auf der Rückseite wirft die Erde einen Schatten ins Leere (Nachtseite).</p>\n        \n        <div class=\"diagram-box\">\n            <svg width=\"400\" height=\"250\" viewBox=\"0 0 400 250\">\n                <ellipse cx=\"200\" cy=\"125\" rx=\"140\" ry=\"80\" fill=\"none\" stroke=\"#533483\" stroke-width=\"1\" stroke-dasharray=\"5,5\"></ellipse>\n                \n                <g class=\"earth-orbit\">\n                    <line x1=\"200\" y1=\"125\" x2=\"340\" y2=\"105\" class=\"strahl\" stroke-width=\"0.5\"></line>\n                    <line x1=\"200\" y1=\"125\" x2=\"340\" y2=\"125\" class=\"strahl\" stroke-width=\"1\"></line>\n                    <line x1=\"200\" y1=\"125\" x2=\"340\" y2=\"145\" class=\"strahl\" stroke-width=\"0.5\"></line>\n                    \n                    <path d=\"M 340 113 A 12 12 0 0 1 340 137 L 380 137 L 380 113 Z\" fill=\"rgba(0,0,0,0.6)\"></path>\n                    \n                    <circle cx=\"340\" cy=\"125\" r=\"12\" fill=\"#2196F3\"></circle>\n                    \n                    <g class=\"moon-orbit\">\n                        <circle cx=\"365\" cy=\"125\" r=\"4\" fill=\"#ddd\"></circle>\n                    </g>\n                </g>\n                \n                <circle cx=\"200\" cy=\"125\" r=\"30\" fill=\"#FFC107\" style=\"filter: drop-shadow(0 0 20px #FF9800);\"></circle>\n            </svg>\n            <p>Die Lichtstrahlen laufen geradlinig von der Sonne zur Erde.</p>\n        </div>\n\n        {{QUIZ_licht_schatten_astronomie_s1_q0}}\n    "
+        "content": "\n        <p>Licht ist wie ein super-gerades Lineal. Solange ihm nichts im Weg steht, saust es schnurgerade durch den Raum. Wenn aber ein undurchsichtiger Körper (wie du, ein Baum oder ein Stein) im Weg steht, kommt das Licht dort nicht vorbei. Dahinter entsteht ein Bereich ohne Licht: der <strong>Schatten</strong>.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Lichtquelle</strong><br>\n            Gegenstände, die von selbst leuchten (Sonne, Taschenlampe), nennen wir Lichtquellen. Gegenstände, die nur Licht zurückwerfen (Mond, Spiegel, Wand), sind beleuchtete Körper.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Der Schatten-Simulator (Punktlicht)</h3>\n            <p>Bewege das Hindernis näher zur Lampe oder weiter weg:</p>\n            <input type=\"range\" id=\"posRange1\" min=\"50\" max=\"250\" value=\"150\" oninput=\"updateShadow1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <circle cx=\"30\" cy=\"75\" r=\"8\" fill=\"#fff\" style=\"filter: drop-shadow(0 0 10px #fff);\"></circle>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"10\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_1\"></line>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"140\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_2\"></line>\n                    <polygon id=\"shadowArea1\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect id=\"obj1\" x=\"150\" y=\"60\" width=\"20\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_ls_s1_q1}}\n    "
       },
       {
         "id": "sec2",
-        "title": "2. Die Sonnenfinsternis (Konstruktion)",
+        "title": "2. Kernschatten und Halbschatten",
         "quizzes": [
           {
-            "id": "licht_schatten_astronomie_s2_q0",
-            "question": "Warum ist es bei einer totalen Sonnenfinsternis plötzlich dunkel?",
+            "id": "ls_s2_q1",
+            "question": "Was ist der Halbschatten?",
             "answers": [
-              {
-                "text": "Weil wir direkt im Kernschatten des Mondes stehen.",
-                "correct": true,
-                "pts": 15
-              },
-              {
-                "text": "Weil die Sonne nachts schlafen geht.",
-                "correct": false,
-                "pts": 10
-              }
+              { "text": "Der Bereich, in den gar kein Licht gelangt.", "correct": false, "pts": 10 },
+              { "text": "Der Bereich, in den nur das Licht einer von zwei Lampen gelangt.", "correct": true, "pts": 15 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Der kleine Mond schiebt sich vor die riesige Sonne. Wenn wir die Lichtstrahlen vom oberen und unteren Rand der Sonne am Mond vorbeizeichnen, sehen wir zwei Bereiche: Den tiefschwarzen <strong>Kernschatten</strong> und den grauen <strong>Halbschatten</strong>.</p>\n        \n        <div class=\"diagram-box\">\n            <svg width=\"450\" height=\"200\" viewBox=\"0 0 450 200\">\n                <polygon points=\"220,85 400,37.4 400,162.6 220,115\" fill=\"rgba(255,255,255,0.15)\"></polygon>\n                \n                <polygon points=\"220,85 390,100 220,115\" fill=\"rgba(0,0,0,0.9)\"></polygon>\n                \n                <line x1=\"50\" y1=\"70\" x2=\"390\" y2=\"100\" class=\"strahl\"></line>\n                <line x1=\"50\" y1=\"130\" x2=\"390\" y2=\"100\" class=\"strahl\"></line>\n                <line x1=\"50\" y1=\"70\" x2=\"400\" y2=\"162.6\" class=\"strahl\" stroke-dasharray=\"2 6\"></line>\n                <line x1=\"50\" y1=\"130\" x2=\"400\" y2=\"37.4\" class=\"strahl\" stroke-dasharray=\"2 6\"></line>\n\n                <circle cx=\"50\" cy=\"100\" r=\"30\" fill=\"#FFC107\"></circle> <circle cx=\"220\" cy=\"100\" r=\"15\" fill=\"#666\"></circle> <circle cx=\"360\" cy=\"100\" r=\"35\" fill=\"#2196F3\"></circle> <text x=\"365\" y=\"104\" fill=\"#FFF\" font-size=\"10\" font-weight=\"bold\">Kern</text>\n                <text x=\"365\" y=\"65\" fill=\"#FFF\" font-size=\"10\">Halb-</text>\n                <text x=\"365\" y=\"145\" fill=\"#FFF\" font-size=\"10\">schatten</text>\n            </svg>\n            <p>Wo sich kein einziger Sonnenstrahl mehr hin verirrt, ist die Finsternis total (Kernschatten).</p>\n        </div>\n\n        {{QUIZ_licht_schatten_astronomie_s2_q0}}\n    "
+        "content": "\n        <p>Was passiert, wenn wir zwei Lampen benutzen? Jede Lampe wirft ihren eigenen Schatten. Dort, wo sich beide Schatten überschneiden, ist es stockfinster – das ist der <strong>Kernschatten</strong>. In den grauen Bereichen daneben kommt noch ein bisschen Licht von einer der beiden Lampen an – das ist der <strong>Halbschatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>💡 Das Zwei-Lampen-Experiment</h3>\n            <p>Schalte die Lampen ein und aus:</p>\n            <button onclick=\"toggleLamp(1)\" id=\"btnL1\">Lampe 1: AN</button>\n            <button onclick=\"toggleLamp(2)\" id=\"btnL2\">Lampe 2: AN</button>\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <circle id=\"lamp1\" cx=\"30\" cy=\"60\" r=\"8\" fill=\"#fff\"></circle>\n                    <circle id=\"lamp2\" cx=\"30\" cy=\"140\" r=\"8\" fill=\"#fff\"></circle>\n                    <polygon id=\"hShadow1\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"hShadow2\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"kShadow\" points=\"\" fill=\"rgba(0,0,0,0.7)\"></polygon>\n                    <rect x=\"180\" y=\"85\" width=\"15\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_ls_s2_q1}}\n    "
       },
       {
         "id": "sec3",
-        "title": "3. Die Mondfinsternis (Konstruktion)",
+        "title": "3. Die Sonnenfinsternis",
         "quizzes": [
           {
-            "id": "licht_schatten_astronomie_s3_q0",
-            "question": "Was steht bei einer Mondfinsternis genau in der Mitte?",
+            "id": "ls_s3_q1",
+            "question": "Wer wirft bei einer Sonnenfinsternis den Schatten auf die Erde?",
             "answers": [
-              {
-                "text": "Die Sonne",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Die Erde",
-                "correct": true,
-                "pts": 15
-              }
+              { "text": "Die Erde selbst.", "correct": false, "pts": 10 },
+              { "text": "Der Mond.", "correct": true, "pts": 15 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Die Erde ist viel größer als der Mond. Die geraden Randstrahlen der Sonne bilden hinter der Erde einen riesigen, langen Kernschatten-Schlauch. Der Mond passt da komplett hinein!</p>\n\n        <div class=\"diagram-box\">\n            <svg width=\"450\" height=\"200\" viewBox=\"0 0 450 200\">\n                <polygon points=\"220,75 450,0.6 450,199.4 220,125\" fill=\"rgba(255,255,255,0.15)\"></polygon>\n\n                <polygon points=\"220,75 450,81.8 450,118.2 220,125\" fill=\"rgba(0,0,0,0.85)\"></polygon>\n\n                <line x1=\"50\" y1=\"70\" x2=\"450\" y2=\"81.8\" class=\"strahl\"></line>\n                <line x1=\"50\" y1=\"130\" x2=\"450\" y2=\"118.2\" class=\"strahl\"></line>\n                <line x1=\"50\" y1=\"70\" x2=\"450\" y2=\"199.4\" class=\"strahl\" stroke-dasharray=\"2 6\"></line>\n                <line x1=\"50\" y1=\"130\" x2=\"450\" y2=\"0.6\" class=\"strahl\" stroke-dasharray=\"2 6\"></line>\n                \n                <circle cx=\"50\" cy=\"100\" r=\"30\" fill=\"#FFC107\"></circle> <circle cx=\"220\" cy=\"100\" r=\"25\" fill=\"#2196F3\"></circle> <circle cx=\"380\" cy=\"100\" r=\"10\" fill=\"#880e4f\"></circle> <text x=\"260\" y=\"104\" fill=\"#FF5252\" font-size=\"12\" font-weight=\"bold\">Langer Kernschatten</text>\n            </svg>\n            <p>Der Mond taucht vollständig in den tiefen Schatten der Erde ein.</p>\n        </div>\n\n        {{QUIZ_licht_schatten_astronomie_s3_q0}}\n    "
+        "content": "\n        <p>Eine Sonnenfinsternis ist im Grunde ein gigantisches Schattenspiel im Weltraum. Der Mond schiebt sich genau zwischen Sonne und Erde. Nur in dem winzigen Bereich, wo der <strong>Kernschatten</strong> des Mondes die Erde trifft, wird es am helllichten Tag plötzlich stockfinster.</p>\n        <div class=\"interactive-zone\">\n            <h3>🌑 Sonnenfinsternis-Modell</h3>\n            <p>Verschiebe den Mond, bis sein Schatten die Stadt auf der Erde trifft:</p>\n            <input type=\"range\" id=\"moonPos\" min=\"100\" max=\"300\" value=\"150\" oninput=\"updateEclipse1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #0f172a;\">\n                <svg width=\"450\" height=\"180\" viewBox=\"0 0 450 180\">\n                    <circle cx=\"40\" cy=\"90\" r=\"30\" fill=\"#FFC107\" style=\"filter: drop-shadow(0 0 20px #FF9800);\"></circle>\n                    <polygon id=\"moonShadow\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <circle id=\"earthObj\" cx=\"400\" cy=\"90\" r=\"35\" fill=\"#2196F3\"></circle>\n                    <circle id=\"moonObj\" cx=\"150\" cy=\"90\" r=\"10\" fill=\"#666\"></circle>\n                    <text id=\"statusText\" x=\"225\" y=\"170\" text-anchor=\"middle\" fill=\"white\" font-weight=\"bold\">Suche die Finsternis...</text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_ls_s3_q1}}\n    "
+      },
+      {
+        "id": "sec4",
+        "title": "4. Die Mondfinsternis",
+        "quizzes": [
+          {
+            "id": "ls_s4_q1",
+            "question": "Was passiert bei einer Mondfinsternis?",
+            "answers": [
+              { "text": "Der Mond taucht in den Schatten der Erde ein.", "correct": true, "pts": 15 },
+              { "text": "Die Sonne geht hinter dem Mond unter.", "correct": false, "pts": 10 }
+            ]
+          }
+        ],
+        "content": "\n        <p>Bei der Mondfinsternis stehen Sonne, Erde und Mond in einer Reihe. Diesmal wirft die große Erde einen riesigen Schatten. Wenn der Mond durch diesen Schatten wandert, leuchtet er oft unheimlich rötlich – das nennen wir einen <strong>Blutmond</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>🌕 Der Weg in den Schatten</h3>\n            <button onclick=\"startMoonOrbit()\">Mond kreisen lassen 🚀</button>\n            <div class=\"diagram-box\" style=\"background: #0f172a;\">\n                <svg width=\"450\" height=\"200\" viewBox=\"0 0 450 200\">\n                    <circle cx=\"0\" cy=\"100\" r=\"50\" fill=\"#FFC107\"></circle>\n                    <rect x=\"220\" y=\"65\" width=\"230\" height=\"70\" fill=\"rgba(0,0,0,0.6)\" id=\"earthShadow\"></rect>\n                    <circle cx=\"220\" cy=\"100\" r=\"35\" fill=\"#2196F3\"></circle>\n                    <circle id=\"orbitMoon\" cx=\"350\" cy=\"30\" r=\"10\" fill=\"#ddd\"></circle>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_ls_s4_q1}}\n    "
       }
     ],
     "diplom": {
-      "title": "🎓 Das Astro-Optik Diplom",
+      "title": "🎓 Das Licht & Schatten Diplom",
       "questions": [
-        {
-          "id": "licht_schatten_astronomie_diplom_0",
-          "question": "1. Was ist die wichtigste Regel der Optik, damit Finsternisse überhaupt berechnet werden können?",
-          "answers": [
-            {
-              "text": "Licht breitet sich streng geradlinig aus.",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Licht macht Kurven um Planeten herum.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "licht_schatten_astronomie_diplom_1",
-          "question": "2. Warum gibt es auf der Erde Tag und Nacht?",
-          "answers": [
-            {
-              "text": "Weil die Sonne um die Erde kreist.",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Weil sich die Erde wie ein Kreisel um sich selbst dreht.",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "licht_schatten_astronomie_diplom_2",
-          "question": "3. Stell dir vor, du stehst auf dem Mond während einer Mondfinsternis. Was würdest du sehen?",
-          "answers": [
-            {
-              "text": "Die Erde schiebt sich vor die Sonne (eine Sonnenfinsternis von dort aus gesehen!).",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Gar nichts, es ist einfach nur hell.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "licht_schatten_astronomie_diplom_3",
-          "question": "4. Was genau ist der Kernschatten?",
-          "answers": [
-            {
-              "text": "Der Bereich, in den absolut kein direktes Licht der Lichtquelle mehr gelangt.",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Der Bereich, in dem das Licht besonders hell gebündelt wird.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "licht_schatten_astronomie_diplom_4",
-          "question": "5. Wie nennt man den Mond oft, wenn er in den Schatten der Erde eintaucht und rötlich leuchtet?",
-          "answers": [
-            {
-              "text": "Erdbeermond",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Blutmond",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "licht_schatten_astronomie_diplom_5",
-          "question": "6. Wer wirft bei einer Sonnenfinsternis den Schatten?",
-          "answers": [
-            {
-              "text": "Der Mond blockiert die Sonne und wirft seinen Schatten auf die Erde.",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Die Erde blockiert die Sonne und wirft ihren Schatten auf den Mond.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "licht_schatten_astronomie_diplom_6",
-          "question": "7. Auf was für einer Bahn reist die Erde um die Sonne?",
-          "answers": [
-            {
-              "text": "Auf einer kerzengeraden Zickzack-Linie.",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Auf einer riesigen Ellipse (Umlaufbahn).",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        }
+        { "id": "ls_d1", "question": "Wie breitet sich Licht von einer Taschenlampe aus?", "answers": [{ "text": "In geraden Linien.", "correct": true, "pts": 5 }, { "text": "In Wellen, die um Ecken biegen.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d2", "question": "Was braucht man zwingend, um einen Schatten zu erzeugen?", "answers": [{ "text": "Eine Lichtquelle und einen undurchsichtigen Körper.", "correct": true, "pts": 5 }, { "text": "Nur eine sehr starke Lampe.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d3", "question": "Warum ist der Kernschatten dunkler als der Halbschatten?", "answers": [{ "text": "Weil dort überhaupt kein Licht der Lichtquellen hinkommt.", "correct": true, "pts": 5 }, { "text": "Weil dort das Licht reflektiert wird.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d4", "question": "Was passiert mit einem Schatten, wenn man das Hindernis näher zur Lampe schiebt?", "answers": [{ "text": "Der Schatten wird größer.", "correct": true, "pts": 5 }, { "text": "Der Schatten wird kleiner.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d5", "question": "Wer wirft bei einer Sonnenfinsternis den Schatten auf die Erde?", "answers": [{ "text": "Der Mond.", "correct": true, "pts": 5 }, { "text": "Die Sonne.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d6", "question": "Wann spricht man von einer totalen Sonnenfinsternis?", "answers": [{ "text": "Wenn man im Kernschatten des Mondes steht.", "correct": true, "pts": 5 }, { "text": "Wenn man im Halbschatten steht.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d7", "question": "Ist der Mond eine Lichtquelle?", "answers": [{ "text": "Nein, er reflektiert nur das Sonnenlicht.", "correct": true, "pts": 5 }, { "text": "Ja, er leuchtet von selbst.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d8", "question": "Was steht bei einer Mondfinsternis zwischen Sonne und Mond?", "answers": [{ "text": "Die Erde.", "correct": true, "pts": 5 }, { "text": "Ein Asteroid.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d9", "question": "Wie nennt man den Bereich, in dem sich die Schatten zweier Lampen überschneiden?", "answers": [{ "text": "Kernschatten.", "correct": true, "pts": 5 }, { "text": "Vollschatten.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d10", "question": "Warum sehen wir Gegenstände, die nicht selbst leuchten (z.B. ein Buch)?", "answers": [{ "text": "Weil sie Licht in unser Auge reflektieren.", "correct": true, "pts": 5 }, { "text": "Weil sie im Dunkeln glühen.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d11", "question": "Welche Farbe hat der Mond oft während einer totalen Mondfinsternis?", "answers": [{ "text": "Rötlich (Blutmond).", "correct": true, "pts": 5 }, { "text": "Grünlich.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d12", "question": "Kann ein Schatten farbig sein?", "answers": [{ "text": "Ja, wenn man verschiedenfarbige Lichtquellen nutzt.", "correct": true, "pts": 5 }, { "text": "Nein, Schatten sind immer nur schwarz.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d13", "question": "Wie nennt man die Strahlen, die gerade noch am Rand eines Körpers vorbeigehen?", "answers": [{ "text": "Randstrahlen.", "correct": true, "pts": 5 }, { "text": "Grenzstrahlen.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d14", "question": "Was ist schneller: Das Licht oder der Schall?", "answers": [{ "text": "Das Licht (300.000 km/s).", "correct": true, "pts": 5 }, { "text": "Der Schall.", "correct": false, "pts": 5 }] },
+        { "id": "ls_d15", "question": "Warum gibt es auf der Erde Tag und Nacht?", "answers": [{ "text": "Weil sich die Erde um ihre eigene Achse dreht und eine Seite im Schatten liegt.", "correct": true, "pts": 5 }, { "text": "Weil die Sonne nachts ausgeht.", "correct": false, "pts": 5 }] }
       ]
     }
   },
