@@ -100,16 +100,19 @@ function updateTransformer(val) {
     const u1 = 230;
     const u2 = Math.round(u1 * (windings2 / windings1));
     
+    // Clear and Redraw Secondary Coil with Current Dots
     coil2.innerHTML = '';
     for(let i=0; i < windings2; i++) {
         const y = 60 + (i * 100 / (windings2 + 1 || 1));
+        
+        // Wire piece
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", `M 285 ${y} L 315 ${y+5}`);
         path.setAttribute("stroke", "#ED8936");
         path.setAttribute("stroke-width", "6");
         coil2.appendChild(path);
         
-        // Add current particle
+        // Current particle (Yellow dot moving on the wire)
         const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         dot.setAttribute("r", "3");
         dot.setAttribute("fill", "yellow");
@@ -121,6 +124,7 @@ function updateTransformer(val) {
         coil2.appendChild(dot);
     }
     
+    // Update Secondary Voltage Bar
     if(voltBarSec) {
         const h = Math.min(windings2 * 15, 100);
         voltBarSec.setAttribute('height', h);
@@ -128,10 +132,11 @@ function updateTransformer(val) {
     }
     if(voltValSec) voltValSec.innerText = u2 + "V";
     
-    // Magnetic Flux Intensity based on Windings (for visualization)
+    // Magnetic Flux Intensity Visualization
     if(flux) flux.style.strokeWidth = 1 + (windings2 / 3);
     if(fluxField) fluxField.setAttribute('opacity', 0.2 + (windings2 / 20));
 
+    // Update Description Text
     if(windings2 < windings1) {
         if(txt) {
             txt.innerText = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
