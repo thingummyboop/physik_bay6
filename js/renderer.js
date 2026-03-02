@@ -10,7 +10,7 @@ async function renderTopic() {
     }
 
     try {
-        let response = await fetch(`../lang/${lang}.json`);
+        let response = await fetch(`../lang/${lang}.json?v=${Date.now()}`);
         let langData = await response.json();
         let topic = langData[topicId];
 
