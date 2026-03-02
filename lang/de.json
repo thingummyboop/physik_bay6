@@ -1720,184 +1720,102 @@
   },
   "elektromagnetismus": {
     "title": "🧲 Das Magnet-Abenteuer ⚡",
-    "subtitle": "Wusstest du, dass Strom eine superkraft hat? Sobald Strom durch ein Kabel fließt, baut er um das Kabel herum eine unsichtbare Kraft auf. Das nennen wir ein Magnetfeld.",
+    "subtitle": "Wusstest du, dass Strom eine Superkraft hat? Sobald Strom durch ein Kabel fließt, baut er um das Kabel herum eine unsichtbare Kraft auf. Das nennen wir ein Magnetfeld.",
     "sections": [
       {
         "id": "sec0",
         "title": "1. Der Strom macht den Magneten",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "Wie wird der unsichtbare Kraft-Tunnel um das Kabel stärker?",
+            "id": "em_s1_q1",
+            "question": "Was passiert um einen Draht, durch den Strom fließt?",
             "answers": [
-              {
-                "text": "Indem man das Kabel blau anmalt.",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Indem man die Stromstärke erhöht.",
-                "correct": true,
-                "pts": 10
-              }
+              { "text": "Es entsteht ein unsichtbares Magnetfeld.", "correct": true, "pts": 10 },
+              { "text": "Der Draht wird magnetisch, aber nur wenn er rot ist.", "correct": false, "pts": 5 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Wusstest du, dass Strom eine superkraft hat? Sobald Strom durch ein Kabel fließt, baut er um das Kabel herum eine unsichtbare Kraft auf. Das nennen wir ein <strong>Magnetfeld</strong>.</p>\n\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Magnetfeld</strong><br>\n            Ein Magnetfeld ist wie eine unsichtbare \"Wolke\" aus Kraft. Alles, was magnetisch ist und in diese Wolke kommt, wird angezogen oder abgestoßen. Wir zeichnen diese Kraft oft als Ringe, die man <strong>Feldlinien</strong> nennt.\n        </div>\n\n        <div class=\"interactive-zone\">\n            <h3>🎮 Der Feld-Regler</h3>\n            <p>Bewege den Regler, um mehr Strom durch das Kabel zu schicken:</p>\n            <input type=\"range\" id=\"currentRange\" min=\"0\" max=\"100\" value=\"30\" oninput=\"updateMagnetField(this.value)\">\n            <div class=\"diagram-box\">\n                \n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <rect x=\"50\" y=\"92\" width=\"300\" height=\"16\" fill=\"#718096\" rx=\"8\"></rect>\n                    <path id=\"currentArrow\" d=\"M 185 100 L 215 100\" stroke=\"white\" stroke-width=\"3\" marker-end=\"url(#arrowSmallWhite)\"></path>\n                    \n                    <g id=\"fieldLines\">\n                        <ellipse cx=\"120\" cy=\"100\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\" class=\"mag-wave\"></ellipse>\n                        <ellipse cx=\"200\" cy=\"100\" rx=\"22\" ry=\"70\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\" class=\"mag-wave\"></ellipse>\n                        <ellipse cx=\"280\" cy=\"100\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\" class=\"mag-wave\"></ellipse>\n                    </g>\n                    <defs>\n                        <marker id=\"arrowSmallWhite\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n                            <path d=\"M0,0 L0,8 L8,4 z\" fill=\"white\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n            </div>\n        </div>\n\n        {{QUIZ_q1}}\n    "
+        "content": "\n        <p>Jeder Stromfluss erzeugt ein Magnetfeld. Das hat der Forscher <strong>Hans Christian Ørsted</strong> durch Zufall entdeckt, als eine Kompassnadel neben einem Stromkabel plötzlich ausschlug.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Feldlinien</strong><br>\n            Wir zeichnen das Magnetfeld oft als Ringe um den Draht. Je enger die Ringe, desto stärker die Kraft.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 Der Feld-Regler</h3>\n            <p>Erhöhe die Stromstärke:</p>\n            <input type=\"range\" id=\"currentRange\" min=\"0\" max=\"100\" value=\"30\" oninput=\"updateMagnetField(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"50\" y=\"67\" width=\"300\" height=\"16\" fill=\"#718096\" rx=\"8\"></rect>\n                    <path id=\"currentArrow\" d=\"M 185 75 L 215 75\" stroke=\"white\" stroke-width=\"3\" marker-end=\"url(#arrowSmallWhite)\"></path>\n                    <g id=\"fieldLines\">\n                        <ellipse cx=\"120\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                        <ellipse cx=\"200\" cy=\"75\" rx=\"22\" ry=\"70\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></ellipse>\n                        <ellipse cx=\"280\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                    </g>\n                    <defs>\n                        <marker id=\"arrowSmallWhite\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n                            <path d=\"M0,0 L0,8 L8,4 z\" fill=\"white\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s1_q1}}\n    "
       },
       {
         "id": "sec1",
-        "title": "2. Die Zauber-Spule & das Super-Eisen",
+        "title": "2. Die Spule & der Eisenkern",
         "quizzes": [
           {
-            "id": "q2",
-            "question": "Warum benutzen wir Eisen in einem Elektromagneten?",
+            "id": "em_s2_q1",
+            "question": "Wie kann man einen Elektromagneten extrem verstärken?",
             "answers": [
-              {
-                "text": "Weil Eisen die Magnetkraft sammelt und verstärkt.",
-                "correct": true,
-                "pts": 15
-              },
-              {
-                "text": "Damit der Strom nicht aus dem Draht rutscht.",
-                "correct": false,
-                "pts": 10
-              }
+              { "text": "Durch einen Kern aus Eisen.", "correct": true, "pts": 10 },
+              { "text": "Indem man den Draht lockerer wickelt.", "correct": false, "pts": 5 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Ein gerader Draht ist nur ein schwacher Magnet. Aber wenn wir den Draht wie eine Feder aufwickeln, nennen wir das eine <strong>Spule</strong>. Die Kräfte jeder Windung arbeiten dann zusammen!</p>\n\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Ferromagnetismus</strong><br>\n            Das klingt kompliziert, heißt aber nur: Manche Stoffe (wie <strong>Eisen</strong>) lassen sich extrem leicht magnetisieren. Sie helfen der Spule, ihre Kraft zu bündeln und viel stärker zu werden.\n        </div>\n\n        <div class=\"interactive-zone\">\n            <h3>🧪 Das Kern-Labor</h3>\n            <p>Schiebe verschiedene Materialien in die Spule:</p>\n            <button onclick=\"setMaterial('none')\">Kein Kern (Luft)</button>\n            <button onclick=\"setMaterial('wood')\">Holzstab</button>\n            <button onclick=\"setMaterial('iron')\">Eisenkern</button>\n            <div class=\"diagram-box\">\n                \n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"spuleField\" style=\"opacity: 0.2; transition: opacity 0.5s;\">\n                        <path d=\"M 50 100 Q 200 10 350 100 M 50 100 Q 200 190 350 100\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></path>\n                        <path d=\"M 80 100 Q 200 40 320 100 M 80 100 Q 200 160 320 100\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"1.5\"></path>\n                        <line x1=\"120\" y1=\"100\" x2=\"280\" y2=\"100\" stroke=\"#2196F3\" stroke-width=\"2\"></line>\n                    </g>\n                    <rect id=\"materialCore\" x=\"110\" y=\"80\" width=\"180\" height=\"40\" rx=\"5\" fill=\"transparent\" style=\"transition: fill 0.3s;\"></rect>\n                    <path d=\"M 135 60 L 150 140 M 175 60 L 190 140 M 215 60 L 230 140 M 255 60 L 270 140\" stroke=\"#ED8936\" stroke-width=\"8\" fill=\"none\"></path>\n                </svg>\n                <p id=\"materialText\" style=\"font-weight:bold;\">Aktuell: Nur Luft (Feld ist schwach)</p>\n            </div>\n        </div>\n\n        {{QUIZ_q2}}\n    "
+        "content": "\n        <p>Wickelt man einen Draht zu einer Rolle, nennt man das eine <strong>Spule</strong>. Das Magnetfeld wird dadurch viel stärker. Schiebt man dann noch einen <strong>Eisenkern</strong> hinein, bündelt dieser die Kraft und wir haben einen superstarken Elektromagneten!</p>\n        <div class=\"interactive-zone\">\n            <h3>🧪 Das Kern-Labor</h3>\n            <button onclick=\"setMaterial('none')\">Luft</button>\n            <button onclick=\"setMaterial('wood')\">Holz</button>\n            <button onclick=\"setMaterial('iron')\">Eisen</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <g id=\"spuleField\" style=\"opacity: 0.2; transition: opacity 0.5s;\">\n                        <path d=\"M 50 75 Q 200 -20 350 75 M 50 75 Q 200 170 350 75\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></path>\n                    </g>\n                    <rect id=\"materialCore\" x=\"110\" y=\"55\" width=\"180\" height=\"40\" rx=\"5\" fill=\"transparent\" style=\"transition: fill 0.3s;\"></rect>\n                    <path d=\"M 135 40 L 150 110 M 175 40 L 190 110 M 215 40 L 230 110 M 255 40 L 270 110\" stroke=\"#ED8936\" stroke-width=\"6\" fill=\"none\"></path>\n                </svg>\n                <p id=\"materialText\" style=\"font-weight:bold;\">Kern: Luft</p>\n            </div>\n        </div>\n        {{QUIZ_em_s2_q1}}\n    "
       },
       {
         "id": "sec2",
-        "title": "3. Lorentzkraft: Der magnetische Schubs",
+        "title": "3. Lorentzkraft & Elektromotor",
         "quizzes": [
           {
-            "id": "q3",
-            "question": "Was macht die Lorentzkraft in einem Ventilator?",
+            "id": "em_s3_q1",
+            "question": "Was macht ein Elektromotor?",
             "answers": [
-              {
-                "text": "Sie saugt den Staub aus der Luft.",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Sie schubst die Flügel an, damit sie sich drehen.",
-                "correct": true,
-                "pts": 20
-              }
+              { "text": "Er wandelt elektrische Energie in Bewegung um.", "correct": true, "pts": 15 },
+              { "text": "Er macht aus Bewegung Strom.", "correct": false, "pts": 5 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Wenn Strom und Magnetismus aufeinandertreffen, entsteht eine Kraft, die Dinge wegschiebt. Wir nennen diesen Schubs <strong>Lorentzkraft</strong>. Das ist der Grund, warum sich Motoren drehen!</p>\n\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Elektromotor</strong><br>\n            Ein Motor verwandelt Strom in Bewegung. Durch den magnetischen \"Schubs\" (Lorentzkraft) wird ein Rad im Inneren ständig angeschubst, bis es sich ganz schnell dreht.\n        </div>\n\n        <div class=\"interactive-zone\">\n            <h3>🚀 Der Schubs-Tester</h3>\n            <p>Klicke, um die Batterie umzudrehen:</p>\n            <button onclick=\"changeDirection()\">Stromrichtung ändern ⇄</button>\n            <div class=\"diagram-box\">\n                \n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <rect x=\"50\" y=\"60\" width=\"60\" height=\"120\" fill=\"#f44336\" rx=\"10\"></rect>\n                    <rect x=\"290\" y=\"60\" width=\"60\" height=\"120\" fill=\"#2196F3\" rx=\"10\"></rect>\n                    <circle cx=\"200\" cy=\"120\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 100 L 200 30\" stroke=\"#48bb78\" stroke-width=\"7\" marker-end=\"url(#arrowGreen)\"></path>\n                    <defs>\n                        <marker id=\"arrowGreen\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n                            <path d=\"M0,0 L0,8 L8,4 z\" fill=\"#48bb78\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#48bb78;\">Wirkung: Schubs nach OBEN</p>\n            </div>\n        </div>\n\n        {{QUIZ_q3}}\n    "
+        "content": "\n        <p>Bewegen sich Elektronen durch ein Magnetfeld, spüren sie eine Kraft, die sie zur Seite schiebt: die <strong>Lorentzkraft</strong>. In einem Motor nutzt man das aus, um ein Rad ständig anzuschubsen.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Der Schubs-Tester</h3>\n            <button onclick=\"changeDirection()\">Stromrichtung ändern ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\" marker-end=\"url(#arrowGreen)\"></path>\n                    <defs>\n                        <marker id=\"arrowGreen\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n                            <path d=\"M0,0 L0,8 L8,4 z\" fill=\"#4CAF50\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Kraft nach OBEN</p>\n            </div>\n        </div>\n        {{QUIZ_em_s3_q1}}\n    "
       },
       {
         "id": "sec3",
-        "title": "4. Induktion: Strom zum Selbermachen",
+        "title": "4. Induktion & Generator",
         "quizzes": [
           {
-            "id": "q4",
-            "question": "Warum entsteht kein Strom, wenn der Magnet ganz still liegt?",
+            "id": "em_s4_q1",
+            "question": "Wie erzeugt ein Generator Strom?",
             "answers": [
-              {
-                "text": "Weil der Magnet dann schläft.",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Weil Induktion nur bei Bewegung funktioniert.",
-                "correct": true,
-                "pts": 20
-              }
+              { "text": "Durch die Bewegung eines Magneten in einer Spule.", "correct": true, "pts": 15 },
+              { "text": "Durch Reibung von Draht an Holz.", "correct": false, "pts": 5 }
             ]
           }
         ],
-        "content": "\n        \n        <p>Es geht auch umgekehrt: Wenn du einen Magneten ganz schnell in einer Spule bewegst, \"schubst\" das Magnetfeld die Elektronen an. So entsteht Strom aus reiner Bewegung! Das nennt man <strong>Induktion</strong>.</p>\n\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Generator</strong><br>\n            Ein Generator macht das Gegenteil eines Motors: Er macht aus Bewegung (z.B. vom Wind) Strom. Das ist wie eine kleine Strom-Fabrik.\n        </div>\n\n        <div class=\"interactive-zone\">\n            <h3>🔦 Die Schüttel-Taschenlampe</h3>\n            <p>Klicke ganz oft auf die Lampe, um sie aufzuladen:</p>\n            <div id=\"flashlight\" style=\"cursor: pointer; font-size: 60px; user-select: none;\" onclick=\"shakeFlashlight()\">🔦</div>\n            <div id=\"lightBeam\" style=\"width: 140px; height: 70px; background: radial-gradient(circle, #fffb00 0%, transparent 70%); margin: 15px auto; border-radius: 50%; opacity: 0; filter: blur(10px);\"></div>\n            <p>Energie-Ladung: <span id=\"energyLevel\">0</span>%</p>\n        </div>\n\n        {{QUIZ_q4}}\n    "
+        "content": "\n        <p>Induktion ist das Gegenteil vom Elektromagneten: Hier erzeugt <strong>Bewegung</strong> Strom. Wenn sich ein Magnetfeld in einer Spule ändert, fangen die Elektronen an zu fließen. So funktionieren Windräder und Fahrraddynamos!</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Schüttel-Generator</h3>\n            <p>Klicke schnell auf die Lampe, um sie durch Induktion zu laden:</p>\n            <div id=\"flashlight\" style=\"cursor: pointer; font-size: 50px;\" onclick=\"shakeFlashlight()\">🔦</div>\n            <p>Ladung: <span id=\"energyLevel\">0</span>%</p>\n            <div id=\"lightBeam\" style=\"width:100px; height:50px; background:yellow; margin:auto; filter:blur(15px); opacity:0;\"></div>\n        </div>\n        {{QUIZ_em_s4_q1}}\n    "
+      },
+      {
+        "id": "sec4",
+        "title": "5. Der Transformator",
+        "quizzes": [
+          {
+            "id": "em_s5_q1",
+            "question": "Was macht ein Transformator?",
+            "answers": [
+              { "text": "Er ändert die Höhe der Spannung.", "correct": true, "pts": 10 },
+              { "text": "Er verwandelt Strom in Benzin.", "correct": false, "pts": 5 }
+            ]
+          }
+        ],
+        "content": "\n        <p>Ein Transformator nutzt zwei Spulen auf einem Eisenring. Er kann hohe Spannung in niedrige Spannung verwandeln (z.B. für dein Handyladegerät) oder umgekehrt.</p>\n        <div class=\"interactive-zone\">\n            <h3>⚡ Spannungs-Wandler</h3>\n            <p>Ändere die Windungszahl der zweiten Spule:</p>\n            <input type=\"range\" id=\"transRange\" min=\"1\" max=\"10\" value=\"5\" oninput=\"updateTransformer(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"100\" y=\"30\" width=\"200\" height=\"90\" fill=\"none\" stroke=\"#718096\" stroke-width=\"15\"></rect>\n                    <g id=\"coil1\">\n                        <path d=\"M 100 40 L 120 45 M 100 60 L 120 65 M 100 80 L 120 85\" stroke=\"#ED8936\" stroke-width=\"4\"></path>\n                    </g>\n                    <g id=\"coil2\"></g>\n                    <text x=\"200\" y=\"145\" text-anchor=\"middle\" id=\"transText\" fill=\"white\">Übersetzung: 1:1</text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s5_q1}}\n    "
       }
     ],
     "diplom": {
       "title": "🎓 Das große Magnet-Diplom",
       "questions": [
-        {
-          "id": "f1",
-          "question": "1. Was entsteht immer um ein Kabel herum, wenn Strom fließt?",
-          "answers": [
-            {
-              "text": "Ein kleiner Regenbogen.",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Ein Magnetfeld.",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "f2",
-          "question": "2. Welches Material macht einen Elektromagneten besonders stark?",
-          "answers": [
-            {
-              "text": "Ein Kern aus Eisen.",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Ein Kern aus Kaugummi.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "f3",
-          "question": "3. Was passiert bei der Lorentzkraft?",
-          "answers": [
-            {
-              "text": "Der Magnet wird plötzlich flüssig.",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Ein Draht im Magnetfeld bekommt einen \"Schubs\".",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "f4",
-          "question": "4. Wie heißt es, wenn man aus Bewegung Strom macht?",
-          "answers": [
-            {
-              "text": "Isolation.",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Induktion.",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "f5",
-          "question": "5. Was macht ein Generator in einem Windrad?",
-          "answers": [
-            {
-              "text": "Er nutzt die Drehung, um Strom zu erzeugen.",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Er pustet den Wind in die richtige Richtung.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        }
+        { "id": "em_d1", "question": "Wer entdeckte den Zusammenhang zwischen Strom und Magnetismus?", "answers": [{ "text": "Hans Christian Ørsted", "correct": true, "pts": 5 }, { "text": "Isaac Newton", "correct": false, "pts": 5 }] },
+        { "id": "em_d2", "question": "Was entsteht um jeden stromdurchflossenen Leiter?", "answers": [{ "text": "Ein Magnetfeld", "correct": true, "pts": 5 }, { "text": "Ein Vakuum", "correct": false, "pts": 5 }] },
+        { "id": "em_d3", "question": "Wie nennt man eine aufgewickelte Drahtrolle?", "answers": [{ "text": "Spule", "correct": true, "pts": 5 }, { "text": "Kondensator", "correct": false, "pts": 5 }] },
+        { "id": "em_d4", "question": "Welches Material eignet sich am besten als Kern für einen Elektromagneten?", "answers": [{ "text": "Eisen", "correct": true, "pts": 5 }, { "text": "Aluminium", "correct": false, "pts": 5 }] },
+        { "id": "em_d5", "question": "Was passiert mit der Magnetkraft, wenn man mehr Windungen auf eine Spule wickelt?", "answers": [{ "text": "Sie wird stärker.", "correct": true, "pts": 5 }, { "text": "Sie wird schwächer.", "correct": false, "pts": 5 }] },
+        { "id": "em_d6", "question": "Wie nennt man die Kraft, die Elektronen im Magnetfeld zur Seite schiebt?", "answers": [{ "text": "Lorentzkraft", "correct": true, "pts": 5 }, { "text": "Zentrifugalkraft", "correct": false, "pts": 5 }] },
+        { "id": "em_d7", "question": "Welches Gerät wandelt elektrische Energie in Bewegung um?", "answers": [{ "text": "Elektromotor", "correct": true, "pts": 5 }, { "text": "Generator", "correct": false, "pts": 5 }] },
+        { "id": "em_d8", "question": "Was ist das Prinzip eines Fahrraddynamos?", "answers": [{ "text": "Induktion", "correct": true, "pts": 5 }, { "text": "Widerstand", "correct": false, "pts": 5 }] },
+        { "id": "em_d9", "question": "Was muss sich ändern, damit in einer Spule Strom induziert wird?", "answers": [{ "text": "Das Magnetfeld", "correct": true, "pts": 5 }, { "text": "Die Farbe des Drahtes", "correct": false, "pts": 5 }] },
+        { "id": "em_d10", "question": "Wie nennt man ein Gerät, das Spannungen herauf- oder heruntersetzt?", "answers": [{ "text": "Transformator", "correct": true, "pts": 5 }, { "text": "Transistor", "correct": false, "pts": 5 }] },
+        { "id": "em_d11", "question": "Warum sind Feldlinien eines Magneten oft als geschlossene Kreise gezeichnet?", "answers": [{ "text": "Weil Magnetfelder keine Pole haben, die irgendwo anfangen oder aufhören.", "correct": true, "pts": 5 }, { "text": "Weil Kreise schöner aussehen.", "correct": false, "pts": 5 }] },
+        { "id": "em_d12", "question": "Kann man mit einem Permanentmagneten (Dauermagnet) Strom induzieren?", "answers": [{ "text": "Ja, wenn man ihn relativ zur Spule bewegt.", "correct": true, "pts": 5 }, { "text": "Nein, das geht nur mit Batterien.", "correct": false, "pts": 5 }] },
+        { "id": "em_d13", "question": "Wo finden wir im Alltag überall Elektromagnete?", "answers": [{ "text": "In Klingeln, Lautsprechern und Kränen auf dem Schrottplatz.", "correct": true, "pts": 5 }, { "text": "In Holzstühlen und Plastikflaschen.", "correct": false, "pts": 5 }] },
+        { "id": "em_d14", "question": "Was passiert bei der Lorentzkraft?", "answers": [{ "text": "Nord- und Südpol vertauschen sich.", "correct": true, "pts": 5 }, { "text": "Der Magnet geht kaputt.", "correct": false, "pts": 5 }] },
+        { "id": "em_d15", "question": "Welche Energieumwandlung findet in einem Windrad-Generator statt?", "answers": [{ "text": "Bewegungsenergie zu elektrischer Energie.", "correct": true, "pts": 5 }, { "text": "Lichtenergie zu Wärmeenergie.", "correct": false, "pts": 5 }] }
       ]
     }
   },
