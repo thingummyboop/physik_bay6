@@ -196,19 +196,4 @@ function showOrbital(type) {
     }
 }
 
-function setPhase(phase) {
-    const moon = document.getElementById('moonPhase');
-    const txt = document.getElementById('phaseText');
-    if(!moon) return;
 
-    if(phase === 'new') {
-        moon.setAttribute('fill', '#333');
-        if(txt) txt.innerText = "Neumond: Die beleuchtete Seite zeigt von uns weg.";
-    } else if(phase === 'full') {
-        moon.setAttribute('fill', '#fff176');
-        if(txt) txt.innerText = "Vollmond: Wir sehen die komplette beleuchtete Seite.";
-    } else {
-        moon.setAttribute('fill', 'url(#halfMoonGrad)');
-        if(txt) txt.innerText = "Halbmond: Wir sehen nur einen Teil der beleuchteten Seite.";
-    }
-}
