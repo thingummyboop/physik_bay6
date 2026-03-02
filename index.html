@@ -4,425 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎓 Das große Physik-Abenteuer (MS/AHS Unterstufe)</title>
+    <link rel="stylesheet" href="css/style.css?v=1.1">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: #1e293b;
-            color: white;
-            overflow: hidden;
+        :root {
+            --sidebar-bg: #0f172a;
+            --main-bg: #1e293b;
+            --text-color: white;
+            --nav-btn-color: #cbd5e0;
+            --nav-btn-active-bg: #1e293b;
+            --nav-btn-active-border: #3b82f6;
+            --nav-btn-active-text: #60a5fa;
+            --header-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+            --header-border: #1e40af;
         }
 
-        /* --- Toggle Button --- */
-        #menu-toggle {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 100;
-            background: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 12px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            font-size: 1.2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        [data-theme="dark"] {
+            --sidebar-bg: #000000;
+            --main-bg: #0a0a0a;
+            --text-color: #e0e0e0;
+            --nav-btn-color: #a0aec0;
+            --nav-btn-active-bg: #121212;
+            --nav-btn-active-border: #2196F3;
+            --nav-btn-active-text: #64b5f6;
+            --header-gradient: linear-gradient(135deg, #1e3a8a, #1e40af);
+            --header-border: #172554;
         }
 
-        #menu-toggle:hover {
-            background: #2563eb;
-        }
-
-        /* --- Seitenleiste (Navigation) --- */
-        #sidebar {
-            width: 320px;
-            min-width: 320px;
-            background-color: #0f172a;
-            overflow-y: auto;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            z-index: 10;
-            transition: margin-left 0.3s ease;
-        }
-
-        #sidebar.collapsed {
-            margin-left: -320px;
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            border-bottom: 2px solid #1e40af;
-        }
-
-        .sidebar-header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .grade-section {
-            padding: 15px 20px 5px 20px;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #94a3b8;
-            border-bottom: 1px solid #334155;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        /* --- Navigations-Buttons --- */
-        .nav-btn {
-            background: transparent;
-            color: #cbd5e0;
-            border: none;
-            width: 100%;
-            text-align: left;
-            padding: 15px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.2s;
-            border-left: 4px solid transparent;
-        }
-
-        .nav-btn:hover {
-            background-color: #1e293b;
-            color: white;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .nav-btn.active {
-            background-color: #1e293b;
-            color: #60a5fa;
-            border-left: 4px solid #60a5fa;
-            font-weight: bold;
-        }
-
-        /* Language Buttons */
-        .lang-btn {
-            background: #334155;
-            color: #94a3b8;
-            border: 1px solid #475569;
-            padding: 5px 10px;
-            font-size: 0.8em;
-            cursor: pointer;
-            border-radius: 4px;
-            margin: 0 2px;
-            transition: all 0.2s;
-        }
-
-        .lang-btn:hover {
-            background: #475569;
-            color: white;
-        }
-
-        .lang-btn.active {
-            background: #3b82f6;
-            color: white;
-            border-color: #60a5fa;
-        }
-
-        /* --- Hauptbereich (iFrame) --- */
-        #content-area {
-            flex-grow: 1;
-            background-color: #f8fafc;
-            position: relative;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: #ffffff;
-        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background-color: var(--main-bg); color: var(--text-color); overflow: hidden; transition: background-color 0.3s, color 0.3s; }
+        #sidebar { width: 320px; background-color: var(--sidebar-bg); overflow-y: auto; display: flex; flex-direction: column; transition: margin-left 0.3s, background-color 0.3s; box-shadow: 4px 0 15px rgba(0,0,0,0.3); z-index: 10; }
+        #sidebar.collapsed { margin-left: -320px; }
+        .sidebar-header { padding: 60px 20px 20px 20px; text-align: center; background: var(--header-gradient); border-bottom: 2px solid var(--header-border); }
+        .sidebar-header h1 { margin: 10px 0; font-size: 1.4em; text-shadow: 0 2px 4px rgba(0,0,0,0.3); color: white; }
+        .grade-section { padding: 15px 20px 5px 20px; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; border-bottom: 1px solid #334155; margin-top: 10px; font-weight: bold; }
+        .nav-btn { background: transparent; color: var(--nav-btn-color); border: none; width: 100%; text-align: left; padding: 12px 20px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; font-size: 0.95em; }
+        .nav-btn:hover, .nav-btn.active { background-color: var(--nav-btn-active-bg); color: var(--text-color); border-left: 4px solid var(--nav-btn-active-border); }
+        .nav-btn.active { color: var(--nav-btn-active-text); font-weight: bold; }
+        #content-area { flex-grow: 1; position: relative; }
+        iframe { width: 100%; height: 100%; border: none; background-color: white; }
+        #zeugnis-btn { position: fixed; top: 8px; right: 20px; z-index: 1000; background: linear-gradient(135deg, #FFD700, #FF9800); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; border: 2px solid white; color: #1e293b; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); display: flex; align-items: center; gap: 8px; transition: transform 0.2s; }
+        #zeugnis-btn:hover { transform: scale(1.05); }
+        #menu-toggle { position: fixed; top: 15px; left: 15px; z-index: 100; background: #3b82f6; color: white; border: none; padding: 10px 12px; border-radius: 5px; cursor: pointer; }
+        .lang-btn { background: #334155; color: white; border: 1px solid #475569; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8em; }
+        .lang-btn.active { background: #3b82f6; border-color: #60a5fa; }
     </style>
 </head>
 <body>
-
-    <button id="menu-toggle" onclick="toggleMenu()" title="Menü ein/ausblenden">
-        ☰
-    </button>
-
+    <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button id="zeugnis-btn" onclick="loadPage('topics/dashboard.html', null)">🎓 Mein Zeugnis</button>
     <div id="sidebar">
         <div class="sidebar-header">
-            <h1 id="site-title">🚀 Physik-Abenteuer</h1>
-            <p id="site-subtitle" style="margin: 5px 0 0 0; font-size: 0.9em; color: #dbeafe;">Österreichischer Lehrplan</p>
-            <div style="margin-top: 15px; background: #1e293b; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6;">
-                <strong style="color: #FF9800;">🏆 <span id="global-score-text">Gesamtpunkte</span>: <span id="global-score">0</span></strong>
+            <div style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; padding: 5px 0 15px 0;">
+                <button onclick="setLanguage('de')" class="lang-btn" id="lang-de">DE</button>
+                <button onclick="setLanguage('en')" class="lang-btn" id="lang-en">EN</button>
+                <button onclick="setLanguage('ar')" class="lang-btn" id="lang-ar">AR</button>
+                <button onclick="setLanguage('uk')" class="lang-btn" id="lang-uk">UK</button>
+                <button onclick="setLanguage('sr')" class="lang-btn" id="lang-sr">SR</button>
+                <button onclick="setLanguage('tr')" class="lang-btn" id="lang-tr">TR</button>
             </div>
-            <div style="margin-top: 15px;">
-                <button onclick="setLanguage('de')" class="lang-btn" id="btn-de">DE</button>
-                <button onclick="setLanguage('en')" class="lang-btn" id="btn-en">EN</button>
-                <button onclick="setLanguage('ar')" class="lang-btn" id="btn-ar">AR</button>
-                <button onclick="setLanguage('sr')" class="lang-btn" id="btn-sr">SR</button>
-                <button onclick="setLanguage('uk')" class="lang-btn" id="btn-uk">UK</button>
+            <h1>🚀 Physik-Abenteuer</h1>
+            <div style="margin-top: 10px; background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid #3b82f6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);">
+                <div style="font-size: 1.2em; font-weight: bold; color: #fbbf24; margin-bottom: 10px; text-align: center;">
+                    🏆 <span id="global-score-val">0</span> Punkte
+                </div>
+                <div style="display: flex; gap: 5px;">
+                    <button onclick="toggleDarkMode()" style="flex: 1; background: #475569; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Nachtmodus 🌙</button>
+                    <button onclick="resetProgress()" style="flex: 1; background: #e53e3e; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Reset 🔄</button>
+                </div>
             </div>
         </div>
-
-        <button class="nav-btn" data-page="dashboard.html" onclick="loadPage('dashboard.html', this)" style="background: #FF9800; color: #fff; font-weight: bold; text-align: center; border-radius: 0 0 15px 15px;">
-            <span class="btn-text" id="dashboard-text">📊 Dashboard / Report Card</span>
-        </button>
-
-        <div class="grade-section" id="section-2">📚 2. Klasse (6. Schulstufe)</div>
-        <button class="nav-btn active" data-page="licht, schatten, astronomie.html" onclick="loadPage('licht, schatten, astronomie.html', this)">
-            <span class="btn-text">🌑 1. Licht & Schatten</span>
-        </button>
-        <button class="nav-btn" data-page="farben.html" onclick="loadPage('farben.html', this)">
-            <span class="btn-text">🌈 2. Farben</span>
-        </button>
-        <button class="nav-btn" data-page="akustik.html" onclick="loadPage('akustik.html', this)">
-            <span class="btn-text">🎶 3. Akustik</span>
-        </button>
-        <button class="nav-btn" data-page="elektrizität.html" onclick="loadPage('elektrizitaet.html', this)">
-            <span class="btn-text">⚡ 4. Elektrizität</span>
-        </button>
-
-        <div class="grade-section" id="section-3">📚 3. Klasse (7. Schulstufe)</div>
-        <button class="nav-btn" data-page="kraft und bewegung.html" onclick="loadPage('kraft und bewegung.html', this)">
-            <span class="btn-text">🚀 5. Kraft & Bewegung</span>
-        </button>
-        <button class="nav-btn" data-page="drehundstatik.html" onclick="loadPage('drehundstatik.html', this)">
-            <span class="btn-text">🎡 6. Drehbewegungen & Statik</span>
-        </button>
-        <button class="nav-btn" data-page="energie.html" onclick="loadPage('energie.html', this)">
-            <span class="btn-text">🔋 7. Energie</span>
-        </button>
-
-        <div class="grade-section" id="section-4">📚 4. Klasse (8. Schulstufe)</div>
-        <button class="nav-btn" data-page="elektromagnetismus.html" onclick="loadPage('elektromagnetismus.html', this)">
-            <span class="btn-text">🧲 8. Elektromagnetismus</span>
-        </button>
-        <button class="nav-btn" data-page="linsen, spiegel.html" onclick="loadPage('linsen, spiegel.html', this)">
-            <span class="btn-text">🔍 9. Linsen & Spiegel</span>
-        </button>
-        <button class="nav-btn" data-page="astronomie.html" onclick="loadPage('astronomie.html', this)">
-            <span class="btn-text">🌌 10. Astronomie & Astrophysik</span>
-        </button>
-
-        <div class="grade-section" id="section-extra">⚙️ Extras</div>
-        <button class="nav-btn" data-page="sieinheiten.html" onclick="loadPage('sieinheiten.html', this)">
-            <span class="btn-text">📏 SI-Einheiten</span>
-        </button>
-        <button class="nav-btn" data-page="waermelehre.html" onclick="loadPage('waermelehre.html', this)">
-            <span class="btn-text">🌡️ Wärmelehre</span>
-        </button>
-        <button class="nav-btn" data-page="rechenbeispiele.html" onclick="loadPage('rechenbeispiele.html', this)">
-            <span class="btn-text">🧮 Rechenbeispiele</span>
-        </button>
+        
+        <div class="grade-section">📚 2. Klasse (6. Schulstufe)</div>
+        <button class="nav-btn" onclick="loadPage('optik1', this)">🌈 1. Licht & Schatten</button>
+        <button class="nav-btn" onclick="loadPage('farben', this)">🎨 2. Farben & Sehen</button>
+        <button class="nav-btn" onclick="loadPage('waermelehre', this)">🌡️ 3. Wärmelehre</button>
+        <button class="nav-btn" onclick="loadPage('elektrizitaet', this)">⚡ 4. Elektrizität 1</button>
+        <button class="nav-btn" onclick="loadPage('licht_schatten_astronomie', this)">🌓 5. Schatten im Weltall</button>
+        
+        <div class="grade-section">📚 3. Klasse (7. Schulstufe)</div>
+        <button class="nav-btn" onclick="loadPage('kraft_und_bewegung', this)">🚀 6. Kraft & Bewegung</button>
+        <button class="nav-btn" onclick="loadPage('drehundstatik', this)">🏗️ 7. Statik & Hebel</button>
+        <button class="nav-btn" onclick="loadPage('arbeit', this)">🏗 8. Mechanische Arbeit</button>
+        <button class="nav-btn" onclick="loadPage('energie', this)">🔋 9. Energieformen</button>
+        <button class="nav-btn" onclick="loadPage('akustik', this)">🎶 10. Akustik</button>
+        
+        <div class="grade-section">📚 4. Klasse (8. Schulstufe)</div>
+        <button class="nav-btn" onclick="loadPage('elektromagnetismus', this)">🧲 11. Elektromagnetismus</button>
+        <button class="nav-btn" onclick="loadPage('linsen_spiegel', this)">🔍 12. Linsen & Spiegel</button>
+        <button class="nav-btn" onclick="loadPage('astronomie', this)">🌌 13. Astronomie</button>
+        
+        <div class="grade-section">⚙️ Sonstiges</div>
+        <button class="nav-btn" onclick="loadPage('sieinheiten', this)">📏 SI-Einheiten</button>
+        <button class="nav-btn" onclick="loadPage('rechenbeispiele', this)">🧮 Rechenbeispiele</button>
+        <button class="nav-btn" onclick="loadPage('topics/glossar.html', this)">📖 Glossar</button>
     </div>
-
-    <div id="content-area">
-        <iframe id="game-frame" src="licht, schatten, astronomie.html" title="Physik Spiel"></iframe>
-    </div>
-
+    <div id="content-area"><iframe id="game-frame" name="game-frame" title="Physik Spiel"></iframe></div>
+    
     <script>
-        let currentLang = 'de';
-
-        const translations = {
-            'de': {
-                'site-title': '🚀 Physik-Abenteuer',
-                'site-subtitle': 'Österreichischer Lehrplan',
-                'section-2': '📚 2. Klasse (6. Schulstufe)',
-                'section-3': '📚 3. Klasse (7. Schulstufe)',
-                'section-4': '📚 4. Klasse (8. Schulstufe)',
-                'section-extra': '⚙️ Extras',
-                'pages': {
-                    'licht, schatten, astronomie.html': '🌑 1. Licht & Schatten',
-                    'farben.html': '🌈 2. Farben',
-                    'akustik.html': '🎶 3. Akustik',
-                    'elektrizität.html': '⚡ 4. Elektrizität',
-                    'kraft und bewegung.html': '🚀 5. Kraft & Bewegung',
-                    'drehundstatik.html': '🎡 6. Drehbewegungen & Statik',
-                    'energie.html': '🔋 7. Energie',
-                    'elektromagnetismus.html': '🧲 8. Elektromagnetismus',
-                    'linsen, spiegel.html': '🔍 9. Linsen & Spiegel',
-                    'astronomie.html': '🌌 10. Astronomie & Astrophysik',
-                    'sieinheiten.html': '📏 SI-Einheiten',
-                    'waermelehre.html': '🌡️ Wärmelehre',
-                    'rechenbeispiele.html': '🧮 Rechenbeispiele',
-                    'dashboard.html': '📊 Dashboard',
-                    'global-score-text': 'Gesamtpunkte'
-                }
-            },
-            'en': {
-                'site-title': '🚀 Physics Adventure',
-                'site-subtitle': 'Austrian Curriculum',
-                'section-2': '📚 Grade 6 (2nd Year)',
-                'section-3': '📚 Grade 7 (3rd Year)',
-                'section-4': '📚 Grade 8 (4th Year)',
-                'section-extra': '⚙️ Extras',
-                'pages': {
-                    'licht, schatten, astronomie.html': '🌑 1. Light & Shadow',
-                    'farben.html': '🌈 2. Colors',
-                    'akustik.html': '🎶 3. Acoustics',
-                    'elektrizität.html': '⚡ 4. Electricity',
-                    'kraft und bewegung.html': '🚀 5. Force & Motion',
-                    'drehundstatik.html': '🎡 6. Rotation & Statics',
-                    'energie.html': '🔋 7. Energy',
-                    'elektromagnetismus.html': '🧲 8. Electromagnetism',
-                    'linsen, spiegel.html': '🔍 9. Lenses & Mirrors',
-                    'astronomie.html': '🌌 10. Astronomy & Astrophysics',
-                    'sieinheiten.html': '📏 SI Units',
-                    'waermelehre.html': '🌡️ Thermodynamics',
-                    'rechenbeispiele.html': '🧮 Calculation Examples',
-                    'dashboard.html': '📊 Dashboard',
-                    'global-score-text': 'Global Score'
-                }
-            },
-            'ar': {
-                'site-title': '🚀 مغامرة الفيزياء',
-                'site-subtitle': 'المنهج النمساوي',
-                'section-2': '📚 الصف السادس (السنة الثانية)',
-                'section-3': '📚 الصف السابع (السنة الثالثة)',
-                'section-4': '📚 الصف الثامن (السنة الرابعة)',
-                'section-extra': '⚙️ إضافات',
-                'pages': {
-                    'licht, schatten, astronomie.html': '🌑 1. الضوء والظل',
-                    'farben.html': '🌈 2. الألوان',
-                    'akustik.html': '🎶 3. الصوتيات',
-                    'elektrizität.html': '⚡ 4. الكهرباء',
-                    'kraft und bewegung.html': '🚀 5. القوة والحركة',
-                    'drehundstatik.html': '🎡 6. الدوران والسكون',
-                    'energie.html': '🔋 7. الطاقة',
-                    'elektromagnetismus.html': '🧲 8. الكهرومغناطيسية',
-                    'linsen, spiegel.html': '🔍 9. العدسات والمرايا',
-                    'astronomie.html': '🌌 10. علم الفلك والفيزياء الفلكية',
-                    'sieinheiten.html': '📏 وحدات SI',
-                    'waermelehre.html': '🌡️ الديناميكا الحرارية',
-                    'rechenbeispiele.html': '🧮 أمثلة حسابية',
-                    'dashboard.html': '📊 لوحة القيادة',
-                    'global-score-text': 'النتيجة الإجمالية'
-                }
-            },
-            'sr': {
-                'site-title': '🚀 Физичка авантура',
-                'site-subtitle': 'Аустријски наставни план',
-                'section-2': '📚 6. разред (2. година)',
-                'section-3': '📚 7. разред (3. година)',
-                'section-4': '📚 8. разред (4. година)',
-                'section-extra': '⚙️ Додаци',
-                'pages': {
-                    'licht, schatten, astronomie.html': '🌑 1. Светлост и сенка',
-                    'farben.html': '🌈 2. Боје',
-                    'akustik.html': '🎶 3. Акустика',
-                    'elektrizität.html': '⚡ 4. Електрицитет',
-                    'kraft und bewegung.html': '🚀 5. Сила и кретање',
-                    'drehundstatik.html': '🎡 6. Ротација и статика',
-                    'energie.html': '🔋 7. Енергија',
-                    'elektromagnetismus.html': '🧲 8. Електромагнетизам',
-                    'linsen, spiegel.html': '🔍 9. Сочива и огледала',
-                    'astronomie.html': '🌌 10. Астрономија и астрофизика',
-                    'sieinheiten.html': '📏 СИ јединице',
-                    'waermelehre.html': '🌡️ Термодинамика',
-                    'rechenbeispiele.html': '🧮 Примери за рачунање',
-                    'dashboard.html': '📊 Контролна табла',
-                    'global-score-text': 'Укупан резултат'
-                }
-            },
-            'uk': {
-                'site-title': '🚀 Фізична пригода',
-                'site-subtitle': 'Австрійська навчальна програма',
-                'section-2': '📚 6 клас (2-й рік)',
-                'section-3': '📚 7 клас (3-й рік)',
-                'section-4': '📚 8 клас (4-й рік)',
-                'section-extra': '⚙️ Додатки',
-                'pages': {
-                    'licht, schatten, astronomie.html': '🌑 1. Світло і тінь',
-                    'farben.html': '🌈 2. Кольори',
-                    'akustik.html': '🎶 3. Акустика',
-                    'elektrizität.html': '⚡ 4. Електрика',
-                    'kraft und bewegung.html': '🚀 5. Сила і рух',
-                    'drehundstatik.html': '🎡 6. Обертання та статика',
-                    'energie.html': '🔋 7. Енергія',
-                    'elektromagnetismus.html': '🧲 8. Електромагнетизам',
-                    'linsen, spiegel.html': '🔍 9. Лінзи та дзеркала',
-                    'astronomie.html': '🌌 10. Астрономія та астрофізика',
-                    'sieinheiten.html': '📏 Одиниці SI',
-                    'waermelehre.html': '🌡️ Термодинаміка',
-                    'rechenbeispiele.html': '🧮 Приклади розрахунків',
-                    'dashboard.html': '📊 Інформаційна панель',
-                    'global-score-text': 'Загальний бал'
-                }
+        // Message handling for communication from iframe
+        window.addEventListener('message', (e) => {
+            if (e.data.type === 'updateScore') {
+                document.getElementById('global-score-val').innerText = e.data.score;
             }
-        };
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            
-            document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.getElementById('sidebar').style.borderLeft = (lang === 'ar') ? 'none' : '';
-            document.getElementById('sidebar').style.borderRight = (lang === 'ar') ? '4px solid transparent' : '';
-
-            document.getElementById('site-title').innerText = translations[lang]['site-title'];
-            document.getElementById('site-subtitle').innerText = translations[lang]['site-subtitle'];
-            document.getElementById('section-2').innerText = translations[lang]['section-2'];
-            document.getElementById('section-3').innerText = translations[lang]['section-3'];
-            document.getElementById('section-4').innerText = translations[lang]['section-4'];
-            document.getElementById('section-extra').innerText = translations[lang]['section-extra'];
-            document.getElementById('global-score-text').innerText = translations[lang]['pages']['global-score-text'];
-
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => {
-                const page = btn.getAttribute('data-page');
-                btn.querySelector('.btn-text').innerText = translations[lang]['pages'][page];
-            });
-
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
-
-            const activeBtn = document.querySelector('.nav-btn.active');
-            if (activeBtn) {
-                loadPage(activeBtn.getAttribute('data-page'), activeBtn);
+            if (e.data.type === 'navigate') {
+                loadPage(e.data.page, null);
             }
-        }
+        });
 
         function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('collapsed');
+            document.getElementById('sidebar').classList.toggle('collapsed');
         }
 
-        function loadPage(fileName, btnElement) {
-            let targetFile = fileName;
-            if (currentLang !== 'de' && fileName !== 'dashboard.html') {
-                targetFile = fileName.replace('.html', '_' + currentLang + '.html');
-                targetFile = targetFile.replace('elektrizität', 'elektrizitaet');
-                targetFile = targetFile.replace('wärmelehre', 'waermelehre');
-            }
-
-            document.getElementById('game-frame').src = targetFile;
-
-            let buttons = document.getElementsByClassName('nav-btn');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active');
-            }
-            btnElement.classList.add('active');
-
-            if (window.innerWidth < 768) {
-                toggleMenu();
+        function setLanguage(l) {
+            localStorage.setItem('physik_lang', l);
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('lang-' + l);
+            if (btn) btn.classList.add('active');
+            
+            // Reload current iframe if it's already loading something
+            const frame = document.getElementById('game-frame');
+            if (frame.src && frame.src !== 'about:blank') {
+                frame.contentWindow.location.reload();
             }
         }
 
-        window.addEventListener('message', (e) => {
-            if(e.data && e.data.type === 'updateScore') {
-                document.getElementById('global-score').innerText = e.data.score;
+        function loadPage(page, button) {
+            localStorage.setItem('physik_current_page', page);
+            let url = page;
+
+            // Mapping for simple topic IDs to template URL
+            if (!page.includes('/') && !page.includes('.html')) {
+                url = `topics/template.html?topic=${encodeURIComponent(page)}`;
+            } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template'].some(x => page.includes(x))) {
+                // Topic provided as a path, normalize it
+                const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
+                url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
             }
-        });
+
+            const frame = document.getElementById('game-frame');
+            frame.src = url;
+
+            // Highlight active button
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            if (button) {
+                button.classList.add('active');
+                frame.title = "Aktuelles Thema: " + button.innerText.trim();
+            } else {
+                // Find button by page name if navigated via code
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    const onclick = btn.getAttribute('onclick') || "";
+                    if (onclick.includes("'" + page + "'") || onclick.includes('"' + page + '"')) {
+                        btn.classList.add('active');
+                        frame.title = "Aktuelles Thema: " + btn.innerText.trim();
+                    }
+                });
+            }
+        }
+
+        function toggleDarkMode() {
+            let isDark = localStorage.getItem('physik_dark_mode') === 'true';
+            localStorage.setItem('physik_dark_mode', !isDark);
+            location.reload(); 
+        }
+
+        function resetProgress() {
+            if (confirm("Möchtest du wirklich deinen gesamten Fortschritt und alle Punkte löschen?")) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
-            let s = parseInt(localStorage.getItem('physik_score')) || 0;
-            document.getElementById('global-score').innerText = s;
+            // Restore Score
+            document.getElementById('global-score-val').innerText = localStorage.getItem('physik_score') || 0;
+            
+            // Restore Language
+            const lang = localStorage.getItem('physik_lang') || 'de';
+            setLanguage(lang);
+            
+            // Restore Theme
+            if (localStorage.getItem('physik_dark_mode') === 'true') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+            
+            // Restore Page
+            const savedPage = localStorage.getItem('physik_current_page') || 'optik1';
+            loadPage(savedPage, null);
         });
-
-        setLanguage('de');
     </script>
 </body>
 </html>

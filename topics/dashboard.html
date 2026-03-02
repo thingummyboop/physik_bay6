@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein Physik-Zeugnis</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .topic-body { padding-top: 40px; }
+        .dashboard-header { text-align: center; margin-bottom: 30px; }
+        .rank-title { font-size: 2.5em; color: var(--secondary); margin: 10px 0; }
+        .progress-bar-container { width: 100%; background-color: var(--box-border); border-radius: 10px; height: 25px; overflow: hidden; margin-top: 15px; }
+        .progress-bar { height: 100%; background-color: var(--correct); width: 0%; transition: width 1s ease-out; }
+    </style>
+</head>
+<body class="topic-body">
+    <div class="card" style="border: 5px solid var(--primary);">
+        <div class="dashboard-header">
+            <h1>📊 Dein Physik-Dashboard</h1>
+            <p>Dein aktueller Rang:</p>
+            <h2 class="rank-title" id="rankTitle">Labor-Assistent 🧪</h2>
+            <p style="font-size: 1.5em;">Gesamtpunkte: <strong id="dashScore" style="color: var(--primary);">0</strong></p>
+            <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+            <p style="margin-top: 5px; font-size: 0.9em;" id="progressText">Nächster Rang in 50 Punkten</p>
+        </div>
+        <h3 style="text-align: center; margin-top: 40px;">Deine Diplome & Abzeichen 🏅</h3>
+        <div class="badge-container" id="badgeContainer"></div>
+    </div>
+    <script>
+        if (localStorage.getItem('physik_dark_mode') === 'true') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        const ranks = [
+            { points: 0, name: "Labor-Assistent 🧪" },
+            { points: 100, name: "Junior-Forscher 🔭" },
+            { points: 300, name: "Physik-Experte ⚛️" },
+            { points: 600, name: "Meister der Energie ⚡" },
+            { points: 1000, name: "Einstein-Erbe 👑" }
+        ];
+        const badges = [
+            { id: "akustik", icon: "🎶", title: "Akustik" },
+            { id: "astronomie", icon: "🌌", title: "Astronomie" },
+            { id: "drehundstatik", icon: "🎡", title: "Statik" },
+            { id: "elektrizitaet", icon: "⚡", title: "Strom" },
+            { id: "elektromagnetismus", icon: "🧲", title: "Magnet" },
+            { id: "energie", icon: "🔋", title: "Energie" },
+            { id: "farben", icon: "🌈", title: "Farben" },
+            { id: "kraft und bewegung", icon: "🚀", title: "Mechanik" },
+            { id: "licht, schatten, astronomie", icon: "🌑", title: "Optik 1" },
+            { id: "linsen, spiegel", icon: "🔍", title: "Optik 2" },
+            { id: "radioaktivitaet", icon: "☢️", title: "Kernphysik" },
+            { id: "waermelehre", icon: "🌡️", title: "Wärme" }
+        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const score = parseInt(localStorage.getItem('physik_score')) || 0;
+            document.getElementById('dashScore').innerText = score;
+            let rank = ranks[0];
+            let next = ranks[1];
+            ranks.forEach((r, i) => { if(score >= r.points) { rank = r; next = ranks[i+1]; } });
+            document.getElementById('rankTitle').innerText = rank.name;
+            if(next) {
+                let perc = (score / next.points) * 100;
+                document.getElementById('progressBar').style.width = perc + "%";
+                document.getElementById('progressText').innerText = `Noch ${next.points - score} bis ${next.name}`;
+            }
+            const topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
+            const container = document.getElementById('badgeContainer');
+            badges.forEach(b => {
+                const s = topicScores[b.id] || 0;
+                const earned = s >= 75;
+                container.innerHTML += `
+                    <div class="badge ${earned ? 'earned' : ''}" onclick="window.parent.postMessage({type:'navigate', page:'${b.id}'}, '*')">
+                        <div class="badge-icon">${b.icon}</div>
+                        <strong>${b.title}</strong>
+                        <p style="font-size:0.7em;">${s} Pkt</p>
+                    </div>`;
+            });
+        });
+    </script>
+</body>
+</html>

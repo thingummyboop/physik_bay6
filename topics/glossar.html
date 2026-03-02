@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physik-Glossar</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .topic-body { padding-top: 40px; }
+        .glossar-search { width: 100%; padding: 15px; font-size: 1.2em; border-radius: 10px; border: 2px solid var(--primary); margin-bottom: 20px; box-sizing: border-box; }
+        .glossar-item { background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .glossar-item h3 { margin-top: 0; color: var(--primary); }
+    </style>
+</head>
+<body class="topic-body">
+    <h1 style="text-align: center; font-size: 3em; color: var(--primary);">📖 Physik-Glossar</h1>
+    <div class="card">
+        <input type="text" class="glossar-search" id="searchInput" placeholder="Suche..." onkeyup="filterGlossar()">
+        <div id="glossarList">
+            <div class="glossar-item"><h3>Absorption</h3><p>Verschlucken von Strahlung.</p></div>
+            <div class="glossar-item"><h3>Energie</h3><p>Fähigkeit, Arbeit zu verrichten.</p></div>
+            <div class="glossar-item"><h3>Kraft</h3><p>Einwirkung auf einen Körper.</p></div>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem('physik_dark_mode') === 'true') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        function filterGlossar() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let items = document.getElementsByClassName('glossar-item');
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "block" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
