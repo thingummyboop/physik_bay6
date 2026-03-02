@@ -67,10 +67,10 @@ function updateShadow2() {
     const p2 = `${objX},${objY} 400,${s2TopY} 400,${s2BotY} ${objX},${objY+objH}`;
 
     hs1.setAttribute('points', lamp1On ? p1 : "");
-    hs1.setAttribute('fill', lamp2On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.6)");
+    hs1.setAttribute('fill', lamp2On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.8)");
     
     hs2.setAttribute('points', lamp2On ? p2 : "");
-    hs2.setAttribute('fill', lamp1On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.6)");
+    hs2.setAttribute('fill', lamp1On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.8)");
     
     if (lamp1On && lamp2On) {
         const top = Math.max(s1TopY, s2TopY);
@@ -144,13 +144,10 @@ function startMoonOrbit() {
             moon.setAttribute('cx', x);
             moon.setAttribute('cy', y);
             
-            // Depth effect
             const z = Math.sin(moonAngle); 
             const scale = 0.8 + (z + 1) * 0.2; 
             moon.setAttribute('r', 12 * scale);
             
-            // Avoid clipping: if angle is between roughly 3.0 and 3.3 (far side passing behind Earth)
-            // Or just use the z-index logic by setting opacity
             const isBehind = (y < cy && Math.abs(x - cx) < 45);
             if (isBehind) {
                 moon.style.opacity = "0.1";
@@ -158,14 +155,15 @@ function startMoonOrbit() {
                 moon.style.opacity = "1";
             }
 
-            // Shadow logic
-            const shadowYTop = 105 + (85 - 105) * (x - 220) / 230;
-            const shadowYBot = 145 + (165 - 145) * (x - 220) / 230;
+            // Shadow logic (tuned to new JSON coords)
+            const shadowYTop = 85 + (65 - 85) * (x - 220) / 230;
+            const shadowYBot = 165 + (185 - 165) * (x - 220) / 230;
             
             if (x > 220 && y > shadowYTop && y < shadowYBot) {
                 moon.setAttribute('fill', '#880e4f'); 
                 if(status) status.innerText = "🌑 Im Erdschatten: Blutmond!";
             } else {
+                // Keep the moon white/gray, no turning back to default too early
                 moon.setAttribute('fill', '#ddd');
                 if(status) {
                     if (x < 220) status.innerText = "☀️ Tagseite (Sonne beleuchtet den Mond)";
@@ -218,6 +216,7 @@ function narrowSlit() {
     const wallBot = document.getElementById('wallBot');
     const wavesBroad = document.getElementById('wavesBroad');
     const wavesNarrow = document.getElementById('wavesNarrow');
+    const beam = document.getElementById('photonBeam');
     const txt = document.getElementById('slitText');
     if(!wallTop || !wallBot) return;
 
@@ -229,6 +228,7 @@ function narrowSlit() {
         wallBot.setAttribute('height', '60');
         if(wavesBroad) wavesBroad.style.display = "block";
         if(wavesNarrow) wavesNarrow.style.display = "none";
+        if(beam) beam.style.display = "none";
         if(txt) txt.innerText = "Breiter Spalt: Das Licht geht fast nur als gerade Welle durch.";
     } else {
         wallTop.setAttribute('height', '95');
@@ -236,6 +236,7 @@ function narrowSlit() {
         wallBot.setAttribute('height', '95');
         if(wavesBroad) wavesBroad.style.display = "none";
         if(wavesNarrow) wavesNarrow.style.display = "block";
+        if(beam) beam.style.display = "block";
         if(txt) txt.innerText = "Sehr enger Spalt: Starke Beugung! Huygens' neue Kreiswellen entstehen.";
     }
 }
