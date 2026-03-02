@@ -6,8 +6,8 @@ function topicInit() {
         airParticles.innerHTML = '';
         for(let i=0; i<40; i++) {
             const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            c.setAttribute("cx", Math.random()*160 + 120); // Keep inside bell jar (x: 120 to 280)
-            c.setAttribute("cy", Math.random()*100 + 100); // y: 100 to 200
+            c.setAttribute("cx", Math.random()*160 + 120); 
+            c.setAttribute("cy", Math.random()*100 + 100); 
             c.setAttribute("r", "2");
             c.setAttribute("fill", "#718096");
             c.classList.add("particle");
@@ -114,7 +114,6 @@ function triggerLightning() {
 
     btn.disabled = true;
     
-    // 1. Blitz (Licht)
     sky.style.background = "#fff";
     bolt.style.display = "block";
     if(msg) msg.innerText = "⚡ BLITZ! Das Licht ist sofort da...";
@@ -124,18 +123,16 @@ function triggerLightning() {
         bolt.style.display = "none";
     }, 200);
 
-    // 2. Schall-Welle startet Reise
-    const travelTime = dist * 3000; // 3 Sekunden pro km
+    const travelTime = dist * 3000; 
     if(wave) {
         wave.style.transition = "none";
         wave.style.r = "10";
         wave.style.opacity = "0.7";
-        void wave.offsetWidth; // Reflow
+        void wave.offsetWidth; 
         wave.style.transition = `all ${travelTime}ms linear`;
-        wave.style.r = "280"; // Reicht bis zum Beobachter
+        wave.style.r = "280"; 
     }
 
-    // 3. Ankunft beim Beobachter
     setTimeout(() => {
         if(msg) msg.innerText = "💥 BOOM! Der Schall erreicht dich!";
         if(wave) wave.style.opacity = "0";
@@ -198,22 +195,51 @@ function checkResonance() {
     const val = parseFloat(document.getElementById('resRange')?.value || 1);
     const disp = document.getElementById('resValue');
     const glass = document.getElementById('glass');
+    const membrane = document.getElementById('speakerMembrane');
+    const waves = document.getElementById('resWaves');
+    const water = document.getElementById('glassWater');
+    const status = document.getElementById('resText');
+    
     if (disp) disp.innerText = val.toFixed(1);
     if (!glass) return;
 
-    const glassPath = glass.querySelector('path');
+    const glassBody = document.getElementById('glassBody');
+
+    // Membrane always vibrates slightly
+    if (membrane) {
+        membrane.style.animation = `shake ${0.5 / val}s infinite`;
+    }
 
     if (Math.abs(val - 4.0) < 0.2) {
+        // RESONANCE!
         glass.classList.add('anim-shake');
-        if(glassPath) {
-            glassPath.setAttribute('fill', 'rgba(76, 175, 80, 0.4)');
-            glassPath.setAttribute('stroke', '#4CAF50');
+        if (waves) waves.style.opacity = "1";
+        if (water) {
+            water.style.display = "block";
+            water.classList.add('anim-shake');
+        }
+        if (glassBody) {
+            glassBody.setAttribute('fill', 'rgba(76, 175, 80, 0.4)');
+            glassBody.setAttribute('stroke', '#4CAF50');
+        }
+        if (status) {
+            status.innerText = "⚡ RESONANZ! Das Glas vibriert heftig!";
+            status.style.color = "#4CAF50";
         }
     } else {
+        // No Resonance
         glass.classList.remove('anim-shake');
-        if(glassPath) {
-            glassPath.setAttribute('fill', 'rgba(156, 39, 176, 0.2)');
-            glassPath.setAttribute('stroke', '#9C27B0');
+        if (waves) waves.style.opacity = "0.2";
+        if (water) {
+            water.classList.remove('anim-shake');
+        }
+        if (glassBody) {
+            glassBody.setAttribute('fill', 'rgba(156, 39, 176, 0.2)');
+            glassBody.setAttribute('stroke', '#9C27B0');
+        }
+        if (status) {
+            status.innerText = val < 4.0 ? "Zu tief... erhöhe die Frequenz." : "Zu hoch... senke die Frequenz.";
+            status.style.color = "#718096";
         }
     }
 }
