@@ -1,11 +1,17 @@
 // Logic for akustik topic
 function topicInit() {
-    // 2. Vakuum
+    // 2. Vakuum: Init air particles inside the existing <g id="airParticles">
     const airParticles = document.getElementById('airParticles');
     if (airParticles) {
         airParticles.innerHTML = '';
         for(let i=0; i<40; i++) {
-            airParticles.innerHTML += `<circle cx="${Math.random()*380 + 10}" cy="${Math.random()*180 + 10}" r="2" fill="#718096" class="particle"></circle>`;
+            const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            c.setAttribute("cx", Math.random()*160 + 120); // Keep inside bell jar (x: 120 to 280)
+            c.setAttribute("cy", Math.random()*100 + 100); // y: 100 to 200
+            c.setAttribute("r", "2");
+            c.setAttribute("fill", "#718096");
+            c.classList.add("particle");
+            airParticles.appendChild(c);
         }
     }
 
@@ -26,45 +32,42 @@ function topicInit() {
 // 1. Stimmgabel
 function strikeFork() {
     const fork = document.getElementById('tuningFork');
-    const wave = document.getElementById('soundWave');
     const waveGrp = document.getElementById('soundWavesGrp');
+    const txt = document.getElementById('forkText');
     if (!fork) return;
 
-    fork.style.animation = "vibrate 0.1s infinite alternate";
-    if (wave) {
-        wave.style.display = "block";
-        wave.style.animation = "ripple 2s infinite linear";
-    }
+    fork.classList.add('anim-shake');
     if(waveGrp) waveGrp.style.display = "block";
+    if(txt) txt.innerText = "Die Stimmgabel zittert (Schwingung)!";
     
     setTimeout(() => {
-        fork.style.animation = "none";
-        if (wave) {
-            wave.style.display = "none";
-            wave.style.animation = "none";
-        }
+        fork.classList.remove('anim-shake');
         if(waveGrp) waveGrp.style.display = "none";
+        if(txt) txt.innerText = "Die Stimmgabel ruht.";
     }, 2000);
 }
 
 // 2. Vakuum
 function toggleVacuum() {
     const btn = document.getElementById('vacBtn');
-    const wave = document.getElementById('vacWave');
+    const waves = document.getElementById('bellWaves');
     const particles = document.querySelectorAll('.particle');
+    const txt = document.getElementById('vacText');
     if (!btn) return;
 
-    let isVacuum = btn.innerText.includes('START') || btn.innerText.includes('abpumpen');
+    let isVacuum = btn.innerText.includes('abpumpen') || btn.innerText.includes('PUMPE');
 
     if (isVacuum) {
-        btn.innerText = "🔇 Luft ist raus (Vakuum)";
-        btn.style.background = "#e53e3e";
-        if (wave) wave.style.opacity = "0";
+        btn.innerText = "💨 Luft einlassen";
+        btn.style.background = "#4a5568";
+        if (waves) waves.style.display = "none";
+        if (txt) txt.innerText = "Vakuum: Keine Luftteilchen, kein Schall!";
         particles.forEach(p => p.style.opacity = "0");
     } else {
-        btn.innerText = "🔔 Glocke läuten (Luft)";
-        btn.style.background = "#48bb78";
-        if (wave) wave.style.opacity = "1";
+        btn.innerText = "🌬️ Luft abpumpen";
+        btn.style.background = "#2196F3";
+        if (waves) waves.style.display = "block";
+        if (txt) txt.innerText = "Luft ist drin: Der Wecker ist laut zu hören!";
         particles.forEach(p => p.style.opacity = "1");
     }
 }
@@ -73,7 +76,7 @@ function toggleVacuum() {
 function drawWave() {
     const freq = document.getElementById('freqRange')?.value || 2;
     const amp = document.getElementById('ampRange')?.value || 40;
-    const path = document.getElementById('wavePath');
+    const path = document.getElementById('osciWave');
     const lblFreq = document.getElementById('lblFreq');
     const lblAmp = document.getElementById('lblAmp');
 
@@ -90,9 +93,10 @@ function drawWave() {
     }
 
     if (!path) return;
-    let d = "M 0 100 ";
-    for(let x=0; x<=400; x+=5) {
-        let y = 100 + Math.sin(x * freq * 0.05) * amp;
+    // Osci dimensions in JSON: 300x160. Center Y = 80.
+    let d = "M 0 80 ";
+    for(let x=0; x<=300; x+=5) {
+        let y = 80 + Math.sin(x * freq * 0.1) * (amp/2);
         d += `L ${x} ${y} `;
     }
     path.setAttribute('d', d);
@@ -104,11 +108,15 @@ function triggerLightning() {
     const bolt = document.getElementById('lightningBolt');
     const dist = document.getElementById('distRange')?.value || 2;
     const btn = document.getElementById('btnLightning');
+    const msg = document.getElementById('thunderMsg');
+    const wave = document.getElementById('thunderWave');
+    
     if (!sky || !bolt || !btn) return;
 
     btn.disabled = true;
     sky.style.background = "#fff";
     bolt.style.display = "block";
+    if(msg) msg.innerText = "Licht ist da! Zähle die Sekunden...";
     
     setTimeout(() => {
         sky.style.background = "#2d3748";
@@ -116,19 +124,37 @@ function triggerLightning() {
     }, 100);
 
     setTimeout(() => {
-        const audio = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = audio.createOscillator();
-        const gain = audio.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(100, audio.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(40, audio.currentTime + 1.5);
-        gain.gain.setValueAtTime(0.3, audio.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, audio.currentTime + 1.5);
-        osc.connect(gain);
-        gain.connect(audio.destination);
-        osc.start();
-        osc.stop(audio.currentTime + 1.5);
-        btn.disabled = false;
+        if(msg) msg.innerText = "BOOM! Der Donner ist da!";
+        if(wave) {
+            wave.style.opacity = "1";
+            wave.style.r = "200";
+            wave.style.transition = "all 0.5s ease-out";
+            setTimeout(() => {
+                wave.style.opacity = "0";
+                wave.style.r = "10";
+                wave.style.transition = "none";
+            }, 500);
+        }
+        try {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            const audioCtx = new AudioContext();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(100, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 1.5);
+            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1.5);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 1.5);
+        } catch(e) { console.warn("Audio blocked or not supported", e); }
+        
+        setTimeout(() => {
+            if(msg) msg.innerText = "Warte auf den Blitz...";
+            btn.disabled = false;
+        }, 2000);
     }, dist * 1000);
 }
 
@@ -142,11 +168,15 @@ function sendEcho() {
 
     btn.disabled = true;
     txt.innerText = "Sende Ultraschall...";
-    out.style.animation = "ping 1s forwards";
+    out.classList.remove('anim-ping');
+    void out.offsetWidth; 
+    out.classList.add('anim-ping');
     
     setTimeout(() => {
         txt.innerText = "Echo kommt zurück!";
-        back.style.animation = "ping 1s forwards";
+        back.classList.remove('anim-ping');
+        void back.offsetWidth;
+        back.classList.add('anim-ping');
         setTimeout(() => {
             txt.innerText = "Gefunden! Leckerer Falter!";
             btn.disabled = false;
@@ -162,11 +192,19 @@ function checkResonance() {
     if (disp) disp.innerText = val.toFixed(1);
     if (!glass) return;
 
+    const glassPath = glass.querySelector('path');
+
     if (Math.abs(val - 4.0) < 0.2) {
-        glass.style.animation = "vibrate 0.1s infinite";
-        glass.querySelector('path').setAttribute('fill', 'rgba(76, 175, 80, 0.4)');
+        glass.classList.add('anim-shake');
+        if(glassPath) {
+            glassPath.setAttribute('fill', 'rgba(76, 175, 80, 0.4)');
+            glassPath.setAttribute('stroke', '#4CAF50');
+        }
     } else {
-        glass.style.animation = "none";
-        glass.querySelector('path').setAttribute('fill', 'rgba(156, 39, 176, 0.2)');
+        glass.classList.remove('anim-shake');
+        if(glassPath) {
+            glassPath.setAttribute('fill', 'rgba(156, 39, 176, 0.2)');
+            glassPath.setAttribute('stroke', '#9C27B0');
+        }
     }
 }

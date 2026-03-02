@@ -135,6 +135,12 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 @keyframes dash { to { stroke-dashoffset: 0; } }
 @keyframes explode { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(5); opacity: 0; } }
 
+@keyframes ping {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+.ping { animation: ping 1s forwards; }
+
 @keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 @media print {
