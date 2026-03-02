@@ -93,7 +93,6 @@ function drawWave() {
     }
 
     if (!path) return;
-    // Osci dimensions in JSON: 300x160. Center Y = 80.
     let d = "M 0 80 ";
     for(let x=0; x<=300; x+=5) {
         let y = 80 + Math.sin(x * freq * 0.1) * (amp/2);
@@ -106,7 +105,7 @@ function drawWave() {
 function triggerLightning() {
     const sky = document.getElementById('skyBox');
     const bolt = document.getElementById('lightningBolt');
-    const dist = document.getElementById('distRange')?.value || 2;
+    const dist = parseFloat(document.getElementById('distRange')?.value || 2);
     const btn = document.getElementById('btnLightning');
     const msg = document.getElementById('thunderMsg');
     const wave = document.getElementById('thunderWave');
@@ -114,48 +113,58 @@ function triggerLightning() {
     if (!sky || !bolt || !btn) return;
 
     btn.disabled = true;
+    
+    // 1. Blitz (Licht)
     sky.style.background = "#fff";
     bolt.style.display = "block";
-    if(msg) msg.innerText = "Licht ist da! Zähle die Sekunden...";
+    if(msg) msg.innerText = "⚡ BLITZ! Das Licht ist sofort da...";
     
     setTimeout(() => {
         sky.style.background = "#2d3748";
         bolt.style.display = "none";
-    }, 100);
+    }, 200);
 
+    // 2. Schall-Welle startet Reise
+    const travelTime = dist * 3000; // 3 Sekunden pro km
+    if(wave) {
+        wave.style.transition = "none";
+        wave.style.r = "10";
+        wave.style.opacity = "0.7";
+        void wave.offsetWidth; // Reflow
+        wave.style.transition = `all ${travelTime}ms linear`;
+        wave.style.r = "280"; // Reicht bis zum Beobachter
+    }
+
+    // 3. Ankunft beim Beobachter
     setTimeout(() => {
-        if(msg) msg.innerText = "BOOM! Der Donner ist da!";
-        if(wave) {
-            wave.style.opacity = "1";
-            wave.style.r = "200";
-            wave.style.transition = "all 0.5s ease-out";
-            setTimeout(() => {
-                wave.style.opacity = "0";
-                wave.style.r = "10";
-                wave.style.transition = "none";
-            }, 500);
-        }
-        try {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            const audioCtx = new AudioContext();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(100, audioCtx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 1.5);
-            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1.5);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + 1.5);
-        } catch(e) { console.warn("Audio blocked or not supported", e); }
+        if(msg) msg.innerText = "💥 BOOM! Der Schall erreicht dich!";
+        if(wave) wave.style.opacity = "0";
+        
+        playThunder();
         
         setTimeout(() => {
-            if(msg) msg.innerText = "Warte auf den Blitz...";
+            if(msg) msg.innerText = "Warte auf den nächsten Blitz...";
             btn.disabled = false;
         }, 2000);
-    }, dist * 1000);
+    }, travelTime);
+}
+
+function playThunder() {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(80, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(30, audioCtx.currentTime + 2);
+        gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 2);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 2);
+    } catch(e) {}
 }
 
 // 5. Echo
