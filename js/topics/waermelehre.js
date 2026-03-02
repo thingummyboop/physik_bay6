@@ -28,6 +28,10 @@ function topicInit() {
         if (animationId) cancelAnimationFrame(animationId);
         animateParticles();
     }
+    
+    // Initial calls
+    updateThermometer();
+    setPhase('ice');
 }
 
 // 1. Teilchenmodell Animation
@@ -102,9 +106,12 @@ function sunShine() {
     if (!btn) return;
     btn.disabled = true;
     
-    document.getElementById('sunRayBlack').style.display = 'block';
-    document.getElementById('sunRayWhite').style.display = 'block';
-    document.getElementById('bounceRay').style.display = 'block';
+    const rB = document.getElementById('sunRayBlack');
+    const rW = document.getElementById('sunRayWhite');
+    const bR = document.getElementById('bounceRay');
+    if(rB) rB.style.display = 'block';
+    if(rW) rW.style.display = 'block';
+    if(bR) bR.style.display = 'block';
     
     let tempB = 20;
     let tempW = 20;
@@ -125,9 +132,9 @@ function sunShine() {
             clearInterval(sunTimer);
             if (txt) txt.innerText = "Puh! 60°C im schwarzen Auto. Im weißen ist es viel angenehmer!";
             setTimeout(() => {
-                document.getElementById('sunRayBlack').style.display = 'none';
-                document.getElementById('sunRayWhite').style.display = 'none';
-                document.getElementById('bounceRay').style.display = 'none';
+                if(rB) rB.style.display = 'none';
+                if(rW) rW.style.display = 'none';
+                if(bR) bR.style.display = 'none';
                 if (tBlack) tBlack.innerText = "20°C";
                 if (tWhite) tWhite.innerText = "20°C";
                 if (txt) txt.innerText = "";
@@ -200,8 +207,4 @@ function updateThermometer() {
     let newY = 200 - newHeight;
     liquid.setAttribute('height', newHeight);
     liquid.setAttribute('y', newY);
-}
-
-if (document.readyState === 'complete') {
-    topicInit();
 }

@@ -1,40 +1,36 @@
-// Logic for licht, schatten, astronomie.html
-
-        let score = 0;
-
-        function updateScore(pts) {
-            score += pts;
-            document.getElementById('score').innerText = score;
-            const board = document.getElementById('score-board');
-            board.style.backgroundColor = "#16213e";
-            setTimeout(() => board.style.backgroundColor = "#0f3460", 300);
-        }
-
-        function handleQuiz(btn, isCorrect, pts) {
-            const box = btn.closest('.quiz-box') || btn.parentElement;
-            if (box.hasAttribute('data-answered')) return;
-            
-            const fb = box.querySelector('.feedback');
-            box.setAttribute('data-answered', 'true');
-            
-            box.querySelectorAll('button').forEach(b => {
-                b.disabled = true;
-                b.style.opacity = "0.5";
-            });
-
-            if (isCorrect) {
-                btn.style.backgroundColor = "var(--correct)";
-                btn.style.opacity = "1";
-                fb.innerText = "✅ Richtig! +" + pts + " Punkte!";
-                fb.style.color = "var(--correct)";
-                updateScore(pts);
-            } else {
-                btn.style.backgroundColor = "var(--wrong)";
-                btn.style.opacity = "1";
-                fb.innerText = "❌ Das war nicht korrekt. Lies dir die Texte oben nochmal in Ruhe durch!";
-                fb.style.color = "var(--wrong)";
-            }
-        }
-    
-
+// Logic for licht_schatten_astronomie topic
 function topicInit() {}
+
+function showOrbital(type) {
+    const moon = document.getElementById('moonOrbit');
+    const earth = document.getElementById('earthOrbit');
+    const txt = document.getElementById('orbitalText');
+    if(!moon || !earth) return;
+
+    if(type === 'moon') {
+        moon.style.display = 'block';
+        earth.style.display = 'none';
+        if(txt) txt.innerText = "Der Mond kreist in ca. 27 Tagen einmal um die Erde.";
+    } else {
+        moon.style.display = 'none';
+        earth.style.display = 'block';
+        if(txt) txt.innerText = "Die Erde kreist in einem Jahr einmal um die Sonne.";
+    }
+}
+
+function setPhase(phase) {
+    const moon = document.getElementById('moonPhase');
+    const txt = document.getElementById('phaseText');
+    if(!moon) return;
+
+    if(phase === 'new') {
+        moon.setAttribute('fill', '#333');
+        if(txt) txt.innerText = "Neumond: Die beleuchtete Seite zeigt von uns weg.";
+    } else if(phase === 'full') {
+        moon.setAttribute('fill', '#fff176');
+        if(txt) txt.innerText = "Vollmond: Wir sehen die komplette beleuchtete Seite.";
+    } else {
+        moon.setAttribute('fill', 'url(#halfMoonGrad)');
+        if(txt) txt.innerText = "Halbmond: Wir sehen nur einen Teil der beleuchteten Seite.";
+    }
+}

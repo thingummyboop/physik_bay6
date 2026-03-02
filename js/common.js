@@ -38,6 +38,9 @@ function updateScoreDisplays() {
     const scoreEl = document.getElementById('score');
     if (scoreEl) scoreEl.innerText = globalPhysikScore;
     
+    const globalScoreVal = document.getElementById('global-score-val');
+    if (globalScoreVal) globalScoreVal.innerText = globalPhysikScore;
+
     if (window.parent && window.parent.postMessage) {
         window.parent.postMessage({ type: 'updateScore', score: globalPhysikScore }, '*');
     }
@@ -55,11 +58,21 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     const questionText = box.querySelector('p')?.innerText || "default";
     const id = box.getAttribute('data-id') || `${topicId}_${questionText.substring(0,20)}`;
     
+    const fb = box.querySelector('.feedback');
+
     if (answered.has(id)) {
         if (isCorrect) {
             btn.style.background = "var(--correct)";
-            const fb = box.querySelector('.feedback');
-            if(fb) fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+            if(fb) {
+                fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                fb.style.color = "orange";
+            }
+        } else {
+            btn.style.background = "var(--wrong)";
+            if(fb) {
+                fb.innerText = "❌ Das ist leider falsch.";
+                fb.style.color = "var(--wrong)";
+            }
         }
         return;
     }
@@ -70,7 +83,6 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     });
     btn.style.opacity = "1";
 
-    const fb = box.querySelector('.feedback');
     if (isCorrect) {
         answered.add(id);
         localStorage.setItem('physik_answered', JSON.stringify(Array.from(answered)));
@@ -91,19 +103,6 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 
         updateScoreDisplays();
     } else {
-        // We don't add to answered on wrong attempt to allow retry if desired?
-        // Actually the original logic was inconsistent. Let's allow retry for normal quizzes but maybe not for diplomas.
-        // For now, let's keep it simple: wrong answer doesn't block the question forever unless we want it to.
-        // The original code in akustik.js DID add to answered on wrong answer.
-        // Let's follow the original's intent if it was to block.
-        
-        // Re-evaluating: If we want them to learn, maybe allow retries? 
-        // But the user said "Keep everything exactly as is".
-        
-        // In the original akustik.js:
-        // if (isCorrect) { ... answered.add(id); } else { ... answered.add(id); }
-        // So it was blocked after one try.
-        
         answered.add(id);
         localStorage.setItem('physik_answered', JSON.stringify(Array.from(answered)));
         

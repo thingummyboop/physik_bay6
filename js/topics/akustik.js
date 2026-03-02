@@ -1,7 +1,6 @@
 // Logic for akustik topic
 function topicInit() {
     // 2. Vakuum
-    let isVacuum = false;
     const airParticles = document.getElementById('airParticles');
     if (airParticles) {
         airParticles.innerHTML = '';
@@ -10,15 +9,25 @@ function topicInit() {
         }
     }
 
-    // Initialize displays
+    // Oszilloskop init
     drawWave();
+    
+    // Resonanz init
     checkResonance();
+
+    // Event listener for distRange
+    document.getElementById('distRange')?.addEventListener('input', (e) => {
+        const val = e.target.value;
+        const txt = document.getElementById('distText');
+        if (txt) txt.innerText = `${val} km (${val * 3} Sekunden)`;
+    });
 }
 
 // 1. Stimmgabel
 function strikeFork() {
     const fork = document.getElementById('tuningFork');
     const wave = document.getElementById('soundWave');
+    const waveGrp = document.getElementById('soundWavesGrp');
     if (!fork) return;
 
     fork.style.animation = "vibrate 0.1s infinite alternate";
@@ -26,6 +35,7 @@ function strikeFork() {
         wave.style.display = "block";
         wave.style.animation = "ripple 2s infinite linear";
     }
+    if(waveGrp) waveGrp.style.display = "block";
     
     setTimeout(() => {
         fork.style.animation = "none";
@@ -33,6 +43,7 @@ function strikeFork() {
             wave.style.display = "none";
             wave.style.animation = "none";
         }
+        if(waveGrp) waveGrp.style.display = "none";
     }, 2000);
 }
 
@@ -43,7 +54,7 @@ function toggleVacuum() {
     const particles = document.querySelectorAll('.particle');
     if (!btn) return;
 
-    let isVacuum = btn.innerText.includes('START');
+    let isVacuum = btn.innerText.includes('START') || btn.innerText.includes('abpumpen');
 
     if (isVacuum) {
         btn.innerText = "🔇 Luft ist raus (Vakuum)";
@@ -121,12 +132,6 @@ function triggerLightning() {
     }, dist * 1000);
 }
 
-document.getElementById('distRange')?.addEventListener('input', (e) => {
-    const val = e.target.value;
-    const txt = document.getElementById('distText');
-    if (txt) txt.innerText = `${val} km (${val * 3} Sekunden)`;
-});
-
 // 5. Echo
 function sendEcho() {
     const out = document.getElementById('batSignalOut');
@@ -164,9 +169,4 @@ function checkResonance() {
         glass.style.animation = "none";
         glass.querySelector('path').setAttribute('fill', 'rgba(156, 39, 176, 0.2)');
     }
-}
-
-// Ensure init runs if DOM already loaded
-if (document.readyState === 'complete') {
-    topicInit();
 }

@@ -1,63 +1,30 @@
-// Logic for optik1.html
+// Logic for optik1 topic
+function topicInit() {
+    updateReflection();
+}
 
-        let score = 0;
-        let answeredQuestions = new Set();
+function updateReflection() {
+    const angle = parseInt(document.getElementById('reflectRange')?.value || 45);
+    const incident = document.getElementById('incidentRay');
+    const reflected = document.getElementById('reflectedRay');
+    const angleVal = document.getElementById('angleValue');
+    if (!incident || !reflected) return;
 
-        function updateScoreDisplay(pts) {
-            score += pts;
-            const scoreEl = document.getElementById('score');
-            const board = document.getElementById('score-board');
-            scoreEl.innerText = score;
-            
-            board.style.transform = "scale(1.1)";
-            setTimeout(() => board.style.transform = "scale(1)", 200);
-        }
+    if (angleVal) angleVal.innerText = angle;
 
-        function checkAction(btn, isCorrect, msg, pts) {
-            const parent = btn.parentElement;
-            const fb = parent.querySelector('.feedback');
-            
-            if (parent.hasAttribute('data-done')) return;
-
-            if (isCorrect) {
-                btn.style.backgroundColor = "var(--correct)";
-                fb.innerText = "✅ " + msg + " (+" + pts + " Punkte)";
-                fb.style.color = "var(--correct)";
-                parent.setAttribute('data-done', 'true');
-                updateScoreDisplay(pts);
-                parent.querySelectorAll('button').forEach(b => { if(b!==btn) b.disabled = true; });
-            } else {
-                btn.style.backgroundColor = "var(--wrong)";
-                fb.innerText = "❌ Versuche es noch einmal!";
-                fb.style.color = "var(--wrong)";
-            }
-        }
-
-        function handleQuiz(btn, isCorrect, pts) {
-            const box = btn.closest('.quiz-box');
-            const fb = box.querySelector('.feedback');
-            
-            if (box.hasAttribute('data-answered')) return;
-
-            box.setAttribute('data-answered', 'true');
-            box.querySelectorAll('button').forEach(b => {
-                b.disabled = true;
-                b.style.opacity = "0.6";
-            });
-
-            if (isCorrect) {
-                btn.style.backgroundColor = "var(--correct)";
-                btn.style.opacity = "1";
-                fb.innerText = "🌟 Richtig! (+" + pts + " Punkte)";
-                fb.style.color = "var(--correct)";
-                updateScoreDisplay(pts);
-            } else {
-                btn.style.backgroundColor = "var(--wrong)";
-                btn.style.opacity = "1";
-                fb.innerText = "🔍 Nicht ganz. Schau dir die Grafiken nochmal an.";
-                fb.style.color = "var(--wrong)";
-            }
-        }
+    // Center is 200, 170
+    const length = 150;
+    const rad = (90 - angle) * Math.PI / 180;
     
+    const xIn = 200 - Math.cos(rad) * length;
+    const yIn = 170 - Math.sin(rad) * length;
+    incident.setAttribute('x1', xIn);
+    incident.setAttribute('y1', yIn);
 
-function topicInit() {}
+    const xRef = 200 + Math.cos(rad) * length;
+    const yRef = 170 - Math.sin(rad) * length;
+    reflected.setAttribute('x1', 200);
+    reflected.setAttribute('y1', 170);
+    reflected.setAttribute('x2', xRef);
+    reflected.setAttribute('y2', yRef);
+}

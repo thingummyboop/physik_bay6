@@ -9,7 +9,7 @@ function kickBall() {
     let txt = document.getElementById('kickText');
     if (!ball || !txt) return;
     
-    ball.style.transition = 'transform 6s linear'; // Gleichförmige Bewegung
+    ball.style.transition = 'transform 6s linear'; 
     ball.style.transform = 'translateX(800px)'; 
     
     txt.innerText = "Der Ball fliegt und fliegt und fliegt... Es gibt keine Reibung im Weltall!";
@@ -19,7 +19,7 @@ function resetBall() {
     let ball = document.getElementById('spaceBall');
     let txt = document.getElementById('kickText');
     if (!ball || !txt) return;
-    ball.style.transition = 'none'; // Sofort zurück
+    ball.style.transition = 'none'; 
     ball.style.transform = 'translateX(0px)';
     txt.innerText = "";
 }
@@ -30,19 +30,17 @@ function pushBlocks() {
     let sand = document.getElementById('sandBlock');
     if (!ice || !sand) return;
     
-    // Zurücksetzen
     ice.style.transition = 'none';
     sand.style.transition = 'none';
     ice.style.transform = 'translateX(0)';
     sand.style.transform = 'translateX(0)';
     
     setTimeout(() => {
-        // Anschubsen
         ice.style.transition = 'transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
-        sand.style.transition = 'transform 0.5s cubic-bezier(0.1, 0.9, 0.2, 1)'; // stoppt abrupt
+        sand.style.transition = 'transform 0.5s cubic-bezier(0.1, 0.9, 0.2, 1)'; 
         
-        ice.style.transform = 'translateX(400px)'; // rutscht weit
-        sand.style.transform = 'translateX(60px)';  // bleibt schnell hängen
+        ice.style.transform = 'translateX(400px)'; 
+        sand.style.transform = 'translateX(60px)';  
     }, 50);
 }
 
@@ -53,14 +51,13 @@ function dropItems(isVacuum) {
     let txt = document.getElementById('gravityText');
     if (!apple || !feather || !txt) return;
     
-    // Reset
     apple.style.transition = 'none';
     feather.style.transition = 'none';
     apple.style.transform = 'translateY(20px)';
     feather.style.transform = 'translateY(20px)';
     
     setTimeout(() => {
-        apple.style.transition = 'transform 1s cubic-bezier(0.5, 0, 1, 1)'; // Fall-Beschleunigung
+        apple.style.transition = 'transform 1s cubic-bezier(0.5, 0, 1, 1)'; 
         apple.style.transform = 'translateY(215px)';
         
         if(isVacuum) {
@@ -69,7 +66,7 @@ function dropItems(isVacuum) {
             txt.innerText = "Im Vakuum gibt es keinen Luftwiderstand. Beide fallen exakt gleich schnell!";
             txt.style.color = "#E91E63";
         } else {
-            feather.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.6, 1)'; // Fällt langsamer wegen Luft
+            feather.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.6, 1)'; 
             feather.style.transform = 'translateY(225px)';
             txt.innerText = "Mit Luft: Der Apfel ist schwer und klein, er fällt schnell. Die Luft bremst die breite Feder ab!";
             txt.style.color = "#1976D2";
@@ -86,12 +83,11 @@ function launchRocket() {
     flame.style.display = 'block';
     flame.classList.add('anim-shake');
     
-    // Vorzündung
     setTimeout(() => {
         rocket.style.transform = 'translateY(-100px)';
         setTimeout(() => {
             flame.style.display = 'none';
-            rocket.style.transform = 'translateY(200px)'; // Reset nachflug
+            rocket.style.transform = 'translateY(200px)'; 
         }, 2500);
     }, 500);
 }
@@ -105,14 +101,11 @@ function updateLever() {
     let txtPos = document.getElementById('leverValue');
     if (!fulcrum || !seesaw) return;
     
-    // val 10 = ganz links (beim Elefant), val 90 = ganz rechts (beim roten Gewicht)
-    // Pixel-Bereich für das Dreieck: x zwischen 40 und 260.
     let pixelX = 40 + ((val - 10) / 80) * 220;
-    fulcrum.style.transform = `translateX(${pixelX - 150}px)`; // -150 weil startpunkt bei 150 ist
+    fulcrum.style.transform = `translateX(${pixelX - 150}px)`; 
     seesaw.style.transformOrigin = `${pixelX}px 70px`;
     
     if (val < 40) {
-        // Drehpunkt nah am Elefant -> Rotes Gewicht hat RIESIGEN Hebelarm
         seesaw.style.transform = 'rotate(15deg)';
         if (txt) {
             txt.innerText = "Super! Der Hebelarm auf der roten Seite ist so lang, dass das kleine Gewicht den Elefanten hochhebt!";
@@ -120,7 +113,6 @@ function updateLever() {
         }
         if (txtPos) txtPos.innerText = "Nah an der Last (Perfekt!)";
     } else if (val > 60) {
-        // Drehpunkt nah am Roten Gewicht -> Elefant gewinnt extrem
         seesaw.style.transform = 'rotate(-25deg)';
         if (txt) {
             txt.innerText = "Oh nein! Der Hebelarm beim Elefanten ist viel zu lang. Er knallt auf den Boden.";
@@ -128,7 +120,6 @@ function updateLever() {
         }
         if (txtPos) txtPos.innerText = "Nah an der Kraft (Schlecht!)";
     } else {
-        // Mitte
         seesaw.style.transform = 'rotate(-15deg)';
         if (txt) {
             txt.innerText = "Beide Arme sind ähnlich lang. Der Elefant ist zu schwer, die Wippe kippt nach links!";
@@ -136,8 +127,4 @@ function updateLever() {
         }
         if (txtPos) txtPos.innerText = "Mitte";
     }
-}
-
-if (document.readyState === 'complete') {
-    topicInit();
 }

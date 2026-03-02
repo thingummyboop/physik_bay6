@@ -87,8 +87,18 @@ async function renderTopic() {
 
         // Load Script
         const script = document.createElement('script');
-        script.src = `../js/topics/${topicId}.js`;
-        script.onload = () => { if (typeof topicInit === 'function') topicInit(); };
+        script.src = `../js/topics/${topicId}.js?v=${Date.now()}`;
+        script.async = false; // Ensure execution order
+        script.onload = () => {
+            console.log(`Script loaded: ${topicId}`);
+            if (typeof topicInit === 'function') {
+                try {
+                    topicInit();
+                } catch (e) {
+                    console.error(`Error in topicInit for ${topicId}:`, e);
+                }
+            }
+        };
         document.body.appendChild(script);
 
     } catch (e) {
