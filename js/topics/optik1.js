@@ -66,20 +66,42 @@ function updateShadow2() {
     const s2BotY = L2y + (objY + objH - L2y) * (400 - L2x) / (objX - L2x);
     const p2 = `${objX},${objY} 400,${s2TopY} 400,${s2BotY} ${objX},${objY+objH}`;
 
-    hs1.setAttribute('points', lamp1On ? p1 : "");
-    hs1.setAttribute('fill', lamp2On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.8)");
-    
-    hs2.setAttribute('points', lamp2On ? p2 : "");
-    hs2.setAttribute('fill', lamp1On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.8)");
-    
     if (lamp1On && lamp2On) {
+        // Both lamps on: hs1 and hs2 show the individual shadows (Halbschatten)
+        // We set them to a lighter gray
+        hs1.setAttribute('points', p1);
+        hs1.setAttribute('fill', "rgba(0,0,0,0.3)");
+        hs2.setAttribute('points', p2);
+        hs2.setAttribute('fill', "rgba(0,0,0,0.3)");
+        
+        // ks shows the intersection (Kernschatten)
         const top = Math.max(s1TopY, s2TopY);
         const bot = Math.min(s1BotY, s2BotY);
         if (bot > top) {
             ks.setAttribute('points', `${objX},100 400,${top} 400,${bot}`);
+            ks.setAttribute('fill', "rgba(0,0,0,0.8)"); // Same as point shadow
             ks.setAttribute('display', 'block');
-        } else { ks.setAttribute('display', 'none'); }
-    } else { ks.setAttribute('display', 'none'); }
+        } else {
+            ks.setAttribute('display', 'none');
+        }
+    } else if (lamp1On || lamp2On) {
+        // Only one lamp on: no Kern/Halb, just one solid shadow
+        ks.setAttribute('display', 'none');
+        if (lamp1On) {
+            hs1.setAttribute('points', p1);
+            hs1.setAttribute('fill', "rgba(0,0,0,0.8)");
+            hs2.setAttribute('points', "");
+        } else {
+            hs2.setAttribute('points', p2);
+            hs2.setAttribute('fill', "rgba(0,0,0,0.8)");
+            hs1.setAttribute('points', "");
+        }
+    } else {
+        // No lamps on
+        hs1.setAttribute('points', "");
+        hs2.setAttribute('points', "");
+        ks.setAttribute('display', 'none');
+    }
 }
 
 // 3. Eclipses
@@ -155,7 +177,6 @@ function startMoonOrbit() {
                 moon.style.opacity = "1";
             }
 
-            // Shadow logic (tuned to new JSON coords)
             const shadowYTop = 85 + (65 - 85) * (x - 220) / 230;
             const shadowYBot = 165 + (185 - 165) * (x - 220) / 230;
             
@@ -163,7 +184,6 @@ function startMoonOrbit() {
                 moon.setAttribute('fill', '#880e4f'); 
                 if(status) status.innerText = "🌑 Im Erdschatten: Blutmond!";
             } else {
-                // Keep the moon white/gray, no turning back to default too early
                 moon.setAttribute('fill', '#ddd');
                 if(status) {
                     if (x < 220) status.innerText = "☀️ Tagseite (Sonne beleuchtet den Mond)";
