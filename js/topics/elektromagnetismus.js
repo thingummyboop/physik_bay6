@@ -4,7 +4,6 @@ let isDraining = false;
 let relayClosed = false;
 
 function topicInit() {
-    console.log("EM Topic Init started");
     updateMagnetField(30);
     updateTransformer(5);
     updateRelay(false);
@@ -90,35 +89,49 @@ function updateTransformer(val) {
     const coil2 = document.getElementById('coil2');
     const txt = document.getElementById('transText');
     const flux = document.getElementById('magneticFlux');
-    const voltBar = document.getElementById('voltBarSec');
-    const voltText = document.getElementById('voltValSec');
+    const fluxField = document.getElementById('fluxField');
+    const voltBarSec = document.getElementById('voltBarSec');
+    const voltValSec = document.getElementById('voltValSec');
     
     if(!coil2) return;
     
-    const windings1 = 5; // Primary fixed
+    const windings1 = 5; 
     const windings2 = parseInt(val);
     const u1 = 230;
     const u2 = Math.round(u1 * (windings2 / windings1));
     
-    // Draw Secondary Coil
     coil2.innerHTML = '';
     for(let i=0; i < windings2; i++) {
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        const y = 40 + (i * 100 / (windings2 + 1));
-        line.setAttribute("d", `M 285 ${y} L 315 ${y+5}`);
-        line.setAttribute("stroke", "#ED8936");
-        line.setAttribute("stroke-width", "4");
-        coil2.appendChild(line);
+        const y = 60 + (i * 100 / (windings2 + 1 || 1));
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", `M 285 ${y} L 315 ${y+5}`);
+        path.setAttribute("stroke", "#ED8936");
+        path.setAttribute("stroke-width", "6");
+        coil2.appendChild(path);
+        
+        // Add current particle
+        const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        dot.setAttribute("r", "3");
+        dot.setAttribute("fill", "yellow");
+        const anim = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
+        anim.setAttribute("path", `M 285 ${y} L 315 ${y+5}`);
+        anim.setAttribute("dur", "1s");
+        anim.setAttribute("repeatCount", "indefinite");
+        dot.appendChild(anim);
+        coil2.appendChild(dot);
     }
     
-    // Update Voltage Display
-    if(voltBar) voltBar.setAttribute('height', (windings2 * 10));
-    if(voltBar) voltBar.setAttribute('y', 140 - (windings2 * 10));
-    if(voltText) voltText.innerText = u2 + "V";
+    if(voltBarSec) {
+        const h = Math.min(windings2 * 15, 100);
+        voltBarSec.setAttribute('height', h);
+        voltBarSec.setAttribute('y', 160 - h);
+    }
+    if(voltValSec) voltValSec.innerText = u2 + "V";
     
-    // Magnetic Flux Speed
-    if(flux) flux.style.animationDuration = "2s";
-    
+    // Magnetic Flux Intensity based on Windings (for visualization)
+    if(flux) flux.style.strokeWidth = 1 + (windings2 / 3);
+    if(fluxField) fluxField.setAttribute('opacity', 0.2 + (windings2 / 20));
+
     if(windings2 < windings1) {
         if(txt) {
             txt.innerText = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
