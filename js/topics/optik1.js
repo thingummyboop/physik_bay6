@@ -1,9 +1,11 @@
-// Logic for Licht & Schatten
+// Logic for Optik 1: Licht & Schatten overhaul
 
 function topicInit() {
     updateShadow1();
     updateShadow2();
     updateEclipse1();
+    updateReflection();
+    // Diffraction (Slit) init state is handled in narrowSlit or default HTML
 }
 
 // 1. Point Source Shadow
@@ -27,8 +29,8 @@ function updateShadow1() {
     if (shadow) {
         shadow.setAttribute('points', `${objX},${objTopY} 400,${shadowTopY} 400,${shadowBotY} ${objX},${objBotY}`);
     }
-    if (ray1) ray1.setAttribute('x2', 400); ray1.setAttribute('y2', shadowTopY);
-    if (ray2) ray2.setAttribute('x2', 400); ray2.setAttribute('y2', shadowBotY);
+    if (ray1) { ray1.setAttribute('x2', 400); ray1.setAttribute('y2', shadowTopY); }
+    if (ray2) { ray2.setAttribute('x2', 400); ray2.setAttribute('y2', shadowBotY); }
 }
 
 // 2. Two Lamps Shadow
@@ -51,8 +53,9 @@ function updateShadow2() {
     const hs1 = document.getElementById('hShadow1');
     const hs2 = document.getElementById('hShadow2');
     const ks = document.getElementById('kShadow');
-    
-    const objX = 180, objW = 15, objY = 85, objH = 30;
+    if(!hs1 || !hs2 || !ks) return;
+
+    const objX = 180, objY = 85, objH = 30;
     const L1x = 30, L1y = 60;
     const L2x = 30, L2y = 140;
     
@@ -64,97 +67,64 @@ function updateShadow2() {
     const s2BotY = L2y + (objY + objH - L2y) * (400 - L2x) / (objX - L2x);
     const p2 = `${objX},${objY} 400,${s2TopY} 400,${s2BotY} ${objX},${objY+objH}`;
 
-    if (hs1) {
-        hs1.setAttribute('points', lamp1On ? p1 : "");
-        hs1.setAttribute('fill', lamp2On ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.7)");
-    }
-    if (hs2) {
-        hs2.setAttribute('points', lamp2On ? p2 : "");
-        hs2.setAttribute('fill', lamp1On ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.7)");
-    }
+    hs1.setAttribute('points', lamp1On ? p1 : "");
+    hs1.setAttribute('fill', lamp2On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.6)");
     
-    if (ks) {
-        if (lamp1On && lamp2On) {
-            const top = Math.max(s1TopY, s2TopY);
-            const bot = Math.min(s1BotY, s2BotY);
-            if (bot > top) {
-                ks.setAttribute('points', `${objX},${objY+objH/2} 400,${top} 400,${bot}`);
-                ks.setAttribute('display', 'block');
-            } else {
-                ks.setAttribute('display', 'none');
-            }
-        } else {
-            ks.setAttribute('display', 'none');
-        }
-    }
+    hs2.setAttribute('points', lamp2On ? p2 : "");
+    hs2.setAttribute('fill', lamp1On ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.6)");
+    
+    if (lamp1On && lamp2On) {
+        const top = Math.max(s1TopY, s2TopY);
+        const bot = Math.min(s1BotY, s2BotY);
+        if (bot > top) {
+            ks.setAttribute('points', `${objX},100 400,${top} 400,${bot}`);
+            ks.setAttribute('display', 'block');
+        } else { ks.setAttribute('display', 'none'); }
+    } else { ks.setAttribute('display', 'none'); }
 }
 
-// 3. Solar Eclipse
+// 3. Eclipses
 function updateEclipse1() {
     const range = document.getElementById('moonPos');
     if (!range) return;
     const moonX = parseInt(range.value);
     const moon = document.getElementById('moonObj');
-    const umbra = document.getElementById('moonUmbra') || document.getElementById('moonShadow');
+    const umbra = document.getElementById('moonUmbra');
     const penumbra = document.getElementById('moonPenumbra');
     const status = document.getElementById('statusText');
-    const ray1 = document.getElementById('rayL1');
-    const ray2 = document.getElementById('rayL2');
     
     if (moon) moon.setAttribute('cx', moonX);
     
     const sX = 40, sY = 90, sR = 30;
     const mY = 90, mR = 10;
     
-    // Outer tangents for Umbra (S_top to M_top, S_bot to M_bot)
-    // S_top is at 60, M_top at 80. Slope = (80-60)/(moonX-40)
     const uY1 = 60 + (80 - 60) * (400 - sX) / (moonX - sX);
     const uY2 = 120 + (100 - 120) * (400 - sX) / (moonX - sX);
-    
-    // Inner tangents for Penumbra (S_top to M_bot, S_bot to M_top)
-    // S_top is at 60, M_bot at 100. Slope = (100-60)/(moonX-40)
     const pY1 = 60 + (100 - 60) * (400 - sX) / (moonX - sX);
     const pY2 = 120 + (80 - 120) * (400 - sX) / (moonX - sX);
     
-    const xV = sX + (sR * (moonX - sX) / (sR - mR)); // Umbra vertex
+    const xV = sX + (sR * (moonX - sX) / (sR - mR));
 
     if (umbra) {
-        if (xV > 400) {
-            // Umbra cone hits the screen
-            umbra.setAttribute('points', `${moonX},80 400,${uY1} 400,${uY2} ${moonX},100`);
-            umbra.setAttribute('display', 'block');
+        if (xV > 400) umbra.setAttribute('points', `${moonX},80 400,${uY1} 400,${uY2} ${moonX},100`);
+        else umbra.setAttribute('points', `${moonX},80 ${xV},90 ${moonX},100`);
+    }
+    if (penumbra) penumbra.setAttribute('points', `${moonX},80 400,${pY2} 400,${pY1} ${moonX},100`);
+    
+    if (status) {
+        if (xV > 400 && 90 >= Math.min(uY1, uY2) && 90 <= Math.max(uY1, uY2)) {
+            status.innerText = "🌟 Totale Sonnenfinsternis!";
+            status.setAttribute('fill', '#fbbf24');
+        } else if (90 >= Math.min(pY1, pY2) && 90 <= Math.max(pY1, pY2)) {
+            status.innerText = "🌗 Partielle Sonnenfinsternis";
+            status.setAttribute('fill', '#94a3b8');
         } else {
-            // Umbra cone closes before the screen
-            umbra.setAttribute('points', `${moonX},80 ${xV},90 ${moonX},100`);
+            status.innerText = "Suche die Finsternis...";
+            status.setAttribute('fill', 'white');
         }
-    }
-    
-    if (penumbra) {
-        penumbra.setAttribute('points', `${moonX},80 400,${pY2} 400,${pY1} ${moonX},100`);
-    }
-    
-    if (ray1) { ray1.setAttribute('x2', 400); ray1.setAttribute('y2', uY1); }
-    if (ray2) { ray2.setAttribute('x2', 400); ray2.setAttribute('y2', uY2); }
-    
-    // Detection
-    const uMin = Math.min(uY1, uY2);
-    const uMax = Math.max(uY1, uY2);
-    const pMin = Math.min(pY1, pY2);
-    const pMax = Math.max(pY1, pY2);
-
-    if (xV > 400 && 90 >= uMin && 90 <= uMax) {
-        status.innerText = "🌟 Totale Sonnenfinsternis!";
-        status.setAttribute('fill', '#fbbf24');
-    } else if (90 >= pMin && 90 <= pMax) {
-        status.innerText = "🌗 Partielle Sonnenfinsternis";
-        status.setAttribute('fill', '#94a3b8');
-    } else {
-        status.innerText = "Suche die Finsternis...";
-        status.setAttribute('fill', 'white');
     }
 }
 
-// 4. Lunar Eclipse
 let moonOrbiting = false;
 let moonAngle = 0;
 function startMoonOrbit() {
@@ -168,47 +138,72 @@ function startMoonOrbit() {
         if (moon) {
             moon.setAttribute('cx', x);
             moon.setAttribute('cy', y);
-            if (x > 220 && y > 65 && y < 135) {
-                moon.setAttribute('fill', '#880e4f');
-            } else {
-                moon.setAttribute('fill', '#ddd');
-            }
+            if (x > 220 && y > 65 && y < 135) moon.setAttribute('fill', '#880e4f');
+            else moon.setAttribute('fill', '#ddd');
         }
         if (moonOrbiting) requestAnimationFrame(animate);
     }
     animate();
 }
 
-function showOrbital(type) {
-    const moon = document.getElementById('moonOrbit');
-    const earth = document.getElementById('earthOrbit');
-    const txt = document.getElementById('orbitalText');
-    if(!moon || !earth) return;
+// 4. Reflection
+function updateReflection() {
+    const range = document.getElementById('reflectRange');
+    if(!range) return;
+    const angle = parseInt(range.value);
+    const valDisp = document.getElementById('angleValue');
+    if(valDisp) valDisp.innerText = angle;
 
-    if(type === 'moon') {
-        moon.style.display = 'block';
-        earth.style.display = 'none';
-        if(txt) txt.innerText = "Der Mond kreist in ca. 27 Tagen einmal um die Erde.";
-    } else {
-        moon.style.display = 'none';
-        earth.style.display = 'block';
-        if(txt) txt.innerText = "Die Erde kreist in einem Jahr einmal um die Sonne.";
+    const rad = (90 - angle) * Math.PI / 180;
+    const length = 160;
+    
+    const incident = document.getElementById('incidentRay');
+    const reflected = document.getElementById('reflectedRay');
+    
+    if(incident) {
+        const xIn = 200 - Math.cos(rad) * length;
+        const yIn = 170 - Math.sin(rad) * length;
+        incident.setAttribute('x1', xIn);
+        incident.setAttribute('y1', yIn);
+        incident.setAttribute('x2', 200);
+        incident.setAttribute('y2', 170);
+    }
+    
+    if(reflected) {
+        const xRef = 200 + Math.cos(rad) * length;
+        const yRef = 170 - Math.sin(rad) * length;
+        reflected.setAttribute('x1', 200);
+        reflected.setAttribute('y1', 170);
+        reflected.setAttribute('x2', xRef);
+        reflected.setAttribute('y2', yRef);
     }
 }
 
-function setPhase(phase) {
-    const moon = document.getElementById('moonPhase');
-    const txt = document.getElementById('phaseText');
-    if(!moon) return;
+// 5. Diffraction (Slit)
+let slitState = 0;
+function narrowSlit() {
+    const wallTop = document.getElementById('wallTop');
+    const wallBot = document.getElementById('wallBot');
+    const wavesBroad = document.getElementById('wavesBroad');
+    const wavesNarrow = document.getElementById('wavesNarrow');
+    const txt = document.getElementById('slitText');
+    if(!wallTop || !wallBot) return;
 
-    if(phase === 'new') {
-        moon.setAttribute('fill', '#333');
-        if(txt) txt.innerText = "Neumond: Die beleuchtete Seite zeigt von uns weg.";
-    } else if(phase === 'full') {
-        moon.setAttribute('fill', '#fff176');
-        if(txt) txt.innerText = "Vollmond: Wir sehen die komplette beleuchtete Seite.";
+    slitState = (slitState + 1) % 2;
+
+    if (slitState === 0) {
+        wallTop.setAttribute('height', '60');
+        wallBot.setAttribute('y', '140');
+        wallBot.setAttribute('height', '60');
+        if(wavesBroad) wavesBroad.style.display = "block";
+        if(wavesNarrow) wavesNarrow.style.display = "none";
+        if(txt) txt.innerText = "Breiter Spalt: Das Licht geht fast nur als gerade Welle durch.";
     } else {
-        moon.setAttribute('fill', 'url(#halfMoonGrad)');
-        if(txt) txt.innerText = "Halbmond: Wir sehen nur einen Teil der beleuchteten Seite.";
+        wallTop.setAttribute('height', '95');
+        wallBot.setAttribute('y', '105');
+        wallBot.setAttribute('height', '95');
+        if(wavesBroad) wavesBroad.style.display = "none";
+        if(wavesNarrow) wavesNarrow.style.display = "block";
+        if(txt) txt.innerText = "Sehr enger Spalt: Starke Beugung! Huygens' neue Kreiswellen entstehen.";
     }
 }
