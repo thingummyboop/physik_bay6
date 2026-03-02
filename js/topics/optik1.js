@@ -5,7 +5,6 @@ function topicInit() {
     updateShadow2();
     updateEclipse1();
     updateReflection();
-    // Diffraction (Slit) init state is handled in narrowSlit or default HTML
 }
 
 // 1. Point Source Shadow
@@ -96,7 +95,7 @@ function updateEclipse1() {
     if (moon) moon.setAttribute('cx', moonX);
     
     const sX = 40, sY = 90, sR = 30;
-    const mY = 90, mR = 10;
+    const mR = 10;
     
     const uY1 = 60 + (80 - 60) * (400 - sX) / (moonX - sX);
     const uY2 = 120 + (100 - 120) * (400 - sX) / (moonX - sX);
@@ -130,16 +129,49 @@ let moonAngle = 0;
 function startMoonOrbit() {
     if (moonOrbiting) return;
     moonOrbiting = true;
+    const status = document.getElementById('moonStatusText');
+    const moon = document.getElementById('orbitMoon');
+    
     function animate() {
-        moonAngle += 0.02;
-        const x = 220 + Math.cos(moonAngle) * 150;
-        const y = 100 + Math.sin(moonAngle) * 60;
-        const moon = document.getElementById('orbitMoon');
+        moonAngle += 0.015;
+        const cx = 220, cy = 125;
+        const rx = 160, ry = 80;
+        
+        const x = cx + Math.cos(moonAngle) * rx;
+        const y = cy + Math.sin(moonAngle) * ry;
+        
         if (moon) {
             moon.setAttribute('cx', x);
             moon.setAttribute('cy', y);
-            if (x > 220 && y > 65 && y < 135) moon.setAttribute('fill', '#880e4f');
-            else moon.setAttribute('fill', '#ddd');
+            
+            // Depth effect
+            const z = Math.sin(moonAngle); 
+            const scale = 0.8 + (z + 1) * 0.2; 
+            moon.setAttribute('r', 12 * scale);
+            
+            // Avoid clipping: if angle is between roughly 3.0 and 3.3 (far side passing behind Earth)
+            // Or just use the z-index logic by setting opacity
+            const isBehind = (y < cy && Math.abs(x - cx) < 45);
+            if (isBehind) {
+                moon.style.opacity = "0.1";
+            } else {
+                moon.style.opacity = "1";
+            }
+
+            // Shadow logic
+            const shadowYTop = 105 + (85 - 105) * (x - 220) / 230;
+            const shadowYBot = 145 + (165 - 145) * (x - 220) / 230;
+            
+            if (x > 220 && y > shadowYTop && y < shadowYBot) {
+                moon.setAttribute('fill', '#880e4f'); 
+                if(status) status.innerText = "🌑 Im Erdschatten: Blutmond!";
+            } else {
+                moon.setAttribute('fill', '#ddd');
+                if(status) {
+                    if (x < 220) status.innerText = "☀️ Tagseite (Sonne beleuchtet den Mond)";
+                    else status.innerText = "🌙 Mond außerhalb des Schattens";
+                }
+            }
         }
         if (moonOrbiting) requestAnimationFrame(animate);
     }
