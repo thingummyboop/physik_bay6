@@ -3843,309 +3843,332 @@
         "title": "1. Licht wandert geradeaus",
         "quizzes": [
           {
-            "id": "optik1_s1_q0",
-            "question": "Was passiert, wenn du eine undurchsichtige Hand in einen Lichtstrahl hältst?",
+            "id": "ls_s1_q1",
+            "question": "In welcher Form breitet sich Licht normalerweise aus?",
             "answers": [
               {
-                "text": "Es entsteht ein Schatten",
-                "correct": true,
+                "text": "In Schlangenlinien.",
+                "correct": false,
                 "pts": 10
               },
               {
-                "text": "Das Licht biegt sich um die Hand",
-                "correct": false,
+                "text": "In absolut geraden Strahlen.",
+                "correct": true,
                 "pts": 10
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Licht ist extrem schnell (fast 300.000 Kilometer pro Sekunde!). Aber das Wichtigste ist: Lichtstrahlen sind wie super-gerade Lineale. Sie fliegen immer auf dem direkten Weg, solange ihnen nichts im Weg steht.</p>\n        \n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Lichtquelle</strong><br>\n            Alles, was von selbst leuchtet (Sonne, Taschenlampe, Glühwürmchen), nennen wir Lichtquelle. Andere Dinge sehen wir nur, weil sie Licht <em>reflektieren</em> (zurückwerfen).\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                <rect x=\"20\" y=\"60\" width=\"60\" height=\"30\" fill=\"#444\" rx=\"5\"></rect>\n                <path d=\"M 80 60 L 100 50 L 100 100 L 80 90 Z\" fill=\"#666\"></path>\n                <line x1=\"100\" y1=\"75\" x2=\"350\" y2=\"75\" stroke=\"#FFEB3B\" stroke-width=\"3\" class=\"light-beam\" marker-end=\"url(#arrow)\"></line>\n                <line x1=\"100\" y1=\"75\" x2=\"340\" y2=\"40\" stroke=\"#FFEB3B\" stroke-width=\"2\" opacity=\"0.6\"></line>\n                <line x1=\"100\" y1=\"75\" x2=\"340\" y2=\"110\" stroke=\"#FFEB3B\" stroke-width=\"2\" opacity=\"0.6\"></line>\n                \n                <defs>\n                    <marker id=\"arrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\">\n                        <path d=\"M0,0 L10,5 L0,10 Z\" fill=\"#FFEB3B\"></path>\n                    </marker>\n                </defs>\n            </svg>\n            <p>Lichtstrahlen breiten sich geradlinig nach allen Seiten aus.</p>\n        </div>\n\n        {{QUIZ_optik1_s1_q0}}\n    "
+        "content": "\n        <p>Licht ist wie ein super-gerades Lineal. Solange ihm nichts im Weg steht, saust es schnurgerade durch den Raum. Wenn aber ein undurchsichtiger Körper im Weg steht, kommt das Licht dort nicht vorbei. Dahinter entsteht ein Bereich ohne Licht: der <strong>Schatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Der Schatten-Simulator</h3>\n            <p>Bewege das Hindernis:</p>\n            <input type=\"range\" id=\"posRange1\" min=\"50\" max=\"250\" value=\"150\" oninput=\"updateShadow1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <circle cx=\"30\" cy=\"75\" r=\"8\" fill=\"#fff\" style=\"filter: drop-shadow(0 0 10px #fff);\"></circle>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"10\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_1\"></line>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"140\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_2\"></line>\n                    <polygon id=\"shadowArea1\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect id=\"obj1\" x=\"150\" y=\"60\" width=\"20\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_ls_s1_q1}}\n    "
       },
       {
         "id": "sec2",
-        "title": "2. Reflexion: Der Spiegel-Trick",
+        "title": "2. Kernschatten und Halbschatten",
         "quizzes": [
           {
-            "id": "optik1_s2_q0",
-            "question": "Warum glänzt eine Alufolie mehr als ein Blatt Papier?",
+            "id": "ls_s2_q1",
+            "question": "Was ist der Halbschatten?",
             "answers": [
               {
-                "text": "Weil die Oberfläche glatter ist und das Licht ordentlich reflektiert.",
-                "correct": true,
-                "pts": 15
-              },
-              {
-                "text": "Weil Alufolie selbst Licht produziert.",
+                "text": "Der Bereich, in den gar kein Licht gelangt.",
                 "correct": false,
                 "pts": 10
+              },
+              {
+                "text": "Der Bereich, in den nur das Licht einer von zwei Lampen gelangt.",
+                "correct": true,
+                "pts": 15
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Wenn Licht auf eine sehr glatte Oberfläche trifft (wie einen Spiegel oder stilles Wasser), prallt es ab wie ein Ball an einer Wand. Das nennen wir <strong>Reflexion</strong>.</p>\n        \n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Einfallswinkel = Ausfallswinkel</strong><br>\n            Das ist das wichtigste Gesetz: Das Licht kommt in einem bestimmten Winkel an und wird im genau gleichen Winkel wieder weggeschickt.\n        </div>\n\n        <div class=\"interactive-zone\">\n            <h3>🪞 Der Spiegel-Simulator</h3>\n            <p>Verändere den Einfallswinkel: <span id=\"angleValue\">45</span>°</p>\n            <input type=\"range\" id=\"reflectRange\" min=\"10\" max=\"80\" value=\"45\" oninput=\"updateReflection()\" style=\"width: 250px;\">\n            \n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <rect x=\"50\" y=\"170\" width=\"300\" height=\"10\" fill=\"#B0BEC5\"></rect>\n                    <line x1=\"50\" y1=\"170\" x2=\"350\" y2=\"170\" stroke=\"#90A4AE\" stroke-width=\"2\"></line>\n                    <!-- Normal -->\n                    <line x1=\"200\" y1=\"170\" x2=\"200\" y2=\"50\" stroke=\"#ccc\" stroke-width=\"1\" stroke-dasharray=\"5,5\"></line>\n                    \n                    <line id=\"incidentRay\" x1=\"80\" y1=\"30\" x2=\"200\" y2=\"170\" stroke=\"#FFEB3B\" stroke-width=\"4\" marker-end=\"url(#arrow)\"></line>\n                    <line id=\"reflectedRay\" x1=\"200\" y1=\"170\" x2=\"320\" y2=\"30\" stroke=\"#FF5722\" stroke-width=\"4\" marker-end=\"url(#arrowRed)\"></line>\n                    \n                    <defs>\n                        <marker id=\"arrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\">\n                            <path d=\"M0,0 L10,5 L0,10 Z\" fill=\"#FFEB3B\"></path>\n                        </marker>\n                        <marker id=\"arrowRed\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\">\n                            <path d=\"M0,0 L10,5 L0,10 Z\" fill=\"#FF5722\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n            </div>\n        </div>\n\n        {{QUIZ_optik1_s2_q0}}\n    "
+        "content": "\n        <p>Was passiert bei zwei Lampen? Jede Lampe wirft ihren eigenen Schatten. Dort, wo sich beide Schatten überschneiden, ist der <strong>Kernschatten</strong>. In den grauen Bereichen daneben ist der <strong>Halbschatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>💡 Das Zwei-Lampen-Experiment</h3>\n            <button onclick=\"toggleLamp(1)\" id=\"btnL1\">Lampe 1: AN</button>\n            <button onclick=\"toggleLamp(2)\" id=\"btnL2\">Lampe 2: AN</button>\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <circle id=\"lamp1\" cx=\"30\" cy=\"60\" r=\"8\" fill=\"#fff\"></circle>\n                    <circle id=\"lamp2\" cx=\"30\" cy=\"140\" r=\"8\" fill=\"#fff\"></circle>\n                    <polygon id=\"hShadow1\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"hShadow2\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"kShadow\" points=\"\" fill=\"rgba(0,0,0,0.7)\"></polygon>\n                    <rect x=\"180\" y=\"85\" width=\"15\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_ls_s2_q1}}\n    "
       },
       {
         "id": "sec3",
-        "title": "3. Lichtbrechung: Der Knick-Effekt",
+        "title": "3. Die Spalt-Maschine (Licht als Welle)",
         "quizzes": [
           {
-            "id": "optik1_s3_q0",
-            "question": "Was passiert mit dem Lichtstrahl, wenn er von der Luft ins Glas wandert?",
+            "id": "optik1_s3_q1",
+            "question": "Wer entdeckte das Prinzip der Kugelwellen?",
             "answers": [
               {
-                "text": "Nichts, er fliegt einfach weiter.",
-                "correct": false,
+                "text": "Christiaan Huygens.",
+                "correct": true,
                 "pts": 10
               },
               {
-                "text": "Er ändert seine Richtung (er wird gebrochen).",
-                "correct": true,
-                "pts": 20
+                "text": "Ørsted.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        <p>Wir dachten bisher, Lichtstrahlen wandern immer nur stur geradeaus. Aber Überraschung: Licht verhält sich eigentlich wie eine Welle im Ozean! Wenn diese Licht-Welle auf ein extrem winziges Hindernis oder einen ganz schmalen Spalt trifft, zeigt sie ihre magische Natur.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Die Beugung (Huygens' Idee)</strong><br>\n            Der Wissenschaftler Christiaan Huygens entdeckte das <strong>Huygenssche Prinzip</strong>. Er sagte: Jeder winzige Punkt einer Lichtwelle kann eine ganz neue Kugelwelle erschaffen! Ist ein Spalt extrem eng, zwingen wir das Licht dort hindurch. Plötzlich wirkt der winzige Spalt wie eine eigene kleine Lampe, und das Licht breitet sich dahinter kreisförmig aus. Das nennt man <strong>Beugung</strong>.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌊 Die Spalt-Maschine</h3>\n            <p>Klicke auf den Kasten, um den Spalt schrittweise enger zu machen:</p>\n            <div style=\"cursor: pointer; user-select: none;\" onclick=\"narrowSlit()\">\n                <div class=\"diagram-box\" style=\"padding: 0; background: #0f172a; border-radius: 10px; height: 200px;\">\n                    <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" style=\"overflow: hidden;\">\n                        <defs>\n                            <clipPath id=\"leftHalfClip\">\n                                <rect x=\"0\" y=\"0\" width=\"180\" height=\"200\"></rect>\n                            </clipPath>\n                            <clipPath id=\"rightHalfClip\">\n                                <rect x=\"187\" y=\"0\" width=\"220\" height=\"200\"></rect>\n                            </clipPath>\n                        </defs>\n                        <!-- Incoming Wavefronts (Clipped to left side) -->\n                        <g clip-path=\"url(#leftHalfClip)\">\n                            <rect x=\"-5\" y=\"20\" width=\"4\" height=\"160\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: 0s;\"></rect>\n                            <rect x=\"-5\" y=\"20\" width=\"4\" height=\"160\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -0.66s;\"></rect>\n                            <rect x=\"-5\" y=\"20\" width=\"4\" height=\"160\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -1.33s;\"></rect>\n                        </g>\n\n                        <rect x=\"180\" y=\"0\" width=\"15\" height=\"60\" fill=\"#94a3b8\" id=\"wallTop\" style=\"transition: all 0.3s;\"></rect>\n                        <rect x=\"180\" y=\"140\" width=\"15\" height=\"60\" fill=\"#94a3b8\" id=\"wallBot\" style=\"transition: all 0.3s;\"></rect>\n\n                        <!-- Broad Slit Waves (Moving together with incoming) -->\n                        <g id=\"wavesBroad\" clip-path=\"url(#rightHalfClip)\">\n                            <rect x=\"180\" y=\"60\" width=\"4\" height=\"80\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: 0s;\"></rect>\n                            <rect x=\"180\" y=\"60\" width=\"4\" height=\"80\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -0.66s;\"></rect>\n                            <rect x=\"180\" y=\"60\" width=\"4\" height=\"80\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -1.33s;\"></rect>\n                        </g>\n\n                        <!-- Narrow Slit Waves (Diffraction) -->\n                        <g id=\"wavesNarrow\" style=\"display: none;\" clip-path=\"url(#rightHalfClip)\">\n                            <circle cx=\"187\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#60a5fa\" class=\"anim-circle\" style=\"animation-delay: 0s;\"></circle>\n                            <circle cx=\"187\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#60a5fa\" class=\"anim-circle\" style=\"animation-delay: -0.66s;\"></circle>\n                            <circle cx=\"187\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#60a5fa\" class=\"anim-circle\" style=\"animation-delay: -1.33s;\"></circle>\n                        </g>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"slitText\" style=\"font-weight: bold;\">Breiter Spalt: Das Licht geht fast nur als gerade Welle (Wellenfront) durch.</p>\n        </div>\n        {{QUIZ_optik1_s3_q1}}\n"
+        "content": "\n        <p>Wir dachten bisher, Lichtstrahlen wandern immer nur stur geradeaus. Aber Überraschung: Licht verhält sich eigentlich wie eine Welle im Ozean! Wenn diese Licht-Welle auf ein extrem winziges Hindernis oder einen ganz schmalen Spalt trifft, zeigt sie ihre magische Natur.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Die Beugung (Huygens' Idee)</strong><br>\n            Der Wissenschaftler Christiaan Huygens entdeckte das <strong>Huygenssche Prinzip</strong>. Er sagte: Jeder winzige Punkt einer Lichtwelle kann eine ganz neue Kugelwelle erschaffen! Ist ein Spalt extrem eng, zwingen wir das Licht dort hindurch. Plötzlich wirkt der winzige Spalt wie eine eigene kleine Lampe, und das Licht breitet sich dahinter kreisförmig aus. Das nennt man <strong>Beugung</strong>.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌊 Die Spalt-Maschine</h3>\n            <p>Klicke auf den Kasten, um den Spalt schrittweise enger zu machen:</p>\n            <div style=\"cursor: pointer; user-select: none;\" onclick=\"narrowSlit()\">\n                <div class=\"diagram-box\" style=\"padding: 0; background: #0f172a; border-radius: 10px; height: 200px;\">\n                    <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" style=\"overflow: hidden;\">\n                        <defs>\n                            <clipPath id=\"leftHalfClip\">\n                                <rect x=\"0\" y=\"0\" width=\"180\" height=\"200\"></rect>\n                            </clipPath>\n                            <clipPath id=\"rightHalfClip\">\n                                <rect x=\"187\" y=\"0\" width=\"220\" height=\"200\"></rect>\n                            </clipPath>\n                        </defs>\n                        <!-- Incoming Wavefronts (Clipped to left side) -->\n                        <g clip-path=\"url(#leftHalfClip)\">\n                            <rect x=\"-5\" y=\"20\" width=\"4\" height=\"160\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: 0s;\"></rect>\n                            <rect x=\"-5\" y=\"20\" width=\"4\" height=\"160\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -0.66s;\"></rect>\n                            <rect x=\"-5\" y=\"20\" width=\"4\" height=\"160\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -1.33s;\"></rect>\n                        </g>\n\n                        <rect x=\"180\" y=\"0\" width=\"15\" height=\"60\" fill=\"#94a3b8\" id=\"wallTop\" style=\"transition: all 0.3s;\"></rect>\n                        <rect x=\"180\" y=\"140\" width=\"15\" height=\"60\" fill=\"#94a3b8\" id=\"wallBot\" style=\"transition: all 0.3s;\"></rect>\n\n                        <!-- Broad Slit Waves -->\n                        <g id=\"wavesBroad\" clip-path=\"url(#rightHalfClip)\">\n                            <rect x=\"180\" y=\"60\" width=\"4\" height=\"80\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: 0s;\"></rect>\n                            <rect x=\"180\" y=\"60\" width=\"4\" height=\"80\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -0.66s;\"></rect>\n                            <rect x=\"180\" y=\"60\" width=\"4\" height=\"80\" fill=\"#60a5fa\" class=\"anim-line\" style=\"animation-delay: -1.33s;\"></rect>\n                        </g>\n\n                        <!-- Narrow Slit Waves (Diffraction) -->\n                        <g id=\"wavesNarrow\" style=\"display: none;\" clip-path=\"url(#rightHalfClip)\">\n                            <circle cx=\"187\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#60a5fa\" class=\"anim-circle\" style=\"animation-delay: 0s;\"></circle>\n                            <circle cx=\"187\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#60a5fa\" class=\"anim-circle\" style=\"animation-delay: -0.66s;\"></circle>\n                            <circle cx=\"187\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#60a5fa\" class=\"anim-circle\" style=\"animation-delay: -1.33s;\"></circle>\n                        </g>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"slitText\" style=\"font-weight: bold;\">Breiter Spalt: Das Licht geht fast nur als gerade Welle (Wellenfront) durch.</p>\n        </div>\n        {{QUIZ_optik1_s3_q1}}\n"
+      },
+      {
+        "id": "sec4",
+        "title": "4. Reflexion am Spiegel",
+        "quizzes": [
+          {
+            "id": "optik1_s4_q1",
+            "question": "Was besagt das Reflexionsgesetz?",
+            "answers": [
+              {
+                "text": "Einfallswinkel = Ausfallswinkel.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Licht verschwindet im Spiegel.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Licht prallt an glatten Flächen ab. Der Einfallswinkel ist dabei immer gleich dem Ausfallswinkel.</p>\n        <div class=\"interactive-zone\">\n            <h3>🪞 Spiegel-Simulator</h3>\n            <p>Winkel: <span id=\"angleValue\">45</span>°</p>\n            <input type=\"range\" id=\"reflectRange\" min=\"10\" max=\"80\" value=\"45\" oninput=\"updateReflection()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <rect x=\"50\" y=\"170\" width=\"300\" height=\"10\" fill=\"#B0BEC5\"></rect>\n                    <line id=\"incidentRay\" x1=\"80\" y1=\"30\" x2=\"200\" y2=\"170\" stroke=\"#FFEB3B\" stroke-width=\"4\"></line>\n                    <line id=\"reflectedRay\" x1=\"200\" y1=\"170\" x2=\"320\" y2=\"30\" stroke=\"#FF5722\" stroke-width=\"4\"></line>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_optik1_s4_q1}}\n    "
       }
     ],
     "diplom": {
       "title": "🎓 Das Optik-Diplom",
       "questions": [
         {
-          "id": "optik1_diplom_0",
-          "question": "1. Wie bewegen sich Lichtstrahlen normalerweise?",
+          "id": "o1_d1",
+          "question": "Wie breitet sich Licht normalerweise aus?",
           "answers": [
             {
-              "text": "Immer schnurgerade aus.",
+              "text": "Geradlinig.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "In gemütlichen Schlangenlinien.",
+              "text": "In Kurven.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_1",
-          "question": "2. Welcher Gegenstand reflektiert Licht am besten?",
+          "id": "o1_d2",
+          "question": "Was entsteht hinter einem undurchsichtigen Körper?",
           "answers": [
             {
-              "text": "Ein schwarzes T-Shirt.",
-              "correct": false,
-              "pts": 5
-            },
-            {
-              "text": "Ein sauberer Silberspiegel.",
-              "correct": true,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "optik1_diplom_2",
-          "question": "3. Was ist die Voraussetzung für einen Schatten?",
-          "answers": [
-            {
-              "text": "Ein Lichtstrahl trifft auf einen undurchsichtigen Körper.",
+              "text": "Schatten.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Es muss Nacht sein.",
+              "text": "Regenbogen.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_3",
-          "question": "4. Warum brauchen wir Linsen (z.B. in Brillen)?",
+          "id": "o1_d3",
+          "question": "Welches Gesetz gilt am Spiegel?",
           "answers": [
             {
-              "text": "Sie nutzen die Lichtbrechung, um Lichtstrahlen gezielt zu bündeln.",
+              "text": "Einfallswinkel = Ausfallswinkel.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Damit die Augen nicht nass werden.",
+              "text": "Einfallswinkel > Ausfallswinkel.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_4",
-          "question": "5. Wie schnell ist das Licht?",
+          "id": "o1_d4",
+          "question": "Was ist der dunkelste Teil eines Schattens?",
           "answers": [
             {
-              "text": "Ca. 300.000 km/s",
+              "text": "Kernschatten.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Ca. 300 km/h",
+              "text": "Halbschatten.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_5",
-          "question": "6. Was passiert bei der Brechung am Übergang von Luft zu Wasser?",
+          "id": "o1_d5",
+          "question": "Was ist eine Lichtquelle?",
           "answers": [
             {
-              "text": "Der Strahl knickt zum Lot hin.",
+              "text": "Ein Körper, der selbst leuchtet.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Der Strahl verschwindet.",
+              "text": "Ein Spiegel.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_6",
-          "question": "7. Wie nennt man den Winkel, in dem Licht auf einen Spiegel trifft?",
+          "id": "o1_d6",
+          "question": "Wie nennt man die Beugung von Licht an Spalten?",
           "answers": [
             {
-              "text": "Einfallswinkel",
+              "text": "Diffraktion (Huygens-Prinzip).",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Abprallwinkel",
+              "text": "Reflexion.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_7",
-          "question": "8. Was gilt für Reflexion an ebenen Spiegeln?",
+          "id": "o1_d7",
+          "question": "Was passiert bei einer totalen Sonnenfinsternis?",
           "answers": [
             {
-              "text": "Einfallswinkel = Ausfallswinkel",
+              "text": "Man steht im Kernschatten des Mondes.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Einfallswinkel ist doppelt so groß",
+              "text": "Die Erde geht unter.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_8",
-          "question": "9. Was ist eine natürliche Lichtquelle?",
+          "id": "o1_d8",
+          "question": "Warum sehen wir den Mond?",
           "answers": [
             {
-              "text": "Die Sonne",
+              "text": "Er reflektiert Sonnenlicht.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Der Mond (reflektiert nur)",
+              "text": "Er brennt selbst.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_9",
-          "question": "10. Warum sehen wir den Mond?",
+          "id": "o1_d9",
+          "question": "Was passiert mit einem Schatten, wenn man die Lampe nähert?",
           "answers": [
             {
-              "text": "Weil er das Sonnenlicht reflektiert.",
+              "text": "Er wird größer.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Weil er aus glühendem Käse besteht.",
+              "text": "Er wird kleiner.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_10",
-          "question": "11. Was ist ein 'optisch dichteres' Medium?",
+          "id": "o1_d10",
+          "question": "Wie schnell ist das Licht?",
           "answers": [
             {
-              "text": "Ein Stoff, in dem Licht langsamer ist (z.B. Glas).",
+              "text": "300.000 km/s.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Ein Stoff, der sehr schwer ist.",
+              "text": "340 m/s.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_11",
-          "question": "12. Wohin knickt der Strahl beim Übergang vom dichteren zum dünneren Medium?",
+          "id": "o1_d11",
+          "question": "Kann Licht Welleneigenschaften haben?",
           "answers": [
             {
-              "text": "Vom Lot weg.",
+              "text": "Ja (Beugung/Interferenz).",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Zum Lot hin.",
+              "text": "Nein, nie.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_12",
-          "question": "13. Was ist ein virtuelles Bild?",
+          "id": "o1_d12",
+          "question": "Was braucht man für einen Halbschatten?",
           "answers": [
             {
-              "text": "Ein Bild, das man im Spiegel sieht, aber nicht anfassen kann.",
+              "text": "Mindestens zwei Lichtquellen.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Ein Bild auf einem Computerbildschirm.",
+              "text": "Einen Laser.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_13",
-          "question": "14. Welches Phänomen erklärt den 'gebrochenen' Löffel im Wasserglas?",
+          "id": "o1_d13",
+          "question": "Wo liegt der Fokus beim Hohlspiegel?",
           "answers": [
             {
-              "text": "Lichtbrechung (Refraktion)",
+              "text": "Vor dem Spiegel (Brennpunkt).",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Reflexion",
+              "text": "Dahinter.",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "optik1_diplom_14",
-          "question": "15. Kann Licht um die Ecke fliegen?",
+          "id": "o1_d14",
+          "question": "Wie nennt man Licht, das alle Farben enthält?",
           "answers": [
             {
-              "text": "Nein, nur durch Spiegelung oder Brechung umgelenkt werden.",
+              "text": "Weißes Licht.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Ja, es fliegt Kurven wie ein Vogel.",
+              "text": "Schwarzes Licht.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "o1_d15",
+          "question": "Ist das Weltall überall hell?",
+          "answers": [
+            {
+              "text": "Nein, ohne streuende Materie bleibt es dunkel.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ja, wegen der Sonne.",
               "correct": false,
               "pts": 5
             }
