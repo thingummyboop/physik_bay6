@@ -1,10 +1,12 @@
 // Logic for elektromagnetismus topic
 let energy = 0;
 let isDraining = false;
+let relayClosed = false;
 
 function topicInit() {
     updateMagnetField(30);
     updateTransformer(5);
+    updateRelay(false);
 }
 
 function updateMagnetField(val) {
@@ -110,4 +112,33 @@ function updateTransformer(val) {
         txt.innerText = "1:1 Übertragung (3:3)";
         txt.style.color = "white";
     }
+}
+
+function updateRelay(active) {
+    const armature = document.getElementById('relayArmature');
+    const contact = document.getElementById('relayContact');
+    const bulb = document.getElementById('relayBulb');
+    const status = document.getElementById('relayStatus');
+    const btn = document.getElementById('relayBtn');
+    
+    if(!armature || !contact || !bulb) return;
+    
+    if(active) {
+        armature.setAttribute('transform', 'rotate(10, 150, 50)');
+        contact.setAttribute('stroke', '#4CAF50');
+        bulb.setAttribute('fill', '#FFF59D');
+        if(status) status.innerText = "Steuerstrom AN: Magnet zieht an, Kreis geschlossen!";
+        if(btn) btn.innerText = "Steuerstrom AUSSCHALTEN 🛑";
+    } else {
+        armature.setAttribute('transform', 'rotate(0, 150, 50)');
+        contact.setAttribute('stroke', '#718096');
+        bulb.setAttribute('fill', '#444');
+        if(status) status.innerText = "Steuerstrom AUS: Feder zieht Anker zurück.";
+        if(btn) btn.innerText = "Steuerstrom EINSCHALTEN ⚡";
+    }
+    relayClosed = active;
+}
+
+function toggleRelay() {
+    updateRelay(!relayClosed);
 }
