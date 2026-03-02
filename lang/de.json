@@ -1719,103 +1719,391 @@
     ]
   },
   "elektromagnetismus": {
-    "title": "🧲 Das Magnet-Abenteuer ⚡",
-    "subtitle": "Wusstest du, dass Strom eine Superkraft hat? Sobald Strom durch ein Kabel fließt, baut er um das Kabel herum eine unsichtbare Kraft auf. Das nennen wir ein Magnetfeld.",
+    "title": "🧲 Das Elektromagnetismus-Abenteuer ⚡",
+    "subtitle": "Von schwebenden Zügen bis zu deinem Smartphone-Ladegerät – entdecke die unsichtbare Verbindung von Strom und Magnetismus!",
     "sections": [
       {
         "id": "sec0",
-        "title": "1. Der Strom macht den Magneten",
+        "title": "1. Ørsteds Entdeckung: Strom macht Magnete",
         "quizzes": [
           {
             "id": "em_s1_q1",
-            "question": "Was passiert um einen Draht, durch den Strom fließt?",
+            "question": "Was passiert um ein Kabel, wenn Strom fließt?",
             "answers": [
-              { "text": "Es entsteht ein unsichtbares Magnetfeld.", "correct": true, "pts": 10 },
-              { "text": "Der Draht wird magnetisch, aber nur wenn er rot ist.", "correct": false, "pts": 5 }
+              {
+                "text": "Es entsteht ein kreisförmiges Magnetfeld.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Es wird einfach nur warm.",
+                "correct": false,
+                "pts": 5
+              }
             ]
           }
         ],
-        "content": "\n        <p>Jeder Stromfluss erzeugt ein Magnetfeld. Das hat der Forscher <strong>Hans Christian Ørsted</strong> durch Zufall entdeckt, als eine Kompassnadel neben einem Stromkabel plötzlich ausschlug.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Feldlinien</strong><br>\n            Wir zeichnen das Magnetfeld oft als Ringe um den Draht. Je enger die Ringe, desto stärker die Kraft.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 Der Feld-Regler</h3>\n            <p>Erhöhe die Stromstärke:</p>\n            <input type=\"range\" id=\"currentRange\" min=\"0\" max=\"100\" value=\"30\" oninput=\"updateMagnetField(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"50\" y=\"67\" width=\"300\" height=\"16\" fill=\"#718096\" rx=\"8\"></rect>\n                    <path id=\"currentArrow\" d=\"M 185 75 L 215 75\" stroke=\"white\" stroke-width=\"3\" marker-end=\"url(#arrowSmallWhite)\"></path>\n                    <g id=\"fieldLines\">\n                        <ellipse cx=\"120\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                        <ellipse cx=\"200\" cy=\"75\" rx=\"22\" ry=\"70\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></ellipse>\n                        <ellipse cx=\"280\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                    </g>\n                    <defs>\n                        <marker id=\"arrowSmallWhite\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n                            <path d=\"M0,0 L0,8 L8,4 z\" fill=\"white\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s1_q1}}\n    "
+        "content": "\n        <p>Früher dachte man, Strom und Magnete haben nichts miteinander zu tun. Doch 1820 bemerkte <strong>Hans Christian Ørsted</strong>, dass eine Kompassnadel ausschlägt, wenn man sie neben einen stromdurchflossenen Draht hält.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wort: Feldlinien</strong><br>\n            Wir zeichnen das unsichtbare Feld als Linien. Beim Draht sind es konzentrische Kreise um den Leiter.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 Der Feld-Regler</h3>\n            <p>Erhöhe die Stromstärke:</p>\n            <input type=\"range\" id=\"currentRange\" min=\"0\" max=\"100\" value=\"30\" oninput=\"updateMagnetField(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"50\" y=\"67\" width=\"300\" height=\"16\" fill=\"#718096\" rx=\"8\"></rect>\n                    <path id=\"currentArrow\" d=\"M 185 75 L 215 75\" stroke=\"white\" stroke-width=\"3\"></path>\n                    <g id=\"fieldLines\">\n                        <ellipse cx=\"120\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                        <ellipse cx=\"200\" cy=\"75\" rx=\"22\" ry=\"70\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></ellipse>\n                        <ellipse cx=\"280\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                    </g>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s1_q1}}\n    "
       },
       {
         "id": "sec1",
-        "title": "2. Die Spule & der Eisenkern",
+        "title": "2. Die Spule: Magnetkraft auf Knopfdruck",
         "quizzes": [
           {
             "id": "em_s2_q1",
-            "question": "Wie kann man einen Elektromagneten extrem verstärken?",
+            "question": "Welches Material bündelt die Magnetkraft einer Spule am besten?",
             "answers": [
-              { "text": "Durch einen Kern aus Eisen.", "correct": true, "pts": 10 },
-              { "text": "Indem man den Draht lockerer wickelt.", "correct": false, "pts": 5 }
+              {
+                "text": "Weicheisen.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Plastik.",
+                "correct": false,
+                "pts": 5
+              }
             ]
           }
         ],
-        "content": "\n        <p>Wickelt man einen Draht zu einer Rolle, nennt man das eine <strong>Spule</strong>. Das Magnetfeld wird dadurch viel stärker. Schiebt man dann noch einen <strong>Eisenkern</strong> hinein, bündelt dieser die Kraft und wir haben einen superstarken Elektromagneten!</p>\n        <div class=\"interactive-zone\">\n            <h3>🧪 Das Kern-Labor</h3>\n            <button onclick=\"setMaterial('none')\">Luft</button>\n            <button onclick=\"setMaterial('wood')\">Holz</button>\n            <button onclick=\"setMaterial('iron')\">Eisen</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <g id=\"spuleField\" style=\"opacity: 0.2; transition: opacity 0.5s;\">\n                        <path d=\"M 50 75 Q 200 -20 350 75 M 50 75 Q 200 170 350 75\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></path>\n                    </g>\n                    <rect id=\"materialCore\" x=\"110\" y=\"55\" width=\"180\" height=\"40\" rx=\"5\" fill=\"transparent\" style=\"transition: fill 0.3s;\"></rect>\n                    <path d=\"M 135 40 L 150 110 M 175 40 L 190 110 M 215 40 L 230 110 M 255 40 L 270 110\" stroke=\"#ED8936\" stroke-width=\"6\" fill=\"none\"></path>\n                </svg>\n                <p id=\"materialText\" style=\"font-weight:bold;\">Kern: Luft</p>\n            </div>\n        </div>\n        {{QUIZ_em_s2_q1}}\n    "
+        "content": "\n        <p>Ein einzelner Draht ist ein schwacher Magnet. Wickelt man ihn aber zu einer <strong>Spule</strong> auf, addieren sich die Felder jeder Windung. Ein <strong>Eisenkern</strong> im Inneren bündelt diese Kraft enorm.</p>\n        <div class=\"interactive-zone\">\n            <h3>🧪 Das Kern-Labor</h3>\n            <button onclick=\"setMaterial('none')\">Luft</button>\n            <button onclick=\"setMaterial('wood')\">Holz</button>\n            <button onclick=\"setMaterial('iron')\">Eisen</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <g id=\"spuleField\" style=\"opacity: 0.2; transition: opacity 0.5s;\">\n                        <path d=\"M 50 75 Q 200 -20 350 75 M 50 75 Q 200 170 350 75\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></path>\n                    </g>\n                    <rect id=\"materialCore\" x=\"110\" y=\"55\" width=\"180\" height=\"40\" rx=\"5\" fill=\"transparent\" style=\"transition: fill 0.3s;\"></rect>\n                    <path d=\"M 135 40 L 150 110 M 175 40 L 190 110 M 215 40 L 230 110 M 255 40 L 270 110\" stroke=\"#ED8936\" stroke-width=\"6\" fill=\"none\"></path>\n                </svg>\n                <p id=\"materialText\" style=\"font-weight:bold;\">Kern: Luft</p>\n            </div>\n        </div>\n        {{QUIZ_em_s2_q1}}\n    "
+      },
+      {
+        "id": "sec_relay",
+        "title": "3. Das Relais: Der magnetische Schalter",
+        "quizzes": [
+          {
+            "id": "em_s_relay_q1",
+            "question": "Warum benutzt man Relais?",
+            "answers": [
+              {
+                "text": "Um mit einem schwachen Stromkreis einen starken Stromkreis sicher zu steuern.",
+                "correct": true,
+                "pts": 15
+              },
+              {
+                "text": "Um Strom zu sparen.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Ein <strong>Relais</strong> ist ein Schalter, der mit einem Elektromagneten bedient wird. Wenn Strom durch die Steuerspule fließt, zieht sie einen Metallhebel (Anker) an und schließt so einen anderen Stromkreis.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔌 Relais-Simulator</h3>\n            <button onclick=\"toggleRelay()\" id=\"relayBtn\">Steuerstrom EINSCHALTEN ⚡</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"80\" width=\"40\" height=\"60\" fill=\"#4a5568\"></rect>\n                    <path d=\"M 40 80 L 100 80\" stroke=\"#ED8936\" stroke-width=\"4\" fill=\"none\"></path>\n                    <path d=\"M 40 100 L 100 100\" stroke=\"#ED8936\" stroke-width=\"4\" fill=\"none\"></path>\n                    <g id=\"relayArmature\" style=\"transform-origin: 150px 50px; transition: transform 0.2s;\">\n                        <rect x=\"140\" y=\"40\" width=\"100\" height=\"10\" fill=\"#718096\" rx=\"2\"></rect>\n                    </g>\n                    <path id=\"relayContact\" d=\"M 240 45 L 240 100\" stroke=\"#718096\" stroke-width=\"4\"></path>\n                    <circle id=\"relayBulb\" cx=\"320\" cy=\"100\" r=\"20\" fill=\"#444\"></circle>\n                </svg>\n                <p id=\"relayStatus\" style=\"font-weight:bold; color: #ED8936;\">Steuerstrom AUS</p>\n            </div>\n        </div>\n        {{QUIZ_em_s_relay_q1}}\n    "
       },
       {
         "id": "sec2",
-        "title": "3. Lorentzkraft & Elektromotor",
+        "title": "4. Lorentzkraft & Elektromotor",
         "quizzes": [
           {
             "id": "em_s3_q1",
-            "question": "Was macht ein Elektromotor?",
+            "question": "In was verwandelt ein Elektromotor elektrische Energie?",
             "answers": [
-              { "text": "Er wandelt elektrische Energie in Bewegung um.", "correct": true, "pts": 15 },
-              { "text": "Er macht aus Bewegung Strom.", "correct": false, "pts": 5 }
+              {
+                "text": "In Bewegungsenergie.",
+                "correct": true,
+                "pts": 15
+              },
+              {
+                "text": "In chemische Energie.",
+                "correct": false,
+                "pts": 5
+              }
             ]
           }
         ],
-        "content": "\n        <p>Bewegen sich Elektronen durch ein Magnetfeld, spüren sie eine Kraft, die sie zur Seite schiebt: die <strong>Lorentzkraft</strong>. In einem Motor nutzt man das aus, um ein Rad ständig anzuschubsen.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Der Schubs-Tester</h3>\n            <button onclick=\"changeDirection()\">Stromrichtung ändern ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\" marker-end=\"url(#arrowGreen)\"></path>\n                    <defs>\n                        <marker id=\"arrowGreen\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n                            <path d=\"M0,0 L0,8 L8,4 z\" fill=\"#4CAF50\"></path>\n                        </marker>\n                    </defs>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Kraft nach OBEN</p>\n            </div>\n        </div>\n        {{QUIZ_em_s3_q1}}\n    "
+        "content": "\n        <p>Bewegte Ladungen (Strom) im Magnetfeld spüren eine Kraft: die <strong>Lorentzkraft</strong>. In einem Motor wird diese Kraft genutzt, um eine Spule im Kreis zu drehen.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Der Schubs-Tester</h3>\n            <button onclick=\"changeDirection()\">Stromrichtung ändern ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\"></path>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Kraft nach OBEN</p>\n            </div>\n        </div>\n        {{QUIZ_em_s3_q1}}\n    "
       },
       {
         "id": "sec3",
-        "title": "4. Induktion & Generator",
+        "title": "5. Induktion & Generator",
         "quizzes": [
           {
             "id": "em_s4_q1",
             "question": "Wie erzeugt ein Generator Strom?",
             "answers": [
-              { "text": "Durch die Bewegung eines Magneten in einer Spule.", "correct": true, "pts": 15 },
-              { "text": "Durch Reibung von Draht an Holz.", "correct": false, "pts": 5 }
+              {
+                "text": "Durch die Bewegung eines Magneten in einer Spule.",
+                "correct": true,
+                "pts": 15
+              },
+              {
+                "text": "Durch Reibung von Draht an Holz.",
+                "correct": false,
+                "pts": 5
+              }
             ]
           }
         ],
-        "content": "\n        <p>Induktion ist das Gegenteil vom Elektromagneten: Hier erzeugt <strong>Bewegung</strong> Strom. Wenn sich ein Magnetfeld in einer Spule ändert, fangen die Elektronen an zu fließen. So funktionieren Windräder und Fahrraddynamos!</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Schüttel-Generator</h3>\n            <p>Klicke schnell auf die Lampe, um sie durch Induktion zu laden:</p>\n            <div id=\"flashlight\" style=\"cursor: pointer; font-size: 50px;\" onclick=\"shakeFlashlight()\">🔦</div>\n            <p>Ladung: <span id=\"energyLevel\">0</span>%</p>\n            <div id=\"lightBeam\" style=\"width:100px; height:50px; background:yellow; margin:auto; filter:blur(15px); opacity:0;\"></div>\n        </div>\n        {{QUIZ_em_s4_q1}}\n    "
+        "content": "\n        <p>Induktion ist das Gegenteil vom Elektromagneten: Hier erzeugt <strong>Bewegung</strong> Strom. Wenn sich ein Magnetfeld in einer Spule ändert, fangen die Elektronen an zu fließen.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Schüttel-Generator</h3>\n            <p>Klicke schnell auf die Lampe, um sie zu laden:</p>\n            <div id=\"flashlight\" style=\"cursor: pointer; font-size: 50px;\" onclick=\"shakeFlashlight()\">🔦</div>\n            <p>Ladung: <span id=\"energyLevel\">0</span>%</p>\n            <div id=\"lightBeam\" style=\"width:100px; height:50px; background:yellow; margin:auto; filter:blur(15px); opacity:0;\"></div>\n        </div>\n        {{QUIZ_em_s4_q1}}\n    "
       },
       {
-        "id": "sec4",
-        "title": "5. Der Transformator",
+        "id": "sec_transformer",
+        "title": "6. Der Transformator: Spannungs-Wechsel",
         "quizzes": [
           {
             "id": "em_s5_q1",
-            "question": "Was macht ein Transformator?",
+            "question": "Warum funktioniert ein Transformator nur mit Wechselstrom?",
             "answers": [
-              { "text": "Er ändert die Höhe der Spannung.", "correct": true, "pts": 10 },
-              { "text": "Er verwandelt Strom in Benzin.", "correct": false, "pts": 5 }
+              {
+                "text": "Weil sich das Magnetfeld ständig ändern muss, um in der zweiten Spule Strom zu induzieren.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Weil Gleichstrom zu schwach für den Eisenkern ist.",
+                "correct": false,
+                "pts": 5
+              }
             ]
           }
         ],
-        "content": "\n        <p>Ein Transformator nutzt zwei Spulen auf einem Eisenring. Er kann hohe Spannung in niedrige Spannung verwandeln (z.B. für dein Handyladegerät) oder umgekehrt.</p>\n        <div class=\"interactive-zone\">\n            <h3>⚡ Spannungs-Wandler</h3>\n            <p>Ändere die Windungszahl der zweiten Spule:</p>\n            <input type=\"range\" id=\"transRange\" min=\"1\" max=\"10\" value=\"5\" oninput=\"updateTransformer(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"100\" y=\"30\" width=\"200\" height=\"90\" fill=\"none\" stroke=\"#718096\" stroke-width=\"15\"></rect>\n                    <g id=\"coil1\">\n                        <path d=\"M 100 40 L 120 45 M 100 60 L 120 65 M 100 80 L 120 85\" stroke=\"#ED8936\" stroke-width=\"4\"></path>\n                    </g>\n                    <g id=\"coil2\"></g>\n                    <text x=\"200\" y=\"145\" text-anchor=\"middle\" id=\"transText\" fill=\"white\">Übersetzung: 1:1</text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s5_q1}}\n    "
+        "content": "\n        <p>Ein Transformator besteht aus zwei getrennten Spulen auf einem gemeinsamen <strong>Eisenkern</strong>. Er nutzt die <strong>gegenseitige Induktion</strong>:</p>\n        <ul>\n            <li>Die <strong>Primärspule</strong> erzeugt durch Wechselstrom ein sich ständig änderndes Magnetfeld.</li>\n            <li>Der Eisenkern leitet diesen <strong>Magnetfluss</strong> zur zweiten Spule weiter.</li>\n            <li>In der <strong>Sekundärspule</strong> wird dadurch eine neue Spannung induziert.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>⚡ Der Spannungs-Wandler</h3>\n            <p>Ändere die Windungszahl der Sekundärspule (rechts):</p>\n            <input type=\"range\" id=\"transRange\" min=\"1\" max=\"10\" value=\"5\" oninput=\"updateTransformer(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c; padding: 20px;\">\n                <svg width=\"400\" height=\"220\" viewBox=\"0 0 400 220\">\n                    <defs>\n                        <radialGradient id=\"fluxGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n                            <stop offset=\"0%\" stop-color=\"#2196F3\" stop-opacity=\"0.4\" />\n                            <stop offset=\"100%\" stop-color=\"#2196F3\" stop-opacity=\"0\" />\n                        </radialGradient>\n                    </defs>\n                    <rect x=\"80\" y=\"40\" width=\"240\" height=\"120\" fill=\"none\" stroke=\"#4a5568\" stroke-width=\"25\"></rect>\n                    <rect id=\"fluxField\" x=\"65\" y=\"25\" width=\"270\" height=\"150\" fill=\"url(#fluxGlow)\" opacity=\"0.5\"></rect>\n                    <rect id=\"magneticFlux\" x=\"80\" y=\"40\" width=\"240\" height=\"120\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\" \n                          stroke-dasharray=\"10,10\" style=\"animation: dash 2s linear infinite;\"></rect>\n                    <g id=\"coil1\">\n                        <path d=\"M 85 60 L 115 65 M 85 80 L 115 85 M 85 100 L 115 105 M 85 120 L 115 125 M 85 140 L 115 145\" stroke=\"#ED8936\" stroke-width=\"6\"></path>\n                        <text x=\"65\" y=\"185\" fill=\"#ED8936\" font-size=\"12\" text-anchor=\"middle\">Primär</text>\n                        <circle r=\"3\" fill=\"yellow\"><animateMotion path=\"M 85 60 L 115 65 M 85 140 L 115 145\" dur=\"1s\" repeatCount=\"indefinite\" /></circle>\n                    </g>\n                    <g id=\"coil2\"></g>\n                    <text x=\"335\" y=\"185\" fill=\"#ED8936\" font-size=\"12\" text-anchor=\"middle\">Sekundär</text>\n                    <rect x=\"20\" y=\"60\" width=\"15\" height=\"100\" fill=\"#2d3748\"></rect>\n                    <rect id=\"voltBarPri\" x=\"20\" y=\"110\" width=\"15\" height=\"50\" fill=\"#2196F3\"></rect>\n                    <rect x=\"365\" y=\"60\" width=\"15\" height=\"100\" fill=\"#2d3748\"></rect>\n                    <rect id=\"voltBarSec\" x=\"365\" y=\"110\" width=\"15\" height=\"50\" fill=\"#4CAF50\"></rect>\n                    <text id=\"voltValSec\" x=\"372\" y=\"175\" fill=\"white\" font-size=\"10\" text-anchor=\"middle\">230V</text>\n                    <text x=\"200\" y=\"210\" text-anchor=\"middle\" id=\"transText\" fill=\"white\" font-weight=\"bold\">Übersetzung: 1:1</text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s5_q1}}\n    "
       }
     ],
     "diplom": {
       "title": "🎓 Das große Magnet-Diplom",
       "questions": [
-        { "id": "em_d1", "question": "Wer entdeckte den Zusammenhang zwischen Strom und Magnetismus?", "answers": [{ "text": "Hans Christian Ørsted", "correct": true, "pts": 5 }, { "text": "Isaac Newton", "correct": false, "pts": 5 }] },
-        { "id": "em_d2", "question": "Was entsteht um jeden stromdurchflossenen Leiter?", "answers": [{ "text": "Ein Magnetfeld", "correct": true, "pts": 5 }, { "text": "Ein Vakuum", "correct": false, "pts": 5 }] },
-        { "id": "em_d3", "question": "Wie nennt man eine aufgewickelte Drahtrolle?", "answers": [{ "text": "Spule", "correct": true, "pts": 5 }, { "text": "Kondensator", "correct": false, "pts": 5 }] },
-        { "id": "em_d4", "question": "Welches Material eignet sich am besten als Kern für einen Elektromagneten?", "answers": [{ "text": "Eisen", "correct": true, "pts": 5 }, { "text": "Aluminium", "correct": false, "pts": 5 }] },
-        { "id": "em_d5", "question": "Was passiert mit der Magnetkraft, wenn man mehr Windungen auf eine Spule wickelt?", "answers": [{ "text": "Sie wird stärker.", "correct": true, "pts": 5 }, { "text": "Sie wird schwächer.", "correct": false, "pts": 5 }] },
-        { "id": "em_d6", "question": "Wie nennt man die Kraft, die Elektronen im Magnetfeld zur Seite schiebt?", "answers": [{ "text": "Lorentzkraft", "correct": true, "pts": 5 }, { "text": "Zentrifugalkraft", "correct": false, "pts": 5 }] },
-        { "id": "em_d7", "question": "Welches Gerät wandelt elektrische Energie in Bewegung um?", "answers": [{ "text": "Elektromotor", "correct": true, "pts": 5 }, { "text": "Generator", "correct": false, "pts": 5 }] },
-        { "id": "em_d8", "question": "Was ist das Prinzip eines Fahrraddynamos?", "answers": [{ "text": "Induktion", "correct": true, "pts": 5 }, { "text": "Widerstand", "correct": false, "pts": 5 }] },
-        { "id": "em_d9", "question": "Was muss sich ändern, damit in einer Spule Strom induziert wird?", "answers": [{ "text": "Das Magnetfeld", "correct": true, "pts": 5 }, { "text": "Die Farbe des Drahtes", "correct": false, "pts": 5 }] },
-        { "id": "em_d10", "question": "Wie nennt man ein Gerät, das Spannungen herauf- oder heruntersetzt?", "answers": [{ "text": "Transformator", "correct": true, "pts": 5 }, { "text": "Transistor", "correct": false, "pts": 5 }] },
-        { "id": "em_d11", "question": "Warum sind Feldlinien eines Magneten oft als geschlossene Kreise gezeichnet?", "answers": [{ "text": "Weil Magnetfelder keine Pole haben, die irgendwo anfangen oder aufhören.", "correct": true, "pts": 5 }, { "text": "Weil Kreise schöner aussehen.", "correct": false, "pts": 5 }] },
-        { "id": "em_d12", "question": "Kann man mit einem Permanentmagneten (Dauermagnet) Strom induzieren?", "answers": [{ "text": "Ja, wenn man ihn relativ zur Spule bewegt.", "correct": true, "pts": 5 }, { "text": "Nein, das geht nur mit Batterien.", "correct": false, "pts": 5 }] },
-        { "id": "em_d13", "question": "Wo finden wir im Alltag überall Elektromagnete?", "answers": [{ "text": "In Klingeln, Lautsprechern und Kränen auf dem Schrottplatz.", "correct": true, "pts": 5 }, { "text": "In Holzstühlen und Plastikflaschen.", "correct": false, "pts": 5 }] },
-        { "id": "em_d14", "question": "Was passiert bei der Lorentzkraft?", "answers": [{ "text": "Nord- und Südpol vertauschen sich.", "correct": true, "pts": 5 }, { "text": "Der Magnet geht kaputt.", "correct": false, "pts": 5 }] },
-        { "id": "em_d15", "question": "Welche Energieumwandlung findet in einem Windrad-Generator statt?", "answers": [{ "text": "Bewegungsenergie zu elektrischer Energie.", "correct": true, "pts": 5 }, { "text": "Lichtenergie zu Wärmeenergie.", "correct": false, "pts": 5 }] }
+        {
+          "id": "em_d1",
+          "question": "Wer entdeckte 1820 den Elektromagnetismus?",
+          "answers": [
+            {
+              "text": "Hans Christian Ørsted",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Isaac Newton",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d2",
+          "question": "Was entsteht um jeden stromdurchflossenen Leiter?",
+          "answers": [
+            {
+              "text": "Ein Magnetfeld",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein Vakuum",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d3",
+          "question": "Wie nennt man eine aufgewickelte Drahtrolle?",
+          "answers": [
+            {
+              "text": "Spule",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Kondensator",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d4",
+          "question": "Welches Material eignet sich am besten als Kern für einen Elektromagneten?",
+          "answers": [
+            {
+              "text": "Eisen",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Aluminium",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d5",
+          "question": "Was passiert mit der Magnetkraft, wenn man mehr Windungen auf eine Spule wickelt?",
+          "answers": [
+            {
+              "text": "Sie wird stärker.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Sie wird schwächer.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d6",
+          "question": "Wie nennt man die Kraft auf bewegte Ladungen im Magnetfeld?",
+          "answers": [
+            {
+              "text": "Lorentzkraft",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Zentrifugalkraft",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d7",
+          "question": "Welches Gerät wandelt elektrische Energie in Bewegung um?",
+          "answers": [
+            {
+              "text": "Elektromotor",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Generator",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d8",
+          "question": "Was ist das Prinzip eines Fahrraddynamos?",
+          "answers": [
+            {
+              "text": "Induktion",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Widerstand",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d9",
+          "question": "Was muss sich ändern, damit in einer Spule Strom induziert wird?",
+          "answers": [
+            {
+              "text": "Das Magnetfeld",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Die Farbe des Drahtes",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d10",
+          "question": "Wie nennt man ein Gerät, das Spannungen herauf- oder heruntersetzt?",
+          "answers": [
+            {
+              "text": "Transformator",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Transistor",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d11",
+          "question": "Warum sind Feldlinien eines Magneten oft als geschlossene Kreise gezeichnet?",
+          "answers": [
+            {
+              "text": "Weil Magnetfelder keine Pole haben, die irgendwo anfangen oder aufhören.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Weil Kreise schöner aussehen.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d12",
+          "question": "Kann man mit einem Permanentmagneten Strom induzieren?",
+          "answers": [
+            {
+              "text": "Ja, wenn man ihn relativ zur Spule bewegt.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Nein, das geht nur mit Batterien.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d13",
+          "question": "Wo finden wir im Alltag überall Elektromagnete?",
+          "answers": [
+            {
+              "text": "In Klingeln, Lautsprechern und Kränen.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "In Holzstühlen.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d14",
+          "question": "Was passiert bei der Lorentzkraft?",
+          "answers": [
+            {
+              "text": "Ein Draht bekommt im Magnetfeld einen Schubs.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Der Magnet schmilzt.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "em_d15",
+          "question": "Welche Energieumwandlung findet in einem Generator statt?",
+          "answers": [
+            {
+              "text": "Bewegungsenergie zu elektrischer Energie.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Lichtenergie zu Wärme.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
       ]
     }
   },
@@ -2234,96 +2522,192 @@
           "id": "farben_diplom_3",
           "question": "4. Wie nennt man den Sprung eines Elektrons auf eine höhere Bahn?",
           "answers": [
-            { "text": "Quantensprung", "correct": true, "pts": 5 },
-            { "text": "Hüpfer", "correct": false, "pts": 5 }
+            {
+              "text": "Quantensprung",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Hüpfer",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_4",
           "question": "5. Welche Farbe hat Licht mit der niedrigsten Energie?",
           "answers": [
-            { "text": "Rot", "correct": true, "pts": 5 },
-            { "text": "Blau", "correct": false, "pts": 5 }
+            {
+              "text": "Rot",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Blau",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_5",
           "question": "6. Was passiert in einem Prisma mit weißem Licht?",
           "answers": [
-            { "text": "Es wird in Spektralfarben zerlegt.", "correct": true, "pts": 5 },
-            { "text": "Es wird komplett verschluckt.", "correct": false, "pts": 5 }
+            {
+              "text": "Es wird in Spektralfarben zerlegt.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Es wird komplett verschluckt.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_6",
           "question": "7. Welche Farbe wird am stärksten gebrochen?",
           "answers": [
-            { "text": "Violett/Blau", "correct": true, "pts": 5 },
-            { "text": "Rot", "correct": false, "pts": 5 }
+            {
+              "text": "Violett/Blau",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Rot",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_7",
           "question": "8. Was ist die Wellenlänge?",
           "answers": [
-            { "text": "Abstand zwischen zwei Wellenbergen.", "correct": true, "pts": 5 },
-            { "text": "Die Höhe der Welle.", "correct": false, "pts": 5 }
+            {
+              "text": "Abstand zwischen zwei Wellenbergen.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Die Höhe der Welle.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_8",
           "question": "9. Warum ist ein Blatt grün?",
           "answers": [
-            { "text": "Es reflektiert grünes Licht und absorbiert den Rest.", "correct": true, "pts": 5 },
-            { "text": "Es leuchtet von selbst grün.", "correct": false, "pts": 5 }
+            {
+              "text": "Es reflektiert grünes Licht und absorbiert den Rest.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Es leuchtet von selbst grün.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_9",
           "question": "10. Was ist Licht physikalisch gesehen?",
           "answers": [
-            { "text": "Eine elektromagnetische Welle.", "correct": true, "pts": 5 },
-            { "text": "Ein fester Stoff.", "correct": false, "pts": 5 }
+            {
+              "text": "Eine elektromagnetische Welle.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein fester Stoff.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_10",
           "question": "11. Was passiert, wenn alle Farben gemischt werden (Licht)?",
           "answers": [
-            { "text": "Es entsteht weißes Licht.", "correct": true, "pts": 5 },
-            { "text": "Es entsteht schwarzes Licht.", "correct": false, "pts": 5 }
+            {
+              "text": "Es entsteht weißes Licht.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Es entsteht schwarzes Licht.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_11",
           "question": "12. Welches Gerät zerlegt Licht wie ein Regenbogen?",
           "answers": [
-            { "text": "Prisma", "correct": true, "pts": 5 },
-            { "text": "Hammer", "correct": false, "pts": 5 }
+            {
+              "text": "Prisma",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Hammer",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_12",
           "question": "13. Wie schnell ist das Licht ungefähr?",
           "answers": [
-            { "text": "300.000 km pro Sekunde.", "correct": true, "pts": 5 },
-            { "text": "100 km pro Stunde.", "correct": false, "pts": 5 }
+            {
+              "text": "300.000 km pro Sekunde.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "100 km pro Stunde.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_13",
           "question": "14. Was braucht ein Elektron, um auf eine äußere Bahn zu springen?",
           "answers": [
-            { "text": "Energie-Zufuhr.", "correct": true, "pts": 5 },
-            { "text": "Einen Keks.", "correct": false, "pts": 5 }
+            {
+              "text": "Energie-Zufuhr.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Einen Keks.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "farben_diplom_14",
           "question": "15. Welche Farbe hat die Sonne wirklich (außerhalb der Atmosphäre)?",
           "answers": [
-            { "text": "Weiß", "correct": true, "pts": 5 },
-            { "text": "Gelb", "correct": false, "pts": 5 }
+            {
+              "text": "Weiß",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Gelb",
+              "correct": false,
+              "pts": 5
+            }
           ]
         }
       ]
@@ -2707,8 +3091,16 @@
             "id": "ls_s1_q1",
             "question": "In welcher Form breitet sich Licht normalerweise aus?",
             "answers": [
-              { "text": "In Schlangenlinien.", "correct": false, "pts": 10 },
-              { "text": "In absolut geraden Strahlen.", "correct": true, "pts": 10 }
+              {
+                "text": "In Schlangenlinien.",
+                "correct": false,
+                "pts": 10
+              },
+              {
+                "text": "In absolut geraden Strahlen.",
+                "correct": true,
+                "pts": 10
+              }
             ]
           }
         ],
@@ -2722,8 +3114,16 @@
             "id": "ls_s2_q1",
             "question": "Was ist der Halbschatten?",
             "answers": [
-              { "text": "Der Bereich, in den gar kein Licht gelangt.", "correct": false, "pts": 10 },
-              { "text": "Der Bereich, in den nur das Licht einer von zwei Lampen gelangt.", "correct": true, "pts": 15 }
+              {
+                "text": "Der Bereich, in den gar kein Licht gelangt.",
+                "correct": false,
+                "pts": 10
+              },
+              {
+                "text": "Der Bereich, in den nur das Licht einer von zwei Lampen gelangt.",
+                "correct": true,
+                "pts": 15
+              }
             ]
           }
         ],
@@ -2737,8 +3137,16 @@
             "id": "ls_s3_q1",
             "question": "Wer wirft bei einer Sonnenfinsternis den Schatten auf die Erde?",
             "answers": [
-              { "text": "Die Erde selbst.", "correct": false, "pts": 10 },
-              { "text": "Der Mond.", "correct": true, "pts": 15 }
+              {
+                "text": "Die Erde selbst.",
+                "correct": false,
+                "pts": 10
+              },
+              {
+                "text": "Der Mond.",
+                "correct": true,
+                "pts": 15
+              }
             ]
           }
         ],
@@ -2752,8 +3160,16 @@
             "id": "ls_s4_q1",
             "question": "Was passiert bei einer Mondfinsternis?",
             "answers": [
-              { "text": "Der Mond taucht in den Schatten der Erde ein.", "correct": true, "pts": 15 },
-              { "text": "Die Sonne geht hinter dem Mond unter.", "correct": false, "pts": 10 }
+              {
+                "text": "Der Mond taucht in den Schatten der Erde ein.",
+                "correct": true,
+                "pts": 15
+              },
+              {
+                "text": "Die Sonne geht hinter dem Mond unter.",
+                "correct": false,
+                "pts": 10
+              }
             ]
           }
         ],
@@ -2763,21 +3179,246 @@
     "diplom": {
       "title": "🎓 Das Licht & Schatten Diplom",
       "questions": [
-        { "id": "ls_d1", "question": "Wie breitet sich Licht von einer Taschenlampe aus?", "answers": [{ "text": "In geraden Linien.", "correct": true, "pts": 5 }, { "text": "In Wellen, die um Ecken biegen.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d2", "question": "Was braucht man zwingend, um einen Schatten zu erzeugen?", "answers": [{ "text": "Eine Lichtquelle und einen undurchsichtigen Körper.", "correct": true, "pts": 5 }, { "text": "Nur eine sehr starke Lampe.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d3", "question": "Warum ist der Kernschatten dunkler als der Halbschatten?", "answers": [{ "text": "Weil dort überhaupt kein Licht der Lichtquellen hinkommt.", "correct": true, "pts": 5 }, { "text": "Weil dort das Licht reflektiert wird.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d4", "question": "Was passiert mit einem Schatten, wenn man das Hindernis näher zur Lampe schiebt?", "answers": [{ "text": "Der Schatten wird größer.", "correct": true, "pts": 5 }, { "text": "Der Schatten wird kleiner.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d5", "question": "Wer wirft bei einer Sonnenfinsternis den Schatten auf die Erde?", "answers": [{ "text": "Der Mond.", "correct": true, "pts": 5 }, { "text": "Die Sonne.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d6", "question": "Wann spricht man von einer totalen Sonnenfinsternis?", "answers": [{ "text": "Wenn man im Kernschatten des Mondes steht.", "correct": true, "pts": 5 }, { "text": "Wenn man im Halbschatten steht.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d7", "question": "Ist der Mond eine Lichtquelle?", "answers": [{ "text": "Nein, er reflektiert nur das Sonnenlicht.", "correct": true, "pts": 5 }, { "text": "Ja, er leuchtet von selbst.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d8", "question": "Was steht bei einer Mondfinsternis zwischen Sonne und Mond?", "answers": [{ "text": "Die Erde.", "correct": true, "pts": 5 }, { "text": "Ein Asteroid.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d9", "question": "Wie nennt man den Bereich, in dem sich die Schatten zweier Lampen überschneiden?", "answers": [{ "text": "Kernschatten.", "correct": true, "pts": 5 }, { "text": "Vollschatten.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d10", "question": "Warum sehen wir Gegenstände, die nicht selbst leuchten (z.B. ein Buch)?", "answers": [{ "text": "Weil sie Licht in unser Auge reflektieren.", "correct": true, "pts": 5 }, { "text": "Weil sie im Dunkeln glühen.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d11", "question": "Welche Farbe hat der Mond oft während einer totalen Mondfinsternis?", "answers": [{ "text": "Rötlich (Blutmond).", "correct": true, "pts": 5 }, { "text": "Grünlich.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d12", "question": "Kann ein Schatten farbig sein?", "answers": [{ "text": "Ja, wenn man verschiedenfarbige Lichtquellen nutzt.", "correct": true, "pts": 5 }, { "text": "Nein, Schatten sind immer nur schwarz.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d13", "question": "Wie nennt man die Strahlen, die gerade noch am Rand eines Körpers vorbeigehen?", "answers": [{ "text": "Randstrahlen.", "correct": true, "pts": 5 }, { "text": "Grenzstrahlen.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d14", "question": "Was ist schneller: Das Licht oder der Schall?", "answers": [{ "text": "Das Licht (300.000 km/s).", "correct": true, "pts": 5 }, { "text": "Der Schall.", "correct": false, "pts": 5 }] },
-        { "id": "ls_d15", "question": "Warum gibt es auf der Erde Tag und Nacht?", "answers": [{ "text": "Weil sich die Erde um ihre eigene Achse dreht und eine Seite im Schatten liegt.", "correct": true, "pts": 5 }, { "text": "Weil die Sonne nachts ausgeht.", "correct": false, "pts": 5 }] }
+        {
+          "id": "ls_d1",
+          "question": "Wie breitet sich Licht von einer Taschenlampe aus?",
+          "answers": [
+            {
+              "text": "In geraden Linien.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "In Wellen, die um Ecken biegen.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d2",
+          "question": "Was braucht man zwingend, um einen Schatten zu erzeugen?",
+          "answers": [
+            {
+              "text": "Eine Lichtquelle und einen undurchsichtigen Körper.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Nur eine sehr starke Lampe.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d3",
+          "question": "Warum ist der Kernschatten dunkler als der Halbschatten?",
+          "answers": [
+            {
+              "text": "Weil dort überhaupt kein Licht der Lichtquellen hinkommt.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Weil dort das Licht reflektiert wird.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d4",
+          "question": "Was passiert mit einem Schatten, wenn man das Hindernis näher zur Lampe schiebt?",
+          "answers": [
+            {
+              "text": "Der Schatten wird größer.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Der Schatten wird kleiner.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d5",
+          "question": "Wer wirft bei einer Sonnenfinsternis den Schatten auf die Erde?",
+          "answers": [
+            {
+              "text": "Der Mond.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Die Sonne.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d6",
+          "question": "Wann spricht man von einer totalen Sonnenfinsternis?",
+          "answers": [
+            {
+              "text": "Wenn man im Kernschatten des Mondes steht.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Wenn man im Halbschatten steht.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d7",
+          "question": "Ist der Mond eine Lichtquelle?",
+          "answers": [
+            {
+              "text": "Nein, er reflektiert nur das Sonnenlicht.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ja, er leuchtet von selbst.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d8",
+          "question": "Was steht bei einer Mondfinsternis zwischen Sonne und Mond?",
+          "answers": [
+            {
+              "text": "Die Erde.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein Asteroid.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d9",
+          "question": "Wie nennt man den Bereich, in dem sich die Schatten zweier Lampen überschneiden?",
+          "answers": [
+            {
+              "text": "Kernschatten.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Vollschatten.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d10",
+          "question": "Warum sehen wir Gegenstände, die nicht selbst leuchten (z.B. ein Buch)?",
+          "answers": [
+            {
+              "text": "Weil sie Licht in unser Auge reflektieren.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Weil sie im Dunkeln glühen.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d11",
+          "question": "Welche Farbe hat der Mond oft während einer totalen Mondfinsternis?",
+          "answers": [
+            {
+              "text": "Rötlich (Blutmond).",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Grünlich.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d12",
+          "question": "Kann ein Schatten farbig sein?",
+          "answers": [
+            {
+              "text": "Ja, wenn man verschiedenfarbige Lichtquellen nutzt.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Nein, Schatten sind immer nur schwarz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d13",
+          "question": "Wie nennt man die Strahlen, die gerade noch am Rand eines Körpers vorbeigehen?",
+          "answers": [
+            {
+              "text": "Randstrahlen.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Grenzstrahlen.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d14",
+          "question": "Was ist schneller: Das Licht oder der Schall?",
+          "answers": [
+            {
+              "text": "Das Licht (300.000 km/s).",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Der Schall.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "ls_d15",
+          "question": "Warum gibt es auf der Erde Tag und Nacht?",
+          "answers": [
+            {
+              "text": "Weil sich die Erde um ihre eigene Achse dreht und eine Seite im Schatten liegt.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Weil die Sonne nachts ausgeht.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
       ]
     }
   },
@@ -2908,8 +3549,16 @@
             "id": "linsen_s6_q0",
             "question": "Wie viele Linsen braucht ein einfaches Mikroskop mindestens?",
             "answers": [
-              { "text": "Zwei (Objektiv und Okular).", "correct": true, "pts": 10 },
-              { "text": "Nur eine reicht.", "correct": false, "pts": 5 }
+              {
+                "text": "Zwei (Objektiv und Okular).",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nur eine reicht.",
+                "correct": false,
+                "pts": 5
+              }
             ]
           }
         ],
@@ -3330,93 +3979,180 @@
           "id": "optik1_diplom_4",
           "question": "5. Wie schnell ist das Licht?",
           "answers": [
-            { "text": "Ca. 300.000 km/s", "correct": true, "pts": 5 },
-            { "text": "Ca. 300 km/h", "correct": false, "pts": 5 }
+            {
+              "text": "Ca. 300.000 km/s",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ca. 300 km/h",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_5",
           "question": "6. Was passiert bei der Brechung am Übergang von Luft zu Wasser?",
           "answers": [
-            { "text": "Der Strahl knickt zum Lot hin.", "correct": true, "pts": 5 },
-            { "text": "Der Strahl verschwindet.", "correct": false, "pts": 5 }
+            {
+              "text": "Der Strahl knickt zum Lot hin.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Der Strahl verschwindet.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_6",
           "question": "7. Wie nennt man den Winkel, in dem Licht auf einen Spiegel trifft?",
           "answers": [
-            { "text": "Einfallswinkel", "correct": true, "pts": 5 },
-            { "text": "Abprallwinkel", "correct": false, "pts": 5 }
+            {
+              "text": "Einfallswinkel",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Abprallwinkel",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_7",
           "question": "8. Was gilt für Reflexion an ebenen Spiegeln?",
           "answers": [
-            { "text": "Einfallswinkel = Ausfallswinkel", "correct": true, "pts": 5 },
-            { "text": "Einfallswinkel ist doppelt so groß", "correct": false, "pts": 5 }
+            {
+              "text": "Einfallswinkel = Ausfallswinkel",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Einfallswinkel ist doppelt so groß",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_8",
           "question": "9. Was ist eine natürliche Lichtquelle?",
           "answers": [
-            { "text": "Die Sonne", "correct": true, "pts": 5 },
-            { "text": "Der Mond (reflektiert nur)", "correct": false, "pts": 5 }
+            {
+              "text": "Die Sonne",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Der Mond (reflektiert nur)",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_9",
           "question": "10. Warum sehen wir den Mond?",
           "answers": [
-            { "text": "Weil er das Sonnenlicht reflektiert.", "correct": true, "pts": 5 },
-            { "text": "Weil er aus glühendem Käse besteht.", "correct": false, "pts": 5 }
+            {
+              "text": "Weil er das Sonnenlicht reflektiert.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Weil er aus glühendem Käse besteht.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_10",
           "question": "11. Was ist ein 'optisch dichteres' Medium?",
           "answers": [
-            { "text": "Ein Stoff, in dem Licht langsamer ist (z.B. Glas).", "correct": true, "pts": 5 },
-            { "text": "Ein Stoff, der sehr schwer ist.", "correct": false, "pts": 5 }
+            {
+              "text": "Ein Stoff, in dem Licht langsamer ist (z.B. Glas).",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein Stoff, der sehr schwer ist.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_11",
           "question": "12. Wohin knickt der Strahl beim Übergang vom dichteren zum dünneren Medium?",
           "answers": [
-            { "text": "Vom Lot weg.", "correct": true, "pts": 5 },
-            { "text": "Zum Lot hin.", "correct": false, "pts": 5 }
+            {
+              "text": "Vom Lot weg.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Zum Lot hin.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_12",
           "question": "13. Was ist ein virtuelles Bild?",
           "answers": [
-            { "text": "Ein Bild, das man im Spiegel sieht, aber nicht anfassen kann.", "correct": true, "pts": 5 },
-            { "text": "Ein Bild auf einem Computerbildschirm.", "correct": false, "pts": 5 }
+            {
+              "text": "Ein Bild, das man im Spiegel sieht, aber nicht anfassen kann.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein Bild auf einem Computerbildschirm.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_13",
           "question": "14. Welches Phänomen erklärt den 'gebrochenen' Löffel im Wasserglas?",
           "answers": [
-            { "text": "Lichtbrechung (Refraktion)", "correct": true, "pts": 5 },
-            { "text": "Reflexion", "correct": false, "pts": 5 }
+            {
+              "text": "Lichtbrechung (Refraktion)",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Reflexion",
+              "correct": false,
+              "pts": 5
+            }
           ]
         },
         {
           "id": "optik1_diplom_14",
           "question": "15. Kann Licht um die Ecke fliegen?",
           "answers": [
-            { "text": "Nein, nur durch Spiegelung oder Brechung umgelenkt werden.", "correct": true, "pts": 5 },
-            { "text": "Ja, es fliegt Kurven wie ein Vogel.", "correct": false, "pts": 5 }
+            {
+              "text": "Nein, nur durch Spiegelung oder Brechung umgelenkt werden.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ja, es fliegt Kurven wie ein Vogel.",
+              "correct": false,
+              "pts": 5
+            }
           ]
         }
       ]
     }
-
   },
   "rechenbeispiele": {
     "title": "🧮 Das große Physik-Rechen-Abenteuer 🚀",
