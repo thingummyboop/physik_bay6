@@ -4,13 +4,16 @@ async function renderTopic() {
     const topicId = params.get('topic');
     const lang = localStorage.getItem('physik_lang') || 'de';
 
+    const container = document.getElementById('sections-container');
+
     if (!topicId) {
-        document.body.innerHTML = "<h1>Fehler: Kein Thema ausgewählt.</h1>";
+        showError("Kein Thema ausgewählt.");
         return;
     }
 
     try {
-        let response = await fetch(`../lang/${lang}.json?v=${Date.now()}`);
+        // Fetch language data (removed cache busting)
+        let response = await fetch(`../lang/${lang}.json`);
         let langData = await response.json();
         let topic = langData[topicId];
 
@@ -22,7 +25,7 @@ async function renderTopic() {
         }
 
         if (!topic) {
-            document.body.innerHTML = `<h1>Fehler: Thema "${topicId}" nicht gefunden.</h1>`;
+            showError(`Das Thema "${topicId}" wurde nicht gefunden.`);
             return;
         }
 
@@ -30,7 +33,6 @@ async function renderTopic() {
         document.getElementById('topic-title').innerHTML = topic.title;
         document.getElementById('topic-subtitle').innerHTML = topic.subtitle;
 
-        const container = document.getElementById('sections-container');
         container.innerHTML = "";
 
         topic.sections.forEach(section => {
@@ -85,12 +87,11 @@ async function renderTopic() {
             container.appendChild(diplomCard);
         }
 
-        // Load Script
+        // Load Script (Optional, with cache busting for development if needed, but removed here for performance)
         const script = document.createElement('script');
-        script.src = `../js/topics/${topicId}.js?v=${Date.now()}`;
-        script.async = false; // Ensure execution order
+        script.src = `../js/topics/${topicId}.js`;
+        script.async = false;
         script.onload = () => {
-            console.log(`Script loaded: ${topicId}`);
             if (typeof topicInit === 'function') {
                 try {
                     topicInit();
@@ -103,8 +104,36 @@ async function renderTopic() {
 
     } catch (e) {
         console.error("Render Error:", e);
-        document.body.innerHTML = "<h1>Fehler beim Laden des Themas.</h1>";
+        showError("Fehler beim Laden des Inhalts. Bitte überprüfe deine Internetverbindung.");
     }
 }
 
-document.addEventListener('DOMContentLoaded', renderTopic);
+function showError(msg) {
+    const container = document.getElementById('sections-container');
+    container.innerHTML = `
+        <div class="card" style="text-align: center; border-top: 4px solid #e53e3e;">
+            <h2 style="color: #e53e3e;">⚠️ Hoppla!</h2>
+            <p>${msg}</p>
+            <button onclick="location.reload()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Seite neu laden</button>
+        </div>
+    `;
+}
+
+// Listen for theme changes from parent
+window.addEventListener('message', (e) => {
+    if (e.data.type === 'themeChange') {
+        if (e.data.isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Sync initial theme
+    if (localStorage.getItem('physik_dark_mode') === 'true') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    renderTopic();
+});

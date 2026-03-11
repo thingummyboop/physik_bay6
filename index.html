@@ -49,17 +49,17 @@
     </style>
 </head>
 <body>
-    <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menü umschalten" aria-expanded="true">☰</button>
     <button id="zeugnis-btn" onclick="loadPage('topics/dashboard.html', null)">🎓 Mein Zeugnis</button>
     <div id="sidebar">
         <div class="sidebar-header">
             <div style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; padding: 5px 0 15px 0;">
-                <button onclick="setLanguage('de')" class="lang-btn" id="lang-de">DE</button>
-                <button onclick="setLanguage('en')" class="lang-btn" id="lang-en">EN</button>
-                <button onclick="setLanguage('ar')" class="lang-btn" id="lang-ar">AR</button>
-                <button onclick="setLanguage('uk')" class="lang-btn" id="lang-uk">UK</button>
-                <button onclick="setLanguage('sr')" class="lang-btn" id="lang-sr">SR</button>
-                <button onclick="setLanguage('tr')" class="lang-btn" id="lang-tr">TR</button>
+                <button onclick="setLanguage('de')" class="lang-btn" id="lang-de" title="Deutsch">DE</button>
+                <button onclick="setLanguage('en')" class="lang-btn" id="lang-en" title="English">EN</button>
+                <button onclick="setLanguage('ar')" class="lang-btn" id="lang-ar" title="العربية">AR</button>
+                <button onclick="setLanguage('uk')" class="lang-btn" id="lang-uk" title="Українська">UK</button>
+                <button onclick="setLanguage('sr')" class="lang-btn" id="lang-sr" title="Српски">SR</button>
+                <button onclick="setLanguage('tr')" class="lang-btn" id="lang-tr" title="Türkçe">TR</button>
             </div>
             <h1>🚀 Physik-Abenteuer</h1>
             <div style="margin-top: 10px; background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid #3b82f6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);">
@@ -67,33 +67,34 @@
                     🏆 <span id="global-score-val">0</span> Punkte
                 </div>
                 <div style="display: flex; gap: 5px;">
-                    <button onclick="toggleDarkMode()" style="flex: 1; background: #475569; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Nachtmodus 🌙</button>
+                    <button onclick="toggleDarkMode()" id="dark-mode-toggle" style="flex: 1; background: #475569; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Nachtmodus 🌙</button>
                     <button onclick="resetProgress()" style="flex: 1; background: #e53e3e; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Reset 🔄</button>
                 </div>
             </div>
         </div>
         
         <div class="grade-section">📚 2. Klasse (6. Schulstufe)</div>
-        <button class="nav-btn" onclick="loadPage('optik1', this)">🌑 1. Licht & Schatten (Komplett)</button>
-        <button class="nav-btn" onclick="loadPage('farben', this)">🎨 2. Farben & Sehen</button>
-        <button class="nav-btn" onclick="loadPage('waermelehre', this)">🌡️ 3. Wärmelehre</button>
-        <button class="nav-btn" onclick="loadPage('elektrizitaet', this)">⚡ 4. Elektrizität 1</button>
+        <button class="nav-btn" data-page="optik1" onclick="loadPage('optik1', this)">🌑 1. Licht & Schatten (Komplett)</button>
+        <button class="nav-btn" data-page="farben" onclick="loadPage('farben', this)">🎨 2. Farben & Sehen</button>
+        <button class="nav-btn" data-page="waermelehre" onclick="loadPage('waermelehre', this)">🌡️ 3. Wärmelehre</button>
+        <button class="nav-btn" data-page="elektrizitaet" onclick="loadPage('elektrizitaet', this)">⚡ 4. Elektrizität 1</button>
 
-        <div class="grade-section">📚 3. Klasse (7. Schulstufe)</div>        <button class="nav-btn" onclick="loadPage('kraft_und_bewegung', this)">🚀 6. Kraft & Bewegung</button>
-        <button class="nav-btn" onclick="loadPage('drehundstatik', this)">🎡 7. Statik & Hebel</button>
-        <button class="nav-btn" onclick="loadPage('arbeit', this)">🏗 8. Mechanische Arbeit</button>
-        <button class="nav-btn" onclick="loadPage('energie', this)">🔋 9. Energieformen</button>
-        <button class="nav-btn" onclick="loadPage('akustik', this)">🎶 10. Akustik</button>
+        <div class="grade-section">📚 3. Klasse (7. Schulstufe)</div>
+        <button class="nav-btn" data-page="kraft_und_bewegung" onclick="loadPage('kraft_und_bewegung', this)">🚀 6. Kraft & Bewegung</button>
+        <button class="nav-btn" data-page="drehundstatik" onclick="loadPage('drehundstatik', this)">🎡 7. Statik & Hebel</button>
+        <button class="nav-btn" data-page="arbeit" onclick="loadPage('arbeit', this)">🏗 8. Mechanische Arbeit</button>
+        <button class="nav-btn" data-page="energie" onclick="loadPage('energie', this)">🔋 9. Energieformen</button>
+        <button class="nav-btn" data-page="akustik" onclick="loadPage('akustik', this)">🎶 10. Akustik</button>
 
         <div class="grade-section">📚 4. Klasse (8. Schulstufe)</div>
-        <button class="nav-btn" onclick="loadPage('elektromagnetismus', this)">🧲 11. Elektromagnetismus & Motoren</button>
-        <button class="nav-btn" onclick="loadPage('linsen_spiegel', this)">🔍 12. Linsen & Spiegel</button>
-        <button class="nav-btn" onclick="loadPage('astronomie', this)">🌌 13. Astronomie</button>
+        <button class="nav-btn" data-page="elektromagnetismus" onclick="loadPage('elektromagnetismus', this)">🧲 11. Elektromagnetismus & Motoren</button>
+        <button class="nav-btn" data-page="linsen_spiegel" onclick="loadPage('linsen_spiegel', this)">🔍 12. Linsen & Spiegel</button>
+        <button class="nav-btn" data-page="astronomie" onclick="loadPage('astronomie', this)">🌌 13. Astronomie</button>
         
         <div class="grade-section">⚙️ Sonstiges</div>
-        <button class="nav-btn" onclick="loadPage('sieinheiten', this)">📏 SI-Einheiten</button>
-        <button class="nav-btn" onclick="loadPage('rechenbeispiele', this)">🧮 Rechenbeispiele</button>
-        <button class="nav-btn" onclick="loadPage('topics/glossar.html', this)">📖 Glossar</button>
+        <button class="nav-btn" data-page="sieinheiten" onclick="loadPage('sieinheiten', this)">📏 SI-Einheiten</button>
+        <button class="nav-btn" data-page="rechenbeispiele" onclick="loadPage('rechenbeispiele', this)">🧮 Rechenbeispiele</button>
+        <button class="nav-btn" data-page="topics/glossar.html" onclick="loadPage('topics/glossar.html', this)">📖 Glossar</button>
     </div>
     <div id="content-area"><iframe id="game-frame" name="game-frame" title="Physik Spiel"></iframe></div>
     
@@ -109,7 +110,11 @@
         });
 
         function toggleMenu() {
-            document.getElementById('sidebar').classList.toggle('collapsed');
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menu-toggle');
+            sidebar.classList.toggle('collapsed');
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            toggle.setAttribute('aria-expanded', !isCollapsed);
         }
 
         function setLanguage(l) {
@@ -125,21 +130,27 @@
             }
         }
 
-        function loadPage(page, button) {
+        function loadPage(page, button, fromHash = false) {
             localStorage.setItem('physik_current_page', page);
             let url = page;
+
+            // Update URL hash for bookmarking (unless triggered by hashchange already)
+            if (!fromHash) {
+                window.location.hash = page;
+            }
 
             // Mapping for simple topic IDs to template URL
             if (!page.includes('/') && !page.includes('.html')) {
                 url = `topics/template.html?topic=${encodeURIComponent(page)}`;
             } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template'].some(x => page.includes(x))) {
-                // Topic provided as a path, normalize it
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
                 url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
             }
 
             const frame = document.getElementById('game-frame');
-            frame.src = url;
+            if (frame.src !== window.location.origin + '/' + url && !frame.src.endsWith(url)) {
+                frame.src = url;
+            }
 
             // Highlight active button
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
@@ -147,10 +158,10 @@
                 button.classList.add('active');
                 frame.title = "Aktuelles Thema: " + button.innerText.trim();
             } else {
-                // Find button by page name if navigated via code
+                // Find button by page name if navigated via code or hash
                 document.querySelectorAll('.nav-btn').forEach(btn => {
-                    const onclick = btn.getAttribute('onclick') || "";
-                    if (onclick.includes("'" + page + "'") || onclick.includes('"' + page + '"')) {
+                    const pageAttr = btn.getAttribute('data-page');
+                    if (pageAttr === page) {
                         btn.classList.add('active');
                         frame.title = "Aktuelles Thema: " + btn.innerText.trim();
                     }
@@ -160,16 +171,46 @@
 
         function toggleDarkMode() {
             let isDark = localStorage.getItem('physik_dark_mode') === 'true';
-            localStorage.setItem('physik_dark_mode', !isDark);
-            location.reload(); 
+            isDark = !isDark;
+            localStorage.setItem('physik_dark_mode', isDark);
+            applyTheme(isDark);
+        }
+
+        function applyTheme(isDark) {
+            const btn = document.getElementById('dark-mode-toggle');
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                btn.innerHTML = "Tagmodus ☀️";
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                btn.innerHTML = "Nachtmodus 🌙";
+            }
+            
+            // Notify iframe about theme change
+            const frame = document.getElementById('game-frame');
+            if (frame.contentWindow) {
+                frame.contentWindow.postMessage({ type: 'themeChange', isDark: isDark }, '*');
+            }
         }
 
         function resetProgress() {
-            if (confirm("Möchtest du wirklich deinen gesamten Fortschritt und alle Punkte löschen?")) {
-                localStorage.clear();
-                location.reload();
+            if (confirm("Möchtest du wirklich deinen Fortschritt (Punkte) löschen?")) {
+                localStorage.removeItem('physik_score');
+                localStorage.removeItem('physik_completed_quizzes'); // Assuming this exists or for future
+                document.getElementById('global-score-val').innerText = 0;
+                
+                const frame = document.getElementById('game-frame');
+                frame.contentWindow.location.reload();
             }
         }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                loadPage(hash, null, true);
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             // Restore Score
@@ -180,12 +221,12 @@
             setLanguage(lang);
             
             // Restore Theme
+            const isDark = localStorage.getItem('physik_dark_mode') === 'true';
+            applyTheme(isDark);
             
-                document.documentElement.setAttribute('data-theme', 'dark');
-            
-            
-            // Restore Page
-            const savedPage = localStorage.getItem('physik_current_page') || 'optik1';
+            // Restore Page (Prefer Hash -> LocalStorage -> Default)
+            const hashPage = window.location.hash.substring(1);
+            const savedPage = hashPage || localStorage.getItem('physik_current_page') || 'optik1';
             loadPage(savedPage, null);
         });
     </script>
