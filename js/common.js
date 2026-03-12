@@ -146,13 +146,23 @@ function resetTopicProgress() {
     globalPhysikScore = Math.max(0, globalPhysikScore - ptsToRemove);
     localStorage.setItem('physik_score', globalPhysikScore);
 
-    // 4. Remove all IDs that start with this topicId from answered and failedOnce
-    // Also remove simple IDs if we can match them (though this is risky, we'll stick to prefixed ones)
-    const updatedAnswered = Array.from(answered).filter(id => !id.startsWith(topicId + "_"));
+    // 4. Remove all IDs associated with this topic
+    // A) Remove prefixed IDs
+    let updatedAnswered = Array.from(answered).filter(id => !id.startsWith(topicId + "_"));
+    let updatedFailed = Array.from(failedOnce).filter(id => !id.startsWith(topicId + "_"));
+
+    // B) Find and remove un-prefixed legacy IDs from the CURRENT page
+    document.querySelectorAll('.quiz-box').forEach(box => {
+        const rawId = box.getAttribute('data-id');
+        if (rawId) {
+            updatedAnswered = updatedAnswered.filter(id => id !== rawId);
+            updatedFailed = updatedFailed.filter(id => id !== rawId);
+        }
+    });
+
     answered = new Set(updatedAnswered);
     localStorage.setItem('physik_answered', JSON.stringify(updatedAnswered));
 
-    const updatedFailed = Array.from(failedOnce).filter(id => !id.startsWith(topicId + "_"));
     failedOnce = new Set(updatedFailed);
     localStorage.setItem('physik_failed_once', JSON.stringify(updatedFailed));
 
