@@ -76,6 +76,13 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 
     // Check if already solved (either as prefixed ID or as legacy ID)
     if (answered.has(id) || (legacyId && answered.has(legacyId))) {
+        if (isCorrect) {
+            btn.style.background = "var(--correct)";
+            if(fb) {
+                fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                fb.style.color = "orange";
+            }
+        }
         return;
     }
 
@@ -86,13 +93,13 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
             actualPts = Math.floor(actualPts / 2);
         }
 
-        // Disable all buttons in this box
+        // Disable ALL buttons in this box
         box.querySelectorAll('button').forEach(b => {
             b.disabled = true;
             b.style.opacity = "0.5";
         });
+        // The correct button stays visually highlighted but is technically disabled
         btn.style.opacity = "1";
-        btn.disabled = false; 
 
         answered.add(id);
         localStorage.setItem('physik_answered', JSON.stringify(Array.from(answered)));
