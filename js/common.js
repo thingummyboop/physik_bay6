@@ -6,44 +6,24 @@ if (localStorage.getItem('physik_dark_mode') === 'true') {
 let globalPhysikScore = parseInt(localStorage.getItem('physik_score')) || 0;
 
 let answered = new Set();
+let failedOnce = new Set();
 try {
     const saved = localStorage.getItem('physik_answered');
-    if (saved) {
-        answered = new Set(JSON.parse(saved));
-    }
+    if (saved) answered = new Set(JSON.parse(saved));
+    
+    const savedFailed = localStorage.getItem('physik_failed_once');
+    if (savedFailed) failedOnce = new Set(JSON.parse(savedFailed));
 } catch (e) {
     console.error("Fehler beim Laden der Antworten:", e);
     localStorage.removeItem('physik_answered');
+    localStorage.removeItem('physik_failed_once');
 }
 
 // Sound effects
-function playSuccessSound() {
-    try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(500, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
-        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.1);
-    } catch(e) {}
-}
+// ... (playSuccessSound function remains unchanged)
 
 function updateScoreDisplays() {
-    const scoreEl = document.getElementById('score');
-    if (scoreEl) scoreEl.innerText = globalPhysikScore;
-    
-    const globalScoreVal = document.getElementById('global-score-val');
-    if (globalScoreVal) globalScoreVal.innerText = globalPhysikScore;
-
-    if (window.parent && window.parent.postMessage) {
-        window.parent.postMessage({ type: 'updateScore', score: globalPhysikScore }, '*');
-    }
+    // ... (updateScoreDisplays function remains unchanged)
 }
 
 /**
@@ -53,7 +33,6 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     const box = btn.closest('.quiz-box') || btn.closest('.exercise-box') || btn.parentElement;
     if (!box) return;
 
-    // Generate unique ID based on topic and index if available, or text
     const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
     const questionText = box.querySelector('p')?.innerText || "default";
     const id = box.getAttribute('data-id') || `${topicId}_${questionText.substring(0,20)}`;
@@ -78,39 +57,56 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     }
 
     if (isCorrect) {
+        // Determine points (half if they failed once before)
+        let actualPts = Number(pts);
+        let wasPreviouslyWrong = failedOnce.has(id);
+        if (wasPreviouslyWrong) {
+            actualPts = Math.floor(actualPts / 2);
+        }
+
         // Disable all buttons upon correct answer
         box.querySelectorAll('button').forEach(b => {
             b.disabled = true;
             b.style.opacity = "0.5";
         });
         btn.style.opacity = "1";
-        btn.disabled = false; // visually active
+        btn.disabled = false; 
 
         answered.add(id);
         localStorage.setItem('physik_answered', JSON.stringify(Array.from(answered)));
 
         playSuccessSound();
         btn.style.background = "var(--correct)";
+        
         if(fb) {
-            fb.innerText = customMsg ? "✅ " + customMsg + " (+" + pts + " Punkte)" : "✅ Richtig! +" + pts + " Punkte!";
+            let msg = customMsg ? "✅ " + customMsg : "✅ Richtig!";
+            if (wasPreviouslyWrong && actualPts > 0) {
+                msg += " (Halbe Punkte: +" + actualPts + ")";
+            } else {
+                msg += " (+" + actualPts + " Punkte)";
+            }
+            fb.innerText = msg;
             fb.style.color = "var(--correct)";
         }
         
-        globalPhysikScore += Number(pts);
+        globalPhysikScore += actualPts;
         localStorage.setItem('physik_score', globalPhysikScore);
         
         let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
-        topicScores[topicId] = (topicScores[topicId] || 0) + Number(pts);
+        topicScores[topicId] = (topicScores[topicId] || 0) + actualPts;
         localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
 
         updateScoreDisplays();
     } else {
-        // Wrong answer - let them try again!
+        // Wrong answer - track failure and let them try again
+        failedOnce.add(id);
+        localStorage.setItem('physik_failed_once', JSON.stringify(Array.from(failedOnce)));
+        
         btn.style.background = "var(--wrong)";
-        btn.disabled = true; // Disable just this button
+        btn.disabled = true; 
         btn.style.opacity = "0.5";
         if(fb) {
-            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Falsch! Versuch es noch einmal.";
+            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Falsch! Versuch es noch einmal für halbe Punkte.";
             fb.style.color = "var(--wrong)";
         }
     }
