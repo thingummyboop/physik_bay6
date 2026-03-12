@@ -68,7 +68,7 @@ function dropItems(isVacuum) {
         } else {
             feather.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.6, 1)'; 
             feather.style.transform = 'translateY(225px)';
-            txt.innerText = "Mit Luft: Der Apfel ist schwer und klein, er fällt schnell. Die Luft bremst die breite Feder ab!";
+            txt.innerText = "Mit Luft: Der Apfel ist schwer and klein, er fällt schnell. Die Luft bremst die breite Feder ab!";
             txt.style.color = "#1976D2";
         }
     }, 50);
@@ -127,4 +127,59 @@ function updateLever() {
         }
         if (txtPos) txtPos.innerText = "Mitte";
     }
+}
+
+// 6. Newton 2 (Rennen)
+function race(vehicle) {
+    const racer = document.getElementById('racer');
+    const emoji = document.getElementById('racerEmoji');
+    const txt = document.getElementById('raceText');
+    if(!racer || !emoji || !txt) return;
+
+    racer.style.transition = 'none';
+    racer.style.transform = 'translateX(10px)';
+    
+    let time = 1;
+    let name = "";
+    if(vehicle === 'bike') { time = 1; name = "Fahrrad (Leicht)"; emoji.innerText = "🚲"; }
+    if(vehicle === 'car') { time = 2; name = "Auto (Mittel)"; emoji.innerText = "🚗"; }
+    if(vehicle === 'truck') { time = 4; name = "LKW (Schwer)"; emoji.innerText = "🚛"; }
+
+    txt.innerText = `${name} startet...`;
+    
+    setTimeout(() => {
+        racer.style.transition = `transform ${time}s ease-in`;
+        racer.style.transform = 'translateX(300px)';
+        setTimeout(() => {
+            txt.innerText = `${name} braucht ${time}s für die Beschleunigung bei gleicher Kraft!`;
+        }, time * 1000);
+    }, 50);
+}
+
+// 7. Reibungsarten
+function moveBox(mode) {
+    const box = document.getElementById('boxGroup');
+    const wheels = document.getElementById('boxWheels');
+    const txt = document.getElementById('frictionText');
+    if(!box || !wheels || !txt) return;
+
+    box.style.transition = 'none';
+    box.style.transform = 'translateX(20px)';
+    wheels.style.display = 'none';
+
+    setTimeout(() => {
+        if(mode === 'slide') {
+            wheels.style.display = 'none';
+            box.style.transition = 'transform 2s ease-out';
+            box.style.transform = 'translateX(100px)';
+            txt.innerText = "Gleitreibung bremst stark ab! Schwer zu schieben. 🥵";
+            txt.style.color = "#E91E63";
+        } else {
+            wheels.style.display = 'block';
+            box.style.transition = 'transform 1s cubic-bezier(0.2, 0.8, 0.4, 1)';
+            box.style.transform = 'translateX(250px)';
+            txt.innerText = "Rollreibung ist winzig! Der Schrank flitzt fast von allein. 😎";
+            txt.style.color = "#4CAF50";
+        }
+    }, 50);
 }
