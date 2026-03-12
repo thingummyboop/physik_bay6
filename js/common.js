@@ -77,13 +77,15 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
         return;
     }
 
-    box.querySelectorAll('button').forEach(b => {
-        b.disabled = true;
-        b.style.opacity = "0.5";
-    });
-    btn.style.opacity = "1";
-
     if (isCorrect) {
+        // Disable all buttons upon correct answer
+        box.querySelectorAll('button').forEach(b => {
+            b.disabled = true;
+            b.style.opacity = "0.5";
+        });
+        btn.style.opacity = "1";
+        btn.disabled = false; // visually active
+
         answered.add(id);
         localStorage.setItem('physik_answered', JSON.stringify(Array.from(answered)));
 
@@ -103,12 +105,12 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 
         updateScoreDisplays();
     } else {
-        answered.add(id);
-        localStorage.setItem('physik_answered', JSON.stringify(Array.from(answered)));
-        
+        // Wrong answer - let them try again!
         btn.style.background = "var(--wrong)";
+        btn.disabled = true; // Disable just this button
+        btn.style.opacity = "0.5";
         if(fb) {
-            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Falsch! Lies den Text nochmal und probier es weiter.";
+            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Falsch! Versuch es noch einmal.";
             fb.style.color = "var(--wrong)";
         }
     }
