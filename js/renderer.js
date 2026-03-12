@@ -1,4 +1,13 @@
 // Physik-Abenteuer Topic Renderer
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
@@ -45,10 +54,13 @@ async function renderTopic() {
             // Replace Quiz Placeholders
             if (section.quizzes) {
                 section.quizzes.forEach(q => {
+                    // LIVE SHUFFLE: Randomize answers every time
+                    const shuffledAnswers = shuffleArray([...q.answers]);
+                    
                     const quizHtml = `
                         <div class="quiz-box" data-id="${q.id}">
                             <p><strong>${q.question}</strong></p>
-                            ${q.answers.map(ans => `
+                            ${shuffledAnswers.map(ans => `
                                 <button onclick="handleAnswer(this, ${ans.correct}, ${ans.pts})">${ans.text}</button>
                             `).join('')}
                             <p class="feedback" aria-live="polite"></p>
@@ -73,10 +85,13 @@ async function renderTopic() {
             diplomHtml += `<p style="text-align: center;">Zeige, was du gelernt hast!</p>`;
             
             topic.diplom.questions.forEach((q, i) => {
+                // LIVE SHUFFLE: Randomize diplom answers too
+                const shuffledAnswers = shuffleArray([...q.answers]);
+                
                 diplomHtml += `
                     <div class="quiz-box" data-id="${q.id}">
                         <p><strong>${i+1}. ${q.question}</strong></p>
-                        ${q.answers.map(ans => `
+                        ${shuffledAnswers.map(ans => `
                             <button onclick="handleAnswer(this, ${ans.correct}, ${ans.pts})">${ans.text}</button>
                         `).join('')}
                         <p class="feedback" aria-live="polite"></p>
@@ -92,7 +107,7 @@ async function renderTopic() {
             checkAnsweredStatus();
         }
 
-        // Load Script (Optional, with cache busting for development if needed, but removed here for performance)
+        // Load Script
         const script = document.createElement('script');
         script.src = `../js/topics/${topicId}.js`;
         script.async = false;
