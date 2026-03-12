@@ -115,6 +115,44 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 // Standard helper for compatibility
 function handleQuiz(btn, isCorrect, pts) { handleAnswer(btn, isCorrect, pts); }
 
+/**
+ * Resets progress for the current topic only.
+ */
+function resetTopicProgress() {
+    const params = new URLSearchParams(window.location.search);
+    const topicId = params.get('topic');
+    if (!topicId) return;
+
+    if (!confirm("Möchtest du deinen Fortschritt für dieses Kapitel wirklich zurücksetzen? (Deine Gesamtpunkte werden entsprechend angepasst)")) {
+        return;
+    }
+
+    // 1. Calculate how many points to subtract
+    let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
+    let ptsToRemove = topicScores[topicId] || 0;
+
+    // 2. Clear topic score
+    topicScores[topicId] = 0;
+    localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
+
+    // 3. Adjust global score
+    globalPhysikScore = Math.max(0, globalPhysikScore - ptsToRemove);
+    localStorage.setItem('physik_score', globalPhysikScore);
+
+    // 4. Remove all IDs that start with this topicId from answered and failedOnce
+    const updatedAnswered = Array.from(answered).filter(id => !id.startsWith(topicId + "_"));
+    answered = new Set(updatedAnswered);
+    localStorage.setItem('physik_answered', JSON.stringify(updatedAnswered));
+
+    const updatedFailed = Array.from(failedOnce).filter(id => !id.startsWith(topicId + "_"));
+    failedOnce = new Set(updatedFailed);
+    localStorage.setItem('physik_failed_once', JSON.stringify(updatedFailed));
+
+    // 5. Update UI and reload
+    updateScoreDisplays();
+    location.reload();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateScoreDisplays();
 });
