@@ -6,6 +6,8 @@ let isRefractor = true;
 
 function topicInit() {
     updateVerticalMicroscope();
+    if (document.getElementById('fiberAngle')) updateFiber(45);
+    if (document.getElementById('eyeLens')) focusEye('far');
 }
 
 // 1. Reflexion
@@ -273,5 +275,45 @@ function toggleTelescope() {
     } else {
         refractor.style.display = "none";
         reflector.style.display = "block";
+    }
+}
+
+// 8. Totalreflexion
+function updateFiber(angle) {
+    const ray = document.getElementById('fiberRay');
+    if(!ray) return;
+    const a = parseInt(angle);
+    let d = "M 20 60";
+    let currX = 20;
+    let step = 40;
+    let direction = -1; // up first
+    
+    for(let i=0; i<9; i++) {
+        currX += step;
+        let currY = 60 + (a * 0.5) * direction;
+        d += ` L ${currX} ${currY}`;
+        direction *= -1;
+    }
+    ray.setAttribute('d', d);
+}
+
+// 9. Das Auge
+function focusEye(mode) {
+    const lens = document.getElementById('eyeLens');
+    const ray2 = document.getElementById('eyeRay2');
+    const fp = document.getElementById('focusPoint');
+    const txt = document.getElementById('eyeText');
+    if(!lens || !ray2 || !fp) return;
+
+    if(mode === 'near') {
+        lens.setAttribute('rx', '18'); // Thicker
+        fp.setAttribute('cx', '345'); 
+        ray2.setAttribute('x2', '345');
+        if(txt) txt.innerText = "Nahfokus: Muskeln spannen sich, Linse wird dick und stark gekrümmt.";
+    } else {
+        lens.setAttribute('rx', '10'); // Thinner
+        fp.setAttribute('cx', '345'); 
+        ray2.setAttribute('x2', '345');
+        if(txt) txt.innerText = "Fernfokus: Muskeln entspannt, Linse ist flach.";
     }
 }
