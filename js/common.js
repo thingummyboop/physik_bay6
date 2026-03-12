@@ -35,11 +35,15 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 
     const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
     const questionText = box.querySelector('p')?.innerText || "default";
-    const id = box.getAttribute('data-id') || `${topicId}_${questionText.substring(0,20)}`;
+    
+    // BUGFIX: Always prefix ID with topicId to prevent cross-topic collisions and allow per-topic reset
+    const rawId = box.getAttribute('data-id') || questionText.substring(0,20);
+    const id = `${topicId}_${rawId}`;
     
     const fb = box.querySelector('.feedback');
 
-    if (answered.has(id)) {
+    // Migration: Also check for the old un-prefixed ID (for backward compatibility with old saves)
+    if (answered.has(id) || (box.getAttribute('data-id') && answered.has(box.getAttribute('data-id')))) {
         if (isCorrect) {
             btn.style.background = "var(--correct)";
             if(fb) {
@@ -59,7 +63,7 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     if (isCorrect) {
         // Determine points (half if they failed once before)
         let actualPts = Number(pts);
-        let wasPreviouslyWrong = failedOnce.has(id);
+        let wasPreviouslyWrong = failedOnce.has(id) || (box.getAttribute('data-id') && failedOnce.has(box.getAttribute('data-id')));
         if (wasPreviouslyWrong) {
             actualPts = Math.floor(actualPts / 2);
         }
@@ -121,7 +125,10 @@ function handleQuiz(btn, isCorrect, pts) { handleAnswer(btn, isCorrect, pts); }
 function resetTopicProgress() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
-    if (!topicId) return;
+    if (!topicId) {
+        alert("Fehler: Kein Kapitel zum Zurücksetzen gefunden.");
+        return;
+    }
 
     if (!confirm("Möchtest du deinen Fortschritt für dieses Kapitel wirklich zurücksetzen? (Deine Gesamtpunkte werden entsprechend angepasst)")) {
         return;
@@ -140,6 +147,7 @@ function resetTopicProgress() {
     localStorage.setItem('physik_score', globalPhysikScore);
 
     // 4. Remove all IDs that start with this topicId from answered and failedOnce
+    // Also remove simple IDs if we can match them (though this is risky, we'll stick to prefixed ones)
     const updatedAnswered = Array.from(answered).filter(id => !id.startsWith(topicId + "_"));
     answered = new Set(updatedAnswered);
     localStorage.setItem('physik_answered', JSON.stringify(updatedAnswered));
@@ -153,6 +161,32 @@ function resetTopicProgress() {
     location.reload();
 }
 
+/**
+ * Checks all quiz boxes and disables them if already answered.
+ */
+function checkAnsweredStatus() {
+    const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
+    
+    document.querySelectorAll('.quiz-box').forEach(box => {
+        const rawId = box.getAttribute('data-id') || (box.querySelector('p')?.innerText || "default").substring(0,20);
+        const id = `${topicId}_${rawId}`;
+        
+        if (answered.has(id) || (box.getAttribute('data-id') && answered.has(box.getAttribute('data-id')))) {
+            box.querySelectorAll('button').forEach(btn => {
+                btn.disabled = true;
+                btn.style.opacity = "0.5";
+            });
+            const fb = box.querySelector('.feedback');
+            if (fb) {
+                fb.innerText = "✅ Bereits gelöst.";
+                fb.style.color = "var(--correct)";
+            }
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateScoreDisplays();
+    // Use a small delay to allow renderer.js to inject content before checking status
+    setTimeout(checkAnsweredStatus, 200);
 });
