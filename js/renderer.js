@@ -87,6 +87,11 @@ async function renderTopic() {
             container.appendChild(diplomCard);
         }
 
+        // Check which questions are already solved
+        if (typeof checkAnsweredStatus === 'function') {
+            checkAnsweredStatus();
+        }
+
         // Load Script (Optional, with cache busting for development if needed, but removed here for performance)
         const script = document.createElement('script');
         script.src = `../js/topics/${topicId}.js`;

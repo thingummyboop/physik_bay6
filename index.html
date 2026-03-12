@@ -194,9 +194,11 @@
         }
 
         function resetProgress() {
-            if (confirm("Möchtest du wirklich deinen Fortschritt (Punkte) löschen?")) {
+            if (confirm("Möchtest du wirklich deinen gesamten Fortschritt, alle Punkte und gelösten Aufgaben löschen?")) {
                 localStorage.removeItem('physik_score');
-                localStorage.removeItem('physik_completed_quizzes'); // Assuming this exists or for future
+                localStorage.removeItem('physik_answered');
+                localStorage.removeItem('physik_failed_once');
+                localStorage.removeItem('physik_topic_scores');
                 document.getElementById('global-score-val').innerText = 0;
                 
                 const frame = document.getElementById('game-frame');

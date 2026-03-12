@@ -7,23 +7,60 @@ let globalPhysikScore = parseInt(localStorage.getItem('physik_score')) || 0;
 
 let answered = new Set();
 let failedOnce = new Set();
-try {
-    const saved = localStorage.getItem('physik_answered');
-    if (saved) answered = new Set(JSON.parse(saved));
-    
-    const savedFailed = localStorage.getItem('physik_failed_once');
-    if (savedFailed) failedOnce = new Set(JSON.parse(savedFailed));
-} catch (e) {
-    console.error("Fehler beim Laden der Antworten:", e);
-    localStorage.removeItem('physik_answered');
-    localStorage.removeItem('physik_failed_once');
+
+function loadFromStorage() {
+    try {
+        const saved = localStorage.getItem('physik_answered');
+        if (saved) answered = new Set(JSON.parse(saved));
+        
+        const savedFailed = localStorage.getItem('physik_failed_once');
+        if (savedFailed) failedOnce = new Set(JSON.parse(savedFailed));
+    } catch (e) {
+        console.error("Fehler beim Laden der Antworten:", e);
+    }
 }
 
+loadFromStorage();
+
 // Sound effects
-// ... (playSuccessSound function remains unchanged)
+function playSuccessSound() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(500, audioCtx.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.1);
+    } catch(e) {}
+}
 
 function updateScoreDisplays() {
-    // ... (updateScoreDisplays function remains unchanged)
+    const scoreEl = document.getElementById('score');
+    if (scoreEl) scoreEl.innerText = globalPhysikScore;
+    
+    const globalScoreVal = document.getElementById('global-score-val');
+    if (globalScoreVal) globalScoreVal.innerText = globalPhysikScore;
+
+    if (window.parent && window.parent.postMessage) {
+        window.parent.postMessage({ type: 'updateScore', score: globalPhysikScore }, '*');
+    }
+}
+
+function getUniqueId(box) {
+    const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
+    const rawId = box.getAttribute('data-id');
+    const questionText = box.querySelector('p')?.innerText || "default";
+    
+    if (rawId) {
+        return `${topicId}_${rawId}`;
+    }
+    return `${topicId}_${questionText.substring(0,20)}`;
 }
 
 /**
@@ -33,42 +70,23 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     const box = btn.closest('.quiz-box') || btn.closest('.exercise-box') || btn.parentElement;
     if (!box) return;
 
-    const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
-    const questionText = box.querySelector('p')?.innerText || "default";
-    
-    // BUGFIX: Always prefix ID with topicId to prevent cross-topic collisions and allow per-topic reset
-    const rawId = box.getAttribute('data-id') || questionText.substring(0,20);
-    const id = `${topicId}_${rawId}`;
-    
+    const id = getUniqueId(box);
+    const legacyId = box.getAttribute('data-id');
     const fb = box.querySelector('.feedback');
 
-    // Migration: Also check for the old un-prefixed ID (for backward compatibility with old saves)
-    if (answered.has(id) || (box.getAttribute('data-id') && answered.has(box.getAttribute('data-id')))) {
-        if (isCorrect) {
-            btn.style.background = "var(--correct)";
-            if(fb) {
-                fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
-                fb.style.color = "orange";
-            }
-        } else {
-            btn.style.background = "var(--wrong)";
-            if(fb) {
-                fb.innerText = "❌ Das ist leider falsch.";
-                fb.style.color = "var(--wrong)";
-            }
-        }
+    // Check if already solved (either as prefixed ID or as legacy ID)
+    if (answered.has(id) || (legacyId && answered.has(legacyId))) {
         return;
     }
 
     if (isCorrect) {
-        // Determine points (half if they failed once before)
         let actualPts = Number(pts);
-        let wasPreviouslyWrong = failedOnce.has(id) || (box.getAttribute('data-id') && failedOnce.has(box.getAttribute('data-id')));
+        let wasPreviouslyWrong = failedOnce.has(id) || (legacyId && failedOnce.has(legacyId));
         if (wasPreviouslyWrong) {
             actualPts = Math.floor(actualPts / 2);
         }
 
-        // Disable all buttons upon correct answer
+        // Disable all buttons in this box
         box.querySelectorAll('button').forEach(b => {
             b.disabled = true;
             b.style.opacity = "0.5";
@@ -96,6 +114,7 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
         globalPhysikScore += actualPts;
         localStorage.setItem('physik_score', globalPhysikScore);
         
+        const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
         let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
         topicScores[topicId] = (topicScores[topicId] || 0) + actualPts;
         localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
@@ -125,39 +144,32 @@ function handleQuiz(btn, isCorrect, pts) { handleAnswer(btn, isCorrect, pts); }
 function resetTopicProgress() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
-    if (!topicId) {
-        alert("Fehler: Kein Kapitel zum Zurücksetzen gefunden.");
-        return;
-    }
+    if (!topicId) return;
 
     if (!confirm("Möchtest du deinen Fortschritt für dieses Kapitel wirklich zurücksetzen? (Deine Gesamtpunkte werden entsprechend angepasst)")) {
         return;
     }
 
-    // 1. Calculate how many points to subtract
     let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
     let ptsToRemove = topicScores[topicId] || 0;
-
-    // 2. Clear topic score
     topicScores[topicId] = 0;
     localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
 
-    // 3. Adjust global score
     globalPhysikScore = Math.max(0, globalPhysikScore - ptsToRemove);
     localStorage.setItem('physik_score', globalPhysikScore);
 
-    // 4. Remove all IDs associated with this topic
-    // A) Remove prefixed IDs
-    let updatedAnswered = Array.from(answered).filter(id => !id.startsWith(topicId + "_"));
-    let updatedFailed = Array.from(failedOnce).filter(id => !id.startsWith(topicId + "_"));
-
-    // B) Find and remove un-prefixed legacy IDs from the CURRENT page
+    // Filter out both prefixed and current page legacy IDs
+    let currentTopicLegacyIds = [];
     document.querySelectorAll('.quiz-box').forEach(box => {
-        const rawId = box.getAttribute('data-id');
-        if (rawId) {
-            updatedAnswered = updatedAnswered.filter(id => id !== rawId);
-            updatedFailed = updatedFailed.filter(id => id !== rawId);
-        }
+        const lid = box.getAttribute('data-id');
+        if (lid) currentTopicLegacyIds.push(lid);
+    });
+
+    let updatedAnswered = Array.from(answered).filter(id => {
+        return !id.startsWith(topicId + "_") && !currentTopicLegacyIds.includes(id);
+    });
+    let updatedFailed = Array.from(failedOnce).filter(id => {
+        return !id.startsWith(topicId + "_") && !currentTopicLegacyIds.includes(id);
     });
 
     answered = new Set(updatedAnswered);
@@ -166,7 +178,6 @@ function resetTopicProgress() {
     failedOnce = new Set(updatedFailed);
     localStorage.setItem('physik_failed_once', JSON.stringify(updatedFailed));
 
-    // 5. Update UI and reload
     updateScoreDisplays();
     location.reload();
 }
@@ -175,13 +186,12 @@ function resetTopicProgress() {
  * Checks all quiz boxes and disables them if already answered.
  */
 function checkAnsweredStatus() {
-    const topicId = new URLSearchParams(window.location.search).get('topic') || 'unknown';
-    
+    loadFromStorage();
     document.querySelectorAll('.quiz-box').forEach(box => {
-        const rawId = box.getAttribute('data-id') || (box.querySelector('p')?.innerText || "default").substring(0,20);
-        const id = `${topicId}_${rawId}`;
+        const id = getUniqueId(box);
+        const legacyId = box.getAttribute('data-id');
         
-        if (answered.has(id) || (box.getAttribute('data-id') && answered.has(box.getAttribute('data-id')))) {
+        if (answered.has(id) || (legacyId && answered.has(legacyId))) {
             box.querySelectorAll('button').forEach(btn => {
                 btn.disabled = true;
                 btn.style.opacity = "0.5";
@@ -195,8 +205,17 @@ function checkAnsweredStatus() {
     });
 }
 
+// Listen for theme changes from parent
+window.addEventListener('message', (e) => {
+    if (e.data.type === 'themeChange') {
+        if (e.data.isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     updateScoreDisplays();
-    // Use a small delay to allow renderer.js to inject content before checking status
-    setTimeout(checkAnsweredStatus, 200);
 });
