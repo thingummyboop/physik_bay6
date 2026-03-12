@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎓 Das große Physik-Abenteuer (MS/AHS Unterstufe)</title>
-    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <link rel="stylesheet" href="css/style.css?v=1.2">
     <style>
         :root {
             --sidebar-bg: #0f172a;
@@ -195,14 +195,8 @@
 
         function resetProgress() {
             if (confirm("Möchtest du wirklich deinen gesamten Fortschritt, alle Punkte und gelösten Aufgaben löschen?")) {
-                localStorage.removeItem('physik_score');
-                localStorage.removeItem('physik_answered');
-                localStorage.removeItem('physik_failed_once');
-                localStorage.removeItem('physik_topic_scores');
-                document.getElementById('global-score-val').innerText = 0;
-                
-                const frame = document.getElementById('game-frame');
-                frame.contentWindow.location.reload();
+                localStorage.clear();
+                location.reload();
             }
         }
 
