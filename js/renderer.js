@@ -21,8 +21,8 @@ async function renderTopic() {
     }
 
     try {
-        // Fetch language data (removed cache busting)
-        let response = await fetch(`../lang/${lang}.json`);
+        // Fetch language data (added cache busting)
+        let response = await fetch(`../lang/${lang}.json?v=1.3`);
         let langData = await response.json();
         let topic = langData[topicId];
 
