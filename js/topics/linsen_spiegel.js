@@ -6,7 +6,7 @@ let isRefractor = true;
 
 function topicInit() {
     updateVerticalMicroscope();
-    if (document.getElementById('fiberAngle')) updateFiber(45);
+    if (document.getElementById('fiberAngle')) updateFiber(20);
     if (document.getElementById('eyeLens')) focusEye('far');
 }
 
@@ -278,23 +278,75 @@ function toggleTelescope() {
     }
 }
 
-// 8. Totalreflexion
+// 8. Totalreflexion (Updated)
 function updateFiber(angle) {
-    const ray = document.getElementById('fiberRay');
-    if(!ray) return;
+    const laser = document.getElementById('laserSource');
+    const group = document.getElementById('raysGroup');
+    const status = document.getElementById('fiberStatus');
+    if(!laser || !group || !status) return;
+
     const a = parseInt(angle);
-    let d = "M 20 60";
-    let currX = 20;
-    let step = 40;
-    let direction = -1; // up first
+    laser.style.transform = `rotate(${a}deg)`;
+
+    const rad = (a * Math.PI) / 180;
+    const critAngle = 42; // Critical angle for glass ~42°
     
-    for(let i=0; i<9; i++) {
-        currX += step;
-        let currY = 60 + (a * 0.5) * direction;
-        d += ` L ${currX} ${currY}`;
-        direction *= -1;
+    // Angle inside the glass relative to the wall normal is 90 - a
+    const angleAtWall = 90 - Math.abs(a);
+    const isTotal = angleAtWall > critAngle;
+
+    let html = "";
+    let currX = 80;
+    let currY = 100;
+    let slope = Math.tan(rad);
+    
+    const rodTop = 70;
+    const rodBottom = 130;
+    const rodEnd = 380;
+
+    // Draw up to 6 reflections
+    for(let i=0; i<6; i++) {
+        let nextX, nextY;
+        if (slope > 0) { // moving down
+            nextY = rodBottom;
+            nextX = currX + (nextY - currY) / slope;
+        } else { // moving up
+            nextY = rodTop;
+            nextX = currX + (nextY - currY) / slope;
+        }
+
+        if (nextX > rodEnd) {
+            // Hits the end of the rod
+            nextX = rodEnd;
+            nextY = currY + (nextX - currX) * slope;
+            html += `<line x1="${currX}" y1="${currY}" x2="${nextX}" y2="${nextY}" stroke="#ef4444" stroke-width="3" />`;
+            break;
+        }
+
+        html += `<line x1="${currX}" y1="${currY}" x2="${nextX}" y2="${nextY}" stroke="#ef4444" stroke-width="3" />`;
+        
+        if (!isTotal) {
+            // Light escapes!
+            const escapeSlope = slope * 2; // simplified refraction
+            const escapeX = nextX + 20;
+            const escapeY = nextY + (escapeX - nextX) * escapeSlope;
+            html += `<line x1="${nextX}" y1="${nextY}" x2="${escapeX}" y2="${escapeY}" stroke="#ef4444" stroke-width="2" opacity="0.5" stroke-dasharray="4,2" />`;
+            status.innerText = "Teilreflexion: Licht bricht nach außen!";
+            status.style.color = "#fbbf24";
+            break; // Stop after escape for clarity
+        }
+
+        currX = nextX;
+        currY = nextY;
+        slope *= -1; // Reflect
     }
-    ray.setAttribute('d', d);
+
+    if (isTotal) {
+        status.innerText = "Totalreflexion: Licht bleibt im Stab!";
+        status.style.color = "#4ade80";
+    }
+
+    group.innerHTML = html;
 }
 
 // 9. Das Auge
