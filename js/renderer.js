@@ -109,7 +109,7 @@ async function renderTopic() {
 
         // Load Script
         const script = document.createElement('script');
-        script.src = `../js/topics/${topicId}.js`;
+        script.src = `../js/topics/${topicId}.js?v=1.3`;
         script.async = false;
         script.onload = () => {
             if (typeof topicInit === 'function') {
