@@ -349,40 +349,45 @@ function updateFiber(angle) {
     group.innerHTML = html;
 }
 
-// 9. Das Auge
+// 9. Das Auge (Vollständige Strahlengang-Simulation)
 function focusEye(mode) {
     const lens = document.getElementById('eyeLens');
-    const raysIn = document.querySelectorAll('#eyeRaysIn line');
-    const raysOut = [
-        document.getElementById('eyeRayOut1'),
-        document.getElementById('eyeRayOut2'),
-        document.getElementById('eyeRayOut3')
-    ];
-    const fp = document.getElementById('focusPoint');
+    const obj = document.getElementById('eyeObject');
+    const img = document.getElementById('eyeImage');
+    const rayTop = document.getElementById('rayPathTop');
+    const rayBot = document.getElementById('rayPathBottom');
     const txt = document.getElementById('eyeText');
     
-    if(!lens || raysIn.length === 0 || !raysOut[0] || !fp) {
-        console.error("Eye elements not found!");
-        return;
-    }
+    if(!lens || !obj || !img || !rayTop || !rayBot) return;
+
+    let objX, objY_tip, lensRX, imgY_tip, statusTxt;
 
     if(mode === 'near') {
-        lens.setAttribute('rx', '18'); // Thicker lens for near
-        
-        // Incoming rays diverge from a point (50, 100)
-        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '100');
-        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '100');
-        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '100');
-        
-        if(txt) txt.innerText = "Nahfokus: Das Auge muss die Linse stark krümmen (dick machen), um die auseinandergehenden Strahlen auf die Netzhaut zu biegen.";
+        objX = 100;
+        objY_tip = 70;
+        lensRX = 18; // Dicke Linse
+        imgY_tip = 120; // Größeres Bild (invertiert)
+        statusTxt = "Nahfokus: Der Gegenstand ist nah. Die Augenmuskeln lassen die Linse dick werden, um das Licht stärker zu brechen.";
     } else {
-        lens.setAttribute('rx', '10'); // Thinner lens for far
-        
-        // Incoming rays are parallel from "infinity"
-        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '85');
-        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '100');
-        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '115');
-        
-        if(txt) txt.innerText = "Fernfokus: Das Licht kommt fast parallel an. Die Linse kann flach und entspannt bleiben.";
+        objX = 30;
+        objY_tip = 80;
+        lensRX = 10; // Flache Linse
+        imgY_tip = 110; // Kleineres Bild (invertiert)
+        statusTxt = "Fernfokus: Der Gegenstand ist weit weg. Die Linse kann flach und entspannt bleiben.";
     }
+
+    // Update Graphics
+    obj.style.transform = `translateX(${objX}px)`;
+    lens.setAttribute('rx', lensRX);
+    img.querySelector('line').setAttribute('y2', imgY_tip);
+    if(txt) txt.innerText = statusTxt;
+
+    // Draw Rays
+    // Top Ray: from object tip (objX, objY_tip) to lens, then to retina tip (355, imgY_tip)
+    const dTop = `M ${objX} ${objY_tip} L 260 85 L 355 ${imgY_tip}`;
+    // Bottom Ray: from object base (objX, 100) to lens, then to retina base (355, 100)
+    const dBot = `M ${objX} 100 L 260 115 L 355 100`;
+    
+    rayTop.setAttribute('d', dTop);
+    rayBot.setAttribute('d', dBot);
 }
