@@ -352,20 +352,34 @@ function updateFiber(angle) {
 // 9. Das Auge
 function focusEye(mode) {
     const lens = document.getElementById('eyeLens');
-    const ray2 = document.getElementById('eyeRay2');
+    const raysIn = document.querySelectorAll('#eyeRaysIn line');
+    const raysOut = [
+        document.getElementById('eyeRayOut1'),
+        document.getElementById('eyeRayOut2'),
+        document.getElementById('eyeRayOut3')
+    ];
     const fp = document.getElementById('focusPoint');
     const txt = document.getElementById('eyeText');
-    if(!lens || !ray2 || !fp) return;
+    
+    if(!lens || raysIn.length === 0 || !raysOut[0] || !fp) return;
 
     if(mode === 'near') {
-        lens.setAttribute('rx', '18'); // Thicker
-        fp.setAttribute('cx', '345'); 
-        ray2.setAttribute('x2', '345');
-        if(txt) txt.innerText = "Nahfokus: Muskeln spannen sich, Linse wird dick und stark gekrümmt.";
+        lens.setAttribute('rx', '18'); // Thicker lens for near
+        
+        // Incoming rays diverge from a point (50, 75)
+        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '75');
+        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '75');
+        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '75');
+        
+        if(txt) txt.innerText = "Nahfokus: Das Auge muss die Linse stark krümmen (dick machen), um die auseinandergehenden Strahlen auf die Netzhaut zu biegen.";
     } else {
-        lens.setAttribute('rx', '10'); // Thinner
-        fp.setAttribute('cx', '345'); 
-        ray2.setAttribute('x2', '345');
-        if(txt) txt.innerText = "Fernfokus: Muskeln entspannt, Linse ist flach.";
+        lens.setAttribute('rx', '10'); // Thinner lens for far
+        
+        // Incoming rays are parallel from "infinity"
+        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '60');
+        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '75');
+        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '90');
+        
+        if(txt) txt.innerText = "Fernfokus: Das Licht kommt fast parallel an. Die Linse kann flach und entspannt bleiben.";
     }
 }
