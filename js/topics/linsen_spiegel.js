@@ -361,24 +361,27 @@ function focusEye(mode) {
     const fp = document.getElementById('focusPoint');
     const txt = document.getElementById('eyeText');
     
-    if(!lens || raysIn.length === 0 || !raysOut[0] || !fp) return;
+    if(!lens || raysIn.length === 0 || !raysOut[0] || !fp) {
+        console.error("Eye elements not found!");
+        return;
+    }
 
     if(mode === 'near') {
         lens.setAttribute('rx', '18'); // Thicker lens for near
         
-        // Incoming rays diverge from a point (50, 75)
-        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '75');
-        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '75');
-        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '75');
+        // Incoming rays diverge from a point (50, 100)
+        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '100');
+        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '100');
+        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '100');
         
         if(txt) txt.innerText = "Nahfokus: Das Auge muss die Linse stark krümmen (dick machen), um die auseinandergehenden Strahlen auf die Netzhaut zu biegen.";
     } else {
         lens.setAttribute('rx', '10'); // Thinner lens for far
         
         // Incoming rays are parallel from "infinity"
-        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '60');
-        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '75');
-        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '90');
+        raysIn[0].setAttribute('x1', '50'); raysIn[0].setAttribute('y1', '85');
+        raysIn[1].setAttribute('x1', '50'); raysIn[1].setAttribute('y1', '100');
+        raysIn[2].setAttribute('x1', '50'); raysIn[2].setAttribute('y1', '115');
         
         if(txt) txt.innerText = "Fernfokus: Das Licht kommt fast parallel an. Die Linse kann flach und entspannt bleiben.";
     }
