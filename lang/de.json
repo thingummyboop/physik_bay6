@@ -5028,6 +5028,68 @@
           }
         ],
         "content": "\n        <p>In einer Gewitterwolke geht es wild zu! Eiskristalle und Wassertropfen wirbeln durcheinander und reiben aneinander. Dabei entstehen <strong>elektrische Ladungen</strong> (genau wie wenn du mit Socken über einen Teppich flitzt).</p>\n        <p>Irgendwann ist die Spannung so groß, dass sie sich in einem gewaltigen Funken entlädt: dem <strong>Blitz</strong>. Die Luft dehnt sich dabei blitzartig aus – das hören wir als <strong>Donner</strong>.</p>\n        <div class=\"interactive-zone\" style=\"background: #1e293b; color: white;\">\n            <h3>⚡ Gewitter-Labor</h3>\n            <p>Klicke auf die Wolke, um sie aufzuladen:</p>\n            <div style=\"text-align: center;\">\n                <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\" onclick=\"chargeCloud()\" style=\"cursor: pointer;\">\n                    <path id=\"stormCloud\" d=\"M50,150 Q50,100 100,100 Q120,60 180,80 Q250,80 250,130 Q280,150 250,180 L80,180 Q50,180 50,150\" fill=\"#4b5563\" stroke=\"#374151\" stroke-width=\"2\" />\n                    <text id=\"chargeLevel\" x=\"150\" y=\"140\" text-anchor=\"middle\" fill=\"yellow\" font-weight=\"bold\" style=\"user-select: none;\">0% geladen</text>\n                    <path id=\"lightning\" d=\"M150,150 L130,180 L160,180 L140,220\" fill=\"none\" stroke=\"yellow\" stroke-width=\"4\" opacity=\"0\" />\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_wetter_s3_q1}}\n      "
+      },
+      {
+        "id": "sec4",
+        "title": "4. Niederschlag: Von Regen bis Hagel",
+        "quizzes": [
+          {
+            "id": "wetter_s4_q1",
+            "question": "Wie entsteht Hagel?",
+            "answers": [
+              {
+                "text": "Regentropfen werden in einer Gewitterwolke durch starke Aufwinde immer wieder hochgeschleudert und gefrieren zu Eiskugeln.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Kleine Schneeflocken schmelzen auf dem Weg nach unten und frieren am kalten Boden sofort fest.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Nicht jeder Tropfen, der aus einer Wolke fällt, kommt als flüssiger Regen auf der Erde an. Was passiert, hängt von der <strong>Temperatur der Luftschichten</strong> ab, durch die er fällt!</p>\n        <div class=\"interactive-zone\" style=\"background: #f0fdf4; border: 2px solid #86efac; border-radius: 12px; padding: 15px;\">\n            <h3>🌧️ Das Tropfen-Labor</h3>\n            <p>Wähle eine Luftschicht-Bedingung und schau, was auf dem Boden ankommt:</p>\n            <div style=\"display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;\">\n                <button class=\"action-btn\" onclick=\"showPrecipitation('rain')\">💧 Regen</button>\n                <button class=\"action-btn\" onclick=\"showPrecipitation('snow')\">❄️ Schnee</button>\n                <button class=\"action-btn\" onclick=\"showPrecipitation('sleet')\">🌨️ Graupel</button>\n                <button class=\"action-btn\" onclick=\"showPrecipitation('hail')\">🧊 Hagel</button>\n            </div>\n            <div class=\"diagram-box\" style=\"background: linear-gradient(to bottom, #94a3b8, #e2e8f0); height: 200px; position: relative; overflow: hidden; border-radius: 8px;\">\n                <!-- Cloud -->\n                <svg width=\"100%\" height=\"60\" style=\"position: absolute; top: 0; left: 0;\">\n                    <path d=\"M100,50 Q100,20 150,20 Q170,0 210,10 Q250,0 280,30 Q310,50 280,60 L120,60 Q100,60 100,50\" fill=\"#cbd5e1\" />\n                </svg>\n                <!-- Animation Area -->\n                <div id=\"precipAnimArea\" style=\"position: absolute; top: 60px; left: 0; width: 100%; height: 140px;\">\n                    <p style=\"text-align: center; margin-top: 40px; color: #475569; font-weight: bold;\">Wähle oben eine Form aus!</p>\n                </div>\n            </div>\n            <div id=\"precipText\" style=\"margin-top: 15px; text-align: left; padding: 10px; background: white; border-radius: 8px; border: 1px solid #cbd5e1;\">\n                <!-- Explanation -->\n            </div>\n        </div>\n        {{QUIZ_wetter_s4_q1}}\n      "
+      },
+      {
+        "id": "sec5",
+        "title": "5. Die Förderbänder der Ozeane (Meeresströmungen)",
+        "quizzes": [
+          {
+            "id": "wetter_s5_q1",
+            "question": "Welche Eigenschaften machen Wasser schwerer, sodass es im Ozean absinkt?",
+            "answers": [
+              {
+                "text": "Kälte und ein hoher Salzgehalt.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Wärme und Süßwasser (aus schmelzenden Gletschern).",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "wetter_s5_q2",
+            "question": "Wie heißt die warme Meeresströmung, die Europa milde Winter beschert?",
+            "answers": [
+              {
+                "text": "Der Golfstrom",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Die Humboldtstrom",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Wetter entsteht nicht nur in der Luft, sondern auch im Wasser! Die Weltmeere sind durch riesige \"Förderbänder\" miteinander verbunden. Sie transportieren warme Wassermassen aus den Tropen in kalte Regionen und umgekehrt.</p>\n        <p>Der Motor für diese Strömungen nennt sich <strong>thermohaline Zirkulation</strong> (<em>thermo</em> = Temperatur, <em>halin</em> = Salzgehalt):</p>\n        <ul>\n            <li><strong>Salziges, kaltes Wasser ist schwer!</strong> Es sinkt an den Polen in die Tiefe und fließt am Meeresboden Richtung Äquator.</li>\n            <li><strong>Warmes, weniger salziges Wasser ist leicht!</strong> Es fließt an der Oberfläche als Ausgleich zurück zu den Polen.</li>\n        </ul>\n        <div class=\"interactive-zone\" style=\"background: #e0f2fe; border: 2px solid #7dd3fc; border-radius: 12px; padding: 15px;\">\n            <h3>🌊 Der Golfstrom: Europas Heizung</h3>\n            <p>Klicke auf den Button, um zu sehen, wie der Golfstrom funktioniert:</p>\n            <button onclick=\"startGulfStream()\">Strömung starten ➡️</button>\n            <div class=\"diagram-box\" style=\"background: #0284c7; height: 180px; position: relative; margin-top: 10px; border-radius: 8px;\">\n                <svg width=\"100%\" height=\"100%\">\n                    <!-- Americas (Left) -->\n                    <path d=\"M0,80 Q40,100 20,180 L0,180 Z\" fill=\"#22c55e\" />\n                    <!-- Europe (Right) -->\n                    <path d=\"M250,0 Q280,40 350,60 L350,0 Z\" fill=\"#22c55e\" />\n                    \n                    <text x=\"30\" y=\"140\" fill=\"white\" font-size=\"12\" font-weight=\"bold\">Karibik</text>\n                    <text x=\"270\" y=\"30\" fill=\"white\" font-size=\"12\" font-weight=\"bold\">Europa</text>\n                    \n                    <g id=\"gulfStreamArrows\">\n                        <!-- Animated via JS -->\n                    </g>\n                </svg>\n            </div>\n            <p style=\"font-size: 0.9em; margin-top: 10px;\">Ohne den warmen Golfstrom aus der Karibik wäre es im Winter in Europa eiskalt (ähnlich wie in Kanada auf der gleichen geografischen Breite).</p>\n        </div>\n        {{QUIZ_wetter_s5_q1}}\n        {{QUIZ_wetter_s5_q2}}\n      "
       }
     ],
     "diplom": {
@@ -5092,6 +5154,22 @@
             },
             {
               "text": "...steigt die Luft auf und es regnet.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "w_d5",
+          "question": "Welche Faktoren treiben die weltweiten Meeresströmungen in der Tiefe an?",
+          "answers": [
+            {
+              "text": "Temperatur und Salzgehalt",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Mondanziehung (Ebbe und Flut)",
               "correct": false,
               "pts": 5
             }

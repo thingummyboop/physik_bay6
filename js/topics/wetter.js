@@ -168,6 +168,124 @@ function chargeCloud() {
     }
 }
 
+// 4. Niederschlags-Labor
+let precipInterval;
+function showPrecipitation(type) {
+    const area = document.getElementById('precipAnimArea');
+    const text = document.getElementById('precipText');
+    if (!area || !text) return;
+    
+    clearInterval(precipInterval);
+    area.innerHTML = '<svg width="100%" height="100%" id="precipSvg"></svg>';
+    const svg = document.getElementById('precipSvg');
+    
+    let infoHtml = '';
+    
+    if (type === 'rain') {
+        infoHtml = `<strong>💧 Regen:</strong> Die Wassertropfen fallen aus der Wolke. Da die Luftschichten bis zum Boden wärmer als 0°C sind, kommen sie flüssig bei uns an.`;
+        precipInterval = setInterval(() => {
+            const drop = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            const x = 100 + Math.random() * 150;
+            drop.setAttribute("x1", x); drop.setAttribute("y1", "-10");
+            drop.setAttribute("x2", x - 5); drop.setAttribute("y2", "0");
+            drop.setAttribute("stroke", "#3b82f6"); drop.setAttribute("stroke-width", "2");
+            svg.appendChild(drop);
+            let y = -10;
+            const anim = setInterval(() => {
+                y += 5; drop.setAttribute("y1", y); drop.setAttribute("y2", y + 10);
+                if (y > 150) { clearInterval(anim); if (drop.parentNode) drop.parentNode.removeChild(drop); }
+            }, 30);
+        }, 100);
+    } else if (type === 'snow') {
+        infoHtml = `<strong>❄️ Schnee:</strong> Die Wassertropfen gefrieren schon weit oben zu Eiskristallen. Weil die gesamte Luftschicht bis zum Boden unter 0°C kalt ist, fallen wunderschöne Schneeflocken vom Himmel.`;
+        precipInterval = setInterval(() => {
+            const flake = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const x = 100 + Math.random() * 150;
+            flake.setAttribute("cx", x); flake.setAttribute("cy", "-10");
+            flake.setAttribute("r", "2"); flake.setAttribute("fill", "white");
+            svg.appendChild(flake);
+            let y = -10; let currX = x;
+            const anim = setInterval(() => {
+                y += 1.5; currX += Math.sin(y/10);
+                flake.setAttribute("cy", y); flake.setAttribute("cx", currX);
+                if (y > 150) { clearInterval(anim); if (flake.parentNode) flake.parentNode.removeChild(flake); }
+            }, 50);
+        }, 150);
+    } else if (type === 'sleet') {
+        infoHtml = `<strong>🌨️ Graupel:</strong> Schneeflocken fallen durch eine wärmere Schicht, schmelzen leicht an, und fallen dann wieder durch eine eiskalte Schicht nahe am Boden. Sie gefrieren zu kleinen, undurchsichtigen Eisklümpchen.`;
+        precipInterval = setInterval(() => {
+            const pellet = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const x = 100 + Math.random() * 150;
+            pellet.setAttribute("cx", x); pellet.setAttribute("cy", "-10");
+            pellet.setAttribute("r", "2.5"); pellet.setAttribute("fill", "#e2e8f0");
+            svg.appendChild(pellet);
+            let y = -10;
+            const anim = setInterval(() => {
+                y += 4; pellet.setAttribute("cy", y);
+                if (y > 150) { clearInterval(anim); if (pellet.parentNode) pellet.parentNode.removeChild(pellet); }
+            }, 30);
+        }, 120);
+    } else if (type === 'hail') {
+        infoHtml = `<strong>🧊 Hagel:</strong> Tritt nur bei heftigen Gewittern (im Sommer) auf! Starke Aufwinde in der Wolke schleudern Regentropfen immer wieder nach oben in eisige Höhen. Sie gefrieren schichtweise zu dicken Eiskugeln, bis sie zu schwer werden und fallen.`;
+        precipInterval = setInterval(() => {
+            const hail = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const x = 120 + Math.random() * 110;
+            hail.setAttribute("cx", x); hail.setAttribute("cy", "-10");
+            hail.setAttribute("r", "4"); hail.setAttribute("fill", "#f8fafc");
+            hail.setAttribute("stroke", "#cbd5e1");
+            svg.appendChild(hail);
+            let y = -10;
+            const anim = setInterval(() => {
+                y += 6; hail.setAttribute("cy", y);
+                if (y > 150) { clearInterval(anim); if (hail.parentNode) hail.parentNode.removeChild(hail); }
+            }, 30);
+        }, 300);
+    }
+    
+    text.innerHTML = infoHtml;
+}
+
+// 5. Golfstrom
+let gulfInterval;
+function startGulfStream() {
+    const svgGroup = document.getElementById('gulfStreamArrows');
+    if (!svgGroup) return;
+    svgGroup.innerHTML = '';
+    clearInterval(gulfInterval);
+    
+    let count = 0;
+    gulfInterval = setInterval(() => {
+        if (count > 20) { clearInterval(gulfInterval); return; }
+        count++;
+        
+        const arrow = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        // Start near Caribbean
+        arrow.setAttribute("d", "M40,130 Q150,90 260,30");
+        arrow.setAttribute("fill", "none");
+        arrow.setAttribute("stroke", "#ef4444");
+        arrow.setAttribute("stroke-width", "4");
+        arrow.setAttribute("stroke-linecap", "round");
+        
+        // Dash animation to look like flow
+        arrow.setAttribute("stroke-dasharray", "15, 20");
+        const dashAnim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+        dashAnim.setAttribute("attributeName", "stroke-dashoffset");
+        dashAnim.setAttribute("from", "35");
+        dashAnim.setAttribute("to", "0");
+        dashAnim.setAttribute("dur", "1s");
+        dashAnim.setAttribute("repeatCount", "indefinite");
+        
+        arrow.appendChild(dashAnim);
+        svgGroup.appendChild(arrow);
+        
+        // Remove after a while to keep clean
+        setTimeout(() => {
+            if (arrow.parentNode) arrow.parentNode.removeChild(arrow);
+        }, 4000);
+        
+    }, 500);
+}
+
 function topicInit() {
     console.log("Wetter-Thema V3 geladen.");
     cloudCharge = 0;
