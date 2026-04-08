@@ -1,33 +1,77 @@
-// Wetter-Logik
-function updateWeatherSim() {
-    const val = document.getElementById('weatherRange').value;
-    const sun = document.getElementById('sunSim');
-    const cloud = document.getElementById('cloudSim');
-    const rain = document.getElementById('rainSim');
-    const bg = document.getElementById('weatherBg');
+// Wetter-Logik erweitert
 
-    // Simple weather transition
-    if (val < 33) {
-        // Sunny
-        sun.setAttribute('opacity', '1');
-        cloud.setAttribute('opacity', '0.2');
-        rain.setAttribute('opacity', '0');
-        bg.setAttribute('fill', '#87CEEB');
-    } else if (val < 66) {
-        // Cloudy
-        sun.setAttribute('opacity', '0.3');
-        cloud.setAttribute('opacity', '1');
-        rain.setAttribute('opacity', '0');
-        bg.setAttribute('fill', '#B0C4DE');
+// 1. Messgeräte
+function showInstrument(type) {
+    const info = document.getElementById('instrumentInfo');
+    const data = {
+        thermometer: "🌡️ <strong>Thermometer:</strong> Misst die Temperatur in Grad Celsius (°C).",
+        barometer: "⏲️ <strong>Barometer:</strong> Misst den Luftdruck in Hektopascal (hPa). Hoher Druck = oft schönes Wetter.",
+        anemometer: "🌀 <strong>Anemometer:</strong> Misst die Windgeschwindigkeit (z.B. in km/h oder m/s).",
+        hygrometer: "💧 <strong>Hygrometer:</strong> Misst die Luftfeuchtigkeit in Prozent (%)."
+    };
+    info.innerHTML = data[type] || "Wähle ein Gerät aus!";
+}
+
+// 2. Wind-Simulation
+let windInterval;
+function startWindSim() {
+    const svg = document.getElementById('windSvg');
+    if (!svg) return;
+    svg.innerHTML = ''; // Clear old particles
+    clearInterval(windInterval);
+
+    windInterval = setInterval(() => {
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        const y = Math.random() * 100;
+        circle.setAttribute("cx", "20");
+        circle.setAttribute("cy", y + "%");
+        circle.setAttribute("r", "3");
+        circle.setAttribute("fill", "#3b82f6");
+        circle.setAttribute("opacity", "0.6");
+        svg.appendChild(circle);
+
+        // Simple animation
+        let x = 20;
+        const anim = setInterval(() => {
+            x += 5;
+            circle.setAttribute("cx", x);
+            if (x > 400) {
+                clearInterval(anim);
+                if (circle.parentNode) circle.parentNode.removeChild(circle);
+            }
+        }, 30);
+    }, 200);
+
+    setTimeout(() => clearInterval(windInterval), 5000); // Stop after 5s
+}
+
+// 3. Gewitter-Labor
+let cloudCharge = 0;
+function chargeCloud() {
+    const chargeText = document.getElementById('chargeLevel');
+    const lightning = document.getElementById('lightning');
+    const cloud = document.getElementById('stormCloud');
+
+    if (cloudCharge < 100) {
+        cloudCharge += 20;
+        chargeText.innerText = cloudCharge + "% geladen";
+        // Make cloud darker
+        const gray = 75 - (cloudCharge / 2);
+        cloud.setAttribute('fill', `rgb(${gray},${gray},${gray})`);
     } else {
-        // Rainy
-        sun.setAttribute('opacity', '0');
-        cloud.setAttribute('opacity', '1');
-        rain.setAttribute('opacity', '0.6');
-        bg.setAttribute('fill', '#708090');
+        // ZAP!
+        lightning.setAttribute('opacity', '1');
+        chargeText.innerText = "ENTLADUNG! ⚡";
+        setTimeout(() => {
+            lightning.setAttribute('opacity', '0');
+            cloudCharge = 0;
+            chargeText.innerText = "0% geladen";
+            cloud.setAttribute('fill', '#4b5563');
+        }, 200);
     }
 }
 
 function topicInit() {
-    console.log("Wetter-Thema geladen.");
+    console.log("Wetter-Thema mit Erweiterungen geladen.");
+    cloudCharge = 0;
 }
