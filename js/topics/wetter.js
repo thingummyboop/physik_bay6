@@ -172,13 +172,14 @@ function chargeCloud() {
 let precipInterval;
 function showPrecipitation(type) {
     const area = document.getElementById('precipAnimArea');
-    const text = document.getElementById('precipText');
+    const text = document.getElementById('precipTextOverlay');
     if (!area || !text) return;
     
     clearInterval(precipInterval);
     area.innerHTML = '<svg width="100%" height="100%" id="precipSvg"></svg>';
     const svg = document.getElementById('precipSvg');
     
+    text.style.display = 'block';
     let infoHtml = '';
     
     if (type === 'rain') {
