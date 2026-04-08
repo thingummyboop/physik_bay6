@@ -4955,5 +4955,277 @@
         }
       ]
     }
+  },
+  "wetter": {
+    "title": "🌤️ Wetter: Was ist das? 🌦️",
+    "subtitle": "Regen, Sonnenschein oder Sturm – das Wetter ändert sich ständig. Hier lernst du die Bausteine des Wetters kennen und wie sie zusammenwirken.",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Die Bausteine des Wetters",
+        "quizzes": [
+          {
+            "id": "wetter_s1_q1",
+            "question": "Welche Kraft drückt die Luft auf den Erdboden?",
+            "answers": [
+              {
+                "text": "Luftdruck",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Erdanziehungskraft des Windes",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Wetter ist der Zustand der Atmosphäre an einem bestimmten Ort zu einer bestimmten Zeit. Es besteht aus mehreren <strong>Wetterelementen</strong>:</p>\n        <ul>\n            <li>🌡️ <strong>Temperatur:</strong> Wie warm oder kalt ist es? (Gemessen in °C)</li>\n            <li>🌬️ <strong>Luftdruck:</strong> Das Gewicht der Luftsäule über uns. (Gemessen in hPa)</li>\n            <li>💧 <strong>Luftfeuchtigkeit:</strong> Wie viel unsichtbarer Wasserdampf ist in der Luft?</li>\n            <li>💨 <strong>Wind:</strong> Luft, die von Hochdruck- zu Tiefdruckgebieten fließt.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🕹️ Wetter-Simulator</h3>\n            <p>Verschiebe den Regler, um die Wetterlage zu ändern:</p>\n            <input type=\"range\" id=\"weatherRange\" min=\"0\" max=\"100\" value=\"0\" oninput=\"updateWeatherSim()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"150\" viewBox=\"0 0 350 150\">\n                    <rect id=\"weatherBg\" x=\"0\" y=\"0\" width=\"350\" height=\"150\" fill=\"#87CEEB\" />\n                    <circle id=\"sunSim\" cx=\"50\" cy=\"40\" r=\"20\" fill=\"yellow\" stroke=\"orange\" stroke-width=\"2\" />\n                    <g id=\"cloudSim\" opacity=\"0.2\">\n                        <circle cx=\"180\" cy=\"50\" r=\"20\" fill=\"white\" />\n                        <circle cx=\"210\" cy=\"50\" r=\"25\" fill=\"white\" />\n                        <circle cx=\"240\" cy=\"50\" r=\"20\" fill=\"white\" />\n                    </g>\n                    <g id=\"rainSim\" opacity=\"0\">\n                        <line x1=\"190\" y1=\"80\" x2=\"185\" y2=\"100\" stroke=\"#2196F3\" stroke-width=\"2\" />\n                        <line x1=\"215\" y1=\"80\" x2=\"210\" y2=\"100\" stroke=\"#2196F3\" stroke-width=\"2\" />\n                        <line x1=\"240\" y1=\"80\" x2=\"235\" y2=\"100\" stroke=\"#2196F3\" stroke-width=\"2\" />\n                    </g>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_wetter_s1_q1}}\n    "
+      },
+      {
+        "id": "sec2",
+        "title": "2. Der Wasserkreislauf",
+        "quizzes": [
+          {
+            "id": "wetter_s2_q1",
+            "question": "Wie nennt man es, wenn Wasser zu Dampf wird?",
+            "answers": [
+              {
+                "text": "Verdunstung",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Kondensation",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Wasser ist der Motor unseres Wetters. Es ist ständig in Bewegung:</p>\n        <ol>\n            <li><strong>Verdunstung:</strong> Die Sonne erwärmt Wasser, es wird zu unsichtbarem Gas (Wasserdampf) und steigt auf.</li>\n            <li><strong>Kondensation:</strong> Oben wird es kälter. Der Dampf wird wieder zu winzigen Wassertropfen – <strong>Wolken</strong> entstehen.</li>\n            <li><strong>Niederschlag:</strong> Die Tropfen werden zu schwer und fallen als Regen, Schnee oder Hagel herab.</li>\n        </ol>\n        <div class=\"lexikon-box\">\n            🔍 <strong>Recherche-Aufgabe:</strong> Schau dir den Wetterbericht für morgen an. Welche Höchsttemperatur und welche Niederschlagswahrscheinlichkeit werden vorhergesagt? Notiere sie dir und überprüfe morgen, ob sie gestimmt haben!\n        </div>\n        {{QUIZ_wetter_s2_q1}}\n    "
+      }
+    ],
+    "diplom": {
+      "title": "🎓 Das Wetter-Diplom",
+      "questions": [
+        {
+          "id": "w_d1",
+          "question": "In welcher Einheit wird der Luftdruck gemessen?",
+          "answers": [
+            {
+              "text": "Hektopascal (hPa)",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Grad Celsius",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "w_d2",
+          "question": "Was passiert bei der Kondensation?",
+          "answers": [
+            {
+              "text": "Gas wird zu Flüssigkeit (Wolken).",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Flüssigkeit wird zu Gas.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "klima": {
+    "title": "🌍 Klima: Die großen Systeme 🌡️",
+    "subtitle": "Klima ist nicht das gleiche wie Wetter. Während das Wetter sich stündlich ändert, betrachtet das Klima den Zustand über Jahrzehnte.",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Wetter vs. Klima",
+        "quizzes": [
+          {
+            "id": "klima_s1_q1",
+            "question": "Über welchen Zeitraum betrachtet man das Wetterelemente, um vom Klima zu sprechen?",
+            "answers": [
+              {
+                "text": "Mindestens 30 Jahre",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Mindestens 3 Tage",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Ein berühmter Spruch sagt: <em>\"Klima ist das, was man erwartet, Wetter ist das, was man bekommt.\"</em></p>\n        <p>Wir teilen die Erde in verschiedene <strong>Klimazonen</strong> ein:</p>\n        <ul>\n            <li>❄️ <strong>Polare Zone:</strong> Kalt und trocken (Arktis/Antarktis).</li>\n            <li>🌲 <strong>Gemäßigte Zone:</strong> Vier Jahreszeiten (Mitteleuropa).</li>\n            <li>☀️ <strong>Subtropen & Tropen:</strong> Heiß, oft feucht (Regenwald) oder sehr trocken (Wüsten).</li>\n        </ul>\n        {{QUIZ_klima_s1_q1}}\n    "
+      },
+      {
+        "id": "sec2",
+        "title": "2. Der Treibhauseffekt",
+        "quizzes": [
+          {
+            "id": "klima_s2_q1",
+            "question": "Ohne den natürlichen Treibhauseffekt wäre es auf der Erde...",
+            "answers": [
+              {
+                "text": "...eiskalt (ca. -18 °C).",
+                "correct": true,
+                "pts": 15
+              },
+              {
+                "text": "...viel heißer (ca. +50 °C).",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Unsere Atmosphäre wirkt wie ein Glashaus. Gase wie <strong>CO2 (Kohlendioxid)</strong> und <strong>Methan</strong> lassen das Sonnenlicht rein, halten aber die Wärme fest, die vom Boden zurückstrahlt.</p>\n        <div class=\"interactive-zone\">\n            <h3>🌡️ Treibhaus-Modell</h3>\n            <p>Erhöhe die CO2-Konzentration und beobachte die Temperatur:</p>\n            <input type=\"range\" id=\"co2Range\" min=\"0\" max=\"100\" value=\"10\" oninput=\"updateGreenhouseEffect()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"180\" viewBox=\"0 0 350 180\">\n                    <rect x=\"0\" y=\"150\" width=\"350\" height=\"30\" fill=\"#8B4513\" />\n                    <path d=\"M 175 10 L 175 150\" stroke=\"yellow\" stroke-width=\"4\" stroke-dasharray=\"5,5\" />\n                    <g id=\"heatArrows\">\n                        <path d=\"M 160 150 Q 200 80 240 150\" fill=\"none\" stroke=\"red\" stroke-width=\"2\" />\n                    </g>\n                    <g id=\"co2Dots\" opacity=\"0.3\">\n                        <circle cx=\"100\" cy=\"50\" r=\"3\" fill=\"#333\" /> <circle cx=\"250\" cy=\"80\" r=\"3\" fill=\"#333\" />\n                        <circle cx=\"150\" cy=\"30\" r=\"3\" fill=\"#333\" /> <circle cx=\"200\" cy=\"100\" r=\"3\" fill=\"#333\" />\n                    </g>\n                </svg>\n                <p>Aktuelle Temperatur: <span id=\"tempVal\" style=\"font-weight:bold; color:red;\">15.0 °C</span></p>\n            </div>\n        </div>\n        {{QUIZ_klima_s2_q1}}\n    "
+      }
+    ],
+    "diplom": {
+      "title": "🎓 Das Klima-Diplom",
+      "questions": [
+        {
+          "id": "k_d1",
+          "question": "Welches Gas ist ein Haupt-Treibhausgas?",
+          "answers": [
+            {
+              "text": "CO2",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Stickstoff",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "k_d2",
+          "question": "Was passiert, wenn der Treibhauseffekt stärker wird?",
+          "answers": [
+            {
+              "text": "Die Durchschnittstemperatur steigt.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Die Sonne wird gelber.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "klimawandel": {
+    "title": "🆘 Klimawandel: Die Krise 🧊",
+    "subtitle": "Durch das Verbrennen von Kohle, Erdöl und Gas verstärken wir den Treibhauseffekt. Die Erde wird zu schnell zu heiß.",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Warum wird es wärmer?",
+        "quizzes": [
+          {
+            "id": "kw_s1_q1",
+            "question": "Was passiert beim Verbrennen fossiler Brennstoffe?",
+            "answers": [
+              {
+                "text": "Es wird CO2 freigesetzt, das vorher Millionen Jahre gespeichert war.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Es entsteht Sauerstoff, der die Atmosphäre kühlt.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Über Jahrmillionen hat die Natur CO2 in Form von Pflanzenresten im Boden vergraben. Daraus wurden <strong>Kohle, Erdöl und Erdgas</strong>. Wenn wir diese heute verbrennen, pusten wir all das gespeicherte CO2 in die Luft.</p>\n        <p>Das Ergebnis: Die \"Decke\" um die Erde wird dicker, und es wird immer wärmer.</p>\n        {{QUIZ_kw_s1_q1}}\n    "
+      },
+      {
+        "id": "sec2",
+        "title": "2. Die Folgen",
+        "quizzes": [
+          {
+            "id": "kw_s2_q1",
+            "question": "Warum steigt der Meeresspiegel?",
+            "answers": [
+              {
+                "text": "Gletschereis schmilzt und Wasser dehnt sich bei Wärme aus.",
+                "correct": true,
+                "pts": 15
+              },
+              {
+                "text": "Weil es mehr regnet.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Die Erwärmung hat dramatische Folgen:</p>\n        <ul>\n            <li>🏔️ <strong>Eisschmelze:</strong> Gletscher und das Eis an den Polen schmelzen.</li>\n            <li>🌊 <strong>Meeresspiegelanstieg:</strong> Küstenstädte sind in Gefahr.</li>\n            <li>🌪️ <strong>Extremwetter:</strong> Mehr Dürren, aber auch heftigere Stürme und Überflutungen.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧊 Die Zeitreise-Eisschmelze</h3>\n            <p>Verschiebe das Jahr und beobachte das Eis:</p>\n            <input type=\"range\" id=\"yearRange\" min=\"1900\" max=\"2100\" value=\"1900\" oninput=\"updateGlacier()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"200\" viewBox=\"0 0 350 200\">\n                    <rect id=\"seaLevel\" x=\"0\" y=\"150\" width=\"350\" height=\"50\" fill=\"#2196F3\" />\n                    <rect id=\"glacierArea\" x=\"50\" y=\"50\" width=\"200\" height=\"100\" fill=\"#E0F7FA\" stroke=\"#B2EBF2\" />\n                    <text x=\"20\" y=\"30\" fill=\"#333\" font-size=\"20\" font-weight=\"bold\">Jahr: <tspan id=\"yearLabel\">1900</tspan></text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_kw_s2_q1}}\n    "
+      },
+      {
+        "id": "sec3",
+        "title": "3. Was können wir tun?",
+        "content": "\n        <p>Jeder Beitrag zählt! Wir müssen den Ausstoß von CO2 stoppen. Das nennt man <strong>Klimaschutz</strong>.</p>\n        <ul>\n            <li>☀️ <strong>Erneuerbare Energien:</strong> Sonne und Wind statt Kohle.</li>\n            <li>🚲 <strong>Mobilität:</strong> Mehr Fahrrad und Bahn, weniger Auto und Flugzeug.</li>\n            <li>🥦 <strong>Ernährung:</strong> Regionale und pflanzliche Lebensmittel verbrauchen oft weniger CO2.</li>\n        </ul>\n        <div class=\"lexikon-box\">\n            🌍 <strong>Recherche-Aufgabe:</strong> Suche im Internet nach dem \"CO2-Fußabdruck-Rechner\". Versuche herauszufinden, wie viel CO2 dein Lebensstil pro Jahr verursacht. Was ist dein größter Posten? (Tipp: Meistens ist es Wohnen, Mobilität oder Ernährung).\n        </div>\n    "
+      }
+    ],
+    "diplom": {
+      "title": "🎓 Das Klimawandel-Diplom",
+      "questions": [
+        {
+          "id": "kw_d1",
+          "question": "Was sind fossile Brennstoffe?",
+          "answers": [
+            {
+              "text": "Kohle, Erdöl, Erdgas",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Holz und Wind",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "kw_d2",
+          "question": "Wie nennt man den Effekt, wenn weißes Eis Sonnenlicht zurückwirft?",
+          "answers": [
+            {
+              "text": "Albedo-Effekt",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Kühleffekt",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   }
 }
