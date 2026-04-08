@@ -5227,6 +5227,91 @@
           }
         ],
         "content": "\n        <p>Unsere Atmosphäre wirkt wie ein Glashaus. Gase wie <strong>CO2 (Kohlendioxid)</strong> und <strong>Methan</strong> lassen das Sonnenlicht rein, halten aber die Wärme fest, die vom Boden zurückstrahlt.</p>\n        <div class=\"interactive-zone\">\n            <h3>🌡️ Treibhaus-Modell</h3>\n            <p>Erhöhe die CO2-Konzentration und beobachte die Temperatur:</p>\n            <input type=\"range\" id=\"co2Range\" min=\"0\" max=\"100\" value=\"10\" oninput=\"updateGreenhouseEffect()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"180\" viewBox=\"0 0 350 180\">\n                    <rect x=\"0\" y=\"150\" width=\"350\" height=\"30\" fill=\"#8B4513\" />\n                    <path d=\"M 175 10 L 175 150\" stroke=\"yellow\" stroke-width=\"4\" stroke-dasharray=\"5,5\" />\n                    <g id=\"heatArrows\">\n                        <path d=\"M 160 150 Q 200 80 240 150\" fill=\"none\" stroke=\"red\" stroke-width=\"2\" />\n                    </g>\n                    <g id=\"co2Dots\" opacity=\"0.3\">\n                        <circle cx=\"100\" cy=\"50\" r=\"3\" fill=\"#333\" /> <circle cx=\"250\" cy=\"80\" r=\"3\" fill=\"#333\" />\n                        <circle cx=\"150\" cy=\"30\" r=\"3\" fill=\"#333\" /> <circle cx=\"200\" cy=\"100\" r=\"3\" fill=\"#333\" />\n                    </g>\n                </svg>\n                <p>Aktuelle Temperatur: <span id=\"tempVal\" style=\"font-weight:bold; color:red;\">15.0 °C</span></p>\n            </div>\n        </div>\n        {{QUIZ_klima_s2_q1}}\n    "
+      },
+      {
+        "id": "sec3",
+        "title": "3. Faktoren, die das Klima beeinflussen",
+        "quizzes": [
+          {
+            "id": "klima_s3_q1",
+            "question": "Warum ist es auf einem Berg meist kälter als im Tal?",
+            "answers": [
+              {
+                "text": "Wegen der Höhenlage. Die Luft wird dünner und kann weniger Wärme speichern.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Weil Berge näher an den Sternen sind.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "klima_s3_q2",
+            "question": "Wie beeinflusst das Meer das Klima an der Küste?",
+            "answers": [
+              {
+                "text": "Wasser speichert Wärme gut. Es macht die Winter milder und die Sommer kühler.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Es macht das Klima extrem heiß und trocken.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Das Klima an einem Ort wird von mehreren wichtigen Faktoren bestimmt:</p>\n        <ul>\n            <li>🌍 <strong>Geografische Breite:</strong> Am Äquator knallt die Sonne steil von oben herab (heiß). An den Polen treffen die Sonnenstrahlen sehr flach auf und wärmen kaum (kalt).</li>\n            <li>⛰️ <strong>Höhenlage:</strong> Je weiter man nach oben geht (z.B. auf einen Berg), desto kälter wird es (etwa 0,6°C pro 100 Meter).</li>\n            <li>🌊 <strong>Nähe zum Meer:</strong> Wasser erwärmt sich langsam, kühlt aber auch langsam ab. Küsten haben daher oft milde Winter und mäßig warme Sommer (Seeklima). Im Inland, weit weg vom Meer, gibt es heiße Sommer und eisige Winter (Kontinentalklima).</li>\n            <li>🏔️ <strong>Gebirge (Luv & Lee):</strong> Wenn Wolken an ein Gebirge stoßen, müssen sie aufsteigen und regnen ab (Luv-Seite). Auf der anderen Seite (Lee) kommt nur noch trockener Wind an.</li>\n        </ul>\n        {{QUIZ_klima_s3_q1}}\n        {{QUIZ_klima_s3_q2}}\n      "
+      },
+      {
+        "id": "sec4",
+        "title": "4. Klimadiagramme lesen",
+        "quizzes": [
+          {
+            "id": "klima_s4_q1",
+            "question": "In einem Klimadiagramm bedeutet es 'arides (trockenes) Klima', wenn...",
+            "answers": [
+              {
+                "text": "...die Niederschlagssäulen unterhalb der Temperaturkurve liegen.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "...die Temperaturkurve unter 0°C fällt.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Um das Klima eines Ortes auf einen Blick zu verstehen, nutzen Geographen <strong>Klimadiagramme</strong>. Sie zeigen Durchschnittswerte über viele Jahre.</p>\n        <ul>\n            <li>🔴 <strong>Die rote Kurve:</strong> Zeigt die Temperatur (in °C).</li>\n            <li>🟦 <strong>Die blauen Balken:</strong> Zeigen den Niederschlag (in mm, was Liter pro Quadratmeter entspricht).</li>\n        </ul>\n        <div class=\"interactive-zone\" style=\"background: #fffbeb; border: 2px solid #fcd34d; border-radius: 12px; padding: 15px;\">\n            <h3>📊 Interaktives Klimadiagramm (Beispiel: Rom, Italien)</h3>\n            <p>Fahre mit der Maus über die Monate (oder tippe sie an), um die genauen Werte zu sehen:</p>\n            <div id=\"climateChartArea\" style=\"position: relative; width: 100%; height: 250px; background: white; border: 1px solid #d1d5db; border-radius: 8px;\">\n                <!-- Chart rendered via JS -->\n            </div>\n            <div id=\"chartTooltip\" style=\"margin-top: 10px; font-weight: bold; color: #1e40af; min-height: 25px; text-align: center;\">\n                Wähle einen Monat!\n            </div>\n            <p style=\"font-size: 0.9em; margin-top: 10px; color: #475569;\"><strong>Regel:</strong> Liegt die Temperaturkurve (rot) über den Niederschlagssäulen (blau), verdunstet mehr Wasser als regnet. Es herrscht <strong>Trockenzeit (arides Klima)</strong>. Zeigt Rom im Sommer eine Trockenzeit?</p>\n        </div>\n        {{QUIZ_klima_s4_q1}}\n      "
+      },
+      {
+        "id": "sec5",
+        "title": "5. Die Zeitreise der Klimaforschung",
+        "quizzes": [
+          {
+            "id": "klima_s5_q1",
+            "question": "Was verraten uns Eisbohrkerne aus der Antarktis?",
+            "answers": [
+              {
+                "text": "Sie enthalten winzige, uralte Luftbläschen, durch die wir die Zusammensetzung der Atmosphäre vor tausenden Jahren messen können.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Sie zeigen uns, ob früher Fische im Eis gelebt haben.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Wetteraufzeichnungen mit Thermometern gibt es erst seit etwa 150 Jahren. Aber wie wissen Forscher, wie heiß es vor 10.000 Jahren war? Sie nutzen <strong>Klima-Archive</strong> der Natur!</p>\n        <div class=\"interactive-zone\" style=\"background: #faf5ff; border: 2px solid #d8b4fe; border-radius: 12px; padding: 15px;\">\n            <h3>🔬 Das Klima-Archiv</h3>\n            <div style=\"display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;\">\n                <button class=\"action-btn\" onclick=\"showClimateArchive('ice')\">🧊 Eisbohrkerne</button>\n                <button class=\"action-btn\" onclick=\"showClimateArchive('tree')\">🌳 Baumringe</button>\n                <button class=\"action-btn\" onclick=\"showClimateArchive('sediment')\">🪨 Seesedimente</button>\n            </div>\n            <div id=\"archiveText\" class=\"lexikon-box\" style=\"border-color: #d8b4fe; background: white;\">\n                Wähle ein Archiv aus, um mehr zu erfahren!\n            </div>\n        </div>\n        {{QUIZ_klima_s5_q1}}\n      "
       }
     ],
     "diplom": {
@@ -5259,6 +5344,38 @@
             },
             {
               "text": "Die Sonne wird gelber.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "k_d3",
+          "question": "Wie wirkt sich die Nähe zum Ozean meistens auf das Klima aus?",
+          "answers": [
+            {
+              "text": "Milde Winter, mäßig warme Sommer",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Sehr heiße Sommer, eiskalte Winter",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "k_d4",
+          "question": "Woher wissen wir, wie warm es vor tausenden Jahren war?",
+          "answers": [
+            {
+              "text": "Durch Eisbohrkerne und Baumringe",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Durch alte Wetter-Apps",
               "correct": false,
               "pts": 5
             }
@@ -5321,6 +5438,52 @@
         "id": "sec3",
         "title": "3. Was können wir tun?",
         "content": "\n        <p>Jeder Beitrag zählt! Wir müssen den Ausstoß von CO2 stoppen. Das nennt man <strong>Klimaschutz</strong>.</p>\n        <ul>\n            <li>☀️ <strong>Erneuerbare Energien:</strong> Sonne und Wind statt Kohle.</li>\n            <li>🚲 <strong>Mobilität:</strong> Mehr Fahrrad und Bahn, weniger Auto und Flugzeug.</li>\n            <li>🥦 <strong>Ernährung:</strong> Regionale und pflanzliche Lebensmittel verbrauchen oft weniger CO2.</li>\n        </ul>\n        <div class=\"lexikon-box\">\n            🌍 <strong>Recherche-Aufgabe:</strong> Suche im Internet nach dem \"CO2-Fußabdruck-Rechner\". Versuche herauszufinden, wie viel CO2 dein Lebensstil pro Jahr verursacht. Was ist dein größter Posten? (Tipp: Meistens ist es Wohnen, Mobilität oder Ernährung).\n        </div>\n    "
+      },
+      {
+        "id": "sec4",
+        "title": "4. Wie weit sind wir schon? (Das Temperatur-Limit)",
+        "quizzes": [
+          {
+            "id": "kw_s4_q1",
+            "question": "Auf welches maximale Erwärmungs-Limit haben sich die Länder im Pariser Klimaabkommen geeinigt?",
+            "answers": [
+              {
+                "text": "+1,5 °C",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "+5,0 °C",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Um die schlimmsten Katastrophen zu verhindern, haben sich fast alle Länder der Welt geeinigt: Die Erde darf sich im Vergleich zur Zeit vor den großen Fabriken (vorindustrielle Zeit) <strong>nicht mehr als 1,5 °C</strong> erwärmen!</p>\n        <div class=\"interactive-zone\" style=\"background: #fff1f2; border: 2px solid #fecdd3; border-radius: 12px; padding: 15px;\">\n            <h3>🌡️ Das Gefahren-Thermometer</h3>\n            <p>Wo stehen wir aktuell im Vergleich zum Limit?</p>\n            <div style=\"display: flex; align-items: center; justify-content: center; gap: 20px;\">\n                <svg width=\"100\" height=\"250\" viewBox=\"0 0 100 250\">\n                    <rect x=\"40\" y=\"20\" width=\"20\" height=\"180\" rx=\"10\" fill=\"#e2e8f0\" stroke=\"#94a3b8\" />\n                    <circle cx=\"50\" cy=\"200\" r=\"20\" fill=\"#ef4444\" />\n                    <rect x=\"45\" y=\"110\" width=\"10\" height=\"80\" fill=\"#ef4444\">\n                        <animate attributeName=\"y\" values=\"190;110\" dur=\"2s\" fill=\"freeze\" />\n                        <animate attributeName=\"height\" values=\"10;80\" dur=\"2s\" fill=\"freeze\" />\n                    </rect>\n                    <line x1=\"30\" y1=\"180\" x2=\"40\" y2=\"180\" stroke=\"#334155\" /> <text x=\"5\" y=\"184\" font-size=\"10\" font-weight=\"bold\">0.0°C</text>\n                    <line x1=\"30\" y1=\"110\" x2=\"40\" y2=\"110\" stroke=\"#ef4444\" stroke-width=\"2\" /> <text x=\"5\" y=\"114\" fill=\"#ef4444\" font-size=\"10\" font-weight=\"bold\">1.2°C</text>\n                    <line x1=\"30\" y1=\"90\" x2=\"40\" y2=\"90\" stroke=\"#991b1b\" stroke-width=\"2\" /> <text x=\"5\" y=\"94\" fill=\"#991b1b\" font-size=\"10\" font-weight=\"bold\">1.5°C</text>\n                </svg>\n                <div style=\"font-size: 0.9em; text-align: left; max-width: 250px;\">\n                    <p><strong>0.0°C:</strong> Normalzustand (vor 1850)</p>\n                    <p style=\"color: #ef4444;\"><strong>~1.2°C:</strong> Unser aktueller Stand heute! Wir spüren bereits deutlich mehr Hitzewellen und Starkregen.</p>\n                    <p style=\"color: #991b1b;\"><strong>1.5°C:</strong> Das absolute Limit. Wird es wärmer, drohen unumkehrbare Folgen (Kipppunkte).</p>\n                </div>\n            </div>\n        </div>\n        {{QUIZ_kw_s4_q1}}\n      "
+      },
+      {
+        "id": "sec5",
+        "title": "5. Die Domino-Steine der Erde (Kipppunkte)",
+        "quizzes": [
+          {
+            "id": "kw_s5_q1",
+            "question": "Was passiert, wenn der Permafrost-Boden in Sibirien auftaut?",
+            "answers": [
+              {
+                "text": "Er gibt riesige Mengen des Treibhausgases Methan frei, was die Erde noch schneller erhitzt.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Es wachsen dort sofort Palmen.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Stell dir vor, du lehnst dich immer weiter auf einem Stuhl zurück. Lange Zeit passiert nichts, aber plötzlich erreichst du einen Punkt, an dem du unweigerlich nach hinten fällst. Das ist ein <strong>Kipppunkt</strong>.</p>\n        <p>In unserem Klima gibt es solche Kipppunkte. Wenn sie fallen, lösen sie eine Kettenreaktion (wie Dominosteine) aus, die wir Menschen <strong>nicht mehr stoppen können</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Die Kipppunkt-Kettenreaktion</h3>\n            <p>Klicke auf den ersten Dominostein, um zu sehen, was passieren könnte, wenn wir das Limit ignorieren:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Stein anstoßen 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Grönlandeis schmilzt 🧊</strong><br><span style=\"font-size:0.8em;\">Süßwasser fließt in den Ozean.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Golfstrom stoppt 🌊</strong><br><span style=\"font-size:0.8em;\">Das salzarme Wasser ist zu leicht zum Absinken. Die Strömung bricht ab.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Amazonas vertrocknet 🌳</strong><br><span style=\"font-size:0.8em;\">Ohne die Strömung ändert sich der Regen in Südamerika. Der Regenwald stirbt.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Permafrost taut 🌫️</strong><br><span style=\"font-size:0.8em;\">Die Natur speichert kein CO2 mehr. Methan entweicht -> Erde überhitzt!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 Wenn der erste Stein fällt, können wir den Rest nicht mehr aufhalten!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}\n      "
       }
     ],
     "diplom": {
@@ -5353,6 +5516,38 @@
             },
             {
               "text": "Kühleffekt",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "kw_d3",
+          "question": "Auf welches Limit haben sich die Staaten geeinigt?",
+          "answers": [
+            {
+              "text": "1,5 °C Erwärmung",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "4,0 °C Erwärmung",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "kw_d4",
+          "question": "Was ist ein Klimakipppunkt?",
+          "answers": [
+            {
+              "text": "Eine Schwelle, bei deren Überschreiten unaufhaltsame Kettenreaktionen ausgelöst werden.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein Ort am Polarkreis, wo das Thermometer kippt.",
               "correct": false,
               "pts": 5
             }
