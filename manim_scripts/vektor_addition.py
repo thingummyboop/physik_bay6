@@ -12,11 +12,11 @@ class VektorAddition(Scene):
 
         # Force 1
         f1 = Arrow(start=ORIGIN, end=RIGHT * 3, color=BLUE, buff=0)
-        f1_label = MathTex(r"\vec{F}_1", color=BLUE).next_to(f1, DOWN)
+        f1_label = Text("F1", color=BLUE, font_size=24).next_to(f1, DOWN)
         
         # Force 2
         f2 = Arrow(start=ORIGIN, end=UP * 2 + RIGHT * 1, color=GREEN, buff=0)
-        f2_label = MathTex(r"\vec{F}_2", color=GREEN).next_to(f2, LEFT)
+        f2_label = Text("F2", color=GREEN, font_size=24).next_to(f2, LEFT)
 
         self.play(GrowArrow(f1), Write(f1_label))
         self.play(GrowArrow(f2), Write(f2_label))
@@ -34,12 +34,12 @@ class VektorAddition(Scene):
 
         # Resulting force
         f_res = Arrow(start=ORIGIN, end=RIGHT * 4 + UP * 2, color=RED, buff=0)
-        f_res_label = MathTex(r"\vec{F}_{res}", color=RED).next_to(f_res.get_end(), UP)
+        f_res_label = Text("F_res", color=RED, font_size=24).next_to(f_res.get_end(), UP)
 
         self.play(GrowArrow(f_res), Write(f_res_label))
         
         # Box showing formula
-        formula = MathTex(r"\vec{F}_{res} = \vec{F}_1 + \vec{F}_2").to_corner(DR)
+        formula = Text("F_res = F1 + F2", font_size=24).to_corner(DR)
         self.play(Write(formula))
 
         self.wait(3)

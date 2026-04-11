@@ -15,9 +15,11 @@ class WellenArten(Scene):
             axis_config={"include_numbers": False, "color": GRAY}
         ).move_to(UP * 0.5)
 
+        tracker = ValueTracker(0)
+
         t_wave = always_redraw(
-            lambda: t_axes.plot(
-                lambda x: np.sin(2 * x - self.time * 3),
+            lambda: t_axes.get_graph(
+                lambda x: np.sin(2 * x - tracker.get_value() * 3),
                 color=BLUE
             )
         )
@@ -39,11 +41,11 @@ class WellenArten(Scene):
         def update_lines(mobs):
             for i, line in enumerate(mobs):
                 # The position oscillates horizontally based on sine wave
-                displacement = 0.3 * np.sin(2 * line.x_base - self.time * 3)
+                displacement = 0.3 * np.sin(2 * line.x_base - tracker.get_value() * 3)
                 line.move_to(RIGHT * (line.x_base + displacement) + DOWN * 2.5)
 
         lines.add_updater(update_lines)
         self.play(FadeIn(lines))
 
-        self.wait(5)
+        self.play(tracker.animate.set_value(5), run_time=5, rate_func=linear)
         lines.clear_updaters()

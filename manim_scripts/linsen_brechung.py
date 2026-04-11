@@ -9,12 +9,11 @@ class LinsenBrechung(Scene):
         axis = DashedLine(LEFT * 6, RIGHT * 6, color=GRAY)
         self.play(Create(axis))
 
-        # Convex lens
-        lens = Intersection(
-            Circle(radius=3).shift(RIGHT * 2.5),
-            Circle(radius=3).shift(LEFT * 2.5),
-            color=BLUE, fill_opacity=0.3
-        )
+        # Convex lens using arcs
+        lens = VGroup(
+            ArcBetweenPoints(UP * 2, DOWN * 2, radius=3),
+            ArcBetweenPoints(DOWN * 2, UP * 2, radius=3)
+        ).set_color(BLUE).set_fill(BLUE, opacity=0.3)
         self.play(DrawBorderThenFill(lens))
 
         # Focal points

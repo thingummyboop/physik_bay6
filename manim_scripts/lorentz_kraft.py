@@ -7,7 +7,7 @@ class LorentzKraft(Scene):
 
         # Magnetic field (crosses representing field into the screen)
         b_field = VGroup(*[
-            Cross(stroke_color=BLUE).scale(0.2).move_to(x * RIGHT + y * UP)
+            VGroup(Line(UP+LEFT, DOWN+RIGHT), Line(UP+RIGHT, DOWN+LEFT)).set_color(BLUE).scale(0.1).move_to(x * RIGHT + y * UP)
             for x in range(-5, 6, 2) for y in range(-2, 3, 2)
         ])
         
@@ -30,12 +30,29 @@ class LorentzKraft(Scene):
         # Force arrow
         f_arrow = Arrow(start=ORIGIN, end=DOWN*1.5, color=RED, buff=0)
         f_label = Text("F (Lorentzkraft)", color=RED, font_size=24)
+        
+        alpha_tracker = ValueTracker(0)
+
+        def update_electron(mob):
+            mob.move_to(path.point_from_proportion(alpha_tracker.get_value()))
+            
+        e_group.add_updater(update_electron)
 
         def update_force_arrow(arr):
-            # Normal to the path
-            tangent = path.copy().reverse_direction().get_unit_vector() if path.get_start()[0] < path.get_end()[0] else path.get_unit_vector()
+            alpha = alpha_tracker.get_value()
+            current_pos = path.point_from_proportion(alpha)
+            next_pos = path.point_from_proportion(min(1.0, alpha + 0.01))
+            if alpha == 1.0:
+                next_pos = current_pos + (current_pos - path.point_from_proportion(0.99))
+            
+            tangent = next_pos - current_pos
+            if np.linalg.norm(tangent) > 0:
+                tangent = tangent / np.linalg.norm(tangent)
+            else:
+                tangent = RIGHT
+            
             normal = np.array([tangent[1], -tangent[0], 0]) # Rotate 90 deg right
-            arr.put_start_and_end_on(e_group.get_center(), e_group.get_center() + normal * 1.5)
+            arr.put_start_and_end_on(current_pos, current_pos + normal * 1.5)
             f_label.next_to(arr, DOWN, buff=0.1)
 
         f_arrow.add_updater(update_force_arrow)
@@ -44,7 +61,7 @@ class LorentzKraft(Scene):
         
         # Moving electron along the path
         self.play(
-            MoveAlongPath(e_group, path),
+            alpha_tracker.animate.set_value(1.0),
             v_arrow.animate.set_opacity(0),
             v_label.animate.set_opacity(0),
             run_time=4,
@@ -52,4 +69,5 @@ class LorentzKraft(Scene):
         )
         
         f_arrow.clear_updaters()
+        e_group.clear_updaters()
         self.wait(2)
