@@ -152,7 +152,7 @@
             // Mapping for simple topic IDs to template URL
             if (!page.includes('/') && !page.includes('.html')) {
                 url = `topics/template.html?topic=${encodeURIComponent(page)}`;
-            } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template'].some(x => page.includes(x))) {
+            } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => page.includes(x))) {
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
                 url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
             }
