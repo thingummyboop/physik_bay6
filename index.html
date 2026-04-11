@@ -73,6 +73,8 @@
             </div>
         </div>
         
+        <button class="nav-btn" data-page="topics/start.html" onclick="loadPage('topics/start.html', this)" style="margin-top: 10px; font-weight: bold; color: var(--nav-btn-active-text);">🏠 Startseite</button>
+
         <div class="grade-section">📚 2. Klasse (6. Schulstufe)</div>
         <button class="nav-btn" data-page="optik1" onclick="loadPage('optik1', this)">🌑 1. Licht & Schatten</button>
         <button class="nav-btn" data-page="farben" onclick="loadPage('farben', this)">🎨 2. Farben & Sehen</button>
@@ -230,7 +232,7 @@
             
             // Restore Page (Prefer Hash -> LocalStorage -> Default)
             const hashPage = window.location.hash.substring(1);
-            const savedPage = hashPage || localStorage.getItem('physik_current_page') || 'optik1';
+            const savedPage = hashPage || localStorage.getItem('physik_current_page') || 'topics/start.html';
             loadPage(savedPage, null);
         });
     </script>
