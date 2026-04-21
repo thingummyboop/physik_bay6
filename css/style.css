@@ -110,7 +110,36 @@ button:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px;
 
 .feedback { font-weight: bold; margin-top: 10px; display: block; }
 
-/* Dashboard & Badge styling */
+/* Math Theme Overrides */
+body.math-theme {
+    --primary: #10b981; /* Emerald Green */
+    --secondary: #8b5cf6; /* Purple */
+    --interactive-bg: #ecfdf5;
+    --lexikon-bg: #f5f3ff;
+}
+
+[data-theme="dark"] body.math-theme {
+    --primary: #34d399;
+    --secondary: #a78bfa;
+    --interactive-bg: #064e3b;
+    --lexikon-bg: #4c1d95;
+}
+
+.worksheet-btn {
+    display: block;
+    margin: 0 auto 30px auto;
+    background: var(--secondary);
+    color: white;
+    font-size: 1.1em;
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    border: 2px solid white;
+}
+.worksheet-btn:hover {
+    background: #7c3aed;
+    transform: scale(1.05);
+}
 .badge-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
 .badge { 
     background: var(--card-bg); border: 2px solid var(--box-border); 

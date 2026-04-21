@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Arbeitsblatt</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; color: black; background: white; line-height: 1.6; }
+        h1 { text-align: center; border-bottom: 3px solid black; padding-bottom: 10px; margin-bottom: 40px; font-size: 2em; }
+        h2 { margin-top: 40px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        .question-block { margin-top: 30px; margin-bottom: 30px; page-break-inside: avoid; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
+        .answer-lines { margin-top: 15px; border-bottom: 1px dotted #888; height: 30px; width: 100%; }
+        .header-info { display: flex; justify-content: space-between; margin-bottom: 40px; font-size: 1.2em; }
+        .print-btn { padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .print-btn:hover { background: #059669; }
+        @media print {
+            body { padding: 0; }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="text-align: center; margin-bottom: 40px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 2px dashed #cbd5e1;">
+        <p style="font-size: 1.1em; color: #475569;">Drucke dieses Arbeitsblatt aus, um das Thema abseits des Bildschirms zu üben!</p>
+        <button class="print-btn" onclick="window.print()">🖨️ Jetzt drucken (als PDF oder auf Papier)</button>
+    </div>
+
+    <div class="header-info">
+        <div><strong>Fach:</strong> Mathematik</div>
+        <div><strong>Name:</strong> ________________________</div>
+    </div>
+
+    <h1 id="ws-title">Arbeitsblatt</h1>
+    
+    <div id="ws-content">Lade Fragen...</div>
+
+    <script>
+        async function loadWorksheet() {
+            const params = new URLSearchParams(window.location.search);
+            const topicId = params.get('topic');
+            if (!topicId) return;
+
+            try {
+                const res = await fetch('../lang/de.json');
+                const data = await res.json();
+                const topic = data[topicId];
+                
+                if (!topic) return;
+
+                // Remove Emojis from title for print
+                const cleanTitle = topic.title.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F1E0}-\u{1F1FF}\u{1F000}-\u{1F02F}\u{1F0A0}-\u{1F0FF}\u{1F100}-\u{1F1FF}\u{1F200}-\u{1F2FF}\u{1F400}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{1FB00}-\u{1FBFF}\u{1FC00}-\u{1FCFF}\u{1FD00}-\u{1FDFF}\u{1FE00}-\u{1FEFF}\u{1FF00}-\u{1FFFF}\u{2B50}\u{2B55}\u{23F0}\u{23F3}]/ug, '').trim();
+                
+                document.getElementById('ws-title').innerText = "Arbeitsblatt: " + cleanTitle;
+                document.title = "Arbeitsblatt - " + cleanTitle;
+
+                const content = document.getElementById('ws-content');
+                content.innerHTML = '';
+                let qCounter = 1;
+
+                topic.sections.forEach(sec => {
+                    if (sec.quizzes && sec.quizzes.length > 0) {
+                        sec.quizzes.forEach(q => {
+                            content.innerHTML += `
+                                <div class="question-block">
+                                    <div class="question-text">${qCounter++}. ${q.question}</div>
+                                    <div class="answer-lines"></div>
+                                    <div class="answer-lines"></div>
+                                    <div class="answer-lines"></div>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+
+                if (topic.diplom && topic.diplom.questions && topic.diplom.questions.length > 0) {
+                    content.innerHTML += `<h2 style="margin-top: 50px;">Abschluss-Check (Diplomfragen)</h2>`;
+                    topic.diplom.questions.forEach(q => {
+                        content.innerHTML += `
+                            <div class="question-block">
+                                <div class="question-text">${qCounter++}. ${q.question}</div>
+                                <div class="answer-lines"></div>
+                                <div class="answer-lines"></div>
+                            </div>
+                        `;
+                    });
+                }
+
+                if (qCounter === 1) {
+                    content.innerHTML = "<p>Für dieses Thema sind noch keine Übungsfragen hinterlegt.</p>";
+                }
+
+            } catch(e) {
+                console.error(e);
+                document.getElementById('ws-content').innerHTML = "<p>Fehler beim Laden des Arbeitsblattes.</p>";
+            }
+        }
+        loadWorksheet();
+    </script>
+</body>
+</html>

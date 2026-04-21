@@ -44,6 +44,17 @@ async function renderTopic() {
 
         container.innerHTML = "";
 
+        if (topicId.startsWith('math')) {
+            document.body.classList.add('math-theme');
+            const wsBtn = document.createElement('button');
+            wsBtn.innerHTML = '🖨️ Arbeitsblätter zum Üben drucken';
+            wsBtn.className = 'worksheet-btn';
+            wsBtn.onclick = () => window.open('worksheet.html?topic=' + topicId, '_blank');
+            container.appendChild(wsBtn);
+        } else {
+            document.body.classList.remove('math-theme');
+        }
+
         topic.sections.forEach(section => {
             const card = document.createElement('div');
             card.className = "card";
