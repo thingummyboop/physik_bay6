@@ -11,17 +11,21 @@
         .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
         .answer-lines { margin-top: 15px; border-bottom: 1px dotted #888; height: 30px; width: 100%; }
         .header-info { display: flex; justify-content: space-between; margin-bottom: 40px; font-size: 1.2em; }
-        .print-btn { padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .print-btn { padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         .print-btn:hover { background: #059669; }
+        .exercise-item { margin-bottom: 15px; font-size: 1.2em; }
         @media print {
             body { padding: 0; }
             .no-print { display: none !important; }
         }
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/worksheet_generator.js"></script>
 </head>
 <body>
     <div class="no-print" style="text-align: center; margin-bottom: 40px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 2px dashed #cbd5e1;">
-        <p style="font-size: 1.1em; color: #475569;">Drucke dieses Arbeitsblatt aus, um das Thema abseits des Bildschirms zu üben!</p>
+        <p style="font-size: 1.1em; color: #475569;">Drucke dieses Arbeitsblatt aus, um das Thema abseits des Bildschirms zu üben! Jedes Mal, wenn du diese Seite neu lädst, werden <strong>neue Übungszahlen</strong> für dich generiert.</p>
         <button class="print-btn" onclick="window.print()">🖨️ Jetzt drucken (als PDF oder auf Papier)</button>
     </div>
 
@@ -47,7 +51,6 @@
                 
                 if (!topic) return;
 
-                // Remove Emojis from title for print
                 const cleanTitle = topic.title.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F1E0}-\u{1F1FF}\u{1F000}-\u{1F02F}\u{1F0A0}-\u{1F0FF}\u{1F100}-\u{1F1FF}\u{1F200}-\u{1F2FF}\u{1F400}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{1FB00}-\u{1FBFF}\u{1FC00}-\u{1FCFF}\u{1FD00}-\u{1FDFF}\u{1FE00}-\u{1FEFF}\u{1FF00}-\u{1FFFF}\u{2B50}\u{2B55}\u{23F0}\u{23F3}]/ug, '').trim();
                 
                 document.getElementById('ws-title').innerText = "Arbeitsblatt: " + cleanTitle;
@@ -55,40 +58,49 @@
 
                 const content = document.getElementById('ws-content');
                 content.innerHTML = '';
-                let qCounter = 1;
+                
+                // Try dynamic generation first
+                let dynamicContent = null;
+                if (typeof generateWorksheetContent === 'function') {
+                    dynamicContent = generateWorksheetContent(topicId, cleanTitle);
+                }
 
-                topic.sections.forEach(sec => {
-                    if (sec.quizzes && sec.quizzes.length > 0) {
-                        sec.quizzes.forEach(q => {
-                            content.innerHTML += `
+                if (dynamicContent) {
+                    content.innerHTML = dynamicContent;
+                    if (window.MathJax) MathJax.typesetPromise();
+                } else {
+                    // Fallback to old quiz layout
+                    let qCounter = 1;
+                    topic.sections.forEach(sec => {
+                        if (sec.quizzes && sec.quizzes.length > 0) {
+                            sec.quizzes.forEach(q => {
+                                content.innerHTML += \`
+                                    <div class="question-block">
+                                        <div class="question-text">\${qCounter++}. \${q.question}</div>
+                                        <div class="answer-lines"></div>
+                                        <div class="answer-lines"></div>
+                                    </div>
+                                \`;
+                            });
+                        }
+                    });
+
+                    if (topic.diplom && topic.diplom.questions && topic.diplom.questions.length > 0) {
+                        content.innerHTML += \`<h2 style="margin-top: 50px;">Abschluss-Check</h2>\`;
+                        topic.diplom.questions.forEach(q => {
+                            content.innerHTML += \`
                                 <div class="question-block">
-                                    <div class="question-text">${qCounter++}. ${q.question}</div>
-                                    <div class="answer-lines"></div>
-                                    <div class="answer-lines"></div>
+                                    <div class="question-text">\${qCounter++}. \${q.question}</div>
                                     <div class="answer-lines"></div>
                                 </div>
-                            `;
+                            \`;
                         });
                     }
-                });
-
-                if (topic.diplom && topic.diplom.questions && topic.diplom.questions.length > 0) {
-                    content.innerHTML += `<h2 style="margin-top: 50px;">Abschluss-Check (Diplomfragen)</h2>`;
-                    topic.diplom.questions.forEach(q => {
-                        content.innerHTML += `
-                            <div class="question-block">
-                                <div class="question-text">${qCounter++}. ${q.question}</div>
-                                <div class="answer-lines"></div>
-                                <div class="answer-lines"></div>
-                            </div>
-                        `;
-                    });
+                    
+                    if (qCounter === 1) {
+                        content.innerHTML = "<p>Für dieses Thema sind noch keine Übungsfragen hinterlegt.</p>";
+                    }
                 }
-
-                if (qCounter === 1) {
-                    content.innerHTML = "<p>Für dieses Thema sind noch keine Übungsfragen hinterlegt.</p>";
-                }
-
             } catch(e) {
                 console.error(e);
                 document.getElementById('ws-content').innerHTML = "<p>Fehler beim Laden des Arbeitsblattes.</p>";
