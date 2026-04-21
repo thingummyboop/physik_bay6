@@ -1,0 +1,204 @@
+{
+  "math1_2_nat_zahlen": {
+    "title": "🔢 2. Natürliche Zahlen",
+    "subtitle": "Zahlen ordnen, lesen und runden wie ein Profi.",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Der Zahlenstrahl",
+        "content": "<div class='interactive-zone'><svg width='100%' height='100' viewBox='0 0 500 100'><line x1='50' y1='50' x2='450' y2='50' stroke='black' stroke-width='2'/><polygon points='450,45 460,50 450,55' fill='black'/><text x='100' y='70' text-anchor='middle'>0</text><circle cx='100' cy='50' r='4' fill='blue'/><text x='200' y='70' text-anchor='middle'>10</text><circle cx='200' cy='50' r='4' fill='blue'/><text x='300' y='70' text-anchor='middle'>20</text><circle cx='300' cy='50' r='4' fill='blue'/><text x='400' y='70' text-anchor='middle'>30</text><circle cx='400' cy='50' r='4' fill='blue'/></svg></div><p>Der Zahlenstrahl hilft uns, Zahlen der Größe nach zu ordnen. Je weiter rechts eine Zahl auf dem Zahlenstrahl steht, desto größer ist sie. Der Abstand zwischen den Strichen (Skalierung) muss immer gleichmäßig sein.</p>{{QUIZ_math1_2_q1}}{{QUIZ_math1_2_q2}}{{QUIZ_math1_2_q3}}",
+        "quizzes": [
+          {
+            "id": "math1_2_q1",
+            "question": "Welche Zahl liegt auf dem Zahlenstrahl weiter rechts?",
+            "answers": [
+              {"text": "15", "correct": false, "pts": 0},
+              {"text": "27", "correct": true, "pts": 10},
+              {"text": "Sie liegen an der gleichen Stelle", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q2",
+            "question": "Wenn ein Strich für 5 Schritte steht, welche Zahl steht dann am 4. Strich nach der Null?",
+            "answers": [
+              {"text": "20", "correct": true, "pts": 10},
+              {"text": "15", "correct": false, "pts": 0},
+              {"text": "4", "correct": false, "pts": 0},
+              {"text": "25", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q3",
+            "question": "Was bedeutet es, wenn eine Zahl auf dem Zahlenstrahl weiter links steht als eine andere?",
+            "answers": [
+              {"text": "Sie ist größer.", "correct": false, "pts": 0},
+              {"text": "Sie ist kleiner.", "correct": true, "pts": 10},
+              {"text": "Sie ist gleich groß.", "correct": false, "pts": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "2. Die Stellenwerttafel",
+        "content": "<div class='interactive-zone'><table style='width:100%; text-align:center; border-collapse: collapse;' border='1'><tr><th>M (Millionen)</th><th>HT (Hunderttausender)</th><th>ZT (Zehntausender)</th><th>T (Tausender)</th><th>H (Hunderter)</th><th>Z (Zehner)</th><th>E (Einer)</th></tr><tr><td></td><td>3</td><td>0</td><td>5</td><td>1</td><td>2</td><td>8</td></tr></table><script>console.log('Stellenwerttafel loaded');</script></div><p>Mit der Stellenwerttafel können wir große Zahlen übersichtlich darstellen und lesen. Jede Ziffer einer Zahl hat einen Stellenwert, der ihren tatsächlichen Wert bestimmt. Unser Zahlensystem ist das Zehnersystem (Dezimalsystem). 10 Einer sind 1 Zehner, 10 Zehner sind 1 Hunderter, und so weiter.</p>{{QUIZ_math1_2_q4}}{{QUIZ_math1_2_q5}}{{QUIZ_math1_2_q6}}",
+        "quizzes": [
+          {
+            "id": "math1_2_q4",
+            "question": "Welchen Wert hat die Ziffer 5 in der Zahl 34.567?",
+            "answers": [
+              {"text": "5 Zehner", "correct": false, "pts": 0},
+              {"text": "5 Hunderter", "correct": true, "pts": 10},
+              {"text": "5 Tausender", "correct": false, "pts": 0},
+              {"text": "5 Einer", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q5",
+            "question": "Wie schreibt man 'Drei Millionen fünftausend' als Zahl?",
+            "answers": [
+              {"text": "3.500.000", "correct": false, "pts": 0},
+              {"text": "3.005.000", "correct": true, "pts": 10},
+              {"text": "3.050.000", "correct": false, "pts": 0},
+              {"text": "3.000.500", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q6",
+            "question": "Wie viele Zehntausender (ZT) hat die Zahl 184.200?",
+            "answers": [
+              {"text": "1", "correct": false, "pts": 0},
+              {"text": "4", "correct": false, "pts": 0},
+              {"text": "8", "correct": true, "pts": 10},
+              {"text": "84", "correct": false, "pts": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec3",
+        "title": "3. Vergleichen und Ordnen",
+        "content": "<div class='interactive-zone'><div style='font-size: 24px; text-align: center;'> 15.340 <span id='compare-sign' style='color: red; font-weight: bold;'>&lt;</span> 15.430 </div><script>document.getElementById('compare-sign').onclick = function() { alert('Kleiner als!'); };</script></div><p>Um Zahlen zu vergleichen, schauen wir uns ihre Stellenwerte von links nach rechts an. Wer mehr Ziffern hat, ist größer. Haben beide gleich viele Ziffern, vergleichen wir die Ziffern von links nach rechts. Das Krokodil (die Zeichen &lt; und &gt;) isst immer die größere Zahl!</p>{{QUIZ_math1_2_q7}}{{QUIZ_math1_2_q8}}{{QUIZ_math1_2_q9}}",
+        "quizzes": [
+          {
+            "id": "math1_2_q7",
+            "question": "Welches Zeichen muss hier eingesetzt werden: 45.678 ___ 45.768?",
+            "answers": [
+              {"text": ">", "correct": false, "pts": 0},
+              {"text": "<", "correct": true, "pts": 10},
+              {"text": "=", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q8",
+            "question": "Ordne die Zahlen der Größe nach (kleinste zuerst): 304, 403, 340",
+            "answers": [
+              {"text": "304 < 340 < 403", "correct": true, "pts": 10},
+              {"text": "340 < 304 < 403", "correct": false, "pts": 0},
+              {"text": "403 < 340 < 304", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q9",
+            "question": "Welche Aussage ist richtig?",
+            "answers": [
+              {"text": "Jede fünfstellige Zahl ist größer als jede sechsstellige Zahl.", "correct": false, "pts": 0},
+              {"text": "9.999 ist die größte vierstellige Zahl.", "correct": true, "pts": 10},
+              {"text": "1.000 ist die kleinste vierstellige Zahl, aber 999 ist größer.", "correct": false, "pts": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec4",
+        "title": "4. Runden von Zahlen",
+        "content": "<div class='interactive-zone'><svg width='100%' height='80' viewBox='0 0 400 80'><path d='M 50 60 Q 200 10 350 60' fill='transparent' stroke='green' stroke-width='3'/><text x='200' y='30' text-anchor='middle' font-weight='bold'>Ab 5 wird aufgerundet!</text></svg><script>console.log('Runden visualisiert');</script></div><p>Oft brauchen wir nicht die genaue Zahl, sondern nur einen ungefähren Wert. Wenn wir runden, schauen wir auf die Ziffer <b>rechts</b> von der Rundungsstelle:<br>Bei <b>0, 1, 2, 3, 4</b> runden wir <b>ab</b>.<br>Bei <b>5, 6, 7, 8, 9</b> runden wir <b>auf</b>.</p>{{QUIZ_math1_2_q10}}{{QUIZ_math1_2_q11}}{{QUIZ_math1_2_q12}}",
+        "quizzes": [
+          {
+            "id": "math1_2_q10",
+            "question": "Runde 7.483 auf Hunderter (H).",
+            "answers": [
+              {"text": "7.400", "correct": false, "pts": 0},
+              {"text": "7.500", "correct": true, "pts": 10},
+              {"text": "7.000", "correct": false, "pts": 0},
+              {"text": "8.000", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q11",
+            "question": "Welche der folgenden Zahlen ergibt 50.000, wenn man sie auf Zehntausender (ZT) rundet?",
+            "answers": [
+              {"text": "44.999", "correct": false, "pts": 0},
+              {"text": "55.000", "correct": false, "pts": 0},
+              {"text": "48.210", "correct": true, "pts": 10},
+              {"text": "59.100", "correct": false, "pts": 0}
+            ]
+          },
+          {
+            "id": "math1_2_q12",
+            "question": "Runde 3.999 auf Zehner (Z).",
+            "answers": [
+              {"text": "3.990", "correct": false, "pts": 0},
+              {"text": "4.000", "correct": true, "pts": 10},
+              {"text": "3.900", "correct": false, "pts": 0}
+            ]
+          }
+        ]
+      }
+    ],
+    "diplom": {
+      "title": "🎓 Diplom: Natürliche Zahlen",
+      "questions": [
+        {
+          "id": "math1_2_d1",
+          "question": "Welche Zahl ist der Vorgänger von 10.000?",
+          "answers": [
+            {"text": "9.999", "correct": true, "pts": 20},
+            {"text": "9.000", "correct": false, "pts": 0},
+            {"text": "10.001", "correct": false, "pts": 0},
+            {"text": "99.999", "correct": false, "pts": 0}
+          ]
+        },
+        {
+          "id": "math1_2_d2",
+          "question": "Wie viele Nullen hat die Zahl Eine Million?",
+          "answers": [
+            {"text": "5", "correct": false, "pts": 0},
+            {"text": "6", "correct": true, "pts": 20},
+            {"text": "7", "correct": false, "pts": 0},
+            {"text": "9", "correct": false, "pts": 0}
+          ]
+        },
+        {
+          "id": "math1_2_d3",
+          "question": "Welche Zahl liegt genau in der Mitte zwischen 400 und 500?",
+          "answers": [
+            {"text": "450", "correct": true, "pts": 20},
+            {"text": "405", "correct": false, "pts": 0},
+            {"text": "490", "correct": false, "pts": 0},
+            {"text": "495", "correct": false, "pts": 0}
+          ]
+        },
+        {
+          "id": "math1_2_d4",
+          "question": "Eine Zahl wurde auf Tausender gerundet und das Ergebnis ist 8.000. Welche Zahl könnte es ursprünglich gewesen sein?",
+          "answers": [
+            {"text": "7.499", "correct": false, "pts": 0},
+            {"text": "8.500", "correct": false, "pts": 0},
+            {"text": "8.499", "correct": true, "pts": 20},
+            {"text": "7.099", "correct": false, "pts": 0}
+          ]
+        },
+        {
+          "id": "math1_2_d5",
+          "question": "Setze das richtige Zeichen ein: 1.000.000 ___ 999.999",
+          "answers": [
+            {"text": "<", "correct": false, "pts": 0},
+            {"text": ">", "correct": true, "pts": 20},
+            {"text": "=", "correct": false, "pts": 0}
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "math1_8_brueche": {
+    "title": "🍕 8. Brüche",
+    "subtitle": "Teilen macht Spaß! Lerne, wie man Dinge gerecht aufteilt.",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "Was ist ein Bruch?",
+        "content": "<p>Stell dir vor, du hast eine leckere Pizza und möchtest sie mit deinen Freunden teilen. Wenn du die Pizza in gleich große Stücke schneidest, ist jedes Stück ein <strong>Bruch</strong> (ein Teil) der ganzen Pizza.</p><p>Ein Bruch zeigt uns, dass etwas nicht ganz ist, sondern nur ein Teil davon.</p><div id=\"pizza-container-1\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"pizza-svg-1\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"#f9c975\" stroke=\"#d35400\" stroke-width=\"10\"/></svg><br><input type=\"range\" id=\"pizza-slider-1\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p>Stücke: <span id=\"pizza-pieces-1\">1</span></p></div><script>document.getElementById('pizza-slider-1').addEventListener('input', function(e) { const pieces = parseInt(e.target.value); document.getElementById('pizza-pieces-1').textContent = pieces; const svg = document.getElementById('pizza-svg-1'); svg.innerHTML = '<circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"#f9c975\" stroke=\"#d35400\" stroke-width=\"10\"/>'; for (let i = 0; i < pieces; i++) { const angle = (i * 360 / pieces) * Math.PI / 180; const x2 = 100 + 90 * Math.sin(angle); const y2 = 100 - 90 * Math.cos(angle); const line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); line.setAttribute('x1', '100'); line.setAttribute('y1', '100'); line.setAttribute('x2', x2); line.setAttribute('y2', y2); line.setAttribute('stroke', '#d35400'); line.setAttribute('stroke-width', '4'); svg.appendChild(line); } }); document.getElementById('pizza-slider-1').dispatchEvent(new Event('input'));</script>",
+        "quizzes": [
+          {
+            "question": "Was gibt ein Bruch an?",
+            "options": [
+              "Wie groß eine Pizza ist",
+              "Einen Teil eines Ganzen",
+              "Wie viel eine Pizza kostet",
+              "Dass etwas unendlich ist"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Ein Bruch steht immer für einen Teil eines Ganzen, wenn man es in gleich große Stücke teilt."
+          },
+          {
+            "question": "Wenn du einen Kuchen in 4 gleich große Stücke schneidest, was ist dann 1 Stück?",
+            "options": [
+              "Ein Viertel",
+              "Ein Halbes",
+              "Ein Ganzes",
+              "Ein Drittel"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Eines von vier gleich großen Stücken nennt man ein Viertel (1/4)."
+          },
+          {
+            "question": "Warum müssen die Stücke bei einem Bruch immer gleich groß sein?",
+            "options": [
+              "Damit es besser schmeckt",
+              "Weil man es sonst nicht Bruch nennen darf",
+              "Damit es gerecht aufgeteilt ist und jeder Teil den gleichen Wert hat",
+              "Man kann sie auch ungleich groß schneiden"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Brüche funktionieren nur, wenn das Ganze in exakt gleich große Teile zerlegt wird, sonst ist ein Viertel nicht immer gleich viel."
+          }
+        ]
+      },
+      {
+        "id": "zaehler_nenner",
+        "title": "Zähler & Nenner",
+        "content": "<p>Jeder Bruch besteht aus zwei wichtigen Zahlen, die durch einen <strong>Bruchstrich</strong> getrennt sind:</p><ul><li><strong>Nenner (unten):</strong> Er <em>nennt</em> uns, in wie viele gleich große Teile das Ganze geteilt wurde.</li><li><strong>Zähler (oben):</strong> Er <em>zählt</em>, wie viele dieser Teile wir haben.</li></ul><p><em>Eselsbrücke:</em> Der <strong>Z</strong>ähler steht oben (wie ein <strong>Z</strong>elt), der <strong>N</strong>enner unten (wie ein <strong>N</strong>est).</p><div id=\"fraction-builder\" style=\"text-align: center; margin: 20px 0; font-size: 24px;\"><div style=\"display: inline-block; vertical-align: middle;\"><button id=\"z-up\">+</button><br><span id=\"zaehler-val\" style=\"font-weight: bold;\">1</span><br><button id=\"z-down\">-</button></div><div style=\"display: inline-block; vertical-align: middle; margin: 0 10px;\"><hr style=\"border: 2px solid black; width: 40px;\"></div><div style=\"display: inline-block; vertical-align: middle;\"><button id=\"n-up\">+</button><br><span id=\"nenner-val\" style=\"font-weight: bold;\">2</span><br><button id=\"n-down\">-</button></div><p style=\"margin-top: 15px; font-size: 16px;\">Wir haben <span id=\"z-text\">1</span> von <span id=\"n-text\">2</span> Teilen.</p></div><script>let z = 1; let n = 2; const update = () => { document.getElementById('zaehler-val').textContent = z; document.getElementById('nenner-val').textContent = n; document.getElementById('z-text').textContent = z; document.getElementById('n-text').textContent = n; }; document.getElementById('z-up').onclick = () => { z++; update(); }; document.getElementById('z-down').onclick = () => { if(z > 0) z--; update(); }; document.getElementById('n-up').onclick = () => { n++; update(); }; document.getElementById('n-down').onclick = () => { if(n > 1) n--; update(); };</script>",
+        "quizzes": [
+          {
+            "question": "Wo steht der Nenner bei einem Bruch?",
+            "options": [
+              "Oben",
+              "Unten",
+              "Links",
+              "Rechts"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Der Nenner steht immer unter dem Bruchstrich (Eselsbrücke: Nest = unten)."
+          },
+          {
+            "question": "Was gibt der Zähler an?",
+            "options": [
+              "In wie viele Teile das Ganze geteilt wurde",
+              "Wie viele Teile vom Ganzen genommen werden",
+              "Wie groß das Ganze ist",
+              "Wie viele Ganze man hat"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Der Zähler (oben) zählt, wie viele Stücke wir tatsächlich haben oder betrachten."
+          },
+          {
+            "question": "Bei dem Bruch 3/8: Was ist die 8?",
+            "options": [
+              "Der Zähler",
+              "Der Nenner",
+              "Das Ganze",
+              "Der Bruchstrich"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Die Zahl unter dem Bruchstrich ist der Nenner. Die 8 sagt uns, dass das Ganze in 8 Teile geteilt wurde."
+          }
+        ]
+      },
+      {
+        "id": "zeichnen_erkennen",
+        "title": "Brüche zeichnen & erkennen",
+        "content": "<p>Man kann Brüche auf viele Arten darstellen: Als Kuchen (Kreis), als Schokoladentafel (Rechteck) oder an einem Zahlenstrahl.</p><p>Klicke auf die Quadrate, um sie einzufärben und den Bruch zu sehen!</p><div id=\"grid-container\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"grid-svg\" width=\"200\" height=\"50\" viewBox=\"0 0 200 50\" style=\"cursor: pointer;\"></svg><p style=\"font-size: 20px; font-weight: bold;\">Bruch: <span id=\"grid-fraction\">0/4</span></p></div><script>const gridSvg = document.getElementById('grid-svg'); let activeCells = [false, false, false, false]; const renderGrid = () => { gridSvg.innerHTML = ''; activeCells.forEach((active, i) => { const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect'); rect.setAttribute('x', i * 50); rect.setAttribute('y', 0); rect.setAttribute('width', 50); rect.setAttribute('height', 50); rect.setAttribute('fill', active ? '#3498db' : '#ecf0f1'); rect.setAttribute('stroke', '#2c3e50'); rect.setAttribute('stroke-width', '2'); rect.onclick = () => { activeCells[i] = !activeCells[i]; renderGrid(); }; gridSvg.appendChild(rect); }); const count = activeCells.filter(x => x).length; document.getElementById('grid-fraction').textContent = count + '/4'; }; renderGrid();</script>",
+        "quizzes": [
+          {
+            "question": "Wenn ein Kreis in 6 gleich große Stücke geteilt ist und 2 davon sind rot markiert. Welcher Bruch ist das?",
+            "options": [
+              "6/2",
+              "2/6",
+              "1/6",
+              "4/6"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Es sind 2 Teile (Zähler) von insgesamt 6 Teilen (Nenner). Also 2/6."
+          },
+          {
+            "question": "Du hast einen Schokoriegel mit 10 Rippchen. Du isst 3 davon. Welcher Bruchteil ist noch übrig?",
+            "options": [
+              "3/10",
+              "7/10",
+              "10/3",
+              "10/7"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Wenn du 3 isst, bleiben 7 übrig. Es waren insgesamt 10. Also sind noch 7/10 übrig."
+          },
+          {
+            "question": "Ein Rechteck ist zur Hälfte blau angemalt. In wie viele Teile könnte das Rechteck geteilt sein, wenn 4 Teile blau sind?",
+            "options": [
+              "4",
+              "6",
+              "8",
+              "10"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Wenn 4 Teile die Hälfte sind, muss das Ganze aus 8 Teilen bestehen (4/8 = 1/2)."
+          }
+        ]
+      },
+      {
+        "id": "echte_unechte",
+        "title": "Echte und Unechte Brüche",
+        "content": "<p>Man unterscheidet verschiedene Arten von Brüchen, je nachdem wie groß Zähler und Nenner sind.</p><ul><li><strong>Echter Bruch:</strong> Der Zähler ist kleiner als der Nenner (z.B. 3/4). Der Bruch ist kleiner als ein Ganzes.</li><li><strong>Unechter Bruch:</strong> Der Zähler ist größer als oder gleich groß wie der Nenner (z.B. 5/4). Der Bruch ist größer als ein Ganzes oder genau ein Ganzes.</li></ul><div id=\"compare-container\" style=\"text-align: center; margin: 20px 0;\"><p style=\"font-size: 24px;\"><span id=\"c-zaehler\">1</span> / <span id=\"c-nenner\">4</span></p><input type=\"range\" id=\"c-slider\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p id=\"c-type\" style=\"font-weight: bold; color: green;\">Echter Bruch</p><div id=\"c-visual\" style=\"display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;\"></div></div><script>const cSlider = document.getElementById('c-slider'); const cType = document.getElementById('c-type'); const cVisual = document.getElementById('c-visual'); cSlider.oninput = (e) => { const z = parseInt(e.target.value); document.getElementById('c-zaehler').textContent = z; if (z < 4) { cType.textContent = 'Echter Bruch (< 1)'; cType.style.color = 'green'; } else if (z === 4) { cType.textContent = 'Unechter Bruch (= 1)'; cType.style.color = 'orange'; } else { cType.textContent = 'Unechter Bruch (> 1)'; cType.style.color = 'red'; } cVisual.innerHTML = ''; let pizzas = Math.ceil(z / 4); if(pizzas === 0) pizzas = 1; let drawn = 0; for(let p=0; p<pizzas; p++) { const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('width', '60'); svg.setAttribute('height', '60'); svg.setAttribute('viewBox', '0 0 60 60'); const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); bg.setAttribute('cx', '30'); bg.setAttribute('cy', '30'); bg.setAttribute('r', '28'); bg.setAttribute('fill', '#ecf0f1'); bg.setAttribute('stroke', '#bdc3c7'); bg.setAttribute('stroke-width', '2'); svg.appendChild(bg); for(let i=0; i<4; i++) { if (drawn < z) { const slice = document.createElementNS('http://www.w3.org/2000/svg', 'path'); const startAngle = (i * 90) * Math.PI / 180; const endAngle = ((i+1) * 90) * Math.PI / 180; const x1 = 30 + 28 * Math.sin(startAngle); const y1 = 30 - 28 * Math.cos(startAngle); const x2 = 30 + 28 * Math.sin(endAngle); const y2 = 30 - 28 * Math.cos(endAngle); const d = `M 30 30 L ${x1} ${y1} A 28 28 0 0 1 ${x2} ${y2} Z`; slice.setAttribute('d', d); slice.setAttribute('fill', '#e74c3c'); slice.setAttribute('stroke', '#c0392b'); svg.appendChild(slice); drawn++; } } cVisual.appendChild(svg); } }; cSlider.dispatchEvent(new Event('input'));</script>",
+        "quizzes": [
+          {
+            "question": "Welcher dieser Brüche ist ein echter Bruch?",
+            "options": [
+              "5/4",
+              "3/4",
+              "4/4",
+              "7/2"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Bei 3/4 ist der Zähler (3) kleiner als der Nenner (4). Es ist also weniger als ein Ganzes."
+          },
+          {
+            "question": "Woran erkennst du einen unechten Bruch?",
+            "options": [
+              "Der Zähler ist kleiner als der Nenner",
+              "Der Nenner ist 0",
+              "Der Zähler ist größer oder gleich dem Nenner",
+              "Der Bruchstrich fehlt"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Ein unechter Bruch hat einen Zähler, der gleich groß oder größer als der Nenner ist (z.B. 5/4)."
+          },
+          {
+            "question": "Ist 4/4 ein echter oder ein unechter Bruch?",
+            "options": [
+              "Echter Bruch",
+              "Unechter Bruch",
+              "Kein Bruch",
+              "Beides"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Da der Zähler gleich dem Nenner ist, ist er nicht kleiner. Daher zählt 4/4 als unechter Bruch (es ist genau ein Ganzes)."
+          }
+        ]
+      },
+      {
+        "id": "erweitern_kuerzen",
+        "title": "Erweitern & Kürzen (Basics)",
+        "content": "<p>Manchmal sehen Brüche unterschiedlich aus, bedeuten aber genau gleich viel! Das nennt man <strong>Erweitern</strong> oder <strong>Kürzen</strong>.</p><ul><li><strong>Erweitern:</strong> Zähler und Nenner werden mit der <em>gleichen</em> Zahl malgenommen (z.B. 1/2 = 2/4). Die Stücke werden kleiner, aber es sind mehr.</li><li><strong>Kürzen:</strong> Zähler und Nenner werden durch die <em>gleiche</em> Zahl geteilt (z.B. 2/4 = 1/2). Man fasst Stücke zusammen.</li></ul><div id=\"expand-container\" style=\"text-align: center; margin: 20px 0;\"><div style=\"display: flex; justify-content: center; align-items: center; gap: 20px;\"><div id=\"svg-half\" style=\"width: 100px; height: 100px;\"></div><div style=\"font-size: 24px;\">=</div><div id=\"svg-quarter\" style=\"width: 100px; height: 100px;\"></div></div><p id=\"expand-text\">Wir haben den Bruch 1/2 mit 2 erweitert und erhalten <span style=\"font-weight:bold;\">2/4</span>.</p><button id=\"btn-toggle-expand\">Zeige Kürzen</button></div><script>const c1 = document.getElementById('svg-half'); const c2 = document.getElementById('svg-quarter'); const btn = document.getElementById('btn-toggle-expand'); let expanded = true; const drawPie = (container, pieces, filled) => { const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('width', '100'); svg.setAttribute('height', '100'); svg.setAttribute('viewBox', '0 0 100 100'); const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); bg.setAttribute('cx', '50'); bg.setAttribute('cy', '50'); bg.setAttribute('r', '45'); bg.setAttribute('fill', '#ecf0f1'); bg.setAttribute('stroke', '#bdc3c7'); bg.setAttribute('stroke-width', '2'); svg.appendChild(bg); for(let i=0; i<pieces; i++) { const startAngle = (i * 360/pieces) * Math.PI / 180; const endAngle = ((i+1) * 360/pieces) * Math.PI / 180; const x1 = 50 + 45 * Math.sin(startAngle); const y1 = 50 - 45 * Math.cos(startAngle); const x2 = 50 + 45 * Math.sin(endAngle); const y2 = 50 - 45 * Math.cos(endAngle); const path = document.createElementNS('http://www.w3.org/2000/svg', 'path'); const largeArc = (360/pieces > 180) ? 1 : 0; const d = `M 50 50 L ${x1} ${y1} A 45 45 0 ${largeArc} 1 ${x2} ${y2} Z`; path.setAttribute('d', d); path.setAttribute('fill', i < filled ? '#f1c40f' : 'transparent'); path.setAttribute('stroke', '#34495e'); path.setAttribute('stroke-width', '1'); svg.appendChild(path); } container.innerHTML = ''; container.appendChild(svg); }; const updateViews = () => { if (expanded) { drawPie(c1, 2, 1); drawPie(c2, 4, 2); btn.textContent = 'Zeige Erweitern (1/2 -> 2/4)'; document.getElementById('expand-text').innerHTML = 'Wir haben den Bruch 2/4 mit 2 gekürzt und erhalten <span style=\"font-weight:bold;\">1/2</span>.'; } else { drawPie(c1, 4, 2); drawPie(c2, 2, 1); btn.textContent = 'Zeige Kürzen (2/4 -> 1/2)'; document.getElementById('expand-text').innerHTML = 'Wir haben den Bruch 1/2 mit 2 erweitert und erhalten <span style=\"font-weight:bold;\">2/4</span>.'; } expanded = !expanded; }; updateViews(); btn.onclick = updateViews;</script>",
+        "quizzes": [
+          {
+            "question": "Was musst du beim Erweitern eines Bruches tun?",
+            "options": [
+              "Nur den Zähler mit einer Zahl malnehmen",
+              "Nur den Nenner mit einer Zahl malnehmen",
+              "Zähler und Nenner mit derselben Zahl malnehmen",
+              "Zähler und Nenner addieren"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Beim Erweitern werden immer sowohl Zähler als auch Nenner mit der exakt gleichen Zahl multipliziert, damit der Wert des Bruches gleich bleibt."
+          },
+          {
+            "question": "Wenn du 1/3 mit 2 erweiterst, welchen Bruch erhältst du?",
+            "options": [
+              "2/3",
+              "1/6",
+              "2/6",
+              "3/5"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Zähler: 1 * 2 = 2. Nenner: 3 * 2 = 6. Der neue Bruch ist 2/6."
+          },
+          {
+            "question": "Warum ändert sich der Wert eines Bruches beim Kürzen nicht?",
+            "options": [
+              "Weil die Stücke größer werden, man aber weniger davon hat (das gleicht sich aus)",
+              "Weil man nur den Zähler verändert",
+              "Weil man Nullen streicht",
+              "Weil man die Zahl einfach ignoriert"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Beim Kürzen werden aus vielen kleinen Stücken weniger große Stücke. Die Gesamtmenge (der Anteil) bleibt genau gleich."
+          }
+        ]
+      }
+    ],
+    "diplom": {
+      "title": "🏆 Brüche-Diplom",
+      "description": "Beweise, dass du ein echter Bruch-Meister bist! Beantworte diese 5 Fragen richtig.",
+      "questions": [
+        {
+          "question": "Was bedeutet der Bruchstrich?",
+          "options": [
+            "Er bedeutet 'plus'",
+            "Er bedeutet 'geteilt durch'",
+            "Er trennt zwei verschiedene Aufgaben",
+            "Er bedeutet 'mal'"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Der Bruchstrich ist eigentlich ein Geteilt-Zeichen. 3/4 bedeutet 3 geteilt durch 4."
+        },
+        {
+          "question": "Du bestellst eine Pizza, die in 8 Stücke geschnitten ist. Du und dein Freund esst zusammen 5 Stücke. Welcher Bruch beschreibt die gegessene Pizza?",
+          "options": [
+            "8/5",
+            "5/8",
+            "3/8",
+            "8/3"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Ihr habt 5 Stücke (Zähler) von insgesamt 8 Stücken (Nenner) gegessen. Also 5/8."
+        },
+        {
+          "question": "Welcher Bruch ist genau ein Ganzes?",
+          "options": [
+            "1/2",
+            "3/4",
+            "5/5",
+            "0/4"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Wenn Zähler und Nenner gleich sind (hier 5 und 5), hast du alle Teile des Ganzen. Das ist genau 1."
+        },
+        {
+          "question": "Was passiert mit den Stücken, wenn der Nenner größer wird (z.B. von 1/2 auf 1/4 auf 1/8)?",
+          "options": [
+            "Die Stücke werden größer",
+            "Die Stücke werden kleiner",
+            "Die Stücke bleiben gleich",
+            "Es gibt weniger Stücke"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Wenn du eine Pizza in immer mehr Teile schneidest (der Nenner wird größer), werden die einzelnen Stücke immer kleiner."
+        },
+        {
+          "question": "Welcher dieser Brüche steht für mehr als ein Ganzes?",
+          "options": [
+            "7/8",
+            "2/3",
+            "4/4",
+            "5/3"
+          ],
+          "correctAnswer": 3,
+          "explanation": "Bei 5/3 ist der Zähler (5) größer als der Nenner (3). Das bedeutet, du hast mehr als 3/3, also mehr als ein Ganzes."
+        }
+      ]
+    }
+  }
+}
