@@ -5853,7 +5853,7 @@
       {
         "id": "sec4",
         "title": "4. Runden von Zahlen",
-        "content": "<div class='interactive-zone'><svg width='100%' height='80' viewBox='0 0 400 80'><path d='M 50 60 Q 200 10 350 60' fill='transparent' stroke='green' stroke-width='3'/><text x='200' y='30' text-anchor='middle' font-weight='bold'>Ab 5 wird aufgerundet!</text></svg></div><p>Oft brauchen wir nicht die genaue Zahl, sondern nur einen ungefähren Wert. Wenn wir runden, schauen wir auf die Ziffer <b>rechts</b> von der Rundungsstelle:<br>Bei <b>0, 1, 2, 3, 4</b> runden wir <b>ab</b>.<br>Bei <b>5, 6, 7, 8, 9</b> runden wir <b>auf</b>.</p>{{QUIZ_math1_2_q10}}{{QUIZ_math1_2_q11}}{{QUIZ_math1_2_q12}}",
+        "content": "\n<div class=\"interactive-zone\" style=\"background: #fdf2f8; border: 2px solid #fecdd3; border-radius: 12px; padding: 15px;\">\n    <h3 style=\"color: #e11d48;\">🎢 Der Rundungs-Berg</h3>\n    <p>Manchmal müssen wir Zahlen nicht auf die Einer genau wissen. Wenn ein Auto 14.892 Euro kostet, sagt man oft einfach \"Etwa 15.000 Euro\". Das nennt man <strong>Runden</strong>.</p>\n    <p>Probier es aus! Tippe eine Zahl ein und schaue, was passiert, wenn du sie rundest:</p>\n    \n    <div style=\"text-align: center; margin-top: 15px;\">\n        <input type=\"number\" id=\"round-input\" value=\"734\" style=\"font-size: 1.2em; padding: 5px; width: 120px; text-align: center; border-radius: 5px; border: 1px solid #cbd5e1;\">\n        <select id=\"round-place\" style=\"font-size: 1.1em; padding: 5px; border-radius: 5px; border: 1px solid #cbd5e1; margin-left: 10px;\">\n            <option value=\"10\">auf Zehner (Z)</option>\n            <option value=\"100\">auf Hunderter (H)</option>\n            <option value=\"1000\">auf Tausender (T)</option>\n        </select>\n        <button onclick=\"doRounding()\" style=\"background: #e11d48; margin-left: 10px;\">Runden!</button>\n    </div>\n    \n    <div id=\"round-result\" style=\"margin-top: 20px; padding: 15px; background: white; border-radius: 8px; border: 1px solid #e2e8f0; min-height: 80px; font-size: 1.1em;\">\n        Tippe eine Zahl ein und drücke auf \"Runden!\"\n    </div>\n</div>\n\n<div class=\"lexikon-box\" style=\"border-left-color: #e11d48;\">\n    <strong>Die goldene Regel fürs Runden:</strong><br>\n    Um zu wissen, ob die Zahl größer (aufrunden) oder kleiner (abrunden) wird, musst du dir <strong>immer nur die Ziffer rechts daneben</strong> ansehen!<br><br>\n    📉 Steht rechts eine <strong>0, 1, 2, 3 oder 4</strong>, dann runden wir <strong>AB</strong>.<br>\n    📈 Steht rechts eine <strong>5, 6, 7, 8 oder 9</strong>, dann runden wir <strong>AUF</strong>.<br><br>\n    <em>Beispiel: 7<strong>3</strong>4 auf Zehner runden. Die Ziffer rechts von den Zehnern ist die 4. Bei 4 runden wir ab. Die Zahl wird zu 730.</em>\n</div>\n<br>\n{{QUIZ_math1_2_q10}}\n<br>\n{{QUIZ_math1_2_q11}}\n<br>\n{{QUIZ_math1_2_q12}}\n",
         "quizzes": [
           {
             "id": "math1_2_q10",
@@ -6432,200 +6432,425 @@
       {
         "id": "intro",
         "title": "Was ist ein Bruch?",
-        "content": "<p>Stell dir vor, du hast eine leckere Pizza und möchtest sie mit deinen Freunden teilen. Wenn du die Pizza in gleich große Stücke schneidest, ist jedes Stück ein <strong>Bruch</strong> (ein Teil) der ganzen Pizza.</p><p>Ein Bruch zeigt uns, dass etwas nicht ganz ist, sondern nur ein Teil davon.</p><div id=\"pizza-container-1\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"pizza-svg-1\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"#f9c975\" stroke=\"#d35400\" stroke-width=\"10\"/></svg><br><input type=\"range\" id=\"pizza-slider-1\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p>Stücke: <span id=\"pizza-pieces-1\">1</span></p></div>",
+        "content": "<p>Stell dir vor, du hast eine leckere Pizza und möchtest sie mit deinen Freunden teilen. Wenn du die Pizza in gleich große Stücke schneidest, ist jedes Stück ein <strong>Bruch</strong> (ein Teil) der ganzen Pizza.</p><p>Ein Bruch zeigt uns, dass etwas nicht ganz ist, sondern nur ein Teil davon.</p><div id=\"pizza-container-1\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"pizza-svg-1\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"#f9c975\" stroke=\"#d35400\" stroke-width=\"10\"/></svg><br><input type=\"range\" id=\"pizza-slider-1\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p>Stücke: <span id=\"pizza-pieces-1\">1</span></p></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "Was gibt ein Bruch an?",
-            "options": [
-              "Wie groß eine Pizza ist",
-              "Einen Teil eines Ganzen",
-              "Wie viel eine Pizza kostet",
-              "Dass etwas unendlich ist"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Ein Bruch steht immer für einen Teil eines Ganzen, wenn man es in gleich große Stücke teilt."
+            "explanation": "Ein Bruch steht immer für einen Teil eines Ganzen, wenn man es in gleich große Stücke teilt.",
+            "answers": [
+              {
+                "text": "Wie groß eine Pizza ist",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Einen Teil eines Ganzen",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Wie viel eine Pizza kostet",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Dass etwas unendlich ist",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Wenn du einen Kuchen in 4 gleich große Stücke schneidest, was ist dann 1 Stück?",
-            "options": [
-              "Ein Viertel",
-              "Ein Halbes",
-              "Ein Ganzes",
-              "Ein Drittel"
-            ],
-            "correctAnswer": 0,
-            "explanation": "Eines von vier gleich großen Stücken nennt man ein Viertel (1/4)."
+            "explanation": "Eines von vier gleich großen Stücken nennt man ein Viertel (1/4).",
+            "answers": [
+              {
+                "text": "Ein Viertel",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ein Halbes",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Ein Ganzes",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Ein Drittel",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Warum müssen die Stücke bei einem Bruch immer gleich groß sein?",
-            "options": [
-              "Damit es besser schmeckt",
-              "Weil man es sonst nicht Bruch nennen darf",
-              "Damit es gerecht aufgeteilt ist und jeder Teil den gleichen Wert hat",
-              "Man kann sie auch ungleich groß schneiden"
-            ],
-            "correctAnswer": 2,
-            "explanation": "Brüche funktionieren nur, wenn das Ganze in exakt gleich große Teile zerlegt wird, sonst ist ein Viertel nicht immer gleich viel."
+            "explanation": "Brüche funktionieren nur, wenn das Ganze in exakt gleich große Teile zerlegt wird, sonst ist ein Viertel nicht immer gleich viel.",
+            "answers": [
+              {
+                "text": "Damit es besser schmeckt",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Weil man es sonst nicht Bruch nennen darf",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Damit es gerecht aufgeteilt ist und jeder Teil den gleichen Wert hat",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Man kann sie auch ungleich groß schneiden",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           }
         ]
       },
       {
         "id": "zaehler_nenner",
         "title": "Zähler & Nenner",
-        "content": "<p>Jeder Bruch besteht aus zwei wichtigen Zahlen, die durch einen <strong>Bruchstrich</strong> getrennt sind:</p><ul><li><strong>Nenner (unten):</strong> Er <em>nennt</em> uns, in wie viele gleich große Teile das Ganze geteilt wurde.</li><li><strong>Zähler (oben):</strong> Er <em>zählt</em>, wie viele dieser Teile wir haben.</li></ul><p><em>Eselsbrücke:</em> Der <strong>Z</strong>ähler steht oben (wie ein <strong>Z</strong>elt), der <strong>N</strong>enner unten (wie ein <strong>N</strong>est).</p><div id=\"fraction-builder\" style=\"text-align: center; margin: 20px 0; font-size: 24px;\"><div style=\"display: inline-block; vertical-align: middle;\"><button id=\"z-up\">+</button><br><span id=\"zaehler-val\" style=\"font-weight: bold;\">1</span><br><button id=\"z-down\">-</button></div><div style=\"display: inline-block; vertical-align: middle; margin: 0 10px;\"><hr style=\"border: 2px solid black; width: 40px;\"></div><div style=\"display: inline-block; vertical-align: middle;\"><button id=\"n-up\">+</button><br><span id=\"nenner-val\" style=\"font-weight: bold;\">2</span><br><button id=\"n-down\">-</button></div><p style=\"margin-top: 15px; font-size: 16px;\">Wir haben <span id=\"z-text\">1</span> von <span id=\"n-text\">2</span> Teilen.</p></div>",
+        "content": "<p>Jeder Bruch besteht aus zwei wichtigen Zahlen, die durch einen <strong>Bruchstrich</strong> getrennt sind:</p><ul><li><strong>Nenner (unten):</strong> Er <em>nennt</em> uns, in wie viele gleich große Teile das Ganze geteilt wurde.</li><li><strong>Zähler (oben):</strong> Er <em>zählt</em>, wie viele dieser Teile wir haben.</li></ul><p><em>Eselsbrücke:</em> Der <strong>Z</strong>ähler steht oben (wie ein <strong>Z</strong>elt), der <strong>N</strong>enner unten (wie ein <strong>N</strong>est).</p><div id=\"fraction-builder\" style=\"text-align: center; margin: 20px 0; font-size: 24px;\"><div style=\"display: inline-block; vertical-align: middle;\"><button id=\"z-up\">+</button><br><span id=\"zaehler-val\" style=\"font-weight: bold;\">1</span><br><button id=\"z-down\">-</button></div><div style=\"display: inline-block; vertical-align: middle; margin: 0 10px;\"><hr style=\"border: 2px solid black; width: 40px;\"></div><div style=\"display: inline-block; vertical-align: middle;\"><button id=\"n-up\">+</button><br><span id=\"nenner-val\" style=\"font-weight: bold;\">2</span><br><button id=\"n-down\">-</button></div><p style=\"margin-top: 15px; font-size: 16px;\">Wir haben <span id=\"z-text\">1</span> von <span id=\"n-text\">2</span> Teilen.</p></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "Wo steht der Nenner bei einem Bruch?",
-            "options": [
-              "Oben",
-              "Unten",
-              "Links",
-              "Rechts"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Der Nenner steht immer unter dem Bruchstrich (Eselsbrücke: Nest = unten)."
+            "explanation": "Der Nenner steht immer unter dem Bruchstrich (Eselsbrücke: Nest = unten).",
+            "answers": [
+              {
+                "text": "Oben",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Unten",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Links",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Rechts",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Was gibt der Zähler an?",
-            "options": [
-              "In wie viele Teile das Ganze geteilt wurde",
-              "Wie viele Teile vom Ganzen genommen werden",
-              "Wie groß das Ganze ist",
-              "Wie viele Ganze man hat"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Der Zähler (oben) zählt, wie viele Stücke wir tatsächlich haben oder betrachten."
+            "explanation": "Der Zähler (oben) zählt, wie viele Stücke wir tatsächlich haben oder betrachten.",
+            "answers": [
+              {
+                "text": "In wie viele Teile das Ganze geteilt wurde",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Wie viele Teile vom Ganzen genommen werden",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Wie groß das Ganze ist",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Wie viele Ganze man hat",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Bei dem Bruch 3/8: Was ist die 8?",
-            "options": [
-              "Der Zähler",
-              "Der Nenner",
-              "Das Ganze",
-              "Der Bruchstrich"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Die Zahl unter dem Bruchstrich ist der Nenner. Die 8 sagt uns, dass das Ganze in 8 Teile geteilt wurde."
+            "explanation": "Die Zahl unter dem Bruchstrich ist der Nenner. Die 8 sagt uns, dass das Ganze in 8 Teile geteilt wurde.",
+            "answers": [
+              {
+                "text": "Der Zähler",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Der Nenner",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Das Ganze",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Der Bruchstrich",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           }
         ]
       },
       {
         "id": "zeichnen_erkennen",
         "title": "Brüche zeichnen & erkennen",
-        "content": "<p>Man kann Brüche auf viele Arten darstellen: Als Kuchen (Kreis), als Schokoladentafel (Rechteck) oder an einem Zahlenstrahl.</p><p>Klicke auf die Quadrate, um sie einzufärben und den Bruch zu sehen!</p><div id=\"grid-container\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"grid-svg\" width=\"200\" height=\"50\" viewBox=\"0 0 200 50\" style=\"cursor: pointer;\"></svg><p style=\"font-size: 20px; font-weight: bold;\">Bruch: <span id=\"grid-fraction\">0/4</span></p></div>",
+        "content": "<p>Man kann Brüche auf viele Arten darstellen: Als Kuchen (Kreis), als Schokoladentafel (Rechteck) oder an einem Zahlenstrahl.</p><p>Klicke auf die Quadrate, um sie einzufärben und den Bruch zu sehen!</p><div id=\"grid-container\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"grid-svg\" width=\"200\" height=\"50\" viewBox=\"0 0 200 50\" style=\"cursor: pointer;\"></svg><p style=\"font-size: 20px; font-weight: bold;\">Bruch: <span id=\"grid-fraction\">0/4</span></p></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "Wenn ein Kreis in 6 gleich große Stücke geteilt ist und 2 davon sind rot markiert. Welcher Bruch ist das?",
-            "options": [
-              "6/2",
-              "2/6",
-              "1/6",
-              "4/6"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Es sind 2 Teile (Zähler) von insgesamt 6 Teilen (Nenner). Also 2/6."
+            "explanation": "Es sind 2 Teile (Zähler) von insgesamt 6 Teilen (Nenner). Also 2/6.",
+            "answers": [
+              {
+                "text": "6/2",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "2/6",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "1/6",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "4/6",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Du hast einen Schokoriegel mit 10 Rippchen. Du isst 3 davon. Welcher Bruchteil ist noch übrig?",
-            "options": [
-              "3/10",
-              "7/10",
-              "10/3",
-              "10/7"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Wenn du 3 isst, bleiben 7 übrig. Es waren insgesamt 10. Also sind noch 7/10 übrig."
+            "explanation": "Wenn du 3 isst, bleiben 7 übrig. Es waren insgesamt 10. Also sind noch 7/10 übrig.",
+            "answers": [
+              {
+                "text": "3/10",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "7/10",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "10/3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "10/7",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Ein Rechteck ist zur Hälfte blau angemalt. In wie viele Teile könnte das Rechteck geteilt sein, wenn 4 Teile blau sind?",
-            "options": [
-              "4",
-              "6",
-              "8",
-              "10"
-            ],
-            "correctAnswer": 2,
-            "explanation": "Wenn 4 Teile die Hälfte sind, muss das Ganze aus 8 Teilen bestehen (4/8 = 1/2)."
+            "explanation": "Wenn 4 Teile die Hälfte sind, muss das Ganze aus 8 Teilen bestehen (4/8 = 1/2).",
+            "answers": [
+              {
+                "text": "4",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "6",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "8",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "10",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           }
         ]
       },
       {
         "id": "echte_unechte",
         "title": "Echte und Unechte Brüche",
-        "content": "<p>Man unterscheidet verschiedene Arten von Brüchen, je nachdem wie groß Zähler und Nenner sind.</p><ul><li><strong>Echter Bruch:</strong> Der Zähler ist kleiner als der Nenner (z.B. 3/4). Der Bruch ist kleiner als ein Ganzes.</li><li><strong>Unechter Bruch:</strong> Der Zähler ist größer als oder gleich groß wie der Nenner (z.B. 5/4). Der Bruch ist größer als ein Ganzes oder genau ein Ganzes.</li></ul><div id=\"compare-container\" style=\"text-align: center; margin: 20px 0;\"><p style=\"font-size: 24px;\"><span id=\"c-zaehler\">1</span> / <span id=\"c-nenner\">4</span></p><input type=\"range\" id=\"c-slider\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p id=\"c-type\" style=\"font-weight: bold; color: green;\">Echter Bruch</p><div id=\"c-visual\" style=\"display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;\"></div></div>",
+        "content": "<p>Man unterscheidet verschiedene Arten von Brüchen, je nachdem wie groß Zähler und Nenner sind.</p><ul><li><strong>Echter Bruch:</strong> Der Zähler ist kleiner als der Nenner (z.B. 3/4). Der Bruch ist kleiner als ein Ganzes.</li><li><strong>Unechter Bruch:</strong> Der Zähler ist größer als oder gleich groß wie der Nenner (z.B. 5/4). Der Bruch ist größer als ein Ganzes oder genau ein Ganzes.</li></ul><div id=\"compare-container\" style=\"text-align: center; margin: 20px 0;\"><p style=\"font-size: 24px;\"><span id=\"c-zaehler\">1</span> / <span id=\"c-nenner\">4</span></p><input type=\"range\" id=\"c-slider\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p id=\"c-type\" style=\"font-weight: bold; color: green;\">Echter Bruch</p><div id=\"c-visual\" style=\"display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;\"></div></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "Welcher dieser Brüche ist ein echter Bruch?",
-            "options": [
-              "5/4",
-              "3/4",
-              "4/4",
-              "7/2"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Bei 3/4 ist der Zähler (3) kleiner als der Nenner (4). Es ist also weniger als ein Ganzes."
+            "explanation": "Bei 3/4 ist der Zähler (3) kleiner als der Nenner (4). Es ist also weniger als ein Ganzes.",
+            "answers": [
+              {
+                "text": "5/4",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "3/4",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "4/4",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "7/2",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Woran erkennst du einen unechten Bruch?",
-            "options": [
-              "Der Zähler ist kleiner als der Nenner",
-              "Der Nenner ist 0",
-              "Der Zähler ist größer oder gleich dem Nenner",
-              "Der Bruchstrich fehlt"
-            ],
-            "correctAnswer": 2,
-            "explanation": "Ein unechter Bruch hat einen Zähler, der gleich groß oder größer als der Nenner ist (z.B. 5/4)."
+            "explanation": "Ein unechter Bruch hat einen Zähler, der gleich groß oder größer als der Nenner ist (z.B. 5/4).",
+            "answers": [
+              {
+                "text": "Der Zähler ist kleiner als der Nenner",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Der Nenner ist 0",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Der Zähler ist größer oder gleich dem Nenner",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Der Bruchstrich fehlt",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Ist 4/4 ein echter oder ein unechter Bruch?",
-            "options": [
-              "Echter Bruch",
-              "Unechter Bruch",
-              "Kein Bruch",
-              "Beides"
-            ],
-            "correctAnswer": 1,
-            "explanation": "Da der Zähler gleich dem Nenner ist, ist er nicht kleiner. Daher zählt 4/4 als unechter Bruch (es ist genau ein Ganzes)."
+            "explanation": "Da der Zähler gleich dem Nenner ist, ist er nicht kleiner. Daher zählt 4/4 als unechter Bruch (es ist genau ein Ganzes).",
+            "answers": [
+              {
+                "text": "Echter Bruch",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Unechter Bruch",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Kein Bruch",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Beides",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           }
         ]
       },
       {
         "id": "erweitern_kuerzen",
         "title": "Erweitern & Kürzen (Basics)",
-        "content": "<p>Manchmal sehen Brüche unterschiedlich aus, bedeuten aber genau gleich viel! Das nennt man <strong>Erweitern</strong> oder <strong>Kürzen</strong>.</p><ul><li><strong>Erweitern:</strong> Zähler und Nenner werden mit der <em>gleichen</em> Zahl malgenommen (z.B. 1/2 = 2/4). Die Stücke werden kleiner, aber es sind mehr.</li><li><strong>Kürzen:</strong> Zähler und Nenner werden durch die <em>gleiche</em> Zahl geteilt (z.B. 2/4 = 1/2). Man fasst Stücke zusammen.</li></ul><div id=\"expand-container\" style=\"text-align: center; margin: 20px 0;\"><div style=\"display: flex; justify-content: center; align-items: center; gap: 20px;\"><div id=\"svg-half\" style=\"width: 100px; height: 100px;\"></div><div style=\"font-size: 24px;\">=</div><div id=\"svg-quarter\" style=\"width: 100px; height: 100px;\"></div></div><p id=\"expand-text\">Wir haben den Bruch 1/2 mit 2 erweitert und erhalten <span style=\"font-weight:bold;\">2/4</span>.</p><button id=\"btn-toggle-expand\">Zeige Kürzen</button></div>",
+        "content": "<p>Manchmal sehen Brüche unterschiedlich aus, bedeuten aber genau gleich viel! Das nennt man <strong>Erweitern</strong> oder <strong>Kürzen</strong>.</p><ul><li><strong>Erweitern:</strong> Zähler und Nenner werden mit der <em>gleichen</em> Zahl malgenommen (z.B. 1/2 = 2/4). Die Stücke werden kleiner, aber es sind mehr.</li><li><strong>Kürzen:</strong> Zähler und Nenner werden durch die <em>gleiche</em> Zahl geteilt (z.B. 2/4 = 1/2). Man fasst Stücke zusammen.</li></ul><div id=\"expand-container\" style=\"text-align: center; margin: 20px 0;\"><div style=\"display: flex; justify-content: center; align-items: center; gap: 20px;\"><div id=\"svg-half\" style=\"width: 100px; height: 100px;\"></div><div style=\"font-size: 24px;\">=</div><div id=\"svg-quarter\" style=\"width: 100px; height: 100px;\"></div></div><p id=\"expand-text\">Wir haben den Bruch 1/2 mit 2 erweitert und erhalten <span style=\"font-weight:bold;\">2/4</span>.</p><button id=\"btn-toggle-expand\">Zeige Kürzen</button></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "Was musst du beim Erweitern eines Bruches tun?",
-            "options": [
-              "Nur den Zähler mit einer Zahl malnehmen",
-              "Nur den Nenner mit einer Zahl malnehmen",
-              "Zähler und Nenner mit derselben Zahl malnehmen",
-              "Zähler und Nenner addieren"
-            ],
-            "correctAnswer": 2,
-            "explanation": "Beim Erweitern werden immer sowohl Zähler als auch Nenner mit der exakt gleichen Zahl multipliziert, damit der Wert des Bruches gleich bleibt."
+            "explanation": "Beim Erweitern werden immer sowohl Zähler als auch Nenner mit der exakt gleichen Zahl multipliziert, damit der Wert des Bruches gleich bleibt.",
+            "answers": [
+              {
+                "text": "Nur den Zähler mit einer Zahl malnehmen",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Nur den Nenner mit einer Zahl malnehmen",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Zähler und Nenner mit derselben Zahl malnehmen",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Zähler und Nenner addieren",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Wenn du 1/3 mit 2 erweiterst, welchen Bruch erhältst du?",
-            "options": [
-              "2/3",
-              "1/6",
-              "2/6",
-              "3/5"
-            ],
-            "correctAnswer": 2,
-            "explanation": "Zähler: 1 * 2 = 2. Nenner: 3 * 2 = 6. Der neue Bruch ist 2/6."
+            "explanation": "Zähler: 1 * 2 = 2. Nenner: 3 * 2 = 6. Der neue Bruch ist 2/6.",
+            "answers": [
+              {
+                "text": "2/3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "1/6",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "2/6",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "3/5",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           },
           {
             "question": "Warum ändert sich der Wert eines Bruches beim Kürzen nicht?",
-            "options": [
-              "Weil die Stücke größer werden, man aber weniger davon hat (das gleicht sich aus)",
-              "Weil man nur den Zähler verändert",
-              "Weil man Nullen streicht",
-              "Weil man die Zahl einfach ignoriert"
-            ],
-            "correctAnswer": 0,
-            "explanation": "Beim Kürzen werden aus vielen kleinen Stücken weniger große Stücke. Die Gesamtmenge (der Anteil) bleibt genau gleich."
+            "explanation": "Beim Kürzen werden aus vielen kleinen Stücken weniger große Stücke. Die Gesamtmenge (der Anteil) bleibt genau gleich.",
+            "answers": [
+              {
+                "text": "Weil die Stücke größer werden, man aber weniger davon hat (das gleicht sich aus)",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Weil man nur den Zähler verändert",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Weil man Nullen streicht",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Weil man die Zahl einfach ignoriert",
+                "correct": false,
+                "pts": 5
+              }
+            ]
           }
         ]
       }
@@ -6636,58 +6861,138 @@
       "questions": [
         {
           "question": "Was bedeutet der Bruchstrich?",
-          "options": [
-            "Er bedeutet 'plus'",
-            "Er bedeutet 'geteilt durch'",
-            "Er trennt zwei verschiedene Aufgaben",
-            "Er bedeutet 'mal'"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Der Bruchstrich ist eigentlich ein Geteilt-Zeichen. 3/4 bedeutet 3 geteilt durch 4."
+          "explanation": "Der Bruchstrich ist eigentlich ein Geteilt-Zeichen. 3/4 bedeutet 3 geteilt durch 4.",
+          "id": "math1_8_brueche_dip_0",
+          "answers": [
+            {
+              "text": "Er bedeutet 'plus'",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "Er bedeutet 'geteilt durch'",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Er trennt zwei verschiedene Aufgaben",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "Er bedeutet 'mal'",
+              "correct": false,
+              "pts": 5
+            }
+          ]
         },
         {
           "question": "Du bestellst eine Pizza, die in 8 Stücke geschnitten ist. Du und dein Freund esst zusammen 5 Stücke. Welcher Bruch beschreibt die gegessene Pizza?",
-          "options": [
-            "8/5",
-            "5/8",
-            "3/8",
-            "8/3"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Ihr habt 5 Stücke (Zähler) von insgesamt 8 Stücken (Nenner) gegessen. Also 5/8."
+          "explanation": "Ihr habt 5 Stücke (Zähler) von insgesamt 8 Stücken (Nenner) gegessen. Also 5/8.",
+          "id": "math1_8_brueche_dip_1",
+          "answers": [
+            {
+              "text": "8/5",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "5/8",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "3/8",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "8/3",
+              "correct": false,
+              "pts": 5
+            }
+          ]
         },
         {
           "question": "Welcher Bruch ist genau ein Ganzes?",
-          "options": [
-            "1/2",
-            "3/4",
-            "5/5",
-            "0/4"
-          ],
-          "correctAnswer": 2,
-          "explanation": "Wenn Zähler und Nenner gleich sind (hier 5 und 5), hast du alle Teile des Ganzen. Das ist genau 1."
+          "explanation": "Wenn Zähler und Nenner gleich sind (hier 5 und 5), hast du alle Teile des Ganzen. Das ist genau 1.",
+          "id": "math1_8_brueche_dip_2",
+          "answers": [
+            {
+              "text": "1/2",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "3/4",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "5/5",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "0/4",
+              "correct": false,
+              "pts": 5
+            }
+          ]
         },
         {
           "question": "Was passiert mit den Stücken, wenn der Nenner größer wird (z.B. von 1/2 auf 1/4 auf 1/8)?",
-          "options": [
-            "Die Stücke werden größer",
-            "Die Stücke werden kleiner",
-            "Die Stücke bleiben gleich",
-            "Es gibt weniger Stücke"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Wenn du eine Pizza in immer mehr Teile schneidest (der Nenner wird größer), werden die einzelnen Stücke immer kleiner."
+          "explanation": "Wenn du eine Pizza in immer mehr Teile schneidest (der Nenner wird größer), werden die einzelnen Stücke immer kleiner.",
+          "id": "math1_8_brueche_dip_3",
+          "answers": [
+            {
+              "text": "Die Stücke werden größer",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "Die Stücke werden kleiner",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Die Stücke bleiben gleich",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "Es gibt weniger Stücke",
+              "correct": false,
+              "pts": 5
+            }
+          ]
         },
         {
           "question": "Welcher dieser Brüche steht für mehr als ein Ganzes?",
-          "options": [
-            "7/8",
-            "2/3",
-            "4/4",
-            "5/3"
-          ],
-          "correctAnswer": 3,
-          "explanation": "Bei 5/3 ist der Zähler (5) größer als der Nenner (3). Das bedeutet, du hast mehr als 3/3, also mehr als ein Ganzes."
+          "explanation": "Bei 5/3 ist der Zähler (5) größer als der Nenner (3). Das bedeutet, du hast mehr als 3/3, also mehr als ein Ganzes.",
+          "id": "math1_8_brueche_dip_4",
+          "answers": [
+            {
+              "text": "7/8",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "2/3",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "4/4",
+              "correct": false,
+              "pts": 5
+            },
+            {
+              "text": "5/3",
+              "correct": true,
+              "pts": 5
+            }
+          ]
         }
       ]
     }
