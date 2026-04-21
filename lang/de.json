@@ -5558,328 +5558,1041 @@
   },
   "math1_1_vs_wissen": {
     "title": "Volksschulwissen aufwecken",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Entdecke das Muster!</h3>\n  <p>Spiele mit dem Schieberegler, bevor du weiterliest. Was passiert mit den Kreisen?</p>\n  <svg viewBox=\"0 0 250 50\" id=\"apple-svg\" style=\"background:#fafafa; border-radius:8px;\"></svg>\n  <br>\n  <input type=\"range\" id=\"apple-slider\" min=\"1\" max=\"10\" value=\"3\" oninput=\"updateApples(this.value)\" style=\"width:100%\">\n  <script>\n    function updateApples(val) {\n      const svg = document.getElementById('apple-svg');\n      let circles = '';\n      for(let i=0; i<val; i++) {\n        circles += '<circle cx=\"'+(20 + i*22)+'\" cy=\"25\" r=\"8\" fill=\"#ff5722\" />';\n      }\n      svg.innerHTML = circles;\n    }\n    updateApples(3);\n  </script>\n</div>\n<p>Zahlen helfen uns, Mengen greifbar zu machen. In der Volksschule hast du die Bausteine der Mathematik gelernt: Zählen, Schätzen und die vier Grundrechenarten. Das ist dein Werkzeugkasten für alles, was jetzt kommt.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wenn du 3 Äpfel hast und 4 weitere bekommst, wie viele sind es insgesamt? (Denk an das Modell!)",
-        "options": [
-          "6",
-          "7",
-          "12",
-          "43"
-        ],
-        "answer": 1
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Entdecke das Muster!</h3>\n  <p>Spiele mit dem Schieberegler, bevor du weiterliest. Was passiert mit den Kreisen?</p>\n  <svg viewBox=\"0 0 250 50\" id=\"apple-svg\" style=\"background:#fafafa; border-radius:8px;\"></svg>\n  <br>\n  <input type=\"range\" id=\"apple-slider\" min=\"1\" max=\"10\" value=\"3\" oninput=\"updateApples(this.value)\" style=\"width:100%\">\n  <script>\n    function updateApples(val) {\n      const svg = document.getElementById('apple-svg');\n      let circles = '';\n      for(let i=0; i<val; i++) {\n        circles += '<circle cx=\"'+(20 + i*22)+'\" cy=\"25\" r=\"8\" fill=\"#ff5722\" />';\n      }\n      svg.innerHTML = circles;\n    }\n    updateApples(3);\n  </script>\n</div>\n<p>Zahlen helfen uns, Mengen greifbar zu machen. In der Volksschule hast du die Bausteine der Mathematik gelernt: Zählen, Schätzen und die vier Grundrechenarten. Das ist dein Werkzeugkasten für alles, was jetzt kommt.</p>\n<br>\n{{QUIZ_math1_1_vs_wissen_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_1_vs_wissen_q1",
+            "question": "Wenn du 3 Äpfel hast und 4 weitere bekommst, wie viele sind es insgesamt? (Denk an das Modell!)",
+            "answers": [
+              {
+                "text": "6",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "7",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "12",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "43",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Grundlagen-Meister! Dein Werkzeugkasten ist bereit."
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_1_vs_wissen_dip1",
+          "question": "Hast du das Thema \"Volksschulwissen aufwecken\" verstanden? (Grundlagen-Meister! Dein Werkzeugkasten ist bereit.)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_2_nat_zahlen": {
     "title": "Natürliche Zahlen & der Zahlenstrahl",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Wo liegt die Million?</h3>\n  <p>Klicke auf den Zahlenstrahl, um zu schätzen, wo die Zahl <b>750.000</b> liegt.</p>\n  <svg viewBox=\"0 0 400 60\" style=\"background:#eef2f5; cursor:pointer; border-radius:8px;\" onclick=\"checkPosition(event)\">\n    <line x1=\"20\" y1=\"30\" x2=\"380\" y2=\"30\" stroke=\"#333\" stroke-width=\"3\"/>\n    <text x=\"15\" y=\"50\" font-size=\"14\" fill=\"#555\">0</text>\n    <text x=\"320\" y=\"50\" font-size=\"14\" fill=\"#555\">1.000.000</text>\n    <circle id=\"guess-marker\" cx=\"-20\" cy=\"30\" r=\"6\" fill=\"#2196f3\"/>\n    <circle id=\"correct-marker\" cx=\"290\" cy=\"30\" r=\"6\" fill=\"#4caf50\" opacity=\"0\"/>\n  </svg>\n  <p id=\"guess-feedback\" style=\"font-weight:bold; color:#d32f2f; min-height: 20px;\"></p>\n  <script>\n    function checkPosition(e) {\n      const rect = e.target.closest('svg').getBoundingClientRect();\n      const x = (e.clientX - rect.left) * (400 / rect.width);\n      const marker = document.getElementById('guess-marker');\n      marker.setAttribute('cx', x);\n      \n      const targetX = 20 + (360 * 0.75);\n      const correctMarker = document.getElementById('correct-marker');\n      correctMarker.setAttribute('opacity', '0.7');\n      correctMarker.setAttribute('cx', targetX);\n      \n      const diff = Math.abs(x - targetX);\n      const feedback = document.getElementById('guess-feedback');\n      if(diff < 15) { feedback.style.color = '#4caf50'; feedback.innerHTML = \"Brillant! Fast exakt getroffen.\"; }\n      else { feedback.style.color = '#ff9800'; feedback.innerHTML = \"Guter Versuch! Grün zeigt die exakte Position (3/4 der Strecke).\"; }\n    }\n  </script>\n</div>\n<p>Die <b>Natürlichen Zahlen</b> (&#8469; = {0, 1, 2, 3, ...}) nutzen wir zum Zählen. Auf dem Zahlenstrahl werden Zahlen nach rechts hin immer größer. Er hilft uns, Abstände und Größenverhältnisse (wie eine Million) visuell zu erfassen.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welche Zahl liegt genau in der Mitte zwischen 0 und 1.000.000?",
-        "options": [
-          "100.000",
-          "500.000",
-          "50.000",
-          "750.000"
-        ],
-        "answer": 1
-      },
-      {
-        "question": "Gehört die Zahl -5 zu den natürlichen Zahlen?",
-        "options": [
-          "Ja",
-          "Nein"
-        ],
-        "answer": 1
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Wo liegt die Million?</h3>\n  <p>Klicke auf den Zahlenstrahl, um zu schätzen, wo die Zahl <b>750.000</b> liegt.</p>\n  <svg viewBox=\"0 0 400 60\" style=\"background:#eef2f5; cursor:pointer; border-radius:8px;\" onclick=\"checkPosition(event)\">\n    <line x1=\"20\" y1=\"30\" x2=\"380\" y2=\"30\" stroke=\"#333\" stroke-width=\"3\"/>\n    <text x=\"15\" y=\"50\" font-size=\"14\" fill=\"#555\">0</text>\n    <text x=\"320\" y=\"50\" font-size=\"14\" fill=\"#555\">1.000.000</text>\n    <circle id=\"guess-marker\" cx=\"-20\" cy=\"30\" r=\"6\" fill=\"#2196f3\"/>\n    <circle id=\"correct-marker\" cx=\"290\" cy=\"30\" r=\"6\" fill=\"#4caf50\" opacity=\"0\"/>\n  </svg>\n  <p id=\"guess-feedback\" style=\"font-weight:bold; color:#d32f2f; min-height: 20px;\"></p>\n  <script>\n    function checkPosition(e) {\n      const rect = e.target.closest('svg').getBoundingClientRect();\n      const x = (e.clientX - rect.left) * (400 / rect.width);\n      const marker = document.getElementById('guess-marker');\n      marker.setAttribute('cx', x);\n      \n      const targetX = 20 + (360 * 0.75);\n      const correctMarker = document.getElementById('correct-marker');\n      correctMarker.setAttribute('opacity', '0.7');\n      correctMarker.setAttribute('cx', targetX);\n      \n      const diff = Math.abs(x - targetX);\n      const feedback = document.getElementById('guess-feedback');\n      if(diff < 15) { feedback.style.color = '#4caf50'; feedback.innerHTML = \"Brillant! Fast exakt getroffen.\"; }\n      else { feedback.style.color = '#ff9800'; feedback.innerHTML = \"Guter Versuch! Grün zeigt die exakte Position (3/4 der Strecke).\"; }\n    }\n  </script>\n</div>\n<p>Die <b>Natürlichen Zahlen</b> (&#8469; = {0, 1, 2, 3, ...}) nutzen wir zum Zählen. Auf dem Zahlenstrahl werden Zahlen nach rechts hin immer größer. Er hilft uns, Abstände und Größenverhältnisse (wie eine Million) visuell zu erfassen.</p>\n<br>\n{{QUIZ_math1_2_nat_zahlen_q1}}\n<br>\n{{QUIZ_math1_2_nat_zahlen_q2}}",
+        "quizzes": [
+          {
+            "id": "math1_2_nat_zahlen_q1",
+            "question": "Welche Zahl liegt genau in der Mitte zwischen 0 und 1.000.000?",
+            "answers": [
+              {
+                "text": "100.000",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "500.000",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "50.000",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "750.000",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math1_2_nat_zahlen_q2",
+            "question": "Gehört die Zahl -5 zu den natürlichen Zahlen?",
+            "answers": [
+              {
+                "text": "Ja",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nein",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Zahlenstrahl-Navigator! Du hast ein Gefühl für große Zahlen entwickelt."
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_2_nat_zahlen_dip1",
+          "question": "Hast du das Thema \"Natürliche Zahlen & der Zahlenstrahl\" verstanden? (Zahlenstrahl-Navigator! Du hast ein Gefühl für große Zahlen entwickelt.)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_3_add_sub": {
     "title": "Addition & Subtraktion (Plus und Minus)",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Balance die Gleichung</h3>\n  <p>Finde den fehlenden Wert, um die Waage ins Gleichgewicht zu bringen: <b>5 + ? = 12</b></p>\n  <div style=\"display: flex; align-items: center; gap: 10px; margin-bottom: 10px;\">\n    <div style=\"background:#2196f3; color:white; padding:10px; border-radius:5px;\">5</div>\n    <div style=\"font-weight:bold;\">+</div>\n    <input type=\"number\" id=\"balance-input\" min=\"0\" max=\"15\" value=\"0\" oninput=\"updateBalance(this.value)\" style=\"width:50px; padding:5px;\">\n    <div style=\"font-weight:bold;\">=</div>\n    <div style=\"background:#4caf50; color:white; padding:10px; border-radius:5px;\">12</div>\n  </div>\n  <svg viewBox=\"0 0 200 60\">\n    <line x1=\"20\" y1=\"40\" x2=\"180\" y2=\"40\" id=\"scale-beam\" stroke=\"#333\" stroke-width=\"4\" transform=\"rotate(-10 100 40)\"/>\n    <polygon points=\"100,40 90,60 110,60\" fill=\"#666\"/>\n  </svg>\n  <p id=\"balance-feedback\" style=\"font-weight:bold; color:#ff9800; margin:0; height:20px;\">Die Waage kippt!</p>\n  <script>\n    function updateBalance(val) {\n      const sum = 5 + parseInt(val || 0);\n      const beam = document.getElementById('scale-beam');\n      const feedback = document.getElementById('balance-feedback');\n      let angle = (12 - sum) * 3; \n      if(angle > 20) angle = 20;\n      if(angle < -20) angle = -20;\n      beam.setAttribute('transform', 'rotate('+angle+' 100 40)');\n      \n      if(sum === 12) {\n        feedback.style.color = '#4caf50';\n        feedback.innerHTML = \"Im Gleichgewicht! 12 - 5 = 7.\";\n      } else {\n        feedback.style.color = '#ff9800';\n        feedback.innerHTML = \"Die Waage kippt!\";\n      }\n    }\n    updateBalance(0);\n  </script>\n</div>\n<p>Addition (Hinzufügen) und Subtraktion (Abziehen) sind <b>Umkehroperationen</b>. Wenn dir ein Teil einer Addition fehlt (wie im Beispiel oben), nutzt du einfach die Subtraktion, um ihn zu finden: 12 - 5 = 7.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Was ist der Fachbegriff für das Ergebnis einer Addition?",
-        "options": [
-          "Differenz",
-          "Quotient",
-          "Summe",
-          "Produkt"
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Löse: 45 - ? = 30",
-        "options": [
-          "10",
-          "15",
-          "20",
-          "25"
-        ],
-        "answer": 1
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Balance die Gleichung</h3>\n  <p>Finde den fehlenden Wert, um die Waage ins Gleichgewicht zu bringen: <b>5 + ? = 12</b></p>\n  <div style=\"display: flex; align-items: center; gap: 10px; margin-bottom: 10px;\">\n    <div style=\"background:#2196f3; color:white; padding:10px; border-radius:5px;\">5</div>\n    <div style=\"font-weight:bold;\">+</div>\n    <input type=\"number\" id=\"balance-input\" min=\"0\" max=\"15\" value=\"0\" oninput=\"updateBalance(this.value)\" style=\"width:50px; padding:5px;\">\n    <div style=\"font-weight:bold;\">=</div>\n    <div style=\"background:#4caf50; color:white; padding:10px; border-radius:5px;\">12</div>\n  </div>\n  <svg viewBox=\"0 0 200 60\">\n    <line x1=\"20\" y1=\"40\" x2=\"180\" y2=\"40\" id=\"scale-beam\" stroke=\"#333\" stroke-width=\"4\" transform=\"rotate(-10 100 40)\"/>\n    <polygon points=\"100,40 90,60 110,60\" fill=\"#666\"/>\n  </svg>\n  <p id=\"balance-feedback\" style=\"font-weight:bold; color:#ff9800; margin:0; height:20px;\">Die Waage kippt!</p>\n  <script>\n    function updateBalance(val) {\n      const sum = 5 + parseInt(val || 0);\n      const beam = document.getElementById('scale-beam');\n      const feedback = document.getElementById('balance-feedback');\n      let angle = (12 - sum) * 3; \n      if(angle > 20) angle = 20;\n      if(angle < -20) angle = -20;\n      beam.setAttribute('transform', 'rotate('+angle+' 100 40)');\n      \n      if(sum === 12) {\n        feedback.style.color = '#4caf50';\n        feedback.innerHTML = \"Im Gleichgewicht! 12 - 5 = 7.\";\n      } else {\n        feedback.style.color = '#ff9800';\n        feedback.innerHTML = \"Die Waage kippt!\";\n      }\n    }\n    updateBalance(0);\n  </script>\n</div>\n<p>Addition (Hinzufügen) und Subtraktion (Abziehen) sind <b>Umkehroperationen</b>. Wenn dir ein Teil einer Addition fehlt (wie im Beispiel oben), nutzt du einfach die Subtraktion, um ihn zu finden: 12 - 5 = 7.</p>\n<br>\n{{QUIZ_math1_3_add_sub_q1}}\n<br>\n{{QUIZ_math1_3_add_sub_q2}}",
+        "quizzes": [
+          {
+            "id": "math1_3_add_sub_q1",
+            "question": "Was ist der Fachbegriff für das Ergebnis einer Addition?",
+            "answers": [
+              {
+                "text": "Differenz",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Quotient",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Summe",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Produkt",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math1_3_add_sub_q2",
+            "question": "Löse: 45 - ? = 30",
+            "answers": [
+              {
+                "text": "10",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "15",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "20",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "25",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Meister des Gleichgewichts! Plus und Minus haben keine Geheimnisse mehr vor dir."
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_3_add_sub_dip1",
+          "question": "Hast du das Thema \"Addition & Subtraktion (Plus und Minus)\" verstanden? (Meister des Gleichgewichts! Plus und Minus haben keine Geheimnisse mehr vor dir.)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_4_mult_div": {
     "title": "Multiplikation & Division (Mal und Geteilt)",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Rechtecke zeichnen (Flächenmodell)</h3>\n  <p>Baue ein Rechteck, das genau <b>12 Felder</b> groß ist.</p>\n  <div style=\"display:flex; gap: 15px; margin-bottom:10px;\">\n    <label>Breite: <input type=\"range\" id=\"w-slider\" min=\"1\" max=\"6\" value=\"2\" oninput=\"drawGrid()\"></label>\n    <label>Höhe: <input type=\"range\" id=\"h-slider\" min=\"1\" max=\"6\" value=\"2\" oninput=\"drawGrid()\"></label>\n  </div>\n  <svg viewBox=\"0 0 200 130\" id=\"grid-svg\" style=\"background:#fff; border:1px solid #ddd; border-radius:5px;\"></svg>\n  <p id=\"area-text\" style=\"font-weight:bold;\"></p>\n  <script>\n    function drawGrid() {\n      const w = parseInt(document.getElementById('w-slider').value);\n      const h = parseInt(document.getElementById('h-slider').value);\n      const svg = document.getElementById('grid-svg');\n      let html = '';\n      for(let r=0; r<h; r++) {\n        for(let c=0; c<w; c++) {\n          html += '<rect x=\"'+(c*21 + 5)+'\" y=\"'+(r*21 + 5)+'\" width=\"20\" height=\"20\" fill=\"#9c27b0\" rx=\"3\"/>';\n        }\n      }\n      svg.innerHTML = html;\n      const text = document.getElementById('area-text');\n      const area = h * w;\n      text.innerText = h + ' × ' + w + ' = ' + area;\n      if(area === 12) {\n          text.style.color = '#4caf50';\n          text.innerText += ' 🎉 Ziel erreicht!';\n      } else {\n          text.style.color = '#333';\n      }\n    }\n    drawGrid();\n  </script>\n</div>\n<p>Multiplikation ist schnelles, wiederholtes Addieren. Das Flächenmodell zeigt das perfekt. Division ist das genaue Gegenteil: Du teilst eine große Menge gleichmäßig auf (z.B. 12 Felder in Reihen zu je 3 Feldern ergibt 4 Reihen). Division ist die Umkehroperation der Multiplikation.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welche Rechnung passt zum Flächenmodell mit Breite 5 und Höhe 3?",
-        "options": [
-          "5 + 3 = 8",
-          "5 * 3 = 15",
-          "15 / 3 = 5",
-          "Beide: 5 * 3 = 15 und 15 / 3 = 5"
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Was ist das Ergebnis von 0 dividiert durch 5?",
-        "options": [
-          "5",
-          "0",
-          "Nicht definiert"
-        ],
-        "answer": 1
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Rechtecke zeichnen (Flächenmodell)</h3>\n  <p>Baue ein Rechteck, das genau <b>12 Felder</b> groß ist.</p>\n  <div style=\"display:flex; gap: 15px; margin-bottom:10px;\">\n    <label>Breite: <input type=\"range\" id=\"w-slider\" min=\"1\" max=\"6\" value=\"2\" oninput=\"drawGrid()\"></label>\n    <label>Höhe: <input type=\"range\" id=\"h-slider\" min=\"1\" max=\"6\" value=\"2\" oninput=\"drawGrid()\"></label>\n  </div>\n  <svg viewBox=\"0 0 200 130\" id=\"grid-svg\" style=\"background:#fff; border:1px solid #ddd; border-radius:5px;\"></svg>\n  <p id=\"area-text\" style=\"font-weight:bold;\"></p>\n  <script>\n    function drawGrid() {\n      const w = parseInt(document.getElementById('w-slider').value);\n      const h = parseInt(document.getElementById('h-slider').value);\n      const svg = document.getElementById('grid-svg');\n      let html = '';\n      for(let r=0; r<h; r++) {\n        for(let c=0; c<w; c++) {\n          html += '<rect x=\"'+(c*21 + 5)+'\" y=\"'+(r*21 + 5)+'\" width=\"20\" height=\"20\" fill=\"#9c27b0\" rx=\"3\"/>';\n        }\n      }\n      svg.innerHTML = html;\n      const text = document.getElementById('area-text');\n      const area = h * w;\n      text.innerText = h + ' × ' + w + ' = ' + area;\n      if(area === 12) {\n          text.style.color = '#4caf50';\n          text.innerText += ' 🎉 Ziel erreicht!';\n      } else {\n          text.style.color = '#333';\n      }\n    }\n    drawGrid();\n  </script>\n</div>\n<p>Multiplikation ist schnelles, wiederholtes Addieren. Das Flächenmodell zeigt das perfekt. Division ist das genaue Gegenteil: Du teilst eine große Menge gleichmäßig auf (z.B. 12 Felder in Reihen zu je 3 Feldern ergibt 4 Reihen). Division ist die Umkehroperation der Multiplikation.</p>\n<br>\n{{QUIZ_math1_4_mult_div_q1}}\n<br>\n{{QUIZ_math1_4_mult_div_q2}}",
+        "quizzes": [
+          {
+            "id": "math1_4_mult_div_q1",
+            "question": "Welche Rechnung passt zum Flächenmodell mit Breite 5 und Höhe 3?",
+            "answers": [
+              {
+                "text": "5 + 3 = 8",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "5 * 3 = 15",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "15 / 3 = 5",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Beide: 5 * 3 = 15 und 15 / 3 = 5",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "math1_4_mult_div_q2",
+            "question": "Was ist das Ergebnis von 0 dividiert durch 5?",
+            "answers": [
+              {
+                "text": "5",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "0",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nicht definiert",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Multiplikations-Profi! Flächen und Aufteilungen hast du im Griff."
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_4_mult_div_dip1",
+          "question": "Hast du das Thema \"Multiplikation & Division (Mal und Geteilt)\" verstanden? (Multiplikations-Profi! Flächen und Aufteilungen hast du im Griff.)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_5_geo_grundbegriffe": {
     "title": "Geometrische Grundbegriffe",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Punkt, Strecke, Strahl oder Gerade?</h3>\n  <p>Klicke die Buttons, um zu sehen, wie unendlich oder begrenzt Linien sein können.</p>\n  <svg viewBox=\"0 0 300 100\" style=\"background:#e8f5e9; border-radius:8px;\">\n    <circle cx=\"100\" cy=\"50\" r=\"4\" fill=\"black\"/>\n    <text x=\"95\" y=\"40\" font-family=\"sans-serif\">A</text>\n    <circle cx=\"200\" cy=\"50\" r=\"4\" fill=\"black\"/>\n    <text x=\"195\" y=\"40\" font-family=\"sans-serif\">B</text>\n    \n    <line id=\"geo-line\" x1=\"0\" y1=\"50\" x2=\"300\" y2=\"50\" stroke=\"#e91e63\" stroke-width=\"3\" stroke-dasharray=\"5,5\" opacity=\"0\"/>\n  </svg>\n  <div style=\"margin-top:10px; display:flex; gap:10px;\">\n    <button onclick=\"drawGeo('strecke')\" style=\"padding:5px 10px; cursor:pointer;\">Strecke AB</button>\n    <button onclick=\"drawGeo('strahl')\" style=\"padding:5px 10px; cursor:pointer;\">Strahl ab A</button>\n    <button onclick=\"drawGeo('gerade')\" style=\"padding:5px 10px; cursor:pointer;\">Gerade AB</button>\n  </div>\n  <p id=\"geo-desc\" style=\"font-style:italic; min-height: 20px; margin-top:10px;\"></p>\n  <script>\n    function drawGeo(type) {\n      const line = document.getElementById('geo-line');\n      const desc = document.getElementById('geo-desc');\n      line.setAttribute('opacity', '1');\n      line.removeAttribute('stroke-dasharray');\n      if(type === 'strecke') {\n        line.setAttribute('x1', '100'); line.setAttribute('x2', '200');\n        desc.innerText = \"Strecke: Hat einen Anfangs- und einen Endpunkt.\";\n      } else if(type === 'strahl') {\n        line.setAttribute('x1', '100'); line.setAttribute('x2', '300');\n        desc.innerText = \"Strahl (Halbgerade): Hat einen Anfangspunkt, aber kein Ende.\";\n      } else {\n        line.setAttribute('x1', '0'); line.setAttribute('x2', '300');\n        desc.innerText = \"Gerade: Ist auf beiden Seiten unendlich (kein Anfang, kein Ende).\";\n      }\n    }\n  </script>\n</div>\n<p>Die Geometrie startet mit dem <b>Punkt</b>. Zwei Punkte verbinden wir auf dem kürzesten Weg mit einer <b>Strecke</b>. Verlängern wir sie auf einer Seite unendlich, wird sie zum <b>Strahl</b>. Ist sie beidseitig unendlich, haben wir eine <b>Gerade</b>.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Was hat weder einen Anfang noch ein Ende?",
-        "options": [
-          "Strecke",
-          "Strahl",
-          "Punkt",
-          "Gerade"
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Wie nennt man die kürzeste Verbindung zwischen zwei Punkten?",
-        "options": [
-          "Gerade",
-          "Strecke",
-          "Kreisbogen"
-        ],
-        "answer": 1
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Punkt, Strecke, Strahl oder Gerade?</h3>\n  <p>Klicke die Buttons, um zu sehen, wie unendlich oder begrenzt Linien sein können.</p>\n  <svg viewBox=\"0 0 300 100\" style=\"background:#e8f5e9; border-radius:8px;\">\n    <circle cx=\"100\" cy=\"50\" r=\"4\" fill=\"black\"/>\n    <text x=\"95\" y=\"40\" font-family=\"sans-serif\">A</text>\n    <circle cx=\"200\" cy=\"50\" r=\"4\" fill=\"black\"/>\n    <text x=\"195\" y=\"40\" font-family=\"sans-serif\">B</text>\n    \n    <line id=\"geo-line\" x1=\"0\" y1=\"50\" x2=\"300\" y2=\"50\" stroke=\"#e91e63\" stroke-width=\"3\" stroke-dasharray=\"5,5\" opacity=\"0\"/>\n  </svg>\n  <div style=\"margin-top:10px; display:flex; gap:10px;\">\n    <button onclick=\"drawGeo('strecke')\" style=\"padding:5px 10px; cursor:pointer;\">Strecke AB</button>\n    <button onclick=\"drawGeo('strahl')\" style=\"padding:5px 10px; cursor:pointer;\">Strahl ab A</button>\n    <button onclick=\"drawGeo('gerade')\" style=\"padding:5px 10px; cursor:pointer;\">Gerade AB</button>\n  </div>\n  <p id=\"geo-desc\" style=\"font-style:italic; min-height: 20px; margin-top:10px;\"></p>\n  <script>\n    function drawGeo(type) {\n      const line = document.getElementById('geo-line');\n      const desc = document.getElementById('geo-desc');\n      line.setAttribute('opacity', '1');\n      line.removeAttribute('stroke-dasharray');\n      if(type === 'strecke') {\n        line.setAttribute('x1', '100'); line.setAttribute('x2', '200');\n        desc.innerText = \"Strecke: Hat einen Anfangs- und einen Endpunkt.\";\n      } else if(type === 'strahl') {\n        line.setAttribute('x1', '100'); line.setAttribute('x2', '300');\n        desc.innerText = \"Strahl (Halbgerade): Hat einen Anfangspunkt, aber kein Ende.\";\n      } else {\n        line.setAttribute('x1', '0'); line.setAttribute('x2', '300');\n        desc.innerText = \"Gerade: Ist auf beiden Seiten unendlich (kein Anfang, kein Ende).\";\n      }\n    }\n  </script>\n</div>\n<p>Die Geometrie startet mit dem <b>Punkt</b>. Zwei Punkte verbinden wir auf dem kürzesten Weg mit einer <b>Strecke</b>. Verlängern wir sie auf einer Seite unendlich, wird sie zum <b>Strahl</b>. Ist sie beidseitig unendlich, haben wir eine <b>Gerade</b>.</p>\n<br>\n{{QUIZ_math1_5_geo_grundbegriffe_q1}}\n<br>\n{{QUIZ_math1_5_geo_grundbegriffe_q2}}",
+        "quizzes": [
+          {
+            "id": "math1_5_geo_grundbegriffe_q1",
+            "question": "Was hat weder einen Anfang noch ein Ende?",
+            "answers": [
+              {
+                "text": "Strecke",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Strahl",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Punkt",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Gerade",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "math1_5_geo_grundbegriffe_q2",
+            "question": "Wie nennt man die kürzeste Verbindung zwischen zwei Punkten?",
+            "answers": [
+              {
+                "text": "Gerade",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Strecke",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Kreisbogen",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Geometrie-Entdecker! Punkte und Linien können dich nicht mehr verwirren."
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_5_geo_grundbegriffe_dip1",
+          "question": "Hast du das Thema \"Geometrische Grundbegriffe\" verstanden? (Geometrie-Entdecker! Punkte und Linien können dich nicht mehr verwirren.)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_6_winkel": {
     "title": "Winkel",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Winkel schätzen</h3>\n  <p>Bewege den Regler und beobachte, wie sich der Winkel verändert. Ab wann spricht man von einem 'stumpfen' Winkel?</p>\n  <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n    <path id=\"angle-arc\" d=\"\" fill=\"rgba(0,150,255,0.3)\" />\n    <line x1=\"100\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#333\" stroke-width=\"4\" stroke-linecap=\"round\" />\n    <line x1=\"100\" y1=\"100\" x2=\"156\" y2=\"43\" stroke=\"#e91e63\" stroke-width=\"4\" stroke-linecap=\"round\" id=\"angle-line2\" />\n  </svg>\n  <br>\n  <input type=\"range\" min=\"0\" max=\"180\" value=\"45\" oninput=\"updateAngle(this.value)\" style=\"width: 200px;\">\n  <p id=\"angle-feedback\" style=\"font-weight: bold;\">Spitzer Winkel (45°)</p>\n  <script>\n    function updateAngle(val) {\n      const rad = val * Math.PI / 180;\n      const x = 100 + 80 * Math.cos(-rad);\n      const y = 100 + 80 * Math.sin(-rad);\n      document.getElementById('angle-line2').setAttribute('x2', x);\n      document.getElementById('angle-line2').setAttribute('y2', y);\n      let type = val < 90 ? 'Spitzer Winkel' : val == 90 ? 'Rechter Winkel' : val < 180 ? 'Stumpfer Winkel' : 'Gestreckter Winkel';\n      document.getElementById('angle-feedback').innerText = type + ' (' + val + '°)';\n      const arcSweep = val <= 180 ? '0' : '1';\n      const ax = 100 + 30 * Math.cos(-rad);\n      const ay = 100 + 30 * Math.sin(-rad);\n      const d = `M 100 100 L 130 100 A 30 30 0 ${arcSweep} 0 ${ax} ${ay} Z`;\n      document.getElementById('angle-arc').setAttribute('d', d);\n    }\n    updateAngle(45);\n  </script>\n</div>\n<p>Ein <strong>Winkel</strong> entsteht, wenn zwei Strahlen von demselben Punkt ausgehen. Die Größe messen wir in Grad (°). Probier es aus: Alles unter 90° ist spitz, genau 90° ist ein rechter Winkel, und dazwischen liegt der stumpfe Winkel.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Ein Winkel misst genau 90°. Wie nennt man ihn?",
-        "options": [
-          "Spitzer Winkel",
-          "Rechter Winkel",
-          "Stumpfer Winkel"
-        ],
-        "answer": "Rechter Winkel"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Winkel schätzen</h3>\n  <p>Bewege den Regler und beobachte, wie sich der Winkel verändert. Ab wann spricht man von einem 'stumpfen' Winkel?</p>\n  <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n    <path id=\"angle-arc\" d=\"\" fill=\"rgba(0,150,255,0.3)\" />\n    <line x1=\"100\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#333\" stroke-width=\"4\" stroke-linecap=\"round\" />\n    <line x1=\"100\" y1=\"100\" x2=\"156\" y2=\"43\" stroke=\"#e91e63\" stroke-width=\"4\" stroke-linecap=\"round\" id=\"angle-line2\" />\n  </svg>\n  <br>\n  <input type=\"range\" min=\"0\" max=\"180\" value=\"45\" oninput=\"updateAngle(this.value)\" style=\"width: 200px;\">\n  <p id=\"angle-feedback\" style=\"font-weight: bold;\">Spitzer Winkel (45°)</p>\n  <script>\n    function updateAngle(val) {\n      const rad = val * Math.PI / 180;\n      const x = 100 + 80 * Math.cos(-rad);\n      const y = 100 + 80 * Math.sin(-rad);\n      document.getElementById('angle-line2').setAttribute('x2', x);\n      document.getElementById('angle-line2').setAttribute('y2', y);\n      let type = val < 90 ? 'Spitzer Winkel' : val == 90 ? 'Rechter Winkel' : val < 180 ? 'Stumpfer Winkel' : 'Gestreckter Winkel';\n      document.getElementById('angle-feedback').innerText = type + ' (' + val + '°)';\n      const arcSweep = val <= 180 ? '0' : '1';\n      const ax = 100 + 30 * Math.cos(-rad);\n      const ay = 100 + 30 * Math.sin(-rad);\n      const d = `M 100 100 L 130 100 A 30 30 0 ${arcSweep} 0 ${ax} ${ay} Z`;\n      document.getElementById('angle-arc').setAttribute('d', d);\n    }\n    updateAngle(45);\n  </script>\n</div>\n<p>Ein <strong>Winkel</strong> entsteht, wenn zwei Strahlen von demselben Punkt ausgehen. Die Größe messen wir in Grad (°). Probier es aus: Alles unter 90° ist spitz, genau 90° ist ein rechter Winkel, und dazwischen liegt der stumpfe Winkel.</p>\n<br>\n{{QUIZ_math1_6_winkel_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_6_winkel_q1",
+            "question": "Ein Winkel misst genau 90°. Wie nennt man ihn?",
+            "answers": [
+              {
+                "text": "Spitzer Winkel",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Rechter Winkel",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Stumpfer Winkel",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Winkel-Architekt"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_6_winkel_dip1",
+          "question": "Hast du das Thema \"Winkel\" verstanden? (Winkel-Architekt)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_7_gleichungen": {
     "title": "Gleichungen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Die Gleichungs-Waage</h3>\n  <p>Finde den Wert für <i>x</i>, der die Waage im Gleichgewicht hält!</p>\n  <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n    <polygon points=\"140,140 160,140 150,120\" fill=\"#666\" />\n    <line x1=\"150\" y1=\"140\" x2=\"150\" y2=\"150\" stroke=\"#666\" stroke-width=\"4\" />\n    <g id=\"beam-group\" transform=\"rotate(10, 150, 120)\">\n      <line x1=\"50\" y1=\"120\" x2=\"250\" y2=\"120\" stroke=\"#333\" stroke-width=\"6\" stroke-linecap=\"round\" />\n      <g transform=\"translate(50, 120)\">\n        <rect x=\"-20\" y=\"-30\" width=\"25\" height=\"25\" fill=\"#2196F3\" rx=\"4\" />\n        <text x=\"-7\" y=\"-13\" fill=\"white\" font-family=\"sans-serif\" font-weight=\"bold\">x</text>\n        <rect x=\"10\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n        <text x=\"17\" y=\"-18\" fill=\"#333\" font-family=\"sans-serif\" font-size=\"10\">1</text>\n      </g>\n      <g transform=\"translate(250, 120)\">\n        <rect x=\"-25\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n        <rect x=\"-5\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n        <rect x=\"15\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n      </g>\n    </g>\n  </svg>\n  <div style=\"margin-top: 10px;\">\n    <button onclick=\"guessX(1)\">x = 1</button>\n    <button onclick=\"guessX(2)\">x = 2</button>\n    <button onclick=\"guessX(3)\">x = 3</button>\n  </div>\n  <p id=\"eq-feedback\" style=\"font-weight: bold; min-height: 20px;\">Die linke Seite ist zu schwer!</p>\n  <script>\n    function guessX(val) {\n      const beam = document.getElementById('beam-group');\n      if(val === 2) {\n        document.getElementById('eq-feedback').innerText = 'Exzellent! x = 2 hält die Waage (2 + 1 = 3) im Gleichgewicht.';\n        beam.setAttribute('transform', 'rotate(0, 150, 120)');\n      } else if(val < 2) {\n        document.getElementById('eq-feedback').innerText = 'Zu leicht! Die rechte Seite sinkt nach unten.';\n        beam.setAttribute('transform', 'rotate(-10, 150, 120)');\n      } else {\n        document.getElementById('eq-feedback').innerText = 'Zu schwer! Die linke Seite sinkt nach unten.';\n        beam.setAttribute('transform', 'rotate(10, 150, 120)');\n      }\n    }\n    guessX(3);\n  </script>\n</div>\n<p>Stell dir eine <strong>Gleichung</strong> wie eine Balkenwaage vor. Beide Seiten müssen genau gleich schwer sein. Was du links veränderst, musst du auch rechts tun!</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wenn x + 4 = 10 ist, welchen Wert hat x?",
-        "options": [
-          "4",
-          "6",
-          "10",
-          "14"
-        ],
-        "answer": "6"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Die Gleichungs-Waage</h3>\n  <p>Finde den Wert für <i>x</i>, der die Waage im Gleichgewicht hält!</p>\n  <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n    <polygon points=\"140,140 160,140 150,120\" fill=\"#666\" />\n    <line x1=\"150\" y1=\"140\" x2=\"150\" y2=\"150\" stroke=\"#666\" stroke-width=\"4\" />\n    <g id=\"beam-group\" transform=\"rotate(10, 150, 120)\">\n      <line x1=\"50\" y1=\"120\" x2=\"250\" y2=\"120\" stroke=\"#333\" stroke-width=\"6\" stroke-linecap=\"round\" />\n      <g transform=\"translate(50, 120)\">\n        <rect x=\"-20\" y=\"-30\" width=\"25\" height=\"25\" fill=\"#2196F3\" rx=\"4\" />\n        <text x=\"-7\" y=\"-13\" fill=\"white\" font-family=\"sans-serif\" font-weight=\"bold\">x</text>\n        <rect x=\"10\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n        <text x=\"17\" y=\"-18\" fill=\"#333\" font-family=\"sans-serif\" font-size=\"10\">1</text>\n      </g>\n      <g transform=\"translate(250, 120)\">\n        <rect x=\"-25\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n        <rect x=\"-5\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n        <rect x=\"15\" y=\"-30\" width=\"15\" height=\"15\" fill=\"#FFC107\" rx=\"3\" />\n      </g>\n    </g>\n  </svg>\n  <div style=\"margin-top: 10px;\">\n    <button onclick=\"guessX(1)\">x = 1</button>\n    <button onclick=\"guessX(2)\">x = 2</button>\n    <button onclick=\"guessX(3)\">x = 3</button>\n  </div>\n  <p id=\"eq-feedback\" style=\"font-weight: bold; min-height: 20px;\">Die linke Seite ist zu schwer!</p>\n  <script>\n    function guessX(val) {\n      const beam = document.getElementById('beam-group');\n      if(val === 2) {\n        document.getElementById('eq-feedback').innerText = 'Exzellent! x = 2 hält die Waage (2 + 1 = 3) im Gleichgewicht.';\n        beam.setAttribute('transform', 'rotate(0, 150, 120)');\n      } else if(val < 2) {\n        document.getElementById('eq-feedback').innerText = 'Zu leicht! Die rechte Seite sinkt nach unten.';\n        beam.setAttribute('transform', 'rotate(-10, 150, 120)');\n      } else {\n        document.getElementById('eq-feedback').innerText = 'Zu schwer! Die linke Seite sinkt nach unten.';\n        beam.setAttribute('transform', 'rotate(10, 150, 120)');\n      }\n    }\n    guessX(3);\n  </script>\n</div>\n<p>Stell dir eine <strong>Gleichung</strong> wie eine Balkenwaage vor. Beide Seiten müssen genau gleich schwer sein. Was du links veränderst, musst du auch rechts tun!</p>\n<br>\n{{QUIZ_math1_7_gleichungen_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_7_gleichungen_q1",
+            "question": "Wenn x + 4 = 10 ist, welchen Wert hat x?",
+            "answers": [
+              {
+                "text": "4",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "6",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "10",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "14",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Meister des Gleichgewichts"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_7_gleichungen_dip1",
+          "question": "Hast du das Thema \"Gleichungen\" verstanden? (Meister des Gleichgewichts)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_8_brueche": {
     "title": "Brüche",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Pizza teilen: Brüche visuell</h3>\n  <p>Füge Stücke hinzu oder entferne sie. Wie ändert sich der Bruch?</p>\n  <svg width=\"150\" height=\"150\" viewBox=\"-1.1 -1.1 2.2 2.2\" style=\"transform: rotate(-90deg);\" id=\"pie-svg\">\n  </svg>\n  <br>\n  <button onclick=\"changePieces(1)\">+ Stück</button>\n  <button onclick=\"changePieces(-1)\">- Stück</button>\n  <p style=\"font-size: 1.2em;\">Anteil: <strong id=\"frac-text\">1/4</strong></p>\n  <script>\n    let pieces = 1;\n    let pieTotal = 4;\n    function drawPie() {\n      const svg = document.getElementById('pie-svg');\n      svg.innerHTML = '';\n      for(let i=0; i<pieTotal; i++) {\n        let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');\n        let a1 = (i * 2 * Math.PI) / pieTotal;\n        let a2 = ((i+1) * 2 * Math.PI) / pieTotal;\n        let x1 = Math.cos(a1), y1 = Math.sin(a1);\n        let x2 = Math.cos(a2), y2 = Math.sin(a2);\n        path.setAttribute('d', `M 0 0 L ${x1} ${y1} A 1 1 0 0 1 ${x2} ${y2} Z`);\n        path.setAttribute('fill', i < pieces ? '#4CAF50' : '#e0e0e0');\n        path.setAttribute('stroke', '#fff');\n        path.setAttribute('stroke-width', '0.05');\n        svg.appendChild(path);\n      }\n      document.getElementById('frac-text').innerText = pieces + '/' + pieTotal;\n    }\n    function changePieces(d) {\n      pieces = Math.max(0, Math.min(pieTotal, pieces + d));\n      drawPie();\n    }\n    drawPie();\n  </script>\n</div>\n<p>Ein <strong>Bruch</strong> beschreibt einen Teil eines Ganzen. Der <em>Nenner</em> (unten) zeigt, in wie viele gleich große Teile das Ganze geteilt wurde. Der <em>Zähler</em> (oben) sagt uns, wie viele wir betrachten.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wenn eine Pizza in 8 Stücke geteilt wird und du 3 davon isst, welchen Bruchteil hast du gegessen?",
-        "options": [
-          "3/8",
-          "8/3",
-          "5/8"
-        ],
-        "answer": "3/8"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Pizza teilen: Brüche visuell</h3>\n  <p>Füge Stücke hinzu oder entferne sie. Wie ändert sich der Bruch?</p>\n  <svg width=\"150\" height=\"150\" viewBox=\"-1.1 -1.1 2.2 2.2\" style=\"transform: rotate(-90deg);\" id=\"pie-svg\">\n  </svg>\n  <br>\n  <button onclick=\"changePieces(1)\">+ Stück</button>\n  <button onclick=\"changePieces(-1)\">- Stück</button>\n  <p style=\"font-size: 1.2em;\">Anteil: <strong id=\"frac-text\">1/4</strong></p>\n  <script>\n    let pieces = 1;\n    let pieTotal = 4;\n    function drawPie() {\n      const svg = document.getElementById('pie-svg');\n      svg.innerHTML = '';\n      for(let i=0; i<pieTotal; i++) {\n        let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');\n        let a1 = (i * 2 * Math.PI) / pieTotal;\n        let a2 = ((i+1) * 2 * Math.PI) / pieTotal;\n        let x1 = Math.cos(a1), y1 = Math.sin(a1);\n        let x2 = Math.cos(a2), y2 = Math.sin(a2);\n        path.setAttribute('d', `M 0 0 L ${x1} ${y1} A 1 1 0 0 1 ${x2} ${y2} Z`);\n        path.setAttribute('fill', i < pieces ? '#4CAF50' : '#e0e0e0');\n        path.setAttribute('stroke', '#fff');\n        path.setAttribute('stroke-width', '0.05');\n        svg.appendChild(path);\n      }\n      document.getElementById('frac-text').innerText = pieces + '/' + pieTotal;\n    }\n    function changePieces(d) {\n      pieces = Math.max(0, Math.min(pieTotal, pieces + d));\n      drawPie();\n    }\n    drawPie();\n  </script>\n</div>\n<p>Ein <strong>Bruch</strong> beschreibt einen Teil eines Ganzen. Der <em>Nenner</em> (unten) zeigt, in wie viele gleich große Teile das Ganze geteilt wurde. Der <em>Zähler</em> (oben) sagt uns, wie viele wir betrachten.</p>\n<br>\n{{QUIZ_math1_8_brueche_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_8_brueche_q1",
+            "question": "Wenn eine Pizza in 8 Stücke geteilt wird und du 3 davon isst, welchen Bruchteil hast du gegessen?",
+            "answers": [
+              {
+                "text": "3/8",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "8/3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "5/8",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Bruch-Profi"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_8_brueche_dip1",
+          "question": "Hast du das Thema \"Brüche\" verstanden? (Bruch-Profi)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_9_dezimalzahlen": {
     "title": "Dezimalzahlen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Zwischen den Zahlen</h3>\n  <p>Was liegt genau in der Mitte zwischen 0 und 1? Schiebe den Punkt!</p>\n  <input type=\"range\" min=\"0\" max=\"100\" value=\"50\" oninput=\"updateDec(this.value)\" style=\"width: 300px;\">\n  <svg width=\"320\" height=\"60\">\n    <line x1=\"10\" y1=\"30\" x2=\"310\" y2=\"30\" stroke=\"#888\" stroke-width=\"2\" />\n    <line x1=\"10\" y1=\"20\" x2=\"10\" y2=\"40\" stroke=\"#333\" stroke-width=\"2\" />\n    <text x=\"10\" y=\"55\" text-anchor=\"middle\">0</text>\n    <line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"40\" stroke=\"#333\" stroke-width=\"2\" />\n    <text x=\"310\" y=\"55\" text-anchor=\"middle\">1</text>\n    <circle id=\"dec-point\" cx=\"160\" cy=\"30\" r=\"6\" fill=\"#e91e63\" />\n  </svg>\n  <p style=\"font-size: 1.2em;\">Wert: <strong id=\"dec-value\">0,50</strong></p>\n  <script>\n    function updateDec(val) {\n      let v = val / 100;\n      document.getElementById('dec-point').setAttribute('cx', 10 + v * 300);\n      document.getElementById('dec-value').innerText = v.toFixed(2).replace('.', ',');\n    }\n    updateDec(50);\n  </script>\n</div>\n<p><strong>Dezimalzahlen</strong> helfen uns, Werte zwischen ganzen Zahlen exakt darzustellen. Das Komma trennt die Ganzen von den Zehnteln und Hundertsteln.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welche Dezimalzahl entspricht dem Bruch 1/2?",
-        "options": [
-          "0,2",
-          "0,5",
-          "1,2"
-        ],
-        "answer": "0,5"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Zwischen den Zahlen</h3>\n  <p>Was liegt genau in der Mitte zwischen 0 und 1? Schiebe den Punkt!</p>\n  <input type=\"range\" min=\"0\" max=\"100\" value=\"50\" oninput=\"updateDec(this.value)\" style=\"width: 300px;\">\n  <svg width=\"320\" height=\"60\">\n    <line x1=\"10\" y1=\"30\" x2=\"310\" y2=\"30\" stroke=\"#888\" stroke-width=\"2\" />\n    <line x1=\"10\" y1=\"20\" x2=\"10\" y2=\"40\" stroke=\"#333\" stroke-width=\"2\" />\n    <text x=\"10\" y=\"55\" text-anchor=\"middle\">0</text>\n    <line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"40\" stroke=\"#333\" stroke-width=\"2\" />\n    <text x=\"310\" y=\"55\" text-anchor=\"middle\">1</text>\n    <circle id=\"dec-point\" cx=\"160\" cy=\"30\" r=\"6\" fill=\"#e91e63\" />\n  </svg>\n  <p style=\"font-size: 1.2em;\">Wert: <strong id=\"dec-value\">0,50</strong></p>\n  <script>\n    function updateDec(val) {\n      let v = val / 100;\n      document.getElementById('dec-point').setAttribute('cx', 10 + v * 300);\n      document.getElementById('dec-value').innerText = v.toFixed(2).replace('.', ',');\n    }\n    updateDec(50);\n  </script>\n</div>\n<p><strong>Dezimalzahlen</strong> helfen uns, Werte zwischen ganzen Zahlen exakt darzustellen. Das Komma trennt die Ganzen von den Zehnteln und Hundertsteln.</p>\n<br>\n{{QUIZ_math1_9_dezimalzahlen_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_9_dezimalzahlen_q1",
+            "question": "Welche Dezimalzahl entspricht dem Bruch 1/2?",
+            "answers": [
+              {
+                "text": "0,2",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "0,5",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "1,2",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Komma-Künstler"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_9_dezimalzahlen_dip1",
+          "question": "Hast du das Thema \"Dezimalzahlen\" verstanden? (Komma-Künstler)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_10_groessen": {
     "title": "Größen und Einheiten",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Längen umrechnen</h3>\n  <p>Wie verändern sich die Zahlen, wenn wir die Einheit anpassen?</p>\n  <div>\n    <input type=\"number\" value=\"1.5\" step=\"0.1\" id=\"m-input\" oninput=\"updateSize()\" style=\"width: 60px;\">\n    <strong>m</strong> = \n    <span id=\"cm-output\" style=\"font-weight: bold; color: #2196F3;\">150</span> \n    <strong>cm</strong>\n  </div>\n  <svg width=\"100%\" height=\"30\" viewBox=\"0 0 300 30\">\n    <rect x=\"0\" y=\"10\" width=\"300\" height=\"10\" fill=\"#e0e0e0\" rx=\"5\" />\n    <rect x=\"0\" y=\"10\" width=\"150\" height=\"10\" fill=\"#2196F3\" rx=\"5\" id=\"size-bar\" />\n  </svg>\n  <script>\n    function updateSize() {\n      let m = parseFloat(document.getElementById('m-input').value) || 0;\n      let cm = Math.round(m * 100);\n      document.getElementById('cm-output').innerText = cm;\n      let w = Math.min(300, (cm / 200) * 300);\n      document.getElementById('size-bar').setAttribute('width', Math.max(0, w));\n    }\n    updateSize();\n  </script>\n</div>\n<p>Eine <strong>Größe</strong> besteht immer aus einer <em>Maßzahl</em> (z.B. 1,5) und einer <em>Maßeinheit</em> (z.B. m). Um von einer größeren in eine kleinere Einheit zu wechseln, multiplizieren wir die Maßzahl.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wie viele Zentimeter (cm) sind 2,5 Meter (m)?",
-        "options": [
-          "25 cm",
-          "250 cm",
-          "2500 cm"
-        ],
-        "answer": "250 cm"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Längen umrechnen</h3>\n  <p>Wie verändern sich die Zahlen, wenn wir die Einheit anpassen?</p>\n  <div>\n    <input type=\"number\" value=\"1.5\" step=\"0.1\" id=\"m-input\" oninput=\"updateSize()\" style=\"width: 60px;\">\n    <strong>m</strong> = \n    <span id=\"cm-output\" style=\"font-weight: bold; color: #2196F3;\">150</span> \n    <strong>cm</strong>\n  </div>\n  <svg width=\"100%\" height=\"30\" viewBox=\"0 0 300 30\">\n    <rect x=\"0\" y=\"10\" width=\"300\" height=\"10\" fill=\"#e0e0e0\" rx=\"5\" />\n    <rect x=\"0\" y=\"10\" width=\"150\" height=\"10\" fill=\"#2196F3\" rx=\"5\" id=\"size-bar\" />\n  </svg>\n  <script>\n    function updateSize() {\n      let m = parseFloat(document.getElementById('m-input').value) || 0;\n      let cm = Math.round(m * 100);\n      document.getElementById('cm-output').innerText = cm;\n      let w = Math.min(300, (cm / 200) * 300);\n      document.getElementById('size-bar').setAttribute('width', Math.max(0, w));\n    }\n    updateSize();\n  </script>\n</div>\n<p>Eine <strong>Größe</strong> besteht immer aus einer <em>Maßzahl</em> (z.B. 1,5) und einer <em>Maßeinheit</em> (z.B. m). Um von einer größeren in eine kleinere Einheit zu wechseln, multiplizieren wir die Maßzahl.</p>\n<br>\n{{QUIZ_math1_10_groessen_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_10_groessen_q1",
+            "question": "Wie viele Zentimeter (cm) sind 2,5 Meter (m)?",
+            "answers": [
+              {
+                "text": "25 cm",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "250 cm",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "2500 cm",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Einheiten-Entdecker"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_10_groessen_dip1",
+          "question": "Hast du das Thema \"Größen und Einheiten\" verstanden? (Einheiten-Entdecker)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math1_11_figuren_koerper": {
     "title": "Figuren und Körper",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Vom 2D-Netz zum 3D-Körper</h3>\n  <p>Tippe auf den Button, um die Eigenschaften des Würfels zu sehen.</p>\n  <svg width=\"150\" height=\"150\" viewBox=\"-100 -100 200 200\">\n    <polygon points=\"0,-50 50,-20 0,10 -50,-20\" fill=\"#4DB6AC\" stroke=\"#fff\" stroke-width=\"2\" />\n    <polygon points=\"-50,-20 0,10 0,70 -50,40\" fill=\"#009688\" stroke=\"#fff\" stroke-width=\"2\" />\n    <polygon points=\"0,10 50,-20 50,40 0,70\" fill=\"#00796B\" stroke=\"#fff\" stroke-width=\"2\" />\n  </svg>\n  <br>\n  <button onclick=\"document.getElementById('cube-info').innerText='Ein Würfel hat 6 Flächen, 12 Kanten und 8 Ecken.'\">Eigenschaften anzeigen</button>\n  <p id=\"cube-info\" style=\"font-weight:bold; min-height: 20px;\"></p>\n</div>\n<p>Räumliche Objekte nennt man <strong>Körper</strong>. Sie haben eine Ausdehnung in drei Dimensionen und besitzen Flächen, Kanten und Ecken.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wie viele Ecken hat ein Würfel?",
-        "options": [
-          "6",
-          "8",
-          "12"
-        ],
-        "answer": "8"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Vom 2D-Netz zum 3D-Körper</h3>\n  <p>Tippe auf den Button, um die Eigenschaften des Würfels zu sehen.</p>\n  <svg width=\"150\" height=\"150\" viewBox=\"-100 -100 200 200\">\n    <polygon points=\"0,-50 50,-20 0,10 -50,-20\" fill=\"#4DB6AC\" stroke=\"#fff\" stroke-width=\"2\" />\n    <polygon points=\"-50,-20 0,10 0,70 -50,40\" fill=\"#009688\" stroke=\"#fff\" stroke-width=\"2\" />\n    <polygon points=\"0,10 50,-20 50,40 0,70\" fill=\"#00796B\" stroke=\"#fff\" stroke-width=\"2\" />\n  </svg>\n  <br>\n  <button onclick=\"document.getElementById('cube-info').innerText='Ein Würfel hat 6 Flächen, 12 Kanten und 8 Ecken.'\">Eigenschaften anzeigen</button>\n  <p id=\"cube-info\" style=\"font-weight:bold; min-height: 20px;\"></p>\n</div>\n<p>Räumliche Objekte nennt man <strong>Körper</strong>. Sie haben eine Ausdehnung in drei Dimensionen und besitzen Flächen, Kanten und Ecken.</p>\n<br>\n{{QUIZ_math1_11_figuren_koerper_q1}}",
+        "quizzes": [
+          {
+            "id": "math1_11_figuren_koerper_q1",
+            "question": "Wie viele Ecken hat ein Würfel?",
+            "answers": [
+              {
+                "text": "6",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "8",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "12",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "3D-Visionär"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math1_11_figuren_koerper_dip1",
+          "question": "Hast du das Thema \"Figuren und Körper\" verstanden? (3D-Visionär)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math2_1_teilbarkeit": {
     "title": "Teilbarkeit und Primzahlen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Finde die Bausteine!</h3>\n  <p>Jede Zahl ist aus Primzahlen aufgebaut. Zerlege die Zahl 12, indem du auf die Kachel klickst.</p>\n  <svg width=\"200\" height=\"100\">\n    <rect id=\"rect12\" x=\"50\" y=\"20\" width=\"100\" height=\"50\" fill=\"#3498db\" rx=\"10\" onclick=\"split12()\" cursor=\"pointer\"/>\n    <text id=\"text12\" x=\"100\" y=\"50\" fill=\"white\" font-size=\"24\" text-anchor=\"middle\" alignment-baseline=\"middle\" pointer-events=\"none\">12</text>\n    <g id=\"splitNodes\" style=\"opacity:0; transition: opacity 0.5s;\">\n      <circle cx=\"40\" cy=\"50\" r=\"20\" fill=\"#e74c3c\"/>\n      <text x=\"40\" y=\"55\" fill=\"white\" text-anchor=\"middle\">2</text>\n      <circle cx=\"100\" cy=\"50\" r=\"20\" fill=\"#e74c3c\"/>\n      <text x=\"100\" y=\"55\" fill=\"white\" text-anchor=\"middle\">2</text>\n      <circle cx=\"160\" cy=\"50\" r=\"20\" fill=\"#e74c3c\"/>\n      <text x=\"160\" y=\"55\" fill=\"white\" text-anchor=\"middle\">3</text>\n    </g>\n  </svg>\n  <script>\n    function split12() {\n      document.getElementById('rect12').style.display = 'none';\n      document.getElementById('text12').style.display = 'none';\n      document.getElementById('splitNodes').style.opacity = '1';\n    }\n  </script>\n</div>\n<h3>Die Atome der Zahlen</h3>\n<p>Primzahlen sind wie Legosteine. Jede andere Zahl lässt sich durch Multiplikation aus ihnen zusammensetzen. Das nennt man <strong>Primfaktorzerlegung</strong>.</p>\n<p>Eine Zahl ist durch 2 teilbar, wenn ihre letzte Ziffer gerade ist. Durch 3, wenn ihre Quersumme durch 3 teilbar ist.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Was ist die Primfaktorzerlegung von 18?",
-        "options": [
-          "2 · 9",
-          "2 · 3 · 3",
-          "3 · 6",
-          "2 · 2 · 3"
-        ],
-        "correct_index": 1,
-        "explanation": "18 lässt sich zerlegen in 2 · 9, und 9 ist 3 · 3. Die Primfaktoren sind also 2, 3 und 3."
-      },
-      {
-        "question": "Ist die Zahl 123 durch 3 teilbar?",
-        "options": [
-          "Ja, denn die Quersumme (1+2+3=6) ist durch 3 teilbar.",
-          "Nein, sie endet auf 3."
-        ],
-        "correct_index": 0,
-        "explanation": "Die Quersummenregel besagt: Ist die Quersumme durch 3 teilbar, so ist auch die Zahl durch 3 teilbar."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Finde die Bausteine!</h3>\n  <p>Jede Zahl ist aus Primzahlen aufgebaut. Zerlege die Zahl 12, indem du auf die Kachel klickst.</p>\n  <svg width=\"200\" height=\"100\">\n    <rect id=\"rect12\" x=\"50\" y=\"20\" width=\"100\" height=\"50\" fill=\"#3498db\" rx=\"10\" onclick=\"split12()\" cursor=\"pointer\"/>\n    <text id=\"text12\" x=\"100\" y=\"50\" fill=\"white\" font-size=\"24\" text-anchor=\"middle\" alignment-baseline=\"middle\" pointer-events=\"none\">12</text>\n    <g id=\"splitNodes\" style=\"opacity:0; transition: opacity 0.5s;\">\n      <circle cx=\"40\" cy=\"50\" r=\"20\" fill=\"#e74c3c\"/>\n      <text x=\"40\" y=\"55\" fill=\"white\" text-anchor=\"middle\">2</text>\n      <circle cx=\"100\" cy=\"50\" r=\"20\" fill=\"#e74c3c\"/>\n      <text x=\"100\" y=\"55\" fill=\"white\" text-anchor=\"middle\">2</text>\n      <circle cx=\"160\" cy=\"50\" r=\"20\" fill=\"#e74c3c\"/>\n      <text x=\"160\" y=\"55\" fill=\"white\" text-anchor=\"middle\">3</text>\n    </g>\n  </svg>\n  <script>\n    function split12() {\n      document.getElementById('rect12').style.display = 'none';\n      document.getElementById('text12').style.display = 'none';\n      document.getElementById('splitNodes').style.opacity = '1';\n    }\n  </script>\n</div>\n<h3>Die Atome der Zahlen</h3>\n<p>Primzahlen sind wie Legosteine. Jede andere Zahl lässt sich durch Multiplikation aus ihnen zusammensetzen. Das nennt man <strong>Primfaktorzerlegung</strong>.</p>\n<p>Eine Zahl ist durch 2 teilbar, wenn ihre letzte Ziffer gerade ist. Durch 3, wenn ihre Quersumme durch 3 teilbar ist.</p>\n<br>\n{{QUIZ_math2_1_teilbarkeit_q1}}\n<br>\n{{QUIZ_math2_1_teilbarkeit_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_1_teilbarkeit_q1",
+            "question": "Was ist die Primfaktorzerlegung von 18?",
+            "answers": [
+              {
+                "text": "2 · 9",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "2 · 3 · 3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "3 · 6",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "2 · 2 · 3",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_1_teilbarkeit_q2",
+            "question": "Ist die Zahl 123 durch 3 teilbar?",
+            "answers": [
+              {
+                "text": "Ja, denn die Quersumme (1+2+3=6) ist durch 3 teilbar.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nein, sie endet auf 3.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math2_1_teilbarkeit_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math2_2_brueche": {
     "title": "Brüche verstehen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Teile die Pizza!</h3>\n  <p>Klicke auf die Stücke, um $\\frac{3}{4}$ zu markieren.</p>\n  <svg width=\"150\" height=\"150\" viewBox=\"0 0 100 100\" onclick=\"togglePizza(event)\">\n    <path id=\"p1\" d=\"M50,50 L50,0 A50,50 0 0,1 100,50 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n    <path id=\"p2\" d=\"M50,50 L100,50 A50,50 0 0,1 50,100 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n    <path id=\"p3\" d=\"M50,50 L50,100 A50,50 0 0,1 0,50 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n    <path id=\"p4\" d=\"M50,50 L0,50 A50,50 0 0,1 50,0 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n  </svg>\n  <p id=\"pizzaResult\">0/4 markiert</p>\n  <script>\n    let active = 0;\n    function togglePizza(e) {\n      if(e.target.tagName === 'path') {\n        let isFill = e.target.getAttribute('fill') === '#f1c40f';\n        e.target.setAttribute('fill', isFill ? '#ecf0f1' : '#f1c40f');\n        active += isFill ? -1 : 1;\n        document.getElementById('pizzaResult').innerText = active + '/4 markiert';\n      }\n    }\n  </script>\n</div>\n<h3>Zähler und Nenner</h3>\n<p>Ein Bruch besteht aus zwei Teilen: Der <strong>Nenner</strong> (unten) sagt, in wie viele gleich große Teile das Ganze geteilt wurde. Der <strong>Zähler</strong> (oben) gibt an, wie viele dieser Teile wir haben.</p>\n<p><strong>Erweitern und Kürzen:</strong> Wenn du eine Pizza statt in 4 in 8 Stücke schneidest, ändert sich die Gesamtmenge nicht, du hast nur mehr, aber kleinere Stücke. $\\frac{1}{2} = \\frac{2}{4}$.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welcher Bruch ist gleichwertig zu 2/3?",
-        "options": [
-          "3/2",
-          "4/6",
-          "4/3",
-          "2/6"
-        ],
-        "correct_index": 1,
-        "explanation": "Wenn du Zähler und Nenner mit 2 multiplizierst (erweiterst), erhältst du 4/6."
-      },
-      {
-        "question": "Was passiert, wenn der Zähler eines Bruchs größer ist als der Nenner (z.B. 5/4)?",
-        "options": [
-          "Der Bruch ist kleiner als 1.",
-          "Der Bruch ist genau 1.",
-          "Der Bruch ist größer als 1."
-        ],
-        "correct_index": 2,
-        "explanation": "Wenn du 5 Viertel hast, ist das mehr als ein ganzes (4/4 = 1)."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Teile die Pizza!</h3>\n  <p>Klicke auf die Stücke, um $\\frac{3}{4}$ zu markieren.</p>\n  <svg width=\"150\" height=\"150\" viewBox=\"0 0 100 100\" onclick=\"togglePizza(event)\">\n    <path id=\"p1\" d=\"M50,50 L50,0 A50,50 0 0,1 100,50 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n    <path id=\"p2\" d=\"M50,50 L100,50 A50,50 0 0,1 50,100 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n    <path id=\"p3\" d=\"M50,50 L50,100 A50,50 0 0,1 0,50 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n    <path id=\"p4\" d=\"M50,50 L0,50 A50,50 0 0,1 50,0 Z\" fill=\"#ecf0f1\" stroke=\"#7f8c8d\" stroke-width=\"2\" cursor=\"pointer\"/>\n  </svg>\n  <p id=\"pizzaResult\">0/4 markiert</p>\n  <script>\n    let active = 0;\n    function togglePizza(e) {\n      if(e.target.tagName === 'path') {\n        let isFill = e.target.getAttribute('fill') === '#f1c40f';\n        e.target.setAttribute('fill', isFill ? '#ecf0f1' : '#f1c40f');\n        active += isFill ? -1 : 1;\n        document.getElementById('pizzaResult').innerText = active + '/4 markiert';\n      }\n    }\n  </script>\n</div>\n<h3>Zähler und Nenner</h3>\n<p>Ein Bruch besteht aus zwei Teilen: Der <strong>Nenner</strong> (unten) sagt, in wie viele gleich große Teile das Ganze geteilt wurde. Der <strong>Zähler</strong> (oben) gibt an, wie viele dieser Teile wir haben.</p>\n<p><strong>Erweitern und Kürzen:</strong> Wenn du eine Pizza statt in 4 in 8 Stücke schneidest, ändert sich die Gesamtmenge nicht, du hast nur mehr, aber kleinere Stücke. $\\frac{1}{2} = \\frac{2}{4}$.</p>\n<br>\n{{QUIZ_math2_2_brueche_q1}}\n<br>\n{{QUIZ_math2_2_brueche_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_2_brueche_q1",
+            "question": "Welcher Bruch ist gleichwertig zu 2/3?",
+            "answers": [
+              {
+                "text": "3/2",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "4/6",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "4/3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "2/6",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_2_brueche_q2",
+            "question": "Was passiert, wenn der Zähler eines Bruchs größer ist als der Nenner (z.B. 5/4)?",
+            "answers": [
+              {
+                "text": "Der Bruch ist kleiner als 1.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Der Bruch ist genau 1.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Der Bruch ist größer als 1.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math2_2_brueche_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math2_3_dezimalzahlen": {
     "title": "Dezimalzahlen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Das Komma wandert</h3>\n  <p>Bewege den Schieberegler, um die Zahl 25 zu verändern, indem du sie durch 10, 100 oder 1000 teilst.</p>\n  <input type=\"range\" min=\"0\" max=\"3\" value=\"0\" id=\"decSlider\" oninput=\"updateDec()\" style=\"width:100%;\">\n  <h2 id=\"decDisplay\">25</h2>\n  <script>\n    function updateDec() {\n      const vals = ['25', '2,5', '0,25', '0,025'];\n      document.getElementById('decDisplay').innerText = vals[document.getElementById('decSlider').value];\n    }\n  </script>\n</div>\n<h3>Stellenwerte hinter dem Komma</h3>\n<p>Dezimalzahlen sind eine andere Schreibweise für Brüche mit Nennern wie 10, 100 oder 1000. Jeder Schritt nach rechts hinter dem Komma macht den Wert zehnmal kleiner (Zehntel, Hundertstel, Tausendstel).</p>\n<p>Beispiel: $0,75$ ist das Gleiche wie $\\frac{75}{100}$ oder gekürzt $\\frac{3}{4}$.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welcher Bruch entspricht der Dezimalzahl 0,2?",
-        "options": [
-          "1/2",
-          "2/100",
-          "1/5",
-          "1/20"
-        ],
-        "correct_index": 2,
-        "explanation": "0,2 bedeutet 2 Zehntel (2/10). Gekürzt durch 2 ergibt das 1/5."
-      },
-      {
-        "question": "Was ist das Ergebnis von 3,50 + 1,25?",
-        "options": [
-          "4,75",
-          "4,30",
-          "4,85",
-          "5,00"
-        ],
-        "correct_index": 0,
-        "explanation": "Achte darauf, Komma unter Komma zu addieren: 3,50 + 1,25 = 4,75."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Das Komma wandert</h3>\n  <p>Bewege den Schieberegler, um die Zahl 25 zu verändern, indem du sie durch 10, 100 oder 1000 teilst.</p>\n  <input type=\"range\" min=\"0\" max=\"3\" value=\"0\" id=\"decSlider\" oninput=\"updateDec()\" style=\"width:100%;\">\n  <h2 id=\"decDisplay\">25</h2>\n  <script>\n    function updateDec() {\n      const vals = ['25', '2,5', '0,25', '0,025'];\n      document.getElementById('decDisplay').innerText = vals[document.getElementById('decSlider').value];\n    }\n  </script>\n</div>\n<h3>Stellenwerte hinter dem Komma</h3>\n<p>Dezimalzahlen sind eine andere Schreibweise für Brüche mit Nennern wie 10, 100 oder 1000. Jeder Schritt nach rechts hinter dem Komma macht den Wert zehnmal kleiner (Zehntel, Hundertstel, Tausendstel).</p>\n<p>Beispiel: $0,75$ ist das Gleiche wie $\\frac{75}{100}$ oder gekürzt $\\frac{3}{4}$.</p>\n<br>\n{{QUIZ_math2_3_dezimalzahlen_q1}}\n<br>\n{{QUIZ_math2_3_dezimalzahlen_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_3_dezimalzahlen_q1",
+            "question": "Welcher Bruch entspricht der Dezimalzahl 0,2?",
+            "answers": [
+              {
+                "text": "1/2",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "2/100",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "1/5",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "1/20",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_3_dezimalzahlen_q2",
+            "question": "Was ist das Ergebnis von 3,50 + 1,25?",
+            "answers": [
+              {
+                "text": "4,75",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "4,30",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "4,85",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "5,00",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math2_3_dezimalzahlen_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math2_4_relative_zahlen": {
     "title": "Relative Zahlen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Unter null</h3>\n  <p>Klicke auf die Zahlengerade, um dich zu bewegen!</p>\n  <svg width=\"100%\" height=\"80\" viewBox=\"0 0 300 80\">\n    <line x1=\"20\" y1=\"40\" x2=\"280\" y2=\"40\" stroke=\"#2c3e50\" stroke-width=\"4\"/>\n    <g font-size=\"12\" fill=\"#2c3e50\" text-anchor=\"middle\">\n      <line x1=\"50\" y1=\"35\" x2=\"50\" y2=\"45\" stroke=\"#2c3e50\" stroke-width=\"2\"/><text x=\"50\" y=\"60\">-5</text>\n      <line x1=\"150\" y1=\"35\" x2=\"150\" y2=\"45\" stroke=\"#2c3e50\" stroke-width=\"2\"/><text x=\"150\" y=\"60\">0</text>\n      <line x1=\"250\" y1=\"35\" x2=\"250\" y2=\"45\" stroke=\"#2c3e50\" stroke-width=\"2\"/><text x=\"250\" y=\"60\">5</text>\n    </g>\n    <circle cx=\"150\" cy=\"40\" r=\"8\" fill=\"#e74c3c\" id=\"tempDot\" style=\"transition: cx 0.3s; cursor:pointer\" onclick=\"moveDot()\"/>\n    <text x=\"150\" y=\"20\" fill=\"#e74c3c\" id=\"tempLabel\" text-anchor=\"middle\">0°C (Klick!)</text>\n  </svg>\n  <script>\n    let tempStates = [0, -3, 2, -5];\n    let tempIndex = 0;\n    function moveDot() {\n      tempIndex = (tempIndex + 1) % tempStates.length;\n      let val = tempStates[tempIndex];\n      let cx = 150 + val * 20;\n      document.getElementById('tempDot').setAttribute('cx', cx);\n      document.getElementById('tempLabel').setAttribute('x', cx);\n      document.getElementById('tempLabel').innerText = val + '°C';\n    }\n  </script>\n</div>\n<h3>Die Welt unter Null</h3>\n<p>Negative Zahlen erweitern unseren Zahlenstrahl nach links. Sie helfen uns, Schulden, Temperaturen unter dem Gefrierpunkt oder Tiefen unter dem Meeresspiegel zu beschreiben.</p>\n<p><strong>Addition und Subtraktion:</strong> Wenn du Schulden (-3) hast und 5 Euro gewinnst (+5), hast du am Ende 2 Euro (-3 + 5 = 2). Wenn du von Schulden noch mehr abziehst, werden sie größer.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Was ist das Ergebnis von -4 + 7?",
-        "options": [
-          "-11",
-          "3",
-          "-3",
-          "11"
-        ],
-        "correct_index": 1,
-        "explanation": "Stell dir vor, du bist bei -4 auf der Zahlengeraden und gehst 7 Schritte nach rechts. Du landest bei +3."
-      },
-      {
-        "question": "Welche Zahl ist kleiner?",
-        "options": [
-          "-2",
-          "-5"
-        ],
-        "correct_index": 1,
-        "explanation": "-5 liegt weiter links auf dem Zahlenstrahl und ist deshalb kleiner als -2."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Unter null</h3>\n  <p>Klicke auf die Zahlengerade, um dich zu bewegen!</p>\n  <svg width=\"100%\" height=\"80\" viewBox=\"0 0 300 80\">\n    <line x1=\"20\" y1=\"40\" x2=\"280\" y2=\"40\" stroke=\"#2c3e50\" stroke-width=\"4\"/>\n    <g font-size=\"12\" fill=\"#2c3e50\" text-anchor=\"middle\">\n      <line x1=\"50\" y1=\"35\" x2=\"50\" y2=\"45\" stroke=\"#2c3e50\" stroke-width=\"2\"/><text x=\"50\" y=\"60\">-5</text>\n      <line x1=\"150\" y1=\"35\" x2=\"150\" y2=\"45\" stroke=\"#2c3e50\" stroke-width=\"2\"/><text x=\"150\" y=\"60\">0</text>\n      <line x1=\"250\" y1=\"35\" x2=\"250\" y2=\"45\" stroke=\"#2c3e50\" stroke-width=\"2\"/><text x=\"250\" y=\"60\">5</text>\n    </g>\n    <circle cx=\"150\" cy=\"40\" r=\"8\" fill=\"#e74c3c\" id=\"tempDot\" style=\"transition: cx 0.3s; cursor:pointer\" onclick=\"moveDot()\"/>\n    <text x=\"150\" y=\"20\" fill=\"#e74c3c\" id=\"tempLabel\" text-anchor=\"middle\">0°C (Klick!)</text>\n  </svg>\n  <script>\n    let tempStates = [0, -3, 2, -5];\n    let tempIndex = 0;\n    function moveDot() {\n      tempIndex = (tempIndex + 1) % tempStates.length;\n      let val = tempStates[tempIndex];\n      let cx = 150 + val * 20;\n      document.getElementById('tempDot').setAttribute('cx', cx);\n      document.getElementById('tempLabel').setAttribute('x', cx);\n      document.getElementById('tempLabel').innerText = val + '°C';\n    }\n  </script>\n</div>\n<h3>Die Welt unter Null</h3>\n<p>Negative Zahlen erweitern unseren Zahlenstrahl nach links. Sie helfen uns, Schulden, Temperaturen unter dem Gefrierpunkt oder Tiefen unter dem Meeresspiegel zu beschreiben.</p>\n<p><strong>Addition und Subtraktion:</strong> Wenn du Schulden (-3) hast und 5 Euro gewinnst (+5), hast du am Ende 2 Euro (-3 + 5 = 2). Wenn du von Schulden noch mehr abziehst, werden sie größer.</p>\n<br>\n{{QUIZ_math2_4_relative_zahlen_q1}}\n<br>\n{{QUIZ_math2_4_relative_zahlen_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_4_relative_zahlen_q1",
+            "question": "Was ist das Ergebnis von -4 + 7?",
+            "answers": [
+              {
+                "text": "-11",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "-3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "11",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_4_relative_zahlen_q2",
+            "question": "Welche Zahl ist kleiner?",
+            "answers": [
+              {
+                "text": "-2",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "-5",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math2_4_relative_zahlen_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "diplom": {
     "title": "Diplom: Meister der Mittelstufen-Mathematik",
@@ -5888,200 +6601,539 @@
   },
   "math2_5_var_gleichungen": {
     "title": "Variablen und Gleichungen",
-    "content": "<div class='interactive-zone'><h3>Entdecke das Gleichgewicht</h3><p>Auf der linken Seite der Waage liegt ein unbekanntes Gewicht <i>x</i> und 2 kg. Auf der rechten Seite liegen 5 kg. Was muss <i>x</i> sein, damit die Waage im Gleichgewicht ist?</p><svg width='300' height='200' viewBox='0 0 300 200'><rect x='50' y='150' width='200' height='10' fill='gray' /><polygon points='150,150 140,180 160,180' fill='gray' /><rect x='70' y='120' width='30' height='30' fill='blue' /><text x='85' y='140' fill='white' text-anchor='middle'>x</text><rect x='110' y='120' width='30' height='30' fill='orange' /><text x='125' y='140' fill='white' text-anchor='middle'>2</text><rect x='200' y='120' width='30' height='30' fill='orange' /><text x='215' y='140' fill='white' text-anchor='middle'>5</text></svg><br><input type='number' id='xInput' placeholder='Wert für x' style='padding:5px;'> <button onclick='checkScale()' style='padding:5px 10px; cursor:pointer;'>Prüfen</button><p id='scaleResult'></p><script>function checkScale() { var val = document.getElementById('xInput').value; var res = document.getElementById('scaleResult'); if(val == 3) { res.innerHTML = 'Richtig! x = 3. Die Waage ist im Gleichgewicht (3 + 2 = 5).'; res.style.color = 'green'; } else { res.innerHTML = 'Noch nicht ganz. Überlege: Welche Zahl plus 2 ergibt 5?'; res.style.color = 'red'; } }</script></div><p>Eine Gleichung ist wie eine Waage im perfekten Gleichgewicht. Alles was du auf der einen Seite veränderst, musst du auch auf der anderen Seite verändern, damit das Gleichgewicht erhalten bleibt. Variablen (wie <i>x</i>) sind Platzhalter für unbekannte Zahlen.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Was bedeutet es, eine Gleichung zu lösen?",
-        "options": [
-          "Den Wert der Variablen zu finden, der die Gleichung wahr macht",
-          "Zahlen zu raten",
-          "Alle Zahlen zu addieren"
-        ],
-        "answer": "Den Wert der Variablen zu finden, der die Gleichung wahr macht"
-      },
-      {
-        "question": "Löse: 3x - 2 = 7",
-        "options": [
-          "2",
-          "3",
-          "4"
-        ],
-        "answer": "3"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class='interactive-zone'><h3>Entdecke das Gleichgewicht</h3><p>Auf der linken Seite der Waage liegt ein unbekanntes Gewicht <i>x</i> und 2 kg. Auf der rechten Seite liegen 5 kg. Was muss <i>x</i> sein, damit die Waage im Gleichgewicht ist?</p><svg width='300' height='200' viewBox='0 0 300 200'><rect x='50' y='150' width='200' height='10' fill='gray' /><polygon points='150,150 140,180 160,180' fill='gray' /><rect x='70' y='120' width='30' height='30' fill='blue' /><text x='85' y='140' fill='white' text-anchor='middle'>x</text><rect x='110' y='120' width='30' height='30' fill='orange' /><text x='125' y='140' fill='white' text-anchor='middle'>2</text><rect x='200' y='120' width='30' height='30' fill='orange' /><text x='215' y='140' fill='white' text-anchor='middle'>5</text></svg><br><input type='number' id='xInput' placeholder='Wert für x' style='padding:5px;'> <button onclick='checkScale()' style='padding:5px 10px; cursor:pointer;'>Prüfen</button><p id='scaleResult'></p><script>function checkScale() { var val = document.getElementById('xInput').value; var res = document.getElementById('scaleResult'); if(val == 3) { res.innerHTML = 'Richtig! x = 3. Die Waage ist im Gleichgewicht (3 + 2 = 5).'; res.style.color = 'green'; } else { res.innerHTML = 'Noch nicht ganz. Überlege: Welche Zahl plus 2 ergibt 5?'; res.style.color = 'red'; } }</script></div><p>Eine Gleichung ist wie eine Waage im perfekten Gleichgewicht. Alles was du auf der einen Seite veränderst, musst du auch auf der anderen Seite verändern, damit das Gleichgewicht erhalten bleibt. Variablen (wie <i>x</i>) sind Platzhalter für unbekannte Zahlen.</p>\n<br>\n{{QUIZ_math2_5_var_gleichungen_q1}}\n<br>\n{{QUIZ_math2_5_var_gleichungen_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_5_var_gleichungen_q1",
+            "question": "Was bedeutet es, eine Gleichung zu lösen?",
+            "answers": [
+              {
+                "text": "Den Wert der Variablen zu finden, der die Gleichung wahr macht",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Zahlen zu raten",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Alle Zahlen zu addieren",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_5_var_gleichungen_q2",
+            "question": "Löse: 3x - 2 = 7",
+            "answers": [
+              {
+                "text": "2",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "3",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "4",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
-      "title": "Gleichungs-Meister",
-      "description": "Du hast die Kunst des Ausbalancierens gemeistert und kannst Unbekanntes aufdecken!"
+      "title": "🎓 Mathematik-Diplom",
+      "questions": []
     }
   },
   "math2_6_prop_prozent": {
     "title": "Proportionalität und Prozentrechnung",
-    "content": "<div class='interactive-zone'><h3>Prozente anfassen</h3><p>Verändere den Schieberegler, um 40% der Leiste zu füllen.</p><input type='range' id='pctSlider' min='0' max='100' value='0' oninput='updatePct()' style='width: 100%; cursor:pointer;'><br><br><svg width='100%' height='30' style='border:1px solid #000; border-radius: 5px; background-color: #eee;'><rect id='pctBar' x='0' y='0' width='0%' height='30' fill='#4caf50' transition='width 0.2s' /></svg><p>Aktuell: <span id='pctVal'>0</span>%</p><p id='pctResult'></p><script>function updatePct() { var val = document.getElementById('pctSlider').value; document.getElementById('pctVal').innerText = val; document.getElementById('pctBar').setAttribute('width', val + '%'); if (val == 40) { document.getElementById('pctResult').innerHTML = 'Perfekt! 40% sind 40 von 100, oder auch 2/5.'; document.getElementById('pctResult').style.color = 'green'; } else { document.getElementById('pctResult').innerHTML = ''; } }</script></div><p>Prozent bedeutet wörtlich 'von hundert'. Es ist einfach ein Bruch mit dem Nenner 100. Proportionalität bedeutet, dass sich zwei Größen im gleichen Verhältnis ändern (z.B. doppelt so viel Menge kostet doppelt so viel Geld).</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wie viel sind 25% als Bruch?",
-        "options": [
-          "1/2",
-          "1/4",
-          "1/5"
-        ],
-        "answer": "1/4"
-      },
-      {
-        "question": "Wenn 3 Äpfel 6 Euro kosten, wie viel kosten 5 Äpfel (direkte Proportionalität)?",
-        "options": [
-          "8 Euro",
-          "10 Euro",
-          "12 Euro"
-        ],
-        "answer": "10 Euro"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class='interactive-zone'><h3>Prozente anfassen</h3><p>Verändere den Schieberegler, um 40% der Leiste zu füllen.</p><input type='range' id='pctSlider' min='0' max='100' value='0' oninput='updatePct()' style='width: 100%; cursor:pointer;'><br><br><svg width='100%' height='30' style='border:1px solid #000; border-radius: 5px; background-color: #eee;'><rect id='pctBar' x='0' y='0' width='0%' height='30' fill='#4caf50' transition='width 0.2s' /></svg><p>Aktuell: <span id='pctVal'>0</span>%</p><p id='pctResult'></p><script>function updatePct() { var val = document.getElementById('pctSlider').value; document.getElementById('pctVal').innerText = val; document.getElementById('pctBar').setAttribute('width', val + '%'); if (val == 40) { document.getElementById('pctResult').innerHTML = 'Perfekt! 40% sind 40 von 100, oder auch 2/5.'; document.getElementById('pctResult').style.color = 'green'; } else { document.getElementById('pctResult').innerHTML = ''; } }</script></div><p>Prozent bedeutet wörtlich 'von hundert'. Es ist einfach ein Bruch mit dem Nenner 100. Proportionalität bedeutet, dass sich zwei Größen im gleichen Verhältnis ändern (z.B. doppelt so viel Menge kostet doppelt so viel Geld).</p>\n<br>\n{{QUIZ_math2_6_prop_prozent_q1}}\n<br>\n{{QUIZ_math2_6_prop_prozent_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_6_prop_prozent_q1",
+            "question": "Wie viel sind 25% als Bruch?",
+            "answers": [
+              {
+                "text": "1/2",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "1/4",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "1/5",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_6_prop_prozent_q2",
+            "question": "Wenn 3 Äpfel 6 Euro kosten, wie viel kosten 5 Äpfel (direkte Proportionalität)?",
+            "answers": [
+              {
+                "text": "8 Euro",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "10 Euro",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "12 Euro",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
-      "title": "Prozent-Profi",
-      "description": "Anteile und Verhältnisse haben für dich keine Geheimnisse mehr!"
+      "title": "🎓 Mathematik-Diplom",
+      "questions": []
     }
   },
   "math2_7_geometrie": {
     "title": "Geometrie der Ebene",
-    "content": "<div class='interactive-zone'><h3>Formen-Entdecker</h3><p>Klicke auf das Dreieck, das einen rechten Winkel (90°) hat.</p><svg width='100%' max-width='400px' height='150' viewBox='0 0 400 150'><polygon points='50,120 100,33 150,120' fill='#2196f3' onclick='checkTri(1)' style='cursor:pointer' stroke='#000' stroke-width='2'/><polygon points='200,120 200,30 280,120' fill='#ff9800' onclick='checkTri(2)' style='cursor:pointer' stroke='#000' stroke-width='2'/><polygon points='320,120 380,30 390,120' fill='#9c27b0' onclick='checkTri(3)' style='cursor:pointer' stroke='#000' stroke-width='2'/></svg><p id='triResult'></p><script>function checkTri(id) { var res = document.getElementById('triResult'); if(id === 2) { res.innerHTML = 'Korrekt! Das orange Dreieck hat unten links einen 90° Winkel.'; res.style.color = 'green'; } else { res.innerHTML = 'Das ist leider nicht rechtwinklig. Versuch es noch einmal!'; res.style.color = 'red'; } }</script></div><p>Die Geometrie hilft uns, Formen im Raum zu verstehen. Die Innenwinkelsumme im Dreieck beträgt immer 180°. Bei Vierecken sind es 360°. Rechte Winkel (90°) spielen eine besondere Rolle, besonders beim Satz des Pythagoras in höheren Klassen.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wie groß ist die Innenwinkelsumme in jedem ebenen Dreieck?",
-        "options": [
-          "90°",
-          "180°",
-          "360°"
-        ],
-        "answer": "180°"
-      },
-      {
-        "question": "Ein Viereck mit vier gleich langen Seiten und vier rechten Winkeln nennt man...",
-        "options": [
-          "Rechteck",
-          "Raute",
-          "Quadrat"
-        ],
-        "answer": "Quadrat"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class='interactive-zone'><h3>Formen-Entdecker</h3><p>Klicke auf das Dreieck, das einen rechten Winkel (90°) hat.</p><svg width='100%' max-width='400px' height='150' viewBox='0 0 400 150'><polygon points='50,120 100,33 150,120' fill='#2196f3' onclick='checkTri(1)' style='cursor:pointer' stroke='#000' stroke-width='2'/><polygon points='200,120 200,30 280,120' fill='#ff9800' onclick='checkTri(2)' style='cursor:pointer' stroke='#000' stroke-width='2'/><polygon points='320,120 380,30 390,120' fill='#9c27b0' onclick='checkTri(3)' style='cursor:pointer' stroke='#000' stroke-width='2'/></svg><p id='triResult'></p><script>function checkTri(id) { var res = document.getElementById('triResult'); if(id === 2) { res.innerHTML = 'Korrekt! Das orange Dreieck hat unten links einen 90° Winkel.'; res.style.color = 'green'; } else { res.innerHTML = 'Das ist leider nicht rechtwinklig. Versuch es noch einmal!'; res.style.color = 'red'; } }</script></div><p>Die Geometrie hilft uns, Formen im Raum zu verstehen. Die Innenwinkelsumme im Dreieck beträgt immer 180°. Bei Vierecken sind es 360°. Rechte Winkel (90°) spielen eine besondere Rolle, besonders beim Satz des Pythagoras in höheren Klassen.</p>\n<br>\n{{QUIZ_math2_7_geometrie_q1}}\n<br>\n{{QUIZ_math2_7_geometrie_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_7_geometrie_q1",
+            "question": "Wie groß ist die Innenwinkelsumme in jedem ebenen Dreieck?",
+            "answers": [
+              {
+                "text": "90°",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "180°",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "360°",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_7_geometrie_q2",
+            "question": "Ein Viereck mit vier gleich langen Seiten und vier rechten Winkeln nennt man...",
+            "answers": [
+              {
+                "text": "Rechteck",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Raute",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Quadrat",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
-      "title": "Geometrie-Genie",
-      "description": "Ecken, Kanten und Winkel sind genau deine Welt!"
+      "title": "🎓 Mathematik-Diplom",
+      "questions": []
     }
   },
   "math2_8_statistik": {
     "title": "Statistik und Wahrscheinlichkeit",
-    "content": "<div class='interactive-zone'><h3>Zufall oder Gesetz?</h3><p>Wie oft fällt die 6? Klicke auf den Button, um zu würfeln.</p><button onclick='rollDice()' style='padding: 5px 15px; font-size: 16px; cursor: pointer;'>Würfeln</button><p style='margin-top:10px;'>Würfe: <span id='rollCount'>0</span> | Sechsen: <span id='sixCount'>0</span> | Relative Häufigkeit: <span id='relFreq'>0</span>%</p><div id='diceVis' style='font-size: 3em; margin: 10px 0;'>🎲</div><p id='statResult'></p><script>let rolls = 0; let sixes = 0; function rollDice() { let result = Math.floor(Math.random() * 6) + 1; rolls++; if(result === 6) sixes++; document.getElementById('rollCount').innerText = rolls; document.getElementById('sixCount').innerText = sixes; let freq = Math.round((sixes/rolls)*100); document.getElementById('relFreq').innerText = freq; document.getElementById('diceVis').innerText = '🎲 ' + result; if(rolls >= 10) { document.getElementById('statResult').innerHTML = 'Bei wenigen Würfen schwankt die Häufigkeit stark. Je öfter du wirfst, desto näher kommt sie an ca. 17% (1/6) heran.'; document.getElementById('statResult').style.color = '#2196f3'; } }</script></div><p>Statistik hilft uns, Datenmengen zu verstehen (Mittelwert, Median). Wahrscheinlichkeit misst, wie sicher oder unsicher ein Ereignis ist. Die theoretische Wahrscheinlichkeit für jede Zahl beim fairen Würfel ist 1/6.</p>",
-    "quiz": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wie hoch ist die Wahrscheinlichkeit, bei einem fairen Münzwurf 'Kopf' zu werfen?",
-        "options": [
-          "25%",
-          "50%",
-          "100%"
-        ],
-        "answer": "50%"
-      },
-      {
-        "question": "Was ist der Mittelwert (Durchschnitt) der Zahlen 2, 4 und 6?",
-        "options": [
-          "3",
-          "4",
-          "5"
-        ],
-        "answer": "4"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class='interactive-zone'><h3>Zufall oder Gesetz?</h3><p>Wie oft fällt die 6? Klicke auf den Button, um zu würfeln.</p><button onclick='rollDice()' style='padding: 5px 15px; font-size: 16px; cursor: pointer;'>Würfeln</button><p style='margin-top:10px;'>Würfe: <span id='rollCount'>0</span> | Sechsen: <span id='sixCount'>0</span> | Relative Häufigkeit: <span id='relFreq'>0</span>%</p><div id='diceVis' style='font-size: 3em; margin: 10px 0;'>🎲</div><p id='statResult'></p><script>let rolls = 0; let sixes = 0; function rollDice() { let result = Math.floor(Math.random() * 6) + 1; rolls++; if(result === 6) sixes++; document.getElementById('rollCount').innerText = rolls; document.getElementById('sixCount').innerText = sixes; let freq = Math.round((sixes/rolls)*100); document.getElementById('relFreq').innerText = freq; document.getElementById('diceVis').innerText = '🎲 ' + result; if(rolls >= 10) { document.getElementById('statResult').innerHTML = 'Bei wenigen Würfen schwankt die Häufigkeit stark. Je öfter du wirfst, desto näher kommt sie an ca. 17% (1/6) heran.'; document.getElementById('statResult').style.color = '#2196f3'; } }</script></div><p>Statistik hilft uns, Datenmengen zu verstehen (Mittelwert, Median). Wahrscheinlichkeit misst, wie sicher oder unsicher ein Ereignis ist. Die theoretische Wahrscheinlichkeit für jede Zahl beim fairen Würfel ist 1/6.</p>\n<br>\n{{QUIZ_math2_8_statistik_q1}}\n<br>\n{{QUIZ_math2_8_statistik_q2}}",
+        "quizzes": [
+          {
+            "id": "math2_8_statistik_q1",
+            "question": "Wie hoch ist die Wahrscheinlichkeit, bei einem fairen Münzwurf 'Kopf' zu werfen?",
+            "answers": [
+              {
+                "text": "25%",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "50%",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "100%",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "math2_8_statistik_q2",
+            "question": "Was ist der Mittelwert (Durchschnitt) der Zahlen 2, 4 und 6?",
+            "answers": [
+              {
+                "text": "3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "4",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "5",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
-      "title": "Daten-Detektiv",
-      "description": "Du kannst dem Zufall auf die Schliche kommen und Daten perfekt analysieren!"
+      "title": "🎓 Mathematik-Diplom",
+      "questions": []
     }
   },
   "math3_1_rationale_zahlen": {
     "title": "Rationale Zahlen",
-    "content": "\n<div class=\"interactive-zone\">\n  <h3>Erforsche die Zahlengerade!</h3>\n  <svg width=\"400\" height=\"100\" id=\"num-line\">\n    <line x1=\"20\" y1=\"50\" x2=\"380\" y2=\"50\" stroke=\"black\" stroke-width=\"2\"/>\n    <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"60\" stroke=\"black\"/>\n    <text x=\"195\" y=\"75\">0</text>\n    <circle id=\"val-circle\" cx=\"200\" cy=\"50\" r=\"6\" fill=\"red\" />\n  </svg>\n  <input type=\"range\" id=\"num-slider\" min=\"-10\" max=\"10\" value=\"0\">\n  <p>Ausgewählte Zahl: <span id=\"num-display\">0</span></p>\n  <script>\n    (function() {\n      const slider = document.getElementById('num-slider');\n      const display = document.getElementById('num-display');\n      const circle = document.getElementById('val-circle');\n      slider.oninput = function() {\n        display.textContent = this.value;\n        circle.setAttribute('cx', 200 + this.value * 18);\n      };\n    })();\n  </script>\n</div>\n<p>Rationale Zahlen umfassen alle positiven und negativen Brüche und ganzen Zahlen. Auf der Zahlengeraden liegen die negativen Zahlen links von der Null, die positiven rechts.</p>\n",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welche Zahl ist kleiner?",
-        "options": [
-          "-5",
-          "-2",
-          "0",
-          "3"
-        ],
-        "answer": "-5"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "\n<div class=\"interactive-zone\">\n  <h3>Erforsche die Zahlengerade!</h3>\n  <svg width=\"400\" height=\"100\" id=\"num-line\">\n    <line x1=\"20\" y1=\"50\" x2=\"380\" y2=\"50\" stroke=\"black\" stroke-width=\"2\"/>\n    <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"60\" stroke=\"black\"/>\n    <text x=\"195\" y=\"75\">0</text>\n    <circle id=\"val-circle\" cx=\"200\" cy=\"50\" r=\"6\" fill=\"red\" />\n  </svg>\n  <input type=\"range\" id=\"num-slider\" min=\"-10\" max=\"10\" value=\"0\">\n  <p>Ausgewählte Zahl: <span id=\"num-display\">0</span></p>\n  <script>\n    (function() {\n      const slider = document.getElementById('num-slider');\n      const display = document.getElementById('num-display');\n      const circle = document.getElementById('val-circle');\n      slider.oninput = function() {\n        display.textContent = this.value;\n        circle.setAttribute('cx', 200 + this.value * 18);\n      };\n    })();\n  </script>\n</div>\n<p>Rationale Zahlen umfassen alle positiven und negativen Brüche und ganzen Zahlen. Auf der Zahlengeraden liegen die negativen Zahlen links von der Null, die positiven rechts.</p>\n\n<br>\n{{QUIZ_math3_1_rationale_zahlen_q1}}",
+        "quizzes": [
+          {
+            "id": "math3_1_rationale_zahlen_q1",
+            "question": "Welche Zahl ist kleiner?",
+            "answers": [
+              {
+                "text": "-5",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "-2",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "0",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "3",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Experte für Rationale Zahlen"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math3_1_rationale_zahlen_dip1",
+          "question": "Hast du das Thema \"Rationale Zahlen\" verstanden? (Experte für Rationale Zahlen)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math3_2_potenzen_terme": {
     "title": "Potenzen und Terme",
-    "content": "\n<div class=\"interactive-zone\">\n  <h3>Potenz-Generator</h3>\n  <p>Basis: <input type=\"number\" id=\"base\" value=\"2\" style=\"width:50px\"></p>\n  <p>Exponent: <input type=\"range\" id=\"exp-slider\" min=\"0\" max=\"5\" value=\"2\"></p>\n  <div id=\"squares-container\" style=\"display:flex; flex-wrap:wrap; gap:2px; max-width:200px;\"></div>\n  <p>Ergebnis: <span id=\"pow-result\">4</span></p>\n  <script>\n    (function() {\n      const b = document.getElementById('base');\n      const e = document.getElementById('exp-slider');\n      const r = document.getElementById('pow-result');\n      const c = document.getElementById('squares-container');\n      function update() {\n        const val = Math.pow(b.value, e.value);\n        r.textContent = b.value + '^' + e.value + ' = ' + val;\n        c.innerHTML = '';\n        if(val <= 100) {\n          for(let i=0; i<val; i++){\n            let div = document.createElement('div');\n            div.style.width = '10px'; div.style.height = '10px';\n            div.style.backgroundColor = 'blue';\n            c.appendChild(div);\n          }\n        }\n      }\n      b.onchange = update;\n      e.oninput = update;\n      update();\n    })();\n  </script>\n</div>\n<p>Eine Potenz ist eine abkürzende Schreibweise für eine wiederholte Multiplikation. Ein Term ist ein sinnvoller mathematischer Ausdruck, der Zahlen, Variablen und Rechenzeichen enthält.</p>\n",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Was ist 3 hoch 3 (3³)?",
-        "options": [
-          "9",
-          "27",
-          "6",
-          "81"
-        ],
-        "answer": "27"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "\n<div class=\"interactive-zone\">\n  <h3>Potenz-Generator</h3>\n  <p>Basis: <input type=\"number\" id=\"base\" value=\"2\" style=\"width:50px\"></p>\n  <p>Exponent: <input type=\"range\" id=\"exp-slider\" min=\"0\" max=\"5\" value=\"2\"></p>\n  <div id=\"squares-container\" style=\"display:flex; flex-wrap:wrap; gap:2px; max-width:200px;\"></div>\n  <p>Ergebnis: <span id=\"pow-result\">4</span></p>\n  <script>\n    (function() {\n      const b = document.getElementById('base');\n      const e = document.getElementById('exp-slider');\n      const r = document.getElementById('pow-result');\n      const c = document.getElementById('squares-container');\n      function update() {\n        const val = Math.pow(b.value, e.value);\n        r.textContent = b.value + '^' + e.value + ' = ' + val;\n        c.innerHTML = '';\n        if(val <= 100) {\n          for(let i=0; i<val; i++){\n            let div = document.createElement('div');\n            div.style.width = '10px'; div.style.height = '10px';\n            div.style.backgroundColor = 'blue';\n            c.appendChild(div);\n          }\n        }\n      }\n      b.onchange = update;\n      e.oninput = update;\n      update();\n    })();\n  </script>\n</div>\n<p>Eine Potenz ist eine abkürzende Schreibweise für eine wiederholte Multiplikation. Ein Term ist ein sinnvoller mathematischer Ausdruck, der Zahlen, Variablen und Rechenzeichen enthält.</p>\n\n<br>\n{{QUIZ_math3_2_potenzen_terme_q1}}",
+        "quizzes": [
+          {
+            "id": "math3_2_potenzen_terme_q1",
+            "question": "Was ist 3 hoch 3 (3³)?",
+            "answers": [
+              {
+                "text": "9",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "27",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "6",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "81",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Meister der Potenzen"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math3_2_potenzen_terme_dip1",
+          "question": "Hast du das Thema \"Potenzen und Terme\" verstanden? (Meister der Potenzen)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math3_3_gleichungen": {
     "title": "Gleichungen",
-    "content": "\n<div class=\"interactive-zone\">\n  <h3>Die Waage im Gleichgewicht</h3>\n  <svg width=\"300\" height=\"150\" id=\"scale-svg\">\n    <polygon points=\"150,130 140,150 160,150\" fill=\"gray\"/>\n    <line x1=\"50\" y1=\"130\" x2=\"250\" y2=\"130\" stroke=\"black\" stroke-width=\"4\" id=\"beam\"/>\n    <!-- Left side -->\n    <rect x=\"50\" y=\"100\" width=\"30\" height=\"30\" fill=\"orange\" />\n    <text x=\"60\" y=\"120\">x</text>\n    <rect x=\"85\" y=\"100\" width=\"20\" height=\"30\" fill=\"lightblue\" />\n    <text x=\"90\" y=\"120\">2</text>\n    <!-- Right side -->\n    <rect x=\"220\" y=\"100\" width=\"20\" height=\"30\" fill=\"lightblue\" />\n    <text x=\"225\" y=\"120\">7</text>\n  </svg>\n  <p>Finde x, sodass die Waage im Gleichgewicht bleibt (x + 2 = 7).<br>\n  Dein x: <input type=\"number\" id=\"x-val\" value=\"5\"></p>\n  <p id=\"scale-msg\" style=\"font-weight:bold; color:green;\">Im Gleichgewicht!</p>\n  <script>\n    (function() {\n      const xInput = document.getElementById('x-val');\n      const msg = document.getElementById('scale-msg');\n      const beam = document.getElementById('beam');\n      xInput.oninput = function() {\n        const x = parseFloat(this.value);\n        if (x === 5) {\n          msg.textContent = 'Im Gleichgewicht!';\n          msg.style.color = 'green';\n          beam.setAttribute('transform', 'rotate(0 150 130)');\n        } else if (x > 5) {\n          msg.textContent = 'Links ist schwerer!';\n          msg.style.color = 'red';\n          beam.setAttribute('transform', 'rotate(-10 150 130)');\n        } else {\n          msg.textContent = 'Rechts ist schwerer!';\n          msg.style.color = 'red';\n          beam.setAttribute('transform', 'rotate(10 150 130)');\n        }\n      };\n      xInput.oninput();\n    })();\n  </script>\n</div>\n<p>Gleichungen sind wie Waagen. Was man auf der einen Seite tut, muss man auch auf der anderen Seite tun, damit das Gleichgewicht (das = Zeichen) erhalten bleibt.</p>\n",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Löse die Gleichung: 2x - 4 = 10",
-        "options": [
-          "x=3",
-          "x=5",
-          "x=7",
-          "x=14"
-        ],
-        "answer": "x=7"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "\n<div class=\"interactive-zone\">\n  <h3>Die Waage im Gleichgewicht</h3>\n  <svg width=\"300\" height=\"150\" id=\"scale-svg\">\n    <polygon points=\"150,130 140,150 160,150\" fill=\"gray\"/>\n    <line x1=\"50\" y1=\"130\" x2=\"250\" y2=\"130\" stroke=\"black\" stroke-width=\"4\" id=\"beam\"/>\n    <!-- Left side -->\n    <rect x=\"50\" y=\"100\" width=\"30\" height=\"30\" fill=\"orange\" />\n    <text x=\"60\" y=\"120\">x</text>\n    <rect x=\"85\" y=\"100\" width=\"20\" height=\"30\" fill=\"lightblue\" />\n    <text x=\"90\" y=\"120\">2</text>\n    <!-- Right side -->\n    <rect x=\"220\" y=\"100\" width=\"20\" height=\"30\" fill=\"lightblue\" />\n    <text x=\"225\" y=\"120\">7</text>\n  </svg>\n  <p>Finde x, sodass die Waage im Gleichgewicht bleibt (x + 2 = 7).<br>\n  Dein x: <input type=\"number\" id=\"x-val\" value=\"5\"></p>\n  <p id=\"scale-msg\" style=\"font-weight:bold; color:green;\">Im Gleichgewicht!</p>\n  <script>\n    (function() {\n      const xInput = document.getElementById('x-val');\n      const msg = document.getElementById('scale-msg');\n      const beam = document.getElementById('beam');\n      xInput.oninput = function() {\n        const x = parseFloat(this.value);\n        if (x === 5) {\n          msg.textContent = 'Im Gleichgewicht!';\n          msg.style.color = 'green';\n          beam.setAttribute('transform', 'rotate(0 150 130)');\n        } else if (x > 5) {\n          msg.textContent = 'Links ist schwerer!';\n          msg.style.color = 'red';\n          beam.setAttribute('transform', 'rotate(-10 150 130)');\n        } else {\n          msg.textContent = 'Rechts ist schwerer!';\n          msg.style.color = 'red';\n          beam.setAttribute('transform', 'rotate(10 150 130)');\n        }\n      };\n      xInput.oninput();\n    })();\n  </script>\n</div>\n<p>Gleichungen sind wie Waagen. Was man auf der einen Seite tut, muss man auch auf der anderen Seite tun, damit das Gleichgewicht (das = Zeichen) erhalten bleibt.</p>\n\n<br>\n{{QUIZ_math3_3_gleichungen_q1}}",
+        "quizzes": [
+          {
+            "id": "math3_3_gleichungen_q1",
+            "question": "Löse die Gleichung: 2x - 4 = 10",
+            "answers": [
+              {
+                "text": "x=3",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "x=5",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "x=7",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "x=14",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Gleichungs-Genie"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math3_3_gleichungen_dip1",
+          "question": "Hast du das Thema \"Gleichungen\" verstanden? (Gleichungs-Genie)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math3_4_flaechensatz": {
     "title": "Flächensätze (Pythagoras)",
-    "content": "\n<div class=\"interactive-zone\">\n  <h3>Flächen am rechtwinkligen Dreieck</h3>\n  <svg width=\"250\" height=\"250\">\n    <polygon points=\"100,150 100,50 180,150\" fill=\"lightgreen\" stroke=\"black\"/>\n    <rect x=\"20\" y=\"50\" width=\"80\" height=\"100\" fill=\"rgba(255,0,0,0.3)\" stroke=\"red\" />\n    <text x=\"50\" y=\"100\">a²</text>\n    <rect x=\"100\" y=\"150\" width=\"80\" height=\"80\" fill=\"rgba(0,0,255,0.3)\" stroke=\"blue\" />\n    <text x=\"130\" y=\"195\">b²</text>\n    <polygon points=\"100,50 180,150 258,87 178,-13\" fill=\"rgba(255,165,0,0.3)\" stroke=\"orange\" />\n    <text x=\"180\" y=\"70\">c²</text>\n  </svg>\n  <p>Schieberegler für Kathete a: <input type=\"range\" id=\"kat-a\" min=\"3\" max=\"10\" value=\"4\"></p>\n  <p>Schieberegler für Kathete b: <input type=\"range\" id=\"kat-b\" min=\"3\" max=\"10\" value=\"3\"></p>\n  <p>Hypotenuse c: <span id=\"hyp-c\">5</span></p>\n  <script>\n    (function() {\n      const ka = document.getElementById('kat-a');\n      const kb = document.getElementById('kat-b');\n      const hc = document.getElementById('hyp-c');\n      function calc() {\n        const a = ka.value;\n        const b = kb.value;\n        hc.textContent = Math.sqrt(a*a + b*b).toFixed(2);\n      }\n      ka.oninput = calc; kb.oninput = calc; calc();\n    })();\n  </script>\n</div>\n<p>Im rechtwinkligen Dreieck ist die Fläche des Quadrats über der Hypotenuse (c²) gleich der Summe der Flächen der Quadrate über den Katheten (a² + b²).</p>\n",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wenn a=6 und b=8, was ist dann c²?",
-        "options": [
-          "14",
-          "48",
-          "100",
-          "10"
-        ],
-        "answer": "100"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "\n<div class=\"interactive-zone\">\n  <h3>Flächen am rechtwinkligen Dreieck</h3>\n  <svg width=\"250\" height=\"250\">\n    <polygon points=\"100,150 100,50 180,150\" fill=\"lightgreen\" stroke=\"black\"/>\n    <rect x=\"20\" y=\"50\" width=\"80\" height=\"100\" fill=\"rgba(255,0,0,0.3)\" stroke=\"red\" />\n    <text x=\"50\" y=\"100\">a²</text>\n    <rect x=\"100\" y=\"150\" width=\"80\" height=\"80\" fill=\"rgba(0,0,255,0.3)\" stroke=\"blue\" />\n    <text x=\"130\" y=\"195\">b²</text>\n    <polygon points=\"100,50 180,150 258,87 178,-13\" fill=\"rgba(255,165,0,0.3)\" stroke=\"orange\" />\n    <text x=\"180\" y=\"70\">c²</text>\n  </svg>\n  <p>Schieberegler für Kathete a: <input type=\"range\" id=\"kat-a\" min=\"3\" max=\"10\" value=\"4\"></p>\n  <p>Schieberegler für Kathete b: <input type=\"range\" id=\"kat-b\" min=\"3\" max=\"10\" value=\"3\"></p>\n  <p>Hypotenuse c: <span id=\"hyp-c\">5</span></p>\n  <script>\n    (function() {\n      const ka = document.getElementById('kat-a');\n      const kb = document.getElementById('kat-b');\n      const hc = document.getElementById('hyp-c');\n      function calc() {\n        const a = ka.value;\n        const b = kb.value;\n        hc.textContent = Math.sqrt(a*a + b*b).toFixed(2);\n      }\n      ka.oninput = calc; kb.oninput = calc; calc();\n    })();\n  </script>\n</div>\n<p>Im rechtwinkligen Dreieck ist die Fläche des Quadrats über der Hypotenuse (c²) gleich der Summe der Flächen der Quadrate über den Katheten (a² + b²).</p>\n\n<br>\n{{QUIZ_math3_4_flaechensatz_q1}}",
+        "quizzes": [
+          {
+            "id": "math3_4_flaechensatz_q1",
+            "question": "Wenn a=6 und b=8, was ist dann c²?",
+            "answers": [
+              {
+                "text": "14",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "48",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "100",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "10",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Pythagoras-Forscher"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math3_4_flaechensatz_dip1",
+          "question": "Hast du das Thema \"Flächensätze (Pythagoras)\" verstanden? (Pythagoras-Forscher)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math3_5_verhaeltnisse": {
     "title": "Verhältnisse und Proportionen",
-    "content": "\n<div class=\"interactive-zone\">\n  <h3>Mische deine Farbe!</h3>\n  <p>Verhältnis Rot zu Blau = <span id=\"ratio-text\">1 : 1</span></p>\n  <input type=\"range\" id=\"red-slider\" min=\"1\" max=\"10\" value=\"5\"> Rot<br>\n  <input type=\"range\" id=\"blue-slider\" min=\"1\" max=\"10\" value=\"5\"> Blau\n  <div id=\"color-box\" style=\"width:100px; height:100px; margin-top:10px; background-color:rgb(128,0,128)\"></div>\n  <script>\n    (function() {\n      const rs = document.getElementById('red-slider');\n      const bs = document.getElementById('blue-slider');\n      const rt = document.getElementById('ratio-text');\n      const cb = document.getElementById('color-box');\n      function updateRatio() {\n        const r = parseInt(rs.value);\n        const b = parseInt(bs.value);\n        rt.textContent = r + ' : ' + b;\n        const total = r + b;\n        const rColor = Math.round((r/total)*255);\n        const bColor = Math.round((b/total)*255);\n        cb.style.backgroundColor = `rgb(${rColor}, 0, ${bColor})`;\n      }\n      rs.oninput = updateRatio; bs.oninput = updateRatio; updateRatio();\n    })();\n  </script>\n</div>\n<p>Ein Verhältnis vergleicht zwei oder mehr Größen miteinander. Proportionen sind Gleichungen, die besagen, dass zwei Verhältnisse gleich sind.</p>\n",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "In einer Klasse ist das Verhältnis von Jungen zu Mädchen 2:3. Es gibt 10 Jungen. Wie viele Mädchen gibt es?",
-        "options": [
-          "10",
-          "15",
-          "20",
-          "30"
-        ],
-        "answer": "15"
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "\n<div class=\"interactive-zone\">\n  <h3>Mische deine Farbe!</h3>\n  <p>Verhältnis Rot zu Blau = <span id=\"ratio-text\">1 : 1</span></p>\n  <input type=\"range\" id=\"red-slider\" min=\"1\" max=\"10\" value=\"5\"> Rot<br>\n  <input type=\"range\" id=\"blue-slider\" min=\"1\" max=\"10\" value=\"5\"> Blau\n  <div id=\"color-box\" style=\"width:100px; height:100px; margin-top:10px; background-color:rgb(128,0,128)\"></div>\n  <script>\n    (function() {\n      const rs = document.getElementById('red-slider');\n      const bs = document.getElementById('blue-slider');\n      const rt = document.getElementById('ratio-text');\n      const cb = document.getElementById('color-box');\n      function updateRatio() {\n        const r = parseInt(rs.value);\n        const b = parseInt(bs.value);\n        rt.textContent = r + ' : ' + b;\n        const total = r + b;\n        const rColor = Math.round((r/total)*255);\n        const bColor = Math.round((b/total)*255);\n        cb.style.backgroundColor = `rgb(${rColor}, 0, ${bColor})`;\n      }\n      rs.oninput = updateRatio; bs.oninput = updateRatio; updateRatio();\n    })();\n  </script>\n</div>\n<p>Ein Verhältnis vergleicht zwei oder mehr Größen miteinander. Proportionen sind Gleichungen, die besagen, dass zwei Verhältnisse gleich sind.</p>\n\n<br>\n{{QUIZ_math3_5_verhaeltnisse_q1}}",
+        "quizzes": [
+          {
+            "id": "math3_5_verhaeltnisse_q1",
+            "question": "In einer Klasse ist das Verhältnis von Jungen zu Mädchen 2:3. Es gibt 10 Jungen. Wie viele Mädchen gibt es?",
+            "answers": [
+              {
+                "text": "10",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "15",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "20",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "30",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
-    "diplom": "Proportionen-Profi"
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math3_5_verhaeltnisse_dip1",
+          "question": "Hast du das Thema \"Verhältnisse und Proportionen\" verstanden? (Proportionen-Profi)",
+          "answers": [
+            {
+              "text": "Ja, alles klar!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich muss noch etwas üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math3_6_zuordnungen": {
     "title": "Zuordnungen",
@@ -6307,71 +7359,243 @@
   },
   "math4_1_reelle_zahlen": {
     "title": "Reelle Zahlen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Zahlenarten Entdecken</h3>\n  <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n    <circle cx=\"150\" cy=\"150\" r=\"140\" fill=\"#e0f7fa\" />\n    <circle cx=\"150\" cy=\"150\" r=\"100\" fill=\"#b2ebf2\" />\n    <circle cx=\"150\" cy=\"150\" r=\"60\" fill=\"#80deea\" />\n    <text x=\"150\" y=\"110\" text-anchor=\"middle\">N</text>\n    <text x=\"150\" y=\"70\" text-anchor=\"middle\">Z</text>\n    <text x=\"150\" y=\"30\" text-anchor=\"middle\">Q</text>\n  </svg>\n  <p>Experimentiere: Versuche die Zahlen $\\sqrt{2}$ und $\\pi$ in die Kreise einzuordnen. Passen sie? Klicke auf 'Prüfen'!</p>\n  <button onclick=\"alert('Sie passen in keinen der Kreise! Sie brauchen eine neue Menge: Die irrationalen Zahlen.')\">Prüfen</button>\n</div>\n\n<p>Die rationalen Zahlen $\\mathbb{Q}$ (Brüche) reichen nicht aus, um z.B. die Länge der Diagonale eines Quadrats mit Seitenlänge 1 zu messen. Wir brauchen <b>irrationale Zahlen</b> wie $\\sqrt{2}$ oder $\\pi$. Zusammen bilden sie die <b>reellen Zahlen</b> $\\mathbb{R}$.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Welche der folgenden Zahlen ist irrational?",
-        "options": [
-          "$\\sqrt{4}$",
-          "$3.14159$",
-          "$\\sqrt{2}$",
-          "$-0.5$"
-        ],
-        "answer": 2,
-        "explanation": "$\\sqrt{4} = 2$ und $3.14159$ ist eine endliche Dezimalzahl, also rational. $\\sqrt{2}$ lässt sich nicht als Bruch schreiben."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Zahlenarten Entdecken</h3>\n  <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n    <circle cx=\"150\" cy=\"150\" r=\"140\" fill=\"#e0f7fa\" />\n    <circle cx=\"150\" cy=\"150\" r=\"100\" fill=\"#b2ebf2\" />\n    <circle cx=\"150\" cy=\"150\" r=\"60\" fill=\"#80deea\" />\n    <text x=\"150\" y=\"110\" text-anchor=\"middle\">N</text>\n    <text x=\"150\" y=\"70\" text-anchor=\"middle\">Z</text>\n    <text x=\"150\" y=\"30\" text-anchor=\"middle\">Q</text>\n  </svg>\n  <p>Experimentiere: Versuche die Zahlen $\\sqrt{2}$ und $\\pi$ in die Kreise einzuordnen. Passen sie? Klicke auf 'Prüfen'!</p>\n  <button onclick=\"alert('Sie passen in keinen der Kreise! Sie brauchen eine neue Menge: Die irrationalen Zahlen.')\">Prüfen</button>\n</div>\n\n<p>Die rationalen Zahlen $\\mathbb{Q}$ (Brüche) reichen nicht aus, um z.B. die Länge der Diagonale eines Quadrats mit Seitenlänge 1 zu messen. Wir brauchen <b>irrationale Zahlen</b> wie $\\sqrt{2}$ oder $\\pi$. Zusammen bilden sie die <b>reellen Zahlen</b> $\\mathbb{R}$.</p>\n<br>\n{{QUIZ_math4_1_reelle_zahlen_q1}}",
+        "quizzes": [
+          {
+            "id": "math4_1_reelle_zahlen_q1",
+            "question": "Welche der folgenden Zahlen ist irrational?",
+            "answers": [
+              {
+                "text": "$\\sqrt{4}$",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "$3.14159$",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "$\\sqrt{2}$",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "$-0.5$",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math4_1_reelle_zahlen_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math4_2_pythagoras": {
     "title": "Satz des Pythagoras",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Flächen an den Katheten</h3>\n  <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n    <polygon points=\"100,200 200,200 100,100\" fill=\"#ffcc80\" stroke=\"black\" />\n    <rect x=\"0\" y=\"100\" width=\"100\" height=\"100\" fill=\"#81c784\" />\n    <rect x=\"100\" y=\"200\" width=\"100\" height=\"100\" fill=\"#64b5f6\" />\n    <polygon points=\"100,100 200,200 270,130 170,30\" fill=\"none\" stroke=\"#e57373\" stroke-dasharray=\"5,5\" />\n  </svg>\n  <p>Stell dir vor, du zerschneidest das grüne und das blaue Quadrat. Passen die Teile genau in das rot gestrichelte Quadrat an der Hypotenuse?</p>\n  <button onclick=\"alert('Ja! Genau das besagt der Satz des Pythagoras.')\">Zerschneiden & Einfügen</button>\n</div>\n\n<p>In einem rechtwinkligen Dreieck ist die Fläche des Quadrats über der Hypotenuse ($c^2$) immer exakt gleich der Summe der Flächen der Quadrate über den beiden Katheten ($a^2 + b^2$). Kurz: <b>$a^2 + b^2 = c^2$</b>.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Ein rechtwinkliges Dreieck hat die Katheten $a=3$ und $b=4$. Wie lang ist die Hypotenuse $c$?",
-        "options": [
-          "5",
-          "7",
-          "25",
-          "12"
-        ],
-        "answer": 0,
-        "explanation": "$c^2 = 3^2 + 4^2 = 9 + 16 = 25$. Also ist $c = \\sqrt{25} = 5$."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Flächen an den Katheten</h3>\n  <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n    <polygon points=\"100,200 200,200 100,100\" fill=\"#ffcc80\" stroke=\"black\" />\n    <rect x=\"0\" y=\"100\" width=\"100\" height=\"100\" fill=\"#81c784\" />\n    <rect x=\"100\" y=\"200\" width=\"100\" height=\"100\" fill=\"#64b5f6\" />\n    <polygon points=\"100,100 200,200 270,130 170,30\" fill=\"none\" stroke=\"#e57373\" stroke-dasharray=\"5,5\" />\n  </svg>\n  <p>Stell dir vor, du zerschneidest das grüne und das blaue Quadrat. Passen die Teile genau in das rot gestrichelte Quadrat an der Hypotenuse?</p>\n  <button onclick=\"alert('Ja! Genau das besagt der Satz des Pythagoras.')\">Zerschneiden & Einfügen</button>\n</div>\n\n<p>In einem rechtwinkligen Dreieck ist die Fläche des Quadrats über der Hypotenuse ($c^2$) immer exakt gleich der Summe der Flächen der Quadrate über den beiden Katheten ($a^2 + b^2$). Kurz: <b>$a^2 + b^2 = c^2$</b>.</p>\n<br>\n{{QUIZ_math4_2_pythagoras_q1}}",
+        "quizzes": [
+          {
+            "id": "math4_2_pythagoras_q1",
+            "question": "Ein rechtwinkliges Dreieck hat die Katheten $a=3$ und $b=4$. Wie lang ist die Hypotenuse $c$?",
+            "answers": [
+              {
+                "text": "5",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "7",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "25",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "12",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math4_2_pythagoras_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math4_3_terme_gleichungen": {
     "title": "Terme und Gleichungen",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Das Waagemodell</h3>\n  <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\">\n    <line x1=\"50\" y1=\"100\" x2=\"250\" y2=\"100\" stroke=\"black\" stroke-width=\"4\" id=\"waageBalken\"/>\n    <polygon points=\"150,100 130,150 170,150\" fill=\"gray\" />\n    <rect x=\"70\" y=\"70\" width=\"30\" height=\"30\" fill=\"#e57373\" />\n    <circle cx=\"90\" cy=\"55\" r=\"10\" fill=\"#64b5f6\" />\n    <circle cx=\"200\" cy=\"90\" r=\"10\" fill=\"#64b5f6\" />\n    <circle cx=\"225\" cy=\"90\" r=\"10\" fill=\"#64b5f6\" />\n    <circle cx=\"212\" cy=\"70\" r=\"10\" fill=\"#64b5f6\" />\n  </svg>\n  <p>Die Box steht für $x$, jede Kugel für $1$. Gleichung: $x + 1 = 3$. Was musst du tun, damit $x$ alleine auf einer Seite ist und die Waage im Gleichgewicht bleibt?</p>\n  <button onclick=\"alert('Nimm auf beiden Seiten eine Kugel weg! Dann steht dort x = 2.')\">Aktion ausführen</button>\n</div>\n\n<p>Um eine Gleichung zu lösen, formen wir sie äquivalent um. Das bedeutet, wir führen auf <b>beiden Seiten exakt dieselbe Rechenoperation</b> aus, bis die Variable isoliert ist.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Löse die Gleichung $2x + 3 = 11$.",
-        "options": [
-          "$x=3$",
-          "$x=4$",
-          "$x=8$",
-          "$x=5$"
-        ],
-        "answer": 1,
-        "explanation": "$2x + 3 = 11 \\Rightarrow 2x = 8 \\Rightarrow x = 4$."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Das Waagemodell</h3>\n  <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\">\n    <line x1=\"50\" y1=\"100\" x2=\"250\" y2=\"100\" stroke=\"black\" stroke-width=\"4\" id=\"waageBalken\"/>\n    <polygon points=\"150,100 130,150 170,150\" fill=\"gray\" />\n    <rect x=\"70\" y=\"70\" width=\"30\" height=\"30\" fill=\"#e57373\" />\n    <circle cx=\"90\" cy=\"55\" r=\"10\" fill=\"#64b5f6\" />\n    <circle cx=\"200\" cy=\"90\" r=\"10\" fill=\"#64b5f6\" />\n    <circle cx=\"225\" cy=\"90\" r=\"10\" fill=\"#64b5f6\" />\n    <circle cx=\"212\" cy=\"70\" r=\"10\" fill=\"#64b5f6\" />\n  </svg>\n  <p>Die Box steht für $x$, jede Kugel für $1$. Gleichung: $x + 1 = 3$. Was musst du tun, damit $x$ alleine auf einer Seite ist und die Waage im Gleichgewicht bleibt?</p>\n  <button onclick=\"alert('Nimm auf beiden Seiten eine Kugel weg! Dann steht dort x = 2.')\">Aktion ausführen</button>\n</div>\n\n<p>Um eine Gleichung zu lösen, formen wir sie äquivalent um. Das bedeutet, wir führen auf <b>beiden Seiten exakt dieselbe Rechenoperation</b> aus, bis die Variable isoliert ist.</p>\n<br>\n{{QUIZ_math4_3_terme_gleichungen_q1}}",
+        "quizzes": [
+          {
+            "id": "math4_3_terme_gleichungen_q1",
+            "question": "Löse die Gleichung $2x + 3 = 11$.",
+            "answers": [
+              {
+                "text": "$x=3$",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "$x=4$",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "$x=8$",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "$x=5$",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math4_3_terme_gleichungen_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math4_4_funktionen_sys": {
     "title": "Funktionen und Gleichungssysteme",
-    "content": "<div class=\"interactive-zone\">\n  <h3>Schnittpunkt finden</h3>\n  <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n    <line x1=\"0\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#ccc\" />\n    <line x1=\"150\" y1=\"0\" x2=\"150\" y2=\"300\" stroke=\"#ccc\" />\n    <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"50\" stroke=\"#e57373\" stroke-width=\"2\" />\n    <line x1=\"50\" y1=\"100\" x2=\"250\" y2=\"200\" stroke=\"#64b5f6\" stroke-width=\"2\" />\n    <circle cx=\"150\" cy=\"150\" r=\"6\" fill=\"#9c27b0\" />\n  </svg>\n  <p>Die beiden Geraden stellen zwei lineare Gleichungen dar. Finde den Punkt, der für BEIDE Gleichungen stimmt!</p>\n  <button onclick=\"alert('Der Schnittpunkt! Er ist die einzige Lösung, die beide Bedingungen (Geraden) gleichzeitig erfüllt.')\">Lösung überprüfen</button>\n</div>\n\n<p>Ein lineares Gleichungssystem (LGS) besteht aus mehreren Gleichungen. Die Lösung des LGS ist der Punkt, der <b>alle Gleichungen gleichzeitig</b> erfüllt – grafisch ist dies der <b>Schnittpunkt</b> der Graphen. Verläuft das System parallel, gibt es keine Lösung.</p>",
-    "quizzes": [
+    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "sections": [
       {
-        "question": "Wie viele Lösungen hat ein lineares Gleichungssystem, wenn die beiden Geraden echt parallel zueinander verlaufen?",
-        "options": [
-          "Keine",
-          "Genau eine",
-          "Unendlich viele",
-          "Zwei"
-        ],
-        "answer": 0,
-        "explanation": "Parallele Geraden schneiden sich nie, daher gibt es keinen gemeinsamen Punkt und somit keine Lösung für das System."
+        "id": "sec0",
+        "title": "1. Konzept & Intuition",
+        "content": "<div class=\"interactive-zone\">\n  <h3>Schnittpunkt finden</h3>\n  <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n    <line x1=\"0\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#ccc\" />\n    <line x1=\"150\" y1=\"0\" x2=\"150\" y2=\"300\" stroke=\"#ccc\" />\n    <line x1=\"50\" y1=\"250\" x2=\"250\" y2=\"50\" stroke=\"#e57373\" stroke-width=\"2\" />\n    <line x1=\"50\" y1=\"100\" x2=\"250\" y2=\"200\" stroke=\"#64b5f6\" stroke-width=\"2\" />\n    <circle cx=\"150\" cy=\"150\" r=\"6\" fill=\"#9c27b0\" />\n  </svg>\n  <p>Die beiden Geraden stellen zwei lineare Gleichungen dar. Finde den Punkt, der für BEIDE Gleichungen stimmt!</p>\n  <button onclick=\"alert('Der Schnittpunkt! Er ist die einzige Lösung, die beide Bedingungen (Geraden) gleichzeitig erfüllt.')\">Lösung überprüfen</button>\n</div>\n\n<p>Ein lineares Gleichungssystem (LGS) besteht aus mehreren Gleichungen. Die Lösung des LGS ist der Punkt, der <b>alle Gleichungen gleichzeitig</b> erfüllt – grafisch ist dies der <b>Schnittpunkt</b> der Graphen. Verläuft das System parallel, gibt es keine Lösung.</p>\n<br>\n{{QUIZ_math4_4_funktionen_sys_q1}}",
+        "quizzes": [
+          {
+            "id": "math4_4_funktionen_sys_q1",
+            "question": "Wie viele Lösungen hat ein lineares Gleichungssystem, wenn die beiden Geraden echt parallel zueinander verlaufen?",
+            "answers": [
+              {
+                "text": "Keine",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Genau eine",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Unendlich viele",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Zwei",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "diplom": {
+      "title": "🎓 Mathematik-Diplom",
+      "questions": [
+        {
+          "id": "math4_4_funktionen_sys_dip1",
+          "question": "Hast du das Prinzip verstanden?",
+          "answers": [
+            {
+              "text": "Ja, absolut!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Noch nicht ganz.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
+    }
   },
   "math4_5_aehnlichkeit": {
     "title": "Ähnlichkeit und Strahlensätze",
