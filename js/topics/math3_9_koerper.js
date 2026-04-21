@@ -1,0 +1,6 @@
+function updateCyl() { let r = parseFloat(document.getElementById('cylR').value); let h = parseFloat(document.getElementById('cylH').value); document.getElementById('valCylR').innerText = r.toFixed(1); document.getElementById('valCylH').innerText = h.toFixed(1); let v = Math.PI * r * r * h; document.getElementById('valCylV').innerText = v.toFixed(2); let baseRx = r * 20; let baseRy = r * 10; let height = h * 40; document.getElementById('cylBottom').setAttribute('rx', baseRx); document.getElementById('cylBottom').setAttribute('ry', baseRy); document.getElementById('cylBody').setAttribute('x', -baseRx); document.getElementById('cylBody').setAttribute('y', -height); document.getElementById('cylBody').setAttribute('width', baseRx * 2); document.getElementById('cylBody').setAttribute('height', height); document.getElementById('cylSides').setAttribute('d', 'M -' + baseRx + ' 0 L -' + baseRx + ' -' + height + ' M ' + baseRx + ' 0 L ' + baseRx + ' -' + height); document.getElementById('cylTop').setAttribute('cy', -height); document.getElementById('cylTop').setAttribute('rx', baseRx); document.getElementById('cylTop').setAttribute('ry', baseRy); } updateCyl();
+
+
+function topicInit() {
+  // Init logic is handled inline, but function required by renderer
+}
