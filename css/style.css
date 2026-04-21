@@ -175,3 +175,22 @@ button:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px;
     #score-board, button, .interactive-zone { display: none !important; }
     .card { box-shadow: none; border: 1px solid #ccc; }
 }
+
+/* Make all SVGs in interactive zones responsive */
+.interactive-zone svg, .diagram-box svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Make video tags responsive */
+.interactive-zone video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure container handles overflow properly on mobile without breaking layout */
+.interactive-zone {
+    overflow-x: auto;
+}
