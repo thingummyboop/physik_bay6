@@ -73,26 +73,26 @@
                     topic.sections.forEach(sec => {
                         if (sec.quizzes && sec.quizzes.length > 0) {
                             sec.quizzes.forEach(q => {
-                                content.innerHTML += \`
+                                content.innerHTML += `
                                     <div class="question-block">
-                                        <div class="question-text">\${qCounter++}. \${q.question}</div>
+                                        <div class="question-text">${qCounter++}. ${q.question}</div>
                                         <div class="answer-lines"></div>
                                         <div class="answer-lines"></div>
                                     </div>
-                                \`;
+                                `;
                             });
                         }
                     });
 
                     if (topic.diplom && topic.diplom.questions && topic.diplom.questions.length > 0) {
-                        content.innerHTML += \`<h2 style="margin-top: 50px;">Abschluss-Check</h2>\`;
+                        content.innerHTML += `<h2 style="margin-top: 50px;">Abschluss-Check</h2>`;
                         topic.diplom.questions.forEach(q => {
-                            content.innerHTML += \`
+                            content.innerHTML += `
                                 <div class="question-block">
-                                    <div class="question-text">\${qCounter++}. \${q.question}</div>
+                                    <div class="question-text">${qCounter++}. ${q.question}</div>
                                     <div class="answer-lines"></div>
                                 </div>
-                            \`;
+                            `;
                         });
                     }
                     
