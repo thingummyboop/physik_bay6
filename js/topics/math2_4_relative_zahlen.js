@@ -1,17 +1,32 @@
 
-    let tempStates = [0, -3, 2, -5];
-    let tempIndex = 0;
-    function moveDot() {
-      tempIndex = (tempIndex + 1) % tempStates.length;
-      let val = tempStates[tempIndex];
-      let cx = 150 + val * 20;
-      document.getElementById('tempDot').setAttribute('cx', cx);
-      document.getElementById('tempLabel').setAttribute('x', cx);
-      document.getElementById('tempLabel').innerText = val + '°C';
-    }
-  
+        function updateTemp() {
+            const t = document.getElementById('tempSlider').value;
+            const textEl = document.getElementById('tempText');
+            let desc = "Warm!";
+            let color = "#e53e3e";
+            if(t < 0) { desc = "Eisig!"; color = "#3182ce"; }
+            else if (t == 0) { desc = "Gefrierpunkt"; color = "#718096"; }
+            textEl.innerHTML = `${t} °C (${desc})`;
+            textEl.style.color = color;
+        }
+    
 
 
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
-}
+        function updateWalk() {
+            const v = document.getElementById('walkSlider').value;
+            const pct = 50 + (v * 8);
+            document.getElementById('walker').style.left = pct + '%';
+            document.getElementById('walkPos').innerText = `Position: ${v}`;
+        }
+    
+
+
+        function updateMirror() {
+            const v = parseInt(document.getElementById('mirrorNum').value) || 0;
+            document.getElementById('gZahl').innerText = v * -1;
+            document.getElementById('bZahl').innerText = Math.abs(v);
+        }
+    
+
+
+function topicInit() {}

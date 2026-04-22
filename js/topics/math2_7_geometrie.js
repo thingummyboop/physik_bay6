@@ -1,6 +1,6 @@
-function checkTri(id) { var res = document.getElementById('triResult'); if(id === 2) { res.innerHTML = 'Korrekt! Das orange Dreieck hat unten links einen 90° Winkel.'; res.style.color = 'green'; } else { res.innerHTML = 'Das ist leider nicht rechtwinklig. Versuch es noch einmal!'; res.style.color = 'red'; } }
+const pt=document.getElementById('drag_pt');const poly=document.getElementById('tri_poly');const lblC=document.getElementById('lbl_C');const info=document.getElementById('angle_info');let drag=false;pt.addEventListener('mousedown',()=>drag=true);window.addEventListener('mouseup',()=>drag=false);window.addEventListener('mousemove',(e)=>{if(!drag)return;let rect=pt.parentElement.getBoundingClientRect();let x=e.clientX-rect.left;let y=e.clientY-rect.top;if(y>240)y=240;pt.setAttribute('cx',x);pt.setAttribute('cy',y);poly.setAttribute('points',`50,250 350,250 ${x},${y}`);lblC.setAttribute('x',x);lblC.setAttribute('y',y-10);function getAngle(x1,y1,x2,y2,x3,y3){let a=Math.hypot(x2-x3,y2-y3);let b=Math.hypot(x1-x3,y1-y3);let c=Math.hypot(x1-x2,y1-y2);return Math.acos((b*b+c*c-a*a)/(2*b*c))*180/Math.PI;}let A=getAngle(50,250,350,250,x,y);let B=getAngle(350,250,50,250,x,y);let C=getAngle(x,y,50,250,350,250);info.textContent=`α:${A.toFixed(0)}° β:${B.toFixed(0)}° γ:${C.toFixed(0)}° | Summe: ${Math.round(A+B+C)}°`;});
+
+const hslider=document.getElementById('h_slider');const top_base=document.getElementById('top_base');const lines=document.querySelectorAll('#iz_prism line');hslider.addEventListener('input',(e)=>{let h=parseInt(e.target.value);let dx=h;let dy=-h/2;top_base.setAttribute('points',`${100+dx},${150+dy} ${150+dx},${150+dy} ${125+dx},${100+dy}`);lines[0].setAttribute('x2',100+dx);lines[0].setAttribute('y2',150+dy);lines[1].setAttribute('x2',150+dx);lines[1].setAttribute('y2',150+dy);lines[2].setAttribute('x2',125+dx);lines[2].setAttribute('y2',100+dy);});
 
 
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
-}
+function topicInit() {}

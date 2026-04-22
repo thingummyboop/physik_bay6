@@ -1,3 +1,47 @@
+
+const mSlider = document.getElementById('mixed-slider');
+const mVisual = document.getElementById('mixed-visual');
+if(mSlider && mVisual) {
+    mSlider.oninput = (e) => {
+        const val = parseInt(e.target.value);
+        document.getElementById('mixed-unecht').innerText = val + '/4';
+        const w = Math.floor(val / 4);
+        const r = val % 4;
+        let mStr = "";
+        if (w > 0) mStr += '<span style="color:#27ae60;">' + w + '</span> ';
+        if (r > 0) mStr += '<span style="color:#e74c3c;">' + r + '/4</span>';
+        document.getElementById('mixed-gemischt').innerHTML = mStr;
+        
+        mVisual.innerHTML = '';
+        const pizzas = Math.ceil(val / 4);
+        let drawn = 0;
+        for(let p=0; p<pizzas; p++) {
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '60'); svg.setAttribute('height', '60'); svg.setAttribute('viewBox', '0 0 60 60');
+            const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            bg.setAttribute('cx', '30'); bg.setAttribute('cy', '30'); bg.setAttribute('r', '28');
+            bg.setAttribute('fill', '#ecf0f1'); bg.setAttribute('stroke', '#bdc3c7'); bg.setAttribute('stroke-width', '2');
+            svg.appendChild(bg);
+            for(let i=0; i<4; i++) {
+                if (drawn < val) {
+                    const slice = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    const startAngle = (i * 90) * Math.PI / 180;
+                    const endAngle = ((i+1) * 90) * Math.PI / 180;
+                    const x1 = 30 + 28 * Math.sin(startAngle); const y1 = 30 - 28 * Math.cos(startAngle);
+                    const x2 = 30 + 28 * Math.sin(endAngle); const y2 = 30 - 28 * Math.cos(endAngle);
+                    const d = `M 30 30 L ${x1} ${y1} A 28 28 0 0 1 ${x2} ${y2} Z`;
+                    slice.setAttribute('d', d);
+                    slice.setAttribute('fill', w > p ? '#27ae60' : '#e74c3c');
+                    slice.setAttribute('stroke', 'white');
+                    svg.appendChild(slice);
+                    drawn++;
+                }
+            }
+            mVisual.appendChild(svg);
+        }
+    };
+    mSlider.dispatchEvent(new Event('input'));
+}
 document.getElementById('pizza-slider-1').addEventListener('input', function(e) { const pieces = parseInt(e.target.value); document.getElementById('pizza-pieces-1').textContent = pieces; const svg = document.getElementById('pizza-svg-1'); svg.innerHTML = '<circle cx="100" cy="100" r="90" fill="#f9c975" stroke="#d35400" stroke-width="10"/>'; for (let i = 0; i < pieces; i++) { const angle = (i * 360 / pieces) * Math.PI / 180; const x2 = 100 + 90 * Math.sin(angle); const y2 = 100 - 90 * Math.cos(angle); const line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); line.setAttribute('x1', '100'); line.setAttribute('y1', '100'); line.setAttribute('x2', x2); line.setAttribute('y2', y2); line.setAttribute('stroke', '#d35400'); line.setAttribute('stroke-width', '4'); svg.appendChild(line); } }); document.getElementById('pizza-slider-1').dispatchEvent(new Event('input'));
 
 let z = 1; let n = 2; const update = () => { document.getElementById('zaehler-val').textContent = z; document.getElementById('nenner-val').textContent = n; document.getElementById('z-text').textContent = z; document.getElementById('n-text').textContent = n; }; document.getElementById('z-up').onclick = () => { z++; update(); }; document.getElementById('z-down').onclick = () => { if(z > 0) z--; update(); }; document.getElementById('n-up').onclick = () => { n++; update(); }; document.getElementById('n-down').onclick = () => { if(n > 1) n--; update(); };

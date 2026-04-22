@@ -1,16 +1,15 @@
 
-    let active = 0;
-    function togglePizza(e) {
-      if(e.target.tagName === 'path') {
-        let isFill = e.target.getAttribute('fill') === '#f1c40f';
-        e.target.setAttribute('fill', isFill ? '#ecf0f1' : '#f1c40f');
-        active += isFill ? -1 : 1;
-        document.getElementById('pizzaResult').innerText = active + '/4 markiert';
-      }
-    }
-  
-
-
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
+let expandFactor = 2;
+let baseZ = 1;
+let baseN = 2;
+const btn = document.getElementById('gl_expand_btn');
+if(btn) {
+    btn.onclick = () => {
+        expandFactor++;
+        if(expandFactor > 5) expandFactor = 2;
+        document.getElementById('gl_z2').innerText = baseZ * expandFactor;
+        document.getElementById('gl_n2').innerText = baseN * expandFactor;
+        btn.innerText = "Mit " + expandFactor + " erweitern ➡️";
+    };
 }
+function topicInit() {}

@@ -1,22 +1,45 @@
 
-    function updateAngle(val) {
-      const rad = val * Math.PI / 180;
-      const x = 100 + 80 * Math.cos(-rad);
-      const y = 100 + 80 * Math.sin(-rad);
-      document.getElementById('angle-line2').setAttribute('x2', x);
-      document.getElementById('angle-line2').setAttribute('y2', y);
-      let type = val < 90 ? 'Spitzer Winkel' : val == 90 ? 'Rechter Winkel' : val < 180 ? 'Stumpfer Winkel' : 'Gestreckter Winkel';
-      document.getElementById('angle-feedback').innerText = type + ' (' + val + '°)';
-      const arcSweep = val <= 180 ? '0' : '1';
-      const ax = 100 + 30 * Math.cos(-rad);
-      const ay = 100 + 30 * Math.sin(-rad);
-      const d = `M 100 100 L 130 100 A 30 30 0 ${arcSweep} 0 ${ax} ${ay} Z`;
-      document.getElementById('angle-arc').setAttribute('d', d);
-    }
-    updateAngle(45);
+    (function(){
+      const slider = document.getElementById('angle-slider');
+      const arm = document.getElementById('angle-arm');
+      const display = document.getElementById('angle-display');
+      const arc = document.getElementById('angle-arc');
+      function update() {
+        const a = parseInt(slider.value);
+        display.innerText = a;
+        const rad = (a * Math.PI) / 180;
+        const x = 100 + 80 * Math.cos(-rad);
+        const y = 100 + 80 * Math.sin(-rad);
+        arm.setAttribute('x2', x);
+        arm.setAttribute('y2', y);
+        const largeArc = a > 180 ? 1 : 0;
+        if (a === 0) { arc.setAttribute('d', ''); }
+        else if (a === 360) { arc.setAttribute('d', 'M 180 100 A 80 80 0 1 0 180 99.9 Z'); }
+        else { arc.setAttribute('d', `M 180 100 A 80 80 0 ${largeArc} 0 ${x} ${y} L 100 100 Z`); }
+      }
+      slider.addEventListener('input', update);
+      update();
+    })();
   
 
 
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
-}
+    (function(){
+      const arm = document.getElementById('type-arm');
+      const display = document.getElementById('type-display');
+      function setAngle(deg, name) {
+        const rad = (deg * Math.PI) / 180;
+        const x = 100 + 80 * Math.cos(-rad);
+        const y = 100 + 80 * Math.sin(-rad);
+        arm.setAttribute('x2', x);
+        arm.setAttribute('y2', y);
+        display.innerText = name + ' (' + deg + '°)';
+      }
+      document.getElementById('btn-spitz').onclick = () => setAngle(Math.floor(Math.random() * 88) + 1, 'Spitzer Winkel (< 90°)');
+      document.getElementById('btn-recht').onclick = () => setAngle(90, 'Rechter Winkel (= 90°)');
+      document.getElementById('btn-stumpf').onclick = () => setAngle(Math.floor(Math.random() * 88) + 91, 'Stumpfer Winkel (> 90° und < 180°)');
+      setAngle(45, 'Spitzer Winkel (< 90°)');
+    })();
+  
+
+
+function topicInit() {}

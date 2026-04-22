@@ -1,6 +1,6 @@
-function updatePct() { var val = document.getElementById('pctSlider').value; document.getElementById('pctVal').innerText = val; document.getElementById('pctBar').setAttribute('width', val + '%'); if (val == 40) { document.getElementById('pctResult').innerHTML = 'Perfekt! 40% sind 40 von 100, oder auch 2/5.'; document.getElementById('pctResult').style.color = 'green'; } else { document.getElementById('pctResult').innerHTML = ''; } }
+const slider=document.getElementById('apple_slider');const b1=document.getElementById('bar1');const b2=document.getElementById('bar2');const l1=document.getElementById('lbl1');const l2=document.getElementById('lbl2');slider.addEventListener('input',(e)=>{let a=parseInt(e.target.value);let p=a*2;b1.setAttribute('y',150-a*10);b1.setAttribute('height',a*10);b2.setAttribute('y',150-p*5);b2.setAttribute('height',p*5);l1.textContent=a;l2.textContent=p;l1.setAttribute('y',150-a*10-5);l2.setAttribute('y',150-p*5-5);});slider.dispatchEvent(new Event('input'));
+
+const pslider=document.getElementById('perc_slider');const slice=document.getElementById('pie_slice');const ptext=document.getElementById('perc_text');pslider.addEventListener('input',(e)=>{let p=parseInt(e.target.value);let angle=p*3.6;let rad=(angle-90)*Math.PI/180;let x=80*Math.cos(rad);let y=80*Math.sin(rad);let largeArc=angle>180?1:0;slice.setAttribute('d',`M0,0 L0,-80 A80,80 0 ${largeArc},1 ${x},${y} Z`);if(p===0) slice.setAttribute('d','M0,0');if(p===100) slice.setAttribute('d','M0,0 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0');ptext.textContent=p+'%';});pslider.dispatchEvent(new Event('input'));
 
 
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
-}
+function topicInit() {}
