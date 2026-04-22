@@ -1,14 +1,6 @@
+document.getElementById('k-slider').addEventListener('input', function(e){ const k = parseFloat(e.target.value); const points = [10*k,10*k, 50*k,10*k, 30*k,50*k]; document.getElementById('scaled').setAttribute('points', points.map((p,i)=> i%2==0 ? p+90 : p).join(',')); });
 
-  document.getElementById('k-slider').oninput = function() {
-    const k = parseFloat(this.value);
-    document.getElementById('k-value').innerText = k.toFixed(1);
-    const newW = 100 * k;
-    const newH = 100 * k;
-    document.getElementById('scaled-tri').setAttribute('points', `200,150 ${200+newW},150 200,${150-newH}`);
-  };
+console.log('Strahlensatz Interaktivität geladen.');
 
 
-
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
-}
+function topicInit() {}

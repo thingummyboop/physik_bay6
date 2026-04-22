@@ -276,6 +276,219 @@ function generateWorksheetContent(topicId, topicTitle) {
         }
         html += `</div>`;
     }
+    else if (topicId === 'math3_1_rationale_zahlen') {
+        html += `<h2>1. Multiplikation und Division rationaler Zahlen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const n1 = rand(-20, 20);
+            const n2 = rand(-20, 20);
+            const isMult = rand(0, 1) === 0;
+            if (isMult) {
+                html += `<div>\\( ${n1} \\cdot ${n2 < 0 ? `(${n2})` : n2} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+            } else {
+                const divisor = n2 === 0 ? 2 : n2;
+                const dividend = n1 * divisor;
+                html += `<div>\\( ${dividend} : ${divisor < 0 ? `(${divisor})` : divisor} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+            }
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_2_potenzen_terme') {
+        html += `<h2>1. Potenzen berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const base = rand(2, 10);
+            const exp = rand(2, 4);
+            html += `<div>\\( ${base}^${exp} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_3_gleichungen') {
+        html += `<h2>1. Lineare Gleichungen lösen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const a = rand(2, 9);
+            const b = rand(1, 20);
+            const x = rand(1, 10);
+            const c = a * x + b;
+            html += `<div>\\( ${a}x + ${b} = ${c} \\)<br><br>\\( x = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_4_flaechensatz') {
+        html += `<h2>1. Flächeninhalt berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const isTriangle = rand(0, 1) === 0;
+            const g = rand(4, 20);
+            const h = rand(3, 15);
+            if (isTriangle) {
+                html += `<div>Dreieck: g = ${g} cm, h = ${h} cm<br><br>\\( A = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> cm²</div>`;
+            } else {
+                html += `<div>Parallelogramm: g = ${g} cm, h = ${h} cm<br><br>\\( A = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> cm²</div>`;
+            }
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_5_verhaeltnisse') {
+        html += `<h2>1. Verhältnisse kürzen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const factor = rand(2, 6);
+            const a = rand(2, 9);
+            const b = rand(2, 9);
+            html += `<div>Kürze das Verhältnis \\( ${a * factor} : ${b * factor} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_6_zuordnungen') {
+        html += `<h2>1. Proportionale Zuordnungen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const price = rand(2, 10);
+            const amount1 = rand(2, 5);
+            const amount2 = rand(6, 12);
+            html += `<div>Wenn ${amount1} Stück ${amount1 * price} € kosten,<br>wie viel kosten ${amount2} Stück?<br><br><span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> €</div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_7_aehnlichkeit') {
+        html += `<h2>1. Strahlensätze</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const a = rand(2, 6);
+            const b = rand(2, 6);
+            const factor = rand(2, 4);
+            html += `<div>Gegeben: \\( a = ${a} \\), \\( a' = ${a * factor} \\), \\( b = ${b} \\)<br><br>\\( b' = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_8_pythagoras') {
+        html += `<h2>1. Satz des Pythagoras anwenden</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const triples = [[3, 4, 5], [6, 8, 10], [5, 12, 13], [9, 12, 15], [8, 15, 17]];
+            const [a, b, c] = triples[rand(0, triples.length - 1)];
+            const isHypotenuse = rand(0, 1) === 0;
+            if (isHypotenuse) {
+                html += `<div>Rechtwinkliges Dreieck: a = ${a}, b = ${b}<br><br>\\( c = \\sqrt{a^2 + b^2} = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            } else {
+                html += `<div>Rechtwinkliges Dreieck: a = ${a}, c = ${c}<br><br>\\( b = \\sqrt{c^2 - a^2} = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            }
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_9_koerper') {
+        html += `<h2>1. Volumen von Prismen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const G = rand(10, 50);
+            const h = rand(5, 20);
+            html += `<div>Prisma: Grundfläche G = ${G} cm², Höhe h = ${h} cm<br><br>\\( V = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> cm³</div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_10_prozent_zins') {
+        html += `<h2>1. Zinsrechnung</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const K = rand(1, 20) * 1000;
+            const p = rand(1, 5);
+            html += `<div>Kapital K = ${K} €, Zinssatz p = ${p}%<br><br>Jahreszinsen Z = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> €</div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math3_11_statistik') {
+        html += `<h2>1. Mittelwert berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const a = rand(1, 10);
+            const b = rand(1, 10);
+            const c = rand(1, 10);
+            const d = rand(1, 10);
+            html += `<div>Daten: ${a}, ${b}, ${c}, ${d}<br><br>Mittelwert = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_1_reelle_zahlen') {
+        html += `<h2>1. Rechnen mit Wurzeln</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const squares = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144];
+            const sq1 = squares[rand(0, squares.length - 1)];
+            const sq2 = squares[rand(0, squares.length - 1)];
+            html += `<div>\\( \\sqrt{${sq1}} + \\sqrt{${sq2}} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_2_pythagoras') {
+        html += `<h2>1. Pythagoras im Raum</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const a = rand(2, 6);
+            const b = rand(2, 6);
+            const c = rand(2, 6);
+            html += `<div>Quader: a = ${a}, b = ${b}, c = ${c}<br><br>Raumdiagonale d = \\( \\sqrt{a^2+b^2+c^2} \\) &approx; <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_3_terme_gleichungen') {
+        html += `<h2>1. Binomische Formeln</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<8; i++) {
+            const a = rand(2, 6);
+            const formel = rand(1, 3);
+            if (formel === 1) {
+                html += `<div>\\( (x + ${a})^2 \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:120px;"></span></div>`;
+            } else if (formel === 2) {
+                html += `<div>\\( (x - ${a})^2 \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:120px;"></span></div>`;
+            } else {
+                html += `<div>\\( (x + ${a})(x - ${a}) \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:120px;"></span></div>`;
+            }
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_4_funktionen_sys') {
+        html += `<h2>1. Lineare Gleichungssysteme</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const x = rand(1, 5);
+            const y = rand(1, 5);
+            const a = rand(1, 3);
+            const b = rand(1, 3);
+            const res1 = a * x + b * y;
+            const res2 = x - y;
+            html += `<div>I: \\( ${a === 1 ? '' : a}x + ${b === 1 ? '' : b}y = ${res1} \\)<br>II: \\( x - y = ${res2} \\)<br><br>x = <span style="display:inline-block; border-bottom:1px dotted #000; width:40px;"></span>, y = <span style="display:inline-block; border-bottom:1px dotted #000; width:40px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_5_aehnlichkeit') {
+        html += `<h2>1. Ähnliche Figuren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const k = rand(2, 5);
+            const a = rand(2, 10);
+            html += `<div>Quadrat A, Seitenlänge a = ${a}<br>Quadrat B mit Streckungsfaktor k = ${k}<br><br>Flächeninhalt von B = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_6_koerper') {
+        html += `<h2>1. Zylinder und Kegel</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const r = rand(2, 10);
+            const h = rand(5, 15);
+            const isZylinder = rand(0, 1) === 0;
+            if (isZylinder) {
+                html += `<div>Zylinder: r = ${r}, h = ${h}<br>\\( V = \\pi \\cdot r^2 \\cdot h \\approx \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            } else {
+                html += `<div>Kegel: r = ${r}, h = ${h}<br>\\( V = \\frac{1}{3} \\pi \\cdot r^2 \\cdot h \\approx \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            }
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_7_statistik') {
+        html += `<h2>1. Wahrscheinlichkeit</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const total = rand(10, 50);
+            const favorable = rand(1, total - 1);
+            html += `<div>Urne: ${total} Kugeln, davon ${favorable} rot.<br>Wahrscheinlichkeit für rot = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> %</div>`;
+        }
+        html += `</div>`;
+    }
+    else if (topicId === 'math4_8_finanzmathematik') {
+        html += `<h2>1. Zinseszins</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        for(let i=0; i<6; i++) {
+            const K0 = rand(1, 10) * 1000;
+            const p = rand(1, 5);
+            const n = rand(2, 5);
+            html += `<div>K0 = ${K0} €, p = ${p} %, n = ${n} Jahre<br>\\( K_n = K_0 \\cdot (1 + \\frac{p}{100})^n \\approx \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> €</div>`;
+        }
+        html += `</div>`;
+    }
     else {
         return null;
     }
