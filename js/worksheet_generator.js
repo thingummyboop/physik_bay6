@@ -489,6 +489,88 @@ function generateWorksheetContent(topicId, topicTitle) {
         }
         html += `</div>`;
     }
+        else if (topicId === 'math1_1_vs_wissen') {
+        html += '<h2>1. Kopfrechnen (Plus & Minus bis 100)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<10; i++) {
+            const n1 = rand(10, 80);
+            const n2 = rand(5, 90 - n1);
+            html += '<div>' + n1 + ' + ' + n2 + ' = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>';
+        }
+        for(let i=0; i<10; i++) {
+            const n1 = rand(30, 100);
+            const n2 = rand(5, n1);
+            html += '<div>' + n1 + ' - ' + n2 + ' = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'math1_5_geo_grundbegriffe') {
+        html += '<h2>1. Zeichnen & Benennen</h2><div style="font-size: 1.2em; line-height: 2;">';
+        html += '<p>1. Zeichne eine <strong>Gerade g</strong> und eine <strong>Gerade h</strong>, die zueinander <strong>parallel</strong> sind.</p><div style="height: 100px;"></div>';
+        html += '<p>2. Zeichne eine <strong>Strecke AB</strong> mit der Länge <strong>6 cm</strong>.</p><div style="height: 100px;"></div>';
+        html += '<p>3. Zeichne einen <strong>Strahl s</strong>, der im Punkt P beginnt.</p><div style="height: 100px;"></div>';
+        html += '<p>4. Zeichne zwei Geraden, die <strong>normal (senkrecht)</strong> aufeinander stehen.</p><div style="height: 100px;"></div>';
+        html += '</div>';
+    }
+    else if (topicId === 'math1_6_winkel') {
+        html += '<h2>1. Winkel zeichnen</h2><div style="font-size: 1.2em; line-height: 2;">';
+        const angles = [30, 45, 60, 90, 120, 150];
+        angles.forEach((a, i) => {
+            html += '<p>' + (i+1) + '. Zeichne einen Winkel von <strong>' + a + '°</strong> (Alpha = ' + a + '°).</p><div style="height: 120px;"></div>';
+        });
+        html += '</div>';
+    }
+    else if (topicId === 'math2_3_dezimalzahlen') {
+        html += '<h2>1. Dezimalzahlen multiplizieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<8; i++) {
+            const n1 = (rand(10, 500) / 10).toFixed(1).replace('.', ',');
+            const n2 = (rand(2, 20) / 10).toFixed(1).replace('.', ',');
+            html += '<div>' + n1 + ' \\(\\cdot\\) ' + n2 + ' = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>';
+        }
+        html += '</div>';
+        
+        html += '<h2>2. Dezimalzahlen dividieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<8; i++) {
+            const result = rand(2, 50);
+            const n2 = (rand(2, 10) / 10).toFixed(1);
+            const n1 = (result * parseFloat(n2)).toFixed(2).replace('.', ',');
+            const n2Str = n2.replace('.', ',');
+            html += '<div>' + n1 + ' : ' + n2Str + ' = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'math2_5_var_gleichungen') {
+        html += '<h2>1. Gleichungen lösen (Nach x auflösen)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<12; i++) {
+            const x = rand(2, 20);
+            const a = rand(2, 9);
+            const b = rand(1, 20);
+            const res = a * x + b;
+            html += '<div>\\( ' + a + 'x + ' + b + ' = ' + res + ' \\)<br><br>\\( x = \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:50px;"></span></div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'math2_7_geometrie') {
+        html += '<h2>1. Flächeninhalt (Dreieck & Parallelogramm)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<5; i++) {
+            const g = rand(4, 20);
+            const h = rand(3, 15);
+            html += '<div><strong>Dreieck:</strong> g = ' + g + ' cm, h = ' + h + ' cm<br><br>A = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> cm²</div>';
+        }
+        for(let i=0; i<5; i++) {
+            const a = rand(4, 20);
+            const h = rand(3, 15);
+            html += '<div><strong>Parallelogramm:</strong> a = ' + a + ' cm, h = ' + h + ' cm<br><br>A = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> cm²</div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'math2_8_statistik') {
+        html += '<h2>1. Mittelwert (Durchschnitt) berechnen</h2><div style="font-size: 1.2em; line-height: 2;">';
+        for(let i=0; i<5; i++) {
+            const nums = Array.from({length: rand(4, 6)}, () => rand(1, 20));
+            html += '<p>Berechne den Mittelwert der Zahlen: <strong>' + nums.join(', ') + '</strong></p><div>Mittelwert = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div><br>';
+        }
+        html += '</div>';
+    }
     else {
         return null;
     }
