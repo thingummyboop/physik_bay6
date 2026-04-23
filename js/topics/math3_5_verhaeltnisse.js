@@ -1,12 +1,4 @@
-
-    function mixDrink(val) {
-      const syrHeight = val * 20;
-      const watHeight = 100 - syrHeight;
-      document.getElementById('syrup').setAttribute('height', syrHeight);
-      document.getElementById('syrup').setAttribute('y', 120 - syrHeight);
-      document.getElementById('water').setAttribute('height', watHeight);
-    }
-  
+function checkMix(){let s=document.getElementById('sirup_in').value; let w=document.getElementById('wasser_in').value; if(s==2 && w==10) document.getElementById('mix_feedback').innerHTML="<span style='color:green'>Korrekt! 2 Becher Sirup + 10 Becher Wasser = 12 Becher!</span>"; else document.getElementById('mix_feedback').innerHTML="<span style='color:red'>Nö. Rechne: 1 Teil Sirup + 5 Teile Wasser = 6 Teile. Für 12 Becher brauchst du das Doppelte!</span>";}
 
 
 function topicInit() {}

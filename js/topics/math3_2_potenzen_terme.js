@@ -1,18 +1,4 @@
-
-    function resetBars() {
-      let bars = ['powBar1', 'powBar2', 'powBar3', 'powBar4'];
-      bars.forEach((id, i) => {
-        let el = document.getElementById(id);
-        el.setAttribute('height', '0');
-        el.setAttribute('y', '150');
-        setTimeout(() => {
-          let h = 10 * Math.pow(2, i);
-          el.setAttribute('height', h);
-          el.setAttribute('y', 150 - h);
-        }, i * 500);
-      });
-    }
-  
+function checkPot(){let v=document.getElementById('pot1').value; document.getElementById('potFb').innerHTML=(v==4)?"<span style='color:green'>Genau! 5 hoch 4.</span>":"<span style='color:red'>Zähl nochmal, wie oft die 5 da steht!</span>";}
 
 
 function topicInit() {}

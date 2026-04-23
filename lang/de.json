@@ -8432,71 +8432,47 @@
   },
   "math3_1_rationale_zahlen": {
     "title": "Rationale Zahlen",
-    "subtitle": "Brüche, Dezimalzahlen und ihr Platz auf dem Zahlenstrahl",
+    "subtitle": "Schulden, Eis und Gaming-Score",
     "sections": [
       {
-        "id": "sec_rat_1",
-        "title": "Brüche und Anteile visuell verstehen",
-        "content": "<div class=\"interactive-zone\">\n  <svg id=\"fractionSvg\" width=\"300\" height=\"100\" viewBox=\"0 0 300 100\" style=\"background-color:#f0f0f0; border-radius:8px;\">\n    <rect x=\"10\" y=\"30\" width=\"280\" height=\"40\" fill=\"#fff\" stroke=\"#ccc\" stroke-width=\"2\" />\n    <rect id=\"fractionBar\" x=\"10\" y=\"30\" width=\"140\" height=\"40\" fill=\"#4CAF50\" />\n    <line x1=\"10\" y1=\"30\" x2=\"10\" y2=\"70\" stroke=\"#000\" />\n    <line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"70\" stroke=\"#000\" />\n    <line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"70\" stroke=\"#000\" />\n    <line x1=\"220\" y1=\"30\" x2=\"220\" y2=\"70\" stroke=\"#000\" />\n    <line x1=\"290\" y1=\"30\" x2=\"290\" y2=\"70\" stroke=\"#000\" />\n    <text id=\"fractionText\" x=\"150\" y=\"20\" text-anchor=\"middle\" font-family=\"sans-serif\">2/4</text>\n  </svg>\n  <div style=\"margin-top:10px;\">\n    <input type=\"range\" id=\"fractionSlider\" min=\"0\" max=\"4\" value=\"2\" step=\"1\" oninput=\"updateFraction(this.value)\">\n  </div>\n  \n</div>\n<p>Rationale Zahlen umfassen alle Zahlen, die als Verhältnis (Bruch) zweier ganzer Zahlen dargestellt werden können. Experimentiere mit dem Slider oben, um verschiedene Anteile eines Ganzen zu sehen!</p>\n{{QUIZ_rat1_q1}}\n<p>Jede ganze Zahl ist ebenfalls eine rationale Zahl, da man sie einfach mit dem Nenner 1 schreiben kann (z.B. 5 = 5/1). Wenn du den Nenner veränderst, ändert sich die Unterteilung des Ganzen.</p>\n{{QUIZ_rat1_q2}}\n<p>Die Menge der rationalen Zahlen wird oft mit dem Buchstaben ℚ abgekürzt. Sie erweitern die ganzen Zahlen, um auch Teile eines Ganzen beschreiben zu können.</p>\n{{QUIZ_rat1_q3}}",
+        "id": "sec1",
+        "title": "Was sind negative Zahlen?",
+        "content": "<p>Stell dir vor, du hast <span style='color:green'>10€</span> auf dem Konto. Du kaufst einen Skin für <span style='color:red'>15€</span>. Dein Konto ist jetzt bei <span style='color:red'>-5€</span>. Das ist eine <b>negative Zahl</b>.</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:5px;'><b>Test:</b> Du hast -3€. Du bekommst 5€. Wie viel hast du jetzt?<br><input id='kontostand1' type='number'><button onclick='checkKonto()'>Check</button><p id='kontoFb'></p></div>{{QUIZ_m31_q1}}",
         "quizzes": [
           {
-            "id": "rat1_q1",
-            "question": "Was passiert, wenn der Slider auf 4/4 steht?",
+            "id": "m31_q1",
+            "question": "Was bedeutet -10 auf dem Thermometer?",
             "answers": [
               {
-                "text": "Das Ganze ist vollständig gefüllt (Wert 1).",
+                "text": "Es ist 10 Grad kalt (unter Null).",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Leiste ist leer.",
+                "text": "Es ist 10 Grad warm.",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Es entsteht ein Fehler.",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Rechnen mit Minus",
+        "content": "<p>Regel: Plus mal Plus ist Plus. Minus mal Minus ist auch Plus! <span style='color:blue'>Minus mal Plus ist Minus.</span></p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:5px;'><b>Rechne:</b> -4 * -3 = <input id='mult1' type='number'><button onclick='checkMult()'>Check</button><p id='multFb'></p></div>{{QUIZ_m31_q2}}",
+        "quizzes": [
           {
-            "id": "rat1_q2",
-            "question": "Ist die Zahl 0 eine rationale Zahl?",
+            "id": "m31_q2",
+            "question": "Was ergibt -5 * 4?",
             "answers": [
               {
-                "text": "Ja, sie kann als 0/1 geschrieben werden.",
-                "correct": true,
-                "pts": 10
+                "text": "20",
+                "correct": false,
+                "pts": 5
               },
               {
-                "text": "Nein, 0 ist nichts und hat keinen Wert.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Nur positive Zahlen sind rational.",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "rat1_q3",
-            "question": "Welche der folgenden Zahlen ist NICHT rational?",
-            "answers": [
-              {
-                "text": "-3/4",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "0.5",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Pi (π)",
+                "text": "-20",
                 "correct": true,
                 "pts": 10
               }
@@ -8506,20 +8482,19 @@
       }
     ],
     "diplom": {
-      "title": "Bruch-Bändiger",
-      "description": "Du hast die Grundlagen der rationalen Zahlen erlernt und verstanden!",
+      "title": "🎓 Diplom: Rationale Zahlen",
       "questions": [
         {
-          "id": "math3_1_rationale_zahlen_dip_default",
-          "question": "Hast du das Thema \"Rationale Zahlen\" verstanden? (Du hast die Grundlagen der rationalen Zahlen erlernt und verstanden!)",
+          "id": "m31_dip1",
+          "question": "Du hast -5 Punkte. Du verlierst noch 3 Punkte. Wie viele Punkte hast du?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "-8",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "-2",
               "correct": false,
               "pts": 5
             }
@@ -8530,73 +8505,49 @@
   },
   "math3_2_potenzen_terme": {
     "title": "Potenzen und Terme",
-    "subtitle": "Kompakte Schreibweise für riesige und winzige Zahlen",
+    "subtitle": "Zahlen kleiner schreiben & Buchstaben",
     "sections": [
       {
-        "id": "sec_pot_1",
-        "title": "Die Macht des exponentiellen Wachstums",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\" style=\"background-color:#e8f4f8; border-radius:8px;\">\n    <rect x=\"10\" y=\"140\" width=\"20\" height=\"10\" fill=\"#2196F3\" id=\"powBar1\" />\n    <rect x=\"40\" y=\"130\" width=\"20\" height=\"20\" fill=\"#2196F3\" id=\"powBar2\" />\n    <rect x=\"70\" y=\"110\" width=\"20\" height=\"40\" fill=\"#2196F3\" id=\"powBar3\" />\n    <rect x=\"100\" y=\"70\" width=\"20\" height=\"80\" fill=\"#2196F3\" id=\"powBar4\" />\n    <rect x=\"130\" y=\"-10\" width=\"20\" height=\"160\" fill=\"#FF5722\" id=\"powBar5\" style=\"opacity: 0.5\"/>\n    <text x=\"150\" y=\"30\" font-family=\"sans-serif\" id=\"powText\">Wachstum: 2^x</text>\n  </svg>\n  <button onclick=\"resetBars()\" style=\"margin-top:10px;\">Animation starten</button>\n  \n</div>\n<p>Potenzen sind die Kurzschreibweise für die wiederholte Multiplikation derselben Zahl. Betrachte die Balken: Sie verdoppeln sich in jedem Schritt. Das ist 2^x!</p>\n{{QUIZ_pot1_q1}}\n<p>Die Basis gibt an, welche Zahl multipliziert wird. Der Exponent gibt an, wie oft die Basis als Faktor auftritt.</p>\n{{QUIZ_pot1_q2}}\n<p>Eine Besonderheit ist das Potenzieren mit 0 und negativen Exponenten.</p>\n{{QUIZ_pot1_q3}}",
+        "id": "sec1",
+        "title": "Potenzen: Der Multiplikator",
+        "content": "<p>Statt 2 * 2 * 2 schreibst du <span style='color:red'>2³</span>. Das spricht man 'zwei hoch drei'. Es ist wie ein Multiplikator im Game.</p><div class='interactive-zone' style='background:#eef; padding:10px;'><b>Wie oft?</b> 5 * 5 * 5 * 5 ist 5 hoch was?<br><input id='pot1' type='number'><button onclick='checkPot()'>Check</button><p id='potFb'></p></div>{{QUIZ_m32_q1}}",
         "quizzes": [
           {
-            "id": "pot1_q1",
-            "question": "Was ist der Wert von 2^3?",
+            "id": "m32_q1",
+            "question": "Was ist 3² ?",
             "answers": [
               {
-                "text": "6 (2*3)",
+                "text": "3 * 2 = 6",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               },
               {
-                "text": "8 (2*2*2)",
+                "text": "3 * 3 = 9",
                 "correct": true,
                 "pts": 10
-              },
-              {
-                "text": "9",
-                "correct": false,
-                "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Terme: X als Platzhalter",
+        "content": "<p>Du kaufst 3 Döner. Ein Döner kostet <span style='color:blue'>x</span> Euro. Der Preis ist <span style='color:blue'>3x</span>.</p><p>Wir wissen nicht, wie viel x ist, aber wir können damit rechnen!</p>{{QUIZ_m32_q2}}",
+        "quizzes": [
           {
-            "id": "pot1_q2",
-            "question": "Welche Aussage stimmt für 5^0?",
+            "id": "m32_q2",
+            "question": "Du kaufst 5 Red Bull (Preis: x) und 1 Chips (Preis: 2€). Wie heißt der Term?",
             "answers": [
               {
-                "text": "Das Ergebnis ist 0.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Das Ergebnis ist 1.",
+                "text": "5x + 2",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Das Ergebnis ist 5.",
+                "text": "5 + 2x",
                 "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "pot1_q3",
-            "question": "Was bedeutet ein negativer Exponent wie bei 10^-2?",
-            "answers": [
-              {
-                "text": "Es ist eine negative Zahl: -100.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Es ist ein Bruch: 1 / 10^2 = 0.01.",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Es ist dasselbe wie 10^2.",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -8604,20 +8555,19 @@
       }
     ],
     "diplom": {
-      "title": "Exponentieller Denker",
-      "description": "Terme und Potenzen sind nun dein Spezialgebiet.",
+      "title": "🎓 Diplom: Potenzen",
       "questions": [
         {
-          "id": "math3_2_potenzen_terme_dip_default",
-          "question": "Hast du das Thema \"Potenzen und Terme\" verstanden? (Terme und Potenzen sind nun dein Spezialgebiet.)",
+          "id": "m32_dip1",
+          "question": "Fasse zusammen: x + x + x",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "3x",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "x³",
               "correct": false,
               "pts": 5
             }
@@ -8628,73 +8578,49 @@
   },
   "math3_3_gleichungen": {
     "title": "Gleichungen",
-    "subtitle": "Finde das unbekannte X",
+    "subtitle": "Finde das geheimnisvolle X",
     "sections": [
       {
-        "id": "sec_eq_1",
-        "title": "Die Waagemodell-Methode",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\" style=\"background-color:#fff3e0; border-radius:8px;\">\n    <polygon points=\"140,140 160,140 150,100\" fill=\"#607D8B\" />\n    <line id=\"scaleBeam\" x1=\"50\" y1=\"100\" x2=\"250\" y2=\"100\" stroke=\"#3E2723\" stroke-width=\"4\" transform=\"rotate(0, 150, 100)\" />\n    <g id=\"leftPan\" transform=\"translate(50, 100)\">\n      <path d=\"M-20,0 L20,0 L0,30 Z\" fill=\"#9E9E9E\" />\n      <rect x=\"-10\" y=\"-20\" width=\"20\" height=\"20\" fill=\"#FFC107\" />\n      <text x=\"0\" y=\"-5\" text-anchor=\"middle\" font-size=\"12\">X</text>\n      <circle cx=\"0\" cy=\"-30\" r=\"8\" fill=\"#4CAF50\" />\n      <circle cx=\"0\" cy=\"-50\" r=\"8\" fill=\"#4CAF50\" />\n    </g>\n    <g id=\"rightPan\" transform=\"translate(250, 100)\">\n      <path d=\"M-20,0 L20,0 L0,30 Z\" fill=\"#9E9E9E\" />\n      <circle cx=\"-10\" cy=\"-20\" r=\"8\" fill=\"#4CAF50\" />\n      <circle cx=\"10\" cy=\"-20\" r=\"8\" fill=\"#4CAF50\" />\n      <circle cx=\"0\" cy=\"-40\" r=\"8\" fill=\"#4CAF50\" />\n      <circle cx=\"-10\" cy=\"-60\" r=\"8\" fill=\"#4CAF50\" />\n      <circle cx=\"10\" cy=\"-60\" r=\"8\" fill=\"#4CAF50\" />\n    </g>\n  </svg>\n  <div>\n    <button onclick=\"removeWeight()\" style=\"margin-top:10px;\">Entferne je 2 grüne Kugeln (-2)</button>\n  </div>\n  \n</div>\n<p>Stell dir eine Gleichung wie eine Balkenwaage im Gleichgewicht vor. Die linke Seite wiegt exakt so viel wie die rechte Seite.</p>\n{{QUIZ_eq1_q1}}\n<p>Jede Veränderung auf einer Seite musst du exakt genauso auf der anderen Seite durchführen. Dies nennt man Äquivalenzumformung.</p>\n{{QUIZ_eq1_q2}}\n<p>Unser Ziel ist es immer, die Unbekannte (meistens X) alleine auf einer Seite stehen zu haben.</p>\n{{QUIZ_eq1_q3}}",
+        "id": "sec1",
+        "title": "Das Waage-Modell",
+        "content": "<p>Eine Gleichung ist wie eine Waage. Beide Seiten müssen gleich schwer sein.</p><svg width='100' height='50'><path d='M10,40 L90,40 L50,10 Z' fill='gray'/></svg><p>Wenn du links was wegnimmst, musst du es rechts auch tun!</p><div class='interactive-zone'>x + 5 = 10. Was ist x?<br><input id='gl1' type='number'><button onclick='checkGl()'>Check</button><p id='glFb'></p></div>{{QUIZ_m33_q1}}",
         "quizzes": [
           {
-            "id": "eq1_q1",
-            "question": "Welche Gleichung wird in der Waage dargestellt (Gelb=X, Grün=1)?",
+            "id": "m33_q1",
+            "question": "Wenn ich bei x + 3 = 8 auf beiden Seiten 3 abziehe, was bleibt übrig?",
             "answers": [
               {
-                "text": "X + 2 = 5",
+                "text": "x = 5",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "X = 3",
+                "text": "x = 11",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "2X = 5",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Mal und Geteilt",
+        "content": "<p>Wenn da steht: <b>3x = 12</b> (Drei mal x ist 12). Dann musst du durch 3 teilen, um ein x zu finden!</p>{{QUIZ_m33_q2}}",
+        "quizzes": [
           {
-            "id": "eq1_q2",
-            "question": "Was passiert, wenn du auf einer Seite der Waage etwas hinzufügst und auf der anderen nicht?",
+            "id": "m33_q2",
+            "question": "Wie löst du 4x = 20?",
             "answers": [
               {
-                "text": "Die Waage bleibt im Gleichgewicht.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Das Gleichgewicht ist gestört, die Gleichung ist falsch.",
+                "text": "Durch 4 teilen. x = 5",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "X verdoppelt sich.",
+                "text": "Minus 4 rechnen. x = 16",
                 "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "eq1_q3",
-            "question": "Wie löst man die Gleichung X - 4 = 10?",
-            "answers": [
-              {
-                "text": "Rechne +4 auf beiden Seiten, also X = 14",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Rechne -4 auf beiden Seiten, also X = 6",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Teile durch 4.",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -8702,20 +8628,19 @@
       }
     ],
     "diplom": {
-      "title": "Gleichungs-Guru",
-      "description": "Du bringst jede Gleichung ins Gleichgewicht!",
+      "title": "🎓 Diplom: Gleichungen",
       "questions": [
         {
-          "id": "math3_3_gleichungen_dip_default",
-          "question": "Hast du das Thema \"Gleichungen\" verstanden? (Du bringst jede Gleichung ins Gleichgewicht!)",
+          "id": "m33_dip1",
+          "question": "Löse: 2x + 1 = 9",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "x = 4",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "x = 8",
               "correct": false,
               "pts": 5
             }
@@ -8725,74 +8650,50 @@
     }
   },
   "math3_4_flaechensatz": {
-    "title": "Flächensätze",
-    "subtitle": "Geometrie verstehen mit Pythagoras",
+    "title": "Satz des Pythagoras",
+    "subtitle": "Abkürzungen am Dreieck",
     "sections": [
       {
-        "id": "sec_area_1",
-        "title": "Der Beweis des Pythagoras",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"250\" height=\"250\" viewBox=\"0 0 250 250\" style=\"background-color:#fce4ec; border-radius:8px;\">\n    <g id=\"pythagorasVisual\" transform=\"translate(50, 100)\">\n      <polygon points=\"0,0 0,50 50,50\" fill=\"#fff\" stroke=\"#000\" stroke-width=\"2\" />\n      <rect x=\"-50\" y=\"0\" width=\"50\" height=\"50\" fill=\"rgba(244, 67, 54, 0.7)\" />\n      <rect x=\"0\" y=\"50\" width=\"50\" height=\"50\" fill=\"rgba(33, 150, 243, 0.7)\" />\n      <rect x=\"0\" y=\"0\" width=\"70.7\" height=\"70.7\" transform=\"rotate(-45)\" fill=\"rgba(76, 175, 80, 0.7)\" />\n    </g>\n  </svg>\n  <button onclick=\"alert('Die Summe der roten und blauen Fläche entspricht exakt der grünen Fläche!')\" style=\"margin-top:10px;\">Flächensatz erklären</button>\n  \n</div>\n<p>Der Flächensatz schlechthin ist der Satz des Pythagoras. Er sagt aus, dass in einem rechtwinkligen Dreieck die Quadrate über den Katheten zusammen so groß sind wie das Quadrat über der Hypotenuse.</p>\n{{QUIZ_area1_q1}}\n<p>Die Formel lautet a² + b² = c², wobei c immer die längste Seite gegenüber dem rechten Winkel ist.</p>\n{{QUIZ_area1_q2}}\n<p>Dies ist unglaublich nützlich, um Entfernungen zu berechnen, ohne sie direkt messen zu müssen.</p>\n{{QUIZ_area1_q3}}",
+        "id": "sec1",
+        "title": "Das rechtwinklige Dreieck",
+        "content": "<p>Nur bei einem Dreieck mit einem <b>90 Grad Winkel</b> klappt das.</p><svg width='100' height='100'><polygon points='10,90 90,90 10,10' fill='none' stroke='black' stroke-width='3'/><rect x='10' y='80' width='10' height='10' fill='red'/></svg><p>Die längste Seite gegenüber vom rechten Winkel heißt <span style='color:red'>Hypotenuse</span>. Die anderen beiden sind Katheten.</p>{{QUIZ_m34_q1}}",
         "quizzes": [
           {
-            "id": "area1_q1",
-            "question": "Für welche Art von Dreiecken gilt der Satz des Pythagoras?",
+            "id": "m34_q1",
+            "question": "Wo ist die Hypotenuse?",
             "answers": [
               {
-                "text": "Für alle Dreiecke",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Nur für gleichseitige Dreiecke",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Nur für rechtwinklige Dreiecke",
+                "text": "Gegenüber vom rechten Winkel",
                 "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "Anliegend am rechten Winkel",
+                "correct": false,
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Die Formel: a² + b² = c²",
+        "content": "<p>Quadrat der Katheten ist gleich dem Quadrat der Hypotenuse. Stell dir vor, du baust Quadrate an die Seiten des Dreiecks.</p><div class='interactive-zone'>Kathete a=3, Kathete b=4. c² = 3² + 4² = 9 + 16 = 25. Was ist c?<br><input id='pyt1' type='number'><button onclick='checkPyt()'>Check</button><p id='pytFb'></p></div>{{QUIZ_m34_q2}}",
+        "quizzes": [
           {
-            "id": "area1_q2",
-            "question": "Wie nennt man die längste Seite im rechtwinkligen Dreieck?",
+            "id": "m34_q2",
+            "question": "Wenn a² = 36 und b² = 64, was ist c²?",
             "answers": [
               {
-                "text": "Kathete",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Hypotenuse",
+                "text": "100",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Diagonale",
+                "text": "10",
                 "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "area1_q3",
-            "question": "Wenn die Katheten die Längen 3 cm und 4 cm haben, wie lang ist die Hypotenuse?",
-            "answers": [
-              {
-                "text": "7 cm",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "5 cm",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "12 cm",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -8800,20 +8701,19 @@
       }
     ],
     "diplom": {
-      "title": "Geometrie-Gigant",
-      "description": "Die Flächen und Längen haben keine Geheimnisse mehr vor dir.",
+      "title": "🎓 Diplom: Pythagoras",
       "questions": [
         {
-          "id": "math3_4_flaechensatz_dip_default",
-          "question": "Hast du das Thema \"Flächensätze\" verstanden? (Die Flächen und Längen haben keine Geheimnisse mehr vor dir.)",
+          "id": "m34_dip1",
+          "question": "Wann darf man a² + b² = c² anwenden?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Nur bei rechtwinkligen Dreiecken",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Bei jedem Dreieck",
               "correct": false,
               "pts": 5
             }
@@ -8823,74 +8723,50 @@
     }
   },
   "math3_5_verhaeltnisse": {
-    "title": "Verhältnisse",
-    "subtitle": "Beziehungen und Proportionen",
+    "title": "Verhältnisse (Mischen & Teilen)",
+    "subtitle": "Sirup, Gaming und faire Aufteilung",
     "sections": [
       {
-        "id": "sec_prop_1",
-        "title": "Verhältnisse mischen",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"200\" height=\"150\" viewBox=\"0 0 200 150\" style=\"background-color:#e0f7fa; border-radius:8px;\">\n    <rect x=\"50\" y=\"20\" width=\"40\" height=\"100\" fill=\"#fff\" stroke=\"#000\" />\n    <rect id=\"syrup\" x=\"50\" y=\"100\" width=\"40\" height=\"20\" fill=\"#d32f2f\" />\n    <rect id=\"water\" x=\"50\" y=\"20\" width=\"40\" height=\"80\" fill=\"#0288d1\" opacity=\"0.6\" />\n    <text x=\"100\" y=\"70\" font-family=\"sans-serif\">Wasser</text>\n    <text x=\"100\" y=\"115\" font-family=\"sans-serif\">Sirup</text>\n  </svg>\n  <div style=\"margin-top:10px;\">\n    <label>Sirup-Anteil: <input type=\"range\" min=\"1\" max=\"5\" value=\"1\" id=\"mixSlider\" oninput=\"mixDrink(this.value)\"></label>\n  </div>\n  \n</div>\n<p>Verhältnisse beschreiben, wie zwei oder mehr Mengen zueinander stehen. Wenn du Sirup mit Wasser im Verhältnis 1:4 mischst, hast du 1 Teil Sirup auf 4 Teile Wasser.</p>\n{{QUIZ_prop1_q1}}\n<p>Verhältnisse lassen sich wie Brüche erweitern und kürzen. 2:8 ist dasselbe Mischungsverhältnis wie 1:4.</p>\n{{QUIZ_prop1_q2}}\n<p>Aus Verhältnissen können wir Dreisatz-Rechnungen ableiten, um fehlende Mengen zu bestimmen.</p>\n{{QUIZ_prop1_q3}}",
+        "id": "sec1",
+        "title": "Das perfekte Rezept",
+        "content": "<p>Stell dir vor, du mischst Sirup. Auf der Flasche steht <span style='color:red'>1:5</span>. Was heißt das?</p><p>1 Teil Sirup und 5 Teile Wasser. Zusammen sind das 6 Teile.</p><div class='interactive-zone' style='background:#f0f0f0; padding:10px; border-radius:8px;'><h4>Mix-Check!</h4><p>Du willst 12 Becher Limo machen (Mischung 1:5).</p><input type='number' id='sirup_in' placeholder='Becher Sirup?'> <input type='number' id='wasser_in' placeholder='Becher Wasser?'><br><button onclick='checkMix()'>Check</button><p id='mix_feedback'></p></div>{{QUIZ_m35_q1}}",
         "quizzes": [
           {
-            "id": "prop1_q1",
-            "question": "Ein Verhältnis von 1 Teil Sirup zu 4 Teilen Wasser ergibt wie viele Teile insgesamt?",
+            "id": "m35_q1",
+            "question": "Ein Energy Drink wird 1:3 gemischt (Konzentrat : Wasser). Du nimmst 2 Liter Konzentrat. Wie viel Wasser brauchst du?",
             "answers": [
               {
-                "text": "4 Teile",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "5 Teile",
+                "text": "6 Liter",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "3 Teile",
+                "text": "3 Liter",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Beute teilen",
+        "content": "<p>Du und dein Freund habt zusammen 40€ beim Flohmarkt verdient. Ihr wollt es im Verhältnis <span style='color:red'>3:5</span> teilen, weil er mehr Sachen hatte.</p><p>Wie geht das?</p><p>1. Zähle die Teile zusammen: 3 + 5 = <span style='color:red'>8 Teile</span> insgesamt.</p><p>2. Teile das Geld: 40€ ÷ 8 = <span style='color:red'>5€ pro Teil</span>.</p><p>3. Rechne: Du kriegst 3 x 5€ = 15€. Dein Freund 5 x 5€ = 25€.</p>{{QUIZ_m35_q2}}",
+        "quizzes": [
           {
-            "id": "prop1_q2",
-            "question": "Welches Verhältnis ist äquivalent zu 3:5?",
+            "id": "m35_q2",
+            "question": "Ihr teilt 60€ im Verhältnis 1:2. Wie viel bekommt die Person mit den 2 Teilen?",
             "answers": [
               {
-                "text": "6:10",
+                "text": "40€",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "5:3",
+                "text": "20€",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "9:12",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "prop1_q3",
-            "question": "Für 2 Gläser Limonade brauchst du 4 Zitronen. Wie viele brauchst du für 5 Gläser?",
-            "answers": [
-              {
-                "text": "8 Zitronen",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "10 Zitronen",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "12 Zitronen",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -8898,20 +8774,19 @@
       }
     ],
     "diplom": {
-      "title": "Verhältnis-Versteher",
-      "description": "Alles steht für dich in perfekter Proportion!",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math3_5_verhaeltnisse_dip_default",
-          "question": "Hast du das Thema \"Verhältnisse\" verstanden? (Alles steht für dich in perfekter Proportion!)",
+          "id": "m35_dip1",
+          "question": "Mischung 2:3. Du hast 4 Teile vom Ersten. Wie viel brauchst du vom Zweiten?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "6 Teile",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "3 Teile",
               "correct": false,
               "pts": 5
             }
@@ -8921,144 +8796,50 @@
     }
   },
   "math3_6_zuordnungen": {
-    "title": "Zuordnungen",
-    "subtitle": "Zusammenhänge erkennen und berechnen",
+    "title": "Zuordnungen (Direkt & Indirekt)",
+    "subtitle": "Je mehr - desto mehr? Oder: Je mehr - desto weniger?",
     "sections": [
       {
-        "id": "proportional",
-        "title": "Proportionale Zuordnungen",
-        "content": "<div class=\"interactive-zone\" id=\"zone-prop\"><svg width=\"400\" height=\"200\" id=\"svg-prop\" style=\"background:#f9f9f9;border:1px solid #ccc;\"><rect x=\"50\" y=\"150\" width=\"50\" height=\"0\" fill=\"#3498db\" id=\"bar1\"/><rect x=\"150\" y=\"150\" width=\"50\" height=\"0\" fill=\"#2ecc71\" id=\"bar2\"/></svg><br><label>Menge (x): <input type=\"range\" min=\"1\" max=\"10\" value=\"1\" id=\"slider-prop\"></label><p>Menge: <span id=\"val-prop\">1</span>, Preis (y): <span id=\"price-prop\">2</span> €</p></div><p>Was passiert mit dem Preis, wenn du die Menge veränderst? Probiere es im interaktiven Bereich oben aus!</p>{{QUIZ_prop1}}<p>Bei einer proportionalen Zuordnung gilt: Dem Doppelten (Dreifachen, ...) der einen Größe entspricht das Doppelte (Dreifache, ...) der anderen Größe. Der Quotient beider Größen ist immer gleich (Quotientengleichheit: y/x = k).</p>{{QUIZ_prop2}}<p>Der Graph einer proportionalen Zuordnung ist eine Halbgerade, die im Koordinatenursprung (0|0) beginnt.</p>{{QUIZ_prop3}}",
+        "id": "sec1",
+        "title": "Direkte Zuordnung: Je mehr, desto mehr!",
+        "content": "<p>Beispiel: 1 Döner kostet 5€. Wie viel kosten 3 Döner?</p><p>Rechnung: 3 x 5€ = 15€.</p><p>Das nennt man <span style='color:red'>direkt</span>. Mehr Döner = mehr Geld.</p><div class='interactive-zone' style='background:#e0f7fa; padding:10px; border-radius:8px;'><h4>Rechne mit!</h4><p>2 Kino-Tickets kosten 20€. Was kosten 5?</p><input type='number' id='kino_in' placeholder='Preis für 5?'><br><button onclick='checkKino()'>Prüfen</button><p id='kino_feedback'></p></div>{{QUIZ_m36_q1}}",
         "quizzes": [
           {
-            "id": "prop1",
-            "question": "Was passiert mit dem y-Wert, wenn sich der x-Wert einer proportionalen Zuordnung vervierfacht?",
+            "id": "m36_q1",
+            "question": "3 Liter Eis kosten 9€. Was kosten 4 Liter?",
             "answers": [
               {
-                "text": "Er vervierfacht sich ebenfalls.",
+                "text": "12€",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Er viertelt sich.",
+                "text": "10€",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Er bleibt gleich.",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "prop2",
-            "question": "Welche Eigenschaft kennzeichnet proportionale Zuordnungen?",
-            "answers": [
-              {
-                "text": "Produktgleichheit (x * y = konstant)",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Quotientengleichheit (y / x = konstant)",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Differenzgleichheit (y - x = konstant)",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "prop3",
-            "question": "Welcher Graph gehört zu einer proportionalen Zuordnung?",
-            "answers": [
-              {
-                "text": "Parabel",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Hyperbel",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Ursprungsgerade",
-                "correct": true,
-                "pts": 10
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "antiproportional",
-        "title": "Antiproportionale Zuordnungen",
-        "content": "<div class=\"interactive-zone\" id=\"zone-antiprop\"><svg width=\"400\" height=\"200\" id=\"svg-antiprop\" style=\"background:#f9f9f9;border:1px solid #ccc;\"><rect x=\"50\" y=\"150\" width=\"50\" height=\"0\" fill=\"#e74c3c\" id=\"bar3\"/><rect x=\"150\" y=\"150\" width=\"50\" height=\"0\" fill=\"#9b59b6\" id=\"bar4\"/></svg><br><label>Arbeiter (x): <input type=\"range\" min=\"1\" max=\"10\" value=\"1\" id=\"slider-antiprop\"></label><p>Arbeiter: <span id=\"val-antiprop\">1</span>, Dauer in Stunden (y): <span id=\"time-antiprop\">12</span> h</p></div><p>Was passiert mit der benötigten Zeit, wenn du die Anzahl der Arbeiter verdoppelst? Finde es heraus!</p>{{QUIZ_antiprop1}}<p>Bei einer antiproportionalen Zuordnung gilt: Dem Doppelten der einen Größe entspricht die Hälfte der anderen Größe. Das Produkt beider Größen ist immer gleich (Produktgleichheit: x * y = k).</p>{{QUIZ_antiprop2}}<p>Der Graph einer antiproportionalen Zuordnung ist eine Hyperbel, die sich den Achsen nähert, diese aber nie berührt.</p>{{QUIZ_antiprop3}}",
+        "id": "sec2",
+        "title": "Indirekte Zuordnung: Je mehr, desto weniger!",
+        "content": "<p>Beispiel: 2 Arbeiter brauchen 6 Stunden zum Aufräumen. Wie lange brauchen 4 Arbeiter?</p><p>Mehr Arbeiter = <span style='color:red'>weniger</span> Zeit!</p><p>Rechnung: 2 Arbeiter = 6h. 4 Arbeiter sind doppelt so viele. Also halbe Zeit: 6h ÷ 2 = 3h.</p><p>Das ist <span style='color:red'>indirekt</span>.</p>{{QUIZ_m36_q2}}",
         "quizzes": [
           {
-            "id": "antiprop1",
-            "question": "Was passiert mit der Zeit (y), wenn sich die Anzahl der Arbeiter (x) verdoppelt (antiproportional)?",
+            "id": "m36_q2",
+            "question": "3 Pumpen füllen ein Becken in 4 Stunden. Wie lange brauchen 6 Pumpen?",
             "answers": [
               {
-                "text": "Die Zeit verdoppelt sich.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Die Zeit halbiert sich.",
+                "text": "2 Stunden",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Zeit bleibt gleich.",
+                "text": "8 Stunden",
                 "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "antiprop2",
-            "question": "Welche Eigenschaft haben Wertepaare einer antiproportionalen Zuordnung?",
-            "answers": [
-              {
-                "text": "Quotientengleichheit",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Produktgleichheit",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Summengleichheit",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "antiprop3",
-            "question": "Wie wird der Graph einer antiproportionalen Zuordnung genannt?",
-            "answers": [
-              {
-                "text": "Gerade",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Parabel",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Hyperbel",
-                "correct": true,
-                "pts": 10
+                "pts": 5
               }
             ]
           }
@@ -9066,20 +8847,19 @@
       }
     ],
     "diplom": {
-      "title": "Zuordnungs-Experte",
-      "description": "Du kannst Zuordnungen erkennen, berechnen und grafisch darstellen!",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math3_6_zuordnungen_dip_default",
-          "question": "Hast du das Thema \"Zuordnungen\" verstanden? (Du kannst Zuordnungen erkennen, berechnen und grafisch darstellen!)",
+          "id": "m36_dip1",
+          "question": "5 Stück kosten 15€. Was kosten 2 Stück?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "6€",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "10€",
               "correct": false,
               "pts": 5
             }
@@ -9089,74 +8869,50 @@
     }
   },
   "math3_7_aehnlichkeit": {
-    "title": "Ähnlichkeit und Strahlensätze",
-    "subtitle": "Figuren vergrößern und verkleinern",
+    "title": "Ähnlichkeit & Maßstab",
+    "subtitle": "Alles wie in echt, nur kleiner (oder größer)!",
     "sections": [
       {
-        "id": "zentrische_streckung",
-        "title": "Zentrische Streckung",
-        "content": "<div class=\"interactive-zone\" id=\"zone-streckung\"><svg width=\"400\" height=\"300\" style=\"background:#f9f9f9;border:1px solid #ccc;\"><circle cx=\"50\" cy=\"150\" r=\"3\" fill=\"red\"/><text x=\"40\" y=\"145\">Z</text><polygon id=\"poly1\" points=\"150,100 150,200 200,200\" fill=\"none\" stroke=\"blue\" stroke-width=\"2\"/><polygon id=\"poly2\" points=\"150,100 150,200 200,200\" fill=\"none\" stroke=\"green\" stroke-width=\"2\"/><line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"0\" stroke=\"#ccc\" stroke-dasharray=\"4\"/><line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"150\" stroke=\"#ccc\" stroke-dasharray=\"4\"/><line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"300\" stroke=\"#ccc\" stroke-dasharray=\"4\"/></svg><br><label>Streckungsfaktor k: <input type=\"range\" min=\"0.5\" max=\"2.5\" step=\"0.1\" value=\"1.5\" id=\"slider-k\"></label><p>k = <span id=\"val-k\">1.5</span></p></div><p>Verändere den Streckungsfaktor k. Was passiert mit den Seitenlängen und Winkeln des grünen Dreiecks im Vergleich zum blauen (k=1)?</p>{{QUIZ_aehnlich1}}<p>Bei einer zentrischen Streckung ändern sich die Seitenlängen um den Faktor k. Die Winkelgrößen bleiben jedoch erhalten. Solche Figuren nennt man ähnlich.</p>{{QUIZ_aehnlich2}}<p>Ist k > 1, handelt es sich um eine Vergrößerung. Ist 0 < k < 1, ist es eine Verkleinerung.</p>{{QUIZ_aehnlich3}}",
+        "id": "sec1",
+        "title": "Was ist ähnlich?",
+        "content": "<p>Zwei Figuren sind <span style='color:red'>ähnlich</span>, wenn sie die gleiche Form haben. Nur die Größe ist anders.</p><p>Wie beim Zoomen am Handy!</p><div class='interactive-zone' style='background:#fff3e0; padding:10px; border-radius:8px; text-align:center;'><svg width='200' height='100'><rect x='10' y='10' width='40' height='20' fill='blue'></rect><rect x='60' y='10' width='80' height='40' fill='green'></rect><rect x='150' y='10' width='30' height='30' fill='red'></rect></svg><br><p>Welches Rechteck ist ähnlich zum blauen?</p><select id='aehn_sel'><option value=''>Wähle...</option><option value='green'>Das Grüne</option><option value='red'>Das Rote</option></select> <button onclick='checkAehn()'>Zeig's mir</button><p id='aehn_feedback'></p></div>{{QUIZ_m37_q1}}",
         "quizzes": [
           {
-            "id": "aehnlich1",
-            "question": "Was passiert mit den Winkeln eines Dreiecks bei einer zentrischen Streckung?",
+            "id": "m37_q1",
+            "question": "Ein Foto ist 10cm breit und 15cm hoch. Welches Plakat ist ähnlich?",
             "answers": [
               {
-                "text": "Sie werden mit k multipliziert.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Sie bleiben gleich groß.",
+                "text": "20cm breit, 30cm hoch",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Sie verändern sich je nach Seitenlänge.",
+                "text": "20cm breit, 20cm hoch",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Der Maßstab",
+        "content": "<p>Auf einer Karte steht Maßstab <span style='color:red'>1 : 100.000</span>.</p><p>Das heißt: 1 cm auf der Karte sind 100.000 cm in echt.</p><p>Tipp: Streiche 5 Nullen weg, dann hast du Kilometer! 100.000 cm = 1 km.</p>{{QUIZ_m37_q2}}",
+        "quizzes": [
           {
-            "id": "aehnlich2",
-            "question": "Wie nennt man zwei Figuren, die durch zentrische Streckung auseinander hervorgehen?",
+            "id": "m37_q2",
+            "question": "Maßstab 1 : 500.000. Wie viele Kilometer in echt ist 1 cm auf der Karte?",
             "answers": [
               {
-                "text": "Kongruent (deckungsgleich)",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Ähnlich",
+                "text": "5 km",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Symmetrisch",
+                "text": "50 km",
                 "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "aehnlich3",
-            "question": "Was bewirkt ein Streckungsfaktor von k = 0,5?",
-            "answers": [
-              {
-                "text": "Eine Vergrößerung auf das Doppelte",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Die Figur wird auf die Hälfte verkleinert",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Die Figur verschwindet",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -9164,20 +8920,19 @@
       }
     ],
     "diplom": {
-      "title": "Meister der Ähnlichkeit",
-      "description": "Strahlensätze und zentrische Streckung sind für dich ein Kinderspiel!",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math3_7_aehnlichkeit_dip_default",
-          "question": "Hast du das Thema \"Ähnlichkeit und Strahlensätze\" verstanden? (Strahlensätze und zentrische Streckung sind für dich ein Kinderspiel!)",
+          "id": "m37_dip1",
+          "question": "Ein Auto-Modell hat Maßstab 1:24. Das Modell ist 20cm lang. Wie lang ist das echte Auto?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "480 cm (4,8m)",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "240 cm (2,4m)",
               "correct": false,
               "pts": 5
             }
@@ -9187,74 +8942,50 @@
     }
   },
   "math3_8_pythagoras": {
-    "title": "Satz des Pythagoras",
-    "subtitle": "Berechnungen am rechtwinkligen Dreieck",
+    "title": "Der Satz des Pythagoras",
+    "subtitle": "a² + b² = c² (Magie der Dreiecke)",
     "sections": [
       {
-        "id": "pythagoras_intro",
-        "title": "a² + b² = c² interaktiv erleben",
-        "content": "<div class=\"interactive-zone\" id=\"zone-pyth\"><svg width=\"400\" height=\"400\" style=\"background:#f9f9f9;border:1px solid #ccc;\"><polygon id=\"tri-pyth\" points=\"150,250 150,150 250,250\" fill=\"#ecf0f1\" stroke=\"#2c3e50\" stroke-width=\"2\"/><rect id=\"sq-a\" x=\"150\" y=\"250\" width=\"100\" height=\"100\" fill=\"rgba(52,152,219,0.5)\"/><rect id=\"sq-b\" x=\"50\" y=\"150\" width=\"100\" height=\"100\" fill=\"rgba(46,204,113,0.5)\"/><polygon id=\"sq-c\" points=\"250,250 150,150 220,80 320,180\" fill=\"rgba(231,76,60,0.5)\"/></svg><br><label>Kathete a: <input type=\"range\" min=\"50\" max=\"150\" value=\"100\" id=\"slider-a\"></label><label>Kathete b: <input type=\"range\" min=\"50\" max=\"150\" value=\"100\" id=\"slider-b\"></label><p>Fläche a²: <span id=\"area-a\">10000</span>, Fläche b²: <span id=\"area-b\">10000</span>, Fläche c²: <span id=\"area-c\">20000</span></p></div><p>Was fällt dir bei den Flächeninhalten der Quadrate auf? Die Summe der blauen (a²) und grünen (b²) Fläche ist exakt so groß wie die rote Fläche (c²).</p>{{QUIZ_pyth1}}<p>Der Satz des Pythagoras gilt <strong>nur</strong> im rechtwinkligen Dreieck. Die längste Seite gegenüber dem rechten Winkel heißt Hypotenuse (c). Die anderen beiden Seiten sind die Katheten (a, b).</p>{{QUIZ_pyth2}}<p>Die Formel lautet: Kathete² + Kathete² = Hypotenuse², oder meistens: a² + b² = c².</p>{{QUIZ_pyth3}}",
+        "id": "sec1",
+        "title": "Die Formel",
+        "content": "<p>Gilt NUR bei Dreiecken mit einem <span style='color:red'>rechten Winkel</span> (90 Grad).</p><p>Die längste Seite heißt <span style='color:red'>Hypotenuse (c)</span>.</p><p>Die Formel: <span style='color:red'>a² + b² = c²</span></p><div class='interactive-zone' style='background:#e8f5e9; padding:10px; border-radius:8px;'><svg width='150' height='150'><polygon points='10,140 130,140 10,50' fill='lightgreen' stroke='black'></polygon><text x='60' y='130'>a=4</text><text x='15' y='95'>b=3</text><text x='70' y='80'>c=?</text><rect x='10' y='130' width='10' height='10' fill='none' stroke='black'></rect></svg><br><input type='number' id='pyth_in' placeholder='Wie lang ist c?'><button onclick='checkPyth()'>Lösen</button><p id='pyth_feedback'></p></div>{{QUIZ_m38_q1}}",
         "quizzes": [
           {
-            "id": "pyth1",
-            "question": "In welcher Art von Dreieck gilt der Satz des Pythagoras?",
+            "id": "m38_q1",
+            "question": "a = 6, b = 8. Berechne c² (a² + b²).",
             "answers": [
               {
-                "text": "In jedem Dreieck",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Nur in rechtwinkligen Dreiecken",
+                "text": "100",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Nur in gleichschenkligen Dreiecken",
+                "text": "14",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Die Wurzel ziehen",
+        "content": "<p>Wenn du c² hast, musst du die <span style='color:red'>Wurzel</span> ziehen.</p><p>Beispiel: c² = 100. Welche Zahl mal sich selbst ist 100?</p><p>Antwort: 10. Also ist <span style='color:red'>c = 10</span>.</p>{{QUIZ_m38_q2}}",
+        "quizzes": [
           {
-            "id": "pyth2",
-            "question": "Wie nennt man die längste Seite in einem rechtwinkligen Dreieck?",
+            "id": "m38_q2",
+            "question": "Dein Ergebnis für c² ist 36. Wie lang ist die Seite c?",
             "answers": [
               {
-                "text": "Kathete",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Hypotenuse",
+                "text": "6",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Diagonale",
+                "text": "18",
                 "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "pyth3",
-            "question": "Wenn Kathete a = 3 cm und Kathete b = 4 cm ist, wie lang ist dann die Hypotenuse c?",
-            "answers": [
-              {
-                "text": "5 cm",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "7 cm",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "25 cm",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -9262,20 +8993,19 @@
       }
     ],
     "diplom": {
-      "title": "Pythagoras-Experte",
-      "description": "Dreiecke haben keine Geheimnisse mehr vor dir!",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math3_8_pythagoras_dip_default",
-          "question": "Hast du das Thema \"Satz des Pythagoras\" verstanden? (Dreiecke haben keine Geheimnisse mehr vor dir!)",
+          "id": "m38_dip1",
+          "question": "Gilt der Satz des Pythagoras in JEDEM Dreieck?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Nein, nur in rechtwinkligen Dreiecken.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Ja, in allen Dreiecken.",
               "correct": false,
               "pts": 5
             }
@@ -9285,74 +9015,71 @@
     }
   },
   "math3_9_koerper": {
-    "title": "Körper berechnen",
-    "subtitle": "Oberfläche und Volumen von Prisma, Zylinder & Co.",
+    "title": "📦 3D-Körper & Raumgeometrie",
+    "subtitle": "Von Minecraft-Blöcken bis zu Cola-Dosen",
     "sections": [
       {
-        "id": "zylinder_volumen",
-        "title": "Zylinder",
-        "content": "<div class=\"interactive-zone\" id=\"zone-zyl\"><svg width=\"300\" height=\"300\" style=\"background:#f9f9f9;border:1px solid #ccc;\"><ellipse id=\"zyl-top\" cx=\"150\" cy=\"100\" rx=\"50\" ry=\"20\" fill=\"#e67e22\" stroke=\"#d35400\" stroke-width=\"2\"/><path id=\"zyl-body\" d=\"M 100 100 L 100 200 A 50 20 0 0 0 200 200 L 200 100 A 50 20 0 0 1 100 100 Z\" fill=\"rgba(230,126,34,0.5)\" stroke=\"#d35400\" stroke-width=\"2\"/></svg><br><label>Radius r: <input type=\"range\" min=\"20\" max=\"100\" value=\"50\" id=\"slider-r\"></label><label>Höhe h: <input type=\"range\" min=\"50\" max=\"200\" value=\"100\" id=\"slider-h\"></label><p>Grundfläche G: <span id=\"area-g\">78.5</span>, Volumen V: <span id=\"vol-z\">7850</span></p></div><p>Das Volumen eines Zylinders (oder Prismas) berechnet sich immer nach dem Prinzip: Grundfläche mal Höhe (V = G * h).</p>{{QUIZ_zyl1}}<p>Beim Zylinder ist die Grundfläche ein Kreis. Also ist G = π * r².</p>{{QUIZ_zyl2}}<p>Damit lautet die genaue Volumenformel für den Zylinder: V = π * r² * h.</p>{{QUIZ_zyl3}}",
+        "id": "m39_sec1",
+        "title": "Was sind 3D-Körper?",
+        "content": "<p>Körper sind <span style=\"color:red; font-weight:bold;\">3D-Figuren</span>. Du kannst sie anfassen. Ein Würfel (wie in Minecraft) ist ein Körper. Ein normales Quadrat auf dem Papier ist flach (2D).</p><div class=\"interactive-zone\" style=\"background:#f0f0f0; padding:10px; border-radius:5px;\"><h3>🎮 Mini-Game: 2D oder 3D?</h3><p>Ist dein Handy 2D oder 3D?</p><input type=\"text\" id=\"ans_m39_1\" placeholder=\"Tippe 2D oder 3D\"><button onclick=\"check_m39()\">Prüfen</button><p id=\"res_m39_1\"></p></div><p>Hier sind bekannte Körper:</p><ul><li><b>Würfel:</b> Spielwürfel</li><li><b>Zylinder:</b> Cola-Dose</li><li><b>Kugel:</b> Fußball</li></ul><p>Bist du bereit?</p>{{QUIZ_m39_q1}}{{QUIZ_m39_q2}}",
         "quizzes": [
           {
-            "id": "zyl1",
-            "question": "Wie lautet die allgemeine Volumenformel für Zylinder und Prismen?",
+            "id": "m39_q1",
+            "question": "Ist ein flaches Blatt Papier (fast) 2D oder 3D?",
             "answers": [
               {
-                "text": "V = Länge * Breite * Höhe",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "V = Grundfläche * Höhe",
+                "text": "2D (flach)",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "V = Mantelfläche * Höhe",
+                "text": "3D (dick)",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           },
           {
-            "id": "zyl2",
-            "question": "Welche Form hat die Grundfläche eines Zylinders?",
+            "id": "m39_q2",
+            "question": "Welche Form hat ein Fußball?",
             "answers": [
               {
-                "text": "Rechteck",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Dreieck",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Kreis",
+                "text": "Kugel",
                 "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "Kreis (2D)",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Zylinder",
+                "correct": false,
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "m39_sec2",
+        "title": "Oberfläche und Volumen",
+        "content": "<p><span style=\"color:red; font-weight:bold;\">Volumen (V)</span> ist der <b>Inhalt</b>. (Wie viel Cola passt in die Dose?)<br><span style=\"color:blue; font-weight:bold;\">Oberfläche (O)</span> ist das außen rum. (Das Alu von der Dose).</p><div style=\"text-align:center;\"><svg width=\"100\" height=\"100\"><rect x=\"10\" y=\"10\" width=\"80\" height=\"80\" fill=\"rgba(255,0,0,0.5)\" stroke=\"red\" stroke-width=\"2\"/><text x=\"25\" y=\"55\" font-family=\"sans-serif\" font-size=\"14\" fill=\"black\">V = a &middot; b &middot; c</text></svg></div><p>Volumen beim Quader (Schachtel): <b>Länge mal Breite mal Höhe</b>.</p>{{QUIZ_m39_q3}}",
+        "quizzes": [
           {
-            "id": "zyl3",
-            "question": "Wie berechnet man das Volumen eines Zylinders konkret?",
+            "id": "m39_q3",
+            "question": "Eine Kiste ist 2m lang, 3m breit und 2m hoch. Was ist das Volumen?",
             "answers": [
               {
-                "text": "V = 2 * π * r * h",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "V = π * r² * h",
+                "text": "12 m³ (2 mal 3 mal 2)",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "V = π * d * h",
+                "text": "7 m³ (2 plus 3 plus 2)",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -9360,20 +9087,40 @@
       }
     ],
     "diplom": {
-      "title": "Raum-Architekt",
-      "description": "Du beherrschst die Geometrie im Raum!",
+      "title": "🎓 Diplom: 3D-Boss",
       "questions": [
         {
-          "id": "math3_9_koerper_dip_default",
-          "question": "Hast du das Thema \"Körper berechnen\" verstanden? (Du beherrschst die Geometrie im Raum!)",
+          "id": "m39_dip1",
+          "question": "Welcher Körper sieht aus wie ein Partyhut oder eine Eiswaffel?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Kegel",
               "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "Pyramide",
+              "correct": false,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Kugel",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m39_dip2",
+          "question": "Was berechnest du, wenn du wissen willst, wie viel Wasser in ein Aquarium passt?",
+          "answers": [
+            {
+              "text": "Das Volumen (V)",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "Die Oberfläche (O)",
               "correct": false,
               "pts": 5
             }
@@ -9383,74 +9130,66 @@
     }
   },
   "math3_10_prozent_zins": {
-    "title": "Prozent- und Zinsrechnung",
-    "subtitle": "Wachstum, Zinsen und Kapital",
+    "title": "💸 Prozent & Zinsen",
+    "subtitle": "Rabatte checken und Geld vermehren",
     "sections": [
       {
-        "id": "zinseszins",
-        "title": "Zinseszins verstehen",
-        "content": "<div class=\"interactive-zone\" id=\"zone-zins\"><svg width=\"400\" height=\"200\" id=\"svg-zins\" style=\"background:#f9f9f9;border:1px solid #ccc;\"></svg><br><label>Laufzeit (Jahre): <input type=\"range\" min=\"1\" max=\"20\" value=\"10\" id=\"slider-jahre\"></label><label>Zinssatz (%): <input type=\"range\" min=\"1\" max=\"15\" value=\"5\" id=\"slider-zins\"></label><p>Endkapital: <span id=\"endkapital\">1628.89</span> € (Startkapital: 1000 €)</p></div><p>Beobachte den Graphen! Durch den Zinseszins wächst das Kapital nicht linear (gerade), sondern exponentiell (gekrümmt nach oben), weil die Zinsen im nächsten Jahr mitverzinst werden.</p>{{QUIZ_zins1}}<p>Die Zinseszinsformel lautet: Kn = K0 * q^n. Dabei ist K0 das Startkapital, Kn das Endkapital, n die Anzahl der Jahre und q der Zinsfaktor.</p>{{QUIZ_zins2}}<p>Der Zinsfaktor q berechnet sich aus dem Zinssatz p: q = 1 + (p / 100). Bei 5% Zinsen ist q = 1,05.</p>{{QUIZ_zins3}}",
+        "id": "m310_sec1",
+        "title": "Was sind Prozente?",
+        "content": "<p>Prozent (%) heißt einfach <span style=\"color:red; font-weight:bold;\">\"von Hundert\"</span>. Wenn 10% deines Handy-Akkus übrig sind, hast du noch 10 von 100 Teilen Energie.</p><div class=\"interactive-zone\" style=\"background:#e0f7fa; padding:10px; border-radius:5px;\"><h3>🎮 Rabatt-Rechner</h3><p>Ein Spiel kostet 50€. Es gibt 20% Rabatt. Wie viel sparst du?</p><input type=\"number\" id=\"ans_m310_1\" placeholder=\"Zahl in €\"><button onclick=\"check_m310()\">Prüfen</button><p id=\"res_m310_1\"></p></div><p>Grundwert (G): Das Ganze (100%).<br>Prozentwert (W): Der Teil (z.B. der Rabatt in Euro).<br>Prozentsatz (p%): Die Zahl mit dem %-Zeichen.</p>{{QUIZ_m310_q1}}{{QUIZ_m310_q2}}",
         "quizzes": [
           {
-            "id": "zins1",
-            "question": "Warum wächst Kapital mit Zinseszins exponentiell?",
+            "id": "m310_q1",
+            "question": "Dein Akku hat noch 50%. Wie viel ist das?",
             "answers": [
               {
-                "text": "Weil der Zinssatz jedes Jahr steigt.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Weil die erhaltenen Zinsen in den Folgejahren mitverzinst werden.",
+                "text": "Die Hälfte (ein Halbes).",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Weil die Bank einen Bonus zahlt.",
+                "text": "Ein Viertel.",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           },
           {
-            "id": "zins2",
-            "question": "Wie groß ist der Zinsfaktor q bei einem Zinssatz von 3%?",
+            "id": "m310_q2",
+            "question": "Ein T-Shirt kostet 20€. 10% Rabatt. Wie viel € sparst du?",
             "answers": [
               {
-                "text": "q = 0,03",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "q = 1,3",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "q = 1,03",
+                "text": "2 € (Komma um 1 Stelle verschieben)",
                 "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "10 €",
+                "correct": false,
+                "pts": 5
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "m310_sec2",
+        "title": "Zinsen: Geld arbeitet für dich",
+        "content": "<p><span style=\"color:green; font-weight:bold;\">Zinsen (Z)</span> bekommst du von der Bank geschenkt, wenn du Geld sparst. Oder du musst sie zahlen, wenn du dir Geld leihst (Kredit).</p><p>Das Geld auf dem Konto ist das <span style=\"color:blue; font-weight:bold;\">Kapital (K)</span>. Der <span style=\"color:red; font-weight:bold;\">Zinssatz (p%)</span> sagt dir, wie viel % Zinsen du pro Jahr bekommst.</p><p>Formel: <b>Z = (K &middot; p) / 100</b></p>{{QUIZ_m310_q3}}",
+        "quizzes": [
           {
-            "id": "zins3",
-            "question": "Was bedeutet das 'n' in der Zinseszinsformel (Kn = K0 * q^n)?",
+            "id": "m310_q3",
+            "question": "Du hast 100€ auf der Bank. Die Bank gibt dir 2% Zinsen im Jahr. Wie viel Geld kriegst du nach einem Jahr dazu?",
             "answers": [
               {
-                "text": "Neukapital",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Laufzeit in Jahren",
+                "text": "2 €",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Nennwert",
+                "text": "20 €",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -9458,20 +9197,35 @@
       }
     ],
     "diplom": {
-      "title": "Finanz-Genie",
-      "description": "Zinsen und Prozente rechnest du fehlerfrei aus!",
+      "title": "🎓 Diplom: Finanz-Checker",
       "questions": [
         {
-          "id": "math3_10_prozent_zins_dip_default",
-          "question": "Hast du das Thema \"Prozent- und Zinsrechnung\" verstanden? (Zinsen und Prozente rechnest du fehlerfrei aus!)",
+          "id": "m310_dip1",
+          "question": "Was bedeutet 100%?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Das Ganze, alles.",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Nichts.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m310_dip2",
+          "question": "Du kaufst ein Handy auf Raten (Kredit). Musst du Zinsen zahlen oder bekommst du Zinsen?",
+          "answers": [
+            {
+              "text": "Ich muss Zinsen zahlen, es wird teurer.",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "Ich bekomme Zinsen geschenkt.",
               "correct": false,
               "pts": 5
             }
@@ -9481,74 +9235,66 @@
     }
   },
   "math3_11_statistik": {
-    "title": "Statistik und Daten",
-    "subtitle": "Daten erfassen, auswerten und darstellen",
+    "title": "📊 Statistik & Daten",
+    "subtitle": "K/D Ratios, TikTok Views und Durchschnitte",
     "sections": [
       {
-        "id": "kenngroessen",
-        "title": "Statistische Kenngrößen",
-        "content": "<div class=\"interactive-zone\" id=\"zone-stat\"><svg width=\"400\" height=\"150\" id=\"svg-stat\" style=\"background:#f9f9f9;border:1px solid #ccc;\"><line x1=\"20\" y1=\"100\" x2=\"380\" y2=\"100\" stroke=\"black\"/><text x=\"20\" y=\"120\">0</text><text x=\"380\" y=\"120\">100</text></svg><br><button onclick=\"addP()\">Zufälligen Wert (0-100) hinzufügen</button> <button onclick=\"clearP()\">Reset</button><p>Daten: <span id=\"data-list\">-</span></p><p>Arithmetisches Mittel (Durchschnitt): <span id=\"mean\">-</span></p><p>Median (Zentralwert): <span id=\"median\">-</span></p></div><p>Füge Daten hinzu und beobachte, wie sich Mittelwert und Median verändern. Der Median ist oft weniger anfällig für extreme Ausreißer als der Mittelwert.</p>{{QUIZ_stat1}}<p>Das arithmetische Mittel berechnet man, indem man alle Werte addiert und durch die Anzahl der Werte teilt.</p>{{QUIZ_stat2}}<p>Der Median (Zentralwert) ist der Wert, der genau in der Mitte steht, wenn man die Daten der Größe nach sortiert.</p>{{QUIZ_stat3}}",
+        "id": "m311_sec1",
+        "title": "Daten sammeln und zeigen",
+        "content": "<p>In der <span style=\"color:red; font-weight:bold;\">Statistik</span> geht es um Daten. Wie viele Likes hast du? Wie viele Stunden zockst du am Tag? Das können wir in Diagrammen zeigen.</p><div style=\"text-align:center;\"><svg width=\"200\" height=\"100\"><rect x=\"10\" y=\"50\" width=\"30\" height=\"40\" fill=\"blue\"/><rect x=\"50\" y=\"20\" width=\"30\" height=\"70\" fill=\"red\"/><rect x=\"90\" y=\"70\" width=\"30\" height=\"20\" fill=\"green\"/><text x=\"15\" y=\"95\" font-size=\"10\">Mo</text><text x=\"55\" y=\"95\" font-size=\"10\">Di</text><text x=\"95\" y=\"95\" font-size=\"10\">Mi</text></svg></div><p>Säulendiagramme zeigen super schnell, wann etwas am meisten war (höchste Säule).</p>{{QUIZ_m311_q1}}",
         "quizzes": [
           {
-            "id": "stat1",
-            "question": "Welcher Wert wird berechnet, indem man die Summe aller Daten durch ihre Anzahl teilt?",
+            "id": "m311_q1",
+            "question": "Welche Säule ist im Diagramm am höchsten?",
             "answers": [
               {
-                "text": "Median",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Arithmetisches Mittel",
+                "text": "Die rote am Dienstag.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Spannweite",
+                "text": "Die grüne am Mittwoch.",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m311_sec2",
+        "title": "Der Durchschnitt (Mittelwert)",
+        "content": "<p>Der <span style=\"color:red; font-weight:bold;\">Mittelwert (Durchschnitt)</span> sagt dir, was 'normal' ist. Wie berechnet man ihn?</p><p><b>1. Alles zusammenrechnen (Plus rechnen).<br>2. Durch die Anzahl teilen.</b></p><div class=\"interactive-zone\" style=\"background:#fff3e0; padding:10px; border-radius:5px;\"><h3>🎮 Noten-Rechner</h3><p>Du hast eine 2 und eine 4 in Mathe. Was ist der Durchschnitt?</p><input type=\"number\" id=\"ans_m311_2\" placeholder=\"Tippe deine Note\"><button onclick=\"check_m311()\">Prüfen</button><p id=\"res_m311_2\"></p></div>{{QUIZ_m311_q2}}{{QUIZ_m311_q3}}",
+        "quizzes": [
+          {
+            "id": "m311_q2",
+            "question": "In drei Spielen hast du 2, 4 und 6 Kills gemacht. Was ist dein Durchschnitt (Mittelwert)?",
+            "answers": [
+              {
+                "text": "4 Kills (2+4+6=12. 12:3=4)",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "6 Kills",
+                "correct": false,
+                "pts": 5
               }
             ]
           },
           {
-            "id": "stat2",
-            "question": "Was muss man zwingend tun, bevor man den Median bestimmen kann?",
+            "id": "m311_q3",
+            "question": "Was ist das Maximum in einer Datenliste?",
             "answers": [
               {
-                "text": "Die Werte der Größe nach ordnen.",
+                "text": "Der größte Wert (z.B. dein bester Highscore).",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Alle Werte addieren.",
+                "text": "Der kleinste Wert.",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Die kleinsten und größten Werte streichen.",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "stat3",
-            "question": "Welche Kenngröße reagiert stärker auf einzelne, extreme Ausreißer (z.B. einen Milliardär in einer Gruppe normaler Verdiener)?",
-            "answers": [
-              {
-                "text": "Median",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Arithmetisches Mittel",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Beide reagieren gleich stark",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -9556,20 +9302,35 @@
       }
     ],
     "diplom": {
-      "title": "Daten-Analyst",
-      "description": "Statistiken kannst du sicher auswerten und bewerten!",
+      "title": "🎓 Diplom: Daten-Nerd",
       "questions": [
         {
-          "id": "math3_11_statistik_dip_default",
-          "question": "Hast du das Thema \"Statistik und Daten\" verstanden? (Statistiken kannst du sicher auswerten und bewerten!)",
+          "id": "m311_dip1",
+          "question": "Wie rechnest du den Durchschnitt aus?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Alles addieren (Plus) und durch die Anzahl teilen.",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Alles malnehmen (Mal).",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m311_dip2",
+          "question": "Was zeigt ein Liniendiagramm am besten?",
+          "answers": [
+            {
+              "text": "Wie sich etwas über die Zeit verändert (z.B. Fieber oder Follower).",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "Gar nichts, sieht nur schön aus.",
               "correct": false,
               "pts": 5
             }
@@ -9579,74 +9340,50 @@
     }
   },
   "math4_1_reelle_zahlen": {
-    "title": "Reelle Zahlen",
-    "subtitle": "Von den Brüchen zum Kontinuum",
+    "title": "Wurzeln & Reelle Zahlen",
+    "subtitle": "Knacke den Code der Quadrate!",
     "sections": [
       {
-        "id": "math4_1_sec1",
-        "title": "Was ist die Wurzel aus 2?",
-        "content": "<div class='interactive-zone'>\n  <svg id='sqrt-svg' width='300' height='200' viewBox='0 0 300 200'>\n    <rect x='50' y='50' width='100' height='100' stroke='#333' stroke-width='2' fill='rgba(0,150,255,0.2)' />\n    <line x1='50' y1='150' x2='150' y2='50' stroke='#e74c3c' stroke-width='3' stroke-dasharray='5,5' />\n    <text x='95' y='145' font-family='sans-serif' font-size='14'>1</text>\n    <text x='40' y='105' font-family='sans-serif' font-size='14'>1</text>\n    <text x='100' y='95' font-family='sans-serif' font-size='14' fill='#e74c3c' id='diag-text'>d = ?</text>\n  </svg>\n  <br>\n  <input type='range' id='guess-slider' min='1' max='2' step='0.01' value='1.5'>\n  <span id='guess-val'>1.50</span>\n  \n</div>\n<p>Bevor wir uns mit der Theorie beschäftigen, versuche die Länge der Diagonale eines Quadrats mit Seitenlänge 1 zu finden. Wenn das Quadrat die Seitenlänge 1 hat, ist die Fläche der Quadrate über den Katheten 1² + 1² = 2. Die Diagonale d muss also d² = 2 erfüllen.</p>\n{{QUIZ_q_real_1}}\n<p>Gibt es einen Bruch, dessen Quadrat genau 2 ergibt? Die alten Griechen dachten, alles lässt sich als Bruch darstellen. Aber die Wurzel aus 2 gehört nicht zu den rationalen Zahlen.</p>\n{{QUIZ_q_real_2}}\n<p>Diese neuen Zahlen zusammen mit den rationalen Zahlen bilden die Menge der reellen Zahlen. Sie füllen die Zahlengerade lückenlos aus.</p>\n{{QUIZ_q_real_3}}",
+        "id": "sec1",
+        "title": "Was ist eine Wurzel?",
+        "content": "<p>Stell dir vor, du baust in Minecraft ein <span style='color:blue; font-weight:bold;'>quadratisches Haus</span>. Die Fläche ist <span style='color:red'>25 Blöcke</span>. Wie lang ist eine Seite?</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><svg width='100' height='100'><rect width='100' height='100' style='fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)' /><text x='25' y='55' fill='white' font-size='20'>25 m²</text></svg><br><p>Seitenlänge: <input type='number' id='root1' style='width:50px;'> m <button onclick='checkRoot1()'>Prüfen</button></p><p id='feedback1'></p></div><p>Die Wurzel aus 25 ist 5. Ganz einfach!</p>{{QUIZ_m41_q1}}",
         "quizzes": [
           {
-            "id": "q_real_1",
-            "question": "Welcher Wert kommt der Wurzel aus 2 am nächsten?",
+            "id": "m41_q1",
+            "question": "Was ist die Wurzel aus 36?",
             "answers": [
               {
-                "text": "1.414",
+                "text": "6 (weil 6x6=36)",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "1.5",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "1.333",
+                "text": "18 (die Hälfte)",
                 "correct": false,
                 "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Irrationale Zahlen",
+        "content": "<p>Manche Zahlen enden <span style='color:red'>nie</span>! Zum Beispiel die Wurzel aus 2. Der Taschenrechner zeigt 1.4142135... Das nennt man <span style='color:blue'>irrational</span> (unlogisch/verrückt).</p>{{QUIZ_m41_q2}}",
+        "quizzes": [
           {
-            "id": "q_real_2",
-            "question": "Warum kann √2 nicht als Bruch p/q (gekürzt) geschrieben werden?",
+            "id": "m41_q2",
+            "question": "Ist die Wurzel aus 2 eine normale Zahl?",
             "answers": [
               {
-                "text": "Weil dann p² = 2q² wäre, was bedeutet, dass p und q beide gerade sein müssten, was der Annahme widerspricht, dass der Bruch gekürzt ist.",
+                "text": "Nein, sie hört nie auf.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Weil Brüche immer kleiner als 1 sind.",
+                "text": "Ja, es ist genau 1.5",
                 "correct": false,
                 "pts": 0
-              },
-              {
-                "text": "Weil 2 eine Primzahl ist und Wurzeln aus Primzahlen nie Brüche sind, aus rein magischen Gründen.",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "q_real_3",
-            "question": "Welche der folgenden Zahlen ist irrational?",
-            "answers": [
-              {
-                "text": "√9",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "1/3",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "π (Pi)",
-                "correct": true,
-                "pts": 10
               }
             ]
           }
@@ -9654,22 +9391,21 @@
       }
     ],
     "diplom": {
-      "title": "Meister der Kontinua",
-      "description": "Du hast die Lücken auf der Zahlengeraden geschlossen.",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math4_1_reelle_zahlen_dip_default",
-          "question": "Hast du das Thema \"Reelle Zahlen\" verstanden? (Du hast die Lücken auf der Zahlengeraden geschlossen.)",
+          "id": "m41_dip1",
+          "question": "Was ist die Wurzel aus 100?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "10",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "50",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -9678,66 +9414,47 @@
   },
   "math4_2_pythagoras": {
     "title": "Satz des Pythagoras",
-    "subtitle": "Geometrie der rechtwinkligen Dreiecke",
+    "subtitle": "Das Dreieck-Geheimnis der Skater!",
     "sections": [
       {
-        "id": "math4_2_sec1",
-        "title": "Flächen und Katheten",
-        "content": "<div class='interactive-zone'>\n  <svg id='pyth-svg' width='300' height='300' viewBox='0 0 300 300'>\n    <polygon points='100,150 100,200 200,200' fill='#f1c40f' stroke='#333' />\n    <rect x='50' y='150' width='50' height='50' fill='rgba(231, 76, 60, 0.5)' />\n    <rect x='100' y='200' width='100' height='100' fill='rgba(52, 152, 219, 0.5)' />\n    <polygon points='100,150 200,200 155,55 55,105' fill='rgba(46, 204, 113, 0.5)' stroke='#333' />\n  </svg>\n  \n</div>\n<p>Spiele mit dem Dreieck oben. Fällt dir auf, wie die Quadrate über den beiden kürzeren Seiten (Katheten) zusammen genau so groß aussehen wie das Quadrat über der längsten Seite (Hypotenuse)?</p>\n{{QUIZ_q_pyth_1}}\n<p>Diese fundamentale Beziehung a² + b² = c² gilt in jedem rechtwinkligen Dreieck.</p>\n{{QUIZ_q_pyth_2}}\n<p>Man kann den Satz nicht nur verwenden, um fehlende Seitenlängen zu berechnen, sondern auch um zu prüfen, ob ein Dreieck rechtwinklig ist (die Umkehrung des Satzes).</p>\n{{QUIZ_q_pyth_3}}",
+        "id": "sec1",
+        "title": "Das rechtwinklige Dreieck",
+        "content": "<p>Du baust eine Rampe. Du kennst die Höhe (<span style='color:blue'>a</span>) und die Länge am Boden (<span style='color:green'>b</span>). Wie lang ist die schräge Fahrbahn (<span style='color:red'>c</span>)?</p><p>Die Formel: <span style='color:blue'>a²</span> + <span style='color:green'>b²</span> = <span style='color:red'>c²</span></p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><svg width='150' height='100'><polygon points='10,90 140,90 10,10' style='fill:lightgrey;stroke:black;stroke-width:2' /><text x='70' y='105' fill='green'>b=4</text><text x='15' y='50' fill='blue'>a=3</text><text x='80' y='45' fill='red'>c=?</text></svg><br><p>Berechne c! (3² + 4² = ?²) <input type='number' id='pyth1' style='width:50px;'><button onclick='checkPyth1()'>Prüfen</button></p><p id='fb_pyth1'></p></div>{{QUIZ_m42_q1}}",
         "quizzes": [
           {
-            "id": "q_pyth_1",
-            "question": "Wie lautet die Gleichung des Satzes von Pythagoras für ein Dreieck mit Katheten a, b und Hypotenuse c?",
+            "id": "m42_q1",
+            "question": "Wo gilt der Satz des Pythagoras?",
             "answers": [
               {
-                "text": "a + b = c",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "a² + b² = c²",
+                "text": "In Dreiecken mit einem rechten Winkel (90°).",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "a² - b² = c²",
+                "text": "In jedem Kreis.",
                 "correct": false,
                 "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Hypotenuse vs Katheten",
+        "content": "<p>Die längste Seite heißt <span style='color:red; font-weight:bold;'>Hypotenuse</span>. Sie liegt immer gegenüber vom rechten Winkel. Die kurzen Seiten heißen <span style='color:blue'>Katheten</span>.</p>{{QUIZ_m42_q2}}",
+        "quizzes": [
           {
-            "id": "q_pyth_2",
-            "question": "Ein rechtwinkliges Dreieck hat die Katheten 3 cm und 4 cm. Wie lang ist die Hypotenuse?",
+            "id": "m42_q2",
+            "question": "Wie heißt die längste Seite im rechtwinkligen Dreieck?",
             "answers": [
               {
-                "text": "5 cm",
+                "text": "Hypotenuse",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "7 cm",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "25 cm",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "q_pyth_3",
-            "question": "Ein Dreieck hat die Seiten 5, 12 und 13. Ist es rechtwinklig?",
-            "answers": [
-              {
-                "text": "Ja, weil 5² + 12² = 25 + 144 = 169 = 13².",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Nein, weil 5 + 12 ist nicht 13.",
+                "text": "Kathete",
                 "correct": false,
                 "pts": 0
               }
@@ -9747,22 +9464,21 @@
       }
     ],
     "diplom": {
-      "title": "Geometrie-Gelehrter",
-      "description": "Du beherrschst die Geheimnisse der rechtwinkligen Dreiecke.",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math4_2_pythagoras_dip_default",
-          "question": "Hast du das Thema \"Satz des Pythagoras\" verstanden? (Du beherrschst die Geheimnisse der rechtwinkligen Dreiecke.)",
+          "id": "m42_dip1",
+          "question": "Welche Formel ist der Satz des Pythagoras?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "a² + b² = c²",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "a + b = c",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -9770,72 +9486,48 @@
     }
   },
   "math4_3_terme_gleichungen": {
-    "title": "Terme und Gleichungen",
-    "subtitle": "Die Sprache der Algebra",
+    "title": "Terme & Gleichungen",
+    "subtitle": "Finde das versteckte X!",
     "sections": [
       {
-        "id": "math4_3_sec1",
-        "title": "Gleichungen im Gleichgewicht",
-        "content": "<div class='interactive-zone'>\n  <svg width='300' height='200' viewBox='0 0 300 200' id='scale-svg'>\n    <line x1='150' y1='150' x2='150' y2='100' stroke='#333' stroke-width='4' />\n    <polygon points='140,150 160,150 150,130' fill='#333' />\n    <line x1='50' y1='100' x2='250' y2='100' stroke='#333' stroke-width='4' id='beam' />\n    <circle cx='80' cy='85' r='15' fill='#e74c3c' />\n    <text x='75' y='90' fill='white'>x</text>\n    <rect x='110' y='70' width='30' height='30' fill='#3498db' />\n    <text x='115' y='90' fill='white'>5</text>\n    <rect x='220' y='70' width='30' height='30' fill='#3498db' />\n    <text x='225' y='90' fill='white'>12</text>\n  </svg>\n  <br>\n  <button id='solve-btn'>Auf beiden Seiten -5</button>\n  \n</div>\n<p>Eine Gleichung ist wie eine Balkenwaage. Was man auf der einen Seite tut, muss man auch auf der anderen tun, um das Gleichgewicht zu erhalten.</p>\n{{QUIZ_q_eq_1}}\n<p>Bei komplexeren Termen musst du zuerst zusammenfassen und vereinfachen, bevor du die Äquivalenzumformungen anwendest.</p>\n{{QUIZ_q_eq_2}}\n<p>Terme können ausmultipliziert oder faktorisiert werden, um Gleichungen leichter lösbar zu machen.</p>\n{{QUIZ_q_eq_3}}",
+        "id": "sec1",
+        "title": "Was ist ein Term?",
+        "content": "<p>Stell dir vor, du kaufst <span style='color:red'>X</span> Lootboxen. Jede kostet 2 Euro. Der Preis ist <span style='color:blue'>2 * X</span>. Das ist ein Term!</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><p>Setze für X die Zahl 3 ein (Du kaufst 3 Lootboxen). Wie viel zahlst du?</p><input type='number' id='term1' style='width:50px;'> Euro <button onclick='checkTerm1()'>Prüfen</button><p id='fb_term1'></p></div>{{QUIZ_m43_q1}}",
         "quizzes": [
           {
-            "id": "q_eq_1",
-            "question": "Was ist die Lösung für x + 5 = 12?",
+            "id": "m43_q1",
+            "question": "Was ist '3 * x' wenn x = 4 ist?",
             "answers": [
               {
-                "text": "x = 7",
+                "text": "12",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "x = 17",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "x = -7",
+                "text": "34",
                 "correct": false,
                 "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Gleichungen lösen",
+        "content": "<p>Eine Gleichung ist wie eine <span style='color:green'>Waage</span>. Beide Seiten müssen gleich schwer sein.</p><p><span style='color:blue'>x + 5 = 12</span></p><p>Was muss x sein? <span style='color:red'>Tipp: Rechne minus 5 auf beiden Seiten.</span></p>{{QUIZ_m43_q2}}",
+        "quizzes": [
           {
-            "id": "q_eq_2",
-            "question": "Vereinfache den Term: 3x + 4 - x + 2",
+            "id": "m43_q2",
+            "question": "Löse: x + 4 = 10",
             "answers": [
               {
-                "text": "2x + 6",
+                "text": "x = 6",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "4x + 6",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "2x - 2",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "q_eq_3",
-            "question": "Welche Umformung ist der erste logische Schritt, um 2(x - 3) = 10 zu lösen?",
-            "answers": [
-              {
-                "text": "Beide Seiten durch 2 teilen.",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Auf beiden Seiten 3 addieren.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Beide Seiten mit 2 multiplizieren.",
+                "text": "x = 14",
                 "correct": false,
                 "pts": 0
               }
@@ -9845,22 +9537,21 @@
       }
     ],
     "diplom": {
-      "title": "Algebra-Alchemist",
-      "description": "Gleichungen sind für dich kein Rätsel mehr.",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math4_3_terme_gleichungen_dip_default",
-          "question": "Hast du das Thema \"Terme und Gleichungen\" verstanden? (Gleichungen sind für dich kein Rätsel mehr.)",
+          "id": "m43_dip1",
+          "question": "Löse: 2 * x = 10",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "x = 5",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "x = 8",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -9868,72 +9559,48 @@
     }
   },
   "math4_4_funktionen_sys": {
-    "title": "Lineare Funktionen und Gleichungssysteme",
-    "subtitle": "Schnittpunkte im Koordinatensystem",
+    "title": "Funktionen",
+    "subtitle": "Der Mathe-Automat",
     "sections": [
       {
-        "id": "math4_4_sec1",
-        "title": "Wo sich Linien treffen",
-        "content": "<div class='interactive-zone'>\n  <svg width='300' height='300' viewBox='-10 -10 20 20' id='coord-svg' style='background:#f9f9f9; border:1px solid #ccc;'>\n    <line x1='-10' y1='0' x2='10' y2='0' stroke='#999' stroke-width='0.2' />\n    <line x1='0' y1='-10' x2='0' y2='10' stroke='#999' stroke-width='0.2' />\n    <line x1='-8' y1='10' x2='8' y2='-6' stroke='#e74c3c' stroke-width='0.5' id='line1' />\n    <line x1='-6' y1='-10' x2='10' y2='6' stroke='#3498db' stroke-width='0.5' id='line2' />\n    <circle cx='3' cy='-1' r='0.5' fill='#2ecc71' id='intersection-pt' style='cursor:pointer;' />\n  </svg>\n  \n</div>\n<p>Lineare Gleichungen mit zwei Variablen beschreiben Geraden im Koordinatensystem. Ein System aus zwei solchen Gleichungen sucht nach einem Punkt, der auf <b>beiden</b> Geraden liegt.</p>\n{{QUIZ_q_sys_1}}\n<p>Grafisch ist die Lösung eines linearen Gleichungssystems einfach der Schnittpunkt der beiden Geraden.</p>\n{{QUIZ_q_sys_2}}\n<p>Es gibt verschiedene rechnerische Verfahren, um diesen Punkt exakt zu bestimmen: Gleichsetzungsverfahren, Einsetzungsverfahren und Additionsverfahren.</p>\n{{QUIZ_q_sys_3}}",
+        "id": "sec1",
+        "title": "Was ist eine Funktion?",
+        "content": "<p>Eine Funktion ist wie ein <span style='color:blue'>Getränkeautomat</span>. Du wirfst 2 Euro ein (<span style='color:green'>Eingabe X</span>), und bekommst 1 Cola heraus (<span style='color:red'>Ausgabe Y</span>).</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><p>Unsere Funktion: <span style='color:blue'>y = x + 3</span></p><p>Wenn x = 2 ist, was ist y?</p><input type='number' id='func1' style='width:50px;'> <button onclick='checkFunc1()'>Prüfen</button><p id='fb_func1'></p></div>{{QUIZ_m44_q1}}",
         "quizzes": [
           {
-            "id": "q_sys_1",
-            "question": "Was bedeutet es grafisch, wenn ein lineares Gleichungssystem keine Lösung hat?",
+            "id": "m44_q1",
+            "question": "Bei y = x + 5, was ist y wenn x = 10 ist?",
             "answers": [
               {
-                "text": "Die beiden Geraden sind parallel und identisch.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Die beiden Geraden sind parallel und schneiden sich nie.",
+                "text": "15",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Geraden stehen senkrecht aufeinander.",
+                "text": "5",
                 "correct": false,
                 "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Lineare Funktionen zeichnen",
+        "content": "<p>Wir können das zeichnen! Jeder Punkt hat eine <span style='color:blue'>x-Koordinate</span> (links/rechts) und eine <span style='color:red'>y-Koordinate</span> (hoch/runter).</p><p>Ein Gaming-Abo kostet 5 Euro pro Monat. <span style='color:blue'>y = 5 * x</span></p><p>Eine gerade Linie entsteht!</p>{{QUIZ_m44_q2}}",
+        "quizzes": [
           {
-            "id": "q_sys_2",
-            "question": "Löse das System: y = x + 2 und y = 4 - x",
+            "id": "m44_q2",
+            "question": "Wie sieht der Graph von y = 5 * x aus?",
             "answers": [
               {
-                "text": "x = 1, y = 3",
+                "text": "Wie eine gerade Linie (Strahl).",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "x = 2, y = 2",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "x = 0, y = 2",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "q_sys_3",
-            "question": "Welches Verfahren bietet sich am besten an, wenn das System so aussieht: y = 2x + 1 und y = -x + 4?",
-            "answers": [
-              {
-                "text": "Das Gleichsetzungsverfahren",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Das Additionsverfahren",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Grafisches Raten",
+                "text": "Wie ein Kreis.",
                 "correct": false,
                 "pts": 0
               }
@@ -9943,22 +9610,21 @@
       }
     ],
     "diplom": {
-      "title": "System-Stratege",
-      "description": "Du findest immer den richtigen Schnittpunkt.",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math4_4_funktionen_sys_dip_default",
-          "question": "Hast du das Thema \"Lineare Funktionen und Gleichungssysteme\" verstanden? (Du findest immer den richtigen Schnittpunkt.)",
+          "id": "m44_dip1",
+          "question": "Was macht eine Funktion?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Sie macht aus einer Eingabe (X) eine Ausgabe (Y).",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Sie versteckt Zahlen.",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -9966,117 +9632,48 @@
     }
   },
   "math4_5_aehnlichkeit": {
-    "title": "Ähnlichkeit und Strahlensätze",
-    "subtitle": "Geometrische Verhältnisse erkunden",
+    "title": "🔍 Zoom in! Ähnlichkeit",
+    "subtitle": "Wie bei Google Maps: Größer oder kleiner, aber gleiche Form!",
     "sections": [
       {
-        "id": "aehnlichkeit_1",
-        "title": "Zentrische Streckung und Maßstab",
-        "content": "<div class=\"interactive-zone\"><svg id=\"scale-svg\" width=\"400\" height=\"200\"><polygon id=\"original\" points=\"10,10 50,10 30,50\" fill=\"blue\"/><polygon id=\"scaled\" points=\"100,10 180,10 140,90\" fill=\"none\" stroke=\"red\" stroke-width=\"2\"/></svg><br><input type=\"range\" id=\"k-slider\" min=\"0.5\" max=\"3\" step=\"0.1\" value=\"2\"><label for=\"k-slider\">Streckungsfaktor k</label></div><p>Willkommen zur zentrischen Streckung! Experimentiere mit dem Schieberegler oben, um zu sehen, wie sich das rote Dreieck verändert.</p>{{QUIZ_aeh_1}}<p>Wenn man eine Figur mit einem Faktor k > 1 streckt, wird sie vergrößert. Die Winkel bleiben dabei gleich, aber die Seitenlängen ändern sich.</p>{{QUIZ_aeh_2}}<p>Eine wichtige Erkenntnis ist, wie sich der Flächeninhalt verhält.</p>{{QUIZ_aeh_3}}",
+        "id": "sec1",
+        "title": "Was heißt 'ähnlich'?",
+        "content": "<div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><p>Ein Handy-Display ist ein Rechteck. Wenn du ein Video auf dem TV schaust, ist es <span style='color:red; font-weight:bold;'>ähnlich</span>. Gleiche Form, andere Größe!</p><svg width='200' height='100'><rect width='50' height='30' fill='blue'/><rect x='60' width='100' height='60' fill='lightblue'/></svg><br><input type='number' id='aehn_q1' placeholder='Faktor?'><button onclick='if(document.getElementById(\"aehn_q1\").value==2) alert(\"Richtig! Faktor 2\"); else alert(\"Falsch, versuch 2\");'>Check</button></div><p>Wenn alle Seiten mal 2 gerechnet werden, ist der Faktor k = 2.</p>{{QUIZ_m45_q1}}",
         "quizzes": [
           {
-            "id": "aeh_1",
-            "question": "Was passiert mit den Winkeln des Dreiecks bei der Streckung?",
+            "id": "m45_q1",
+            "question": "Dein Poster ist 20cm breit. Du vergrößerst es mit Faktor 3. Wie breit ist es jetzt?",
             "answers": [
               {
-                "text": "Sie werden größer",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Sie bleiben gleich",
+                "text": "60 cm",
                 "correct": true,
-                "pts": 1
+                "pts": 10
               },
               {
-                "text": "Sie werden kleiner",
+                "text": "23 cm",
                 "correct": false,
                 "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "aeh_2",
-            "question": "Wie ändert sich die Seitenlänge bei einem Streckungsfaktor k = 3?",
-            "answers": [
-              {
-                "text": "Sie verdreifacht sich",
-                "correct": true,
-                "pts": 1
-              },
-              {
-                "text": "Sie bleibt gleich",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "aeh_3",
-            "question": "Wie ändert sich der Flächeninhalt bei k = 2?",
-            "answers": [
-              {
-                "text": "Er verdoppelt sich",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Er vervierfacht sich",
-                "correct": true,
-                "pts": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "aehnlichkeit_2",
-        "title": "Die Strahlensätze",
-        "content": "<div class=\"interactive-zone\"><svg width=\"400\" height=\"200\"><line x1=\"10\" y1=\"100\" x2=\"380\" y2=\"100\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"10\" y1=\"100\" x2=\"380\" y2=\"20\" stroke=\"black\" stroke-width=\"2\"/><line id=\"parallel1\" x1=\"100\" y1=\"100\" x2=\"100\" y2=\"80\" stroke=\"blue\" stroke-width=\"2\"/><line id=\"parallel2\" x1=\"200\" y1=\"100\" x2=\"200\" y2=\"60\" stroke=\"red\" stroke-width=\"2\"/></svg></div><p>Betrachte die parallelen Linien, die von zwei Strahlen geschnitten werden.</p>{{QUIZ_aeh_4}}<p>Der 1. Strahlensatz beschreibt das Verhältnis der Streckenabschnitte auf den Strahlen.</p>{{QUIZ_aeh_5}}<p>Der 2. Strahlensatz bezieht die parallelen Strecken mit ein.</p>{{QUIZ_aeh_6}}",
+        "id": "sec2",
+        "title": "Strahlensatz - Schatten messen",
+        "content": "<div class='interactive-zone'><p>Du kannst die Höhe eines Baumes messen, ohne zu klettern! Nutze <span style='color:red'>Schatten</span>.</p></div>{{QUIZ_m45_q2}}",
         "quizzes": [
           {
-            "id": "aeh_4",
-            "question": "Welche Bedingung muss für die Strahlensätze erfüllt sein?",
+            "id": "m45_q2",
+            "question": "Ein 2m großer Typ hat 3m Schatten. Der Baum hat 9m Schatten. Wie hoch ist der Baum?",
             "answers": [
               {
-                "text": "Die schneidenden Geraden müssen senkrecht zueinander sein",
-                "correct": false,
-                "pts": 0
+                "text": "6 m",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "Die schneidenden Geraden müssen parallel sein",
-                "correct": true,
-                "pts": 1
-              }
-            ]
-          },
-          {
-            "id": "aeh_5",
-            "question": "Was besagt der 1. Strahlensatz über das Verhältnis der Abschnitte?",
-            "answers": [
-              {
-                "text": "Es ist konstant",
-                "correct": true,
-                "pts": 1
-              },
-              {
-                "text": "Es halbiert sich immer",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "aeh_6",
-            "question": "Beim 2. Strahlensatz verhält sich ein Parallelenabschnitt zum entsprechenden Strahlabschnitt wie...",
-            "answers": [
-              {
-                "text": "... der andere Parallelenabschnitt zu seinem Strahlabschnitt",
-                "correct": true,
-                "pts": 1
-              },
-              {
-                "text": "... das Quadrat der Entfernung zum Zentrum",
+                "text": "9 m",
                 "correct": false,
                 "pts": 0
               }
@@ -10086,22 +9683,21 @@
       }
     ],
     "diplom": {
-      "title": "Experte für Ähnlichkeit",
-      "description": "Du hast die Strahlensätze und zentrische Streckung gemeistert.",
+      "title": "🎓 Diplom Ähnlichkeit",
       "questions": [
         {
-          "id": "math4_5_aehnlichkeit_dip_default",
-          "question": "Hast du das Thema \"Ähnlichkeit und Strahlensätze\" verstanden? (Du hast die Strahlensätze und zentrische Streckung gemeistert.)",
+          "id": "m45_dip1",
+          "question": "Faktor k = 0,5. Was passiert mit dem Bild?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Es wird kleiner (halb so groß).",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Es wird doppelt so groß.",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -10109,114 +9705,50 @@
     }
   },
   "math4_6_koerper": {
-    "title": "Geometrische Körper und Volumenberechnung",
-    "subtitle": "Von Prismen bis zur Kugel",
+    "title": "🧊 3D Welt: Zylinder, Kegel & Kugel",
+    "subtitle": "Dosen, Eiswaffeln und Fußbälle berechnen!",
     "sections": [
       {
-        "id": "koerper_1",
-        "title": "Volumen von Prismen und Zylindern",
-        "content": "<div class=\"interactive-zone\"><svg width=\"300\" height=\"200\"><rect x=\"50\" y=\"100\" width=\"100\" height=\"80\" fill=\"lightblue\" stroke=\"black\"/><ellipse cx=\"100\" cy=\"100\" rx=\"50\" ry=\"20\" fill=\"lightblue\" stroke=\"black\"/><ellipse cx=\"100\" cy=\"180\" rx=\"50\" ry=\"20\" fill=\"none\" stroke=\"black\"/></svg><br><button onclick=\"alert('Die Grundfläche G multipliziert mit der Höhe h ergibt das Volumen!')\">Tipp anzeigen</button></div><p>Ein Zylinder ist im Grunde ein Prisma mit kreisförmiger Grundfläche.</p>{{QUIZ_koe_1}}<p>Die Volumenformel lautet V = G * h.</p>{{QUIZ_koe_2}}<p>Und was ist mit der Oberfläche?</p>{{QUIZ_koe_3}}",
+        "id": "sec1",
+        "title": "Die Red Bull Dose (Zylinder)",
+        "content": "<div class='interactive-zone'><p>Ein Zylinder hat zwei Kreise (Boden & Deckel) und ein Rechteck als Mantel. <span style='color:red; font-weight:bold;'>Volumen = Grundfläche × Höhe</span>.</p><svg width='100' height='100'><ellipse cx='50' cy='20' rx='30' ry='10' fill='silver'/><ellipse cx='50' cy='80' rx='30' ry='10' fill='gray'/><rect x='20' y='20' width='60' height='60' fill='silver'/></svg><br><input type='number' id='cyl_v' placeholder='V = ?'><button onclick='alert(\"Grundfläche mal Höhe!\")'>Tipp</button></div><p>Rechne einfach G * h.</p>{{QUIZ_m46_q1}}",
         "quizzes": [
           {
-            "id": "koe_1",
-            "question": "Wie berechnet man die Grundfläche eines Zylinders (Radius r)?",
+            "id": "m46_q1",
+            "question": "Eine Dose hat Grundfläche 20 cm² und ist 10 cm hoch. Volumen?",
             "answers": [
               {
-                "text": "r^2 * pi",
+                "text": "200 cm³",
                 "correct": true,
-                "pts": 1
+                "pts": 10
               },
               {
-                "text": "2 * r * pi",
+                "text": "30 cm³",
                 "correct": false,
                 "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "koe_2",
-            "question": "Was ergibt die Höhe h multipliziert mit die Grundfläche G?",
-            "answers": [
-              {
-                "text": "Den Oberflächeninhalt",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Das Volumen",
-                "correct": true,
-                "pts": 1
-              }
-            ]
-          },
-          {
-            "id": "koe_3",
-            "question": "Woraus besteht die Oberfläche eines Zylinders?",
-            "answers": [
-              {
-                "text": "Nur aus der Mantelfläche",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Aus zwei Grundflächen und der Mantelfläche",
-                "correct": true,
-                "pts": 1
               }
             ]
           }
         ]
       },
       {
-        "id": "koerper_2",
-        "title": "Pyramiden und Kegel",
-        "content": "<div class=\"interactive-zone\"><svg width=\"300\" height=\"200\"><polygon points=\"150,20 50,180 250,180\" fill=\"lightgreen\" stroke=\"black\"/></svg></div><p>Pyramiden und Kegel laufen oben spitz zusammen.</p>{{QUIZ_koe_4}}<p>Die Volumenformel enthält den Faktor 1/3.</p>{{QUIZ_koe_5}}<p>Der Mantel eines Kegels berechnet sich mit r, s und pi.</p>{{QUIZ_koe_6}}",
+        "id": "sec2",
+        "title": "Die Eiswaffel (Kegel)",
+        "content": "<p>Beim Kegel ist das Volumen nur <span style='color:red'>ein Drittel</span> vom Zylinder! V = (G × h) : 3.</p>{{QUIZ_m46_q2}}",
         "quizzes": [
           {
-            "id": "koe_4",
-            "question": "Welchen Bruchteil des Volumens eines Zylinders hat ein Kegel mit gleicher Grundfläche und Höhe?",
+            "id": "m46_q2",
+            "question": "Zylinder hat 300 ml. Wie viel passt in einen gleich großen Kegel?",
             "answers": [
               {
-                "text": "1/2",
-                "correct": false,
-                "pts": 0
+                "text": "100 ml",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "1/3",
-                "correct": true,
-                "pts": 1
-              }
-            ]
-          },
-          {
-            "id": "koe_5",
-            "question": "Wie lautet die Volumenformel für eine Pyramide?",
-            "answers": [
-              {
-                "text": "V = 1/3 * G * h",
-                "correct": true,
-                "pts": 1
-              },
-              {
-                "text": "V = 1/2 * G * h",
+                "text": "150 ml",
                 "correct": false,
                 "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "koe_6",
-            "question": "Wie berechnet man die Mantelfläche eines Kegels?",
-            "answers": [
-              {
-                "text": "M = 2 * pi * r",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "M = pi * r * s",
-                "correct": true,
-                "pts": 1
               }
             ]
           }
@@ -10224,22 +9756,21 @@
       }
     ],
     "diplom": {
-      "title": "Meister der Geometrie",
-      "description": "Du kannst das Volumen aller Standardkörper berechnen.",
+      "title": "🎓 Diplom Körper",
       "questions": [
         {
-          "id": "math4_6_koerper_dip_default",
-          "question": "Hast du das Thema \"Geometrische Körper und Volumenberechnung\" verstanden? (Du kannst das Volumen aller Standardkörper berechnen.)",
+          "id": "m46_dip1",
+          "question": "Formel für Kugelvolumen?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "4/3 * pi * r³",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "pi * r²",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -10247,57 +9778,48 @@
     }
   },
   "math4_7_statistik": {
-    "title": "Daten analysieren und verstehen",
-    "subtitle": "Wahrscheinlichkeiten und Boxplots",
+    "title": "📊 Likes, Views & Statistik",
+    "subtitle": "Zahlen checken wie ein Influencer.",
     "sections": [
       {
-        "id": "statistik_1",
-        "title": "Kennwerte und Boxplot",
-        "content": "<div class=\"interactive-zone\"><svg width=\"400\" height=\"100\"><line x1=\"20\" y1=\"50\" x2=\"380\" y2=\"50\" stroke=\"black\" stroke-width=\"1\"/><rect x=\"100\" y=\"30\" width=\"150\" height=\"40\" fill=\"lightblue\" stroke=\"black\"/><line x1=\"180\" y1=\"30\" x2=\"180\" y2=\"70\" stroke=\"red\" stroke-width=\"2\"/></svg></div><p>Ein Boxplot visualisiert die Verteilung von Daten anschaulich.</p>{{QUIZ_stat_1}}<p>Der Median teilt die Daten in zwei gleich große Hälften.</p>{{QUIZ_stat_2}}<p>Die Box enthält 50% der Daten.</p>{{QUIZ_stat_3}}",
+        "id": "sec1",
+        "title": "Mittelwert (Durchschnitt)",
+        "content": "<div class='interactive-zone'><p>Noten: 2, 4, 3. Durchschnitt? Alles plus, dann durch die Anzahl teilen! <span style='color:red'>(2+4+3) : 3 = 3</span>.</p></div>{{QUIZ_m47_q1}}",
         "quizzes": [
           {
-            "id": "stat_1",
-            "question": "Welcher Wert wird durch den Strich in der Box eines Boxplots dargestellt?",
+            "id": "m47_q1",
+            "question": "Du hast 10, 20 und 30 Euro gespart. Durchschnitt?",
             "answers": [
               {
-                "text": "Der Durchschnitt",
-                "correct": false,
-                "pts": 0
+                "text": "20 Euro",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "Der Median",
-                "correct": true,
-                "pts": 1
-              }
-            ]
-          },
-          {
-            "id": "stat_2",
-            "question": "Was geben die Enden der 'Antennen' an?",
-            "answers": [
-              {
-                "text": "Minimum und Maximum",
-                "correct": true,
-                "pts": 1
-              },
-              {
-                "text": "Unteres und oberes Quartil",
+                "text": "60 Euro",
                 "correct": false,
                 "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Boxplot - Wo ist die Mitte?",
+        "content": "<p>Der Median ist genau der Wert in der <span style='color:red'>Mitte</span>, wenn man alle Zahlen sortiert.</p>{{QUIZ_m47_q2}}",
+        "quizzes": [
           {
-            "id": "stat_3",
-            "question": "Welcher Anteil der Daten befindet sich in der Box?",
+            "id": "m47_q2",
+            "question": "Zahlen: 1, 5, 9. Was ist der Median?",
             "answers": [
               {
-                "text": "ca. 50%",
+                "text": "5",
                 "correct": true,
-                "pts": 1
+                "pts": 10
               },
               {
-                "text": "ca. 75%",
+                "text": "9",
                 "correct": false,
                 "pts": 0
               }
@@ -10307,22 +9829,21 @@
       }
     ],
     "diplom": {
-      "title": "Datenanalyst",
-      "description": "Du kannst statistische Daten perfekt interpretieren.",
+      "title": "🎓 Diplom Statistik",
       "questions": [
         {
-          "id": "math4_7_statistik_dip_default",
-          "question": "Hast du das Thema \"Daten analysieren und verstehen\" verstanden? (Du kannst statistische Daten perfekt interpretieren.)",
+          "id": "m47_dip1",
+          "question": "Was zeigt der Modus an?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Den häufigsten Wert",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Die Mitte",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }
@@ -10330,57 +9851,48 @@
     }
   },
   "math4_8_finanzmathematik": {
-    "title": "Finanzmathematik und Zinsrechnung",
-    "subtitle": "Zinseszins und Darlehen",
+    "title": "💸 Cash, Kredite & Zinsen",
+    "subtitle": "So wirst du nicht abgezockt!",
     "sections": [
       {
-        "id": "finanz_1",
-        "title": "Zinseszins verstehen",
-        "content": "<div class=\"interactive-zone\"><svg width=\"400\" height=\"200\"><rect id=\"bar1\" x=\"50\" y=\"150\" width=\"30\" height=\"40\" fill=\"blue\"/><rect id=\"bar2\" x=\"100\" y=\"140\" width=\"30\" height=\"50\" fill=\"blue\"/><rect id=\"bar3\" x=\"150\" y=\"120\" width=\"30\" height=\"70\" fill=\"red\"/><rect id=\"bar4\" x=\"200\" y=\"80\" width=\"30\" height=\"110\" fill=\"red\"/></svg><br><input type=\"range\" id=\"years\" min=\"1\" max=\"10\" value=\"4\"><label>Jahre</label></div><p>Was macht den Zinseszins so mächtig? Wenn Zinsen erneut verzinst werden, wächst das Kapital exponentiell.</p>{{QUIZ_fin_1}}<p>Die Zinseszinsformel ist K_n = K_0 * (1 + p/100)^n.</p>{{QUIZ_fin_2}}<p>Im Vergleich zum linearen Wachstum steigt die Kurve beim Zinseszins immer steiler an.</p>{{QUIZ_fin_3}}",
+        "id": "sec1",
+        "title": "Zinseszins - Geld vermehren",
+        "content": "<div class='interactive-zone'><p>Wenn du Zinsen bekommst und die auf der Bank lässt, bekommst du nächstes Jahr Zinsen auf die Zinsen! <span style='color:red'>Das nennt man Zinseszins.</span></p><svg width='200' height='100'><rect x='10' y='80' width='20' height='20' fill='green'/><rect x='40' y='60' width='20' height='40' fill='green'/><rect x='70' y='30' width='20' height='70' fill='green'/></svg><br><input type='number' id='fin_z' placeholder='Startguthaben?'><button onclick='alert(\"Zinsen machen dich reich!\")'>Go</button></div>{{QUIZ_m48_q1}}",
         "quizzes": [
           {
-            "id": "fin_1",
-            "question": "Was beschreibt der Begriff 'Zinseszins'?",
+            "id": "m48_q1",
+            "question": "Du legst 100€ an, mit 10% Zinsen. Wie viel hast du nach einem Jahr?",
             "answers": [
               {
-                "text": "Dass Zinsen mitverzinst werden",
+                "text": "110 €",
                 "correct": true,
-                "pts": 1
+                "pts": 10
               },
               {
-                "text": "Dass die Zinsen jedes Jahr sinken",
+                "text": "200 €",
                 "correct": false,
                 "pts": 0
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Kredite - Die Schuldenfalle",
+        "content": "<p>Kaufst du ein Handy auf Raten, zahlst du <span style='color:red'>mehr</span> als es im Laden kostet! Die Bank will Kreditzinsen.</p>{{QUIZ_m48_q2}}",
+        "quizzes": [
           {
-            "id": "fin_2",
-            "question": "Welche Art von Wachstum bewirkt der Zinseszins?",
+            "id": "m48_q2",
+            "question": "Handy kostet 500€. Ratenzahlung: 24 Monate à 25€. Wie viel zahlst du am Ende?",
             "answers": [
               {
-                "text": "Lineares Wachstum",
-                "correct": false,
-                "pts": 0
+                "text": "600 € (100€ mehr!)",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "Exponentielles Wachstum",
-                "correct": true,
-                "pts": 1
-              }
-            ]
-          },
-          {
-            "id": "fin_3",
-            "question": "Was repräsentiert das 'n' in der Zinseszinsformel?",
-            "answers": [
-              {
-                "text": "Die Anzahl der Jahre (Laufzeit)",
-                "correct": true,
-                "pts": 1
-              },
-              {
-                "text": "Den Zinssatz",
+                "text": "500 €",
                 "correct": false,
                 "pts": 0
               }
@@ -10390,22 +9902,21 @@
       }
     ],
     "diplom": {
-      "title": "Finanz-Guru",
-      "description": "Zinseszins ist die stärkste Kraft im Universum - und du beherrschst sie!",
+      "title": "🎓 Diplom Finanzen",
       "questions": [
         {
-          "id": "math4_8_finanzmathematik_dip_default",
-          "question": "Hast du das Thema \"Finanzmathematik und Zinsrechnung\" verstanden? (Zinseszins ist die stärkste Kraft im Universum - und du beherrschst sie!)",
+          "id": "m48_dip1",
+          "question": "Was ist die KESt in Österreich?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Kapitalertragsteuer (25% auf Sparzinsen)",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Keine echte Steuer",
               "correct": false,
-              "pts": 5
+              "pts": 0
             }
           ]
         }

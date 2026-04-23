@@ -1,19 +1,4 @@
-
-    const slider = document.getElementById('guess-slider');
-    const valDisplay = document.getElementById('guess-val');
-    const diagText = document.getElementById('diag-text');
-    slider.addEventListener('input', (e) => {
-      const val = parseFloat(e.target.value).toFixed(2);
-      valDisplay.textContent = val;
-      const sq = (val * val).toFixed(2);
-      diagText.textContent = `d² ≈ ${sq}`;
-      if (Math.abs(val * val - 2) < 0.05) {
-        diagText.style.fill = '#2ecc71';
-      } else {
-        diagText.style.fill = '#e74c3c';
-      }
-    });
-  
+function checkRoot1() { let v = document.getElementById('root1').value; let fb = document.getElementById('feedback1'); if(v==5) { fb.innerHTML = "<span style='color:green'>Richtig! 5x5 = 25!</span>"; } else { fb.innerHTML = "<span style='color:red'>Falsch. Welche Zahl mal sich selbst ist 25?</span>"; } }
 
 
 function topicInit() {}
