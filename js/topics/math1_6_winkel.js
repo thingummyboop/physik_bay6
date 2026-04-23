@@ -3,4 +3,22 @@ document.getElementById('pizza-slider').addEventListener('input', function() { d
 function checkWinkelArt() { const val = document.getElementById('winkel-art-input').value.toLowerCase().trim(); const res = document.getElementById('winkel-art-res'); if(val === 'spitz') { res.innerText = 'Korrekt! 45° ist kleiner als 90°, also spitz!'; res.style.color = 'green'; } else { res.innerText = 'Falsch! Denk nochmal nach. Ist 45 kleiner oder größer als 90?'; res.style.color = 'red'; } }
 
 
-function topicInit() {}
+function topicInit() {
+
+        if (document.getElementById('ggb-winkel')) {
+            if (typeof GGBApplet !== 'undefined') {
+                var params = {
+                    "appName": "geometry",
+                    "width": document.getElementById('ggb-winkel').offsetWidth,
+                    "height": 500,
+                    "showToolBar": true,
+                    "showAlgebraInput": false,
+                    "showMenuBar": false
+                };
+                var applet = new GGBApplet(params, true);
+                applet.inject('ggb-winkel');
+            } else {
+                document.getElementById('ggb-winkel').innerHTML = '<p style="padding: 20px; color: red;">GeoGebra konnte nicht geladen werden. Bitte lade die Seite neu.</p>';
+            }
+        }
+}
