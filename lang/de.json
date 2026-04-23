@@ -7405,134 +7405,89 @@
     }
   },
   "math2_1_teilbarkeit": {
-    "title": "🔢 Geheimnisse der Teilbarkeit 🕵️‍♂️",
-    "subtitle": "Finde heraus, welche Zahlen in andere hineinpassen und lerne die magischen Teilbarkeitsregeln!",
+    "title": "Teilbarkeit, ggT & kgV",
+    "subtitle": "Geheimcodes der Zahlen knacken!",
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Was ist ein Teiler?",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🍎 Apfel-Teiler</h3>\n    <p>Wir haben 12 Äpfel. Kannst du sie gerecht in Gruppen aufteilen, ohne dass ein Rest bleibt?</p>\n    <button onclick=\"divideApples(2)\">In 2er Gruppen</button>\n    <button onclick=\"divideApples(5)\">In 5er Gruppen</button>\n    <button onclick=\"divideApples(3)\">In 3er Gruppen</button>\n    <p id=\"appleResult\" style=\"font-weight:bold;\"></p>\n    <div id=\"appleContainer\" style=\"font-size:24px;\">🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎</div>\n    \n</div>\n<p>Eine Zahl ist ein <strong>Teiler</strong> einer anderen Zahl, wenn bei der Division kein Rest bleibt. Die 3 ist ein Teiler von 12 (weil 12 : 3 = 4), aber die 5 ist kein Teiler von 12.</p>\n{{QUIZ_q1}}",
+        "id": "m21_s1",
+        "title": "Wann ist eine Zahl teilbar?",
+        "content": "<p>Stell dir vor, du hast <span style=\"color:orange; font-weight:bold;\">Goldmünzen</span> in deinem Lieblingsgame. Kannst du sie <span style=\"color:green; font-weight:bold;\">fair</span> aufteilen, ohne dass ein Rest bleibt?</p><ul><li><b>Durch 2:</b> Wenn die Zahl am Ende eine 0, 2, 4, 6 oder 8 hat. (Beispiel: 10, 24, 108)</li><li><b>Durch 5:</b> Wenn die letzte Ziffer eine 0 oder 5 ist. (Beispiel: 15, 50)</li><li><b>Durch 10:</b> Wenn die letzte Ziffer eine 0 ist. (Beispiel: 30, 100)</li></ul><div class='interactive-zone' style='background:#f0f8ff; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid blue;'><p>Ist <b>345</b> durch 5 teilbar?</p><p><button onclick='alert(\"Ja! Sie endet auf 5.\")' style='padding:5px 10px; background:green; color:white; border:none; border-radius:4px; cursor:pointer;'>Antwort checken</button></p></div><p>Teste dein Wissen!</p>{{QUIZ_m21_q1}}\n<br>\n{{QUIZ_m21_q2}}",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "Ist die 4 ein Teiler von 20?",
+            "id": "m21_q1",
+            "question": "Ist die Zahl 128 durch 2 teilbar?",
             "answers": [
               {
-                "text": "Ja, weil 20 : 4 = 5 (ohne Rest)",
+                "text": "Ja, weil die letzte Ziffer eine 8 ist. Das ist eine gerade Zahl.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Nein, es bleibt ein Rest",
+                "text": "Nein, 128 ist ungerade.",
                 "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m21_q2",
+            "question": "Welche Zahl ist durch 10 teilbar?",
+            "answers": [
+              {
+                "text": "550",
+                "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "105",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "sec1",
-        "title": "2. Die Endziffern-Regeln (2, 5, 10)",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🔍 Die Endziffern-Lupe</h3>\n    <p>Gib eine Zahl ein und finde heraus, ob sie durch 2, 5 oder 10 teilbar ist:</p>\n    <input type=\"number\" id=\"endNum\" value=\"145\" style=\"width:100px;\">\n    <button onclick=\"checkEnd()\">Prüfen!</button>\n    <ul id=\"endResult\" style=\"list-style:none; padding:0;\"></ul>\n    \n</div>\n<p>Manchmal musst du gar nicht rechnen! Schau einfach auf die <strong>letzte Ziffer</strong> einer Zahl. Daran erkennst du sofort, ob sie durch 2, 5 oder 10 teilbar ist.</p>\n{{QUIZ_q2}}",
+        "id": "m21_s2",
+        "title": "Der größte gemeinsame Teiler (ggT)",
+        "content": "<p>Der <span style=\"color:red; font-weight:bold;\">ggT</span> hilft uns beim Teilen.</p><p>Es ist die <b>größte Zahl</b>, durch die man zwei Zahlen teilen kann.</p><p>Beispiel: 12 und 18. Beide kann man durch 1, 2, 3 und 6 teilen. Die <span style=\"color:red;\">6</span> ist am größten! Also ist der ggT 6.</p><div class='interactive-zone' style='background:#ffe4e1; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid red;'><p>Was ist der ggT von 8 und 12?</p><input type='number' id='ggt_input' placeholder='Deine Zahl' style='padding:5px;'><button onclick='if(document.getElementById(\"ggt_input\").value == 4) alert(\"Richtig! 4 ist die größte Zahl, durch die 8 und 12 teilbar sind.\"); else alert(\"Falsch. Versuch es nochmal! Denk an die Teiler von 8 (1,2,4,8) und 12 (1,2,3,4,6,12).\");' style='padding:5px 10px; margin-left:5px; background:red; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m21_q3}}",
         "quizzes": [
           {
-            "id": "q2",
-            "question": "Woran erkennst du, dass eine Zahl durch 5 teilbar ist?",
+            "id": "m21_q3",
+            "question": "Was ist der ggT von 10 und 15?",
             "answers": [
               {
-                "text": "Sie endet auf 0 oder 5",
+                "text": "5",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Sie endet auf 5",
+                "text": "30",
                 "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Sie ist eine gerade Zahl",
-                "correct": false,
-                "pts": 10
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "sec2",
-        "title": "3. Die Ziffernsummen-Regeln (3, 9)",
-        "content": "<div class=\"interactive-zone\">\n    <h3>➕ Ziffernsummen-Rechner</h3>\n    <p>Gib eine Zahl ein, um ihre Ziffernsumme (die Summe all ihrer Ziffern) zu berechnen:</p>\n    <input type=\"number\" id=\"zNum\" value=\"273\" style=\"width:100px;\">\n    <button onclick=\"checkZSum()\">Ziffernsumme bilden</button>\n    <p id=\"zResult\" style=\"font-weight:bold; font-size:18px;\"></p>\n    \n</div>\n<p>Für die Zahlen 3 und 9 gibt es einen genialen Zaubertrick: Addiere einfach alle Ziffern der Zahl! Das nennt man die <strong>Ziffernsumme</strong>. Ist die Ziffernsumme durch 3 teilbar, dann ist es die ganze Zahl auch!</p>\n{{QUIZ_q3}}",
+        "id": "m21_s3",
+        "title": "Das kleinste gemeinsame Vielfache (kgV)",
+        "content": "<p>Das <span style=\"color:blue; font-weight:bold;\">kgV</span> brauchst du oft. Wann trefft ihr euch wieder im Game?</p><p>Du spielst alle 3 Tage. Dein Freund alle 4 Tage.</p><p>Wann spielt ihr zusammen? Am 12. Tag! Weil 3, 6, 9, <b>12</b> und 4, 8, <b>12</b>.</p><div class='interactive-zone' style='background:#e6e6fa; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid purple;'><p>Was ist das kgV von 2 und 5?</p><input type='number' id='kgv_input' placeholder='Deine Zahl' style='padding:5px;'><button onclick='if(document.getElementById(\"kgv_input\").value == 10) alert(\"Super! 2,4,6,8,10 und 5,10.\"); else alert(\"Falsch. Zähle die Vielfachen auf!\");' style='padding:5px 10px; margin-left:5px; background:purple; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m21_q4}}",
         "quizzes": [
           {
-            "id": "q3",
-            "question": "Ist die Zahl 123 durch 3 teilbar?",
+            "id": "m21_q4",
+            "question": "Was ist das kgV von 4 und 6?",
             "answers": [
               {
-                "text": "Ja, denn 1+2+3 = 6, und 6 ist durch 3 teilbar.",
+                "text": "12",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Nein, weil sie nicht auf 3 endet.",
+                "text": "24",
                 "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec3",
-        "title": "4. Die Jagd nach den Primzahlen",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🛡️ Das Sieb des Eratosthenes</h3>\n    <p>Klicke auf die Vielfachen von 2, 3 und 5, um sie wegzuwerfen. Was übrig bleibt, sind Primzahlen!</p>\n    <div id=\"sieveGrid\" style=\"display:grid; grid-template-columns: repeat(5, 1fr); gap:5px; max-width:200px; margin:0 auto;\"></div>\n    \n</div>\n<p>Eine <strong>Primzahl</strong> ist eine Zahl, die nur genau zwei Teiler hat: die 1 und sich selbst. (Die kleinste Primzahl ist die 2). Zahlen, die aus mehreren Primzahlen zusammengesetzt sind, kann man sich wie Legobauten vorstellen. Die Primzahlen sind die einzelnen, unzerstörbaren Legosteine.</p>\n{{QUIZ_q4}}",
-        "quizzes": [
-          {
-            "id": "q4",
-            "question": "Was ist eine Primzahl?",
-            "answers": [
-              {
-                "text": "Eine Zahl, die nur durch 1 und sich selbst teilbar ist.",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Jede ungerade Zahl.",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Eine Zahl, die durch 2 teilbar ist.",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec4",
-        "title": "5. Primfaktorzerlegung",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🌳 Der Faktorenbaum</h3>\n    <p>Wir zerlegen die Zahl 12 in ihre atomaren Bestandteile (Primzahlen):</p>\n    <div class=\"diagram-box\">\n        <svg width=\"200\" height=\"150\" viewBox=\"0 0 200 150\">\n            <text x=\"100\" y=\"20\" text-anchor=\"middle\" font-weight=\"bold\">12</text>\n            <line x1=\"100\" y1=\"25\" x2=\"60\" y2=\"60\" stroke=\"black\"/>\n            <line x1=\"100\" y1=\"25\" x2=\"140\" y2=\"60\" stroke=\"black\"/>\n            <text x=\"60\" y=\"80\" text-anchor=\"middle\">2 (Prim)</text>\n            <text x=\"140\" y=\"80\" text-anchor=\"middle\">6</text>\n            <line x1=\"140\" y1=\"85\" x2=\"110\" y2=\"120\" stroke=\"black\"/>\n            <line x1=\"140\" y1=\"85\" x2=\"170\" y2=\"120\" stroke=\"black\"/>\n            <text x=\"110\" y=\"140\" text-anchor=\"middle\">2 (Prim)</text>\n            <text x=\"170\" y=\"140\" text-anchor=\"middle\">3 (Prim)</text>\n        </svg>\n    </div>\n    <p style=\"text-align:center; font-weight:bold;\">12 = 2 × 2 × 3</p>\n</div>\n<p>Jede natürliche Zahl (größer als 1) lässt sich als eine Multiplikation von Primzahlen darstellen. Das nennt man <strong>Primfaktorzerlegung</strong>. Es ist, als ob man die Zahl in ihre kleinsten mathematischen Bausteine zerlegt.</p>\n{{QUIZ_q5}}",
-        "quizzes": [
-          {
-            "id": "q5",
-            "question": "Wie lautet die Primfaktorzerlegung der Zahl 12?",
-            "answers": [
-              {
-                "text": "2 * 2 * 3",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "3 * 4",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "2 * 6",
-                "correct": false,
-                "pts": 10
+                "pts": 5
               }
             ]
           }
@@ -7540,20 +7495,35 @@
       }
     ],
     "diplom": {
-      "title": "Teilbarkeits-Detektiv",
-      "description": "Keine Zahl kann mehr vor dir verstecken, woraus sie besteht!",
+      "title": "🎓 Teilbarkeits-Diplom",
       "questions": [
         {
-          "id": "math2_1_teilbarkeit_dip_default",
-          "question": "Hast du das Thema \"🔢 Geheimnisse der Teilbarkeit 🕵️‍♂️\" verstanden? (Keine Zahl kann mehr vor dir verstecken, woraus sie besteht!)",
+          "id": "m21_dip1",
+          "question": "Ist 255 durch 5 teilbar?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Ja, die letzte Ziffer ist eine 5.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Nein, weil 2+5+5 = 12.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m21_dip2",
+          "question": "Was ist der ggT von 14 und 21?",
+          "answers": [
+            {
+              "text": "7",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "42",
               "correct": false,
               "pts": 5
             }
@@ -7563,57 +7533,41 @@
     }
   },
   "math2_2_brueche": {
-    "title": "🍰 2. Bruchrechnen (Addition, Subtraktion, Multiplikation, Division)",
-    "subtitle": "Wir lernen, wie man mit Brüchen richtig rechnet!",
+    "title": "Bruchrechnen: Pizzen & Co.",
+    "subtitle": "Teilen wie ein Boss!",
     "sections": [
       {
-        "id": "sec1",
-        "title": "1. Brüche gleichnamig machen",
-        "content": "<div class=\"interactive-zone\">\n    <h3>Die Waage des Erweiterns</h3>\n    <p>1/2 und 2/4 sind genau gleich viel wert. Wenn wir Zähler und Nenner mit derselben Zahl multiplizieren, ändern wir nur die Stückelung, nicht die Menge! Das nennt man <strong>Erweitern</strong>.</p>\n    <p>Um Brüche zu addieren oder zu subtrahieren, müssen sie den <strong>gleichen Nenner</strong> haben. Wir nennen das \"gleichnamig machen\".</p>\n    <div style=\"display: flex; gap: 20px; align-items: center; justify-content: center; margin-top: 20px; font-size: 1.5em; font-weight: bold;\">\n        <div style=\"text-align: center;\">\n            <span id=\"gl_z1\" style=\"color:#e74c3c;\">1</span><br><hr style=\"border:2px solid black;\"><span id=\"gl_n1\" style=\"color:#2980b9;\">2</span>\n        </div>\n        <div style=\"display: flex; flex-direction: column; align-items: center;\">\n            <button id=\"gl_expand_btn\" style=\"padding: 5px 10px;\">Mit 2 erweitern ➡️</button>\n        </div>\n        <div style=\"text-align: center;\">\n            <span id=\"gl_z2\" style=\"color:#e74c3c;\">2</span><br><hr style=\"border:2px solid black;\"><span id=\"gl_n2\" style=\"color:#2980b9;\">4</span>\n        </div>\n    </div>\n</div>\n<p>Dazu suchen wir das kleinste gemeinsame Vielfache (kgV) der beiden Nenner und erweitern beide Brüche darauf.</p>\n<br>\n{{QUIZ_m22_1_1}}\n<br>\n{{QUIZ_m22_1_2}}\n<br>\n{{QUIZ_m22_1_3}}",
+        "id": "m22_s1",
+        "title": "Brüche Plus und Minus",
+        "content": "<p>Stell dir vor, du hast <span style=\"color:orange; font-weight:bold;\">Pizzastücke</span>.</p><p>Du kannst sie nur plus oder minus rechnen, wenn die Stücke <b>gleich groß</b> sind!</p><p>Wir brauchen den <span style=\"color:red; font-weight:bold;\">gleichen Nenner</span> (die Zahl unten).</p><div style='text-align:center;'><svg width='100' height='100'><circle cx='50' cy='50' r='40' fill='orange' stroke='black' stroke-width='2'/><line x1='50' y1='10' x2='50' y2='90' stroke='black' stroke-width='2'/></svg></div><p>1/2 Pizza + 1/2 Pizza = 2/2 Pizza = 1 ganze Pizza!</p><div class='interactive-zone' style='background:#e0ffff; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid teal;'><p>Rechne: 1/4 + 2/4 = <input type='number' id='bruch_z' style='width:40px;'> / 4</p><button onclick='if(document.getElementById(\"bruch_z\").value == 3) alert(\"Super! 3/4 ist richtig. Der Nenner bleibt 4.\"); else alert(\"Nope, rechne oben 1+2.\");' style='padding:5px 10px; background:teal; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m22_q1}}\n<br>\n{{QUIZ_m22_q2}}",
         "quizzes": [
           {
-            "id": "m22_1_1",
-            "question": "Erweitere den Bruch 2/3 mit 4. Was kommt heraus?",
+            "id": "m22_q1",
+            "question": "Was ist 3/8 + 2/8?",
             "answers": [
               {
-                "text": "8/12",
+                "text": "5/8 (Nur oben plus rechnen, unten bleibt gleich!)",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "6/7",
+                "text": "5/16 (Falsch! Unten nicht plus rechnen!)",
                 "correct": false,
                 "pts": 5
               }
             ]
           },
           {
-            "id": "m22_1_2",
-            "question": "Was ist der gemeinsame Nenner von 1/3 und 1/4?",
+            "id": "m22_q2",
+            "question": "Was ist 5/7 - 2/7?",
             "answers": [
               {
-                "text": "Zwölftel (12)",
+                "text": "3/7",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Siebtel (7)",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_1_3",
-            "question": "Kürze den Bruch 10/15 mit 5.",
-            "answers": [
-              {
-                "text": "2/3",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "5/10",
+                "text": "3/0",
                 "correct": false,
                 "pts": 5
               }
@@ -7622,53 +7576,21 @@
         ]
       },
       {
-        "id": "sec2",
-        "title": "2. Addition und Subtraktion",
-        "content": "<div class=\"interactive-zone\" style=\"background: #f0fdf4; border-color: #86efac;\">\n    <h3 style=\"color: #16a34a;\">Äpfel mit Äpfeln addieren</h3>\n    <p>Du kannst 2 Drittel und 1 Viertel nicht direkt zusammenzählen. Zuerst müssen beide die gleichen Stücke werden (Zwölftel).</p>\n    <p style=\"text-align: center; font-size: 1.5em; font-weight: bold;\">2/3 + 1/4 = 8/12 + 3/12 = <span style=\"color:#16a34a;\">11/12</span></p>\n</div>\n<p><strong>Die Regel:</strong> Brüche werden addiert (oder subtrahiert), indem man sie zuerst gleichnamig macht und dann <strong>nur die Zähler</strong> addiert (oder subtrahiert). Der Nenner bleibt gleich!</p>\n<br>\n{{QUIZ_m22_2_1}}\n<br>\n{{QUIZ_m22_2_2}}\n<br>\n{{QUIZ_m22_2_3}}",
+        "id": "m22_s2",
+        "title": "Brüche Mal rechnen (Multiplizieren)",
+        "content": "<p>Beim <b>Malrechnen</b> ist es ganz einfach!</p><p><span style=\"color:blue; font-weight:bold;\">Zähler mal Zähler</span> (oben) und <span style=\"color:green; font-weight:bold;\">Nenner mal Nenner</span> (unten).</p><div class='interactive-zone' style='background:#fff0f5; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid pink;'><p>Rechne: 1/2 mal 3/4 = <input type='number' id='bruch_m1' style='width:40px;'> / <input type='number' id='bruch_m2' style='width:40px;'></p><button onclick='if(document.getElementById(\"bruch_m1\").value == 3 && document.getElementById(\"bruch_m2\").value == 8) alert(\"Richtig! 1x3=3 und 2x4=8.\"); else alert(\"Versuch es nochmal. Oben mal oben, unten mal unten.\");' style='padding:5px 10px; background:pink; color:black; border:none; border-radius:4px; cursor:pointer; font-weight:bold;'>Check</button></div>{{QUIZ_m22_q3}}",
         "quizzes": [
           {
-            "id": "m22_2_1",
-            "question": "Was ist 3/5 + 1/5?",
+            "id": "m22_q3",
+            "question": "Wie rechnet man 2/3 mal 1/5?",
             "answers": [
               {
-                "text": "4/5",
+                "text": "Oben: 2x1=2. Unten: 3x5=15. Also 2/15.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "4/10",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_2_2",
-            "question": "Was ist 1/2 + 1/4?",
-            "answers": [
-              {
-                "text": "3/4 (denn 1/2 = 2/4)",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "2/6",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_2_3",
-            "question": "Was ist 7/8 - 3/8?",
-            "answers": [
-              {
-                "text": "4/8 (oder gekürzt 1/2)",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "4/0",
+                "text": "Ich brauche den gleichen Nenner.",
                 "correct": false,
                 "pts": 5
               }
@@ -7677,108 +7599,21 @@
         ]
       },
       {
-        "id": "sec3",
-        "title": "3. Multiplikation (Malnehmen)",
-        "content": "<div class=\"interactive-zone\" style=\"background: #eef2ff; border-color: #a5b4fc;\">\n    <h3 style=\"color: #4f46e5;\">Von etwas einen Teil nehmen</h3>\n    <p>Wenn du die Hälfte von einer halben Pizza isst, wie viel hast du gegessen? Ein Viertel! Multiplizieren heißt: Einen Bruchteil von einem Bruchteil nehmen.</p>\n    <p style=\"text-align: center; font-size: 1.5em; font-weight: bold;\">1/2 · 1/2 = <span style=\"color:#4f46e5;\">1/4</span></p>\n</div>\n<p><strong>Die Regel:</strong> Bei der Multiplikation rechnet man einfach <strong>Zähler mal Zähler</strong> und <strong>Nenner mal Nenner</strong>. Vor dem Multiplizieren sollte man immer schauen, ob man über Kreuz kürzen kann!</p>\n<br>\n{{QUIZ_m22_3_1}}\n<br>\n{{QUIZ_m22_3_2}}\n<br>\n{{QUIZ_m22_3_3}}",
+        "id": "m22_s3",
+        "title": "Brüche Geteilt rechnen (Dividieren)",
+        "content": "<p>Beim <b>Geteiltrechnen</b> haben wir einen Trick.</p><p>Wir drehen den zweiten Bruch einfach auf den Kopf!</p><p>Aus 1/4 wird 4/1. Dann rechnen wir <span style=\"color:red; font-weight:bold;\">Mal</span> statt Geteilt.</p><p>Beispiel: 1/2 geteilt durch 1/4 wird zu 1/2 mal 4/1 = 4/2 = 2.</p><div class='interactive-zone' style='background:#f5fffa; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid green;'><p>Rechne: 2/3 geteilt durch 1/2. Aus 1/2 wird 2/1. Was ist dann 2/3 mal 2/1? <input type='number' id='bruch_d1' style='width:40px;'> / <input type='number' id='bruch_d2' style='width:40px;'></p><button onclick='if(document.getElementById(\"bruch_d1\").value == 4 && document.getElementById(\"bruch_d2\").value == 3) alert(\"Richtig! 4/3.\"); else alert(\"Falsch. 2x2 oben, 3x1 unten.\");' style='padding:5px 10px; background:green; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m22_q4}}",
         "quizzes": [
           {
-            "id": "m22_3_1",
-            "question": "Was ist 2/3 · 4/5?",
+            "id": "m22_q4",
+            "question": "Was ist 1/5 geteilt durch 2/3?",
             "answers": [
               {
-                "text": "8/15",
+                "text": "1/5 mal 3/2 = 3/10",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "6/8",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_3_2",
-            "question": "Müssen Brüche beim Multiplizieren gleichnamig gemacht werden?",
-            "answers": [
-              {
-                "text": "Nein! Nur beim Addieren und Subtrahieren.",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Ja, immer.",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_3_3",
-            "question": "Was ist 1/3 · 1/3?",
-            "answers": [
-              {
-                "text": "1/9",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "2/6",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec4",
-        "title": "4. Division (Teilen)",
-        "content": "<div class=\"interactive-zone\" style=\"background: #fffbeb; border-color: #fcd34d;\">\n    <h3 style=\"color: #d97706;\">Der Kehrwert-Trick</h3>\n    <p>Wie oft passt ein halber Liter in 2 Liter? Genau 4 mal. (2 : 1/2 = 4). Das ist das Gleiche wie 2 · 2!</p>\n    <p style=\"text-align: center; font-size: 1.5em; font-weight: bold;\">3/4 : <span style=\"color:#e74c3c;\">1/2</span> = 3/4 · <span style=\"color:#27ae60;\">2/1</span> = 6/4 = 1 1/2</p>\n</div>\n<p><strong>Die Regel:</strong> Man dividiert durch einen Bruch, indem man <strong>mit seinem Kehrwert multipliziert</strong>. Der Kehrwert entsteht, wenn man Zähler und Nenner vertauscht (aus 3/4 wird 4/3).</p>\n<br>\n{{QUIZ_m22_4_1}}\n<br>\n{{QUIZ_m22_4_2}}\n<br>\n{{QUIZ_m22_4_3}}",
-        "quizzes": [
-          {
-            "id": "m22_4_1",
-            "question": "Was ist der Kehrwert von 5/8?",
-            "answers": [
-              {
-                "text": "8/5",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "-5/8",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_4_2",
-            "question": "Was ist 1/2 : 1/4? (Tipp: 1/2 mal 4/1)",
-            "answers": [
-              {
-                "text": "4/2 = 2",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "1/8",
-                "correct": false,
-                "pts": 5
-              }
-            ]
-          },
-          {
-            "id": "m22_4_3",
-            "question": "Darf man bei der Division Brüche kürzen, BEVOR man den Kehrwert gebildet hat?",
-            "answers": [
-              {
-                "text": "Nein, niemals. Erst Kehrwert bilden, dann kürzen.",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Ja, das ist erlaubt.",
+                "text": "1/5 mal 2/3 = 2/15",
                 "correct": false,
                 "pts": 5
               }
@@ -7788,83 +7623,35 @@
       }
     ],
     "diplom": {
-      "title": "🎓 Bruchrechnen-Diplom",
+      "title": "🎓 Bruch-Diplom",
       "questions": [
         {
-          "id": "m22_d1",
-          "question": "Was musst du beim Addieren von Brüchen zwingend tun?",
+          "id": "m22_dip1",
+          "question": "Was ist 2/9 + 5/9?",
           "answers": [
             {
-              "text": "Sie auf den gleichen Nenner bringen.",
+              "text": "7/9",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Einfach Zähler und Nenner zusammenzählen.",
+              "text": "7/18",
               "correct": false,
               "pts": 5
             }
           ]
         },
         {
-          "id": "m22_d2",
-          "question": "Wie lautet die Regel für die Multiplikation?",
+          "id": "m22_dip2",
+          "question": "Was ist 3/4 mal 2/5?",
           "answers": [
             {
-              "text": "Zähler mal Zähler, Nenner mal Nenner.",
+              "text": "6/20",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Mit dem Kehrwert multiplizieren.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "m22_d3",
-          "question": "Wie dividiert man durch einen Bruch?",
-          "answers": [
-            {
-              "text": "Indem man mit dem Kehrwert multipliziert.",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "Indem man die Zähler dividiert.",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "m22_d4",
-          "question": "Was ist 3/4 + 1/4?",
-          "answers": [
-            {
-              "text": "4/4 = 1",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "4/8 = 1/2",
-              "correct": false,
-              "pts": 5
-            }
-          ]
-        },
-        {
-          "id": "m22_d5",
-          "question": "Erweitere 3/5 mit 3.",
-          "answers": [
-            {
-              "text": "9/15",
-              "correct": true,
-              "pts": 5
-            },
-            {
-              "text": "6/8",
+              "text": "15/8",
               "correct": false,
               "pts": 5
             }
@@ -7874,134 +7661,89 @@
     }
   },
   "math2_3_dezimalzahlen": {
-    "title": "🎯 Die Macht der Kommazahlen 📏",
-    "subtitle": "Brüche in Verkleidung! Lerne Dezimalzahlen kennen und verstehen.",
+    "title": "Dezimalzahlen",
+    "subtitle": "Rechnen mit Geld & Kommas",
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Was sind Dezimalzahlen?",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🧮 Die Stellenwert-Tafel</h3>\n    <p>Verändere die Ziffern und beobachte, wie sich der Wert der Kommazahl zusammensetzt:</p>\n    <table style=\"margin: 0 auto; border-collapse: collapse; text-align: center;\">\n        <tr><th>Einer (E)</th><th>,</th><th>Zehntel (z)</th><th>Hundertstel (h)</th></tr>\n        <tr>\n            <td><input type=\"number\" id=\"stelleE\" value=\"3\" min=\"0\" max=\"9\" oninput=\"updateDec()\" style=\"width:40px;\"></td>\n            <td style=\"font-size: 24px;\">,</td>\n            <td><input type=\"number\" id=\"stelleZ\" value=\"1\" min=\"0\" max=\"9\" oninput=\"updateDec()\" style=\"width:40px;\"></td>\n            <td><input type=\"number\" id=\"stelleH\" value=\"4\" min=\"0\" max=\"9\" oninput=\"updateDec()\" style=\"width:40px;\"></td>\n        </tr>\n    </table>\n    <p id=\"decResult\" style=\"text-align:center; font-size:24px; font-weight:bold;\">3,14</p>\n    <p id=\"decExplain\" style=\"text-align:center;\">3 Ganze, 1 Zehntel und 4 Hundertstel</p>\n    \n</div>\n<p>Dezimalzahlen (oder Kommazahlen) sind eine andere Art, Brüche zu schreiben. Die Stellen <strong>nach</strong> dem Komma stehen für Bruchteile eines Ganzen: Zehntel (1/10), Hundertstel (1/100) usw.</p>\n{{QUIZ_q1}}",
+        "id": "m23_s1",
+        "title": "Plus und Minus mit Komma",
+        "content": "<p>Stell dir vor, du hast <span style=\"color:green; font-weight:bold;\">Geld</span>.</p><p>Ein Donut kostet 1,50 €. Ein Eistee kostet 2,30 €.</p><p>Wichtig beim Rechnen: <span style=\"color:red; font-weight:bold;\">Komma unter Komma</span> schreiben!</p><pre style='background:#eee; padding:10px; border-radius:5px;'>  1,50\n+ 2,30\n------\n  3,80</pre><div class='interactive-zone' style='background:#fdf5e6; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid orange;'><p>Du hast 5,00 € und kaufst einen Snack für 2,50 €. Wie viel bleibt übrig?</p><input type='number' step='0.1' id='geld_input' style='padding:5px;'> € <button onclick='if(document.getElementById(\"geld_input\").value == 2.5) alert(\"Genau! 2,50 Euro bleiben.\"); else alert(\"Falsch. 5 minus 2,5.\");' style='padding:5px 10px; background:orange; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m23_q1}}\n<br>\n{{QUIZ_m23_q2}}",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "Welchen Stellenwert hat die Ziffer 7 in der Zahl 4,57?",
+            "id": "m23_q1",
+            "question": "Was ist 3,2 + 1,4?",
             "answers": [
-              {
-                "text": "Hundertstel",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Zehntel",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Tausendstel",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec1",
-        "title": "2. Dezimalzahlen auf dem Zahlenstrahl",
-        "content": "<div class=\"interactive-zone\">\n    <h3>📏 Der Komma-Zoom</h3>\n    <p>Bewege den Punkt auf dem Zahlenstrahl zwischen 0 und 1:</p>\n    <input type=\"range\" id=\"numLine\" min=\"0\" max=\"100\" value=\"50\" oninput=\"updateLine()\" style=\"width:100%;\">\n    <p style=\"text-align:center; font-size:20px;\">Wert: <span id=\"lineVal\" style=\"font-weight:bold; color:#d69e2e;\">0,50</span></p>\n    \n</div>\n<p>Auf dem Zahlenstrahl liegen Dezimalzahlen genau zwischen den ganzen Zahlen. Zwischen 0 und 1 liegen zum Beispiel 0,1 und 0,2. Und zwischen 0,1 und 0,2 liegen wieder unendlich viele weitere Zahlen, wie 0,15!</p>\n{{QUIZ_q2}}",
-        "quizzes": [
-          {
-            "id": "q2",
-            "question": "Welche Zahl liegt genau in der Mitte zwischen 0,2 und 0,4?",
-            "answers": [
-              {
-                "text": "0,3",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "0,25",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec2",
-        "title": "3. Runden von Dezimalzahlen",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🎢 Die Rundungs-Achterbahn</h3>\n    <p>Gib eine Dezimalzahl ein. Wir runden sie auf <strong>Ganze</strong>:</p>\n    <input type=\"number\" id=\"roundNum\" step=\"0.1\" value=\"3.4\" oninput=\"doRound()\" style=\"width:80px;\">\n    <p id=\"roundRes\" style=\"font-size:20px; font-weight:bold;\">3,4 wird abgerundet auf 3</p>\n    \n</div>\n<p>Beim Runden schauen wir uns immer die <strong>nächste</strong> Ziffer rechts von der Rundungsstelle an. Ist diese Ziffer eine 0, 1, 2, 3 oder 4, runden wir <strong>ab</strong> (die Zahl bleibt). Ist sie eine 5, 6, 7, 8 oder 9, runden wir <strong>auf</strong> (die Zahl wird eins größer).</p>\n{{QUIZ_q3}}",
-        "quizzes": [
-          {
-            "id": "q3",
-            "question": "Runde 7,8 auf die nächste ganze Zahl.",
-            "answers": [
-              {
-                "text": "8",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "7",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec3",
-        "title": "4. Addieren und Subtrahieren",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🏗️ Komma unter Komma!</h3>\n    <p>Beim Addieren müssen die Kommas genau übereinander stehen!</p>\n    <div style=\"font-family: monospace; font-size: 20px; text-align:center; background:#edf2f7; padding:10px; border-radius:8px; width:150px; margin: 0 auto;\">\n        &nbsp;&nbsp;12,34<br>\n        +&nbsp;&nbsp;5,60<br>\n        -------<br>\n        &nbsp;&nbsp;17,94\n    </div>\n</div>\n<p>Egal ob du plus (addierst) oder minus (subtrahierst) rechnest: Die wichtigste Regel bei Dezimalzahlen ist <strong>Komma unter Komma!</strong> Zehntel müssen unter Zehntel stehen, und Hundertstel unter Hundertstel. Fehlende Stellen kannst du einfach mit einer Null auffüllen.</p>\n{{QUIZ_q4}}",
-        "quizzes": [
-          {
-            "id": "q4",
-            "question": "Was ergibt 3,2 + 1,45?",
-            "answers": [
-              {
-                "text": "4,65",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "1,77",
-                "correct": false,
-                "pts": 10
-              },
               {
                 "text": "4,6",
-                "correct": false,
+                "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "46 (Das Komma fehlt!)",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m23_q2",
+            "question": "Was ist 5,8 - 2,1?",
+            "answers": [
+              {
+                "text": "3,7",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "3,9",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "sec4",
-        "title": "5. Multiplizieren und Dividieren (mit 10, 100...)",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🚀 Komma-Schubser</h3>\n    <p>Multipliziere 3,1415 mit 10, 100 oder 1000!</p>\n    <button onclick=\"shiftComma(10)\">x 10</button>\n    <button onclick=\"shiftComma(100)\">x 100</button>\n    <button onclick=\"shiftComma(1000)\">x 1000</button>\n    <p style=\"font-size:24px; font-weight:bold;\" id=\"shiftRes\">3,1415</p>\n    \n</div>\n<p>Wenn du eine Dezimalzahl mit 10, 100 oder 1000 multiplizierst, verschiebt sich das Komma einfach um so viele Stellen nach <strong>rechts</strong>, wie die Zahl Nullen hat. Beim Dividieren wandert das Komma nach <strong>links</strong>.</p>\n{{QUIZ_q5}}",
+        "id": "m23_s2",
+        "title": "Runden von Dezimalzahlen",
+        "content": "<p>Im Game hast du 4,7 Punkte. Bekommst du Level 4 oder Level 5?</p><p>Bei <span style=\"color:blue; font-weight:bold;\">0, 1, 2, 3, 4</span> am Ende wird <b>abgerundet</b> (Zahl bleibt gleich).</p><p>Bei <span style=\"color:red; font-weight:bold;\">5, 6, 7, 8, 9</span> wird <b>aufgerundet</b> (Zahl wird 1 größer).</p><p>4,7 hat eine 7 nach dem Komma. Also aufrunden auf <span style=\"color:red;\">5</span>!</p><div class='interactive-zone' style='background:#e6e6fa; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid purple;'><p>Runde 12,3 auf ganze Zahlen:</p><input type='number' id='rund_input' style='padding:5px;'><button onclick='if(document.getElementById(\"rund_input\").value == 12) alert(\"Richtig! Die 3 sagt: abrunden!\"); else alert(\"Falsch. Schau auf die erste Zahl nach dem Komma.\");' style='padding:5px 10px; background:purple; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m23_q3}}",
         "quizzes": [
           {
-            "id": "q5",
-            "question": "Was ergibt 1,23 * 10?",
+            "id": "m23_q3",
+            "question": "Runde 8,5 auf ganze Zahlen.",
             "answers": [
               {
-                "text": "12,3",
+                "text": "9 (Bei 5 wird aufgerundet!)",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "123",
+                "text": "8",
                 "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m23_s3",
+        "title": "Mal und Geteilt mit 10, 100, 1000",
+        "content": "<p>Das ist ein cooler Trick! Du musst nicht schwer rechnen.</p><p>Bei <span style=\"color:blue; font-weight:bold;\">Mal 10</span> rutscht das Komma um 1 Platz nach <b>rechts</b>. Die Zahl wird größer.</p><p>Bei <span style=\"color:red; font-weight:bold;\">Geteilt durch 10</span> rutscht das Komma um 1 Platz nach <b>links</b>. Die Zahl wird kleiner.</p><p>Beispiel: 3,45 mal 10 = 34,5.</p><div class='interactive-zone' style='background:#fffacd; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid #b8860b;'><p>Was ist 5,2 mal 100? (Komma 2 Plätze nach rechts!)</p><input type='number' id='komma_input' style='padding:5px;'><button onclick='if(document.getElementById(\"komma_input\").value == 520) alert(\"Super! Aus 5,2 wird 52 und dann 520.\"); else alert(\"Falsch. Komma zwei Plätze nach rechts rücken.\");' style='padding:5px 10px; background:#b8860b; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m23_q4}}",
+        "quizzes": [
+          {
+            "id": "m23_q4",
+            "question": "Was ist 12,5 geteilt durch 10?",
+            "answers": [
+              {
+                "text": "1,25 (Komma einen nach links)",
+                "correct": true,
                 "pts": 10
               },
               {
-                "text": "0,123",
+                "text": "125",
                 "correct": false,
-                "pts": 10
+                "pts": 5
               }
             ]
           }
@@ -8009,20 +7751,35 @@
       }
     ],
     "diplom": {
-      "title": "Komma-König",
-      "description": "Egal wie viele Stellen nach dem Komma, du behältst den Überblick!",
+      "title": "🎓 Komma-Diplom",
       "questions": [
         {
-          "id": "math2_3_dezimalzahlen_dip_default",
-          "question": "Hast du das Thema \"🎯 Die Macht der Kommazahlen 📏\" verstanden? (Egal wie viele Stellen nach dem Komma, du behältst den Überblick!)",
+          "id": "m23_dip1",
+          "question": "Was ist 10,50 € + 4,20 €?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "14,70 €",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "14,00 €",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m23_dip2",
+          "question": "Runde 19,8 auf die nächste ganze Zahl.",
+          "answers": [
+            {
+              "text": "20",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "19",
               "correct": false,
               "pts": 5
             }
@@ -8032,50 +7789,32 @@
     }
   },
   "math2_4_relative_zahlen": {
-    "title": "🌡️ Unter Null: Die Welt der negativen Zahlen 🏔️",
-    "subtitle": "Von eisigen Temperaturen bis zu Schulden – entdecke die Welt links von der Null!",
+    "title": "Ganze und Negative Zahlen",
+    "subtitle": "Unter Null! Minusgrade und Schulden meistern.",
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Was sind negative Zahlen?",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🌡️ Das Eis-Thermometer</h3>\n    <p>Bewege den Schieberegler, um die Temperatur zu ändern:</p>\n    <input type=\"range\" id=\"tempSlider\" min=\"-20\" max=\"20\" value=\"-5\" oninput=\"updateTemp()\" style=\"width:100%;\">\n    <div class=\"diagram-box\" style=\"height:60px; display:flex; align-items:center; justify-content:center;\">\n        <p id=\"tempText\" style=\"font-size:24px; font-weight:bold; color:#3182ce;\">-5 °C (Eisig!)</p>\n    </div>\n    \n</div>\n<p>Nicht alles ist immer größer als Null. Wenn du im Winter draußen bist, fällt die Temperatur oft <strong>unter null Grad</strong>. Oder auf dem Bankkonto: Wenn du mehr Geld ausgibst, als du hast, bist du im <strong>Minus</strong> (Schulden). Diese Zahlen mit einem Minuszeichen davor nennen wir <strong>negative Zahlen</strong>.</p>\n{{QUIZ_q1}}",
-        "quizzes": [
-          {
-            "id": "q1",
-            "question": "Welche Temperatur ist kälter?",
-            "answers": [
-              {
-                "text": "-10 °C",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "-2 °C",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "sec1",
-        "title": "2. Der erweiterte Zahlenstrahl",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🚶‍♂️ Spaziergang auf dem Zahlenstrahl</h3>\n    <p>Wo bist du? Links oder rechts von der Null?</p>\n    <input type=\"range\" id=\"walkSlider\" min=\"-5\" max=\"5\" value=\"0\" oninput=\"updateWalk()\" style=\"width:100%;\">\n    <div class=\"diagram-box\" style=\"position:relative; height:80px; margin-top:10px;\">\n        <div style=\"position:absolute; top:40px; left:10%; right:10%; height:4px; background:black;\"></div>\n        <div style=\"position:absolute; top:30px; left:50%; width:4px; height:24px; background:black; transform:translateX(-50%);\"></div>\n        <div id=\"walker\" style=\"position:absolute; top:10px; left:50%; font-size:30px; transform:translateX(-50%); transition:left 0.1s;\">🧍</div>\n        <div style=\"position:absolute; top:55px; left:50%; transform:translateX(-50%);\">0</div>\n    </div>\n    <p id=\"walkPos\" style=\"text-align:center; font-weight:bold;\">Position: 0</p>\n    \n</div>\n<p>Der Zahlenstrahl endet nicht bei der Null! Er geht nach links einfach weiter, spiegelbildlich zu den positiven Zahlen. Je weiter links eine Zahl steht, desto <strong>kleiner</strong> ist sie. Deshalb ist -5 kleiner als -1.</p>\n{{QUIZ_q2}}",
+        "title": "Was sind negative Zahlen?",
+        "content": "<p>Stell dir vor, es ist tiefster Winter. Dein Thermometer zeigt <span style='color:blue'>-5 Grad</span> an. Das ist eine <b>negative Zahl</b>! Sie ist kleiner als Null.</p><p>Oder beim Zocken: Du kaufst einen Skin für 10€, hast aber nur 5€. Dein Kontostand ist dann <span style='color:red'>-5€</span>. Du hast Schulden!</p><div class='interactive-zone' style='background:#f0f0f0; padding:10px; border-radius:8px;'><h4>🎮 V-Bucks Konto-Check</h4><p>Du hast 100 V-Bucks. Ein Tanz kostet 150 V-Bucks. Klick auf Kaufen!</p><button onclick='document.getElementById(\"saldo\").innerText = \"100 - 150 = -50 V-Bucks. Du bist im Minus!\"; this.disabled=true;'>Kaufen</button><p id='saldo' style='color:red; font-weight:bold;'></p></div><p>Minus mal Minus? Plus mal Minus? Wir klären das!</p>{{QUIZ_m24_q1}}",
         "quizzes": [
           {
-            "id": "q2",
-            "question": "Welche Zahl liegt auf dem Zahlenstrahl weiter links?",
+            "id": "m24_q1",
+            "question": "Was bedeutet ein Kontostand von -20€?",
             "answers": [
               {
-                "text": "-8",
+                "text": "Ich habe 20€ Schulden.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "-3",
+                "text": "Ich habe 20€ geschenkt bekommen.",
                 "correct": false,
-                "pts": 10
+                "pts": 5
+              },
+              {
+                "text": "Mein Konto ist gesperrt.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -8083,78 +7822,27 @@
       },
       {
         "id": "sec2",
-        "title": "3. Betrag und Gegenzahl",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🪞 Der magische Spiegel der Null</h3>\n    <p>Gib eine Zahl ein, um ihre Gegenzahl und ihren Betrag zu sehen:</p>\n    <input type=\"number\" id=\"mirrorNum\" value=\"-4\" oninput=\"updateMirror()\" style=\"width:80px;\">\n    <ul style=\"list-style:none; padding:0; font-size:18px;\">\n        <li>Gegenzahl: <span id=\"gZahl\" style=\"font-weight:bold;\">4</span></li>\n        <li>Betrag (Abstand zur 0): <span id=\"bZahl\" style=\"font-weight:bold;\">4</span></li>\n    </ul>\n    \n</div>\n<p>Jede Zahl hat einen \"Bösen Zwilling\" auf der anderen Seite der Null: ihre <strong>Gegenzahl</strong>. Die Gegenzahl von 5 ist -5. Der <strong>Betrag</strong> einer Zahl ist einfach ihr Abstand zur Null. Da ein Abstand nie negativ sein kann, ist der Betrag von -5 einfach 5 (geschrieben als |-5| = 5).</p>\n{{QUIZ_q3}}",
+        "title": "Rechnen mit Minus",
+        "content": "<p>Rechnen mit Schulden ist wie im Fahrstuhl fahren.</p><p>Du bist im <span style='color:blue'>3. Stock</span> und fährst <span style='color:red'>5 Stockwerke</span> nach unten (3 - 5).</p><p>Wo landest du? Im <b>2. Untergeschoss (-2)</b>!</p><div class='interactive-zone' style='background:#e6f7ff; padding:10px; border-radius:8px;'><h4>🏢 Fahrstuhl-Simulator</h4><label>Start-Stockwerk: <input type='number' id='start_floor' value='3' style='width:50px;'></label><br><label>Fahre nach unten (-): <input type='number' id='move_floor' value='5' style='width:50px;'></label><br><button onclick='let s=parseInt(document.getElementById(\"start_floor\").value); let m=parseInt(document.getElementById(\"move_floor\").value); document.getElementById(\"floor_res\").innerText = \"Du bist in Stockwerk: \" + (s - m);'>Losfahren!</button><p id='floor_res' style='font-weight:bold;'></p></div>{{QUIZ_m24_q2}}",
         "quizzes": [
           {
-            "id": "q3",
-            "question": "Was ist der Betrag von -12? (Geschrieben: |-12|)",
+            "id": "m24_q2",
+            "question": "Rechne: 5 - 8 =",
             "answers": [
-              {
-                "text": "12",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "-12",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec3",
-        "title": "4. Addieren mit negativen Zahlen",
-        "content": "<div class=\"interactive-zone\">\n    <h3>💰 Das Schulden-Konto</h3>\n    <p>Du hast 3 € Schulden (-3 €). Du bekommst 5 € Taschengeld (+5 €). Wie viel Geld hast du jetzt?</p>\n    <div style=\"font-size:24px; text-align:center; padding:10px;\">\n        <span style=\"color:red;\">-3</span> + <span style=\"color:green;\">5</span> = <span style=\"color:green; font-weight:bold;\">+2</span>\n    </div>\n</div>\n<p>Wenn du eine positive Zahl zu einer negativen Zahl addierst, gehst du auf dem Zahlenstrahl nach rechts. Wenn du bei -3 startest und 5 Schritte nach rechts gehst, landest du bei +2.</p>\n{{QUIZ_q4}}",
-        "quizzes": [
-          {
-            "id": "q4",
-            "question": "Was ergibt -4 + 7?",
-            "answers": [
-              {
-                "text": "3",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "-11",
-                "correct": false,
-                "pts": 10
-              },
               {
                 "text": "-3",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec4",
-        "title": "5. Subtrahieren mit negativen Zahlen",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🧊 Kälte wegnehmen macht warm!</h3>\n    <p>Subtrahieren einer negativen Zahl ist wie das <strong>Entfernen von Eiswürfeln</strong> aus einer Suppe: Die Suppe wird wärmer!</p>\n    <div style=\"font-size:24px; text-align:center; padding:10px;\">\n        5 - (<span style=\"color:blue;\">-2</span>) = 5 <span style=\"color:red; font-weight:bold;\">+</span> 2 = 7\n    </div>\n</div>\n<p>Das ist die berühmteste Regel der negativen Zahlen: <strong>Minus mal Minus ergibt Plus!</strong> Wenn du eine negative Zahl abziehst (subtrahierst), ist das genau dasselbe, als würdest du ihre positive Gegenzahl addieren.</p>\n{{QUIZ_q5}}",
-        "quizzes": [
-          {
-            "id": "q5",
-            "question": "Was ergibt 10 - (-3)?",
-            "answers": [
-              {
-                "text": "13",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "7",
+                "text": "3",
                 "correct": false,
-                "pts": 10
+                "pts": 5
               },
               {
                 "text": "-13",
                 "correct": false,
-                "pts": 10
+                "pts": 0
               }
             ]
           }
@@ -8162,22 +7850,47 @@
       }
     ],
     "diplom": {
-      "title": "Bezwinger der Minuswelt",
-      "description": "Positive oder negative Zahlen – du hast alles im Griff!",
+      "title": "🎓 Minus-Meister Diplom",
       "questions": [
         {
-          "id": "math2_4_relative_zahlen_dip_default",
-          "question": "Hast du das Thema \"🌡️ Unter Null: Die Welt der negativen Zahlen 🏔️\" verstanden? (Positive oder negative Zahlen – du hast alles im Griff!)",
+          "id": "m24_dip1",
+          "question": "Welche Zahl ist am kleinsten?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "-100",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "-1",
               "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "0",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "m24_dip2",
+          "question": "Dein Konto zeigt -15€. Du zahlst 20€ ein. Neuer Kontostand?",
+          "answers": [
+            {
+              "text": "+5€",
+              "correct": true,
               "pts": 5
+            },
+            {
+              "text": "-35€",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "-5€",
+              "correct": false,
+              "pts": 0
             }
           ]
         }
@@ -8191,29 +7904,29 @@
   },
   "math2_5_var_gleichungen": {
     "title": "Variablen und Gleichungen",
-    "subtitle": "Die Sprache der Mathematik: Unbekannte entdecken und Rätsel lösen",
+    "subtitle": "Das Rätsel um das mysteriöse 'x' lösen.",
     "sections": [
       {
-        "id": "intro_vars",
-        "title": "Was ist eine Variable?",
-        "content": "<div class=\"interactive-zone\" id=\"iz_var_intro\"><svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\"><rect x=\"50\" y=\"50\" width=\"100\" height=\"100\" fill=\"#f0f0f0\" stroke=\"#333\" stroke-width=\"2\" id=\"box\"/><text x=\"100\" y=\"110\" font-size=\"24\" text-anchor=\"middle\" id=\"box_text\">?</text><text x=\"180\" y=\"110\" font-size=\"24\">+</text><circle cx=\"250\" cy=\"100\" r=\"30\" fill=\"#ff9999\"/><text x=\"250\" y=\"110\" font-size=\"24\" text-anchor=\"middle\">5</text><text x=\"310\" y=\"110\" font-size=\"24\">=</text><text x=\"350\" y=\"110\" font-size=\"24\" id=\"result_text\">12</text><line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" stroke=\"#ccc\" stroke-width=\"4\"/><circle cx=\"100\" cy=\"180\" r=\"8\" fill=\"#333\" id=\"slider_knob\" style=\"cursor:pointer\"/></svg></div><p>Bewege den Schieberegler im Bild oben. Die Box <strong>?</strong> stellt einen unbekannten Wert dar. In der Mathematik nennen wir so einen Platzhalter eine <strong>Variable</strong>, oft mit Buchstaben wie <i>x</i> oder <i>y</i> bezeichnet.</p>{{QUIZ_vars_1}}",
+        "id": "sec1",
+        "title": "Was ist eine Variable (x)?",
+        "content": "<p>Stell dir vor, du hast eine <span style='color:purple'>Mystery Box</span> in deinem Lieblingsspiel. Du weißt nicht, wie viele Coins drin sind.</p><p>Diese unbekannte Box nennen wir in der Mathe einfach <b>x</b>!</p><p>Beispiel: x + 5 = 15. In der Box (x) plus 5 offene Coins sind zusammen 15 Coins.</p><div class='interactive-zone' style='background:#f9f0ff; padding:10px; border-radius:8px;'><h4>📦 Mystery Box Knacker</h4><p>x + 7 = 10</p><label>Was ist x? <input type='number' id='guess_x' style='width:50px;'></label><button onclick='let g=document.getElementById(\"guess_x\").value; if(g==3){document.getElementById(\"x_res\").innerText=\"✅ Richtig! x ist 3.\"; document.getElementById(\"x_res\").style.color=\"green\";}else{document.getElementById(\"x_res\").innerText=\"❌ Falsch, versuch es nochmal!\"; document.getElementById(\"x_res\").style.color=\"red\";}'>Check</button><p id='x_res' style='font-weight:bold;'></p></div>{{QUIZ_m25_q1}}",
         "quizzes": [
           {
-            "id": "vars_1",
-            "question": "Wenn die Box (Variable x) den Wert 8 annimmt, was ist das Ergebnis von x + 5?",
+            "id": "m25_q1",
+            "question": "Was ist eine 'Variable' in der Mathematik meistens?",
             "answers": [
               {
-                "text": "12",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "13",
+                "text": "Ein Buchstabe (wie x), der für eine unbekannte Zahl steht.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "15",
+                "text": "Ein schwieriges Wort für Plusrechnen.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Eine Zahl, die sich jede Minute ändert.",
                 "correct": false,
                 "pts": 0
               }
@@ -8222,28 +7935,28 @@
         ]
       },
       {
-        "id": "equations_balance",
-        "title": "Gleichungen als Waage",
-        "content": "<div class=\"interactive-zone\" id=\"iz_balance\"><svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\"><polygon points=\"200,180 180,200 220,200\" fill=\"#666\"/><line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" stroke=\"#333\" stroke-width=\"4\" id=\"beam\" transform=\"rotate(0 200 180)\"/><g id=\"left_pan\" transform=\"translate(50,180)\"><rect x=\"-20\" y=\"-30\" width=\"40\" height=\"30\" fill=\"#aaccff\"/><text x=\"0\" y=\"-10\" text-anchor=\"middle\">x</text><circle cx=\"25\" cy=\"-10\" r=\"10\" fill=\"#ffccaa\"/><text x=\"25\" y=\"-5\" font-size=\"12\" text-anchor=\"middle\">3</text></g><g id=\"right_pan\" transform=\"translate(350,180)\"><circle cx=\"-10\" cy=\"-15\" r=\"15\" fill=\"#ffccaa\"/><text x=\"-10\" y=\"-10\" text-anchor=\"middle\">8</text></g></svg><div style=\"margin-top:10px\"><button onclick=\"addWeight(-1, 'left')\">-1 Links</button><button onclick=\"addWeight(-1, 'right')\">-1 Rechts</button></div></div><p>Eine Gleichung ist wie eine Waage im Gleichgewicht. Was du auf der einen Seite tust, musst du auch auf der anderen Seite tun! Das Ziel ist es, die Variable (x) alleine auf einer Seite stehen zu haben. Entferne auf beiden Seiten das gleiche Gewicht, bis x alleine steht.</p>{{QUIZ_balance_1}}",
+        "id": "sec2",
+        "title": "Gleichungen lösen (Waage-Trick)",
+        "content": "<p>Eine Gleichung ist wie eine <b>Waage</b> im Gleichgewicht. Was du auf der linken Seite machst, MUSST du auch rechts machen!</p><p>Aufgabe: <b>2x = 10</b></p><p>Wenn 2 Döner 10€ kosten, was kostet dann 1 Döner? Klar, du teilst beide Seiten durch 2!</p><p><span style='color:blue'>x = 5</span></p><div class='interactive-zone' style='background:#e6ffe6; padding:10px; border-radius:8px;'><h4>⚖️ Waage im Gleichgewicht halten</h4><p>Gleichung: x + 4 = 12</p><p>Um x allein zu haben, musst du die 4 wegbekommen. Wie?</p><button onclick='document.getElementById(\"waage_res\").innerText=\"✅ Genau! Minus 4 auf BEIDEN Seiten. 12 - 4 = 8. Also x = 8.\";'>- 4 rechnen</button> <button onclick='document.getElementById(\"waage_res\").innerText=\"❌ Falsch. Wenn du +4 rechnest, hast du x + 8 = 16. Das hilft nicht.\";'>+ 4 rechnen</button><p id='waage_res' style='font-weight:bold;'></p></div>{{QUIZ_m25_q2}}",
         "quizzes": [
           {
-            "id": "balance_1",
-            "question": "Die Gleichung lautet x + 3 = 8. Welchen Schritt musst du auf BEIDEN Seiten durchführen, um x zu isolieren?",
+            "id": "m25_q2",
+            "question": "Löse die Gleichung: x - 3 = 7. Was ist x?",
             "answers": [
               {
-                "text": "3 addieren",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "8 subtrahieren",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "3 subtrahieren",
+                "text": "10",
                 "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "4",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "21",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -8251,22 +7964,42 @@
       }
     ],
     "diplom": {
-      "title": "Meister der Unbekannten",
-      "description": "Du hast bewiesen, dass keine Variable vor dir sicher ist und Gleichungen stets im Gleichgewicht bleiben.",
+      "title": "🎓 X-Jäger Diplom",
       "questions": [
         {
-          "id": "math2_5_var_gleichungen_dip_default",
-          "question": "Hast du das Thema \"Variablen und Gleichungen\" verstanden? (Du hast bewiesen, dass keine Variable vor dir sicher ist und Gleichungen stets im Gleichgewicht bleiben.)",
+          "id": "m25_dip1",
+          "question": "3x = 15. Was ist x?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "5",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "12",
               "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "m25_dip2",
+          "question": "x + 10 = 25. Was musst du auf beiden Seiten der Gleichung tun, um x zu finden?",
+          "answers": [
+            {
+              "text": "- 10 rechnen",
+              "correct": true,
               "pts": 5
+            },
+            {
+              "text": "+ 10 rechnen",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "* 10 rechnen",
+              "correct": false,
+              "pts": 0
             }
           ]
         }
@@ -8274,30 +8007,30 @@
     }
   },
   "math2_6_prop_prozent": {
-    "title": "Proportionen und Prozentrechnung",
-    "subtitle": "Verhältnisse verstehen und Prozente knacken",
+    "title": "Proportionen & Prozent",
+    "subtitle": "Rabatte checken und Pizza-Zutaten berechnen.",
     "sections": [
       {
-        "id": "proportions",
-        "title": "Direkte Proportionen",
-        "content": "<div class=\"interactive-zone\" id=\"iz_prop\"><svg width=\"400\" height=\"200\"><rect x=\"20\" y=\"150\" width=\"40\" height=\"0\" fill=\"#4CAF50\" id=\"bar1\"/><text x=\"40\" y=\"190\" text-anchor=\"middle\">Äpfel</text><text x=\"40\" y=\"145\" text-anchor=\"middle\" id=\"lbl1\">1</text><rect x=\"120\" y=\"150\" width=\"40\" height=\"0\" fill=\"#FF9800\" id=\"bar2\"/><text x=\"140\" y=\"190\" text-anchor=\"middle\">Preis (€)</text><text x=\"140\" y=\"145\" text-anchor=\"middle\" id=\"lbl2\">2</text></svg><br><input type=\"range\" min=\"1\" max=\"10\" value=\"1\" id=\"apple_slider\" style=\"width:200px\"></div><p>Bewege den Schieberegler. Wenn du mehr Äpfel kaufst, steigt der Preis gleichmäßig an. Das ist eine <strong>direkte Proportion</strong>: Verdoppelt sich die eine Menge, verdoppelt sich auch die andere.</p>{{QUIZ_prop_1}}",
+        "id": "sec1",
+        "title": "Direkte Proportionen (Je mehr, desto mehr)",
+        "content": "<p>Ganz einfache Regel: <b>Je mehr du kaufst, desto mehr musst du zahlen.</b></p><p>Beispiel: 2 Pizzen kosten 10€. Wie viel kosten 4 Pizzen?</p><p>Doppelt so viele Pizzen = doppelt so viel Geld! Also <span style='color:green'>20€</span>.</p><div class='interactive-zone' style='background:#fff0e6; padding:10px; border-radius:8px;'><h4>🍕 Pizza-Rechner</h4><label>Anzahl Pizzen: <input type='range' id='pizza_slider' min='1' max='10' value='2' oninput='document.getElementById(\"pizza_count\").innerText=this.value; document.getElementById(\"pizza_price\").innerText=this.value * 5;'></label> <span id='pizza_count'>2</span> Stück<br><p>Preis: <span id='pizza_price' style='color:green; font-weight:bold; font-size:1.2em;'>10</span> €</p></div>{{QUIZ_m26_q1}}",
         "quizzes": [
           {
-            "id": "prop_1",
-            "question": "Wenn 3 Äpfel 6 Euro kosten, wie viel kosten dann 5 Äpfel?",
+            "id": "m26_q1",
+            "question": "3 Energy Drinks kosten 6€. Was kosten 6 Energy Drinks?",
             "answers": [
               {
-                "text": "8 Euro",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "10 Euro",
+                "text": "12€",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "12 Euro",
+                "text": "9€",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "18€",
                 "correct": false,
                 "pts": 0
               }
@@ -8306,26 +8039,26 @@
         ]
       },
       {
-        "id": "percentages",
-        "title": "Prozente visualisieren",
-        "content": "<div class=\"interactive-zone\" id=\"iz_perc\"><svg width=\"200\" height=\"200\" viewBox=\"-100 -100 200 200\"><circle cx=\"0\" cy=\"0\" r=\"80\" fill=\"#eee\"/><path id=\"pie_slice\" fill=\"#E91E63\" d=\"M0,0 L0,-80 A80,80 0 0,1 80,0 Z\"/><text x=\"0\" y=\"5\" text-anchor=\"middle\" id=\"perc_text\" font-size=\"20\">25%</text></svg><br><input type=\"range\" min=\"0\" max=\"100\" value=\"25\" id=\"perc_slider\"></div><p>Prozent bedeutet wörtlich \"von Hundert\" (pro centum). Es ist einfach ein Bruch mit dem Nenner 100. Verändere den Prozentsatz und beobachte, wie sich der Anteil am Ganzen (dem Kreis) verändert.</p>{{QUIZ_perc_1}}",
+        "id": "sec2",
+        "title": "Prozentrechnung (Der Mega-Sale!)",
+        "content": "<p>Prozent bedeutet einfach 'von 100'.</p><p>Ein Spiel kostet normalerweise 50€. Jetzt gibt es <span style='color:red'>-20% Rabatt</span>!</p><p>Wie viel sparst du? 10% von 50€ sind 5€. Also sind 20% dann <b>10€</b>!</p><p>Neuer Preis: 50€ - 10€ = <span style='color:green'>40€</span>.</p><div class='interactive-zone' style='background:#ffe6e6; padding:10px; border-radius:8px;'><h4>💸 Rabatt-Check</h4><p>Schuhe kosten 100€.</p><label>Rabatt in %: <input type='number' id='rabatt_input' value='30' style='width:50px;'></label><button onclick='let r=document.getElementById(\"rabatt_input\").value; let sp=100*(r/100); let np=100-sp; document.getElementById(\"rabatt_res\").innerHTML=\"Du sparst: \" + sp + \"€<br>Neuer Preis: <b>\" + np + \"€</b>\";'>Berechnen</button><p id='rabatt_res'></p></div>{{QUIZ_m26_q2}}",
         "quizzes": [
           {
-            "id": "perc_1",
-            "question": "Welcher Bruch entspricht genau 50%?",
+            "id": "m26_q2",
+            "question": "Ein T-Shirt kostet 20€. Es gibt 50% Rabatt. Was kostet es jetzt?",
             "answers": [
               {
-                "text": "1/4",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "1/2",
+                "text": "10€",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "3/4",
+                "text": "5€",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "15€",
                 "correct": false,
                 "pts": 0
               }
@@ -8335,22 +8068,42 @@
       }
     ],
     "diplom": {
-      "title": "Prozent-Profi",
-      "description": "Du hast bewiesen, dass du Verhältnisse durchschaust und jede Prozentrechnung meisterst.",
+      "title": "🎓 Prozent-Profi Diplom",
       "questions": [
         {
-          "id": "math2_6_prop_prozent_dip_default",
-          "question": "Hast du das Thema \"Proportionen und Prozentrechnung\" verstanden? (Du hast bewiesen, dass du Verhältnisse durchschaust und jede Prozentrechnung meisterst.)",
+          "id": "m26_dip1",
+          "question": "Was bedeutet 100%?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Alles, das Ganze.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Die Hälfte.",
               "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "Nichts.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "m26_dip2",
+          "question": "5 Kaugummis kosten 1€. Wie viel kosten 10 Kaugummis?",
+          "answers": [
+            {
+              "text": "2€",
+              "correct": true,
               "pts": 5
+            },
+            {
+              "text": "5€",
+              "correct": false,
+              "pts": 0
             }
           ]
         }
@@ -8358,60 +8111,121 @@
     }
   },
   "math2_7_geometrie": {
-    "title": "Geometrie: Dreiecke, Vierecke, Prismen",
-    "subtitle": "Eigenschaften von Formen und Körpern erforschen",
+    "title": "Dreiecke, Vierecke & Prismen",
+    "subtitle": "Formen in deinem Alltag",
     "sections": [
       {
-        "id": "triangles",
-        "title": "Winkelsumme im Dreieck",
-        "content": "<div class=\"interactive-zone\" id=\"iz_tri\"><svg width=\"400\" height=\"300\" style=\"border:1px solid #ccc\"><polygon id=\"tri_poly\" points=\"50,250 350,250 200,50\" fill=\"#e0f7fa\" stroke=\"#006064\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"50\" r=\"8\" fill=\"#ff5722\" id=\"drag_pt\" style=\"cursor:pointer\"/><text x=\"50\" y=\"270\">A</text><text x=\"350\" y=\"270\">B</text><text id=\"lbl_C\" x=\"200\" y=\"40\">C</text><text id=\"angle_info\" x=\"10\" y=\"20\" font-size=\"14\">Summe: 180°</text></svg></div><p>Bewege den oberen Punkt des Dreiecks. Egal wie spitz oder stumpf die Winkel werden, ihre Summe ist immer genau 180°! Dies ist ein fundamentales Gesetz für alle ebenen Dreiecke.</p>{{QUIZ_tri_1}}",
+        "id": "sec_dreiecke",
+        "title": "Das Dreieck 📐",
+        "content": "<p>Stell dir vor, du baust eine Rampe für dein Skateboard. Das ist ein <span style=\"color:red\">Dreieck</span>!</p><div class=\"interactive-zone\"><svg width=\"200\" height=\"100\"><polygon points=\"10,90 190,90 100,10\" style=\"fill:lime;stroke:purple;stroke-width:1\" /></svg></div><p>Ein Dreieck hat immer 3 Ecken und 3 Seiten.</p>{{QUIZ_m27_q1}}{{QUIZ_m27_q2}}",
         "quizzes": [
           {
-            "id": "tri_1",
-            "question": "In einem Dreieck sind zwei Winkel 40° und 60° groß. Wie groß ist der dritte Winkel?",
+            "id": "m27_q1",
+            "question": "Wie viele Ecken hat ein Dreieck?",
             "answers": [
               {
-                "text": "80°",
+                "text": "3 Ecken",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "90°",
+                "text": "4 Ecken",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m27_q2",
+            "question": "Was sieht aus wie ein Dreieck?",
+            "answers": [
+              {
+                "text": "Eine Skateboard-Rampe",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "100°",
+                "text": "Ein Fußball",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "prisms",
-        "title": "Was ist ein Prisma?",
-        "content": "<div class=\"interactive-zone\" id=\"iz_prism\"><svg width=\"400\" height=\"200\"><polygon points=\"100,150 150,150 125,100\" fill=\"#bbdefb\" stroke=\"#1976d2\"/><polygon id=\"top_base\" points=\"200,100 250,100 225,50\" fill=\"#bbdefb\" stroke=\"#1976d2\"/><line x1=\"100\" y1=\"150\" x2=\"200\" y2=\"100\" stroke=\"#1976d2\" stroke-dasharray=\"4\"/><line x1=\"150\" y1=\"150\" x2=\"250\" y2=\"100\" stroke=\"#1976d2\"/><line x1=\"125\" y1=\"100\" x2=\"225\" y2=\"50\" stroke=\"#1976d2\"/></svg><br><input type=\"range\" min=\"0\" max=\"100\" value=\"50\" id=\"h_slider\"></div><p>Ein Prisma ist ein Körper, der durch eine Grundfläche und eine exakt gleiche (kongruente) Deckfläche definiert ist. Die Höhe (die du mit dem Schieberegler ändern kannst) verbindet diese beiden Flächen.</p>{{QUIZ_prism_1}}",
+        "id": "sec_vierecke",
+        "title": "Rechteck und Quadrat 🔲",
+        "content": "<p>Dein Handy-Bildschirm ist ein <span style=\"color:red\">Rechteck</span>. Ein Rechteck hat 4 Ecken. Gegenüberliegende Seiten sind gleich lang.</p><div class=\"interactive-zone\"><svg width=\"200\" height=\"100\"><rect x=\"10\" y=\"10\" width=\"180\" height=\"80\" style=\"fill:blue;stroke:black;stroke-width:2\" /></svg></div><p>Ein Quadrat ist besonders: Alle 4 Seiten sind <span style=\"color:red\">gleich lang</span>! Wie ein Stück Schokolade.</p>{{QUIZ_m27_q3}}{{QUIZ_m27_q4}}",
         "quizzes": [
           {
-            "id": "prism_1",
-            "question": "Welche der folgenden Aussagen über ein Prisma ist wahr?",
+            "id": "m27_q3",
+            "question": "Was hat 4 gleich lange Seiten?",
             "answers": [
               {
-                "text": "Grund- und Deckfläche sind identisch (kongruent).",
+                "text": "Das Quadrat",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Seitenflächen sind immer Dreiecke.",
+                "text": "Das Rechteck",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m27_q4",
+            "question": "Dein Handy-Bildschirm ist meistens ein...",
+            "answers": [
+              {
+                "text": "Rechteck",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "Ein Prisma hat immer 6 Ecken.",
+                "text": "Kreis",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec_prismen",
+        "title": "Das Prisma 📦",
+        "content": "<p>Ein Prisma ist wie eine Box. Dein Schuhkarton ist ein <span style=\"color:red\">Prisma</span>! Es ist 3D. Du kannst Sachen reinlegen.</p><div class=\"interactive-zone\"><svg width=\"150\" height=\"150\"><rect x=\"20\" y=\"40\" width=\"80\" height=\"80\" fill=\"none\" stroke=\"black\" /><rect x=\"50\" y=\"10\" width=\"80\" height=\"80\" fill=\"none\" stroke=\"black\" /><line x1=\"20\" y1=\"40\" x2=\"50\" y2=\"10\" stroke=\"black\" /><line x1=\"100\" y1=\"40\" x2=\"130\" y2=\"10\" stroke=\"black\" /><line x1=\"20\" y1=\"120\" x2=\"50\" y2=\"90\" stroke=\"black\" /><line x1=\"100\" y1=\"120\" x2=\"130\" y2=\"90\" stroke=\"black\" /></svg></div><p>Es hat ein Volumen. Das heißt, da passt was rein.</p>{{QUIZ_m27_q5}}{{QUIZ_m27_q6}}",
+        "quizzes": [
+          {
+            "id": "m27_q5",
+            "question": "Ist ein Prisma flach (2D) oder räumlich (3D)?",
+            "answers": [
+              {
+                "text": "Räumlich (3D)",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Flach (2D)",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m27_q6",
+            "question": "Was ist ein gutes Beispiel für ein Prisma?",
+            "answers": [
+              {
+                "text": "Ein Schuhkarton",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ein flaches Papier",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
@@ -8419,20 +8233,35 @@
       }
     ],
     "diplom": {
-      "title": "Geometrie-Genie",
-      "description": "Du hast Dreiecke gebändigt und Körper im Raum verstanden.",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math2_7_geometrie_dip_default",
-          "question": "Hast du das Thema \"Geometrie: Dreiecke, Vierecke, Prismen\" verstanden? (Du hast Dreiecke gebändigt und Körper im Raum verstanden.)",
+          "id": "m27_dip1",
+          "question": "Wie viele Seiten hat ein Dreieck?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "3",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "4",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m27_dip2",
+          "question": "Bei welchem Viereck sind alle Seiten gleich lang?",
+          "answers": [
+            {
+              "text": "Quadrat",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Rechteck",
               "correct": false,
               "pts": 5
             }
@@ -8442,60 +8271,121 @@
     }
   },
   "math2_8_statistik": {
-    "title": "Statistik 2. Klasse",
-    "subtitle": "Daten sammeln, darstellen und interpretieren",
+    "title": "Statistik 📊",
+    "subtitle": "Daten wie ein Pro verstehen",
     "sections": [
       {
-        "id": "barchart",
-        "title": "Säulendiagramme lesen",
-        "content": "<div class=\"interactive-zone\" id=\"iz_stat\"><svg width=\"400\" height=\"200\"><line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" stroke=\"black\"/><line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"180\" stroke=\"black\"/><rect id=\"bar_a\" x=\"80\" y=\"80\" width=\"40\" height=\"100\" fill=\"#f44336\"/><rect id=\"bar_b\" x=\"160\" y=\"120\" width=\"40\" height=\"60\" fill=\"#2196f3\"/><rect id=\"bar_c\" x=\"240\" y=\"50\" width=\"40\" height=\"130\" fill=\"#4caf50\"/><text x=\"100\" y=\"195\" text-anchor=\"middle\">A</text><text x=\"180\" y=\"195\" text-anchor=\"middle\">B</text><text x=\"260\" y=\"195\" text-anchor=\"middle\">C</text></svg><br><button onclick=\"randData()\">Neue Daten</button></div><p>Säulendiagramme machen Daten auf einen Blick verständlich. Die Höhe der Säule steht für die Anzahl oder Häufigkeit. Klicke auf 'Neue Daten' und beobachte, wie sich die Verteilung sofort visuell verändert.</p>{{QUIZ_stat_1}}",
+        "id": "sec_daten",
+        "title": "Daten sammeln 📝",
+        "content": "<p>Stell dir vor, du fragst deine Freunde: Welches Spiel zockt ihr am liebsten? Die Antworten sind <span style=\"color:red\">Daten</span>.</p><p>Wir können Striche machen für jede Antwort. Das nennt man <span style=\"color:red\">Strichliste</span>.</p><div class=\"interactive-zone\"><p>FIFA: ||||</p><p>Fortnite: |||| ||</p></div><p>So siehst du sofort, was am beliebtesten ist!</p>{{QUIZ_m28_q1}}{{QUIZ_m28_q2}}",
         "quizzes": [
           {
-            "id": "stat_1",
-            "question": "Was gibt die Höhe einer Säule in einem Säulendiagramm typischerweise an?",
+            "id": "m28_q1",
+            "question": "Wozu machst du eine Strichliste?",
             "answers": [
               {
-                "text": "Die Farbe der Daten",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Die Häufigkeit oder Anzahl",
+                "text": "Um leicht zu zählen",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Zeit in Sekunden",
+                "text": "Zum Malen",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m28_q2",
+            "question": "Was sind Daten?",
+            "answers": [
+              {
+                "text": "Gesammelte Infos (wie Antworten)",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ein Handyspiel",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "average",
-        "title": "Das arithmetische Mittel (Durchschnitt)",
-        "content": "<div class=\"interactive-zone\" id=\"iz_avg\"><svg width=\"400\" height=\"150\"><line x1=\"20\" y1=\"100\" x2=\"380\" y2=\"100\" stroke=\"#999\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"100\" r=\"8\" fill=\"#ff9800\" id=\"d1\" style=\"cursor:pointer\"/><text x=\"100\" y=\"130\" id=\"t1\" text-anchor=\"middle\">2</text><circle cx=\"200\" cy=\"100\" r=\"8\" fill=\"#ff9800\" id=\"d2\" style=\"cursor:pointer\"/><text x=\"200\" y=\"130\" id=\"t2\" text-anchor=\"middle\">4</text><circle cx=\"300\" cy=\"100\" r=\"8\" fill=\"#ff9800\" id=\"d3\" style=\"cursor:pointer\"/><text x=\"300\" y=\"130\" id=\"t3\" text-anchor=\"middle\">6</text><polygon points=\"200,80 190,60 210,60\" fill=\"#e91e63\" id=\"avg_marker\"/><text x=\"200\" y=\"50\" id=\"avg_text\" text-anchor=\"middle\" fill=\"#e91e63\">Mittelwert: 4</text></svg></div><p>Bewege die orangefarbenen Punkte (Datenwerte). Der rosafarbene Pfeil zeigt dir immer das arithmetische Mittel (den Durchschnitt) an. Es ist der 'Ausgleichswert' aller Datenpunkte.</p>{{QUIZ_stat_2}}",
+        "id": "sec_diagramme",
+        "title": "Säulendiagramm 📈",
+        "content": "<p>Ein Säulendiagramm zeigt Daten als dicke Balken (Säulen). Je höher die Säule, desto <span style=\"color:red\">mehr</span> Leute haben das gewählt.</p><div class=\"interactive-zone\"><svg width=\"200\" height=\"150\"><line x1=\"20\" y1=\"130\" x2=\"180\" y2=\"130\" stroke=\"black\" /><line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"130\" stroke=\"black\" /><rect x=\"40\" y=\"50\" width=\"30\" height=\"80\" fill=\"red\" /><rect x=\"100\" y=\"20\" width=\"30\" height=\"110\" fill=\"blue\" /></svg></div><p>So musst du keine Zahlen lesen, sondern siehst es einfach!</p>{{QUIZ_m28_q3}}{{QUIZ_m28_q4}}",
         "quizzes": [
           {
-            "id": "stat_2",
-            "question": "Wie berechnet man das arithmetische Mittel von 3, 5 und 7?",
+            "id": "m28_q3",
+            "question": "Was bedeutet eine hohe Säule im Diagramm?",
             "answers": [
               {
-                "text": "Die mittlere Zahl nehmen (5)",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Alle addieren und durch 3 teilen (15 / 3 = 5)",
+                "text": "Viele Leute haben das gewählt",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Differenz der Zahlen berechnen",
+                "text": "Wenig Leute haben das gewählt",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m28_q4",
+            "question": "Warum nutzen wir Diagramme?",
+            "answers": [
+              {
+                "text": "Man erkennt Ergebnisse sofort",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Weil es bunter aussieht",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec_mittelwert",
+        "title": "Der Durchschnitt (Mittelwert) 🍕",
+        "content": "<p>Du und 3 Freunde kauft eine fette Pizza für 20 Euro. Ihr seid 4 Personen. Jeder zahlt <span style=\"color:red\">gleich viel</span>. 20 geteilt durch 4 ist 5.</p><p>Jeder zahlt 5 Euro. Das ist der <span style=\"color:red\">Durchschnitt</span>!</p><div class=\"interactive-zone\"><input type=\"text\" id=\"pizza_calc\" placeholder=\"20 / 4 = ?\" /><button onclick=\"if(document.getElementById('pizza_calc').value=='5'){alert('Korrekt! 5 Euro pro Person!');}else{alert('Fast! Rechne 20 geteilt durch 4.');}\">Check</button></div><p>Du rechnest alles zusammen und teilst es durch die Anzahl.</p>{{QUIZ_m28_q5}}{{QUIZ_m28_q6}}",
+        "quizzes": [
+          {
+            "id": "m28_q5",
+            "question": "Wie rechnet man den Durchschnitt aus?",
+            "answers": [
+              {
+                "text": "Alles plus rechnen, dann teilen",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Einfach raten",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m28_q6",
+            "question": "Du hast 10€, dein Freund 0€. Was ist der Durchschnitt pro Person?",
+            "answers": [
+              {
+                "text": "5€",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "10€",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
@@ -8503,20 +8393,35 @@
       }
     ],
     "diplom": {
-      "title": "Daten-Detektiv",
-      "description": "Du kannst Diagramme entschlüsseln und den wahren Kern von Datensätzen finden.",
+      "title": "🎓 Diplom",
       "questions": [
         {
-          "id": "math2_8_statistik_dip_default",
-          "question": "Hast du das Thema \"Statistik 2. Klasse\" verstanden? (Du kannst Diagramme entschlüsseln und den wahren Kern von Datensätzen finden.)",
+          "id": "m28_dip1",
+          "question": "Was ist eine Strichliste?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "Eine Liste zum Zählen mit Strichen",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "Ein Kunstwerk",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m28_dip2",
+          "question": "Wenn eine Säule im Diagramm sehr klein ist, bedeutet das...",
+          "answers": [
+            {
+              "text": "Es wurde wenig gewählt",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Es wurde viel gewählt",
               "correct": false,
               "pts": 5
             }
