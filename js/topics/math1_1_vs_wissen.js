@@ -1,16 +1,6 @@
+function genPlus(){ document.getElementById('num1').innerText = Math.floor(Math.random()*50)+10; document.getElementById('num2').innerText = Math.floor(Math.random()*50)+10; document.getElementById('ansPlus').value=''; document.getElementById('resPlus').innerText=''; } genPlus(); function checkPlus(){ let n1 = parseInt(document.getElementById('num1').innerText); let n2 = parseInt(document.getElementById('num2').innerText); let a = parseInt(document.getElementById('ansPlus').value); if(a === n1+n2){ document.getElementById('resPlus').innerText='✅ Stark!'; setTimeout(genPlus, 1500); } else { document.getElementById('resPlus').innerText='❌ Nochmal probieren!'; } }
 
-    function updateApples(val) {
-      const svg = document.getElementById('apple-svg');
-      let circles = '';
-      for(let i=0; i<val; i++) {
-        circles += '<circle cx="'+(20 + i*22)+'" cy="25" r="8" fill="#ff5722" />';
-      }
-      svg.innerHTML = circles;
-    }
-    updateApples(3);
-  
+function genMal(){ document.getElementById('num3').innerText = Math.floor(Math.random()*9)+2; document.getElementById('num4').innerText = Math.floor(Math.random()*9)+2; document.getElementById('ansMal').value=''; document.getElementById('resMal').innerText=''; } genMal(); function checkMal(){ let n3 = parseInt(document.getElementById('num3').innerText); let n4 = parseInt(document.getElementById('num4').innerText); let a = parseInt(document.getElementById('ansMal').value); if(a === n3*n4){ document.getElementById('resMal').innerText='✅ OP!'; setTimeout(genMal, 1500); } else { document.getElementById('resMal').innerText='❌ Versuch es noch einmal.'; } }
 
 
-function topicInit() {
-  // Init logic is handled inline, but function required by renderer
-}
+function topicInit() {}

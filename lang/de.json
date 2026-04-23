@@ -5557,37 +5557,60 @@
     }
   },
   "math1_1_vs_wissen": {
-    "title": "Volksschulwissen aufwecken",
-    "subtitle": "Lerne Mathematik interaktiv und intuitiv!",
+    "title": "Level 1: Volksschul-Boss besiegen 🏆",
+    "subtitle": "Alles, was du schon aus der Volksschule weißt!",
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Konzept & Intuition",
-        "content": "<div class=\"interactive-zone\">\n  <h3>Entdecke das Muster!</h3>\n  <p>Spiele mit dem Schieberegler, bevor du weiterliest. Was passiert mit den Kreisen?</p>\n  <svg viewBox=\"0 0 250 50\" id=\"apple-svg\" style=\"background:#fafafa; border-radius:8px;\"></svg>\n  <br>\n  <input type=\"range\" id=\"apple-slider\" min=\"1\" max=\"10\" value=\"3\" oninput=\"updateApples(this.value)\" style=\"width:100%\">\n  \n</div>\n<p>Zahlen helfen uns, Mengen greifbar zu machen. In der Volksschule hast du die Bausteine der Mathematik gelernt: Zählen, Schätzen und die vier Grundrechenarten. Das ist dein Werkzeugkasten für alles, was jetzt kommt.</p>\n<br>\n{{QUIZ_math1_1_vs_wissen_q1}}",
+        "id": "sec1",
+        "title": "Plus und Minus ➕➖",
+        "content": "<p>Egal ob V-Bucks, Robux oder echtes Taschengeld: Plus und Minus brauchst du immer!</p><div class='interactive-zone' style='background-color:#f0f8ff; padding:10px; border-radius:8px;'><b>Trainer-Bot:</b><br/>Rechne aus: <span id='num1'></span> + <span id='num2'></span> = <input type='number' id='ansPlus' style='width:60px;'> <button onclick='checkPlus()'>Check</button><span id='resPlus' style='margin-left:10px;'></span></div><p>Wenn du <span style='color:red'>Plus</span> rechnest, wird es mehr (Addieren). Wenn du <span style='color:blue'>Minus</span> rechnest, wird es weniger (Subtrahieren).</p>{{QUIZ_m11_q1}}",
         "quizzes": [
           {
-            "id": "math1_1_vs_wissen_q1",
-            "question": "Wenn du 3 Äpfel hast und 4 weitere bekommst, wie viele sind es insgesamt? (Denk an das Modell!)",
+            "id": "m11_q1",
+            "question": "Du hast 50 Euro. Du kaufst ein Spiel für 20 Euro. Wie viel Euro hast du noch?",
             "answers": [
               {
-                "text": "6",
+                "text": "30 Euro",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "7",
+                "text": "70 Euro",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "20 Euro",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec2",
+        "title": "Mal und Geteilt ✖️➗",
+        "content": "<p>Stell dir vor, du spielst Minecraft und brauchst Holz. 1 Baum gibt 4 Holz. Wie viel Holz geben 5 Bäume? Richtig: 5 <span style='color:green'>Mal</span> 4! (Multiplizieren).</p><p>Beim <span style='color:orange'>Geteilt</span> (Dividieren) teilst du fair auf. 20 Chicken Nuggets auf 4 Freunde? Jeder kriegt 5!</p><div class='interactive-zone' style='background-color:#fff0f5; padding:10px; border-radius:8px;'><b>Trainer-Bot:</b><br/>Rechne aus: <span id='num3'></span> &times; <span id='num4'></span> = <input type='number' id='ansMal' style='width:60px;'> <button onclick='checkMal()'>Check</button><span id='resMal' style='margin-left:10px;'></span></div>{{QUIZ_m11_q2}}",
+        "quizzes": [
+          {
+            "id": "m11_q2",
+            "question": "Du kaufst 3 Döner für jeweils 5 Euro. Wie viel musst du zahlen?",
+            "answers": [
+              {
+                "text": "15 Euro",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "12",
+                "text": "8 Euro",
                 "correct": false,
                 "pts": 5
               },
               {
-                "text": "43",
+                "text": "10 Euro",
                 "correct": false,
-                "pts": 5
+                "pts": 0
               }
             ]
           }
@@ -5595,19 +5618,51 @@
       }
     ],
     "diplom": {
-      "title": "🎓 Mathematik-Diplom",
+      "title": "🎓 Volksschul-Boss Diplom",
       "questions": [
         {
-          "id": "math1_1_vs_wissen_dip1",
-          "question": "Hast du das Thema \"Volksschulwissen aufwecken\" verstanden? (Grundlagen-Meister! Dein Werkzeugkasten ist bereit.)",
+          "id": "m11_dip1",
+          "question": "Was bedeutet 'Dividieren'?",
           "answers": [
             {
-              "text": "Ja, alles klar!",
+              "text": "Geteilt rechnen (Teilen)",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Ich muss noch etwas üben.",
+              "text": "Plus rechnen (Dazugeben)",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m11_dip2",
+          "question": "4 mal 6 ist...?",
+          "answers": [
+            {
+              "text": "24",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "10",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m11_dip3",
+          "question": "Welches Zeichen ist für Minus?",
+          "answers": [
+            {
+              "text": "-",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "+",
               "correct": false,
               "pts": 5
             }
@@ -5656,7 +5711,25 @@
     ],
     "diplom": {
       "title": "Zahlen-Boss",
-      "description": "Du kennst dich mit Zahlen aus wie ein echter Profi!"
+      "description": "Du kennst dich mit Zahlen aus wie ein echter Profi!",
+      "questions": [
+        {
+          "id": "math1_2_nat_zahlen_dip_default",
+          "question": "Hast du das Thema \"Natürliche Zahlen\" verstanden? (Du kennst dich mit Zahlen aus wie ein echter Profi!)",
+          "answers": [
+            {
+              "text": "Ja, ich bin bereit für das Diplom!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Nein, ich muss noch ein bisschen üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
     }
   },
   "math1_3_add_sub": {
@@ -5684,7 +5757,25 @@
     ],
     "diplom": {
       "title": "Rechen-Maschine",
-      "description": "Du rechnest Plus und Minus ohne Probleme!"
+      "description": "Du rechnest Plus und Minus ohne Probleme!",
+      "questions": [
+        {
+          "id": "math1_3_add_sub_dip_default",
+          "question": "Hast du das Thema \"Plus und Minus\" verstanden? (Du rechnest Plus und Minus ohne Probleme!)",
+          "answers": [
+            {
+              "text": "Ja, ich bin bereit für das Diplom!",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Nein, ich muss noch ein bisschen üben.",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        }
+      ]
     }
   },
   "math1_4_mult_div": {
@@ -5941,53 +6032,48 @@
     }
   },
   "math1_5_geo_grundbegriffe": {
-    "title": "📐 5. Geometrische Grundbegriffe",
-    "subtitle": "Punkte, Strecken, Geraden und mehr.",
+    "title": "Level 5: Geometrie-Starter 📐",
+    "subtitle": "Punkte, Linien und Laserstrahlen",
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Punkt, Strecke, Strahl und Gerade",
-        "content": "<div class='interactive-zone' id='lines-zone'><svg width='100%' height='150'><text x='10' y='20'>Strecke [AB]:</text><line x1='10' y1='40' x2='150' y2='40' stroke='black' stroke-width='2'/><circle cx='10' cy='40' r='4' fill='red'/><text x='5' y='60'>A</text><circle cx='150' cy='40' r='4' fill='red'/><text x='145' y='60'>B</text><text x='10' y='90'>Strahl [CD:</text><line x1='10' y1='110' x2='200' y2='110' stroke='black' stroke-width='2'/><circle cx='10' cy='110' r='4' fill='blue'/><text x='5' y='130'>C</text><polygon points='200,105 210,110 200,115' fill='black'/></svg></div><p>Ein <strong>Punkt</strong> wird meist mit einem Kreuzchen markiert und mit Großbuchstaben bezeichnet. Eine <strong>Strecke</strong> hat einen Anfangs- und einen Endpunkt und ist die kürzeste Verbindung zwischen diesen beiden Punkten. Ein <strong>Strahl</strong> (Halbgerade) hat einen Anfangspunkt, aber kein Ende. Eine <strong>Gerade</strong> ist unendlich lang und hat weder Anfang noch Ende.</p>{{QUIZ_math1_5_q1}}{{QUIZ_math1_5_q2}}",
+        "title": "Punkt, Gerade, Strahl, Strecke ✏️",
+        "content": "<p>Geometrie ist wie Zeichnen nach strengen Regeln. Das brauchst du, um später Häuser oder Spiele-Level zu bauen!</p><ul><li><b>Punkt:</b> Nur ein kleiner Ort. Wird mit einem <span style='color:red'>großen Buchstaben</span> (A, B) benannt. Im Heft machst du ein kleines Kreuz.</li><li><b>Gerade:</b> Eine Linie, die in <b>beide Richtungen unendlich</b> weitergeht. Hat keinen Anfang und kein Ende. Kleinbuchstabe (g, h).</li><li><b>Strahl (Halbgerade):</b> Wie ein Laserstrahl! Hat einen <b>Anfang</b>, aber <b>kein Ende</b>.</li><li><b>Strecke:</b> Hat <b>Anfang und Ende</b>. Ist also messbar (z.B. 5 cm lang). Von Punkt A nach Punkt B.</li></ul><svg width='300' height='150' style='background:#eee; border-radius:5px; margin: 10px 0;'><line x1='10' y1='20' x2='290' y2='20' stroke='black' stroke-width='2'/><text x='150' y='15' text-anchor='middle'>Gerade g (unendlich)</text><line x1='50' y1='60' x2='290' y2='60' stroke='blue' stroke-width='2'/><circle cx='50' cy='60' r='4' fill='red'/><text x='150' y='55' text-anchor='middle'>Strahl (Anfang, kein Ende)</text><line x1='50' y1='100' x2='200' y2='100' stroke='green' stroke-width='2'/><circle cx='50' cy='100' r='4' fill='red'/><circle cx='200' cy='100' r='4' fill='red'/><text x='125' y='95' text-anchor='middle'>Strecke (Anfang & Ende)</text></svg>{{QUIZ_m15_q1}}{{QUIZ_m15_q2}}",
         "quizzes": [
           {
-            "id": "math1_5_q1",
-            "question": "Welches geometrische Objekt hat genau zwei Endpunkte?",
+            "id": "m15_q1",
+            "question": "Was hat einen Anfang, aber KEIN Ende?",
             "answers": [
               {
-                "text": "Strecke",
+                "text": "Strahl",
                 "correct": true,
                 "pts": 10
               },
               {
                 "text": "Gerade",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               },
               {
-                "text": "Strahl",
+                "text": "Strecke",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           },
           {
-            "id": "math1_5_q2",
-            "question": "Welches geometrische Objekt hat einen Anfang, aber kein Ende?",
+            "id": "m15_q2",
+            "question": "Was kannst du mit dem Lineal messen?",
             "answers": [
               {
-                "text": "Strahl",
+                "text": "Die Strecke",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Gerade",
+                "text": "Die Gerade",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Strecke",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -5995,87 +6081,22 @@
       },
       {
         "id": "sec2",
-        "title": "2. Senkrecht und Parallel",
-        "content": "<div class='interactive-zone' id='parallel-zone'><svg width='200' height='120'><line x1='10' y1='30' x2='150' y2='30' stroke='#00bcd4' stroke-width='3'/><line x1='10' y1='60' x2='150' y2='60' stroke='#00bcd4' stroke-width='3'/><text x='160' y='45'>g || h</text><line x1='50' y1='10' x2='50' y2='100' stroke='#e91e63' stroke-width='3'/><text x='45' y='115'>k ⊥ g</text></svg></div><p>Zwei Geraden in einer Ebene können sich schneiden oder <strong>parallel</strong> zueinander verlaufen. Parallele Geraden haben überall den gleichen Abstand und schneiden sich nie. Schneiden sich zwei Geraden so, dass vier gleich große Winkel (rechte Winkel, 90°) entstehen, nennt man sie <strong>senkrecht</strong> oder <strong>orthogonal</strong> zueinander.</p>{{QUIZ_math1_5_q3}}{{QUIZ_math1_5_q4}}",
+        "title": "Parallel und Normal 📏",
+        "content": "<p>Wie liegen Linien zueinander?</p><p><span style='color:blue'><b>Parallel:</b></span> Wie die Schienen bei der Eisenbahn. Die Linien treffen sich <b>nie</b>. Der Abstand bleibt immer gleich.</p><p><span style='color:red'><b>Normal (Senkrecht):</b></span> Die Linien stehen im Geodreieck genau aufeinander. Sie bilden einen 'rechten Winkel' (wie die Ecke von deinem Handy-Bildschirm).</p><div style='text-align:center; margin:10px 0;'><svg width='200' height='100' style='background:#fff;'><line x1='20' y1='30' x2='180' y2='30' stroke='blue' stroke-width='3'/><line x1='20' y1='70' x2='180' y2='70' stroke='blue' stroke-width='3'/><text x='100' y='20' text-anchor='middle'>Parallel (||)</text></svg><svg width='200' height='100' style='background:#fff; margin-left:10px;'><line x1='50' y1='80' x2='150' y2='80' stroke='red' stroke-width='3'/><line x1='100' y1='10' x2='100' y2='80' stroke='red' stroke-width='3'/><circle cx='100' cy='80' r='8' fill='none' stroke='black'/><circle cx='105' cy='75' r='2' fill='black'/><text x='100' y='20' text-anchor='middle'>Normal (┴)</text></svg></div>{{QUIZ_m15_q3}}",
         "quizzes": [
           {
-            "id": "math1_5_q3",
-            "question": "Wie nennt man zwei Geraden, die sich niemals schneiden?",
+            "id": "m15_q3",
+            "question": "Wie liegen Eisenbahn-Schienen zueinander?",
             "answers": [
               {
-                "text": "parallel",
+                "text": "Parallel",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "senkrecht",
+                "text": "Normal",
                 "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "identisch",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "math1_5_q4",
-            "question": "Welchen Winkel bilden zwei senkrecht aufeinander stehende Geraden?",
-            "answers": [
-              {
-                "text": "90° (Rechter Winkel)",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "180° (Gestreckter Winkel)",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "45°",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec3",
-        "title": "3. Abstandsmessung",
-        "content": "<div class='interactive-zone' id='distance-zone'><svg width='200' height='120'><line x1='10' y1='100' x2='190' y2='100' stroke='black' stroke-width='2'/><circle cx='100' cy='20' r='4' fill='red'/><text x='110' y='25'>P</text><line x1='100' y1='20' x2='100' y2='100' stroke='green' stroke-dasharray='5,5' stroke-width='2'/><text x='110' y='60'>Abstand</text><path d='M 100 90 A 10 10 0 0 1 110 100' fill='none' stroke='black'/><circle cx='105' cy='95' r='1' fill='black'/></svg></div><p>Der <strong>Abstand</strong> zwischen zwei Punkten ist die Länge der Verbindungsstrecke. Der Abstand eines Punktes von einer Geraden ist die Länge der kürzesten Verbindung. Diese kürzeste Verbindung steht immer <strong>senkrecht</strong> auf der Geraden!</p>{{QUIZ_math1_5_q5}}{{QUIZ_math1_5_q6}}",
-        "quizzes": [
-          {
-            "id": "math1_5_q5",
-            "question": "Was ist der Abstand eines Punktes zu einer Geraden?",
-            "answers": [
-              {
-                "text": "Die Länge der senkrechten Verbindungsstrecke (kürzeste Verbindung).",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Die Länge irgendeiner Verbindungsstrecke.",
-                "correct": false,
-                "pts": 0
-              }
-            ]
-          },
-          {
-            "id": "math1_5_q6",
-            "question": "Wie verläuft die Strecke, die den Abstand zwischen einem Punkt und einer Geraden angibt?",
-            "answers": [
-              {
-                "text": "Sie steht senkrecht auf der Geraden.",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Sie verläuft parallel zur Geraden.",
-                "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -6083,95 +6104,53 @@
       }
     ],
     "diplom": {
-      "title": "🎓 Diplom: Geometrische Grundbegriffe",
+      "title": "🎓 Geometrie-Profi Diplom",
       "questions": [
         {
-          "id": "d_math1_5_1",
-          "question": "Wie viele Endpunkte besitzt ein Strahl (Halbgerade)?",
+          "id": "m15_dip1",
+          "question": "Welche Linie hat kein Ende und keinen Anfang?",
           "answers": [
             {
-              "text": "Genau 1",
+              "text": "Gerade",
               "correct": true,
               "pts": 10
             },
             {
-              "text": "Genau 2",
+              "text": "Strahl",
               "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Keine",
-              "correct": false,
-              "pts": 0
+              "pts": 5
             }
           ]
         },
         {
-          "id": "d_math1_5_2",
-          "question": "Zwei Geraden g und h schneiden sich im 90°-Winkel. Wie nennt man diese Lagebeziehung?",
+          "id": "m15_dip2",
+          "question": "Was bedeutet 'normal' in der Geometrie?",
           "answers": [
             {
-              "text": "Sie stehen senkrecht zueinander (g ⊥ h).",
+              "text": "Es steht im rechten Winkel (wie eine Buchecke)",
               "correct": true,
               "pts": 10
             },
             {
-              "text": "Sie sind parallel zueinander (g || h).",
+              "text": "Es schneidet sich nie",
               "correct": false,
-              "pts": 0
+              "pts": 5
             }
           ]
         },
         {
-          "id": "d_math1_5_3",
-          "question": "Was definiert eine 'Strecke' am besten?",
+          "id": "m15_dip3",
+          "question": "Wie wird ein Punkt benannt?",
           "answers": [
             {
-              "text": "Die kürzeste Verbindung zwischen zwei Punkten.",
+              "text": "Mit einem großen Buchstaben (A)",
               "correct": true,
               "pts": 10
             },
             {
-              "text": "Eine gerade Linie, die ins Unendliche geht.",
+              "text": "Mit einem kleinen Buchstaben (a)",
               "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "d_math1_5_4",
-          "question": "Wenn zwei Geraden überall exakt den gleichen Abstand zueinander haben, dann sind sie...",
-          "answers": [
-            {
-              "text": "parallel.",
-              "correct": true,
-              "pts": 10
-            },
-            {
-              "text": "senkrecht.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "sich schneidend.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "d_math1_5_5",
-          "question": "Wie wird der Abstand eines Punktes zu einer Geraden gemessen?",
-          "answers": [
-            {
-              "text": "Entlang der Senkrechten zur Geraden.",
-              "correct": true,
-              "pts": 10
-            },
-            {
-              "text": "In einem 45°-Winkel zur Geraden.",
-              "correct": false,
-              "pts": 0
+              "pts": 5
             }
           ]
         }
@@ -6179,81 +6158,82 @@
     }
   },
   "math1_6_winkel": {
-    "title": "Winkel und ihre Messung",
-    "subtitle": "Die Welt der Drehungen und Ecken entdecken",
+    "title": "Winkel: Der Dreh!",
+    "subtitle": "Wie schräg ist das denn?",
     "sections": [
       {
-        "id": "winkel_intro",
+        "id": "sec_w1",
         "title": "Was ist ein Winkel?",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n    <circle cx=\"100\" cy=\"100\" r=\"80\" stroke=\"#e2e8f0\" fill=\"none\" stroke-width=\"4\"/>\n    <line x1=\"100\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#1e293b\" stroke-width=\"4\"/>\n    <line x1=\"100\" y1=\"100\" x2=\"100\" y2=\"20\" stroke=\"#3b82f6\" stroke-width=\"4\" id=\"angle-arm\"/>\n    <path d=\"\" fill=\"rgba(59, 130, 246, 0.3)\" id=\"angle-arc\"/>\n  </svg>\n  <br/>\n  <input type=\"range\" min=\"0\" max=\"360\" value=\"90\" id=\"angle-slider\" style=\"width: 200px;\">\n  <p style=\"font-size: 1.2rem; font-weight: bold;\">Winkel: <span id=\"angle-display\">90</span>°</p>\n  \n</div>\n<p>Ein Winkel entsteht, wenn zwei Strahlen (die Schenkel) von einem gemeinsamen Punkt (dem Scheitelpunkt) ausgehen. Die Größe des Winkels gibt an, wie weit die beiden Schenkel auseinander gedreht sind.</p>\n{{QUIZ_w1_1}}\n<p>Winkel werden in <b>Grad (°)</b> gemessen. Ein voller Kreis entspricht einer kompletten Drehung um 360°, ein halber Kreis 180° und ein Viertelkreis (rechter Winkel) hat genau 90°.</p>\n{{QUIZ_w1_2}}",
+        "content": "<p>Ein Winkel ist wie eine <span style='color:red; font-weight:bold;'>Drehung</span>. Stell dir vor, du machst einen Trick auf dem Skateboard. Du drehst dich. Das ist ein Winkel!</p><p>Oder denk an eine Pizza. Die Spitze von einem Stück Pizza ist auch ein Winkel.</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><p><strong>Probier es aus!</strong> Mach das Pizzastück größer oder kleiner.</p><input type='range' id='pizza-slider' min='10' max='180' value='45'> <strong id='pizza-angle-text'>45°</strong><br><svg width='150' height='150' viewBox='0 0 100 100'><path id='pizza-path' d='M 50 50 L 100 50 A 50 50 0 0 0 85.355 14.644 Z' fill='#ffcc00' stroke='#cc6600' stroke-width='2'/></svg></div><p>Cool, oder? Jetzt gibt es ein kleines Quiz!</p>{{QUIZ_m16_q1}}{{QUIZ_m16_q1b}}",
         "quizzes": [
           {
-            "id": "w1_1",
-            "question": "Wie nennt man den Punkt, an dem sich die beiden Schenkel eines Winkels treffen?",
+            "id": "m16_q1",
+            "question": "Was ist ein gutes Beispiel für einen Winkel?",
             "answers": [
               {
-                "text": "Mittelpunkt",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Scheitelpunkt",
+                "text": "Ein Skateboard-Trick mit Drehung",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Drehpunkt",
+                "text": "Eine gerade Straße ohne Kurven",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           },
           {
-            "id": "w1_2",
-            "question": "Wie viel Grad hat eine halbe Drehung?",
+            "id": "m16_q1b",
+            "question": "Wo ist der 'Scheitelpunkt' bei einem Pizzastück?",
             "answers": [
               {
-                "text": "90°",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "180°",
+                "text": "An der spitzen Ecke",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "360°",
+                "text": "Am runden Rand mit dem Käse",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "winkel_arten",
-        "title": "Winkelarten",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"200\" height=\"120\" viewBox=\"0 0 200 120\">\n    <path d=\"M 20 100 L 180 100\" stroke=\"#e2e8f0\" stroke-width=\"2\"/>\n    <circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1\" stroke-dasharray=\"4\"/>\n    <line x1=\"100\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#1e293b\" stroke-width=\"4\"/>\n    <line x1=\"100\" y1=\"100\" x2=\"100\" y2=\"20\" stroke=\"#ef4444\" stroke-width=\"4\" id=\"type-arm\"/>\n  </svg>\n  <br/>\n  <button id=\"btn-spitz\" style=\"margin:2px; padding:5px;\">Spitzer Winkel</button>\n  <button id=\"btn-recht\" style=\"margin:2px; padding:5px;\">Rechter Winkel</button>\n  <button id=\"btn-stumpf\" style=\"margin:2px; padding:5px;\">Stumpfer Winkel</button>\n  <p id=\"type-display\" style=\"font-weight:bold; margin-top:10px;\">Wähle eine Winkelart!</p>\n  \n</div>\n<p>Winkel werden je nach ihrer Größe in verschiedene Arten eingeteilt. Ein spitzer Winkel ist kleiner als ein rechter Winkel (90°). Ein stumpfer Winkel ist größer als ein rechter Winkel, aber kleiner als ein gestreckter Winkel (180°).</p>\n{{QUIZ_w2_1}}",
+        "id": "sec_w2",
+        "title": "Winkel-Arten",
+        "content": "<p>Es gibt verschiedene Namen für Winkel, je nachdem wie groß sie sind.</p><ul><li><span style='color:green; font-weight:bold;'>Spitzer Winkel:</span> Kleiner als 90°. (Wie ein spitzer Stift)</li><li><span style='color:blue; font-weight:bold;'>Rechter Winkel:</span> Genau 90°. (Wie eine Zimmerecke)</li><li><span style='color:orange; font-weight:bold;'>Stumpfer Winkel:</span> Größer als 90°. (Wie ein bequemer Liegestuhl)</li></ul><div class='interactive-zone' style='background:#e6f7ff; padding:10px; border-radius:8px;'><p><strong>Ist 45° spitz oder stumpf?</strong></p><input type='text' id='winkel-art-input' placeholder='spitz oder stumpf?'> <button onclick='checkWinkelArt()'>Prüfen</button><p id='winkel-art-res'></p></div><p>Zeit für die nächste Frage!</p>{{QUIZ_m16_q2}}{{QUIZ_m16_q2b}}",
         "quizzes": [
           {
-            "id": "w2_1",
-            "question": "Welche Art von Winkel ist genau 135° groß?",
+            "id": "m16_q2",
+            "question": "Wie nennt man einen Winkel, der genau 90° groß ist?",
             "answers": [
               {
-                "text": "Spitzer Winkel",
-                "correct": false,
-                "pts": 0
-              },
-              {
                 "text": "Rechter Winkel",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Stumpfer Winkel",
                 "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "Linker Winkel",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m16_q2b",
+            "question": "Was ist ein stumpfer Winkel?",
+            "answers": [
+              {
+                "text": "Größer als 90°",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Kleiner als 90°",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
@@ -6261,20 +6241,35 @@
       }
     ],
     "diplom": {
-      "title": "Meister der Winkel",
-      "description": "Du kannst Winkel schätzen, messen und ihre Eigenschaften benennen.",
+      "title": "🎓 Winkel Diplom",
       "questions": [
         {
-          "id": "math1_6_winkel_dip_default",
-          "question": "Hast du das Thema \"Winkel und ihre Messung\" verstanden? (Du kannst Winkel schätzen, messen und ihre Eigenschaften benennen.)",
+          "id": "m16_dip1",
+          "question": "Ein spitzer Winkel ist...",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "...kleiner als 90°",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "...größer als 90°",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m16_dip2",
+          "question": "Welches Beispiel passt zu einem rechten Winkel (90°)?",
+          "answers": [
+            {
+              "text": "Die Ecke von deinem Smartphone",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ein runder Pfannkuchen",
               "correct": false,
               "pts": 5
             }
@@ -6284,81 +6279,82 @@
     }
   },
   "math1_7_gleichungen": {
-    "title": "Gleichungen und Ungleichungen",
-    "subtitle": "Mathematik im Gleichgewicht",
+    "title": "Gleichungen: Die Waage!",
+    "subtitle": "Immer schön fair bleiben.",
     "sections": [
       {
-        "id": "gleichungen_waage",
-        "title": "Die Waage im Gleichgewicht",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"240\" height=\"150\" viewBox=\"0 0 240 150\">\n    <polygon points=\"110,130 130,130 120,90\" fill=\"#64748b\"/>\n    <line x1=\"40\" y1=\"90\" x2=\"200\" y2=\"90\" stroke=\"#1e293b\" stroke-width=\"4\" id=\"scale-beam\" transform-origin=\"120 90\"/>\n    <rect x=\"30\" y=\"70\" width=\"20\" height=\"20\" fill=\"#3b82f6\" id=\"box-l1\"/>\n    <rect x=\"55\" y=\"70\" width=\"20\" height=\"20\" fill=\"#3b82f6\" id=\"box-l2\"/>\n    <rect x=\"165\" y=\"70\" width=\"20\" height=\"20\" fill=\"#ef4444\" id=\"box-r1\"/>\n    <text x=\"112\" y=\"40\" font-size=\"24\" font-weight=\"bold\" fill=\"#1e293b\" id=\"scale-status\">=</text>\n  </svg>\n  <br/>\n  <button id=\"add-l\" style=\"margin:5px; padding:5px;\">+ Links</button>\n  <button id=\"add-r\" style=\"margin:5px; padding:5px;\">+ Rechts</button>\n  <button id=\"reset-scale\" style=\"margin:5px; padding:5px;\">Reset</button>\n  <p>Links: <span id=\"val-l\">2</span> | Rechts: <span id=\"val-r\">1</span></p>\n  \n</div>\n<p>Stell dir eine Gleichung wie eine Balkenwaage vor. Das Gleichheitszeichen (=) bedeutet, dass die linke und die rechte Seite genau gleich schwer sein müssen. Experimentiere mit der Waage, um sie ins Gleichgewicht zu bringen!</p>\n{{QUIZ_g1_1}}\n<p>Wenn du auf einer Seite etwas hinzufügst oder wegnimmst, gerät die Waage aus dem Gleichgewicht. Solche Situationen nennt man <b>Ungleichungen</b>, dargestellt mit den Zeichen &lt; (kleiner als) oder &gt; (größer als).</p>\n{{QUIZ_g1_2}}",
+        "id": "sec_g1",
+        "title": "Die Waage im Kopf",
+        "content": "<p>Eine Gleichung ist wie eine <span style='color:red; font-weight:bold;'>Waage</span>. Beide Seiten müssen gleich schwer sein!</p><p>Das <strong>=</strong> Zeichen in der Mitte heißt: Links ist genauso viel wie rechts.</p><p>Wenn da steht: <strong>x + 2 = 5</strong>, dann fragen wir uns: Welche Zahl muss das <strong>x</strong> sein, damit am Ende 5 rauskommt?</p><div class='interactive-zone' style='background:#f9f9e6; padding:10px; border-radius:8px;'><p><strong>Hilf der Waage!</strong></p><p>x + 3 = 8</p><input type='number' id='waage-input' placeholder='Dein Tipp für x' style='width:120px;'> <button onclick='checkWaage()'>Prüfen</button><p id='waage-result'></p></div><p>Was hast du gelernt?</p>{{QUIZ_m17_q1}}{{QUIZ_m17_q1b}}",
         "quizzes": [
           {
-            "id": "g1_1",
-            "question": "Was muss passieren, damit eine Waage im Gleichgewicht bleibt, wenn man links ein Gewicht hinzufügt?",
+            "id": "m17_q1",
+            "question": "Was ist eine Gleichung?",
             "answers": [
               {
-                "text": "Man muss rechts etwas wegnehmen.",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Man muss rechts dasselbe Gewicht hinzufügen.",
+                "text": "Wie eine Waage, beide Seiten müssen gleich sein.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Nichts, sie gleicht sich selbst aus.",
+                "text": "Ein langes Wort ohne Bedeutung.",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           },
           {
-            "id": "g1_2",
-            "question": "Welches Zeichen passt: 7 + 4 ___ 10",
+            "id": "m17_q1b",
+            "question": "Was bedeutet das '=' Zeichen?",
             "answers": [
               {
-                "text": "=",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "<",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": ">",
+                "text": "Links und rechts sind gleich viel.",
                 "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "Die linke Seite ist immer besser.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ]
       },
       {
-        "id": "gleichungen_loesen",
-        "title": "Gleichungen lösen (Äquivalenzumformung)",
-        "content": "<div class=\"interactive-zone\">\n  <div style=\"font-size: 2rem; font-family: monospace; text-align: center; margin: 20px 0; background: #f1f5f9; padding: 20px; border-radius: 8px;\">\n    x + <span id=\"eq-add\">5</span> = <span id=\"eq-res\">12</span>\n  </div>\n  <div style=\"text-align: center;\">\n    <button id=\"btn-sub\" style=\"padding: 10px 20px; font-size: 1.1rem; cursor: pointer;\">Auf beiden Seiten -1 rechnen</button>\n  </div>\n  \n</div>\n<p>Um herauszufinden, für welche Zahl der Buchstabe (die Variable, meistens x) steht, wenden wir die sogenannte <b>Äquivalenzumformung</b> an. Das bedeutet, wir machen auf beiden Seiten des Gleichheitszeichens genau das Gleiche.</p>\n{{QUIZ_g2_1}}",
+        "id": "sec_g2",
+        "title": "Der Rückwärts-Trick",
+        "content": "<p>Manchmal ist das x versteckt. Dann nutzen wir den <span style='color:blue; font-weight:bold;'>Rückwärts-Trick</span> (Umkehroperation).</p><p>Beispiel: <strong>x - 4 = 10</strong></p><p>Wir wollen das x alleine haben. Also machen wir das Gegenteil von 'minus 4'. Wir rechnen auf beiden Seiten 'plus 4'!</p><p>10 + 4 = 14. Also ist x = 14.</p><div class='interactive-zone' style='background:#e6ffe6; padding:10px; border-radius:8px;'><p><strong>Dein Turn:</strong> Was ist das Gegenteil von <strong>+ 7</strong> ?</p><input type='text' id='umkehr-input' placeholder='Z.B. -7'> <button onclick='checkUmkehr()'>Check</button><p id='umkehr-res'></p></div><p>Testen wir das im Quiz!</p>{{QUIZ_m17_q2}}{{QUIZ_m17_q2b}}",
         "quizzes": [
           {
-            "id": "g2_1",
-            "question": "Was ist der erste logische Schritt, um die Gleichung x + 8 = 15 zu lösen?",
+            "id": "m17_q2",
+            "question": "Was ist das Gegenteil (die Umkehroperation) von + 5?",
             "answers": [
               {
-                "text": "Auf beiden Seiten 8 abziehen (-8)",
+                "text": "- 5",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Auf beiden Seiten 8 hinzufügen (+8)",
+                "text": "* 5",
                 "correct": false,
-                "pts": 0
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "m17_q2b",
+            "question": "Wenn 'x - 2 = 8' ist, wie groß ist dann x?",
+            "answers": [
+              {
+                "text": "10",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "Die Zahl 15 durch 8 teilen",
+                "text": "6",
                 "correct": false,
-                "pts": 0
+                "pts": 5
               }
             ]
           }
@@ -6366,20 +6362,35 @@
       }
     ],
     "diplom": {
-      "title": "Waagen-Akrobat",
-      "description": "Du kannst mathematische Gleichgewichte erkennen und Variablen berechnen!",
+      "title": "🎓 Gleichungs Diplom",
       "questions": [
         {
-          "id": "math1_7_gleichungen_dip_default",
-          "question": "Hast du das Thema \"Gleichungen und Ungleichungen\" verstanden? (Du kannst mathematische Gleichgewichte erkennen und Variablen berechnen!)",
+          "id": "m17_dip1",
+          "question": "Löse die Gleichung: x + 4 = 10. Was ist x?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "6",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "14",
+              "correct": false,
+              "pts": 5
+            }
+          ]
+        },
+        {
+          "id": "m17_dip2",
+          "question": "Was machst du, wenn da steht: x - 3 = 5 ?",
+          "answers": [
+            {
+              "text": "Ich rechne + 3, also ist x = 8.",
+              "correct": true,
+              "pts": 5
+            },
+            {
+              "text": "Ich lasse es so wie es ist.",
               "correct": false,
               "pts": 5
             }
@@ -7031,51 +7042,41 @@
     }
   },
   "math1_9_dezimalzahlen": {
-    "title": "Dezimalzahlen",
-    "subtitle": "Brüche im neuen Gewand: Kommazahlen",
+    "title": "Dezimalzahlen - Kommazahlen",
+    "subtitle": "Zahlen mit Komma verstehen",
     "sections": [
       {
-        "id": "dezimal_intro",
-        "title": "Was sind Dezimalzahlen?",
-        "content": "<div class=\"interactive-zone\">\n  <svg width=\"200\" height=\"200\" viewBox=\"0 0 100 100\" id=\"grid-svg\" style=\"border: 1px solid #ccc; background: white;\">\n  </svg>\n  <br/>\n  <button id=\"add-tenth\" style=\"margin:5px; padding:5px;\">+ 1 Zehntel (0,1)</button>\n  <button id=\"add-hundredth\" style=\"margin:5px; padding:5px;\">+ 1 Hundertstel (0,01)</button>\n  <button id=\"reset-grid\" style=\"margin:5px; padding:5px;\">Reset</button>\n  <p style=\"font-size: 1.5rem;\">Wert: <span id=\"dec-value\">0,00</span></p>\n  \n</div>\n<p>Dezimalzahlen (oder Kommazahlen) sind eine andere Art, Brüche aufzuschreiben. Eine Tafel Schokolade hat zum Beispiel 100 kleine Stücke. Ein Stück davon ist ein Hundertstel, also als Bruch $\\frac{1}{100}$ und als Dezimalzahl geschrieben <b>0,01</b>.</p>\n{{QUIZ_d1_1}}\n<p>Zehn dieser kleinen Stücke sind eine ganze Reihe, also ein Zehntel der Schokolade: $\\frac{1}{10}$ oder <b>0,10</b> (was dasselbe ist wie 0,1).</p>\n{{QUIZ_d1_2}}",
+        "id": "m19_sec1",
+        "title": "Was ist eine Kommazahl?",
+        "content": "<p>Eine <span style='color:red;'>Kommazahl</span> hat ein Komma. Zum Beispiel bei Geld: 1,50 Euro.</p><div class='interactive-zone'><p>Tippe 2,50 ein:</p><input type='text' id='komma_input_1' placeholder='0,00'><button onclick='checkKomma()'>Check</button><p id='komma_feedback'></p></div><p>Das Komma trennt die ganzen Euros von den Cents.</p>{{QUIZ_m19_q1}}\n<br>\n{{QUIZ_m19_q2}}",
         "quizzes": [
           {
-            "id": "d1_1",
-            "question": "Wie schreibt man den Bruch 3/100 als Dezimalzahl?",
+            "id": "m19_q1",
+            "question": "Was bedeutet 3,50 Euro?",
             "answers": [
               {
-                "text": "0,3",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "0,03",
+                "text": "3 Euro und 50 Cent",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "3,00",
+                "text": "350 Euro",
                 "correct": false,
                 "pts": 0
               }
             ]
           },
           {
-            "id": "d1_2",
-            "question": "Welche Zahl ist größer: 0,2 oder 0,15?",
+            "id": "m19_q2",
+            "question": "Wo ist das Komma bei 'Ein Euro und 20 Cent'?",
             "answers": [
               {
-                "text": "0,2 ist größer",
+                "text": "1,20 Euro",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "0,15 ist größer",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "Beide sind gleich groß",
+                "text": "12,0 Euro",
                 "correct": false,
                 "pts": 0
               }
@@ -7084,26 +7085,37 @@
         ]
       },
       {
-        "id": "dezimal_rechnen",
-        "title": "Rechnen mit Kommazahlen",
-        "content": "<div class=\"interactive-zone\">\n  <div style=\"font-family: monospace; font-size: 1.5rem; background:#f8fafc; padding:20px; display:inline-block; border-radius:10px;\">\n    <div style=\"text-align: right;\">&nbsp;3,45</div>\n    <div style=\"text-align: right; border-bottom: 2px solid black;\">+ 2,<span id=\"drag-digit\">1</span>0</div>\n    <div style=\"text-align: right; margin-top:5px; color:#2563eb;\"><span id=\"sum-res\">5,55</span></div>\n  </div>\n  <br/><br/>\n  <button id=\"btn-up\" style=\"padding:10px;\">Untere Zahl vergrößern</button>\n  \n</div>\n<p>Beim Addieren und Subtrahieren von Dezimalzahlen gibt es eine eiserne Regel: <b>Komma unter Komma!</b> Schreibe die Zahlen so untereinander, dass die Kommas exakt in einer Spalte stehen. Wenn eine Zahl weniger Nachkommastellen hat, kannst du sie mit Nullen auffüllen.</p>\n{{QUIZ_d2_1}}",
+        "id": "m19_sec2",
+        "title": "Rechnen mit Komma",
+        "content": "<p>Beim Plusrechnen müssen die <span style='color:red;'>Kommata übereinander</span> stehen!</p><div class='interactive-zone'><svg width='100' height='50'><text x='10' y='20'>1,50</text><text x='10' y='40'>+ 1,20</text></svg><p>Was ist 1,50 + 1,20?</p><input type='text' id='komma_input_2'><button onclick='checkPlus()'>Check</button><p id='komma_feedback_2'></p></div><p>Ganz einfach, oder?</p>{{QUIZ_m19_q3}}\n<br>\n{{QUIZ_m19_q4}}",
         "quizzes": [
           {
-            "id": "d2_1",
-            "question": "Was ergibt 1,5 + 0,25?",
+            "id": "m19_q3",
+            "question": "Was ist 2,00 Euro + 1,50 Euro?",
             "answers": [
               {
-                "text": "1,30",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "1,75",
+                "text": "3,50 Euro",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "0,40",
+                "text": "2,50 Euro",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m19_q4",
+            "question": "Du kaufst ein Eis für 1,50 Euro und gibst 2,00 Euro. Wie viel zurück?",
+            "answers": [
+              {
+                "text": "0,50 Euro",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "1,50 Euro",
                 "correct": false,
                 "pts": 0
               }
@@ -7113,22 +7125,37 @@
       }
     ],
     "diplom": {
-      "title": "Komma-König",
-      "description": "Du bist ein Experte im Umgang mit den Zahlen hinter dem Komma.",
+      "title": "🎓 Diplom: Kommazahlen-Boss",
       "questions": [
         {
-          "id": "math1_9_dezimalzahlen_dip_default",
-          "question": "Hast du das Thema \"Dezimalzahlen\" verstanden? (Du bist ein Experte im Umgang mit den Zahlen hinter dem Komma.)",
+          "id": "m19_dip1",
+          "question": "Was ist größer: 1,90 oder 2,10?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "2,10",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "1,90",
               "correct": false,
-              "pts": 5
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "m19_dip2",
+          "question": "Rechne: 5,50 - 2,00 =",
+          "answers": [
+            {
+              "text": "3,50",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "2,50",
+              "correct": false,
+              "pts": 0
             }
           ]
         }
@@ -7136,51 +7163,41 @@
     }
   },
   "math1_10_groessen": {
-    "title": "Größen: Länge, Masse, Zeit, Geld",
-    "subtitle": "Messen, wiegen und bezahlen",
+    "title": "Größen - Messen und Wiegen",
+    "subtitle": "Länge, Gewicht, Zeit und Geld",
     "sections": [
       {
-        "id": "groessen_laenge",
-        "title": "Längeneinheiten",
-        "content": "<div class=\"interactive-zone\">\n  <input type=\"range\" id=\"len-slider\" min=\"1\" max=\"1000\" value=\"100\" style=\"width:100%;\">\n  <div style=\"display:flex; justify-content:space-between; margin-top:10px; font-weight:bold;\">\n    <div><span id=\"v-mm\">1000</span> mm</div>\n    <div><span id=\"v-cm\">100</span> cm</div>\n    <div><span id=\"v-dm\">10,0</span> dm</div>\n    <div><span id=\"v-m\">1,00</span> m</div>\n  </div>\n  \n</div>\n<p>In unserer Welt gibt es verschiedene Einheiten für die Länge, je nachdem, ob wir etwas sehr Kleines (wie eine Ameise in Millimetern) oder etwas Großes (wie einen Schrank in Metern) messen wollen. Die Umrechnungszahl von mm zu cm, von cm zu dm und von dm zu m ist immer <b>10</b>.</p>\n{{QUIZ_gr1_1}}\n<p>Aber Achtung: Bei der Umwandlung von Metern in Kilometer ist die Umrechnungszahl <b>1000</b>. Ein Kilometer (km) sind also 1000 Meter (m).</p>\n{{QUIZ_gr1_2}}",
+        "id": "m110_sec1",
+        "title": "Wie lang? Wie schwer?",
+        "content": "<p>Wir messen Längen in <span style='color:red;'>Meter (m)</span> und Zentimeter (cm). 1 Meter = 100 cm.</p><p>Gewicht messen wir in <span style='color:red;'>Kilogramm (kg)</span> und Gramm (g). 1 kg = 1000 g.</p><div class='interactive-zone'><p>Rechne um: 2 Meter = ? cm</p><input type='number' id='len_input'><button onclick='checkLen()'>Check</button><p id='len_feedback'></p></div>{{QUIZ_m110_q1}}\n<br>\n{{QUIZ_m110_q2}}",
         "quizzes": [
           {
-            "id": "gr1_1",
-            "question": "Wie viele Zentimeter (cm) sind 4 Dezimeter (dm)?",
+            "id": "m110_q1",
+            "question": "Wie viele Zentimeter sind 1 Meter?",
             "answers": [
               {
-                "text": "40 cm",
+                "text": "100 cm",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "400 cm",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "0,4 cm",
+                "text": "10 cm",
                 "correct": false,
                 "pts": 0
               }
             ]
           },
           {
-            "id": "gr1_2",
-            "question": "Wie viele Meter sind 2,5 Kilometer?",
+            "id": "m110_q2",
+            "question": "Was ist schwerer?",
             "answers": [
               {
-                "text": "250 m",
-                "correct": false,
-                "pts": 0
-              },
-              {
-                "text": "2500 m",
+                "text": "1 Kilogramm (kg)",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "25000 m",
+                "text": "1 Gramm (g)",
                 "correct": false,
                 "pts": 0
               }
@@ -7189,26 +7206,37 @@
         ]
       },
       {
-        "id": "groessen_geld",
-        "title": "Umgang mit Geld",
-        "content": "<div class=\"interactive-zone\">\n  <div style=\"background:#f8fafc; padding:20px; border-radius:10px; text-align:center;\">\n    <h3 style=\"margin-top:0;\">Dein Geldbeutel</h3>\n    <button id=\"c-200\" style=\"font-size:1.2rem; background:gold; border:2px solid #b8860b; border-radius:50%; width:50px; height:50px; cursor:pointer;\">2€</button>\n    <button id=\"c-100\" style=\"font-size:1.2rem; background:gold; border:2px solid #b8860b; border-radius:50%; width:45px; height:45px; cursor:pointer;\">1€</button>\n    <button id=\"c-50\" style=\"font-size:1rem; background:#ffd700; border:2px solid #daa520; border-radius:50%; width:40px; height:40px; cursor:pointer;\">50c</button>\n    <button id=\"c-10\" style=\"font-size:1rem; background:#ffd700; border:2px solid #daa520; border-radius:50%; width:30px; height:30px; cursor:pointer;\">10c</button>\n    <button id=\"clear-money\" style=\"margin-left:15px; padding:5px 10px;\">Leeren</button>\n    <p style=\"font-size:1.8rem; font-weight:bold; margin-bottom:0;\">Total: <span id=\"money-total\">0,00</span> €</p>\n  </div>\n  \n</div>\n<p>Beim Einkaufen haben wir es fast immer mit Dezimalzahlen zu tun. Die Einheit für unser Geld ist der Euro (€). Ein Euro entspricht genau 100 Cent. Wenn etwas also 1 Euro und 50 Cent kostet, schreiben wir das als <b>1,50 €</b>.</p>\n{{QUIZ_gr2_1}}",
+        "id": "m110_sec2",
+        "title": "Zeit vergeht",
+        "content": "<p>Zeit messen wir in <span style='color:red;'>Stunden (h)</span> und Minuten (min). 1 Stunde = 60 Minuten.</p><div class='interactive-zone'><p>Ein Fußballspiel dauert 90 Minuten. Wie viele Stunden und Minuten sind das?</p><input type='text' id='time_input' placeholder='1h 30min'><button onclick='checkTime()'>Check</button><p id='time_feedback'></p></div>{{QUIZ_m110_q3}}\n<br>\n{{QUIZ_m110_q4}}",
         "quizzes": [
           {
-            "id": "gr2_1",
-            "question": "Du hast 5 € und kaufst ein Eis für 2,20 €. Wie viel Rückgeld bekommst du?",
+            "id": "m110_q3",
+            "question": "Wie viele Minuten hat eine Stunde?",
             "answers": [
               {
-                "text": "2,80 €",
+                "text": "60 Minuten",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "3,20 €",
+                "text": "100 Minuten",
                 "correct": false,
                 "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m110_q4",
+            "question": "Eine halbe Stunde sind...",
+            "answers": [
+              {
+                "text": "30 Minuten",
+                "correct": true,
+                "pts": 10
               },
               {
-                "text": "3,80 €",
+                "text": "50 Minuten",
                 "correct": false,
                 "pts": 0
               }
@@ -7218,22 +7246,37 @@
       }
     ],
     "diplom": {
-      "title": "Maß- und Münzmeister",
-      "description": "Du beherrschst die Einheiten für Länge, Masse, Zeit und hast stets den Überblick über dein Geld!",
+      "title": "🎓 Diplom: Größen-Profi",
       "questions": [
         {
-          "id": "math1_10_groessen_dip_default",
-          "question": "Hast du das Thema \"Größen: Länge, Masse, Zeit, Geld\" verstanden? (Du beherrschst die Einheiten für Länge, Masse, Zeit und hast stets den Überblick über dein Geld!)",
+          "id": "m110_dip1",
+          "question": "Was ist 1 kg in Gramm?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "1000 g",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "100 g",
               "correct": false,
-              "pts": 5
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "m110_dip2",
+          "question": "Du hast 2 h Zeit zum Zocken. Wie viele Minuten?",
+          "answers": [
+            {
+              "text": "120 Minuten",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "200 Minuten",
+              "correct": false,
+              "pts": 0
             }
           ]
         }
@@ -7241,144 +7284,82 @@
     }
   },
   "math1_11_figuren_koerper": {
-    "title": "📐 Entdecke die Welt der Formen & Körper 🧊",
-    "subtitle": "Von flachen Figuren bis zu 3D-Körpern – entfalte dein geometrisches Denken!",
+    "title": "Geometrie - Figuren und Körper",
+    "subtitle": "Formen in unserer Welt",
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Punkte, Linien und Strahlen",
-        "content": "<div class=\"interactive-zone\">\n    <h3>✏️ Punkt, Strecke, Strahl oder Gerade?</h3>\n    <p>Klicke auf die Tasten, um zu sehen, wie sich die Linie verhält:</p>\n    <div style=\"text-align:center;\">\n        <button onclick=\"drawGeo('strecke')\">Strecke</button>\n        <button onclick=\"drawGeo('strahl')\">Strahl</button>\n        <button onclick=\"drawGeo('gerade')\">Gerade</button>\n    </div>\n    <div class=\"diagram-box\">\n        <svg width=\"400\" height=\"100\" viewBox=\"0 0 400 100\" id=\"geoSvg\">\n        </svg>\n    </div>\n    \n</div>\n<p>In der Geometrie bauen wir alles aus Punkten auf. Wenn wir zwei Punkte verbinden, erhalten wir eine <strong>Strecke</strong>. Sie hat einen Anfang und ein Ende. Verlängern wir sie auf einer Seite unendlich, wird sie zum <strong>Strahl</strong> (Halbgerade). Verlängern wir sie auf beiden Seiten unendlich, entsteht eine <strong>Gerade</strong>.</p>\n{{QUIZ_q1}}",
+        "id": "m111_sec1",
+        "title": "Flache Figuren (2D)",
+        "content": "<p>Ein <span style='color:red;'>Rechteck</span> hat 4 Ecken. Gegenüberliegende Seiten sind gleich lang. Ein Handy ist ein Rechteck.</p><div class='interactive-zone'><svg width='100' height='60'><rect width='80' height='40' style='fill:blue;stroke:black;stroke-width:2' /></svg><p>Wie viele Ecken hat ein Rechteck?</p><input type='number' id='rect_input'><button onclick='checkRect()'>Check</button><p id='rect_feedback'></p></div>{{QUIZ_m111_q1}}\n<br>\n{{QUIZ_m111_q2}}",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "Was hat einen Anfangspunkt, aber kein Ende?",
+            "id": "m111_q1",
+            "question": "Welche Figur hat 3 Ecken?",
             "answers": [
               {
-                "text": "Ein Strahl (Halbgerade)",
+                "text": "Dreieck",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Eine Strecke",
+                "text": "Quadrat",
                 "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m111_q2",
+            "question": "Sind beim Quadrat alle Seiten gleich lang?",
+            "answers": [
+              {
+                "text": "Ja",
+                "correct": true,
                 "pts": 10
               },
               {
-                "text": "Eine Gerade",
+                "text": "Nein",
                 "correct": false,
-                "pts": 10
+                "pts": 0
               }
             ]
           }
         ]
       },
       {
-        "id": "sec1",
-        "title": "2. Winkel: Spitze, Ecken und Kanten",
-        "content": "<div class=\"interactive-zone\">\n    <h3>📐 Der Winkel-Macher</h3>\n    <p>Bewege den Schieberegler, um den Winkel zu verändern. Was fällt dir auf?</p>\n    <input type=\"range\" id=\"angleSlider\" min=\"0\" max=\"180\" value=\"90\" oninput=\"updateAngle()\" style=\"width:100%;\">\n    <p id=\"angleText\" style=\"font-weight:bold; text-align:center;\">90° (Rechter Winkel)</p>\n    <div class=\"diagram-box\">\n        <svg width=\"300\" height=\"150\" viewBox=\"-150 -150 300 150\">\n            <line x1=\"0\" y1=\"0\" x2=\"100\" y2=\"0\" stroke=\"black\" stroke-width=\"3\"/>\n            <line id=\"angleArm\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-100\" stroke=\"blue\" stroke-width=\"3\"/>\n            <path id=\"angleArc\" d=\"M 30 0 A 30 30 0 0 0 0 -30\" fill=\"none\" stroke=\"red\" stroke-width=\"3\"/>\n        </svg>\n    </div>\n    \n</div>\n<p>Ein Winkel entsteht, wenn zwei Strahlen vom selben Punkt (Scheitelpunkt) ausgehen. Je nachdem, wie weit sie geöffnet sind, unterscheiden wir spitze, rechte und stumpfe Winkel.</p>\n{{QUIZ_q2}}",
+        "id": "m111_sec2",
+        "title": "Körper (3D)",
+        "content": "<p>Ein <span style='color:red;'>Würfel</span> ist 3D. Wie ein Spielwürfel. Er hat 6 Seiten.</p><div class='interactive-zone'><div style='width:50px;height:50px;background-color:red;border:2px solid black;transform:skew(20deg);'></div><p>Was ist eine Getränkedose für ein Körper?</p><select id='k_select'><option value=''><option><option value='kugel'>Kugel</option><option value='zylinder'>Zylinder</option></select><button onclick='checkK()'>Check</button><p id='k_feedback'></p></div>{{QUIZ_m111_q3}}\n<br>\n{{QUIZ_m111_q4}}",
         "quizzes": [
           {
-            "id": "q2",
-            "question": "Welche Art von Winkel hat exakt 90°?",
+            "id": "m111_q3",
+            "question": "Wie viele Seiten hat ein Würfel?",
             "answers": [
-              {
-                "text": "Ein spitzer Winkel",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "Ein rechter Winkel",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "Ein stumpfer Winkel",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec2",
-        "title": "3. Dreiecke und Vierecke",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🔺 Form-Wandler</h3>\n    <p>Klicke auf die Formen, um sie zu morphen!</p>\n    <button onclick=\"morphShape('triangle')\">Dreieck</button>\n    <button onclick=\"morphShape('square')\">Quadrat</button>\n    <button onclick=\"morphShape('parallelogram')\">Parallelogramm</button>\n    <div class=\"diagram-box\">\n        <svg width=\"200\" height=\"200\" viewBox=\"0 0 100 100\">\n            <polygon id=\"morphPoly\" points=\"50,10 90,90 10,90\" fill=\"#ed8936\" stroke=\"#dd6b20\" stroke-width=\"2\" style=\"transition: all 0.5s;\"/>\n        </svg>\n    </div>\n    \n</div>\n<p>Figuren mit Ecken und Kanten nennt man Polygone (Vielecke). Ein Dreieck hat drei Ecken, ein Viereck vier. Besondere Vierecke sind z.B. das Rechteck, das Quadrat oder das Parallelogramm.</p>\n{{QUIZ_q3}}",
-        "quizzes": [
-          {
-            "id": "q3",
-            "question": "Wie viele Seiten hat ein Parallelogramm?",
-            "answers": [
-              {
-                "text": "4",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "3",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "5",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec3",
-        "title": "4. Der perfekte Kreis",
-        "content": "<div class=\"interactive-zone\">\n    <h3>⭕ Kreis-Labor</h3>\n    <p>Verändere den Radius und beobachte den Durchmesser:</p>\n    <input type=\"range\" id=\"radiusSlider\" min=\"10\" max=\"80\" value=\"40\" oninput=\"updateCircle()\" style=\"width:100%;\">\n    <p>Radius: <span id=\"radVal\">40</span>, Durchmesser: <span id=\"diaVal\">80</span></p>\n    <div class=\"diagram-box\">\n        <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n            <circle id=\"theCircle\" cx=\"100\" cy=\"100\" r=\"40\" fill=\"none\" stroke=\"#3182ce\" stroke-width=\"3\"/>\n            <circle cx=\"100\" cy=\"100\" r=\"3\" fill=\"black\"/>\n            <line id=\"radLine\" x1=\"100\" y1=\"100\" x2=\"140\" y2=\"100\" stroke=\"#e53e3e\" stroke-width=\"2\"/>\n        </svg>\n    </div>\n    \n</div>\n<p>Ein Kreis besteht aus allen Punkten, die den gleichen Abstand zum Mittelpunkt haben. Dieser Abstand ist der <strong>Radius (r)</strong>. Der <strong>Durchmesser (d)</strong> geht durch den Mittelpunkt von einer Seite zur anderen und ist genau doppelt so lang wie der Radius (d = 2 * r).</p>\n{{QUIZ_q4}}",
-        "quizzes": [
-          {
-            "id": "q4",
-            "question": "Wenn der Radius eines Kreises 5 cm beträgt, wie groß ist dann der Durchmesser?",
-            "answers": [
-              {
-                "text": "10 cm",
-                "correct": true,
-                "pts": 10
-              },
-              {
-                "text": "2,5 cm",
-                "correct": false,
-                "pts": 10
-              },
-              {
-                "text": "5 cm",
-                "correct": false,
-                "pts": 10
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec4",
-        "title": "5. In die 3. Dimension: Geometrische Körper",
-        "content": "<div class=\"interactive-zone\">\n    <h3>🧊 3D-Körper Rotator</h3>\n    <p>Klicke auf den Würfel, um ihn rotieren zu lassen!</p>\n    <div class=\"diagram-box\" style=\"perspective: 400px;\">\n        <div id=\"cube\" style=\"width: 100px; height: 100px; position: relative; transform-style: preserve-3d; transform: rotateX(-20deg) rotateY(30deg); transition: transform 1s; margin: 40px auto; cursor: pointer;\" onclick=\"spinCube()\">\n            <div style=\"position: absolute; width: 100px; height: 100px; background: rgba(255,0,0,0.5); border: 2px solid red; transform: translateZ(50px);\">Vorne</div>\n            <div style=\"position: absolute; width: 100px; height: 100px; background: rgba(0,255,0,0.5); border: 2px solid green; transform: rotateY(180deg) translateZ(50px);\">Hinten</div>\n            <div style=\"position: absolute; width: 100px; height: 100px; background: rgba(0,0,255,0.5); border: 2px solid blue; transform: rotateY(-90deg) translateZ(50px);\">Links</div>\n            <div style=\"position: absolute; width: 100px; height: 100px; background: rgba(255,255,0,0.5); border: 2px solid yellow; transform: rotateY(90deg) translateZ(50px);\">Rechts</div>\n            <div style=\"position: absolute; width: 100px; height: 100px; background: rgba(255,0,255,0.5); border: 2px solid magenta; transform: rotateX(90deg) translateZ(50px);\">Oben</div>\n            <div style=\"position: absolute; width: 100px; height: 100px; background: rgba(0,255,255,0.5); border: 2px solid cyan; transform: rotateX(-90deg) translateZ(50px);\">Unten</div>\n        </div>\n    </div>\n    \n</div>\n<p>Geometrische Körper sind 3D-Objekte. Sie haben Breite, Höhe und Tiefe. Ein Würfel besteht aus 6 gleich großen quadratischen Flächen, 12 Kanten und 8 Ecken.</p>\n{{QUIZ_q5}}",
-        "quizzes": [
-          {
-            "id": "q5",
-            "question": "Wie viele Ecken hat ein Würfel?",
-            "answers": [
-              {
-                "text": "8",
-                "correct": true,
-                "pts": 10
-              },
               {
                 "text": "6",
-                "correct": false,
+                "correct": true,
                 "pts": 10
               },
               {
-                "text": "12",
+                "text": "4",
                 "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m111_q4",
+            "question": "Welcher Körper ist rund wie ein Ball?",
+            "answers": [
+              {
+                "text": "Kugel",
+                "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "Quader",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -7386,22 +7367,37 @@
       }
     ],
     "diplom": {
-      "title": "Meister der Geometrie",
-      "description": "Du hast die Geheimnisse der Linien, Flächen und Körper entschlüsselt!",
+      "title": "🎓 Diplom: Geometrie-Meister",
       "questions": [
         {
-          "id": "math1_11_figuren_koerper_dip_default",
-          "question": "Hast du das Thema \"📐 Entdecke die Welt der Formen & Körper 🧊\" verstanden? (Du hast die Geheimnisse der Linien, Flächen und Körper entschlüsselt!)",
+          "id": "m111_dip1",
+          "question": "Ist ein Blatt Papier 2D (flach) oder 3D (Körper)?",
           "answers": [
             {
-              "text": "Ja, ich bin bereit für das Diplom!",
+              "text": "2D (flach)",
               "correct": true,
-              "pts": 5
+              "pts": 10
             },
             {
-              "text": "Nein, ich muss noch ein bisschen üben.",
+              "text": "3D (Körper)",
               "correct": false,
-              "pts": 5
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "m111_dip2",
+          "question": "Ein Schuhkarton ist ein...",
+          "answers": [
+            {
+              "text": "Quader",
+              "correct": true,
+              "pts": 10
+            },
+            {
+              "text": "Würfel",
+              "correct": false,
+              "pts": 0
             }
           ]
         }
