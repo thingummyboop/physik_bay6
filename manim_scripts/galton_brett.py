@@ -12,11 +12,11 @@ class GaltonBrett(Scene):
         self.play(Create(axes))
 
         curve = axes.get_graph(lambda x: 9 * np.exp(-0.5 * x**2), color=YELLOW)
-        label = Text("Die Glockenkurve", color=YELLOW, font_size=30).next_to(curve, UP)
+        label = Text("Die Glockenkurve", color=YELLOW, font_size=30).next_to(curve, UP, buff=0.5)
 
         self.play(Create(curve), run_time=3)
         self.play(Write(label))
         
-        info = Text("Fallen tausende Kugeln durch Nägel,\nbilden sie immer dieses Muster!", font_size=24).to_corner(UL)
+        info = Text("Fallen tausende Kugeln durch Nägel,\nbilden sie immer dieses Muster!", font_size=28).to_corner(DL)
         self.play(FadeIn(info))
         self.wait(3)
