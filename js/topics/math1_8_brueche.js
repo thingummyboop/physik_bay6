@@ -54,6 +54,8 @@ const c1 = document.getElementById('svg-half'); const c2 = document.getElementBy
 
 
 function topicInit() {
+    initZstrahl();
+
     setTimeout(nextVfracTask, 500);
 
   // Init logic is handled inline, but function required by renderer
@@ -76,7 +78,7 @@ function nextVfracTask() {
     vfracSelected = 0;
 
     // Generate random task based on model
-    let n, z1, z2;
+    let n, z1, z2, operation;
     if (vfracCurrentModel === 'pie') {
         n = [4, 6, 8][Math.floor(Math.random() * 3)];
         info.innerHTML = "Jedes Pizzastück ist genau <strong>1/" + n + "</strong>.";
@@ -88,11 +90,26 @@ function nextVfracTask() {
         info.innerHTML = "Alle " + n + " Punkte zusammen sind 1 Ganzes.<br><strong>1 Punkt steht für 1/" + n + "</strong>.";
     }
 
-    z1 = Math.floor(Math.random() * (n/2)) + 1;
-    z2 = Math.floor(Math.random() * (n - z1 - 1)) + 1;
-    
-    vfracTask = { n: n, z1: z1, z2: z2, target: z1 + z2 };
-    taskText.innerHTML = `\(\frac{${z1}}{${n}} + \frac{${z2}}{${n}} = \ ?\)`;
+    const randOp = Math.random();
+    if (randOp < 0.33) {
+        operation = '+';
+        z1 = Math.floor(Math.random() * (n/2)) + 1;
+        z2 = Math.floor(Math.random() * (n - z1 - 1)) + 1;
+        vfracTask = { n: n, z1: z1, z2: z2, operation: '+', target: z1 + z2 };
+        taskText.innerHTML = `\\(\\frac{${z1}}{${n}} + \\frac{${z2}}{${n}} = \\ ?\\)`;
+    } else if (randOp < 0.66) {
+        operation = '-';
+        z1 = Math.floor(Math.random() * (n - 2)) + 2;
+        z2 = Math.floor(Math.random() * (z1 - 1)) + 1;
+        vfracTask = { n: n, z1: z1, z2: z2, operation: '-', target: z1 - z2 };
+        taskText.innerHTML = `\\(\\frac{${z1}}{${n}} - \\frac{${z2}}{${n}} = \\ ?\\)`;
+    } else {
+        operation = '*';
+        const w = Math.floor(Math.random() * 3) + 2;
+        z2 = Math.floor(Math.random() * Math.floor(n/w)) + 1;
+        vfracTask = { n: n, w: w, z2: z2, operation: '*', target: w * z2 };
+        taskText.innerHTML = `\\(${w} \\cdot \\frac{${z2}}{${n}} = \\ ?\\)`;
+    }
     
     if (window.MathJax) MathJax.typesetPromise([taskText]);
 
@@ -136,7 +153,6 @@ function drawVfracCanvas() {
         }
     } else if (vfracCurrentModel === 'dots') {
         const n = vfracTask.n;
-        // Arrange dots in a circle or grid
         let cols = Math.ceil(Math.sqrt(n));
         let rows = Math.ceil(n / cols);
         const w = 160 / cols;
@@ -179,6 +195,76 @@ function checkVfracAnswer() {
     if (vfracSelected === vfracTask.target) {
         fb.innerHTML = `<span style="color: #10b981;">✅ Perfekt! Du hast genau ${vfracTask.target}/${vfracTask.n} eingefärbt.</span>`;
     } else {
-        fb.innerHTML = `<span style="color: #ef4444;">❌ Fast. Die Rechnung war ${vfracTask.z1} + ${vfracTask.z2} = ${vfracTask.target}. Du hast aber ${vfracSelected} Stücke eingefärbt. Versuch es nochmal!</span>`;
+        let msg = "";
+        if (vfracTask.operation === '+') {
+            msg = `${vfracTask.z1} + ${vfracTask.z2} = ${vfracTask.target}`;
+        } else if (vfracTask.operation === '-') {
+            msg = `${vfracTask.z1} - ${vfracTask.z2} = ${vfracTask.target}`;
+        } else {
+            msg = `${vfracTask.w} \\cdot ${vfracTask.z2} = ${vfracTask.target}`;
+        }
+        fb.innerHTML = `<span style="color: #ef4444;">❌ Fast. Die Rechnung war ${msg}. Du hast aber ${vfracSelected} Stücke eingefärbt. Versuch es nochmal!</span>`;
+    }
+}
+
+// Zahlenstrahl Logic
+let zstrahlTask = { z: 3, n: 4 };
+
+function initZstrahl() {
+    const ticksGroup = document.getElementById('zstrahl-ticks');
+    if (!ticksGroup) return;
+    
+    // Choose random fraction
+    const n = [3, 4, 5, 8][Math.floor(Math.random() * 4)];
+    const z = Math.floor(Math.random() * (n - 1)) + 1;
+    zstrahlTask = { z, n };
+    document.getElementById('zstrahl-task').innerText = z + '/' + n;
+    
+    // Draw ticks
+    ticksGroup.innerHTML = '';
+    const width = 360;
+    for(let i=1; i<n; i++) {
+        const x = 20 + (i / n) * width;
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute('x1', x); line.setAttribute('y1', 40);
+        line.setAttribute('x2', x); line.setAttribute('y2', 60);
+        line.setAttribute('stroke', '#cbd5e1'); line.setAttribute('stroke-width', '2');
+        ticksGroup.appendChild(line);
+    }
+    
+    document.getElementById('zstrahl-slider').value = 0;
+    updateZstrahl();
+    document.getElementById('zstrahl-feedback').innerHTML = '';
+}
+
+function updateZstrahl() {
+    const val = document.getElementById('zstrahl-slider').value; // 0 to 100
+    const dot = document.getElementById('zstrahl-dot');
+    // val is percentage. Left is 20, width is 360.
+    const pos = 20 + (val / 100) * 360;
+    dot.style.left = pos + 'px';
+}
+
+function checkZstrahl() {
+    const val = parseInt(document.getElementById('zstrahl-slider').value);
+    const targetVal = (zstrahlTask.z / zstrahlTask.n) * 100;
+    
+    const feedback = document.getElementById('zstrahl-feedback');
+    // Allow small margin of error
+    if (Math.abs(val - targetVal) < 4) {
+        feedback.innerHTML = '<span style="color: #10b981;">✅ Perfekt! Du hast den Bruch genau getroffen.</span> <button onclick="initZstrahl()" style="font-size:0.7em; padding:2px 8px; margin-left:10px;">Nochmal 🔄</button>';
+    } else {
+        feedback.innerHTML = '<span style="color: #ef4444;">❌ Fast. Du bist bei ca. ' + Math.round(val) + '%. Suche weiter!</span>';
+    }
+}
+
+// Anteil Logic
+function checkAnteil() {
+    const val = document.getElementById('anteil-input').value;
+    const feedback = document.getElementById('anteil-feedback');
+    if (val == 15) {
+        feedback.innerHTML = '<span style="color: #10b981;">✅ Richtig! 3/4 von 20€ sind 15€.</span>';
+    } else {
+        feedback.innerHTML = '<span style="color: #ef4444;">❌ Nicht ganz. Rechne: 5 mal 3.</span>';
     }
 }
