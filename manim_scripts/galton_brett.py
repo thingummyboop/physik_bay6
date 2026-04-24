@@ -4,6 +4,7 @@ import numpy as np
 class GaltonBrett(Scene):
     def construct(self):
         self.camera.frame_width = 22
+        self.camera.frame_height = 22 * 9 / 16
         title = Text("Zufall formt ein Muster (Normalverteilung)").to_edge(UP)
         self.play(Write(title))
 

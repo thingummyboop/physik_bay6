@@ -3,6 +3,7 @@ from manim import *
 class LorentzKraft(Scene):
     def construct(self):
         self.camera.frame_width = 22
+        self.camera.frame_height = 22 * 9 / 16
         title = Text("Die Lorentzkraft (Rechte-Hand-Regel)").to_edge(UP)
         self.play(Write(title))
 

@@ -3,6 +3,7 @@ from manim import *
 class Gravitation(Scene):
     def construct(self):
         self.camera.frame_width = 22
+        self.camera.frame_height = 22 * 9 / 16
         title = Text("Das 2. Keplersche Gesetz (Flächensatz)").to_edge(UP)
         self.play(Write(title))
 
