@@ -2,6 +2,7 @@ from manim import *
 
 class WellenArten(Scene):
     def construct(self):
+        self.camera.frame_width = 22
         title = Text("Transversalwelle vs. Longitudinalwelle").to_edge(UP)
         self.play(Write(title))
 

@@ -2,6 +2,7 @@ from manim import *
 
 class LinsenBrechung(Scene):
     def construct(self):
+        self.camera.frame_width = 22
         title = Text("Brechung an einer Sammellinse").to_edge(UP)
         self.play(Write(title))
 

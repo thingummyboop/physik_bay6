@@ -9027,6 +9027,34 @@
         ]
       },
       {
+        "id": "pyth_puzzle",
+        "title": "Das Puzzle: Beweise es selbst!",
+        "content": "\n    <p>Wir behaupten: Die Fläche der beiden kleinen Quadrate (<strong>a²</strong> und <strong>b²</strong>) passt <em>exakt</em> in das große Quadrat (<strong>c²</strong>). Glaube nicht nur, was du liest – beweise es selbst!</p>\n    <div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px; text-align: center;\">\n        <h3 style=\"color: #2563eb;\">🧩 Das 1cm²-Puzzle</h3>\n        <p style=\"font-size: 1.1em;\">Klicke auf die farbigen Quadrate aus <strong>a²</strong> und <strong>b²</strong>, um sie in das große <strong>c²</strong> wandern zu lassen.</p>\n        <div style=\"position: relative; width: 100%; max-width: 450px; margin: 0 auto; background: white; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;\">\n            <svg id=\"pyth-puzzle-svg\" width=\"100%\" viewBox=\"0 0 450 450\" style=\"display: block;\">\n                <!-- Triangle -->\n                <polygon points=\"200,110 320,200 200,200\" fill=\"#e2e8f0\" stroke=\"#475569\" stroke-width=\"2\"/>\n                <text x=\"180\" y=\"160\" font-size=\"18\" fill=\"#475569\" font-weight=\"bold\">a</text>\n                <text x=\"260\" y=\"220\" font-size=\"18\" fill=\"#475569\" font-weight=\"bold\">b</text>\n                <text x=\"265\" y=\"145\" font-size=\"18\" fill=\"#475569\" font-weight=\"bold\">c</text>\n                \n                <!-- c^2 Empty Grid -->\n                <g id=\"pyth-c2-grid\" stroke=\"#cbd5e1\" stroke-width=\"1\" fill=\"none\">\n                    <!-- Generated via JS -->\n                </g>\n\n                <!-- a^2 Grid (9 squares) -->\n                <g id=\"pyth-a2-grid\" stroke=\"#fff\" stroke-width=\"2\">\n                    <!-- Generated via JS -->\n                </g>\n\n                <!-- b^2 Grid (16 squares) -->\n                <g id=\"pyth-b2-grid\" stroke=\"#fff\" stroke-width=\"2\">\n                    <!-- Generated via JS -->\n                </g>\n            </svg>\n            <div id=\"pyth-success-msg\" style=\"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(34, 197, 94, 0.95); color: white; padding: 20px; border-radius: 12px; font-size: 1.5em; font-weight: bold; opacity: 0; pointer-events: none; transition: opacity 0.5s;\">\n                🎉 Beweis erbracht!<br><span style=\"font-size:0.6em;\">9 + 16 = 25</span>\n            </div>\n        </div>\n        <button onclick=\"resetPythPuzzle()\" style=\"margin-top: 15px; background: #64748b;\">🔄 Puzzle zurücksetzen</button>\n    </div>\n    <p>Ist das nicht verrückt? Obwohl das Dreieck schräg liegt, passen die 9 blauen Quadrate (a²) und die 16 roten Quadrate (b²) genau in die 25 Lücken des großen Quadrats (c²)!</p>\n    <br>\n    {{QUIZ_pyth_puzzle_1}}\n    ",
+        "quizzes": [
+          {
+            "id": "pyth_puzzle_1",
+            "question": "Was beweist das Puzzle, das du gerade gelöst hast?",
+            "answers": [
+              {
+                "text": "Dass die Fläche von a² plus die Fläche von b² genau die Fläche von c² ergibt.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Dass rote und blaue Quadrate gut zusammenpassen.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Dass das Dreieck in der Mitte wächst.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "sec2",
         "title": "Die Wurzel ziehen",
         "content": "<p>Wenn du c² hast, musst du die <span style='color:red'>Wurzel</span> ziehen.</p><p>Beispiel: c² = 100. Welche Zahl mal sich selbst ist 100?</p><p>Antwort: 10. Also ist <span style='color:red'>c = 10</span>.</p>{{QUIZ_m38_q2}}",
