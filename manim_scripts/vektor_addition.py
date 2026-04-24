@@ -2,8 +2,8 @@ from manim import *
 
 class VektorAddition(Scene):
     def construct(self):
-        self.camera.frame_width = 22
-        self.camera.frame_height = 22 * 9 / 16
+        self.camera.frame_width = 26
+        self.camera.frame_height = 26 * 9 / 16
         title = Text("Addition von Kräften (Vektoren)").to_edge(UP)
         self.play(Write(title))
 
