@@ -25,6 +25,7 @@ function showInstrumentDetailed(type) {
             `;
             infoHtml = `
                 <strong>🌡️ Das Thermometer</strong><br>
+                <strong>Misst:</strong> Temperatur<br>
                 <strong>Einheit:</strong> Grad Celsius (°C)<br>
                 <strong>Definition:</strong> Anders Celsius legte fest: Bei 0° gefriert Wasser, bei 100° kocht es. Die Skala dazwischen wurde in 100 gleiche Teile (Grade) unterteilt.
             `;
@@ -50,6 +51,7 @@ function showInstrumentDetailed(type) {
             `;
             infoHtml = `
                 <strong>⏲️ Das Barometer</strong><br>
+                <strong>Misst:</strong> Luftdruck<br>
                 <strong>Einheit:</strong> Hektopascal (hPa)<br>
                 <strong>Definition:</strong> 1 Pascal ist der Druck, den eine Kraft von 1 Newton auf 1 m² ausübt. Wir messen hier, wie schwer die kilometerhohe Luftschicht auf den Boden drückt.
             `;
@@ -78,6 +80,7 @@ function showInstrumentDetailed(type) {
             `;
             infoHtml = `
                 <strong>🌀 Das Anemometer</strong><br>
+                <strong>Misst:</strong> Windgeschwindigkeit<br>
                 <strong>Einheit:</strong> Kilometer pro Stunde (km/h)<br>
                 <strong>Definition:</strong> Geschwindigkeit = Weg durch Zeit. 10 km/h bedeutet, dass die Luft in einer Stunde eine Strecke von 10 Kilometern zurücklegt.
             `;
@@ -98,6 +101,7 @@ function showInstrumentDetailed(type) {
             `;
             infoHtml = `
                 <strong>💧 Das Hygrometer</strong><br>
+                <strong>Misst:</strong> Luftfeuchtigkeit<br>
                 <strong>Einheit:</strong> Prozent (%)<br>
                 <strong>Definition:</strong> 100% bedeutet, die Luft ist komplett mit Wasserdampf gesättigt und kann nichts mehr aufnehmen. 0% wäre knochentrockene Luft.
             `;
