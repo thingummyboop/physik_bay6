@@ -571,6 +571,55 @@ function generateWorksheetContent(topicId, topicTitle) {
         }
         html += '</div>';
     }
+    else if (topicId === 'elektrizitaet') {
+        html += '<h2>1. Das Ohmsche Gesetz (U = R \\(\\cdot\\) I)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<5; i++) {
+            const R = rand(10, 100);
+            const I = rand(1, 10);
+            html += '<div>Geg: R = ' + R + ' \\(\\Omega\\), I = ' + I + ' A<br><br>Ges: U = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> V</div>';
+        }
+        for(let i=0; i<5; i++) {
+            const R = rand(10, 50);
+            const U = R * rand(2, 12);
+            html += '<div>Geg: U = ' + U + ' V, R = ' + R + ' \\(\\Omega\\)<br><br>Ges: I = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> A</div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'kraft_und_bewegung') {
+        html += '<h2>1. Geschwindigkeit (v = s : t)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<5; i++) {
+            const v = rand(10, 130);
+            const t = rand(2, 10);
+            const s = v * t;
+            html += '<div>Ein Auto fährt in ' + t + ' Stunden genau ' + s + ' km weit.<br><br>v = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> km/h</div>';
+        }
+        html += '</div>';
+        html += '<h2>2. Kraft (F = m \\(\\cdot\\) a)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<5; i++) {
+            const m = rand(5, 50);
+            const a = rand(2, 10);
+            html += '<div>Masse m = ' + m + ' kg, Beschleunigung a = ' + a + ' m/s²<br><br>Kraft F = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> N</div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'arbeit') {
+        html += '<h2>1. Mechanische Arbeit (W = F \\(\\cdot\\) s)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<8; i++) {
+            const F = rand(50, 500);
+            const s = rand(2, 20);
+            html += '<div>Du ziehst einen Wagen mit F = ' + F + ' N über eine Strecke von s = ' + s + ' m.<br><br>Arbeit W = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> J (Joule)</div>';
+        }
+        html += '</div>';
+    }
+    else if (topicId === 'energie') {
+        html += '<h2>1. Lageenergie (E = m \\(\\cdot\\) g \\(\\cdot\\) h)</h2><p><em>Hinweis: Rechne mit g = 10 m/s²</em></p><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        for(let i=0; i<8; i++) {
+            const m = rand(10, 100);
+            const h = rand(5, 50);
+            html += '<div>Masse m = ' + m + ' kg, Höhe h = ' + h + ' m<br><br>E_pot = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> J</div>';
+        }
+        html += '</div>';
+    }
     else {
         return null;
     }
