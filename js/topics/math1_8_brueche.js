@@ -54,5 +54,131 @@ const c1 = document.getElementById('svg-half'); const c2 = document.getElementBy
 
 
 function topicInit() {
+    setTimeout(nextVfracTask, 500);
+
   // Init logic is handled inline, but function required by renderer
+}
+
+
+let vfracCurrentModel = 'pie';
+let vfracTask = {};
+let vfracSelected = 0;
+
+function setVfracModel(model) {
+    vfracCurrentModel = model;
+    nextVfracTask();
+}
+
+function nextVfracTask() {
+    const info = document.getElementById('vfrac-info');
+    const taskText = document.getElementById('vfrac-task-text');
+    document.getElementById('vfrac-feedback').innerHTML = '';
+    vfracSelected = 0;
+
+    // Generate random task based on model
+    let n, z1, z2;
+    if (vfracCurrentModel === 'pie') {
+        n = [4, 6, 8][Math.floor(Math.random() * 3)];
+        info.innerHTML = "Jedes Pizzastück ist genau <strong>1/" + n + "</strong>.";
+    } else if (vfracCurrentModel === 'choco') {
+        n = [8, 10, 12, 15][Math.floor(Math.random() * 4)];
+        info.innerHTML = "Ein Schokostück ist genau <strong>1/" + n + "</strong>.";
+    } else if (vfracCurrentModel === 'dots') {
+        n = [12, 16, 20][Math.floor(Math.random() * 3)];
+        info.innerHTML = "Alle " + n + " Punkte zusammen sind 1 Ganzes.<br><strong>1 Punkt steht für 1/" + n + "</strong>.";
+    }
+
+    z1 = Math.floor(Math.random() * (n/2)) + 1;
+    z2 = Math.floor(Math.random() * (n - z1 - 1)) + 1;
+    
+    vfracTask = { n: n, z1: z1, z2: z2, target: z1 + z2 };
+    taskText.innerHTML = `\(\frac{${z1}}{${n}} + \frac{${z2}}{${n}} = \ ?\)`;
+    
+    if (window.MathJax) MathJax.typesetPromise([taskText]);
+
+    drawVfracCanvas();
+}
+
+function drawVfracCanvas() {
+    const canvas = document.getElementById('vfrac-canvas');
+    let svgHtml = '<svg width="100%" height="100%" viewBox="0 0 200 200">';
+    
+    if (vfracCurrentModel === 'pie') {
+        const n = vfracTask.n;
+        const cx = 100, cy = 100, r = 80;
+        svgHtml += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="#fde68a" stroke="#d97706" stroke-width="4"/>`;
+        for (let i = 0; i < n; i++) {
+            const startAngle = (i * 360 / n) * Math.PI / 180;
+            const endAngle = ((i + 1) * 360 / n) * Math.PI / 180;
+            const x1 = cx + r * Math.sin(startAngle);
+            const y1 = cy - r * Math.cos(startAngle);
+            const x2 = cx + r * Math.sin(endAngle);
+            const y2 = cy - r * Math.cos(endAngle);
+            const d = `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2} Z`;
+            svgHtml += `<path d="${d}" fill="transparent" stroke="#d97706" stroke-width="2" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" data-selected="false"/>`;
+        }
+    } else if (vfracCurrentModel === 'choco') {
+        const n = vfracTask.n;
+        let cols = n % 5 === 0 ? 5 : (n % 4 === 0 ? 4 : (n % 3 === 0 ? 3 : 2));
+        let rows = n / cols;
+        const w = 160 / cols;
+        const h = 160 / rows;
+        const startX = 20, startY = 20;
+        
+        svgHtml += `<rect x="${startX-4}" y="${startY-4}" width="${cols*w+8}" height="${rows*h+8}" fill="#451a03" rx="5"/>`;
+        let i = 0;
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                if (i >= n) break;
+                svgHtml += `<rect x="${startX + c*w}" y="${startY + r*h}" width="${w-2}" height="${h-2}" fill="#92400e" rx="3" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" data-selected="false"/>`;
+                i++;
+            }
+        }
+    } else if (vfracCurrentModel === 'dots') {
+        const n = vfracTask.n;
+        // Arrange dots in a circle or grid
+        let cols = Math.ceil(Math.sqrt(n));
+        let rows = Math.ceil(n / cols);
+        const w = 160 / cols;
+        const h = 160 / rows;
+        const startX = 20 + w/2, startY = 20 + h/2;
+        
+        let i = 0;
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                if (i >= n) break;
+                svgHtml += `<circle cx="${startX + c*w}" cy="${startY + r*h}" r="12" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" data-selected="false"/>`;
+                i++;
+            }
+        }
+    }
+    
+    svgHtml += '</svg>';
+    canvas.innerHTML = svgHtml;
+}
+
+function toggleVfracPiece(element) {
+    const isSelected = element.getAttribute('data-selected') === 'true';
+    if (isSelected) {
+        element.setAttribute('data-selected', 'false');
+        if (vfracCurrentModel === 'pie') element.setAttribute('fill', 'transparent');
+        else if (vfracCurrentModel === 'choco') element.setAttribute('fill', '#92400e');
+        else if (vfracCurrentModel === 'dots') element.setAttribute('fill', '#e2e8f0');
+        vfracSelected--;
+    } else {
+        element.setAttribute('data-selected', 'true');
+        if (vfracCurrentModel === 'pie') element.setAttribute('fill', '#ef4444');
+        else if (vfracCurrentModel === 'choco') element.setAttribute('fill', '#d97706');
+        else if (vfracCurrentModel === 'dots') element.setAttribute('fill', '#3b82f6');
+        vfracSelected++;
+    }
+}
+
+function checkVfracAnswer() {
+    const fb = document.getElementById('vfrac-feedback');
+    if (vfracSelected === vfracTask.target) {
+        fb.innerHTML = `<span style="color: #10b981;">✅ Perfekt! Du hast genau ${vfracTask.target}/${vfracTask.n} eingefärbt.</span>`;
+    } else {
+        fb.innerHTML = `<span style="color: #ef4444;">❌ Fast. Die Rechnung war ${vfracTask.z1} + ${vfracTask.z2} = ${vfracTask.target}. Du hast aber ${vfracSelected} Stücke eingefärbt. Versuch es nochmal!</span>`;
+    }
 }

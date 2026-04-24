@@ -6934,6 +6934,34 @@
             ]
           }
         ]
+      },
+      {
+        "id": "grafisch_rechnen",
+        "title": "Grafisch Rechnen: Torten, Schoko & Punkte",
+        "content": "\n    <div class=\"interactive-zone\" style=\"background: #fdf2f8; border: 2px solid #fbcfe8; border-radius: 12px; padding: 15px; text-align: center;\">\n        <h3 style=\"color: #be185d;\">🎨 Das visuelle Rechen-Labor</h3>\n        <p>Manche Rechnungen sehen schwer aus, sind aber ganz leicht, wenn man sie zeichnet! Löse die Aufgabe, indem du die richtige Menge im Bild <strong>anklickst und einfärbst</strong>.</p>\n        \n        <div style=\"margin: 15px 0; font-size: 1.5em; font-weight: bold; background: white; padding: 10px; border-radius: 8px; border: 1px dashed #cbd5e1;\">\n            Aufgabe: <span id=\"vfrac-task-text\" style=\"color: #be185d;\">Lade...</span>\n        </div>\n\n        <div style=\"display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap;\">\n            <button onclick=\"setVfracModel('pie')\" style=\"background: #f59e0b;\">🥧 Torte</button>\n            <button onclick=\"setVfracModel('choco')\" style=\"background: #78350f;\">🍫 Schokotafel</button>\n            <button onclick=\"setVfracModel('dots')\" style=\"background: #3b82f6;\">🔴 Punkte</button>\n        </div>\n\n        <div id=\"vfrac-info\" style=\"font-size: 0.9em; color: #475569; margin-bottom: 10px; min-height: 20px;\"></div>\n\n        <div id=\"vfrac-canvas\" style=\"width: 100%; max-width: 300px; height: 300px; margin: 0 auto; background: white; border-radius: 8px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; position: relative;\">\n            <!-- SVG drawn via JS -->\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <button onclick=\"checkVfracAnswer()\" style=\"background: #10b981; font-size: 1.2em; padding: 10px 20px;\">Prüfen! ✔️</button>\n            <button onclick=\"nextVfracTask()\" style=\"background: #64748b; font-size: 1.2em; padding: 10px 20px; margin-left: 10px;\">Neue Aufgabe 🔄</button>\n        </div>\n        <p id=\"vfrac-feedback\" style=\"font-weight: bold; margin-top: 15px; font-size: 1.2em; min-height: 30px;\"></p>\n    </div>\n    <p>Beim Rechnen mit Brüchen hilft es immer, sich das Ganze vorzustellen. Wenn du 1 Viertel Schokolade und noch 2 Viertel Schokolade isst, hast du insgesamt 3 Viertel gegessen. Du zählst einfach die Stücke zusammen!</p>\n    <br>\n    {{QUIZ_m18_grafisch_1}}\n    ",
+        "quizzes": [
+          {
+            "id": "m18_grafisch_1",
+            "question": "Was bedeutet es, wenn 12 Punkte ein Ganzes sind und du 3 Punkte einfärbst?",
+            "answers": [
+              {
+                "text": "Ich habe 3/12 (also 1/4) des Ganzen eingefärbt.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ich habe 3 Ganze eingefärbt.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Ich habe 12/3 eingefärbt.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
