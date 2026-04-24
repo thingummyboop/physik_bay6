@@ -24,15 +24,15 @@ function initPythPuzzle() {
 
     // A = (200, 110), B = (320, 200)
     // Vector u = (120, 90) / 5 = (24, 18)
-    // Vector v = (-90, 120) / 5 = (-18, 24)
+    // Vector v = (90, -120) / 5 = (18, -24) -> Outwards pointing normal
     
     // Generate c² target slots
     for(let i=0; i<5; i++) {
         for(let j=0; j<5; j++) {
-            const p1 = { x: 200 + i*24 + j*(-18), y: 110 + i*18 + j*24 };
+            const p1 = { x: 200 + i*24 + j*18, y: 110 + i*18 + j*(-24) };
             const p2 = { x: p1.x + 24, y: p1.y + 18 };
-            const p3 = { x: p2.x - 18, y: p2.y + 24 };
-            const p4 = { x: p1.x - 18, y: p1.y + 24 };
+            const p3 = { x: p2.x + 18, y: p2.y - 24 };
+            const p4 = { x: p1.x + 18, y: p1.y - 24 };
             
             const poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
             poly.setAttribute("points", `${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y} ${p4.x},${p4.y}`);
