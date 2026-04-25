@@ -1,6 +1,7 @@
 // Logic for arbeit topic
 let currentSurface = "ice";
 let springCompressed = false;
+let workSceneToken = 0;
 
 const workCases = {
     wall: {
@@ -42,6 +43,7 @@ function topicInit() {
 
 // 1. Arbeit oder keine Arbeit?
 function chooseWorkCase(type) {
+    const token = ++workSceneToken;
     const data = workCases[type];
     const text = document.getElementById("workCaseText");
     const formula = document.getElementById("workCaseFormula");
@@ -61,47 +63,51 @@ function chooseWorkCase(type) {
     }
     if (formula) formula.innerText = data.work;
 
-    // Use Web Animations API for robust SVG transformations
-    let personTarget = 0;
-    let boxTarget = 0;
-    let bagTarget = 0;
+    [person, box, bag].forEach((el) => {
+        if (!el) return;
+        if (el.getAnimations) el.getAnimations().forEach((animation) => animation.cancel());
+        el.style.transform = "translate(0px, 0px)";
+        el.removeAttribute("transform");
+    });
 
-    if (type === "box") {
-        personTarget = 158;
-        boxTarget = 110;
-    } else if (type === "wall") {
-        personTarget = 188;
-    } else if (type === "carry") {
-        personTarget = 140;
-        bagTarget = 140;
-    }
-
-    if (person) person.animate([{ transform: `translate(${personTarget}px, 0)` }], { duration: 900, fill: 'forwards', easing: 'ease' });
-    if (box) box.animate([{ transform: `translate(${boxTarget}px, 0)` }], { duration: 900, fill: 'forwards', easing: 'ease' });
-    if (bag) {
-        bag.setAttribute("transform", `translate(${bagTarget} 0)`);
-        bag.animate([{ transform: `translate(${bagTarget}px, 0)` }], { duration: 900, fill: 'forwards', easing: 'ease' });
-    }
-    
     if (box) box.style.display = type === "box" ? "block" : "none";
     if (wall) wall.style.display = type === "wall" ? "block" : "none";
     if (bag) {
         bag.style.display = type === "hold" || type === "carry" ? "block" : "none";
         bag.style.opacity = "1";
     }
-    if (arrow) arrow.setAttribute("opacity", type === "box" || type === "wall" ? "1" : "0");
+    if (arrow) arrow.setAttribute("opacity", "0");
 
     if (type === "box") {
         if (arrowLine) {
-            arrowLine.setAttribute("x1", "286");
+            arrowLine.setAttribute("x1", "238");
             arrowLine.setAttribute("y1", "132");
-            arrowLine.setAttribute("x2", "316");
+            arrowLine.setAttribute("x2", "268");
             arrowLine.setAttribute("y2", "132");
         }
-        if (arrowHead) arrowHead.setAttribute("points", "316,132 306,126 306,138");
+        if (arrowHead) arrowHead.setAttribute("points", "268,132 258,126 258,138");
         if (arrowLabel) {
-            arrowLabel.setAttribute("x", "301");
+            arrowLabel.setAttribute("x", "253");
             arrowLabel.setAttribute("y", "121");
+        }
+        if (person) {
+            const approach = person.animate([
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(48px, 0px)" }
+            ], { duration: 650, fill: "forwards", easing: "ease" });
+
+            approach.finished.then(() => {
+                if (token !== workSceneToken) return;
+                if (arrow) arrow.setAttribute("opacity", "1");
+                person.animate([
+                    { transform: "translate(48px, 0px)" },
+                    { transform: "translate(118px, 0px)" }
+                ], { duration: 900, fill: "forwards", easing: "ease" });
+                if (box) box.animate([
+                    { transform: "translate(0px, 0px)" },
+                    { transform: "translate(70px, 0px)" }
+                ], { duration: 900, fill: "forwards", easing: "ease" });
+            });
         }
     }
     if (type === "wall") {
@@ -115,6 +121,33 @@ function chooseWorkCase(type) {
         if (arrowLabel) {
             arrowLabel.setAttribute("x", "326");
             arrowLabel.setAttribute("y", "121");
+        }
+        if (person) {
+            const approach = person.animate([
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(188px, 0px)" }
+            ], { duration: 900, fill: "forwards", easing: "ease" });
+
+            approach.finished.then(() => {
+                if (token !== workSceneToken) return;
+                if (arrow) arrow.setAttribute("opacity", "1");
+            });
+        }
+    }
+    if (type === "carry") {
+        if (person) person.animate([
+            { transform: "translate(0px, 0px)" },
+            { transform: "translate(140px, 0px)" }
+        ], { duration: 900, fill: "forwards", easing: "ease" });
+        if (bag) {
+            const bagMove = bag.animate([
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(140px, 0px)" }
+            ], { duration: 900, fill: "forwards", easing: "ease" });
+            bagMove.finished.then(() => {
+                if (token !== workSceneToken) return;
+                bag.setAttribute("transform", "translate(140 0)");
+            });
         }
     }
 }
