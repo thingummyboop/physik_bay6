@@ -18,8 +18,8 @@ function topicInit() {
     let rotor = document.getElementById('carouselRotor');
     if (rotor) {
         carouselAnim = rotor.animate([
-            { transform: 'rotateY(0deg)' },
-            { transform: 'rotateY(360deg)' }
+            { transform: 'perspective(400px) rotateY(0deg)' },
+            { transform: 'perspective(400px) rotateY(360deg)' }
         ], {
             duration: 4000,
             iterations: Infinity
