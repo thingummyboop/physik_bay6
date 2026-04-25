@@ -34,7 +34,7 @@ function updateMeter(id, value) {
 // 1. Schwerpunkt
 function updateBalance() {
     const val = parseInt(document.getElementById('cgRange')?.value || 0);
-    const acrobat = document.getElementById('acrobat');
+    const acrobat = document.getElementById('acrobatBody');
     const marker = document.getElementById('cgMarker');
     const txt = document.getElementById('balanceText');
     if (!acrobat || !marker) return;
@@ -42,21 +42,21 @@ function updateBalance() {
     marker.style.transform = `translateX(${val}px)`;
 
     if (val > 25) {
-        acrobat.style.transform = 'rotate(70deg)';
+        acrobat.style.transform = `translateX(${val * 0.18}px) rotate(12deg)`;
         if (txt) {
             txt.innerText = "Zu weit rechts: Der Schwerpunkt liegt nicht mehr über dem Seil. Der Artist kippt.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('balanceMeter', 20);
     } else if (val < -25) {
-        acrobat.style.transform = 'rotate(-70deg)';
+        acrobat.style.transform = `translateX(${val * 0.18}px) rotate(-12deg)`;
         if (txt) {
             txt.innerText = "Zu weit links: Der Schwerpunkt liegt außerhalb der Standfläche. Es wird instabil.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('balanceMeter', 20);
     } else {
-        acrobat.style.transform = `rotate(${val * 0.5}deg)`;
+        acrobat.style.transform = `translateX(${val * 0.08}px) rotate(${val * 0.08}deg)`;
         if (txt) {
             txt.innerText = "Sicher: Der Schwerpunkt bleibt über dem Seil. Das Gleichgewicht hält.";
             txt.style.color = "#00796B";
@@ -67,56 +67,81 @@ function updateBalance() {
 
 // 2. Drehmoment
 function pushDoor(pos) {
-    const door = document.getElementById('door');
-    const arrow = document.getElementById('forceArrow');
-    const arrowLine = document.getElementById('arrowLine');
-    const arrowHead = document.getElementById('arrowHead');
+    const door = document.getElementById('doorPanel');
+    const handle = document.getElementById('doorHandle');
+    const armLine = document.getElementById('leverArmLine');
+    const arrow = document.getElementById('doorForceArrow');
     const txt = document.getElementById('doorText');
-    if (!door || !arrow) return;
+    if (!door || !handle || !armLine || !arrow) return;
 
     arrow.style.display = 'block';
 
     if (pos === 'hinge') {
-        arrow.style.transform = 'translateX(65px)';
-        if (arrowLine) arrowLine.setAttribute('stroke', '#F44336');
-        if (arrowHead) arrowHead.setAttribute('fill', '#F44336');
-        door.style.transform = 'rotate(-5deg)';
+        setDoorTopView(10, 50, '#F44336');
         if (txt) {
             txt.innerText = "Nah am Scharnier: kleiner Hebelarm, kleines Drehmoment. Die Tür bewegt sich kaum.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('torqueMeter', 15);
     } else if (pos === 'middle') {
-        arrow.style.transform = 'translateX(180px)';
-        if (arrowLine) arrowLine.setAttribute('stroke', '#FF9800');
-        if (arrowHead) arrowHead.setAttribute('fill', '#FF9800');
-        door.style.transform = 'rotate(-45deg)';
+        setDoorTopView(42, 135, '#FF9800');
         if (txt) {
             txt.innerText = "In der Mitte: mittlerer Hebelarm. Es geht, aber du brauchst noch viel Kraft.";
             txt.style.color = "#F57C00";
         }
         updateMeter('torqueMeter', 55);
     } else {
-        arrow.style.transform = 'translateX(280px)';
-        if (arrowLine) arrowLine.setAttribute('stroke', '#4CAF50');
-        if (arrowHead) arrowHead.setAttribute('fill', '#4CAF50');
-        door.style.transform = 'rotate(-85deg)';
+        setDoorTopView(72, 215, '#4CAF50');
         if (txt) {
             txt.innerText = "An der Klinke: langer Hebelarm, großes Drehmoment. Die Tür öffnet sich leicht.";
             txt.style.color = "#388E3C";
         }
         updateMeter('torqueMeter', 95);
     }
+}
 
-    arrow.animate([
-        { transform: arrow.style.transform + ' translateY(0px)' },
-        { transform: arrow.style.transform + ' translateY(-15px)' }
-    ], { duration: 300, iterations: 2, direction: 'alternate' });
+function setDoorTopView(angleDeg, pushDistance, color) {
+    const hingeX = 85;
+    const hingeY = 120;
+    const length = 230;
+    const thickness = 22;
+    const angle = -angleDeg * Math.PI / 180;
+    const vx = Math.cos(angle);
+    const vy = Math.sin(angle);
+    const nx = -vy;
+    const ny = vx;
 
-    setTimeout(() => {
-        door.style.transform = 'rotate(0deg)';
-        arrow.style.display = 'none';
-    }, 3000);
+    const h1 = [hingeX + nx * thickness / 2, hingeY + ny * thickness / 2];
+    const h2 = [hingeX - nx * thickness / 2, hingeY - ny * thickness / 2];
+    const f1 = [hingeX + vx * length + nx * thickness / 2, hingeY + vy * length + ny * thickness / 2];
+    const f2 = [hingeX + vx * length - nx * thickness / 2, hingeY + vy * length - ny * thickness / 2];
+    const handle = [hingeX + vx * (length - 20), hingeY + vy * (length - 20)];
+    const pushPoint = [hingeX + vx * pushDistance, hingeY + vy * pushDistance];
+    const arrowStart = [pushPoint[0] - nx * 42, pushPoint[1] - ny * 42];
+    const arrowEnd = [pushPoint[0] - nx * 12, pushPoint[1] - ny * 12];
+
+    document.getElementById('doorPanel')?.setAttribute('points', `${h1[0]},${h1[1]} ${f1[0]},${f1[1]} ${f2[0]},${f2[1]} ${h2[0]},${h2[1]}`);
+    document.getElementById('doorHandle')?.setAttribute('cx', handle[0]);
+    document.getElementById('doorHandle')?.setAttribute('cy', handle[1]);
+    document.getElementById('doorPushPoint')?.setAttribute('cx', pushPoint[0]);
+    document.getElementById('doorPushPoint')?.setAttribute('cy', pushPoint[1]);
+    document.getElementById('doorPushPoint')?.setAttribute('opacity', '1');
+    const armLine = document.getElementById('leverArmLine');
+    if (armLine) {
+        armLine.setAttribute('x1', hingeX);
+        armLine.setAttribute('y1', hingeY);
+        armLine.setAttribute('x2', pushPoint[0]);
+        armLine.setAttribute('y2', pushPoint[1]);
+        armLine.setAttribute('stroke', color);
+    }
+    const arrow = document.getElementById('doorForceArrow');
+    if (arrow) {
+        arrow.setAttribute('x1', arrowStart[0]);
+        arrow.setAttribute('y1', arrowStart[1]);
+        arrow.setAttribute('x2', arrowEnd[0]);
+        arrow.setAttribute('y2', arrowEnd[1]);
+        arrow.setAttribute('stroke', color);
+    }
 }
 
 // 3. Gleichgewichtsarten
@@ -172,41 +197,39 @@ function testEquilibrium(type) {
 // 4. Kreisbewegung
 function updateCarousel() {
     const speed = parseInt(document.getElementById('speedRange')?.value || 0);
-    const carousel = document.getElementById('carousel');
-    const rider1 = document.getElementById('rider');
+    const chainL = document.getElementById('chainL');
+    const chainR = document.getElementById('chainR');
+    const seatL = document.getElementById('seatL');
+    const seatR = document.getElementById('seatR');
+    const arrows = document.getElementById('outwardArrows');
     const arm1 = document.getElementById('cArm1');
-    const rider2 = document.getElementById('rider2');
     const arm2 = document.getElementById('cArm2');
     const speedTxt = document.getElementById('speedValue');
     const forceTxt = document.getElementById('carouselText');
-    if (!carousel) return;
 
     if (speed === 0) {
-        carousel.style.animation = 'none';
         if (speedTxt) speedTxt.innerText = "Steht still";
         if (forceTxt) forceTxt.innerText = "Ohne Drehung hängen die Sitze nach unten.";
-        if (rider1) rider1.setAttribute('cy', '40');
-        if (arm1) arm1.setAttribute('y2', '40');
-        if (rider2) rider2.setAttribute('cy', '160');
-        if (arm2) arm2.setAttribute('y2', '160');
+        if (chainL) { chainL.setAttribute('x2', '95'); chainL.setAttribute('y2', '172'); }
+        if (chainR) { chainR.setAttribute('x2', '335'); chainR.setAttribute('y2', '172'); }
+        if (seatL) seatL.style.transform = 'translate(0px, 0px)';
+        if (seatR) seatR.style.transform = 'translate(0px, 0px)';
+        if (arrows) arrows.setAttribute('opacity', '0');
+        if (arm1) arm1.setAttribute('y2', '172');
+        if (arm2) arm2.setAttribute('y2', '172');
         updateMeter('carouselMeter', 0);
     } else {
-        const duration = 3 - (speed / 100) * 2.8;
-        carousel.style.animation = `spinFast ${duration}s linear infinite`;
-        if (!document.getElementById('dynStyle')) {
-            const s = document.createElement('style');
-            s.id = 'dynStyle';
-            s.innerHTML = `@keyframes spinFast { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
-            document.head.appendChild(s);
-        }
-
-        if (speedTxt) speedTxt.innerText = `Stufe ${speed} (Rotationsdauer: ${duration.toFixed(1)}s)`;
+        if (speedTxt) speedTxt.innerText = `Stufe ${speed}`;
         if (forceTxt) forceTxt.innerText = "Je schneller die Kreisbewegung ist, desto stärker wollen die Sitze nach außen.";
-        const stretch = (speed / 100) * 45;
-        if (rider1) rider1.setAttribute('cy', 40 - stretch);
-        if (arm1) arm1.setAttribute('y2', 40 - stretch);
-        if (rider2) rider2.setAttribute('cy', 160 + stretch);
-        if (arm2) arm2.setAttribute('y2', 160 + stretch);
+        const swing = (speed / 100) * 55;
+        const lift = (speed / 100) * 18;
+        if (chainL) { chainL.setAttribute('x2', 95 - swing); chainL.setAttribute('y2', 172 - lift); }
+        if (chainR) { chainR.setAttribute('x2', 335 + swing); chainR.setAttribute('y2', 172 - lift); }
+        if (seatL) seatL.style.transform = `translate(${-swing}px, ${-lift}px)`;
+        if (seatR) seatR.style.transform = `translate(${swing}px, ${-lift}px)`;
+        if (arrows) arrows.setAttribute('opacity', String(Math.max(0.2, speed / 100)));
+        if (arm1) arm1.setAttribute('y2', 172 - lift);
+        if (arm2) arm2.setAttribute('y2', 172 - lift);
         updateMeter('carouselMeter', speed);
     }
 }
