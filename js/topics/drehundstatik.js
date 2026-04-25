@@ -1,22 +1,14 @@
 // Logic for drehundstatik topic
-let skaterAnim;
+let skaterAngle = 0;
+let skaterSpeed = 0.025;
+let skaterAnimationStarted = false;
 
 function topicInit() {
-    const skater = document.getElementById('skater');
-    if (skater) {
-        skaterAnim = skater.animate([
-            { transform: 'rotate(0deg)' },
-            { transform: 'rotate(360deg)' }
-        ], {
-            duration: 4000,
-            iterations: Infinity
-        });
-    }
-
     testEquilibrium('stable');
     updateBalance();
     updateCarousel();
     updateMeter('spinMeter', 30);
+    startSkaterAnimation();
 }
 
 function setPrediction(group, value) {
@@ -42,23 +34,23 @@ function updateBalance() {
     marker.style.transform = `translateX(${val}px)`;
 
     if (val > 25) {
-        acrobat.style.transform = `translateX(${val * 0.18}px) rotate(12deg)`;
+        acrobat.style.transform = `translateX(${val * 0.18}px) rotate(10deg)`;
         if (txt) {
-            txt.innerText = "Zu weit rechts: Der Schwerpunkt liegt nicht mehr über dem Seil. Der Artist kippt.";
+            txt.innerText = "Zu weit rechts: Die Lotlinie des Schwerpunkts trifft nicht mehr das Seil. Der Artist kippt seitlich.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('balanceMeter', 20);
     } else if (val < -25) {
-        acrobat.style.transform = `translateX(${val * 0.18}px) rotate(-12deg)`;
+        acrobat.style.transform = `translateX(${val * 0.18}px) rotate(-10deg)`;
         if (txt) {
-            txt.innerText = "Zu weit links: Der Schwerpunkt liegt außerhalb der Standfläche. Es wird instabil.";
+            txt.innerText = "Zu weit links: Die Lotlinie liegt neben dem Seil. Das Gleichgewicht ist verloren.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('balanceMeter', 20);
     } else {
-        acrobat.style.transform = `translateX(${val * 0.08}px) rotate(${val * 0.08}deg)`;
+        acrobat.style.transform = `translateX(${val * 0.06}px) rotate(${val * 0.06}deg)`;
         if (txt) {
-            txt.innerText = "Sicher: Der Schwerpunkt bleibt über dem Seil. Das Gleichgewicht hält.";
+            txt.innerText = "Sicher: Die Lotlinie des Schwerpunkts trifft das Seil. Das Gleichgewicht hält.";
             txt.style.color = "#00796B";
         }
         updateMeter('balanceMeter', 90);
@@ -126,6 +118,7 @@ function setDoorTopView(angleDeg, pushDistance, color) {
     document.getElementById('doorPushPoint')?.setAttribute('cx', pushPoint[0]);
     document.getElementById('doorPushPoint')?.setAttribute('cy', pushPoint[1]);
     document.getElementById('doorPushPoint')?.setAttribute('opacity', '1');
+
     const armLine = document.getElementById('leverArmLine');
     if (armLine) {
         armLine.setAttribute('x1', hingeX);
@@ -134,6 +127,7 @@ function setDoorTopView(angleDeg, pushDistance, color) {
         armLine.setAttribute('y2', pushPoint[1]);
         armLine.setAttribute('stroke', color);
     }
+
     const arrow = document.getElementById('doorForceArrow');
     if (arrow) {
         arrow.setAttribute('x1', arrowStart[0]);
@@ -157,41 +151,61 @@ function testEquilibrium(type) {
     if (pUnstable) pUnstable.style.display = 'none';
     if (pIndiff) pIndiff.style.display = 'none';
 
-    marble.style.transition = 'none';
-
     if (type === 'stable') {
         if (pStable) pStable.style.display = 'block';
-        marble.setAttribute('cx', '50');
-        marble.setAttribute('cy', '40');
-        if (txt) txt.innerText = "Stabil: Du stupst sie an, sie rollt zurück in die Mitte. So steht ein niedriger, breiter Gegenstand sicher.";
-
-        setTimeout(() => {
-            marble.style.transition = 'all 1s cubic-bezier(0.25, 1, 0.5, 1)';
-            marble.setAttribute('cx', '150');
-            marble.setAttribute('cy', '115');
-        }, 50);
+        if (txt) txt.innerText = "Stabil: Die Murmel rollt wirklich entlang der Schüsselkurve zurück in die tiefste Stelle.";
+        animateMarbleOnQuadratic({ x: 62, y: 82 }, { x: 160, y: 176 }, { x: 258, y: 82 }, 0.08, 0.5, 1200);
     } else if (type === 'unstable') {
         if (pUnstable) pUnstable.style.display = 'block';
-        marble.setAttribute('cx', '150');
-        marble.setAttribute('cy', '65');
-        if (txt) txt.innerText = "Labil: Ein kleiner Stups reicht, und sie rollt weg. So kippt ein hoher, schmaler Gegenstand leicht.";
-
-        setTimeout(() => {
-            marble.style.transition = 'all 1s cubic-bezier(0.5, 0, 1, 1)';
-            marble.setAttribute('cx', '250');
-            marble.setAttribute('cy', '140');
-        }, 400);
+        if (txt) txt.innerText = "Labil: Vom höchsten Punkt rollt die Murmel entlang der Bergkurve weg.";
+        animateMarbleOnQuadratic({ x: 48, y: 162 }, { x: 160, y: 42 }, { x: 272, y: 162 }, 0.5, 0.9, 1200);
     } else {
         if (pIndiff) pIndiff.style.display = 'block';
-        marble.setAttribute('cx', '100');
-        marble.setAttribute('cy', '90');
-        if (txt) txt.innerText = "Indifferent: Du stupst sie an, sie bleibt an der neuen Stelle. Es gibt keine bevorzugte Mitte.";
-
-        setTimeout(() => {
-            marble.style.transition = 'all 1s ease-out';
-            marble.setAttribute('cx', '200');
-        }, 50);
+        if (txt) txt.innerText = "Indifferent: Auf der ebenen Bahn bleibt die Höhe gleich. Die Murmel bleibt an einer neuen Stelle.";
+        animateMarbleOnLine({ x: 75, y: 112 }, { x: 230, y: 112 }, 1000);
     }
+}
+
+function animateMarbleOnQuadratic(p0, p1, p2, fromT, toT, duration) {
+    const marble = document.getElementById('marble');
+    if (!marble) return;
+    const start = performance.now();
+
+    function point(t) {
+        const u = 1 - t;
+        return {
+            x: u * u * p0.x + 2 * u * t * p1.x + t * t * p2.x,
+            y: u * u * p0.y + 2 * u * t * p1.y + t * t * p2.y
+        };
+    }
+
+    function frame(now) {
+        const progress = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const t = fromT + (toT - fromT) * eased;
+        const p = point(t);
+        marble.setAttribute('cx', p.x);
+        marble.setAttribute('cy', p.y);
+        if (progress < 1) requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+}
+
+function animateMarbleOnLine(p0, p1, duration) {
+    const marble = document.getElementById('marble');
+    if (!marble) return;
+    const start = performance.now();
+
+    function frame(now) {
+        const progress = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        marble.setAttribute('cx', p0.x + (p1.x - p0.x) * eased);
+        marble.setAttribute('cy', p0.y + (p1.y - p0.y) * eased);
+        if (progress < 1) requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
 }
 
 // 4. Kreisbewegung
@@ -202,8 +216,6 @@ function updateCarousel() {
     const seatL = document.getElementById('seatL');
     const seatR = document.getElementById('seatR');
     const arrows = document.getElementById('outwardArrows');
-    const arm1 = document.getElementById('cArm1');
-    const arm2 = document.getElementById('cArm2');
     const speedTxt = document.getElementById('speedValue');
     const forceTxt = document.getElementById('carouselText');
 
@@ -215,8 +227,6 @@ function updateCarousel() {
         if (seatL) seatL.style.transform = 'translate(0px, 0px)';
         if (seatR) seatR.style.transform = 'translate(0px, 0px)';
         if (arrows) arrows.setAttribute('opacity', '0');
-        if (arm1) arm1.setAttribute('y2', '172');
-        if (arm2) arm2.setAttribute('y2', '172');
         updateMeter('carouselMeter', 0);
     } else {
         if (speedTxt) speedTxt.innerText = `Stufe ${speed}`;
@@ -228,38 +238,57 @@ function updateCarousel() {
         if (seatL) seatL.style.transform = `translate(${-swing}px, ${-lift}px)`;
         if (seatR) seatR.style.transform = `translate(${swing}px, ${-lift}px)`;
         if (arrows) arrows.setAttribute('opacity', String(Math.max(0.2, speed / 100)));
-        if (arm1) arm1.setAttribute('y2', 172 - lift);
-        if (arm2) arm2.setAttribute('y2', 172 - lift);
         updateMeter('carouselMeter', speed);
     }
 }
 
 // 5. Drehimpuls
+function startSkaterAnimation() {
+    if (skaterAnimationStarted) return;
+    skaterAnimationStarted = true;
+
+    function frame() {
+        const skater = document.getElementById('skater');
+        if (skater) {
+            skaterAngle = (skaterAngle + skaterSpeed) % 360;
+            skater.setAttribute('transform', `rotate(${skaterAngle} 150 150)`);
+        }
+        requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+}
+
 function setSkater(state) {
     const armL = document.getElementById('armLeft');
     const armR = document.getElementById('armRight');
+    const massL = document.getElementById('massLeft');
+    const massR = document.getElementById('massRight');
     const txt = document.getElementById('skaterText');
     const bOut = document.getElementById('btnOut');
     const bIn = document.getElementById('btnIn');
-    if (!skaterAnim) return;
 
     if (state === 'in') {
-        if (armL) armL.setAttribute('x2', '85');
-        if (armR) armR.setAttribute('x2', '115');
-        skaterAnim.playbackRate = 8;
+        if (armL) armL.setAttribute('x2', '128');
+        if (armR) armR.setAttribute('x2', '172');
+        if (massL) massL.setAttribute('cx', '128');
+        if (massR) massR.setAttribute('cx', '172');
+        skaterSpeed = 2.4;
         if (txt) {
-            txt.innerText = "Arme angezogen: Die Masse ist nah an der Drehachse. Die Drehung wird viel schneller.";
+            txt.innerText = "Arme angezogen: Die Masse ist nahe an der Drehachse. Die manuelle Rotation wird deutlich schneller.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('spinMeter', 95);
         if (bIn) bIn.disabled = true;
         if (bOut) bOut.disabled = false;
     } else {
-        if (armL) armL.setAttribute('x2', '30');
-        if (armR) armR.setAttribute('x2', '170');
-        skaterAnim.playbackRate = 1;
+        if (armL) armL.setAttribute('x2', '70');
+        if (armR) armR.setAttribute('x2', '230');
+        if (massL) massL.setAttribute('cx', '70');
+        if (massR) massR.setAttribute('cx', '230');
+        skaterSpeed = 0.45;
         if (txt) {
-            txt.innerText = "Arme draußen: Die Masse ist weit außen verteilt. Die Drehung wird langsamer.";
+            txt.innerText = "Arme draußen: Die Masse ist weit von der Drehachse entfernt. Die Drehung wird langsam.";
             txt.style.color = "#0288D1";
         }
         updateMeter('spinMeter', 30);
