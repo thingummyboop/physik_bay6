@@ -51,6 +51,7 @@ function chooseWorkCase(type) {
     const bag = document.getElementById("bagGroup");
     const arrow = document.getElementById("workForceArrow");
     const arrowLine = document.getElementById("workForceLine");
+    const arrowHead = document.getElementById("workForceHead");
     const arrowLabel = document.getElementById("workForceLabel");
     if (!data) return;
 
@@ -63,6 +64,7 @@ function chooseWorkCase(type) {
     // Use Web Animations API for robust SVG transformations
     let personTarget = 0;
     let boxTarget = 0;
+    let bagTarget = 0;
 
     if (type === "box") {
         personTarget = 120;
@@ -71,10 +73,15 @@ function chooseWorkCase(type) {
         personTarget = 190;
     } else if (type === "carry") {
         personTarget = 140;
+        bagTarget = 140;
     }
 
     if (person) person.animate([{ transform: `translate(${personTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
     if (box) box.animate([{ transform: `translate(${boxTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
+    if (bag) {
+        bag.setAttribute("transform", `translate(${bagTarget} 0)`);
+        bag.animate([{ transform: `translate(${bagTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
+    }
     
     if (wall) wall.style.opacity = type === "wall" ? "1" : "0.35";
     if (bag) bag.style.opacity = type === "hold" || type === "carry" ? "1" : "0.25";
@@ -82,26 +89,28 @@ function chooseWorkCase(type) {
 
     if (type === "box") {
         if (arrowLine) {
-            arrowLine.setAttribute("x1", "246");
+            arrowLine.setAttribute("x1", "244");
             arrowLine.setAttribute("y1", "132");
-            arrowLine.setAttribute("x2", "282");
+            arrowLine.setAttribute("x2", "276");
             arrowLine.setAttribute("y2", "132");
         }
+        if (arrowHead) arrowHead.setAttribute("points", "276,132 266,126 266,138");
         if (arrowLabel) {
-            arrowLabel.setAttribute("x", "258");
-            arrowLabel.setAttribute("y", "119");
+            arrowLabel.setAttribute("x", "260");
+            arrowLabel.setAttribute("y", "121");
         }
     }
     if (type === "wall") {
         if (arrowLine) {
-            arrowLine.setAttribute("x1", "315");
+            arrowLine.setAttribute("x1", "299");
             arrowLine.setAttribute("y1", "132");
-            arrowLine.setAttribute("x2", "336");
+            arrowLine.setAttribute("x2", "324");
             arrowLine.setAttribute("y2", "132");
         }
+        if (arrowHead) arrowHead.setAttribute("points", "324,132 314,126 314,138");
         if (arrowLabel) {
-            arrowLabel.setAttribute("x", "326");
-            arrowLabel.setAttribute("y", "119");
+            arrowLabel.setAttribute("x", "311");
+            arrowLabel.setAttribute("y", "121");
         }
     }
 }
