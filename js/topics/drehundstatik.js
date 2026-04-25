@@ -1,15 +1,25 @@
 // Logic for drehundstatik topic
-let skaterAngle = 0;
-let skaterSpeed = 0.025;
-let skaterAnimationStarted = false;
+let skaterAnim;
 
 function topicInit() {
+    // Skater-Animation mit der Web Animations API einrichten
+    let skater = document.getElementById('skater');
+    if (skater) {
+        skaterAnim = skater.animate([
+            { transform: 'perspective(400px) rotateY(0deg)' },
+            { transform: 'perspective(400px) rotateY(360deg)' }
+        ], {
+            duration: 4000, // Basis-Geschwindigkeit (langsam)
+            iterations: Infinity
+        });
+    }
+    
+    // Murmel an die richtige Position setzen
     testEquilibrium('stable');
     updateBalance();
     updateCarousel();
     resetDoor();
     updateMeter('spinMeter', 30);
-    startSkaterAnimation();
 }
 
 function setPrediction(group, value) {
@@ -281,22 +291,6 @@ function updateCarousel() {
 }
 
 // 5. Drehimpuls
-function startSkaterAnimation() {
-    if (skaterAnimationStarted) return;
-    skaterAnimationStarted = true;
-
-    function frame() {
-        const skater = document.getElementById('skater');
-        if (skater) {
-            skaterAngle = (skaterAngle + skaterSpeed) % 360;
-            skater.setAttribute('transform', `rotate(${skaterAngle} 150 150)`);
-        }
-        requestAnimationFrame(frame);
-    }
-
-    requestAnimationFrame(frame);
-}
-
 function setSkater(state) {
     const armL = document.getElementById('armLeft');
     const armR = document.getElementById('armRight');
@@ -305,15 +299,16 @@ function setSkater(state) {
     const txt = document.getElementById('skaterText');
     const bOut = document.getElementById('btnOut');
     const bIn = document.getElementById('btnIn');
+    if (!skaterAnim) return;
 
     if (state === 'in') {
         if (armL) armL.setAttribute('x2', '128');
         if (armR) armR.setAttribute('x2', '172');
         if (massL) massL.setAttribute('cx', '128');
         if (massR) massR.setAttribute('cx', '172');
-        skaterSpeed = 2.4;
+        skaterAnim.playbackRate = 6;
         if (txt) {
-            txt.innerText = "Arme angezogen: Die Masse ist nahe an der Drehachse. Die manuelle Rotation wird deutlich schneller.";
+            txt.innerText = "Arme angezogen: Die Masse ist nahe an der Drehachse. Die Rotation wird deutlich schneller.";
             txt.style.color = "#D32F2F";
         }
         updateMeter('spinMeter', 95);
@@ -324,7 +319,7 @@ function setSkater(state) {
         if (armR) armR.setAttribute('x2', '230');
         if (massL) massL.setAttribute('cx', '70');
         if (massR) massR.setAttribute('cx', '230');
-        skaterSpeed = 0.45;
+        skaterAnim.playbackRate = 1;
         if (txt) {
             txt.innerText = "Arme draußen: Die Masse ist weit von der Drehachse entfernt. Die Drehung wird langsam.";
             txt.style.color = "#0288D1";
