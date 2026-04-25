@@ -127,35 +127,46 @@ function updateLever() {
     let seesaw = document.getElementById('seesawGroup');
     let txt = document.getElementById('leverText');
     let txtPos = document.getElementById('leverValue');
+    let forceArmText = document.getElementById('leverForceArm');
+    let loadArmText = document.getElementById('leverLoadArm');
+    let ruleText = document.getElementById('leverRule');
     if (!fulcrum || !seesaw) return;
     
     let pixelX = 40 + ((val - 10) / 80) * 220;
     fulcrum.style.transform = `translateX(${pixelX - 150}px)`; 
-    seesaw.style.transformOrigin = `${pixelX}px 70px`;
+    seesaw.style.transformOrigin = `${pixelX}px 90px`;
+
+    const forceArm = Math.max(1, Math.round(260 - pixelX));
+    const loadArm = Math.max(1, Math.round(pixelX - 50));
+    if (forceArmText) forceArmText.innerText = forceArm > 160 ? "lang" : forceArm > 95 ? "mittel" : "kurz";
+    if (loadArmText) loadArmText.innerText = loadArm < 55 ? "kurz" : loadArm < 125 ? "mittel" : "lang";
     
     if (val < 40) {
         seesaw.style.transform = 'rotate(15deg)';
         if (txt) {
-            txt.innerText = "Super! Der Hebelarm auf der roten Seite ist so lang, dass das kleine Gewicht den Elefanten hochhebt!";
+            txt.innerText = "Guter Hebel: Der Kraftarm beim roten Gewicht ist lang, der Lastarm bei der schweren Last ist kurz.";
             txt.style.color = "#4CAF50";
         }
         if (txtPos) txtPos.innerText = "Nah an der Last (Perfekt!)";
+        if (ruleText) ruleText.innerText = "Erkenntnis: Setzt du den Drehpunkt nahe an die Last, kann eine kleine Kraft auf einem langen Weg viel bewirken.";
         updateLeverMeter(85);
     } else if (val > 60) {
         seesaw.style.transform = 'rotate(-25deg)';
         if (txt) {
-            txt.innerText = "Oh nein! Der Hebelarm beim Elefanten ist viel zu lang. Er knallt auf den Boden.";
+            txt.innerText = "Ungünstig: Der Kraftarm ist kurz und der Lastarm ist lang. Du brauchst sehr viel Kraft.";
             txt.style.color = "#F44336";
         }
         if (txtPos) txtPos.innerText = "Nah an der Kraft (Schlecht!)";
+        if (ruleText) ruleText.innerText = "Erkenntnis: Nah an der Kraft ist für schwere Lasten ungünstig. Der Weg ist kurz, aber die nötige Kraft ist groß.";
         updateLeverMeter(20);
     } else {
         seesaw.style.transform = 'rotate(-15deg)';
         if (txt) {
-            txt.innerText = "Beide Arme sind ähnlich lang. Der Elefant ist zu schwer, die Wippe kippt nach links!";
+            txt.innerText = "Mittelmäßig: Beide Arme sind ähnlich lang. Die schwere Last gewinnt noch.";
             txt.style.color = "#E91E63";
         }
         if (txtPos) txtPos.innerText = "Mitte";
+        if (ruleText) ruleText.innerText = "Erkenntnis: Ein Hebel hilft besonders dann, wenn der Kraftarm deutlich länger ist als der Lastarm.";
         updateLeverMeter(45);
     }
 }
