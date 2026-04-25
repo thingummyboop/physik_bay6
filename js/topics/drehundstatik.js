@@ -1,5 +1,6 @@
 // Logic for drehundstatik topic
 let skaterAnim;
+let carouselAnim;
 
 function topicInit() {
     // Skater-Animation mit der Web Animations API einrichten
@@ -12,6 +13,18 @@ function topicInit() {
             duration: 4000, // Basis-Geschwindigkeit (langsam)
             iterations: Infinity
         });
+    }
+
+    let rotor = document.getElementById('carouselRotor');
+    if (rotor) {
+        carouselAnim = rotor.animate([
+            { transform: 'rotateY(0deg)' },
+            { transform: 'rotateY(360deg)' }
+        ], {
+            duration: 4000,
+            iterations: Infinity
+        });
+        carouselAnim.playbackRate = 0;
     }
     
     // Murmel an die richtige Position setzen
@@ -270,23 +283,25 @@ function updateCarousel() {
     if (speed === 0) {
         if (speedTxt) speedTxt.innerText = "Steht still";
         if (forceTxt) forceTxt.innerText = "Ohne Drehung hängen die Sitze nach unten.";
-        if (chainL) { chainL.setAttribute('x2', '95'); chainL.setAttribute('y2', '172'); }
-        if (chainR) { chainR.setAttribute('x2', '335'); chainR.setAttribute('y2', '172'); }
+        if (chainL) { chainL.setAttribute('x2', '135'); chainL.setAttribute('y2', '172'); }
+        if (chainR) { chainR.setAttribute('x2', '295'); chainR.setAttribute('y2', '172'); }
         if (seatL) seatL.style.transform = 'translate(0px, 0px)';
         if (seatR) seatR.style.transform = 'translate(0px, 0px)';
         if (arrows) arrows.setAttribute('opacity', '0');
         updateMeter('carouselMeter', 0);
+        if (carouselAnim) carouselAnim.playbackRate = 0;
     } else {
         if (speedTxt) speedTxt.innerText = `Stufe ${speed}`;
         if (forceTxt) forceTxt.innerText = "Je schneller die Kreisbewegung ist, desto stärker wollen die Sitze nach außen.";
         const swing = (speed / 100) * 55;
         const lift = (speed / 100) * 18;
-        if (chainL) { chainL.setAttribute('x2', 95 - swing); chainL.setAttribute('y2', 172 - lift); }
-        if (chainR) { chainR.setAttribute('x2', 335 + swing); chainR.setAttribute('y2', 172 - lift); }
+        if (chainL) { chainL.setAttribute('x2', 135 - swing); chainL.setAttribute('y2', 172 - lift); }
+        if (chainR) { chainR.setAttribute('x2', 295 + swing); chainR.setAttribute('y2', 172 - lift); }
         if (seatL) seatL.style.transform = `translate(${-swing}px, ${-lift}px)`;
         if (seatR) seatR.style.transform = `translate(${swing}px, ${-lift}px)`;
         if (arrows) arrows.setAttribute('opacity', String(Math.max(0.2, speed / 100)));
         updateMeter('carouselMeter', speed);
+        if (carouselAnim) carouselAnim.playbackRate = speed / 30;
     }
 }
 
