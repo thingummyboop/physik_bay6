@@ -2557,233 +2557,289 @@
     }
   },
   "kraft_und_bewegung": {
-    "title": "🚀 Das Kraft-Abenteuer ⚡",
-    "subtitle": "Hallo Physik-Astronaut! Schnall dich an, wir erforschen die unsichtbaren Kräfte, die unsere Welt bewegen!",
+    "title": "🚀 Kraft & Bewegung: Newton im Alltag ⚡",
+    "subtitle": "Warum fliegst du beim Bremsen nach vorne? Warum rutscht Eis besser als Teppich? Hier lernst du Kräfte mit Körper, Bildern und kurzen Experimenten.",
     "sections": [
       {
         "id": "sec0",
-        "title": "1. Trägheit: Der innere Schweinehund der Dinge!",
+        "title": "1. Was ist eine Kraft?",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "Warum stoppt ein Fußball auf dem Rasen irgendwann, aber ein Asteroid im Weltall fliegt ewig weiter?",
+            "id": "q_force_intro",
+            "question": "Woran erkennst du, dass eine Kraft wirkt?",
             "answers": [
               {
-                "text": "Auf dem Rasen bremst ihn eine Kraft (Reibung). Im All gibt es nichts, was ihn bremst.",
+                "text": "Etwas startet, stoppt, wird schneller, wird langsamer, ändert Richtung oder verformt sich.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Weil dem Ball auf der Erde irgendwann die Puste ausgeht und er müde wird.",
+                "text": "Nur daran, dass etwas laut ist.",
                 "correct": false,
-                "pts": 10
+                "pts": 5
+              },
+              {
+                "text": "Nur daran, dass etwas eine Farbe hat.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Hast du dich schon mal gefragt, warum du im Auto nach vorn fliegst, wenn stark gebremst wird? Das nennt man <strong>Trägheit</strong>. Dinge sind ziemlich faul! Ein Ball, der ruhig auf dem Boden liegt, möchte für immer dort liegen bleiben. Ein Ball, der durchs Weltall fliegt, möchte für immer weiterfliegen. Er ändert seine Meinung nur, wenn ihn eine <strong>Kraft</strong> (wie ein Tritt oder eine Wand) dazu zwingt!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Sir Isaac Newton</strong><br>\n            Der kluge Forscher Isaac Newton hat das als Erster richtig aufgeschrieben. Sein 1. Gesetz lautet: \"Ein Körper bleibt in Ruhe oder in gleichförmiger Bewegung, solange keine Kraft auf ihn wirkt.\"\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⚽ Der faule Fußball</h3>\n            <p>Gib dem Ball einen Schubs im Weltall (ohne Luft, ohne Boden). Er wird nicht mehr aufhören zu fliegen!</p>\n            <button onclick=\"kickBall()\" id=\"kickBtn\">Ball schubsen! 🥾</button>\n            <button onclick=\"resetBall()\">Zurückholen 🧲</button>\n            <div class=\"diagram-box\" style=\"background: #000000; height: 100px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <circle cx=\"10%\" cy=\"20\" r=\"1\" fill=\"white\"></circle>\n                    <circle cx=\"50%\" cy=\"80\" r=\"1.5\" fill=\"white\"></circle>\n                    <circle cx=\"80%\" cy=\"30\" r=\"2\" fill=\"white\"></circle>\n                    <circle cx=\"30%\" cy=\"70\" r=\"1\" fill=\"white\"></circle>\n                    <circle id=\"spaceBall\" cx=\"30\" cy=\"50\" r=\"15\" fill=\"#FFEB3B\" style=\"transition: transform 5s linear;\"></circle>\n                </svg>\n            </div>\n            <p id=\"kickText\" style=\"font-weight: bold; color: #9C27B0;\"></p>\n        </div>\n        {{QUIZ_q1}}\n    "
+        "content": "\n        <div class=\"lesson-goals\">\n            <strong>Das kannst du nach diesem Kapitel:</strong>\n            <ul class=\"step-list\">\n                <li>Kräfte im Alltag erkennen und benennen.</li>\n                <li>erklären, warum Dinge nicht von allein starten oder stoppen.</li>\n                <li>Reibung, Schwerkraft, Rückstoß und Hebel an Beispielen erklären.</li>\n                <li>die Formel <strong>F = m · a</strong> in einfachen Worten verwenden.</li>\n            </ul>\n        </div>\n        <p>Eine <strong>Kraft</strong> ist ein Schub, ein Zug oder ein Drücken. Du siehst eine Kraft nicht direkt. Du erkennst sie an ihrer Wirkung: Etwas bewegt sich, bremst, ändert die Richtung oder wird verformt.</p>\n        <div class=\"remember-box\">\n            <strong>Merksatz:</strong> Eine Kraft kann den Bewegungszustand eines Körpers ändern. In der Physik wird Kraft mit <strong>F</strong> abgekürzt und in <strong>Newton (N)</strong> gemessen. Das Messgerät heißt <strong>Kraftmesser</strong>.\n        </div>\n        <div class=\"mini-task\">\n            <strong>Mini-Auftrag:</strong> Schau dich im Klassenraum um. Wo wird gerade gezogen, gedrückt, gebremst oder gehalten? Nenne drei Beispiele.\n        </div>\n        {{QUIZ_q_force_intro}}\n    "
       },
       {
         "id": "sec1",
-        "title": "2. Reibung: Die unsichtbare Bremse",
+        "title": "2. Trägheit: Dinge wollen so bleiben",
         "quizzes": [
           {
-            "id": "q2",
-            "question": "Warum rutschst du mit Socken auf Fliesen viel besser als auf einem dicken Wollteppich?",
+            "id": "q1",
+            "question": "Warum stoppt ein Fußball auf dem Rasen irgendwann, aber ein Asteroid im Weltall fliegt sehr lange weiter?",
             "answers": [
               {
-                "text": "Weil der Teppich viel mehr Reibung erzeugt, die dich abbremst.",
+                "text": "Auf dem Rasen bremsen Reibung und Luftwiderstand. Im All gibt es fast nichts, das bremst.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Weil Fliesen kälter sind und Kälte eine rutschige Kraft erzeugt.",
+                "text": "Der Ball wird müde.",
                 "correct": false,
-                "pts": 10
+                "pts": 5
+              },
+              {
+                "text": "Der Asteroid hat einen eingebauten Motor.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Aber warum bleiben Dinge auf der Erde dann immer stehen? Wegen der <strong>Reibung</strong>! Wenn zwei Flächen aneinander reiben, haken sich ihre winzigen, mikroskopischen Unebenheiten ineinander. Das bremst die Bewegung ab und erzeugt nebenbei sogar Wärme (reib dir mal schnell die Hände!).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Schmiermittel</strong><br>\n            Wenn wir wollen, dass Dinge besser rutschen, benutzen wir Schmiermittel wie Öl oder Wasser. Sie füllen die winzigen Lücken auf, sodass die Flächen fast wie auf Rollschuhen aneinander vorbeigleiten!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🧊 Das Rutsch-Rennen: Eis vs. Teppich</h3>\n            <p>Schiebe beide Blöcke mit der genau gleichen Kraft an!</p>\n            <button onclick=\"pushBlocks()\">Gleichzeitig anschubsen! 💨</button>\n            <div class=\"diagram-box\" style=\"text-align: left;\">\n                <p style=\"margin: 0; font-weight: bold; color: #1976D2;\">Glatteis (Wenig Reibung):</p>\n                <svg width=\"100%\" height=\"60\">\n                    <rect x=\"0\" y=\"40\" width=\"100%\" height=\"20\" fill=\"#B3E5FC\"></rect>\n                    <rect id=\"iceBlock\" x=\"10\" y=\"10\" width=\"30\" height=\"30\" fill=\"#4CAF50\" rx=\"5\" style=\"transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);\"></rect>\n                </svg>\n                <p style=\"margin: 10px 0 0 0; font-weight: bold; color: #8D6E63;\">Teppich (Viel Reibung):</p>\n                <svg width=\"100%\" height=\"60\">\n                    <rect x=\"0\" y=\"40\" width=\"100%\" height=\"20\" fill=\"#D7CCC8\" stroke=\"#8D6E63\" stroke-width=\"2\" stroke-dasharray=\"2,2\"></rect>\n                    <rect id=\"sandBlock\" x=\"10\" y=\"10\" width=\"30\" height=\"30\" fill=\"#F44336\" rx=\"5\" style=\"transition: transform 0.5s ease-out;\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
+        "content": "\n        <p>Hast du schon einmal erlebt, dass du im Bus nach vorne kippst, wenn der Bus stark bremst? Dein Körper wollte weiterfahren. Das nennt man <strong>Trägheit</strong>.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Newton 1 einfach:</strong> Ein Körper bleibt in Ruhe oder bewegt sich gleichmäßig weiter, solange keine Kraft ihn dazu bringt, etwas anderes zu tun.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⚽ Der faule Fußball im Weltall</h3>\n            <p>Gib dem Ball einen Schubs. Im Weltall gibt es fast keine Reibung. Darum fliegt er weiter und weiter.</p>\n            <button onclick=\"kickBall()\" id=\"kickBtn\">Ball schubsen! 🥾</button>\n            <button onclick=\"resetBall()\">Zurückholen 🧲</button>\n            <div class=\"diagram-box\" style=\"background: #000000; height: 100px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <circle cx=\"10%\" cy=\"20\" r=\"1\" fill=\"white\"></circle>\n                    <circle cx=\"50%\" cy=\"80\" r=\"1.5\" fill=\"white\"></circle>\n                    <circle cx=\"80%\" cy=\"30\" r=\"2\" fill=\"white\"></circle>\n                    <circle cx=\"30%\" cy=\"70\" r=\"1\" fill=\"white\"></circle>\n                    <circle id=\"spaceBall\" cx=\"30\" cy=\"50\" r=\"15\" fill=\"#FFEB3B\" style=\"transition: transform 5s linear;\"></circle>\n                </svg>\n            </div>\n            <p id=\"kickText\" style=\"font-weight: bold; color: var(--primary);\"></p>\n        </div>\n        <div class=\"mini-task\">\n            <strong>Denkfrage:</strong> Warum ist ein Sicherheitsgurt im Auto wichtig? Er übt beim Bremsen eine Kraft auf deinen Körper aus.\n        </div>\n        {{QUIZ_q1}}\n    "
       },
       {
         "id": "sec2",
-        "title": "3. Schwerkraft: Die unsichtbare Leine",
+        "title": "3. Reibung: Die Bremse zwischen Flächen",
         "quizzes": [
           {
-            "id": "q3",
-            "question": "Was würde passieren, wenn du einen Hammer und eine Feder auf dem Mond (wo es keine Luft gibt) gleichzeitig fallen lässt?",
+            "id": "q2",
+            "question": "Warum rutschst du mit Socken auf Fliesen besser als auf einem dicken Teppich?",
             "answers": [
               {
-                "text": "Beide fallen exakt gleich schnell zu Boden.",
+                "text": "Der Teppich erzeugt mehr Reibung und bremst stärker.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Der Hammer fällt viel schneller, weil er schwerer ist.",
+                "text": "Fliesen sind kalt, und Kälte zieht dich nach vorne.",
                 "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Der Teppich macht dich leichter.",
+                "correct": false,
+                "pts": 5
+              }
+            ]
+          },
+          {
+            "id": "q_friction_types",
+            "question": "Welche Reibung ist meistens am kleinsten?",
+            "answers": [
+              {
+                "text": "Rollreibung, zum Beispiel mit Rädern.",
+                "correct": true,
                 "pts": 10
+              },
+              {
+                "text": "Haftreibung, wenn ein schwerer Kasten noch gar nicht losrutscht.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Gleitreibung, wenn etwas ohne Räder über den Boden schabt.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Jedes Ding auf der Welt zieht andere Dinge an. Je schwerer etwas ist, desto stärker zieht es! Du ziehst deinen Computer an, aber du bist zu leicht, als dass man es merkt. Die <strong>Erde</strong> aber ist GIGANTISCH schwer. Sie zieht dich, mich, Häuser und Äpfel mit voller Wucht zu sich heran. Diese Anziehungskraft nennen wir <strong>Schwerkraft</strong> (oder Gravitation).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Masse vs. Gewicht</strong><br>\n            Deine <strong>Masse</strong> (aus wie vielen Teilchen du bestehst) ist überall gleich. Aber dein <strong>Gewicht</strong> ändert sich! Auf dem Mond ist die Schwerkraft schwächer. Dort wiegst du plötzlich 6-mal weniger und könntest riesige Sprünge machen, obwohl du noch aus genauso vielen Teilchen bestehst!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🍎 Das Fallschirm-Experiment</h3>\n            <p>Die Schwerkraft zieht alles gleich schnell nach unten! Nur der Luftwiderstand bremst leichte, flache Dinge wie Federn ab. Schalten wir die Luft aus (Vakuum)!</p>\n            <button onclick=\"dropItems(false)\">Auf der Erde fallen lassen (mit Luft) 🌍</button>\n            <button onclick=\"dropItems(true)\">Im Vakuum fallen lassen (ohne Luft) 🚀</button>\n            <div class=\"diagram-box\" style=\"height: 250px; background: #E3F2FD;\" id=\"gravityBox\">\n                <svg width=\"200\" height=\"250\" viewBox=\"0 0 200 250\">\n                    <rect x=\"0\" y=\"230\" width=\"200\" height=\"20\" fill=\"#8D6E63\"></rect>\n                    \n                    <g id=\"apple\" style=\"transform: translateY(20px); transition: transform 1s ease-in;\">\n                        <circle cx=\"60\" cy=\"0\" r=\"15\" fill=\"#E53935\"></circle>\n                        <path d=\"M 60 -15 Q 65 -25 70 -20\" stroke=\"#4CAF50\" stroke-width=\"3\" fill=\"none\"></path>\n                    </g>\n                    \n                    <g id=\"feather\" style=\"transform: translateY(20px); transition: transform 3s ease-in;\">\n                        <path d=\"M 140 -10 Q 150 5 140 15 Q 130 5 140 -10 Z\" fill=\"white\" stroke=\"#B0BEC5\"></path>\n                        <line x1=\"140\" y1=\"-10\" x2=\"140\" y2=\"15\" stroke=\"#90A4AE\"></line>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"gravityText\" style=\"font-weight: bold;\"></p>\n        </div>\n        {{QUIZ_q3}}\n    "
+        "content": "\n        <p><strong>Reibung</strong> entsteht, wenn zwei Oberflächen aneinander reiben. Auch glatte Dinge sind unter der Lupe nicht ganz glatt. Kleine Unebenheiten verhaken sich. Das bremst.</p>\n        <div class=\"remember-box\">\n            <strong>Drei Arten:</strong> Haftreibung ist der schwere Start. Gleitreibung bremst beim Rutschen. Rollreibung ist meist am kleinsten, deshalb helfen Räder.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🧊 Das Rutsch-Rennen: Eis gegen Teppich</h3>\n            <p>Beide Blöcke bekommen die gleiche Kraft. Beobachte: Welcher kommt weiter?</p>\n            <button onclick=\"pushBlocks()\">Gleichzeitig anschubsen! 💨</button>\n            <div class=\"diagram-box\" style=\"text-align: left;\">\n                <p style=\"margin: 0; font-weight: bold; color: #1976D2;\">Glatteis: wenig Reibung</p>\n                <svg width=\"100%\" height=\"60\">\n                    <rect x=\"0\" y=\"40\" width=\"100%\" height=\"20\" fill=\"#B3E5FC\"></rect>\n                    <rect id=\"iceBlock\" x=\"10\" y=\"10\" width=\"30\" height=\"30\" fill=\"#4CAF50\" rx=\"5\" style=\"transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);\"></rect>\n                </svg>\n                <p style=\"margin: 10px 0 0 0; font-weight: bold; color: #8D6E63;\">Teppich: viel Reibung</p>\n                <svg width=\"100%\" height=\"60\">\n                    <rect x=\"0\" y=\"40\" width=\"100%\" height=\"20\" fill=\"#D7CCC8\" stroke=\"#8D6E63\" stroke-width=\"2\" stroke-dasharray=\"2,2\"></rect>\n                    <rect id=\"sandBlock\" x=\"10\" y=\"10\" width=\"30\" height=\"30\" fill=\"#F44336\" rx=\"5\" style=\"transition: transform 0.5s ease-out;\"></rect>\n                </svg>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>📦 Der Schrank-Transport</h3>\n            <p>Welche Methode spart Kraft?</p>\n            <button onclick=\"moveBox('slide')\">Schieben (Gleiten) 🥵</button>\n            <button onclick=\"moveBox('roll')\">Rollen lassen (Räder) 😎</button>\n            <div class=\"diagram-box\">\n                <svg width=\"300\" height=\"100\" viewBox=\"0 0 300 100\">\n                    <line x1=\"0\" y1=\"90\" x2=\"300\" y2=\"90\" stroke=\"#4a5568\" stroke-width=\"4\"></line>\n                    <g id=\"boxGroup\" style=\"transform: translateX(20px); transition: transform 2s ease-out;\">\n                        <rect x=\"0\" y=\"30\" width=\"50\" height=\"60\" fill=\"#8D6E63\" rx=\"2\"></rect>\n                        <g id=\"boxWheels\" style=\"display: none;\">\n                            <circle cx=\"10\" cy=\"90\" r=\"5\" fill=\"#333\"></circle>\n                            <circle cx=\"40\" cy=\"90\" r=\"5\" fill=\"#333\"></circle>\n                        </g>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"frictionText\" style=\"font-weight:bold;\"></p>\n        </div>\n        {{QUIZ_q2}}\n        {{QUIZ_q_friction_types}}\n    "
       },
       {
         "id": "sec3",
-        "title": "4. Aktion und Reaktion: Der Rückstoß",
+        "title": "4. Schwerkraft: Die Erde zieht",
         "quizzes": [
           {
-            "id": "q4",
-            "question": "Du bläst einen Luftballon auf und lässt ihn los, ohne ihn zuzuknoten. Was passiert?",
+            "id": "q3",
+            "question": "Was passiert, wenn du einen Hammer und eine Feder auf dem Mond gleichzeitig fallen lässt?",
             "answers": [
               {
-                "text": "Er fällt sofort wie ein Stein zu Boden.",
-                "correct": false,
+                "text": "Beide fallen gleich schnell, weil es dort praktisch keinen Luftwiderstand gibt.",
+                "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Luft schießt nach hinten raus (Aktion) und der Ballon fliegt als Reaktion wild nach vorn.",
-                "correct": true,
-                "pts": 10
+                "text": "Der Hammer fällt schneller, weil er schwerer ist.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Die Feder bleibt in der Luft stehen.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Die Natur ist sehr fair! Wenn du eine Kraft auf etwas ausübst, drückt dieses Etwas mit der <strong>genau gleichen Kraft</strong> auf dich zurück. Wenn du dich auf Rollschuhen an einer Wand abdrückst (Aktion), drückt die Wand dich zurück und du rollst nach hinten (Reaktion).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Raketen im Weltall</strong><br>\n            Wie kann eine Rakete im leeren Weltall fliegen, wenn sie sich nirgendwo \"abstoßen\" kann? Sie stößt sich an ihrem eigenen Treibstoff ab! Die Rakete wirft extrem schnelle, heiße Gase nach hinten raus (Aktion). Dadurch wird die Rakete als Reaktion nach vorne gedrückt!\n        </div>\n        <div class=\"interactive-zone\" id=\"rocketZone\">\n            <h3>🚀 Der Raketenstart</h3>\n            <p>Zünde die Triebwerke! Gase gehen nach unten = Rakete geht nach oben!</p>\n            <button onclick=\"launchRocket()\">3... 2... 1... Zündung! 🔥</button>\n            \n            <div class=\"diagram-box\" style=\"height: 300px; background: #1A237E; position: relative; overflow: hidden;\">\n                <svg width=\"200\" height=\"300\" viewBox=\"0 0 200 300\">\n                    <circle cx=\"100\" cy=\"50\" r=\"2\" fill=\"white\"></circle>\n                    <circle cx=\"40\" cy=\"120\" r=\"1\" fill=\"white\"></circle>\n                    <circle cx=\"160\" cy=\"200\" r=\"2\" fill=\"white\"></circle>\n                    \n                    <g id=\"rocket\" style=\"transform: translateY(200px); transition: transform 2s cubic-bezier(0.4, 0, 1, 1);\">\n                        <path d=\"M 85 40 L 100 10 L 115 40 L 115 90 L 85 90 Z\" fill=\"#E0E0E0\"></path>\n                        <polygon points=\"85,70 70,90 85,90\" fill=\"#F44336\"></polygon>\n                        <polygon points=\"115,70 130,90 115,90\" fill=\"#F44336\"></polygon>\n                        <circle cx=\"100\" cy=\"50\" r=\"8\" fill=\"#4FC3F7\" stroke=\"#1565C0\" stroke-width=\"2\"></circle>\n                        <path id=\"rocketFlame\" d=\"M 90 90 Q 100 130 110 90 Q 100 110 90 90\" fill=\"#FF9800\" style=\"display: none;\"></path>\n                    </g>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_q4}}\n    "
+        "content": "\n        <p>Die Erde zieht alles an: dich, deinen Tisch, einen Ball und auch die Luft. Diese Anziehung nennen wir <strong>Schwerkraft</strong> oder <strong>Gravitation</strong>.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Masse und Gewicht:</strong> Deine Masse bleibt überall gleich. Dein Gewicht hängt davon ab, wie stark ein Planet oder Mond an dir zieht. Auf dem Mond ist dein Gewicht viel kleiner.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🍎 Apfel und Feder</h3>\n            <p>Mit Luft bremst der Luftwiderstand die Feder. Ohne Luft fallen beide gleich schnell.</p>\n            <button onclick=\"dropItems(false)\">Auf der Erde fallen lassen 🌍</button>\n            <button onclick=\"dropItems(true)\">Im Vakuum fallen lassen 🚀</button>\n            <div class=\"diagram-box\" style=\"height: 250px; background: #E3F2FD;\" id=\"gravityBox\">\n                <svg width=\"200\" height=\"250\" viewBox=\"0 0 200 250\">\n                    <rect x=\"0\" y=\"230\" width=\"200\" height=\"20\" fill=\"#8D6E63\"></rect>\n                    <g id=\"apple\" style=\"transform: translateY(20px); transition: transform 1s ease-in;\">\n                        <circle cx=\"60\" cy=\"0\" r=\"15\" fill=\"#E53935\"></circle>\n                        <path d=\"M 60 -15 Q 65 -25 70 -20\" stroke=\"#4CAF50\" stroke-width=\"3\" fill=\"none\"></path>\n                    </g>\n                    <g id=\"feather\" style=\"transform: translateY(20px); transition: transform 3s ease-in;\">\n                        <path d=\"M 140 -10 Q 150 5 140 15 Q 130 5 140 -10 Z\" fill=\"white\" stroke=\"#B0BEC5\"></path>\n                        <line x1=\"140\" y1=\"-10\" x2=\"140\" y2=\"15\" stroke=\"#90A4AE\"></line>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"gravityText\" style=\"font-weight: bold;\"></p>\n        </div>\n        {{QUIZ_q3}}\n    "
       },
       {
         "id": "sec4",
-        "title": "6. Newton's 2. Gesetz: F = m · a",
+        "title": "5. Aktion und Reaktion: Kräfte kommen paarweise",
         "quizzes": [
           {
-            "id": "q_newton2",
-            "question": "Was passiert, wenn du die gleiche Kraft auf ein VIEL schwereres Objekt ausübst?",
+            "id": "q4",
+            "question": "Du bläst einen Luftballon auf und lässt ihn los. Warum fliegt er weg?",
             "answers": [
               {
-                "text": "Es beschleunigt viel langsamer.",
+                "text": "Luft schießt nach hinten heraus. Als Gegenkraft fliegt der Ballon nach vorne.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Es beschleunigt viel schneller.",
+                "text": "Der Ballon wird plötzlich schwerer.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Der Ballon sucht automatisch den Himmel.",
                 "correct": false,
                 "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Newton hat noch ein zweites wichtiges Gesetz gefunden. Es erklärt, wie Kraft, Masse und Beschleunigung zusammenhängen: <strong>Kraft (Messgerät: Kraftmesser) = Masse (Waage) mal Beschleunigung</strong> (F = m · a). Das bedeutet: Wenn du etwas sehr Schweres (viel Masse) schnell beschleunigen willst, brauchst du eine riesige Kraft!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Beschleunigung</strong><br>\n            Beschleunigung (a) bedeutet nicht nur, schneller zu werden. Auch Bremsen oder Kurvenfahren ist eine Beschleunigung, weil sich die Geschwindigkeit oder Richtung ändert. Für jede Änderung brauchst du eine Kraft (F)!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🏎️ Das Beschleunigungs-Rennen</h3>\n            <p>Wähle ein Fahrzeug und drücke aufs Gas (gleiche Kraft)! Wer kommt schneller auf Touren?</p>\n            <button onclick=\"race('bike')\">Fahrrad (Leicht) 🚲</button>\n            <button onclick=\"race('car')\">Auto (Mittel) 🚗</button>\n            <button onclick=\"race('truck')\">LKW (Schwer) 🚛</button>\n            <div class=\"diagram-box\" style=\"text-align: left; background: #333; height: 120px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <line x1=\"0\" y1=\"80\" x2=\"100%\" y2=\"80\" stroke=\"white\" stroke-width=\"2\" stroke-dasharray=\"10,10\"></line>\n                    <g id=\"racer\" style=\"transform: translateX(10px); transition: transform 1s ease-in;\">\n                        <text id=\"racerEmoji\" x=\"0\" y=\"70\" font-size=\"40\">🚲</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"raceText\" style=\"font-weight:bold; color: white;\">Wähle einen Starter!</p>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 High-Quality Animation: Addition von Kräften (Vektor-Parallelogramm)</h3>\n            <p>Schau dir diese präzise, mit Python (Manim) generierte Animation an, um den physikalischen Vorgang genau zu verstehen:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/vektor_addition.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/vektor_addition.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video>\n        </div>\n    \n        {{QUIZ_q_newton2}}\n    "
+        "content": "\n        <p>Wenn du auf etwas drückst, drückt es zurück. Immer. Gleich stark, aber in die andere Richtung. Das nennt man <strong>Aktion und Reaktion</strong>.</p>\n        <div class=\"remember-box\">\n            <strong>Merksatz:</strong> Kraft und Gegenkraft gehören zusammen. Beispiel: Du drückst die Wand. Die Wand drückt dich zurück.\n        </div>\n        <div class=\"interactive-zone\" id=\"rocketZone\">\n            <h3>🚀 Der Raketenstart</h3>\n            <p>Gase gehen nach unten. Die Rakete wird nach oben gedrückt.</p>\n            <button onclick=\"launchRocket()\">3... 2... 1... Zündung! 🔥</button>\n            <div class=\"diagram-box\" style=\"height: 300px; background: #1A237E; position: relative; overflow: hidden;\">\n                <svg width=\"200\" height=\"300\" viewBox=\"0 0 200 300\">\n                    <circle cx=\"100\" cy=\"50\" r=\"2\" fill=\"white\"></circle>\n                    <circle cx=\"40\" cy=\"120\" r=\"1\" fill=\"white\"></circle>\n                    <circle cx=\"160\" cy=\"200\" r=\"2\" fill=\"white\"></circle>\n                    <g id=\"rocket\" style=\"transform: translateY(200px); transition: transform 2s cubic-bezier(0.4, 0, 1, 1);\">\n                        <path d=\"M 85 40 L 100 10 L 115 40 L 115 90 L 85 90 Z\" fill=\"#E0E0E0\"></path>\n                        <polygon points=\"85,70 70,90 85,90\" fill=\"#F44336\"></polygon>\n                        <polygon points=\"115,70 130,90 115,90\" fill=\"#F44336\"></polygon>\n                        <circle cx=\"100\" cy=\"50\" r=\"8\" fill=\"#4FC3F7\" stroke=\"#1565C0\" stroke-width=\"2\"></circle>\n                        <path id=\"rocketFlame\" d=\"M 90 90 Q 100 130 110 90 Q 100 110 90 90\" fill=\"#FF9800\" style=\"display: none;\"></path>\n                    </g>\n                </svg>\n            </div>\n        </div>\n        <div class=\"mini-task\">\n            <strong>Partner-Auftrag:</strong> Zwei Personen stehen auf Rollbrettern oder rutschfesten Socken auf glattem Boden und drücken die Hände gegeneinander. Was passiert? Nur mit Lehrkraft und sicherem Abstand ausprobieren.\n        </div>\n        {{QUIZ_q4}}\n    "
       },
       {
         "id": "sec5",
-        "title": "7. Reibungsarten: Haften, Gleiten, Rollen",
+        "title": "6. Kraft, Masse, Beschleunigung: F = m · a",
         "quizzes": [
           {
-            "id": "q_friction_types",
-            "question": "Welche Reibung ist in der Regel am kleinsten (am leichtesten zu überwinden)?",
+            "id": "q_newton2",
+            "question": "Was passiert, wenn die gleiche Kraft auf ein viel schwereres Objekt wirkt?",
             "answers": [
               {
-                "text": "Die Rollreibung (Rollen auf Rädern).",
+                "text": "Es beschleunigt langsamer.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Haftreibung (Anschieben aus dem Stand).",
+                "text": "Es beschleunigt schneller.",
+                "correct": false,
+                "pts": 5
+              },
+              {
+                "text": "Die Masse verschwindet.",
                 "correct": false,
                 "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Reibung ist nicht gleich Reibung. Es gibt drei Stufen:</p>\n        <ol>\n            <li><strong>Haftreibung:</strong> Der schwerste Moment. Du drückst gegen einen Schrank, aber er bewegt sich noch nicht. Die Teilchen \"verhaken\" sich fest.</li>\n            <li><strong>Gleitreibung:</strong> Wenn der Schrank erst mal rutscht, geht es etwas leichter.</li>\n            <li><strong>Rollreibung:</strong> Der Profi-Trick! Wenn du Rollen unter den Schrank legst, wird die Reibung winzig klein.</li>\n        </ol>\n        <div class=\"interactive-zone\">\n            <h3>📦 Der Schrank-Transport</h3>\n            <p>Versuche, den schweren Schrank zu bewegen. Welche Methode ist die beste?</p>\n            <button onclick=\"moveBox('slide')\">Schieben (Gleiten) 🥵</button>\n            <button onclick=\"moveBox('roll')\">Rollen lassen (Räder) 😎</button>\n            <div class=\"diagram-box\">\n                <svg width=\"300\" height=\"100\" viewBox=\"0 0 300 100\">\n                    <line x1=\"0\" y1=\"90\" x2=\"300\" y2=\"90\" stroke=\"#4a5568\" stroke-width=\"4\"></line>\n                    <g id=\"boxGroup\" style=\"transform: translateX(20px); transition: transform 2s ease-out;\">\n                        <rect x=\"0\" y=\"30\" width=\"50\" height=\"60\" fill=\"#8D6E63\" rx=\"2\"></rect>\n                        <g id=\"boxWheels\" style=\"display: none;\">\n                            <circle cx=\"10\" cy=\"90\" r=\"5\" fill=\"#333\"></circle>\n                            <circle cx=\"40\" cy=\"90\" r=\"5\" fill=\"#333\"></circle>\n                        </g>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"frictionText\" style=\"font-weight:bold;\"></p>\n        </div>\n        {{QUIZ_q_friction_types}}\n    "
+        "content": "\n        <p>Ein leeres Einkaufswagerl lässt sich leicht anschieben. Ein volles Einkaufswagerl braucht mehr Kraft. Genau das beschreibt Newtons 2. Gesetz.</p>\n        <p><span class=\"formula-card\">F = m · a</span></p>\n        <ul class=\"step-list\">\n            <li><strong>F</strong> bedeutet Kraft. Einheit: Newton (N).</li>\n            <li><strong>m</strong> bedeutet Masse. Einheit: Kilogramm (kg).</li>\n            <li><strong>a</strong> bedeutet Beschleunigung: schneller werden, bremsen oder Richtung ändern.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🏎️ Das Beschleunigungs-Rennen</h3>\n            <p>Alle bekommen die gleiche Kraft. Was kommt schneller auf Touren?</p>\n            <button onclick=\"race('bike')\">Fahrrad (leicht) 🚲</button>\n            <button onclick=\"race('car')\">Auto (mittel) 🚗</button>\n            <button onclick=\"race('truck')\">LKW (schwer) 🚛</button>\n            <div class=\"diagram-box\" style=\"text-align: left; background: #333; height: 120px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <line x1=\"0\" y1=\"80\" x2=\"100%\" y2=\"80\" stroke=\"white\" stroke-width=\"2\" stroke-dasharray=\"10,10\"></line>\n                    <g id=\"racer\" style=\"transform: translateX(10px); transition: transform 1s ease-in;\">\n                        <text id=\"racerEmoji\" x=\"0\" y=\"70\" font-size=\"40\">🚲</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"raceText\" style=\"font-weight:bold; color: white;\">Wähle einen Starter!</p>\n        </div>\n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Animation: Kräfte addieren</h3>\n            <p>Wenn zwei Kräfte gleichzeitig wirken, kann man sie als Pfeile zusammenzählen.</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/vektor_addition.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video>\n        </div>\n        {{QUIZ_q_newton2}}\n    "
       },
       {
         "id": "sec6",
-        "title": "5. Der Hebel: Stark wie ein Bär",
+        "title": "7. Hebel: Mit Weg Kraft sparen",
         "quizzes": [
           {
             "id": "q5",
-            "question": "Was musst du tun, wenn du mit einer Brechstange einen sehr schweren Stein anheben willst?",
+            "question": "Was hilft, wenn du mit einer Brechstange einen schweren Stein anheben willst?",
             "answers": [
               {
-                "text": "Die Stange sehr weit hinten anfassen, damit mein Hebelarm schön lang ist.",
+                "text": "Weit hinten drücken, damit der Hebelarm lang ist.",
                 "correct": true,
                 "pts": 10
               },
               {
-                "text": "Die Stange ganz nah am Stein anfassen.",
+                "text": "Ganz nah am Stein drücken.",
                 "correct": false,
-                "pts": 10
+                "pts": 5
+              },
+              {
+                "text": "Die Stange kürzer machen.",
+                "correct": false,
+                "pts": 5
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Manchmal reicht unsere eigene Muskelkraft einfach nicht aus, um etwas Schweres zu bewegen. Da hilft uns ein Trick: <strong>Der Hebel!</strong> Ein Hebel ist im Grunde nur eine Stange und ein Drehpunkt. Wenn du die Seite der Stange, an der du drückst, sehr lang machst, kannst du plötzlich Dinge heben, die viel schwerer sind als du selbst!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das goldene Gesetz des Hebels</strong><br>\n            \"Kraft mal Kraftarm ist gleich Last mal Lastarm\". Das klingt kompliziert, heißt aber nur: Wenn dein Arm der Wippe doppelt so lang ist, brauchst du nur noch die halbe Kraft zum Drücken!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⚖️ Die Wippen-Baustelle</h3>\n            <p>Verschiebe den blauen Drehpunkt, um den schweren Elefanten (Grau) mit dem winzigen Gewicht (Rot) anzuheben!</p>\n            <input type=\"range\" id=\"leverRange\" min=\"10\" max=\"90\" value=\"50\" oninput=\"updateLever()\" style=\"width: 250px;\">\n            <p>Position des Drehpunkts: <span id=\"leverValue\">Mitte</span></p>\n            \n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; background: #fafafa;\">\n                <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n                    <rect x=\"20\" y=\"100\" width=\"260\" height=\"5\" fill=\"#795548\"></rect> <g id=\"seesawGroup\" style=\"transform-origin: 150px 70px; transition: transform 0.3s ease;\">\n                        <rect x=\"20\" y=\"65\" width=\"260\" height=\"10\" fill=\"#FFC107\" rx=\"5\"></rect> <rect x=\"25\" y=\"15\" width=\"50\" height=\"50\" fill=\"#9E9E9E\" rx=\"10\"></rect>\n                        <text x=\"32\" y=\"45\" font-size=\"20\">🐘</text>\n                        <rect x=\"250\" y=\"45\" width=\"20\" height=\"20\" fill=\"#F44336\" rx=\"2\"></rect>\n                    </g>\n                    \n                    <polygon id=\"fulcrum\" points=\"150,75 130,100 170,100\" fill=\"#2196F3\" style=\"transition: transform 0.1s;\"></polygon>\n                </svg>\n            </div>\n            <p id=\"leverText\" style=\"font-weight:bold; color: #E91E63;\">Beide Arme sind gleich lang. Der Elefant ist zu schwer, die Wippe kippt nach links!</p>\n        </div>\n        {{QUIZ_q5}}\n    "
+        "content": "\n        <p>Ein <strong>Hebel</strong> ist eine Stange mit einem Drehpunkt. Damit kannst du mit weniger Kraft schwere Dinge bewegen. Dafür musst du einen längeren Weg drücken.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Hebelgesetz einfach:</strong> Langer Kraftarm bedeutet: Du brauchst weniger Kraft. Kurzer Kraftarm bedeutet: Du brauchst mehr Kraft.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⚖️ Die Wippen-Baustelle</h3>\n            <p>Verschiebe den blauen Drehpunkt. Wann hebt das kleine rote Gewicht die schwere Last?</p>\n            <input type=\"range\" id=\"leverRange\" min=\"10\" max=\"90\" value=\"50\" oninput=\"updateLever()\" style=\"width: 250px;\">\n            <p>Position des Drehpunkts: <span id=\"leverValue\">Mitte</span></p>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; background: #fafafa;\">\n                <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n                    <rect x=\"20\" y=\"100\" width=\"260\" height=\"5\" fill=\"#795548\"></rect>\n                    <g id=\"seesawGroup\" style=\"transform-origin: 150px 70px; transition: transform 0.3s ease;\">\n                        <rect x=\"20\" y=\"65\" width=\"260\" height=\"10\" fill=\"#FFC107\" rx=\"5\"></rect>\n                        <rect x=\"25\" y=\"15\" width=\"50\" height=\"50\" fill=\"#9E9E9E\" rx=\"10\"></rect>\n                        <text x=\"32\" y=\"45\" font-size=\"20\">🐘</text>\n                        <rect x=\"250\" y=\"45\" width=\"20\" height=\"20\" fill=\"#F44336\" rx=\"2\"></rect>\n                    </g>\n                    <polygon id=\"fulcrum\" points=\"150,75 130,100 170,100\" fill=\"#2196F3\" style=\"transition: transform 0.1s;\"></polygon>\n                </svg>\n            </div>\n            <p id=\"leverText\" style=\"font-weight:bold; color: #E91E63;\">Beide Arme sind ähnlich lang. Die schwere Last gewinnt.</p>\n        </div>\n        <div class=\"mini-task\">\n            <strong>Alltagscheck:</strong> Suche Hebel: Türklinke, Schere, Zange, Nussknacker, Wippe. Wo ist der Drehpunkt? Wo wirkt die Kraft?\n        </div>\n        {{QUIZ_q5}}\n    "
       }
     ],
     "diplom": {
-      "title": "🎓 Das große Newton-Diplom",
+      "title": "🎓 Das Kraft & Bewegung Diplom",
       "questions": [
         {
           "id": "f1",
-          "question": "1. Was besagt das Gesetz der Trägheit?",
+          "question": "Was ist eine Kraft?",
           "answers": [
             {
-              "text": "Alles was hochfliegt, muss auch runterkommen.",
-              "correct": false,
+              "text": "Ein Schub, Zug oder Druck, der Bewegung oder Form ändern kann.",
+              "correct": true,
               "pts": 5
             },
             {
-              "text": "Ein Ding bleibt in Ruhe oder fliegt weiter, bis eine Kraft auf es einwirkt.",
-              "correct": true,
+              "text": "Ein anderes Wort für Farbe.",
+              "correct": false,
               "pts": 5
             }
           ]
         },
         {
           "id": "f2",
-          "question": "2. Welcher berühmte Wissenschaftler hat die 3 Gesetze der Bewegung aufgestellt?",
+          "question": "Was besagt Trägheit?",
           "answers": [
             {
-              "text": "Albert Einstein.",
-              "correct": false,
+              "text": "Dinge bleiben in Ruhe oder bewegen sich weiter, bis eine Kraft wirkt.",
+              "correct": true,
               "pts": 5
             },
             {
-              "text": "Isaac Newton.",
-              "correct": true,
+              "text": "Dinge wollen immer automatisch stoppen.",
+              "correct": false,
               "pts": 5
             }
           ]
         },
         {
           "id": "f3",
-          "question": "3. Warum hört ein Fahrrad auf zu rollen, wenn du aufhörst zu treten?",
+          "question": "Warum hört ein Fahrrad irgendwann auf zu rollen?",
           "answers": [
             {
-              "text": "Wegen der Schwerkraft der Reifen.",
-              "correct": false,
+              "text": "Reibung und Luftwiderstand bremsen.",
+              "correct": true,
               "pts": 5
             },
             {
-              "text": "Wegen der Reibung auf dem Boden und dem Luftwiderstand.",
-              "correct": true,
+              "text": "Die Reifen verlieren ihre Masse.",
+              "correct": false,
               "pts": 5
             }
           ]
         },
         {
           "id": "f4",
-          "question": "4. Wie kann man Reibung zwischen Maschinenteilen verringern?",
+          "question": "Welche Reibung ist beim Transportieren meist am günstigsten?",
           "answers": [
             {
-              "text": "Indem man Schmieröl oder Kugellager benutzt.",
+              "text": "Rollreibung.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Indem man Sand hineinstreut.",
+              "text": "Haftreibung.",
               "correct": false,
               "pts": 5
             }
@@ -2791,15 +2847,15 @@
         },
         {
           "id": "f5",
-          "question": "5. Was zieht dich immer wieder zurück auf den Boden, wenn du hüpfst?",
+          "question": "Was zieht dich nach einem Sprung wieder zum Boden?",
           "answers": [
             {
-              "text": "Die Schwerkraft (Gravitation).",
+              "text": "Die Schwerkraft.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Der Luftdruck von oben.",
+              "text": "Die Farbe des Bodens.",
               "correct": false,
               "pts": 5
             }
@@ -2807,15 +2863,15 @@
         },
         {
           "id": "f6",
-          "question": "6. Wo bist du schwerer: Auf der Erde oder auf dem kleinen Mond?",
+          "question": "Was bleibt auf dem Mond gleich: Masse oder Gewicht?",
           "answers": [
             {
-              "text": "Auf der Erde, weil die Erde massereicher ist und stärker an mir zieht.",
+              "text": "Die Masse bleibt gleich.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Auf dem Mond, weil dort keine Luft ist.",
+              "text": "Das Gewicht bleibt gleich.",
               "correct": false,
               "pts": 5
             }
@@ -2823,31 +2879,31 @@
         },
         {
           "id": "f7",
-          "question": "7. Bleibt deine \"Masse\" (die Menge deiner Teilchen) auf dem Mond gleich?",
+          "question": "Warum fallen Hammer und Feder im Vakuum gleich schnell?",
           "answers": [
             {
-              "text": "Nein, auf dem Mond schrumpft man auf die halbe Größe.",
-              "correct": false,
+              "text": "Ohne Luftwiderstand werden beide gleich beschleunigt.",
+              "correct": true,
               "pts": 5
             },
             {
-              "text": "Ja, ich bestehe noch aus genauso vielen Atomen.",
-              "correct": true,
+              "text": "Weil sie dort gleich schwer werden.",
+              "correct": false,
               "pts": 5
             }
           ]
         },
         {
           "id": "f8",
-          "question": "8. Warum fallen eine schwere Kugel und eine leichte Kugel im Vakuum exakt gleich schnell?",
+          "question": "Was bedeutet Aktion und Reaktion?",
           "answers": [
             {
-              "text": "Weil ohne Luftwiderstand die Schwerkraft alle Dinge mit der gleichen Beschleunigung anzieht.",
+              "text": "Zu jeder Kraft gibt es eine gleich große Gegenkraft in die andere Richtung.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Weil im Vakuum alles nach oben fliegt.",
+              "text": "Jede Bewegung braucht Musik.",
               "correct": false,
               "pts": 5
             }
@@ -2855,15 +2911,15 @@
         },
         {
           "id": "f9",
-          "question": "9. Was besagt das Prinzip von \"Aktion und Reaktion\"?",
+          "question": "Warum fliegt eine Rakete nach oben?",
           "answers": [
             {
-              "text": "Für jede Kraft gibt es eine gleich große Gegenkraft in die entgegengesetzte Richtung.",
+              "text": "Sie stößt Gase nach unten, die Gegenkraft drückt sie nach oben.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Wer schnell rennt, fällt schnell hin.",
+              "text": "Sie zieht sich an Sternen hoch.",
               "correct": false,
               "pts": 5
             }
@@ -2871,31 +2927,31 @@
         },
         {
           "id": "f10",
-          "question": "10. Wie bewegt sich eine Rakete im luftleeren Raum fort?",
+          "question": "Was sagt F = m · a einfach aus?",
           "answers": [
             {
-              "text": "Sie dreht an riesigen Propellern, die den Äther greifen.",
-              "correct": false,
+              "text": "Mehr Masse braucht mehr Kraft für die gleiche Beschleunigung.",
+              "correct": true,
               "pts": 5
             },
             {
-              "text": "Durch Rückstoß: Sie drückt Gase nach hinten, das drückt die Rakete nach vorn.",
-              "correct": true,
+              "text": "Kraft hat nichts mit Masse zu tun.",
+              "correct": false,
               "pts": 5
             }
           ]
         },
         {
           "id": "f11",
-          "question": "11. Stell dir vor, du stehst auf spiegelglattem Eis und wirfst einen schweren Medizinball nach vorn. Was passiert mit dir?",
+          "question": "Was ist Beschleunigung?",
           "answers": [
             {
-              "text": "Ich rutsche ein Stück nach hinten (Rückstoß).",
+              "text": "Schneller werden, langsamer werden oder die Richtung ändern.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Ich falle sofort durch das Eis.",
+              "text": "Nur sehr laut sein.",
               "correct": false,
               "pts": 5
             }
@@ -2903,15 +2959,15 @@
         },
         {
           "id": "f12",
-          "question": "12. Wozu dient ein Hebel?",
+          "question": "Womit misst man Kraft?",
           "answers": [
             {
-              "text": "Um mit wenig Kraft schwere Dinge bewegen zu können.",
+              "text": "Mit einem Kraftmesser in Newton.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Um Dinge abzukühlen.",
+              "text": "Mit einem Thermometer in Grad Celsius.",
               "correct": false,
               "pts": 5
             }
@@ -2919,15 +2975,15 @@
         },
         {
           "id": "f13",
-          "question": "13. Bei einem Nussknacker drückst du die Griffe an den Enden zusammen, um eine Nuss zu knacken. Das ist ein Hebel! Je LÄNGER die Griffe sind...",
+          "question": "Warum hilft ein langer Hebelarm?",
           "answers": [
             {
-              "text": "...desto weniger Kraft musst du mit deiner Hand aufwenden.",
+              "text": "Man braucht weniger Kraft, muss aber einen längeren Weg drücken.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "...desto schwerer ist es, die Nuss zu knacken.",
+              "text": "Er macht die Last unsichtbar.",
               "correct": false,
               "pts": 5
             }
@@ -2935,15 +2991,15 @@
         },
         {
           "id": "f14",
-          "question": "14. Welche Kraft nutzt ein Fallschirmspringer, um nicht wie ein Stein auf den Boden zu knallen?",
+          "question": "Wo ist ein Hebel im Alltag?",
           "answers": [
             {
-              "text": "Den Luftwiderstand (eine Art Reibung an der Luft).",
+              "text": "Türklinke, Schere, Zange oder Nussknacker.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Wärmestrahlung.",
+              "text": "Ein Heft ohne Bewegung.",
               "correct": false,
               "pts": 5
             }
@@ -2951,15 +3007,15 @@
         },
         {
           "id": "f15",
-          "question": "15. Was brauchst du, um die Richtung eines bewegten Objekts zu ändern (z.B. einen fahrenden Ball ins Tor kicken)?",
+          "question": "Was brauchst du, um einen fahrenden Ball in eine andere Richtung zu schießen?",
           "answers": [
             {
-              "text": "Eine Krafteinwirkung.",
+              "text": "Eine Kraft.",
               "correct": true,
               "pts": 5
             },
             {
-              "text": "Nur einen starken Willen und Konzentration.",
+              "text": "Nur einen Wunsch.",
               "correct": false,
               "pts": 5
             }

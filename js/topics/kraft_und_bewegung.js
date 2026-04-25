@@ -12,7 +12,7 @@ function kickBall() {
     ball.style.transition = 'transform 6s linear'; 
     ball.style.transform = 'translateX(800px)'; 
     
-    txt.innerText = "Der Ball fliegt und fliegt und fliegt... Es gibt keine Reibung im Weltall!";
+    txt.innerText = "Ohne bremsende Kraft fliegt der Ball weiter. Das ist Trägheit.";
 }
 
 function resetBall() {
@@ -63,12 +63,12 @@ function dropItems(isVacuum) {
         if(isVacuum) {
             feather.style.transition = 'transform 1s cubic-bezier(0.5, 0, 1, 1)';
             feather.style.transform = 'translateY(225px)';
-            txt.innerText = "Im Vakuum gibt es keinen Luftwiderstand. Beide fallen exakt gleich schnell!";
+            txt.innerText = "Im Vakuum gibt es keinen Luftwiderstand. Beide fallen gleich schnell.";
             txt.style.color = "#E91E63";
         } else {
             feather.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.6, 1)'; 
             feather.style.transform = 'translateY(225px)';
-            txt.innerText = "Mit Luft: Der Apfel ist schwer and klein, er fällt schnell. Die Luft bremst die breite Feder ab!";
+            txt.innerText = "Mit Luft: Der Apfel ist schwer und kompakt. Die Luft bremst die breite Feder stark ab.";
             txt.style.color = "#1976D2";
         }
     }, 50);
@@ -151,7 +151,7 @@ function race(vehicle) {
         racer.style.transition = `transform ${time}s ease-in`;
         racer.style.transform = 'translateX(300px)';
         setTimeout(() => {
-            txt.innerText = `${name} braucht ${time}s für die Beschleunigung bei gleicher Kraft!`;
+            txt.innerText = `${name} braucht ${time}s für die Beschleunigung bei gleicher Kraft. Mehr Masse reagiert langsamer.`;
         }, time * 1000);
     }, 50);
 }
@@ -172,13 +172,13 @@ function moveBox(mode) {
             wheels.style.display = 'none';
             box.style.transition = 'transform 2s ease-out';
             box.style.transform = 'translateX(100px)';
-            txt.innerText = "Gleitreibung bremst stark ab! Schwer zu schieben. 🥵";
+            txt.innerText = "Gleitreibung bremst stark ab. Schwer zu schieben.";
             txt.style.color = "#E91E63";
         } else {
             wheels.style.display = 'block';
             box.style.transition = 'transform 1s cubic-bezier(0.2, 0.8, 0.4, 1)';
             box.style.transform = 'translateX(250px)';
-            txt.innerText = "Rollreibung ist winzig! Der Schrank flitzt fast von allein. 😎";
+            txt.innerText = "Rollreibung ist viel kleiner. Mit Rädern geht es deutlich leichter.";
             txt.style.color = "#4CAF50";
         }
     }, 50);

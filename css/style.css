@@ -87,6 +87,68 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     padding: 15px; border-radius: 8px; margin: 15px 0; font-style: italic;
 }
 
+.lesson-goals, .mini-task, .remember-box, .teacher-note {
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 16px 0;
+    border: 2px solid var(--box-border);
+}
+
+.lesson-goals {
+    background: #e8f5e9;
+    border-color: #81c784;
+}
+
+.mini-task {
+    background: #fffde7;
+    border-color: #fdd835;
+}
+
+.remember-box {
+    background: #e3f2fd;
+    border-color: var(--primary);
+}
+
+.teacher-note {
+    background: #f3e8ff;
+    border-color: #a78bfa;
+}
+
+[data-theme="dark"] .lesson-goals {
+    background: #12351f;
+    border-color: #2e7d32;
+}
+
+[data-theme="dark"] .mini-task {
+    background: #3a3208;
+    border-color: #a16207;
+}
+
+[data-theme="dark"] .remember-box {
+    background: #102a43;
+    border-color: var(--primary);
+}
+
+[data-theme="dark"] .teacher-note {
+    background: #2e174d;
+    border-color: #7c3aed;
+}
+
+.formula-card {
+    display: inline-block;
+    background: var(--card-bg);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 1.25em;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.step-list li {
+    margin-bottom: 8px;
+}
+
 .interactive-zone {
     background: var(--interactive-bg); border: 1px solid var(--primary);
     padding: 20px; border-radius: 15px; margin: 20px 0;
