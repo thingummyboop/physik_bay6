@@ -57,24 +57,29 @@ function chooseWorkCase(type) {
     }
     if (formula) formula.innerText = data.work;
 
-    if (person) person.style.transform = "translateX(0px)";
-    if (box) box.style.transform = "translateX(0px)";
+    // Use Web Animations API for robust SVG transformations
+    let personTarget = 0;
+    let boxTarget = 0;
+
+    if (type === "box") {
+        personTarget = 120;
+        boxTarget = 120;
+    } else if (type === "wall") {
+        personTarget = 190;
+    } else if (type === "carry") {
+        personTarget = 140;
+    }
+
+    if (person) person.animate([{ transform: `translate(${personTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
+    if (box) box.animate([{ transform: `translate(${boxTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
+    
     if (wall) wall.style.opacity = type === "wall" ? "1" : "0.35";
     if (bag) bag.style.opacity = type === "hold" || type === "carry" ? "1" : "0.25";
-
-    if (type === "box" && box) box.style.transform = "translateX(120px)";
-    if (type === "wall" && person) person.style.transform = "translateX(80px)";
-    if (type === "carry" && person) person.style.transform = "translateX(140px)";
 }
 
 // Old buttons may still exist in cached pages.
-function pushWall() {
-    chooseWorkCase("wall");
-}
-
-function pushBox() {
-    chooseWorkCase("box");
-}
+function pushWall() { chooseWorkCase("wall"); }
+function pushBox() { chooseWorkCase("box"); }
 
 function calcWork() {
     const force = Number(document.getElementById("forceRange")?.value || 50);
@@ -122,8 +127,14 @@ function updateLiftHeight() {
 
     if (heightVal) heightVal.innerText = height.toFixed(1);
     if (result) result.innerText = `W = m · g · h = ${mass} kg · 10 N/kg · ${height.toFixed(1)} m = ${work.toFixed(0)} J`;
-    if (rope) rope.setAttribute("y2", String(210 - height * 55));
-    if (load) load.style.transform = `translateY(${-height * 55}px)`;
+    
+    // Animate robustly
+    if (rope) {
+        rope.animate([{ y2: String(210 - height * 55) }], { duration: 300, fill: 'forwards' });
+    }
+    if (load) {
+        load.animate([{ transform: `translate(0, ${-height * 55}px)` }], { duration: 300, fill: 'forwards', easing: 'ease-out' });
+    }
     if (fill) fill.style.width = `${Math.min(100, work / 6)}%`;
 }
 
@@ -133,7 +144,6 @@ function liftBeam() {
     if (range) range.value = 2;
     updateLiftHeight();
 }
-
 function dropBeam() {
     const range = document.getElementById("heightRange");
     if (range) range.value = 0;
@@ -162,13 +172,8 @@ function setSurface(surface) {
     updateFrictionMeter(work);
 }
 
-function setIce() {
-    setSurface("ice");
-}
-
-function setSand() {
-    setSurface("sand");
-}
+function setIce() { setSurface("ice"); }
+function setSand() { setSurface("sand"); }
 
 function updateFrictionMeter(work) {
     const fill = document.getElementById("frictionMeter");
@@ -181,20 +186,35 @@ function pullSled() {
     const sled = document.getElementById("sledGroup");
     const rope = document.getElementById("pullRope");
     const heat = document.getElementById("heatSparks");
-    const duration = currentSurface === "sand" ? "2.8s" : "1.2s";
+    const durationMs = currentSurface === "sand" ? 2800 : 1200;
     if (!sled || !rope) return;
 
-    sled.style.transition = `transform ${duration} linear`;
-    rope.style.transition = `transform ${duration} linear`;
-    sled.style.transform = "translateX(250px)";
-    rope.style.transform = "translateX(250px)";
+    // Use animate() for safe SVG transforms
+    sled.animate([
+        { transform: "translate(0, 0)" },
+        { transform: "translate(250px, 0)" }
+    ], { duration: durationMs, fill: 'forwards', easing: 'linear' });
+
+    rope.animate([
+        { transform: "translate(0, 0)" },
+        { transform: "translate(250px, 0)" }
+    ], { duration: durationMs, fill: 'forwards', easing: 'linear' });
+
     if (heat) heat.style.animation = currentSurface === "sand" ? "sweat 0.5s infinite" : "none";
 
     setTimeout(() => {
-        sled.style.transform = "translateX(0px)";
-        rope.style.transform = "translateX(0px)";
+        sled.animate([
+            { transform: "translate(250px, 0)" },
+            { transform: "translate(0, 0)" }
+        ], { duration: 500, fill: 'forwards', easing: 'linear' });
+
+        rope.animate([
+            { transform: "translate(250px, 0)" },
+            { transform: "translate(0, 0)" }
+        ], { duration: 500, fill: 'forwards', easing: 'linear' });
+        
         if (heat) heat.style.animation = "none";
-    }, currentSurface === "sand" ? 3100 : 1500);
+    }, durationMs + 300);
 }
 
 // 4. Goldene Regel der Mechanik
@@ -212,13 +232,17 @@ function compareRamp(type) {
     });
 
     const data = type === "flat"
-        ? { force: "wenig Kraft: 100 N", path: "langer Weg: 6 m", work: "600 J", msg: "Flache Rampe: Du sparst Kraft, musst aber einen längeren Weg gehen.", x: 250, y: 78 }
-        : { force: "viel Kraft: 300 N", path: "kurzer Weg: 2 m", work: "600 J", msg: "Steile Rampe: Der Weg ist kurz, aber du brauchst viel Kraft.", x: 250, y: 78 };
+        ? { force: "wenig Kraft: 100 N", path: "langer Weg: 6 m", work: "600 J", msg: "Flache Rampe: Du sparst Kraft, musst aber einen längeren Weg gehen.", x: 275, y: -100, startX: 0, startY: 0, duration: 2500 }
+        : { force: "viel Kraft: 300 N", path: "kurzer Weg: 2 m", work: "600 J", msg: "Steile Rampe: Der Weg ist kurz, aber du brauchst viel Kraft.", x: 275, y: -100, startX: 175, startY: 0, duration: 1000 };
 
     if (ball) {
-        ball.style.transition = "transform 0.9s ease-in-out";
-        ball.style.transform = `translate(${data.x}px, ${data.y}px)`;
+        // Jump to start of the correct ramp, then roll up
+        ball.animate([
+            { transform: `translate(${data.startX}px, ${data.startY}px)` },
+            { transform: `translate(${data.x}px, ${data.y}px)` }
+        ], { duration: data.duration, fill: 'forwards', easing: 'ease-in-out' });
     }
+    
     if (rampSteep) rampSteep.style.opacity = type === "steep" ? "1" : "0.35";
     if (rampFlat) rampFlat.style.opacity = type === "flat" ? "1" : "0.35";
     if (forceCell) forceCell.innerText = data.force;
@@ -227,13 +251,8 @@ function compareRamp(type) {
     if (text) text.innerText = `${data.msg} Die Arbeit bleibt idealisiert gleich.`;
 }
 
-function rollSteep() {
-    compareRamp("steep");
-}
-
-function rollFlat() {
-    compareRamp("flat");
-}
+function rollSteep() { compareRamp("steep"); }
+function rollFlat() { compareRamp("flat"); }
 
 // 5. Verformungs- und Beschleunigungsarbeit
 function compressSpring() {
@@ -244,8 +263,13 @@ function compressSpring() {
     const fill = document.getElementById("springMeter");
 
     springCompressed = !springCompressed;
-    if (spring) spring.style.transform = springCompressed ? "scaleX(0.52)" : "scaleX(1)";
-    if (block) block.style.transform = springCompressed ? "translateX(-82px)" : "translateX(0px)";
+    
+    if (spring) {
+        spring.animate([{ transform: springCompressed ? "scaleX(0.52)" : "scaleX(1)" }], { duration: 400, fill: 'forwards', easing: 'ease-in-out' });
+    }
+    if (block) {
+        block.animate([{ transform: springCompressed ? "translate(-82px, 0)" : "translate(0, 0)" }], { duration: 400, fill: 'forwards', easing: 'ease-in-out' });
+    }
     if (fill) fill.style.width = springCompressed ? "85%" : "15%";
     if (text) {
         text.innerText = springCompressed
@@ -265,7 +289,9 @@ function updateBike() {
     const energy = 0.5 * speed * speed;
 
     if (speedVal) speedVal.innerText = speed;
-    if (bike) bike.style.transform = `translateX(${speed * 10}px)`;
+    if (bike) {
+        bike.animate([{ transform: `translate(${speed * 10}px, 0)` }], { duration: 300, fill: 'forwards', easing: 'ease-out' });
+    }
     if (fill) fill.style.width = `${Math.min(100, energy)}%`;
     if (text) text.innerText = `Beschleunigungsarbeit: Je schneller das Fahrrad wird, desto größer wird die Bewegungsenergie. Vergleichswert: ${energy.toFixed(1)}.`;
 }
