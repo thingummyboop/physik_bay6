@@ -67,10 +67,10 @@ function chooseWorkCase(type) {
     let bagTarget = 0;
 
     if (type === "box") {
-        personTarget = 120;
-        boxTarget = 120;
+        personTarget = 158;
+        boxTarget = 110;
     } else if (type === "wall") {
-        personTarget = 190;
+        personTarget = 188;
     } else if (type === "carry") {
         personTarget = 140;
         bagTarget = 140;
@@ -83,33 +83,37 @@ function chooseWorkCase(type) {
         bag.animate([{ transform: `translate(${bagTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
     }
     
-    if (wall) wall.style.opacity = type === "wall" ? "1" : "0.35";
-    if (bag) bag.style.opacity = type === "hold" || type === "carry" ? "1" : "0.25";
+    if (box) box.style.display = type === "box" ? "block" : "none";
+    if (wall) wall.style.display = type === "wall" ? "block" : "none";
+    if (bag) {
+        bag.style.display = type === "hold" || type === "carry" ? "block" : "none";
+        bag.style.opacity = "1";
+    }
     if (arrow) arrow.setAttribute("opacity", type === "box" || type === "wall" ? "1" : "0");
 
     if (type === "box") {
         if (arrowLine) {
-            arrowLine.setAttribute("x1", "244");
+            arrowLine.setAttribute("x1", "286");
             arrowLine.setAttribute("y1", "132");
-            arrowLine.setAttribute("x2", "276");
+            arrowLine.setAttribute("x2", "316");
             arrowLine.setAttribute("y2", "132");
         }
-        if (arrowHead) arrowHead.setAttribute("points", "276,132 266,126 266,138");
+        if (arrowHead) arrowHead.setAttribute("points", "316,132 306,126 306,138");
         if (arrowLabel) {
-            arrowLabel.setAttribute("x", "260");
+            arrowLabel.setAttribute("x", "301");
             arrowLabel.setAttribute("y", "121");
         }
     }
     if (type === "wall") {
         if (arrowLine) {
-            arrowLine.setAttribute("x1", "299");
+            arrowLine.setAttribute("x1", "314");
             arrowLine.setAttribute("y1", "132");
-            arrowLine.setAttribute("x2", "324");
+            arrowLine.setAttribute("x2", "338");
             arrowLine.setAttribute("y2", "132");
         }
-        if (arrowHead) arrowHead.setAttribute("points", "324,132 314,126 314,138");
+        if (arrowHead) arrowHead.setAttribute("points", "338,132 328,126 328,138");
         if (arrowLabel) {
-            arrowLabel.setAttribute("x", "311");
+            arrowLabel.setAttribute("x", "326");
             arrowLabel.setAttribute("y", "121");
         }
     }

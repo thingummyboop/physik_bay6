@@ -22,13 +22,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=2.1`);
+        let response = await fetch(`../lang/${lang}.json?v=2.2`);
         let langData = await response.json();
         let topic = langData[topicId];
 
         // Fallback to German
         if (!topic && lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=2.1`);
+            const deRes = await fetch(`../lang/de.json?v=2.2`);
             const deData = await deRes.json();
             topic = deData[topicId];
         }
@@ -120,7 +120,7 @@ async function renderTopic() {
 
         // Load Script
         const script = document.createElement('script');
-        script.src = `../js/topics/${topicId}.js?v=2.1`;
+        script.src = `../js/topics/${topicId}.js?v=2.2`;
         script.async = false;
         script.onload = () => {
             if (typeof topicInit === 'function') {
