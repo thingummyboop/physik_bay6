@@ -149,6 +149,68 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin-bottom: 8px;
 }
 
+.prediction-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 14px 0;
+}
+
+.prediction-btn {
+    background: var(--card-bg);
+    color: var(--text);
+    border: 2px solid var(--box-border);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.95em;
+}
+
+.prediction-btn.selected {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.18);
+}
+
+.lab-feedback {
+    min-height: 1.6em;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.remember-box:empty {
+    display: none;
+}
+
+.meter {
+    width: 100%;
+    max-width: 420px;
+    height: 18px;
+    background: rgba(148, 163, 184, 0.25);
+    border: 1px solid var(--box-border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.meter-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+.lab-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    align-items: end;
+    margin: 12px 0;
+}
+
+.lab-controls label {
+    display: block;
+    font-weight: 700;
+}
+
 .interactive-zone {
     background: var(--interactive-bg); border: 1px solid var(--primary);
     padding: 20px; border-radius: 15px; margin: 20px 0;

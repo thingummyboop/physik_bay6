@@ -1,6 +1,14 @@
 // Logic for kraft und bewegung topic
 function topicInit() {
     updateLever();
+    updateForceLab();
+}
+
+function setPrediction(group, value) {
+    const buttons = document.querySelectorAll(`[data-predict-group="${group}"]`);
+    buttons.forEach(btn => btn.classList.toggle('selected', btn.dataset.predictValue === value));
+    const output = document.getElementById(`${group}Prediction`);
+    if (output) output.innerText = "Vermutung gespeichert. Jetzt testen!";
 }
 
 // 1. Trägheit (Ball schubsen)
@@ -13,6 +21,8 @@ function kickBall() {
     ball.style.transform = 'translateX(800px)'; 
     
     txt.innerText = "Ohne bremsende Kraft fliegt der Ball weiter. Das ist Trägheit.";
+    const insight = document.getElementById('inertiaInsight');
+    if (insight) insight.innerText = "Erkenntnis: Bewegung braucht keine dauernde Kraft. Eine Kraft ist nötig, um Bewegung zu ändern.";
 }
 
 function resetBall() {
@@ -22,6 +32,8 @@ function resetBall() {
     ball.style.transition = 'none'; 
     ball.style.transform = 'translateX(0px)';
     txt.innerText = "";
+    const insight = document.getElementById('inertiaInsight');
+    if (insight) insight.innerText = "";
 }
 
 // 2. Reibung
@@ -34,6 +46,12 @@ function pushBlocks() {
     sand.style.transition = 'none';
     ice.style.transform = 'translateX(0)';
     sand.style.transform = 'translateX(0)';
+    const iceMeter = document.getElementById('iceDistance');
+    const carpetMeter = document.getElementById('carpetDistance');
+    const result = document.getElementById('frictionRaceText');
+    if (iceMeter) iceMeter.style.width = '0%';
+    if (carpetMeter) carpetMeter.style.width = '0%';
+    if (result) result.innerText = "";
     
     setTimeout(() => {
         ice.style.transition = 'transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
@@ -41,6 +59,9 @@ function pushBlocks() {
         
         ice.style.transform = 'translateX(400px)'; 
         sand.style.transform = 'translateX(60px)';  
+        if (iceMeter) iceMeter.style.width = '92%';
+        if (carpetMeter) carpetMeter.style.width = '28%';
+        if (result) result.innerText = "Ergebnis: Auf Eis kommt der Block viel weiter. Der Teppich bremst stärker.";
     }, 50);
 }
 
@@ -65,11 +86,15 @@ function dropItems(isVacuum) {
             feather.style.transform = 'translateY(225px)';
             txt.innerText = "Im Vakuum gibt es keinen Luftwiderstand. Beide fallen gleich schnell.";
             txt.style.color = "#E91E63";
+            const result = document.getElementById('dropResult');
+            if (result) result.innerText = "Erkenntnis: Ohne Luftwiderstand entscheidet nicht die Form. Beide werden gleich beschleunigt.";
         } else {
             feather.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.6, 1)'; 
             feather.style.transform = 'translateY(225px)';
             txt.innerText = "Mit Luft: Der Apfel ist schwer und kompakt. Die Luft bremst die breite Feder stark ab.";
             txt.style.color = "#1976D2";
+            const result = document.getElementById('dropResult');
+            if (result) result.innerText = "Erkenntnis: In Luft wirkt zusätzlich Luftwiderstand. Er bremst breite, leichte Dinge stark.";
         }
     }, 50);
 }
@@ -82,9 +107,12 @@ function launchRocket() {
     
     flame.style.display = 'block';
     flame.classList.add('anim-shake');
+    const result = document.getElementById('rocketText');
+    if (result) result.innerText = "Aktion: Gase werden nach unten gedrückt.";
     
     setTimeout(() => {
         rocket.style.transform = 'translateY(-100px)';
+        if (result) result.innerText = "Reaktion: Die Rakete wird nach oben gedrückt.";
         setTimeout(() => {
             flame.style.display = 'none';
             rocket.style.transform = 'translateY(200px)'; 
@@ -112,6 +140,7 @@ function updateLever() {
             txt.style.color = "#4CAF50";
         }
         if (txtPos) txtPos.innerText = "Nah an der Last (Perfekt!)";
+        updateLeverMeter(85);
     } else if (val > 60) {
         seesaw.style.transform = 'rotate(-25deg)';
         if (txt) {
@@ -119,6 +148,7 @@ function updateLever() {
             txt.style.color = "#F44336";
         }
         if (txtPos) txtPos.innerText = "Nah an der Kraft (Schlecht!)";
+        updateLeverMeter(20);
     } else {
         seesaw.style.transform = 'rotate(-15deg)';
         if (txt) {
@@ -126,7 +156,48 @@ function updateLever() {
             txt.style.color = "#E91E63";
         }
         if (txtPos) txtPos.innerText = "Mitte";
+        updateLeverMeter(45);
     }
+}
+
+function updateLeverMeter(value) {
+    const meter = document.getElementById('leverChance');
+    if (meter) meter.style.width = `${value}%`;
+}
+
+function updateForceLab() {
+    const force = Number(document.getElementById('forceRange')?.value || 6);
+    const mass = Number(document.getElementById('massRange')?.value || 3);
+    const forceLabel = document.getElementById('forceLabel');
+    const massLabel = document.getElementById('massLabel');
+    const accelLabel = document.getElementById('accelLabel');
+    const accelMeter = document.getElementById('accelMeter');
+    const acceleration = force / mass;
+
+    if (forceLabel) forceLabel.innerText = `${force} N`;
+    if (massLabel) massLabel.innerText = `${mass} kg`;
+    if (accelLabel) accelLabel.innerText = `${acceleration.toFixed(1)} m/s²`;
+    if (accelMeter) accelMeter.style.width = `${Math.min(100, acceleration * 18)}%`;
+}
+
+function runForceLab() {
+    updateForceLab();
+    const force = Number(document.getElementById('forceRange')?.value || 6);
+    const mass = Number(document.getElementById('massRange')?.value || 3);
+    const acceleration = force / mass;
+    const cart = document.getElementById('forceCart');
+    const result = document.getElementById('forceLabText');
+    if (!cart || !result) return;
+
+    const duration = Math.max(0.7, 4.2 / acceleration);
+    cart.style.transition = 'none';
+    cart.style.transform = 'translateX(10px)';
+
+    setTimeout(() => {
+        cart.style.transition = `transform ${duration}s ease-in`;
+        cart.style.transform = 'translateX(300px)';
+        result.innerText = `Ergebnis: ${force} N Kraft bei ${mass} kg Masse ergeben ${acceleration.toFixed(1)} m/s². Mehr Kraft hilft. Mehr Masse bremst die Beschleunigung.`;
+    }, 50);
 }
 
 // 6. Newton 2 (Rennen)
