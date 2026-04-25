@@ -76,11 +76,11 @@ function chooseWorkCase(type) {
         bagTarget = 140;
     }
 
-    if (person) person.animate([{ transform: `translate(${personTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
-    if (box) box.animate([{ transform: `translate(${boxTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
+    if (person) person.animate([{ transform: `translate(${personTarget}px, 0)` }], { duration: 900, fill: 'forwards', easing: 'ease' });
+    if (box) box.animate([{ transform: `translate(${boxTarget}px, 0)` }], { duration: 900, fill: 'forwards', easing: 'ease' });
     if (bag) {
         bag.setAttribute("transform", `translate(${bagTarget} 0)`);
-        bag.animate([{ transform: `translate(${bagTarget}px, 0)` }], { duration: 500, fill: 'forwards', easing: 'ease' });
+        bag.animate([{ transform: `translate(${bagTarget}px, 0)` }], { duration: 900, fill: 'forwards', easing: 'ease' });
     }
     
     if (box) box.style.display = type === "box" ? "block" : "none";
