@@ -49,6 +49,9 @@ function chooseWorkCase(type) {
     const box = document.getElementById("boxGroup");
     const wall = document.getElementById("wallGroup");
     const bag = document.getElementById("bagGroup");
+    const arrow = document.getElementById("workForceArrow");
+    const arrowLine = document.getElementById("workForceLine");
+    const arrowLabel = document.getElementById("workForceLabel");
     if (!data) return;
 
     if (text) {
@@ -75,6 +78,32 @@ function chooseWorkCase(type) {
     
     if (wall) wall.style.opacity = type === "wall" ? "1" : "0.35";
     if (bag) bag.style.opacity = type === "hold" || type === "carry" ? "1" : "0.25";
+    if (arrow) arrow.setAttribute("opacity", type === "box" || type === "wall" ? "1" : "0");
+
+    if (type === "box") {
+        if (arrowLine) {
+            arrowLine.setAttribute("x1", "246");
+            arrowLine.setAttribute("y1", "132");
+            arrowLine.setAttribute("x2", "282");
+            arrowLine.setAttribute("y2", "132");
+        }
+        if (arrowLabel) {
+            arrowLabel.setAttribute("x", "258");
+            arrowLabel.setAttribute("y", "119");
+        }
+    }
+    if (type === "wall") {
+        if (arrowLine) {
+            arrowLine.setAttribute("x1", "315");
+            arrowLine.setAttribute("y1", "132");
+            arrowLine.setAttribute("x2", "336");
+            arrowLine.setAttribute("y2", "132");
+        }
+        if (arrowLabel) {
+            arrowLabel.setAttribute("x", "326");
+            arrowLabel.setAttribute("y", "119");
+        }
+    }
 }
 
 // Old buttons may still exist in cached pages.
