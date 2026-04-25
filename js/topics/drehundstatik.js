@@ -7,6 +7,7 @@ function topicInit() {
     testEquilibrium('stable');
     updateBalance();
     updateCarousel();
+    resetDoor();
     updateMeter('spinMeter', 30);
     startSkaterAnimation();
 }
@@ -93,10 +94,10 @@ function pushDoor(pos) {
 }
 
 function setDoorTopView(angleDeg, pushDistance, color) {
-    const hingeX = 85;
-    const hingeY = 120;
-    const length = 230;
-    const thickness = 22;
+    const hingeX = 95;
+    const hingeY = 170;
+    const length = 270;
+    const thickness = 28;
     const angle = -angleDeg * Math.PI / 180;
     const vx = Math.cos(angle);
     const vy = Math.sin(angle);
@@ -109,8 +110,8 @@ function setDoorTopView(angleDeg, pushDistance, color) {
     const f2 = [hingeX + vx * length - nx * thickness / 2, hingeY + vy * length - ny * thickness / 2];
     const handle = [hingeX + vx * (length - 20), hingeY + vy * (length - 20)];
     const pushPoint = [hingeX + vx * pushDistance, hingeY + vy * pushDistance];
-    const arrowStart = [pushPoint[0] - nx * 42, pushPoint[1] - ny * 42];
-    const arrowEnd = [pushPoint[0] - nx * 12, pushPoint[1] - ny * 12];
+    const arrowStart = [pushPoint[0] + nx * 46, pushPoint[1] + ny * 46];
+    const arrowEnd = [pushPoint[0] + nx * 14, pushPoint[1] + ny * 14];
 
     document.getElementById('doorPanel')?.setAttribute('points', `${h1[0]},${h1[1]} ${f1[0]},${f1[1]} ${f2[0]},${f2[1]} ${h2[0]},${h2[1]}`);
     document.getElementById('doorHandle')?.setAttribute('cx', handle[0]);
@@ -118,6 +119,12 @@ function setDoorTopView(angleDeg, pushDistance, color) {
     document.getElementById('doorPushPoint')?.setAttribute('cx', pushPoint[0]);
     document.getElementById('doorPushPoint')?.setAttribute('cy', pushPoint[1]);
     document.getElementById('doorPushPoint')?.setAttribute('opacity', '1');
+    document.getElementById('doorPushHalo')?.setAttribute('cx', pushPoint[0]);
+    document.getElementById('doorPushHalo')?.setAttribute('cy', pushPoint[1]);
+    document.getElementById('doorPushHalo')?.setAttribute('opacity', '1');
+    document.getElementById('doorPushLabel')?.setAttribute('x', pushPoint[0]);
+    document.getElementById('doorPushLabel')?.setAttribute('y', pushPoint[1] + 42);
+    document.getElementById('doorPushLabel')?.setAttribute('opacity', '1');
 
     const armLine = document.getElementById('leverArmLine');
     if (armLine) {
@@ -135,7 +142,38 @@ function setDoorTopView(angleDeg, pushDistance, color) {
         arrow.setAttribute('x2', arrowEnd[0]);
         arrow.setAttribute('y2', arrowEnd[1]);
         arrow.setAttribute('stroke', color);
+        arrow.style.display = 'block';
     }
+}
+
+function resetDoor() {
+    const hingeX = 95;
+    const hingeY = 170;
+    const length = 270;
+    const thickness = 28;
+    const h1 = [hingeX, hingeY - thickness / 2];
+    const h2 = [hingeX, hingeY + thickness / 2];
+    const f1 = [hingeX + length, hingeY - thickness / 2];
+    const f2 = [hingeX + length, hingeY + thickness / 2];
+    document.getElementById('doorPanel')?.setAttribute('points', `${h1[0]},${h1[1]} ${f1[0]},${f1[1]} ${f2[0]},${f2[1]} ${h2[0]},${h2[1]}`);
+    document.getElementById('doorHandle')?.setAttribute('cx', hingeX + length - 25);
+    document.getElementById('doorHandle')?.setAttribute('cy', hingeY);
+    document.getElementById('leverArmLine')?.setAttribute('x1', hingeX);
+    document.getElementById('leverArmLine')?.setAttribute('y1', hingeY);
+    document.getElementById('leverArmLine')?.setAttribute('x2', hingeX + length - 25);
+    document.getElementById('leverArmLine')?.setAttribute('y2', hingeY);
+    document.getElementById('leverArmLine')?.setAttribute('stroke', '#2563eb');
+    document.getElementById('doorPushPoint')?.setAttribute('opacity', '0');
+    document.getElementById('doorPushHalo')?.setAttribute('opacity', '0');
+    document.getElementById('doorPushLabel')?.setAttribute('opacity', '0');
+    const arrow = document.getElementById('doorForceArrow');
+    if (arrow) arrow.style.display = 'none';
+    const txt = document.getElementById('doorText');
+    if (txt) {
+        txt.innerText = "Tür geschlossen. Wähle einen Druckpunkt und teste das Drehmoment.";
+        txt.style.color = "#334155";
+    }
+    updateMeter('torqueMeter', 0);
 }
 
 // 3. Gleichgewichtsarten
