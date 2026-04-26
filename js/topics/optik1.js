@@ -302,20 +302,23 @@ function updateSlitMachine(value) {
     wallBot.setAttribute('height', (230 - botY).toFixed(1));
 
     const diffraction = 1 - width / 100;
-    const spread = 30 + diffraction * 138;
+    const spread = Math.max(gap, 30 + diffraction * 138);
     const screenY = centerY - spread / 2;
     if (spot) {
         spot.setAttribute('y', screenY.toFixed(1));
         spot.setAttribute('height', spread.toFixed(1));
         spot.setAttribute('opacity', (0.38 + diffraction * 0.42).toFixed(2));
     }
+    if (beam) {
+        beam.setAttribute('d', buildDiffractionEnvelope(centerY, gap, spread));
+        beam.setAttribute('opacity', (0.10 + diffraction * 0.36).toFixed(2));
+    }
 
     if (wavesBroad) wavesBroad.style.opacity = String(0.25 + width / 100 * 0.75);
     if (wavesNarrow) wavesNarrow.style.opacity = String(0.2 + diffraction * 0.95);
-    if (beam) beam.style.opacity = String(0.12 + diffraction * 0.5);
 
     let name = "breit";
-    let message = "Breiter Spalt: Die Wellenfront bleibt fast gerade. Auf dem Schirm sieht man nur einen schmalen hellen Streifen.";
+    let message = "Breiter Spalt: Die Wellenfront bleibt fast gerade. Auf dem Schirm sieht man einen relativ schmalen hellen Streifen.";
     let shortStatus = "Breiter Spalt: wenig Beugung";
     if (width <= 25) {
         name = "sehr eng";
@@ -330,6 +333,24 @@ function updateSlitMachine(value) {
     if (label) label.innerText = name;
     if (status) status.innerText = shortStatus;
     if (text) text.innerText = message;
+}
+
+function buildDiffractionEnvelope(centerY, gap, screenSpread) {
+    const apertureX = 250;
+    const screenX = 500;
+    const apertureHalf = Math.max(5, gap / 2);
+    const screenHalf = screenSpread / 2;
+    const topStart = centerY - apertureHalf;
+    const bottomStart = centerY + apertureHalf;
+    const topEnd = centerY - screenHalf;
+    const bottomEnd = centerY + screenHalf;
+    return [
+        `M ${apertureX} ${topStart.toFixed(1)}`,
+        `C 320 ${topStart.toFixed(1)} 420 ${topEnd.toFixed(1)} ${screenX} ${topEnd.toFixed(1)}`,
+        `L ${screenX} ${bottomEnd.toFixed(1)}`,
+        `C 420 ${bottomEnd.toFixed(1)} 320 ${bottomStart.toFixed(1)} ${apertureX} ${bottomStart.toFixed(1)}`,
+        'Z'
+    ].join(' ');
 }
 
 function predictSlit(choice) {
