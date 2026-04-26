@@ -60,6 +60,7 @@ function updatePrismDispersion(angleDeg) {
     const entry = entryHit.point;
     const actualIncidence = angleBetween(incidentDir, inwardNormal);
     setSvgLine("dispersionIncidentRay", source, entry);
+    updateWhiteBeamGradient(source, entry);
     setSvgCircle("dispersionEntryPoint", entry);
 
     setSvgLine("dispersionNormal", add(entry, multiply(inwardNormal, -44)), add(entry, multiply(inwardNormal, 44)));
@@ -178,6 +179,16 @@ function setSvgLine(id, start, end) {
     line.setAttribute("y1", start.y.toFixed(1));
     line.setAttribute("x2", end.x.toFixed(1));
     line.setAttribute("y2", end.y.toFixed(1));
+}
+
+function updateWhiteBeamGradient(start, end) {
+    const gradient = document.getElementById("whiteBeamGradient");
+    if (!gradient) return;
+    gradient.setAttribute("gradientUnits", "userSpaceOnUse");
+    gradient.setAttribute("x1", start.x.toFixed(1));
+    gradient.setAttribute("y1", start.y.toFixed(1));
+    gradient.setAttribute("x2", end.x.toFixed(1));
+    gradient.setAttribute("y2", end.y.toFixed(1));
 }
 
 function setSvgCircle(id, point) {
