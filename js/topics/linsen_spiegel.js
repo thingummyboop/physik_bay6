@@ -140,6 +140,8 @@ function updateSlitMachine(value) {
     const gap = 10 + width * 0.82;
     const topHeight = centerY - gap / 2 - 20;
     const botY = centerY + gap / 2;
+    const apertureTop = centerY - gap / 2;
+    const apertureBottom = centerY + gap / 2;
     wallTop.setAttribute('height', topHeight.toFixed(1));
     wallBot.setAttribute('y', botY.toFixed(1));
     wallBot.setAttribute('height', (230 - botY).toFixed(1));
@@ -157,8 +159,20 @@ function updateSlitMachine(value) {
         beam.setAttribute('opacity', (0.10 + diffraction * 0.36).toFixed(2));
     }
 
-    if (wavesBroad) wavesBroad.style.opacity = String(0.25 + width / 100 * 0.75);
-    if (wavesNarrow) wavesNarrow.style.opacity = String(0.2 + diffraction * 0.95);
+    const circularAmount = clamp((70 - width) / 40, 0, 1);
+    const planeAmount = 1 - circularAmount;
+    if (wavesBroad) {
+        wavesBroad.style.opacity = planeAmount.toFixed(2);
+        wavesBroad.style.display = planeAmount < 0.03 ? "none" : "block";
+        wavesBroad.querySelectorAll('line').forEach((line) => {
+            line.setAttribute('y1', apertureTop.toFixed(1));
+            line.setAttribute('y2', apertureBottom.toFixed(1));
+        });
+    }
+    if (wavesNarrow) {
+        wavesNarrow.style.opacity = circularAmount.toFixed(2);
+        wavesNarrow.style.display = circularAmount < 0.03 ? "none" : "block";
+    }
 
     let name = "breit";
     let message = "Breiter Spalt: Die Wellenfront bleibt fast gerade. Auf dem Schirm sieht man einen relativ schmalen hellen Streifen.";
@@ -187,13 +201,11 @@ function buildDiffractionEnvelope(centerY, gap, screenSpread) {
     const bottomStart = centerY + apertureHalf;
     const topEnd = centerY - screenHalf;
     const bottomEnd = centerY + screenHalf;
-    return [
-        `M ${apertureX} ${topStart.toFixed(1)}`,
-        `C 320 ${topStart.toFixed(1)} 420 ${topEnd.toFixed(1)} ${screenX} ${topEnd.toFixed(1)}`,
-        `L ${screenX} ${bottomEnd.toFixed(1)}`,
-        `C 420 ${bottomEnd.toFixed(1)} 320 ${bottomStart.toFixed(1)} ${apertureX} ${bottomStart.toFixed(1)}`,
-        'Z'
-    ].join(' ');
+    return `M ${apertureX} ${topStart.toFixed(1)} L ${screenX} ${topEnd.toFixed(1)} L ${screenX} ${bottomEnd.toFixed(1)} L ${apertureX} ${bottomStart.toFixed(1)} Z`;
+}
+
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
 }
 
 function predictSlit(choice) {
