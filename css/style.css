@@ -176,6 +176,94 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin-top: 10px;
 }
 
+.prism-lab {
+    border-color: #2563eb;
+}
+
+.prism-stage {
+    background: linear-gradient(180deg, #ffffff 0%, #eef6ff 100%);
+    border: 2px solid rgba(37, 99, 235, 0.25);
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.prism-stage svg {
+    width: 100%;
+    max-height: 470px;
+}
+
+.prism-label,
+.prism-small-label,
+.prism-side-note {
+    font-family: inherit;
+    paint-order: stroke;
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+}
+
+.prism-label {
+    fill: #0f172a;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.prism-small-label {
+    fill: #1e293b;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.prism-side-note {
+    fill: #334155;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.prism-height-label {
+    fill: #c2410c;
+    font-size: 28px;
+}
+
+.prism-formula .formula-card {
+    margin: 0 8px;
+}
+
+.prism-fill-cubes .prism-cube {
+    animation: prismCubeIn 0.6s ease both;
+}
+
+.prism-fill-cubes .prism-cube:nth-child(2) { animation-delay: 0.08s; }
+.prism-fill-cubes .prism-cube:nth-child(3) { animation-delay: 0.16s; }
+.prism-fill-cubes .prism-cube:nth-child(4) { animation-delay: 0.24s; }
+.prism-fill-cubes .prism-cube:nth-child(5) { animation-delay: 0.32s; }
+
+@keyframes prismCubeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[data-theme="dark"] .prism-stage {
+    background: linear-gradient(180deg, #0f172a 0%, #172554 100%);
+    border-color: rgba(147, 197, 253, 0.35);
+}
+
+[data-theme="dark"] .prism-label,
+[data-theme="dark"] .prism-small-label,
+[data-theme="dark"] .prism-side-note {
+    stroke: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="dark"] .prism-label { fill: #eff6ff; }
+[data-theme="dark"] .prism-small-label { fill: #dbeafe; }
+[data-theme="dark"] .prism-side-note { fill: #bfdbfe; }
+
 .remember-box:empty {
     display: none;
 }
