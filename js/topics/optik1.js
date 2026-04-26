@@ -387,9 +387,10 @@ function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
             stroke: index === 0 ? '#93c5fd' : '#60a5fa',
             'stroke-width': index === 1 ? '4.5' : '4',
             'stroke-linecap': 'round',
-            opacity: (0.95 - index * 0.15).toFixed(2),
             class: 'slit-wavefront'
         });
+        path.style.setProperty('--wave-opacity', (0.95 - index * 0.15).toFixed(2));
+        path.style.animationDelay = `${-index * 0.8}s`;
         group.appendChild(path);
     });
 }
