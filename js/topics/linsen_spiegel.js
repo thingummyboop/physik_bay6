@@ -129,6 +129,7 @@ function updateSlitMachine(value) {
     const wallBot = document.getElementById('wallBot');
     const wavesBroad = document.getElementById('wavesBroad');
     const wavesNarrow = document.getElementById('wavesNarrow');
+    const wavefronts = document.getElementById('slitWavefronts');
     const beam = document.getElementById('photonBeam');
     const spot = document.getElementById('slitScreenSpot');
     const label = document.getElementById('slitWidthLabel');
@@ -159,19 +160,24 @@ function updateSlitMachine(value) {
         beam.setAttribute('opacity', (0.10 + diffraction * 0.36).toFixed(2));
     }
 
-    const circularAmount = clamp((70 - width) / 40, 0, 1);
-    const planeAmount = 1 - circularAmount;
-    if (wavesBroad) {
+    const bendAmount = clamp((75 - width) / 65, 0, 1);
+    if (wavefronts) {
+        drawSlitWavefronts(wavefronts, centerY, gap, spread, bendAmount);
+        if (wavesBroad) wavesBroad.style.display = "none";
+        if (wavesNarrow) wavesNarrow.style.display = "none";
+    } else if (wavesBroad) {
+        const circularAmount = clamp((70 - width) / 40, 0, 1);
+        const planeAmount = 1 - circularAmount;
         wavesBroad.style.opacity = planeAmount.toFixed(2);
         wavesBroad.style.display = planeAmount < 0.03 ? "none" : "block";
         wavesBroad.querySelectorAll('line').forEach((line) => {
             line.setAttribute('y1', apertureTop.toFixed(1));
             line.setAttribute('y2', apertureBottom.toFixed(1));
         });
-    }
-    if (wavesNarrow) {
-        wavesNarrow.style.opacity = circularAmount.toFixed(2);
-        wavesNarrow.style.display = circularAmount < 0.03 ? "none" : "block";
+        if (wavesNarrow) {
+            wavesNarrow.style.opacity = circularAmount.toFixed(2);
+            wavesNarrow.style.display = circularAmount < 0.03 ? "none" : "block";
+        }
     }
 
     let name = "breit";
@@ -204,8 +210,45 @@ function buildDiffractionEnvelope(centerY, gap, screenSpread) {
     return `M ${apertureX} ${topStart.toFixed(1)} L ${screenX} ${topEnd.toFixed(1)} L ${screenX} ${bottomEnd.toFixed(1)} L ${apertureX} ${bottomStart.toFixed(1)} Z`;
 }
 
+function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
+    group.innerHTML = "";
+    [42, 96, 150].forEach((radius, index) => {
+        const xPlane = 270 + index * 62;
+        const screenShare = 0.35 + index * 0.25;
+        const halfHeight = Math.min(radius * 0.82, gap / 2 + bendAmount * (screenSpread / 2 - gap / 2) * screenShare);
+        const endX = 240 + Math.sqrt(Math.max(0, radius * radius - halfHeight * halfHeight));
+        const arcMidX = 240 + radius;
+        const topX = lerp(xPlane, endX, bendAmount);
+        const bottomX = topX;
+        const midX = lerp(xPlane, arcMidX, bendAmount);
+        const topY = centerY - halfHeight;
+        const bottomY = centerY + halfHeight;
+
+        const path = createSvgElement('path', {
+            d: `M ${topX.toFixed(1)} ${topY.toFixed(1)} Q ${midX.toFixed(1)} ${centerY.toFixed(1)} ${bottomX.toFixed(1)} ${bottomY.toFixed(1)}`,
+            fill: 'none',
+            stroke: index === 0 ? '#93c5fd' : '#60a5fa',
+            'stroke-width': index === 1 ? '4.5' : '4',
+            'stroke-linecap': 'round',
+            opacity: (0.95 - index * 0.15).toFixed(2),
+            class: 'slit-wavefront'
+        });
+        group.appendChild(path);
+    });
+}
+
 function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
+}
+
+function lerp(start, end, amount) {
+    return start + (end - start) * amount;
+}
+
+function createSvgElement(name, attrs) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', name);
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+    return el;
 }
 
 function predictSlit(choice) {
