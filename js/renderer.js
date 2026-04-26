@@ -8,6 +8,10 @@ function shuffleArray(array) {
     return array;
 }
 
+function stripQuestionNumber(question) {
+    return String(question || '').replace(/^\s*\d+\.\s*/, '');
+}
+
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
@@ -22,13 +26,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=2.4`);
+        let response = await fetch(`../lang/${lang}.json?v=2.5`);
         let langData = await response.json();
         let topic = langData[topicId];
 
         // Fallback to German
         if (!topic && lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=2.4`);
+            const deRes = await fetch(`../lang/de.json?v=2.5`);
             const deData = await deRes.json();
             topic = deData[topicId];
         }
@@ -101,7 +105,7 @@ async function renderTopic() {
                 
                 diplomHtml += `
                     <div class="quiz-box" data-id="${q.id}">
-                        <p><strong>${i+1}. ${q.question}</strong></p>
+                        <p><strong>${i+1}. ${stripQuestionNumber(q.question)}</strong></p>
                         ${shuffledAnswers.map(ans => `
                             <button onclick="handleAnswer(this, ${ans.correct}, ${ans.pts})">${ans.text}</button>
                         `).join('')}
@@ -120,7 +124,7 @@ async function renderTopic() {
 
         // Load Script
         const script = document.createElement('script');
-        script.src = `../js/topics/${topicId}.js?v=2.4`;
+        script.src = `../js/topics/${topicId}.js?v=2.5`;
         script.async = false;
         script.onload = () => {
             if (typeof topicInit === 'function') {

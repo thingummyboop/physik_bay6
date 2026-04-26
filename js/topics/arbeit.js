@@ -20,7 +20,7 @@ const workCases = {
         work: "Höhe bleibt gleich: h = 0 m"
     },
     carry: {
-        text: "Beim gleichmäßigen Tragen wirkt deine Haltekraft nach oben, der Weg ist waagerecht. In dieser Richtung verrichtest du am Rucksack kaum mechanische Arbeit.",
+        text: "Beim gleichmäßigen Tragen wirkt deine Haltekraft nach oben, der Weg ist waagerecht. Kraft und Weg zeigen nicht in dieselbe Richtung.",
         color: "#7c3aed",
         work: "Kraft und Weg zeigen nicht in dieselbe Richtung."
     }
@@ -55,6 +55,9 @@ function chooseWorkCase(type) {
     const arrowLine = document.getElementById("workForceLine");
     const arrowHead = document.getElementById("workForceHead");
     const arrowLabel = document.getElementById("workForceLabel");
+    const carryVectors = document.getElementById("carryVectors");
+    const holdForceVector = document.getElementById("holdForceVector");
+    const carryPathVector = document.getElementById("carryPathVector");
     if (!data) return;
 
     if (text) {
@@ -62,8 +65,11 @@ function chooseWorkCase(type) {
         text.style.color = data.color;
     }
     if (formula) formula.innerText = data.work;
+    document.querySelectorAll("[data-work-case]").forEach((btn) => {
+        btn.classList.toggle("selected", btn.dataset.workCase === type);
+    });
 
-    [person, box, bag].forEach((el) => {
+    [person, box, bag, carryVectors].forEach((el) => {
         if (!el) return;
         if (el.getAnimations) el.getAnimations().forEach((animation) => animation.cancel());
         el.style.transform = "translate(0px, 0px)";
@@ -77,6 +83,12 @@ function chooseWorkCase(type) {
         bag.style.opacity = "1";
     }
     if (arrow) arrow.setAttribute("opacity", "0");
+    if (carryVectors) {
+        carryVectors.style.display = type === "hold" || type === "carry" ? "block" : "none";
+        carryVectors.setAttribute("opacity", type === "hold" || type === "carry" ? "1" : "0");
+    }
+    if (holdForceVector) holdForceVector.style.display = type === "hold" || type === "carry" ? "block" : "none";
+    if (carryPathVector) carryPathVector.style.display = type === "carry" ? "block" : "none";
 
     if (type === "box") {
         if (arrowLine) {
@@ -139,6 +151,16 @@ function chooseWorkCase(type) {
             { transform: "translate(0px, 0px)" },
             { transform: "translate(140px, 0px)" }
         ], { duration: 900, fill: "forwards", easing: "ease" });
+        if (carryVectors) {
+            const vectorMove = carryVectors.animate([
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(140px, 0px)" }
+            ], { duration: 900, fill: "forwards", easing: "ease" });
+            vectorMove.finished.then(() => {
+                if (token !== workSceneToken) return;
+                carryVectors.setAttribute("transform", "translate(140 0)");
+            });
+        }
         if (bag) {
             const bagMove = bag.animate([
                 { transform: "translate(0px, 0px)" },
@@ -368,5 +390,5 @@ function updateBike() {
         bike.animate([{ transform: `translate(${speed * 10}px, 0)` }], { duration: 300, fill: 'forwards', easing: 'ease-out' });
     }
     if (fill) fill.style.width = `${Math.min(100, energy)}%`;
-    if (text) text.innerText = `Beschleunigungsarbeit: Je schneller das Fahrrad wird, desto größer wird die Bewegungsenergie. Vergleichswert: ${energy.toFixed(1)}.`;
+    if (text) text.innerText = "Beschleunigungsarbeit: Je schneller das Fahrrad wird, desto größer wird die Bewegungsenergie. Doppelt so schnell bedeutet ungefähr viermal so viel Bewegungsenergie.";
 }
