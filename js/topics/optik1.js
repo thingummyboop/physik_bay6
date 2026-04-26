@@ -369,24 +369,27 @@ function buildDiffractionEnvelope(centerY, gap, screenSpread) {
 
 function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
     group.innerHTML = "";
-    const radius = 96;
-    const halfHeight = Math.min(radius * 0.82, gap / 2 + bendAmount * (screenSpread / 2 - gap / 2) * 0.65);
-    const startX = 252;
-    const midX = startX + bendAmount * 72;
+    const originX = 240;
+    const baseRadius = 44;
+    const xPlane = originX + baseRadius;
+    const halfHeight = Math.min(baseRadius * 0.82, Math.max(6, gap / 2) + bendAmount * (baseRadius * 0.82 - Math.max(6, gap / 2)));
+    const circleEdgeX = originX + Math.sqrt(Math.max(0, baseRadius * baseRadius - halfHeight * halfHeight));
+    const edgeX = lerp(xPlane, circleEdgeX, bendAmount);
+    const midX = originX + baseRadius;
     const topY = centerY - halfHeight;
     const bottomY = centerY + halfHeight;
-    const outgoingDelays = [-0.63, -1.29, -1.96];
+    const outgoingDelays = [0, -0.5, -1, -1.5];
 
     outgoingDelays.forEach((delay, index) => {
         const path = createSvgElement('path', {
-            d: `M ${startX.toFixed(1)} ${topY.toFixed(1)} Q ${midX.toFixed(1)} ${centerY.toFixed(1)} ${startX.toFixed(1)} ${bottomY.toFixed(1)}`,
+            d: `M ${edgeX.toFixed(1)} ${topY.toFixed(1)} Q ${midX.toFixed(1)} ${centerY.toFixed(1)} ${edgeX.toFixed(1)} ${bottomY.toFixed(1)}`,
             fill: 'none',
             stroke: '#60a5fa',
             'stroke-width': '4.5',
             'stroke-linecap': 'round',
             class: 'slit-wavefront'
         });
-        path.style.setProperty('--wave-opacity', (0.9 - index * 0.08).toFixed(2));
+        path.style.setProperty('--wave-opacity', (0.92 - index * 0.05).toFixed(2));
         path.style.animationDelay = `${delay}s`;
         group.appendChild(path);
     });

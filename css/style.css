@@ -415,22 +415,22 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 
 .slit-wavefront {
     animation: slitWaveTravel 2s infinite linear;
-    transform-box: fill-box;
-    transform-origin: center;
+    transform-box: view-box;
+    transform-origin: 240px 130px;
     transition: d 0.25s ease, stroke 0.25s ease;
 }
 
 @keyframes slitWaveTravel {
     0% {
         opacity: var(--wave-opacity, 0.9);
-        transform: translateX(0);
+        transform: scale(0.25);
     }
     74% {
         opacity: var(--wave-opacity, 0.9);
     }
     100% {
         opacity: 0;
-        transform: translateX(400px);
+        transform: scale(4.8);
     }
 }
 
