@@ -5,6 +5,7 @@ function topicInit() {
     updateShadow2();
     updateEclipse1();
     updateReflection();
+    initSlitMachine();
 }
 
 // 1. Point Source Shadow
@@ -235,7 +236,21 @@ function updateReflection() {
 
 // 5. Diffraction (Slit)
 let slitState = 0;
+function initSlitMachine() {
+    const slider = document.getElementById('slitWidth');
+    if (!slider) return;
+    slider.addEventListener('input', () => updateSlitMachine(slider.value));
+    updateSlitMachine(slider.value);
+}
+
 function narrowSlit() {
+    const slider = document.getElementById('slitWidth');
+    if (slider) {
+        slider.value = Number(slider.value) > 35 ? 10 : 75;
+        updateSlitMachine(slider.value);
+        return;
+    }
+
     const wallTop = document.getElementById('wallTop');
     const wallBot = document.getElementById('wallBot');
     const wavesBroad = document.getElementById('wavesBroad');
@@ -262,5 +277,71 @@ function narrowSlit() {
         if(wavesNarrow) wavesNarrow.style.display = "block";
         if(beam) beam.style.display = "block";
         if(txt) txt.innerText = "Sehr enger Spalt: Starke Beugung! Huygens' neue Kreiswellen entstehen.";
+    }
+}
+
+function updateSlitMachine(value) {
+    const width = Math.max(0, Math.min(100, Number(value)));
+    const wallTop = document.getElementById('wallTop');
+    const wallBot = document.getElementById('wallBot');
+    const wavesBroad = document.getElementById('wavesBroad');
+    const wavesNarrow = document.getElementById('wavesNarrow');
+    const beam = document.getElementById('photonBeam');
+    const spot = document.getElementById('slitScreenSpot');
+    const label = document.getElementById('slitWidthLabel');
+    const status = document.getElementById('slitStatus');
+    const text = document.getElementById('slitText');
+    if (!wallTop || !wallBot) return;
+
+    const centerY = 130;
+    const gap = 10 + width * 0.82;
+    const topHeight = centerY - gap / 2 - 20;
+    const botY = centerY + gap / 2;
+    wallTop.setAttribute('height', topHeight.toFixed(1));
+    wallBot.setAttribute('y', botY.toFixed(1));
+    wallBot.setAttribute('height', (230 - botY).toFixed(1));
+
+    const diffraction = 1 - width / 100;
+    const spread = 30 + diffraction * 138;
+    const screenY = centerY - spread / 2;
+    if (spot) {
+        spot.setAttribute('y', screenY.toFixed(1));
+        spot.setAttribute('height', spread.toFixed(1));
+        spot.setAttribute('opacity', (0.38 + diffraction * 0.42).toFixed(2));
+    }
+
+    if (wavesBroad) wavesBroad.style.opacity = String(0.25 + width / 100 * 0.75);
+    if (wavesNarrow) wavesNarrow.style.opacity = String(0.2 + diffraction * 0.95);
+    if (beam) beam.style.opacity = String(0.12 + diffraction * 0.5);
+
+    let name = "breit";
+    let message = "Breiter Spalt: Die Wellenfront bleibt fast gerade. Auf dem Schirm sieht man nur einen schmalen hellen Streifen.";
+    let shortStatus = "Breiter Spalt: wenig Beugung";
+    if (width <= 25) {
+        name = "sehr eng";
+        message = "Sehr enger Spalt: Der Spalt wirkt wie eine kleine neue Lichtquelle. Dahinter entstehen Kreiswellen, und der helle Fleck am Schirm wird breit.";
+        shortStatus = "Sehr enger Spalt: starke Beugung";
+    } else if (width <= 55) {
+        name = "mittel";
+        message = "Mittlerer Spalt: Die Welle geht noch nach vorne, biegt sich aber schon sichtbar zu den Seiten.";
+        shortStatus = "Mittlerer Spalt: sichtbare Beugung";
+    }
+
+    if (label) label.innerText = name;
+    if (status) status.innerText = shortStatus;
+    if (text) text.innerText = message;
+}
+
+function predictSlit(choice) {
+    const feedback = document.getElementById('slitPredictionText');
+    document.querySelectorAll('[data-slit-prediction]').forEach((button) => {
+        button.classList.toggle('selected', button.dataset.slitPrediction === choice);
+        button.classList.toggle('correct', choice === 'spread' && button.dataset.slitPrediction === choice);
+    });
+    if (!feedback) return;
+    if (choice === 'spread') {
+        feedback.innerText = "Gute Vermutung: Beim engen Spalt breitet sich Licht seitlich aus.";
+    } else {
+        feedback.innerText = "Das klingt zuerst logisch. Teste den Regler: Bei engem Spalt zeigt Licht seine Wellennatur.";
     }
 }
