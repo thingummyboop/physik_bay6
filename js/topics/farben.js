@@ -54,19 +54,8 @@ function updatePrismDispersion(angleDeg) {
 
     const entry = entryHit.point;
     const insideAngle = angleDeg * 0.32 + 4;
-    const insideDir = normalize({
-        x: Math.cos(insideAngle * Math.PI / 180),
-        y: Math.sin(insideAngle * Math.PI / 180)
-    });
-    const insideStart = add(entry, multiply(insideDir, 0.5));
-    const exitHit = raySegmentIntersection(insideStart, insideDir, prismTop, prismRight);
-    if (!exitHit) return;
-    const exit = exitHit.point;
-
     setSvgLine("dispersionIncidentRay", source, entry);
-    setSvgLine("dispersionInsideRay", entry, exit);
     setSvgCircle("dispersionEntryPoint", entry);
-    setSvgCircle("dispersionExitPoint", exit);
 
     const face = subtract(prismLeft, prismTop);
     const normal = normalize({ x: -face.y, y: face.x });
@@ -75,31 +64,61 @@ function updatePrismDispersion(angleDeg) {
     const label = document.getElementById("dispersionAngleLabel");
     if (label) label.textContent = `${angleDeg}°`;
 
-    drawSpectrum(exit, insideAngle, angleDeg);
+    drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg);
     updateDispersionText(angleDeg);
 }
 
-function drawSpectrum(exit, insideAngle, angleDeg) {
+function drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg) {
+    const insideRays = document.getElementById("dispersionInsideColorRays");
+    const exitPoints = document.getElementById("dispersionExitPoints");
     const rays = document.getElementById("dispersionSpectrumRays");
     const hits = document.getElementById("dispersionScreenHits");
-    if (!rays || !hits) return;
+    if (!insideRays || !exitPoints || !rays || !hits) return;
 
+    insideRays.innerHTML = "";
+    exitPoints.innerHTML = "";
     rays.innerHTML = "";
     hits.innerHTML = "";
 
     const colors = [
-        { name: "Rot", color: "#ef4444", offset: -7, width: 5 },
-        { name: "Orange", color: "#f97316", offset: -4, width: 4 },
-        { name: "Gelb", color: "#facc15", offset: -1, width: 4 },
-        { name: "Grün", color: "#22c55e", offset: 2, width: 4 },
-        { name: "Blau", color: "#3b82f6", offset: 5, width: 4 },
-        { name: "Violett", color: "#8b5cf6", offset: 8, width: 5 }
+        { name: "Rot", color: "#ef4444", innerOffset: -1.6, outOffset: -7, width: 5 },
+        { name: "Orange", color: "#f97316", innerOffset: -1.0, outOffset: -4, width: 4 },
+        { name: "Gelb", color: "#facc15", innerOffset: -0.4, outOffset: -1, width: 4 },
+        { name: "Grün", color: "#22c55e", innerOffset: 0.25, outOffset: 2, width: 4 },
+        { name: "Blau", color: "#3b82f6", innerOffset: 0.9, outOffset: 5, width: 4 },
+        { name: "Violett", color: "#8b5cf6", innerOffset: 1.55, outOffset: 8, width: 5 }
     ];
     const screenX = 635;
     const baseOutAngle = insideAngle + 16 + angleDeg * 0.35;
 
     colors.forEach((item) => {
-        const outAngle = (baseOutAngle + item.offset) * Math.PI / 180;
+        const innerAngle = (insideAngle + item.innerOffset) * Math.PI / 180;
+        const innerDir = normalize({ x: Math.cos(innerAngle), y: Math.sin(innerAngle) });
+        const exitHit = raySegmentIntersection(add(entry, multiply(innerDir, 0.5)), innerDir, prismTop, prismRight);
+        if (!exitHit) return;
+
+        const exit = exitHit.point;
+        insideRays.appendChild(svgEl("line", {
+            x1: entry.x,
+            y1: entry.y,
+            x2: exit.x,
+            y2: exit.y,
+            stroke: item.color,
+            "stroke-width": item.width,
+            "stroke-linecap": "round",
+            opacity: "0.72"
+        }));
+        exitPoints.appendChild(svgEl("circle", {
+            cx: exit.x,
+            cy: exit.y,
+            r: item.width + 1,
+            fill: item.color,
+            stroke: "#f8fafc",
+            "stroke-width": "1.5",
+            opacity: "0.95"
+        }));
+
+        const outAngle = (baseOutAngle + item.outOffset) * Math.PI / 180;
         const dir = normalize({ x: Math.cos(outAngle), y: Math.sin(outAngle) });
         const end = {
             x: screenX,
@@ -144,7 +163,7 @@ function updateDispersionText(angleDeg) {
     let position = "ungefähr in der Mitte";
     if (angleDeg < -9) position = "weiter oben";
     if (angleDeg > 1) position = "weiter unten";
-    text.innerHTML = `Der weiße Strahl trifft ${position} auf das Prisma. Im Glas wird er gebrochen. Beim Herauskommen fächert er auf: Rot wird weniger stark gebrochen, Violett stärker.`;
+    text.innerHTML = `Der weiße Strahl trifft ${position} auf das Prisma. Schon im Glas laufen die Farben leicht auseinander: Rot wird weniger stark gebrochen, Violett stärker. Am Schirm sieht man die Aufspaltung besonders deutlich.`;
 }
 
 function setSvgLine(id, start, end) {
