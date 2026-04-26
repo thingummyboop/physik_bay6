@@ -233,7 +233,7 @@ function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
             class: 'slit-wavefront'
         });
         path.style.setProperty('--wave-opacity', (0.95 - index * 0.15).toFixed(2));
-        path.style.animationDelay = `${-index * 0.8}s`;
+        path.style.animationDelay = `${-index * 0.66}s`;
         group.appendChild(path);
     });
 }
