@@ -43,31 +43,35 @@ function initPrismDispersion() {
 }
 
 function updatePrismDispersion(angleDeg) {
-    const source = { x: 65, y: 90 };
+    const source = { x: 65, y: 195 };
     const prismTop = { x: 320, y: 70 };
     const prismLeft = { x: 210, y: 290 };
     const prismRight = { x: 470, y: 290 };
+    const prismPoints = [prismTop, prismRight, prismLeft];
     const entryFace = subtract(prismLeft, prismTop);
     const inwardNormal = normalize({ x: entryFace.y, y: -entryFace.x });
-    const incidentDir = rotateVector(inwardNormal, angleDeg);
+    const incidentDir = normalize({
+        x: Math.cos(angleDeg * Math.PI / 180),
+        y: Math.sin(angleDeg * Math.PI / 180)
+    });
     const entryHit = raySegmentIntersection(source, incidentDir, prismTop, prismLeft);
     if (!entryHit) return;
 
     const entry = entryHit.point;
-    const insideAngle = 4 - angleDeg * 0.1;
+    const actualIncidence = angleBetween(incidentDir, inwardNormal);
     setSvgLine("dispersionIncidentRay", source, entry);
     setSvgCircle("dispersionEntryPoint", entry);
 
     setSvgLine("dispersionNormal", add(entry, multiply(inwardNormal, -44)), add(entry, multiply(inwardNormal, 44)));
 
     const label = document.getElementById("dispersionAngleLabel");
-    if (label) label.textContent = `${angleDeg}°`;
+    if (label) label.textContent = `${actualIncidence.toFixed(0)}°`;
 
-    drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg);
-    updateDispersionText(angleDeg);
+    drawSpectrum(entry, incidentDir, multiply(inwardNormal, -1), prismPoints);
+    updateDispersionText(entry, actualIncidence);
 }
 
-function drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg) {
+function drawSpectrum(entry, incidentDir, entryNormal, prismPoints) {
     const insideRays = document.getElementById("dispersionInsideColorRays");
     const exitPoints = document.getElementById("dispersionExitPoints");
     const rays = document.getElementById("dispersionSpectrumRays");
@@ -80,20 +84,20 @@ function drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg) {
     hits.innerHTML = "";
 
     const colors = [
-        { name: "Rot", color: "#ef4444", innerOffset: -1.6, outOffset: -7, width: 5 },
-        { name: "Orange", color: "#f97316", innerOffset: -1.0, outOffset: -4, width: 4 },
-        { name: "Gelb", color: "#facc15", innerOffset: -0.4, outOffset: -1, width: 4 },
-        { name: "Grün", color: "#22c55e", innerOffset: 0.25, outOffset: 2, width: 4 },
-        { name: "Blau", color: "#3b82f6", innerOffset: 0.9, outOffset: 5, width: 4 },
-        { name: "Violett", color: "#8b5cf6", innerOffset: 1.55, outOffset: 8, width: 5 }
+        { name: "Rot", color: "#ef4444", n: 1.10, width: 5 },
+        { name: "Orange", color: "#f97316", n: 1.12, width: 4 },
+        { name: "Gelb", color: "#facc15", n: 1.14, width: 4 },
+        { name: "Grün", color: "#22c55e", n: 1.16, width: 4 },
+        { name: "Blau", color: "#3b82f6", n: 1.18, width: 4 },
+        { name: "Violett", color: "#8b5cf6", n: 1.20, width: 5 }
     ];
     const screenX = 635;
-    const baseOutAngle = insideAngle + 16 + angleDeg * 0.35;
 
     colors.forEach((item) => {
-        const innerAngle = (insideAngle + item.innerOffset) * Math.PI / 180;
-        const innerDir = normalize({ x: Math.cos(innerAngle), y: Math.sin(innerAngle) });
-        const exitHit = raySegmentIntersection(add(entry, multiply(innerDir, 0.5)), innerDir, prismTop, prismRight);
+        const innerDir = refractRay(incidentDir, entryNormal, 1, item.n);
+        if (!innerDir) return;
+
+        const exitHit = rayPolygonIntersection(add(entry, multiply(innerDir, 0.5)), innerDir, prismPoints, 2);
         if (!exitHit) return;
 
         const exit = exitHit.point;
@@ -117,8 +121,10 @@ function drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg) {
             opacity: "0.95"
         }));
 
-        const outAngle = (baseOutAngle + item.outOffset) * Math.PI / 180;
-        const dir = normalize({ x: Math.cos(outAngle), y: Math.sin(outAngle) });
+        const exitNormal = normalOpposingDirection(subtract(exitHit.b, exitHit.a), innerDir);
+        const dir = refractRay(innerDir, exitNormal, item.n, 1);
+        if (!dir || dir.x <= 0.05) return;
+
         const end = {
             x: screenX,
             y: exit.y + dir.y / dir.x * (screenX - exit.x)
@@ -156,13 +162,13 @@ function drawSpectrum(entry, prismTop, prismRight, insideAngle, angleDeg) {
     });
 }
 
-function updateDispersionText(angleDeg) {
+function updateDispersionText(entry, actualIncidence) {
     const text = document.getElementById("dispersionText");
     if (!text) return;
     let position = "ungefähr in der Mitte";
-    if (angleDeg < -7) position = "weiter oben";
-    if (angleDeg > 7) position = "weiter unten";
-    text.innerHTML = `Der weiße Strahl trifft ${position} auf das Prisma. 0° bedeutet: Der Strahl läuft genau entlang des Lots und trifft senkrecht auf die Fläche. Schon im Glas laufen die Farben leicht auseinander.`;
+    if (entry.y < 175) position = "weiter oben";
+    if (entry.y > 215) position = "weiter unten";
+    text.innerHTML = `Der weiße Strahl trifft ${position} auf das Prisma. Der echte Einfallswinkel zum Lot ist etwa ${actualIncidence.toFixed(0)}°. Die Farben werden mit Snellius unterschiedlich gebrochen.`;
 }
 
 function setSvgLine(id, start, end) {
@@ -194,8 +200,39 @@ function raySegmentIntersection(origin, direction, a, b) {
     return {
         point: add(origin, multiply(direction, t)),
         t,
-        u
+        u,
+        a,
+        b
     };
+}
+
+function rayPolygonIntersection(origin, direction, points, skipEdge) {
+    let closest = null;
+    for (let i = 0; i < points.length; i++) {
+        if (i === skipEdge) continue;
+        const hit = raySegmentIntersection(origin, direction, points[i], points[(i + 1) % points.length]);
+        if (hit && (!closest || hit.t < closest.t)) {
+            closest = { ...hit, edge: i };
+        }
+    }
+    return closest;
+}
+
+function refractRay(incident, normal, n1, n2) {
+    const i = normalize(incident);
+    let n = normalize(normal);
+    if (dot(i, n) > 0) n = multiply(n, -1);
+    const eta = n1 / n2;
+    const cosI = -dot(n, i);
+    const k = 1 - eta * eta * (1 - cosI * cosI);
+    if (k < 0) return null;
+    return normalize(add(multiply(i, eta), multiply(n, eta * cosI - Math.sqrt(k))));
+}
+
+function normalOpposingDirection(edge, direction) {
+    let normal = normalize({ x: edge.y, y: -edge.x });
+    if (dot(normal, direction) > 0) normal = multiply(normal, -1);
+    return normal;
 }
 
 function svgEl(name, attrs) {
@@ -220,17 +257,16 @@ function cross(a, b) {
     return a.x * b.y - a.y * b.x;
 }
 
+function dot(a, b) {
+    return a.x * b.x + a.y * b.y;
+}
+
+function angleBetween(a, b) {
+    const value = Math.max(-1, Math.min(1, dot(normalize(a), normalize(b))));
+    return Math.acos(value) * 180 / Math.PI;
+}
+
 function normalize(a) {
     const length = Math.hypot(a.x, a.y) || 1;
     return { x: a.x / length, y: a.y / length };
-}
-
-function rotateVector(vector, angleDeg) {
-    const angle = angleDeg * Math.PI / 180;
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
-    return {
-        x: vector.x * cos - vector.y * sin,
-        y: vector.x * sin + vector.y * cos
-    };
 }
