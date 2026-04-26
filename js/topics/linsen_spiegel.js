@@ -212,30 +212,24 @@ function buildDiffractionEnvelope(centerY, gap, screenSpread) {
 
 function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
     group.innerHTML = "";
-    [96].forEach((radius, index) => {
-        const xPlane = 270;
-        const screenShare = 0.65;
-        const halfHeight = Math.min(radius * 0.82, gap / 2 + bendAmount * (screenSpread / 2 - gap / 2) * screenShare);
-        const endX = 240 + Math.sqrt(Math.max(0, radius * radius - halfHeight * halfHeight));
-        const arcMidX = 240 + radius;
-        const topX = lerp(xPlane, endX, bendAmount);
-        const bottomX = topX;
-        const midX = lerp(xPlane, arcMidX, bendAmount);
-        const topY = centerY - halfHeight;
-        const bottomY = centerY + halfHeight;
+    const radius = 96;
+    const halfHeight = Math.min(radius * 0.82, gap / 2 + bendAmount * (screenSpread / 2 - gap / 2) * 0.65);
+    const startX = 252;
+    const midX = startX + bendAmount * 72;
+    const topY = centerY - halfHeight;
+    const bottomY = centerY + halfHeight;
 
-        const path = createSvgElement('path', {
-            d: `M ${topX.toFixed(1)} ${topY.toFixed(1)} Q ${midX.toFixed(1)} ${centerY.toFixed(1)} ${bottomX.toFixed(1)} ${bottomY.toFixed(1)}`,
-            fill: 'none',
-            stroke: '#60a5fa',
-            'stroke-width': '4.5',
-            'stroke-linecap': 'round',
-            class: 'slit-wavefront'
-        });
-        path.style.setProperty('--wave-opacity', '0.9');
-        path.style.animationDelay = '0s';
-        group.appendChild(path);
+    const path = createSvgElement('path', {
+        d: `M ${startX.toFixed(1)} ${topY.toFixed(1)} Q ${midX.toFixed(1)} ${centerY.toFixed(1)} ${startX.toFixed(1)} ${bottomY.toFixed(1)}`,
+        fill: 'none',
+        stroke: '#60a5fa',
+        'stroke-width': '4.5',
+        'stroke-linecap': 'round',
+        class: 'slit-wavefront'
     });
+    path.style.setProperty('--wave-opacity', '0.9');
+    path.style.animationDelay = '0.1s';
+    group.appendChild(path);
 }
 
 function clamp(value, min, max) {
