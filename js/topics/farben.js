@@ -43,23 +43,22 @@ function initPrismDispersion() {
 }
 
 function updatePrismDispersion(angleDeg) {
-    const source = { x: 60, y: 195 };
+    const source = { x: 65, y: 90 };
     const prismTop = { x: 320, y: 70 };
     const prismLeft = { x: 210, y: 290 };
     const prismRight = { x: 470, y: 290 };
-    const angleRad = angleDeg * Math.PI / 180;
-    const incidentDir = normalize({ x: Math.cos(angleRad), y: Math.sin(angleRad) });
+    const entryFace = subtract(prismLeft, prismTop);
+    const inwardNormal = normalize({ x: entryFace.y, y: -entryFace.x });
+    const incidentDir = rotateVector(inwardNormal, angleDeg);
     const entryHit = raySegmentIntersection(source, incidentDir, prismTop, prismLeft);
     if (!entryHit) return;
 
     const entry = entryHit.point;
-    const insideAngle = angleDeg * 0.32 + 4;
+    const insideAngle = 4 - angleDeg * 0.1;
     setSvgLine("dispersionIncidentRay", source, entry);
     setSvgCircle("dispersionEntryPoint", entry);
 
-    const face = subtract(prismLeft, prismTop);
-    const normal = normalize({ x: -face.y, y: face.x });
-    setSvgLine("dispersionNormal", add(entry, multiply(normal, -44)), add(entry, multiply(normal, 44)));
+    setSvgLine("dispersionNormal", add(entry, multiply(inwardNormal, -44)), add(entry, multiply(inwardNormal, 44)));
 
     const label = document.getElementById("dispersionAngleLabel");
     if (label) label.textContent = `${angleDeg}°`;
@@ -161,9 +160,9 @@ function updateDispersionText(angleDeg) {
     const text = document.getElementById("dispersionText");
     if (!text) return;
     let position = "ungefähr in der Mitte";
-    if (angleDeg < -9) position = "weiter oben";
-    if (angleDeg > 1) position = "weiter unten";
-    text.innerHTML = `Der weiße Strahl trifft ${position} auf das Prisma. Schon im Glas laufen die Farben leicht auseinander: Rot wird weniger stark gebrochen, Violett stärker. Am Schirm sieht man die Aufspaltung besonders deutlich.`;
+    if (angleDeg < -7) position = "weiter oben";
+    if (angleDeg > 7) position = "weiter unten";
+    text.innerHTML = `Der weiße Strahl trifft ${position} auf das Prisma. 0° bedeutet: Der Strahl läuft genau entlang des Lots und trifft senkrecht auf die Fläche. Schon im Glas laufen die Farben leicht auseinander.`;
 }
 
 function setSvgLine(id, start, end) {
@@ -224,4 +223,14 @@ function cross(a, b) {
 function normalize(a) {
     const length = Math.hypot(a.x, a.y) || 1;
     return { x: a.x / length, y: a.y / length };
+}
+
+function rotateVector(vector, angleDeg) {
+    const angle = angleDeg * Math.PI / 180;
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    return {
+        x: vector.x * cos - vector.y * sin,
+        y: vector.x * sin + vector.y * cos
+    };
 }
