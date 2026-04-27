@@ -356,3 +356,9 @@ P1/P2 Fortschritt (Run 2026-04-27 23:46):
 - Abgedeckt: Sammellauf für `audit_quiz_feedback`, `audit_physics_a11y`, `audit_math_a11y`, `audit_remaining_subjects_a11y`, `audit_inline_alerts` plus `git diff --check`.
 - Doku nachgezogen: **`docs/QUALITY_CRITERIA.md`** nennt Physik-Audit und Inline-Alert-Audit jetzt explizit in den Mindestchecks und verweist auf den Sammellauf.
 - Ergebnis: Der Implementieren→Review→Patch-Loop für künftige Chunks ist reproduzierbarer, schneller und regressionssicherer über Physik/Mathe/Nebenfächer.
+
+P1/P2 Fortschritt (Run 2026-04-27 23:58):
+- Physik-Regressionstest **`scripts/audit_physics_a11y.js`** auf verbleibende QA-Lücken gehärtet.
+- Abgedeckt: zusätzlicher Check auf `alert()`-Reste, erweiterte Live-Region-Prüfung (`aria-live` + `aria-atomic` + `role="status"`) sowie Slider-Basissemantik inklusive `aria-describedby` neben `aria-valuetext`.
+- Qualitätssicherung: Implementieren → Review → Patch mit erneutem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-Perfection ist robuster gegen künftige A11y-Regressionen; stille Rückfälle bei Popup-Feedback oder unvollständiger Live-/Slider-Semantik werden jetzt früher erkannt.

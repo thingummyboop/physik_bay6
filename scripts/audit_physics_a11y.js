@@ -36,14 +36,31 @@ for (const topic of physicsTopics) {
 
   const source = fs.readFileSync(file, 'utf8');
 
+  if (source.includes('alert(')) {
+    findings.push({
+      topic,
+      issue: 'inline_alert_usage',
+      detail: 'Contains alert(...). Prefer in-page feedback with live regions.'
+    });
+  }
+
   const hasLive = source.includes("aria-live") || source.includes("'aria-live'") || source.includes('"aria-live"');
   const hasAtomic = source.includes("aria-atomic") || source.includes("'aria-atomic'") || source.includes('"aria-atomic"');
+  const hasStatusRole = source.includes("role=\"status\"") || source.includes("role='status'") || source.includes("'role', 'status'") || source.includes('"role", "status"');
 
   if (hasLive && !hasAtomic) {
     findings.push({
       topic,
       issue: 'live_without_atomic',
       detail: 'Contains aria-live but no aria-atomic marker.'
+    });
+  }
+
+  if (hasLive && !hasStatusRole) {
+    findings.push({
+      topic,
+      issue: 'live_without_status_role',
+      detail: 'Contains aria-live but no status role marker.'
     });
   }
 
@@ -61,11 +78,20 @@ for (const topic of physicsTopics) {
 
   const hasSlider = source.includes('Range') || source.includes('type="range"') || source.includes("type='range'");
   const hasValueText = source.includes('aria-valuetext');
+  const hasDescribedBy = source.includes('aria-describedby');
   if (hasSlider && !hasValueText) {
     findings.push({
       topic,
       issue: 'slider_without_aria_valuetext',
       detail: 'Potential range interaction without aria-valuetext annotation.'
+    });
+  }
+
+  if (hasSlider && !hasDescribedBy) {
+    findings.push({
+      topic,
+      issue: 'slider_without_aria_describedby',
+      detail: 'Potential range interaction without aria-describedby annotation.'
     });
   }
 }
