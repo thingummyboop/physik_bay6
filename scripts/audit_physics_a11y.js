@@ -134,9 +134,10 @@ for (const topic of physicsTopics) {
     }
   }
 
-  const hasSlider = source.includes('Range') || source.includes('type="range"') || source.includes("type='range'");
+  const hasSlider = source.includes('Range') || source.includes('Slider') || source.includes('type="range"') || source.includes("type='range'");
   const hasValueText = source.includes('aria-valuetext');
   const hasDescribedBy = source.includes('aria-describedby');
+  const hasValueTextAssignment = /setAttribute\(\s*['"]aria-valuetext['"]/.test(source);
   if (hasSlider && !hasValueText) {
     findings.push({
       topic,
@@ -150,6 +151,14 @@ for (const topic of physicsTopics) {
       topic,
       issue: 'slider_without_aria_describedby',
       detail: 'Potential range interaction without aria-describedby annotation.'
+    });
+  }
+
+  if (hasSlider && !hasValueTextAssignment) {
+    findings.push({
+      topic,
+      issue: 'slider_missing_aria_valuetext_assignment',
+      detail: 'Potential range interaction found, but no setAttribute("aria-valuetext", ...) assignment detected in topic script.'
     });
   }
 }
