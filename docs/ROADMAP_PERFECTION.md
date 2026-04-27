@@ -314,3 +314,14 @@ P2-Math Fortschritt (Run 2026-04-27 22:46):
 - Abgedeckt: drei Interaktionsaufgaben (`geld_input`, `rund_input`, `komma_input`) mit Enter-Submit, robustem Komma-Parsing und Live-Feedback (`role="status"`, `aria-live`, `aria-atomic`) inkl. `aria-describedby`.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math2_3_dezimalzahlen.js` und `git diff --check`.
 - Ergebnis: Dezimalzahlen-Übungen sind ohne störende Popups nutzbar, tastaturfreundlicher und für Screenreader konsistenter.
+
+P2-Math Fortschritt (Run 2026-04-27 22:49):
+- Thema **math2_1_teilbarkeit** didaktisch und barrierearm gehärtet: bestehende Inline-`alert()`-Interaktionen zur Teilbarkeit/ggT/kgV werden nun durch in-seitige Feedbackfelder ersetzt.
+- Abgedeckt: Divisibility-Check ohne Eingabe + zwei Zahlenaufgaben (`ggt_input`, `kgv_input`) mit Enter-Submit, robustem Zahlen-Parsing, Live-Semantik (`role="status"`, `aria-live`, `aria-atomic`) und `aria-describedby`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math2_1_teilbarkeit.js`, `node scripts/audit_quiz_feedback.js` (`ALL_CLEAR`) und `git diff --check`.
+- Ergebnis: Übungen liefern jetzt ruhige, nachvollziehbare Lernrückmeldungen statt modaler Popups; Tastatur- und Screenreader-Nutzung ist konsistenter.
+
+P3 Fortschritt (Run 2026-04-27 22:49):
+- Neues Audit-Skript **`scripts/audit_inline_alerts.js`** ergänzt.
+- Abgedeckt: automatischer Check aller `lang/*.json` auf verbliebene Inline-`alert()`-Handler in HTML-Content als technische Schuldenliste für die nächste Bereinigungsrunde.
+- Ergebnis: Restlücken bei Popup-basierten Übungen sind nun messbar und priorisierbar (aktuell konzentriert auf wenige Mathematikmodule).
