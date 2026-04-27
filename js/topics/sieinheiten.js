@@ -18,9 +18,55 @@ const conversionTasks = [
 ];
 
 function topicInit() {
+    ensureSIAccessibility();
     updateZoom();
     calcSpeed();
     setFormulaTarget("v");
+}
+
+function ensureSIAccessibility() {
+    const liveIds = [
+        "measureText",
+        "unitMatchText",
+        "timerResult",
+        "baseUnitText",
+        "zoomDesc",
+        "conversionText",
+        "formulaRule",
+        "speedText",
+        "speedExample",
+        "graphText"
+    ];
+
+    liveIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute("role", "status");
+        el.setAttribute("aria-live", "polite");
+        el.setAttribute("aria-atomic", "true");
+    });
+
+    const zoomRange = document.getElementById("zoomRange");
+    if (zoomRange) zoomRange.setAttribute("aria-describedby", "zoomDesc");
+
+    const sRange = document.getElementById("sRange");
+    const tRange = document.getElementById("tRange");
+    if (sRange) sRange.setAttribute("aria-describedby", "speedText speedExample");
+    if (tRange) tRange.setAttribute("aria-describedby", "speedText speedExample");
+
+    const formulaButtons = document.querySelectorAll("[data-formula-target]");
+    formulaButtons.forEach((btn) => {
+        btn.setAttribute("role", "button");
+        if (!btn.hasAttribute("tabindex")) btn.setAttribute("tabindex", "0");
+        if (btn.dataset.a11yBound === "1") return;
+        btn.dataset.a11yBound = "1";
+        btn.addEventListener("keydown", (ev) => {
+            if (ev.key === "Enter" || ev.key === " ") {
+                ev.preventDefault();
+                btn.click();
+            }
+        });
+    });
 }
 
 // 1. Messgroesse und Einheit
@@ -131,7 +177,8 @@ function showBaseUnit(type) {
 
 // 3. Zoom / Praefixe und Umrechnen
 function updateZoom() {
-    const val = Number(document.getElementById("zoomRange")?.value || 2);
+    const zoomRange = document.getElementById("zoomRange");
+    const val = Number(zoomRange?.value || 2);
     const title = document.getElementById("zoomTitle");
     const desc = document.getElementById("zoomDesc");
     const zMilli = document.getElementById("zoomMilli");
@@ -160,6 +207,16 @@ function updateZoom() {
         if (desc) desc.innerText = "Groß: Schulweg, U-Bahn-Strecke, Weg durch den Bezirk.";
         if (zKilo) zKilo.style.display = "block";
     }
+
+    if (zoomRange) {
+        const zoomMap = {
+            1: "1 Millimeter",
+            2: "1 Zentimeter",
+            3: "1 Meter",
+            4: "1 Kilometer"
+        };
+        zoomRange.setAttribute("aria-valuetext", zoomMap[val] || "1 Zentimeter");
+    }
 }
 
 function checkConversion(index) {
@@ -187,7 +244,9 @@ function checkConversion(index) {
 // 4. Formel-Flitzer
 function setFormulaTarget(target) {
     document.querySelectorAll("[data-formula-target]").forEach((btn) => {
-        btn.classList.toggle("selected", btn.dataset.formulaTarget === target);
+        const selected = btn.dataset.formulaTarget === target;
+        btn.classList.toggle("selected", selected);
+        btn.setAttribute("aria-pressed", selected ? "true" : "false");
     });
     const out = document.getElementById("formulaRule");
     if (!out) return;
@@ -211,6 +270,11 @@ function calcSpeed() {
 
     if (sVal) sVal.innerText = s;
     if (tVal) tVal.innerText = t;
+
+    const sRange = document.getElementById("sRange");
+    const tRange = document.getElementById("tRange");
+    if (sRange) sRange.setAttribute("aria-valuetext", `${s} Meter`);
+    if (tRange) tRange.setAttribute("aria-valuetext", `${t} Sekunden`);
 
     const v = s / t;
     if (spTxt) spTxt.innerText = `v = ${s} m / ${t} s = ${v.toFixed(1)} m/s`;

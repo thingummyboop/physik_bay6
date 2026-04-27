@@ -85,6 +85,13 @@ P2 Fortschritt (Run 2026-04-27 18:28):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) inkl. Vollständigkeitscheck auf fehlende Feedbackfelder (`0/36` offen nach Patch).
 - Ergebnis: Diese drei Physikmodule geben nun bei jeder Auswahl konkrete Lernhinweise statt stiller Auswertung.
 
+P2 Fortschritt (Run 2026-04-27 18:54):
+- Physik-Labore **Kraft und Bewegung**, **Energie**, **Statik & Hebel**, **Mechanische Arbeit** und **Farben** auf Screenreader-Rückmeldung verbessert.
+- Abgedeckt: Live-Regionen für dynamische Laborfeedbacks, `aria-describedby`/`aria-valuetext` für zentrale Slider und `aria-pressed` für den Energie-Schalter.
+- Stabilität: Wiederholtes `topicInit()` erzeugt bei **Statik & Hebel** keine gestapelten Daueranimationen mehr; beim Farben-Prisma wird der Slider-Listener nur einmal gebunden.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check` für alle betroffenen Topic-Skripte, `lang/de.json`-Parsecheck und `git diff --check`.
+- Ergebnis: Mehr Physik-Interaktionen liefern ihren Zustand textlich aus und bleiben robuster bei erneuter Initialisierung.
+
 ## Phase 2: Math
 
 - Erst Mathematikthemen mit hohem Förderbedarf priorisieren: Brüche, Dezimalzahlen, Gleichungen, Prozent.
@@ -96,6 +103,20 @@ P2-Math Fortschritt (Run 2026-04-27 18:34):
 - Abgedeckt: 6 Fragen mit insgesamt 14 Antwortoptionen.
 - Qualitätssicherung: Implementieren → Review → Patch mit Vollständigkeitscheck (`0/14` fehlende Feedbackfelder).
 - Ergebnis: Lernende erhalten nun bei typischen Rechenfehlern (Kommafehler, Prozentverwechslung, Proportionalität) direkte Korrekturhinweise.
+
+P2-Math Fortschritt (Run 2026-04-27 18:58):
+- Thema **math1_8_brueche** bei den interaktiven Bruchmodellen auf Tastatur- und Screenreader-Zugänglichkeit verbessert.
+- Abgedeckt: Bruchstücke im visuellen Additions-/Subtraktionsmodell sind nun per Tab erreichbar, mit Enter/Leertaste auswählbar und melden ihren Auswahlzustand über `aria-pressed`.
+- Ergänzt: Live-Regionen für Bruchaufgaben-, Zahlenstrahl- und Anteilsfeedback sowie `aria-valuetext` für den Zahlenstrahl-Slider.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/math1_8_brueche.js` und `git diff --check`.
+- Ergebnis: Ein priorisiertes Bruch-Labor ist nicht mehr nur mausbedienbar und gibt Rückmeldungen textlich aus.
+
+P2 Fortschritt (Run 2026-04-27 18:59):
+- Thema **SI-Einheiten** bei den interaktiven Labs auf Tastatur- und Screenreader-Unterstützung verbessert.
+- Abgedeckt: Live-Regionen für Rückmeldetexte (Messung, Zuordnung, Umrechnung, Formelhilfe, Geschwindigkeits-/Graph-Feedback), `aria-describedby`/`aria-valuetext` für zentrale Slider (Zoom, Weg, Zeit) und `aria-pressed`-Status für Formelziel-Buttons.
+- Stabilität: Formelziel-Buttons erhalten Enter/Leertaste-Unterstützung mit Guard gegen doppelte Listener bei erneutem `topicInit()`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) inkl. Fix gegen zu häufige Live-Ansagen beim Timer-Display; abschließend `node --check js/topics/sieinheiten.js` und `git diff --check`.
+- Ergebnis: Das Modul ist besser ohne Maus nutzbar und liefert konsistentere, vorlesbare Rückmeldungen ohne Screenreader-Spam.
 
 ## Phase 3: Other Subjects
 
