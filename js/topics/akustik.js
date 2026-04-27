@@ -3,6 +3,8 @@ let glassBroken = false;
 
 function topicInit() {
     glassBroken = false;
+    enhanceAccessibility();
+
     // 2. Vakuum: Init air particles inside the existing <g id="airParticles">
     const airParticles = document.getElementById('airParticles');
     if (airParticles) {
@@ -24,12 +26,43 @@ function topicInit() {
     // Resonanz init
     checkResonance();
 
-    // Event listener for distRange
-    document.getElementById('distRange')?.addEventListener('input', (e) => {
-        const val = e.target.value;
-        const txt = document.getElementById('distText');
-        if (txt) txt.innerText = `${val} km (${val * 3} Sekunden)`;
+    const vacBtn = document.getElementById('vacBtn');
+    if (vacBtn && !vacBtn.dataset.vacuumState) {
+        vacBtn.dataset.vacuumState = 'air';
+    }
+
+    // Event listener for distRange (bind only once; topicInit can run again via reset)
+    const distRange = document.getElementById('distRange');
+    if (distRange && !distRange.dataset.bound) {
+        distRange.dataset.bound = 'true';
+        distRange.addEventListener('input', (e) => {
+            const val = e.target.value;
+            const txt = document.getElementById('distText');
+            if (txt) txt.innerText = `${val} km (${val * 3} Sekunden)`;
+        });
+    }
+}
+
+function enhanceAccessibility() {
+    const statusIds = ['forkText', 'vacText', 'thunderMsg', 'echoText', 'resText'];
+    statusIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
     });
+
+    const distRange = document.getElementById('distRange');
+    if (distRange) distRange.setAttribute('aria-describedby', 'distText thunderMsg');
+
+    const freqRange = document.getElementById('freqRange');
+    if (freqRange) freqRange.setAttribute('aria-describedby', 'lblFreq');
+
+    const ampRange = document.getElementById('ampRange');
+    if (ampRange) ampRange.setAttribute('aria-describedby', 'lblAmp');
+
+    const resRange = document.getElementById('resRange');
+    if (resRange) resRange.setAttribute('aria-describedby', 'resValue resText');
 }
 
 // 1. Stimmgabel
@@ -58,15 +91,17 @@ function toggleVacuum() {
     const txt = document.getElementById('vacText');
     if (!btn) return;
 
-    let isVacuum = btn.innerText.includes('abpumpen') || btn.innerText.includes('PUMPE');
+    const isAirMode = (btn.dataset.vacuumState || 'air') === 'air';
 
-    if (isVacuum) {
+    if (isAirMode) {
+        btn.dataset.vacuumState = 'vacuum';
         btn.innerText = "💨 Luft einlassen";
         btn.style.background = "#4a5568";
         if (waves) waves.style.display = "none";
         if (txt) txt.innerText = "Vakuum: Keine Luftteilchen. Der Wecker schwingt, aber der Schall kommt nicht weiter.";
         particles.forEach(p => p.style.opacity = "0");
     } else {
+        btn.dataset.vacuumState = 'air';
         btn.innerText = "🌬️ Luft abpumpen";
         btn.style.background = "#2196F3";
         if (waves) waves.style.display = "block";
