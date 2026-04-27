@@ -332,3 +332,9 @@ P2-Math Fortschritt (Run 2026-04-27 23:xx):
 - Technik: `math4_6_koerper.js` und `math4_8_finanzmathematik.js` um zugängliche Feedbackfelder (`role="status"`, `aria-live`, `aria-atomic`), `aria-describedby` und Enter-Submit ergänzt; `math2_1_teilbarkeit.js` auf handler-basierte Button-Bindung ohne Inline-Event angepasst.
 - Qualitätssicherung: `node scripts/audit_inline_alerts.js` (`ALL_CLEAR`), `node scripts/audit_quiz_feedback.js` (`ALL_CLEAR`), `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`), `node --check` für alle betroffenen Topic-Dateien und `git diff --check`.
 - Ergebnis: Keine verbliebenen Inline-`alert()`-Handler mehr in den priorisierten Mathe-Modulen; Rückmeldungen sind ruhiger, tastaturfreundlicher und screenreader-konsistent.
+
+P3 Fortschritt (Run 2026-04-27 23:10):
+- Nebenfächer-Qualitätssicherung erweitert: neues Audit-Skript **`scripts/audit_remaining_subjects_a11y.js`** ergänzt.
+- Abgedeckt: automatischer Basischeck für **DGB5, Wetter, Klima, Klimawandel** auf Live-Region-Konsistenz (`aria-live` + `aria-atomic`) sowie Slider-Semantik (`aria-describedby`, `aria-valuetext`).
+- Qualitätssicherung: Lauf des neuen Audits (`REMAINING_SUBJECTS_A11Y_CLEAR`) und Dokumentations-Update in **`docs/QUALITY_CRITERIA.md`** als verpflichtender Mindestcheck.
+- Ergebnis: Accessibility-Regressions in den verbleibenden Nebenfächern sind jetzt früh und reproduzierbar prüfbar.

@@ -30,6 +30,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Syntaxcheck betroffener Topic-Dateien: `node --check ...`
 - Sprachdateien parsebar: `node -e "JSON.parse(fs.readFileSync(...))"` oder bestehende Audits.
 - Quiz-Feedback-Vollständigkeit: `node scripts/audit_quiz_feedback.js`
+- Nebenfächer-A11y-Basischeck: `node scripts/audit_remaining_subjects_a11y.js`
 - Whitespace/Conflict-Fehler: `git diff --check`
 
 ## 6) Definition of Done (pro Chunk)
