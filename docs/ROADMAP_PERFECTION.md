@@ -267,3 +267,9 @@ P2 Fortschritt (Run 2026-04-27 22:14):
 - Abgedeckt: Fokusfähigkeit + Enter/Leertaste für `data-slit-prediction`, Guard gegen doppelte Keydown-Listener bei erneutem `topicInit()`, sowie `aria-pressed`-Synchronisierung in `predictSlit()`.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/linsen_spiegel.js` und `git diff --check`.
 - Ergebnis: Der Vorhersage-Check ist nun ohne Maus bedienbar und kommuniziert den gewählten Zustand zuverlässig an assistive Technologien.
+
+P2 Fortschritt (Run 2026-04-27 22:18):
+- Thema **Optik 1 (Licht & Schatten)** bei der Spalt-Vorhersage auf Tastaturbedienung und Screenreader-Semantik nachgezogen.
+- Abgedeckt: Fokusfähigkeit + Enter/Leertaste für `data-slit-prediction`, Guard gegen doppelte Keydown-Listener bei erneutem `topicInit()`, `role="button"`, `aria-describedby` und konsistente `aria-pressed`-Initialisierung.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/optik1.js`, `node scripts/audit_quiz_feedback.js` und `git diff --check`.
+- Ergebnis: Der Vorhersage-Check in Optik 1 ist jetzt robust ohne Maus nutzbar und meldet Auswahlzustände zuverlässig für assistive Technologien.

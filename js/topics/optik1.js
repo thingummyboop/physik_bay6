@@ -6,7 +6,10 @@ function topicInit() {
     updateEclipse1();
     updateReflection();
     initSlitMachine();
+    setupSlitPredictionA11y();
+}
 
+function setupSlitPredictionA11y() {
     const slitPredictionText = document.getElementById('slitPredictionText');
     if (slitPredictionText) {
         slitPredictionText.setAttribute('role', 'status');
@@ -14,8 +17,24 @@ function topicInit() {
         slitPredictionText.setAttribute('aria-atomic', 'true');
     }
 
+    const slitDescriptionIds = ['slitPredictionText', 'slitStatus']
+        .filter((id) => document.getElementById(id))
+        .join(' ');
+
     document.querySelectorAll('[data-slit-prediction]').forEach((button) => {
+        if (!button.hasAttribute('tabindex')) button.setAttribute('tabindex', '0');
+        button.setAttribute('role', 'button');
         button.setAttribute('aria-pressed', button.classList.contains('selected') ? 'true' : 'false');
+        if (slitDescriptionIds) button.setAttribute('aria-describedby', slitDescriptionIds);
+
+        if (button.dataset.a11yBound !== 'true') {
+            button.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                predictSlit(button.dataset.slitPrediction);
+            });
+            button.dataset.a11yBound = 'true';
+        }
     });
 }
 
