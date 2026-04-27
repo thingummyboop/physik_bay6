@@ -237,3 +237,9 @@ P2 Fortschritt (Run 2026-04-27 21:44):
 - Abgedeckt: Schutz gegen Timer-/Animations-Stacking bei wiederholtem Start von `pullSled()` (Run-Token + Timeout-Cleanup + Animation-Cancel), plus `aria-pressed`/`aria-describedby` für den Feder-Button.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/arbeit.js` und Diff-Review.
 - Ergebnis: Die Interaktion bleibt bei mehrfacher Ausführung stabil und vermittelt den Federzustand zuverlässiger für assistive Technologien.
+
+P2-Math Fortschritt (Run 2026-04-27 21:52):
+- Thema **math1_7_gleichungen** didaktisch-technisch gehärtet (Interaktions-Feedback + Accessibility).
+- Abgedeckt: robuste Input-Validierung (`trim`, sichere Number-/String-Normalisierung), Live-Status für Ergebnisfelder (`role="status"`, `aria-live`, `aria-atomic`), `aria-describedby` an Eingabefeldern und Enter-Submit für beide Mini-Checks.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math1_7_gleichungen.js` und Diff-Review.
+- Ergebnis: Das Gleichungsmodul ist tastaturfreundlicher, screenreader-lesbar und reagiert stabiler auf unterschiedliche Eingabeformate.
