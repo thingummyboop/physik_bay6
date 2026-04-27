@@ -85,8 +85,38 @@ function toggleLens() {
 function initSlitMachine() {
     const slider = document.getElementById('slitWidth');
     if (!slider) return;
-    slider.addEventListener('input', () => updateSlitMachine(slider.value));
+
+    ensureSlitA11y(slider);
+
+    if (slider.dataset.listenerBound !== 'true') {
+        slider.addEventListener('input', () => updateSlitMachine(slider.value));
+        slider.dataset.listenerBound = 'true';
+    }
+
     updateSlitMachine(slider.value);
+}
+
+function ensureSlitA11y(slider) {
+    const status = document.getElementById('slitStatus');
+    const text = document.getElementById('slitText');
+    const prediction = document.getElementById('slitPredictionText');
+
+    if (status) {
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+    }
+
+    if (text) {
+        text.setAttribute('role', 'status');
+        text.setAttribute('aria-live', 'polite');
+    }
+
+    if (prediction) {
+        prediction.setAttribute('role', 'status');
+        prediction.setAttribute('aria-live', 'polite');
+    }
+
+    slider.setAttribute('aria-describedby', 'slitStatus slitText');
 }
 
 function narrowSlit() {
