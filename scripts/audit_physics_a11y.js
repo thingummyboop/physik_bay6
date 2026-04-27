@@ -75,19 +75,21 @@ for (const topic of physicsTopics) {
   }
 
   const hasKeydownSupport = source.includes('keydown');
-  const hasEnterSupport =
-    source.includes("event.key === 'Enter'") ||
-    source.includes('event.key === "Enter"') ||
-    source.includes("'Enter'") ||
-    source.includes('"Enter"');
-  const hasSpaceSupport =
-    source.includes("event.key === ' '") ||
-    source.includes('event.key === " "') ||
-    source.includes('Spacebar') ||
-    source.includes("' '") ||
-    source.includes('" "') ||
-    source.includes('event.code === "Space"') ||
-    source.includes("event.code === 'Space'");
+  const enterRegexes = [
+    /\b\w+\.key\s*[!=]==?\s*['"]Enter['"]/, // equality or guard inequality checks
+    /includes\(\s*['"]Enter['"]\s*\)/,
+    /\[[^\]]*['"]Enter['"][^\]]*\]/
+  ];
+  const spaceRegexes = [
+    /\b\w+\.key\s*[!=]==?\s*['"]\s['"]/, // literal space key
+    /\b\w+\.code\s*[!=]==?\s*['"]Space['"]/, // physical space key
+    /\b\w+\.key\s*[!=]==?\s*['"]Spacebar['"]/, // legacy browsers
+    /includes\(\s*['"]\s['"]\s*\)/,
+    /includes\(\s*['"]Space['"]\s*\)/,
+    /\[[^\]]*['"]\s['"][^\]]*\]/
+  ];
+  const hasEnterSupport = enterRegexes.some((pattern) => pattern.test(source));
+  const hasSpaceSupport = spaceRegexes.some((pattern) => pattern.test(source));
   const hasPressedState = source.includes('aria-pressed');
   const hasButtonRoleSemantics =
     source.includes("setAttribute('role', 'button')") ||

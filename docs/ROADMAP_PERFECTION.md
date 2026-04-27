@@ -427,3 +427,9 @@ P3 Fortschritt (Run 2026-04-28 01:02):
 - Abgedeckt: zusätzlicher Regression-Check `atomic_without_live` (erkennt `aria-atomic` ohne `aria-live`) analog zur Physik-/Mathe-Qualitätsschiene.
 - Qualitätssicherung: `node scripts/audit_remaining_subjects_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Auch in Nebenfächern werden inkonsistente Live-Region-Attribute jetzt früher und einheitlich als QA-Fehler erkannt.
+
+P1/P2 Fortschritt (Run 2026-04-28 01:14):
+- Physik-Audit **`scripts/audit_physics_a11y.js`** bei Keyboard-Semantik robuster gemacht (weniger False-Greens bei Enter/Leertaste).
+- Abgedeckt: Erkennung für Enter/Space/Spacebar in unterschiedlichen Implementierungsstilen erweitert (Vergleich mit `===`/`!==`, unterschiedliche Event-Variablennamen, Array-/`includes`-Muster).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Zwischenfund in `sieinheiten` durch zu enge Regex-Variante; nach Patch `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Der Physik-Regressionstest erkennt unvollständige Tastaturbedienung zuverlässiger und bleibt gleichzeitig kompatibel mit legitimen Codevarianten in bestehenden Modulen.
