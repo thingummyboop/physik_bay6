@@ -140,6 +140,12 @@ P2 Fortschritt (Run 2026-04-27 19:05):
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check` für alle betroffenen Topic-Dateien, `lang/de.json`-Parsecheck und `git diff --check`.
 - Ergebnis: Physik-Interaktionen sind robuster und für Screenreader klarer auswertbar; das priorisierte Brüche-Modul bleibt konsistent zugänglich.
 
+P2-Math Fortschritt (Run 2026-04-27 19:26):
+- Themen **math4_8_finanzmathematik**, **math1_3_add_sub** und **math1_2_nat_zahlen** mit diagnoseorientiertem Antwortfeedback ergänzt.
+- Abgedeckt: 13 Antwortoptionen (inkl. Kredit-/Zins-Grundlagen sowie Diplom-Selbsteinschätzungen).
+- Qualitätssicherung: Implementieren → Review → Patch mit JSON-Parsecheck und Vollständigkeitsaudit je Thema (`0` fehlende Feedbackfelder).
+- Ergebnis: Diese drei Mathematikmodule geben nun bei jeder Antwort konkrete Lernhinweise statt stiller Auswertung.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
