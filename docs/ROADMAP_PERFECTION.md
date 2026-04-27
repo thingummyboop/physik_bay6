@@ -296,3 +296,9 @@ P3 Fortschritt (Run 2026-04-27 22:41):
 - Fächerübergreifende Qualitätsbasis dokumentiert: neue Datei **`docs/QUALITY_CRITERIA.md`**.
 - Abgedeckt: gemeinsame Kriterien für Sprache, Didaktik/Progression, diagnoseorientiertes Feedback, Accessibility-Standards, technische Mindestchecks und Definition-of-Done.
 - Ergebnis: P3 hat jetzt eine konkrete, versionierte Referenz für konsistente Qualitätsarbeit über Physik/Mathematik/Nebenfächer hinweg.
+
+P2 Fortschritt (Run 2026-04-27 22:50):
+- Physikmodule **Akustik**, **Wärmelehre** und **Optik 1** bei Slider-Semantik auf Screenreader-Konsistenz nachgezogen.
+- Abgedeckt: `aria-valuetext` für zentrale Regler (`distRange`, `freqRange`, `ampRange`, `resRange`, `tempRange`, `thermoRange`, `posRange1`, `reflectRange`, `slitWidth`) inklusive laufender Aktualisierung bei `input`/Berechnung.
+- Qualitätssicherung: neue Regression-Absicherung per **`scripts/audit_physics_a11y.js`** (prüft u. a. `aria-live`+`aria-atomic`, Predictive-Keyboard-Semantik, Slider-`aria-valuetext`) plus `node --check` und `git diff --check`.
+- Ergebnis: Physik-Interaktionen melden Reglerzustände nun konsistenter und vorlesbar; Accessibility-Regressions werden künftig automatisiert erkannt.

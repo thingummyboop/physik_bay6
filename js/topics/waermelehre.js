@@ -42,11 +42,13 @@ function enhanceAccessibility() {
     const tempRange = document.getElementById('tempRange');
     if (tempRange) {
         tempRange.setAttribute('aria-describedby', 'tempValue particleHint');
+        tempRange.setAttribute('aria-valuetext', `${Number(tempRange.value || 20)} Grad Celsius`);
     }
 
     const thermoRange = document.getElementById('thermoRange');
     if (thermoRange) {
         thermoRange.setAttribute('aria-describedby', 'thermoText');
+        thermoRange.setAttribute('aria-valuetext', `${Number(thermoRange.value || 0)} Grad Temperaturanzeige`);
     }
 
     const particleHint = document.getElementById('particleHint');
@@ -114,6 +116,7 @@ function animateParticles() {
     if (!tempRange) return;
 
     let temp = parseFloat(tempRange.value);
+    tempRange.setAttribute('aria-valuetext', `${Math.round(temp)} Grad Celsius`);
     let speed = temp * 0.1;
     let color = temp < 40 ? '#1976D2' : (temp < 70 ? '#FF9800' : '#E53935');
     
@@ -287,7 +290,9 @@ function setPhase(phase) {
 
 // 6. Ausdehnung
 function updateThermometer() {
-    let val = document.getElementById('thermoRange')?.value || 0;
+    const thermoRange = document.getElementById('thermoRange');
+    let val = thermoRange?.value || 0;
+    if (thermoRange) thermoRange.setAttribute('aria-valuetext', `${Math.round(Number(val))} Grad Temperaturanzeige`);
     let liquid = document.getElementById('thermoLiquid');
     if (!liquid) return;
     

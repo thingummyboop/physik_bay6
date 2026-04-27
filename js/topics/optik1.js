@@ -7,6 +7,22 @@ function topicInit() {
     updateReflection();
     initSlitMachine();
     setupSlitPredictionA11y();
+    enhanceRangeA11y();
+}
+
+function enhanceRangeA11y() {
+    const posRange1 = document.getElementById('posRange1');
+    if (posRange1) {
+        const posDescription = document.getElementById('statusText') ? 'statusText' : '';
+        if (posDescription) posRange1.setAttribute('aria-describedby', posDescription);
+        posRange1.setAttribute('aria-valuetext', `${Number(posRange1.value || 160)} Pixel Objektposition`);
+    }
+
+    const reflectRange = document.getElementById('reflectRange');
+    if (reflectRange) {
+        if (document.getElementById('angleValue')) reflectRange.setAttribute('aria-describedby', 'angleValue');
+        reflectRange.setAttribute('aria-valuetext', `${Number(reflectRange.value || 45)} Grad Einfallswinkel`);
+    }
 }
 
 function setupSlitPredictionA11y() {
@@ -43,6 +59,7 @@ function updateShadow1() {
     const range = document.getElementById('posRange1');
     if (!range) return;
     const objX = parseInt(range.value);
+    range.setAttribute('aria-valuetext', `${objX} Pixel Objektposition`);
     const obj = document.getElementById('obj1');
     const shadow = document.getElementById('shadowArea1');
     const ray1 = document.getElementById('ray1_1');
@@ -236,6 +253,7 @@ function updateReflection() {
     const range = document.getElementById('reflectRange');
     if(!range) return;
     const angle = parseInt(range.value);
+    range.setAttribute('aria-valuetext', `${angle} Grad Einfallswinkel`);
     const valDisp = document.getElementById('angleValue');
     if(valDisp) valDisp.innerText = angle;
 
@@ -305,6 +323,7 @@ function ensureSlitA11y(slider) {
 
     if (slider) {
         slider.setAttribute('aria-describedby', 'slitStatus slitText');
+        slider.setAttribute('aria-valuetext', `${Number(slider.value || 50)} Prozent Spaltbreite`);
     }
 }
 
@@ -347,6 +366,8 @@ function narrowSlit() {
 
 function updateSlitMachine(value) {
     const width = Math.max(0, Math.min(100, Number(value)));
+    const slider = document.getElementById('slitWidth');
+    if (slider) slider.setAttribute('aria-valuetext', `${Math.round(width)} Prozent Spaltbreite`);
     const wallTop = document.getElementById('wallTop');
     const wallBot = document.getElementById('wallBot');
     const wavesBroad = document.getElementById('wavesBroad');

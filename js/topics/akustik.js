@@ -36,9 +36,10 @@ function topicInit() {
     if (distRange && !distRange.dataset.bound) {
         distRange.dataset.bound = 'true';
         distRange.addEventListener('input', (e) => {
-            const val = e.target.value;
+            const val = Number(e.target.value);
             const txt = document.getElementById('distText');
             if (txt) txt.innerText = `${val} km (${val * 3} Sekunden)`;
+            e.target.setAttribute('aria-valuetext', `${val} Kilometer Entfernung`);
         });
     }
 }
@@ -54,16 +55,29 @@ function enhanceAccessibility() {
     });
 
     const distRange = document.getElementById('distRange');
-    if (distRange) distRange.setAttribute('aria-describedby', 'distText thunderMsg');
+    if (distRange) {
+        distRange.setAttribute('aria-describedby', 'distText thunderMsg');
+        const dist = Number(distRange.value || 2);
+        distRange.setAttribute('aria-valuetext', `${dist} Kilometer Entfernung`);
+    }
 
     const freqRange = document.getElementById('freqRange');
-    if (freqRange) freqRange.setAttribute('aria-describedby', 'lblFreq');
+    if (freqRange) {
+        freqRange.setAttribute('aria-describedby', 'lblFreq');
+        freqRange.setAttribute('aria-valuetext', `${Number(freqRange.value || 2).toFixed(1)} Hertz`);
+    }
 
     const ampRange = document.getElementById('ampRange');
-    if (ampRange) ampRange.setAttribute('aria-describedby', 'lblAmp');
+    if (ampRange) {
+        ampRange.setAttribute('aria-describedby', 'lblAmp');
+        ampRange.setAttribute('aria-valuetext', `${Number(ampRange.value || 40)} Prozent Lautstärke`);
+    }
 
     const resRange = document.getElementById('resRange');
-    if (resRange) resRange.setAttribute('aria-describedby', 'resValue resText');
+    if (resRange) {
+        resRange.setAttribute('aria-describedby', 'resValue resText');
+        resRange.setAttribute('aria-valuetext', `${Number(resRange.value || 1).toFixed(1)} Hertz`);
+    }
 }
 
 // 1. Stimmgabel
@@ -113,8 +127,10 @@ function toggleVacuum() {
 
 // 3. Oszilloskop
 function drawWave() {
-    const freq = document.getElementById('freqRange')?.value || 2;
-    const amp = document.getElementById('ampRange')?.value || 40;
+    const freqRange = document.getElementById('freqRange');
+    const ampRange = document.getElementById('ampRange');
+    const freq = Number(freqRange?.value || 2);
+    const amp = Number(ampRange?.value || 40);
     const path = document.getElementById('osciWave');
     const lblFreq = document.getElementById('lblFreq');
     const lblAmp = document.getElementById('lblAmp');
@@ -124,12 +140,14 @@ function drawWave() {
         else if(freq > 3.5) lblFreq.innerText = "Hoch (viele enge Wellen)";
         else lblFreq.innerText = "Mittel";
     }
-    
+    if (freqRange) freqRange.setAttribute('aria-valuetext', `${freq.toFixed(1)} Hertz`);
+
     if (lblAmp) {
         if(amp < 25) lblAmp.innerText = "Leise (kleine Wellenberge)";
         else if(amp > 60) lblAmp.innerText = "Laut (hohe Wellenberge)";
         else lblAmp.innerText = "Mittel";
     }
+    if (ampRange) ampRange.setAttribute('aria-valuetext', `${Math.round(amp)} Prozent Lautstärke`);
 
     if (!path) return;
     let d = "M 0 80 ";
@@ -233,7 +251,8 @@ function sendEcho() {
 function checkResonance() {
     if (glassBroken) return;
 
-    const val = parseFloat(document.getElementById('resRange')?.value || 1);
+    const resRange = document.getElementById('resRange');
+    const val = parseFloat(resRange?.value || 1);
     const disp = document.getElementById('resValue');
     const glass = document.getElementById('glass');
     const membrane = document.getElementById('speakerMembrane');
@@ -244,6 +263,7 @@ function checkResonance() {
     const crack = document.getElementById('crack');
     
     if (disp) disp.innerText = val.toFixed(1);
+    if (resRange) resRange.setAttribute('aria-valuetext', `${val.toFixed(1)} Hertz`);
     if (!glass) return;
 
     const diff = Math.abs(val - 4.0);
