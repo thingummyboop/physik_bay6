@@ -60,6 +60,7 @@ function enhanceWorkAccessibility() {
         if (!el) return;
         el.setAttribute("role", "status");
         el.setAttribute("aria-live", "polite");
+        el.setAttribute("aria-atomic", "true");
     });
 
     const rangeDescriptions = {
@@ -79,6 +80,31 @@ function enhanceWorkAccessibility() {
         springBtn.setAttribute("aria-pressed", springCompressed ? "true" : "false");
         springBtn.setAttribute("aria-describedby", "springText");
     }
+
+    enhanceWorkChoiceGroup("[data-work-case]", "workCaseText workCaseFormula");
+    enhanceWorkChoiceGroup("[data-lift-object]", "liftObjectName liftMass liftWorkText");
+    enhanceWorkChoiceGroup("[data-surface]", "frictionText");
+    enhanceWorkChoiceGroup("[data-ramp]", "rampForce rampPath rampWork rampText");
+}
+
+function enhanceWorkChoiceGroup(selector, describedBy) {
+    const existingDescriptionIds = describedBy
+        .split(/\s+/)
+        .filter((id) => document.getElementById(id))
+        .join(" ");
+
+    document.querySelectorAll(selector).forEach((btn) => {
+        btn.setAttribute("aria-pressed", btn.classList.contains("selected") ? "true" : "false");
+        if (existingDescriptionIds) btn.setAttribute("aria-describedby", existingDescriptionIds);
+    });
+}
+
+function setWorkChoicePressed(selector, selectedKey, dataKey) {
+    document.querySelectorAll(selector).forEach((btn) => {
+        const isSelected = btn.dataset[dataKey] === selectedKey;
+        btn.classList.toggle("selected", isSelected);
+        btn.setAttribute("aria-pressed", isSelected ? "true" : "false");
+    });
 }
 
 // 1. Arbeit oder keine Arbeit?
@@ -105,9 +131,7 @@ function chooseWorkCase(type) {
         text.style.color = data.color;
     }
     if (formula) formula.innerText = data.work;
-    document.querySelectorAll("[data-work-case]").forEach((btn) => {
-        btn.classList.toggle("selected", btn.dataset.workCase === type);
-    });
+    setWorkChoicePressed("[data-work-case]", type, "workCase");
 
     [person, box, bag, carryVectors].forEach((el) => {
         if (!el) return;
@@ -244,9 +268,7 @@ function chooseLiftObject(type) {
     const massText = document.getElementById("liftMass");
     const load = document.getElementById("craneLoad");
 
-    document.querySelectorAll("[data-lift-object]").forEach((btn) => {
-        btn.classList.toggle("selected", btn.dataset.liftObject === type);
-    });
+    setWorkChoicePressed("[data-lift-object]", type, "liftObject");
 
     if (objectName) objectName.innerText = data.label;
     if (massText) massText.innerText = data.mass;
@@ -298,9 +320,7 @@ function setSurface(surface) {
     const force = surface === "sand" ? 80 : 20;
     const work = force * 4;
 
-    document.querySelectorAll("[data-surface]").forEach((btn) => {
-        btn.classList.toggle("selected", btn.dataset.surface === surface);
-    });
+    setWorkChoicePressed("[data-surface]", surface, "surface");
 
     if (floor) floor.setAttribute("fill", surface === "sand" ? "#fbbf24" : "#bae6fd");
     if (text) {
@@ -380,9 +400,7 @@ function compareRamp(type) {
     const rampSteep = document.getElementById("rampSteep");
     const rampFlat = document.getElementById("rampFlat");
 
-    document.querySelectorAll("[data-ramp]").forEach((btn) => {
-        btn.classList.toggle("selected", btn.dataset.ramp === type);
-    });
+    setWorkChoicePressed("[data-ramp]", type, "ramp");
 
     const data = type === "flat"
         ? { force: "wenig Kraft: 100 N", path: "langer Weg: 6 m", work: "600 J", msg: "Flache Rampe: Du sparst Kraft, musst aber einen längeren Weg gehen.", x: 275, y: -100, startX: 0, startY: 0, duration: 2500 }
