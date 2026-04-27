@@ -350,3 +350,9 @@ P2-Math Fortschritt (Run 2026-04-27 23:34):
 - Abgedeckt: automatischer Basischeck für alle `js/topics/math*.js` auf verbliebene `alert()`-Nutzung, Live-Region-Konsistenz (`aria-live` + `aria-atomic`), Predictive-Keyboard-Semantik (`data-predict-*` + Enter/Space + `aria-pressed`) und Slider-Rückmeldung (`aria-valuetext`).
 - Qualitätssicherung: Ausführung des neuen Audits (`MATH_A11Y_CLEAR`) sowie Dokumentations-Update in **`docs/QUALITY_CRITERIA.md`** als verpflichtender Mindestcheck.
 - Ergebnis: Mathe-Interaktionen sind jetzt wie Physik/Nebenfächer automatisiert gegen zentrale A11y-Regressionsmuster abgesichert.
+
+P1/P2 Fortschritt (Run 2026-04-27 23:46):
+- QA-Gate für den Perfektion-Backlog vereinheitlicht: neues Skript **`scripts/run_quality_gate.sh`** ergänzt.
+- Abgedeckt: Sammellauf für `audit_quiz_feedback`, `audit_physics_a11y`, `audit_math_a11y`, `audit_remaining_subjects_a11y`, `audit_inline_alerts` plus `git diff --check`.
+- Doku nachgezogen: **`docs/QUALITY_CRITERIA.md`** nennt Physik-Audit und Inline-Alert-Audit jetzt explizit in den Mindestchecks und verweist auf den Sammellauf.
+- Ergebnis: Der Implementieren→Review→Patch-Loop für künftige Chunks ist reproduzierbarer, schneller und regressionssicherer über Physik/Mathe/Nebenfächer.
