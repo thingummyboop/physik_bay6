@@ -224,3 +224,10 @@ P3 Fortschritt (Run 2026-04-27 21:24):
 - Abgedeckt: automatischer Check aller `lang/*.json` auf fehlende `feedback`-Felder in Antwortarrays (Quiz + Diplom).
 - Qualitätssicherung: Lauf des Skripts nach Einführung (`ALL_CLEAR`) sowie JSON-Parsecheck/`git diff --check`.
 - Ergebnis: Künftige Regressionsfunde bei stillen Antworten sind schnell und reproduzierbar prüfbar.
+
+P2 Fortschritt (Run 2026-04-27 21:31):
+- Thema **Physik-Rechenbeispiele** bei den Eingabeaufgaben auf Accessibility und Diagnosefeedback verbessert.
+- Abgedeckt: Live-Regionen für Aufgabenfeedback (`role="status"`, `aria-live`, `aria-atomic`), `aria-describedby` für alle Rechenfelder sowie Enter-Submit für tastaturfreundliche Bedienung.
+- Didaktik: Falsche Eingaben liefern jetzt aufgabenspezifische Hinweise (z. B. h→s, g→kg, km→m, Formelwahl bei `v=s/t` und `s=v·t`) statt generischem Standardtext.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/rechenbeispiele.js` und `git diff --check`.
+- Ergebnis: Das Modul ist besser ohne Maus nutzbar und gibt bei Rechenfehlern konkretere Lernhinweise.
