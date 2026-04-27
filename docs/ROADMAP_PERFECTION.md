@@ -159,6 +159,12 @@ P2-Math Fortschritt (Run 2026-04-27 19:49):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/16` fehlende Feedbackfelder).
 - Ergebnis: Lernende erhalten bei typischen Fehlvorstellungen (Summanden/Differenz-Verwechslung, falsche Rechenreihenfolge) sofort konkrete Korrekturhinweise.
 
+P2-Math Fortschritt (Run 2026-04-27 19:58):
+- Thema **math1_1_vs_wissen** mit diagnoseorientiertem Antwortfeedback vervollständigt.
+- Abgedeckt: 5 Fragen mit insgesamt 12 Antwortoptionen (Kapitel + Diplom-Basics).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/12` fehlende Feedbackfelder).
+- Ergebnis: Auch im Einstiegsmodul erhalten Lernende jetzt bei jeder Auswahl eine kurze inhaltliche Rückmeldung statt stiller Punktevergabe.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
