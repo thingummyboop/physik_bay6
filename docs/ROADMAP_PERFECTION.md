@@ -194,3 +194,9 @@ P2 Fortschritt (Run 2026-04-27 20:15):
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
 - Begriffe reduzieren, Beispiele lokalisieren, Leselast senken.
 - Gemeinsame Qualitätskriterien für Sprache, Feedback, Accessibility und Interaktion dokumentieren.
+
+P2-Math Fortschritt (Run 2026-04-27 20:31):
+- Themen **math1_4_mult_div** (Diplomteil) und **math1_10_groessen** vollständig mit diagnoseorientiertem Antwortfeedback ergänzt.
+- Abgedeckt: 43 Antwortoptionen (31 in `math1_4_mult_div`, 12 in `math1_10_groessen`) mit gezielten Hinweisen für typische Fehler (z. B. Summe statt Produkt, Vorrangregeln, kg↔g und h↔min Umrechnung).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck (`de.json ok`), Vollständigkeitsaudit (`0` fehlende Feedbackfelder in beiden Themen) und `git diff --check`.
+- Ergebnis: Beide Module liefern jetzt durchgehend inhaltliche Rückmeldungen statt stiller Punktevergabe.
