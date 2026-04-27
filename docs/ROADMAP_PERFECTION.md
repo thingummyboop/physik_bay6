@@ -231,3 +231,9 @@ P2 Fortschritt (Run 2026-04-27 21:31):
 - Didaktik: Falsche Eingaben liefern jetzt aufgabenspezifische Hinweise (z. B. h→s, g→kg, km→m, Formelwahl bei `v=s/t` und `s=v·t`) statt generischem Standardtext.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/rechenbeispiele.js` und `git diff --check`.
 - Ergebnis: Das Modul ist besser ohne Maus nutzbar und gibt bei Rechenfehlern konkretere Lernhinweise.
+
+P2 Fortschritt (Run 2026-04-27 21:44):
+- Thema **Mechanische Arbeit** bei der Schlitten-/Feder-Interaktion auf Re-Init-Stabilität und Bedien-Semantik verbessert.
+- Abgedeckt: Schutz gegen Timer-/Animations-Stacking bei wiederholtem Start von `pullSled()` (Run-Token + Timeout-Cleanup + Animation-Cancel), plus `aria-pressed`/`aria-describedby` für den Feder-Button.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/arbeit.js` und Diff-Review.
+- Ergebnis: Die Interaktion bleibt bei mehrfacher Ausführung stabil und vermittelt den Federzustand zuverlässiger für assistive Technologien.

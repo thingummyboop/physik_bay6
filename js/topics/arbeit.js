@@ -2,6 +2,8 @@
 let currentSurface = "ice";
 let springCompressed = false;
 let workSceneToken = 0;
+let sledRunToken = 0;
+let sledResetTimeoutId = null;
 
 const workCases = {
     wall: {
@@ -71,6 +73,12 @@ function enhanceWorkAccessibility() {
         const range = document.getElementById(id);
         if (range) range.setAttribute("aria-describedby", describedBy);
     });
+
+    const springBtn = document.getElementById("springBtn");
+    if (springBtn) {
+        springBtn.setAttribute("aria-pressed", springCompressed ? "true" : "false");
+        springBtn.setAttribute("aria-describedby", "springText");
+    }
 }
 
 // 1. Arbeit oder keine Arbeit?
@@ -321,6 +329,17 @@ function pullSled() {
     const durationMs = currentSurface === "sand" ? 2800 : 1200;
     if (!sled || !rope) return;
 
+    const runToken = ++sledRunToken;
+    if (sledResetTimeoutId) {
+        clearTimeout(sledResetTimeoutId);
+        sledResetTimeoutId = null;
+    }
+    [sled, rope].forEach((el) => {
+        if (el.getAnimations) el.getAnimations().forEach((animation) => animation.cancel());
+        el.style.transform = "translate(0px, 0px)";
+        el.removeAttribute("transform");
+    });
+
     // Use animate() for safe SVG transforms
     sled.animate([
         { transform: "translate(0, 0)" },
@@ -334,7 +353,8 @@ function pullSled() {
 
     if (heat) heat.style.animation = currentSurface === "sand" ? "sweat 0.5s infinite" : "none";
 
-    setTimeout(() => {
+    sledResetTimeoutId = setTimeout(() => {
+        if (runToken !== sledRunToken) return;
         sled.animate([
             { transform: "translate(250px, 0)" },
             { transform: "translate(0, 0)" }
@@ -344,8 +364,9 @@ function pullSled() {
             { transform: "translate(250px, 0)" },
             { transform: "translate(0, 0)" }
         ], { duration: 500, fill: 'forwards', easing: 'linear' });
-        
+
         if (heat) heat.style.animation = "none";
+        sledResetTimeoutId = null;
     }, durationMs + 300);
 }
 
@@ -409,7 +430,10 @@ function compressSpring() {
             : "Die Feder ist entspannt. Kaum Verformungsenergie gespeichert.";
         text.style.color = springCompressed ? "#b91c1c" : "#15803d";
     }
-    if (btn) btn.innerText = springCompressed ? "Feder entspannen" : "Feder drücken";
+    if (btn) {
+        btn.innerText = springCompressed ? "Feder entspannen" : "Feder drücken";
+        btn.setAttribute("aria-pressed", springCompressed ? "true" : "false");
+    }
 }
 
 function updateBike() {
