@@ -338,3 +338,9 @@ P3 Fortschritt (Run 2026-04-27 23:10):
 - Abgedeckt: automatischer Basischeck für **DGB5, Wetter, Klima, Klimawandel** auf Live-Region-Konsistenz (`aria-live` + `aria-atomic`) sowie Slider-Semantik (`aria-describedby`, `aria-valuetext`).
 - Qualitätssicherung: Lauf des neuen Audits (`REMAINING_SUBJECTS_A11Y_CLEAR`) und Dokumentations-Update in **`docs/QUALITY_CRITERIA.md`** als verpflichtender Mindestcheck.
 - Ergebnis: Accessibility-Regressions in den verbleibenden Nebenfächern sind jetzt früh und reproduzierbar prüfbar.
+
+P2-Math Fortschritt (Run 2026-04-27 23:30):
+- Inline-`alert()`-Rückmeldungen in weiteren Mathematikübungen durch zugängliche Status-Rückmeldungen ersetzt.
+- Abgedeckt: **math2_2_brueche**, **math2_8_statistik** und **math4_5_aehnlichkeit** mit JS-gebundenem Feedback, Enter-Submit und Live-Semantik; außerdem verbliebene Alert-Attribute in allen Sprachdateien entfernt.
+- Qualitätssicherung: `scripts/audit_inline_alerts.js` robuster gemacht und danach `ALL_CLEAR`; zusätzlich Syntaxchecks, JSON-Parsecheck, `node scripts/audit_quiz_feedback.js` und `git diff --check`.
+- Ergebnis: Die betroffenen Mathe-Checks bleiben im Lernfluss, vermeiden Popups und sind besser für Tastatur- und Screenreader-Nutzung geeignet.

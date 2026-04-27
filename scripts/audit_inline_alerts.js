@@ -15,7 +15,7 @@ function walk(node, pathParts = [], out = []) {
 
   for (const [key, value] of Object.entries(node)) {
     const nextPath = [...pathParts, key];
-    if (key === 'content' && typeof value === 'string' && /onclick\s*=\s*['"][^'"]*alert\(/i.test(value)) {
+    if (key === 'content' && typeof value === 'string' && /alert\s*\(/i.test(value)) {
       out.push(nextPath.join('.'));
     }
     walk(value, nextPath, out);
