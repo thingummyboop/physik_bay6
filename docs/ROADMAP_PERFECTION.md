@@ -206,3 +206,9 @@ P2-Math Fortschritt (Run 2026-04-27 21:03):
 - Abgedeckt: alle zuvor noch offenen Mathematik-Antwortoptionen (Audit vorher: 127 fehlende Feedbackfelder, Audit nachher: `ALL_CLEAR`).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) je Chunk mit Parsecheck (`de.json ok`) und Konsistenzprüfung (`git diff --check`).
 - Ergebnis: Mathematik ist nun flächendeckend auf diagnoseorientierte Antwortauswertung umgestellt; keine stillen Quiz-/Diplom-Antworten mehr.
+
+P3 Fortschritt (Run 2026-04-27 21:12):
+- Sprachdateien **ar.json**, **tr.json** und **uk.json** auf verbliebene Token-/Platzhalterartefakte bereinigt (`TOKEN_`-Fragmente in mehreren Themensektionen).
+- Abgedeckt: Restartefakte in Physik/Mathematik/Nebenfächern entfernt (Audit nach Patch: `0` verbleibende `TOKEN_`-Treffer in allen drei Dateien).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck für alle geänderten Sprachdateien und `git diff --check`.
+- Ergebnis: Frontend-Texte in AR/TR/UK sind konsistenter lesbar und enthalten keine sichtbaren Token-Reste mehr.
