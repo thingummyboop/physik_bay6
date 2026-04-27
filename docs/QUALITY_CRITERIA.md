@@ -17,7 +17,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Jede Antwortoption braucht ein `feedback`-Feld.
 - Falsche Antworten: typische Fehlvorstellung benennen (nicht nur "falsch").
 - Richtige Antworten: kurz begründen, warum richtig.
-- Länge pro Feedback: ideal 1–2 Sätze.
+- Länge pro Feedback: ideal 1–2 Sätze (Richtwert: unter 180 Zeichen).
 
 ## 4) Accessibility (Interaktionen)
 - Dynamische Rückmeldungen über Live-Regionen (`role="status"`, `aria-live="polite"`, `aria-atomic="true"`).
@@ -31,6 +31,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Sprachdateien parsebar: `node -e "JSON.parse(fs.readFileSync(...))"` oder bestehende Audits.
 - Quiz-Feedback-Vollständigkeit: `node scripts/audit_quiz_feedback.js`
 - Physik-A11y-Basischeck: `node scripts/audit_physics_a11y.js`
+- Physik-Sprachlängencheck (Feedback-Kompaktheit): `node scripts/audit_physics_language.js`
 - Mathe-A11y-Basischeck: `node scripts/audit_math_a11y.js`
 - Nebenfächer-A11y-Basischeck: `node scripts/audit_remaining_subjects_a11y.js`
 - Keine Inline-Popup-Regressionen: `node scripts/audit_inline_alerts.js`

@@ -464,3 +464,10 @@ P3 Fortschritt (Run 2026-04-28 01:37):
 - Abgedeckt: verbleibende Fächer werden jetzt direkt aus `js/topics/*.js` über Namensmuster (`dgb*`, `wetter`, `klima`, `klimawandel`) ermittelt statt per fixer Liste.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_remaining_subjects_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: neue Nebenfach-Module in diesem Scope fallen künftig ohne manuelle Skriptpflege automatisch unter den A11y-Regressionscheck.
+
+P1/P2 Fortschritt (Run 2026-04-28 01:50):
+- Physik-Sprachqualität im Quiz-/Diplom-Feedback weiter gehärtet.
+- Abgedeckt: In **`lang/de.json`** ein überlanger Energie-Feedbacktext auf A2-B1-Niveau gekürzt und sprachlich vereinfacht (gleiche Fachaussage, geringere Leselast).
+- Regression-Schutz ergänzt: neues Audit **`scripts/audit_physics_language.js`** prüft in allen Physikthemen automatisch, dass Feedbacktexte kompakt bleiben (Schwellwert: 180 Zeichen).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_language.js` sowie Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-Perfection deckt jetzt neben A11y und Vollständigkeit auch die Verständlichkeitslänge der Diagnose-Feedbacks automatisiert ab.
