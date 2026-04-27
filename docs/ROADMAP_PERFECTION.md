@@ -400,3 +400,9 @@ P2-Math Fortschritt (Run 2026-04-28 00:27):
 - Abgedeckt: Predictive-Controls prüfen jetzt explizit auf `keydown` + Enter/Leertaste + `aria-pressed`; zusätzlich wird bei nicht-nativen Controls `role="button"` + `tabindex="0"` als Mindestsemantik erzwungen.
 - Qualitätssicherung: Implementieren → Review → Patch (inkl. toleranter Erkennung für unterschiedliche Key-Syntaxen), danach `node scripts/audit_math_a11y.js` (`MATH_A11Y_CLEAR`).
 - Ergebnis: Mathe-Regressionen bei unvollständiger Tastaturbedienung werden früher und konsistenter erkannt.
+
+P1/P2 Fortschritt (Run 2026-04-28 00:36):
+- Physik-Audit **`scripts/audit_physics_a11y.js`** auf dynamische Themenabdeckung umgestellt.
+- Abgedeckt: Physikthemen werden jetzt automatisch aus `js/topics/*.js` abgeleitet (mit Ausschluss von Mathe/Nebenfächern) statt starrer Hardcode-Liste; zusätzlich Guard gegen leere Topic-Erkennung.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check scripts/audit_physics_a11y.js`, `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR (15 topics)`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Neue Physikmodule fallen künftig automatisch unter den A11y-Regressionstest, ohne dass die Audit-Liste manuell nachgeführt werden muss.

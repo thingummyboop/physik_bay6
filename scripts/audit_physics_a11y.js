@@ -6,25 +6,23 @@ const path = require('path');
 const repoRoot = path.join(__dirname, '..');
 const topicsDir = path.join(repoRoot, 'js', 'topics');
 
-const physicsTopics = [
-  'akustik',
-  'arbeit',
-  'astronomie',
-  'drehundstatik',
-  'elektrizitaet',
-  'elektromagnetismus',
-  'energie',
-  'farben',
-  'kraft_und_bewegung',
-  'licht_schatten_astronomie',
-  'linsen_spiegel',
-  'optik1',
-  'rechenbeispiele',
-  'sieinheiten',
-  'waermelehre'
-];
+const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
+
+const physicsTopics = fs
+  .readdirSync(topicsDir)
+  .filter((entry) => entry.endsWith('.js'))
+  .map((entry) => entry.replace(/\.js$/, ''))
+  .filter((topic) => !topic.startsWith('math'))
+  .filter((topic) => !nonPhysicsTopics.has(topic))
+  .sort();
 
 const findings = [];
+
+if (physicsTopics.length === 0) {
+  console.log('PHYSICS_A11Y_ISSUES');
+  console.log('- _global: no_physics_topics_detected (No physics topic scripts found for audit)');
+  process.exit(1);
+}
 
 for (const topic of physicsTopics) {
   const file = path.join(topicsDir, `${topic}.js`);
@@ -44,9 +42,13 @@ for (const topic of physicsTopics) {
     });
   }
 
-  const hasLive = source.includes("aria-live") || source.includes("'aria-live'") || source.includes('"aria-live"');
-  const hasAtomic = source.includes("aria-atomic") || source.includes("'aria-atomic'") || source.includes('"aria-atomic"');
-  const hasStatusRole = source.includes("role=\"status\"") || source.includes("role='status'") || source.includes("'role', 'status'") || source.includes('"role", "status"');
+  const hasLive = source.includes('aria-live') || source.includes("'aria-live'") || source.includes('"aria-live"');
+  const hasAtomic = source.includes('aria-atomic') || source.includes("'aria-atomic'") || source.includes('"aria-atomic"');
+  const hasStatusRole =
+    source.includes('role="status"') ||
+    source.includes("role='status'") ||
+    source.includes("'role', 'status'") ||
+    source.includes('"role", "status"');
 
   if (hasLive && !hasAtomic) {
     findings.push({
@@ -141,7 +143,7 @@ for (const topic of physicsTopics) {
 }
 
 if (findings.length === 0) {
-  console.log('PHYSICS_A11Y_CLEAR');
+  console.log(`PHYSICS_A11Y_CLEAR (${physicsTopics.length} topics)`);
   process.exit(0);
 }
 
