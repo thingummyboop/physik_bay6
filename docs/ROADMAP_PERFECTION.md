@@ -279,3 +279,9 @@ P2 Fortschritt (Run 2026-04-27 22:27):
 - Abgedeckt: bestehende `role="status"`-Live-Regionen um `aria-atomic="true"` ergänzt, damit zusammenhängende Statusmeldungen vollständig statt fragmentiert vorgelesen werden.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) inkl. Nachpatch für versehentliche Variablenreferenz in der Review-Phase; Abschluss mit `node --check` für alle 6 Topic-Dateien und `git diff --check`.
 - Ergebnis: Physik-Interaktionen geben Zustandsänderungen konsistenter und verständlicher an assistive Technologien aus.
+
+P2-Math Fortschritt (Run 2026-04-27 22:31):
+- Thema **math1_8_brueche** bei den Statusrückmeldungen (`vfrac-feedback`, `zstrahl-feedback`, `anteil-feedback`, `vfrac-task-text`) auf Screenreader-Konsistenz verbessert.
+- Abgedeckt: bestehende Live-Regionen mit `aria-atomic="true"` ergänzt, damit Aufgaben- und Feedbacktexte vollständig vorgelesen werden.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math1_8_brueche.js` und `git diff --check`.
+- Ergebnis: Das priorisierte Brüche-Modul liefert bei dynamischen Updates klarere, weniger fragmentierte Audio-Rückmeldungen.
