@@ -91,6 +91,12 @@ P2 Fortschritt (Run 2026-04-27 18:28):
 - Pro Thema: ein Mini-Ziel, ein Beispiel, ein geführter Versuch, ein schneller Check.
 - Falschantworten nach typischen Fehlern erklären, nicht nur als falsch markieren.
 
+P2-Math Fortschritt (Run 2026-04-27 18:34):
+- Themen **math1_9_dezimalzahlen** und **math2_6_prop_prozent** mit diagnoseorientiertem Antwortfeedback nachgezogen.
+- Abgedeckt: 6 Fragen mit insgesamt 14 Antwortoptionen.
+- Qualitätssicherung: Implementieren → Review → Patch mit Vollständigkeitscheck (`0/14` fehlende Feedbackfelder).
+- Ergebnis: Lernende erhalten nun bei typischen Rechenfehlern (Kommafehler, Prozentverwechslung, Proportionalität) direkte Korrekturhinweise.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
