@@ -458,3 +458,9 @@ P1/P2 Fortschritt (Run 2026-04-28 01:36):
 - Abgedeckt: `interactive_controls_incomplete_a11y` meldet nun explizit `keyboardActivation` im Diagnose-Detail und reduziert damit False-Greens bei unvollständiger Enter/Leertaste-Implementierung.
 - Qualitätssicherung: Implementieren → Review → Patch mit Einzelläufen `node scripts/audit_physics_a11y.js`, `node scripts/audit_math_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: robustere Regressionserkennung für tatsächliche Tastaturbedienbarkeit in priorisierten Physik-/Mathe-Interaktionen.
+
+P3 Fortschritt (Run 2026-04-28 01:37):
+- Nebenfächer-Audit **`scripts/audit_remaining_subjects_a11y.js`** von statischer auf automatische Topic-Erkennung umgestellt.
+- Abgedeckt: verbleibende Fächer werden jetzt direkt aus `js/topics/*.js` über Namensmuster (`dgb*`, `wetter`, `klima`, `klimawandel`) ermittelt statt per fixer Liste.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_remaining_subjects_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: neue Nebenfach-Module in diesem Scope fallen künftig ohne manuelle Skriptpflege automatisch unter den A11y-Regressionscheck.

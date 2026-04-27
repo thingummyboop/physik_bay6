@@ -6,12 +6,18 @@ const path = require('path');
 const repoRoot = path.join(__dirname, '..');
 const topicsDir = path.join(repoRoot, 'js', 'topics');
 
-const remainingTopics = ['dgb5', 'wetter', 'klima', 'klimawandel'];
+const allTopics = fs
+  .readdirSync(topicsDir)
+  .filter((entry) => entry.endsWith('.js'))
+  .map((entry) => entry.replace(/\.js$/, ''));
+
+const remainingTopicPattern = /^(dgb\d*|wetter|klima|klimawandel)$/;
+const remainingTopics = allTopics.filter((topic) => remainingTopicPattern.test(topic)).sort();
 const findings = [];
 
 if (remainingTopics.length === 0) {
   console.log('REMAINING_SUBJECTS_A11Y_ISSUES');
-  console.log('- _global: no_remaining_topics_configured (No remaining-subject topics configured for audit)');
+  console.log('- _global: no_remaining_topics_detected (No remaining-subject topic scripts found for audit)');
   process.exit(1);
 }
 
