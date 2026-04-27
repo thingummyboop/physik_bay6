@@ -249,3 +249,9 @@ P2 Fortschritt (Run 2026-04-27 21:57):
 - Abgedeckt: `aria-atomic` für dynamische Statusfelder, Tastatursteuerung (Enter/Leertaste) für alle `data-predict-*`-Auswahlfelder mit Guard gegen doppelte Listener bei erneutem `topicInit()`, sowie konsistentes `aria-pressed`-State-Management in `setPrediction()`.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/kraft_und_bewegung.js` und `git diff --check`.
 - Ergebnis: Die Vorhersage-Checks sind nun auch bei Nicht-Maus-Bedienung zuverlässig nutzbar und kommunizieren ihren Auswahlzustand korrekt an assistive Technologien.
+
+P2 Fortschritt (Run 2026-04-27 22:01):
+- Thema **Statik & Hebel (drehundstatik)** bei Vorhersage-Interaktionen auf Accessibility und Re-Init-Stabilität nachgezogen.
+- Abgedeckt: `aria-atomic` für dynamische Statusfelder, Tastatursteuerung (Enter/Leertaste) für alle `data-predict-*`-Elemente, Listener-Guard gegen Doppelbindung bei erneutem `topicInit()` sowie `aria-pressed`-Synchronisierung in `setPrediction()`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/drehundstatik.js` und `git diff --check`.
+- Ergebnis: Vorhersage-Checks sind jetzt konsistent per Tastatur bedienbar und geben ihren Auswahlzustand zuverlässig für assistive Technologien aus.

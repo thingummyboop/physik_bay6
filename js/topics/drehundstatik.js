@@ -52,6 +52,22 @@ function enhanceStaticsAccessibility() {
         if (!el) return;
         el.setAttribute('role', 'status');
         el.setAttribute('aria-live', 'polite');
+        el.setAttribute('aria-atomic', 'true');
+    });
+
+    const predictionButtons = document.querySelectorAll('[data-predict-group][data-predict-value]');
+    predictionButtons.forEach((btn) => {
+        if (btn.tagName !== 'BUTTON') btn.setAttribute('role', 'button');
+        if (btn.tagName !== 'BUTTON' && !btn.hasAttribute('tabindex')) btn.setAttribute('tabindex', '0');
+        if (!btn.hasAttribute('aria-pressed')) btn.setAttribute('aria-pressed', 'false');
+        if (btn.dataset.predictBound === '1') return;
+        btn.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                setPrediction(btn.dataset.predictGroup, btn.dataset.predictValue);
+            }
+        });
+        btn.dataset.predictBound = '1';
     });
 
     const cgRange = document.getElementById('cgRange');
@@ -69,7 +85,11 @@ function enhanceStaticsAccessibility() {
 
 function setPrediction(group, value) {
     const buttons = document.querySelectorAll(`[data-predict-group="${group}"]`);
-    buttons.forEach(btn => btn.classList.toggle('selected', btn.dataset.predictValue === value));
+    buttons.forEach((btn) => {
+        const isSelected = btn.dataset.predictValue === value;
+        btn.classList.toggle('selected', isSelected);
+        btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+    });
     const output = document.getElementById(`${group}Prediction`);
     if (output) output.innerText = "Vermutung gespeichert. Jetzt testen!";
 }
