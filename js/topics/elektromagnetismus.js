@@ -2,8 +2,59 @@
 let energy = 0;
 let isDraining = false;
 let relayClosed = false;
+let drainInterval = null;
+let electromagnetismA11yInit = false;
+
+function ensureLiveRegion(id) {
+    const el = document.getElementById(id);
+    if (!el) return null;
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    return el;
+}
+
+function enhanceElectromagnetismAccessibility() {
+    if (electromagnetismA11yInit) return;
+
+    const currentRange = document.getElementById('currentRange');
+    if (currentRange) {
+        currentRange.setAttribute('aria-label', 'Stromstärke-Regler');
+        currentRange.setAttribute('aria-describedby', 'materialText');
+    }
+
+    const transRange = document.getElementById('transRange');
+    if (transRange) {
+        transRange.setAttribute('aria-label', 'Sekundärspulen-Regler');
+        transRange.setAttribute('aria-describedby', 'transText voltValSec');
+    }
+
+    ['materialText', 'directionText', 'relayStatus', 'transText', 'voltValSec'].forEach(ensureLiveRegion);
+
+    const relayBtn = document.getElementById('relayBtn');
+    if (relayBtn) {
+        relayBtn.setAttribute('aria-pressed', String(relayClosed));
+    }
+
+    electromagnetismA11yInit = true;
+}
 
 function topicInit() {
+    if (drainInterval) {
+        clearInterval(drainInterval);
+        drainInterval = null;
+    }
+    isDraining = false;
+    energy = 0;
+
+    const beam = document.getElementById('lightBeam');
+    const enDisp = document.getElementById('energyLevel');
+    if (beam) {
+        beam.style.opacity = '0';
+        beam.setAttribute('aria-label', 'Lichtstärke 0 Prozent');
+    }
+    if (enDisp) enDisp.innerText = '0';
+
+    enhanceElectromagnetismAccessibility();
     updateMagnetField(30);
     updateTransformer(5);
     updateRelay(false);
@@ -12,14 +63,20 @@ function topicInit() {
 function updateMagnetField(val) {
     const lines = document.getElementById('fieldLines')?.children;
     const arrow = document.getElementById('currentArrow');
+    const currentRange = document.getElementById('currentRange');
     if(!arrow || !lines) return;
     
-    const arrowLength = 10 + (val * 0.4);
+    const numericVal = parseInt(val, 10) || 0;
+    const arrowLength = 10 + (numericVal * 0.4);
     arrow.setAttribute('d', `M ${200 - arrowLength/2} 75 L ${200 + arrowLength/2} 75`);
     
     for(let line of lines) {
-        line.style.opacity = (val / 150) + 0.1;
-        line.style.strokeWidth = 1 + (val / 25);
+        line.style.opacity = (numericVal / 150) + 0.1;
+        line.style.strokeWidth = 1 + (numericVal / 25);
+    }
+
+    if (currentRange) {
+        currentRange.setAttribute('aria-valuetext', `Stromstärke ${numericVal} Prozent`);
     }
 }
 
@@ -42,6 +99,8 @@ function setMaterial(type) {
         field.style.opacity = "1";
         if(txt) txt.innerText = "Kern: Eisen (Maximum!)";
     }
+
+    core.setAttribute('aria-label', `Spulenkern-Material: ${txt ? txt.innerText : type}`);
 }
 
 let isUp = true;
@@ -57,6 +116,7 @@ function changeDirection() {
         arrow.setAttribute('d', 'M 200 105 L 200 160');
         if(txt) txt.innerText = "Kraft nach UNTEN";
     }
+    arrow.setAttribute('aria-label', txt ? txt.innerText : (isUp ? 'Kraft nach oben' : 'Kraft nach unten'));
 }
 
 function shakeFlashlight() {
@@ -68,17 +128,24 @@ function shakeFlashlight() {
     fl.classList.add('shaking');
     energy = Math.min(energy + 15, 100);
     beam.style.opacity = energy / 100;
-    if(enDisp) enDisp.innerText = energy;
+    if(enDisp) {
+        enDisp.innerText = energy;
+        enDisp.setAttribute('role', 'status');
+        enDisp.setAttribute('aria-live', 'polite');
+    }
+    beam.setAttribute('aria-label', `Lichtstärke ${Math.floor(energy)} Prozent`);
     setTimeout(() => fl.classList.remove('shaking'), 150);
     
     if(!isDraining) {
         isDraining = true;
-        let drain = setInterval(() => {
+        drainInterval = setInterval(() => {
             energy = Math.max(energy - 2, 0);
             beam.style.opacity = energy / 100;
+            beam.setAttribute('aria-label', `Lichtstärke ${Math.floor(energy)} Prozent`);
             if(enDisp) enDisp.innerText = Math.floor(energy);
             if(energy === 0) { 
-                clearInterval(drain); 
+                clearInterval(drainInterval);
+                drainInterval = null;
                 isDraining = false; 
             }
         }, 150);
@@ -92,11 +159,12 @@ function updateTransformer(val) {
     const fluxField = document.getElementById('fluxField');
     const voltBarSec = document.getElementById('voltBarSec');
     const voltValSec = document.getElementById('voltValSec');
+    const transRange = document.getElementById('transRange');
     
     if(!coil2) return;
     
     const windings1 = 5; 
-    const windings2 = parseInt(val);
+    const windings2 = parseInt(val, 10) || windings1;
     const u1 = 230;
     const u2 = Math.round(u1 * (windings2 / windings1));
     
@@ -131,6 +199,9 @@ function updateTransformer(val) {
         voltBarSec.setAttribute('y', 160 - h);
     }
     if(voltValSec) voltValSec.innerText = u2 + "V";
+    if (transRange) {
+        transRange.setAttribute('aria-valuetext', `${windings2} Windungen sekundär, etwa ${u2} Volt`);
+    }
     
     // Magnetic Flux Intensity Visualization
     if(flux) flux.style.strokeWidth = 1 + (windings2 / 3);
@@ -178,6 +249,8 @@ function updateRelay(active) {
         if(btn) btn.innerText = "Steuerstrom EINSCHALTEN ⚡";
     }
     relayClosed = active;
+    if (btn) btn.setAttribute('aria-pressed', String(relayClosed));
+    bulb.setAttribute('aria-label', relayClosed ? 'Lampe an' : 'Lampe aus');
 }
 
 function toggleRelay() {

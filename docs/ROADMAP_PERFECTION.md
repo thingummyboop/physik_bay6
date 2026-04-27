@@ -146,6 +146,13 @@ P2-Math Fortschritt (Run 2026-04-27 19:26):
 - Qualitätssicherung: Implementieren → Review → Patch mit JSON-Parsecheck und Vollständigkeitsaudit je Thema (`0` fehlende Feedbackfelder).
 - Ergebnis: Diese drei Mathematikmodule geben nun bei jeder Antwort konkrete Lernhinweise statt stiller Auswertung.
 
+P2 Fortschritt (Run 2026-04-27 19:42):
+- Thema **Elektromagnetismus** bei den Interaktionen auf Accessibility und Re-Init-Stabilität verbessert.
+- Abgedeckt: Live-Regionen für Status-/Messwerte (`materialText`, `directionText`, `relayStatus`, `transText`, `voltValSec`), `aria-describedby`/`aria-valuetext` für Strom- und Transformator-Slider sowie `aria-pressed`/`aria-label` für Relais- und Lampenzustand.
+- Stabilität: Beim erneuten `topicInit()` wird ein laufender Taschenlampen-Drain-Timer sauber beendet und der Energiestatus konsistent auf 0 zurückgesetzt (kein Zombie-Intervall, kein veralteter UI-Stand).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/elektromagnetismus.js` und `git diff --check`.
+- Ergebnis: Das Elektromagnetismus-Labor ist robuster bei wiederholter Initialisierung und liefert deutlich besser vorlesbare Zustandsrückmeldungen.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
