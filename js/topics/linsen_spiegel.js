@@ -5,10 +5,49 @@ let isConcave = true;
 let isRefractor = true;
 
 function topicInit() {
+    ensureLinsenSpiegelAccessibility();
     updateVerticalMicroscope();
     if (document.getElementById('fiberAngle')) updateFiber(20);
     if (document.getElementById('eyeLens')) focusEye('far');
     initSlitMachine();
+}
+
+function ensureLinsenSpiegelAccessibility() {
+    [
+        'mediumText',
+        'lensText',
+        'slitStatus',
+        'slitText',
+        'slitPredictionText',
+        'mirrorText',
+        'microViewStatus',
+        'fiberStatus',
+        'eyeText'
+    ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+        el.setAttribute('aria-atomic', 'true');
+    });
+
+    const fiberAngle = document.getElementById('fiberAngle');
+    if (fiberAngle) {
+        fiberAngle.setAttribute('aria-describedby', 'fiberStatus');
+        fiberAngle.setAttribute('aria-valuetext', `${fiberAngle.value}° Einfallswinkel`);
+    }
+
+    const microObjDist = document.getElementById('microObjDist');
+    if (microObjDist) {
+        microObjDist.setAttribute('aria-describedby', 'microViewStatus');
+        microObjDist.setAttribute('aria-valuetext', `${microObjDist.value} mm Objektabstand`);
+    }
+
+    const microTubeDist = document.getElementById('microTubeDist');
+    if (microTubeDist) {
+        microTubeDist.setAttribute('aria-describedby', 'microViewStatus');
+        microTubeDist.setAttribute('aria-valuetext', `${microTubeDist.value} mm Tubuslänge`);
+    }
 }
 
 // 1. Reflexion
@@ -155,6 +194,7 @@ function narrowSlit() {
 
 function updateSlitMachine(value) {
     const width = Math.max(0, Math.min(100, Number(value)));
+    const slider = document.getElementById('slitWidth');
     const wallTop = document.getElementById('wallTop');
     const wallBot = document.getElementById('wallBot');
     const wavesBroad = document.getElementById('wavesBroad');
@@ -226,6 +266,7 @@ function updateSlitMachine(value) {
     if (label) label.innerText = name;
     if (status) status.innerText = shortStatus;
     if (text) text.innerText = message;
+    if (slider) slider.setAttribute('aria-valuetext', `Spaltbreite ${Math.round(width)} Prozent, ${shortStatus.toLowerCase()}`);
 }
 
 function buildDiffractionEnvelope(centerY, gap, screenSpread) {
@@ -388,6 +429,8 @@ function updateVerticalMicroscope() {
 
     let g = parseFloat(objDistEl.value);
     let d = parseFloat(tubeDistEl.value);
+    objDistEl.setAttribute('aria-valuetext', `${g} mm Objektabstand`);
+    tubeDistEl.setAttribute('aria-valuetext', `${d} mm Tubuslänge`);
     
     let f_obj = 20; 
     let f_oc = 30;  
@@ -480,9 +523,11 @@ function updateFiber(angle) {
     const laser = document.getElementById('laserSource');
     const group = document.getElementById('raysGroup');
     const status = document.getElementById('fiberStatus');
+    const fiberAngle = document.getElementById('fiberAngle');
     if(!laser || !group || !status) return;
 
     const a = parseInt(angle);
+    if (fiberAngle) fiberAngle.setAttribute('aria-valuetext', `${a}° Einfallswinkel`);
     laser.style.transform = `rotate(${a}deg)`;
 
     const rad = (a * Math.PI) / 180;

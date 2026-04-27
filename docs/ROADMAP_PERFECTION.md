@@ -171,6 +171,18 @@ P2-Math Fortschritt (Run 2026-04-27 20:03):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/13` fehlende Feedbackfelder).
 - Ergebnis: Typische Verwechslungen (Gerade vs. Strahl, parallel vs. normal, Groß-/Kleinschreibung bei Punkten) werden jetzt direkt erklärt.
 
+P2 Fortschritt (Run 2026-04-27 20:11):
+- Thema **Linsen & Spiegel** bei mehreren Interaktionen auf Accessibility verbessert.
+- Abgedeckt: Live-Regionen (`role="status"`, `aria-live`, `aria-atomic`) für dynamische Rückmeldungen in Brechung, Linsen, Spiegel, Mikroskop, Faseroptik und Auge; `aria-describedby` + `aria-valuetext` für zentrale Slider (`fiberAngle`, `microObjDist`, `microTubeDist`, `slitWidth`).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/linsen_spiegel.js` und `git diff --check`.
+- Ergebnis: Das Modul ist für Screenreader klarer nutzbar und kommuniziert den aktuellen Reglerzustand zuverlässiger.
+
+P2-Math Fortschritt (Run 2026-04-27 20:13):
+- Thema **math1_6_winkel** mit diagnoseorientiertem Antwortfeedback vervollständigt.
+- Abgedeckt: 7 Fragen (5 Kapitel + 2 Diplom) mit insgesamt 15 Antwortoptionen.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/15` fehlende Feedbackfelder).
+- Ergebnis: Typische Verwechslungen (90° vs. 180°/360°, spitz vs. stumpf, Scheitelpunkt-Lage) werden jetzt direkt erklärt.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
