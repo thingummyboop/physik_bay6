@@ -381,3 +381,10 @@ P3 Fortschritt (Run 2026-04-28 00:17):
 - Abgedeckt: zusätzlicher Check auf verbliebene `alert()`-Nutzung sowie vollständige Live-Region-Semantik (`aria-live` + `aria-atomic` + `role="status"`).
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_remaining_subjects_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Nebenfächer melden Accessibility-/Feedback-Rückfälle jetzt früher und konsistenter im gleichen Qualitätsniveau wie Physik/Mathe.
+
+P1/P2 Fortschritt (Run 2026-04-28 00:22):
+- Physik-Audit **`scripts/audit_physics_a11y.js`** um weitere Interaktionsmuster erweitert (`data-work-case`, `data-lift-object`, `data-surface`, `data-ramp`, `data-slit-prediction`, `data-formula-target`).
+- Abgedeckt: automatischer Check, dass nicht nur Vorhersage-Controls, sondern auch weitere klickbare Auswahlgruppen Keyboard-Aktivierung (Enter/Leertaste) und `aria-pressed`-Semantik behalten.
+- Patch aus Review-Schleife: im Modul **`js/topics/arbeit.js`** Auswahlgruppen systematisch mit `role="button"`, `tabindex="0"` und deduplizierter Enter/Leertaste-Aktivierung nachgerüstet.
+- Qualitätssicherung: `node --check js/topics/arbeit.js`, `node scripts/audit_physics_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Die Arbeit-Interaktionen sind jetzt robust per Tastatur bedienbar und Physik-Regressionen bei nicht-mausbedienbaren Auswahlfeldern werden künftig automatisch erkannt.
