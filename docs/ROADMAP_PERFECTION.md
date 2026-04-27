@@ -388,3 +388,9 @@ P1/P2 Fortschritt (Run 2026-04-28 00:22):
 - Patch aus Review-Schleife: im Modul **`js/topics/arbeit.js`** Auswahlgruppen systematisch mit `role="button"`, `tabindex="0"` und deduplizierter Enter/Leertaste-Aktivierung nachgerüstet.
 - Qualitätssicherung: `node --check js/topics/arbeit.js`, `node scripts/audit_physics_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Die Arbeit-Interaktionen sind jetzt robust per Tastatur bedienbar und Physik-Regressionen bei nicht-mausbedienbaren Auswahlfeldern werden künftig automatisch erkannt.
+
+P1/P2 Fortschritt (Run 2026-04-28 00:26):
+- Physik-Audit **`scripts/audit_physics_a11y.js`** auf robustere Keyboard-Semantik-Prüfung nachgeschärft.
+- Abgedeckt: Interaktions-Checks verlangen jetzt explizit Enter- und Leertaste-Handling plus `aria-pressed`; zusätzlich wird für klickbare Nicht-Button-Muster (`data-*`) auch `role="button"` + `tabindex="0"` als Mindestsemantik geprüft.
+- Qualitätssicherung: Implementieren → Review → Patch (False-Positive-Fix bei alternativen Key-Syntaxen wie `['Enter',' ']`/`event.code==='Space'`), danach `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-Regressionen bei halb implementierter Tastaturbedienung werden früher erkannt; der Audit ist strenger, aber weiterhin stabil gegen legitime Implementierungsvarianten.
