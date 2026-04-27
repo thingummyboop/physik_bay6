@@ -483,3 +483,10 @@ P1 Fortschritt (Run 2026-04-28 02:0x):
 - Abgedeckt: 16 Rückmeldungen auf kürzere, direktere A2-B1-Formulierungen umgestellt; dabei auch ein fehlerhaftes Zitatmuster in einer Arbeit-Diplomrückmeldung bereinigt.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Top-Längenreview und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-Feedback ist konsistenter, leichter erfassbar und frei von auffälligen Formulierungsartefakten.
+
+P2-Math Fortschritt (Run 2026-04-28 02:1x):
+- Mathe-Perfection um einen fehlenden Sprach-Regressionstest ergänzt: neues Audit **`scripts/audit_math_language.js`**.
+- Abgedeckt: automatischer Check aller Mathe-Themen auf kompakte Diagnose-Feedbacks (`answers[].feedback`, Schwellwert 180 Zeichen), analog zur Physik-Qualitätsschiene.
+- Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 9-stufigen Sammellauf erweitert und **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden Mathe-Sprachcheck ergänzt.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_math_language.js` (`MATH_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathematik-Feedback ist jetzt ebenfalls automatisiert gegen Leselast-Regressionen abgesichert, nicht nur gegen A11y-/Syntaxfehler.

@@ -33,6 +33,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Physik-A11y-Basischeck: `node scripts/audit_physics_a11y.js`
 - Physik-Sprachlängencheck (Feedback-Kompaktheit): `node scripts/audit_physics_language.js`
 - Mathe-A11y-Basischeck: `node scripts/audit_math_a11y.js`
+- Mathe-Sprachlängencheck (Feedback-Kompaktheit): `node scripts/audit_math_language.js`
 - Nebenfächer-A11y-Basischeck: `node scripts/audit_remaining_subjects_a11y.js`
 - Keine Inline-Popup-Regressionen: `node scripts/audit_inline_alerts.js`
 - Topic-Syntax über alle Lernmodule: `node scripts/audit_topic_syntax.js`
