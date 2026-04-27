@@ -5,8 +5,11 @@ let balloonY = 120;
 let burnerInterval;
 let coolingInterval;
 let sunTimer;
+let particleHintState = '';
 
 function topicInit() {
+    enhanceAccessibility();
+
     // 1. Teilchenmodell
     const particleSvg = document.getElementById('particleSvg');
     if (particleSvg) {
@@ -30,8 +33,76 @@ function topicInit() {
     }
     
     // Initial calls
+    particleHintState = '';
     updateThermometer();
     setPhase('ice');
+}
+
+function enhanceAccessibility() {
+    const tempRange = document.getElementById('tempRange');
+    if (tempRange) {
+        tempRange.setAttribute('aria-describedby', 'tempValue particleHint');
+    }
+
+    const thermoRange = document.getElementById('thermoRange');
+    if (thermoRange) {
+        thermoRange.setAttribute('aria-describedby', 'thermoText');
+    }
+
+    const particleHint = document.getElementById('particleHint');
+    if (particleHint) {
+        particleHint.setAttribute('role', 'note');
+    }
+
+    const soupText = document.getElementById('soupText');
+    if (soupText) {
+        soupText.setAttribute('role', 'status');
+        soupText.setAttribute('aria-live', 'polite');
+    }
+
+    const sunText = document.getElementById('sunText');
+    if (sunText) {
+        sunText.setAttribute('role', 'status');
+        sunText.setAttribute('aria-live', 'polite');
+    }
+
+    const thermoText = document.getElementById('thermoText');
+    if (thermoText) {
+        thermoText.setAttribute('role', 'status');
+        thermoText.setAttribute('aria-live', 'polite');
+    }
+
+    const soupBtn = document.getElementById('soupBtn');
+    if (soupBtn) {
+        soupBtn.setAttribute('aria-describedby', 'soupText');
+    }
+
+    const sunBtn = document.getElementById('sunBtn');
+    if (sunBtn) {
+        sunBtn.setAttribute('aria-describedby', 'sunText');
+    }
+
+    const balloonButton = document.querySelector('#balloonZone button');
+    if (balloonButton && !balloonButton.dataset.a11yBound) {
+        balloonButton.dataset.a11yBound = 'true';
+
+        balloonButton.addEventListener('keydown', (event) => {
+            if (event.repeat) return;
+            if (event.key === ' ' || event.key === 'Enter') {
+                event.preventDefault();
+                startBurner();
+            }
+        });
+
+        balloonButton.addEventListener('keyup', (event) => {
+            if (event.key === ' ' || event.key === 'Enter') {
+                event.preventDefault();
+                stopBurner();
+            }
+        });
+
+        balloonButton.addEventListener('blur', stopBurner);
+    }
 }
 
 // 1. Teilchenmodell Animation
@@ -53,10 +124,12 @@ function animateParticles() {
         txt.style.color = color;
     }
     const hint = document.getElementById('particleHint');
-    if (hint) {
-        hint.innerText = temp < 40
+    const nextHintState = temp < 40 ? 'cold' : (temp < 70 ? 'warm' : 'hot');
+    if (hint && particleHintState !== nextHintState) {
+        particleHintState = nextHintState;
+        hint.innerText = nextHintState === 'cold'
             ? "Kalt: Die Teilchen bewegen sich wenig. Der Stoff braucht weniger Platz."
-            : temp < 70
+            : nextHintState === 'warm'
                 ? "Warm: Die Teilchen bewegen sich stärker und stoßen öfter zusammen."
                 : "Heiß: Die Teilchen bewegen sich schnell. Viele Stoffe dehnen sich aus.";
     }
@@ -155,6 +228,7 @@ function sunShine() {
 // 4. Konvektion
 function startBurner() {
     clearInterval(coolingInterval);
+    clearInterval(burnerInterval);
     const flame = document.getElementById('burnerFlame');
     if (flame) flame.style.display = 'block';
     burnerInterval = setInterval(() => {
@@ -167,8 +241,11 @@ function startBurner() {
 
 function stopBurner() {
     clearInterval(burnerInterval);
+    clearInterval(coolingInterval);
     const flame = document.getElementById('burnerFlame');
     if (flame) flame.style.display = 'none';
+    if (balloonY >= 120) return;
+
     coolingInterval = setInterval(() => {
         balloonY += 1;
         if(balloonY > 120) balloonY = 120;
