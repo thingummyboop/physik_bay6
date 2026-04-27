@@ -368,3 +368,10 @@ P2-Math Fortschritt (Run 2026-04-28 00:03):
 - Abgedeckt: ergänzter Check auf vollständige Live-Region-Semantik (`aria-live` + `aria-atomic` + `role="status"`) sowie Slider-Basissemantik (`aria-describedby` zusätzlich zu `aria-valuetext`).
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_a11y.js` und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathematik-Perfection ist belastbarer gegen A11y-Rückfälle; unvollständige Status-/Slider-Semantik wird künftig automatisiert früher erkannt.
+
+P1/P2/P3 Fortschritt (Run 2026-04-28 00:12):
+- QA-Gate gegen Syntax-Regressions erweitert: neues Skript **`scripts/audit_topic_syntax.js`** ergänzt.
+- Abgedeckt: automatischer `node --check`-Lauf über alle `js/topics/*.js`-Module statt nur punktueller Datei-Syntaxchecks.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_topic_syntax.js` und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Doku nachgezogen: **`docs/QUALITY_CRITERIA.md`** führt den neuen Mindestcheck explizit.
+- Ergebnis: Physik-/Mathe-/Nebenfächer-Perfection ist robuster gegen versehentliche Syntaxfehler in Themenmodulen.

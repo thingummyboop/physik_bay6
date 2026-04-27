@@ -34,6 +34,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Mathe-A11y-Basischeck: `node scripts/audit_math_a11y.js`
 - Nebenfächer-A11y-Basischeck: `node scripts/audit_remaining_subjects_a11y.js`
 - Keine Inline-Popup-Regressionen: `node scripts/audit_inline_alerts.js`
+- Topic-Syntax über alle Lernmodule: `node scripts/audit_topic_syntax.js`
 - Whitespace/Conflict-Fehler: `git diff --check`
 - Optional als Sammellauf: `bash scripts/run_quality_gate.sh`
 
