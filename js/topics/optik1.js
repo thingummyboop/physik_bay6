@@ -6,6 +6,17 @@ function topicInit() {
     updateEclipse1();
     updateReflection();
     initSlitMachine();
+
+    const slitPredictionText = document.getElementById('slitPredictionText');
+    if (slitPredictionText) {
+        slitPredictionText.setAttribute('role', 'status');
+        slitPredictionText.setAttribute('aria-live', 'polite');
+        slitPredictionText.setAttribute('aria-atomic', 'true');
+    }
+
+    document.querySelectorAll('[data-slit-prediction]').forEach((button) => {
+        button.setAttribute('aria-pressed', button.classList.contains('selected') ? 'true' : 'false');
+    });
 }
 
 // 1. Point Source Shadow
@@ -453,8 +464,10 @@ function createSvgElement(name, attrs) {
 function predictSlit(choice) {
     const feedback = document.getElementById('slitPredictionText');
     document.querySelectorAll('[data-slit-prediction]').forEach((button) => {
-        button.classList.toggle('selected', button.dataset.slitPrediction === choice);
-        button.classList.toggle('correct', choice === 'spread' && button.dataset.slitPrediction === choice);
+        const isSelected = button.dataset.slitPrediction === choice;
+        button.classList.toggle('selected', isSelected);
+        button.classList.toggle('correct', choice === 'spread' && isSelected);
+        button.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
     });
     if (!feedback) return;
     if (choice === 'spread') {
