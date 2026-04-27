@@ -362,3 +362,9 @@ P1/P2 Fortschritt (Run 2026-04-27 23:58):
 - Abgedeckt: zusätzlicher Check auf `alert()`-Reste, erweiterte Live-Region-Prüfung (`aria-live` + `aria-atomic` + `role="status"`) sowie Slider-Basissemantik inklusive `aria-describedby` neben `aria-valuetext`.
 - Qualitätssicherung: Implementieren → Review → Patch mit erneutem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-Perfection ist robuster gegen künftige A11y-Regressionen; stille Rückfälle bei Popup-Feedback oder unvollständiger Live-/Slider-Semantik werden jetzt früher erkannt.
+
+P2-Math Fortschritt (Run 2026-04-28 00:03):
+- Mathe-Regressionstest **`scripts/audit_math_a11y.js`** analog zur Physik-Qualitätsschiene gehärtet.
+- Abgedeckt: ergänzter Check auf vollständige Live-Region-Semantik (`aria-live` + `aria-atomic` + `role="status"`) sowie Slider-Basissemantik (`aria-describedby` zusätzlich zu `aria-valuetext`).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_a11y.js` und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathematik-Perfection ist belastbarer gegen A11y-Rückfälle; unvollständige Status-/Slider-Semantik wird künftig automatisiert früher erkannt.

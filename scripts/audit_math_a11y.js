@@ -28,11 +28,20 @@ for (const topic of mathTopics) {
 
   const hasLive = source.includes('aria-live');
   const hasAtomic = source.includes('aria-atomic');
+  const hasStatusRole = source.includes('role="status"') || source.includes("role='status'") || source.includes("'role', 'status'") || source.includes('"role", "status"');
   if (hasLive && !hasAtomic) {
     findings.push({
       topic,
       issue: 'live_without_atomic',
       detail: 'Contains aria-live but no aria-atomic marker.'
+    });
+  }
+
+  if (hasLive && !hasStatusRole) {
+    findings.push({
+      topic,
+      issue: 'live_without_status_role',
+      detail: 'Contains aria-live but no status role marker.'
     });
   }
 
@@ -49,11 +58,20 @@ for (const topic of mathTopics) {
 
   const hasRange = source.includes('Range') || source.includes('type="range"') || source.includes("type='range'");
   const hasValueText = source.includes('aria-valuetext');
+  const hasDescribedBy = source.includes('aria-describedby');
   if (hasRange && !hasValueText) {
     findings.push({
       topic,
       issue: 'slider_without_aria_valuetext',
       detail: 'Potential range interaction without aria-valuetext annotation.'
+    });
+  }
+
+  if (hasRange && !hasDescribedBy) {
+    findings.push({
+      topic,
+      issue: 'slider_without_aria_describedby',
+      detail: 'Potential range interaction without aria-describedby annotation.'
     });
   }
 }
