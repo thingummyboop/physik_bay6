@@ -452,3 +452,9 @@ P1/P2/P3 Fortschritt (Run 2026-04-28 01:34):
 - Qualitätsgate nachgezogen: **`scripts/audit_math_a11y.js`** und **`scripts/audit_remaining_subjects_a11y.js`** um Slider-Guard auf explizite `setAttribute("aria-valuetext", ...)`-Zuweisung erweitert; Ausgabe jetzt mit Topic-Anzahl (`MATH_A11Y_CLEAR (38 topics)`, `REMAINING_SUBJECTS_A11Y_CLEAR (4 topics)`).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Einzelläufen der Audits und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: stärkere Regressionserkennung für dynamische Slider-Semantik plus konsistentere Keyboard-Nutzbarkeit über alle priorisierten Fächer.
+
+P1/P2 Fortschritt (Run 2026-04-28 01:36):
+- Physik- und Mathe-Audits bei Keyboard-Semantik weiter gehärtet: **`scripts/audit_physics_a11y.js`** und **`scripts/audit_math_a11y.js`** prüfen interaktive Controls jetzt zusätzlich auf echte Keyboard-Aktivierungslogik im `keydown`-Pfad (Click-Trigger **oder** `preventDefault()`-basiertes Handling), statt nur auf das bloße Vorkommen von `keydown`.
+- Abgedeckt: `interactive_controls_incomplete_a11y` meldet nun explizit `keyboardActivation` im Diagnose-Detail und reduziert damit False-Greens bei unvollständiger Enter/Leertaste-Implementierung.
+- Qualitätssicherung: Implementieren → Review → Patch mit Einzelläufen `node scripts/audit_physics_a11y.js`, `node scripts/audit_math_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: robustere Regressionserkennung für tatsächliche Tastaturbedienbarkeit in priorisierten Physik-/Mathe-Interaktionen.

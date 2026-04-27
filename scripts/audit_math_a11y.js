@@ -62,6 +62,7 @@ for (const topic of mathTopics) {
   const interactiveMarkers = ['data-predict-', 'data-prism-view'];
   const hasInteractiveSelections = interactiveMarkers.some((marker) => source.includes(marker));
   const hasKeydownSupport = source.includes('keydown');
+  const hasKeyboardActivation = /addEventListener\(\s*['"]keydown['"][\s\S]{0,900}?(?:\.click\(\)|preventDefault\(\))/m.test(source);
   const enterRegexes = [
     /\b\w+\.key\s*[!=]==?\s*['"]Enter['"]/,
     /includes\(\s*['"]Enter['"]\s*\)/,
@@ -89,11 +90,11 @@ for (const topic of mathTopics) {
     source.includes('tabindex="0"') ||
     source.includes("tabindex='0'");
 
-  if (hasInteractiveSelections && (!hasKeydownSupport || !hasEnterSupport || !hasSpaceSupport || !hasPressedState)) {
+  if (hasInteractiveSelections && (!hasKeydownSupport || !hasKeyboardActivation || !hasEnterSupport || !hasSpaceSupport || !hasPressedState)) {
     findings.push({
       topic,
       issue: 'interactive_controls_incomplete_a11y',
-      detail: `interactive UI found; keydown=${hasKeydownSupport}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
+      detail: `interactive UI found; keydown=${hasKeydownSupport}, keyboardActivation=${hasKeyboardActivation}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
     });
   }
 

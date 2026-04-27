@@ -75,6 +75,7 @@ for (const topic of physicsTopics) {
   }
 
   const hasKeydownSupport = source.includes('keydown');
+  const hasKeyboardActivation = /addEventListener\(\s*['"]keydown['"][\s\S]{0,900}?(?:\.click\(\)|preventDefault\(\))/m.test(source);
   const enterRegexes = [
     /\b\w+\.key\s*[!=]==?\s*['"]Enter['"]/, // equality or guard inequality checks
     /includes\(\s*['"]Enter['"]\s*\)/,
@@ -117,11 +118,11 @@ for (const topic of physicsTopics) {
   for (const marker of interactiveMarkers) {
     if (!source.includes(marker)) continue;
 
-    if (!hasKeydownSupport || !hasEnterSupport || !hasSpaceSupport || !hasPressedState) {
+    if (!hasKeydownSupport || !hasKeyboardActivation || !hasEnterSupport || !hasSpaceSupport || !hasPressedState) {
       findings.push({
         topic,
         issue: 'interactive_controls_incomplete_a11y',
-        detail: `${marker} found; keydown=${hasKeydownSupport}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
+        detail: `${marker} found; keydown=${hasKeydownSupport}, keyboardActivation=${hasKeyboardActivation}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
       });
     }
 
