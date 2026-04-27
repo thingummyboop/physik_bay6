@@ -48,6 +48,26 @@ function ensureLinsenSpiegelAccessibility() {
         microTubeDist.setAttribute('aria-describedby', 'microViewStatus');
         microTubeDist.setAttribute('aria-valuetext', `${microTubeDist.value} mm Tubuslänge`);
     }
+
+    const slitDescriptionIds = ['slitPredictionText', 'slitStatus']
+        .filter((id) => document.getElementById(id))
+        .join(' ');
+
+    document.querySelectorAll('[data-slit-prediction]').forEach((button) => {
+        if (!button.hasAttribute('tabindex')) button.setAttribute('tabindex', '0');
+        button.setAttribute('role', 'button');
+        button.setAttribute('aria-pressed', button.classList.contains('selected') ? 'true' : 'false');
+        if (slitDescriptionIds) button.setAttribute('aria-describedby', slitDescriptionIds);
+
+        if (button.dataset.a11yBound !== 'true') {
+            button.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                predictSlit(button.dataset.slitPrediction);
+            });
+            button.dataset.a11yBound = 'true';
+        }
+    });
 }
 
 // 1. Reflexion
@@ -335,8 +355,10 @@ function createSvgElement(name, attrs) {
 function predictSlit(choice) {
     const feedback = document.getElementById('slitPredictionText');
     document.querySelectorAll('[data-slit-prediction]').forEach((button) => {
-        button.classList.toggle('selected', button.dataset.slitPrediction === choice);
-        button.classList.toggle('correct', choice === 'spread' && button.dataset.slitPrediction === choice);
+        const isSelected = button.dataset.slitPrediction === choice;
+        button.classList.toggle('selected', isSelected);
+        button.classList.toggle('correct', choice === 'spread' && isSelected);
+        button.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
     });
     if (!feedback) return;
     if (choice === 'spread') {

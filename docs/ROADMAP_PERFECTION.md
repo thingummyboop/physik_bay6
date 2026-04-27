@@ -255,3 +255,15 @@ P2 Fortschritt (Run 2026-04-27 22:01):
 - Abgedeckt: `aria-atomic` für dynamische Statusfelder, Tastatursteuerung (Enter/Leertaste) für alle `data-predict-*`-Elemente, Listener-Guard gegen Doppelbindung bei erneutem `topicInit()` sowie `aria-pressed`-Synchronisierung in `setPrediction()`.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/drehundstatik.js` und `git diff --check`.
 - Ergebnis: Vorhersage-Checks sind jetzt konsistent per Tastatur bedienbar und geben ihren Auswahlzustand zuverlässig für assistive Technologien aus.
+
+P2 Fortschritt (Run 2026-04-27 22:09):
+- Thema **Mechanische Arbeit** bei Auswahl-Interaktionen weiter auf Screenreader-Semantik verbessert.
+- Abgedeckt: `aria-atomic` für dynamische Statusfelder sowie `aria-pressed`/`aria-describedby`-Semantik für Auswahlgruppen (`data-work-case`, `data-lift-object`, `data-surface`, `data-ramp`) inklusive synchronisierter Zustandsupdates.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/arbeit.js` und `git diff --check`.
+- Ergebnis: Auswahlzustände sind nun konsistent vorlesbar und nicht mehr nur visuell über `.selected` erkennbar.
+
+P2 Fortschritt (Run 2026-04-27 22:14):
+- Thema **Linsen & Spiegel** bei der Spalt-Vorhersage auf Tastaturbedienung und Zustands-Semantik nachgezogen.
+- Abgedeckt: Fokusfähigkeit + Enter/Leertaste für `data-slit-prediction`, Guard gegen doppelte Keydown-Listener bei erneutem `topicInit()`, sowie `aria-pressed`-Synchronisierung in `predictSlit()`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/linsen_spiegel.js` und `git diff --check`.
+- Ergebnis: Der Vorhersage-Check ist nun ohne Maus bedienbar und kommuniziert den gewählten Zustand zuverlässig an assistive Technologien.
