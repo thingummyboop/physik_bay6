@@ -218,3 +218,9 @@ P3 Fortschritt (Run 2026-04-27 21:20):
 - Abgedeckt: je Sprachdatei `1068` fehlende Feedbackfelder nachgezogen; Audit nach Patch in allen Sprachdateien: `0` fehlende Antwort-Feedbacks.
 - Qualitätssicherung: Implementieren → Review → Patch mit Vollständigkeitsaudit (`lang/*.json`), JSON-Parsecheck und konsistenter Strukturübernahme entlang identischer Antwortarrays.
 - Ergebnis: Quiz- und Diplomauswertung liefert nun in allen unterstützten Sprachen durchgehend erklärende Rückmeldungen statt stummer Falsch/Richtig-Ausgabe.
+
+P3 Fortschritt (Run 2026-04-27 21:24):
+- Qualitätssicherung verstetigt: neues Audit-Skript `scripts/audit_quiz_feedback.js` ergänzt.
+- Abgedeckt: automatischer Check aller `lang/*.json` auf fehlende `feedback`-Felder in Antwortarrays (Quiz + Diplom).
+- Qualitätssicherung: Lauf des Skripts nach Einführung (`ALL_CLEAR`) sowie JSON-Parsecheck/`git diff --check`.
+- Ergebnis: Künftige Regressionsfunde bei stillen Antworten sind schnell und reproduzierbar prüfbar.
