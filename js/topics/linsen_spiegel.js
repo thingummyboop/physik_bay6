@@ -163,16 +163,19 @@ function ensureSlitA11y(slider) {
     if (status) {
         status.setAttribute('role', 'status');
         status.setAttribute('aria-live', 'polite');
+        status.setAttribute('aria-atomic', 'true');
     }
 
     if (text) {
         text.setAttribute('role', 'status');
         text.setAttribute('aria-live', 'polite');
+        text.setAttribute('aria-atomic', 'true');
     }
 
     if (prediction) {
         prediction.setAttribute('role', 'status');
         prediction.setAttribute('aria-live', 'polite');
+        prediction.setAttribute('aria-atomic', 'true');
     }
 
     slider.setAttribute('aria-describedby', 'slitStatus slitText');

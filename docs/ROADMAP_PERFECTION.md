@@ -285,3 +285,14 @@ P2-Math Fortschritt (Run 2026-04-27 22:31):
 - Abgedeckt: bestehende Live-Regionen mit `aria-atomic="true"` ergänzt, damit Aufgaben- und Feedbacktexte vollständig vorgelesen werden.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math1_8_brueche.js` und `git diff --check`.
 - Ergebnis: Das priorisierte Brüche-Modul liefert bei dynamischen Updates klarere, weniger fragmentierte Audio-Rückmeldungen.
+
+P2 Fortschritt (Run 2026-04-27 22:39):
+- Themen **Linsen & Spiegel** und **Optik 1** bei den Spalt-Live-Rückmeldungen auf Screenreader-Konsistenz nachgezogen.
+- Abgedeckt: In `ensureSlitA11y()` für `slitStatus`, `slitText` und `slitPredictionText` jeweils `aria-atomic="true"` ergänzt.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/linsen_spiegel.js js/topics/optik1.js`, Status/Atomic-Audit und `node scripts/audit_quiz_feedback.js` (`ALL_CLEAR`).
+- Ergebnis: Beide Optikmodule lesen dynamische Statusupdates nun vollständig statt fragmentiert vor.
+
+P3 Fortschritt (Run 2026-04-27 22:41):
+- Fächerübergreifende Qualitätsbasis dokumentiert: neue Datei **`docs/QUALITY_CRITERIA.md`**.
+- Abgedeckt: gemeinsame Kriterien für Sprache, Didaktik/Progression, diagnoseorientiertes Feedback, Accessibility-Standards, technische Mindestchecks und Definition-of-Done.
+- Ergebnis: P3 hat jetzt eine konkrete, versionierte Referenz für konsistente Qualitätsarbeit über Physik/Mathematik/Nebenfächer hinweg.
