@@ -433,3 +433,9 @@ P1/P2 Fortschritt (Run 2026-04-28 01:14):
 - Abgedeckt: Erkennung für Enter/Space/Spacebar in unterschiedlichen Implementierungsstilen erweitert (Vergleich mit `===`/`!==`, unterschiedliche Event-Variablennamen, Array-/`includes`-Muster).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Zwischenfund in `sieinheiten` durch zu enge Regex-Variante; nach Patch `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Der Physik-Regressionstest erkennt unvollständige Tastaturbedienung zuverlässiger und bleibt gleichzeitig kompatibel mit legitimen Codevarianten in bestehenden Modulen.
+
+P2-Math Fortschritt (Run 2026-04-28 01:18):
+- Mathe-Audit **`scripts/audit_math_a11y.js`** auf dieselbe robuste Keyboard-Mustererkennung wie Physik angehoben.
+- Abgedeckt: Enter/Leertaste-Erkennung für verschiedene Event-Variablennamen und Vergleichsstile (`===`/`!==`) sowie Array-/`includes`-Varianten nachgezogen.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_math_a11y.js` (`MATH_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathe-Regressionstests vermeiden künftig False-Greens bei Keyboard-Semantik und bleiben robuster gegen unterschiedliche, aber korrekte Implementierungsstile.
