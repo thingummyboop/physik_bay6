@@ -212,3 +212,9 @@ P3 Fortschritt (Run 2026-04-27 21:12):
 - Abgedeckt: Restartefakte in Physik/Mathematik/Nebenfächern entfernt (Audit nach Patch: `0` verbleibende `TOKEN_`-Treffer in allen drei Dateien).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck für alle geänderten Sprachdateien und `git diff --check`.
 - Ergebnis: Frontend-Texte in AR/TR/UK sind konsistenter lesbar und enthalten keine sichtbaren Token-Reste mehr.
+
+P3 Fortschritt (Run 2026-04-27 21:20):
+- Internationale Qualitätslücke geschlossen: Fehlende `feedback`-Texte bei Antwortoptionen in **en/ar/sr/tr/uk** vollständig ergänzt (Fallback aus de-Referenzinhalt).
+- Abgedeckt: je Sprachdatei `1068` fehlende Feedbackfelder nachgezogen; Audit nach Patch in allen Sprachdateien: `0` fehlende Antwort-Feedbacks.
+- Qualitätssicherung: Implementieren → Review → Patch mit Vollständigkeitsaudit (`lang/*.json`), JSON-Parsecheck und konsistenter Strukturübernahme entlang identischer Antwortarrays.
+- Ergebnis: Quiz- und Diplomauswertung liefert nun in allen unterstützten Sprachen durchgehend erklärende Rückmeldungen statt stummer Falsch/Richtig-Ausgabe.
