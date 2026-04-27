@@ -33,6 +33,11 @@ P2 Fortschritt (Run 2026-04-27 16:41):
 - Abgedeckt: 15 Diplomfragen mit jeweils Feedback für richtige und typische falsche Antwort.
 - Ergebnis: Auch im Abschlusscheck erhalten Lernende jetzt direkte Korrekturhinweise statt leeren Feedbackfeldern.
 
+P2 Fortschritt (Run 2026-04-27 16:58):
+- Themen **Arbeit** und **Energie** im Diplomteil mit diagnoseorientiertem Antwortfeedback ergänzt.
+- Abgedeckt: 20 Diplomfragen (10 + 10), jeweils mit Feedback für richtige und typische falsche Antwort.
+- Ergebnis: Diese beiden Physikmodule geben bei Fehlvorstellungen jetzt konkrete Korrekturhinweise statt leerem Feedback.
+
 ## Phase 2: Math
 
 - Erst Mathematikthemen mit hohem Förderbedarf priorisieren: Brüche, Dezimalzahlen, Gleichungen, Prozent.
