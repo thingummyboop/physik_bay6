@@ -14,6 +14,12 @@ const mathTopics = fs
 
 const findings = [];
 
+if (mathTopics.length === 0) {
+  console.log('MATH_A11Y_ISSUES');
+  console.log('- _global: no_math_topics_detected (No math topic scripts found for audit)');
+  process.exit(1);
+}
+
 for (const topic of mathTopics) {
   const file = path.join(topicsDir, `${topic}.js`);
   const source = fs.readFileSync(file, 'utf8');
@@ -34,6 +40,14 @@ for (const topic of mathTopics) {
       topic,
       issue: 'live_without_atomic',
       detail: 'Contains aria-live but no aria-atomic marker.'
+    });
+  }
+
+  if (hasAtomic && !hasLive) {
+    findings.push({
+      topic,
+      issue: 'atomic_without_live',
+      detail: 'Contains aria-atomic but no aria-live marker.'
     });
   }
 

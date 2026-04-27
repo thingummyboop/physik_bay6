@@ -58,6 +58,14 @@ for (const topic of physicsTopics) {
     });
   }
 
+  if (hasAtomic && !hasLive) {
+    findings.push({
+      topic,
+      issue: 'atomic_without_live',
+      detail: 'Contains aria-atomic but no aria-live marker.'
+    });
+  }
+
   if (hasLive && !hasStatusRole) {
     findings.push({
       topic,
@@ -94,6 +102,8 @@ for (const topic of physicsTopics) {
 
   const interactiveMarkers = [
     'data-predict-',
+    'data-predict-group',
+    'data-predict-value',
     'data-work-case',
     'data-lift-object',
     'data-surface',

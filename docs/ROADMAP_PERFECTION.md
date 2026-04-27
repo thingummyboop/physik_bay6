@@ -414,3 +414,10 @@ P2-Math Fortschritt (Run 2026-04-28 00:46):
 - Regression-Schutz: **`scripts/audit_math_a11y.js`** prüft interaktive Mathe-Steuerungen jetzt nicht nur für `data-predict-*`, sondern auch für `data-prism-view` auf Keyboard-/Semantik-Mindeststandard.
 - Qualitätssicherung: `node --check js/topics/math2_7_geometrie.js`, `node --check scripts/audit_math_a11y.js`, `node scripts/audit_math_a11y.js` (`MATH_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Der Prisma-Explorer ist robust ohne Maus bedienbar; die neue Audit-Abdeckung verhindert Rückfälle bei ähnlichen Mathe-Interaktionen.
+
+P1/P2 Fortschritt (Run 2026-04-28 00:56):
+- Physik-/Mathe-Audits auf Semantik-Konsistenz weiter gehärtet.
+- Abgedeckt (Physik): **`scripts/audit_physics_a11y.js`** prüft jetzt zusätzlich den Regression-Fall `aria-atomic` ohne `aria-live` (`atomic_without_live`) und erkennt Vorhersage-Attribute expliziter (`data-predict-group`, `data-predict-value`) statt nur indirekt.
+- Abgedeckt (Mathe): **`scripts/audit_math_a11y.js`** erhielt denselben `atomic_without_live`-Check und einen Guard für leere Topic-Erkennung (`no_math_topics_detected`).
+- Qualitätssicherung: `node scripts/audit_physics_a11y.js`, `node scripts/audit_math_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Die QA-Schiene erkennt inkonsistente Live-Region-Semantik früher und bleibt auch bei Strukturänderungen der Topic-Landschaft robust.
