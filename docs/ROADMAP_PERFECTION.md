@@ -308,3 +308,9 @@ P3 Fortschritt (Run 2026-04-27 22:58):
 - Abgedeckt: `aria-valuetext` + `aria-describedby` für `co2Range` und `yearRange`, Live-Semantik (`role="status"`, `aria-live`, `aria-atomic`) für dynamische Ausgaben (`tempVal`, `archiveText`, `yearLabel`, `dominoResult`) sowie Initial-Update in `topicInit()`.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check` auf beide Topic-Dateien und `git diff --check`.
 - Ergebnis: Die Klima-Interaktionen liefern auch ohne visuelle Beobachtung verständlichere Zustandsmeldungen und konsistente Reglerausgaben.
+
+P2-Math Fortschritt (Run 2026-04-27 22:46):
+- Thema **math2_3_dezimalzahlen** technisch und didaktisch verbessert: Inline-`alert()`-Checks aus den Übungen durch zugängliche, seiteninterne Feedbackausgabe ersetzt.
+- Abgedeckt: drei Interaktionsaufgaben (`geld_input`, `rund_input`, `komma_input`) mit Enter-Submit, robustem Komma-Parsing und Live-Feedback (`role="status"`, `aria-live`, `aria-atomic`) inkl. `aria-describedby`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math2_3_dezimalzahlen.js` und `git diff --check`.
+- Ergebnis: Dezimalzahlen-Übungen sind ohne störende Popups nutzbar, tastaturfreundlicher und für Screenreader konsistenter.
