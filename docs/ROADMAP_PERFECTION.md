@@ -200,3 +200,9 @@ P2-Math Fortschritt (Run 2026-04-27 20:31):
 - Abgedeckt: 43 Antwortoptionen (31 in `math1_4_mult_div`, 12 in `math1_10_groessen`) mit gezielten Hinweisen für typische Fehler (z. B. Summe statt Produkt, Vorrangregeln, kg↔g und h↔min Umrechnung).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck (`de.json ok`), Vollständigkeitsaudit (`0` fehlende Feedbackfelder in beiden Themen) und `git diff --check`.
 - Ergebnis: Beide Module liefern jetzt durchgehend inhaltliche Rückmeldungen statt stiller Punktevergabe.
+
+P2-Math Fortschritt (Run 2026-04-27 21:03):
+- Verbleibende Mathematik-Module mit fehlenden Antwortrückmeldungen vollständig nachgezogen: **math2_7_geometrie**, **math2_8_statistik**, **math1_11_figuren_koerper**, **math2_1_teilbarkeit**, **math2_4_relative_zahlen**, **math3_1/2/4/5/6/7/8/9/11**, **math4_1/2/4/5/6/7**.
+- Abgedeckt: alle zuvor noch offenen Mathematik-Antwortoptionen (Audit vorher: 127 fehlende Feedbackfelder, Audit nachher: `ALL_CLEAR`).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) je Chunk mit Parsecheck (`de.json ok`) und Konsistenzprüfung (`git diff --check`).
+- Ergebnis: Mathematik ist nun flächendeckend auf diagnoseorientierte Antwortauswertung umgestellt; keine stillen Quiz-/Diplom-Antworten mehr.
