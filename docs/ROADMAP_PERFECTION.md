@@ -406,3 +406,11 @@ P1/P2 Fortschritt (Run 2026-04-28 00:36):
 - Abgedeckt: Physikthemen werden jetzt automatisch aus `js/topics/*.js` abgeleitet (mit Ausschluss von Mathe/Nebenfächern) statt starrer Hardcode-Liste; zusätzlich Guard gegen leere Topic-Erkennung.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check scripts/audit_physics_a11y.js`, `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR (15 topics)`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Neue Physikmodule fallen künftig automatisch unter den A11y-Regressionstest, ohne dass die Audit-Liste manuell nachgeführt werden muss.
+
+P2-Math Fortschritt (Run 2026-04-28 00:46):
+- Thema **math2_7_geometrie** (Prisma-Explorer) auf Tastatur- und Screenreader-Semantik verbessert.
+- Abgedeckt: `data-prism-view`-Steuerung mit Enter/Leertaste, `role="button"`, `tabindex="0"`, `aria-pressed`-Synchronisierung und Guard gegen doppelte Event-Bindung bei erneutem `topicInit()`.
+- Ergänzt: `prismFeedback` als Live-Region (`role="status"`, `aria-live`, `aria-atomic`) für konsistente Rückmeldungen ohne rein visuelle Abhängigkeit.
+- Regression-Schutz: **`scripts/audit_math_a11y.js`** prüft interaktive Mathe-Steuerungen jetzt nicht nur für `data-predict-*`, sondern auch für `data-prism-view` auf Keyboard-/Semantik-Mindeststandard.
+- Qualitätssicherung: `node --check js/topics/math2_7_geometrie.js`, `node --check scripts/audit_math_a11y.js`, `node scripts/audit_math_a11y.js` (`MATH_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Der Prisma-Explorer ist robust ohne Maus bedienbar; die neue Audit-Abdeckung verhindert Rückfälle bei ähnlichen Mathe-Interaktionen.
