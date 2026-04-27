@@ -1,7 +1,48 @@
 // Logic for kraft und bewegung topic
 function topicInit() {
+    enhanceForceMotionAccessibility();
     updateLever();
     updateForceLab();
+}
+
+function enhanceForceMotionAccessibility() {
+    [
+        'kickText',
+        'inertiaInsight',
+        'frictionRaceText',
+        'gravityText',
+        'dropResult',
+        'rocketText',
+        'leverText',
+        'leverValue',
+        'leverRule',
+        'forceLabText',
+        'raceText',
+        'frictionText'
+    ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+    });
+
+    const leverRange = document.getElementById('leverRange');
+    if (leverRange) {
+        leverRange.setAttribute('aria-describedby', 'leverValue leverText leverRule');
+        leverRange.setAttribute('aria-valuetext', getLeverValueText(Number(leverRange.value || 50)));
+    }
+
+    const forceRange = document.getElementById('forceRange');
+    if (forceRange) {
+        forceRange.setAttribute('aria-describedby', 'forceLabel forceLabText');
+        forceRange.setAttribute('aria-valuetext', `${forceRange.value || 6} Newton`);
+    }
+
+    const massRange = document.getElementById('massRange');
+    if (massRange) {
+        massRange.setAttribute('aria-describedby', 'massLabel forceLabText');
+        massRange.setAttribute('aria-valuetext', `${massRange.value || 3} Kilogramm`);
+    }
 }
 
 function setPrediction(group, value) {
@@ -155,6 +196,8 @@ function updateLever() {
     let loadArmText = document.getElementById('leverLoadArm');
     let ruleText = document.getElementById('leverRule');
     if (!fulcrum || !seesaw) return;
+    const leverRange = document.getElementById('leverRange');
+    if (leverRange) leverRange.setAttribute('aria-valuetext', getLeverValueText(Number(val)));
     
     let pixelX = 40 + ((val - 10) / 80) * 220;
     fulcrum.style.transform = `translateX(${pixelX - 150}px)`; 
@@ -195,6 +238,12 @@ function updateLever() {
     }
 }
 
+function getLeverValueText(value) {
+    if (value < 40) return "Drehpunkt nah an der Last, günstiger langer Kraftarm";
+    if (value > 60) return "Drehpunkt nah an der Kraft, ungünstiger kurzer Kraftarm";
+    return "Drehpunkt ungefähr in der Mitte";
+}
+
 function updateLeverMeter(value) {
     const meter = document.getElementById('leverChance');
     if (meter) meter.style.width = `${value}%`;
@@ -213,6 +262,8 @@ function updateForceLab() {
     if (massLabel) massLabel.innerText = `${mass} kg`;
     if (accelLabel) accelLabel.innerText = `${acceleration.toFixed(1)} m/s²`;
     if (accelMeter) accelMeter.style.width = `${Math.min(100, acceleration * 18)}%`;
+    document.getElementById('forceRange')?.setAttribute('aria-valuetext', `${force} Newton`);
+    document.getElementById('massRange')?.setAttribute('aria-valuetext', `${mass} Kilogramm`);
 
     const result = document.getElementById('forceLabText');
     if (result) {

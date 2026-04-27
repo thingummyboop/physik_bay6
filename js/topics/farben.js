@@ -1,6 +1,22 @@
 // Logic for farben topic
 function topicInit() {
+    enhanceColorAccessibility();
     initPrismDispersion();
+}
+
+function enhanceColorAccessibility() {
+    ['waveDesc', 'dispersionAngleLabel', 'dispersionText'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+    });
+
+    const slider = document.getElementById("dispersionAngle");
+    if (slider) {
+        slider.setAttribute("aria-describedby", "dispersionAngleLabel dispersionText");
+        slider.setAttribute("aria-valuetext", `${slider.value} Grad Einfallsrichtung`);
+    }
 }
 
 function simulateJump() {
@@ -38,7 +54,10 @@ function initPrismDispersion() {
     const slider = document.getElementById("dispersionAngle");
     if (!slider) return;
 
-    slider.addEventListener("input", () => updatePrismDispersion(Number(slider.value)));
+    if (!slider.dataset.dispersionBound) {
+        slider.addEventListener("input", () => updatePrismDispersion(Number(slider.value)));
+        slider.dataset.dispersionBound = "true";
+    }
     updatePrismDispersion(Number(slider.value));
 }
 
@@ -67,6 +86,7 @@ function updatePrismDispersion(angleDeg) {
 
     const label = document.getElementById("dispersionAngleLabel");
     if (label) label.textContent = `${actualIncidence.toFixed(0)}°`;
+    document.getElementById("dispersionAngle")?.setAttribute("aria-valuetext", `${actualIncidence.toFixed(0)} Grad Einfallswinkel zum Lot`);
 
     drawSpectrum(entry, incidentDir, multiply(inwardNormal, -1), prismPoints);
     updateDispersionText(entry, actualIncidence);

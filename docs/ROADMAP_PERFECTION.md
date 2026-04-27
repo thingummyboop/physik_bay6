@@ -125,6 +125,14 @@ P2 Fortschritt (Run 2026-04-27 19:03):
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/licht_schatten_astronomie.js` und `git diff --check`.
 - Ergebnis: Das Modul liefert verlässlichere Rückmeldungen für assistive Technologien und ist robuster gegen partiell fehlende DOM-Elemente.
 
+P2 Fortschritt (Run 2026-04-27 19:05):
+- Physik-Labore **Mechanische Arbeit**, **Energie** und **Statik & Hebel** bei Live-Rückmeldung und Slider-/Button-Semantik weiter verbessert.
+- Abgedeckt: `role="status"` + `aria-live` für dynamische Feedbacktexte, `aria-describedby`/`aria-valuetext` für zentrale Regler und `aria-pressed` beim Energie-Schalter.
+- Stabilität: In **Statik & Hebel** werden Rotationsanimationen bei erneutem `topicInit()` nun sauber gecancelt statt gestapelt.
+- Parallel (Math-Priorität): **Brüche**-Labor mit zusätzlichen Live-Regionen und zugänglicherem Slider-Feedback ergänzt.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check` für alle betroffenen Topic-Dateien, `lang/de.json`-Parsecheck und `git diff --check`.
+- Ergebnis: Physik-Interaktionen sind robuster und für Screenreader klarer auswertbar; das priorisierte Brüche-Modul bleibt konsistent zugänglich.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.

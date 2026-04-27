@@ -54,11 +54,27 @@ const c1 = document.getElementById('svg-half'); const c2 = document.getElementBy
 
 
 function topicInit() {
+    enhanceFractionAccessibility();
     initZstrahl();
 
     setTimeout(nextVfracTask, 500);
 
   // Init logic is handled inline, but function required by renderer
+}
+
+function enhanceFractionAccessibility() {
+    ['vfrac-feedback', 'zstrahl-feedback', 'anteil-feedback', 'vfrac-task-text'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+    });
+
+    const slider = document.getElementById('zstrahl-slider');
+    if (slider) {
+        slider.setAttribute('aria-describedby', 'zstrahl-task zstrahl-feedback');
+        slider.setAttribute('aria-valuetext', '0 Prozent auf dem Zahlenstrahl');
+    }
 }
 
 
@@ -119,6 +135,7 @@ function nextVfracTask() {
 function drawVfracCanvas() {
     const canvas = document.getElementById('vfrac-canvas');
     let svgHtml = '<svg width="100%" height="100%" viewBox="0 0 200 200">';
+    let pieceIndex = 1;
     
     if (vfracCurrentModel === 'pie') {
         const n = vfracTask.n;
@@ -132,7 +149,7 @@ function drawVfracCanvas() {
             const x2 = cx + r * Math.sin(endAngle);
             const y2 = cy - r * Math.cos(endAngle);
             const d = `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2} Z`;
-            svgHtml += `<path d="${d}" fill="transparent" stroke="#d97706" stroke-width="2" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" data-selected="false"/>`;
+            svgHtml += `<path d="${d}" fill="transparent" stroke="#d97706" stroke-width="2" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" onkeydown="handleVfracPieceKey(event, this)" tabindex="0" role="button" aria-pressed="false" aria-label="Pizzastück ${pieceIndex++} von ${n} auswählen" data-selected="false"/>`;
         }
     } else if (vfracCurrentModel === 'choco') {
         const n = vfracTask.n;
@@ -147,7 +164,7 @@ function drawVfracCanvas() {
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
                 if (i >= n) break;
-                svgHtml += `<rect x="${startX + c*w}" y="${startY + r*h}" width="${w-2}" height="${h-2}" fill="#92400e" rx="3" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" data-selected="false"/>`;
+                svgHtml += `<rect x="${startX + c*w}" y="${startY + r*h}" width="${w-2}" height="${h-2}" fill="#92400e" rx="3" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" onkeydown="handleVfracPieceKey(event, this)" tabindex="0" role="button" aria-pressed="false" aria-label="Schokostück ${pieceIndex++} von ${n} auswählen" data-selected="false"/>`;
                 i++;
             }
         }
@@ -163,7 +180,7 @@ function drawVfracCanvas() {
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
                 if (i >= n) break;
-                svgHtml += `<circle cx="${startX + c*w}" cy="${startY + r*h}" r="12" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" data-selected="false"/>`;
+                svgHtml += `<circle cx="${startX + c*w}" cy="${startY + r*h}" r="12" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" style="cursor:pointer; transition: fill 0.2s;" onclick="toggleVfracPiece(this)" onkeydown="handleVfracPieceKey(event, this)" tabindex="0" role="button" aria-pressed="false" aria-label="Punkt ${pieceIndex++} von ${n} auswählen" data-selected="false"/>`;
                 i++;
             }
         }
@@ -177,17 +194,25 @@ function toggleVfracPiece(element) {
     const isSelected = element.getAttribute('data-selected') === 'true';
     if (isSelected) {
         element.setAttribute('data-selected', 'false');
+        element.setAttribute('aria-pressed', 'false');
         if (vfracCurrentModel === 'pie') element.setAttribute('fill', 'transparent');
         else if (vfracCurrentModel === 'choco') element.setAttribute('fill', '#92400e');
         else if (vfracCurrentModel === 'dots') element.setAttribute('fill', '#e2e8f0');
         vfracSelected--;
     } else {
         element.setAttribute('data-selected', 'true');
+        element.setAttribute('aria-pressed', 'true');
         if (vfracCurrentModel === 'pie') element.setAttribute('fill', '#ef4444');
         else if (vfracCurrentModel === 'choco') element.setAttribute('fill', '#d97706');
         else if (vfracCurrentModel === 'dots') element.setAttribute('fill', '#3b82f6');
         vfracSelected++;
     }
+}
+
+function handleVfracPieceKey(event, element) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggleVfracPiece(element);
 }
 
 function checkVfracAnswer() {
@@ -243,6 +268,7 @@ function updateZstrahl() {
     // val is percentage. Left is 20, width is 360.
     const pos = 20 + (val / 100) * 360;
     dot.style.left = pos + 'px';
+    document.getElementById('zstrahl-slider')?.setAttribute('aria-valuetext', Math.round(val) + ' Prozent auf dem Zahlenstrahl');
 }
 
 function checkZstrahl() {

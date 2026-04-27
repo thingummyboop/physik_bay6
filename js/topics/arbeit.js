@@ -33,12 +33,44 @@ const liftObjects = {
 };
 
 function topicInit() {
+    enhanceWorkAccessibility();
     calcWork();
     chooseLiftObject("bag");
     updateLiftHeight();
     setSurface("ice");
     compareRamp("steep");
     updateBike();
+}
+
+function enhanceWorkAccessibility() {
+    [
+        "workCaseText",
+        "workCaseFormula",
+        "workValue",
+        "workEquation",
+        "liftWorkText",
+        "frictionText",
+        "rampText",
+        "springText",
+        "bikeText"
+    ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute("role", "status");
+        el.setAttribute("aria-live", "polite");
+    });
+
+    const rangeDescriptions = {
+        forceRange: "forceVal workEquation workValue",
+        distanceRange: "distanceVal workEquation workValue",
+        heightRange: "heightVal liftWorkText",
+        bikeSpeedRange: "bikeSpeedVal bikeText"
+    };
+
+    Object.entries(rangeDescriptions).forEach(([id, describedBy]) => {
+        const range = document.getElementById(id);
+        if (range) range.setAttribute("aria-describedby", describedBy);
+    });
 }
 
 // 1. Arbeit oder keine Arbeit?
@@ -193,6 +225,8 @@ function calcWork() {
     if (workVal) workVal.innerText = `${work} J`;
     if (equation) equation.innerText = `W = ${force} N · ${distance} m = ${work} J`;
     if (fill) fill.style.width = `${Math.min(100, work / 6)}%`;
+    document.getElementById("forceRange")?.setAttribute("aria-valuetext", `${force} Newton`);
+    document.getElementById("distanceRange")?.setAttribute("aria-valuetext", `${distance} Meter`);
 }
 
 // 2. Hubarbeit
@@ -224,6 +258,7 @@ function updateLiftHeight() {
 
     if (heightVal) heightVal.innerText = height.toFixed(1);
     if (result) result.innerText = `W = m · g · h = ${mass} kg · 10 N/kg · ${height.toFixed(1)} m = ${work.toFixed(0)} J`;
+    document.getElementById("heightRange")?.setAttribute("aria-valuetext", `${height.toFixed(1)} Meter Hubhöhe`);
     
     // Animate robustly
     if (rope) {
@@ -386,6 +421,7 @@ function updateBike() {
     const energy = 0.5 * speed * speed;
 
     if (speedVal) speedVal.innerText = speed;
+    document.getElementById("bikeSpeedRange")?.setAttribute("aria-valuetext", `${speed} Meter pro Sekunde`);
     if (bike) {
         bike.animate([{ transform: `translate(${speed * 10}px, 0)` }], { duration: 300, fill: 'forwards', easing: 'ease-out' });
     }

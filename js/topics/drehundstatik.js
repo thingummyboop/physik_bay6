@@ -3,9 +3,12 @@ let skaterAnim;
 let carouselAnim;
 
 function topicInit() {
+    enhanceStaticsAccessibility();
+
     // Skater-Animation mit der Web Animations API einrichten
     let skater = document.getElementById('skater');
     if (skater) {
+        if (skaterAnim) skaterAnim.cancel();
         skaterAnim = skater.animate([
             { transform: 'perspective(400px) rotateY(0deg)' },
             { transform: 'perspective(400px) rotateY(360deg)' }
@@ -17,6 +20,7 @@ function topicInit() {
 
     let rotor = document.getElementById('carouselRotor');
     if (rotor) {
+        if (carouselAnim) carouselAnim.cancel();
         carouselAnim = rotor.animate([
             { transform: 'perspective(400px) rotateY(0deg)' },
             { transform: 'perspective(400px) rotateY(360deg)' }
@@ -33,6 +37,34 @@ function topicInit() {
     updateCarousel();
     resetDoor();
     updateMeter('spinMeter', 30);
+}
+
+function enhanceStaticsAccessibility() {
+    [
+        'balanceText',
+        'doorText',
+        'eqText',
+        'speedValue',
+        'carouselText',
+        'skaterText'
+    ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+    });
+
+    const cgRange = document.getElementById('cgRange');
+    if (cgRange) {
+        cgRange.setAttribute('aria-describedby', 'balanceText');
+        cgRange.setAttribute('aria-valuetext', getCenterOfGravityText(Number(cgRange.value || 0)));
+    }
+
+    const speedRange = document.getElementById('speedRange');
+    if (speedRange) {
+        speedRange.setAttribute('aria-describedby', 'speedValue carouselText');
+        speedRange.setAttribute('aria-valuetext', getCarouselSpeedText(Number(speedRange.value || 0)));
+    }
 }
 
 function setPrediction(group, value) {
@@ -54,6 +86,7 @@ function updateBalance() {
     const marker = document.getElementById('cgMarker');
     const txt = document.getElementById('balanceText');
     if (!acrobat || !marker) return;
+    document.getElementById('cgRange')?.setAttribute('aria-valuetext', getCenterOfGravityText(val));
 
     marker.style.transform = `translateX(${val}px)`;
 
@@ -79,6 +112,12 @@ function updateBalance() {
         }
         updateMeter('balanceMeter', 90);
     }
+}
+
+function getCenterOfGravityText(value) {
+    if (value > 25) return "Schwerpunkt zu weit rechts, Gleichgewicht kippt";
+    if (value < -25) return "Schwerpunkt zu weit links, Gleichgewicht kippt";
+    return "Schwerpunkt über dem Seil, Gleichgewicht hält";
 }
 
 // 2. Drehmoment
@@ -279,6 +318,7 @@ function updateCarousel() {
     const arrows = document.getElementById('outwardArrows');
     const speedTxt = document.getElementById('speedValue');
     const forceTxt = document.getElementById('carouselText');
+    document.getElementById('speedRange')?.setAttribute('aria-valuetext', getCarouselSpeedText(speed));
 
     if (speed === 0) {
         if (speedTxt) speedTxt.innerText = "Steht still";
@@ -303,6 +343,13 @@ function updateCarousel() {
         updateMeter('carouselMeter', speed);
         if (carouselAnim) carouselAnim.playbackRate = speed / 30;
     }
+}
+
+function getCarouselSpeedText(speed) {
+    if (speed === 0) return "Karussell steht still";
+    if (speed < 35) return `Stufe ${speed}, langsame Kreisbewegung`;
+    if (speed < 70) return `Stufe ${speed}, deutliche Kreisbewegung`;
+    return `Stufe ${speed}, starke Kreisbewegung`;
 }
 
 // 5. Drehimpuls

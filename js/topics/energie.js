@@ -2,7 +2,32 @@
 let isClosed = false;
 
 function topicInit() {
+    enhanceEnergyAccessibility();
     updateWind();
+}
+
+function enhanceEnergyAccessibility() {
+    [
+        'weightText',
+        'pendulumText',
+        'batteryText',
+        'windValue',
+        'circuitText'
+    ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+    });
+
+    const windRange = document.getElementById('windRange');
+    if (windRange) {
+        windRange.setAttribute('aria-describedby', 'windValue');
+        windRange.setAttribute('aria-valuetext', getWindValueText(Number(windRange.value || 0)));
+    }
+
+    const switchBtn = document.getElementById('switchBtn');
+    if (switchBtn) switchBtn.setAttribute('aria-pressed', String(isClosed));
 }
 
 // 1. Hantel (Lage/Bewegungsenergie)
@@ -88,6 +113,7 @@ function updateWind() {
     let blades = document.getElementById('windBlades');
     let text = document.getElementById('windValue');
     if(!blades) return;
+    document.getElementById('windRange')?.setAttribute('aria-valuetext', getWindValueText(Number(val)));
     
     if (val == 0) {
         blades.classList.remove('anim-spin');
@@ -115,6 +141,13 @@ function updateWind() {
     }
 }
 
+function getWindValueText(value) {
+    if (value === 0) return "Windstill, kein Strom";
+    if (value < 40) return `${value} Prozent Wind, leichte Brise mit wenig Strom`;
+    if (value < 80) return `${value} Prozent Wind, starker Wind mit viel Strom`;
+    return `${value} Prozent Wind, Sturm mit sehr viel Energie`;
+}
+
 // 5. Stromkreis
 function toggleSwitch() {
     let line = document.getElementById('switchLine');
@@ -134,6 +167,7 @@ function toggleSwitch() {
             text.style.color = "#388E3C";
         }
         btn.innerText = "Schalter öffnen 🛑";
+        btn.setAttribute('aria-pressed', 'true');
     } else {
         line.setAttribute('x2', '140');
         line.setAttribute('y2', '20');
@@ -143,5 +177,6 @@ function toggleSwitch() {
             text.style.color = "#D32F2F";
         }
         btn.innerText = "Schalter schließen 🔌";
+        btn.setAttribute('aria-pressed', 'false');
     }
 }
