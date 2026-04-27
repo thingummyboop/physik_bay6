@@ -243,3 +243,9 @@ P2-Math Fortschritt (Run 2026-04-27 21:52):
 - Abgedeckt: robuste Input-Validierung (`trim`, sichere Number-/String-Normalisierung), Live-Status für Ergebnisfelder (`role="status"`, `aria-live`, `aria-atomic`), `aria-describedby` an Eingabefeldern und Enter-Submit für beide Mini-Checks.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/math1_7_gleichungen.js` und Diff-Review.
 - Ergebnis: Das Gleichungsmodul ist tastaturfreundlicher, screenreader-lesbar und reagiert stabiler auf unterschiedliche Eingabeformate.
+
+P2 Fortschritt (Run 2026-04-27 21:57):
+- Thema **Kraft und Bewegung** bei Vorhersage-Interaktionen auf Bedienbarkeit und Screenreader-Semantik verbessert.
+- Abgedeckt: `aria-atomic` für dynamische Statusfelder, Tastatursteuerung (Enter/Leertaste) für alle `data-predict-*`-Auswahlfelder mit Guard gegen doppelte Listener bei erneutem `topicInit()`, sowie konsistentes `aria-pressed`-State-Management in `setPrediction()`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/kraft_und_bewegung.js` und `git diff --check`.
+- Ergebnis: Die Vorhersage-Checks sind nun auch bei Nicht-Maus-Bedienung zuverlässig nutzbar und kommunizieren ihren Auswahlzustand korrekt an assistive Technologien.
