@@ -108,6 +108,7 @@ for (const topic of mathTopics) {
   const hasRange = source.includes('Range') || source.includes('type="range"') || source.includes("type='range'");
   const hasValueText = source.includes('aria-valuetext');
   const hasDescribedBy = source.includes('aria-describedby');
+  const hasValueTextAssignment = /setAttribute\(\s*['"]aria-valuetext['"]/.test(source);
   if (hasRange && !hasValueText) {
     findings.push({
       topic,
@@ -123,10 +124,18 @@ for (const topic of mathTopics) {
       detail: 'Potential range interaction without aria-describedby annotation.'
     });
   }
+
+  if (hasRange && !hasValueTextAssignment) {
+    findings.push({
+      topic,
+      issue: 'slider_missing_aria_valuetext_assignment',
+      detail: 'Potential range interaction found, but no setAttribute("aria-valuetext", ...) assignment detected in topic script.'
+    });
+  }
 }
 
 if (findings.length === 0) {
-  console.log('MATH_A11Y_CLEAR');
+  console.log(`MATH_A11Y_CLEAR (${mathTopics.length} topics)`);
   process.exit(0);
 }
 

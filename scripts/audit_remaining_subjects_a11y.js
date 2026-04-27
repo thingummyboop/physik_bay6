@@ -9,6 +9,12 @@ const topicsDir = path.join(repoRoot, 'js', 'topics');
 const remainingTopics = ['dgb5', 'wetter', 'klima', 'klimawandel'];
 const findings = [];
 
+if (remainingTopics.length === 0) {
+  console.log('REMAINING_SUBJECTS_A11Y_ISSUES');
+  console.log('- _global: no_remaining_topics_configured (No remaining-subject topics configured for audit)');
+  process.exit(1);
+}
+
 for (const topic of remainingTopics) {
   const file = path.join(topicsDir, `${topic}.js`);
 
@@ -56,6 +62,7 @@ for (const topic of remainingTopics) {
 
   const hasSlider = /Range|type=\"range\"|type='range'/.test(source);
   const hasValueText = /aria-valuetext/.test(source);
+  const hasValueTextAssignment = /setAttribute\(\s*['"]aria-valuetext['"]/.test(source);
   if (hasSlider && !hasValueText) {
     findings.push({
       topic,
@@ -72,10 +79,18 @@ for (const topic of remainingTopics) {
       detail: 'Potential range interaction without aria-describedby annotation.'
     });
   }
+
+  if (hasSlider && !hasValueTextAssignment) {
+    findings.push({
+      topic,
+      issue: 'slider_missing_aria_valuetext_assignment',
+      detail: 'Potential range interaction found, but no setAttribute("aria-valuetext", ...) assignment detected in topic script.'
+    });
+  }
 }
 
 if (findings.length === 0) {
-  console.log('REMAINING_SUBJECTS_A11Y_CLEAR');
+  console.log(`REMAINING_SUBJECTS_A11Y_CLEAR (${remainingTopics.length} topics)`);
   process.exit(0);
 }
 

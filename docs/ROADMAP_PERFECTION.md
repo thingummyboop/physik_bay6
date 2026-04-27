@@ -445,3 +445,10 @@ P1/P2 Fortschritt (Run 2026-04-28 01:26):
 - Abgedeckt: Neben den bisherigen Checks auf `aria-valuetext`/`aria-describedby` prüft der Audit jetzt zusätzlich, ob bei erkannten Range-Interaktionen auch eine explizite `setAttribute("aria-valuetext", ...)`-Zuweisung im Topic-Skript vorhanden ist.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-Regressionen bei nur statisch gesetzter Slider-Semantik werden früher sichtbar; der Audit bleibt trotz strengerem Check stabil ohne neue False-Positives.
+
+P1/P2/P3 Fortschritt (Run 2026-04-28 01:34):
+- Sichtbarer Tastaturfokus für nicht-native Interaktions-Controls vereinheitlicht: **`css/style.css`** erweitert um `:focus-visible` für `[role="button"][tabindex]`.
+- Abgedeckt: alle per JS nachgerüsteten klickbaren Div/Span-Controls in Physik/Mathe/Nebenfächern bekommen nun denselben klaren Fokusindikator wie native Buttons.
+- Qualitätsgate nachgezogen: **`scripts/audit_math_a11y.js`** und **`scripts/audit_remaining_subjects_a11y.js`** um Slider-Guard auf explizite `setAttribute("aria-valuetext", ...)`-Zuweisung erweitert; Ausgabe jetzt mit Topic-Anzahl (`MATH_A11Y_CLEAR (38 topics)`, `REMAINING_SUBJECTS_A11Y_CLEAR (4 topics)`).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Einzelläufen der Audits und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: stärkere Regressionserkennung für dynamische Slider-Semantik plus konsistentere Keyboard-Nutzbarkeit über alle priorisierten Fächer.

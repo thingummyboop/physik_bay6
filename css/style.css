@@ -553,6 +553,13 @@ button:hover:not(:disabled) { transform: scale(1.05); filter: brightness(1.1); b
 button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 button:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
 
+/* Custom keyboard-focusable controls used in topic content (div/span with role=button). */
+[role="button"][tabindex]:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
 .feedback { font-weight: bold; margin-top: 10px; display: block; }
 
 /* Math Theme Overrides */
