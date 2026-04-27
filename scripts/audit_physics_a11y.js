@@ -64,16 +64,29 @@ for (const topic of physicsTopics) {
     });
   }
 
-  const usesPredictiveSelections = source.includes('data-predict-');
-  const hasPredictKeyboardSupport = source.includes('keydown') && (source.includes("' '") || source.includes('" "') || source.includes('Spacebar'));
+  const hasKeyboardSupport = source.includes('keydown') && (source.includes("' '") || source.includes('" "') || source.includes('Spacebar'));
   const hasPressedState = source.includes('aria-pressed');
 
-  if (usesPredictiveSelections && (!hasPredictKeyboardSupport || !hasPressedState)) {
-    findings.push({
-      topic,
-      issue: 'predict_controls_incomplete_a11y',
-      detail: `predictive UI found; keyboard=${hasPredictKeyboardSupport}, ariaPressed=${hasPressedState}`
-    });
+  const interactiveMarkers = [
+    'data-predict-',
+    'data-work-case',
+    'data-lift-object',
+    'data-surface',
+    'data-ramp',
+    'data-slit-prediction',
+    'data-formula-target'
+  ];
+
+  for (const marker of interactiveMarkers) {
+    if (!source.includes(marker)) continue;
+
+    if (!hasKeyboardSupport || !hasPressedState) {
+      findings.push({
+        topic,
+        issue: 'interactive_controls_incomplete_a11y',
+        detail: `${marker} found; keyboard=${hasKeyboardSupport}, ariaPressed=${hasPressedState}`
+      });
+    }
   }
 
   const hasSlider = source.includes('Range') || source.includes('type="range"') || source.includes("type='range'");

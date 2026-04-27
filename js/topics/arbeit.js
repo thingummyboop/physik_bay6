@@ -95,7 +95,18 @@ function enhanceWorkChoiceGroup(selector, describedBy) {
 
     document.querySelectorAll(selector).forEach((btn) => {
         btn.setAttribute("aria-pressed", btn.classList.contains("selected") ? "true" : "false");
+        btn.setAttribute("role", "button");
+        if (!btn.hasAttribute("tabindex")) btn.setAttribute("tabindex", "0");
         if (existingDescriptionIds) btn.setAttribute("aria-describedby", existingDescriptionIds);
+
+        if (!btn.dataset.keydownBound) {
+            btn.addEventListener("keydown", (event) => {
+                if (event.key !== "Enter" && event.key !== " " && event.key !== "Spacebar") return;
+                event.preventDefault();
+                btn.click();
+            });
+            btn.dataset.keydownBound = "true";
+        }
     });
 }
 
