@@ -1,6 +1,41 @@
 // Logic for elektrizitaet topic
 function topicInit() {
-    if (document.getElementById('uRange')) updateOhm();
+    if (!document.getElementById('uRange')) return;
+    ensureOhmAccessibility();
+    updateOhm();
+}
+
+function ensureOhmAccessibility() {
+    const uRange = document.getElementById('uRange');
+    const rRange = document.getElementById('rRange');
+    const uVal = document.getElementById('uVal');
+    const rVal = document.getElementById('rVal');
+    const iValText = document.getElementById('iValText');
+    const bulb = document.getElementById('ohmBulb');
+    if (!uRange || !rRange || !uVal || !rVal || !iValText || !bulb) return;
+
+    let ohmFeedback = document.getElementById('ohmFeedback');
+    if (!ohmFeedback) {
+        ohmFeedback = document.createElement('p');
+        ohmFeedback.id = 'ohmFeedback';
+        ohmFeedback.className = 'lab-feedback';
+        ohmFeedback.innerText = 'Mittlerer Strom: Verändere U oder R und beobachte die Lampe.';
+        const interactiveZone = uRange.closest('.interactive-zone');
+        if (interactiveZone) interactiveZone.appendChild(ohmFeedback);
+    }
+
+    iValText.setAttribute('role', 'status');
+    iValText.setAttribute('aria-live', 'polite');
+    iValText.setAttribute('aria-atomic', 'true');
+    ohmFeedback.setAttribute('role', 'status');
+    ohmFeedback.setAttribute('aria-live', 'polite');
+    ohmFeedback.setAttribute('aria-atomic', 'true');
+
+    if (!uVal.id) uVal.id = 'uVal';
+    if (!rVal.id) rVal.id = 'rVal';
+    uRange.setAttribute('aria-describedby', `uVal ohmFeedback`);
+    rRange.setAttribute('aria-describedby', `rVal ohmFeedback`);
+    bulb.setAttribute('role', 'img');
 }
 
 function answerFinalQuiz(btn, isCorrect) {
@@ -33,6 +68,9 @@ function updateOhm() {
     uVal.innerText = u + "V";
     rVal.innerText = r + " Ω";
     iValText.innerText = "Stromstärke I = " + i.toFixed(2) + " A";
+    uRange.setAttribute('aria-valuetext', `${u} Volt`);
+    rRange.setAttribute('aria-valuetext', `${r} Ohm`);
+
     const ohmFeedback = document.getElementById('ohmFeedback');
     if (ohmFeedback) {
         if (i < 0.15) {
@@ -49,4 +87,6 @@ function updateOhm() {
     const brightness = Math.min(1, i / 0.5); 
     bulb.style.filter = `drop-shadow(0 0 ${brightness * 20}px #FBC02D) brightness(${0.5 + brightness * 0.5})`;
     bulb.setAttribute('fill', brightness > 0.1 ? '#FFF176' : '#e0e0e0');
+    const brightnessLabel = brightness < 0.25 ? 'Lampe dunkel' : (brightness < 0.7 ? 'Lampe mittelhell' : 'Lampe sehr hell');
+    bulb.setAttribute('aria-label', `${brightnessLabel}, Stromstärke ${i.toFixed(2)} Ampere`);
 }
