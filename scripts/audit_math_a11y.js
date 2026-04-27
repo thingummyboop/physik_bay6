@@ -45,7 +45,8 @@ for (const topic of mathTopics) {
     });
   }
 
-  const hasPredictiveSelections = source.includes('data-predict-');
+  const interactiveMarkers = ['data-predict-', 'data-prism-view'];
+  const hasInteractiveSelections = interactiveMarkers.some((marker) => source.includes(marker));
   const hasKeydownSupport = source.includes('keydown');
   const hasEnterSupport =
     source.includes("event.key === 'Enter'") ||
@@ -72,19 +73,19 @@ for (const topic of mathTopics) {
     source.includes('tabindex="0"') ||
     source.includes("tabindex='0'");
 
-  if (hasPredictiveSelections && (!hasKeydownSupport || !hasEnterSupport || !hasSpaceSupport || !hasPressedState)) {
+  if (hasInteractiveSelections && (!hasKeydownSupport || !hasEnterSupport || !hasSpaceSupport || !hasPressedState)) {
     findings.push({
       topic,
-      issue: 'predict_controls_incomplete_a11y',
-      detail: `predictive UI found; keydown=${hasKeydownSupport}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
+      issue: 'interactive_controls_incomplete_a11y',
+      detail: `interactive UI found; keydown=${hasKeydownSupport}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
     });
   }
 
-  if (hasPredictiveSelections && (!hasButtonRoleSemantics || !hasTabindexSemantics)) {
+  if (hasInteractiveSelections && (!hasButtonRoleSemantics || !hasTabindexSemantics)) {
     findings.push({
       topic,
-      issue: 'predict_controls_missing_role_tabindex_semantics',
-      detail: `predictive UI found; roleButton=${hasButtonRoleSemantics}, tabindex0=${hasTabindexSemantics}`
+      issue: 'interactive_controls_missing_role_tabindex_semantics',
+      detail: `interactive UI found; roleButton=${hasButtonRoleSemantics}, tabindex0=${hasTabindexSemantics}`
     });
   }
 

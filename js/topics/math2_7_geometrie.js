@@ -35,6 +35,12 @@ function initPrismExplorer() {
     const desc = document.getElementById("prismSceneDesc");
     const feedback = document.getElementById("prismFeedback");
 
+    if (feedback) {
+        feedback.setAttribute("role", "status");
+        feedback.setAttribute("aria-live", "polite");
+        feedback.setAttribute("aria-atomic", "true");
+    }
+
     function setView(view) {
         const data = prismViews[view] || prismViews.box;
 
@@ -56,7 +62,18 @@ function initPrismExplorer() {
     }
 
     buttons.forEach((button) => {
-        button.addEventListener("click", () => setView(button.dataset.prismView));
+        if (!button.dataset.prismViewA11yBound) {
+            button.addEventListener("keydown", (event) => {
+                if (event.key !== "Enter" && event.key !== " " && event.code !== "Space") return;
+                event.preventDefault();
+                setView(button.dataset.prismView);
+            });
+            button.addEventListener("click", () => setView(button.dataset.prismView));
+            button.dataset.prismViewA11yBound = "true";
+        }
+
+        button.setAttribute("role", "button");
+        button.setAttribute("tabindex", "0");
     });
 
     setView("box");
