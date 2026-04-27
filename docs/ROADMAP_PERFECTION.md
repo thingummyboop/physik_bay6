@@ -165,6 +165,12 @@ P2-Math Fortschritt (Run 2026-04-27 19:58):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/12` fehlende Feedbackfelder).
 - Ergebnis: Auch im Einstiegsmodul erhalten Lernende jetzt bei jeder Auswahl eine kurze inhaltliche Rückmeldung statt stiller Punktevergabe.
 
+P2-Math Fortschritt (Run 2026-04-27 20:03):
+- Thema **math1_5_geo_grundbegriffe** mit diagnoseorientiertem Antwortfeedback vervollständigt.
+- Abgedeckt: 6 Fragen mit insgesamt 13 Antwortoptionen (Grundbegriffe: Strahl, Gerade, Strecke, parallel, normal, Punktbezeichnung).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/13` fehlende Feedbackfelder).
+- Ergebnis: Typische Verwechslungen (Gerade vs. Strahl, parallel vs. normal, Groß-/Kleinschreibung bei Punkten) werden jetzt direkt erklärt.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
