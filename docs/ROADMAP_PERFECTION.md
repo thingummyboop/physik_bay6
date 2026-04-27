@@ -28,6 +28,11 @@ P2 Fortschritt (Run 2026-04-27 16:31):
 - Abgedeckt: 6 Kapitel-Quizfragen + 15 Diplomfragen (jeweils richtige und typische Fehlvorstellung).
 - Ergebnis: Lernende bekommen jetzt bei falschen Antworten konkrete Korrekturhinweise statt generischem "falsch".
 
+P2 Fortschritt (Run 2026-04-27 16:41):
+- Thema **Akustik** im Diplomteil mit durchgängigem Antwortfeedback ergänzt.
+- Abgedeckt: 15 Diplomfragen mit jeweils Feedback für richtige und typische falsche Antwort.
+- Ergebnis: Auch im Abschlusscheck erhalten Lernende jetzt direkte Korrekturhinweise statt leeren Feedbackfeldern.
+
 ## Phase 2: Math
 
 - Erst Mathematikthemen mit hohem Förderbedarf priorisieren: Brüche, Dezimalzahlen, Gleichungen, Prozent.
