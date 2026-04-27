@@ -421,3 +421,9 @@ P1/P2 Fortschritt (Run 2026-04-28 00:56):
 - Abgedeckt (Mathe): **`scripts/audit_math_a11y.js`** erhielt denselben `atomic_without_live`-Check und einen Guard für leere Topic-Erkennung (`no_math_topics_detected`).
 - Qualitätssicherung: `node scripts/audit_physics_a11y.js`, `node scripts/audit_math_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Die QA-Schiene erkennt inkonsistente Live-Region-Semantik früher und bleibt auch bei Strukturänderungen der Topic-Landschaft robust.
+
+P3 Fortschritt (Run 2026-04-28 01:02):
+- Nebenfächer-Audit **`scripts/audit_remaining_subjects_a11y.js`** auf Live-Region-Semantik weiter gehärtet.
+- Abgedeckt: zusätzlicher Regression-Check `atomic_without_live` (erkennt `aria-atomic` ohne `aria-live`) analog zur Physik-/Mathe-Qualitätsschiene.
+- Qualitätssicherung: `node scripts/audit_remaining_subjects_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Auch in Nebenfächern werden inkonsistente Live-Region-Attribute jetzt früher und einheitlich als QA-Fehler erkannt.

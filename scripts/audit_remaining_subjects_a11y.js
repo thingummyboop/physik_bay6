@@ -38,6 +38,14 @@ for (const topic of remainingTopics) {
     });
   }
 
+  if (hasAtomic && !hasLive) {
+    findings.push({
+      topic,
+      issue: 'atomic_without_live',
+      detail: 'Contains aria-atomic but no aria-live marker.'
+    });
+  }
+
   if (hasLive && !hasStatusRole) {
     findings.push({
       topic,
