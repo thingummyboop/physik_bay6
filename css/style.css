@@ -423,14 +423,14 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 @keyframes slitWaveTravel {
     0% {
         opacity: var(--wave-opacity, 0.9);
-        transform: scale(0.25);
+        transform: scale(var(--wave-start-scale-x, 0.2), var(--wave-start-scale-y, 0.2));
     }
     74% {
         opacity: var(--wave-opacity, 0.9);
     }
     100% {
         opacity: 0;
-        transform: scale(4.8);
+        transform: scale(var(--wave-end-scale-x, 5.8), var(--wave-end-scale-y, 2.4));
     }
 }
 

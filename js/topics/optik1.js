@@ -379,6 +379,10 @@ function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
     const topY = centerY - halfHeight;
     const bottomY = centerY + halfHeight;
     const outgoingDelays = [0, -0.5, -1, -1.5];
+    const startScaleY = clamp(gap / (2 * halfHeight), 0.08, 1.2);
+    const startScaleX = clamp(startScaleY * 0.8, 0.08, 0.9);
+    const endScaleY = clamp(screenSpread / (2 * halfHeight), startScaleY + 0.05, 4.8);
+    const endScaleX = clamp((500 - originX) / baseRadius, 3.2, 6.2);
 
     outgoingDelays.forEach((delay, index) => {
         const path = createSvgElement('path', {
@@ -387,9 +391,14 @@ function drawSlitWavefronts(group, centerY, gap, screenSpread, bendAmount) {
             stroke: '#60a5fa',
             'stroke-width': '4.5',
             'stroke-linecap': 'round',
+            'vector-effect': 'non-scaling-stroke',
             class: 'slit-wavefront'
         });
         path.style.setProperty('--wave-opacity', (0.92 - index * 0.05).toFixed(2));
+        path.style.setProperty('--wave-start-scale-x', startScaleX.toFixed(3));
+        path.style.setProperty('--wave-start-scale-y', startScaleY.toFixed(3));
+        path.style.setProperty('--wave-end-scale-x', endScaleX.toFixed(3));
+        path.style.setProperty('--wave-end-scale-y', endScaleY.toFixed(3));
         path.style.animationDelay = `${delay}s`;
         group.appendChild(path);
     });
