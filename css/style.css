@@ -176,6 +176,32 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin-top: 10px;
 }
 
+.guided-hint,
+.step-reveal {
+    background: #f8fafc;
+    border: 2px solid var(--box-border);
+    border-radius: 10px;
+    margin: 12px 0;
+    padding: 10px 14px;
+}
+
+.guided-hint summary,
+.step-reveal summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.guided-hint[open],
+.step-reveal[open] {
+    border-color: var(--primary);
+}
+
+[data-theme="dark"] .guided-hint,
+[data-theme="dark"] .step-reveal {
+    background: #172033;
+}
+
 .prism-lab {
     border-color: #2563eb;
 }

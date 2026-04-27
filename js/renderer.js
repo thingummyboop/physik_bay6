@@ -76,7 +76,7 @@ async function renderTopic() {
                         <div class="quiz-box" data-id="${q.id}">
                             <p><strong>${q.question}</strong></p>
                             ${shuffledAnswers.map(ans => `
-                                <button onclick="handleAnswer(this, ${ans.correct}, ${ans.pts})">${ans.text}</button>
+                                <button data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
                             `).join('')}
                             <p class="feedback" aria-live="polite"></p>
                         </div>
@@ -107,7 +107,7 @@ async function renderTopic() {
                     <div class="quiz-box" data-id="${q.id}">
                         <p><strong>${i+1}. ${stripQuestionNumber(q.question)}</strong></p>
                         ${shuffledAnswers.map(ans => `
-                            <button onclick="handleAnswer(this, ${ans.correct}, ${ans.pts})">${ans.text}</button>
+                            <button data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
                         `).join('')}
                         <p class="feedback" aria-live="polite"></p>
                     </div>
@@ -152,6 +152,14 @@ function showError(msg) {
             <button onclick="location.reload()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Seite neu laden</button>
         </div>
     `;
+}
+
+function escapeHtmlAttr(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
 }
 
 // Listen for theme changes from parent
