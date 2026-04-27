@@ -183,6 +183,12 @@ P2-Math Fortschritt (Run 2026-04-27 20:13):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit JSON-Parsecheck und Vollständigkeitsaudit (`0/15` fehlende Feedbackfelder).
 - Ergebnis: Typische Verwechslungen (90° vs. 180°/360°, spitz vs. stumpf, Scheitelpunkt-Lage) werden jetzt direkt erklärt.
 
+P2 Fortschritt (Run 2026-04-27 20:15):
+- **Physik (SI-Einheiten)** und **Mathematik**-Module (**Brüche**, **Pythagoras**, **Körper**) in `lang/en.json` von Token-/Markup-Artefakten bereinigt.
+- Abgedeckt: vier fehlerhafte Sektionen (`sieinheiten.sec0`, `math1_8_brueche.zaehler_nenner`, `math4_2_pythagoras.sec1`, `math4_6_koerper.sec1`) mit inhaltlicher Glättung und korrekten Quiz-Referenzen.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Parsecheck (`en.json ok`) und Token-Audit (`0` verbleibende `TOKEN`-Artefakte).
+- Ergebnis: Englische Lerninhalte sind wieder lesbar/stabil, ohne defekte Platzhalter im Frontend.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
