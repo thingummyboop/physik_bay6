@@ -92,6 +92,13 @@ P2 Fortschritt (Run 2026-04-27 18:54):
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check` für alle betroffenen Topic-Skripte, `lang/de.json`-Parsecheck und `git diff --check`.
 - Ergebnis: Mehr Physik-Interaktionen liefern ihren Zustand textlich aus und bleiben robuster bei erneuter Initialisierung.
 
+P2 Fortschritt (Run 2026-04-27 19:22):
+- Thema **Astronomie** bei den Interaktionen auf Accessibility und Stabilität verbessert.
+- Abgedeckt: Live-Regionen (`role="status"`, `aria-live`) für dynamische Rückmeldungen (Planetenvergleich, Timer, Gravitation, Raketen-Tacho, Supernova), `aria-describedby`/`aria-valuetext` für die Slider (`zoomRange`, `tRange`) sowie `aria-pressed`-Status für den Supernova-Button.
+- Stabilität: Timer wird bei erneutem Start/`topicInit()` sauber zurückgesetzt (kein Intervall-Stacking), `stopTimer()` ignoriert ungültige Stops ohne laufenden Versuch.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/astronomie.js` und `git diff --check`.
+- Ergebnis: Astronomie-Labore sind robuster bei Re-Init und liefern konsistentere, vorlesbare Zustandsrückmeldungen.
+
 ## Phase 2: Math
 
 - Erst Mathematikthemen mit hohem Förderbedarf priorisieren: Brüche, Dezimalzahlen, Gleichungen, Prozent.
