@@ -325,3 +325,10 @@ P3 Fortschritt (Run 2026-04-27 22:49):
 - Neues Audit-Skript **`scripts/audit_inline_alerts.js`** ergänzt.
 - Abgedeckt: automatischer Check aller `lang/*.json` auf verbliebene Inline-`alert()`-Handler in HTML-Content als technische Schuldenliste für die nächste Bereinigungsrunde.
 - Ergebnis: Restlücken bei Popup-basierten Übungen sind nun messbar und priorisierbar (aktuell konzentriert auf wenige Mathematikmodule).
+
+P2-Math Fortschritt (Run 2026-04-27 23:xx):
+- Verbleibende Popup-Reste in **math2_1_teilbarkeit**, **math4_6_koerper** und **math4_8_finanzmathematik** entfernt (alle Sprachdateien `de/en/ar/sr/tr/uk`).
+- Abgedeckt: Inline-`onclick='alert(...)'` aus den betroffenen Content-Blöcken entfernt und durch JS-gebundene, seiteninterne Feedbacklogik ersetzt.
+- Technik: `math4_6_koerper.js` und `math4_8_finanzmathematik.js` um zugängliche Feedbackfelder (`role="status"`, `aria-live`, `aria-atomic`), `aria-describedby` und Enter-Submit ergänzt; `math2_1_teilbarkeit.js` auf handler-basierte Button-Bindung ohne Inline-Event angepasst.
+- Qualitätssicherung: `node scripts/audit_inline_alerts.js` (`ALL_CLEAR`), `node scripts/audit_quiz_feedback.js` (`ALL_CLEAR`), `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`), `node --check` für alle betroffenen Topic-Dateien und `git diff --check`.
+- Ergebnis: Keine verbliebenen Inline-`alert()`-Handler mehr in den priorisierten Mathe-Modulen; Rückmeldungen sind ruhiger, tastaturfreundlicher und screenreader-konsistent.

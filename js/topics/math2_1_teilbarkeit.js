@@ -15,7 +15,10 @@ function ensureTeilbarkeitFeedback(host, id) {
 }
 
 function bindButtonOnlyExercise() {
-    const candidate = document.querySelector(".interactive-zone button[onclick*='alert']");
+    const zones = Array.from(document.querySelectorAll('.interactive-zone'));
+    const candidate = zones
+        .map((zone) => zone.querySelector('button'))
+        .find((button) => button && !button.closest('.interactive-zone')?.querySelector('#ggt_input') && !button.closest('.interactive-zone')?.querySelector('#kgv_input'));
     if (!candidate) return;
 
     const zone = candidate.closest('.interactive-zone');
