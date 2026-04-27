@@ -1,7 +1,9 @@
 // Klima-Logik erweitert
 function updateGreenhouseEffect() {
-    const val = document.getElementById('co2Range')?.value;
-    if(!val) return;
+    const co2Range = document.getElementById('co2Range');
+    const val = Number(co2Range?.value || 0);
+    if(!co2Range) return;
+    co2Range.setAttribute('aria-valuetext', `${Math.round(val)} Prozent CO₂-Anteil`);
     const co2Dots = document.getElementById('co2Dots');
     const heatArrows = document.getElementById('heatArrows');
     const tempText = document.getElementById('tempVal');
@@ -131,8 +133,31 @@ function renderClimateChart() {
 }
 
 function topicInit() {
-    console.log("Klima-Thema geladen.");
+    enhanceKlimaAccessibility();
+    updateGreenhouseEffect();
     setTimeout(() => {
         if(document.getElementById('climateChartArea')) renderClimateChart();
     }, 200);
+}
+
+function enhanceKlimaAccessibility() {
+    const co2Range = document.getElementById('co2Range');
+    if (co2Range) {
+        if (document.getElementById('tempVal')) co2Range.setAttribute('aria-describedby', 'tempVal');
+        co2Range.setAttribute('aria-valuetext', `${Number(co2Range.value || 0)} Prozent CO₂-Anteil`);
+    }
+
+    const tempVal = document.getElementById('tempVal');
+    if (tempVal) {
+        tempVal.setAttribute('role', 'status');
+        tempVal.setAttribute('aria-live', 'polite');
+        tempVal.setAttribute('aria-atomic', 'true');
+    }
+
+    const archiveText = document.getElementById('archiveText');
+    if (archiveText) {
+        archiveText.setAttribute('role', 'status');
+        archiveText.setAttribute('aria-live', 'polite');
+        archiveText.setAttribute('aria-atomic', 'true');
+    }
 }

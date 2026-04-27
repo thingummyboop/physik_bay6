@@ -302,3 +302,9 @@ P2 Fortschritt (Run 2026-04-27 22:50):
 - Abgedeckt: `aria-valuetext` für zentrale Regler (`distRange`, `freqRange`, `ampRange`, `resRange`, `tempRange`, `thermoRange`, `posRange1`, `reflectRange`, `slitWidth`) inklusive laufender Aktualisierung bei `input`/Berechnung.
 - Qualitätssicherung: neue Regression-Absicherung per **`scripts/audit_physics_a11y.js`** (prüft u. a. `aria-live`+`aria-atomic`, Predictive-Keyboard-Semantik, Slider-`aria-valuetext`) plus `node --check` und `git diff --check`.
 - Ergebnis: Physik-Interaktionen melden Reglerzustände nun konsistenter und vorlesbar; Accessibility-Regressions werden künftig automatisiert erkannt.
+
+P3 Fortschritt (Run 2026-04-27 22:58):
+- Nebenfächer **Klima** und **Klimawandel** auf Grund-Accessibility für Regler/Status nachgezogen.
+- Abgedeckt: `aria-valuetext` + `aria-describedby` für `co2Range` und `yearRange`, Live-Semantik (`role="status"`, `aria-live`, `aria-atomic`) für dynamische Ausgaben (`tempVal`, `archiveText`, `yearLabel`, `dominoResult`) sowie Initial-Update in `topicInit()`.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check` auf beide Topic-Dateien und `git diff --check`.
+- Ergebnis: Die Klima-Interaktionen liefern auch ohne visuelle Beobachtung verständlichere Zustandsmeldungen und konsistente Reglerausgaben.

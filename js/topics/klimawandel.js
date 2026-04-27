@@ -1,12 +1,14 @@
 // Klimawandel-Logik erweitert
 
 function updateGlacier() {
-    const year = document.getElementById('yearRange')?.value;
+    const yearRange = document.getElementById('yearRange');
+    const year = Number(yearRange?.value || 1900);
     const glacier = document.getElementById('glacierArea');
     const sea = document.getElementById('seaLevel');
     const label = document.getElementById('yearLabel');
 
-    if(!glacier || !year) return;
+    if(!glacier || !yearRange) return;
+    yearRange.setAttribute('aria-valuetext', `${year}`);
 
     // Melting logic
     const iceWidth = 200 - (year - 1900) * 1.5;
@@ -47,5 +49,28 @@ function startDomino() {
 }
 
 function topicInit() {
-    console.log("Klimawandel-Thema geladen.");
+    enhanceClimateChangeAccessibility();
+    updateGlacier();
+}
+
+function enhanceClimateChangeAccessibility() {
+    const yearRange = document.getElementById('yearRange');
+    if (yearRange) {
+        if (document.getElementById('yearLabel')) yearRange.setAttribute('aria-describedby', 'yearLabel');
+        yearRange.setAttribute('aria-valuetext', `${Number(yearRange.value || 1900)}`);
+    }
+
+    const yearLabel = document.getElementById('yearLabel');
+    if (yearLabel) {
+        yearLabel.setAttribute('role', 'status');
+        yearLabel.setAttribute('aria-live', 'polite');
+        yearLabel.setAttribute('aria-atomic', 'true');
+    }
+
+    const dominoResult = document.getElementById('dominoResult');
+    if (dominoResult) {
+        dominoResult.setAttribute('role', 'status');
+        dominoResult.setAttribute('aria-live', 'polite');
+        dominoResult.setAttribute('aria-atomic', 'true');
+    }
 }
