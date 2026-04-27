@@ -394,3 +394,9 @@ P1/P2 Fortschritt (Run 2026-04-28 00:26):
 - Abgedeckt: Interaktions-Checks verlangen jetzt explizit Enter- und Leertaste-Handling plus `aria-pressed`; zusätzlich wird für klickbare Nicht-Button-Muster (`data-*`) auch `role="button"` + `tabindex="0"` als Mindestsemantik geprüft.
 - Qualitätssicherung: Implementieren → Review → Patch (False-Positive-Fix bei alternativen Key-Syntaxen wie `['Enter',' ']`/`event.code==='Space'`), danach `node scripts/audit_physics_a11y.js` (`PHYSICS_A11Y_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-Regressionen bei halb implementierter Tastaturbedienung werden früher erkannt; der Audit ist strenger, aber weiterhin stabil gegen legitime Implementierungsvarianten.
+
+P2-Math Fortschritt (Run 2026-04-28 00:27):
+- Mathe-Audit **`scripts/audit_math_a11y.js`** auf dieselbe robuste Keyboard-Semantik wie Physik gehärtet.
+- Abgedeckt: Predictive-Controls prüfen jetzt explizit auf `keydown` + Enter/Leertaste + `aria-pressed`; zusätzlich wird bei nicht-nativen Controls `role="button"` + `tabindex="0"` als Mindestsemantik erzwungen.
+- Qualitätssicherung: Implementieren → Review → Patch (inkl. toleranter Erkennung für unterschiedliche Key-Syntaxen), danach `node scripts/audit_math_a11y.js` (`MATH_A11Y_CLEAR`).
+- Ergebnis: Mathe-Regressionen bei unvollständiger Tastaturbedienung werden früher und konsistenter erkannt.

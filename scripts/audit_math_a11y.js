@@ -46,13 +46,45 @@ for (const topic of mathTopics) {
   }
 
   const hasPredictiveSelections = source.includes('data-predict-');
-  const hasKeyboardSupport = source.includes('keydown') && (source.includes("' '") || source.includes('" "') || source.includes('Spacebar'));
+  const hasKeydownSupport = source.includes('keydown');
+  const hasEnterSupport =
+    source.includes("event.key === 'Enter'") ||
+    source.includes('event.key === "Enter"') ||
+    source.includes("'Enter'") ||
+    source.includes('"Enter"');
+  const hasSpaceSupport =
+    source.includes("event.key === ' '") ||
+    source.includes('event.key === " "') ||
+    source.includes('Spacebar') ||
+    source.includes("' '") ||
+    source.includes('" "') ||
+    source.includes('event.code === "Space"') ||
+    source.includes("event.code === 'Space'");
   const hasPressedState = source.includes('aria-pressed');
-  if (hasPredictiveSelections && (!hasKeyboardSupport || !hasPressedState)) {
+  const hasButtonRoleSemantics =
+    source.includes("setAttribute('role', 'button')") ||
+    source.includes('setAttribute("role", "button")') ||
+    source.includes('role="button"') ||
+    source.includes("role='button'");
+  const hasTabindexSemantics =
+    source.includes("setAttribute('tabindex', '0')") ||
+    source.includes('setAttribute("tabindex", "0")') ||
+    source.includes('tabindex="0"') ||
+    source.includes("tabindex='0'");
+
+  if (hasPredictiveSelections && (!hasKeydownSupport || !hasEnterSupport || !hasSpaceSupport || !hasPressedState)) {
     findings.push({
       topic,
       issue: 'predict_controls_incomplete_a11y',
-      detail: `predictive UI found; keyboard=${hasKeyboardSupport}, ariaPressed=${hasPressedState}`
+      detail: `predictive UI found; keydown=${hasKeydownSupport}, enter=${hasEnterSupport}, space=${hasSpaceSupport}, ariaPressed=${hasPressedState}`
+    });
+  }
+
+  if (hasPredictiveSelections && (!hasButtonRoleSemantics || !hasTabindexSemantics)) {
+    findings.push({
+      topic,
+      issue: 'predict_controls_missing_role_tabindex_semantics',
+      detail: `predictive UI found; roleButton=${hasButtonRoleSemantics}, tabindex0=${hasTabindexSemantics}`
     });
   }
 
