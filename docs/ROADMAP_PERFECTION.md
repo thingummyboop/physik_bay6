@@ -344,3 +344,9 @@ P2-Math Fortschritt (Run 2026-04-27 23:30):
 - Abgedeckt: **math2_2_brueche**, **math2_8_statistik** und **math4_5_aehnlichkeit** mit JS-gebundenem Feedback, Enter-Submit und Live-Semantik; außerdem verbliebene Alert-Attribute in allen Sprachdateien entfernt.
 - Qualitätssicherung: `scripts/audit_inline_alerts.js` robuster gemacht und danach `ALL_CLEAR`; zusätzlich Syntaxchecks, JSON-Parsecheck, `node scripts/audit_quiz_feedback.js` und `git diff --check`.
 - Ergebnis: Die betroffenen Mathe-Checks bleiben im Lernfluss, vermeiden Popups und sind besser für Tastatur- und Screenreader-Nutzung geeignet.
+
+P2-Math Fortschritt (Run 2026-04-27 23:34):
+- Mathe-Accessibility-Regressionstest ergänzt: neues Audit-Skript **`scripts/audit_math_a11y.js`** eingeführt.
+- Abgedeckt: automatischer Basischeck für alle `js/topics/math*.js` auf verbliebene `alert()`-Nutzung, Live-Region-Konsistenz (`aria-live` + `aria-atomic`), Predictive-Keyboard-Semantik (`data-predict-*` + Enter/Space + `aria-pressed`) und Slider-Rückmeldung (`aria-valuetext`).
+- Qualitätssicherung: Ausführung des neuen Audits (`MATH_A11Y_CLEAR`) sowie Dokumentations-Update in **`docs/QUALITY_CRITERIA.md`** als verpflichtender Mindestcheck.
+- Ergebnis: Mathe-Interaktionen sind jetzt wie Physik/Nebenfächer automatisiert gegen zentrale A11y-Regressionsmuster abgesichert.
