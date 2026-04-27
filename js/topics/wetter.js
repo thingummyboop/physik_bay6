@@ -1,5 +1,67 @@
 // Wetter-Logik V3: Detaillierte Wetterstation
 
+let cloudCharge = 0;
+let precipInterval;
+let gulfInterval;
+let windSpawnTimeouts = [];
+let windParticleIntervals = [];
+
+function ensureWeatherAccessibility() {
+    const instrumentText = document.getElementById('instrumentText');
+    const chargeText = document.getElementById('chargeLevel');
+    const precipText = document.getElementById('precipTextOverlay');
+    const weatherRange = document.getElementById('weatherRange');
+    const weatherSim = document.getElementById('weatherSim');
+
+    if (instrumentText) {
+        instrumentText.setAttribute('role', 'status');
+        instrumentText.setAttribute('aria-live', 'polite');
+        instrumentText.setAttribute('aria-atomic', 'true');
+    }
+
+    if (chargeText) {
+        chargeText.setAttribute('role', 'status');
+        chargeText.setAttribute('aria-live', 'polite');
+        chargeText.setAttribute('aria-atomic', 'true');
+    }
+
+    if (precipText) {
+        precipText.setAttribute('role', 'status');
+        precipText.setAttribute('aria-live', 'polite');
+        precipText.setAttribute('aria-atomic', 'true');
+    }
+
+    if (weatherRange) {
+        weatherRange.setAttribute('aria-label', 'Wetterlage einstellen');
+        weatherRange.setAttribute('aria-describedby', 'weatherStateText');
+    }
+
+    if (weatherSim) weatherSim.setAttribute('aria-hidden', 'true');
+
+    let weatherState = document.getElementById('weatherStateText');
+    if (!weatherState && weatherRange) {
+        weatherState = document.createElement('p');
+        weatherState.id = 'weatherStateText';
+        weatherState.className = 'lab-feedback';
+        weatherState.textContent = 'Wetterlage: sonnig.';
+        const zone = weatherRange.closest('.interactive-zone');
+        if (zone) zone.appendChild(weatherState);
+    }
+
+    if (weatherState) {
+        weatherState.setAttribute('role', 'status');
+        weatherState.setAttribute('aria-live', 'polite');
+        weatherState.setAttribute('aria-atomic', 'true');
+    }
+}
+
+function clearWindSimulation() {
+    windSpawnTimeouts.forEach((timeoutId) => clearTimeout(timeoutId));
+    windSpawnTimeouts = [];
+    windParticleIntervals.forEach((intervalId) => clearInterval(intervalId));
+    windParticleIntervals = [];
+}
+
 function showInstrumentDetailed(type) {
     const animContainer = document.getElementById('instrumentAnimation');
     const textContainer = document.getElementById('instrumentText');
@@ -12,7 +74,7 @@ function showInstrumentDetailed(type) {
     switch(type) {
         case 'thermometer':
             animHtml = `
-                <svg width="200" height="150" viewBox="0 0 200 150">
+                <svg width="200" height="150" viewBox="0 0 200 150" aria-hidden="true">
                     <rect x="90" y="20" width="20" height="100" rx="10" fill="#e2e8f0" stroke="#94a3b8" />
                     <circle cx="100" cy="120" r="15" fill="#ef4444" />
                     <rect id="mercury" x="95" y="30" width="10" height="80" fill="#ef4444">
@@ -33,7 +95,7 @@ function showInstrumentDetailed(type) {
         
         case 'barometer':
             animHtml = `
-                <svg width="200" height="150" viewBox="0 0 200 150">
+                <svg width="200" height="150" viewBox="0 0 200 150" aria-hidden="true">
                     <rect x="50" y="120" width="100" height="10" fill="#94a3b8" />
                     <g>
                         <path d="M100,20 L100,110" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrowhead-blue)" />
@@ -59,7 +121,7 @@ function showInstrumentDetailed(type) {
 
         case 'anemometer':
             animHtml = `
-                <svg width="200" height="150" viewBox="0 0 200 150">
+                <svg width="200" height="150" viewBox="0 0 200 150" aria-hidden="true">
                     <g transform="translate(100,60)">
                         <g id="cups">
                             <line x1="-40" y1="0" x2="40" y2="0" stroke="#334155" stroke-width="3" />
@@ -88,7 +150,7 @@ function showInstrumentDetailed(type) {
 
         case 'hygrometer':
             animHtml = `
-                <svg width="200" height="150" viewBox="0 0 200 150">
+                <svg width="200" height="150" viewBox="0 0 200 150" aria-hidden="true">
                     <rect x="50" y="30" width="100" height="100" fill="none" stroke="#334155" stroke-dasharray="4" />
                     <g id="vapor">
                         <circle cx="70" cy="50" r="3" fill="#3b82f6" opacity="0.6"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" /></circle>
@@ -113,48 +175,69 @@ function showInstrumentDetailed(type) {
 }
 
 function updateWeatherSim() {
-    const val = document.getElementById('weatherRange')?.value;
+    const weatherRange = document.getElementById('weatherRange');
+    const val = weatherRange?.value;
     if (!val) return;
     const sun = document.getElementById('sunSim');
     const cloud = document.getElementById('cloudSim');
     const rain = document.getElementById('rainSim');
     const bg = document.getElementById('weatherBg');
-    if(!sun || !bg) return;
+    const weatherState = document.getElementById('weatherStateText');
+    if(!sun || !bg || !weatherRange) return;
+
+    let stateText = 'Wetterlage: sonnig.';
     if (val < 33) {
-        sun.setAttribute('opacity', '1'); cloud.setAttribute('opacity', '0.2'); rain.setAttribute('opacity', '0'); bg.setAttribute('fill', '#87CEEB');
+        sun.setAttribute('opacity', '1'); cloud?.setAttribute('opacity', '0.2'); rain?.setAttribute('opacity', '0'); bg.setAttribute('fill', '#87CEEB');
+        stateText = 'Wetterlage: sonnig, kaum Wolken, kein Regen.';
     } else if (val < 66) {
-        sun.setAttribute('opacity', '0.3'); cloud.setAttribute('opacity', '1'); rain.setAttribute('opacity', '0'); bg.setAttribute('fill', '#B0C4DE');
+        sun.setAttribute('opacity', '0.3'); cloud?.setAttribute('opacity', '1'); rain?.setAttribute('opacity', '0'); bg.setAttribute('fill', '#B0C4DE');
+        stateText = 'Wetterlage: bewölkt, trocken.';
     } else {
-        sun.setAttribute('opacity', '0'); cloud.setAttribute('opacity', '1'); rain.setAttribute('opacity', '0.6'); bg.setAttribute('fill', '#708090');
+        sun.setAttribute('opacity', '0'); cloud?.setAttribute('opacity', '1'); rain?.setAttribute('opacity', '0.6'); bg.setAttribute('fill', '#708090');
+        stateText = 'Wetterlage: Regen, dunkle Wolken.';
     }
+
+    weatherRange.setAttribute('aria-valuetext', stateText.replace('Wetterlage: ', '').replace('.', ''));
+    if (weatherState) weatherState.textContent = stateText;
 }
 
 function startWindSim() {
     const svg = document.getElementById('windSvg');
     if (!svg) return;
+    clearWindSimulation();
     svg.innerHTML = '';
-    for(let i=0; i<15; i++) {
-        setTimeout(() => {
+
+    for(let i = 0; i < 15; i++) {
+        const timeoutId = setTimeout(() => {
             const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             circle.setAttribute("r", "3");
             circle.setAttribute("fill", "#3b82f6");
             circle.setAttribute("opacity", "0.6");
             svg.appendChild(circle);
-            let x = 20; let y = Math.random() * 100;
+            let x = 20;
+            const y = Math.random() * 100;
             const anim = setInterval(() => {
-                x += 4; circle.setAttribute("cx", x); circle.setAttribute("cy", y + "%");
-                if (x > 400) { clearInterval(anim); if (circle.parentNode) circle.parentNode.removeChild(circle); }
+                x += 4;
+                circle.setAttribute("cx", x);
+                circle.setAttribute("cy", y + "%");
+                if (x > 400) {
+                    clearInterval(anim);
+                    windParticleIntervals = windParticleIntervals.filter((id) => id !== anim);
+                    if (circle.parentNode) circle.parentNode.removeChild(circle);
+                }
             }, 30);
+            windParticleIntervals.push(anim);
         }, i * 300);
+        windSpawnTimeouts.push(timeoutId);
     }
 }
 
-let cloudCharge = 0;
 function chargeCloud() {
     const chargeText = document.getElementById('chargeLevel');
     const lightning = document.getElementById('lightning');
     const cloud = document.getElementById('stormCloud');
     if (!chargeText || !lightning || !cloud) return;
+
     if (cloudCharge < 100) {
         cloudCharge += 20;
         chargeText.textContent = cloudCharge + "% geladen";
@@ -173,14 +256,13 @@ function chargeCloud() {
 }
 
 // 4. Niederschlags-Labor
-let precipInterval;
 function showPrecipitation(type) {
     const area = document.getElementById('precipAnimArea');
     const text = document.getElementById('precipTextOverlay');
     if (!area || !text) return;
     
     clearInterval(precipInterval);
-    area.innerHTML = '<svg width="100%" height="100%" id="precipSvg"></svg>';
+    area.innerHTML = '<svg width="100%" height="100%" id="precipSvg" aria-hidden="true"></svg>';
     const svg = document.getElementById('precipSvg');
     
     text.style.display = 'block';
@@ -251,7 +333,6 @@ function showPrecipitation(type) {
 }
 
 // 5. Golfstrom
-let gulfInterval;
 function startGulfStream() {
     const svgGroup = document.getElementById('gulfStreamArrows');
     if (!svgGroup) return;
@@ -294,6 +375,11 @@ function startGulfStream() {
 function topicInit() {
     console.log("Wetter-Thema V3 geladen.");
     cloudCharge = 0;
+    clearInterval(precipInterval);
+    clearInterval(gulfInterval);
+    clearWindSimulation();
+    ensureWeatherAccessibility();
+    updateWeatherSim();
     setTimeout(() => {
         if(document.getElementById('instrumentAnimation')) showInstrumentDetailed('thermometer');
     }, 200);
