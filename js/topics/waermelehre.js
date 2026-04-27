@@ -58,18 +58,21 @@ function enhanceAccessibility() {
     if (soupText) {
         soupText.setAttribute('role', 'status');
         soupText.setAttribute('aria-live', 'polite');
+        soupText.setAttribute('aria-atomic', 'true');
     }
 
     const sunText = document.getElementById('sunText');
     if (sunText) {
         sunText.setAttribute('role', 'status');
         sunText.setAttribute('aria-live', 'polite');
+        sunText.setAttribute('aria-atomic', 'true');
     }
 
     const thermoText = document.getElementById('thermoText');
     if (thermoText) {
         thermoText.setAttribute('role', 'status');
         thermoText.setAttribute('aria-live', 'polite');
+        thermoText.setAttribute('aria-atomic', 'true');
     }
 
     const soupBtn = document.getElementById('soupBtn');

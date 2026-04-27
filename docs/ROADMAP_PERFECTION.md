@@ -273,3 +273,9 @@ P2 Fortschritt (Run 2026-04-27 22:18):
 - Abgedeckt: Fokusfähigkeit + Enter/Leertaste für `data-slit-prediction`, Guard gegen doppelte Keydown-Listener bei erneutem `topicInit()`, `role="button"`, `aria-describedby` und konsistente `aria-pressed`-Initialisierung.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/optik1.js`, `node scripts/audit_quiz_feedback.js` und `git diff --check`.
 - Ergebnis: Der Vorhersage-Check in Optik 1 ist jetzt robust ohne Maus nutzbar und meldet Auswahlzustände zuverlässig für assistive Technologien.
+
+P2 Fortschritt (Run 2026-04-27 22:27):
+- Physikmodule **Akustik**, **Astronomie**, **Elektromagnetismus**, **Energie**, **Farben** und **Wärmelehre** bei Live-Rückmeldungen auf Screenreader-Konsistenz verbessert.
+- Abgedeckt: bestehende `role="status"`-Live-Regionen um `aria-atomic="true"` ergänzt, damit zusammenhängende Statusmeldungen vollständig statt fragmentiert vorgelesen werden.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) inkl. Nachpatch für versehentliche Variablenreferenz in der Review-Phase; Abschluss mit `node --check` für alle 6 Topic-Dateien und `git diff --check`.
+- Ergebnis: Physik-Interaktionen geben Zustandsänderungen konsistenter und verständlicher an assistive Technologien aus.

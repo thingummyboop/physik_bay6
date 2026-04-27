@@ -10,6 +10,7 @@ function ensureLiveRegion(id) {
     if (!el) return null;
     el.setAttribute('role', 'status');
     el.setAttribute('aria-live', 'polite');
+    el.setAttribute('aria-atomic', 'true');
     return el;
 }
 
@@ -132,6 +133,7 @@ function shakeFlashlight() {
         enDisp.innerText = energy;
         enDisp.setAttribute('role', 'status');
         enDisp.setAttribute('aria-live', 'polite');
+        enDisp.setAttribute('aria-atomic', 'true');
     }
     beam.setAttribute('aria-label', `Lichtstärke ${Math.floor(energy)} Prozent`);
     setTimeout(() => fl.classList.remove('shaking'), 150);

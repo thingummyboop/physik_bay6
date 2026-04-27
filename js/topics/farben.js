@@ -10,6 +10,7 @@ function enhanceColorAccessibility() {
         if (!el) return;
         el.setAttribute('role', 'status');
         el.setAttribute('aria-live', 'polite');
+        el.setAttribute('aria-atomic', 'true');
     });
 
     const slider = document.getElementById("dispersionAngle");
