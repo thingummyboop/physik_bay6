@@ -52,6 +52,14 @@ function animateParticles() {
         txt.innerText = `${temp}°C (${tempLabel})`;
         txt.style.color = color;
     }
+    const hint = document.getElementById('particleHint');
+    if (hint) {
+        hint.innerText = temp < 40
+            ? "Kalt: Die Teilchen bewegen sich wenig. Der Stoff braucht weniger Platz."
+            : temp < 70
+                ? "Warm: Die Teilchen bewegen sich stärker und stoßen öfter zusammen."
+                : "Heiß: Die Teilchen bewegen sich schnell. Viele Stoffe dehnen sich aus.";
+    }
 
     particlesData.forEach(p => {
         let jitterX = (Math.random() - 0.5) * speed;
@@ -119,7 +127,7 @@ function sunShine() {
     let tWhite = document.getElementById('tempWhite');
     let txt = document.getElementById('sunText');
     
-    if (txt) txt.innerText = "Die Strahlung trifft auf! Schwarz absorbiert, Weiß reflektiert.";
+    if (txt) txt.innerText = "Die Strahlung trifft auf: Schwarz nimmt viel Energie auf, Weiß wirft viel zurück.";
 
     if (sunTimer) clearInterval(sunTimer);
     sunTimer = setInterval(() => {
@@ -130,7 +138,7 @@ function sunShine() {
         
         if(tempB >= 60) {
             clearInterval(sunTimer);
-            if (txt) txt.innerText = "Puh! 60°C im schwarzen Auto. Im weißen ist es viel angenehmer!";
+            if (txt) txt.innerText = "Ergebnis: Das schwarze Auto wird viel heißer. Helle Farbe reflektiert mehr Sonnenstrahlung.";
             setTimeout(() => {
                 if(rB) rB.style.display = 'none';
                 if(rW) rW.style.display = 'none';
@@ -184,15 +192,15 @@ function setPhase(phase) {
 
     if(phase === 'ice') {
         if (ice) ice.style.display = 'block';
-        txt.innerText = "Fest (Eis): Die Teilchen sitzen starr als Gitter zusammen.";
+        txt.innerText = "Fest (Eis): Die Teilchen sitzen dicht zusammen und bleiben fast an ihrem Platz.";
         txt.style.color = "#1976D2";
     } else if(phase === 'water') {
         if (water) water.style.display = 'block';
-        txt.innerText = "Flüssig (Wasser): Die Teilchen sind gelöst und schwimmen wild durcheinander.";
+        txt.innerText = "Flüssig (Wasser): Die Teilchen bleiben nahe beisammen, können aber aneinander vorbeirutschen.";
         txt.style.color = "#0288D1";
     } else {
         if (steam) steam.style.display = 'block';
-        txt.innerText = "Gasförmig (Dampf): Die Teilchen haben viel Energie und fliegen komplett auseinander!";
+        txt.innerText = "Gasförmig (Dampf): Die Teilchen sind weit auseinander und bewegen sich schnell durch den Raum.";
         txt.style.color = "#78909C";
     }
 }
@@ -207,4 +215,12 @@ function updateThermometer() {
     let newY = 200 - newHeight;
     liquid.setAttribute('height', newHeight);
     liquid.setAttribute('y', newY);
+    const text = document.getElementById('thermoText');
+    if (text) {
+        text.innerText = val < 35
+            ? "Niedrige Temperatur: Die Flüssigkeit braucht wenig Platz."
+            : val < 70
+                ? "Wärmer: Die Flüssigkeit dehnt sich aus und steigt im Röhrchen."
+                : "Heiß: Starke Ausdehnung. Darum muss auch bei Brücken Platz für Bewegung bleiben.";
+    }
 }

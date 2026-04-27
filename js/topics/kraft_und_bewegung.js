@@ -8,7 +8,31 @@ function setPrediction(group, value) {
     const buttons = document.querySelectorAll(`[data-predict-group="${group}"]`);
     buttons.forEach(btn => btn.classList.toggle('selected', btn.dataset.predictValue === value));
     const output = document.getElementById(`${group}Prediction`);
-    if (output) output.innerText = "Vermutung gespeichert. Jetzt testen!";
+    if (output) output.innerText = getPredictionPrompt(group, value);
+}
+
+function getPredictionPrompt(group, value) {
+    const prompts = {
+        inertia: {
+            stop: "Vermutung gespeichert: Du denkst an Alltag mit Reibung. Teste jetzt, was ohne starke Bremse passiert.",
+            keep: "Vermutung gespeichert: Du achtest auf fehlende Bremskräfte. Jetzt testen!"
+        },
+        friction: {
+            ice: "Vermutung gespeichert: Weniger Reibung könnte weiter führen. Teste das Rennen.",
+            carpet: "Vermutung gespeichert: Teppich fühlt sich griffig an. Prüfe, ob griffig auch weiter bedeutet."
+        },
+        drop: {
+            same: "Vermutung gespeichert: Du trennst Schwerkraft von Luftwiderstand. Teste mit und ohne Luft.",
+            apple: "Vermutung gespeichert: Das wirkt im Alltag logisch. Teste, welche Rolle Luft spielt.",
+            feather: "Vermutung gespeichert: Beobachte genau, ob die Feder wirklich Antrieb hat."
+        },
+        lever: {
+            load: "Vermutung gespeichert: Nah an der Last macht den Lastarm kurz. Schiebe den Drehpunkt und beobachte.",
+            middle: "Vermutung gespeichert: Mitte klingt fair. Prüfe, ob fair auch kräftesparend ist.",
+            force: "Vermutung gespeichert: Nah an der Kraft macht den Kraftarm kurz. Teste, wie schwer es wird."
+        }
+    };
+    return prompts[group]?.[value] || "Vermutung gespeichert. Jetzt testen!";
 }
 
 // 1. Trägheit (Ball schubsen)
@@ -189,6 +213,13 @@ function updateForceLab() {
     if (massLabel) massLabel.innerText = `${mass} kg`;
     if (accelLabel) accelLabel.innerText = `${acceleration.toFixed(1)} m/s²`;
     if (accelMeter) accelMeter.style.width = `${Math.min(100, acceleration * 18)}%`;
+
+    const result = document.getElementById('forceLabText');
+    if (result) {
+        result.innerText = acceleration >= 3
+            ? "Schätzung: starke Beschleunigung. Hohe Kraft und kleine Masse passen gut zusammen."
+            : "Schätzung: eher langsame Beschleunigung. Mehr Masse macht den Start träger.";
+    }
 }
 
 function runForceLab() {
@@ -207,7 +238,7 @@ function runForceLab() {
     setTimeout(() => {
         cart.style.transition = `transform ${duration}s ease-in`;
         cart.style.transform = 'translateX(300px)';
-        result.innerText = `Ergebnis: ${force} N Kraft bei ${mass} kg Masse ergeben ${acceleration.toFixed(1)} m/s². Mehr Kraft hilft. Mehr Masse bremst die Beschleunigung.`;
+        result.innerText = `Ergebnis: ${force} N Kraft bei ${mass} kg Masse ergeben ${acceleration.toFixed(1)} m/s². Rechenweg: a = F ÷ m = ${force} ÷ ${mass}. Mehr Kraft hilft. Mehr Masse macht die Beschleunigung kleiner.`;
     }, 50);
 }
 

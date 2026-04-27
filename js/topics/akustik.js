@@ -41,12 +41,12 @@ function strikeFork() {
 
     fork.classList.add('anim-shake');
     if(waveGrp) waveGrp.style.display = "block";
-    if(txt) txt.innerText = "Die Stimmgabel zittert (Schwingung)!";
+    if(txt) txt.innerText = "Die Stimmgabel schwingt. Sie stößt Luftteilchen an: So startet Schall.";
     
     setTimeout(() => {
         fork.classList.remove('anim-shake');
         if(waveGrp) waveGrp.style.display = "none";
-        if(txt) txt.innerText = "Die Stimmgabel ruht.";
+        if(txt) txt.innerText = "Die Stimmgabel ruht. Ohne Schwingung entsteht kein neuer Ton.";
     }, 2000);
 }
 
@@ -64,13 +64,13 @@ function toggleVacuum() {
         btn.innerText = "💨 Luft einlassen";
         btn.style.background = "#4a5568";
         if (waves) waves.style.display = "none";
-        if (txt) txt.innerText = "Vakuum: Keine Luftteilchen, kein Schall!";
+        if (txt) txt.innerText = "Vakuum: Keine Luftteilchen. Der Wecker schwingt, aber der Schall kommt nicht weiter.";
         particles.forEach(p => p.style.opacity = "0");
     } else {
         btn.innerText = "🌬️ Luft abpumpen";
         btn.style.background = "#2196F3";
         if (waves) waves.style.display = "block";
-        if (txt) txt.innerText = "Luft ist drin: Der Wecker ist laut zu hören!";
+        if (txt) txt.innerText = "Luft ist drin: Luftteilchen geben die Schwingung weiter. Du hörst den Wecker.";
         particles.forEach(p => p.style.opacity = "1");
     }
 }
@@ -84,14 +84,14 @@ function drawWave() {
     const lblAmp = document.getElementById('lblAmp');
 
     if (lblFreq) {
-        if(freq < 2) lblFreq.innerText = "Tief (Brummen)";
-        else if(freq > 3.5) lblFreq.innerText = "Hoch (Piepsen)";
+        if(freq < 2) lblFreq.innerText = "Tief (wenige Wellen)";
+        else if(freq > 3.5) lblFreq.innerText = "Hoch (viele enge Wellen)";
         else lblFreq.innerText = "Mittel";
     }
     
     if (lblAmp) {
-        if(amp < 25) lblAmp.innerText = "Leise (Flüstern)";
-        else if(amp > 60) lblAmp.innerText = "Laut (Brüllen)";
+        if(amp < 25) lblAmp.innerText = "Leise (kleine Wellenberge)";
+        else if(amp > 60) lblAmp.innerText = "Laut (hohe Wellenberge)";
         else lblAmp.innerText = "Mittel";
     }
 

@@ -12,7 +12,7 @@ function answerQuiz(btn, isCorrect) {
 }
 
 function handleChargeExercise(btn, isCorrect) {
-    handleAnswer(btn, isCorrect, 10, isCorrect ? "Richtig! Ungleiche Ladungen ziehen sich an." : "Falsch. Denk an Magnete: Gegensätze ziehen sich an!");
+    handleAnswer(btn, isCorrect, 10, isCorrect ? "Richtig! Plus und Minus ziehen sich an." : "Denk an Magnete: Gegensätze ziehen sich an. Bei Ladungen heißt das Plus und Minus.");
 }
 
 // 6. Ohmsches Gesetz
@@ -33,6 +33,16 @@ function updateOhm() {
     uVal.innerText = u + "V";
     rVal.innerText = r + " Ω";
     iValText.innerText = "Stromstärke I = " + i.toFixed(2) + " A";
+    const ohmFeedback = document.getElementById('ohmFeedback');
+    if (ohmFeedback) {
+        if (i < 0.15) {
+            ohmFeedback.innerText = "Wenig Strom: Die Spannung ist klein oder der Widerstand bremst stark.";
+        } else if (i < 0.55) {
+            ohmFeedback.innerText = "Mittlerer Strom: Die Lampe leuchtet sichtbar, aber nicht sehr hell.";
+        } else {
+            ohmFeedback.innerText = "Viel Strom: Mehr Spannung oder weniger Widerstand macht die Lampe heller.";
+        }
+    }
 
     // Brightness based on current I
     // Max current is 12 / 10 = 1.2A. 

@@ -16,7 +16,7 @@ function liftWeight() {
     wGrp.style.transform = 'translateY(20px)';
     wGrp.style.transition = 'transform 2s ease-out';
     if(wTxt) {
-        wTxt.innerText = "Hantel ist oben! Lageenergie (Potenzielle Energie) ist gespeichert.";
+        wTxt.innerText = "Hantel ist oben: Lageenergie ist gespeichert. Je höher sie ist, desto mehr kann beim Fallen passieren.";
         wTxt.style.color = "#E65100";
     }
     if(lBtn) lBtn.disabled = true;
@@ -33,7 +33,7 @@ function dropWeight() {
     wGrp.style.transform = 'translateY(140px)';
     wGrp.style.transition = 'transform 0.3s ease-in';
     if(wTxt) {
-        wTxt.innerText = "WUSCH! Die Lageenergie hat sich in Bewegungsenergie verwandelt!";
+        wTxt.innerText = "Die Hantel fällt: Lageenergie wird Bewegungsenergie. Beim Aufprall wird viel Energie zu Wärme und Schall.";
         wTxt.style.color = "#2E7D32";
     }
     if(dBtn) dBtn.disabled = true;
@@ -47,7 +47,7 @@ function startPendulum() {
     if(!pObj) return;
     pObj.classList.add('anim-swing');
     if(pTxt) {
-        pTxt.innerText = "Das Pendel schwingt! Lageenergie ↔️ Bewegungsenergie.";
+        pTxt.innerText = "Das Pendel schwingt: außen mehr Lageenergie, unten mehr Bewegungsenergie.";
         pTxt.style.color = "#2E7D32";
     }
 }
@@ -57,7 +57,7 @@ function stopPendulum() {
     if(!pObj) return;
     pObj.classList.remove('anim-swing');
     if(pTxt) {
-        pTxt.innerText = "Pendel gestoppt. Die Energie wurde (durch Reibung) an die Luft abgegeben.";
+        pTxt.innerText = "Pendel gestoppt: Reibung hat Bewegungsenergie langsam in Wärme der Luft umgewandelt.";
         pTxt.style.color = "#D32F2F";
     }
 }
@@ -76,7 +76,7 @@ function insertBattery() {
         bulb.setAttribute('fill', '#FFF176');
         beam.style.opacity = '0.8';
         if(text) {
-            text.innerText = "Chemische Energie ➡️ Elektrische Energie ➡️ Lichtenergie!";
+            text.innerText = "Energiekette: chemische Energie in der Batterie -> elektrische Energie im Kabel -> Licht und Wärme in der Lampe.";
             text.style.color = "#F57F17";
         }
     }, 600);
@@ -102,13 +102,13 @@ function updateWind() {
         
         if(text) {
             if(val < 40) {
-                text.innerText = val + "% (Leichte Brise - Etwas Strom)";
+                text.innerText = val + "% (leichte Brise - wenig Strom, wie bei schwachem Wind im Park)";
                 text.style.color = "#43A047";
             } else if(val < 80) {
-                text.innerText = val + "% (Starker Wind - Viel Strom!)";
+                text.innerText = val + "% (starker Wind - viel Strom)";
                 text.style.color = "#F57F17";
             } else {
-                text.innerText = val + "% (Sturm - Volle Power!)";
+                text.innerText = val + "% (Sturm - sehr viel Energie, Anlagen müssen geschützt werden)";
                 text.style.color = "#D84315";
             }
         }
@@ -130,7 +130,7 @@ function toggleSwitch() {
         line.setAttribute('y2', '40');
         bulb.setAttribute('fill', '#FFEB3B'); 
         if(text) {
-            text.innerText = "Kreis ist geschlossen! Die Elektronen fließen, Lampe leuchtet.";
+            text.innerText = "Kreis geschlossen: Es gibt einen ganzen Weg. Die Lampe wandelt elektrische Energie in Licht und Wärme um.";
             text.style.color = "#388E3C";
         }
         btn.innerText = "Schalter öffnen 🛑";
