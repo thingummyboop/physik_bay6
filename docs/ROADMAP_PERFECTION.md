@@ -471,3 +471,9 @@ P1/P2 Fortschritt (Run 2026-04-28 01:50):
 - Regression-Schutz ergänzt: neues Audit **`scripts/audit_physics_language.js`** prüft in allen Physikthemen automatisch, dass Feedbacktexte kompakt bleiben (Schwellwert: 180 Zeichen).
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_language.js` sowie Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-Perfection deckt jetzt neben A11y und Vollständigkeit auch die Verständlichkeitslänge der Diagnose-Feedbacks automatisiert ab.
+
+P1 Fortschritt (Run 2026-04-28 01:56):
+- Weitere Physik-Feedbacktexte in **`lang/de.json`** auf klare A2-B1-Sprache geglättet (Arbeit, Elektromagnetismus, Linsen/Spiegel).
+- Abgedeckt: 5 Rückmeldungen mit unnötig verschachtelter Formulierung oder hoher Leselast auf kürzere, direkte Korrekturhinweise umgestellt.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_language.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-Diagnosefeedback bleibt fachlich korrekt, ist aber schneller erfassbar und lernfreundlicher formuliert.
