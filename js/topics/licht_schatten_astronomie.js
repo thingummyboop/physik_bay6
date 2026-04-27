@@ -1,9 +1,34 @@
 // Logic for Licht & Schatten
 
 function topicInit() {
+    ensureLightAstronomyAccessibility();
     updateShadow1();
     updateShadow2();
     updateEclipse1();
+}
+
+function ensureLightAstronomyAccessibility() {
+    const statusIds = ["statusText", "orbitalText"];
+    statusIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+        el.setAttribute('aria-atomic', 'true');
+    });
+
+    const posRange1 = document.getElementById('posRange1');
+    if (posRange1) posRange1.setAttribute('aria-label', 'Position des Hindernisses für den Schatten');
+
+    const moonPos = document.getElementById('moonPos');
+    if (moonPos) moonPos.setAttribute('aria-describedby', 'statusText');
+
+    [1, 2].forEach((n) => {
+        const btn = document.getElementById(`btnL${n}`);
+        if (!btn) return;
+        const isOn = n === 1 ? lamp1On : lamp2On;
+        btn.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+    });
 }
 
 // 1. Point Source Shadow
@@ -27,8 +52,16 @@ function updateShadow1() {
     if (shadow) {
         shadow.setAttribute('points', `${objX},${objTopY} 400,${shadowTopY} 400,${shadowBotY} ${objX},${objBotY}`);
     }
-    if (ray1) ray1.setAttribute('x2', 400); ray1.setAttribute('y2', shadowTopY);
-    if (ray2) ray2.setAttribute('x2', 400); ray2.setAttribute('y2', shadowBotY);
+    if (ray1) {
+        ray1.setAttribute('x2', 400);
+        ray1.setAttribute('y2', shadowTopY);
+    }
+    if (ray2) {
+        ray2.setAttribute('x2', 400);
+        ray2.setAttribute('y2', shadowBotY);
+    }
+
+    range.setAttribute('aria-valuetext', `Hindernis bei ${objX} Pixel`);
 }
 
 // 2. Two Lamps Shadow
@@ -41,7 +74,11 @@ function toggleLamp(n) {
     
     const btn = document.getElementById('btnL' + n);
     const lamp = document.getElementById('lamp' + n);
-    if (btn) btn.innerText = `Lampe ${n}: ${n===1 ? (lamp1On ? 'AN' : 'AUS') : (lamp2On ? 'AN' : 'AUS')}`;
+    const isOn = n === 1 ? lamp1On : lamp2On;
+    if (btn) {
+        btn.innerText = `Lampe ${n}: ${isOn ? 'AN' : 'AUS'}`;
+        btn.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+    }
     if (lamp) lamp.setAttribute('fill', (n===1 ? (lamp1On ? '#fff' : '#444') : (lamp2On ? '#fff' : '#444')));
     
     updateShadow2();
@@ -135,6 +172,7 @@ function updateEclipse1() {
     
     if (ray1) { ray1.setAttribute('x2', 400); ray1.setAttribute('y2', uY1); }
     if (ray2) { ray2.setAttribute('x2', 400); ray2.setAttribute('y2', uY2); }
+    range.setAttribute('aria-valuetext', `Mondposition ${moonX}`);
     
     // Detection
     const uMin = Math.min(uY1, uY2);

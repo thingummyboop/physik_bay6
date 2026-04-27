@@ -118,6 +118,13 @@ P2 Fortschritt (Run 2026-04-27 18:59):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) inkl. Fix gegen zu häufige Live-Ansagen beim Timer-Display; abschließend `node --check js/topics/sieinheiten.js` und `git diff --check`.
 - Ergebnis: Das Modul ist besser ohne Maus nutzbar und liefert konsistentere, vorlesbare Rückmeldungen ohne Screenreader-Spam.
 
+P2 Fortschritt (Run 2026-04-27 19:03):
+- Thema **Licht, Schatten & Astronomie** bei den Interaktionen auf Robustheit und Accessibility verbessert.
+- Abgedeckt: Live-Regionen für Eclipse-/Orbit-Status, `aria-valuetext` für Schatten- und Mondpositions-Slider sowie `aria-pressed`-Status für Lampen-Toggle-Buttons.
+- Stabilität: Bugfix in `updateShadow1()` – Strahl-`y2` wird nur noch gesetzt, wenn das jeweilige SVG-Element existiert (kein potenzieller Nullzugriff mehr).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/licht_schatten_astronomie.js` und `git diff --check`.
+- Ergebnis: Das Modul liefert verlässlichere Rückmeldungen für assistive Technologien und ist robuster gegen partiell fehlende DOM-Elemente.
+
 ## Phase 3: Other Subjects
 
 - Digitale Grundbildung, Wetter, Klima und Klimawandel danach angleichen.
