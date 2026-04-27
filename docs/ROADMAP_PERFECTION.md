@@ -375,3 +375,9 @@ P1/P2/P3 Fortschritt (Run 2026-04-28 00:12):
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_topic_syntax.js` und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Doku nachgezogen: **`docs/QUALITY_CRITERIA.md`** führt den neuen Mindestcheck explizit.
 - Ergebnis: Physik-/Mathe-/Nebenfächer-Perfection ist robuster gegen versehentliche Syntaxfehler in Themenmodulen.
+
+P3 Fortschritt (Run 2026-04-28 00:17):
+- Nebenfächer-Audit **`scripts/audit_remaining_subjects_a11y.js`** auf zentrale Regressionen gehärtet.
+- Abgedeckt: zusätzlicher Check auf verbliebene `alert()`-Nutzung sowie vollständige Live-Region-Semantik (`aria-live` + `aria-atomic` + `role="status"`).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_remaining_subjects_a11y.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Nebenfächer melden Accessibility-/Feedback-Rückfälle jetzt früher und konsistenter im gleichen Qualitätsniveau wie Physik/Mathe.

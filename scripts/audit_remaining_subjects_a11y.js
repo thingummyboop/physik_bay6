@@ -19,13 +19,30 @@ for (const topic of remainingTopics) {
 
   const source = fs.readFileSync(file, 'utf8');
 
+  if (/\balert\s*\(/.test(source)) {
+    findings.push({
+      topic,
+      issue: 'inline_alert_usage',
+      detail: 'Contains alert(...). Prefer in-page feedback with live regions.'
+    });
+  }
+
   const hasLive = /aria-live/.test(source);
   const hasAtomic = /aria-atomic/.test(source);
+  const hasStatusRole = /role=\"status\"|role='status'|'role',\s*'status'|\"role\",\s*\"status\"/.test(source);
   if (hasLive && !hasAtomic) {
     findings.push({
       topic,
       issue: 'live_without_atomic',
       detail: 'Contains aria-live but no aria-atomic marker.'
+    });
+  }
+
+  if (hasLive && !hasStatusRole) {
+    findings.push({
+      topic,
+      issue: 'live_without_status_role',
+      detail: 'Contains aria-live but no status role marker.'
     });
   }
 
