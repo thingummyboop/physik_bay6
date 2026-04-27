@@ -477,3 +477,9 @@ P1 Fortschritt (Run 2026-04-28 01:56):
 - Abgedeckt: 5 Rückmeldungen mit unnötig verschachtelter Formulierung oder hoher Leselast auf kürzere, direkte Korrekturhinweise umgestellt.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_language.js` und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-Diagnosefeedback bleibt fachlich korrekt, ist aber schneller erfassbar und lernfreundlicher formuliert.
+
+P1 Fortschritt (Run 2026-04-28 02:0x):
+- Physik-Sprachfeinschliff in **`lang/de.json`** für die längsten Diagnose-Feedbacks fortgesetzt (Arbeit, Energie, Akustik, Astronomie, Linsen/Spiegel).
+- Abgedeckt: 16 Rückmeldungen auf kürzere, direktere A2-B1-Formulierungen umgestellt; dabei auch ein fehlerhaftes Zitatmuster in einer Arbeit-Diplomrückmeldung bereinigt.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit Top-Längenreview und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-Feedback ist konsistenter, leichter erfassbar und frei von auffälligen Formulierungsartefakten.
