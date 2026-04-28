@@ -510,3 +510,10 @@ P1/P2/P3 Fortschritt (Run 2026-04-28 02:26):
 - Review/Patch aus Schleife: False-Positive bei `licht_schatten_astronomie` durch fehlenden Sprachblock abgefangen, indem nur auditable Topic-Keys (mit Sprachinhalt) als harte Pflicht gelten.
 - Qualitätssicherung: `node --check` + Einzelläufe aller drei Language-Audits sowie Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Regressionstests prüfen jetzt nicht nur Feedbacklänge, sondern auch strukturierte Sprachabdeckung pro Thema und Sprache; Scope-Drift wird früher erkannt.
+
+P1 Fortschritt (Run 2026-04-28 02:36):
+- Physik-Sprachqualität im Audit weiter gehärtet: **`scripts/audit_physics_language.js`** erkennt nun auch generische Ein-Wort-Feedbacks (z. B. nur „richtig/falsch“) als Regression (`feedback_too_generic`).
+- Abgedeckt: Normalisierung für verschiedene Sprach-/Schreibvarianten (inkl. diakritischer Zeichen), damit Platzhalterfeedback robust erkannt wird.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check scripts/audit_physics_language.js`, `node scripts/audit_physics_language.js` (`PHYSICS_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Doku nachgezogen: **`docs/QUALITY_CRITERIA.md`** ergänzt um Verbot generischer Platzhalterantworten ohne Erklärung.
+- Ergebnis: Physik-Perfection schützt jetzt nicht nur gegen zu lange, sondern auch gegen inhaltsarme Diagnose-Feedbacks.

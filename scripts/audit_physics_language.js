@@ -22,6 +22,24 @@ const physicsTopics = fs
   .sort();
 
 const MAX_FEEDBACK_LENGTH = 180;
+const GENERIC_FEEDBACK_MARKERS = new Set([
+  'richtig',
+  'falsch',
+  'korrekt',
+  'incorrect',
+  'correct',
+  'true',
+  'false',
+  'doğru',
+  'yanlış',
+  'tacno',
+  'netacno',
+  'pravilno',
+  'nepravilno',
+  'صح',
+  'صحيح',
+  'خطأ'
+]);
 const issues = [];
 const perLanguageScanned = {};
 const perLanguageTopicCoverage = {};
@@ -78,6 +96,16 @@ for (const fileName of languageFiles) {
   }
 }
 
+function normalizeFeedback(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[.!?。،,:;\-_'"`()\[\]{}]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function walk(node, trace, langCode) {
   if (Array.isArray(node)) {
     node.forEach((item, idx) => walk(item, trace.concat(`[${idx}]`), langCode));
@@ -98,6 +126,15 @@ function walk(node, trace, langCode) {
           path: trace.concat('answers', `[${idx}]`, 'feedback').join('.'),
           reason: 'feedback_too_long',
           length: text.length
+        });
+      }
+
+      const normalized = normalizeFeedback(text);
+      if (GENERIC_FEEDBACK_MARKERS.has(normalized)) {
+        issues.push({
+          lang: langCode,
+          path: trace.concat('answers', `[${idx}]`, 'feedback').join('.'),
+          reason: 'feedback_too_generic'
         });
       }
     });

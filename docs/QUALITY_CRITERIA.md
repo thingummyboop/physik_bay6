@@ -18,6 +18,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Falsche Antworten: typische Fehlvorstellung benennen (nicht nur "falsch").
 - Richtige Antworten: kurz begründen, warum richtig.
 - Länge pro Feedback: ideal 1–2 Sätze (Richtwert: unter 180 Zeichen).
+- Keine generischen Platzhalter wie nur „richtig/falsch“ ohne Erklärung.
 
 ## 4) Accessibility (Interaktionen)
 - Dynamische Rückmeldungen über Live-Regionen (`role="status"`, `aria-live="polite"`, `aria-atomic="true"`).
