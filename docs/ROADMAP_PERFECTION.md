@@ -497,3 +497,9 @@ P3 Fortschritt (Run 2026-04-28 02:16):
 - Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 10-stufigen Sammellauf erweitert und **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden Nebenfächer-Sprachcheck ergänzt.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_remaining_subjects_language.js` (`REMAINING_SUBJECTS_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Nebenfächer sind jetzt wie Physik/Mathematik auch gegen Leselast-Regressionen im Feedback automatisiert abgesichert.
+
+P1 Fortschritt (Run 2026-04-28 02:22):
+- Physik-Sprachaudit **`scripts/audit_physics_language.js`** von starrer Topic-Heuristik auf dynamische Topic-Erkennung umgestellt.
+- Abgedeckt: Physik-Language-Check leitet die gültigen Topic-Keys jetzt direkt aus `js/topics/*.js` ab (Ausschluss von `math*` und Nebenfächern), inkl. Guard gegen leere Physik-Erkennung.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check scripts/audit_physics_language.js`, `node scripts/audit_physics_language.js` (`PHYSICS_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: neue Physikmodule werden ohne manuelle Regex-Pflege automatisch im Sprach-Regressionstest erfasst; die Perfection-Schiene bleibt robuster gegen Scope-Drift.
