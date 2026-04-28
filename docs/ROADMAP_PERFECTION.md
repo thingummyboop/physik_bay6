@@ -620,3 +620,10 @@ P1 Fortschritt (Run 2026-04-28 04:37):
 - Abgedeckt: verbliebene deutschsprachige Feedback-/Content-Reste in Kapitel- und Diplomteil auf konsistentes, kurzes Englisch vereinheitlicht (inkl. Begriffskorrekturen wie `Coil`, `Ratio: 1:1`).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=elektromagnetismus node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: `elektromagnetismus` ist jetzt EN-konsistent (`known_debt=0` im fokussierten Audit) ohne Regressionen im Gesamt-Gate.
+
+P1 Fortschritt (Run 2026-04-28 04:45):
+- Physik-Perfection (EN) im Thema **rechenbeispiele** nachgezogen.
+- Abgedeckt: 16 verbliebene DE/EN-Mischsprach-Feedbacks im Master-Quiz auf kurzes, konsistentes Englisch vereinheitlicht; gleichzeitig veraltete Zahlenreferenzen in mehreren Feedbacks an die tatsächlichen Aufgabenwerte angepasst.
+- Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 9 auf 10 priorisierte Physikthemen erweitert (neu: `rechenbeispiele`).
+- Qualitätssicherung: Implementieren → Review → Patch mit `PHYSICS_EN_CONSISTENCY_TOPICS=rechenbeispiele node scripts/audit_physics_english_consistency.js`, `node scripts/audit_physics_language.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: `rechenbeispiele` ist jetzt EN-konsistent (`known_debt=0` im fokussierten Audit) ohne Regressionen im Gesamt-Gate.
