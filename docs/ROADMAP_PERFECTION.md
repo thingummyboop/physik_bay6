@@ -663,3 +663,16 @@ P2 Fortschritt (Run 2026-04-28 05:46):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 5 auf 6 priorisierte Mathethemen erweitert (neu: `math3_2_potenzen_terme`).
 - Baseline aktualisiert: `scripts/baselines/math_en_consistency_allowlist.json` mit 6-Themen-Scope und `knownIssuePaths=[]`.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math3_2_potenzen_terme node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+
+P2 Fortschritt (Run 2026-04-28 05:57):
+- Mathematik-Perfection (EN) im priorisierten Modul **`math1_4_mult_div`** nachgezogen.
+- Abgedeckt: 27 verbliebene DE/EN-Mischsprach-Feedbacks in Kapitel- und Diplomquiz auf kurze, konsistente Englischtexte umgestellt (inkl. Terminologie zu factor/product/dividend/divisor und Vorrangregeln).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math1_4_mult_div node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: `math1_4_mult_div` ist EN-konsistent (`known_debt=0` im fokussierten Audit) ohne Regressionen im Gesamt-Gate.
+
+P2 Fortschritt (Run 2026-04-28 06:08):
+- Mathematik-Perfection (EN) im priorisierten Modul **`math1_6_winkel`** nachgezogen.
+- Abgedeckt: 16 verbliebene DE/EN-Mischsprach-Reste in Kapitelinhalten und Diagnose-Feedbacks auf kurzes, konsistentes Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 8 auf 10 priorisierte Mathethemen erweitert (neu: `math1_4_mult_div`, `math1_6_winkel`); Baseline `scripts/baselines/math_en_consistency_allowlist.json` entsprechend aktualisiert.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math1_6_winkel node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Die Mathe-EN-Konsistenzprüfung deckt jetzt 10 priorisierte Themen automatisiert ab (`known_debt=0`).
