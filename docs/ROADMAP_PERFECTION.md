@@ -601,3 +601,9 @@ P1 Fortschritt (Run 2026-04-28 04:2x):
 - Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 5 auf 6 priorisierte Physikthemen erweitert (neu: `astronomie`).
 - Qualitätssicherung: Implementieren → Review → Patch mit `PHYSICS_EN_CONSISTENCY_TOPICS=astronomie node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-EN-Konsistenzprüfung deckt jetzt auch Astronomie automatisiert ab (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 04:27):
+- Physik-Perfection (EN) im Thema **drehundstatik** nachgezogen.
+- Abgedeckt: 45 gemischte DE/EN-Reste in Kapitel-/Diplom-Feedback sowie mehrere DE-Aria-/Content-Strings in `lang/en.json` auf konsistentes, kurzes Englisch vereinheitlicht; zusätzlich inhaltliche Korrektur von Tippfehlern (`Lebelarm` → `lever arm`) und UI-Texten (`Merksatz` → `Remember`).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=drehundstatik node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: `drehundstatik` ist EN-konsistent (`known_debt=0` im fokussierten Audit), ohne Regressionen im Gesamt-Gate.

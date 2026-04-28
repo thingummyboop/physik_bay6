@@ -1078,24 +1078,24 @@
                 "text": "When the center of gravity is above the standing surface.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Solange die Wirkungslinie der Gewichtskraft in der Standfläche liegt, kippt der Körper nicht."
+                "feedback": "Correct. As long as the line of action of gravity stays inside the base area, the body does not tip."
               },
               {
                 "text": "If it is as colorful as possible.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Die Farbe hat keinen Einfluss auf die Kippstabilität."
+                "feedback": "Color does not affect tipping stability."
               },
               {
                 "text": "If it is as high and narrow as possible.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Hoch und schmal macht meist instabil, weil der Schwerpunkt leichter außerhalb der Standfläche landet."
+                "feedback": "Tall and narrow shapes are usually less stable because the center of gravity leaves the base more easily."
               }
             ]
           }
         ],
-        "content": "<div class=\"lesson-goals\">\n            <strong>This is what you will learn in this topic:</strong>\n            <ul class=\"step-list\">\n                <li>detect when a body is stable or tilts.</li>\n                <li>Explain the center of gravity, base, pivot point and lever arm.</li>\n                <li>predict where to press to make something spin more easily.</li>\n                <li>Describe circular motion and angular momentum in everyday situations.</li>\n            </ul>\n        </div>\n        <p>Every body has a <strong>center of gravity</strong>. You can think of it as the point where gravity pulls. As long as the center of gravity is above the <strong>standing surface</strong>, a body stands securely.</p>\n        <div class=\"remember-box\"><strong>Merksatz:</strong> Center of gravity over base = stable. Center of gravity outside the standing area = tilts.</div>\n        <div class=\"interactive-zone\">\n            <h3>🎪 The tightrope walker test</h3>\n            <p><strong>1. Guess:</strong> What happens if the center of gravity moves to the side of the rope?</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-predict-group=\"balance\" data-predict-value=\"safe\" onclick=\"setPrediction('balance','safe')\">He stays safe</button>\n                <button class=\"prediction-btn\" data-predict-group=\"balance\" data-predict-value=\"fall\" onclick=\"setPrediction('balance','fall')\">It tips sideways</button>\n                <button class=\"prediction-btn\" data-predict-group=\"balance\" data-predict-value=\"faster\" onclick=\"setPrediction('balance','faster')\">He's getting faster</button>\n            </div>\n            <p id=\"balancePrediction\" class=\"lab-feedback\"></p>\n            <p><strong>2. Try:</strong> Move the red center of gravity sideways. Make sure the plumb line still hits the rope.</p>\n            <input type=\"range\" id=\"cgRange\" min=\"-70\" max=\"70\" value=\"0\" oninput=\"updateBalance()\" style=\"width: 260px;\">\n            <p>Security display:</p>\n            <div class=\"meter\"><div id=\"balanceMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 320px; background: linear-gradient(#bfdbfe, #f8fafc);\">\n                <svg width=\"430\" height=\"300\" viewBox=\"0 0 430 300\" aria-label=\"Seiltänzer: Seil läuft perspektivisch in die Bildebene hinein\">\n                    <defs>\n                        <linearGradient id=\"depthFloor\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#dbeafe\"></stop><stop offset=\"1\" stop-color=\"#ecfdf5\"></stop></linearGradient>\n                    </defs>\n                    <rect x=\"0\" y=\"0\" width=\"430\" height=\"300\" fill=\"url(#depthFloor)\"></rect>\n                    <path d=\"M215 54 L215 258\" stroke=\"#1f2937\" stroke-width=\"7\" stroke-linecap=\"round\"></path>\n                    <path d=\"M215 54 L70 258 M215 54 L360 258\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"5,6\"></path>\n                    <ellipse cx=\"215\" cy=\"258\" rx=\"44\" ry=\"8\" fill=\"rgba(16,185,129,0.35)\"></ellipse>\n                    <text x=\"215\" y=\"284\" text-anchor=\"middle\" fill=\"#0f766e\" font-size=\"13\">Rope in line of sight</text>\n                    <g id=\"acrobatBody\" style=\"transform-origin:215px 218px; transition: transform 0.25s ease;\">\n                        <line x1=\"115\" y1=\"145\" x2=\"315\" y2=\"145\" stroke=\"#7c2d12\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                        <circle cx=\"215\" cy=\"91\" r=\"19\" fill=\"#fbbf24\" stroke=\"#92400e\" stroke-width=\"2\"></circle>\n                        <path d=\"M207 108 Q215 116 223 108\" fill=\"none\" stroke=\"#78350f\" stroke-width=\"2\"></path>\n                        <line x1=\"215\" y1=\"112\" x2=\"215\" y2=\"176\" stroke=\"#1e293b\" stroke-width=\"10\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"135\" x2=\"160\" y2=\"145\" stroke=\"#1e293b\" stroke-width=\"7\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"135\" x2=\"270\" y2=\"145\" stroke=\"#1e293b\" stroke-width=\"7\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"176\" x2=\"203\" y2=\"234\" stroke=\"#1e293b\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"176\" x2=\"227\" y2=\"234\" stroke=\"#1e293b\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"cgMarker\" style=\"transition: transform 0.2s ease;\">\n                        <line id=\"cgPlumb\" x1=\"215\" y1=\"163\" x2=\"215\" y2=\"258\" stroke=\"#dc2626\" stroke-width=\"3\" stroke-dasharray=\"6,4\"></line>\n                        <circle cx=\"215\" cy=\"163\" r=\"11\" fill=\"#ef4444\" stroke=\"#7f1d1d\" stroke-width=\"2\"></circle>\n                        <text x=\"215\" y=\"151\" text-anchor=\"middle\" fill=\"#7f1d1d\" font-size=\"12\" font-weight=\"700\">S</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"balanceText\" class=\"lab-feedback\"></p></div>\n        {{QUIZ_q1}}"
+        "content": "<div class=\"lesson-goals\">\n            <strong>This is what you will learn in this topic:</strong>\n            <ul class=\"step-list\">\n                <li>detect when a body is stable or tilts.</li>\n                <li>Explain the center of gravity, base, pivot point and lever arm.</li>\n                <li>predict where to press to make something spin more easily.</li>\n                <li>Describe circular motion and angular momentum in everyday situations.</li>\n            </ul>\n        </div>\n        <p>Every body has a <strong>center of gravity</strong>. You can think of it as the point where gravity pulls. As long as the center of gravity is above the <strong>standing surface</strong>, a body stands securely.</p>\n        <div class=\"remember-box\"><strong>Remember:</strong> Center of gravity over base = stable. Center of gravity outside the standing area = tilts.</div>\n        <div class=\"interactive-zone\">\n            <h3>🎪 The tightrope walker test</h3>\n            <p><strong>1. Guess:</strong> What happens if the center of gravity moves to the side of the rope?</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-predict-group=\"balance\" data-predict-value=\"safe\" onclick=\"setPrediction('balance','safe')\">He stays safe</button>\n                <button class=\"prediction-btn\" data-predict-group=\"balance\" data-predict-value=\"fall\" onclick=\"setPrediction('balance','fall')\">It tips sideways</button>\n                <button class=\"prediction-btn\" data-predict-group=\"balance\" data-predict-value=\"faster\" onclick=\"setPrediction('balance','faster')\">He's getting faster</button>\n            </div>\n            <p id=\"balancePrediction\" class=\"lab-feedback\"></p>\n            <p><strong>2. Try:</strong> Move the red center of gravity sideways. Make sure the plumb line still hits the rope.</p>\n            <input type=\"range\" id=\"cgRange\" min=\"-70\" max=\"70\" value=\"0\" oninput=\"updateBalance()\" style=\"width: 260px;\">\n            <p>Security display:</p>\n            <div class=\"meter\"><div id=\"balanceMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 320px; background: linear-gradient(#bfdbfe, #f8fafc);\">\n                <svg width=\"430\" height=\"300\" viewBox=\"0 0 430 300\" aria-label=\"Tightrope walker: rope running into depth perspective\">\n                    <defs>\n                        <linearGradient id=\"depthFloor\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#dbeafe\"></stop><stop offset=\"1\" stop-color=\"#ecfdf5\"></stop></linearGradient>\n                    </defs>\n                    <rect x=\"0\" y=\"0\" width=\"430\" height=\"300\" fill=\"url(#depthFloor)\"></rect>\n                    <path d=\"M215 54 L215 258\" stroke=\"#1f2937\" stroke-width=\"7\" stroke-linecap=\"round\"></path>\n                    <path d=\"M215 54 L70 258 M215 54 L360 258\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"5,6\"></path>\n                    <ellipse cx=\"215\" cy=\"258\" rx=\"44\" ry=\"8\" fill=\"rgba(16,185,129,0.35)\"></ellipse>\n                    <text x=\"215\" y=\"284\" text-anchor=\"middle\" fill=\"#0f766e\" font-size=\"13\">Rope in line of sight</text>\n                    <g id=\"acrobatBody\" style=\"transform-origin:215px 218px; transition: transform 0.25s ease;\">\n                        <line x1=\"115\" y1=\"145\" x2=\"315\" y2=\"145\" stroke=\"#7c2d12\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                        <circle cx=\"215\" cy=\"91\" r=\"19\" fill=\"#fbbf24\" stroke=\"#92400e\" stroke-width=\"2\"></circle>\n                        <path d=\"M207 108 Q215 116 223 108\" fill=\"none\" stroke=\"#78350f\" stroke-width=\"2\"></path>\n                        <line x1=\"215\" y1=\"112\" x2=\"215\" y2=\"176\" stroke=\"#1e293b\" stroke-width=\"10\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"135\" x2=\"160\" y2=\"145\" stroke=\"#1e293b\" stroke-width=\"7\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"135\" x2=\"270\" y2=\"145\" stroke=\"#1e293b\" stroke-width=\"7\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"176\" x2=\"203\" y2=\"234\" stroke=\"#1e293b\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                        <line x1=\"215\" y1=\"176\" x2=\"227\" y2=\"234\" stroke=\"#1e293b\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"cgMarker\" style=\"transition: transform 0.2s ease;\">\n                        <line id=\"cgPlumb\" x1=\"215\" y1=\"163\" x2=\"215\" y2=\"258\" stroke=\"#dc2626\" stroke-width=\"3\" stroke-dasharray=\"6,4\"></line>\n                        <circle cx=\"215\" cy=\"163\" r=\"11\" fill=\"#ef4444\" stroke=\"#7f1d1d\" stroke-width=\"2\"></circle>\n                        <text x=\"215\" y=\"151\" text-anchor=\"middle\" fill=\"#7f1d1d\" font-size=\"12\" font-weight=\"700\">S</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"balanceText\" class=\"lab-feedback\"></p></div>\n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -1109,24 +1109,24 @@
                 "text": "Far away from the hinge, i.e. on the handle.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Großer Hebelarm an der Klinke bedeutet großes Drehmoment bei gleicher Kraft."
+                "feedback": "Correct. A long lever arm at the handle creates more torque with the same force."
               },
               {
                 "text": "Right next to the hinge.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Nahe am Scharnier ist der Hebelarm klein, daher brauchst du viel mehr Kraft."
+                "feedback": "Near the hinge, the lever arm is short, so you need much more force."
               },
               {
                 "text": "In the air above the door.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Dort wirkt keine sinnvolle Kraft auf die Drehachse der Tür."
+                "feedback": "There, your force does not act effectively on the door's rotation axis."
               }
             ]
           }
         ],
-        "content": "<p>For something to rotate, you need <strong>force</strong> and distance from the <strong>pivot point</strong>. This distance is called <strong>Lebelarm</strong>. Force times lever arm equals <strong>torque</strong>.</p>\n        <p><span class=\"formula-card\">Torque = Force · Lever arm</span></p>\n        <div class=\"interactive-zone\">\n            <h3>🚪 The heavy castle gate</h3>\n            <p><strong>1. Guess:</strong> Where do you have to press so that the door opens easily?</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-predict-group=\"door\" data-predict-value=\"hinge\" onclick=\"setPrediction('door','hinge')\">At the hinge</button>\n                <button class=\"prediction-btn\" data-predict-group=\"door\" data-predict-value=\"middle\" onclick=\"setPrediction('door','middle')\">In the middle</button>\n                <button class=\"prediction-btn\" data-predict-group=\"door\" data-predict-value=\"handle\" onclick=\"setPrediction('door','handle')\">At the handle</button>\n            </div>\n            <p id=\"doorPrediction\" class=\"lab-feedback\"></p>\n            <button onclick=\"pushDoor('hinge')\">Press on hinge</button>\n            <button onclick=\"pushDoor('middle')\">Press in the middle</button>\n            <button onclick=\"pushDoor('handle')\">Press the handle</button>\n            <button onclick=\"resetDoor()\">Reset door</button>\n            <p>Torque display:</p>\n            <div class=\"meter\"><div id=\"torqueMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 340px; background: #f8fafc; overflow: hidden;\">\n                <svg width=\"520\" height=\"320\" viewBox=\"0 0 520 320\" aria-label=\"Tür in Draufsicht mit Drehpunkt, Druckpunkt und tangentialem Kraftpfeil\">\n                    <defs>\n                        <pattern id=\"floorGrid\" width=\"24\" height=\"24\" patternUnits=\"userSpaceOnUse\"><path d=\"M24 0H0V24\" fill=\"none\" stroke=\"#e2e8f0\" stroke-width=\"1\"></path></pattern>\n                        <marker id=\"doorArrowTip\" markerWidth=\"12\" markerHeight=\"12\" refX=\"10\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L0,8 L10,4 z\" fill=\"#2563eb\"></path></marker>\n                    </defs>\n                    <rect x=\"0\" y=\"0\" width=\"520\" height=\"320\" fill=\"url(#floorGrid)\"></rect>\n                    <rect x=\"76\" y=\"96\" width=\"18\" height=\"148\" fill=\"#111827\" rx=\"4\"></rect>\n                    <circle cx=\"95\" cy=\"170\" r=\"9\" fill=\"#0f172a\"></circle>\n                    <text x=\"95\" y=\"75\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">Pivot</text>\n                    <path id=\"doorSweep\" d=\"M95 170 L365 170 A270 270 0 0 0 230 36 Z\" fill=\"rgba(59,130,246,0.10)\" stroke=\"#93c5fd\" stroke-dasharray=\"6,5\"></path>\n                    <polygon id=\"doorPanel\" points=\"95,156 365,156 365,184 95,184\" fill=\"#b45309\" stroke=\"#78350f\" stroke-width=\"3\" style=\"transition: all 0.45s ease;\"></polygon>\n                    <circle id=\"doorHandle\" cx=\"340\" cy=\"170\" r=\"8\" fill=\"#fde68a\" stroke=\"#92400e\" stroke-width=\"2\" style=\"transition: all 0.45s ease;\"></circle>\n                    <circle id=\"doorPushPoint\" cx=\"340\" cy=\"170\" r=\"10\" fill=\"#2563eb\" opacity=\"0\" style=\"transition: all 0.45s ease;\"></circle>\n                    <circle id=\"doorPushHalo\" cx=\"340\" cy=\"170\" r=\"17\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" opacity=\"0\" style=\"transition: all 0.45s ease;\"></circle>\n                    <line id=\"leverArmLine\" x1=\"95\" y1=\"170\" x2=\"340\" y2=\"170\" stroke=\"#2563eb\" stroke-width=\"3\" stroke-dasharray=\"8,6\" style=\"transition: all 0.45s ease;\"></line>\n                    <line id=\"doorForceArrow\" x1=\"340\" y1=\"226\" x2=\"340\" y2=\"188\" stroke=\"#2563eb\" stroke-width=\"7\" marker-end=\"url(#doorArrowTip)\" style=\"display:none; transition: all 0.45s ease;\"></line>\n                    <text id=\"doorPushLabel\" x=\"340\" y=\"250\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-size=\"13\" opacity=\"0\">Pressure Point</text>\n                    <text id=\"doorLabel\" x=\"260\" y=\"294\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">The blue arrow shows the direction of force at the pressure point.</text>\n                </svg>\n            </div>\n            <p id=\"doorText\" class=\"lab-feedback\"></p>\n        </div>\n        {{QUIZ_q2}}"
+        "content": "<p>For something to rotate, you need <strong>force</strong> and distance from the <strong>pivot point</strong>. This distance is called <strong>lever arm</strong>. Force times lever arm equals <strong>torque</strong>.</p>\n        <p><span class=\"formula-card\">Torque = Force · Lever arm</span></p>\n        <div class=\"interactive-zone\">\n            <h3>🚪 The heavy castle gate</h3>\n            <p><strong>1. Guess:</strong> Where do you have to press so that the door opens easily?</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-predict-group=\"door\" data-predict-value=\"hinge\" onclick=\"setPrediction('door','hinge')\">At the hinge</button>\n                <button class=\"prediction-btn\" data-predict-group=\"door\" data-predict-value=\"middle\" onclick=\"setPrediction('door','middle')\">In the middle</button>\n                <button class=\"prediction-btn\" data-predict-group=\"door\" data-predict-value=\"handle\" onclick=\"setPrediction('door','handle')\">At the handle</button>\n            </div>\n            <p id=\"doorPrediction\" class=\"lab-feedback\"></p>\n            <button onclick=\"pushDoor('hinge')\">Press on hinge</button>\n            <button onclick=\"pushDoor('middle')\">Press in the middle</button>\n            <button onclick=\"pushDoor('handle')\">Press the handle</button>\n            <button onclick=\"resetDoor()\">Reset door</button>\n            <p>Torque display:</p>\n            <div class=\"meter\"><div id=\"torqueMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 340px; background: #f8fafc; overflow: hidden;\">\n                <svg width=\"520\" height=\"320\" viewBox=\"0 0 520 320\" aria-label=\"Door top view with pivot, push point and tangential force arrow\">\n                    <defs>\n                        <pattern id=\"floorGrid\" width=\"24\" height=\"24\" patternUnits=\"userSpaceOnUse\"><path d=\"M24 0H0V24\" fill=\"none\" stroke=\"#e2e8f0\" stroke-width=\"1\"></path></pattern>\n                        <marker id=\"doorArrowTip\" markerWidth=\"12\" markerHeight=\"12\" refX=\"10\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L0,8 L10,4 z\" fill=\"#2563eb\"></path></marker>\n                    </defs>\n                    <rect x=\"0\" y=\"0\" width=\"520\" height=\"320\" fill=\"url(#floorGrid)\"></rect>\n                    <rect x=\"76\" y=\"96\" width=\"18\" height=\"148\" fill=\"#111827\" rx=\"4\"></rect>\n                    <circle cx=\"95\" cy=\"170\" r=\"9\" fill=\"#0f172a\"></circle>\n                    <text x=\"95\" y=\"75\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">Pivot</text>\n                    <path id=\"doorSweep\" d=\"M95 170 L365 170 A270 270 0 0 0 230 36 Z\" fill=\"rgba(59,130,246,0.10)\" stroke=\"#93c5fd\" stroke-dasharray=\"6,5\"></path>\n                    <polygon id=\"doorPanel\" points=\"95,156 365,156 365,184 95,184\" fill=\"#b45309\" stroke=\"#78350f\" stroke-width=\"3\" style=\"transition: all 0.45s ease;\"></polygon>\n                    <circle id=\"doorHandle\" cx=\"340\" cy=\"170\" r=\"8\" fill=\"#fde68a\" stroke=\"#92400e\" stroke-width=\"2\" style=\"transition: all 0.45s ease;\"></circle>\n                    <circle id=\"doorPushPoint\" cx=\"340\" cy=\"170\" r=\"10\" fill=\"#2563eb\" opacity=\"0\" style=\"transition: all 0.45s ease;\"></circle>\n                    <circle id=\"doorPushHalo\" cx=\"340\" cy=\"170\" r=\"17\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"3\" opacity=\"0\" style=\"transition: all 0.45s ease;\"></circle>\n                    <line id=\"leverArmLine\" x1=\"95\" y1=\"170\" x2=\"340\" y2=\"170\" stroke=\"#2563eb\" stroke-width=\"3\" stroke-dasharray=\"8,6\" style=\"transition: all 0.45s ease;\"></line>\n                    <line id=\"doorForceArrow\" x1=\"340\" y1=\"226\" x2=\"340\" y2=\"188\" stroke=\"#2563eb\" stroke-width=\"7\" marker-end=\"url(#doorArrowTip)\" style=\"display:none; transition: all 0.45s ease;\"></line>\n                    <text id=\"doorPushLabel\" x=\"340\" y=\"250\" text-anchor=\"middle\" fill=\"#1d4ed8\" font-size=\"13\" opacity=\"0\">Pressure Point</text>\n                    <text id=\"doorLabel\" x=\"260\" y=\"294\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">The blue arrow shows the direction of force at the pressure point.</text>\n                </svg>\n            </div>\n            <p id=\"doorText\" class=\"lab-feedback\"></p>\n        </div>\n        {{QUIZ_q2}}"
       },
       {
         "id": "sec2",
@@ -1140,24 +1140,24 @@
                 "text": "After a small nudge, the body returns to its safe position.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Perfekt. Beim stabilen Gleichgewicht gibt es eine Rückstellwirkung nach kleinen Störungen."
+                "feedback": "Perfect. In stable equilibrium, the body returns after a small disturbance."
               },
               {
                 "text": "After a little nudge he will surely fall over.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Das beschreibt eher instabiles Gleichgewicht."
+                "feedback": "That describes unstable equilibrium."
               },
               {
                 "text": "He moves faster and faster.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Das hat mit Gleichgewicht nichts zu tun."
+                "feedback": "That is not related to equilibrium."
               }
             ]
           }
         ],
-        "content": "<p>Equilibrium can have different degrees of certainty. You can see this clearly on a marble: in a bowl, on a mountain or on a flat floor.</p>\n        <div class=\"interactive-zone\">\n            <h3>⛰️ The Marble Train</h3>\n            <p>Choose a location and watch where the marble rolls.</p>\n            <button onclick=\"testEquilibrium('stable')\">Bowl: stable 🥣</button>\n            <button onclick=\"testEquilibrium('unstable')\">Berg: unstable ⛰️</button>\n            <button onclick=\"testEquilibrium('indiff')\">Level: indifferent ➖</button>\n            <div class=\"diagram-box\" style=\"height: 240px; background: #ecfeff;\">\n                <svg width=\"340\" height=\"210\" viewBox=\"0 0 340 210\" aria-label=\"Murmel bewegt sich auf gekrümmten Bahnen\">\n                    <path id=\"pathStable\" d=\"M62 82 Q160 176 258 82\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"9\" stroke-linecap=\"round\" style=\"display:none;\"></path>\n                    <path id=\"pathUnstable\" d=\"M48 162 Q160 42 272 162\" fill=\"none\" stroke=\"#be123c\" stroke-width=\"9\" stroke-linecap=\"round\" style=\"display:none;\"></path>\n                    <path id=\"pathIndiff\" d=\"M75 112 L230 112\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"9\" stroke-linecap=\"round\" style=\"display:none;\"></path>\n                    <circle id=\"marble\" cx=\"75\" cy=\"112\" r=\"13\" fill=\"#ef4444\" stroke=\"#7f1d1d\" stroke-width=\"2\"></circle>\n                    <text x=\"170\" y=\"198\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">Travel of the Marble</text>\n                </svg>\n            </div>\n            <p id=\"eqText\" class=\"lab-feedback\"></p>\n        </div>\n        <div class=\"mini-task\"><strong>Everyday check:</strong> What is more stable: a full water bottle or the same bottle upside down? Justify with focus and stand space.</div>\n        {{QUIZ_q3}}"
+        "content": "<p>Equilibrium can have different degrees of certainty. You can see this clearly on a marble: in a bowl, on a mountain or on a flat floor.</p>\n        <div class=\"interactive-zone\">\n            <h3>⛰️ The Marble Train</h3>\n            <p>Choose a location and watch where the marble rolls.</p>\n            <button onclick=\"testEquilibrium('stable')\">Bowl: stable 🥣</button>\n            <button onclick=\"testEquilibrium('unstable')\">Hill: unstable ⛰️</button>\n            <button onclick=\"testEquilibrium('indiff')\">Level: indifferent ➖</button>\n            <div class=\"diagram-box\" style=\"height: 240px; background: #ecfeff;\">\n                <svg width=\"340\" height=\"210\" viewBox=\"0 0 340 210\" aria-label=\"Marble moving along curved paths\">\n                    <path id=\"pathStable\" d=\"M62 82 Q160 176 258 82\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"9\" stroke-linecap=\"round\" style=\"display:none;\"></path>\n                    <path id=\"pathUnstable\" d=\"M48 162 Q160 42 272 162\" fill=\"none\" stroke=\"#be123c\" stroke-width=\"9\" stroke-linecap=\"round\" style=\"display:none;\"></path>\n                    <path id=\"pathIndiff\" d=\"M75 112 L230 112\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"9\" stroke-linecap=\"round\" style=\"display:none;\"></path>\n                    <circle id=\"marble\" cx=\"75\" cy=\"112\" r=\"13\" fill=\"#ef4444\" stroke=\"#7f1d1d\" stroke-width=\"2\"></circle>\n                    <text x=\"170\" y=\"198\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">Travel of the Marble</text>\n                </svg>\n            </div>\n            <p id=\"eqText\" class=\"lab-feedback\"></p>\n        </div>\n        <div class=\"mini-task\"><strong>Everyday check:</strong> What is more stable: a full water bottle or the same bottle upside down? Justify with focus and stand space.</div>\n        {{QUIZ_q3}}"
       },
       {
         "id": "sec3",
@@ -1171,24 +1171,24 @@
                 "text": "Because of its inertia, the body wants to continue straight, but is forced into a circular path.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Wegen Trägheit will der Körper tangential weiter, die Kreisbewegung erzeugt das Gefühl nach außen."
+                "feedback": "Exactly. Because of inertia, your body tends to keep moving tangentially, so circular motion feels like an outward pull."
               },
               {
                 "text": "Because the seats are magnetically pulled outwards.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Magnetismus spielt hier keine Rolle."
+                "feedback": "Magnetism is not the reason here."
               },
               {
                 "text": "Because the Earth briefly loses its gravity.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Die Schwerkraft bleibt da; das Phänomen kommt von der Kreisbewegung."
+                "feedback": "Gravity is still present; this effect comes from circular motion."
               }
             ]
           }
         ],
-        "content": "<p>When you move in a circle, your body actually wants to continue flying straight. But the carousel constantly forces you in a new direction. That's why it feels like you're being pushed outwards.</p>\n        <div class=\"interactive-zone\" id=\"carouselZone\">\n            <h3>🎠 The chain carousel</h3>\n            <p>Increase speed and observe the position of the chains.</p>\n            <label><strong>Speed:</strong> <span id=\"speedValue\">Stands still</span><br><input type=\"range\" id=\"speedRange\" min=\"0\" max=\"100\" value=\"0\" oninput=\"updateCarousel()\" style=\"width:260px;\"></label>\n            <p>External impact:</p>\n            <div class=\"meter\"><div id=\"carouselMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 310px; background: linear-gradient(#172554, #0f172a);\">\n                <svg width=\"430\" height=\"285\" viewBox=\"0 0 430 285\" aria-label=\"Kettenkarussell in Seitenansicht\">\n                    <rect x=\"0\" y=\"238\" width=\"430\" height=\"47\" fill=\"#1e293b\"></rect>\n                    <ellipse cx=\"215\" cy=\"238\" rx=\"118\" ry=\"15\" fill=\"#334155\"></ellipse>\n                    <line x1=\"215\" y1=\"236\" x2=\"215\" y2=\"76\" stroke=\"#fbbf24\" stroke-width=\"10\" stroke-linecap=\"round\"></line>\n                    <ellipse cx=\"215\" cy=\"76\" rx=\"104\" ry=\"20\" fill=\"#facc15\" stroke=\"#92400e\" stroke-width=\"4\"></ellipse>\n                    <g id=\"carouselRotor\" style=\"transform-origin: 215px 76px;\">\n                        <line x1=\"135\" y1=\"77\" x2=\"135\" y2=\"172\" stroke=\"#cbd5e1\" stroke-width=\"4\" id=\"chainL\" style=\"transition: all 0.25s ease;\"></line>\n                        <line x1=\"295\" y1=\"77\" x2=\"295\" y2=\"172\" stroke=\"#cbd5e1\" stroke-width=\"4\" id=\"chainR\" style=\"transition: all 0.25s ease;\"></line>\n                        <g id=\"seatL\" style=\"transition: transform 0.25s ease;\"><rect x=\"109\" y=\"172\" width=\"52\" height=\"16\" rx=\"4\" fill=\"#38bdf8\"></rect><circle cx=\"135\" cy=\"158\" r=\"11\" fill=\"#fde68a\"></circle><line x1=\"135\" y1=\"168\" x2=\"135\" y2=\"188\" stroke=\"#0f172a\" stroke-width=\"5\"></line></g>\n                        <g id=\"seatR\" style=\"transition: transform 0.25s ease;\"><rect x=\"269\" y=\"172\" width=\"52\" height=\"16\" rx=\"4\" fill=\"#fb7185\"></rect><circle cx=\"295\" cy=\"158\" r=\"11\" fill=\"#fde68a\"></circle><line x1=\"295\" y1=\"168\" x2=\"295\" y2=\"188\" stroke=\"#0f172a\" stroke-width=\"5\"></line></g>\n                    </g>\n                    <path id=\"outwardArrows\" d=\"M135 152 L105 152 M295 152 L325 152\" stroke=\"#f97316\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-dasharray=\"6,5\" opacity=\"0\"></path>\n                    <text x=\"215\" y=\"35\" text-anchor=\"middle\" fill=\"#e0f2fe\" font-size=\"14\">Seats in circular motion</text>\n                </svg>\n            </div>\n            <p id=\"carouselText\" class=\"lab-feedback\">Without rotation, the seats hang down.</p>\n        </div>\n        {{QUIZ_q4}}"
+        "content": "<p>When you move in a circle, your body actually wants to continue flying straight. But the carousel constantly forces you in a new direction. That's why it feels like you're being pushed outwards.</p>\n        <div class=\"interactive-zone\" id=\"carouselZone\">\n            <h3>🎠 The chain carousel</h3>\n            <p>Increase speed and observe the position of the chains.</p>\n            <label><strong>Speed:</strong> <span id=\"speedValue\">Stands still</span><br><input type=\"range\" id=\"speedRange\" min=\"0\" max=\"100\" value=\"0\" oninput=\"updateCarousel()\" style=\"width:260px;\"></label>\n            <p>External impact:</p>\n            <div class=\"meter\"><div id=\"carouselMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 310px; background: linear-gradient(#172554, #0f172a);\">\n                <svg width=\"430\" height=\"285\" viewBox=\"0 0 430 285\" aria-label=\"Chain carousel side view\">\n                    <rect x=\"0\" y=\"238\" width=\"430\" height=\"47\" fill=\"#1e293b\"></rect>\n                    <ellipse cx=\"215\" cy=\"238\" rx=\"118\" ry=\"15\" fill=\"#334155\"></ellipse>\n                    <line x1=\"215\" y1=\"236\" x2=\"215\" y2=\"76\" stroke=\"#fbbf24\" stroke-width=\"10\" stroke-linecap=\"round\"></line>\n                    <ellipse cx=\"215\" cy=\"76\" rx=\"104\" ry=\"20\" fill=\"#facc15\" stroke=\"#92400e\" stroke-width=\"4\"></ellipse>\n                    <g id=\"carouselRotor\" style=\"transform-origin: 215px 76px;\">\n                        <line x1=\"135\" y1=\"77\" x2=\"135\" y2=\"172\" stroke=\"#cbd5e1\" stroke-width=\"4\" id=\"chainL\" style=\"transition: all 0.25s ease;\"></line>\n                        <line x1=\"295\" y1=\"77\" x2=\"295\" y2=\"172\" stroke=\"#cbd5e1\" stroke-width=\"4\" id=\"chainR\" style=\"transition: all 0.25s ease;\"></line>\n                        <g id=\"seatL\" style=\"transition: transform 0.25s ease;\"><rect x=\"109\" y=\"172\" width=\"52\" height=\"16\" rx=\"4\" fill=\"#38bdf8\"></rect><circle cx=\"135\" cy=\"158\" r=\"11\" fill=\"#fde68a\"></circle><line x1=\"135\" y1=\"168\" x2=\"135\" y2=\"188\" stroke=\"#0f172a\" stroke-width=\"5\"></line></g>\n                        <g id=\"seatR\" style=\"transition: transform 0.25s ease;\"><rect x=\"269\" y=\"172\" width=\"52\" height=\"16\" rx=\"4\" fill=\"#fb7185\"></rect><circle cx=\"295\" cy=\"158\" r=\"11\" fill=\"#fde68a\"></circle><line x1=\"295\" y1=\"168\" x2=\"295\" y2=\"188\" stroke=\"#0f172a\" stroke-width=\"5\"></line></g>\n                    </g>\n                    <path id=\"outwardArrows\" d=\"M135 152 L105 152 M295 152 L325 152\" stroke=\"#f97316\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-dasharray=\"6,5\" opacity=\"0\"></path>\n                    <text x=\"215\" y=\"35\" text-anchor=\"middle\" fill=\"#e0f2fe\" font-size=\"14\">Seats in circular motion</text>\n                </svg>\n            </div>\n            <p id=\"carouselText\" class=\"lab-feedback\">Without rotation, the seats hang down.</p>\n        </div>\n        {{QUIZ_q4}}"
       },
       {
         "id": "sec4",
@@ -1202,24 +1202,24 @@
                 "text": "The mass is closer to the axis of rotation. This makes the rotation faster.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Kleineres Trägheitsmoment bei gleichem Drehimpuls bedeutet höhere Winkelgeschwindigkeit."
+                "feedback": "Correct. With the same angular momentum, a smaller moment of inertia gives a higher angular speed."
               },
               {
                 "text": "The arms then create a motor.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Die Arme sind kein Motor; die Beschleunigung kommt aus Impulserhaltung."
+                "feedback": "The arms are not a motor; the speed-up comes from conservation of angular momentum."
               },
               {
                 "text": "The air pushes them harder.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Der Luftwiderstand bremst eher, statt anzuschieben."
+                "feedback": "Air resistance usually slows rotation instead of pushing it."
               }
             ]
           }
         ],
-        "content": "<p>When rotating, it is important how far the mass is from the <strong>axis of rotation</strong>. Arms out: slower. Arms close to the body: faster.</p>\n        <div class=\"interactive-zone\">\n            <h3>⛸️ The Turbo Pirouette</h3>\n            <p>Change the arm position and watch how the rotation speed changes.</p>\n            <button onclick=\"setSkater('out')\" id=\"btnOut\" disabled>Extend your arms 👐</button>\n            <button onclick=\"setSkater('in')\" id=\"btnIn\">Put your arms on 🤲</button>\n            <p>Rotation speed:</p>\n            <div class=\"meter\"><div id=\"spinMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 310px; background: radial-gradient(circle, #e0f2fe, #bfdbfe);\">\n                <svg width=\"300\" height=\"290\" viewBox=\"0 0 300 290\" aria-label=\"Eiskunstläuferin rotiert\">\n                    <defs>\n                        <radialGradient id=\"iceGradient\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n                            <stop offset=\"0%\" stop-color=\"#B3E5FC\" stop-opacity=\"0.8\"/>\n                            <stop offset=\"100%\" stop-color=\"#81D4FA\" stop-opacity=\"0.4\"/>\n                        </radialGradient>\n                    </defs>\n                    <ellipse cx=\"150\" cy=\"260\" rx=\"100\" ry=\"18\" fill=\"url(#iceGradient)\"></ellipse> \n                    \n                    <g id=\"skater\" style=\"transform-origin: 150px 145px;\">\n                        <!-- Body -->\n                        <rect x=\"142\" y=\"105\" width=\"16\" height=\"100\" rx=\"8\" fill=\"#00ACC1\"></rect>\n                        <!-- Head -->\n                        <circle cx=\"150\" cy=\"95\" r=\"12\" fill=\"#FFCA28\"></circle>\n                        \n                        <!-- Arms -->\n                        <line id=\"armLeft\" x1=\"150\" y1=\"120\" x2=\"70\" y2=\"120\" stroke=\"#00838F\" stroke-width=\"10\" stroke-linecap=\"round\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></line>\n                        <line id=\"armRight\" x1=\"150\" y1=\"120\" x2=\"230\" y2=\"120\" stroke=\"#00838F\" stroke-width=\"10\" stroke-linecap=\"round\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></line>\n                        \n                        <circle id=\"massLeft\" cx=\"70\" cy=\"120\" r=\"9\" fill=\"#fde047\" stroke=\"#854d0e\" stroke-width=\"2\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></circle>\n                        <circle id=\"massRight\" cx=\"230\" cy=\"120\" r=\"9\" fill=\"#fde047\" stroke=\"#854d0e\" stroke-width=\"2\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></circle>\n\n                        <!-- Legs -->\n                        <path d=\"M145 205 L135 250 M155 205 L165 250\" stroke=\"#00838F\" stroke-width=\"6\" stroke-linecap=\"round\" />\n                    </g>\n                    \n                    <line x1=\"150\" y1=\"42\" x2=\"150\" y2=\"258\" stroke=\"#dc2626\" stroke-width=\"2\" stroke-dasharray=\"6,5\" opacity=\"0.3\"></line>\n                </svg>\n            </div>\n            <p id=\"skaterText\" class=\"lab-feedback\">Arms outside: The mass is spread far out. The rotation is slow.</p>\n        </div>\n        {{QUIZ_q5}}"
+        "content": "<p>When rotating, it is important how far the mass is from the <strong>axis of rotation</strong>. Arms out: slower. Arms close to the body: faster.</p>\n        <div class=\"interactive-zone\">\n            <h3>⛸️ The Turbo Pirouette</h3>\n            <p>Change the arm position and watch how the rotation speed changes.</p>\n            <button onclick=\"setSkater('out')\" id=\"btnOut\" disabled>Extend your arms 👐</button>\n            <button onclick=\"setSkater('in')\" id=\"btnIn\">Put your arms on 🤲</button>\n            <p>Rotation speed:</p>\n            <div class=\"meter\"><div id=\"spinMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"diagram-box\" style=\"height: 310px; background: radial-gradient(circle, #e0f2fe, #bfdbfe);\">\n                <svg width=\"300\" height=\"290\" viewBox=\"0 0 300 290\" aria-label=\"Figure skater rotating\">\n                    <defs>\n                        <radialGradient id=\"iceGradient\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n                            <stop offset=\"0%\" stop-color=\"#B3E5FC\" stop-opacity=\"0.8\"/>\n                            <stop offset=\"100%\" stop-color=\"#81D4FA\" stop-opacity=\"0.4\"/>\n                        </radialGradient>\n                    </defs>\n                    <ellipse cx=\"150\" cy=\"260\" rx=\"100\" ry=\"18\" fill=\"url(#iceGradient)\"></ellipse> \n                    \n                    <g id=\"skater\" style=\"transform-origin: 150px 145px;\">\n                        <!-- Body -->\n                        <rect x=\"142\" y=\"105\" width=\"16\" height=\"100\" rx=\"8\" fill=\"#00ACC1\"></rect>\n                        <!-- Head -->\n                        <circle cx=\"150\" cy=\"95\" r=\"12\" fill=\"#FFCA28\"></circle>\n                        \n                        <!-- Arms -->\n                        <line id=\"armLeft\" x1=\"150\" y1=\"120\" x2=\"70\" y2=\"120\" stroke=\"#00838F\" stroke-width=\"10\" stroke-linecap=\"round\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></line>\n                        <line id=\"armRight\" x1=\"150\" y1=\"120\" x2=\"230\" y2=\"120\" stroke=\"#00838F\" stroke-width=\"10\" stroke-linecap=\"round\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></line>\n                        \n                        <circle id=\"massLeft\" cx=\"70\" cy=\"120\" r=\"9\" fill=\"#fde047\" stroke=\"#854d0e\" stroke-width=\"2\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></circle>\n                        <circle id=\"massRight\" cx=\"230\" cy=\"120\" r=\"9\" fill=\"#fde047\" stroke=\"#854d0e\" stroke-width=\"2\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></circle>\n\n                        <!-- Legs -->\n                        <path d=\"M145 205 L135 250 M155 205 L165 250\" stroke=\"#00838F\" stroke-width=\"6\" stroke-linecap=\"round\" />\n                    </g>\n                    \n                    <line x1=\"150\" y1=\"42\" x2=\"150\" y2=\"258\" stroke=\"#dc2626\" stroke-width=\"2\" stroke-dasharray=\"6,5\" opacity=\"0.3\"></line>\n                </svg>\n            </div>\n            <p id=\"skaterText\" class=\"lab-feedback\">Arms outside: The mass is spread far out. The rotation is slow.</p>\n        </div>\n        {{QUIZ_q5}}"
       }
     ],
     "diplom": {
@@ -1233,13 +1233,13 @@
               "text": "The imaginary point at which the gravity of a body pulls.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Der Schwerpunkt ist der Punkt, an dem man die Gewichtskraft zusammenfassen kann."
+              "feedback": "Exactly. The center of gravity is the point where the body's weight can be considered to act."
             },
             {
               "text": "The loudest point on a body.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht ganz. Es geht nicht um Lautstärke, sondern um den Punkt der Gewichtskraft."
+              "feedback": "Not quite. It is not about loudness; it is about where weight acts."
             }
           ]
         },
@@ -1251,13 +1251,13 @@
               "text": "If the center of gravity is outside the standing area.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Liegt der Schwerpunkt außerhalb der Standfläche, entsteht ein Kippmoment."
+              "feedback": "Correct. If the center of gravity moves outside the base, a tipping torque appears."
             },
             {
               "text": "When he's on the ground.",
               "correct": false,
               "pts": 5,
-              "feedback": "Fast. Nur auf dem Boden zu stehen reicht nicht – entscheidend ist die Lage des Schwerpunkts."
+              "feedback": "Almost. Standing on the ground is not enough; the center of gravity position is what matters."
             }
           ]
         },
@@ -1269,13 +1269,13 @@
               "text": "It makes a body more stable.",
               "correct": true,
               "pts": 5,
-              "feedback": "Ja. Eine größere Standfläche macht Kippen schwieriger und erhöht die Stabilität."
+              "feedback": "Yes. A wider base makes tipping harder and increases stability."
             },
             {
               "text": "It automatically makes it lighter.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. Die Standfläche ändert nicht automatisch die Masse, sondern vor allem die Kippstabilität."
+              "feedback": "No. The base area does not automatically change mass; it mainly changes tipping stability."
             }
           ]
         },
@@ -1287,13 +1287,13 @@
               "text": "The hinge.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Das Scharnier ist die Achse, um die sich die Tür dreht."
+              "feedback": "Exactly. The hinge is the axis around which the door rotates."
             },
             {
               "text": "The color of the door.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht korrekt. Die Farbe ist egal; Drehpunkt ist das Scharnier."
+              "feedback": "Not correct. The color is irrelevant; the hinge is the pivot."
             }
           ]
         },
@@ -1305,13 +1305,13 @@
               "text": "On the handle, far away from the hinge.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Weit vom Scharnier ist der Hebelarm groß, daher braucht man weniger Kraft."
+              "feedback": "Correct. Far from the hinge, the lever arm is large, so less force is needed."
             },
             {
               "text": "Right at the hinge.",
               "correct": false,
               "pts": 5,
-              "feedback": "Fast. Nahe am Scharnier ist der Hebelarm klein, deshalb ist mehr Kraft nötig."
+              "feedback": "Almost. Near the hinge, the lever arm is short, so more force is needed."
             }
           ]
         },
@@ -1323,13 +1323,13 @@
               "text": "The distance from the pivot point to the acting force.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Der Hebelarm ist der Abstand zwischen Drehpunkt und Angriffspunkt der Kraft."
+              "feedback": "Exactly. The lever arm is the distance between pivot and point where force is applied."
             },
             {
               "text": "A muscle in the arm.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht ganz. 'Hebelarm' ist kein Körperteil, sondern ein geometrischer Abstand."
+              "feedback": "Not quite. A lever arm is not a body part; it is a geometric distance."
             }
           ]
         },
@@ -1341,13 +1341,13 @@
               "text": "From strength and a long lever arm.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Großes Drehmoment entsteht durch große Kraft und/oder großen Hebelarm."
+              "feedback": "Correct. Large torque comes from large force and/or a long lever arm."
             },
             {
               "text": "With little distance and no strength.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. Mit kleinem Abstand und kaum Kraft entsteht nur ein kleines Drehmoment."
+              "feedback": "No. With little distance and little force, you only get small torque."
             }
           ]
         },
@@ -1359,13 +1359,13 @@
               "text": "After a nudge, the body returns.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Beim stabilen Gleichgewicht kehrt der Körper nach einer kleinen Störung zurück."
+              "feedback": "Exactly. In stable equilibrium, the body returns after a small disturbance."
             },
             {
               "text": "After a nudge it will surely fall away.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht korrekt. Wegkippen nach kleinem Stups beschreibt kein stabiles Gleichgewicht."
+              "feedback": "Not correct. Tipping away after a small push is not stable equilibrium."
             }
           ]
         },
@@ -1377,13 +1377,13 @@
               "text": "A small nudge can cause the body to tip over.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Beim labilen Gleichgewicht reicht ein kleiner Impuls, damit der Körper kippt."
+              "feedback": "Correct. In unstable equilibrium, even a small push can make the body tip."
             },
             {
               "text": "The body is particularly secure.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. 'Besonders sicher' wäre eher stabiles Gleichgewicht, nicht labiles."
+              "feedback": "No. \"Especially safe\" describes stable equilibrium, not unstable equilibrium."
             }
           ]
         },
@@ -1395,13 +1395,13 @@
               "text": "The body remains in the new location after moving.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Beim indifferenten Gleichgewicht bleibt der Körper in der neuen Lage."
+              "feedback": "Exactly. In indifferent equilibrium, the body stays in the new position."
             },
             {
               "text": "The body is getting faster and faster.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht ganz. Es geht nicht um schneller werden, sondern um Lage ohne Rückstellwirkung."
+              "feedback": "Not quite. It is not about getting faster; it is about no restoring effect."
             }
           ]
         },
@@ -1413,13 +1413,13 @@
               "text": "Your body wants to keep going straight because of its inertia.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Wegen der Trägheit will dein Körper seine geradlinige Bewegung beibehalten."
+              "feedback": "Correct. Due to inertia, your body tends to keep moving in a straight line."
             },
             {
               "text": "The seats become magnetic.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. Das Gefühl kommt nicht durch Magnetismus, sondern durch Trägheit im rotierenden System."
+              "feedback": "No. The feeling is not caused by magnetism but by inertia in a rotating system."
             }
           ]
         },
@@ -1431,13 +1431,13 @@
               "text": "A force towards the center, for example chain or seat.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Für Kreisbewegung braucht es eine nach innen gerichtete Kraft (Zentripetalkraft)."
+              "feedback": "Exactly. Circular motion needs an inward force (centripetal force)."
             },
             {
               "text": "An invisible engine in the body.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht korrekt. Kein 'Körpermotor' hält die Bahn; es ist die Kraft zur Mitte."
+              "feedback": "Not correct. There is no \"body motor\"; the inward force keeps the path curved."
             }
           ]
         },
@@ -1449,13 +1449,13 @@
               "text": "The rotation becomes faster.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Arme anziehen verringert das Trägheitsmoment, dadurch steigt die Drehgeschwindigkeit."
+              "feedback": "Correct. Pulling in the arms reduces moment of inertia, so rotation speed increases."
             },
             {
               "text": "The rotation stops immediately.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. Die Drehung stoppt nicht sofort; meist wird sie sogar schneller."
+              "feedback": "No. The rotation does not stop immediately; it usually becomes faster."
             }
           ]
         },
@@ -1467,13 +1467,13 @@
               "text": "Further away from the axis of rotation.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Mit ausgestreckten Armen ist mehr Masse weiter außen, das Trägheitsmoment wird größer."
+              "feedback": "Exactly. With arms stretched out, more mass is farther from the axis, so moment of inertia increases."
             },
             {
               "text": "Right in the foot.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht korrekt. Die Masse liegt dann nicht nur im Fuß, sondern weiter weg von der Achse."
+              "feedback": "Not correct. The mass is not only in the foot; it is distributed farther from the axis."
             }
           ]
         },
@@ -1485,13 +1485,13 @@
               "text": "Pivot point, force, load and lever arm.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Das sind die zentralen Hebelbegriffe für Berechnung und Verständnis."
+              "feedback": "Correct. These are the key lever terms for calculation and understanding."
             },
             {
               "text": "Temperature, color and volume.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. Temperatur, Farbe und Lautstärke gehören nicht zur Hebellehre."
+              "feedback": "No. Temperature, color, and loudness are not lever mechanics terms."
             }
           ]
         }
