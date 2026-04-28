@@ -10,7 +10,7 @@ const enPath = path.join(repoRoot, 'lang', 'en.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
 const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
-const defaultScopedTopics = ['elektrizitaet', 'optik1', 'linsen_spiegel'];
+const defaultScopedTopics = ['elektrizitaet', 'optik1', 'linsen_spiegel', 'akustik'];
 const scopedTopics = (process.env.PHYSICS_EN_CONSISTENCY_TOPICS || defaultScopedTopics.join(','))
   .split(',')
   .map((topic) => topic.trim())
