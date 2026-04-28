@@ -541,3 +541,9 @@ P2-Math Fortschritt (Run 2026-04-28 03:0x):
 - Abgedeckt: 2 knappe Rückmeldungen auf klarere, lernfreundliche A2-B1-Formulierungen umgestellt („15 mal 4 ergibt 60“, „144 geteilt durch 12 ist 12“).
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_language.js` und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathematik-Feedback bleibt kompakt, aber in der Formulierung konsistenter und leichter vorlesbar.
+
+P2-Math Fortschritt (Run 2026-04-28 03:06):
+- Thema **math2_6_prop_prozent** im EN-Text auf verbleibende Mischsprache geprüft und zentrale Feedbacktexte vollständig auf Englisch vereinheitlicht.
+- Abgedeckt: Proportionalitäts- und Rabatt-Feedback im Kapitelquiz sowie 2 Diplom-Feedbacks (inkl. 100%-Grundverständnis).
+- Qualitätssicherung: Implementieren → Review → Patch mit `JSON.parse(lang/en.json)`, `node scripts/audit_math_language.js`, `node scripts/audit_math_a11y.js` und `git diff --check`.
+- Ergebnis: Prozent/Proportionalität ist im EN-Modul konsistenter und didaktisch klarer formuliert.
