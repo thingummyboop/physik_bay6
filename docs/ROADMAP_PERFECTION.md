@@ -689,3 +689,16 @@ P2 Fortschritt (Run 2026-04-28 06:3x):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 12 auf 13 priorisierte Mathethemen erweitert (neu: `math2_7_geometrie`); Baseline aktualisiert.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt 13 priorisierte Themen automatisiert ab (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 06:5x):
+- Physik-Perfection-Gate geschlossen: **`scripts/audit_physics_english_consistency.js`** zählt jetzt alle 15 Physikthemen im Scope (inkl. Runtime-only-Themen ohne `lang/en.json`-Block).
+- Abgedeckt: `licht_schatten_astronomie` wird als `runtime_only_topics` transparent ausgewiesen statt still aus dem Scope zu fallen.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check scripts/audit_physics_english_consistency.js`, `node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-EN-Konsistenz meldet jetzt **15 Themen** regressionsfrei (`known_debt=0`).
+
+P2 Fortschritt (Run 2026-04-28 06:5x):
+- Mathematik-Perfection (EN) im priorisierten Modul **`math3_3_gleichungen`** nachgezogen.
+- Abgedeckt: 6 verbliebene DE-Feedbacktexte in Kapitel- und Diplomquiz auf kurzes, konsistentes Englisch umgestellt.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 13 auf 14 priorisierte Mathethemen erweitert (neu: `math3_3_gleichungen`); Baseline aktualisiert.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math3_3_gleichungen node scripts/audit_math_english_consistency.js`, anschließend `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt 14 priorisierte Themen automatisiert ab (`known_debt=0`).
