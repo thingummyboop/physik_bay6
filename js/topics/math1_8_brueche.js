@@ -273,15 +273,23 @@ function updateZstrahl() {
 }
 
 function checkZstrahl() {
-    const val = parseInt(document.getElementById('zstrahl-slider').value);
+    const val = parseFloat(document.getElementById('zstrahl-slider').value);
     const targetVal = (zstrahlTask.z / zstrahlTask.n) * 100;
-    
     const feedback = document.getElementById('zstrahl-feedback');
-    // Allow small margin of error
-    if (Math.abs(val - targetVal) < 4) {
+
+    // Determine which n-th tick the user actually selected.
+    // This avoids accepting neighboring wrong ticks as correct.
+    const selectedNumerator = Math.round((val / 100) * zstrahlTask.n);
+    const closestTickVal = (selectedNumerator / zstrahlTask.n) * 100;
+
+    // Must match the correct tick AND be close enough to that tick.
+    const closeEnoughToTick = Math.abs(val - closestTickVal) <= 2;
+    const isCorrectTick = selectedNumerator === zstrahlTask.z;
+
+    if (isCorrectTick && closeEnoughToTick) {
         feedback.innerHTML = '<span style="color: #10b981;">✅ Perfekt! Du hast den Bruch genau getroffen.</span> <button onclick="initZstrahl()" style="font-size:0.7em; padding:2px 8px; margin-left:10px;">Nochmal 🔄</button>';
     } else {
-        feedback.innerHTML = '<span style="color: #ef4444;">❌ Fast. Du bist bei ca. ' + Math.round(val) + '%. Suche weiter!</span>';
+        feedback.innerHTML = '<span style="color: #ef4444;">❌ Fast. Du bist bei ca. ' + Math.round(val) + '% (nahe ' + selectedNumerator + '/' + zstrahlTask.n + '). Suche weiter!</span>';
     }
 }
 
