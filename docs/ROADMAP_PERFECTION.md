@@ -580,3 +580,10 @@ P2-Math Fortschritt (Run 2026-04-28 03:58):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 1 auf 2 priorisierte Themen erweitert (`math2_6_prop_prozent`, `math1_7_gleichungen`); Baseline (`scripts/baselines/math_en_consistency_allowlist.json`) entsprechend aktualisiert.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt Gleichungen automatisiert mit ab (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 04:0x):
+- Physik-Perfection (EN) im Thema **`akustik`** nachgezogen.
+- Abgedeckt: 42 verbliebene deutschsprachige Diagnose-Feedbacktexte (Kapitel + Diplom) in `lang/en.json` auf konsistentes, kurzes A2-B1-Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 3 auf 4 priorisierte Physikthemen erweitert (`elektrizitaet`, `optik1`, `linsen_spiegel`, `akustik`).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=akustik node scripts/audit_physics_english_consistency.js`, anschließend vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-EN-Konsistenzprüfung deckt jetzt auch Akustik automatisiert ab (`known_debt=0`).
