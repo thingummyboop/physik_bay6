@@ -676,3 +676,16 @@ P2 Fortschritt (Run 2026-04-28 06:08):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 8 auf 10 priorisierte Mathethemen erweitert (neu: `math1_4_mult_div`, `math1_6_winkel`); Baseline `scripts/baselines/math_en_consistency_allowlist.json` entsprechend aktualisiert.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math1_6_winkel node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Die Mathe-EN-Konsistenzprüfung deckt jetzt 10 priorisierte Themen automatisiert ab (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 06:2x):
+- Physik-Perfection-Lücke in **`licht_schatten_astronomie`** (Runtime-UI) geschlossen.
+- Abgedeckt: harte DE-Strings in Interaktionsstatus/ARIA/Buttons auf DE+EN-Laufzeitlokalisierung umgestellt (Schatten-Regler, Lampenstatus, Finsternis-Status, Orbit-Erklärtexte).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node --check js/topics/licht_schatten_astronomie.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Das Modul zeigt im EN-Kontext keine erzwungenen deutschen Live-/Statusmeldungen mehr und bleibt regressionsfrei im Gesamt-Gate.
+
+P2 Fortschritt (Run 2026-04-28 06:3x):
+- Mathematik-Perfection (EN) im Modul **`math2_7_geometrie`** nachgezogen.
+- Abgedeckt: verbliebene DE-Feedbackreste in Kapitel- und Diplomquiz auf konsistentes, kurzes Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 12 auf 13 priorisierte Mathethemen erweitert (neu: `math2_7_geometrie`); Baseline aktualisiert.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt 13 priorisierte Themen automatisiert ab (`known_debt=0`).
