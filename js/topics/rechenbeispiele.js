@@ -25,8 +25,18 @@ function enhanceCalculationAccessibility() {
         input.setAttribute('inputmode', 'decimal');
         input.addEventListener('keydown', (event) => {
             if (event.key !== 'Enter') return;
-            const btn = zone ? zone.querySelector('button') : null;
+            const btn = zone ? zone.querySelector('button[data-check-input]') : null;
             if (btn) btn.click();
+        });
+
+        const btn = zone ? zone.querySelector('button[data-check-input]') : null;
+        if (!btn || btn.dataset.boundCheckInput === 'true') return;
+        btn.dataset.boundCheckInput = 'true';
+        btn.addEventListener('click', () => {
+            const targetId = btn.dataset.checkInput;
+            const expectedValue = Number(btn.dataset.expected);
+            const points = Number(btn.dataset.points || '0');
+            checkInput(targetId, expectedValue, points, btn);
         });
     });
 }
