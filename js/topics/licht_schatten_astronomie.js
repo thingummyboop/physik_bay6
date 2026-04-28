@@ -1,5 +1,44 @@
 // Logic for Licht & Schatten
 
+function currentLightAstronomyLang() {
+    return (document.documentElement.lang || 'de').toLowerCase().startsWith('en') ? 'en' : 'de';
+}
+
+function lightAstronomyText(key, vars = {}) {
+    const dict = {
+        de: {
+            obstaclePositionLabel: 'Position des Hindernisses für den Schatten',
+            obstacleAtPixels: 'Hindernis bei {value} Pixel',
+            lampState: 'Lampe {n}: {state}',
+            on: 'AN',
+            off: 'AUS',
+            moonPosition: 'Mondposition {value}',
+            totalSolar: '🌟 Totale Sonnenfinsternis!',
+            partialSolar: '🌗 Partielle Sonnenfinsternis',
+            searchEclipse: 'Suche die Finsternis...',
+            moonOrbit: 'Der Mond kreist in ca. 27 Tagen einmal um die Erde.',
+            earthOrbit: 'Die Erde kreist in einem Jahr einmal um die Sonne.'
+        },
+        en: {
+            obstaclePositionLabel: 'Obstacle position for the shadow',
+            obstacleAtPixels: 'Obstacle at {value} pixels',
+            lampState: 'Lamp {n}: {state}',
+            on: 'ON',
+            off: 'OFF',
+            moonPosition: 'Moon position {value}',
+            totalSolar: '🌟 Total solar eclipse!',
+            partialSolar: '🌗 Partial solar eclipse',
+            searchEclipse: 'Find the eclipse...',
+            moonOrbit: 'The Moon orbits Earth once in about 27 days.',
+            earthOrbit: 'Earth orbits the Sun once per year.'
+        }
+    };
+
+    const lang = currentLightAstronomyLang();
+    const template = (dict[lang] && dict[lang][key]) || dict.de[key] || key;
+    return template.replace(/\{(\w+)\}/g, (_, token) => (vars[token] !== undefined ? String(vars[token]) : `{${token}}`));
+}
+
 function topicInit() {
     ensureLightAstronomyAccessibility();
     updateShadow1();
@@ -18,7 +57,7 @@ function ensureLightAstronomyAccessibility() {
     });
 
     const posRange1 = document.getElementById('posRange1');
-    if (posRange1) posRange1.setAttribute('aria-label', 'Position des Hindernisses für den Schatten');
+    if (posRange1) posRange1.setAttribute('aria-label', lightAstronomyText('obstaclePositionLabel'));
 
     const moonPos = document.getElementById('moonPos');
     if (moonPos) moonPos.setAttribute('aria-describedby', 'statusText');
@@ -61,7 +100,7 @@ function updateShadow1() {
         ray2.setAttribute('y2', shadowBotY);
     }
 
-    range.setAttribute('aria-valuetext', `Hindernis bei ${objX} Pixel`);
+    range.setAttribute('aria-valuetext', lightAstronomyText('obstacleAtPixels', { value: objX }));
 }
 
 // 2. Two Lamps Shadow
@@ -76,7 +115,7 @@ function toggleLamp(n) {
     const lamp = document.getElementById('lamp' + n);
     const isOn = n === 1 ? lamp1On : lamp2On;
     if (btn) {
-        btn.innerText = `Lampe ${n}: ${isOn ? 'AN' : 'AUS'}`;
+        btn.innerText = lightAstronomyText('lampState', { n, state: lightAstronomyText(isOn ? 'on' : 'off') });
         btn.setAttribute('aria-pressed', isOn ? 'true' : 'false');
     }
     if (lamp) lamp.setAttribute('fill', (n===1 ? (lamp1On ? '#fff' : '#444') : (lamp2On ? '#fff' : '#444')));
@@ -172,7 +211,7 @@ function updateEclipse1() {
     
     if (ray1) { ray1.setAttribute('x2', 400); ray1.setAttribute('y2', uY1); }
     if (ray2) { ray2.setAttribute('x2', 400); ray2.setAttribute('y2', uY2); }
-    range.setAttribute('aria-valuetext', `Mondposition ${moonX}`);
+    range.setAttribute('aria-valuetext', lightAstronomyText('moonPosition', { value: moonX }));
     
     // Detection
     const uMin = Math.min(uY1, uY2);
@@ -181,13 +220,13 @@ function updateEclipse1() {
     const pMax = Math.max(pY1, pY2);
 
     if (xV > 400 && 90 >= uMin && 90 <= uMax) {
-        status.innerText = "🌟 Totale Sonnenfinsternis!";
+        status.innerText = lightAstronomyText('totalSolar');
         status.setAttribute('fill', '#fbbf24');
     } else if (90 >= pMin && 90 <= pMax) {
-        status.innerText = "🌗 Partielle Sonnenfinsternis";
+        status.innerText = lightAstronomyText('partialSolar');
         status.setAttribute('fill', '#94a3b8');
     } else {
-        status.innerText = "Suche die Finsternis...";
+        status.innerText = lightAstronomyText('searchEclipse');
         status.setAttribute('fill', 'white');
     }
 }
@@ -226,11 +265,11 @@ function showOrbital(type) {
     if(type === 'moon') {
         moon.style.display = 'block';
         earth.style.display = 'none';
-        if(txt) txt.innerText = "Der Mond kreist in ca. 27 Tagen einmal um die Erde.";
+        if(txt) txt.innerText = lightAstronomyText('moonOrbit');
     } else {
         moon.style.display = 'none';
         earth.style.display = 'block';
-        if(txt) txt.innerText = "Die Erde kreist in einem Jahr einmal um die Sonne.";
+        if(txt) txt.innerText = lightAstronomyText('earthOrbit');
     }
 }
 
