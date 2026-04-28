@@ -716,3 +716,9 @@ P3 Fortschritt (Run 2026-04-28 10:xx):
 - Layout/A11y: Quiz-Feedback im Renderer nutzt jetzt `role="status"` + `aria-live` + `aria-atomic`, und Quizbuttons sind explizit `type="button"`.
 - QA-Scope: Physik-Audits schließen neue Geo-/Chemie-/Bio-Topic-Dateien korrekt aus, damit Nicht-Physik-Fächer nicht als Physik-Regressionsfälle zählen.
 - Qualitätssicherung: `node -e "JSON.parse(...lang/de.json...)"`, `node --check` für Renderer/neue Topic-Dateien und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+
+P1 Fortschritt (Run 2026-04-28 10:xx):
+- **Optik 1** didaktisch an die gewünschte Licht-Chronologie angepasst: Einstieg erklärt jetzt zuerst Lichtquellen/Entstehung, danach geradlinige Ausbreitung und Schatten.
+- Missverständliche Absolutformulierung in der ersten Optik-Frage entschärft (`absolut gerade` → geradlinig im gleichen Medium/Luft), inklusive einfacherer Feedbacktexte.
+- Layout/A11y: Dark-Mode-Kontrast im Hauptlayout korrigiert (`--text-color` war schwarz auf dunklem Hintergrund).
+- Qualitätssicherung: `JSON.parse(lang/de.json)` und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).

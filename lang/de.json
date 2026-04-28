@@ -3888,12 +3888,12 @@
     }
   },
   "optik1": {
-    "title": "🌑 Licht & Schatten 🔦",
-    "subtitle": "Warum gibt es Schatten? Warum ändert der Mond seine Form? Hier erfährst du alles über die Reise des Lichts durch Raum und Zeit!",
+    "title": "🌑 Licht: Entstehung, Weg & Schatten 🔦",
+    "subtitle": "Zuerst: Wo kommt Licht her? Dann: Wie breitet es sich aus? Danach: Was passiert mit Schatten, Spiegeln und Spalten?",
     "sections": [
       {
         "id": "sec0",
-        "title": "1. Wie Licht wandert",
+        "title": "1. Wo Licht entsteht und wie es wandert",
         "quizzes": [
           {
             "id": "o1_s1_q1",
@@ -3903,18 +3903,18 @@
                 "text": "In Schlangenlinien.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Fast – Licht kann gestreut oder gebrochen werden, aber im homogenen Medium läuft es geradlinig."
+                "feedback": "Nicht hier: In Luft läuft Licht gerade. An Wasser, Glas oder Staub kann sich der Weg ändern."
               },
               {
-                "text": "In absolut geraden Strahlen.",
+                "text": "In geraden Strahlen, solange das Medium gleich bleibt.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Im gleichen Medium breitet sich Licht geradlinig aus."
+                "feedback": "Genau: In Luft breitet sich Licht geradlinig aus."
               }
             ]
           }
         ],
-        "content": "\n        <p>Licht ist wie ein super-gerades Lineal. Solange ihm nichts im Weg steht, saust es schnurgerade durch den Raum. Wenn aber ein undurchsichtiger Körper (wie du, ein Baum oder ein Stein) im Weg steht, kommt das Licht dort nicht vorbei. Dahinter entsteht ein Bereich ohne Licht: der <strong>Schatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Der Schatten-Simulator (Punktlicht)</h3>\n            <p>Bewege das Hindernis:</p>\n            <input type=\"range\" id=\"posRange1\" min=\"50\" max=\"250\" value=\"150\" oninput=\"updateShadow1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <circle cx=\"30\" cy=\"75\" r=\"8\" fill=\"#fff\" style=\"filter: drop-shadow(0 0 10px #fff);\"></circle>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"10\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_1\"></line>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"140\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_2\"></line>\n                    <polygon id=\"shadowArea1\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect id=\"obj1\" x=\"150\" y=\"60\" width=\"20\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_o1_s1_q1}}\n    "
+        "content": "\n        <div class=\"lesson-goals\"><strong>Ziel:</strong> Du weißt zuerst, wo Licht herkommt. Danach beobachtest du seinen Weg.</div><p>Licht entsteht in einer <strong>Lichtquelle</strong>. Beispiele sind Sonne, Lampe, Kerze, Handy-Display oder Fahrradlicht. Diese Dinge senden Licht aus. Der Mond ist keine eigene Lichtquelle. Er wirft Sonnenlicht zu uns zurück.</p><div class=\"remember-box\"><strong>Merke:</strong> Erst gibt es eine Lichtquelle. Dann breitet sich Licht aus.</div><p>In Luft oder in einem anderen gleichmäßigen Stoff läuft Licht geradlinig. Wenn ein undurchsichtiger Körper im Weg steht, kommt das Licht dahinter nicht an. Dort entsteht ein <strong>Schatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Der Schatten-Simulator (Punktlicht)</h3>\n            <p>Bewege das Hindernis:</p>\n            <input type=\"range\" id=\"posRange1\" min=\"50\" max=\"250\" value=\"150\" oninput=\"updateShadow1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <circle cx=\"30\" cy=\"75\" r=\"8\" fill=\"#fff\" style=\"filter: drop-shadow(0 0 10px #fff);\"></circle>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"10\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_1\"></line>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"140\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_2\"></line>\n                    <polygon id=\"shadowArea1\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect id=\"obj1\" x=\"150\" y=\"60\" width=\"20\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_o1_s1_q1}}\n    "
       },
       {
         "id": "sec1",
