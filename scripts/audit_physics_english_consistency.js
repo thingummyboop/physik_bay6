@@ -23,8 +23,9 @@ const physicsTopics = fs
   .filter((topic) => !topic.startsWith('math'))
   .filter((topic) => !nonPhysicsTopics.has(topic))
   .filter((topic) => scopedTopics.includes(topic))
-  .filter((topic) => Object.prototype.hasOwnProperty.call(en, topic))
   .sort();
+
+const runtimeOnlyTopics = physicsTopics.filter((topic) => !Object.prototype.hasOwnProperty.call(en, topic));
 
 if (physicsTopics.length === 0) {
   console.error('PHYSICS_EN_CONSISTENCY_ISSUES');
@@ -43,6 +44,7 @@ const issues = [];
 let scanned = 0;
 
 for (const topic of physicsTopics) {
+  if (!Object.prototype.hasOwnProperty.call(en, topic)) continue;
   walk(en[topic], [topic]);
 }
 
@@ -91,6 +93,10 @@ if (newIssues.length > 0) {
   process.exit(1);
 }
 
+const runtimeOnlySuffix = runtimeOnlyTopics.length
+  ? `, runtime_only_topics=${runtimeOnlyTopics.length} [${runtimeOnlyTopics.join(',')}]`
+  : '';
+
 console.log(
-  `PHYSICS_EN_CONSISTENCY_CLEAR (${scanned} strings across ${physicsTopics.length} topics, known_debt=${issues.length}, resolved_debt=${resolvedDebt.length})`
+  `PHYSICS_EN_CONSISTENCY_CLEAR (${scanned} strings across ${physicsTopics.length} topics, known_debt=${issues.length}, resolved_debt=${resolvedDebt.length}${runtimeOnlySuffix})`
 );
