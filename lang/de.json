@@ -18,10 +18,10 @@
                 "feedback": "Genau: Ohne Schwingung gibt es keinen Ton."
               },
               {
-                "text": "Durch unsichtbare Magie in der Luft.",
+                "text": "Nur durch Luft, auch wenn nichts schwingt.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Nicht Magie: Etwas muss schnell hin und her schwingen, zum Beispiel Stimmbänder oder eine Saite."
+                "feedback": "Nicht ganz: Luft kann Schall tragen, aber zuerst muss etwas schwingen."
               }
             ]
           }
@@ -51,7 +51,7 @@
             ]
           }
         ],
-        "content": "\n        \n        <p>Stell dir vor, du stehst auf dem Mond und ein riesiger Meteorit kracht lautlos in den Boden. Lautlos? Ja! Damit der Schall von der Stimmgabel in dein Ohr kommt, braucht er winzige \"Briefträger\". Das sind die <strong>Luftteilchen</strong>. Die Stimmgabel schubst die Luft an, die Luftteilchen schubsen ihre Nachbarn an, und so wandert die <strong>Schallwelle</strong> bis in dein Ohr.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Das Vakuum</strong><br>\n            Schall braucht immer einen Stoff (ein <strong>Medium</strong>), um sich auszubreiten. Das kann Luft sein, aber auch Wasser oder sogar Eisen! Wo absolut gar nichts ist – wie im Weltall – nennt man das <strong>Vakuum</strong>. Ohne Luftteilchen gibt es niemanden, der den Ton weiterträgt. Im Weltall hört dich niemand schreien!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌌 Das Vakuum-Labor (Die Glasglocke)</h3>\n            <p>In der Glasglocke klingelt ein Wecker. Pumpe die Luft ab!</p>\n            <button onclick=\"toggleVacuum()\" id=\"vacBtn\">Luft abpumpen 🌬️</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <rect x=\"100\" y=\"200\" width=\"200\" height=\"10\" fill=\"#4a5568\"></rect>\n                    <rect x=\"190\" y=\"210\" width=\"20\" height=\"30\" fill=\"#cbd5e0\"></rect>\n                    <path d=\"M 120 200 L 120 100 Q 120 40 200 40 Q 280 40 280 100 L 280 200 Z\" fill=\"rgba(226, 232, 240, 0.3)\" stroke=\"#a0aec0\" stroke-width=\"4\"></path>\n                    <circle cx=\"200\" cy=\"160\" r=\"25\" fill=\"#F44336\"></circle>\n                    <circle cx=\"200\" cy=\"160\" r=\"20\" fill=\"white\"></circle>\n                    <line x1=\"200\" y1=\"160\" x2=\"210\" y2=\"145\" stroke=\"black\" stroke-width=\"2\"></line>\n                    <line x1=\"200\" y1=\"160\" x2=\"190\" y2=\"155\" stroke=\"black\" stroke-width=\"2\"></line>\n                    <path d=\"M 180 140 Q 190 130 200 135\" fill=\"none\" stroke=\"#F44336\" stroke-width=\"4\"></path>\n                    <path d=\"M 220 140 Q 210 130 200 135\" fill=\"none\" stroke=\"#F44336\" stroke-width=\"4\"></path>\n                    \n                    <g id=\"bellWaves\" class=\"anim-vibrate\" style=\"transform-origin: center;\">\n                        <path d=\"M 160 140 Q 150 160 160 180\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                        <path d=\"M 150 135 Q 135 160 150 185\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                        <path d=\"M 240 140 Q 250 160 240 180\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                        <path d=\"M 250 135 Q 265 160 250 185\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"airParticles\">\n                        </g>\n                </svg>\n                <p id=\"vacText\" style=\"font-weight:bold; color: #2196F3;\">Luft ist drin: Der Wecker ist laut zu hören!</p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
+        "content": "\n        \n        <p>Stell dir vor, du stehst auf dem Mond und ein Wecker klingelt. Du würdest ihn nicht hören. Damit Schall in dein Ohr kommt, braucht er winzige \"Briefträger\". Das sind die <strong>Luftteilchen</strong>. Die Stimmgabel schubst die Luft an, die Luftteilchen schubsen ihre Nachbarn an, und so wandert die <strong>Schallwelle</strong> bis in dein Ohr.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Das Vakuum</strong><br>\n            Schall braucht immer einen Stoff (ein <strong>Medium</strong>), um sich auszubreiten. Das kann Luft sein, aber auch Wasser oder sogar Eisen. Wo fast keine Teilchen sind – wie im Weltall – nennt man das <strong>Vakuum</strong>. Ohne Teilchen kann Schall nicht weitergegeben werden.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌌 Das Vakuum-Labor (Die Glasglocke)</h3>\n            <p>In der Glasglocke klingelt ein Wecker. Pumpe die Luft ab!</p>\n            <button onclick=\"toggleVacuum()\" id=\"vacBtn\">Luft abpumpen 🌬️</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <rect x=\"100\" y=\"200\" width=\"200\" height=\"10\" fill=\"#4a5568\"></rect>\n                    <rect x=\"190\" y=\"210\" width=\"20\" height=\"30\" fill=\"#cbd5e0\"></rect>\n                    <path d=\"M 120 200 L 120 100 Q 120 40 200 40 Q 280 40 280 100 L 280 200 Z\" fill=\"rgba(226, 232, 240, 0.3)\" stroke=\"#a0aec0\" stroke-width=\"4\"></path>\n                    <circle cx=\"200\" cy=\"160\" r=\"25\" fill=\"#F44336\"></circle>\n                    <circle cx=\"200\" cy=\"160\" r=\"20\" fill=\"white\"></circle>\n                    <line x1=\"200\" y1=\"160\" x2=\"210\" y2=\"145\" stroke=\"black\" stroke-width=\"2\"></line>\n                    <line x1=\"200\" y1=\"160\" x2=\"190\" y2=\"155\" stroke=\"black\" stroke-width=\"2\"></line>\n                    <path d=\"M 180 140 Q 190 130 200 135\" fill=\"none\" stroke=\"#F44336\" stroke-width=\"4\"></path>\n                    <path d=\"M 220 140 Q 210 130 200 135\" fill=\"none\" stroke=\"#F44336\" stroke-width=\"4\"></path>\n                    \n                    <g id=\"bellWaves\" class=\"anim-vibrate\" style=\"transform-origin: center;\">\n                        <path d=\"M 160 140 Q 150 160 160 180\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                        <path d=\"M 150 135 Q 135 160 150 185\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                        <path d=\"M 240 140 Q 250 160 240 180\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                        <path d=\"M 250 135 Q 265 160 250 185\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"airParticles\">\n                        </g>\n                </svg>\n                <p id=\"vacText\" style=\"font-weight:bold; color: #2196F3;\">Luft ist drin: Der Wecker ist laut zu hören!</p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
       },
       {
         "id": "sec2",
@@ -3939,7 +3939,7 @@
             ]
           }
         ],
-        "content": "\n        <p>Was passiert, wenn wir zwei Lampen benutzen? Jede Lampe wirft ihren eigenen Schatten. Dort, wo sich beide Schatten überschneiden, ist es stockfinster – das ist der <strong>Kernschatten</strong>. In den grauen Bereichen daneben kommt noch ein bisschen Licht von einer der beiden Lampen an – das ist der <strong>Halbschatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>💡 Das Zwei-Lampen-Experiment</h3>\n            <button onclick=\"toggleLamp(1)\" id=\"btnL1\">Lampe 1: AN</button>\n            <button onclick=\"toggleLamp(2)\" id=\"btnL2\">Lampe 2: AN</button>\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <circle id=\"lamp1\" cx=\"30\" cy=\"60\" r=\"8\" fill=\"#fff\"></circle>\n                    <circle id=\"lamp2\" cx=\"30\" cy=\"140\" r=\"8\" fill=\"#fff\"></circle>\n                    <polygon id=\"hShadow1\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"hShadow2\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"kShadow\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect x=\"180\" y=\"85\" width=\"15\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_o1_s2_q1}}\n    "
+        "content": "\n        <p>Was passiert, wenn wir zwei Lampen benutzen? Jede Lampe wirft ihren eigenen Schatten. Dort, wo sich beide Schatten überschneiden, kommt kein Licht an – das ist der <strong>Kernschatten</strong>. In den grauen Bereichen daneben kommt noch ein bisschen Licht von einer der beiden Lampen an – das ist der <strong>Halbschatten</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>💡 Das Zwei-Lampen-Experiment</h3>\n            <button onclick=\"toggleLamp(1)\" id=\"btnL1\">Lampe 1: AN</button>\n            <button onclick=\"toggleLamp(2)\" id=\"btnL2\">Lampe 2: AN</button>\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <circle id=\"lamp1\" cx=\"30\" cy=\"60\" r=\"8\" fill=\"#fff\"></circle>\n                    <circle id=\"lamp2\" cx=\"30\" cy=\"140\" r=\"8\" fill=\"#fff\"></circle>\n                    <polygon id=\"hShadow1\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"hShadow2\" points=\"\" fill=\"rgba(255,255,255,0.1)\"></polygon>\n                    <polygon id=\"kShadow\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect x=\"180\" y=\"85\" width=\"15\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_o1_s2_q1}}\n    "
       },
       {
         "id": "sec2",
@@ -6422,10 +6422,10 @@
                 "feedback": "Genau: Sand bleibt im Filter, Wasser läuft durch."
               },
               {
-                "text": "Mit Schreien.",
+                "text": "Durch starkes Rühren.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Schreien trennt keine Stoffe. Ein Filter passt hier besser."
+                "feedback": "Rühren verteilt den Sand eher. Ein Filter trennt Sand und Wasser besser."
               }
             ]
           }
@@ -6544,10 +6544,10 @@
                 "feedback": "Genau: Das Blut bringt dann schneller Sauerstoff zu den Muskeln."
               },
               {
-                "text": "Weil das Herz Angst vor Sport hat.",
+              "text": "Weil die Knochen mehr Platz brauchen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Nein: Das Herz arbeitet schneller, weil die Muskeln mehr Versorgung brauchen."
+              "feedback": "Nicht die Knochen sind der Grund. Die Muskeln brauchen bei Bewegung mehr Sauerstoff."
               }
             ]
           }
@@ -9643,7 +9643,7 @@
       {
         "id": "sec_vierecke",
         "title": "Rechteck und Quadrat 🔲",
-        "content": "<p>Dein Handy-Bildschirm ist ein <span style=\"color:red\">Rechteck</span>. Ein Rechteck hat 4 Ecken. Gegenüberliegende Seiten sind gleich lang.</p>\n    <div style=\"background-color: #f0fdf4; padding: 15px; border-radius: 8px; border-left: 4px solid #10b981; margin-top: 15px;\">\n        <h4>Das Haus der Vierecke (Alle wichtigen Typen):</h4>\n        <ul>\n            <li><strong>Quadrat:</strong> Alle 4 Seiten gleich lang, alle Winkel 90°. (Der absolute Chef).</li>\n            <li><strong>Rechteck:</strong> Gegenüberliegende Seiten sind gleich lang, alle Winkel 90°.</li>\n            <li><strong>Raute (Rhombus):</strong> Alle 4 Seiten gleich lang, aber die Winkel müssen nicht 90° sein (ein schiefes Quadrat). Die Diagonalen stehen senkrecht aufeinander!</li>\n            <li><strong>Parallelogramm:</strong> Gegenüberliegende Seiten sind parallel und gleich lang (ein schiefes Rechteck).</li>\n            <li><strong>Deltoid (Drachenviereck):</strong> Zwei Paar benachbarte Seiten sind gleich lang. Die Diagonalen stehen senkrecht aufeinander. (Sieht aus wie ein Flugdrachen).</li>\n            <li><strong>Trapez:</strong> Mindestens zwei gegenüberliegende Seiten sind parallel. (Sieht oft aus wie ein Zelt).</li>\n        </ul>\n    </div>\n    <div class=\"interactive-zone\"><svg width=\"200\" height=\"100\"><rect x=\"10\" y=\"10\" width=\"180\" height=\"80\" style=\"fill:blue;stroke:black;stroke-width:2\" /></svg></div><p>Ein Quadrat ist besonders: Alle 4 Seiten sind <span style=\"color:red\">gleich lang</span>! Wie ein Stück Schokolade.</p>{{QUIZ_m27_q3}}{{QUIZ_m27_q4}}\n{{QUIZ_m27_q_raute}}",
+        "content": "<p>Dein Handy-Bildschirm ist ein <span style=\"color:red\">Rechteck</span>. Ein Rechteck hat 4 Ecken. Gegenüberliegende Seiten sind gleich lang.</p>\n    <div style=\"background-color: #f0fdf4; padding: 15px; border-radius: 8px; border-left: 4px solid #10b981; margin-top: 15px;\">\n        <h4>Das Haus der Vierecke (Alle wichtigen Typen):</h4>\n        <ul>\n            <li><strong>Quadrat:</strong> Alle 4 Seiten gleich lang, alle Winkel 90°.</li>\n            <li><strong>Rechteck:</strong> Gegenüberliegende Seiten sind gleich lang, alle Winkel 90°.</li>\n            <li><strong>Raute (Rhombus):</strong> Alle 4 Seiten gleich lang, aber die Winkel müssen nicht 90° sein (ein schiefes Quadrat). Die Diagonalen stehen senkrecht aufeinander!</li>\n            <li><strong>Parallelogramm:</strong> Gegenüberliegende Seiten sind parallel und gleich lang (ein schiefes Rechteck).</li>\n            <li><strong>Deltoid (Drachenviereck):</strong> Zwei Paar benachbarte Seiten sind gleich lang. Die Diagonalen stehen senkrecht aufeinander. (Sieht aus wie ein Flugdrachen).</li>\n            <li><strong>Trapez:</strong> Mindestens zwei gegenüberliegende Seiten sind parallel. (Sieht oft aus wie ein Zelt).</li>\n        </ul>\n    </div>\n    <div class=\"interactive-zone\"><svg width=\"200\" height=\"100\"><rect x=\"10\" y=\"10\" width=\"180\" height=\"80\" style=\"fill:blue;stroke:black;stroke-width:2\" /></svg></div><p>Ein Quadrat ist besonders: Alle 4 Seiten sind <span style=\"color:red\">gleich lang</span>! Wie ein Stück Schokolade.</p>{{QUIZ_m27_q3}}{{QUIZ_m27_q4}}\n{{QUIZ_m27_q_raute}}",
         "quizzes": [
           {
             "id": "m27_q3",
@@ -9922,7 +9922,7 @@
       {
         "id": "sec_mittelwert",
         "title": "Der Durchschnitt (Mittelwert) 🍕",
-        "content": "<p>Du und 3 Freunde kauft eine fette Pizza für 20 Euro. Ihr seid 4 Personen. Jeder zahlt <span style=\"color:red\">gleich viel</span>. 20 geteilt durch 4 ist 5.</p><p>Jeder zahlt 5 Euro. Das ist der <span style=\"color:red\">Durchschnitt</span>!</p><div class=\"interactive-zone\"><input type=\"text\" id=\"pizza_calc\" placeholder=\"20 / 4 = ?\" /><button>Check</button></div><p>Du rechnest alles zusammen und teilst es durch die Anzahl.</p>{{QUIZ_m28_q5}}{{QUIZ_m28_q6}}",
+        "content": "<p>Du und 3 Freunde kauft eine Pizza für 20 Euro. Ihr seid 4 Personen. Jeder zahlt <span style=\"color:red\">gleich viel</span>. 20 geteilt durch 4 ist 5.</p><p>Jeder zahlt 5 Euro. Das ist der <span style=\"color:red\">Durchschnitt</span>!</p><div class=\"interactive-zone\"><input type=\"text\" id=\"pizza_calc\" placeholder=\"20 / 4 = ?\" /><button>Check</button></div><p>Du rechnest alles zusammen und teilst es durch die Anzahl.</p>{{QUIZ_m28_q5}}{{QUIZ_m28_q6}}",
         "quizzes": [
           {
             "id": "m28_q5",
@@ -10560,7 +10560,7 @@
   },
   "math3_8_pythagoras": {
     "title": "Der Satz des Pythagoras",
-    "subtitle": "a² + b² = c² (Magie der Dreiecke)",
+    "subtitle": "a² + b² = c² mit einem klaren Flächenbild",
     "sections": [
       {
         "id": "sec1",
@@ -11580,7 +11580,7 @@
   },
   "math4_8_finanzmathematik": {
     "title": "💸 Cash, Kredite & Zinsen",
-    "subtitle": "So wirst du nicht abgezockt!",
+    "subtitle": "So erkennst du Kosten, Zinsen und faire Angebote.",
     "sections": [
       {
         "id": "sec1",

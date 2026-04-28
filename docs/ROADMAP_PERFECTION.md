@@ -722,3 +722,9 @@ P1 Fortschritt (Run 2026-04-28 10:xx):
 - Missverständliche Absolutformulierung in der ersten Optik-Frage entschärft (`absolut gerade` → geradlinig im gleichen Medium/Luft), inklusive einfacherer Feedbacktexte.
 - Layout/A11y: Dark-Mode-Kontrast im Hauptlayout korrigiert (`--text-color` war schwarz auf dunklem Hintergrund).
 - Qualitätssicherung: `JSON.parse(lang/de.json)` und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+
+P1/P2 Fortschritt (Run 2026-04-28 10:xx):
+- Tonalität und Klarheit in auffälligen DE-Übungen geglättet.
+- Abgedeckt: Akustik-Fehlantwort `Magie` durch fachliche Fehlvorstellung ersetzt, Vakuum-Erklärung weniger dramatisch formuliert, Optik-Kernschatten einfacher erklärt, neue Chemie-/Bio-Fehlantworten sachlicher gemacht.
+- Zusätzlich Mathe-Texte mit unnötig umgangssprachlichen Formulierungen bereinigt (`absolute Chef`, `fette Pizza`, `Magie der Dreiecke`) und Finanzmathematik-Subtitle neutraler formuliert.
+- Qualitätssicherung: `JSON.parse(lang/de.json)` und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
