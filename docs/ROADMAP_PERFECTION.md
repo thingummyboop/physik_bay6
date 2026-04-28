@@ -529,3 +529,9 @@ P1 Fortschritt (Run 2026-04-28 02:5x):
 - Abgedeckt: 8 knappe Rückmeldungen (u. a. „Richtig: Resonanz.“ / „Richtig: In Joule (J).“) auf klarere A2-B1-Sätze mit kurzer Begründung umgestellt.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_language.js` (`PHYSICS_LANGUAGE_CLEAR`) plus Längen-Spotcheck der kürzesten Physik-Feedbacks.
 - Ergebnis: Physik-Feedback bleibt kurz, ist aber inhaltlich erklärender und didaktisch konsistenter.
+
+P2-Math Fortschritt (Run 2026-04-28 03:0x):
+- Mathe-Sprachfeinschliff in **`lang/de.json`** für die letzten sehr kurzen Diagnose-Feedbacks ausgebaut (`math1_4_mult_div`).
+- Abgedeckt: 2 knappe Rückmeldungen auf klarere, lernfreundliche A2-B1-Formulierungen umgestellt („15 mal 4 ergibt 60“, „144 geteilt durch 12 ist 12“).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_language.js` und anschließendem Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathematik-Feedback bleibt kompakt, aber in der Formulierung konsistenter und leichter vorlesbar.
