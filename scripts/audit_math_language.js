@@ -5,16 +5,41 @@ const fs = require('fs');
 const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..');
+const topicsDir = path.join(repoRoot, 'js', 'topics');
 const langDir = path.join(repoRoot, 'lang');
 const languageFiles = fs
   .readdirSync(langDir)
   .filter((file) => file.endsWith('.json'))
   .sort();
 
+const mathTopics = fs
+  .readdirSync(topicsDir)
+  .filter((entry) => entry.endsWith('.js'))
+  .map((entry) => entry.replace(/\.js$/, ''))
+  .filter((topic) => topic.startsWith('math'))
+  .sort();
+
 const MAX_FEEDBACK_LENGTH = 180;
 
 const issues = [];
 const perLanguageScanned = {};
+const perLanguageTopicCoverage = {};
+
+if (mathTopics.length === 0) {
+  console.error('MATH_LANGUAGE_ISSUES');
+  console.error('- _global: no_math_topics_detected (No math topic keys found for language audit)');
+  process.exit(1);
+}
+
+const referenceLangPath = path.join(langDir, 'de.json');
+const referenceLangData = JSON.parse(fs.readFileSync(referenceLangPath, 'utf8'));
+const auditableMathTopics = mathTopics.filter((topic) => Object.prototype.hasOwnProperty.call(referenceLangData, topic));
+
+if (auditableMathTopics.length === 0) {
+  console.error('MATH_LANGUAGE_ISSUES');
+  console.error('- _global: no_auditable_math_topics_detected (No math topics with language content in de.json)');
+  process.exit(1);
+}
 
 for (const fileName of languageFiles) {
   const langCode = path.basename(fileName, '.json');
@@ -22,10 +47,32 @@ for (const fileName of languageFiles) {
   const langData = JSON.parse(fs.readFileSync(langPath, 'utf8'));
 
   perLanguageScanned[langCode] = 0;
+  perLanguageTopicCoverage[langCode] = new Map();
 
-  for (const [topicKey, topicValue] of Object.entries(langData)) {
-    if (!topicKey.startsWith('math')) continue;
-    walk(topicValue, [topicKey], langCode);
+  for (const topicKey of auditableMathTopics) {
+    if (!Object.prototype.hasOwnProperty.call(langData, topicKey)) {
+      issues.push({
+        lang: langCode,
+        path: topicKey,
+        reason: 'missing_topic_key'
+      });
+      continue;
+    }
+
+    const scannedBefore = perLanguageScanned[langCode];
+    walk(langData[topicKey], [topicKey], langCode);
+    const scannedAfter = perLanguageScanned[langCode];
+    perLanguageTopicCoverage[langCode].set(topicKey, scannedAfter - scannedBefore);
+  }
+
+  for (const [topicKey, scannedCount] of perLanguageTopicCoverage[langCode].entries()) {
+    if (scannedCount === 0) {
+      issues.push({
+        lang: langCode,
+        path: topicKey,
+        reason: 'topic_has_no_feedback_entries'
+      });
+    }
   }
 }
 
@@ -46,8 +93,8 @@ function walk(node, trace, langCode) {
         issues.push({
           lang: langCode,
           path: trace.concat('answers', `[${idx}]`, 'feedback').join('.'),
-          length: text.length,
-          text
+          reason: 'feedback_too_long',
+          length: text.length
         });
       }
     });
@@ -61,7 +108,8 @@ function walk(node, trace, langCode) {
 if (issues.length > 0) {
   console.error(`MATH_LANGUAGE_ISSUES (${issues.length})`);
   for (const issue of issues) {
-    console.error(`- [${issue.lang}] ${issue.path} (len=${issue.length})`);
+    const lengthSuffix = typeof issue.length === 'number' ? ` (len=${issue.length})` : '';
+    console.error(`- [${issue.lang}] ${issue.path}: ${issue.reason}${lengthSuffix}`);
   }
   process.exit(1);
 }

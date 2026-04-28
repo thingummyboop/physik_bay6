@@ -503,3 +503,10 @@ P1 Fortschritt (Run 2026-04-28 02:22):
 - Abgedeckt: Physik-Language-Check leitet die gültigen Topic-Keys jetzt direkt aus `js/topics/*.js` ab (Ausschluss von `math*` und Nebenfächern), inkl. Guard gegen leere Physik-Erkennung.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check scripts/audit_physics_language.js`, `node scripts/audit_physics_language.js` (`PHYSICS_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: neue Physikmodule werden ohne manuelle Regex-Pflege automatisch im Sprach-Regressionstest erfasst; die Perfection-Schiene bleibt robuster gegen Scope-Drift.
+
+P1/P2/P3 Fortschritt (Run 2026-04-28 02:26):
+- Sprach-Audits für **Physik/Mathe/Nebenfächer** um Topic-Coverage-Guards ergänzt: `scripts/audit_physics_language.js`, `scripts/audit_math_language.js`, `scripts/audit_remaining_subjects_language.js`.
+- Abgedeckt: dynamische Topic-Erkennung aus `js/topics/*.js`, Auditing nur für in `de.json` vorhandene Topic-Keys, neue Fehlerklassen `missing_topic_key` und `topic_has_no_feedback_entries` sowie vereinheitlichte Issue-Ausgabe mit Reason-Codes.
+- Review/Patch aus Schleife: False-Positive bei `licht_schatten_astronomie` durch fehlenden Sprachblock abgefangen, indem nur auditable Topic-Keys (mit Sprachinhalt) als harte Pflicht gelten.
+- Qualitätssicherung: `node --check` + Einzelläufe aller drei Language-Audits sowie Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Regressionstests prüfen jetzt nicht nur Feedbacklänge, sondern auch strukturierte Sprachabdeckung pro Thema und Sprache; Scope-Drift wird früher erkannt.

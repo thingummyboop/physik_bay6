@@ -24,6 +24,7 @@ const physicsTopics = fs
 const MAX_FEEDBACK_LENGTH = 180;
 const issues = [];
 const perLanguageScanned = {};
+const perLanguageTopicCoverage = {};
 
 if (physicsTopics.length === 0) {
   console.error('PHYSICS_LANGUAGE_ISSUES');
@@ -31,7 +32,16 @@ if (physicsTopics.length === 0) {
   process.exit(1);
 }
 
-const physicsTopicSet = new Set(physicsTopics);
+const referenceLangPath = path.join(langDir, 'de.json');
+const referenceLangData = JSON.parse(fs.readFileSync(referenceLangPath, 'utf8'));
+const auditablePhysicsTopics = physicsTopics.filter((topic) => Object.prototype.hasOwnProperty.call(referenceLangData, topic));
+const physicsTopicSet = new Set(auditablePhysicsTopics);
+
+if (auditablePhysicsTopics.length === 0) {
+  console.error('PHYSICS_LANGUAGE_ISSUES');
+  console.error('- _global: no_auditable_physics_topics_detected (No physics topics with language content in de.json)');
+  process.exit(1);
+}
 
 for (const fileName of languageFiles) {
   const langCode = path.basename(fileName, '.json');
@@ -39,10 +49,32 @@ for (const fileName of languageFiles) {
   const langData = JSON.parse(fs.readFileSync(langPath, 'utf8'));
 
   perLanguageScanned[langCode] = 0;
+  perLanguageTopicCoverage[langCode] = new Map();
 
-  for (const [topicKey, topicValue] of Object.entries(langData)) {
-    if (!physicsTopicSet.has(topicKey)) continue;
-    walk(topicValue, [topicKey], langCode);
+  for (const topicKey of auditablePhysicsTopics) {
+    if (!Object.prototype.hasOwnProperty.call(langData, topicKey)) {
+      issues.push({
+        lang: langCode,
+        path: topicKey,
+        reason: 'missing_topic_key'
+      });
+      continue;
+    }
+
+    const scannedBefore = perLanguageScanned[langCode];
+    walk(langData[topicKey], [topicKey], langCode);
+    const scannedAfter = perLanguageScanned[langCode];
+    perLanguageTopicCoverage[langCode].set(topicKey, scannedAfter - scannedBefore);
+  }
+
+  for (const [topicKey, scannedCount] of perLanguageTopicCoverage[langCode].entries()) {
+    if (scannedCount === 0) {
+      issues.push({
+        lang: langCode,
+        path: topicKey,
+        reason: 'topic_has_no_feedback_entries'
+      });
+    }
   }
 }
 
@@ -64,6 +96,7 @@ function walk(node, trace, langCode) {
         issues.push({
           lang: langCode,
           path: trace.concat('answers', `[${idx}]`, 'feedback').join('.'),
+          reason: 'feedback_too_long',
           length: text.length
         });
       }
@@ -78,7 +111,8 @@ function walk(node, trace, langCode) {
 if (issues.length > 0) {
   console.error(`PHYSICS_LANGUAGE_ISSUES (${issues.length})`);
   for (const issue of issues) {
-    console.error(`- [${issue.lang}] ${issue.path} (len=${issue.length})`);
+    const lengthSuffix = typeof issue.length === 'number' ? ` (len=${issue.length})` : '';
+    console.error(`- [${issue.lang}] ${issue.path}: ${issue.reason}${lengthSuffix}`);
   }
   process.exit(1);
 }

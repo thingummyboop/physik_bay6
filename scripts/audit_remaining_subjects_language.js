@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..');
+const topicsDir = path.join(repoRoot, 'js', 'topics');
 const langDir = path.join(repoRoot, 'lang');
 const languageFiles = fs
   .readdirSync(langDir)
@@ -12,10 +13,34 @@ const languageFiles = fs
   .sort();
 
 const REMAINING_TOPIC_PATTERN = /^(dgb\d*|wetter|klima|klimawandel)$/i;
+const remainingTopics = fs
+  .readdirSync(topicsDir)
+  .filter((entry) => entry.endsWith('.js'))
+  .map((entry) => entry.replace(/\.js$/, ''))
+  .filter((topic) => REMAINING_TOPIC_PATTERN.test(topic))
+  .sort();
+
 const MAX_FEEDBACK_LENGTH = 180;
 
 const issues = [];
 const perLanguageScanned = {};
+const perLanguageTopicCoverage = {};
+
+if (remainingTopics.length === 0) {
+  console.error('REMAINING_SUBJECTS_LANGUAGE_ISSUES');
+  console.error('- _global: no_remaining_topics_detected (No remaining-subject topic keys found for language audit)');
+  process.exit(1);
+}
+
+const referenceLangPath = path.join(langDir, 'de.json');
+const referenceLangData = JSON.parse(fs.readFileSync(referenceLangPath, 'utf8'));
+const auditableRemainingTopics = remainingTopics.filter((topic) => Object.prototype.hasOwnProperty.call(referenceLangData, topic));
+
+if (auditableRemainingTopics.length === 0) {
+  console.error('REMAINING_SUBJECTS_LANGUAGE_ISSUES');
+  console.error('- _global: no_auditable_remaining_topics_detected (No remaining-subject topics with language content in de.json)');
+  process.exit(1);
+}
 
 for (const fileName of languageFiles) {
   const langCode = path.basename(fileName, '.json');
@@ -23,10 +48,32 @@ for (const fileName of languageFiles) {
   const langData = JSON.parse(fs.readFileSync(langPath, 'utf8'));
 
   perLanguageScanned[langCode] = 0;
+  perLanguageTopicCoverage[langCode] = new Map();
 
-  for (const [topicKey, topicValue] of Object.entries(langData)) {
-    if (!REMAINING_TOPIC_PATTERN.test(topicKey)) continue;
-    walk(topicValue, [topicKey], langCode);
+  for (const topicKey of auditableRemainingTopics) {
+    if (!Object.prototype.hasOwnProperty.call(langData, topicKey)) {
+      issues.push({
+        lang: langCode,
+        path: topicKey,
+        reason: 'missing_topic_key'
+      });
+      continue;
+    }
+
+    const scannedBefore = perLanguageScanned[langCode];
+    walk(langData[topicKey], [topicKey], langCode);
+    const scannedAfter = perLanguageScanned[langCode];
+    perLanguageTopicCoverage[langCode].set(topicKey, scannedAfter - scannedBefore);
+  }
+
+  for (const [topicKey, scannedCount] of perLanguageTopicCoverage[langCode].entries()) {
+    if (scannedCount === 0) {
+      issues.push({
+        lang: langCode,
+        path: topicKey,
+        reason: 'topic_has_no_feedback_entries'
+      });
+    }
   }
 }
 
@@ -48,6 +95,7 @@ function walk(node, trace, langCode) {
         issues.push({
           lang: langCode,
           path: trace.concat('answers', `[${idx}]`, 'feedback').join('.'),
+          reason: 'feedback_too_long',
           length: text.length
         });
       }
@@ -62,7 +110,8 @@ function walk(node, trace, langCode) {
 if (issues.length > 0) {
   console.error(`REMAINING_SUBJECTS_LANGUAGE_ISSUES (${issues.length})`);
   for (const issue of issues) {
-    console.error(`- [${issue.lang}] ${issue.path} (len=${issue.length})`);
+    const lengthSuffix = typeof issue.length === 'number' ? ` (len=${issue.length})` : '';
+    console.error(`- [${issue.lang}] ${issue.path}: ${issue.reason}${lengthSuffix}`);
   }
   process.exit(1);
 }
