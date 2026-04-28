@@ -728,3 +728,9 @@ P1/P2 Fortschritt (Run 2026-04-28 10:xx):
 - Abgedeckt: Akustik-Fehlantwort `Magie` durch fachliche Fehlvorstellung ersetzt, Vakuum-Erklärung weniger dramatisch formuliert, Optik-Kernschatten einfacher erklärt, neue Chemie-/Bio-Fehlantworten sachlicher gemacht.
 - Zusätzlich Mathe-Texte mit unnötig umgangssprachlichen Formulierungen bereinigt (`absolute Chef`, `fette Pizza`, `Magie der Dreiecke`) und Finanzmathematik-Subtitle neutraler formuliert.
 - Qualitätssicherung: `JSON.parse(lang/de.json)` und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+
+P3 Fortschritt (Run 2026-04-28 16:xx):
+- Neue Einstiegsfächer **Geographie**, **Chemie** und **Biologie** didaktisch von Starter-Niveau auf klassentaugliche A2-B1-Module erweitert.
+- Pro Kapitel ergänzt: 2-3 Mini-Aufgaben, eine Transferaufgabe, klare **Merke**-Boxen, Alltagssituationen und explizite Hinweise auf typische Fehlvorstellungen.
+- EN-Backfill für **`geo_oesterreich_alltag`**, **`chemie_alltag_stoffe`** und **`bio_koerper_gesundheit`** mit gleicher Struktur/gleichen Quiz-IDs ergänzt, damit diese neuen Topics nicht mehr auf Deutsch zurückfallen.
+- QA-Ausbau: neuer sichtbarer Warning-Audit **`scripts/audit_new_subject_english_blocks.js`** im Sammel-Gate; meldet neue `geo_`/`chemie_`/`bio_`-Topickeys ohne `lang/en.json`-Block als `NEW_SUBJECT_EN_BLOCK_WARNING`.
