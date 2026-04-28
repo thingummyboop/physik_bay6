@@ -517,3 +517,9 @@ P1 Fortschritt (Run 2026-04-28 02:36):
 - Qualitätssicherung: Implementieren → Review → Patch mit `node --check scripts/audit_physics_language.js`, `node scripts/audit_physics_language.js` (`PHYSICS_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Doku nachgezogen: **`docs/QUALITY_CRITERIA.md`** ergänzt um Verbot generischer Platzhalterantworten ohne Erklärung.
 - Ergebnis: Physik-Perfection schützt jetzt nicht nur gegen zu lange, sondern auch gegen inhaltsarme Diagnose-Feedbacks.
+
+P2-Math Fortschritt (Run 2026-04-28 02:44):
+- Mathe-Sprachaudit **`scripts/audit_math_language.js`** analog erweitert: generische Ein-Wort-Feedbacks werden jetzt als Regression (`feedback_too_generic`) markiert.
+- Review/Patch aus Schleife: Audit fand 18 Altfälle in `math1_1_vs_wissen` (alle Sprachen mit nur „Richtig.“); diese Rückmeldungen wurden auf kurze inhaltliche Bestätigungen nachgezogen.
+- Qualitätssicherung: `node --check scripts/audit_math_language.js`, `node scripts/audit_math_language.js` (`MATH_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathe-Perfection verhindert nun ebenfalls inhaltsarme Platzhalterrückmeldungen bei korrekten Antworten.
