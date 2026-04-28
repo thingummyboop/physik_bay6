@@ -8,7 +8,7 @@ const repoRoot = path.resolve(__dirname, '..');
 const enPath = path.join(repoRoot, 'lang', 'en.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
-const defaultScopedTopics = ['math2_6_prop_prozent'];
+const defaultScopedTopics = ['math2_6_prop_prozent', 'math1_7_gleichungen'];
 const scopedTopics = (process.env.MATH_EN_CONSISTENCY_TOPICS || defaultScopedTopics.join(','))
   .split(',')
   .map((topic) => topic.trim())

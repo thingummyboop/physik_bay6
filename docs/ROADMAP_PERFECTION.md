@@ -573,3 +573,10 @@ P1 Fortschritt (Run 2026-04-28 03:43):
 - Abgedeckt: 86 Diagnose-Feedbacktexte + 1 Inhaltsstring in `lang/en.json` (Kapitelquiz + Diplomteil) auf konsistentes Englisch vereinheitlicht.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: `scripts/audit_physics_english_consistency.js` meldet nun `known_debt=0`; Baseline (`scripts/baselines/physics_en_consistency_allowlist.json`) wurde auf leere Altlasten aktualisiert.
+
+P2-Math Fortschritt (Run 2026-04-28 03:58):
+- Mathe-Perfection (EN) im priorisierten Thema **`math1_7_gleichungen`** nachgezogen.
+- Abgedeckt: 11 diagnoseorientierte Feedbacktexte + 1 Inhaltsblock (`sections[0].content`) auf konsistentes Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 1 auf 2 priorisierte Themen erweitert (`math2_6_prop_prozent`, `math1_7_gleichungen`); Baseline (`scripts/baselines/math_en_consistency_allowlist.json`) entsprechend aktualisiert.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt Gleichungen automatisiert mit ab (`known_debt=0`).
