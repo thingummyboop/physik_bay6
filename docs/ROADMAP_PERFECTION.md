@@ -567,3 +567,9 @@ P2-Math Fortschritt (Run 2026-04-28 03:5x):
 - Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 12-stufigen Sammellauf erweitert; **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden Mathe-EN-Konsistenzcheck ergänzt.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_english_consistency.js`, `JSON.parse(lang/en.json)` und anschließend `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Das priorisierte EN-Mathemodul ist sprachlich konsistent, und neue Mischsprach-Rückfälle werden automatisiert abgefangen.
+
+P1 Fortschritt (Run 2026-04-28 03:43):
+- Physik-Perfection (EN) für die priorisierten Optik-Module vollständig nachgezogen: **`optik1`** und **`linsen_spiegel`** enthalten keine deutschsprachigen Rest-Feedbacks mehr.
+- Abgedeckt: 86 Diagnose-Feedbacktexte + 1 Inhaltsstring in `lang/en.json` (Kapitelquiz + Diplomteil) auf konsistentes Englisch vereinheitlicht.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: `scripts/audit_physics_english_consistency.js` meldet nun `known_debt=0`; Baseline (`scripts/baselines/physics_en_consistency_allowlist.json`) wurde auf leere Altlasten aktualisiert.
