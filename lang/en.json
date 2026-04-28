@@ -1772,18 +1772,18 @@
                 "text": "A circular magnetic field is created.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Um den Leiter liegen kreisförmige Feldlinien. Merksatz: Strom erzeugt Magnetfeld."
+                "feedback": "Correct. Circular field lines form around the wire. Remember: current makes a magnetic field."
               },
               {
                 "text": "It's just getting warm.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Wärme kann auch entstehen, aber die Kernidee hier ist das Magnetfeld um den Draht."
+                "feedback": "Heat can also appear, but the key idea is the magnetic field around the wire."
               }
             ]
           }
         ],
-        "content": "<p>People used to think that electricity and magnets had nothing to do with each other. But in 1820 <strong>Hans Christian Ørsted</strong> noticed that a compass needle moves when you hold it next to a wire carrying current.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>The clever word: field lines</strong><br>\n            We draw the invisible field as lines. In the case of wire, there are concentric circles around the conductor.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 The field controller</h3>\n            <p>Increase current:</p>\n            <input type=\"range\" id=\"currentRange\" min=\"0\" max=\"100\" value=\"30\" oninput=\"updateMagnetField(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"50\" y=\"67\" width=\"300\" height=\"16\" fill=\"#718096\" rx=\"8\"></rect>\n                    <path id=\"currentArrow\" d=\"M 185 75 L 215 75\" stroke=\"white\" stroke-width=\"3\"></path>\n                    <g id=\"fieldLines\">\n                        <ellipse cx=\"120\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                        <ellipse cx=\"200\" cy=\"75\" rx=\"22\" ry=\"70\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></ellipse>\n                        <ellipse cx=\"280\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                    </g>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s1_q1}}"
+        "content": "<p>People used to think that electricity and magnets had nothing to do with each other. But in 1820 <strong>Hans Christian Oersted</strong> noticed that a compass needle moves when you hold it next to a wire carrying current.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Key word: field lines</strong><br>\n            We draw the invisible field as lines. Around a wire, these lines are circles around the conductor.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 The field controller</h3>\n            <p>Increase current:</p>\n            <input type=\"range\" id=\"currentRange\" min=\"0\" max=\"100\" value=\"30\" oninput=\"updateMagnetField(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <rect x=\"50\" y=\"67\" width=\"300\" height=\"16\" fill=\"#718096\" rx=\"8\"></rect>\n                    <path id=\"currentArrow\" d=\"M 185 75 L 215 75\" stroke=\"white\" stroke-width=\"3\"></path>\n                    <g id=\"fieldLines\">\n                        <ellipse cx=\"120\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                        <ellipse cx=\"200\" cy=\"75\" rx=\"22\" ry=\"70\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\"></ellipse>\n                        <ellipse cx=\"280\" cy=\"75\" rx=\"15\" ry=\"50\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></ellipse>\n                    </g>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s1_q1}}"
       },
       {
         "id": "sec1",
@@ -1797,18 +1797,18 @@
                 "text": "Plastic.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Plastik leitet den Magnetfluss kaum. Für starke Elektromagnete nutzt man meist (Weich-)Eisen."
+                "feedback": "Plastic hardly guides magnetic flux. Strong electromagnets usually use soft iron."
               },
               {
                 "text": "Soft iron.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Weicheisen lässt sich gut magnetisieren und verstärkt die Spule deutlich."
+                "feedback": "Correct. Soft iron is easy to magnetize and makes the coil much stronger."
               }
             ]
           }
         ],
-        "content": "<p>A single wire is a weak magnet. But if you wind it up into a <strong>coil</strong>, the fields of each turn add up. An <strong>Iron core</strong> inside bundles this power enormously.</p>\n        <div class=\"interactive-zone\">\n            <h3>🧪 The Core Lab</h3>\n            <button onclick=\"setMaterial('none')\">Air</button>\n            <button onclick=\"setMaterial('wood')\">Wood</button>\n            <button onclick=\"setMaterial('iron')\">Iron</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <g id=\"spuleField\" style=\"opacity: 0.2; transition: opacity 0.5s;\">\n                        <path d=\"M 50 75 Q 200 -20 350 75 M 50 75 Q 200 170 350 75\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></path>\n                    </g>\n                    <rect id=\"materialCore\" x=\"110\" y=\"55\" width=\"180\" height=\"40\" rx=\"5\" fill=\"transparent\" style=\"transition: fill 0.3s;\"></rect>\n                    <path d=\"M 135 40 L 150 110 M 175 40 L 190 110 M 215 40 L 230 110 M 255 40 L 270 110\" stroke=\"#ED8936\" stroke-width=\"6\" fill=\"none\"></path>\n                </svg>\n                <p id=\"materialText\" style=\"font-weight:bold;\">Core: Air</p>\n            </div>\n        </div>\n        {{QUIZ_em_s2_q1}}"
+        "content": "<p>A single wire is a weak magnet. But if you wind it up into a <strong>coil</strong>, the fields of each turn add up. An <strong>iron core</strong> inside bundles this power strongly.</p>\n        <div class=\"interactive-zone\">\n            <h3>🧪 The Core Lab</h3>\n            <button onclick=\"setMaterial('none')\">Air</button>\n            <button onclick=\"setMaterial('wood')\">Wood</button>\n            <button onclick=\"setMaterial('iron')\">Iron</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <g id=\"spuleField\" style=\"opacity: 0.2; transition: opacity 0.5s;\">\n                        <path d=\"M 50 75 Q 200 -20 350 75 M 50 75 Q 200 170 350 75\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\"></path>\n                    </g>\n                    <rect id=\"materialCore\" x=\"110\" y=\"55\" width=\"180\" height=\"40\" rx=\"5\" fill=\"transparent\" style=\"transition: fill 0.3s;\"></rect>\n                    <path d=\"M 135 40 L 150 110 M 175 40 L 190 110 M 215 40 L 230 110 M 255 40 L 270 110\" stroke=\"#ED8936\" stroke-width=\"6\" fill=\"none\"></path>\n                </svg>\n                <p id=\"materialText\" style=\"font-weight:bold;\">Core: Air</p>\n            </div>\n        </div>\n        {{QUIZ_em_s2_q1}}"
       },
       {
         "id": "sec2",
@@ -1822,13 +1822,13 @@
                 "text": "To safely control a strong circuit using a weak circuit.",
                 "correct": true,
                 "pts": 15,
-                "feedback": "Genau. Ein kleiner Steuerstrom schaltet sicher einen getrennten, stärkeren Lastkreis."
+                "feedback": "Correct. A small control current safely switches a separate, stronger load circuit."
               },
               {
                 "text": "To save electricity.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Relais können indirekt sparen, ihr Hauptzweck ist aber sicheres Schalten und galvanische Trennung."
+                "feedback": "Relays may save energy in some cases, but their main job is safe switching and separation."
               }
             ]
           }
@@ -1847,13 +1847,13 @@
                 "text": "Into chemical energy.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Chemische Energie passt eher zu Akku/Batterie. Der Motor liefert vor allem Drehbewegung."
+                "feedback": "Chemical energy fits a battery better. A motor mainly gives movement."
               },
               {
-                "text": "In kinetic energy.",
+                "text": "Into kinetic energy.",
                 "correct": true,
                 "pts": 15,
-                "feedback": "Perfekt. Der Motor wandelt elektrische Energie in Bewegung (plus etwas Wärme/Schall) um."
+                "feedback": "Correct. A motor changes electrical energy into motion, with some heat and sound."
               }
             ]
           }
@@ -1872,13 +1872,13 @@
                 "text": "Due to the friction of wire on wood.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Reibung mit Holz erzeugt keinen nutzbaren Generatorstrom. Entscheidend ist die Feldänderung in der Spule."
+                "feedback": "Friction on wood does not make useful generator current. The changing field in the coil matters."
               },
               {
                 "text": "By moving a magnet in a coil.",
                 "correct": true,
                 "pts": 15,
-                "feedback": "Richtig. Bewegung im Magnetfeld ändert den Fluss und induziert eine Spannung."
+                "feedback": "Correct. Motion in a magnetic field changes the flux and induces voltage."
               }
             ]
           }
@@ -1897,18 +1897,18 @@
                 "text": "Because direct current is too weak for the iron core.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Der Kern ist nicht das Problem. Bei Gleichstrom fehlt die laufende Feldänderung für Induktion."
+                "feedback": "The core is not the problem. Direct current has no steady field change for induction."
               },
               {
                 "text": "Because the magnetic field must constantly change to induce current in the second coil.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Nur ein veränderliches Magnetfeld induziert in der zweiten Spule eine Spannung."
+                "feedback": "Correct. Only a changing magnetic field induces voltage in the second coil."
               }
             ]
           }
         ],
-        "content": "<p>A transformer consists of two separate coils on a common <strong>Iron core</strong>. He uses the <strong>mutual induction</strong>:</p>\n        <ul>\n            <li>The <strong>Primary coil</strong> uses alternating current to generate a constantly changing magnetic field.</li>\n            <li>The iron core passes this <strong>magnetic flux</strong> to the second coil.</li>\n            <li>This induces a new voltage in the <strong>secondary coil</strong>.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>⚡ The voltage converter</h3>\n            <p>Change the number of turns of the secondary coil (right):</p>\n            <input type=\"range\" id=\"transRange\" min=\"1\" max=\"10\" value=\"5\" oninput=\"updateTransformer(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c; padding: 20px;\">\n                <svg width=\"400\" height=\"220\" viewBox=\"0 0 400 220\">\n                    <defs>\n                        <radialGradient id=\"fluxGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n                            <stop offset=\"0%\" stop-color=\"#2196F3\" stop-opacity=\"0.4\" />\n                            <stop offset=\"100%\" stop-color=\"#2196F3\" stop-opacity=\"0\" />\n                        </radialGradient>\n                    </defs>\n                    <rect x=\"80\" y=\"40\" width=\"240\" height=\"120\" fill=\"none\" stroke=\"#4a5568\" stroke-width=\"25\"></rect>\n                    <rect id=\"fluxField\" x=\"65\" y=\"25\" width=\"270\" height=\"150\" fill=\"url(#fluxGlow)\" opacity=\"0.5\"></rect>\n                    <rect id=\"magneticFlux\" x=\"80\" y=\"40\" width=\"240\" height=\"120\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\" \n                          stroke-dasharray=\"10,10\" style=\"animation: dash 2s linear infinite;\"></rect>\n                    <g id=\"coil1\">\n                        <path d=\"M 85 60 L 115 65 M 85 80 L 115 85 M 85 100 L 115 105 M 85 120 L 115 125 M 85 140 L 115 145\" stroke=\"#ED8936\" stroke-width=\"6\"></path>\n                        <text x=\"65\" y=\"185\" fill=\"#ED8936\" font-size=\"12\" text-anchor=\"middle\">Primary</text>\n                        <circle r=\"3\" fill=\"yellow\"><animateMotion path=\"M 85 60 L 115 65 M 85 140 L 115 145\" dur=\"1s\" repeatCount=\"indefinite\" /></circle>\n                    </g>\n                    <g id=\"coil2\"></g>\n                    <text x=\"335\" y=\"185\" fill=\"#ED8936\" font-size=\"12\" text-anchor=\"middle\">Secondary</text>\n                    <rect x=\"20\" y=\"60\" width=\"15\" height=\"100\" fill=\"#2d3748\"></rect>\n                    <rect id=\"voltBarPri\" x=\"20\" y=\"110\" width=\"15\" height=\"50\" fill=\"#2196F3\"></rect>\n                    <rect x=\"365\" y=\"60\" width=\"15\" height=\"100\" fill=\"#2d3748\"></rect>\n                    <rect id=\"voltBarSec\" x=\"365\" y=\"110\" width=\"15\" height=\"50\" fill=\"#4CAF50\"></rect>\n                    <text id=\"voltValSec\" x=\"372\" y=\"175\" fill=\"white\" font-size=\"10\" text-anchor=\"middle\">230V</text>\n                    <text x=\"200\" y=\"210\" text-anchor=\"middle\" id=\"transText\" fill=\"white\" font-weight=\"bold\">Translation: 1:1</text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s5_q1}}"
+        "content": "<p>A transformer consists of two separate coils on a common <strong>iron core</strong>. It uses <strong>mutual induction</strong>:</p>\n        <ul>\n            <li>The <strong>primary coil</strong> uses alternating current to generate a constantly changing magnetic field.</li>\n            <li>The iron core passes this <strong>magnetic flux</strong> to the second coil.</li>\n            <li>This induces a new voltage in the <strong>secondary coil</strong>.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>⚡ The voltage converter</h3>\n            <p>Change the number of turns of the secondary coil (right):</p>\n            <input type=\"range\" id=\"transRange\" min=\"1\" max=\"10\" value=\"5\" oninput=\"updateTransformer(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c; padding: 20px;\">\n                <svg width=\"400\" height=\"220\" viewBox=\"0 0 400 220\">\n                    <defs>\n                        <radialGradient id=\"fluxGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n                            <stop offset=\"0%\" stop-color=\"#2196F3\" stop-opacity=\"0.4\" />\n                            <stop offset=\"100%\" stop-color=\"#2196F3\" stop-opacity=\"0\" />\n                        </radialGradient>\n                    </defs>\n                    <rect x=\"80\" y=\"40\" width=\"240\" height=\"120\" fill=\"none\" stroke=\"#4a5568\" stroke-width=\"25\"></rect>\n                    <rect id=\"fluxField\" x=\"65\" y=\"25\" width=\"270\" height=\"150\" fill=\"url(#fluxGlow)\" opacity=\"0.5\"></rect>\n                    <rect id=\"magneticFlux\" x=\"80\" y=\"40\" width=\"240\" height=\"120\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"2\" \n                          stroke-dasharray=\"10,10\" style=\"animation: dash 2s linear infinite;\"></rect>\n                    <g id=\"coil1\">\n                        <path d=\"M 85 60 L 115 65 M 85 80 L 115 85 M 85 100 L 115 105 M 85 120 L 115 125 M 85 140 L 115 145\" stroke=\"#ED8936\" stroke-width=\"6\"></path>\n                        <text x=\"65\" y=\"185\" fill=\"#ED8936\" font-size=\"12\" text-anchor=\"middle\">Primary</text>\n                        <circle r=\"3\" fill=\"yellow\"><animateMotion path=\"M 85 60 L 115 65 M 85 140 L 115 145\" dur=\"1s\" repeatCount=\"indefinite\" /></circle>\n                    </g>\n                    <g id=\"coil2\"></g>\n                    <text x=\"335\" y=\"185\" fill=\"#ED8936\" font-size=\"12\" text-anchor=\"middle\">Secondary</text>\n                    <rect x=\"20\" y=\"60\" width=\"15\" height=\"100\" fill=\"#2d3748\"></rect>\n                    <rect id=\"voltBarPri\" x=\"20\" y=\"110\" width=\"15\" height=\"50\" fill=\"#2196F3\"></rect>\n                    <rect x=\"365\" y=\"60\" width=\"15\" height=\"100\" fill=\"#2d3748\"></rect>\n                    <rect id=\"voltBarSec\" x=\"365\" y=\"110\" width=\"15\" height=\"50\" fill=\"#4CAF50\"></rect>\n                    <text id=\"voltValSec\" x=\"372\" y=\"175\" fill=\"white\" font-size=\"10\" text-anchor=\"middle\">230V</text>\n                    <text x=\"200\" y=\"210\" text-anchor=\"middle\" id=\"transText\" fill=\"white\" font-weight=\"bold\">Ratio: 1:1</text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_em_s5_q1}}"
       }
     ],
     "diplom": {
@@ -1922,13 +1922,13 @@
               "text": "Isaac Newton",
               "correct": false,
               "pts": 5,
-              "feedback": "Newton war wichtig für Mechanik. Elektromagnetismus wurde 1820 von Ørsted beobachtet."
+              "feedback": "Newton was important for mechanics. Oersted observed electromagnetism in 1820."
             },
             {
               "text": "Hans Christian Ørsted",
               "correct": true,
               "pts": 5,
-              "feedback": "Stimmt: Ørsted zeigte 1820 den Zusammenhang zwischen Strom und Magnetismus."
+              "feedback": "Correct: Oersted showed the link between current and magnetism in 1820."
             }
           ]
         },
@@ -1940,13 +1940,13 @@
               "text": "A magnetic field",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Ein Magnetfeld entsteht um jeden stromdurchflossenen Leiter."
+              "feedback": "Correct: a magnetic field forms around every wire with current."
             },
             {
               "text": "A vacuum",
               "correct": false,
               "pts": 5,
-              "feedback": "Kein Vakuum – Strom erzeugt ein Magnetfeld um den Leiter."
+              "feedback": "No vacuum: current makes a magnetic field around the wire."
             }
           ]
         },
@@ -1958,13 +1958,13 @@
               "text": "capacitor",
               "correct": false,
               "pts": 5,
-              "feedback": "Ein Kondensator speichert Ladung, ist aber keine aufgewickelte Drahtrolle."
+              "feedback": "A capacitor stores charge. It is not a rolled-up wire."
             },
             {
-              "text": "Sink",
+              "text": "Coil",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Eine aufgewickelte Drahtrolle nennt man Spule."
+              "feedback": "Correct. A rolled-up wire is called a coil."
             }
           ]
         },
@@ -1976,13 +1976,13 @@
               "text": "aluminum",
               "correct": false,
               "pts": 5,
-              "feedback": "Aluminium ist leitfähig, aber als Kern für starke Elektromagnete ungeeignet."
+              "feedback": "Aluminum conducts electricity, but it is not a good core for strong electromagnets."
             },
             {
               "text": "iron",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Eisen/Weicheisen ist als Kernmaterial besonders wirksam."
+              "feedback": "Correct. Iron, especially soft iron, works very well as a core."
             }
           ]
         },
@@ -1991,16 +1991,16 @@
           "question": "What happens to the magnetic force when you wind more turns on a coil?",
           "answers": [
             {
-              "text": "She's getting weaker.",
+              "text": "It gets weaker.",
               "correct": false,
               "pts": 5,
-              "feedback": "Umgekehrt: Mehr Windungen verstärken die Feldwirkung der Spule."
+              "feedback": "It is the opposite: more turns make the coil's field stronger."
             },
             {
-              "text": "She's getting stronger.",
+              "text": "It gets stronger.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Mehr Windungen bedeuten meist stärkere Magnetwirkung bei gleichem Strom."
+              "feedback": "Correct. With the same current, more turns usually make a stronger magnet."
             }
           ]
         },
@@ -2012,13 +2012,13 @@
               "text": "Lorentz force",
               "correct": true,
               "pts": 5,
-              "feedback": "Ja. Das ist genau das Prinzip eines Elektromagneten."
+              "feedback": "Correct. The Lorentz force acts on moving charges in a magnetic field."
             },
             {
               "text": "centrifugal force",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht die Spule wird magnetisch, sondern der Eisenkern im Feld der Spule."
+              "feedback": "Centrifugal force is different. Here the magnetic field pushes moving charges."
             }
           ]
         },
@@ -2030,13 +2030,13 @@
               "text": "generator",
               "correct": false,
               "pts": 5,
-              "feedback": "Ein Relais ist kein Spannungswandler. Es ist ein magnetisch betätigter Schalter."
+              "feedback": "A generator makes electricity from motion. A motor does the reverse."
             },
             {
               "text": "Electric motor",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Relais trennen Steuer- und Lastkreis und schalten so sicher."
+              "feedback": "Correct. An electric motor changes electrical energy into motion."
             }
           ]
         },
@@ -2048,13 +2048,13 @@
               "text": "Resistance",
               "correct": false,
               "pts": 5,
-              "feedback": "Schwerkraft wirkt auf Masse, nicht spezifisch auf Ladungen im Magnetfeld."
+              "feedback": "Resistance can waste energy, but a dynamo works by induction."
             },
             {
               "text": "induction",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Lorentzkraft wirkt auf bewegte Ladungen im Magnetfeld."
+              "feedback": "Correct. A bicycle dynamo uses induction to make electricity."
             }
           ]
         },
@@ -2066,13 +2066,13 @@
               "text": "The magnetic field",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Dreht sich der Stromfluss, dreht sich auch die Kraftrichtung."
+              "feedback": "Correct. A changing magnetic field can induce current in a coil."
             },
             {
               "text": "The color of the wire",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht nach links/rechts sortieren, sondern mit der Drei-Finger-Regel denken."
+              "feedback": "The wire color does not matter. The magnetic field must change."
             }
           ]
         },
@@ -2084,13 +2084,13 @@
               "text": "transformer",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Ein Generator nutzt Bewegung, um elektrische Energie zu erzeugen."
+              "feedback": "Correct. A transformer can increase or decrease voltage."
             },
             {
               "text": "transistor",
               "correct": false,
               "pts": 5,
-              "feedback": "Ein Generator erzeugt nicht Wärme als Zielgröße, sondern elektrische Energie."
+              "feedback": "A transistor is an electronic switch or amplifier, not a voltage transformer."
             }
           ]
         },
@@ -2102,13 +2102,13 @@
               "text": "Because circles look nicer.",
               "correct": false,
               "pts": 5,
-              "feedback": "Dauerhaft gleiches Feld reicht nicht. Für Induktion braucht es Änderung."
+              "feedback": "They are not drawn as circles just for looks. Magnetic field lines form closed loops."
             },
             {
               "text": "Because magnetic fields don't have poles that start or stop anywhere.",
               "correct": true,
               "pts": 5,
-              "feedback": "Perfekt. Ohne Änderung des Magnetflusses keine Induktion."
+              "feedback": "Correct. Magnetic field lines have no start or end point."
             }
           ]
         },
@@ -2120,13 +2120,13 @@
               "text": "Yes, if you move it relative to the coil.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Primärseite bekommt die Eingangsspannung aus der Quelle."
+              "feedback": "Correct. Moving the magnet changes the field in the coil and can induce current."
             },
             {
               "text": "No, this only works with batteries.",
               "correct": false,
               "pts": 5,
-              "feedback": "Die Sekundärspule gibt meist die Ausgangsspannung ab, nicht die Eingangsspannung."
+              "feedback": "A battery is not needed. A moving magnet and a coil can induce current."
             }
           ]
         },
@@ -2138,13 +2138,13 @@
               "text": "In wooden chairs.",
               "correct": false,
               "pts": 5,
-              "feedback": "Mehr Windungen sekundär senken nicht, sondern erhöhen typischerweise die Ausgangsspannung."
+              "feedback": "Wooden chairs usually do not use electromagnets."
             },
             {
               "text": "In bells, speakers and cranes.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Mehr Windungen sekundär => höhere Spannung (idealer Trafo)."
+              "feedback": "Correct. Bells, speakers, and cranes can use electromagnets."
             }
           ]
         },
@@ -2156,13 +2156,13 @@
               "text": "A wire gets a push in the magnetic field.",
               "correct": true,
               "pts": 5,
-              "feedback": "Ja. Wechselstrom erzeugt das notwendige veränderliche Magnetfeld."
+              "feedback": "Correct. A current-carrying wire can get pushed in a magnetic field."
             },
             {
               "text": "The magnet melts.",
               "correct": false,
               "pts": 5,
-              "feedback": "Mit reinem Gleichstrom gibt es nach dem Einschalten kaum weitere Induktion."
+              "feedback": "The magnet does not melt. The wire feels a force in the magnetic field."
             }
           ]
         },
@@ -2174,13 +2174,13 @@
               "text": "Kinetic energy to electrical energy.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Ladegeräte, Netzteile und viele Geräte arbeiten mit Transformatoren."
+              "feedback": "Correct. A generator changes motion energy into electrical energy."
             },
             {
               "text": "Light energy to heat.",
               "correct": false,
               "pts": 5,
-              "feedback": "Im Fahrradkorb steckt kein typischer Trafo-Einsatz. Den findest du eher in Netzteilen/Ladegeräten."
+              "feedback": "That is not a generator's main job. A generator makes electrical energy from motion."
             }
           ]
         }

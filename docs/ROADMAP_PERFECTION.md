@@ -614,3 +614,9 @@ P1 Fortschritt (Run 2026-04-28 04:3x):
 - Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 7 auf 8 priorisierte Physikthemen erweitert (neu: `kraft_und_bewegung`).
 - Qualitätssicherung: Implementieren → Review → Patch mit `PHYSICS_EN_CONSISTENCY_TOPICS=kraft_und_bewegung node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Auch `kraft_und_bewegung` ist jetzt EN-konsistent im priorisierten Physik-Scope (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 04:37):
+- Physik-Perfection (EN) im Thema **elektromagnetismus** nachgezogen.
+- Abgedeckt: verbliebene deutschsprachige Feedback-/Content-Reste in Kapitel- und Diplomteil auf konsistentes, kurzes Englisch vereinheitlicht (inkl. Begriffskorrekturen wie `Coil`, `Ratio: 1:1`).
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=elektromagnetismus node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: `elektromagnetismus` ist jetzt EN-konsistent (`known_debt=0` im fokussierten Audit) ohne Regressionen im Gesamt-Gate.
