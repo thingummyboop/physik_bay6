@@ -4532,13 +4532,13 @@
                 "text": "Because they sound nicer.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Genau. Das SI ist das weltweit vereinbarte Einheitensystem der Physik."
+                "feedback": "Not quite. SI units are used for clear measurements, not because they sound nicer."
               },
               {
                 "text": "So that everyone means exactly the same length, time or mass and there are no errors.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Nicht ganz. SI steht nicht für Intelligenz, sondern für das internationale Einheitensystem."
+                "feedback": "Correct. SI gives scientists the same units for length, time, mass and more."
               }
             ]
           }
@@ -4557,13 +4557,13 @@
                 "text": "Kilogram (kg).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Die SI-Grundeinheit der Länge ist der Meter (m)."
+                "feedback": "Correct. The SI base unit for mass is the kilogram (kg)."
               },
               {
                 "text": "Second (s).",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Fuß ist eine ältere/angloamerikanische Einheit, aber keine SI-Basiseinheit."
+                "feedback": "No. The second is the SI base unit for time, not mass."
               }
             ]
           }
@@ -4582,18 +4582,18 @@
                 "text": "100 grams.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Minute ist praktisch im Alltag, aber in der Physik rechnet man in Sekunden."
+                "feedback": "No. 100 grams is only one tenth of a kilogram."
               },
               {
                 "text": "1,000 grams.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Sekunde (s) ist die SI-Grundeinheit der Zeit."
+                "feedback": "Correct. Kilo means one thousand, so 1 kg = 1,000 g."
               }
             ]
           }
         ],
-        "content": "<p>Prefixes are prefixes before a unit. They help to write very large or very small values ​​briefly. The important thing is: you always convert within the same type of size. Length remains length, mass remains mass, time remains time.</p>\n        <div class=\"remember-box\"><strong>Important conversions:</strong><br>\n            <table style=\"width:100%; border-collapse:collapse; margin-top:8px;\">\n                <tr><th style=\"text-align:left; padding:4px;\">Length</th><td style=\"padding:4px;\">1 km = 1000 m<br>1 m = 100 cm<br>1 cm = 10 mm</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Mass</th><td style=\"padding:4px;\">1 kg = 1000 g</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Time</th><td style=\"padding:4px;\">1 min = 60 s</td></tr>\n            </table>\n            <p style=\"margin:8px 0 0;\"><strong>Rule:</strong> If the unit gets smaller, the number gets bigger. If the unit gets bigger, the number gets smaller.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>The Unit Zoom</h3>\n            <p>Slide from very small to very large.</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"4\" value=\"3\" oninput=\"updateZoom()\" style=\"width: 260px;\">\n            <div class=\"diagram-box\" style=\"height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"zoomTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #1d4ed8;\">1 meter (m)</p>\n                <svg width=\"240\" height=\"105\" viewBox=\"0 0 240 105\" aria-label=\"Gr&ouml;&szlig;envergleich von Millimeter bis Kilometer\">\n                    <g id=\"zoomMilli\" style=\"display: none;\"><circle cx=\"118\" cy=\"52\" r=\"3\" fill=\"#111827\"></circle><line x1=\"112\" y1=\"62\" x2=\"124\" y2=\"62\" stroke=\"#111827\" stroke-width=\"2\"></line><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Pencil Tip</text></g>\n                    <g id=\"zoomCenti\" style=\"display: none;\"><rect x=\"92\" y=\"42\" width=\"56\" height=\"20\" rx=\"4\" fill=\"#22c55e\"></rect><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Eraser</text></g>\n                    <g id=\"zoomMeter\" style=\"display: block;\"><circle cx=\"120\" cy=\"25\" r=\"14\" fill=\"#60a5fa\"></circle><line x1=\"120\" y1=\"39\" x2=\"120\" y2=\"84\" stroke=\"#2563eb\" stroke-width=\"6\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"92\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"148\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line></g>\n                    <g id=\"zoomKilo\" style=\"display: none;\"><path d=\"M20 88 L62 36 L104 88 Z\" fill=\"#93c5fd\"></path><path d=\"M78 88 L145 20 L214 88 Z\" fill=\"#60a5fa\"></path><rect x=\"110\" y=\"55\" width=\"18\" height=\"33\" fill=\"#64748b\"></rect><rect x=\"133\" y=\"46\" width=\"24\" height=\"42\" fill=\"#475569\"></rect><text x=\"120\" y=\"101\" text-anchor=\"middle\" font-size=\"12\">Route through the district</text></g>\n                </svg>\n                <p id=\"zoomDesc\" style=\"color: #475569; margin: 4px 0 0;\">Base: big step, table height, height.</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Conversion Training</h3>\n            <p>Calculate and check immediately. You can use comma or period.</p>\n            <div class=\"lab-controls\">\n                <label>2 m = <input id=\"convInput0\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> cm <button onclick=\"checkConversion(0)\">Check</button></label>\n                <label>3 km = <input id=\"convInput1\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> m <button onclick=\"checkConversion(1)\">Check</button></label>\n                <label>1500 g = <input id=\"convInput2\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> kg <button onclick=\"checkConversion(2)\">Check</button></label>\n                <label>4 min = <input id=\"convInput3\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> s <button onclick=\"checkConversion(3)\">Check</button></label>\n            </div>\n            <p id=\"conversionText\" class=\"lab-feedback\">Choose a task and check your answer.</p>\n        </div>\n        {{QUIZ_q3}}"
+        "content": "<p>Prefixes are prefixes before a unit. They help to write very large or very small values ​​briefly. The important thing is: you always convert within the same type of size. Length remains length, mass remains mass, time remains time.</p>\n        <div class=\"remember-box\"><strong>Important conversions:</strong><br>\n            <table style=\"width:100%; border-collapse:collapse; margin-top:8px;\">\n                <tr><th style=\"text-align:left; padding:4px;\">Length</th><td style=\"padding:4px;\">1 km = 1000 m<br>1 m = 100 cm<br>1 cm = 10 mm</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Mass</th><td style=\"padding:4px;\">1 kg = 1000 g</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Time</th><td style=\"padding:4px;\">1 min = 60 s</td></tr>\n            </table>\n            <p style=\"margin:8px 0 0;\"><strong>Rule:</strong> If the unit gets smaller, the number gets bigger. If the unit gets bigger, the number gets smaller.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>The Unit Zoom</h3>\n            <p>Slide from very small to very large.</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"4\" value=\"3\" oninput=\"updateZoom()\" style=\"width: 260px;\">\n            <div class=\"diagram-box\" style=\"height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"zoomTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #1d4ed8;\">1 meter (m)</p>\n                <svg width=\"240\" height=\"105\" viewBox=\"0 0 240 105\" aria-label=\"Size comparison from millimeters to kilometers\">\n                    <g id=\"zoomMilli\" style=\"display: none;\"><circle cx=\"118\" cy=\"52\" r=\"3\" fill=\"#111827\"></circle><line x1=\"112\" y1=\"62\" x2=\"124\" y2=\"62\" stroke=\"#111827\" stroke-width=\"2\"></line><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Pencil Tip</text></g>\n                    <g id=\"zoomCenti\" style=\"display: none;\"><rect x=\"92\" y=\"42\" width=\"56\" height=\"20\" rx=\"4\" fill=\"#22c55e\"></rect><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Eraser</text></g>\n                    <g id=\"zoomMeter\" style=\"display: block;\"><circle cx=\"120\" cy=\"25\" r=\"14\" fill=\"#60a5fa\"></circle><line x1=\"120\" y1=\"39\" x2=\"120\" y2=\"84\" stroke=\"#2563eb\" stroke-width=\"6\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"92\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"148\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line></g>\n                    <g id=\"zoomKilo\" style=\"display: none;\"><path d=\"M20 88 L62 36 L104 88 Z\" fill=\"#93c5fd\"></path><path d=\"M78 88 L145 20 L214 88 Z\" fill=\"#60a5fa\"></path><rect x=\"110\" y=\"55\" width=\"18\" height=\"33\" fill=\"#64748b\"></rect><rect x=\"133\" y=\"46\" width=\"24\" height=\"42\" fill=\"#475569\"></rect><text x=\"120\" y=\"101\" text-anchor=\"middle\" font-size=\"12\">Route through the district</text></g>\n                </svg>\n                <p id=\"zoomDesc\" style=\"color: #475569; margin: 4px 0 0;\">Base: big step, table height, height.</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Conversion Training</h3>\n            <p>Calculate and check immediately. You can use comma or period.</p>\n            <div class=\"lab-controls\">\n                <label>2 m = <input id=\"convInput0\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> cm <button onclick=\"checkConversion(0)\">Check</button></label>\n                <label>3 km = <input id=\"convInput1\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> m <button onclick=\"checkConversion(1)\">Check</button></label>\n                <label>1500 g = <input id=\"convInput2\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> kg <button onclick=\"checkConversion(2)\">Check</button></label>\n                <label>4 min = <input id=\"convInput3\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> s <button onclick=\"checkConversion(3)\">Check</button></label>\n            </div>\n            <p id=\"conversionText\" class=\"lab-feedback\">Choose a task and check your answer.</p>\n        </div>\n        {{QUIZ_q3}}"
       },
       {
         "id": "sec3",
@@ -4607,18 +4607,18 @@
                 "text": "The speed decreases (I am slower).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Das wäre milli (1/1000)."
+                "feedback": "Correct. More time for the same distance means a lower speed."
               },
               {
                 "text": "The speed increases (I'm faster).",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Perfekt. Kilo bedeutet tausendfach, also ×1000."
+                "feedback": "No. If the distance stays the same and time increases, speed decreases."
               }
             ]
           }
         ],
-        "content": "<p>Formulas briefly show how quantities are related. Speed is about three quantities: <strong>Distance s</strong>, <strong>Time t</strong> and <strong>Speed v</strong>.</p>\n        <p><span class=\"formula-card\">v = s / t</span></p>\n        <div class=\"interactive-zone\">\n            <h3>Formula Triangle</h3>\n            <p>Choose what you are looking for. The triangle helps you with the change.</p>\n            <div class=\"diagram-box\" style=\"height: 190px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;\">\n                <svg width=\"180\" height=\"150\" viewBox=\"0 0 180 150\" aria-label=\"Formeldreieck s &uuml;ber v und t\">\n                    <polygon points=\"90,14 18,136 162,136\" fill=\"#eff6ff\" stroke=\"#2563eb\" stroke-width=\"4\"></polygon>\n                    <line x1=\"48\" y1=\"86\" x2=\"132\" y2=\"86\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <line x1=\"90\" y1=\"86\" x2=\"90\" y2=\"136\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <text x=\"90\" y=\"67\" text-anchor=\"middle\" font-size=\"32\" font-weight=\"700\" fill=\"#1d4ed8\">s</text>\n                    <text x=\"63\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">v</text>\n                    <text x=\"117\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">t</text>\n                </svg>\n                <div class=\"prediction-grid\">\n                    <button class=\"prediction-btn\" data-formula-target=\"v\" onclick=\"setFormulaTarget('v')\">I'm looking for v</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"s\" onclick=\"setFormulaTarget('s')\">I'm looking for s</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"t\" onclick=\"setFormulaTarget('t')\">I'm looking for t</button>\n                </div>\n            </div>\n            <p id=\"formulaRule\" class=\"lab-feedback\">I'm looking for v: divide path by time. v = s / t</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>The Formula Speedster</h3>\n            <p>Change path and time. Watch the speed change.</p>\n            <label>Way s: <span id=\"sVal\">100</span> m<br><input type=\"range\" id=\"sRange\" min=\"10\" max=\"200\" value=\"100\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label><br>\n            <label>Time t: <span id=\"tVal\">10</span> s<br><input type=\"range\" id=\"tRange\" min=\"2\" max=\"30\" value=\"10\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; height:145px;\">\n                <svg width=\"220\" height=\"130\" viewBox=\"0 0 220 130\" aria-label=\"Tacho f&uuml;r Geschwindigkeit\">\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#e5e7eb\" stroke-width=\"20\"></path>\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"20\" stroke-dasharray=\"265\" stroke-dashoffset=\"110\"></path>\n                    <text x=\"42\" y=\"105\" font-size=\"11\" fill=\"#475569\">slow</text><text x=\"145\" y=\"105\" font-size=\"11\" fill=\"#475569\">fast</text>\n                    <circle cx=\"110\" cy=\"108\" r=\"10\" fill=\"#111827\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"110\" y1=\"108\" x2=\"72\" y2=\"45\" stroke=\"#dc2626\" stroke-width=\"5\" stroke-linecap=\"round\" style=\"transition: all 0.4s; transform-origin: 110px 108px;\"></line>\n                </svg>\n            </div>\n            <p id=\"speedText\" class=\"lab-feedback\">v = 100 m / 10 s = 10.0 m/s</p>\n            <p id=\"speedExample\" class=\"remember-box\">This is very fast.</p>\n        </div>\n        {{QUIZ_q4}}"
+        "content": "<p>Formulas briefly show how quantities are related. Speed is about three quantities: <strong>Distance s</strong>, <strong>Time t</strong> and <strong>Speed v</strong>.</p>\n        <p><span class=\"formula-card\">v = s / t</span></p>\n        <div class=\"interactive-zone\">\n            <h3>Formula Triangle</h3>\n            <p>Choose what you are looking for. The triangle helps you with the change.</p>\n            <div class=\"diagram-box\" style=\"height: 190px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;\">\n                <svg width=\"180\" height=\"150\" viewBox=\"0 0 180 150\" aria-label=\"Formula triangle with s above v and t\">\n                    <polygon points=\"90,14 18,136 162,136\" fill=\"#eff6ff\" stroke=\"#2563eb\" stroke-width=\"4\"></polygon>\n                    <line x1=\"48\" y1=\"86\" x2=\"132\" y2=\"86\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <line x1=\"90\" y1=\"86\" x2=\"90\" y2=\"136\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <text x=\"90\" y=\"67\" text-anchor=\"middle\" font-size=\"32\" font-weight=\"700\" fill=\"#1d4ed8\">s</text>\n                    <text x=\"63\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">v</text>\n                    <text x=\"117\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">t</text>\n                </svg>\n                <div class=\"prediction-grid\">\n                    <button class=\"prediction-btn\" data-formula-target=\"v\" onclick=\"setFormulaTarget('v')\">I'm looking for v</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"s\" onclick=\"setFormulaTarget('s')\">I'm looking for s</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"t\" onclick=\"setFormulaTarget('t')\">I'm looking for t</button>\n                </div>\n            </div>\n            <p id=\"formulaRule\" class=\"lab-feedback\">I'm looking for v: divide path by time. v = s / t</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>The Formula Speedster</h3>\n            <p>Change path and time. Watch the speed change.</p>\n            <label>Distance s: <span id=\"sVal\">100</span> m<br><input type=\"range\" id=\"sRange\" min=\"10\" max=\"200\" value=\"100\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label><br>\n            <label>Time t: <span id=\"tVal\">10</span> s<br><input type=\"range\" id=\"tRange\" min=\"2\" max=\"30\" value=\"10\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; height:145px;\">\n                <svg width=\"220\" height=\"130\" viewBox=\"0 0 220 130\" aria-label=\"Speedometer for speed\">\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#e5e7eb\" stroke-width=\"20\"></path>\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"20\" stroke-dasharray=\"265\" stroke-dashoffset=\"110\"></path>\n                    <text x=\"42\" y=\"105\" font-size=\"11\" fill=\"#475569\">slow</text><text x=\"145\" y=\"105\" font-size=\"11\" fill=\"#475569\">fast</text>\n                    <circle cx=\"110\" cy=\"108\" r=\"10\" fill=\"#111827\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"110\" y1=\"108\" x2=\"72\" y2=\"45\" stroke=\"#dc2626\" stroke-width=\"5\" stroke-linecap=\"round\" style=\"transition: all 0.4s; transform-origin: 110px 108px;\"></line>\n                </svg>\n            </div>\n            <p id=\"speedText\" class=\"lab-feedback\">v = 100 m / 10 s = 10.0 m/s</p>\n            <p id=\"speedExample\" class=\"remember-box\">This is very fast.</p>\n        </div>\n        {{QUIZ_q4}}"
       },
       {
         "id": "sec4",
@@ -4632,18 +4632,18 @@
                 "text": "The y-axis.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Fast: Das wäre 0,1 km."
+                "feedback": "No. The y-axis usually runs vertically."
               },
               {
                 "text": "The x-axis.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. 1 km entspricht 1000 m."
+                "feedback": "Correct. The x-axis usually runs horizontally."
               }
             ]
           }
         ],
-        "content": "<p>A diagram makes numbers visible. At the bottom is usually the <strong>x-axis</strong>, for example time. The <strong>y axis</strong> goes up, for example the height.</p>\n        <div class=\"interactive-zone\">\n            <h3>Table -> Points -> Curve</h3>\n            <p>Start the measurement series. Each table row appears as a point in the diagram.</p>\n            <button onclick=\"drawGraph()\" id=\"graphBtn\">Start measurement series</button>\n            <div style=\"display:grid; grid-template-columns: minmax(170px, 1fr) minmax(260px, 1.4fr); gap:16px; align-items:center;\">\n                <table style=\"width:100%; border-collapse:collapse; text-align:center;\">\n                    <thead><tr><th>Time t</th><th>Height h</th></tr></thead>\n                    <tbody>\n                        <tr class=\"graphRow\"><td>0 s</td><td>0 m</td></tr>\n                        <tr class=\"graphRow\"><td>1 s</td><td>5 m</td></tr>\n                        <tr class=\"graphRow\"><td>2 s</td><td>20 m</td></tr>\n                        <tr class=\"graphRow\"><td>3 s</td><td>45 m</td></tr>\n                        <tr class=\"graphRow\"><td>4 s</td><td>80 m</td></tr>\n                    </tbody>\n                </table>\n                <div class=\"diagram-box\" style=\"height: 250px; position: relative; margin:0;\">\n                    <svg width=\"350\" height=\"215\" viewBox=\"0 0 350 215\" aria-label=\"H&ouml;he-Zeit-Diagramm\">\n                        <line x1=\"42\" y1=\"20\" x2=\"42\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <text x=\"8\" y=\"96\" font-size=\"12\" fill=\"#475569\" transform=\"rotate(-90 12,96)\">Height h (m)</text>\n                        <text x=\"162\" y=\"205\" font-size=\"12\" fill=\"#475569\">Time t (s)</text>\n                        <text x=\"30\" y=\"174\" font-size=\"10\" fill=\"#64748b\">0</text><text x=\"24\" y=\"94\" font-size=\"10\" fill=\"#64748b\">40</text><text x=\"24\" y=\"24\" font-size=\"10\" fill=\"#64748b\">80</text>\n                        <path id=\"rocketPath\" d=\"M 42 170 Q 145 157 210 95 Q 254 56 306 25\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"4\" style=\"stroke-dasharray: 400; stroke-dashoffset: 400;\"></path>\n                        <circle cx=\"42\" cy=\"170\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"108\" cy=\"160\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"174\" cy=\"132\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"240\" cy=\"86\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"306\" cy=\"25\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"graphText\" class=\"lab-feedback\">Nothing has been drawn yet.</p>\n        </div>\n        <div class=\"mini-task\"><strong>Can I do that?</strong> Find three measurements in your notebook. Mark the numerical value and unit with two colors.</div>\n        {{QUIZ_q5}}"
+        "content": "<p>A diagram makes numbers visible. At the bottom is usually the <strong>x-axis</strong>, for example time. The <strong>y axis</strong> goes up, for example the height.</p>\n        <div class=\"interactive-zone\">\n            <h3>Table -> Points -> Curve</h3>\n            <p>Start the measurement series. Each table row appears as a point in the diagram.</p>\n            <button onclick=\"drawGraph()\" id=\"graphBtn\">Start measurement series</button>\n            <div style=\"display:grid; grid-template-columns: minmax(170px, 1fr) minmax(260px, 1.4fr); gap:16px; align-items:center;\">\n                <table style=\"width:100%; border-collapse:collapse; text-align:center;\">\n                    <thead><tr><th>Time t</th><th>Height h</th></tr></thead>\n                    <tbody>\n                        <tr class=\"graphRow\"><td>0 s</td><td>0 m</td></tr>\n                        <tr class=\"graphRow\"><td>1 s</td><td>5 m</td></tr>\n                        <tr class=\"graphRow\"><td>2 s</td><td>20 m</td></tr>\n                        <tr class=\"graphRow\"><td>3 s</td><td>45 m</td></tr>\n                        <tr class=\"graphRow\"><td>4 s</td><td>80 m</td></tr>\n                    </tbody>\n                </table>\n                <div class=\"diagram-box\" style=\"height: 250px; position: relative; margin:0;\">\n                    <svg width=\"350\" height=\"215\" viewBox=\"0 0 350 215\" aria-label=\"Height-time graph\">\n                        <line x1=\"42\" y1=\"20\" x2=\"42\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <text x=\"8\" y=\"96\" font-size=\"12\" fill=\"#475569\" transform=\"rotate(-90 12,96)\">Height h (m)</text>\n                        <text x=\"162\" y=\"205\" font-size=\"12\" fill=\"#475569\">Time t (s)</text>\n                        <text x=\"30\" y=\"174\" font-size=\"10\" fill=\"#64748b\">0</text><text x=\"24\" y=\"94\" font-size=\"10\" fill=\"#64748b\">40</text><text x=\"24\" y=\"24\" font-size=\"10\" fill=\"#64748b\">80</text>\n                        <path id=\"rocketPath\" d=\"M 42 170 Q 145 157 210 95 Q 254 56 306 25\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"4\" style=\"stroke-dasharray: 400; stroke-dashoffset: 400;\"></path>\n                        <circle cx=\"42\" cy=\"170\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"108\" cy=\"160\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"174\" cy=\"132\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"240\" cy=\"86\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"306\" cy=\"25\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"graphText\" class=\"lab-feedback\">Nothing has been drawn yet.</p>\n        </div>\n        <div class=\"mini-task\"><strong>Can I do that?</strong> Find three measurements in your notebook. Mark the numerical value and unit with two colors.</div>\n        {{QUIZ_q5}}"
       }
     ],
     "diplom": {
@@ -4657,13 +4657,13 @@
               "text": "International system of units (Système international).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. SI kommt aus dem Französischen: Système international d’unités."
+              "feedback": "Correct. SI comes from the French name for the International System of Units."
             },
             {
               "text": "Super intelligent system.",
               "correct": false,
               "pts": 5,
-              "feedback": "Klingt witzig, ist aber falsch: SI ist das internationale Einheitensystem."
+              "feedback": "Funny idea, but SI means the International System of Units."
             }
           ]
         },
@@ -4675,13 +4675,13 @@
               "text": "meters (m).",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Länge misst man in Meter (m)."
+              "feedback": "Correct. Length is measured in meters (m)."
             },
             {
               "text": "feet (ft).",
               "correct": false,
               "pts": 5,
-              "feedback": "Fuß (ft) wird teils genutzt, gehört aber nicht zu den SI-Grundeinheiten."
+              "feedback": "Feet are used in some places, but they are not SI base units."
             }
           ]
         },
@@ -4693,13 +4693,13 @@
               "text": "hour (h).",
               "correct": false,
               "pts": 5,
-              "feedback": "Stunde ist eine abgeleitete Alltagseinheit."
+              "feedback": "An hour is useful in daily life, but it is not the SI base unit."
             },
             {
               "text": "Second (s).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Die physikalische Grundeinheit ist die Sekunde (s)."
+              "feedback": "Correct. The SI base unit for time is the second (s)."
             }
           ]
         },
@@ -4711,13 +4711,13 @@
               "text": "One thousandth (1/1,000).",
               "correct": false,
               "pts": 5,
-              "feedback": "Das ist milli, nicht kilo."
+              "feedback": "That is milli, not kilo."
             },
             {
               "text": "A thousand (1,000) times as much.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Kilo bedeutet 1000-mal so viel."
+              "feedback": "Correct. Kilo means one thousand times as much."
             }
           ]
         },
@@ -4729,13 +4729,13 @@
               "text": "100 meters.",
               "correct": false,
               "pts": 5,
-              "feedback": "100 m sind nur 0,1 km."
+              "feedback": "No. 100 m is only 0.1 km."
             },
             {
               "text": "1,000 meters.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Ein Kilometer hat 1000 Meter."
+              "feedback": "Correct. One kilometer has 1,000 meters."
             }
           ]
         },
@@ -4747,13 +4747,13 @@
               "text": "One thousandth (very tiny).",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Milli bedeutet ein Tausendstel (0,001)."
+              "feedback": "Correct. Milli means one thousandth (0.001)."
             },
             {
               "text": "A million times as big.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein. Milli macht eine Einheit kleiner, nicht größer."
+              "feedback": "No. Milli makes a unit smaller, not larger."
             }
           ]
         },
@@ -4765,13 +4765,13 @@
               "text": "For volume.",
               "correct": false,
               "pts": 5,
-              "feedback": "v wird meist für Geschwindigkeit genutzt; Volumen ist oft V."
+              "feedback": "No. Lowercase v usually means speed; volume is often uppercase V."
             },
             {
               "text": "For speed (velocitas).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. v steht für Geschwindigkeit (von velocitas)."
+              "feedback": "Correct. v stands for speed, from the Latin velocitas."
             }
           ]
         },
@@ -4783,13 +4783,13 @@
               "text": "v = s + t (distance plus time)",
               "correct": false,
               "pts": 5,
-              "feedback": "Plus wäre dimensionsmäßig falsch."
+              "feedback": "No. Adding distance and time does not give a speed."
             },
             {
               "text": "v = s / t (distance divided by time)",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau. Geschwindigkeit ist Weg durch Zeit: v = s / t."
+              "feedback": "Correct. Speed is distance divided by time: v = s / t."
             }
           ]
         },
@@ -4801,13 +4801,13 @@
               "text": "It is the vertical line (goes from bottom to top).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig. Die y-Achse ist die vertikale Achse."
+              "feedback": "Correct. The y-axis is the vertical axis."
             },
             {
               "text": "It is the horizontal line on the ground.",
               "correct": false,
               "pts": 5,
-              "feedback": "Das ist die x-Achse. y verläuft senkrecht."
+              "feedback": "No. That is the x-axis; y runs vertically."
             }
           ]
         },
@@ -4819,13 +4819,13 @@
               "text": "5 m/s (10 divided by 2).",
               "correct": true,
               "pts": 5,
-              "feedback": "Perfekt gerechnet: 10 m / 2 s = 5 m/s."
+              "feedback": "Correct calculation: 10 m / 2 s = 5 m/s."
             },
             {
               "text": "20 m/s (10 times 2).",
               "correct": false,
               "pts": 5,
-              "feedback": "Du hast multipliziert statt geteilt. Bei v = s/t teilst du den Weg durch die Zeit."
+              "feedback": "You multiplied instead of dividing. For v = s/t, divide distance by time."
             }
           ]
         }
@@ -4848,13 +4848,13 @@
                 "text": "They move much faster and wilder.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Mehr Temperatur bedeutet stärkere Teilchenbewegung."
+                "feedback": "Correct: higher temperature means stronger particle motion."
               },
               {
                 "text": "They get tired and stop.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Bei Wärme bleiben Teilchen nicht stehen. Sie bewegen sich schneller."
+                "feedback": "No. When heated, particles do not stop; they move faster."
               }
             ]
           }
@@ -4873,13 +4873,13 @@
                 "text": "Because wood conducts heat better into the soup.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Metall leitet Wärme gut. Genau deshalb wird ein Metallgriff schnell heiß."
+                "feedback": "No. Metal conducts heat well, so a metal handle gets hot quickly."
               },
               {
                 "text": "Because wood is an insulator and the handle doesn't get hot, so you won't burn your fingers.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Holz leitet Wärme schlecht und schützt deine Hand."
+                "feedback": "Correct: wood conducts heat poorly and protects your hand."
               }
             ]
           }
@@ -4898,13 +4898,13 @@
                 "text": "Because you can clean white better.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Putzen ist nicht der Grund. Helle Flächen werfen viel Strahlung zurück."
+                "feedback": "No. Cleaning is not the reason; light surfaces reflect much radiation."
               },
               {
                 "text": "Because the white color repels (reflects) the heat radiation from the sun.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: Weiß reflektiert mehr Sonnenstrahlung und bleibt kühler."
+                "feedback": "Correct: white reflects more sunlight and stays cooler."
               }
             ]
           }
@@ -4923,13 +4923,13 @@
                 "text": "Because the flame grows upwards.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Die Flamme zeigt nach oben, weil warme Luft aufsteigt. Das ist nicht die Erklärung selbst."
+                "feedback": "No. The flame points upward because warm air rises; that is not the cause itself."
               },
               {
                 "text": "Because the heated air becomes lighter and rises (heat flow).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Warme Luft wird weniger dicht und steigt auf."
+                "feedback": "Correct: warm air becomes less dense and rises."
               }
             ]
           }
@@ -4948,13 +4948,13 @@
                 "text": "Condense.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Kondensieren ist Gas zu Flüssigkeit, zum Beispiel beschlagener Spiegel."
+                "feedback": "No. Condensation is gas turning into liquid, like fog on a mirror."
               },
               {
                 "text": "Evaporate.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Flüssig zu gasförmig heißt Verdampfen."
+                "feedback": "Correct: liquid turning into gas is called evaporation."
               }
             ]
           }
@@ -4973,13 +4973,13 @@
                 "text": "So that the rainwater can drain away better.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Abfluss ist nicht der Hauptgrund. Die Brücke braucht Platz für Längenänderung."
+                "feedback": "No. Drainage is not the main reason; the bridge needs room to change length."
               },
               {
                 "text": "So that the bridge has room to expand in the hot summer without breaking.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Wärme dehnt Beton und Stahl aus. Fugen verhindern Schäden."
+                "feedback": "Correct: heat expands concrete and steel, and joints prevent damage."
               }
             ]
           }
@@ -4998,13 +4998,13 @@
               "text": "The constant movement and trembling of the smallest particles.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Wärme bedeutet Bewegung der kleinsten Teilchen."
+              "feedback": "Correct: heat means motion of the smallest particles."
             },
             {
               "text": "Invisible hot rays in the air.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht ganz: Wärme ist vor allem Teilchenbewegung, nicht heiße Luftstrahlen."
+              "feedback": "Not quite: heat is mainly particle motion, not hot air rays."
             }
           ]
         },
@@ -5016,13 +5016,13 @@
               "text": "They get bigger and burst.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Beim Abkühlen bewegen sich Teilchen langsamer, sie platzen nicht."
+              "feedback": "No. When cooled, particles move more slowly; they do not burst."
             },
             {
               "text": "They move slower and slower.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Kälter heißt langsamere Teilchenbewegung."
+              "feedback": "Correct: colder means slower particle motion."
             }
           ]
         },
@@ -5034,13 +5034,13 @@
               "text": "At 0 degrees Celsius.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht richtig: 0 Grad Celsius ist nur der Gefrierpunkt von Wasser."
+              "feedback": "No. 0 degrees Celsius is only the freezing point of water."
             },
             {
               "text": "At -273.15 degrees Celsius.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Der absolute Nullpunkt liegt bei etwa -273,15 Grad Celsius."
+              "feedback": "Correct: absolute zero is about -273.15 degrees Celsius."
             }
           ]
         },
@@ -5052,13 +5052,13 @@
               "text": "Thermal radiation.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Strahlung braucht keinen festen Körper. Im Metallstab ist es Leitung."
+              "feedback": "No. Radiation does not need a solid object; in a metal rod it is conduction."
             },
             {
               "text": "Heat conduction.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Wärme wandert im festen Körper durch Wärmeleitung."
+              "feedback": "Correct: heat travels through a solid by conduction."
             }
           ]
         },
@@ -5070,13 +5070,13 @@
               "text": "Iron/metal.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Metall leitet Wärme besonders gut."
+              "feedback": "Correct: metal conducts heat especially well."
             },
             {
               "text": "Wood.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht ganz: Holz leitet Wärme schlecht und isoliert eher."
+              "feedback": "Not quite: wood conducts heat poorly and acts more like an insulator."
             }
           ]
         },
@@ -5088,13 +5088,13 @@
               "text": "Generators.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Generatoren erzeugen Strom. Schlechte Wärmeleiter heißen Isolatoren."
+              "feedback": "No. Generators produce electricity; poor heat conductors are called insulators."
             },
             {
               "text": "Insulators.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Isolatoren leiten Wärme nur schlecht weiter."
+              "feedback": "Correct: insulators pass heat on only poorly."
             }
           ]
         },
@@ -5106,13 +5106,13 @@
               "text": "Through heat radiation.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Wärmestrahlung kann auch durch das Vakuum laufen."
+              "feedback": "Correct: heat radiation can travel through a vacuum."
             },
             {
               "text": "Through heat conduction along meteorites.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Im Vakuum gibt es keine Wärmeleitung von Teilchen zu Teilchen."
+              "feedback": "No. In a vacuum, there are no particles to conduct heat from one to another."
             }
           ]
         },
@@ -5124,13 +5124,13 @@
               "text": "Black.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Schwarz nimmt viel Licht auf und wird schneller warm."
+              "feedback": "Correct: black absorbs a lot of light and warms up faster."
             },
             {
               "text": "White.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht richtig: Weiß reflektiert viel Licht und bleibt eher kühler."
+              "feedback": "No. White reflects a lot of light and usually stays cooler."
             }
           ]
         },
@@ -5142,13 +5142,13 @@
               "text": "It is lighter and rises upwards (convection).",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Warme Luft ist weniger dicht und steigt nach oben."
+              "feedback": "Correct: warm air is less dense and rises."
             },
             {
               "text": "She becomes as heavy as lead and falls to the ground.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Warme Luft wird nicht schwerer, sondern steigt auf."
+              "feedback": "No. Warm air does not become heavier; it rises."
             }
           ]
         },
@@ -5160,13 +5160,13 @@
               "text": "From liquid to gaseous.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht richtig: Flüssig zu gasförmig heißt Verdampfen."
+              "feedback": "No. Liquid turning into gas is called evaporation."
             },
             {
               "text": "From solid to liquid.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Schmelzen bedeutet von fest zu flüssig."
+              "feedback": "Correct: melting means changing from solid to liquid."
             }
           ]
         },
@@ -5178,13 +5178,13 @@
               "text": "Condense.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Gas wird beim Kondensieren wieder flüssig."
+              "feedback": "Correct: during condensation, gas becomes liquid again."
             },
             {
               "text": "Freeze.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Erfrieren ist flüssig zu fest, nicht Gas zu Wassertröpfchen."
+              "feedback": "No. Freezing is liquid to solid, not gas to water droplets."
             }
           ]
         },
@@ -5196,13 +5196,13 @@
               "text": "They shrink together.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Die meisten festen Stoffe dehnen sich beim Erhitzen aus."
+              "feedback": "No. Most solids expand when heated."
             },
             {
               "text": "They expand (need more space).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Wärme lässt viele feste Stoffe mehr Platz brauchen."
+              "feedback": "Correct: heat makes many solids need more space."
             }
           ]
         },
@@ -5214,13 +5214,13 @@
               "text": "Because the liquid expands due to the heat and is pushed up in the pipe.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Die Flüssigkeit dehnt sich aus und steigt im dünnen Rohr."
+              "feedback": "Correct: the liquid expands and rises in the thin tube."
             },
             {
               "text": "Because little pumps in the tip attract them.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Im Thermometer sind keine Pumpen. Wärme dehnt die Flüssigkeit aus."
+              "feedback": "No. There are no pumps in a thermometer; heat expands the liquid."
             }
           ]
         },
@@ -5232,13 +5232,13 @@
               "text": "It produces hot thermal radiation itself.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Die Jacke macht keine eigene Wärme. Sie hält warme Luft fest."
+              "feedback": "No. The jacket does not make heat; it traps warm air."
             },
             {
               "text": "It traps air pockets, and still air is a great heat insulator.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Luftpolster leiten Wärme schlecht und halten dich warm."
+              "feedback": "Correct: air pockets conduct heat poorly and keep you warm."
             }
           ]
         },
@@ -5250,13 +5250,13 @@
               "text": "Conduction (the heat travels from the cup into your skin).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Die Wärme geht durch Berührung von der Tasse in die Hand."
+              "feedback": "Correct: heat moves by touch from the cup into your hand."
             },
             {
               "text": "Heat flow (convection).",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht hauptsächlich: Konvektion ist Wärmeströmung in Luft oder Flüssigkeit."
+              "feedback": "Not mainly. Convection is heat flow in air or liquid."
             }
           ]
         }
@@ -6398,19 +6398,19 @@
                 "text": "Both!",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Die 7 ist als einzelnes Zeichen eine Ziffer und gleichzeitig die Zahl sieben."
+                "feedback": "Correct: as a single symbol, 7 is a digit and also represents the number seven."
               },
               {
                 "text": "Digit only",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Fast: 7 ist zwar eine Ziffer, steht aber auch für die Zahl sieben."
+                "feedback": "Almost. 7 is a digit, and it also stands for the number seven."
               },
               {
                 "text": "Just numbers",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Nicht ganz: 7 steht für eine Zahl, ist aber auch eine einzelne Ziffer."
+                "feedback": "Not quite. 7 represents a number and is also one single digit."
               }
             ]
           }
@@ -6435,13 +6435,13 @@
               "text": "Yes, I am ready for the diploma!",
               "correct": true,
               "pts": 5,
-              "feedback": "Stark! Dann starte das Diplom und achte weiter auf Stellenwert und sauberes Lesen von Zahlen."
+              "feedback": "Great! Start the diploma and keep watching place value and careful number reading."
             },
             {
               "text": "No, I still have to practice a bit.",
               "correct": false,
               "pts": 5,
-              "feedback": "Alles gut. Übe noch kurz den Unterschied zwischen Ziffern und Zahlen, dann bist du bereit."
+              "feedback": "All good. Review the difference between digits and numbers once more, then you are ready."
             }
           ]
         }

@@ -627,3 +627,18 @@ P1 Fortschritt (Run 2026-04-28 04:45):
 - Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 9 auf 10 priorisierte Physikthemen erweitert (neu: `rechenbeispiele`).
 - Qualitätssicherung: Implementieren → Review → Patch mit `PHYSICS_EN_CONSISTENCY_TOPICS=rechenbeispiele node scripts/audit_physics_english_consistency.js`, `node scripts/audit_physics_language.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: `rechenbeispiele` ist jetzt EN-konsistent (`known_debt=0` im fokussierten Audit) ohne Regressionen im Gesamt-Gate.
+
+P1 Fortschritt (Run 2026-04-28 05:12):
+- Physik-Perfection (EN) für die verbleibenden Themen **`sieinheiten`** und **`waermelehre`** abgeschlossen.
+- Abgedeckt: 69 verbliebene DE/EN-Mischsprach-Feedbacks (inkl. einzelner Content-/ARIA-Textreste) in `lang/en.json` auf kurzes, konsistentes Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Default-Scope von 11 auf alle 15 Physikthemen erweitert (neu: `arbeit`, `licht_schatten_astronomie`, `sieinheiten`, `waermelehre`).
+- Baseline aktualisiert: `scripts/baselines/physics_en_consistency_allowlist.json` dokumentiert jetzt den erweiterten Scope (15 Physikthemen) bei `knownIssuePaths=[]`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=sieinheiten,waermelehre node scripts/audit_physics_english_consistency.js`, `node scripts/audit_physics_language.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-EN-Konsistenz ist im Standardlauf über alle auditable EN-Topics regressionsfrei (`PHYSICS_EN_CONSISTENCY_CLEAR (... 14 topics, known_debt=0)`); verbleibender Strukturpunkt: `licht_schatten_astronomie` fehlt aktuell als eigener Key in `lang/en.json`.
+
+P2 Fortschritt (Run 2026-04-28 05:18):
+- Mathematik-Perfection (EN) im nächsten priorisierten Modul **`math1_2_nat_zahlen`** nachgezogen.
+- Abgedeckt: 5 verbliebene DE/EN-Mischsprach-Rückmeldungen (Kapitel + Diplom-Einstiegsfeedback) in `lang/en.json` auf kurze, konsistente Englischtexte umgestellt.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 2 auf 3 priorisierte Mathethemen erweitert (neu: `math1_2_nat_zahlen`).
+- Baseline aktualisiert: `scripts/baselines/math_en_consistency_allowlist.json` mit 3-Themen-Scope und `knownIssuePaths=[]`.
+- Qualitätssicherung: Implementieren → Review → Patch mit `MATH_EN_CONSISTENCY_TOPICS=math1_2_nat_zahlen node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).

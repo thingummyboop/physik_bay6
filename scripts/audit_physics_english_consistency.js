@@ -10,7 +10,7 @@ const enPath = path.join(repoRoot, 'lang', 'en.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
 const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
-const defaultScopedTopics = ['elektrizitaet', 'optik1', 'linsen_spiegel', 'akustik', 'energie', 'astronomie', 'drehundstatik', 'kraft_und_bewegung', 'elektromagnetismus', 'rechenbeispiele', 'farben'];
+const defaultScopedTopics = ['akustik', 'arbeit', 'astronomie', 'drehundstatik', 'elektrizitaet', 'elektromagnetismus', 'energie', 'farben', 'kraft_und_bewegung', 'licht_schatten_astronomie', 'linsen_spiegel', 'optik1', 'rechenbeispiele', 'sieinheiten', 'waermelehre'];
 const scopedTopics = (process.env.PHYSICS_EN_CONSISTENCY_TOPICS || defaultScopedTopics.join(','))
   .split(',')
   .map((topic) => topic.trim())
