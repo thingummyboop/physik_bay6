@@ -12,7 +12,7 @@ function topicInit() {
         check: 'Check prediction',
         initial: 'Activity: calm sitting. Pulse about 72 beats per minute.',
         calm: 'calm sitting',
-        walking: 'walking stairs',
+        walking: 'climbing stairs',
         running: 'running',
         calmResult: 'At rest, pulse and breathing are usually slower.',
         walkingResult: 'With moderate movement, muscles need more oxygen. Pulse rises.',

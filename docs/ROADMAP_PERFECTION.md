@@ -742,3 +742,8 @@ P3 Fortschritt (Run 2026-04-28 17:xx):
 - QA-Ausbau: neues Gate-Audit **`scripts/audit_new_subject_interactions.js`** prüft Interaktions-/A11y-Mindestmerkmale; neues Didaktik-Audit **`scripts/audit_new_subject_didactics.js`** prüft Merke-Box, Fehlvorstellung, Transferaufgabe und A2-B1-Satzlängen mit WARN/FAIL-Ausgabe.
 - EN-Qualität: Geo/Chemie/Bio in `lang/en.json` stilistisch geglättet und Begriffe konsistent gehalten (`federal state`, `landmark`, `mixture`, `dissolved`, `pulse`, `germs`).
 - Dokumentation: `docs/QUALITY_CRITERIA.md` enthält jetzt fachbezogene Definition-of-Done-Blöcke für Geo, Chemie und Bio.
+
+Mini-Pilot (Run 2026-04-28 17:xx):
+- Fünf studentische Walkthrough-Snapshots geprüft: Geo DE Einstieg, Geo EN Öffi-Route, Chemie EN Mischen/Trennen, Bio DE Atmen/Kreislauf und Bio EN Schutz/Hygiene.
+- Ergebnis: Lernfluss ist verständlich, Merke/Fehlvorstellung/Transfer erscheinen in allen geprüften Kapiteln, und die neuen Interaktionen sitzen nahe am passenden Lernziel.
+- Fokuspatches: doppelten `geographie`-Key in `index.html` entfernt und Bio-EN-Reglertext von `walking stairs` zu natürlicherem `climbing stairs` geglättet.
