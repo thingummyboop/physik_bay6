@@ -523,3 +523,9 @@ P2-Math Fortschritt (Run 2026-04-28 02:44):
 - Review/Patch aus Schleife: Audit fand 18 Altfälle in `math1_1_vs_wissen` (alle Sprachen mit nur „Richtig.“); diese Rückmeldungen wurden auf kurze inhaltliche Bestätigungen nachgezogen.
 - Qualitätssicherung: `node --check scripts/audit_math_language.js`, `node scripts/audit_math_language.js` (`MATH_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathe-Perfection verhindert nun ebenfalls inhaltsarme Platzhalterrückmeldungen bei korrekten Antworten.
+
+P1 Fortschritt (Run 2026-04-28 02:5x):
+- Physik-Sprachfeinschliff in **`lang/de.json`** für verbliebene sehr kurze Diagnose-Feedbacks fortgesetzt (Akustik, Arbeit, Energie, SI-Einheiten).
+- Abgedeckt: 8 knappe Rückmeldungen (u. a. „Richtig: Resonanz.“ / „Richtig: In Joule (J).“) auf klarere A2-B1-Sätze mit kurzer Begründung umgestellt.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_language.js` (`PHYSICS_LANGUAGE_CLEAR`) plus Längen-Spotcheck der kürzesten Physik-Feedbacks.
+- Ergebnis: Physik-Feedback bleibt kurz, ist aber inhaltlich erklärender und didaktisch konsistenter.
