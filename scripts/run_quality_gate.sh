@@ -4,34 +4,37 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-echo "[1/10] Quiz feedback audit"
+echo "[1/11] Quiz feedback audit"
 node scripts/audit_quiz_feedback.js
 
-echo "[2/10] Physics accessibility audit"
+echo "[2/11] Physics accessibility audit"
 node scripts/audit_physics_a11y.js
 
-echo "[3/10] Physics language audit"
+echo "[3/11] Physics language audit"
 node scripts/audit_physics_language.js
 
-echo "[4/10] Math accessibility audit"
+echo "[4/11] Physics EN consistency audit"
+node scripts/audit_physics_english_consistency.js
+
+echo "[5/11] Math accessibility audit"
 node scripts/audit_math_a11y.js
 
-echo "[5/10] Math language audit"
+echo "[6/11] Math language audit"
 node scripts/audit_math_language.js
 
-echo "[6/10] Remaining-subject accessibility audit"
+echo "[7/11] Remaining-subject accessibility audit"
 node scripts/audit_remaining_subjects_a11y.js
 
-echo "[7/10] Remaining-subject language audit"
+echo "[8/11] Remaining-subject language audit"
 node scripts/audit_remaining_subjects_language.js
 
-echo "[8/10] Inline alert audit"
+echo "[9/11] Inline alert audit"
 node scripts/audit_inline_alerts.js
 
-echo "[9/10] Topic syntax audit"
+echo "[10/11] Topic syntax audit"
 node scripts/audit_topic_syntax.js
 
-echo "[10/10] Git whitespace/conflict check"
+echo "[11/11] Git whitespace/conflict check"
 git diff --check
 
 echo "QUALITY_GATE_CLEAR"

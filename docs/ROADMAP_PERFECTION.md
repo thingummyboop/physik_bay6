@@ -553,3 +553,10 @@ P1 Fortschritt (Run 2026-04-28 03:2x):
 - Abgedeckt: 23 diagnoseorientierte Feedbacktexte in Kapitel-Quizblöcken (Ladungen, Leiter/Isolator, Stromkreis, Batterie, Kondensator, Ohm-Zusammenhang).
 - Qualitätssicherung: Implementieren → Review → Patch mit Spotcheck auf verbleibende DE-Feedbackmarker im Modul, anschließend `node scripts/audit_physics_language.js` und `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Das Elektrizitätsmodul ist im EN-Feedback jetzt konsistent englisch, fachlich klar und regressionsfrei im Gesamt-Qualitätsgate.
+
+P1 Fortschritt (Run 2026-04-28 03:4x):
+- Physik-Perfection um einen neuen Regressionstest für EN-Mischsprache ergänzt: **`scripts/audit_physics_english_consistency.js`**.
+- Abgedeckt: automatischer Scan aller Physik-Topic-Strings in `lang/en.json` auf deutsche Restmarker (Umlaute + häufige deutsche Funktionswörter), mit klarer Issue-Ausgabe pro Pfad.
+- Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 11-stufigen Sammellauf erweitert; **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden EN-Konsistenzcheck ergänzt.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_english_consistency.js` und vollständigem Sammellauf `bash scripts/run_quality_gate.sh`.
+- Ergebnis: Verbleibende Sprachmischung in EN-Physik wird künftig automatisch als Regression erkannt statt manuell gesucht.
