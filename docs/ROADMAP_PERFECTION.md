@@ -490,3 +490,10 @@ P2-Math Fortschritt (Run 2026-04-28 02:1x):
 - Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 9-stufigen Sammellauf erweitert und **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden Mathe-Sprachcheck ergänzt.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_math_language.js` (`MATH_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathematik-Feedback ist jetzt ebenfalls automatisiert gegen Leselast-Regressionen abgesichert, nicht nur gegen A11y-/Syntaxfehler.
+
+P3 Fortschritt (Run 2026-04-28 02:16):
+- Nebenfächer-Perfection um einen fehlenden Sprach-Regressionstest ergänzt: neues Audit **`scripts/audit_remaining_subjects_language.js`**.
+- Abgedeckt: automatischer Check für DGB/Wetter/Klima-Themen auf kompakte Diagnose-Feedbacks (`answers[].feedback`, Schwellwert 180 Zeichen) über alle Sprachdateien.
+- Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 10-stufigen Sammellauf erweitert und **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden Nebenfächer-Sprachcheck ergänzt.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node scripts/audit_remaining_subjects_language.js` (`REMAINING_SUBJECTS_LANGUAGE_CLEAR`) und Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Nebenfächer sind jetzt wie Physik/Mathematik auch gegen Leselast-Regressionen im Feedback automatisiert abgesichert.
