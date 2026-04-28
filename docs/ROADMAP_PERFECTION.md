@@ -734,3 +734,11 @@ P3 Fortschritt (Run 2026-04-28 16:xx):
 - Pro Kapitel ergänzt: 2-3 Mini-Aufgaben, eine Transferaufgabe, klare **Merke**-Boxen, Alltagssituationen und explizite Hinweise auf typische Fehlvorstellungen.
 - EN-Backfill für **`geo_oesterreich_alltag`**, **`chemie_alltag_stoffe`** und **`bio_koerper_gesundheit`** mit gleicher Struktur/gleichen Quiz-IDs ergänzt, damit diese neuen Topics nicht mehr auf Deutsch zurückfallen.
 - QA-Ausbau: neuer sichtbarer Warning-Audit **`scripts/audit_new_subject_english_blocks.js`** im Sammel-Gate; meldet neue `geo_`/`chemie_`/`bio_`-Topickeys ohne `lang/en.json`-Block als `NEW_SUBJECT_EN_BLOCK_WARNING`.
+
+P3 Fortschritt (Run 2026-04-28 17:xx):
+- Neue Fächer **Geographie**, **Chemie** und **Biologie** mit je einer robusten Kerninteraktion ergänzt.
+- Abgedeckt: Geo-Routencheck (Richtung + Orientierungspunkt), Chemie-Trenncheck (gelöstes Salz + Filter/Verdampfen) und Bio-Pulscheck (Aktivität + Pulsmodell).
+- Accessibility: Interaktionen nutzen native Tastatursteuerung, `role="status"` + `aria-live` + `aria-atomic`, `aria-pressed` bei Auswahlzuständen, `aria-describedby`/`aria-valuetext` bei Reglern sowie Re-Init-Guards gegen doppelte Injektion.
+- QA-Ausbau: neues Gate-Audit **`scripts/audit_new_subject_interactions.js`** prüft Interaktions-/A11y-Mindestmerkmale; neues Didaktik-Audit **`scripts/audit_new_subject_didactics.js`** prüft Merke-Box, Fehlvorstellung, Transferaufgabe und A2-B1-Satzlängen mit WARN/FAIL-Ausgabe.
+- EN-Qualität: Geo/Chemie/Bio in `lang/en.json` stilistisch geglättet und Begriffe konsistent gehalten (`federal state`, `landmark`, `mixture`, `dissolved`, `pulse`, `germs`).
+- Dokumentation: `docs/QUALITY_CRITERIA.md` enthält jetzt fachbezogene Definition-of-Done-Blöcke für Geo, Chemie und Bio.

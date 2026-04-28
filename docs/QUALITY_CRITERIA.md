@@ -50,3 +50,24 @@ Ein Chunk ist erst fertig, wenn:
 2. Accessibility nicht regressiv ist,
 3. die Mindest-Checks grün sind,
 4. kurze Run-Notiz im `docs/ROADMAP_PERFECTION.md` ergänzt wurde.
+
+## 7) Definition of Done: Geographie
+- Inhalt vollständig: Orientierung, Räume/Kategorien und Wege im Alltag sind mit Österreichbezug erklärt.
+- Übungen + Transfer: Jedes Kernkapitel enthält Mini-Aufgaben und mindestens eine echte Alltagstransferfrage.
+- Interaktivität: Mindestens ein robustes interaktives Element prüft Routen-, Richtungs- oder Kartenverständnis.
+- Accessibility grün: Tastaturbedienung, Live-Regionen, `aria-atomic`, sinnvolle Zustandsausgabe und Re-Init-Guard sind vorhanden.
+- EN-Qualität grün: Begriffe bleiben konsistent (`federal state`, `landmark`, `route`, `direction`) und lesen sich natürlich, nicht wörtlich aus DE übertragen.
+
+## 8) Definition of Done: Chemie
+- Inhalt vollständig: Stoffe, Eigenschaften, Gemische/Trennung und sichere Alltagspraxis sind abgedeckt.
+- Übungen + Transfer: Jedes Kernkapitel enthält Mini-Aufgaben und mindestens eine Transferfrage zu Küche, Reinigung, Recycling oder Schule.
+- Interaktivität: Mindestens ein robustes interaktives Element macht eine Stoffeigenschaft, Trennmethode oder Sicherheitsentscheidung prüfbar.
+- Accessibility grün: Tastaturbedienung, Live-Regionen, `aria-atomic`, `aria-valuetext` bei Reglern und Re-Init-Guard sind vorhanden.
+- EN-Qualität grün: Begriffe bleiben konsistent (`substance`, `mixture`, `dissolved`, `filtering`, `evaporation`) und sind A2-B1-tauglich.
+
+## 9) Definition of Done: Biologie
+- Inhalt vollständig: Energie/Nahrung, Atmung/Blutkreislauf und Schutz/Hygiene/Erste Hilfe sind grundlegend erklärt.
+- Übungen + Transfer: Jedes Kernkapitel enthält Mini-Aufgaben und mindestens eine Transferfrage zu Schule, Sport oder Alltag.
+- Interaktivität: Mindestens ein robustes interaktives Element macht Körperreaktionen oder Gesundheitsentscheidungen sichtbar.
+- Accessibility grün: Tastaturbedienung, Live-Regionen, `aria-atomic`, `aria-valuetext` bei Reglern und Re-Init-Guard sind vorhanden.
+- EN-Qualität grün: Begriffe bleiben konsistent (`oxygen`, `blood`, `pulse`, `germs`, `wound`) und vermeiden medizinisch überfordernde Sprache.
