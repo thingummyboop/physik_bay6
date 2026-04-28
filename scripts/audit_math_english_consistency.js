@@ -8,7 +8,7 @@ const repoRoot = path.resolve(__dirname, '..');
 const enPath = path.join(repoRoot, 'lang', 'en.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
-const defaultScopedTopics = ['math2_6_prop_prozent', 'math1_7_gleichungen', 'math1_2_nat_zahlen', 'math1_3_add_sub', 'math3_1_rationale_zahlen', 'math3_2_potenzen_terme', 'math1_1_vs_wissen', 'math1_5_geo_grundbegriffe', 'math1_4_mult_div', 'math1_6_winkel', 'math1_9_dezimalzahlen', 'math1_10_groessen', 'math2_7_geometrie', 'math3_3_gleichungen'];
+const defaultScopedTopics = ['math2_6_prop_prozent', 'math1_7_gleichungen', 'math1_2_nat_zahlen', 'math1_3_add_sub', 'math3_1_rationale_zahlen', 'math3_2_potenzen_terme', 'math1_1_vs_wissen', 'math1_5_geo_grundbegriffe', 'math1_4_mult_div', 'math1_6_winkel', 'math1_9_dezimalzahlen', 'math1_10_groessen', 'math2_7_geometrie', 'math3_3_gleichungen', 'math3_4_flaechensatz'];
 const scopedTopics = (process.env.MATH_EN_CONSISTENCY_TOPICS || defaultScopedTopics.join(','))
   .split(',')
   .map((topic) => topic.trim())

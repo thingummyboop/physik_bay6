@@ -702,3 +702,10 @@ P2 Fortschritt (Run 2026-04-28 06:5x):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 13 auf 14 priorisierte Mathethemen erweitert (neu: `math3_3_gleichungen`); Baseline aktualisiert.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math3_3_gleichungen node scripts/audit_math_english_consistency.js`, anschließend `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt 14 priorisierte Themen automatisiert ab (`known_debt=0`).
+
+P2 Fortschritt (Run 2026-04-28 07:0x):
+- Mathematik-Perfection (EN) im priorisierten Modul **`math3_4_flaechensatz`** nachgezogen.
+- Abgedeckt: 6 verbliebene DE-Feedbackreste in Kapitel- und Diplomquiz auf kurzes, konsistentes Englisch umgestellt.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 14 auf 15 priorisierte Mathethemen erweitert (neu: `math3_4_flaechensatz`); Baseline aktualisiert.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math3_4_flaechensatz node scripts/audit_math_english_consistency.js`, anschließend `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt 15 priorisierte Themen automatisiert ab (`known_debt=0`).
