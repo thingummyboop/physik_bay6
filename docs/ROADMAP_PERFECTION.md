@@ -556,7 +556,14 @@ P1 Fortschritt (Run 2026-04-28 03:2x):
 
 P1 Fortschritt (Run 2026-04-28 03:4x):
 - Physik-Perfection um einen neuen Regressionstest für EN-Mischsprache ergänzt: **`scripts/audit_physics_english_consistency.js`**.
-- Abgedeckt: automatischer Scan aller Physik-Topic-Strings in `lang/en.json` auf deutsche Restmarker (Umlaute + häufige deutsche Funktionswörter), mit klarer Issue-Ausgabe pro Pfad.
+- Abgedeckt: automatischer Scan priorisierter Physik-EN-Module (`elektrizitaet`, `optik1`, `linsen_spiegel`) auf deutsche Restmarker (Umlaute + häufige Funktionswörter), mit baseline-gestützter New-Issue-Erkennung.
 - Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 11-stufigen Sammellauf erweitert; **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden EN-Konsistenzcheck ergänzt.
 - Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_english_consistency.js` und vollständigem Sammellauf `bash scripts/run_quality_gate.sh`.
-- Ergebnis: Verbleibende Sprachmischung in EN-Physik wird künftig automatisch als Regression erkannt statt manuell gesucht.
+- Ergebnis: Neue Mischsprach-Regressionsfälle in den priorisierten EN-Physikmodulen werden automatisch erkannt; vorhandene Altlasten sind als baseline sichtbar nachverfolgbar.
+
+P2-Math Fortschritt (Run 2026-04-28 03:5x):
+- Mathe-Perfection um EN-Konsistenzprüfung ergänzt: neues Audit **`scripts/audit_math_english_consistency.js`** (initial auf `math2_6_prop_prozent`).
+- Abgedeckt: 5 verbliebene deutschsprachige EN-Feedbacktexte im Prozent/Proportionalitätsmodul direkt auf Englisch korrigiert.
+- Gate/DoD nachgezogen: **`scripts/run_quality_gate.sh`** auf 12-stufigen Sammellauf erweitert; **`docs/QUALITY_CRITERIA.md`** um den verpflichtenden Mathe-EN-Konsistenzcheck ergänzt.
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_math_english_consistency.js`, `JSON.parse(lang/en.json)` und anschließend `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Das priorisierte EN-Mathemodul ist sprachlich konsistent, und neue Mischsprach-Rückfälle werden automatisiert abgefangen.

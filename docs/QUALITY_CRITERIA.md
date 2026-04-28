@@ -36,6 +36,7 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Physik-EN-Konsistenzcheck (Mischsprache vermeiden): `node scripts/audit_physics_english_consistency.js`
 - Mathe-A11y-Basischeck: `node scripts/audit_math_a11y.js`
 - Mathe-Sprachlängencheck (Feedback-Kompaktheit): `node scripts/audit_math_language.js`
+- Mathe-EN-Konsistenzcheck (Mischsprache vermeiden): `node scripts/audit_math_english_consistency.js`
 - Nebenfächer-A11y-Basischeck: `node scripts/audit_remaining_subjects_a11y.js`
 - Nebenfächer-Sprachlängencheck (Feedback-Kompaktheit): `node scripts/audit_remaining_subjects_language.js`
 - Keine Inline-Popup-Regressionen: `node scripts/audit_inline_alerts.js`
