@@ -13,11 +13,13 @@ const languageFiles = fs
   .sort();
 
 const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
+const nonPhysicsPrefixes = ['geo_', 'chemie_', 'bio_'];
 const physicsTopics = fs
   .readdirSync(topicsDir)
   .filter((entry) => entry.endsWith('.js'))
   .map((entry) => entry.replace(/\.js$/, ''))
   .filter((topic) => !topic.startsWith('math'))
+  .filter((topic) => !nonPhysicsPrefixes.some((prefix) => topic.startsWith(prefix)))
   .filter((topic) => !nonPhysicsTopics.has(topic))
   .sort();
 

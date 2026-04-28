@@ -10,6 +10,7 @@ const enPath = path.join(repoRoot, 'lang', 'en.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
 const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
+const nonPhysicsPrefixes = ['geo_', 'chemie_', 'bio_'];
 const defaultScopedTopics = ['akustik', 'arbeit', 'astronomie', 'drehundstatik', 'elektrizitaet', 'elektromagnetismus', 'energie', 'farben', 'kraft_und_bewegung', 'licht_schatten_astronomie', 'linsen_spiegel', 'optik1', 'rechenbeispiele', 'sieinheiten', 'waermelehre'];
 const scopedTopics = (process.env.PHYSICS_EN_CONSISTENCY_TOPICS || defaultScopedTopics.join(','))
   .split(',')
@@ -21,6 +22,7 @@ const physicsTopics = fs
   .filter((entry) => entry.endsWith('.js'))
   .map((entry) => entry.replace(/\.js$/, ''))
   .filter((topic) => !topic.startsWith('math'))
+  .filter((topic) => !nonPhysicsPrefixes.some((prefix) => topic.startsWith(prefix)))
   .filter((topic) => !nonPhysicsTopics.has(topic))
   .filter((topic) => scopedTopics.includes(topic))
   .sort();

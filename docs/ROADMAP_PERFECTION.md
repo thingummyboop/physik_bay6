@@ -709,3 +709,10 @@ P2 Fortschritt (Run 2026-04-28 07:0x):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 14 auf 15 priorisierte Mathethemen erweitert (neu: `math3_4_flaechensatz`); Baseline aktualisiert.
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math3_4_flaechensatz node scripts/audit_math_english_consistency.js`, anschließend `node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Mathe-EN-Konsistenzprüfung deckt jetzt 15 priorisierte Themen automatisiert ab (`known_debt=0`).
+
+P3 Fortschritt (Run 2026-04-28 10:xx):
+- Leere Fachbereiche **Geographie**, **Chemie** und **Biologie** in der Navigation durch je ein erstes Einstiegsmodul ersetzt.
+- Neu angelegt: **`geo_oesterreich_alltag`**, **`chemie_alltag_stoffe`** und **`bio_koerper_gesundheit`** mit A2-B1-Sprache, Österreich-/Alltagsbezug, kurzen Merksätzen, Mini-Aufgaben, Quizfragen und Diplomchecks.
+- Layout/A11y: Quiz-Feedback im Renderer nutzt jetzt `role="status"` + `aria-live` + `aria-atomic`, und Quizbuttons sind explizit `type="button"`.
+- QA-Scope: Physik-Audits schließen neue Geo-/Chemie-/Bio-Topic-Dateien korrekt aus, damit Nicht-Physik-Fächer nicht als Physik-Regressionsfälle zählen.
+- Qualitätssicherung: `node -e "JSON.parse(...lang/de.json...)"`, `node --check` für Renderer/neue Topic-Dateien und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).

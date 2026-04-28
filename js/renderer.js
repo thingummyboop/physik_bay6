@@ -76,9 +76,9 @@ async function renderTopic() {
                         <div class="quiz-box" data-id="${q.id}">
                             <p><strong>${q.question}</strong></p>
                             ${shuffledAnswers.map(ans => `
-                                <button data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
+                                <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
                             `).join('')}
-                            <p class="feedback" aria-live="polite"></p>
+                            <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
                         </div>
                     `;
                     content = content.replace(`{{QUIZ_${q.id}}}`, quizHtml);
@@ -106,10 +106,10 @@ async function renderTopic() {
                 diplomHtml += `
                     <div class="quiz-box" data-id="${q.id}">
                         <p><strong>${i+1}. ${stripQuestionNumber(q.question)}</strong></p>
-                        ${shuffledAnswers.map(ans => `
-                            <button data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
+                            ${shuffledAnswers.map(ans => `
+                            <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
                         `).join('')}
-                        <p class="feedback" aria-live="polite"></p>
+                        <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
                     </div>
                 `;
             });
