@@ -547,3 +547,9 @@ P2-Math Fortschritt (Run 2026-04-28 03:06):
 - Abgedeckt: Proportionalitäts- und Rabatt-Feedback im Kapitelquiz sowie 2 Diplom-Feedbacks (inkl. 100%-Grundverständnis).
 - Qualitätssicherung: Implementieren → Review → Patch mit `JSON.parse(lang/en.json)`, `node scripts/audit_math_language.js`, `node scripts/audit_math_a11y.js` und `git diff --check`.
 - Ergebnis: Prozent/Proportionalität ist im EN-Modul konsistenter und didaktisch klarer formuliert.
+
+P1 Fortschritt (Run 2026-04-28 03:2x):
+- Thema **Elektrizität** (EN-Inhalte) auf verbleibende Mischsprache im Antwort-Feedback geprüft und vollständig auf Englisch vereinheitlicht.
+- Abgedeckt: 23 diagnoseorientierte Feedbacktexte in Kapitel-Quizblöcken (Ladungen, Leiter/Isolator, Stromkreis, Batterie, Kondensator, Ohm-Zusammenhang).
+- Qualitätssicherung: Implementieren → Review → Patch mit Spotcheck auf verbleibende DE-Feedbackmarker im Modul, anschließend `node scripts/audit_physics_language.js` und `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Das Elektrizitätsmodul ist im EN-Feedback jetzt konsistent englisch, fachlich klar und regressionsfrei im Gesamt-Qualitätsgate.
