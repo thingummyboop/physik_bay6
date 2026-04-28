@@ -587,3 +587,17 @@ P1 Fortschritt (Run 2026-04-28 04:0x):
 - Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 3 auf 4 priorisierte Physikthemen erweitert (`elektrizitaet`, `optik1`, `linsen_spiegel`, `akustik`).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=akustik node scripts/audit_physics_english_consistency.js`, anschließend vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: Physik-EN-Konsistenzprüfung deckt jetzt auch Akustik automatisiert ab (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 04:1x):
+- Physik-Perfection (EN) im Thema **Energie** nachgezogen.
+- Abgedeckt: gemischte DE/EN-Reste in Kapitelinhalten, Quiz-Feedback und Diplom-Feedback auf konsistentes A2-B1-Englisch vereinheitlicht (u. a. zentrale Begriffe wie force/distance, potential energy, friction work).
+- Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 4 auf 5 priorisierte Physikthemen erweitert (neu: `energie`).
+- Qualitätssicherung: Implementieren → Review → Patch mit `node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-EN-Konsistenzprüfung deckt jetzt auch Energie automatisiert ab (`known_debt=0`).
+
+P1 Fortschritt (Run 2026-04-28 04:2x):
+- Physik-Perfection (EN) im Thema **Astronomie** nachgezogen.
+- Abgedeckt: 30 verbliebene deutschsprachige Diagnose-Feedbacktexte (Kapitel + Diplom) in `lang/en.json` auf konsistentes, kurzes Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 5 auf 6 priorisierte Physikthemen erweitert (neu: `astronomie`).
+- Qualitätssicherung: Implementieren → Review → Patch mit `PHYSICS_EN_CONSISTENCY_TOPICS=astronomie node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Physik-EN-Konsistenzprüfung deckt jetzt auch Astronomie automatisiert ab (`known_debt=0`).

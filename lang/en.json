@@ -446,18 +446,18 @@
                 "text": "A lot, definitely over 1000 joules.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Nicht ganz: Wenn sich nichts bewegt, ist der Weg 0. Dann ist auch die Arbeit W = F · s gleich 0 J."
+                "feedback": "Not quite: If nothing moves, the distance is 0. Then the work W = F · s is also 0 J."
               },
               {
                 "text": "0 joules (no work at all).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: Ohne Weg keine Arbeit. Die Wand bleibt stehen, also ist W = 0 J."
+                "feedback": "Exactly: No distance means no work. The wall stays still, so W = 0 J."
               }
             ]
           }
         ],
-        "content": "<div class=\"lesson-goals\">\n            <strong>This is what you will learn in this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Distinguish between everyday work and physical work.</li>\n                <li>use the formula <strong>W = F · s</strong> safely.</li>\n                <li>detect whether force and path point in the same direction.</li>\n                <li>Calculate work in joules.</li>\n                <li>Detect lifting work, friction work, deformation work and acceleration work.</li>\n            </ul>\n        </div>\n        <p>In everyday life, work is anything that is stressful. In physics this is more strict: <strong>Mechanical work</strong> is only done when a <strong>force</strong> moves a body and the force points at least partially in the direction of the <strong>way</strong>.</p>\n        <div class=\"remember-box\"><strong>Merksatz:</strong> Mechanical work requires power and path in the appropriate direction. Without a path, <strong>s = 0</strong>. If the force and path point crosswise to each other, the work in the direction of movement is very small or zero.</div>\n        <div class=\"interactive-zone\">\n            <h3>Work or no work?</h3>\n            <p>Choose a situation. Decide: Is mechanical work being done on the object?</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-work-case=\"box\" onclick=\"chooseWorkCase('box')\">Push crate</button>\n                <button class=\"prediction-btn\" data-work-case=\"wall\" onclick=\"chooseWorkCase('wall')\">Push Wall</button>\n                <button class=\"prediction-btn\" data-work-case=\"hold\" onclick=\"chooseWorkCase('hold')\">Hold backpack</button>\n                <button class=\"prediction-btn\" data-work-case=\"carry\" onclick=\"chooseWorkCase('carry')\">Carry backpack</button>\n            </div>\n            <div class=\"diagram-box\" style=\"height:260px; background:#f8fafc;\">\n                <svg width=\"470\" height=\"220\" viewBox=\"0 0 470 220\" aria-label=\"Situationen f&uuml;r mechanische Arbeit\">\n                    <line x1=\"20\" y1=\"188\" x2=\"450\" y2=\"188\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <g id=\"personGroup\" style=\"transition: transform 0.5s ease;\">\n                        <circle cx=\"82\" cy=\"88\" r=\"18\" fill=\"#fbbf24\" stroke=\"#92400e\" stroke-width=\"2\"></circle>\n                        <line x1=\"82\" y1=\"106\" x2=\"82\" y2=\"154\" stroke=\"#1e293b\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                        <line x1=\"82\" y1=\"122\" x2=\"122\" y2=\"132\" stroke=\"#1e293b\" stroke-width=\"6\" stroke-linecap=\"round\"></line>\n                        <line x1=\"82\" y1=\"154\" x2=\"62\" y2=\"188\" stroke=\"#1e293b\" stroke-width=\"6\" stroke-linecap=\"round\"></line>\n                        <line x1=\"82\" y1=\"154\" x2=\"104\" y2=\"188\" stroke=\"#1e293b\" stroke-width=\"6\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"boxGroup\" style=\"display:none; transition: transform 0.5s ease;\"><rect x=\"170\" y=\"138\" width=\"62\" height=\"50\" rx=\"6\" fill=\"#f97316\" stroke=\"#9a3412\" stroke-width=\"3\"></rect><text x=\"201\" y=\"169\" text-anchor=\"middle\" fill=\"white\" font-weight=\"700\">Kiste</text></g>\n                    <g id=\"wallGroup\" style=\"display:none; transition: opacity 0.3s;\"><rect x=\"310\" y=\"76\" width=\"38\" height=\"112\" fill=\"#94a3b8\" stroke=\"#475569\" stroke-width=\"3\"></rect><path d=\"M310 104 H348 M310 132 H348 M310 160 H348\" stroke=\"#64748b\" stroke-width=\"2\"></path></g>\n                    <g id=\"bagGroup\" style=\"display:none; transition: opacity 0.3s;\"><rect x=\"110\" y=\"126\" width=\"34\" height=\"48\" rx=\"8\" fill=\"#2563eb\"></rect><path d=\"M117 126 Q127 108 137 126\" fill=\"none\" stroke=\"#1e40af\" stroke-width=\"5\"></path></g>\n                    <g id=\"carryVectors\" opacity=\"0\" style=\"display:none; transition: opacity 0.25s ease;\" aria-hidden=\"true\">\n                        <g id=\"holdForceVector\">\n                            <line x1=\"127\" y1=\"126\" x2=\"127\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"4\" stroke-linecap=\"round\"></line>\n                            <polygon points=\"127,102 121,114 133,114\" fill=\"#2563eb\"></polygon>\n                            <text x=\"139\" y=\"110\" fill=\"#1d4ed8\" font-size=\"12\" font-weight=\"700\">F</text>\n                        </g>\n                        <g id=\"carryPathVector\" style=\"display:none;\">\n                            <line x1=\"150\" y1=\"152\" x2=\"186\" y2=\"152\" stroke=\"#64748b\" stroke-width=\"4\" stroke-linecap=\"round\"></line>\n                            <polygon points=\"186,152 176,146 176,158\" fill=\"#64748b\"></polygon>\n                            <text x=\"168\" y=\"145\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\">s</text>\n                        </g>\n                    </g>\n                    <g id=\"workForceArrow\" opacity=\"0\" style=\"transition: opacity 0.25s ease;\"><line id=\"workForceLine\" x1=\"236\" y1=\"132\" x2=\"268\" y2=\"132\" stroke=\"#dc2626\" stroke-width=\"4\" stroke-linecap=\"round\"></line>\n                        <polygon id=\"workForceHead\" points=\"268,132 258,126 258,138\" fill=\"#dc2626\"></polygon>\n                        <text id=\"workForceLabel\" x=\"252\" y=\"120\" text-anchor=\"middle\" fill=\"#991b1b\" font-size=\"12\" font-weight=\"700\">F</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"workCaseText\" class=\"lab-feedback\">Choose a situation.</p>\n            <p id=\"workCaseFormula\" class=\"remember-box\"></p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Computing laboratory: W = F · s</h3>\n            <p>Set force and distance. The work will be charged immediately. Always use the same calculation method.</p>\n            <label>Force F: <span id=\"forceVal\">50</span> N<br><input type=\"range\" id=\"forceRange\" min=\"0\" max=\"300\" value=\"50\" step=\"10\" oninput=\"calcWork()\" style=\"width:260px;\"></label><br>\n            <label>Way s: <span id=\"distanceVal\">3</span> m<br><input type=\"range\" id=\"distanceRange\" min=\"0\" max=\"10\" value=\"3\" step=\"1\" oninput=\"calcWork()\" style=\"width:260px;\"></label>\n            <p id=\"workEquation\" class=\"lab-feedback\">W = 50 N · 3 m = 150 J</p>\n            <p><strong>Work:</strong> <span id=\"workValue\">150 J</span></p>\n            <div class=\"meter\"><div id=\"workMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"remember-box\"><strong>Calculation method:</strong> 1. Mark given: F and s. 2. Select formula: W = F · s. 3. Insert numbers. 4. Write the unit: Joule (J).</div>\n            <div class=\"remember-box\"><strong>Units:</strong> W in joules (J), F in newtons (N), s in meters (m). <strong>1 Y = 1 N m</strong>.</div>\n        </div>\n        {{QUIZ_q1}}"
+        "content": "<div class=\"lesson-goals\">\n            <strong>This is what you will learn in this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Distinguish between everyday work and physical work.</li>\n                <li>Use the formula <strong>W = F · s</strong> safely.</li>\n                <li>Notice whether force and distance point in the same direction.</li>\n                <li>Calculate work in joules.</li>\n                <li>Recognize lifting work, friction work, deformation work and acceleration work.</li>\n            </ul>\n        </div>\n        <p>In everyday life, work can mean anything tiring. In physics it is stricter: <strong>Mechanical work</strong> is only done when a <strong>force</strong> moves an object and the force points at least partly in the direction of the <strong>distance</strong>.</p>\n        <div class=\"remember-box\"><strong>Remember:</strong> Mechanical work needs force and distance in the right direction. Without distance, <strong>s = 0</strong>. If force and distance are at right angles, the work in the direction of motion is very small or zero.</div>\n        <div class=\"interactive-zone\">\n            <h3>Work or no work?</h3>\n            <p>Choose a situation. Decide: Is mechanical work being done on the object?</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-work-case=\"box\" onclick=\"chooseWorkCase('box')\">Push crate</button>\n                <button class=\"prediction-btn\" data-work-case=\"wall\" onclick=\"chooseWorkCase('wall')\">Push wall</button>\n                <button class=\"prediction-btn\" data-work-case=\"hold\" onclick=\"chooseWorkCase('hold')\">Hold backpack</button>\n                <button class=\"prediction-btn\" data-work-case=\"carry\" onclick=\"chooseWorkCase('carry')\">Carry backpack</button>\n            </div>\n            <div class=\"diagram-box\" style=\"height:260px; background:#f8fafc;\">\n                <svg width=\"470\" height=\"220\" viewBox=\"0 0 470 220\" aria-label=\"Situations for mechanical work\">\n                    <line x1=\"20\" y1=\"188\" x2=\"450\" y2=\"188\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <g id=\"personGroup\" style=\"transition: transform 0.5s ease;\">\n                        <circle cx=\"82\" cy=\"88\" r=\"18\" fill=\"#fbbf24\" stroke=\"#92400e\" stroke-width=\"2\"></circle>\n                        <line x1=\"82\" y1=\"106\" x2=\"82\" y2=\"154\" stroke=\"#1e293b\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                        <line x1=\"82\" y1=\"122\" x2=\"122\" y2=\"132\" stroke=\"#1e293b\" stroke-width=\"6\" stroke-linecap=\"round\"></line>\n                        <line x1=\"82\" y1=\"154\" x2=\"62\" y2=\"188\" stroke=\"#1e293b\" stroke-width=\"6\" stroke-linecap=\"round\"></line>\n                        <line x1=\"82\" y1=\"154\" x2=\"104\" y2=\"188\" stroke=\"#1e293b\" stroke-width=\"6\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"boxGroup\" style=\"display:none; transition: transform 0.5s ease;\"><rect x=\"170\" y=\"138\" width=\"62\" height=\"50\" rx=\"6\" fill=\"#f97316\" stroke=\"#9a3412\" stroke-width=\"3\"></rect><text x=\"201\" y=\"169\" text-anchor=\"middle\" fill=\"white\" font-weight=\"700\">Crate</text></g>\n                    <g id=\"wallGroup\" style=\"display:none; transition: opacity 0.3s;\"><rect x=\"310\" y=\"76\" width=\"38\" height=\"112\" fill=\"#94a3b8\" stroke=\"#475569\" stroke-width=\"3\"></rect><path d=\"M310 104 H348 M310 132 H348 M310 160 H348\" stroke=\"#64748b\" stroke-width=\"2\"></path></g>\n                    <g id=\"bagGroup\" style=\"display:none; transition: opacity 0.3s;\"><rect x=\"110\" y=\"126\" width=\"34\" height=\"48\" rx=\"8\" fill=\"#2563eb\"></rect><path d=\"M117 126 Q127 108 137 126\" fill=\"none\" stroke=\"#1e40af\" stroke-width=\"5\"></path></g>\n                    <g id=\"carryVectors\" opacity=\"0\" style=\"display:none; transition: opacity 0.25s ease;\" aria-hidden=\"true\">\n                        <g id=\"holdForceVector\">\n                            <line x1=\"127\" y1=\"126\" x2=\"127\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"4\" stroke-linecap=\"round\"></line>\n                            <polygon points=\"127,102 121,114 133,114\" fill=\"#2563eb\"></polygon>\n                            <text x=\"139\" y=\"110\" fill=\"#1d4ed8\" font-size=\"12\" font-weight=\"700\">F</text>\n                        </g>\n                        <g id=\"carryPathVector\" style=\"display:none;\">\n                            <line x1=\"150\" y1=\"152\" x2=\"186\" y2=\"152\" stroke=\"#64748b\" stroke-width=\"4\" stroke-linecap=\"round\"></line>\n                            <polygon points=\"186,152 176,146 176,158\" fill=\"#64748b\"></polygon>\n                            <text x=\"168\" y=\"145\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\">s</text>\n                        </g>\n                    </g>\n                    <g id=\"workForceArrow\" opacity=\"0\" style=\"transition: opacity 0.25s ease;\"><line id=\"workForceLine\" x1=\"236\" y1=\"132\" x2=\"268\" y2=\"132\" stroke=\"#dc2626\" stroke-width=\"4\" stroke-linecap=\"round\"></line>\n                        <polygon id=\"workForceHead\" points=\"268,132 258,126 258,138\" fill=\"#dc2626\"></polygon>\n                        <text id=\"workForceLabel\" x=\"252\" y=\"120\" text-anchor=\"middle\" fill=\"#991b1b\" font-size=\"12\" font-weight=\"700\">F</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"workCaseText\" class=\"lab-feedback\">Choose a situation.</p>\n            <p id=\"workCaseFormula\" class=\"remember-box\"></p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Calculation lab: W = F · s</h3>\n            <p>Set force and distance. The work is calculated at once. Always use the same calculation steps.</p>\n            <label>Force F: <span id=\"forceVal\">50</span> N<br><input type=\"range\" id=\"forceRange\" min=\"0\" max=\"300\" value=\"50\" step=\"10\" oninput=\"calcWork()\" style=\"width:260px;\"></label><br>\n            <label>Distance s: <span id=\"distanceVal\">3</span> m<br><input type=\"range\" id=\"distanceRange\" min=\"0\" max=\"10\" value=\"3\" step=\"1\" oninput=\"calcWork()\" style=\"width:260px;\"></label>\n            <p id=\"workEquation\" class=\"lab-feedback\">W = 50 N · 3 m = 150 J</p>\n            <p><strong>Work:</strong> <span id=\"workValue\">150 J</span></p>\n            <div class=\"meter\"><div id=\"workMeter\" class=\"meter-fill\"></div></div>\n            <div class=\"remember-box\"><strong>Calculation steps:</strong> 1. Mark what is given: F and s. 2. Choose the formula: W = F · s. 3. Put in the numbers. 4. Write the unit: joule (J).</div>\n            <div class=\"remember-box\"><strong>Units:</strong> W in joules (J), F in newtons (N), s in meters (m). <strong>1 J = 1 N m</strong>.</div>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -471,18 +471,18 @@
                 "text": "It gets positional energy.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Beim Anheben steckt die Arbeit als Lageenergie im Körper."
+                "feedback": "Correct: When you lift it, the work is stored as potential energy in the object."
               },
               {
                 "text": "It gets kinetic energy.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Hier geht es ums Anheben, nicht ums schneller Werden. Dabei nimmt vor allem die Lageenergie zu."
+                "feedback": "This is about lifting, not speeding up. Mainly the potential energy increases."
               }
             ]
           }
         ],
-        "content": "<p>When you lift something upwards against gravity, you are doing <strong>lifting work</strong>. This gives the item <strong>Lageenergie</strong>.</p>\n        <p><span class=\"formula-card\">W = m · g · h</span></p>\n        <div class=\"remember-box\"><strong>Simplified for schools:</strong> g ≈ 10 N/kg. This means: 1 kg requires around 10 N of weight.</div>\n        <div class=\"remember-box\"><strong>Calculation path for lifting work:</strong> 1. Find mass m. 2. Find height h. 3. Use g with 10 N/kg. 4. Calculate W = m · g · h.</div>\n        <div class=\"interactive-zone\">\n            <h3>The lifting crane</h3>\n            <p>Select a load and set how high it will be lifted.</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-lift-object=\"bag\" onclick=\"chooseLiftObject('bag')\">School backpack</button>\n                <button class=\"prediction-btn\" data-lift-object=\"crate\" onclick=\"chooseLiftObject('crate')\">Drinks Crate</button>\n                <button class=\"prediction-btn\" data-lift-object=\"brick\" onclick=\"chooseLiftObject('brick')\">Brick</button>\n            </div>\n            <p><strong>Load:</strong> <span id=\"liftObjectName\">School backpack</span> · <strong>Mass:</strong> <span id=\"liftMass\">6</span> kg</p>\n            <label>Height h: <span id=\"heightVal\">1.0</span> m<br><input type=\"range\" id=\"heightRange\" min=\"0\" max=\"2.5\" value=\"1\" step=\"0.5\" oninput=\"updateLiftHeight()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"height:280px; background:#ecfeff;\">\n                <svg width=\"360\" height=\"250\" viewBox=\"0 0 360 250\" aria-label=\"Kran hebt eine Last\">\n                    <line x1=\"80\" y1=\"226\" x2=\"310\" y2=\"226\" stroke=\"#64748b\" stroke-width=\"5\"></line>\n                    <line x1=\"110\" y1=\"226\" x2=\"110\" y2=\"36\" stroke=\"#475569\" stroke-width=\"10\"></line>\n                    <line x1=\"110\" y1=\"36\" x2=\"250\" y2=\"36\" stroke=\"#475569\" stroke-width=\"8\"></line>\n                    <line id=\"craneRope\" x1=\"250\" y1=\"36\" x2=\"250\" y2=\"155\" stroke=\"#111827\" stroke-width=\"3\"></line>\n                    <g id=\"craneLoadGroup\" style=\"transition: transform 0.3s ease;\">\n                        <rect id=\"craneLoad\" x=\"218\" y=\"155\" width=\"64\" height=\"46\" rx=\"6\" fill=\"#2563eb\" stroke=\"#1e3a8a\" stroke-width=\"3\"></rect>\n                        <text x=\"250\" y=\"183\" text-anchor=\"middle\" fill=\"white\" font-size=\"13\">Last</text>\n                    </g>\n                    <line x1=\"305\" y1=\"210\" x2=\"305\" y2=\"72\" stroke=\"#16a34a\" stroke-width=\"4\" marker-end=\"url(#heightArrow)\"></line>\n                    <text x=\"316\" y=\"145\" fill=\"#166534\" font-size=\"13\">h</text>\n                    <defs><marker id=\"heightArrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L8,3 z\" fill=\"#16a34a\"></path></marker></defs>\n                </svg>\n            </div>\n            <p id=\"liftWorkText\" class=\"lab-feedback\">W = m · g · h</p>\n            <div class=\"meter\"><div id=\"liftMeter\" class=\"meter-fill\"></div></div>\n        </div>\n        {{QUIZ_q2}}"
+        "content": "<p>When you lift something upwards against gravity, you are doing <strong>lifting work</strong>. This gives the object <strong>potential energy</strong>.</p>\n        <p><span class=\"formula-card\">W = m · g · h</span></p>\n        <div class=\"remember-box\"><strong>Simplified for school:</strong> g ≈ 10 N/kg. This means: 1 kg has a weight force of about 10 N.</div>\n        <div class=\"remember-box\"><strong>Calculation steps for lifting work:</strong> 1. Find mass m. 2. Find height h. 3. Use g = 10 N/kg. 4. Calculate W = m · g · h.</div>\n        <div class=\"interactive-zone\">\n            <h3>The lifting crane</h3>\n            <p>Select a load and set how high it will be lifted.</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-lift-object=\"bag\" onclick=\"chooseLiftObject('bag')\">School backpack</button>\n                <button class=\"prediction-btn\" data-lift-object=\"crate\" onclick=\"chooseLiftObject('crate')\">Drink crate</button>\n                <button class=\"prediction-btn\" data-lift-object=\"brick\" onclick=\"chooseLiftObject('brick')\">Brick</button>\n            </div>\n            <p><strong>Load:</strong> <span id=\"liftObjectName\">School backpack</span> · <strong>Mass:</strong> <span id=\"liftMass\">6</span> kg</p>\n            <label>Height h: <span id=\"heightVal\">1.0</span> m<br><input type=\"range\" id=\"heightRange\" min=\"0\" max=\"2.5\" value=\"1\" step=\"0.5\" oninput=\"updateLiftHeight()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"height:280px; background:#ecfeff;\">\n                <svg width=\"360\" height=\"250\" viewBox=\"0 0 360 250\" aria-label=\"Crane lifts a load\">\n                    <line x1=\"80\" y1=\"226\" x2=\"310\" y2=\"226\" stroke=\"#64748b\" stroke-width=\"5\"></line>\n                    <line x1=\"110\" y1=\"226\" x2=\"110\" y2=\"36\" stroke=\"#475569\" stroke-width=\"10\"></line>\n                    <line x1=\"110\" y1=\"36\" x2=\"250\" y2=\"36\" stroke=\"#475569\" stroke-width=\"8\"></line>\n                    <line id=\"craneRope\" x1=\"250\" y1=\"36\" x2=\"250\" y2=\"155\" stroke=\"#111827\" stroke-width=\"3\"></line>\n                    <g id=\"craneLoadGroup\" style=\"transition: transform 0.3s ease;\">\n                        <rect id=\"craneLoad\" x=\"218\" y=\"155\" width=\"64\" height=\"46\" rx=\"6\" fill=\"#2563eb\" stroke=\"#1e3a8a\" stroke-width=\"3\"></rect>\n                        <text x=\"250\" y=\"183\" text-anchor=\"middle\" fill=\"white\" font-size=\"13\">Load</text>\n                    </g>\n                    <line x1=\"305\" y1=\"210\" x2=\"305\" y2=\"72\" stroke=\"#16a34a\" stroke-width=\"4\" marker-end=\"url(#heightArrow)\"></line>\n                    <text x=\"316\" y=\"145\" fill=\"#166534\" font-size=\"13\">h</text>\n                    <defs><marker id=\"heightArrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L8,3 z\" fill=\"#16a34a\"></path></marker></defs>\n                </svg>\n            </div>\n            <p id=\"liftWorkText\" class=\"lab-feedback\">W = m · g · h</p>\n            <div class=\"meter\"><div id=\"liftMeter\" class=\"meter-fill\"></div></div>\n        </div>\n        {{QUIZ_q2}}"
       },
       {
         "id": "sec2",
@@ -496,18 +496,18 @@
                 "text": "In light energy.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Fast: Beim Bremsen wird Bewegungsenergie überwiegend in Wärme umgewandelt (z. B. in den Bremsen)."
+                "feedback": "Almost: When braking, kinetic energy mostly changes into heat, for example in the brakes."
               },
               {
                 "text": "In thermal energy.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: Reibung beim Bremsen wandelt Bewegungsenergie in Wärme um."
+                "feedback": "Exactly: Friction while braking changes kinetic energy into heat."
               }
             ]
           }
         ],
-        "content": "<p>With <strong>friction work</strong>, kinetic energy or muscle work is often converted into <strong>heat</strong>. That's why hands get warm when you rub them together.</p>\n        <div class=\"interactive-zone\">\n            <h3>The friction sled</h3>\n            <p>The path remains the same: <strong>s = 4 m</strong>. Only the necessary strength changes. More friction means: more power, more work, more heat.</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-surface=\"ice\" onclick=\"setSurface('ice')\">Eisboden</button>\n                <button class=\"prediction-btn\" data-surface=\"sand\" onclick=\"setSurface('sand')\">Sandy soil</button>\n                <button onclick=\"pullSled()\">Pulling the sleigh</button>\n            </div>\n            <div class=\"diagram-box\" style=\"height:240px; background:#f8fafc;\">\n                <svg width=\"430\" height=\"200\" viewBox=\"0 0 430 200\" aria-label=\"Schlitten auf Boden mit Reibung\">\n                    <rect id=\"floor\" x=\"0\" y=\"150\" width=\"430\" height=\"50\" fill=\"#bae6fd\"></rect>\n                    <g id=\"sledGroup\" style=\"transition: transform 1s linear;\">\n                        <rect x=\"70\" y=\"112\" width=\"90\" height=\"30\" rx=\"6\" fill=\"#ef4444\" stroke=\"#991b1b\" stroke-width=\"3\"></rect>\n                        <path d=\"M62 145 Q112 160 168 145\" fill=\"none\" stroke=\"#475569\" stroke-width=\"4\" stroke-linecap=\"round\"></path>\n                    </g>\n                    <line id=\"pullRope\" x1=\"70\" y1=\"124\" x2=\"28\" y2=\"96\" stroke=\"#78350f\" stroke-width=\"4\" style=\"transition: transform 1s linear;\"></line>\n                    <g id=\"heatSparks\" opacity=\"0.25\">\n                        <path d=\"M118 148 q8 -18 16 0\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"3\"></path>\n                        <path d=\"M138 148 q8 -18 16 0\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"3\"></path>\n                    </g>\n                    <text x=\"215\" y=\"184\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">Friction slows down the movement</text>\n                </svg>\n            </div>\n            <p id=\"frictionText\" class=\"lab-feedback\">Choose a surface.</p>\n            <p>Frictional work / heat:</p>\n            <div class=\"meter\"><div id=\"frictionMeter\" class=\"meter-fill\"></div></div>\n        </div>\n        {{QUIZ_q3}}"
+        "content": "<p>With <strong>friction work</strong>, kinetic energy or muscle work is often converted into <strong>heat</strong>. That's why hands get warm when you rub them together.</p>\n        <div class=\"interactive-zone\">\n            <h3>The friction sled</h3>\n            <p>The distance stays the same: <strong>s = 4 m</strong>. Only the needed force changes. More friction means: more force, more work, more heat.</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-surface=\"ice\" onclick=\"setSurface('ice')\">Icy floor</button>\n                <button class=\"prediction-btn\" data-surface=\"sand\" onclick=\"setSurface('sand')\">Sandy ground</button>\n                <button onclick=\"pullSled()\">Pull the sled</button>\n            </div>\n            <div class=\"diagram-box\" style=\"height:240px; background:#f8fafc;\">\n                <svg width=\"430\" height=\"200\" viewBox=\"0 0 430 200\" aria-label=\"Sled on ground with friction\">\n                    <rect id=\"floor\" x=\"0\" y=\"150\" width=\"430\" height=\"50\" fill=\"#bae6fd\"></rect>\n                    <g id=\"sledGroup\" style=\"transition: transform 1s linear;\">\n                        <rect x=\"70\" y=\"112\" width=\"90\" height=\"30\" rx=\"6\" fill=\"#ef4444\" stroke=\"#991b1b\" stroke-width=\"3\"></rect>\n                        <path d=\"M62 145 Q112 160 168 145\" fill=\"none\" stroke=\"#475569\" stroke-width=\"4\" stroke-linecap=\"round\"></path>\n                    </g>\n                    <line id=\"pullRope\" x1=\"70\" y1=\"124\" x2=\"28\" y2=\"96\" stroke=\"#78350f\" stroke-width=\"4\" style=\"transition: transform 1s linear;\"></line>\n                    <g id=\"heatSparks\" opacity=\"0.25\">\n                        <path d=\"M118 148 q8 -18 16 0\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"3\"></path>\n                        <path d=\"M138 148 q8 -18 16 0\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"3\"></path>\n                    </g>\n                    <text x=\"215\" y=\"184\" text-anchor=\"middle\" fill=\"#334155\" font-size=\"13\">Friction slows down the movement</text>\n                </svg>\n            </div>\n            <p id=\"frictionText\" class=\"lab-feedback\">Choose a surface.</p>\n            <p>Friction work / heat:</p>\n            <div class=\"meter\"><div id=\"frictionMeter\" class=\"meter-fill\"></div></div>\n        </div>\n        {{QUIZ_q3}}"
       },
       {
         "id": "sec3",
@@ -518,21 +518,21 @@
             "question": "What is the Golden Rule of Mechanics?",
             "answers": [
               {
-                "text": "What you save in energy you have to use in distance.",
+                "text": "What you save in force you have to add in distance.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Die Goldene Regel der Mechanik – kleine Kraft bedeutet meist längerer Weg."
+                "feedback": "Correct: The Golden Rule of Mechanics says less force usually means a longer distance."
               },
               {
                 "text": "If you work a lot, you have to eat a lot.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Das ist alltagssprachlich gemeint, aber nicht die physikalische Regel. In der Mechanik gilt: Kraft sparen bedeutet mehr Weg."
+                "feedback": "That is everyday language, not the physics rule. In mechanics, saving force means using more distance."
               }
             ]
           }
         ],
-        "content": "<p>Simple machines such as ramps, levers or pulleys can save energy. But they don't magic away the work. The following usually applies: <strong>Whatever you save in energy, you have to add in distance.</strong></p>\n        <div class=\"interactive-zone\">\n            <h3>Steep or flat ramp?</h3>\n            <p>Compare force, distance and work. The numbers are simplified and show the idea.</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-ramp=\"steep\" onclick=\"compareRamp('steep')\">Steep ramp</button>\n                <button class=\"prediction-btn\" data-ramp=\"flat\" onclick=\"compareRamp('flat')\">Flat ramp</button>\n            </div>\n            <div class=\"diagram-box\" style=\"height:250px; background:#f8fafc;\">\n                <svg width=\"430\" height=\"210\" viewBox=\"0 0 430 210\" aria-label=\"Vergleich steile und flache Rampe\">\n                    <line x1=\"35\" y1=\"180\" x2=\"385\" y2=\"180\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <path id=\"rampFlat\" d=\"M55 180 L330 80\" stroke=\"#16a34a\" stroke-width=\"10\" stroke-linecap=\"round\" opacity=\"0.35\"></path>\n                    <path id=\"rampSteep\" d=\"M230 180 L330 80\" stroke=\"#dc2626\" stroke-width=\"10\" stroke-linecap=\"round\"></path>\n                    <rect x=\"315\" y=\"75\" width=\"40\" height=\"105\" fill=\"#94a3b8\"></rect>\n                    <g id=\"ballGroup\" style=\"transition: transform 0.9s ease-in-out;\"><circle cx=\"55\" cy=\"168\" r=\"13\" fill=\"#facc15\" stroke=\"#854d0e\" stroke-width=\"3\"></circle></g>\n                    <text x=\"140\" y=\"198\" text-anchor=\"middle\" font-size=\"12\" fill=\"#166534\">long way</text>\n                    <text x=\"274\" y=\"198\" text-anchor=\"middle\" font-size=\"12\" fill=\"#991b1b\">short route</text>\n                </svg>\n            </div>\n            <table style=\"width:100%; border-collapse:collapse; text-align:left;\">\n                <tr><th style=\"padding:6px;\">Power</th><td id=\"rampForce\" style=\"padding:6px;\">lots of power: 300 N</td></tr>\n                <tr><th style=\"padding:6px;\">Way</th><td id=\"rampPath\" style=\"padding:6px;\">short way: 2 m</td></tr>\n                <tr><th style=\"padding:6px;\">Work</th><td id=\"rampWork\" style=\"padding:6px;\">600 J</td></tr>\n            </table>\n            <p id=\"rampText\" class=\"lab-feedback\">Choose a ramp.</p>\n            <div class=\"remember-box\"><strong>Important:</strong> Machines save energy, but not automatically work.</div>\n        </div>\n        {{QUIZ_q4}}"
+        "content": "<p>Simple machines such as ramps, levers or pulleys can save force. But they do not make the work disappear. The following usually applies: <strong>Whatever you save in force, you must add in distance.</strong></p>\n        <div class=\"interactive-zone\">\n            <h3>Steep or flat ramp?</h3>\n            <p>Compare force, distance and work. The numbers are simplified and show the idea.</p>\n            <div class=\"prediction-grid\">\n                <button class=\"prediction-btn\" data-ramp=\"steep\" onclick=\"compareRamp('steep')\">Steep ramp</button>\n                <button class=\"prediction-btn\" data-ramp=\"flat\" onclick=\"compareRamp('flat')\">Flat ramp</button>\n            </div>\n            <div class=\"diagram-box\" style=\"height:250px; background:#f8fafc;\">\n                <svg width=\"430\" height=\"210\" viewBox=\"0 0 430 210\" aria-label=\"Comparison of steep and flat ramps\">\n                    <line x1=\"35\" y1=\"180\" x2=\"385\" y2=\"180\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <path id=\"rampFlat\" d=\"M55 180 L330 80\" stroke=\"#16a34a\" stroke-width=\"10\" stroke-linecap=\"round\" opacity=\"0.35\"></path>\n                    <path id=\"rampSteep\" d=\"M230 180 L330 80\" stroke=\"#dc2626\" stroke-width=\"10\" stroke-linecap=\"round\"></path>\n                    <rect x=\"315\" y=\"75\" width=\"40\" height=\"105\" fill=\"#94a3b8\"></rect>\n                    <g id=\"ballGroup\" style=\"transition: transform 0.9s ease-in-out;\"><circle cx=\"55\" cy=\"168\" r=\"13\" fill=\"#facc15\" stroke=\"#854d0e\" stroke-width=\"3\"></circle></g>\n                    <text x=\"140\" y=\"198\" text-anchor=\"middle\" font-size=\"12\" fill=\"#166534\">long distance</text>\n                    <text x=\"274\" y=\"198\" text-anchor=\"middle\" font-size=\"12\" fill=\"#991b1b\">short distance</text>\n                </svg>\n            </div>\n            <table style=\"width:100%; border-collapse:collapse; text-align:left;\">\n                <tr><th style=\"padding:6px;\">Force</th><td id=\"rampForce\" style=\"padding:6px;\">large force: 300 N</td></tr>\n                <tr><th style=\"padding:6px;\">Distance</th><td id=\"rampPath\" style=\"padding:6px;\">short distance: 2 m</td></tr>\n                <tr><th style=\"padding:6px;\">Work</th><td id=\"rampWork\" style=\"padding:6px;\">600 J</td></tr>\n            </table>\n            <p id=\"rampText\" class=\"lab-feedback\">Choose a ramp.</p>\n            <div class=\"remember-box\"><strong>Important:</strong> Machines save force, but not work.</div>\n        </div>\n        {{QUIZ_q4}}"
       },
       {
         "id": "sec4",
@@ -546,18 +546,18 @@
                 "text": "Acceleration work.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: Das Auto wird schneller, also wird Beschleunigungsarbeit verrichtet."
+                "feedback": "Exactly: The car gets faster, so acceleration work is done."
               },
               {
                 "text": "lifting work.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Hubarbeit ist Heben gegen die Schwerkraft. Beim Beschleunigen auf gerader Strecke ist es Beschleunigungsarbeit."
+                "feedback": "Lifting work means lifting against gravity. Speeding up on a flat road is acceleration work."
               }
             ]
           }
         ],
-        "content": "<p>Mechanical work can store energy or change motion. A spring stores <strong>deformation energy</strong>. A bicycle gets more <strong>motion energy</strong>.</p> when accelerating\n        <div class=\"interactive-zone\">\n            <h3>Deformation work: Spring</h3>\n            <button id=\"springBtn\" onclick=\"compressSpring()\">Press spring</button>\n            <div class=\"diagram-box\" style=\"height:190px; background:#f8fafc;\">\n                <svg width=\"420\" height=\"145\" viewBox=\"0 0 420 145\" aria-label=\"Feder wird zusammengedr&uuml;ckt\">\n                    <line x1=\"70\" y1=\"112\" x2=\"350\" y2=\"112\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <g id=\"springGroup\" style=\"transition: transform 0.4s ease; transform-origin: 320px 76px;\">\n                        <path d=\"M150 76 q10 -30 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0\" fill=\"none\" stroke=\"#0f766e\" stroke-width=\"6\"></path>\n                    </g>\n                    <g id=\"springBlockGroup\" style=\"transition: transform 0.4s ease;\"><rect x=\"92\" y=\"52\" width=\"54\" height=\"54\" rx=\"6\" fill=\"#f97316\" stroke=\"#9a3412\" stroke-width=\"3\"></rect></g>\n                    <rect x=\"326\" y=\"45\" width=\"16\" height=\"70\" fill=\"#475569\"></rect>\n                </svg>\n            </div>\n            <p id=\"springText\" class=\"lab-feedback\">The spring is relaxed. Hardly any deformation energy is stored.</p>\n            <div class=\"meter\"><div id=\"springMeter\" class=\"meter-fill\" style=\"width:15%;\"></div></div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Acceleration work: Bicycle</h3>\n            <p>Increase speed. The kinetic energy increases sharply: twice the speed means approximately four times the kinetic energy.</p>\n            <label>Speed: <span id=\"bikeSpeedVal\">5</span> m/s<br><input type=\"range\" id=\"bikeSpeedRange\" min=\"0\" max=\"12\" value=\"5\" oninput=\"updateBike()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"height:170px; background:#ecfeff;\">\n                <svg width=\"430\" height=\"130\" viewBox=\"0 0 430 130\" aria-label=\"Fahrrad wird schneller\">\n                    <line x1=\"20\" y1=\"105\" x2=\"410\" y2=\"105\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <g id=\"bikeGroup\" style=\"transition: transform 0.35s ease;\">\n                        <circle cx=\"70\" cy=\"92\" r=\"16\" fill=\"none\" stroke=\"#111827\" stroke-width=\"4\"></circle>\n                        <circle cx=\"125\" cy=\"92\" r=\"16\" fill=\"none\" stroke=\"#111827\" stroke-width=\"4\"></circle>\n                        <path d=\"M70 92 L96 62 L125 92 L92 92 L70 92 M96 62 L116 62\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"bikeText\" class=\"lab-feedback\">Acceleration work: The faster the bike becomes, the greater the kinetic energy becomes. Twice as fast means about four times as much kinetic energy.</p>\n            <div class=\"meter\"><div id=\"bikeMeter\" class=\"meter-fill\"></div></div>\n        </div>\n        {{QUIZ_q5}}"
+        "content": "<p>Mechanical work can store energy or change motion. A spring stores <strong>deformation energy</strong>. When a bicycle speeds up, it gets more <strong>kinetic energy</strong>.</p>\n        <div class=\"interactive-zone\">\n            <h3>Deformation work: Spring</h3>\n            <button id=\"springBtn\" onclick=\"compressSpring()\">Press spring</button>\n            <div class=\"diagram-box\" style=\"height:190px; background:#f8fafc;\">\n                <svg width=\"420\" height=\"145\" viewBox=\"0 0 420 145\" aria-label=\"Spring is compressed\">\n                    <line x1=\"70\" y1=\"112\" x2=\"350\" y2=\"112\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <g id=\"springGroup\" style=\"transition: transform 0.4s ease; transform-origin: 320px 76px;\">\n                        <path d=\"M150 76 q10 -30 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0\" fill=\"none\" stroke=\"#0f766e\" stroke-width=\"6\"></path>\n                    </g>\n                    <g id=\"springBlockGroup\" style=\"transition: transform 0.4s ease;\"><rect x=\"92\" y=\"52\" width=\"54\" height=\"54\" rx=\"6\" fill=\"#f97316\" stroke=\"#9a3412\" stroke-width=\"3\"></rect></g>\n                    <rect x=\"326\" y=\"45\" width=\"16\" height=\"70\" fill=\"#475569\"></rect>\n                </svg>\n            </div>\n            <p id=\"springText\" class=\"lab-feedback\">The spring is relaxed. Hardly any deformation energy is stored.</p>\n            <div class=\"meter\"><div id=\"springMeter\" class=\"meter-fill\" style=\"width:15%;\"></div></div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Acceleration work: Bicycle</h3>\n            <p>Increase speed. The kinetic energy increases strongly: twice the speed means about four times the kinetic energy.</p>\n            <label>Speed: <span id=\"bikeSpeedVal\">5</span> m/s<br><input type=\"range\" id=\"bikeSpeedRange\" min=\"0\" max=\"12\" value=\"5\" oninput=\"updateBike()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"height:170px; background:#ecfeff;\">\n                <svg width=\"430\" height=\"130\" viewBox=\"0 0 430 130\" aria-label=\"Bicycle gets faster\">\n                    <line x1=\"20\" y1=\"105\" x2=\"410\" y2=\"105\" stroke=\"#64748b\" stroke-width=\"4\"></line>\n                    <g id=\"bikeGroup\" style=\"transition: transform 0.35s ease;\">\n                        <circle cx=\"70\" cy=\"92\" r=\"16\" fill=\"none\" stroke=\"#111827\" stroke-width=\"4\"></circle>\n                        <circle cx=\"125\" cy=\"92\" r=\"16\" fill=\"none\" stroke=\"#111827\" stroke-width=\"4\"></circle>\n                        <path d=\"M70 92 L96 62 L125 92 L92 92 L70 92 M96 62 L116 62\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"bikeText\" class=\"lab-feedback\">Acceleration work: The faster the bike becomes, the greater its kinetic energy becomes. Twice as fast means about four times as much kinetic energy.</p>\n            <div class=\"meter\"><div id=\"bikeMeter\" class=\"meter-fill\"></div></div>\n        </div>\n        {{QUIZ_q5}}"
       }
     ],
     "diplom": {
@@ -571,13 +571,13 @@
               "text": "A force must act along a path.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Eine Kraft muss entlang eines Weges wirken."
+              "feedback": "Correct: A force must act along a distance."
             },
             {
               "text": "You just have to sweat a lot.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Man muss nur sehr viel schwitzen.“ passt hier nicht. Korrekt ist: Eine Kraft muss entlang eines Weges wirken."
+              "feedback": "Common mistake: sweating a lot is not enough. Correct: A force must act along a distance."
             }
           ]
         },
@@ -589,13 +589,13 @@
               "text": "Work = force times distance (W = F s)",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Arbeit = Kraft mal Weg (W = F · s)"
+              "feedback": "Correct: Work = force times distance (W = F · s)."
             },
             {
               "text": "Work = mass times time",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Arbeit = Masse mal Zeit“ passt hier nicht. Korrekt ist: Arbeit = Kraft mal Weg (W = F · s)"
+              "feedback": "Common mistake: work is not mass times time. Correct: Work = force times distance (W = F · s)."
             }
           ]
         },
@@ -607,13 +607,13 @@
               "text": "In joules (J).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: In Joule (J)."
+              "feedback": "Correct: In joules (J)."
             },
             {
               "text": "In newtons (N).",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „In Newton (N).“ passt hier nicht. Korrekt ist: In Joule (J)."
+              "feedback": "Common mistake: newtons measure force. Work is measured in joules (J)."
             }
           ]
         },
@@ -625,13 +625,13 @@
               "text": "A lot of lifting work.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Sehr viel Hubarbeit.“ passt hier nicht. Korrekt ist: 0 Joule, weil der Weg s = 0 ist."
+              "feedback": "Common mistake: it is not a lot of lifting work. Correct: 0 joules, because the distance s = 0."
             },
             {
               "text": "0 joules because the distance s = 0.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: 0 Joule, weil der Weg s = 0 ist."
+              "feedback": "Correct: 0 joules, because the distance s = 0."
             }
           ]
         },
@@ -643,13 +643,13 @@
               "text": "lifting work.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Hubarbeit."
+              "feedback": "Correct: lifting work."
             },
             {
               "text": "Friction work.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Reibungsarbeit.“ passt hier nicht. Korrekt ist: Hubarbeit."
+              "feedback": "Common mistake: this is not friction work. Correct: lifting work."
             }
           ]
         },
@@ -661,13 +661,13 @@
               "text": "deformation work.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Verformungsarbeit.“ passt hier nicht. Korrekt ist: Beschleunigungsarbeit (und Hubarbeit)."
+              "feedback": "Common mistake: this is not deformation work. Correct: acceleration work (and lifting work)."
             },
             {
               "text": "Acceleration work (and lifting work).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Beschleunigungsarbeit (und Hubarbeit)."
+              "feedback": "Correct: acceleration work (and lifting work)."
             }
           ]
         },
@@ -679,13 +679,13 @@
               "text": "Friction work.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Reibungsarbeit."
+              "feedback": "Correct: friction work."
             },
             {
               "text": "lifting work.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Hubarbeit.“ passt hier nicht. Korrekt ist: Reibungsarbeit."
+              "feedback": "Common mistake: this is not lifting work. Correct: friction work."
             }
           ]
         },
@@ -697,31 +697,31 @@
               "text": "Friction work.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Reibungsarbeit.“ passt hier nicht. Korrekt ist: Verformungsarbeit."
+              "feedback": "Common mistake: this is not friction work. Correct: deformation work."
             },
             {
               "text": "deformation work.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Verformungsarbeit."
+              "feedback": "Correct: deformation work."
             }
           ]
         },
         {
           "id": "f9",
-          "question": "9. The Golden Rule of Mechanics says: \"Whatever energy you save...\"",
+          "question": "9. The Golden Rule of Mechanics says: \"Whatever force you save...\"",
           "answers": [
             {
               "text": "\"...you have to add some distance.\"",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: \"...muss man an Weg zusetzen.\""
+              "feedback": "Correct: \"...you must add distance.\""
             },
             {
               "text": "\"...you can keep it as energy.\"",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „\"...kann man als Energie behalten.\"“ passt hier nicht. Korrekt ist: \"...muss man an Weg zusetzen.\""
+              "feedback": "Common mistake: you do not keep the saved force as energy. Correct: \"...you must add distance.\""
             }
           ]
         },
@@ -733,13 +733,13 @@
               "text": "Yes, the pulley just destroys the work.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Ja, der Flaschenzug vernichtet die Arbeit einfach.“ passt hier nicht. Korrekt ist: Nein, die Arbeit bleibt gleich, weil der Zugweg am Seil länger wird."
+              "feedback": "Common mistake: the pulley does not destroy work. Correct: No, the work stays the same because the rope is pulled farther."
             },
             {
               "text": "No, the work remains the same because the pulling distance on the rope becomes longer.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Nein, die Arbeit bleibt gleich, weil der Zugweg am Seil länger wird."
+              "feedback": "Correct: No, the work stays the same because the rope is pulled farther."
             }
           ]
         }
@@ -762,13 +762,13 @@
                 "text": "Millimeter.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Fast: Für riesige Strecken im All ist Millimeter viel zu klein. Zwischen Erde und Sonne nutzt man die Astronomische Einheit."
+                "feedback": "Almost: For huge distances in space, millimeters are far too small. Between Earth and the Sun, we use the astronomical unit (AU)."
               },
               {
                 "text": "The Astronomical Unit (AU).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Die Astronomische Einheit (AE) ist die typische Entfernung Erde–Sonne und praktisch für unser Sonnensystem."
+                "feedback": "Exactly. The astronomical unit (AU) is the typical Earth-Sun distance and practical for our solar system."
               }
             ]
           }
@@ -787,13 +787,13 @@
                 "text": "The time it takes to fly to the sun.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Nicht ganz: Ein Lichtjahr beschreibt keine Zeit für eine Reise, sondern eine Strecke."
+                "feedback": "Not quite: A light-year does not describe travel time, but a distance."
               },
               {
                 "text": "The distance that light travels in a year.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Ein Lichtjahr ist die Strecke, die Licht in einem Jahr zurücklegt."
+                "feedback": "Correct. A light-year is the distance light travels in one year."
               }
             ]
           }
@@ -812,13 +812,13 @@
                 "text": "Because its gravity is so strong that not even light can escape.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Sehr gut. Ein Schwarzes Loch wirkt schwarz, weil selbst Licht seiner extremen Schwerkraft nicht entkommt."
+                "feedback": "Very good. A black hole appears black because even light cannot escape its extreme gravity."
               },
               {
                 "text": "Because it is made of dark charcoal.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Das ist ein Mythos. Schwarze Löcher bestehen nicht aus Kohle, sondern sind Regionen mit extrem starker Gravitation."
+                "feedback": "That is a myth. Black holes are not made of coal, but are regions with extremely strong gravity."
               }
             ]
           }
@@ -837,13 +837,13 @@
                 "text": "The escape velocity (approx. 11.2 km/s).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Um die Erde zu verlassen, braucht eine Rakete etwa 11,2 km/s Fluchtgeschwindigkeit."
+                "feedback": "Correct. To leave Earth, a rocket needs an escape velocity of about 11.2 km/s."
               },
               {
                 "text": "The speed of light.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Zu hoch gedacht: Für das Verlassen der Erde reicht die Fluchtgeschwindigkeit, nicht die Lichtgeschwindigkeit."
+                "feedback": "Too high: To leave Earth, escape velocity is enough, not the speed of light."
               }
             ]
           }
@@ -862,13 +862,13 @@
                 "text": "Two planets collide.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Nicht ganz: Eine Supernova ist keine Kollision zweier Planeten."
+                "feedback": "Not quite: A supernova is not a collision of two planets."
               },
               {
                 "text": "A huge star explodes at the end of its life.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Eine Supernova ist die gewaltige Explosion eines massereichen Sterns am Lebensende."
+                "feedback": "Exactly. A supernova is the massive explosion of a heavy star at the end of its life."
               }
             ]
           }
@@ -887,13 +887,13 @@
               "text": "LJ (light year).",
               "correct": false,
               "pts": 5,
-              "feedback": "LJ bedeutet Lichtjahr. Für Erde–Sonne nutzt man aber AE."
+              "feedback": "ly means light-year. For Earth-Sun distance, you use AU."
             },
             {
               "text": "AU (Astronomical Unit).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: AE steht für Astronomische Einheit, also ungefähr Erde–Sonne."
+              "feedback": "Correct: AU stands for astronomical unit, about the Earth-Sun distance."
             }
           ]
         },
@@ -905,13 +905,13 @@
               "text": "Earth.",
               "correct": false,
               "pts": 5,
-              "feedback": "Die Erde ist viel kleiner. Der größte Planet ist Jupiter."
+              "feedback": "Earth is much smaller. The largest planet is Jupiter."
             },
             {
               "text": "Jupiter.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau, Jupiter ist der größte Planet in unserem Sonnensystem."
+              "feedback": "Exactly, Jupiter is the largest planet in our solar system."
             }
           ]
         },
@@ -923,13 +923,13 @@
               "text": "3,000 km/h.",
               "correct": false,
               "pts": 5,
-              "feedback": "Das ist viel zu langsam. Licht ist enorm schnell."
+              "feedback": "That is far too slow. Light is extremely fast."
             },
             {
               "text": "300,000 kilometers per second.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Licht bewegt sich mit rund 300.000 km pro Sekunde."
+              "feedback": "Correct: Light moves at around 300,000 km per second."
             }
           ]
         },
@@ -941,13 +941,13 @@
               "text": "A time indication (exactly 365 days in space).",
               "correct": false,
               "pts": 5,
-              "feedback": "Nicht ganz: Ein Lichtjahr ist keine Zeitangabe."
+              "feedback": "Not quite: A light-year is not a unit of time."
             },
             {
               "text": "A distance (a huge distance).",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Ein Lichtjahr ist eine Entfernungsangabe für sehr große Distanzen."
+              "feedback": "Exactly: A light-year is a distance unit for very large distances."
             }
           ]
         },
@@ -959,13 +959,13 @@
               "text": "Its gravity (gravity) becomes stronger.",
               "correct": true,
               "pts": 5,
-              "feedback": "Korrekt. Mehr Masse bedeutet stärkere Gravitation."
+              "feedback": "Correct. More mass means stronger gravity."
             },
             {
               "text": "It loses its gravity.",
               "correct": false,
               "pts": 5,
-              "feedback": "Umgekehrt: Mehr Masse erhöht die Schwerkraft, sie verschwindet nicht."
+              "feedback": "The opposite is true: More mass increases gravity; it does not disappear."
             }
           ]
         },
@@ -977,13 +977,13 @@
               "text": "Because the light year ends there.",
               "correct": false,
               "pts": 5,
-              "feedback": "Das Lichtjahr hat damit nichts zu tun."
+              "feedback": "A light-year has nothing to do with that."
             },
             {
               "text": "Because gravity is extremely strong there.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Die Gravitation ist so stark, dass nicht einmal Licht entkommt."
+              "feedback": "Correct: The gravity is so strong that not even light can escape."
             }
           ]
         },
@@ -995,13 +995,13 @@
               "text": "100 kilometers per hour.",
               "correct": false,
               "pts": 5,
-              "feedback": "Das reicht bei weitem nicht, um das Schwerefeld der Erde zu verlassen."
+              "feedback": "That is nowhere near enough to leave Earth's gravitational field."
             },
             {
               "text": "11.2 kilometers per second (escape velocity).",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Etwa 11,2 km/s sind als Fluchtgeschwindigkeit nötig."
+              "feedback": "Exactly: About 11.2 km/s is needed as escape velocity."
             }
           ]
         },
@@ -1013,13 +1013,13 @@
               "text": "Because they have to take gigantic amounts of fuel with them.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Viel Masse ist Treibstoff, damit die Rakete genug Schub erzeugt."
+              "feedback": "Correct: A lot of mass is fuel so the rocket can produce enough thrust."
             },
             {
               "text": "So that the astronauts have plenty of space for sports.",
               "correct": false,
               "pts": 5,
-              "feedback": "Das ist nur Spaßantwort: Hauptgrund ist der nötige Treibstoff für den Start."
+              "feedback": "That is just a joke answer: the main reason is the fuel needed for launch."
             }
           ]
         },
@@ -1031,13 +1031,13 @@
               "text": "Supernova.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau, so heißt die Explosion eines sterbenden Sterns."
+              "feedback": "Exactly, that is the name of the explosion of a dying star."
             },
             {
               "text": "Red giant.",
               "correct": false,
               "pts": 5,
-              "feedback": "Ein roter Riese ist ein Entwicklungsstadium, aber nicht die Explosion selbst."
+              "feedback": "A red giant is a stage of development, but not the explosion itself."
             }
           ]
         },
@@ -1049,13 +1049,13 @@
               "text": "Through nuclear fusion (fusion of elements within).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Sterne leuchten durch Kernfusion im Inneren."
+              "feedback": "Correct: Stars shine through nuclear fusion in their interior."
             },
             {
               "text": "They burn liquid oxygen.",
               "correct": false,
               "pts": 5,
-              "feedback": "Nein: Sterne funktionieren nicht wie chemische Feuer, sondern über Kernfusion."
+              "feedback": "No: Stars do not work like chemical fires, but through nuclear fusion."
             }
           ]
         }
@@ -2203,18 +2203,18 @@
                 "text": "In kilograms (kg).",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Kilogramm misst Masse. Energie messen wir in Joule."
+                "feedback": "Kilograms measure mass. Energy is measured in joules."
               },
               {
                 "text": "In joules (J).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Joule ist die Einheit der Energie."
+                "feedback": "Correct: the joule is the unit of energy."
               }
             ]
           }
         ],
-        "content": "<p>Imagine you are lying lazily on the sofa. To get up and run into the next room, you need something specific: <strong>Energy!</strong> Energy is the ability to move, heat, or make things glow. You can't touch it or weigh it, but you can see what it does. Without energy absolutely nothing would happen in the entire universe - everything would stand still!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>The smart dictionary: Joule</strong><br>\n            Just like you measure distance in meters, you measure energy in <strong>Joules (J)</strong> (pronounced like \"Juul\"). To lift an apple (approx. 100 grams) one meter high, you need around 1 joule of energy!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🏋️ The dumbbell experiment (positional and kinetic energy)</h3>\n            <p>Lift the dumbbell to \"store\" its energy (positional energy/potential energy). Drop them to convert the energy into movement (Kinetic Energy)!</p>\n            <button onclick=\"liftWeight()\" id=\"liftBtn\">Raise dumbbell ⬆️</button>\n            <button onclick=\"dropWeight()\" id=\"dropBtn\" disabled=\"\">drop the dumbbell ⬇️</button>\n            <div class=\"diagram-box\" style=\"height: 200px; display: flex; justify-content: center; position: relative;\">\n                <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n                    <rect x=\"20\" y=\"180\" width=\"160\" height=\"10\" fill=\"#795548\"></rect>\n                    <g id=\"weightGroup\" style=\"transform: translateY(140px); transition: transform 2s ease-in-out;\">\n                        <rect x=\"95\" y=\"0\" width=\"10\" height=\"40\" fill=\"#607D8B\"></rect>\n                        <circle cx=\"85\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                        <circle cx=\"115\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"weightText\" style=\"font-weight: bold; color: #1565C0;\">The dumbbell is on the floor. No energy stored.</p>\n        </div>\n        {{QUIZ_q1}}"
+        "content": "<p>Imagine you are lying lazily on the sofa. To get up and run into the next room, you need something specific: <strong>Energy!</strong> Energy is the ability to move, heat, or make things glow. You can't touch it or weigh it, but you can see what it does. Without energy absolutely nothing would happen in the entire universe - everything would stand still!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>The smart dictionary: Joule</strong><br>\n            Just like you measure distance in meters, you measure energy in <strong>joules (J)</strong> (pronounced like \"Juul\"). To lift an apple (about 100 grams) one meter high, you need around 1 joule of energy!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🏋️ The dumbbell experiment (positional and kinetic energy)</h3>\n            <p>Lift the dumbbell to store positional energy. Drop it to convert that energy into motion energy!</p>\n            <button onclick=\"liftWeight()\" id=\"liftBtn\">Raise dumbbell ⬆️</button>\n            <button onclick=\"dropWeight()\" id=\"dropBtn\" disabled=\"\">Drop dumbbell ⬇️</button>\n            <div class=\"diagram-box\" style=\"height: 200px; display: flex; justify-content: center; position: relative;\">\n                <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n                    <rect x=\"20\" y=\"180\" width=\"160\" height=\"10\" fill=\"#795548\"></rect>\n                    <g id=\"weightGroup\" style=\"transform: translateY(140px); transition: transform 2s ease-in-out;\">\n                        <rect x=\"95\" y=\"0\" width=\"10\" height=\"40\" fill=\"#607D8B\"></rect>\n                        <circle cx=\"85\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                        <circle cx=\"115\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"weightText\" style=\"font-weight: bold; color: #1565C0;\">The dumbbell is on the floor. No energy stored.</p>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -2228,18 +2228,18 @@
                 "text": "Energy cannot disappear, it only transforms into other forms.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: Energie verschwindet nicht. Sie taucht in anderer Form wieder auf."
+                "feedback": "Correct: energy does not disappear. It changes into another form."
               },
               {
                 "text": "You can create energy out of nothing if you put in the effort.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Aus dem Nichts kommt keine Energie. Sie wird nur umgewandelt."
+                "feedback": "Energy cannot come from nothing. It only changes form."
               }
             ]
           }
         ],
-        "content": "<p>Now comes the most important thing you need to know about energy: <strong>Energy can never be created or destroyed!</strong> It only ever changes from one form to another. This is called the <strong>law of conservation of energy</strong>. When a light bulb lights up, electrical energy is converted into light energy (and heat). Nothing is lost!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>The Smart Dictionary: The Forms of Energy</strong><br>\n            There are many \"costumes\" for energy:<br>\n            - <strong>Motion Energy</strong> (A rolling car)<br>\n            - <strong>Lageenergie</strong> (A stone on a mountain)<br>\n            - <strong>Heat energy</strong> (A hot heater)<br>\n            - <strong>Electrical energy</strong> (electricity in the socket)\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⏱️ The Tireless Pendulum</h3>\n            <p>Click \"Nudge\". Watch how the pendulum has <strong>positional energy</strong> at its highest point, which turns into <strong>motion energy</strong> as it falls!</p>\n            <button onclick=\"startPendulum()\">Push the pendulum 🔔</button>\n            <button onclick=\"stopPendulum()\">Stop pendulum ✋</button>\n            <div class=\"diagram-box\" style=\"height: 250px;\">\n                <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\">\n                    <line x1=\"100\" y1=\"20\" x2=\"200\" y2=\"20\" stroke=\"#5D4037\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                    <g id=\"pendulumObj\" style=\"transform-origin: 150px 20px;\">\n                        <line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"160\" stroke=\"#9E9E9E\" stroke-width=\"3\"></line>\n                        <circle cx=\"150\" cy=\"160\" r=\"20\" fill=\"#E53935\"></circle>\n                        <circle cx=\"150\" cy=\"160\" r=\"10\" fill=\"#FFCDD2\"></circle>\n                    </g>\n                </svg>\n                <p id=\"pendulumText\" style=\"font-weight:bold; color: #D32F2F;\">Pendulum rests.</p>\n            </div>\n        </div>\n        {{QUIZ_q2}}"
+        "content": "<p>Now comes the most important thing you need to know about energy: <strong>Energy can never be created or destroyed!</strong> It only ever changes from one form to another. This is called the <strong>law of conservation of energy</strong>. When a light bulb lights up, electrical energy is converted into light energy and heat. Nothing is lost!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>The Smart Dictionary: The Forms of Energy</strong><br>\n            Energy has many forms:<br>\n            - <strong>Motion energy</strong> (a rolling car)<br>\n            - <strong>Positional energy</strong> (a stone on a mountain)<br>\n            - <strong>Heat energy</strong> (a hot heater)<br>\n            - <strong>Electrical energy</strong> (electricity in a socket)\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⏱️ The Tireless Pendulum</h3>\n            <p>Click \"Nudge\". Watch how the pendulum has <strong>positional energy</strong> at its highest point, which turns into <strong>motion energy</strong> as it falls!</p>\n            <button onclick=\"startPendulum()\">Nudge pendulum 🔔</button>\n            <button onclick=\"stopPendulum()\">Stop pendulum ✋</button>\n            <div class=\"diagram-box\" style=\"height: 250px;\">\n                <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\">\n                    <line x1=\"100\" y1=\"20\" x2=\"200\" y2=\"20\" stroke=\"#5D4037\" stroke-width=\"8\" stroke-linecap=\"round\"></line>\n                    <g id=\"pendulumObj\" style=\"transform-origin: 150px 20px;\">\n                        <line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"160\" stroke=\"#9E9E9E\" stroke-width=\"3\"></line>\n                        <circle cx=\"150\" cy=\"160\" r=\"20\" fill=\"#E53935\"></circle>\n                        <circle cx=\"150\" cy=\"160\" r=\"10\" fill=\"#FFCDD2\"></circle>\n                    </g>\n                </svg>\n                <p id=\"pendulumText\" style=\"font-weight:bold; color: #D32F2F;\">Pendulum rests.</p>\n            </div>\n        </div>\n        {{QUIZ_q2}}"
       },
       {
         "id": "sec2",
@@ -2253,18 +2253,18 @@
                 "text": "Chemical energy.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Im Essen ist chemische Energie gespeichert."
+                "feedback": "Correct: food stores chemical energy."
               },
               {
                 "text": "Electrical energy.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Elektrische Energie steckt zum Beispiel in einem Stromkreis, nicht direkt im Apfel."
+                "feedback": "Electrical energy is found in circuits, not directly in an apple."
               }
             ]
           }
         ],
-        "content": "<p>Where do YOU ​​actually get your energy to run and play? From your food! There is <strong>chemical energy</strong> in foods such as apples, bread or pasta. Your body works like a small engine: it burns this chemical energy and uses it to generate kinetic energy and body heat. There is also chemical energy in batteries and car gasoline!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Calories = Energy!</strong><br>\n            You often see the word “calories” (kcal) on food packaging. This is just another unit for energy (1 kcal = approx. 4184 joules). The more calories, the more energy there is in the food!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔋 The Hungry Flashlight</h3>\n            <p>Insert the battery to convert the chemical energy into electrical energy and then into light energy!</p>\n            <button onclick=\"insertBattery()\">Insert battery 🔋</button>\n            <div class=\"diagram-box\">\n                <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n                    <rect x=\"100\" y=\"50\" width=\"100\" height=\"40\" fill=\"#455A64\" rx=\"5\"></rect>\n                    <polygon points=\"200,50 230,30 230,110 200,90\" fill=\"#607D8B\"></polygon>\n                    <circle cx=\"215\" cy=\"70\" r=\"15\" fill=\"#CFD8DC\" id=\"flashlightBulb\"></circle>\n                    <polygon id=\"lightBeam\" points=\"230,30 300,0 300,140 230,110\" fill=\"#FFF59D\" opacity=\"0\" style=\"transition: opacity 0.5s;\"></polygon>\n                    <g id=\"batterySvg\" style=\"transform: translateX(-80px); transition: transform 0.5s;\">\n                        <rect x=\"30\" y=\"55\" width=\"40\" height=\"30\" fill=\"#388E3C\" rx=\"3\"></rect>\n                        <rect x=\"70\" y=\"65\" width=\"5\" height=\"10\" fill=\"#9E9E9E\"></rect>\n                        <text x=\"35\" y=\"75\" fill=\"white\" font-size=\"12\" font-weight=\"bold\">BAT</text>\n                    </g>\n                </svg>\n                <p id=\"batteryText\" style=\"font-weight:bold; color: #546E7A;\">Flashlight is off. Energy is missing!</p>\n            </div>\n        </div>\n        {{QUIZ_q3}}"
+        "content": "<p>Where do you get your energy to run and play? From your food. Foods such as apples, bread, and pasta contain <strong>chemical energy</strong>. Your body works like a small engine: it uses this chemical energy to create motion energy and body heat. Batteries and gasoline also store chemical energy.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Calories = Energy!</strong><br>\n            You often see the word \"calories\" (kcal) on food packaging. This is another unit for energy (1 kcal is about 4184 joules). The more calories, the more energy the food contains.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔋 The Hungry Flashlight</h3>\n            <p>Insert the battery to convert chemical energy into electrical energy and then into light energy!</p>\n            <button onclick=\"insertBattery()\">Insert battery 🔋</button>\n            <div class=\"diagram-box\">\n                <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n                    <rect x=\"100\" y=\"50\" width=\"100\" height=\"40\" fill=\"#455A64\" rx=\"5\"></rect>\n                    <polygon points=\"200,50 230,30 230,110 200,90\" fill=\"#607D8B\"></polygon>\n                    <circle cx=\"215\" cy=\"70\" r=\"15\" fill=\"#CFD8DC\" id=\"flashlightBulb\"></circle>\n                    <polygon id=\"lightBeam\" points=\"230,30 300,0 300,140 230,110\" fill=\"#FFF59D\" opacity=\"0\" style=\"transition: opacity 0.5s;\"></polygon>\n                    <g id=\"batterySvg\" style=\"transform: translateX(-80px); transition: transform 0.5s;\">\n                        <rect x=\"30\" y=\"55\" width=\"40\" height=\"30\" fill=\"#388E3C\" rx=\"3\"></rect>\n                        <rect x=\"70\" y=\"65\" width=\"5\" height=\"10\" fill=\"#9E9E9E\"></rect>\n                        <text x=\"35\" y=\"75\" fill=\"white\" font-size=\"12\" font-weight=\"bold\">BAT</text>\n                    </g>\n                </svg>\n                <p id=\"batteryText\" style=\"font-weight:bold; color: #546E7A;\">Flashlight is off. Energy is missing!</p>\n            </div>\n        </div>\n        {{QUIZ_q3}}"
       },
       {
         "id": "sec3",
@@ -2278,18 +2278,18 @@
                 "text": "Because you can buy them new in the supermarket.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Erneuerbar heißt nicht: neu kaufen. Wind, Sonne und Wasser liefern immer wieder Energie."
+                "feedback": "Renewable does not mean newly bought. Wind, sunlight, and water keep providing energy."
               },
               {
                 "text": "Because they are never used up and are available indefinitely.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: Diese Quellen werden durch Nutzung nicht einfach aufgebraucht."
+                "feedback": "Correct: using these sources does not simply use them up."
               }
             ]
           }
         ],
-        "content": "<p>In order to operate our televisions, cell phones and lamps, we need an extremely large amount of electrical energy. In the past, coal or oil was burned for this purpose (fossil energies). The problem: This creates bad air (CO2) and at some point the coal runs out. Today we are using more and more <strong>renewable energies</strong>! We use the power of wind, sun and water. This energy never runs out and doesn't make any mess!</p>\n        <div class=\"interactive-zone\" id=\"windZone\">\n            <h3>💨 The wind power plant</h3>\n            <p>Move the slider to make the wind blow stronger. The faster the wheel spins, the more electricity (energy) is generated!</p>\n            <input type=\"range\" id=\"windRange\" min=\"0\" max=\"100\" value=\"0\" oninput=\"updateWind()\" style=\"width: 250px;\">\n            <p>Wind strength: <span id=\"windValue\" style=\"font-weight: bold; color: #0288D1;\">0% (calm)</span></p>\n            \n            <div class=\"diagram-box\" style=\"height: 250px; background: #E1F5FE; overflow: hidden;\">\n                <svg width=\"200\" height=\"250\" viewBox=\"0 0 200 250\">\n                    <rect x=\"0\" y=\"220\" width=\"200\" height=\"30\" fill=\"#81C784\"></rect>\n                    <polygon points=\"90,220 110,220 105,80 95,80\" fill=\"#CFD8DC\"></polygon>\n                    <rect x=\"85\" y=\"70\" width=\"30\" height=\"15\" fill=\"#90A4AE\" rx=\"5\"></rect>\n                    <g id=\"windBlades\" style=\"transform-origin: 100px 75px;\">\n                        <circle cx=\"100\" cy=\"75\" r=\"5\" fill=\"#455A64\"></circle>\n                        <polygon points=\"100,70 105,10 95,10\" fill=\"#FFFFFF\" stroke=\"#B0BEC5\"></polygon>\n                        <polygon points=\"100,75 155,105 150,113\" fill=\"#FFFFFF\" stroke=\"#B0BEC5\"></polygon>\n                        <polygon points=\"100,75 45,105 50,113\" fill=\"#FFFFFF\" stroke=\"#B0BEC5\"></polygon>\n                    </g>\n                    <path d=\"M 100 220 L 100 240 L 180 240\" fill=\"none\" stroke=\"#FFC107\" stroke-width=\"3\" stroke-dasharray=\"5,5\"></path>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_q4}}"
+        "content": "<p>To run our televisions, cell phones, and lamps, we need a lot of electrical energy. In the past, people often burned coal or oil for this (fossil fuels). The problem: this releases CO2, and fossil fuels can run out. Today we use more and more <strong>renewable energy</strong>: wind, sunlight, and water. These sources keep coming back and create much less pollution.</p>\n        <div class=\"interactive-zone\" id=\"windZone\">\n            <h3>💨 The wind power plant</h3>\n            <p>Move the slider to make the wind blow stronger. The faster the wheel spins, the more electrical energy is generated!</p>\n            <input type=\"range\" id=\"windRange\" min=\"0\" max=\"100\" value=\"0\" oninput=\"updateWind()\" style=\"width: 250px;\">\n            <p>Wind strength: <span id=\"windValue\" style=\"font-weight: bold; color: #0288D1;\">0% (calm)</span></p>\n            \n            <div class=\"diagram-box\" style=\"height: 250px; background: #E1F5FE; overflow: hidden;\">\n                <svg width=\"200\" height=\"250\" viewBox=\"0 0 200 250\">\n                    <rect x=\"0\" y=\"220\" width=\"200\" height=\"30\" fill=\"#81C784\"></rect>\n                    <polygon points=\"90,220 110,220 105,80 95,80\" fill=\"#CFD8DC\"></polygon>\n                    <rect x=\"85\" y=\"70\" width=\"30\" height=\"15\" fill=\"#90A4AE\" rx=\"5\"></rect>\n                    <g id=\"windBlades\" style=\"transform-origin: 100px 75px;\">\n                        <circle cx=\"100\" cy=\"75\" r=\"5\" fill=\"#455A64\"></circle>\n                        <polygon points=\"100,70 105,10 95,10\" fill=\"#FFFFFF\" stroke=\"#B0BEC5\"></polygon>\n                        <polygon points=\"100,75 155,105 150,113\" fill=\"#FFFFFF\" stroke=\"#B0BEC5\"></polygon>\n                        <polygon points=\"100,75 45,105 50,113\" fill=\"#FFFFFF\" stroke=\"#B0BEC5\"></polygon>\n                    </g>\n                    <path d=\"M 100 220 L 100 240 L 180 240\" fill=\"none\" stroke=\"#FFC107\" stroke-width=\"3\" stroke-dasharray=\"5,5\"></path>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_q4}}"
       },
       {
         "id": "sec4",
@@ -2303,18 +2303,18 @@
                 "text": "Because the circuit is broken and the electrons can no longer flow.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Ohne geschlossenen Kreis fließt kein Strom."
+                "feedback": "Correct: without a closed circuit, current cannot flow."
               },
               {
                 "text": "Because the electrical energy evaporates in the cable.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Energie verdampft nicht im Kabel. Der Weg für die Elektronen ist unterbrochen."
+                "feedback": "Energy does not evaporate in the cable. The path for electrons is broken."
               }
             ]
           }
         ],
-        "content": "<p>For electrical energy to work, it needs a closed path - the <strong>circuit</strong>. Electricity consists of tiny particles (electrons) that zip through copper cables. But be careful: they only flow when the circle is completely closed, like on a car racing track! If the cable is broken or a switch is open, all electrons stop immediately and the device switches off.</p>\n        <div class=\"interactive-zone\">\n            <h3>💡 The light switch</h3>\n            <p>The switch is open (the circuit is broken). Click on it to close the circuit!</p>\n            <button onclick=\"toggleSwitch()\" id=\"switchBtn\">Close counter 🔌</button>\n            \n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; background: #FAFAFA;\">\n                <svg width=\"250\" height=\"200\" viewBox=\"0 0 250 200\">\n                    <rect x=\"50\" y=\"140\" width=\"60\" height=\"30\" fill=\"#388E3C\"></rect>\n                    <rect x=\"110\" y=\"148\" width=\"8\" height=\"14\" fill=\"#9E9E9E\"></rect>\n                    <text x=\"65\" y=\"160\" fill=\"white\" font-size=\"12\">Bat.</text>\n                    \n                    <polyline points=\"50,155 20,155 20,40 100,40\" fill=\"none\" stroke=\"#424242\" stroke-width=\"4\"></polyline>\n                    <polyline points=\"150,40 220,40 220,155 118,155\" fill=\"none\" stroke=\"#424242\" stroke-width=\"4\"></polyline>\n                    \n                    <circle cx=\"220\" cy=\"80\" r=\"20\" fill=\"#E0E0E0\" id=\"circuitBulb\"></circle>\n                    <path d=\"M 210 80 L 220 60 L 230 80\" fill=\"none\" stroke=\"#9E9E9E\" stroke-width=\"2\"></path>\n                    \n                    <circle cx=\"100\" cy=\"40\" r=\"5\" fill=\"#E53935\"></circle>\n                    <circle cx=\"150\" cy=\"40\" r=\"5\" fill=\"#E53935\"></circle>\n                    <line id=\"switchLine\" x1=\"100\" y1=\"40\" x2=\"140\" y2=\"20\" stroke=\"#FF9800\" stroke-width=\"4\" stroke-linecap=\"round\" style=\"transition: all 0.3s;\"></line>\n                </svg>\n            </div>\n            <p id=\"circuitText\" style=\"font-weight: bold; color: #D32F2F;\">Circuit is interrupted. The lamp is off.</p>\n        </div>\n        {{QUIZ_q5}}"
+        "content": "<p>For electrical energy to work, it needs a closed path: a <strong>circuit</strong>. Electric current is made of tiny particles called electrons moving through copper wires. They only flow when the circuit is completely closed, like a full racing track. If the cable is cut or a switch is open, the path is broken and the device switches off.</p>\n        <div class=\"interactive-zone\">\n            <h3>💡 The light switch</h3>\n            <p>The switch is open, so the circuit is broken. Click it to close the circuit!</p>\n            <button onclick=\"toggleSwitch()\" id=\"switchBtn\">Close circuit 🔌</button>\n            \n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; background: #FAFAFA;\">\n                <svg width=\"250\" height=\"200\" viewBox=\"0 0 250 200\">\n                    <rect x=\"50\" y=\"140\" width=\"60\" height=\"30\" fill=\"#388E3C\"></rect>\n                    <rect x=\"110\" y=\"148\" width=\"8\" height=\"14\" fill=\"#9E9E9E\"></rect>\n                    <text x=\"65\" y=\"160\" fill=\"white\" font-size=\"12\">Bat.</text>\n                    \n                    <polyline points=\"50,155 20,155 20,40 100,40\" fill=\"none\" stroke=\"#424242\" stroke-width=\"4\"></polyline>\n                    <polyline points=\"150,40 220,40 220,155 118,155\" fill=\"none\" stroke=\"#424242\" stroke-width=\"4\"></polyline>\n                    \n                    <circle cx=\"220\" cy=\"80\" r=\"20\" fill=\"#E0E0E0\" id=\"circuitBulb\"></circle>\n                    <path d=\"M 210 80 L 220 60 L 230 80\" fill=\"none\" stroke=\"#9E9E9E\" stroke-width=\"2\"></path>\n                    \n                    <circle cx=\"100\" cy=\"40\" r=\"5\" fill=\"#E53935\"></circle>\n                    <circle cx=\"150\" cy=\"40\" r=\"5\" fill=\"#E53935\"></circle>\n                    <line id=\"switchLine\" x1=\"100\" y1=\"40\" x2=\"140\" y2=\"20\" stroke=\"#FF9800\" stroke-width=\"4\" stroke-linecap=\"round\" style=\"transition: all 0.3s;\"></line>\n                </svg>\n            </div>\n            <p id=\"circuitText\" style=\"font-weight: bold; color: #D32F2F;\">Circuit is interrupted. The lamp is off.</p>\n        </div>\n        {{QUIZ_q5}}"
       }
     ],
     "diplom": {
@@ -2328,13 +2328,13 @@
               "text": "An invisible gas in the air.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Ein unsichtbares Gas in der Luft.“ passt hier nicht. Korrekt ist: Die Fähigkeit, etwas zu bewegen, zu wärmen oder leuchten zu lassen."
+              "feedback": "Common mix-up: energy is not an invisible gas. It is the ability to move, warm, or make something glow."
             },
             {
               "text": "The ability to move, warm or make something glow.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Die Fähigkeit, etwas zu bewegen, zu wärmen oder leuchten zu lassen."
+              "feedback": "Correct: energy is the ability to move, warm, or make something glow."
             }
           ]
         },
@@ -2346,13 +2346,13 @@
               "text": "In joules (J).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: In Joule (J)."
+              "feedback": "Correct: in joules (J)."
             },
             {
               "text": "In degrees Celsius (°C).",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „In Grad Celsius (°C).“ passt hier nicht. Korrekt ist: In Joule (J)."
+              "feedback": "Common mix-up: degrees Celsius measure temperature. Energy is measured in joules (J)."
             }
           ]
         },
@@ -2364,13 +2364,13 @@
               "text": "Energy disappears into thin air over time.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Energie löst sich mit der Zeit in Luft auf.“ passt hier nicht. Korrekt ist: Energie geht nie verloren, sie wandelt sich nur in andere Formen um."
+              "feedback": "Common mix-up: energy does not fade away. It is conserved and only changes form."
             },
             {
               "text": "Energy is never lost, it just transforms into other forms.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Energie geht nie verloren, sie wandelt sich nur in andere Formen um."
+              "feedback": "Correct: energy is never lost. It only changes into other forms."
             }
           ]
         },
@@ -2382,13 +2382,13 @@
               "text": "Electrical energy.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Elektrische Energie.“ passt hier nicht. Korrekt ist: Lageenergie (Potenzielle Energie)."
+              "feedback": "Common mix-up: a lifted stone has positional energy, not electrical energy."
             },
             {
               "text": "Positional energy (potential energy).",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Lageenergie (Potenzielle Energie)."
+              "feedback": "Correct: it has positional energy, also called potential energy."
             }
           ]
         },
@@ -2397,16 +2397,16 @@
           "question": "5. If you let go of the stone and it falls, what does the positional energy turn into?",
           "answers": [
             {
-              "text": "In kinetic energy (kinetic energy).",
+              "text": "Into kinetic energy.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: In Bewegungsenergie (Kinetische Energie)."
+              "feedback": "Correct: it turns into kinetic energy."
             },
             {
               "text": "Into chemical energy.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „In chemische Energie.“ passt hier nicht. Korrekt ist: In Bewegungsenergie (Kinetische Energie)."
+              "feedback": "Common mix-up: falling changes positional energy into kinetic energy, not chemical energy."
             }
           ]
         },
@@ -2418,13 +2418,13 @@
               "text": "In food, gasoline and batteries.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: In Lebensmitteln, Benzin und Batterien."
+              "feedback": "Correct: food, gasoline, and batteries store chemical energy."
             },
             {
               "text": "In a mirror.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „In einem Spiegel.“ passt hier nicht. Korrekt ist: In Lebensmitteln, Benzin und Batterien."
+              "feedback": "Common mix-up: a mirror does not store chemical energy. Food, gasoline, and batteries do."
             }
           ]
         },
@@ -2436,13 +2436,13 @@
               "text": "Kinetic energy becomes chemical energy.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Bewegungsenergie wird zu chemischer Energie.“ passt hier nicht. Korrekt ist: Elektrische Energie wird zu Wärmeenergie."
+              "feedback": "Common mix-up: a toaster changes electrical energy into thermal energy."
             },
             {
               "text": "Electrical energy becomes thermal energy.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Elektrische Energie wird zu Wärmeenergie."
+              "feedback": "Correct: electrical energy becomes thermal energy."
             }
           ]
         },
@@ -2454,13 +2454,13 @@
               "text": "Wind and sunlight.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Wind und Sonnenlicht.“ passt hier nicht. Korrekt ist: Kohle und Erdöl."
+              "feedback": "Common mix-up: wind and sunlight are renewable. Coal and petroleum are not."
             },
             {
               "text": "Coal and petroleum.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Kohle und Erdöl."
+              "feedback": "Correct: coal and petroleum are not renewable energy sources."
             }
           ]
         },
@@ -2472,7 +2472,7 @@
               "text": "The kinetic energy of the wind is converted into electrical energy.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Die Bewegungsenergie des Windes wird in elektrische Energie verwandelt."
+              "feedback": "Correct: the wind's motion energy is converted into electrical energy."
             },
             {
               "text": "Electrical energy is used to make wind (like a fan).",
@@ -2490,13 +2490,13 @@
               "text": "The lamp must be larger than the battery.",
               "correct": false,
               "pts": 5,
-              "feedback": "Typischer Denkfehler: „Die Lampe muss größer sein als die Batterie.“ passt hier nicht. Korrekt ist: Der Stromkreis muss vollständig geschlossen sein."
+              "feedback": "Common mix-up: lamp size is not the issue. The circuit must be completely closed."
             },
             {
               "text": "The circuit must be completely closed.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Der Stromkreis muss vollständig geschlossen sein."
+              "feedback": "Correct: the circuit must be completely closed."
             }
           ]
         }
