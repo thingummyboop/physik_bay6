@@ -642,3 +642,10 @@ P2 Fortschritt (Run 2026-04-28 05:18):
 - Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 2 auf 3 priorisierte Mathethemen erweitert (neu: `math1_2_nat_zahlen`).
 - Baseline aktualisiert: `scripts/baselines/math_en_consistency_allowlist.json` mit 3-Themen-Scope und `knownIssuePaths=[]`.
 - Qualitätssicherung: Implementieren → Review → Patch mit `MATH_EN_CONSISTENCY_TOPICS=math1_2_nat_zahlen node scripts/audit_math_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+
+P2 Fortschritt (Run 2026-04-28 05:31):
+- Mathematik-Perfection (EN) im priorisierten Modul **`math1_3_add_sub`** nachgezogen.
+- Abgedeckt: verbliebene DE/EN-Mischsprache in Kapitelinhalten (`Einer/Zehner`, Formulierungsrest in Subtraktions-Intro) und 2 Diplom-Feedbacktexte auf kurzes, konsistentes Englisch umgestellt.
+- Gate-Ausbau: **`scripts/audit_math_english_consistency.js`** Scope von 3 auf 4 priorisierte Mathethemen erweitert (neu: `math1_3_add_sub`).
+- Baseline aktualisiert: `scripts/baselines/math_en_consistency_allowlist.json` mit 4-Themen-Scope und `knownIssuePaths=[]`.
+- Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `MATH_EN_CONSISTENCY_TOPICS=math1_3_add_sub node scripts/audit_math_english_consistency.js` plus vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
