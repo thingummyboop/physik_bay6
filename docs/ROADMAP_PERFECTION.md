@@ -153,6 +153,12 @@ P2 Fortschritt (Run 2026-04-27 19:42):
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `node --check js/topics/elektromagnetismus.js` und `git diff --check`.
 - Ergebnis: Das Elektromagnetismus-Labor ist robuster bei wiederholter Initialisierung und liefert deutlich besser vorlesbare Zustandsrückmeldungen.
 
+P2 Fortschritt (Run 2026-04-28 03:06):
+- Thema **Optik (englische Inhalte)** sprachlich überarbeitet, um verbleibende Mischsprache/Fehlübersetzungen in zentralen Physik-Abschnitten zu entfernen.
+- Abgedeckt: Auge (Near/Far, klare Merkhilfe), Linsen (Begriffe + Merksatz), Beugung (Labortitel), Mikroskop (Objective/Eyepiece/Fokus-Texte), Teleskop (secondary mirror) inkl. Korrektur betroffener Feedbacktexte.
+- Qualitätssicherung: Implementieren → Review → Patch mit `JSON.parse(lang/en.json)`, `node scripts/audit_physics_language.js`, `node scripts/audit_physics_a11y.js` und `git diff --check`.
+- Ergebnis: Physik-Optik ist in EN deutlich konsistenter, fachsprachlich sauberer und für Lernende verständlicher.
+
 P2-Math Fortschritt (Run 2026-04-27 19:49):
 - Thema **math1_4_mult_div** mit diagnoseorientiertem Antwortfeedback vervollständigt.
 - Abgedeckt: 6 Kapitel-Quizfragen mit 16 Antwortoptionen (Grundbegriffe, Division durch 0, Punkt-vor-Strich, Rechenausdruck).
