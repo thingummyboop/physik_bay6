@@ -607,3 +607,10 @@ P1 Fortschritt (Run 2026-04-28 04:27):
 - Abgedeckt: 45 gemischte DE/EN-Reste in Kapitel-/Diplom-Feedback sowie mehrere DE-Aria-/Content-Strings in `lang/en.json` auf konsistentes, kurzes Englisch vereinheitlicht; zusätzlich inhaltliche Korrektur von Tippfehlern (`Lebelarm` → `lever arm`) und UI-Texten (`Merksatz` → `Remember`).
 - Qualitätssicherung: GPT-5.5-Schleife (Implementieren → Review → Patch) mit `PHYSICS_EN_CONSISTENCY_TOPICS=drehundstatik node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
 - Ergebnis: `drehundstatik` ist EN-konsistent (`known_debt=0` im fokussierten Audit), ohne Regressionen im Gesamt-Gate.
+
+P1 Fortschritt (Run 2026-04-28 04:3x):
+- Physik-Perfection (EN) im Thema **kraft_und_bewegung** nachgezogen.
+- Abgedeckt: verbliebene DE-Reste in 9 Feedbacktexten (Kapitel + Diplom) auf konsistentes, kurzes Englisch vereinheitlicht.
+- Gate-Ausbau: **`scripts/audit_physics_english_consistency.js`** Scope von 7 auf 8 priorisierte Physikthemen erweitert (neu: `kraft_und_bewegung`).
+- Qualitätssicherung: Implementieren → Review → Patch mit `PHYSICS_EN_CONSISTENCY_TOPICS=kraft_und_bewegung node scripts/audit_physics_english_consistency.js` und vollständigem `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
+- Ergebnis: Auch `kraft_und_bewegung` ist jetzt EN-konsistent im priorisierten Physik-Scope (`known_debt=0`).
