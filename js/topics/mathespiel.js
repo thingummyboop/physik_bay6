@@ -528,7 +528,7 @@ function markAnswerState(question, selectedValue, correct) {
             const isRight = Boolean(question.pieces[index] && question.pieces[index].correct);
             if (isRight) card.classList.add("is-correct");
             if (index === selectedValue && !correct) card.classList.add("is-wrong");
-            card.querySelectorAll("button").forEach(button => { button.disabled = true; });
+            card.querySelectorAll("[data-answer]").forEach(button => { button.disabled = true; });
         });
         return;
     }
