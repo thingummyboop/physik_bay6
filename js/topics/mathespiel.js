@@ -550,18 +550,15 @@ function makeOperatorChallenge(level) {
 }
 
 function makeSpatialChallenge(level) {
-    const useMirrorDistractors = level >= 4;
     const baseAnswerPool = boxShapesForLevel(level);
     const answerPool = level >= 5
         ? baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).height >= 2)
         : baseAnswerPool;
-    const mirrorAnswerPool = useMirrorDistractors ? answerPool.filter(shape => isMirrorDistinct(shape.cells)) : [];
     const baseChoicePool = boxShapesForLevel(Math.max(3, level));
     const choicePool = level >= 5
         ? baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).height >= 2)
         : baseChoicePool;
-    const activeAnswerPool = mirrorAnswerPool.length ? mirrorAnswerPool : answerPool;
-    const answerShape = activeAnswerPool[rand(0, activeAnswerPool.length - 1)];
+    const answerShape = answerPool[rand(0, answerPool.length - 1)];
     const missingCells = normalizeCells(answerShape.cells);
     const gridWidth = level >= 4 ? 6 : 5;
     const gridDepth = level >= 3 ? 4 : 3;
@@ -578,20 +575,13 @@ function makeSpatialChallenge(level) {
         missing: missingCells.map(cell => [cell[0] + missingOffset.x, cell[1] + missingOffset.y, 0])
     };
     const answerSignature = canonicalShapeSignature(missingCells);
+    const answerPlanarSignature = planarShapeSignature(missingCells);
     const distractors = [];
-
-    if (useMirrorDistractors) {
-        const mirroredAnswer = mirrorCellsHorizontally(missingCells);
-        addDistractorIfDistinct(distractors, mirroredAnswer, answerSignature);
-    }
 
     while (distractors.length < 3) {
         const candidateBase = choicePool[rand(0, choicePool.length - 1)].cells;
         const candidate = normalizeCells(candidateBase);
-        addDistractorIfDistinct(distractors, candidate, answerSignature);
-        if (useMirrorDistractors && distractors.length < 3) {
-            addDistractorIfDistinct(distractors, mirrorCellsHorizontally(candidate), answerSignature);
-        }
+        addPlanarDistractorIfDistinct(distractors, candidate, answerSignature, answerPlanarSignature);
     }
 
     const pieces = shuffleArray([
@@ -614,7 +604,7 @@ function makeSpatialChallenge(level) {
         answerText: pieces[answer].label,
         skill: "spatial",
         explain: "Die Form passt genau in die leere Stelle oben an der Vorderseite des Würfelpakets.",
-        hint: useMirrorDistractors ? "Achte bei schweren Formen auch auf Spiegelbilder: Drehen hilft, aber ein gespiegeltes Teil passt nicht." : "Vergleiche die leeren Felder von links nach rechts und von oben nach unten. Drehe die Formen, bis die Kanten passen.",
+        hint: "Vergleiche die leeren Felder von links nach rechts und von oben nach unten. Drehe die Formen, bis die Kanten passen.",
         options,
         visual: boxPuzzleScene(puzzle)
     };
@@ -675,13 +665,18 @@ function mirrorCellsHorizontally(cells) {
     return normalizeCells(normalized.map(cell => [bounds.width - 1 - cell[0], cell[1], cellHeight(cell)]));
 }
 
-function isMirrorDistinct(cells) {
-    return canonicalShapeSignature(mirrorCellsHorizontally(cells)) !== canonicalShapeSignature(cells);
+function planarShapeSignature(cells) {
+    return [
+        canonicalShapeSignature(cells),
+        canonicalShapeSignature(mirrorCellsHorizontally(cells))
+    ].sort()[0];
 }
 
-function addDistractorIfDistinct(distractors, candidate, answerSignature) {
+function addPlanarDistractorIfDistinct(distractors, candidate, answerSignature, answerPlanarSignature) {
     const signature = canonicalShapeSignature(candidate);
-    if (signature !== answerSignature && !distractors.some(shape => canonicalShapeSignature(shape) === signature)) {
+    const planarSignature = planarShapeSignature(candidate);
+    const hasDuplicate = distractors.some(shape => planarShapeSignature(shape) === planarSignature);
+    if (signature !== answerSignature && planarSignature !== answerPlanarSignature && !hasDuplicate) {
         distractors.push(candidate);
     }
 }
