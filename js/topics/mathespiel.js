@@ -7,7 +7,8 @@ const rechenreise = {
     assessment: [],
     assessmentIndex: 0,
     current: null,
-    mode: "rechnen"
+    mode: "rechnen",
+    timerId: null
 };
 
 function topicInit() {
@@ -79,6 +80,7 @@ function renderRechenreiseShell() {
     `;
 
     document.getElementById("mathGameReset").addEventListener("click", () => {
+        clearQuestionTimer();
         localStorage.removeItem(RECHENREISE_KEY);
         rechenreise.profile = loadRechenreiseProfile();
         renderRechenreiseShell();
@@ -103,6 +105,51 @@ function stage() {
     return document.getElementById("mathGameStage");
 }
 
+function timeLimitForLevel(level) {
+    return 17 - clampLevel(Math.round(level)) * 2;
+}
+
+function timerMarkup(seconds) {
+    return `
+        <div class="math-timer" id="mathTimer" aria-live="polite">
+            <span>Zeit: <strong id="mathTimerText">${seconds}s</strong></span>
+            <span class="math-timer-track" aria-hidden="true"><span id="mathTimerBar" style="width:100%"></span></span>
+        </div>
+    `;
+}
+
+function startQuestionTimer(question, onTimeout) {
+    clearQuestionTimer();
+    const total = Math.max(1, question.timeLimit || timeLimitForLevel(question.level || rechenreise.profile.level));
+    let remaining = total;
+    updateTimerDisplay(remaining, total);
+    rechenreise.timerId = window.setInterval(() => {
+        remaining -= 1;
+        updateTimerDisplay(remaining, total);
+        if (remaining <= 0) {
+            clearQuestionTimer();
+            if (!question.answered) onTimeout();
+        }
+    }, 1000);
+}
+
+function clearQuestionTimer() {
+    if (rechenreise.timerId) {
+        window.clearInterval(rechenreise.timerId);
+        rechenreise.timerId = null;
+    }
+}
+
+function updateTimerDisplay(remaining, total) {
+    const safeRemaining = Math.max(0, remaining);
+    const timer = document.getElementById("mathTimer");
+    const text = document.getElementById("mathTimerText");
+    const bar = document.getElementById("mathTimerBar");
+    if (text) text.textContent = `${safeRemaining}s`;
+    if (bar) bar.style.width = `${Math.max(0, Math.min(100, (safeRemaining / total) * 100))}%`;
+    if (timer) timer.classList.toggle("is-low", safeRemaining <= 3);
+}
+
 function startRechenreiseAssessment() {
     rechenreise.assessment = [
         makeArithmeticChallenge(1, "addsub"),
@@ -118,11 +165,15 @@ function startRechenreiseAssessment() {
 }
 
 function renderAssessmentQuestion() {
+    clearQuestionTimer();
     const question = rechenreise.assessment[rechenreise.assessmentIndex];
     rechenreise.current = question;
+    question.answered = false;
+    question.timeLimit = timeLimitForLevel(question.level || rechenreise.profile.level);
     stage().innerHTML = `
         <div class="math-game-question">
             <p class="math-game-kicker">Start-Check ${rechenreise.assessmentIndex + 1} von ${rechenreise.assessment.length}</p>
+            ${timerMarkup(question.timeLimit)}
             <h3>${question.prompt}</h3>
             ${question.visual || ""}
             ${question.choiceMode === "rotatingPieces" ? rotatingPieceChoices(question) : `
@@ -138,11 +189,15 @@ function renderAssessmentQuestion() {
     } else {
         bindAnswerButtons(handleAssessmentAnswer);
     }
+    startQuestionTimer(question, () => handleAssessmentAnswer(null, true));
 }
 
-function handleAssessmentAnswer(value) {
+function handleAssessmentAnswer(value, timedOut = false) {
     const question = rechenreise.current;
-    const correct = isAnswerCorrect(question, Number(value));
+    if (!question || question.answered) return;
+    question.answered = true;
+    clearQuestionTimer();
+    const correct = !timedOut && isAnswerCorrect(question, Number(value));
     question.wasCorrect = correct;
     rechenreise.assessmentIndex += 1;
 
@@ -155,6 +210,7 @@ function handleAssessmentAnswer(value) {
 }
 
 function finishAssessment() {
+    clearQuestionTimer();
     const correctCount = rechenreise.assessment.filter(q => q.wasCorrect).length;
     const spatialCorrect = rechenreise.assessment.filter(q => q.skill === "spatial" && q.wasCorrect).length;
     const level = Math.max(1, Math.min(5, correctCount <= 1 ? 1 : correctCount <= 3 ? 2 : correctCount <= 4 ? 3 : correctCount === 5 ? 4 : 5));
@@ -192,6 +248,8 @@ function skillFromAssessment(skill) {
 }
 
 function renderRechenreiseLobby() {
+    clearQuestionTimer();
+    rechenreise.current = null;
     setText("mathGameStatus", "wähle ein Mini-Spiel");
     updateRechenreiseHud();
 
@@ -322,8 +380,12 @@ function boxPuzzleScene(puzzle) {
 }
 
 function renderMiniGame() {
+    clearQuestionTimer();
     const level = skillLevelForMode(rechenreise.mode);
     const challenge = makeChallengeForMode(rechenreise.mode, level);
+    challenge.level = level;
+    challenge.answered = false;
+    challenge.timeLimit = timeLimitForLevel(level);
     rechenreise.current = challenge;
     setText("mathGameStatus", challenge.status);
 
@@ -334,6 +396,7 @@ function renderMiniGame() {
                 <span class="math-game-pill">Niveau ${level}</span>
             </div>
             <p class="math-game-kicker">${challenge.title}</p>
+            ${timerMarkup(challenge.timeLimit)}
             <h3>${challenge.prompt}</h3>
             ${challenge.visual || ""}
             <button type="button" class="math-hint-btn" id="mathHintBtn">Tipp anzeigen</button>
@@ -358,6 +421,7 @@ function renderMiniGame() {
     } else {
         bindAnswerButtons(handleMiniGameAnswer);
     }
+    startQuestionTimer(challenge, () => handleMiniGameAnswer(null, true));
 }
 
 function makeChallengeForMode(mode, level) {
@@ -387,10 +451,13 @@ function bindAnswerButtons(handler) {
     });
 }
 
-function handleMiniGameAnswer(value) {
+function handleMiniGameAnswer(value, timedOut = false) {
     const question = rechenreise.current;
-    const selectedValue = Number(value);
-    const correct = isAnswerCorrect(question, selectedValue);
+    if (!question || question.answered) return;
+    question.answered = true;
+    clearQuestionTimer();
+    const selectedValue = timedOut ? NaN : Number(value);
+    const correct = !timedOut && isAnswerCorrect(question, selectedValue);
     const panel = stage().querySelector(".math-game-question");
     if (panel) panel.classList.add(correct ? "is-success" : "is-miss");
 
@@ -415,7 +482,14 @@ function handleMiniGameAnswer(value) {
     const correctText = question.answerText || question.answer;
     feedback.innerHTML = correct
         ? `Richtig. ${question.explain}`
-        : `Noch nicht. Richtig ist ${correctText}. ${question.explain}`;
+        : `${timedOut ? "Zeit vorbei." : "Noch nicht."} Richtig ist ${correctText}. ${question.explain}`;
+
+    if (timedOut) {
+        window.setTimeout(() => {
+            if (rechenreise.current === question) renderMiniGame();
+        }, 900);
+        return;
+    }
 
     const next = document.createElement("button");
     next.type = "button";
@@ -492,6 +566,7 @@ function makeArithmeticChallenge(level, skillHint) {
     }
 
     return {
+        level,
         title: "Rechen-Sprint",
         status: "Grundrechnungsarten",
         prompt,
@@ -530,6 +605,7 @@ function makeOperatorChallenge(level) {
 
     const opValue = { "+": 1, "-": 2, "*": 3, "/": 4 }[op];
     return {
+        level,
         title: "Zeichen-Finder",
         status: "Rechenzeichen erkennen",
         prompt: `${a} ? ${b} = ${answer}`,
@@ -550,15 +626,19 @@ function makeOperatorChallenge(level) {
 }
 
 function makeSpatialChallenge(level) {
+    const use3D = level > 1;
+    const useMirrorDistractors = level >= 4;
     const baseAnswerPool = boxShapesForLevel(level);
-    const answerPool = level >= 5
-        ? baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).height >= 2)
-        : baseAnswerPool;
+    const answerPool = use3D
+        ? baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth >= 2)
+        : baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth === 1);
+    const mirrorAnswerPool = useMirrorDistractors ? answerPool.filter(shape => isMirrorDistinct(shape.cells)) : [];
     const baseChoicePool = boxShapesForLevel(Math.max(3, level));
-    const choicePool = level >= 5
-        ? baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).height >= 2)
-        : baseChoicePool;
-    const answerShape = answerPool[rand(0, answerPool.length - 1)];
+    const choicePool = use3D
+        ? baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth >= 2)
+        : baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth === 1);
+    const activeAnswerPool = mirrorAnswerPool.length ? mirrorAnswerPool : answerPool;
+    const answerShape = activeAnswerPool[rand(0, activeAnswerPool.length - 1)];
     const missingCells = normalizeCells(answerShape.cells);
     const gridWidth = level >= 4 ? 6 : 5;
     const gridDepth = level >= 3 ? 4 : 3;
@@ -572,21 +652,34 @@ function makeSpatialChallenge(level) {
         width: gridWidth,
         height: stackHeight,
         depth: gridDepth,
-        missing: missingCells.map(cell => [cell[0] + missingOffset.x, cell[1] + missingOffset.y, 0])
+        missing: missingCells.map(cell => [cell[0] + missingOffset.x, cell[1] + missingOffset.y, cellDepth(cell)])
     };
     const answerSignature = canonicalShapeSignature(missingCells);
     const answerPlanarSignature = planarShapeSignature(missingCells);
     const distractors = [];
 
-    while (distractors.length < 3) {
+    if (useMirrorDistractors) {
+        addSpatialDistractorIfDistinct(distractors, mirrorCellsHorizontally(missingCells), answerSignature);
+    }
+
+    let attempts = 0;
+    while (distractors.length < 3 && attempts < 120) {
+        attempts += 1;
         const candidateBase = choicePool[rand(0, choicePool.length - 1)].cells;
         const candidate = normalizeCells(candidateBase);
-        addPlanarDistractorIfDistinct(distractors, candidate, answerSignature, answerPlanarSignature);
+        if (use3D) {
+            addSpatialDistractorIfDistinct(distractors, candidate, answerSignature);
+            if (useMirrorDistractors && distractors.length < 3) {
+                addSpatialDistractorIfDistinct(distractors, mirrorCellsHorizontally(candidate), answerSignature);
+            }
+        } else {
+            addPlanarDistractorIfDistinct(distractors, candidate, answerSignature, answerPlanarSignature);
+        }
     }
 
     const pieces = shuffleArray([
-        { correct: true, cells: rotateCellsNTimes(missingCells, rand(0, 3)) },
-        ...distractors.map(cells => ({ correct: false, cells: rotateCellsNTimes(cells, rand(0, 3)) }))
+        { correct: true, is3D: is3DShape(missingCells), cells: rotateCellsNTimes(missingCells, randomInitialTurns(missingCells)) },
+        ...distractors.map(cells => ({ correct: false, is3D: is3DShape(cells), cells: rotateCellsNTimes(cells, randomInitialTurns(cells)) }))
     ]).map((piece, index) => ({
         ...piece,
         label: `Form ${String.fromCharCode(65 + index)}`
@@ -595,6 +688,7 @@ function makeSpatialChallenge(level) {
     const answer = pieces.findIndex(piece => piece.correct);
 
     return {
+        level,
         title: "Form einpassen",
         status: "räumliches Denken",
         prompt: "Welches Blockstück fehlt oben vorne am Würfelpaket?",
@@ -604,7 +698,7 @@ function makeSpatialChallenge(level) {
         answerText: pieces[answer].label,
         skill: "spatial",
         explain: "Die Form passt genau in die leere Stelle oben an der Vorderseite des Würfelpakets.",
-        hint: "Vergleiche die leeren Felder von links nach rechts und von oben nach unten. Drehe die Formen, bis die Kanten passen.",
+        hint: use3D ? "Vergleiche zuerst die obere Vorderkante. Danach prüfe, wie weit das Stück nach hinten in die Tiefe reicht." : "Vergleiche die leeren Felder von links nach rechts und von oben nach unten. Drehe die Formen, bis die Kanten passen.",
         options,
         visual: boxPuzzleScene(puzzle)
     };
@@ -612,20 +706,25 @@ function makeSpatialChallenge(level) {
 
 function boxShapesForLevel(level) {
     const shapes = [
-        { min: 1, cells: [[0, 0]] },
-        { min: 1, cells: [[0, 0], [1, 0]] },
-        { min: 1, cells: [[0, 0], [0, 1]] },
-        { min: 2, cells: [[0, 0], [1, 0], [0, 1]] },
-        { min: 2, cells: [[0, 0], [1, 0], [1, 1]] },
-        { min: 2, cells: [[0, 0], [0, 1], [0, 2]] },
-        { min: 3, cells: [[0, 0], [1, 0], [2, 0]] },
-        { min: 3, cells: [[0, 0], [1, 0], [0, 1], [1, 1]] },
-        { min: 4, cells: [[0, 0], [1, 0], [2, 0], [1, 1]] },
-        { min: 4, cells: [[0, 0], [0, 1], [1, 1], [2, 1]] },
-        { min: 4, cells: [[2, 0], [0, 1], [1, 1], [2, 1]] },
-        { min: 5, cells: [[1, 0], [0, 1], [1, 1], [2, 1]] },
-        { min: 5, cells: [[1, 0], [2, 0], [0, 1], [1, 1]] },
-        { min: 5, cells: [[0, 0], [1, 0], [1, 1], [2, 1]] }
+        { min: 1, cells: [[0, 0, 0]] },
+        { min: 1, cells: [[0, 0, 0], [1, 0, 0]] },
+        { min: 1, cells: [[0, 0, 0], [0, 1, 0]] },
+        { min: 1, cells: [[0, 0, 0], [1, 0, 0], [2, 0, 0]] },
+        { min: 1, cells: [[0, 0, 0], [1, 0, 0], [0, 1, 0]] },
+        { min: 1, cells: [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]] },
+        { min: 2, cells: [[0, 0, 0], [0, 0, 1]] },
+        { min: 2, cells: [[0, 0, 0], [1, 0, 0], [0, 0, 1]] },
+        { min: 2, cells: [[0, 0, 0], [0, 1, 0], [0, 0, 1]] },
+        { min: 2, cells: [[0, 0, 0], [1, 0, 0], [1, 0, 1]] },
+        { min: 3, cells: [[0, 0, 0], [1, 0, 0], [0, 0, 1], [0, 1, 0]] },
+        { min: 3, cells: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 1, 0]] },
+        { min: 3, cells: [[0, 0, 0], [0, 0, 1], [1, 0, 1], [0, 1, 0]] },
+        { min: 4, cells: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [1, 1, 0]] },
+        { min: 4, cells: [[0, 0, 0], [0, 0, 1], [1, 0, 1], [0, 1, 0]] },
+        { min: 4, cells: [[0, 0, 0], [1, 0, 0], [2, 0, 0], [1, 0, 1], [1, 1, 0]] },
+        { min: 5, cells: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [2, 0, 1], [1, 1, 0]] },
+        { min: 5, cells: [[0, 0, 0], [0, 0, 1], [1, 0, 1], [2, 0, 1], [1, 1, 0]] },
+        { min: 5, cells: [[0, 0, 0], [1, 0, 0], [2, 0, 0], [0, 0, 1], [1, 1, 0]] }
     ];
     return shapes.filter(shape => shape.min <= level);
 }
@@ -633,36 +732,45 @@ function boxShapesForLevel(level) {
 function normalizeCells(cells) {
     const minX = Math.min(...cells.map(cell => cell[0]));
     const minY = Math.min(...cells.map(cell => cell[1]));
+    const minDepth = Math.min(...cells.map(cellDepth));
     return cells
-        .map(cell => [cell[0] - minX, cell[1] - minY, cellHeight(cell)])
-        .sort((a, b) => a[1] - b[1] || a[0] - b[0] || a[2] - b[2]);
+        .map(cell => [cell[0] - minX, cell[1] - minY, cellDepth(cell) - minDepth])
+        .sort((a, b) => a[2] - b[2] || a[1] - b[1] || a[0] - b[0]);
 }
 
-function cellHeight(cell) {
-    return Math.max(1, Number(cell[2]) || 1);
+function cellDepth(cell) {
+    return Math.max(0, Number(cell[2]) || 0);
 }
 
 function cellBounds(cells) {
     return {
         width: Math.max(...cells.map(cell => cell[0])) + 1,
-        height: Math.max(...cells.map(cell => cell[1])) + 1
+        height: Math.max(...cells.map(cell => cell[1])) + 1,
+        depth: Math.max(...cells.map(cellDepth)) + 1
     };
 }
 
 function cellSignature(cells) {
-    return normalizeCells(cells).map(cell => `${cell[0]},${cell[1]},${cellHeight(cell)}`).join("|");
+    return normalizeCells(cells).map(cell => `${cell[0]},${cell[1]},${cellDepth(cell)}`).join("|");
 }
 
-function rotateCellsClockwise(cells) {
+function rotateCellsClockwise(cells, force3D = false) {
     const normalized = normalizeCells(cells);
     const bounds = cellBounds(normalized);
-    return normalizeCells(normalized.map(cell => [bounds.height - 1 - cell[1], cell[0], cellHeight(cell)]));
+    if (!force3D && bounds.depth <= 1) {
+        return normalizeCells(normalized.map(cell => [bounds.height - 1 - cell[1], cell[0], 0]));
+    }
+    return normalizeCells(normalized.map(cell => [bounds.depth - 1 - cellDepth(cell), cell[1], cell[0]]));
 }
 
 function mirrorCellsHorizontally(cells) {
     const normalized = normalizeCells(cells);
     const bounds = cellBounds(normalized);
-    return normalizeCells(normalized.map(cell => [bounds.width - 1 - cell[0], cell[1], cellHeight(cell)]));
+    return normalizeCells(normalized.map(cell => [bounds.width - 1 - cell[0], cell[1], cellDepth(cell)]));
+}
+
+function isMirrorDistinct(cells) {
+    return canonicalShapeSignature(mirrorCellsHorizontally(cells)) !== canonicalShapeSignature(cells);
 }
 
 function planarShapeSignature(cells) {
@@ -681,12 +789,30 @@ function addPlanarDistractorIfDistinct(distractors, candidate, answerSignature, 
     }
 }
 
+function addSpatialDistractorIfDistinct(distractors, candidate, answerSignature) {
+    const signature = canonicalShapeSignature(candidate);
+    const hasDuplicate = distractors.some(shape => canonicalShapeSignature(shape) === signature);
+    if (signature !== answerSignature && !hasDuplicate) {
+        distractors.push(candidate);
+    }
+}
+
 function rotateCellsNTimes(cells, turns) {
     let rotated = normalizeCells(cells);
+    const force3D = cellBounds(rotated).depth > 1;
     for (let i = 0; i < turns; i += 1) {
-        rotated = rotateCellsClockwise(rotated);
+        rotated = rotateCellsClockwise(rotated, force3D);
     }
     return rotated;
+}
+
+function randomInitialTurns(cells) {
+    const bounds = cellBounds(normalizeCells(cells));
+    return bounds.depth > 1 ? rand(0, 1) * 2 : rand(0, 3);
+}
+
+function is3DShape(cells) {
+    return cellBounds(normalizeCells(cells)).depth > 1;
 }
 
 function canonicalShapeSignature(cells) {
@@ -717,7 +843,7 @@ function boxStackMarkup(puzzle) {
                 const style = stackCellStyle(x, y, depth, puzzle, metrics);
                 cells.push(`
                     <span class="box-cell ${isMissing ? "missing" : "filled"}" style="${style}">
-                        ${isMissing ? '<span class="box-void"></span>' : boxFacesMarkup(faces)}
+                        ${isMissing ? boxVoidMarkup(faces) : boxFacesMarkup(faces)}
                     </span>
                 `);
             }
@@ -774,16 +900,12 @@ function visibleStackFaces(x, y, depth, puzzle) {
     };
 }
 
-function visiblePieceFaces(x, y, layer, heights) {
+function visiblePieceFaces(x, y, depth, occupied) {
     return {
-        top: heightAt(heights, x, y) === layer + 1,
-        front: heightAt(heights, x, y - 1) <= layer,
-        side: heightAt(heights, x + 1, y) <= layer
+        top: !occupied.has(cell3DKey(x, y - 1, depth)),
+        front: !occupied.has(cell3DKey(x, y, depth - 1)),
+        side: !occupied.has(cell3DKey(x + 1, y, depth))
     };
-}
-
-function heightAt(heights, x, y) {
-    return heights.get(`${x},${y}`) || 0;
 }
 
 function boxFacesMarkup(faces = { top: true, front: true, side: true }) {
@@ -791,6 +913,14 @@ function boxFacesMarkup(faces = { top: true, front: true, side: true }) {
         ${faces.top ? '<span class="box-top"></span>' : ""}
         ${faces.front ? '<span class="box-front"></span>' : ""}
         ${faces.side ? '<span class="box-side"></span>' : ""}
+    `;
+}
+
+function boxVoidMarkup(faces = { top: true, front: true, side: true }) {
+    return `
+        ${faces.top ? '<span class="box-void-top"></span>' : ""}
+        ${faces.front ? '<span class="box-void-front"></span>' : ""}
+        ${faces.side ? '<span class="box-void-side"></span>' : ""}
     `;
 }
 
@@ -818,21 +948,18 @@ function rotatingPieceCard(piece, index) {
 function pieceMiniMarkup(cells, index) {
     const normalized = normalizeCells(cells);
     const bounds = cellBounds(normalized);
-    const heights = new Map(normalized.map(cell => [`${cell[0]},${cell[1]}`, cellHeight(cell)]));
-    const maxCellHeight = Math.max(...normalized.map(cellHeight));
-    const metrics = pieceMiniMetrics(bounds, maxCellHeight);
-    const boxes = [];
-    normalized.forEach(cell => {
+    const occupied = new Set(normalized.map(cell => cell3DKey(cell[0], cell[1], cellDepth(cell))));
+    const metrics = pieceMiniMetrics(bounds);
+    const boxes = normalized.map(cell => {
         const x = cell[0];
         const y = cell[1];
-        for (let layer = 0; layer < cellHeight(cell); layer += 1) {
-            const faces = visiblePieceFaces(x, y, layer, heights);
-            boxes.push(`
-                <span class="filled" style="${pieceCellStyle(x, y, layer, bounds, metrics)}">
-                    ${boxFacesMarkup(faces)}
-                </span>
-            `);
-        }
+        const depth = cellDepth(cell);
+        const faces = visiblePieceFaces(x, y, depth, occupied);
+        return `
+            <span class="filled" style="${pieceCellStyle(x, y, depth, bounds, metrics)}">
+                ${boxFacesMarkup(faces)}
+            </span>
+        `;
     });
     return `
         <span class="piece-mini" data-piece-mini="${index}" style="--piece-width:${metrics.width}px; --piece-height:${metrics.height}px">
@@ -841,14 +968,14 @@ function pieceMiniMarkup(cells, index) {
     `;
 }
 
-function pieceMiniMetrics(bounds, maxCellHeight = 1) {
+function pieceMiniMetrics(bounds) {
     const face = 18;
     const depth = 9;
     const box = 27;
     const overlap = 1;
     const stepFace = face - overlap;
     const stepDepth = depth - overlap;
-    const layerLift = face;
+    const stepY = face - overlap;
     const padX = 5;
     const padTop = 3;
     return {
@@ -856,20 +983,19 @@ function pieceMiniMetrics(bounds, maxCellHeight = 1) {
         depth,
         stepFace,
         stepDepth,
-        layerLift,
-        maxCellHeight,
+        stepY,
         box,
         padX,
         padTop,
-        width: padX * 2 + (bounds.width - 1) * stepFace + (bounds.height - 1) * stepDepth + box,
-        height: padTop + (bounds.height - 1) * stepDepth + (maxCellHeight - 1) * layerLift + box + 3
+        width: padX * 2 + (bounds.width - 1) * stepFace + (bounds.depth - 1) * stepDepth + box,
+        height: padTop + (bounds.depth - 1) * stepDepth + (bounds.height - 1) * stepY + box + 3
     };
 }
 
-function pieceCellStyle(x, y, layer, bounds, metrics) {
-    const left = metrics.padX + x * metrics.stepFace + y * metrics.stepDepth;
-    const top = metrics.padTop + (bounds.height - 1 - y) * metrics.stepDepth + (metrics.maxCellHeight - 1 - layer) * metrics.layerLift;
-    const zIndex = layer * 100 + (bounds.height - y) * 10 + x;
+function pieceCellStyle(x, y, depth, bounds, metrics) {
+    const left = metrics.padX + x * metrics.stepFace + depth * metrics.stepDepth;
+    const top = metrics.padTop + (bounds.depth - 1 - depth) * metrics.stepDepth + y * metrics.stepY;
+    const zIndex = (bounds.depth - depth) * 100 + y * 10 + x;
     return `left:${left}px; top:${top}px; z-index:${zIndex};`;
 }
 
@@ -878,7 +1004,7 @@ function bindRotatingPieceControls(handler = handleMiniGameAnswer) {
         button.addEventListener("click", () => {
             const index = Number(button.dataset.rotatePiece);
             const piece = rechenreise.current.pieces[index];
-            piece.cells = rotateCellsClockwise(piece.cells);
+            piece.cells = rotateCellsClockwise(piece.cells, piece.is3D);
             const mini = stage().querySelector(`[data-piece-mini="${index}"]`);
             if (mini) mini.outerHTML = pieceMiniMarkup(piece.cells, index);
         });

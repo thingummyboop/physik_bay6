@@ -881,6 +881,40 @@ body.math-theme {
     color: #0f766e;
 }
 
+.math-timer {
+    display: grid;
+    grid-template-columns: auto minmax(120px, 1fr);
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0 12px;
+    color: #0f172a;
+    font-weight: 900;
+}
+
+.math-timer-track {
+    display: block;
+    height: 12px;
+    overflow: hidden;
+    background: #e2e8f0;
+    border: 1px solid #94a3b8;
+    border-radius: 999px;
+}
+
+.math-timer-track span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #facc15);
+    transition: width 0.25s linear, background 0.2s ease;
+}
+
+.math-timer.is-low {
+    color: #b91c1c;
+}
+
+.math-timer.is-low .math-timer-track span {
+    background: #ef4444;
+}
+
 .math-game-row {
     display: flex;
     justify-content: space-between;
@@ -1689,18 +1723,43 @@ body.math-theme {
     border: 0;
 }
 
-.box-void {
+.box-void-top,
+.box-void-front,
+.box-void-side {
     position: absolute;
-    left: 0;
-    top: var(--cube-depth);
-    width: var(--cube-face);
-    height: var(--cube-face);
+    display: block;
+    box-sizing: border-box;
     background:
         linear-gradient(135deg, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.04)),
         rgba(255, 255, 255, 0.18);
     border: 2px solid rgba(120, 53, 15, 0.34);
     border-radius: 2px;
     box-shadow: inset 6px 6px 8px rgba(15, 23, 42, 0.12);
+}
+
+.box-void-front {
+    left: 0;
+    top: var(--cube-depth);
+    width: var(--cube-face);
+    height: var(--cube-face);
+}
+
+.box-void-top {
+    left: 0;
+    top: 0;
+    width: var(--cube-face);
+    height: var(--cube-depth);
+    transform: skewX(-45deg);
+    transform-origin: left bottom;
+}
+
+.box-void-side {
+    left: var(--cube-face);
+    top: var(--cube-depth);
+    width: var(--cube-depth);
+    height: var(--cube-face);
+    transform: skewY(-45deg);
+    transform-origin: left top;
 }
 
 .piece-choice-grid {
