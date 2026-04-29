@@ -636,6 +636,9 @@ body.math-theme {
     --hair: #334155;
     --shirt: #2563eb;
     --pants: #0f766e;
+    --pack-main: #0f766e;
+    --pack-dark: #064e3b;
+    --pack-light: #5eead4;
     position: relative;
     width: 72px;
     height: 92px;
@@ -716,15 +719,67 @@ body.math-theme {
     z-index: 3;
 }
 
+.hero-body::before,
+.hero-body::after {
+    content: "";
+    position: absolute;
+    top: -4%;
+    width: 18%;
+    height: 78%;
+    border: 2px solid var(--pack-dark);
+    border-bottom: 0;
+    border-radius: 999px 999px 10px 10px;
+    opacity: 0.9;
+    z-index: 4;
+}
+
+.hero-body::before {
+    left: 13%;
+    transform: rotate(8deg);
+}
+
+.hero-body::after {
+    right: 13%;
+    transform: rotate(-8deg);
+}
+
 .hero-pack {
-    right: 17%;
-    top: 40%;
-    width: 20%;
+    left: 18%;
+    top: 31%;
+    width: 64%;
+    height: 43%;
+    background:
+        linear-gradient(90deg, rgba(255,255,255,0.18) 0 12%, transparent 13% 100%),
+        linear-gradient(180deg, var(--pack-light) 0 12%, var(--pack-main) 13% 74%, var(--pack-dark) 75% 100%);
+    border: 2px solid var(--pack-dark);
+    border-radius: 16px 16px 11px 11px;
+    box-shadow: inset 0 -6px 0 rgba(6, 78, 59, 0.28);
+    z-index: 1;
+}
+
+.hero-pack::before {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    top: -12%;
+    height: 16%;
+    background: var(--pack-light);
+    border: 2px solid var(--pack-dark);
+    border-radius: 999px;
+}
+
+.hero-pack::after {
+    content: "";
+    position: absolute;
+    left: 24%;
+    right: 24%;
+    bottom: 10%;
     height: 28%;
-    background: #f59e0b;
-    border: 2px solid #92400e;
-    border-radius: 8px;
-    z-index: 2;
+    background: rgba(254, 243, 199, 0.82);
+    border: 2px solid var(--pack-dark);
+    border-radius: 6px;
+    box-shadow: 0 -7px 0 rgba(6, 78, 59, 0.18);
 }
 
 .hero-arm {
@@ -735,7 +790,7 @@ body.math-theme {
     border: 2px solid #7c2d12;
     border-radius: 999px;
     transform-origin: top center;
-    z-index: 2;
+    z-index: 4;
 }
 
 .arm-left {
@@ -794,7 +849,9 @@ body.math-theme {
 }
 
 .math-hero-builder .hero-pack {
-    background: #ef4444;
+    --pack-main: #b45309;
+    --pack-dark: #7c2d12;
+    --pack-light: #fdba74;
 }
 
 .math-hero-map {
