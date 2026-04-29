@@ -1,6 +1,8 @@
 // Rechenreise: adaptive math mini-games for basic operations and spatial thinking.
 
 const RECHENREISE_KEY = "rechenreise_profile_v2";
+const RECHENREISE_MODES = ["rechnen", "operator", "raum", "bonus"];
+const MODE_LEVEL_FIVE_GOAL = 500;
 
 const rechenreise = {
     profile: null,
@@ -47,10 +49,57 @@ function loadRechenreiseProfile() {
     };
 
     try {
-        return { ...fallback, ...JSON.parse(localStorage.getItem(RECHENREISE_KEY) || "{}") };
+        return normalizeRechenreiseProfile({ ...fallback, ...JSON.parse(localStorage.getItem(RECHENREISE_KEY) || "{}") });
     } catch (error) {
-        return fallback;
+        return normalizeRechenreiseProfile(fallback);
     }
+}
+
+function defaultModeProgress(level = 2) {
+    return RECHENREISE_MODES.reduce((progress, mode) => {
+        progress[mode] = createModeProgress(level);
+        return progress;
+    }, {});
+}
+
+function createModeProgress(level = 2) {
+    const safeLevel = clampLevel(Math.round(Number(level) || 2));
+    return {
+        level: safeLevel,
+        rating: safeLevel,
+        played: 0,
+        correct: 0,
+        xpByLevel: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+    };
+}
+
+function normalizeRechenreiseProfile(profile) {
+    const skills = profile.skills || {};
+    const existing = profile.modeProgress || {};
+    const seedLevel = mode => {
+        if (existing[mode] && existing[mode].level) return existing[mode].level;
+        if (mode === "operator") return Math.round(((skills.addsub || profile.level || 2) + (skills.multdiv || profile.level || 2)) / 2);
+        if (mode === "raum") return skills.spatial || profile.level || 2;
+        return profile.level || 2;
+    };
+
+    profile.modeProgress = RECHENREISE_MODES.reduce((progress, mode) => {
+        const previous = existing[mode] || {};
+        const base = createModeProgress(seedLevel(mode));
+        const xpByLevel = { ...base.xpByLevel, ...(previous.xpByLevel || {}) };
+        progress[mode] = {
+            ...base,
+            ...previous,
+            level: clampLevel(Math.round(Number(previous.level || base.level))),
+            rating: Math.max(1, Math.min(5, Number(previous.rating || previous.level || base.rating))),
+            played: Number(previous.played || 0),
+            correct: Number(previous.correct || 0),
+            xpByLevel
+        };
+        return progress;
+    }, {});
+    profile.level = globalLevelFromModes(profile);
+    return profile;
 }
 
 function saveRechenreiseProfile() {
@@ -91,9 +140,33 @@ function renderRechenreiseShell() {
 }
 
 function updateRechenreiseHud() {
-    setText("mathLevel", rechenreise.profile.level);
+    setText("mathLevel", modeProgress(rechenreise.mode).level);
     setText("mathXp", rechenreise.profile.xp);
     setText("mathStreak", rechenreise.profile.streak);
+}
+
+function modeProgress(mode = rechenreise.mode) {
+    if (!rechenreise.profile.modeProgress) {
+        rechenreise.profile.modeProgress = defaultModeProgress(rechenreise.profile.level || 2);
+    }
+    if (!rechenreise.profile.modeProgress[mode]) {
+        rechenreise.profile.modeProgress[mode] = createModeProgress(rechenreise.profile.level || 2);
+    }
+    return rechenreise.profile.modeProgress[mode];
+}
+
+function modeLevelFiveXp(mode) {
+    return Number(modeProgress(mode).xpByLevel[5] || 0);
+}
+
+function isModeMastered(mode) {
+    return modeLevelFiveXp(mode) >= MODE_LEVEL_FIVE_GOAL;
+}
+
+function setModeLevel(mode, level) {
+    const progress = modeProgress(mode);
+    progress.level = clampLevel(Math.round(level));
+    progress.rating = progress.level;
 }
 
 function setText(id, value) {
@@ -244,6 +317,11 @@ function finishAssessment() {
     rechenreise.profile.skills.multdiv = skillFromAssessment("multdiv");
     rechenreise.profile.skills.spatial = spatialCorrect ? 5 : 2;
     rechenreise.profile.skills.strategy = level;
+    setModeLevel("rechnen", Math.round((rechenreise.profile.skills.addsub + rechenreise.profile.skills.multdiv) / 2));
+    setModeLevel("operator", Math.round((rechenreise.profile.skills.addsub + rechenreise.profile.skills.multdiv) / 2));
+    setModeLevel("raum", rechenreise.profile.skills.spatial);
+    setModeLevel("bonus", level);
+    rechenreise.profile.level = globalLevelFromModes();
     saveRechenreiseProfile();
     updateRechenreiseHud();
 
@@ -291,19 +369,24 @@ function renderRechenreiseLobby() {
                 <div class="math-map-river"></div>
                 <div class="math-map-forest forest-a"></div>
                 <div class="math-map-forest forest-b"></div>
-                <div class="math-map-path"></div>
-                <div class="math-map-token" style="--progress:${mapProgress()}%">${heroMarkup("map")}</div>
-                <div class="math-map-place place-1"><span>+</span><small>Zahlencamp</small></div>
-                <div class="math-map-place place-2"><span>x</span><small>Rechnungs-<br>Werkstatt</small></div>
-                <div class="math-map-place place-3"><span>3D</span><small>Baustelle</small></div>
-                <div class="math-map-place place-4"><span>?</span><small>Bonus</small></div>
+                <svg class="math-map-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path class="map-path-shadow" d="M 12 29 C 20 56, 25 70, 36 70 S 47 30, 59 30 S 70 70, 84 70" />
+                    <path class="map-path-main" d="M 12 29 C 20 56, 25 70, 36 70 S 47 30, 59 30 S 70 70, 84 70" />
+                    <path class="map-path-dashes" d="M 12 29 C 20 56, 25 70, 36 70 S 47 30, 59 30 S 70 70, 84 70" />
+                </svg>
+                <div class="math-map-token" style="${mapTokenStyle()}">${heroMarkup("map")}</div>
+                ${mapPlace("rechnen", "+", "Zahlencamp", "place-1")}
+                ${mapPlace("operator", "x", "Rechnungs-<br>Werkstatt", "place-2")}
+                ${mapPlace("raum", "3D", "Baustelle", "place-3")}
+                ${mapPlace("bonus", "?", "Bonus-Mix", "place-4")}
             </div>
             <div class="math-game-modes">
                 ${modeCard("rechnen", "Zahlencamp", "Rechen-Sprint", "Plus, Minus, Mal und Geteilt gemischt.")}
                 ${modeCard("operator", "Rechnungs-Werkstatt", "Rechnung reparieren", "Finde das passende Rechenzeichen.")}
                 ${modeCard("raum", "Kistenlager", "Form einpassen", "Finde die Kistenform für die Lücke.")}
+                ${modeCard("bonus", "Bonus-Mix", "Meister-Mix", "Gemischte Aufgaben aus allen Stationen.")}
             </div>
-            <p class="math-game-note">Richtige Antworten erhöhen die Schwierigkeit langsam. Fehler senken sie wieder ein wenig.</p>
+            <p class="math-game-note">Jede Station hat ihr eigenes Niveau. Der Bonus-Mix mischt Rechnen, Werkstatt und Kistenlager.</p>
         </div>
     `;
 
@@ -316,17 +399,47 @@ function renderRechenreiseLobby() {
 }
 
 function modeCard(mode, station, title, text) {
+    const progress = modeProgress(mode);
+    const levelFiveXp = Math.min(MODE_LEVEL_FIVE_GOAL, modeLevelFiveXp(mode));
+    const mastered = isModeMastered(mode);
     return `
-        <button class="math-mode-card" type="button" data-mode="${mode}">
+        <button class="math-mode-card ${mastered ? "is-mastered" : ""}" type="button" data-mode="${mode}">
+            ${mastered ? '<b class="mode-check" aria-label="gemeistert">✓</b>' : ""}
             <em>${station}</em>
             <strong>${title}</strong>
             <span>${text}</span>
+            <small>Niveau ${progress.level} · Level 5: ${levelFiveXp}/${MODE_LEVEL_FIVE_GOAL}</small>
         </button>
     `;
 }
 
-function mapProgress() {
-    return Math.min(82, 12 + rechenreise.profile.played * 4);
+function mapPlace(mode, symbol, label, className) {
+    const mastered = isModeMastered(mode);
+    return `
+        <div class="math-map-place ${className} ${mastered ? "is-mastered" : ""}">
+            <span>${symbol}</span>
+            <small>${label}</small>
+            ${mastered ? '<b class="map-check">✓</b>' : ""}
+        </div>
+    `;
+}
+
+function mapTokenStyle() {
+    const stops = [
+        { x: 12, y: 29 },
+        { x: 36, y: 70 },
+        { x: 59, y: 30 },
+        { x: 84, y: 70 }
+    ];
+    const ratio = Math.min(1, Math.max(0, rechenreise.profile.played / 30));
+    const scaled = ratio * (stops.length - 1);
+    const index = Math.min(stops.length - 2, Math.floor(scaled));
+    const local = scaled - index;
+    const start = stops[index];
+    const end = stops[index + 1];
+    const x = start.x + (end.x - start.x) * local;
+    const y = start.y + (end.y - start.y) * local;
+    return `left:${x}%; top:${y}%;`;
 }
 
 function heroMarkup(mood = "ready") {
@@ -422,11 +535,13 @@ function renderMiniGame() {
     clearQuestionTimer();
     const level = skillLevelForMode(rechenreise.mode);
     const challenge = makeChallengeForMode(rechenreise.mode, level);
+    challenge.mode = rechenreise.mode;
     challenge.level = level;
     challenge.answered = false;
     challenge.timeLimit = timeLimitForLevel(level);
     rechenreise.current = challenge;
     setText("mathGameStatus", challenge.status);
+    updateRechenreiseHud();
 
     stage().innerHTML = `
         <div class="math-game-question">
@@ -466,13 +581,12 @@ function renderMiniGame() {
 function makeChallengeForMode(mode, level) {
     if (mode === "operator") return makeOperatorChallenge(level);
     if (mode === "raum") return makeSpatialChallenge(level);
+    if (mode === "bonus") return makeBonusChallenge(level);
     return makeArithmeticChallenge(level, level < 3 ? "addsub" : "mixed");
 }
 
 function skillLevelForMode(mode) {
-    if (mode === "operator") return clampLevel(Math.round((rechenreise.profile.skills.addsub + rechenreise.profile.skills.multdiv) / 2));
-    if (mode === "raum") return clampLevel(Math.round(rechenreise.profile.skills.spatial));
-    return rechenreise.profile.level;
+    return modeProgress(mode).level;
 }
 
 function clampLevel(level) {
@@ -502,25 +616,36 @@ function handleMiniGameAnswer(value, timedOut = false) {
 
     markAnswerState(question, selectedValue, correct);
 
+    const mode = question.mode || rechenreise.mode;
+    const progress = modeProgress(mode);
+    const questionLevel = clampLevel(question.level || progress.level);
+    let earnedPoints = 0;
     rechenreise.profile.played += 1;
+    progress.played += 1;
     if (correct) {
         rechenreise.profile.correct += 1;
+        progress.correct += 1;
         rechenreise.profile.streak += 1;
-        rechenreise.profile.xp += Math.max(5, 10 + rechenreise.profile.level - (question.hintShown ? 3 : 0));
+        earnedPoints = scoreForQuestion(question, questionLevel);
+        rechenreise.profile.xp += earnedPoints;
+        addModeLevelXp(mode, questionLevel, earnedPoints);
+        adjustModeProgress(mode, question.hintShown ? 0.18 : 0.35 + (rechenreise.profile.streak >= 3 ? 0.2 : 0));
         adjustSkill(question.skill, question.hintShown ? 0.18 : 0.35 + (rechenreise.profile.streak >= 3 ? 0.2 : 0));
     } else {
         rechenreise.profile.streak = 0;
+        adjustModeProgress(mode, -0.35);
         adjustSkill(question.skill, -0.35);
     }
 
-    rechenreise.profile.level = globalLevelFromSkills();
+    rechenreise.profile.level = globalLevelFromModes();
     saveRechenreiseProfile();
     updateRechenreiseHud();
 
     const feedback = document.getElementById("mathFeedback");
     const correctText = question.answerText || question.answer;
+    const masteredText = isModeMastered(mode) ? " Diese Station hat den grünen Haken." : "";
     feedback.innerHTML = correct
-        ? `Richtig. ${question.explain}`
+        ? `Richtig. +${earnedPoints} Punkte. ${question.explain}${masteredText}`
         : `${timedOut ? "Zeit vorbei." : "Noch nicht."} Richtig ist ${correctText}. ${question.explain}`;
 
     const next = document.createElement("button");
@@ -562,8 +687,27 @@ function adjustSkill(skill, delta) {
     rechenreise.profile.skills[skill] = Math.max(1, Math.min(5, current + delta));
 }
 
-function globalLevelFromSkills() {
-    const values = Object.values(rechenreise.profile.skills);
+function scoreForQuestion(question, level) {
+    return Math.max(5, 10 + clampLevel(level) - (question.hintShown ? 3 : 0));
+}
+
+function addModeLevelXp(mode, level, amount) {
+    const progress = modeProgress(mode);
+    const safeLevel = clampLevel(level);
+    progress.xpByLevel[safeLevel] = Number(progress.xpByLevel[safeLevel] || 0) + amount;
+}
+
+function adjustModeProgress(mode, delta) {
+    const progress = modeProgress(mode);
+    progress.rating = Math.max(1, Math.min(5, Number(progress.rating || progress.level || 2) + delta));
+    progress.level = clampLevel(Math.round(progress.rating));
+}
+
+function globalLevelFromModes(profile = rechenreise.profile) {
+    const values = RECHENREISE_MODES.map(mode => {
+        const progress = profile.modeProgress && profile.modeProgress[mode];
+        return progress ? Number(progress.level || 2) : Number(profile.level || 2);
+    });
     return Math.max(1, Math.min(5, Math.round(values.reduce((sum, val) => sum + val, 0) / values.length)));
 }
 
@@ -654,6 +798,21 @@ function makeOperatorChallenge(level) {
                 <span>Setze das passende Werkzeug-Zeichen ein.</span>
             </div>
         `
+    };
+}
+
+function makeBonusChallenge(level) {
+    const mode = ["rechnen", "operator", "raum"][rand(0, 2)];
+    const challenge = mode === "operator"
+        ? makeOperatorChallenge(level)
+        : mode === "raum"
+            ? makeSpatialChallenge(level)
+            : makeArithmeticChallenge(level, "mixed");
+    return {
+        ...challenge,
+        title: `Bonus: ${challenge.title}`,
+        status: "Bonus-Mix",
+        explain: `${challenge.explain} Bonus-Aufgaben trainieren alles durcheinander.`
     };
 }
 
