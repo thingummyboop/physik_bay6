@@ -833,9 +833,10 @@ function is3DShape(cells) {
 function canonicalShapeSignature(cells) {
     const signatures = [];
     let rotated = normalizeCells(cells);
+    const force3D = cellBounds(rotated).depth > 1;
     for (let i = 0; i < 4; i += 1) {
         signatures.push(cellSignature(rotated));
-        rotated = rotateCellsClockwise(rotated);
+        rotated = rotateCellsClockwise(rotated, force3D);
     }
     return signatures.sort()[0];
 }
@@ -1010,7 +1011,7 @@ function pieceMiniMetrics(bounds) {
 function pieceCellStyle(x, y, depth, bounds, metrics) {
     const left = metrics.padX + x * metrics.stepFace + depth * metrics.stepDepth;
     const top = metrics.padTop + (bounds.depth - 1 - depth) * metrics.stepDepth + y * metrics.stepY;
-    const zIndex = (bounds.depth - depth) * 100 + y * 10 + x;
+    const zIndex = (bounds.depth - depth) * 100 + (bounds.height - y) * 10 + x;
     return `left:${left}px; top:${top}px; z-index:${zIndex};`;
 }
 
