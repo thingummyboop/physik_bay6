@@ -644,14 +644,14 @@ function makeSpatialChallenge(level) {
     const use3D = level > 1;
     const useMirrorDistractors = level >= 4;
     const baseAnswerPool = boxShapesForLevel(level);
-    const answerPool = use3D
+    const answerPool = uniqueShapesBySignature(use3D
         ? baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth >= 2)
-        : baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth === 1);
+        : baseAnswerPool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth === 1));
     const mirrorAnswerPool = useMirrorDistractors ? answerPool.filter(shape => isMirrorDistinct(shape.cells)) : [];
     const baseChoicePool = boxShapesForLevel(Math.max(3, level));
-    const choicePool = use3D
+    const choicePool = uniqueShapesBySignature(use3D
         ? baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth >= 2)
-        : baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth === 1);
+        : baseChoicePool.filter(shape => cellBounds(normalizeCells(shape.cells)).depth === 1));
     const activeAnswerPool = mirrorAnswerPool.length ? mirrorAnswerPool : answerPool;
     const answerShape = activeAnswerPool[rand(0, activeAnswerPool.length - 1)];
     const missingCells = normalizeCells(answerShape.cells);
@@ -728,9 +728,12 @@ function boxShapesForLevel(level) {
         { min: 1, cells: [[0, 0, 0], [1, 0, 0], [0, 1, 0]] },
         { min: 1, cells: [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]] },
         { min: 2, cells: [[0, 0, 0], [0, 0, 1]] },
+        { min: 2, cells: [[0, 0, 0], [0, 0, 1], [0, 0, 2]] },
         { min: 2, cells: [[0, 0, 0], [1, 0, 0], [0, 0, 1]] },
         { min: 2, cells: [[0, 0, 0], [0, 1, 0], [0, 0, 1]] },
         { min: 2, cells: [[0, 0, 0], [1, 0, 0], [1, 0, 1]] },
+        { min: 2, cells: [[0, 0, 0], [1, 0, 0], [0, 0, 1], [1, 0, 1]] },
+        { min: 2, cells: [[0, 0, 0], [1, 0, 0], [2, 0, 0], [0, 0, 1]] },
         { min: 3, cells: [[0, 0, 0], [1, 0, 0], [0, 0, 1], [0, 1, 0]] },
         { min: 3, cells: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 1, 0]] },
         { min: 3, cells: [[0, 0, 0], [0, 0, 1], [1, 0, 1], [0, 1, 0]] },
@@ -767,6 +770,29 @@ function cellBounds(cells) {
 
 function cellSignature(cells) {
     return normalizeCells(cells).map(cell => `${cell[0]},${cell[1]},${cellDepth(cell)}`).join("|");
+}
+
+function normalizeSignedCells(cells) {
+    const minX = Math.min(...cells.map(cell => cell[0]));
+    const minY = Math.min(...cells.map(cell => cell[1]));
+    const minDepth = Math.min(...cells.map(cell => Number(cell[2]) || 0));
+    return cells
+        .map(cell => [cell[0] - minX, cell[1] - minY, (Number(cell[2]) || 0) - minDepth])
+        .sort((a, b) => a[2] - b[2] || a[1] - b[1] || a[0] - b[0]);
+}
+
+function signedCellSignature(cells) {
+    return normalizeSignedCells(cells).map(cell => `${cell[0]},${cell[1]},${cell[2]}`).join("|");
+}
+
+function uniqueShapesBySignature(shapes) {
+    const seen = new Set();
+    return shapes.filter(shape => {
+        const signature = canonicalShapeSignature(shape.cells);
+        if (seen.has(signature)) return false;
+        seen.add(signature);
+        return true;
+    });
 }
 
 function rotateCellsClockwise(cells, force3D = false) {
@@ -832,13 +858,42 @@ function is3DShape(cells) {
 
 function canonicalShapeSignature(cells) {
     const signatures = [];
-    let rotated = normalizeCells(cells);
-    const force3D = cellBounds(rotated).depth > 1;
-    for (let i = 0; i < 4; i += 1) {
-        signatures.push(cellSignature(rotated));
-        rotated = rotateCellsClockwise(rotated, force3D);
-    }
+    const normalized = normalizeSignedCells(cells);
+    const permutations = [
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 0, 2],
+        [1, 2, 0],
+        [2, 0, 1],
+        [2, 1, 0]
+    ];
+    const signs = [-1, 1];
+    permutations.forEach(permutation => {
+        const parity = permutationParity(permutation);
+        signs.forEach(signX => {
+            signs.forEach(signY => {
+                signs.forEach(signDepth => {
+                    if (signX * signY * signDepth * parity !== 1) return;
+                    signatures.push(signedCellSignature(normalized.map(cell => [
+                        cell[permutation[0]] * signX,
+                        cell[permutation[1]] * signY,
+                        cell[permutation[2]] * signDepth
+                    ])));
+                });
+            });
+        });
+    });
     return signatures.sort()[0];
+}
+
+function permutationParity(permutation) {
+    let inversions = 0;
+    for (let i = 0; i < permutation.length; i += 1) {
+        for (let j = i + 1; j < permutation.length; j += 1) {
+            if (permutation[i] > permutation[j]) inversions += 1;
+        }
+    }
+    return inversions % 2 === 0 ? 1 : -1;
 }
 
 function craneHookPosition(puzzle) {
