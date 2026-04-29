@@ -106,7 +106,7 @@ function stage() {
 }
 
 function timeLimitForLevel(level) {
-    return 17 - clampLevel(Math.round(level)) * 2;
+    return Math.round(16 - clampLevel(Math.round(level)) * 1.2);
 }
 
 function timerMarkup(seconds) {
