@@ -182,6 +182,7 @@ function renderAssessmentQuestion() {
                 </div>
             `}
             <p class="math-game-note">Es geht nicht um Stress. Rechenreise sucht nur passende Aufgaben für dich.</p>
+            <p class="math-feedback" id="mathFeedback"></p>
         </div>
     `;
     if (question.choiceMode === "rotatingPieces") {
@@ -197,9 +198,30 @@ function handleAssessmentAnswer(value, timedOut = false) {
     if (!question || question.answered) return;
     question.answered = true;
     clearQuestionTimer();
-    const correct = !timedOut && isAnswerCorrect(question, Number(value));
+    const selectedValue = timedOut ? NaN : Number(value);
+    const correct = !timedOut && isAnswerCorrect(question, selectedValue);
     question.wasCorrect = correct;
     rechenreise.assessmentIndex += 1;
+
+    if (timedOut) {
+        markAnswerState(question, selectedValue, false);
+        const feedback = document.getElementById("mathFeedback");
+        const correctText = question.answerText || question.answer;
+        feedback.innerHTML = `Zeit vorbei. Richtig ist ${correctText}.`;
+        const next = document.createElement("button");
+        next.type = "button";
+        next.textContent = rechenreise.assessmentIndex >= rechenreise.assessment.length ? "Auswertung anzeigen" : "Nächste Aufgabe";
+        next.addEventListener("click", () => {
+            if (rechenreise.assessmentIndex >= rechenreise.assessment.length) {
+                finishAssessment();
+                return;
+            }
+            renderAssessmentQuestion();
+        });
+        feedback.appendChild(document.createElement("br"));
+        feedback.appendChild(next);
+        return;
+    }
 
     if (rechenreise.assessmentIndex >= rechenreise.assessment.length) {
         finishAssessment();
@@ -483,13 +505,6 @@ function handleMiniGameAnswer(value, timedOut = false) {
     feedback.innerHTML = correct
         ? `Richtig. ${question.explain}`
         : `${timedOut ? "Zeit vorbei." : "Noch nicht."} Richtig ist ${correctText}. ${question.explain}`;
-
-    if (timedOut) {
-        window.setTimeout(() => {
-            if (rechenreise.current === question) renderMiniGame();
-        }, 900);
-        return;
-    }
 
     const next = document.createElement("button");
     next.type = "button";
