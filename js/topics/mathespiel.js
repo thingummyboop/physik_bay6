@@ -294,13 +294,13 @@ function renderRechenreiseLobby() {
                 <div class="math-map-path"></div>
                 <div class="math-map-token" style="--progress:${mapProgress()}%">${heroMarkup("map")}</div>
                 <div class="math-map-place place-1"><span>+</span><small>Zahlencamp</small></div>
-                <div class="math-map-place place-2"><span>x</span><small>Werkstatt</small></div>
+                <div class="math-map-place place-2"><span>x</span><small>Rechnungs-<br>Werkstatt</small></div>
                 <div class="math-map-place place-3"><span>3D</span><small>Baustelle</small></div>
                 <div class="math-map-place place-4"><span>?</span><small>Bonus</small></div>
             </div>
             <div class="math-game-modes">
                 ${modeCard("rechnen", "Zahlencamp", "Rechen-Sprint", "Plus, Minus, Mal und Geteilt gemischt.")}
-                ${modeCard("operator", "Zeichen-Werkstatt", "Zeichen-Finder", "Finde das passende Rechenzeichen.")}
+                ${modeCard("operator", "Rechnungs-Werkstatt", "Rechnung reparieren", "Finde das passende Rechenzeichen.")}
                 ${modeCard("raum", "Kistenlager", "Form einpassen", "Finde die Kistenform für die Lücke.")}
             </div>
             <p class="math-game-note">Richtige Antworten erhöhen die Schwierigkeit langsam. Fehler senken sie wieder ein wenig.</p>
@@ -352,12 +352,13 @@ function heroMarkup(mood = "ready") {
 }
 
 function adventureScene(type, content) {
+    const heroMood = type === "build" ? "builder" : type === "workshop" ? "mechanic" : "ready";
     return `
         <div class="math-adventure-scene scene-${type}">
             <div class="scene-sky"></div>
             <div class="scene-hills"></div>
             <div class="scene-ground"></div>
-            ${heroMarkup(type === "build" ? "builder" : "ready")}
+            ${heroMarkup(heroMood)}
             <div class="scene-content">${content}</div>
         </div>
     `;
@@ -376,10 +377,26 @@ function arithmeticScene(op, a, b) {
 
 function operatorScene(a, b, answer) {
     return adventureScene("workshop", `
-        <div class="gear gear-one"></div>
-        <div class="gear gear-two"></div>
-        <div class="workshop-board">
-            <span>${a}</span><strong>?</strong><span>${b}</span><em>= ${answer}</em>
+        <div class="workshop-shelf">
+            <span class="tool-hook hook-one"></span>
+            <span class="tool-hook hook-two"></span>
+            <span class="tool-hook hook-three"></span>
+        </div>
+        <div class="workbench">
+            <span class="bench-top"></span>
+            <span class="bench-leg leg-one"></span>
+            <span class="bench-leg leg-two"></span>
+            <span class="bench-shadow"></span>
+            <span class="bench-pencil"></span>
+            <span class="bench-wrench"></span>
+        </div>
+        <div class="repair-equation" aria-hidden="true">
+            <span>${a}</span>
+            <strong class="repair-question">?</strong>
+            <span>${b}</span>
+            <em>= ${answer}</em>
+            <i class="repair-spark spark-a"></i>
+            <i class="repair-spark spark-b"></i>
         </div>
     `);
 }
@@ -621,20 +638,20 @@ function makeOperatorChallenge(level) {
     const opValue = { "+": 1, "-": 2, "*": 3, "/": 4 }[op];
     return {
         level,
-        title: "Zeichen-Finder",
-        status: "Rechenzeichen erkennen",
+        title: "Rechnung reparieren",
+        status: "Rechnungs-Werkstatt",
         prompt: `${a} ? ${b} = ${answer}`,
         answer: opValue,
         answerText: operatorName(op),
         skill: op === "+" || op === "-" ? "addsub" : "multdiv",
-        explain: `Das passende Zeichen ist ${operatorName(op)}.`,
-        hint: "Vergleiche zuerst: Wird das Ergebnis größer oder kleiner? Bei Mal und Geteilt verändern sich Zahlen oft stärker.",
+        explain: `Das fehlende Zeichen ist ${operatorName(op)}. Damit ist die Rechnung wieder in Ordnung.`,
+        hint: "Prüfe die kaputte Stelle: Wird das Ergebnis größer oder kleiner? Bei Mal und Geteilt verändern sich Zahlen oft stärker.",
         options: [1, 2, 3, 4],
         optionLabels: { 1: "+", 2: "-", 3: "·", 4: ":" },
         visual: `
             ${operatorScene(a, b, answer)}
             <div class="math-operator-legend">
-                <span>Wähle das Rechenzeichen.</span>
+                <span>Setze das passende Werkzeug-Zeichen ein.</span>
             </div>
         `
     };
