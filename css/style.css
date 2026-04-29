@@ -592,6 +592,1392 @@ body.math-theme {
     background: #7c3aed;
     transform: scale(1.05);
 }
+
+.math-game {
+    margin-top: 20px;
+}
+
+.math-game-shell {
+    background: linear-gradient(180deg, #f8fafc 0%, #ecfeff 48%, #fff7ed 100%);
+    border: 2px solid #bae6fd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.math-game-topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    background: #0f766e;
+    color: white;
+    padding: 12px 16px;
+}
+
+.math-game-topbar strong {
+    display: block;
+    font-size: 1.15rem;
+}
+
+.math-game-topbar span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.92;
+}
+
+.math-game-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.math-hero {
+    --skin: #f6c28b;
+    --hair: #334155;
+    --shirt: #2563eb;
+    --pants: #0f766e;
+    position: relative;
+    width: 72px;
+    height: 92px;
+    flex: 0 0 auto;
+}
+
+.math-hero-tiny,
+.math-map-token .math-hero {
+    width: 42px;
+    height: 54px;
+}
+
+.math-hero span {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+}
+
+.hero-shadow {
+    left: 13%;
+    right: 13%;
+    bottom: 0;
+    height: 9%;
+    background: rgba(15, 23, 42, 0.22);
+    border-radius: 50%;
+}
+
+.hero-head {
+    left: 24%;
+    top: 4%;
+    width: 52%;
+    height: 34%;
+    background: var(--skin);
+    border: 2px solid #7c2d12;
+    border-radius: 45% 45% 48% 48%;
+    z-index: 4;
+}
+
+.hero-hair {
+    left: -7%;
+    top: -10%;
+    width: 114%;
+    height: 42%;
+    background: var(--hair);
+    border-radius: 50% 50% 28% 28%;
+}
+
+.hero-eye {
+    top: 47%;
+    width: 10%;
+    height: 10%;
+    background: #0f172a;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.eye-left { left: 30%; }
+.eye-right { right: 30%; }
+
+.hero-smile {
+    left: 34%;
+    top: 62%;
+    width: 32%;
+    height: 18%;
+    border-bottom: 2px solid #7c2d12;
+    border-radius: 0 0 999px 999px;
+    z-index: 5;
+}
+
+.hero-body {
+    left: 29%;
+    top: 34%;
+    width: 42%;
+    height: 36%;
+    background: linear-gradient(180deg, #60a5fa, var(--shirt));
+    border: 2px solid #1e3a8a;
+    border-radius: 12px 12px 10px 10px;
+    z-index: 3;
+}
+
+.hero-pack {
+    right: 17%;
+    top: 40%;
+    width: 20%;
+    height: 28%;
+    background: #f59e0b;
+    border: 2px solid #92400e;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.hero-arm {
+    top: 40%;
+    width: 14%;
+    height: 30%;
+    background: var(--skin);
+    border: 2px solid #7c2d12;
+    border-radius: 999px;
+    transform-origin: top center;
+    z-index: 2;
+}
+
+.arm-left {
+    left: 18%;
+    transform: rotate(18deg);
+}
+
+.arm-right {
+    right: 18%;
+    transform: rotate(-22deg);
+}
+
+.hero-leg {
+    top: 66%;
+    width: 15%;
+    height: 25%;
+    background: var(--pants);
+    border: 2px solid #064e3b;
+    border-radius: 999px;
+    z-index: 2;
+}
+
+.leg-left {
+    left: 34%;
+    transform: rotate(8deg);
+}
+
+.leg-right {
+    right: 34%;
+    transform: rotate(-8deg);
+}
+
+.hero-spark {
+    width: 8px;
+    height: 8px;
+    background: #facc15;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+    animation: heroSpark 1.8s ease-in-out infinite;
+}
+
+.spark-one {
+    top: 10%;
+    right: 4%;
+}
+
+.spark-two {
+    left: 4%;
+    top: 24%;
+    animation-delay: 0.6s;
+}
+
+.math-hero-waving .arm-right,
+.math-hero-happy .arm-right {
+    animation: heroWave 0.9s ease-in-out infinite alternate;
+}
+
+.math-hero-builder .hero-pack {
+    background: #ef4444;
+}
+
+.math-hero-map {
+    animation: heroBob 1.2s ease-in-out infinite alternate;
+}
+
+.math-game-reset,
+.math-game-ghost {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.45);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.92rem;
+}
+
+.math-game-ghost {
+    background: #475569;
+    border-color: transparent;
+}
+
+.math-game-hud {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #ecfeff;
+    border-bottom: 1px solid #bae6fd;
+}
+
+.math-game-hud div {
+    text-align: center;
+    padding: 12px 8px;
+    border-right: 1px solid #bae6fd;
+}
+
+.math-game-hud div:last-child {
+    border-right: 0;
+}
+
+.math-game-hud span {
+    display: block;
+    color: #0f766e;
+    font-size: 1.55rem;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.math-game-hud small {
+    color: #334155;
+    font-weight: 700;
+}
+
+.math-game-stage {
+    padding: 18px;
+}
+
+.math-game-question h3,
+.math-game-result h3 {
+    margin: 8px 0 16px;
+    color: #0f766e;
+    font-size: 1.55rem;
+}
+
+.math-game-kicker,
+.math-game-note,
+.math-feedback {
+    margin: 8px 0;
+}
+
+.math-game-kicker {
+    color: #0369a1;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.84rem;
+}
+
+.math-game-note {
+    color: #475569;
+    font-size: 0.96rem;
+}
+
+.math-feedback {
+    min-height: 2.2em;
+    font-weight: 800;
+    color: #0f766e;
+}
+
+.math-game-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.math-game-pill {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    color: #92400e;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-weight: 800;
+}
+
+.math-answer-grid,
+.math-game-modes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.math-answer,
+.math-mode-card {
+    min-height: 54px;
+    margin: 0;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.math-answer {
+    background: #2563eb;
+}
+
+.math-answer.is-correct {
+    background: #16a34a;
+}
+
+.math-answer.is-wrong {
+    background: #dc2626;
+}
+
+.math-mode-card {
+    display: block;
+    text-align: left;
+    background: white;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+    padding: 14px;
+    box-shadow: none;
+}
+
+.math-mode-card strong,
+.math-mode-card span,
+.math-mode-card em {
+    display: block;
+}
+
+.math-mode-card em {
+    color: #0369a1;
+    font-size: 0.78rem;
+    font-style: normal;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.math-mode-card strong {
+    color: #0f766e;
+    font-size: 1.08rem;
+    margin-bottom: 4px;
+}
+
+.math-mode-card span {
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.math-game-map {
+    position: relative;
+    min-height: 250px;
+    background: linear-gradient(180deg, #bae6fd 0%, #d9f99d 58%, #fde68a 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.math-quest-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 6px solid #f97316;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+}
+
+.math-quest-banner .math-hero {
+    width: 58px;
+    height: 72px;
+}
+
+.math-quest-banner strong,
+.math-quest-banner span {
+    display: block;
+}
+
+.math-quest-banner strong {
+    color: #9a3412;
+    font-size: 1.1rem;
+}
+
+.math-quest-banner span {
+    color: #475569;
+    font-weight: 700;
+}
+
+.math-map-sun,
+.math-map-mountain,
+.math-map-river,
+.math-map-forest,
+.math-map-token {
+    position: absolute;
+}
+
+.math-map-sun {
+    right: 8%;
+    top: 18px;
+    width: 46px;
+    height: 46px;
+    background: #facc15;
+    border-radius: 50%;
+    box-shadow: 0 0 0 12px rgba(250, 204, 21, 0.18);
+}
+
+.math-map-mountain {
+    bottom: 78px;
+    width: 160px;
+    height: 104px;
+    background: linear-gradient(135deg, #475569 0 50%, #64748b 50% 100%);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.mountain-a {
+    left: 5%;
+}
+
+.mountain-b {
+    left: 19%;
+    bottom: 88px;
+    transform: scale(0.78);
+    opacity: 0.9;
+}
+
+.math-map-river {
+    right: 0;
+    bottom: 20px;
+    width: 42%;
+    height: 62px;
+    background: linear-gradient(110deg, rgba(14, 165, 233, 0.1), #38bdf8, rgba(14, 165, 233, 0.35));
+    border-radius: 70% 0 0 30%;
+    transform: rotate(-5deg);
+}
+
+.math-map-forest {
+    width: 120px;
+    height: 80px;
+    bottom: 24px;
+}
+
+.math-map-forest::before,
+.math-map-forest::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 42px;
+    height: 62px;
+    background: #15803d;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.math-map-forest::before {
+    left: 6px;
+}
+
+.math-map-forest::after {
+    left: 44px;
+    height: 74px;
+    background: #16a34a;
+}
+
+.forest-a {
+    left: 4%;
+}
+
+.forest-b {
+    right: 20%;
+    transform: scale(0.82);
+}
+
+.math-map-path {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 138px;
+    height: 20px;
+    background: repeating-linear-gradient(90deg, #92400e 0 16px, #f59e0b 16px 34px);
+    border-radius: 999px;
+    transform: rotate(-3deg);
+    box-shadow: 0 8px 0 rgba(120, 53, 15, 0.12);
+}
+
+.math-map-token {
+    left: var(--progress);
+    top: 105px;
+    z-index: 5;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 6px 4px rgba(15, 23, 42, 0.24));
+}
+
+.math-map-place {
+    position: absolute;
+    width: 82px;
+    min-height: 48px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    padding: 4px;
+    background: #0f766e;
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+    font-weight: 900;
+}
+
+.math-map-place span,
+.math-map-place small {
+    display: block;
+    line-height: 1;
+}
+
+.math-map-place small {
+    font-size: 0.63rem;
+    margin-top: 3px;
+}
+
+.place-1 { left: 12%; top: 38px; }
+.place-2 { left: 34%; top: 162px; }
+.place-3 { left: 57%; top: 42px; }
+.place-4 { right: 9%; top: 150px; }
+
+.math-hint-btn {
+    background: #f59e0b;
+    border-radius: 8px;
+    font-size: 0.94rem;
+    margin: 4px 0 10px;
+}
+
+.math-hint {
+    background: #fffbeb;
+    border: 1px solid #f59e0b;
+    border-left: 6px solid #f59e0b;
+    color: #78350f;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+.math-adventure-scene,
+.math-victory-scene {
+    position: relative;
+    min-height: 230px;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #bae6fd 0%, #e0f2fe 46%, #bbf7d0 47%, #86efac 100%);
+    margin: 10px 0 14px;
+}
+
+.scene-sky,
+.scene-hills,
+.scene-ground,
+.scene-content {
+    position: absolute;
+}
+
+.scene-sky {
+    inset: 0 0 45% 0;
+    background:
+        radial-gradient(circle at 16% 28%, white 0 12px, transparent 13px),
+        radial-gradient(circle at 22% 27%, white 0 18px, transparent 19px),
+        radial-gradient(circle at 28% 28%, white 0 12px, transparent 13px),
+        radial-gradient(circle at 76% 18%, #facc15 0 24px, transparent 25px);
+}
+
+.scene-hills {
+    left: -6%;
+    right: -6%;
+    bottom: 42px;
+    height: 90px;
+    background:
+        radial-gradient(ellipse at 24% 70%, #22c55e 0 34%, transparent 35%),
+        radial-gradient(ellipse at 62% 74%, #16a34a 0 40%, transparent 41%),
+        radial-gradient(ellipse at 88% 80%, #65a30d 0 30%, transparent 31%);
+}
+
+.scene-ground {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 58px;
+    background: linear-gradient(180deg, #ca8a04, #854d0e);
+}
+
+.math-adventure-scene .math-hero {
+    position: absolute;
+    left: 7%;
+    bottom: 22px;
+    z-index: 5;
+}
+
+.scene-content {
+    right: 7%;
+    bottom: 24px;
+    width: min(62%, 560px);
+    min-height: 150px;
+    z-index: 4;
+}
+
+.scene-camp .camp-tent {
+    position: absolute;
+    right: 22px;
+    bottom: 34px;
+    width: 132px;
+    height: 92px;
+    background: linear-gradient(135deg, #f97316 0 49%, #c2410c 50% 100%);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    border-bottom: 8px solid #7c2d12;
+}
+
+.scene-camp .camp-fire {
+    position: absolute;
+    left: 8%;
+    bottom: 22px;
+    width: 54px;
+    height: 44px;
+}
+
+.camp-fire::before,
+.camp-fire::after,
+.camp-fire span {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 16px;
+    width: 24px;
+    height: 34px;
+    background: #ef4444;
+    border-radius: 60% 60% 45% 45%;
+    transform-origin: bottom center;
+    animation: fireFlicker 0.7s ease-in-out infinite alternate;
+}
+
+.camp-fire::after {
+    left: 22px;
+    width: 18px;
+    height: 28px;
+    background: #facc15;
+    animation-delay: 0.15s;
+}
+
+.camp-fire span {
+    left: 9px;
+    height: 26px;
+    background: #fb923c;
+    animation-delay: 0.3s;
+}
+
+.number-crates {
+    position: absolute;
+    left: 18%;
+    bottom: 76px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.number-crates span,
+.number-crates strong,
+.workshop-board span,
+.workshop-board strong,
+.workshop-board em {
+    display: grid;
+    place-items: center;
+    min-width: 48px;
+    height: 44px;
+    background: #fef3c7;
+    border: 2px solid #92400e;
+    border-radius: 8px;
+    color: #78350f;
+    font-size: 1.25rem;
+    font-weight: 900;
+    box-shadow: 0 5px 0 #b45309;
+}
+
+.number-crates strong,
+.workshop-board strong {
+    min-width: 40px;
+    background: #dbeafe;
+    border-color: #1d4ed8;
+    color: #1e3a8a;
+    box-shadow: 0 5px 0 #1d4ed8;
+}
+
+.gear {
+    position: absolute;
+    border: 8px dashed #475569;
+    border-radius: 50%;
+    animation: gearSpin 6s linear infinite;
+}
+
+.gear-one {
+    width: 86px;
+    height: 86px;
+    right: 34px;
+    bottom: 58px;
+}
+
+.gear-two {
+    width: 58px;
+    height: 58px;
+    right: 112px;
+    bottom: 26px;
+    animation-direction: reverse;
+}
+
+.workshop-board {
+    position: absolute;
+    left: 3%;
+    bottom: 64px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 2px solid #64748b;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+}
+
+.workshop-board em {
+    min-width: 58px;
+    font-style: normal;
+}
+
+.scene-build .scene-content {
+    right: 3%;
+    width: min(72%, 620px);
+    bottom: 8px;
+    min-height: 300px;
+}
+
+.scene-build {
+    min-height: 430px;
+}
+
+.crane {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 270px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.crane span {
+    position: absolute;
+    display: block;
+    background: #f59e0b;
+    box-shadow: inset 0 -3px 0 rgba(120, 53, 15, 0.25);
+}
+
+.crane-mast {
+    right: 34px;
+    top: 24px;
+    width: 12px;
+    height: 224px;
+    border: 2px solid #92400e;
+    background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.28) 0 8px, transparent 8px 18px),
+        #f59e0b !important;
+}
+
+.crane-arm {
+    left: 8%;
+    right: 30px;
+    top: 26px;
+    height: 13px;
+    border: 2px solid #92400e;
+    background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.28) 0 10px, transparent 10px 22px),
+        #f59e0b !important;
+}
+
+.crane-counterweight {
+    right: 2px;
+    top: 18px;
+    width: 34px;
+    height: 28px;
+    border: 2px solid #92400e;
+    border-radius: 4px;
+    background: #78350f !important;
+}
+
+.crane-cab {
+    right: 48px;
+    top: 56px;
+    width: 48px;
+    height: 34px;
+    border: 2px solid #92400e;
+    border-radius: 8px 8px 4px 4px;
+    background:
+        linear-gradient(90deg, rgba(186, 230, 253, 0.82) 0 45%, transparent 45% 52%, rgba(186, 230, 253, 0.82) 52% 100%),
+        #fbbf24 !important;
+}
+
+.crane-base {
+    right: 4px;
+    top: 238px;
+    width: 82px;
+    height: 22px;
+    border: 2px solid #92400e;
+    border-radius: 4px 4px 8px 8px;
+    background: #78350f !important;
+}
+
+.crane-line {
+    left: var(--hook-left, 44%);
+    top: 38px;
+    width: 4px;
+    height: 144px;
+    background: #475569 !important;
+    box-shadow: none !important;
+}
+
+.crane-hook {
+    left: calc(var(--hook-left, 44%) - 10px);
+    top: 178px;
+    width: 24px;
+    height: 20px;
+    background: transparent !important;
+    border: 4px solid #475569;
+    border-top: 0;
+    border-radius: 0 0 999px 999px;
+    box-shadow: none !important;
+}
+
+.math-victory-scene {
+    min-height: 180px;
+    background: linear-gradient(180deg, #dbeafe, #dcfce7);
+}
+
+.math-victory-scene .math-hero {
+    position: absolute;
+    left: 18%;
+    bottom: 22px;
+}
+
+.math-victory-gate {
+    position: absolute;
+    right: 18%;
+    bottom: 28px;
+    width: 116px;
+    height: 124px;
+    background: linear-gradient(180deg, #f59e0b, #b45309);
+    border: 5px solid #78350f;
+    border-radius: 52px 52px 8px 8px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 2.6rem;
+    font-weight: 900;
+    box-shadow: 0 10px 0 rgba(120, 53, 15, 0.25);
+}
+
+.math-game-question.is-success .math-adventure-scene {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.22);
+}
+
+.math-game-question.is-miss .math-adventure-scene {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.18);
+}
+
+@keyframes heroWave {
+    from { transform: rotate(-22deg); }
+    to { transform: rotate(-70deg); }
+}
+
+@keyframes heroBob {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+@keyframes heroSpark {
+    0%, 100% { opacity: 0.3; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes fireFlicker {
+    from { transform: scaleY(0.85) rotate(-5deg); }
+    to { transform: scaleY(1.08) rotate(6deg); }
+}
+
+@keyframes gearSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.math-operator-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 12px;
+}
+
+.math-operator-legend span {
+    background: #e0f2fe;
+    border: 1px solid #7dd3fc;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-weight: 800;
+}
+
+.cube-board {
+    --cell: 72px;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--cell));
+    gap: 12px;
+    justify-content: center;
+    align-items: end;
+    min-height: 210px;
+    padding: 22px 10px 12px;
+    background: linear-gradient(180deg, #f1f5f9, #e2e8f0);
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.scene-build .cube-board {
+    position: relative;
+    z-index: 2;
+    min-height: 0;
+    grid-auto-rows: 96px;
+    padding: 18px 10px 12px;
+    background: rgba(241, 245, 249, 0.86);
+}
+
+.scene-build .cube-cell {
+    height: 96px;
+}
+
+.scene-build .cube-block {
+    left: 18px;
+    bottom: calc(var(--i) * 14px);
+    width: 34px;
+    height: 27px;
+    box-shadow: 5px -4px 0 #fdba74;
+}
+
+.warehouse-sign {
+    position: absolute;
+    left: 14px;
+    top: 18px;
+    background: #0f766e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-weight: 900;
+    z-index: 4;
+    box-shadow: 0 5px 12px rgba(15, 23, 42, 0.18);
+}
+
+.box-stack {
+    --box-size: 42px;
+    --cube-face: 28px;
+    --cube-depth: 14px;
+    position: relative;
+    z-index: 3;
+    width: var(--stack-width);
+    height: var(--stack-height);
+    max-width: 100%;
+    margin: 104px auto 8px;
+    padding: 0;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.88), rgba(254, 243, 199, 0.82)),
+        repeating-linear-gradient(0deg, rgba(146, 64, 14, 0.08) 0 14px, transparent 14px 28px);
+    border: 3px solid #92400e;
+    border-radius: 8px;
+    box-shadow: 0 12px 0 rgba(120, 53, 15, 0.35), 0 20px 28px rgba(15, 23, 42, 0.16);
+    transform: perspective(900px) rotateX(2deg);
+    overflow: visible;
+}
+
+.box-stack::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(120, 53, 15, 0.18);
+    filter: blur(3px);
+    z-index: 0;
+}
+
+.box-cell {
+    position: absolute;
+    width: var(--box-size);
+    height: var(--box-size);
+    box-sizing: border-box;
+}
+
+.piece-mini > span {
+    position: absolute;
+    width: var(--box-size);
+    height: var(--box-size);
+    box-sizing: border-box;
+}
+
+.box-cell.filled {
+    background: transparent;
+    border: 0;
+    filter: brightness(var(--brightness, 1));
+}
+
+.piece-mini > span.filled {
+    background: transparent;
+    border: 0;
+    z-index: calc(40 - var(--row, 0));
+}
+
+.box-top,
+.box-front,
+.box-side {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+}
+
+.box-front {
+    left: 0;
+    top: var(--cube-depth);
+    width: var(--cube-face);
+    height: var(--cube-face);
+    background: linear-gradient(135deg, #fb923c 0 48%, #ea580c 48% 100%);
+    border: 2px solid #9a3412;
+    border-radius: 2px;
+    box-shadow: inset 5px 5px 0 rgba(255, 255, 255, 0.22);
+}
+
+.box-front::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 50%;
+    border-top: 2px solid rgba(154, 52, 18, 0.45);
+}
+
+.box-top {
+    left: 0;
+    top: 0;
+    width: var(--cube-face);
+    height: var(--cube-depth);
+    background: linear-gradient(135deg, #fed7aa, #fdba74);
+    border: 2px solid #9a3412;
+    border-bottom: 0;
+    border-radius: 2px 2px 0 0;
+    transform: skewX(-45deg);
+    transform-origin: left bottom;
+}
+
+.box-side {
+    left: var(--cube-face);
+    top: var(--cube-depth);
+    width: var(--cube-depth);
+    height: var(--cube-face);
+    background: linear-gradient(180deg, #c2410c, #9a3412);
+    border: 2px solid #7c2d12;
+    border-left: 0;
+    border-radius: 0 2px 2px 0;
+    transform: skewY(-45deg);
+    transform-origin: left top;
+}
+
+.box-cell.missing {
+    background: transparent;
+    border: 0;
+}
+
+.box-void {
+    position: absolute;
+    left: 0;
+    top: var(--cube-depth);
+    width: var(--cube-face);
+    height: var(--cube-face);
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.04)),
+        rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(120, 53, 15, 0.34);
+    border-radius: 2px;
+    box-shadow: inset 6px 6px 8px rgba(15, 23, 42, 0.12);
+}
+
+.piece-choice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.piece-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 158px;
+    padding: 10px;
+    background: #2563eb;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.piece-card strong {
+    color: white;
+    font-size: 0.95rem;
+}
+
+.piece-card.is-correct {
+    background: #16a34a;
+    border-color: #bbf7d0;
+}
+
+.piece-card.is-wrong {
+    background: #dc2626;
+    border-color: #fecaca;
+}
+
+.piece-mini {
+    --box-size: 27px;
+    --cube-face: 18px;
+    --cube-depth: 9px;
+    display: block;
+    position: relative;
+    width: var(--piece-width);
+    height: var(--piece-height);
+    min-height: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: rgba(239, 246, 255, 0.94);
+    border: 1px solid rgba(191, 219, 254, 0.8);
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55);
+}
+
+.piece-mini > span.empty {
+    visibility: hidden;
+}
+
+.piece-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+}
+
+.piece-card-actions button {
+    min-height: 38px;
+    margin: 0;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    line-height: 1.1;
+    padding: 8px 6px;
+}
+
+.piece-rotate-btn {
+    background: #f59e0b;
+}
+
+.piece-insert-btn {
+    background: #0f766e;
+}
+
+.cube-cell {
+    position: relative;
+    width: var(--cell);
+    height: 126px;
+}
+
+.cube-block {
+    position: absolute;
+    left: 15px;
+    bottom: calc(var(--i) * 18px);
+    width: 42px;
+    height: 32px;
+    background: linear-gradient(135deg, #f97316 0 48%, #ea580c 48% 100%);
+    border: 2px solid #9a3412;
+    border-radius: 6px;
+    box-shadow: 6px -5px 0 #fdba74;
+}
+
+.cube-cell em {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    background: white;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    min-width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+[data-theme="dark"] .math-game-shell,
+[data-theme="dark"] .math-mode-card {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .math-game-hud {
+    background: #042f2e;
+    border-color: #115e59;
+}
+
+[data-theme="dark"] .math-game-hud small,
+[data-theme="dark"] .math-game-note {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .math-game-map,
+[data-theme="dark"] .cube-board {
+    background: #172554;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .math-adventure-scene,
+[data-theme="dark"] .math-victory-scene {
+    background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 48%, #064e3b 49%, #14532d 100%);
+    border-color: #334155;
+}
+
+[data-theme="dark"] .math-quest-banner {
+    background: #1e293b;
+    border-color: #f97316;
+}
+
+[data-theme="dark"] .workshop-board {
+    background: rgba(15, 23, 42, 0.82);
+}
+
+[data-theme="dark"] .box-stack {
+    background: rgba(15, 23, 42, 0.78);
+    border-color: #f59e0b;
+}
+
+[data-theme="dark"] .math-hint {
+    background: #422006;
+    border-color: #f59e0b;
+    color: #fde68a;
+}
+
+@media (max-width: 620px) {
+    .math-game-topbar,
+    .math-game-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .math-game-hud span {
+        font-size: 1.25rem;
+    }
+
+    .math-game-map {
+        min-height: 300px;
+    }
+
+    .math-map-place {
+        width: 76px;
+    }
+
+    .place-1 { left: 5%; top: 46px; }
+    .place-2 { left: 12%; top: 192px; }
+    .place-3 { right: 6%; left: auto; top: 58px; }
+    .place-4 { right: 7%; top: 206px; }
+
+    .math-map-token {
+        top: 132px;
+    }
+
+    .math-answer-grid,
+    .math-game-modes {
+        grid-template-columns: 1fr;
+    }
+
+    .math-adventure-scene {
+        min-height: 300px;
+    }
+
+    .math-adventure-scene .math-hero {
+        left: 8px;
+        bottom: 18px;
+        transform: scale(0.82);
+        transform-origin: bottom left;
+    }
+
+    .scene-content,
+    .scene-build .scene-content {
+        left: 76px;
+        right: 8px;
+        width: auto;
+        min-height: 282px;
+    }
+
+    .number-crates,
+    .workshop-board {
+        left: 0;
+        right: auto;
+        transform: scale(0.82);
+        transform-origin: bottom left;
+    }
+
+    .scene-camp .camp-tent {
+        right: 8px;
+        transform: scale(0.78);
+        transform-origin: bottom right;
+    }
+
+    .cube-board {
+        --cell: 60px;
+    }
+
+    .box-stack {
+        margin-top: 96px;
+        padding: 0;
+    }
+
+    .piece-mini {
+        --box-size: 23px;
+        --cube-face: 15px;
+        --cube-depth: 8px;
+    }
+
+    .piece-choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .piece-card-actions button {
+        font-size: 0.82rem;
+    }
+
+    .crane-mast {
+        right: 20px;
+    }
+
+    .crane-arm {
+        right: 16px;
+    }
+
+    .crane-cab {
+        right: 34px;
+    }
+
+    .crane-base {
+        right: -2px;
+    }
+}
+
 .badge-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
 .badge { 
     background: var(--card-bg); border: 2px solid var(--box-border); 
