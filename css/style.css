@@ -1555,8 +1555,8 @@ body.math-theme {
 }
 
 .scene-workshop .scene-content {
-    left: 24%;
-    right: 5%;
+    left: 20%;
+    right: 4%;
     bottom: 20px;
     width: auto;
     min-height: 216px;
@@ -1604,8 +1604,8 @@ body.math-theme {
 
 .workbench {
     position: absolute;
-    left: 2%;
-    right: 2%;
+    left: 0;
+    right: 0;
     bottom: 0;
     height: 134px;
     z-index: 2;
@@ -1669,31 +1669,46 @@ body.math-theme {
 .bench-wrench {
     right: 6%;
     top: 78px;
-    width: 62px;
+    width: 68px;
     height: 10px;
     background: #94a3b8;
     border: 2px solid #475569;
     border-radius: 999px;
-    transform: rotate(17deg);
+    transform: rotate(10deg);
+    transform-origin: right center;
     z-index: 5;
 }
 
 .bench-wrench::before {
     content: "";
     position: absolute;
-    right: -11px;
-    top: -9px;
-    width: 22px;
-    height: 22px;
-    border: 5px solid #94a3b8;
-    border-left-color: transparent;
+    right: -17px;
+    top: -12px;
+    width: 27px;
+    height: 27px;
+    border: 6px solid #94a3b8;
+    border-right-color: transparent;
     border-radius: 50%;
+    transform: rotate(-35deg);
+}
+
+.bench-wrench::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 2px;
+    width: 14px;
+    height: 6px;
+    background: #94a3b8;
+    border-top: 2px solid #475569;
+    border-bottom: 2px solid #475569;
+    transform: rotate(-18deg);
 }
 
 .repair-equation {
     position: absolute;
-    left: 8%;
-    right: 18%;
+    left: 5%;
+    right: 14%;
     bottom: 80px;
     display: flex;
     align-items: center;
@@ -2414,7 +2429,7 @@ body.math-theme {
     }
 
     .scene-workshop .scene-content {
-        left: 64px;
+        left: 58px;
         right: 6px;
         bottom: 10px;
         min-height: 270px;
@@ -2439,8 +2454,8 @@ body.math-theme {
     }
 
     .repair-equation {
-        left: -4px;
-        right: 0;
+        left: 0;
+        right: 2px;
         bottom: 96px;
         gap: 4px;
         padding: 8px;
