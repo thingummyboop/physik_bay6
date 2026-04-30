@@ -124,20 +124,22 @@ async function renderTopic() {
             checkAnsweredStatus();
         }
 
-        // Load Script
-        const script = document.createElement('script');
-        script.src = `../js/topics/${topicId}.js?v=7.1`;
-        script.async = false;
-        script.onload = () => {
-            if (typeof topicInit === 'function') {
-                try {
-                    topicInit();
-                } catch (e) {
-                    console.error(`Error in topicInit for ${topicId}:`, e);
+        // Load optional topic script
+        if (topic.script !== false) {
+            const script = document.createElement('script');
+            script.src = `../js/topics/${topicId}.js?v=7.1`;
+            script.async = false;
+            script.onload = () => {
+                if (typeof topicInit === 'function') {
+                    try {
+                        topicInit();
+                    } catch (e) {
+                        console.error(`Error in topicInit for ${topicId}:`, e);
+                    }
                 }
-            }
-        };
-        document.body.appendChild(script);
+            };
+            document.body.appendChild(script);
+        }
 
     } catch (e) {
         console.error("Render Error:", e);
