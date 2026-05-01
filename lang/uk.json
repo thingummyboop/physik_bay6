@@ -5263,339 +5263,1347 @@
       ]
     }
   },
-  "dgb5": {
-    "title": "💻 Цифрова базова освіта 🖥️",
-    "subtitle": "Ласкаво просимо в цифровий світ! Тут ви дізнаєтеся все, що вам потрібно знати про комп’ютер, Інтернет та безпечну поведінку в мережі (5 клас).",
+  "dgb_word_werkstatt": {
+    "title": "📝 Практикум Word: Пишіть та створюйте документи",
+    "subtitle": "Самостійні покрокові завдання для Microsoft Word",
+    "script": false,
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Апаратне та програмне забезпечення (принцип EVA)",
+        "id": "word_sec0",
+        "title": "1. Орієнтація: де що у Word?",
+        "content": "<div class=\"word-workshop\">\n  <div class=\"lesson-goals\"><strong>Ось що ви можете робити після цього семінару:</strong><ul class=\"step-list\"><li>створити, зберегти та знайти новий документ Word</li><li>надійно позначати, переміщувати, копіювати та форматувати текст</li><li>Заголовки, абзаци, списки, таблиці, зображення, номери сторінок і використання колонтитулів</li><li>доставити готовий документ у форматі PDF</li></ul></div>\n  <p>Завжди працюйте так: <strong>читайте — спробуйте у Word — перевірте — лише тоді переходьте далі.</strong> Якщо ваш Word виглядає дещо інакше, спочатку знайдіть те саме слово на стрічці вгорі: <strong>Початок</strong>, <strong>Вставити</strong>, <strong>Макет</strong> або <strong>Перевірити</strong>.</p>\n  \n<div class=\"word-diagram\" role=\"img\" aria-label=\"Vereinfachte Word-Oberfläche mit Menüband, Registerkarten und Dokumentseite\">\n<svg viewBox=\"0 0 920 430\">\n  <rect x=\"18\" y=\"18\" width=\"884\" height=\"394\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"18\" y=\"18\" width=\"884\" height=\"42\" rx=\"18\" fill=\"#1d4ed8\"/>\n  <text x=\"42\" y=\"44\" class=\"word-label word-title-label\">Вікно Word</text>\n  <rect x=\"34\" y=\"76\" width=\"850\" height=\"42\" rx=\"8\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"48\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"91\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"146\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"word-tab-active\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"189\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Почати</text><rect x=\"244\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"287\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"342\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"385\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Малювати</text><rect x=\"440\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"483\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"538\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"581\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Посилання@@TOKEN_52 @@<rect x=\"636\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"679\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"734\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"777\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Переглянути</text>\n  <rect x=\"34\" y=\"126\" width=\"850\" height=\"76\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\"/>\n  <rect x=\"54\" y=\"142\" width=\"160\" height=\"42\" rx=\"8\" class=\"word-highlight\"/>\n  <text x=\"134\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Шрифт</text>\n  <rect x=\"232\" y=\"142\" width=\"170\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"317\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Абзац</text>\n  <rect x=\"420\" y=\"142\" width=\"210\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"525\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Шаблони форматів</text>\n  <rect x=\"668\" y=\"142\" width=\"150\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"743\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Редагувати</text>\n  <rect x=\"270\" y=\"224\" width=\"380\" height=\"150\" rx=\"8\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"2\"/>\n  <line x1=\"306\" y1=\"262\" x2=\"612\" y2=\"262\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"306\" y1=\"292\" x2=\"570\" y2=\"292\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"306\" y1=\"322\" x2=\"598\" y2=\"322\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <rect x=\"698\" y=\"238\" width=\"138\" height=\"62\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"767\" y=\"263\" text-anchor=\"middle\" class=\"word-small-label\">Стрічка меню</text>\n  <text x=\"767\" y=\"282\" text-anchor=\"middle\" class=\"word-small-label\">шукати вище</text>\n  <path d=\"M700 268 L620 170\" stroke=\"#fb923c\" stroke-width=\"3\" marker-end=\"url(#wordArrow)\" fill=\"none\"/>\n  <rect x=\"76\" y=\"248\" width=\"142\" height=\"70\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"147\" y=\"275\" text-anchor=\"middle\" class=\"word-small-label\">Сторінка документа:</text>\n  <text x=\"147\" y=\"294\" text-anchor=\"middle\" class=\"word-small-label\">тут ти пишеш</text>\n  <path d=\"M218 284 L270 284\" stroke=\"#fb923c\" stroke-width=\"3\" marker-end=\"url(#wordArrow)\" fill=\"none\"/>\n  <rect x=\"34\" y=\"386\" width=\"850\" height=\"14\" rx=\"7\" fill=\"#e2e8f0\"/>\n  <text x=\"54\" y=\"378\" class=\"word-small-label\">Рядок стану: сторінки, слова, масштаб</text>\n  <defs><marker id=\"wordArrow\" markerWidth=\"10\" markerHeight=\"8\" refX=\"8\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L9,4 L0,8 Z\" fill=\"#fb923c\"/></marker></defs>\n</svg>\n</div>\n  <div class=\"remember-box\"><strong>Важливо:</strong> Ви можете знайти більшість команд у верхній частині <strong>стрічки меню</strong>. Спочатку ви натискаєте вкладку <strong></strong>, як-от «Домашня сторінка» або «Вставити». Потім виберіть відповідну команду на панелі нижче.</div>\n  \n<div class=\"word-task-card\">\n  <h3>Міні-завдання 1: Читання вікна Word</h3><ol class=\"word-mini-steps\"><li>Відкрийте Microsoft Word і почніть із <strong>Пустий документ</strong>.</li><li>Наведіть пальцем або мишею на вкладки <strong>Файл</strong>, <strong>Початок</strong>, <strong>Вставити</strong>, <strong>Макет</strong> та <strong>Огляд</strong>.</li><li>Натисніть <strong>Почати</strong>. Знайдіть області <strong>Font</strong>, <strong>Paragraph</strong> та <strong>Шаблони форматування</strong>.</li><li>Натисніть один раз на білій сторінці та напишіть: <em>Я сьогодні працюю з Word.</em></li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Ви бачите речення на білій сторінці, а вгорі відкрита вкладка <strong>Початок</strong>.</div>\n</div>\n  <details class=\"guided-hint\"><summary>Якщо стрічка зникла</summary><p>Натисніть <strong>Ctrl + F1</strong> або двічі клацніть вкладку, наприклад <strong>Пуск</strong>. Потім знову з’явиться панель.</p></details>\n</div>\n{{QUIZ_word_q1}}",
         "quizzes": [
           {
-            "id": "dgb_s1_q1",
-            "question": "Що входить до апаратного забезпечення?",
+            "id": "word_q1",
+            "question": "Де ви знаходите найбільше команд у Word?",
             "answers": [
               {
-                "text": "Миша, клавіатура та екран",
+                "text": "Верх стрічки з вкладками",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Правильно: це апаратні засоби, до яких можна торкатися."
+                "feedback": "Правильно. Спочатку виберіть вкладку, а потім знайдіть команду."
               },
               {
-                "text": "Ігри, програми та браузер",
+                "text": "Тільки в нижній частині рядка стану",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Програми та браузери є програмами. Вони належать до програмного забезпечення, а не до апаратного забезпечення."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s1_q2",
-            "question": "Що означає Е в принципі EVA?",
-            "answers": [
-              {
-                "text": "Введення (наприклад, введення)",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно: введення означає, що ви надаєте комп’ютеру дані або команди."
+                "pts": 0,
+                "feedback": "Наприклад, нижче написано Сторінка, Слова та Масштаб. Більшість команд наведено вище."
               },
               {
-                "text": "Кінець (вимкнути комп'ютер)",
+                "text": "Тільки в паперовому просторі",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Е не означає закінчення. За принципом EVA все починається з введення."
+                "pts": 0,
+                "feedback": "Ти пишеш на білій сторінці. Команди знаходяться вгорі."
               }
             ]
           }
-        ],
-        "content": "<p>Комп’ютер складається з двох великих областей:</p>\n        <ul>\n            <li>🖥️ <strong>Апаратне забезпечення:</strong> Все, до чого можна доторкнутися! Це стосується екрана, клавіатури, миші, а також внутрішніх елементів, таких як процесор (мозок комп’ютера) і жорсткий диск (пам’ять).</li>\n            <li>💾 <strong>Програмне забезпечення:</strong> Невидимі програми. Без програмного забезпечення апаратне забезпечення марне. Це стосується програм, ігор, операційної системи та текстових програм.</li>\n        </ul>\n        <p>Основний принцип кожного комп’ютера називається <strong>Принцип EVA</strong>. Це означає:</p>\n        <ol>\n            <li><strong>E</strong>введення: ви даєте комп’ютеру команду (наприклад, клацаєте мишею).</li>\n            <li><strong>V</strong>розробка: Комп’ютер думає та розраховує, що потрібно зробити.</li>\n            <li><strong>A</strong>вихід: Комп’ютер показує вам результат (наприклад, зображення на моніторі).</li>\n        </ol>\n        {{QUIZ_dgb_s1_q1}}\n        {{QUIZ_dgb_s1_q2}}"
+        ]
       },
       {
-        "id": "sec1",
-        "title": "2. Файли та папки",
+        "id": "word_sec1",
+        "title": "2. Створіть файл, збережіть його та знайдіть знову",
+        "content": "<p>Зберегти – найважливіше правило. Збережіть <strong>early</strong>, а потім кілька разів за допомогою <strong>Ctrl + S</strong>.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Datei\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Новий</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Відкрити</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Зберегти як</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивіться сюди</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">потім продовжити</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Зберегти як потрібно під час першого збереження або якщо ви хочете зробити копію.</text>\n</svg>\n</div><div class=\"word-path\"><span>File</span><b class=\"arrow\">></b><span>Зберегти під</span><b class=\"arrow\">></b><span>Огляд</span><b class=\"arrow\">></b><span>папка вибрати</span><b class=\"arrow\">></b><span>Написати назву файлу</span><b class=\"arrow\">></b><span>Зберегти</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 2: зберегти перший документ</h3>\n  <ol class=\"word-mini-steps\"><li>Відкрийте новий порожній документ Word.</li><li>Напишіть вище: <strong>Word workshop за ім’ям прізвище</strong>.</li><li>Натисніть у верхньому лівому куті <strong>Файл</strong>.</li><li>Натисніть <strong>Зберегти як</strong>. Виберіть свою шкільну папку або папку, яку вкаже вчитель.</li><li>Напишіть як назву файлу: <strong>Word_Werkstatt_Ім’я_Прізвище</strong>. Не використовуйте спеціальні символи.</li><li>Натисніть <strong>Зберегти</strong>. Потім натисніть <strong>Ctrl + S</strong>.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Назва вашого файлу знаходиться вгорі рядка заголовка. Якщо ви закриєте Word і знову відкриєте його, ви знайдете файл у вибраній папці.</div>\n</div>\n<div class=\"teacher-note\"><strong>Правило імен файлів:</strong> Хороші імена файлів короткі та зрозумілі: <strong>Fach_Topic_Name</strong>. Приклад: <strong>DGB_Word_AminaK</strong>.</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 3: повторно відкрити файл</h3>\n  <ol class=\"word-mini-steps\"><li>Закривайте Word, лише коли ваш документ буде збережено.</li><li>Відкрийте Word знову.</li><li>Натисніть <strong>Файл > Відкрити</strong>.</li><li>Вибрати <strong>Нещодавно</strong> або <strong>Переглянути</strong>.</li><li>Відкрити свій файл і написати сьогоднішня дата під нею.</li></ol><div class=\"word-output\"><strong>Як контролювати себе:</strong> Відкриється старий файл, а ваша нова дата збережеться після <strong>Ctrl + S</strong>.</div>\n</div>\n{{QUIZ_word_q2}}",
         "quizzes": [
           {
-            "id": "dgb_s2_q1",
-            "question": "Що таке розширення файлу (наприклад, .jpg або .docx)?",
+            "id": "word_q2",
+            "question": "Яка комбінація клавіш швидко зберігає?",
             "answers": [
               {
-                "text": "Він повідомляє комп’ютеру, який це тип файлу.",
+                "text": "Ctrl + S",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Правильно: розширення вказує тип файлу, наприклад зображення чи текст."
+                "feedback": "точно. S для збереження."
               },
               {
-                "text": "Він показує, скільки років комп'ютера.",
+                "text": "Ctrl + Z",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ctrl + Z скасовує останній крок."
+              },
+              {
+                "text": "Ctrl + F",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ctrl + F шукає текст у документі."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec2",
+        "title": "3. Напишіть, виділіть і вдосконаліть текст",
+        "content": "<p>Майже все в Word працює, лише якщо ви позначите правильний текст <strong></strong>. Позначення означає: Текст виділено кольором, і Word знає, що ви хочете змінити.</p><div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Позначення слова:</strong><br>Двічі клацніть на слово.</div><div class=\"word-ui-card\"><strong>Позначка речення або діапазону:</strong><br>Перетягніть текст, натиснувши ліву кнопку миші.</div><div class=\"word-ui-card\"><strong>Позначка все:</strong><br><strong>Ctrl + A</strong>.</div><div class=\"word-ui-card\"><strong>Помилка скидання:</strong><br><strong>Ctrl + Z</strong>.</div></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 4: Тренуйтеся виставляти оцінки</h3>\n  <ol class=\"word-mini-steps\"><li>Напишіть у своєму документі ці три рядки:<br><strong>Мій улюблений предмет ...</strong><br><strong>Я вивчаю Word крок за крок.</strong><br><strong>Зрештою я можу створити гарний документ.</strong></li><li>Виберіть лише слово <strong>Word</strong> із подвійним клацніть.</li><li>Натисніть <strong>Ctrl + C</strong>, перейдіть до кінця наступного рядка та натисніть <strong>Ctrl + V</strong>.</li><li>Знову виділіть вставлений текст і видаліть його за допомогою <strong>Видалити</strong> клавішу.</li><li>Виконайте останній крок за допомогою <strong>Ctrl + Z</strong> скасування.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Ви можете виділяти, копіювати, вставляти, видаляти та відновлювати окреме слово.</div>\n</div>\n<div class=\"remember-box\"><strong>Основні прийоми:</strong> Ctrl + C = копіювати, Ctrl + V = вставити, Ctrl + X = вирізати, Ctrl + Z = скасувати, Ctrl + A = вибрати все.</div>"
+      },
+      {
+        "id": "word_sec3",
+        "title": "4. Шрифт оформлення: жирний, розмір, колір",
+        "content": "<p>Дизайн шрифту можна знайти на вкладці <strong>Початок</strong> у розділі <strong>Шрифт</strong>. Завжди спочатку позначайте текст, а потім дизайн.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Шрифт</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Абзац</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Шаблони форматів</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивіться сюди</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">потім продовжити</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Для жирного шрифту, розміру шрифту, кольору шрифту та підкреслення зазвичай залишайтеся на «Пуск».</text>\n</svg>\n</div><div class=\"word-path\"><span>Початок</span><b class=\"arrow\">></b><span>Шрифт</span><b class=\"arrow\">></b><span>Жирний / Курсив / Підкреслений</span><b class=\"arrow\">></b><span>Розмір шрифту</span><b class=\"arrow\">></b><span>Колір шрифту</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 5: створити профіль</h3>\n  <ol class=\"word-mini-steps\"><li>Напишіть заголовок: <strong>Мій профіль</strong>. Позначте їх.</li><li>Натисніть <strong>Почати</strong>. В області <strong>Font</strong> виберіть: Розмір <strong>20</strong>, <strong>Жирний</strong>, Колір шрифту <strong>Синій</strong>.</li><li>Напишіть чотири рядки нижче: ім’я, клас, улюблена їжа, улюблене місце у Відні.</li><li>Позначте лише слова <strong>Ім’я</strong>, <strong>Клас</strong>, <strong>Улюблена їжа</strong>, <strong>Улюблене місце</strong> і зробіть це <strong>жирний</strong>.</li><li>Виділіть речення, яке ви вважаєте особливо важливим, і додайте йому інший колір шрифту.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Заголовок великий і синій. Ключові слова ліворуч виділені жирним шрифтом, але відповіді залишаються читабельними.</div>\n</div>\n<div class=\"mini-task\"><strong>Професійне правило:</strong> Використовуйте максимум два шрифти та максимум три кольори. Документ має виглядати чітко, а не як плакат із великою кількістю ефектів.</div>{{QUIZ_word_q3}}",
+        "quizzes": [
+          {
+            "id": "word_q3",
+            "question": "Що ви робите спочатку, перш ніж зробити текст жирним або синім?",
+            "answers": [
+              {
+                "text": "Познач уривок тексту",
+                "correct": true,
+                "pts": 10,
+                "feedback": "точно. Word має знати, який текст слід змінити."
+              },
+              {
+                "text": "Закрийте документ",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тоді ви не зможете форматувати текст."
+              },
+              {
+                "text": "Завжди друкуйте першим",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Друкується лише в кінці."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec4",
+        "title": "5. Абзаци: вирівнювання, інтервали, списки",
+        "content": "<p>Абзац — це фрагмент тексту між двома клавішами Enter. Ви створюєте абзаци на <strong>Start</strong> в області <strong>Paragraph</strong>.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Шрифт</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Абзац</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Шаблони форматів</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">потім продовжити</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">В області абзацу ви знайдете вирівняні за лівим краєм, відцентровані списки, відступи та міжрядкові інтервали.</text>\n</svg>\n</div><div class=\"word-path\"><span>Початок</span><b class=\"arrow\">></b><span>Paragraph</span><b class=\"arrow\">></b><span>Bullets</span><b class=\"arrow\">></b><span>Нумерація</span><b class=\"arrow\">></b><span>Center</span><b class=\"arrow\">></b><span>Інтервал між рядками та абзацами</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 6: Створення чистого списку</h3>\n  <ol class=\"word-mini-steps\"><li>Напишіть заголовок: <strong>Моє шкільне приладдя</strong>.</li><li>Натисніть enter і напишіть між собою: зошит, ручка, лінійка, закуска, пиття пляшка.</li><li>Позначте ці п’ять слів.</li><li>Натисніть <strong>Головна > Абзац > Маркери</strong>.</li><li>Виділіть заголовок і натисніть <strong>Center</strong>.</li><li>Виберіть список і відкрийте <strong>Інтервал між рядками та абзацами</strong>. Виберіть <strong>1.15</strong> або <strong>1.5</strong>.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Заголовок посередині. Шкільне приладдя представлено у вигляді списку з балами та достатньо місця для читання.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 7: Напишіть пронумеровані інструкції</h3>\n  <ol class=\"word-mini-steps\"><li>Напишіть заголовок: <strong>Як правильно зберегти</strong>.</li><li>Напишіть ці кроки внизу, кожен крок в окремому рядку: клацніть файл, виберіть Зберегти як, знайдіть папку, введіть назву файлу, збережіть клацніть.</li><li>Позначте п’ять кроків.</li><li>Натисніть <strong>Початок > Абзац > Нумерація</strong>.</li><li>Перевірте: кроки мають бути пронумеровані від 1 до 5 be.</li></ol><div class=\"word-output\"><strong>Як контролювати себе:</strong> Ваші інструкції мають правильний порядок. Числа використовуються, коли порядок важливий.</div>\n</div>"
+      },
+      {
+        "id": "word_sec5",
+        "title": "6. Заголовки та стилі",
+        "content": "<p>Стилі — це готові стилі тексту. Це краще, ніж щоразу змінювати розмір і колір вручну. Особливо важливими є <strong>Заголовок 1</strong> та <strong>Заголовок 2</strong>.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Шрифт</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Абзац</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Шаблони форматів</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">потім продовжити</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Шаблони формату забезпечують акуратність і послідовність довгих документів.</text>\n</svg>\n</div><div class=\"word-path\"><span>Початок</span><b class=\"arrow\">>@@TOKEN_52 @@<span>Стилі</span><b class=\"arrow\">></b><span>Заголовок 1 або заголовок 2</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 8: Міні-звіт із реальними заголовками</h3>\n  <ol class=\"word-mini-steps\"><li>Напишіть як головний заголовок: <strong>Мій район</strong>. Виділіть його та виберіть <strong>Пуск > Стилі > Заголовок 1</strong>.</li><li>Напишіть нижче: <strong>Що мені подобається</strong>. Позначте цей рядок і виберіть <strong>Заголовок 2</strong>.</li><li>Напишіть три речення нижче про свій район.</li><li>Після цього напишіть: <strong>Що може бути краще</strong>. Проголосуйте ще раз <strong>Заголовок 2</strong>.</li><li>Напишіть дві конкретні ідеї щодо покращення.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Головний заголовок виглядає інакше, ніж маленькі підзаголовки. Усі заголовки збігаються.</div>\n</div>\n<div class=\"remember-box\"><strong>Чому це важливо:</strong> З реальними заголовками Word може пізніше автоматично створити зміст. Ви також можете швидше орієнтуватися в довгих текстах.</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 9: ознайомтеся зі змістом</h3>\n  <ol class=\"word-mini-steps\"><li>Поставте курсор на самий початок документа.</li><li>Натисніть <strong>Ctrl + Enter</strong> для нової першої сторінки.</li><li>Натисніть угорі <strong>Посилання</strong>.</li><li>Натисніть <strong>Зміст</strong> та виберіть автоматичний шаблон.</li><li>Якщо Word запитає, чи хочете ви замінити каталог, підтвердьте.</li></ol><div class=\"word-output\"><strong>Як контролювати себе:</strong> На сторінці 1 є зміст. Якщо нічого не відображається, можливо, ви не використовували стилі заголовків.</div>\n</div>"
+      },
+      {
+        "id": "word_sec6",
+        "title": "7. Розмітка сторінки: поля, вирівнювання, розриви сторінок",
+        "content": "<p>Макет сторінки визначає структуру аркуша. Для шкільних завдань зазвичай підходить <strong>Книжковий формат</strong> із нормальними полями.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Layout\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Межі</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Орієнтація</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Розмір / Розриви</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">продовжити потім</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Макет змінює всю сторінку, а не лише окреме слово.</text>\n</svg>\n</div><div class=\"word-path\"><span>Макет</span><b class=\"arrow\">></b>@ @TOKEN_51@@Межі</span><b class=\"arrow\">></b><span>Звичайний</span></div><div class=\"word-path\"><span>Макет</span><b class=\"arrow\">>@@TOKEN_62 @@<span>Орієнтація</span><b class=\"arrow\">></b><span>Портрет або горизонтально</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 10: чисто розпочніть другу сторінку</h3>\n  <ol class=\"word-mini-steps\"><li>Натисніть у кінці документа.</li><li>Натисніть <strong>Ctrl + Enter</strong>. Це розрив сторінки.</li><li>Напишіть у верхній частині нової сторінки: <strong>Моя друга сторінка</strong>.</li><li>Натисніть <strong>Макет > Поля > Normal</strong>.</li><li>Натисніть <strong>Layout > Orientation > Portrait</strong>.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Друга сторінка починається чисто зверху. Ви не використали багато рядків, лише справжній розрив сторінки.</div>\n</div>\n<div class=\"teacher-note\"><strong>Поширена помилка:</strong> Багато дітей натискають Enter 20 разів, щоб перейти до наступної сторінки. Це проскочить пізніше. Натомість використовуйте <strong>Ctrl + Enter</strong>.</div>"
+      },
+      {
+        "id": "word_sec7",
+        "title": "8. Вставте зображення та правильно їх розмістіть",
+        "content": "<p>Зображення роблять документ зрозумілим. Важливим є <strong>Обтікання текстом</strong>: воно визначає, чи може текст відображатися поруч із зображенням.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Зображення</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Фігури / Значки</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Таблиця</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">продовжити пізніше</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Зображення вставляються в документ. Після натискання з’являється формат зображення.</text>\n</svg>\n</div><div class=\"word-path\"><span>Вставити</span><b class=\"arrow\">>@@TOKEN_ 51@@<span>Зображення</span><b class=\"arrow\">></b><span>це Пристрій</span></div><div class=\"word-path\"><span>Натисніть зображення</span><b class=\"arrow\">></b><span>Параметри макета поруч із Зображення</span><b class=\"arrow\">></b><span>З текстом у рядку або квадраті</span></div>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Bild mit Layoutoptionen in Word\"><svg viewBox=\"0 0 920 330\"><rect x=\"210\" y=\"30\" width=\"500\" height=\"260\" rx=\"10\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"3\"/><line x1=\"250\" y1=\"82\" x2=\"620\" y2=\"82\" stroke=\"#cbd5e1\" stroke-width=\"5\"/><line x1=\"250\" y1=\"112\" x2=\"620\" y2=\"112\" stroke=\"#cbd5e1\" stroke-width=\"5\"/><rect x=\"250\" y=\"142\" width=\"150\" height=\"92\" rx=\"10\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"4\"/><circle cx=\"292\" cy=\"176\" r=\"14\" fill=\"#facc15\"/><path d=\"M260 218 L302 184 L332 208 L358 188 L390 222\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"6\"/>@ @TOKEN_79@@<text x=\"476\" y=\"166\" text-anchor=\"middle\" class=\"word-small-label\">Макет параметри</text><path d=\"M410 160 L402 160\" stroke=\"#fb923c\" stroke-width=\"3\"/><line x1=\"250\" y1=\"258\" x2=\"620\" y2=\"258\" stroke=\"#cbd5e1\" stroke-width=\"5\"/></svg></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 11: Вставте зображення або форму</h3>\n  <ol class=\"word-mini-steps\"><li>Натисніть, де потрібно розмістити зображення.</li><li>Натисніть <strong>Вставити > Зображення > Цей пристрій</strong>. Виберіть картинку зі шкільної папки. Якщо у вас немає зображення: <strong>Вставити > Фігури</strong> та виберіть прямокутник або зірку.</li><li>Натисніть зображення. Перетягніть <strong>corner</strong>, щоб зменшити його. Не перетягуйте середину сторінки, інакше вона спотвориться.</li><li>Натисніть маленький значок <strong>Параметри макета</strong> поруч із зображенням. Виберіть <strong>З текстом у рядку</strong>, якщо ви хочете, щоб зображення залишалося схожим на велику літеру в тексті.</li><li>Виберіть <strong>Квадрат</strong>, якщо ви хочете, щоб текст чітко перетікав поруч із зображенням повинен.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Зображення не велике, не спотворене і текст не сповзає хаотично.</div>\n</div>\n<div class=\"remember-box\"><strong>Правило зображення:</strong> Для простих шкільних текстів <strong>З текстом у рядку</strong> є найбезпечнішим. Для плакатів і розшукуваних плакатів часто краще <strong>Quadrat</strong>.</div>{{QUIZ_word_q4}}",
+        "quizzes": [
+          {
+            "id": "word_q4",
+            "question": "Що ви перетягуєте, щоб зменшити зображення, не спотворюючи його?",
+            "answers": [
+              {
+                "text": "В одному кутку картини",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Кути краще зберігають співвідношення."
+              },
+              {
+                "text": "Тільки посередині лівого боку",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тоді зображення може стати занадто широким або занадто вузьким."
+              },
+              {
+                "text": "На тексті поруч",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Текст не змінює розмір зображення."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec8",
+        "title": "9. Створення та систематизація таблиць",
+        "content": "<p>Таблиці гарні, коли інформація розміщена в рядках і стовпцях: розклад, список покупок, порівняння, список результатів.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Таблиця</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Зображення</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Верхній і нижній колонтитули</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">продовжити пізніше</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Для таблиць ви спочатку вибираєте розмір, а потім можете додавати рядки та стовпці.</text>\n</svg>\n</div><div class=\"word-path\"><span>Вставити</span><b class=\"arrow\">></b><span>Таблиця</span><b class=\"arrow\">></b><span>Box mark</span><b class=\"arrow\">></b><span>z. B. Таблиця 4 x 5</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 12: Розклад</h3>\n  <ol class=\"word-mini-steps\"><li>Натисніть вільне місце в документі.</li><li>Натисніть <strong>Вставити > Таблиця</strong>. Наведіть курсор на поля та виберіть <strong>4 стовпці x 5 рядків</strong>.</li><li>Напишіть у першому рядку: <strong>Час</strong>, <strong>Понеділок</strong>, <strong>Вівторок</strong>, <strong>Середа</strong>.</li><li>Заповніть ще принаймні три рядки уроками.</li><li>Виберіть перший рядок і виконайте це <strong>жирний</strong>.</li><li>Натисніть таблицю. Використовуйте <strong>Дизайн таблиці</strong> вище, щоб вибрати простий стиль таблиці.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Перший рядок можна розпізнати як заголовок. Таблиця має чіткі стовпці, і її легше читати, ніж текстовий список.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 13: Додайте рядок або стовпець</h3>\n  <ol class=\"word-mini-steps\"><li>Натисніть останній рядок таблиці.</li><li>Натисніть клавішу <strong>Tab</strong>. Word часто додає новий рядок у кінці.</li><li>Або клацніть у таблиці та знайдіть угорі <strong>Макет таблиці > Вставити нижче</strong>.</li><li>Додати нову годину додано.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Стіл росте контрольованим чином. Немає кривих місць.</div>\n</div>"
+      },
+      {
+        "id": "word_sec9",
+        "title": "10. Верхній, нижній колонтитул і номери сторінок",
+        "content": "<p>Верхні та нижні колонтитули знаходяться за межами звичайного тексту. Вони повторюються на кожній сторінці. Ім'я, клас, дата чи номери сторінок вміщуються там.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Header</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Нижній колонтитул</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Номер сторінки</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">продовжити пізніше</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Верхній і нижній колонтитули можна знайти на вкладці. Ви можете повернутися до звичайного тексту, натиснувши «Закрити верхній і нижній колонтитули».</text>\n</svg>\n</div><div class=\"word-path\"><span>Вставити</span><b class=\"arrow\">></b><span>Header</span><b class=\"arrow\">></b><span>Порожній</span>@@TOKEN_5 5@@<div class=\"word-path\"><span>Вставити</span><b class=\"arrow\">></b><span>Починаючи з enzahl</span><b class=\"arrow\">></b><span>Кінець сторінка</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 14: Заголовок із назвою</h3>\n  <ol class=\"word-mini-steps\"><li>Натисніть <strong>Вставити > Заголовок > Пустий</strong>.</li><li>Напишіть у заголовку: <strong>Ім’я Прізвище - Digital Basic освіта</strong>.</li><li>Виберіть текст і зменште його, наприклад розмір <strong>10</strong>.</li><li>Натисніть зверху <strong>Закрийте заголовок і нижній колонтитул</strong> або двічі клацніть у звичайному тексті.</li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Ім’я знаходиться вгорі кожної сторінки, але не в середині звичайного тексту.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 15: Вставте номер сторінки</h3>\n  <ol class=\"word-mini-steps\"><li>Натисніть <strong>Вставити > Номер сторінки</strong>.</li><li>Виберіть <strong>Кінець сторінки</strong> та простий Дисплей.</li><li>Закрийте вікно верхнього/нижнього колонтитула.</li><li>Перевірте на сторінці 2, чи є там номер сторінки.</li></ol>\n  <div class=\"word-output\"><strong>Як перевірити себе:</strong> Кожна сторінка автоматично має правильний номер. Вам не потрібно писати цифри від руки.</div>\n</div>"
+      },
+      {
+        "id": "word_sec10",
+        "title": "11. Правопис, пошук і заміна",
+        "content": "<p>Word може допомогти з переглядом. Але врешті-решт вирішують люди. Завжди читайте текст знову вголос або тихо.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Überprüfen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Редактор / Правопис</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Мова</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Коментарі</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">продовжити пізніше</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Огляд допомагає виправити та покращити документ.</text>\n</svg>\n</div><div class=\"word-path\"><span>Перевірка</span><b class=\"arrow\">></b><span>Редактор або орфографічний і Граматика</span></div><div class=\"word-path\"><span>Початок</span><b class=\"arrow\">></b><span>Пошук</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 16: свідомо виправляйте помилки</h3>\n  <ol class=\"word-mini-steps\"><li>Написав це речення неправильно навмисно: <strong>Я пишу документ і регулярно його зберігаю.</strong></li><li>Подивіться на червоні або сині позначки під словами.</li><li>Натисніть вздовж Клацніть правою кнопкою миші на виділеному слові та виберіть відповідну пропозицію.</li><li>Потім натисніть <strong>Перевірити > Редактор</strong> або <strong>Правопис і Граматика</strong>.</li><li>Покращте речення, щоб воно стало правильним: <strong>Я пишу документ і регулярно його зберігаю.</strong></li></ol>\n  <div class=\"word-output\"><strong>Як контролювати себе:</strong> Речення покращено. Ви не натискали наосліп, ви перевіряли пропозиції.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 17: Знайти та замінити</h3>\n  <ol class=\"word-mini-steps\"><li>У короткому абзаці напишіть слово <strong>Handy</strong>.</li><li>Натисніть <strong>Ctrl + H</strong> або перейдіть до <strong>Пуск > Замініть</strong>.</li><li>Знайдіть <strong>Mobile</strong> і замініть його на <strong>Смартфон</strong>.</li><li>Натисніть спочатку <strong>Пошук</strong>, щоб побачити, де Word шукає. Потім використовуйте <strong>Replace</strong>.</li></ol>\n  <div class=\"word-output\"><strong>Як перевірити себе:</strong> Усі відповідні фрагменти змінено без необхідності шукати весь текст вручну.</div>\n</div>"
+      },
+      {
+        "id": "word_sec11",
+        "title": "12. Надішліть як PDF і перевірте готовий документ",
+        "content": "<p>Файл Word іноді може дещо рухатися на інших пристроях. PDF-файл зазвичай залишається незмінним після відкриття та друку. PDF часто є безпечнішою формою для подання.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Datei\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Файл</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Почати</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Вставити</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Макет</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Огляд</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Перегляд</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Зберегти як</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Експорт</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Друк</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">спочатку дивись тут</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">продовжити пізніше</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">якщо потрібно</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Перед надсиланням завжди зберігайте та коротко перевіряйте, чи все читається.</text>\n</svg>\n</div><div class=\"word-path\"><span>File</span><b class=\"arrow\">></b><span>Зберегти as</span><b class=\"arrow\">></b><span>Тип файлу: PDF</span><b class=\"arrow\">></b><span>Зберегти</span></div><div class=\"word-path\"><span>Дата i</span><b class=\"arrow\">></b><span>Print</span><b class=\"arrow\">></b><span>Керування попереднім переглядом</span></div>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Beispielseite mit Überschrift, Liste, Tabelle, Bild und Fußzeile\">\n<svg viewBox=\"0 0 920 430\">\n  <rect x=\"180\" y=\"28\" width=\"560\" height=\"360\" rx=\"10\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"3\"/>\n  <text x=\"460\" y=\"72\" text-anchor=\"middle\" class=\"word-label\">Мій готовий документ Word</text>\n  <line x1=\"240\" y1=\"100\" x2=\"680\" y2=\"100\" stroke=\"#dbeafe\" stroke-width=\"6\"/>\n  <text x=\"246\" y=\"136\" class=\"word-small-label\">1. Заголовок із шаблоном стилю</text>\n  <line x1=\"246\" y1=\"160\" x2=\"520\" y2=\"160\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"246\" y1=\"184\" x2=\"590\" y2=\"184\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <circle cx=\"260\" cy=\"222\" r=\"5\" fill=\"#2563eb\"/><line x1=\"278\" y1=\"222\" x2=\"450\" y2=\"222\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <circle cx=\"260\" cy=\"248\" r=\"5\" fill=\"#2563eb\"/><line x1=\"278\" y1=\"248\" x2=\"480\" y2=\"248\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <rect x=\"520\" y=\"208\" width=\"128\" height=\"76\" rx=\"8\" fill=\"#e0f2fe\" stroke=\"#2563eb\" stroke-width=\"3\"/>\n  <path d=\"M535 264 L568 230 L592 252 L610 235 L640 268\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"5\"/>\n  <rect x=\"246\" y=\"300\" width=\"210\" height=\"52\" fill=\"#f8fafc\" stroke=\"#94a3b8\"/>\n  <line x1=\"316\" y1=\"300\" x2=\"316\" y2=\"352\" stroke=\"#94a3b8\"/><line x1=\"386\" y1=\"300\" x2=\"386\" y2=\"352\" stroke=\"#94a3b8\"/><line x1=\"246\" y1=\"326\" x2=\"456\" y2=\"326\" stroke=\"#94a3b8\"/>\n  <line x1=\"220\" y1=\"372\" x2=\"700\" y2=\"372\" stroke=\"#e2e8f0\" stroke-width=\"3\"/>\n  <text x=\"460\" y=\"382\" text-anchor=\"middle\" class=\"word-small-label\">Нижній колонтитул із назвою та номером сторінки</text>\n</svg>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Міні-завдання 18: створити файл подання</h3>\n  <ol class=\"word-mini-steps\"><li>Спочатку збережіть файл Word за допомогою <strong>Ctrl + S</strong>.</li><li>Натисніть <strong>Файл > Зберегти at</strong>.</li><li>Виберіть <strong>PDF</strong> як тип файлу. Якщо ви не можете знайти цей вибір: натисніть <strong>Файл > Експорт > Створити PDF/XPS</strong>.</li><li>Назвіть файл: <strong>DGB_Word_Werkstatt_Firstname_Lastname.pdf</strong>.</li><li>Ненадовго відкрийте PDF-файл і перевірте: видно заголовок, зображення, таблицю, номери сторінок і назву.</li></ol>\n  <div class=\"word-output\"><strong>Так ви контролюєте себе:</strong> У вас є два файли: файл Word, над яким потрібно продовжити роботу, і файл PDF, який потрібно надіслати.</div>\n</div><div class=\"word-check-card\"><h3>Список подання</h3><ul class=\"step-list\"><li>Назва файлу містить тему, тему та назву.</li><li>Заголовок чіткий і не закритий кольоровий.</li><li>Принаймні один список відформатовано належним чином.</li><li>Принаймні одну таблицю можна чітко прочитати.</li><li>Зображення або форму вставлено належним чином, а не спотворено.</li><li>Верхній або нижній колонтитул містить ім’я/клас.</li><li>Номери сторінок вставляються автоматично.</li><li>Правопис виправлено перевірено.</li><li>PDF відкрито та проконтрольовано.</li></ul></div>"
+      },
+      {
+        "id": "word_sec12",
+        "title": "13. Підсумковий проект: Оформити інформаційний лист",
+        "content": "<p>Нарешті ви об’єднуєте все в справжній продукт. Створіть односторінковий або двосторінковий інформаційний аркуш. Тема: <strong>Місце у Відні, яке варто знати молодим людям</strong>.</p><div class=\"word-task-card\"><h3>Проектне завдання</h3><ol class=\"word-mini-steps\"><li>Створіть новий документ і збережіть його як <strong>DGB_InfoBlatt_Firstname_Lastname</strong>.</li><li>Напишіть головний заголовок із <strong>Заголовок 1</strong>.</li><li>Напишіть короткий вступний текст із 3–5 речень.</li><li>Вставте два підзаголовки з <strong>Заголовок 2</strong>: <strong>Чим це місце цікаве</strong> та <strong>На що тут звернути увагу слід</strong>.</li><li>Створити список із принаймні 4 пунктами.</li><li>Вставити таблицю принаймні з 3 стовпцями: <strong>Інформація</strong>, <strong>Приклад</strong>, <strong>Важливо</strong>.</li><li>Вставте зображення або фігуру та ретельно налаштуйте обтікання текстом.</li><li>Вставте заголовок із назвою та клас.</li><li>Вставте номери сторінок a.</li><li>Перевірте орфографію та збережіть як PDF.</li></ol></div><table class=\"word-rubric\"><tr><th>Область</th><th>Це має бути видно be</th><th>Points</th></tr><tr><td>Save</td><td>корисна назва файлу, файл Word і PDF доступний</td><td>4</td></tr><tr><td>Текст</td><td>зрозумілі речення, відповідні заголовки, без грубих Помилки друку</td><td>8</td></tr><tr><td>Форматування</td><td>Розмір шрифту, жирний шрифт, інтервали та списки навмисне вставлено</td><td>8</td></tr><tr><td>Об’єкти</td><td>Зображення/форма та таблиця чисті вставлено</td><td>6</td></tr><tr><td>Технологія документів</td><td>Верхній/нижній колонтитул, номер сторінки, PDF control</td><td>4</td></tr></table><div class=\"remember-box\"><strong>Merksatz:</strong> Хороший документ Word не просто красивий. Він зберігається, зрозумілий, читабельний, керований і легко відкритий для інших.</div>{{QUIZ_word_q5}}",
+        "quizzes": [
+          {
+            "id": "word_q5",
+            "question": "Чому PDF-файл часто корисний для подання?",
+            "answers": [
+              {
+                "text": "Оскільки макет зазвичай залишається незмінним на інших пристроях",
+                "correct": true,
+                "pts": 10,
+                "feedback": "точно. PDF добре підходить для надсилання та друку."
+              },
+              {
+                "text": "Тому що в ньому можна продовжувати працювати краще, ніж у Word",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Для подальшої роботи краще підійде файл Word. PDF особливо добре підходить для подання."
+              },
+              {
+                "text": "Тому що тоді Word автоматично створює весь вміст",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ні. Ви самі створюєте вміст."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dgb5_orientierung": {
+    "title": "🧭 Орієнтація: 5 клас",
+    "subtitle": "Розуміння та класифікація цифрового світу - 5 клас (1 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb5_orientierung_q1",
+            "question": "Що означає V у принципі EVA?",
+            "answers": [
+              {
+                "text": "обробки",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "Підключення",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Вік комп'ютера не в розширенні файлу. Він описує тип файлу."
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
               }
             ]
           }
         ],
-        "content": "<p>На комп’ютері швидко накопичується багато інформації. Для підтримки порядку ми використовуємо <strong>files</strong> та <strong>folders</strong>.</p>\n        <ul>\n            <li>📁 <strong>Папки (каталоги):</strong> Вони схожі на ящики столу. У ньому можна зберігати файли та інші папки.</li>\n            <li>📄 <strong>Файли:</strong> Це справжні документи (наприклад, зображення, текст, пісня).</li>\n        </ul>\n        <p>Щоб комп’ютер знав, з чим має справу, кожен файл має так зване <strong>розширення файлу</strong> (у самому кінці назви, після крапки):</p>\n        <ul>\n            <li><code>.txt</code> або <code>.docx</code> = Текст</li>\n            <li><code>.jpg</code> або <code>.png</code> = Зображення</li>\n            <li><code>.mp3</code> = Музика</li>\n            <li><code>.pdf</code> = Готовий документ, який важко змінити</li>\n        </ul>\n        {{QUIZ_dgb_s2_q1}}"
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>пояснити принцип EVA на цифрових пристроях</li><li>розрізняти цифрові та аналогові речі</li><li>спостерігати та ставити під сумнів власну медіа-поведінку</li>\n            </ul>\n        </div>\n        <p>Це стосується не просто використання цифрових технологій, а й розуміння того, як вони змінюють наше життя, навчання та співіснування.</p>\n        <p>Цифровий пристрій приймає вхідні дані, обробляє їх і видає результат. Цей базовий принцип називається EVA: вхід, обробка, вихід. Цифровий – це не просто «з екраном»: цифрові системи зберігають і обробляють інформацію як дані.</p>\n        <div class=\"remember-box\"><strong>Merke:</strong> Цифрові засоби: інформація обробляється як дані. Це змінює те, як ми навчаємося, граємо, працюємо та розмовляємо одне з одним.</div>\n        {{QUIZ_dgb5_orientierung_q1}}"
       },
       {
         "id": "sec2",
-        "title": "3. Інтернет і пошукові системи",
+        "title": "2. Практикум для викладання",
         "quizzes": [
           {
-            "id": "dgb_s3_q1",
-            "question": "Що таке браузер?",
+            "id": "dgb5_orientierung_q2",
+            "question": "Що є хорошим прикладом результату?",
             "answers": [
               {
-                "text": "Програма для відображення веб-сайтів (наприклад, Firefox, Chrome).",
+                "text": "На екрані з’являється зображення.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Правильно: браузер відкриває та відображає веб-сайти."
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
               },
               {
-                "text": "Веб-сайт, де ви шукаєте речі.",
+                "text": "Ви натискаєте кнопку.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Це пошукова система. Браузер – це програма, яку ви використовуєте для відвідування веб-сайтів."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s3_q2",
-            "question": "Як розпізнати безпечне з'єднання в Інтернеті?",
-            "answers": [
-              {
-                "text": "На маленькому символі замка поруч із адресою (https://).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно: Lock і https вказують на зашифроване з’єднання."
-              },
-              {
-                "text": "На великому червоному миготливому вогні.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Такого попереджувального знаку немає. Знайдіть в адресі символ замка та https."
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
               }
             ]
           }
         ],
-        "content": "<p><strong>Інтернет</strong> — це велика всесвітня мережа підключених комп’ютерів. Щоб відвідувати веб-сайти, вам потрібна спеціальна програма: <strong>Браузер</strong> (наприклад, Google Chrome, Mozilla Firefox, Microsoft Edge або Safari).</p>\n        <p>Кожен веб-сайт має унікальну адресу, <strong>URL</strong> (наприклад, <code>www.wikipedia.org</code>). Якщо ви введете це в адресний рядок вище, ви потрапите прямо туди.</p>\n        <p>Коли ви щось шукаєте, ви використовуєте <strong>пошукову систему</strong> (наприклад, Google, DuckDuckGo, Ecosia, FragFINN). Пошукові системи шукають в Інтернеті веб-сайти, які відповідають вашим пошуковим термінам.</p>\n        <div class=\"lexikon-box\">\n            🔍 <strong>Порада професіонала щодо пошуку:</strong> Використовуйте лапки, щоб шукати саме те слово: <code>\"Цифрова базова освіта\"</code>\n        </div>\n        {{QUIZ_dgb_s3_q1}}\n        {{QUIZ_dgb_s3_q2}}"
-      },
-      {
-        "id": "sec3",
-        "title": "4. Безпека та паролі",
-        "quizzes": [
-          {
-            "id": "dgb_s4_q1",
-            "question": "Що входить до складу надійного пароля?",
-            "answers": [
-              {
-                "text": "Великі та малі літери, цифри та спеціальні символи (наприклад, !?#).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно: це поєднання ускладнює вгадування пароля."
-              },
-              {
-                "text": "Моє ім'я та дата народження.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Інші легко знають ваше ім'я та дату народження. Це робить пароль ненадійним."
-              }
-            ]
-          }
-        ],
-        "content": "<p>В Інтернеті все як у реальному житті: треба бути обережним! Щоб захистити свої облікові записи (електронна пошта, ігри), вам потрібен надійний пароль.</p>\n        <p><strong>Надійний пароль:</strong></p>\n        <ul>\n            <li>Має щонайменше 8-12 символів.</li>\n            <li>Складається з великих і малих літер, цифр і спеціальних символів (наприклад, $, !, ?).</li>\n            <li>Це <strong>не</strong> ваше ім’я, ваша домашня тварина чи «123456»!</li>\n        </ul>\n        <p>Ніколи нікому не повідомляйте свої паролі (окрім, можливо, своїм батькам)!</p>\n        <p><strong>Остерігайтеся комп’ютерних вірусів:</strong> Не натискайте дивні посилання в електронних листах від невідомих людей і не завантажуйте сумнівні файли. Вони можуть містити зловмисне програмне забезпечення (зловмисне ПЗ).</p>\n        {{QUIZ_dgb_s4_q1}}"
-      },
-      {
-        "id": "sec4",
-        "title": "5. Мережевий етикет і поведінка в Інтернеті",
-        "quizzes": [
-          {
-            "id": "dgb_s5_q1",
-            "question": "Що означає кіберзалякування?",
-            "answers": [
-              {
-                "text": "Навмисно та неодноразово ображати чи переслідувати когось в Інтернеті чи за допомогою мобільного телефону.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно: кіберзалякування відбувається навмисно, неодноразово та в Інтернеті."
-              },
-              {
-                "text": "Якщо ваш комп'ютер дає збій під час гри онлайн.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Збій - це технічна проблема. Кібербулінг спрямований проти людей."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s5_q2",
-            "question": "Чи можете ви просто опублікувати смішну фотографію друга в Інтернеті?",
-            "answers": [
-              {
-                "text": "Ні, я повинен спершу запитати у нього дозволу (право на моє зображення).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно: інші люди повинні погодитися на розміщення їх фото."
-              },
-              {
-                "text": "Так, звичайно, якщо це смішно, це добре.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Смішного недостатньо. Без дозволу ви порушуєте право на власне зображення."
-              }
-            ]
-          }
-        ],
-        "content": "<p>За кожним екраном є справжня людина з почуттями. Правила ввічливої поведінки в Інтернеті називаються <strong>Netiquette</strong> (від «Net» — Інтернет і «Etiquette» — хороші манери).</p>\n        <ul>\n            <li><strong>Будьте поважні:</strong> Не пишіть нічого, чого б не сказали людині в обличчя.</li>\n            <li><strong>Право на ваше власне зображення:</strong> Ви можете публікувати або пересилати фотографії та відео інших людей в Інтернеті, лише якщо вони прямо дозволили вам це робити!</li>\n            <li><strong>Copyright:</strong> Тексти, зображення та пісні з Інтернету належать комусь. Ви не можете просто скопіювати їх і вдавати, що вони ваші.</li>\n        </ul>\n        <p><strong>Кібермоббінг:</strong> Якщо когось навмисно ображають, погрожують або виключають з Інтернету, це є кіберзалякуванням. Це не весело, це злочин! Якщо ви помітили щось подібне або самі постраждали: заблокуйте людину, зробіть скріншоти (докази) і довіртеся дорослому!</p>\n        {{QUIZ_dgb_s5_q1}}\n        {{QUIZ_dgb_s5_q2}}"
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Технології, суспільство та ваші власні дії розглядаються разом.</p>\n        <ol class=\"step-list\">\n            <li>Виберіть пристрій зі свого повсякденного життя, наприклад мобільний телефон, шкільний планшет або ігрову консоль.</li><li>Опишіть: Що таке введення? Що обробляється? Який результат?</li><li>Подумайте про те, що в ньому цифрового, а що може залишитися аналоговим.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb5_orientierung_q2}}"
       }
-    ],
-    "diplom": {
-      "title": "🎓 Диплом DGB",
-      "questions": [
-        {
-          "id": "dgb_d1",
-          "question": "Що таке апаратне забезпечення?",
-          "answers": [
-            {
-              "text": "Матеріальні частини комп’ютера.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: обладнання – це всі частини, до яких можна торкатися."
-            },
-            {
-              "text": "Програми та додатки.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Програми та програми є програмним забезпеченням. Апаратне забезпечення - це матеріальні пристрої та компоненти."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d2",
-          "question": "Що означає «V» у принципі EVA?",
-          "answers": [
-            {
-              "text": "обробки",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: V означає обробку введених даних."
-            },
-            {
-              "text": "Підключення",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Підключення звучить технічно, але воно не є частиною принципу EVA. V означає обробку."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d3",
-          "question": "Яке розширення файлу належить зображенню?",
-          "answers": [
-            {
-              "text": ".jpg",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: .jpg — типове розширення файлу для зображень."
-            },
-            {
-              "text": ".mp3",
-              "correct": false,
-              "pts": 5,
-              "feedback": ".mp3 належить до аудіофайлів. Наприклад, зображення мають .jpg або .png."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d4",
-          "question": "Що робить браузер?",
-          "answers": [
-            {
-              "text": "Він відображає веб-сайти.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: браузер відображає веб-сайти на екрані."
-            },
-            {
-              "text": "Захищає від вірусів.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Захист від вірусів створює безпеку програмного забезпечення. Браузер в основному відображає веб-сайти."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d5",
-          "question": "Чи є 'hello123' надійним паролем?",
-          "answers": [
-            {
-              "text": "Ні, це надто легко здогадатися.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: короткі слова з простими цифрами є слабкими паролями."
-            },
-            {
-              "text": "Так, тому що в ньому є цифри.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Одних цифр недостатньо. 'hello123' короткий і його дуже легко вгадати."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d6",
-          "question": "Чи можна публікувати фотографії друзів без дозволу?",
-          "answers": [
-            {
-              "text": "Ні, через право на власний образ.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: вам спочатку потрібен їхній дозвіл, щоб фотографувати інших."
-            },
-            {
-              "text": "Так, поки вони смішні.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Також не можна публікувати смішні картинки. Людина має погодитися."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d7",
-          "question": "Що робити, якщо вас знущаються в Інтернеті?",
-          "answers": [
-            {
-              "text": "Захистіть докази (скріншот) і отримайте допомогу від дорослих.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: скріншоти допомагають, а дорослі можуть вас підтримати."
-            },
-            {
-              "text": "Образа назад.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Образа у відповідь посилює суперечку. Захистіть докази та отримайте допомогу."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d8",
-          "question": "Що таке URL?",
-          "answers": [
-            {
-              "text": "Інтернет-адреса.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: URL-адреса – це точна адреса веб-сайту."
-            },
-            {
-              "text": "Різновид комп'ютерного вірусу.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "URL-адреса не є вірусом. Це адреса, за допомогою якої можна перейти на веб-сайт."
-            }
-          ]
-        }
-      ]
-    }
+    ]
+  },
+  "dgb5_information": {
+    "title": "🔎 Інформація: 5 клас",
+    "subtitle": "Безпечно користуйся даними, пошуком і знаннями - 5 клас (1 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb5_information_q1",
+            "question": "Що покращує пошук в Інтернеті?",
+            "answers": [
+              {
+                "text": "Використовуйте точні терміни пошуку",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "вірити тільки першому результату",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Використовуйте пошукові системи з розумом</li><li>Перевіряйте прості джерела</li><li>Зберігайте, копіюйте, шукайте, змінюйте та видаляйте файли</li>\n            </ul>\n        </div>\n        <p>Тут ви дізнаєтесь, як знаходити, упорядковувати та оцінювати інформацію та як відповідально поводитися з даними.</p>\n        <p>Пошукова система сама не шукає «правду». Він показує вам удари відповідно до правил. Хороший пошук означає: вибирати відповідні терміни пошуку, порівнювати різні джерела та бути обережним, якщо щось звучить дуже перебільшено.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Дані – це збережена інформація. Хороша організація та вдалі терміни пошуку економлять час і запобігають плутанині.</div>\n        {{QUIZ_dgb5_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb5_information_q2",
+            "question": "Що таке файл?",
+            "answers": [
+              {
+                "text": "збережений вміст, наприклад текст або зображення",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "кабель на комп’ютері",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Перегляд навчальної програми:</strong> Важливо не лише щось знайти, а й перевірити, чи це має сенс, чи є воно актуальним і чи заслуговує на довіру.</p>\n        <ol class=\"step-list\">\n            <li>Здійсніть пошук за простим фактичним запитанням, наприклад: Як утворюється веселка?</li><li>Порівняйте два звернення: Хто написав сторінку?</li><li>Збережіть коротку нотатку у відповідній папці та дайте файлу чітку назву.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb5_information_q2}}"
+      }
+    ]
+  },
+  "dgb5_kommunikation": {
+    "title": "💬 Спілкування: 5 кл",
+    "subtitle": "Співпрацюйте онлайн і безпечно спілкуйтеся - 5 клас (1 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb5_kommunikation_q1",
+            "question": "Що таке персональні дані?",
+            "answers": [
+              {
+                "text": "фото з вашим обличчям",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "колір комп'ютера",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Розпізнавати особисті дані</li><li>Вибрати відповідні інструменти зв’язку</li><li>Шахливо співпрацювати онлайн</li>\n            </ul>\n        </div>\n        <p>Це про новини, співпрацю, соціальні мережі, захист даних і шанобливу взаємодію в цифровому просторі.</p>\n        <p>Особисті дані — це інформація про вас, наприклад ім’я, фото, адреса, школа або номер телефону. Перш ніж ділитися будь-чим про себе чи інших, подумайте: хто може це бачити? Цій людині справді потрібна ця інформація?</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Реальні люди сидять онлайн. Захист даних і повага поєднуються.</div>\n        {{QUIZ_dgb5_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb5_kommunikation_q2",
+            "question": "Що важливо під час спільної роботи онлайн?",
+            "answers": [
+              {
+                "text": "Пишіть з повагою та чесно розподіляйте завдання",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "видалити всі файли інших людей без запиту",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Цифровий зв’язок швидкий і практичний, але потребує чітких правил і відповідальності.</p>\n        <ol class=\"step-list\">\n            <li>Сортуйте приклади на «загальнодоступні», «лише для класу», «приватні».</li><li>Порівняйте чат, електронну пошту та спільний документ: який інструмент підходить для чого?</li><li>Сформулюйте справедливу відповідь на недружнє повідомлення.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb5_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb5_produktion": {
+    "title": "🛠️ Виробництво: 5 клас",
+    "subtitle": "Створення цифрового контенту та розв'язування задач - 5 клас (1 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb5_produktion_q1",
+            "question": "Що таке алгоритм?",
+            "answers": [
+              {
+                "text": "точні покрокові інструкції",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "випадкова картинка в Інтернеті",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Сформулюйте прості алгоритми як чіткі послідовності кроків</li><li>Структуруйте тексти та презентації</li><li>Легко збирайте та представляйте дані</li>\n            </ul>\n        </div>\n        <p>Тут ви створюєте тексти, презентації, медіа чи невеликі програми та вчитеся розбивати проблеми на прості кроки.</p>\n        <p>Алгоритм — це чіткий набір інструкцій. Комп’ютери потребують точних кроків. Якщо крок відсутній або незрозумілий, виникає помилка. Для гарної презентації також потрібна структура: заголовок, вміст, зображення та чіткий порядок.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Хороші цифрові продукти створюються шляхом планування, випробування та вдосконалення.</div>\n        {{QUIZ_dgb5_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb5_produktion_q2",
+            "question": "Що робить презентацію зрозумілою?",
+            "answers": [
+              {
+                "text": "чіткі заголовки та відповідні зображення",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "якомога більше різних шрифтів",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Виробництво означає: планування, проектування, перевірка, вдосконалення та справедливе поводження зі стороннім вмістом.</p>\n        <ol class=\"step-list\">\n            <li>Напишіть інструкції: «Як відкрити навчальну сторінку та знайти тему».</li><li>Перевірте інструкції з партнером.</li><li>Покращіть незрозумілі кроки та додайте змістовний заголовок.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb5_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb5_handeln": {
+    "title": "🧰 Дія: 5 клас",
+    "subtitle": "Використовуйте цифрові пропозиції свідомо та самостійно - 5 клас (1 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb5_handeln_q1",
+            "question": "Що входить до апаратного забезпечення?",
+            "answers": [
+              {
+                "text": "Клавіатура та екран",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "текстова програма",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Назвати важливі апаратні частини</li><li>Використовувати основні функції операційної системи</li><li>Використовувати довідкові системи у разі виникнення проблем</li>\n            </ul>\n        </div>\n        <p>Це стосується пристроїв, програмного забезпечення, безпеки, допомоги у вирішенні проблем і прийняття правильних рішень у цифровому світі.</p>\n        <p>Апаратне забезпечення – це частини, до яких можна торкатися: екран, клавіатура, миша, пам’ять, процесор. Програмне забезпечення - це програми. Операційна система допомагає керувати файлами, запускати програми та змінювати налаштування.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Діяти самостійно означає: зберігати спокій, описувати проблему, шукати допомоги і лише потім натискати.</div>\n        {{QUIZ_dgb5_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb5_handeln_q2",
+            "question": "Що робить операційна система?",
+            "answers": [
+              {
+                "text": "це допомагає керувати програмами та файлами",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "він замінює клавіатуру",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Ви повинні належним чином використовувати цифрові інструменти та думати про здоров’я, довкілля, права та безпеку.</p>\n        <ol class=\"step-list\">\n            <li>Позначте найважливіші частини комп’ютера чи планшета.</li><li>Відкрийте програму, збережіть файл і знайдіть його знову.</li><li>Скористайтеся функцією довідки або знайдіть налаштування в меню.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb5_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb6_orientierung": {
+    "title": "🧭 Орієнтація: 6 клас",
+    "subtitle": "Розуміння та класифікація цифрового світу - 6 клас (2 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb6_orientierung_q1",
+            "question": "Що означає цифрова доступність?",
+            "answers": [
+              {
+                "text": "Якомога більше людей можуть скористатися пропозицією",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "веб-сайт має особливо велику кількість спливаючих вікон",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Вибирайте цифрові інструменти відповідно до завдання</li><li>Розумійте доступність як якісну функцію</li><li>Визначте інтереси, що стоять за медіапропозиціями</li>\n            </ul>\n        </div>\n        <p>Це стосується не просто використання цифрових технологій, а й розуміння того, як вони змінюють наше життя, навчання та співіснування.</p>\n        <p>Цифрові пропозиції не є нейтральними. Вони розроблені людьми та компаніями. Одні хочуть інформувати, інші хочуть продати або привернути увагу. Хороші цифрові інструменти відповідають завданням і мають бути доступними якомога більшій кількості людей.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Хороша технологія має бути корисною, зрозумілою та максимально безбар’єрною.</div>\n        {{QUIZ_dgb6_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb6_orientierung_q2",
+            "question": "Чому медіапропозиції не завжди нейтральні?",
+            "answers": [
+              {
+                "text": "тому що за ними стоять інтереси та рішення",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "тому що всі пристрої працюють однаково",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Технології, суспільство та ваші власні дії розглядаються разом.</p>\n        <ol class=\"step-list\">\n            <li>Порівняйте дві програми чи веб-сайти: якою з них легше користуватися?</li><li>Зверніть увагу на розмір шрифту, контрастність, мову та роботу.</li><li>Подумайте, хто зароблятиме гроші чи отримує переваги від пропозиції.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb6_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb6_information": {
+    "title": "🔎 Інформація: 6 клас",
+    "subtitle": "Безпечно користуйся даними, пошуком і знаннями - 6 клас (2 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb6_information_q1",
+            "question": "Що ви робите під час сортування даних?",
+            "answers": [
+              {
+                "text": "Організуйте дані відповідно до правила",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "Навмисне приховування даних",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Збирайте, сортуйте та відображайте дані</li><li>Розрізняйте формати даних і розміри файлів</li><li>Ознайомтеся з такими ліцензіями, як Creative Commons</li>\n            </ul>\n        </div>\n        <p>Тут ви дізнаєтесь, як знаходити, упорядковувати та оцінювати інформацію та як відповідально поводитися з даними.</p>\n        <p>Дані можна збирати, сортувати, фільтрувати та відображати у вигляді таблиці чи діаграми. Має бути зрозумілим, що означають дані. Це також важливо для зображень, музики та текстів: хто його створив і що я можу з ним зробити?</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Дані стають корисними лише тоді, коли вони представлені в упорядкованій, зрозумілій формі та використовуються справедливо.</div>\n        {{QUIZ_dgb6_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb6_information_q2",
+            "question": "Чому ліцензії важливі?",
+            "answers": [
+              {
+                "text": "вони показують, як ви можете використовувати сторонній вміст",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "вони автоматично зменшують файли",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Перегляд навчальної програми:</strong> Важливо не лише щось знайти, а й перевірити, чи це має сенс, чи є воно актуальним і чи заслуговує на довіру.</p>\n        <ol class=\"step-list\">\n            <li>Зберіть прості дані класу, наприклад улюблені види спорту.</li><li>Створіть таблицю та діаграму.</li><li>Знайдіть зображення відкритої ліцензії та зазначте джерело.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb6_information_q2}}"
+      }
+    ]
+  },
+  "dgb6_kommunikation": {
+    "title": "💬 Спілкування: 6 кл",
+    "subtitle": "Співпрацюйте онлайн і безпечно спілкуйтеся - 6 клас (2 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb6_kommunikation_q1",
+            "question": "Що таке фішинг?",
+            "answers": [
+              {
+                "text": "спроба шахрайства з метою отримання даних або паролів",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "програма для малювання",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Зрозуміти основну ідею мереж і пакетів даних</li><li>Визначити бізнес-моделі соціальних мереж</li><li>Подолати фейкові новини, фішинг і захист даних</li>\n            </ul>\n        </div>\n        <p>Це про новини, співпрацю, соціальні мережі, захист даних і шанобливу взаємодію в цифровому просторі.</p>\n        <p>Інформація передається в Інтернеті невеликими фрагментами, схожими на пакети. Такі платформи, як соціальні медіа, часто пропонують безкоштовне використання з певної причини: увага та дані можуть бути цінними для компаній.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Не кожне повідомлення є чесним. Перевірка захищає вас та інших.</div>\n        {{QUIZ_dgb6_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb6_kommunikation_q2",
+            "question": "Навіщо служби соціальних мереж збирають дані?",
+            "answers": [
+              {
+                "text": "Дані можна використовувати для реклами та рекомендацій",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "так що мобільний телефон стає важчим",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Цифровий зв’язок швидкий і практичний, але потребує чітких правил і відповідальності.</p>\n        <ol class=\"step-list\">\n            <li>Подумки розбийте коротке повідомлення на пакети та знову з’єднайте їх.</li><li>Перевірте підозріле повідомлення: хто його надсилає? Що мені натиснути?</li><li>Збирайте попереджувальні знаки про фейкові новини чи фішинг.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb6_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb6_produktion": {
+    "title": "🛠️ Виробництво: 6 клас",
+    "subtitle": "Створення цифрового контенту та розв'язування задач - 6 клас (2 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb6_produktion_q1",
+            "question": "Що означає налагодження?",
+            "answers": [
+              {
+                "text": "Знайти та виправити помилки в програмі",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "очищення екрану",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Створюйте та тестуйте прості програми</li><li>Знаходьте та виправляйте помилки</li><li>Створюйте медіаконтент і поважайте авторські права</li>\n            </ul>\n        </div>\n        <p>Тут ви створюєте тексти, презентації, медіа чи невеликі програми та вчитеся розбивати проблеми на прості кроки.</p>\n        <p>Програми обробляють дані. При програмуванні виникають помилки, це нормально. Налагодження означає: пошук, розуміння та усунення помилки. Наступне стосується зображень, звуку та відео: використовуйте власний вміст або поважайте права авторів.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Тестування та покращення є частиною програмування.</div>\n        {{QUIZ_dgb6_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb6_produktion_q2",
+            "question": "Що важливо при реміксуванні стороннього контенту?",
+            "answers": [
+              {
+                "text": "Поважайте авторські права та ліцензію",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "завжди видаляйте ім'я творця",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Виробництво означає: планування, проектування, перевірка, вдосконалення та справедливе поводження зі стороннім вмістом.</p>\n        <ol class=\"step-list\">\n            <li>Створіть невелику програму із запуском, введенням і виведенням.</li><li>Перевірте її з різними вхідними даними.</li><li>Створіть зображення чи аудіо та вкажіть, які частини є вашими.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb6_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb6_handeln": {
+    "title": "🧰 Дія: 6 клас",
+    "subtitle": "Використовуйте цифрові пропозиції свідомо та самостійно - 6 клас (2 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb6_handeln_q1",
+            "question": "Що описує мережу?",
+            "answers": [
+              {
+                "text": "підключені пристрої, які можуть обмінюватися даними",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "просто екран комп'ютера",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Поясніть взаємодію апаратного та програмного забезпечення</li><li>Під’єднайте пристрої до мереж</li><li>Зробіть цифрове використання здоровим і екологічним</li>\n            </ul>\n        </div>\n        <p>Це стосується пристроїв, програмного забезпечення, безпеки, допомоги у вирішенні проблем і прийняття правильних рішень у цифровому світі.</p>\n        <p>Апаратне та програмне забезпечення працюють разом: пристрій надає параметри, програми використовують ці параметри. Цифрові пристрої потребують електроенергії, сировини та догляду. Перерви, поза та очі також є частиною хорошого цифрового робочого місця.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Добре використовувати означає: розуміти пристрій, чітко описати проблему та свідомо витрачати час і енергію.</div>\n        {{QUIZ_dgb6_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb6_handeln_q2",
+            "question": "Що є стійким при використанні пристроїв?",
+            "answers": [
+              {
+                "text": "Використовуйте пристрої обережно і не замінюйте їх без потреби",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "постійно купувати нові пристрої",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Ви повинні належним чином використовувати цифрові інструменти та думати про здоров’я, довкілля, права та безпеку.</p>\n        <ol class=\"step-list\">\n            <li>Намалюйте цифровий робочий простір: пристрій, мережа, вхід, вихід.</li><li>Опишіть технічну проблему досить докладно, щоб хтось міг допомогти.</li><li>Зверніть увагу на три правила здорового та екологічного використання.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb6_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb7_orientierung": {
+    "title": "🧭 Орієнтація: 7 клас",
+    "subtitle": "Розуміння та класифікація цифрового світу - 7 клас (3 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb7_orientierung_q1",
+            "question": "Який приклад Інтернету речей?",
+            "answers": [
+              {
+                "text": "підключений годинник, який надсилає дані в програму",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "паперовий блокнот без техніки",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Розпізнавати штучний інтелект та Інтернет речей у повсякденному житті</li><li>Аналізувати можливості та ризики персоналізованого використання медіа</li><li>Подумати про цифрову доступність і участь</li>\n            </ul>\n        </div>\n        <p>Це стосується не просто використання цифрових технологій, а й розуміння того, як вони змінюють наше життя, навчання та співіснування.</p>\n        <p>Багато цифрових систем працюють у фоновому режимі: рекомендації, голосові помічники, розумні пристрої чи навігаційні програми. Вони можуть бути корисними, але також можуть виключати людей, збирати дані або впливати на рішення.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Цифрові технології завжди впроваджені в суспільство: вони створюють можливості, але також створюють нові запитання.</div>\n        {{QUIZ_dgb7_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb7_orientierung_q2",
+            "question": "Що може зробити персоналізація?",
+            "answers": [
+              {
+                "text": "Зміст мене влаштовує, але може мати на мене односторонній вплив",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "усі люди автоматично бачать те саме",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Технології, суспільство та ваші власні дії розглядаються разом.</p>\n        <ol class=\"step-list\">\n            <li>Знайдіть три щоденні приклади штучного інтелекту або підключених пристроїв.</li><li>Notiere: Що в цьому практичного? Що може бути проблематичним?</li><li>Подумайте, як пропозицією може скористатися більше людей.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb7_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb7_information": {
+    "title": "🔎 Інформація: 7 кл",
+    "subtitle": "Безпечно користуйся даними, пошуком і знаннями - 7 клас (3 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb7_information_q1",
+            "question": "Що є ознакою кращого джерела?",
+            "answers": [
+              {
+                "text": "Автора, дату та мету можна визначити",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "заголовок особливо гучний",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Плануйте дослідження та порівнюйте джерела</li><li>Критично читайте діаграми та представлення даних</li><li>Розпізнавайте та обґрунтовуйте шаблони в даних</li>\n            </ul>\n        </div>\n        <p>Тут ви дізнаєтесь, як знаходити, упорядковувати та оцінювати інформацію та як відповідально поводитися з даними.</p>\n        <p>Гарне дослідження починається із запитання та плану. Дані та діаграми можуть допомогти щось зрозуміти. Але вони також можуть виглядати маніпулятивними, якщо осі, розрізи чи кольори вибрано вміло.</p>\n        <div class=\"remember-box\"><strong>Merke:</strong> Кожен, хто показує дані, приймає рішення. Ось чому ви повинні критично читати представлення.</div>\n        {{QUIZ_dgb7_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb7_information_q2",
+            "question": "Як діаграма може бути оманливою?",
+            "answers": [
+              {
+                "text": "через обрізані сокири або відсутність з’єднання",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "через чітке маркування",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Перегляд навчальної програми:</strong> Важливо не лише щось знайти, а й перевірити, чи це має сенс, чи є воно актуальним і чи заслуговує на довіру.</p>\n        <ol class=\"step-list\">\n            <li>Сформулюйте дослідницьке запитання.</li><li>Використайте принаймні два джерела та порівняйте їх.</li><li>Перевірте діаграму: чи вісь починається з 0? Відсутня важлива інформація?</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb7_information_q2}}"
+      }
+    ]
+  },
+  "dgb7_kommunikation": {
+    "title": "💬 Спілкування: 7 кл",
+    "subtitle": "Співпрацюйте онлайн і безпечно спілкуйтеся - 7 клас (3 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb7_kommunikation_q1",
+            "question": "Що таке двофакторний вхід?",
+            "answers": [
+              {
+                "text": "друге підтвердження на додаток до пароля",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "два однакові паролі",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Розуміння хмарних служб</li><li>Використання паролів, двофакторного входу та шифрування</li><li>Відображення цифрової ідентифікації та кіберризиків</li>\n            </ul>\n        </div>\n        <p>Це про новини, співпрацю, соціальні мережі, захист даних і шанобливу взаємодію в цифровому просторі.</p>\n        <p>Cloud означає: дані не лише на вашому пристрої, а й на серверах. Це зручно для спільного використання, але вимагає захисту даних. Надійні паролі, двофакторний вхід і обережне використання посилань захищають вашу цифрову ідентичність.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Безпека — це не один клік, а звичка.</div>\n        {{QUIZ_dgb7_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb7_kommunikation_q2",
+            "question": "Чому хмарне сховище не є автоматично приватним?",
+            "answers": [
+              {
+                "text": "оскільки дані можуть оброблятися на сторонніх серверах",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "тому що хмари завжди публічні",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Цифровий зв’язок швидкий і практичний, але потребує чітких правил і відповідальності.</p>\n        <ol class=\"step-list\">\n            <li>Порівняйте локальний файл і хмарний файл: переваги та ризики.</li><li>Створіть правило для надійних паролів.</li><li>Обговоріть, що робити у випадку кіберзалякування чи крадіжки особистих даних.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb7_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb7_produktion": {
+    "title": "🛠️ Виробництво: 7 клас",
+    "subtitle": "Створення цифрового контенту та розв'язування задач - 7 клас (3 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q1",
+            "question": "Що таке обчислювальне мислення?",
+            "answers": [
+              {
+                "text": "розбити проблему на менші частини",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "клацання без плану",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Використовуйте комп’ютерне мислення</li><li>Створюйте медіапродукцію критично та без бар’єрів</li><li>Розумно адаптуйте налаштування програмного забезпечення</li>\n            </ul>\n        </div>\n        <p>Тут ви створюєте тексти, презентації, медіа чи невеликі програми та вчитеся розбивати проблеми на прості кроки.</p>\n        <p>Комп’ютерне мислення означає: розбивати проблему, розпізнавати закономірності, спрощувати те, що важливо, і будувати на основі цього рішення. У медіа-продукції важливо не лише те, чи щось виглядає красиво, але й те, як це працює та чи кожен може цим користуватися.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Хороший цифровий дизайн є зрозумілим, чесним і доступним.</div>\n        {{QUIZ_dgb7_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q2",
+            "question": "Що покращує доступність?",
+            "answers": [
+              {
+                "text": "хороший контраст і чітка мова",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "дуже дрібний шрифт",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Виробництво означає: планування, проектування, перевірка, вдосконалення та справедливе поводження зі стороннім вмістом.</p>\n        <ol class=\"step-list\">\n            <li>Розбийте проблему на невеликі кроки.</li><li>Створіть цифровий продукт, наприклад плакат, коротке відео або вікторину.</li><li>Перевірте контрастність, розмір шрифту, деталізацію зображення та зрозумілість.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb7_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb7_handeln": {
+    "title": "🧰 Дія: 7 клас",
+    "subtitle": "Використовуйте цифрові пропозиції свідомо та самостійно - 7 клас (3 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb7_handeln_q1",
+            "question": "Що таке зловмисне програмне забезпечення?",
+            "answers": [
+              {
+                "text": "шкідливе програмне забезпечення",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "особливо швидкий екран",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Виявлення комп’ютерів у повсякденних предметах</li><li>Пояснення можливостей і ризиків інтелектуальних систем</li><li>Захист пристроїв від зловмисного програмного забезпечення та врахування екологічних питань</li>\n            </ul>\n        </div>\n        <p>Це стосується пристроїв, програмного забезпечення, безпеки, допомоги у вирішенні проблем і прийняття правильних рішень у цифровому світі.</p>\n        <p>Багато побутових об’єктів містять комп’ютерні системи: автомобілі, пральні машини, годинники, банкомати чи системи опалення. Вони можуть полегшити роботу, але іноді збирають дані та потребують енергії, сировини та оновлень.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Розумні пристрої корисні, але не нешкідливі. Захист, оновлення та свідоме використання важливі.</div>\n        {{QUIZ_dgb7_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb7_handeln_q2",
+            "question": "Чому цифрові пристрої також мають екологічні наслідки?",
+            "answers": [
+              {
+                "text": "їм потрібна сировина, енергія та утилізація",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "тому що вони ніколи не використовують електрику",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Ви повинні належним чином використовувати цифрові інструменти та думати про здоров’я, довкілля, права та безпеку.</p>\n        <ol class=\"step-list\">\n            <li>Виберіть розумний повсякденний предмет.</li><li>Опишіть його функції, дані та можливий ризик.</li><li>Розробіть три правила захисту від зловмисного програмного забезпечення.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb7_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb8_orientierung": {
+    "title": "🧭 Орієнтація: 8 клас",
+    "subtitle": "Розуміння та класифікація цифрового світу - 8 клас (4 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb8_orientierung_q1",
+            "question": "Що таке бульбашка фільтра?",
+            "answers": [
+              {
+                "text": "якщо вам показують переважно схожий вміст",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "захисне скло для екрану",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Подумайте про обмеження та можливості штучного інтелекту</li><li>Розпізнайте бульбашки фільтрів і стереотипи</li><li>Об’єктивно обговоріть ентузіазм щодо технологій і страх перед ними</li>\n            </ul>\n        </div>\n        <p>Це стосується не просто використання цифрових технологій, а й розуміння того, як вони змінюють наше життя, навчання та співіснування.</p>\n        <p>ШІ може розпізнавати шаблони, генерувати тексти або вносити пропозиції. Однак він не розуміє, як людина, і може створювати помилки, упередження або вигаданий вміст. Цифрові системи можуть зміцнити світогляд, якщо вони завжди показуватимуть схожий вміст.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> AI — це інструмент. Люди, які створюють, використовують і тестують їх, несуть відповідальність.</div>\n        {{QUIZ_dgb8_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb8_orientierung_q2",
+            "question": "Навіщо вам потрібно перевіряти результати ШІ?",
+            "answers": [
+              {
+                "text": "оскільки вони можуть містити помилки та упередження",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "тому що AI завжди правильний автоматично",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Технології, суспільство та ваші власні дії розглядаються разом.</p>\n        <ol class=\"step-list\">\n            <li>Порівняйте дві системи відповідей або рекомендацій штучного інтелекту.</li><li>Знайдіть можливі помилки, припущення чи відсутні перспективи.</li><li>Сформулюйте справедливе правило використання ШІ в школі.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb8_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb8_information": {
+    "title": "🔎 Інформація: 8 клас",
+    "subtitle": "Безпечно користуйся даними, пошуком і знаннями - 8 клас (4 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q1",
+            "question": "Для чого потрібна резервна копія?",
+            "answers": [
+              {
+                "text": "щоб мати можливість відновити дані",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "навмисно втратити файли",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Виконуйте резервне копіювання та відновлення</li><li>Поясніть збір даних, зв’язування та моніторинг</li><li>Підготуйте інформацію відповідно до цільових груп і ЗМІ</li>\n            </ul>\n        </div>\n        <p>Тут ви дізнаєтесь, як знаходити, упорядковувати та оцінювати інформацію та як відповідально поводитися з даними.</p>\n        <p>Резервна копія – це резервна копія. Він захищає від втрати через дефект, крадіжку або випадкове видалення. У той же час багато даних про використання збираються та зв’язуються в цифрових системах. Це може бути практично, але ним також можна зловживати.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Захист даних означає: захистити їх, економно ділитися ними та розуміти, хто може їх оцінити.</div>\n        {{QUIZ_dgb8_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q2",
+            "question": "Чим небезпечні пов’язані дані про використання?",
+            "answers": [
+              {
+                "text": "можна створити точні профілі людей",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "У результаті файлів стає все менше",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Перегляд навчальної програми:</strong> Важливо не лише щось знайти, а й перевірити, чи це має сенс, чи є воно актуальним і чи заслуговує на довіру.</p>\n        <ol class=\"step-list\">\n            <li>Сплануйте політику резервного копіювання шкільних файлів.</li><li>Розрізняйте, які дані нешкідливі, а які конфіденційні?</li><li>Підготуйте ту саму інформацію один раз для дітей і один раз для дорослих.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb8_information_q2}}"
+      }
+    ]
+  },
+  "dgb8_kommunikation": {
+    "title": "💬 Спілкування: 8 кл",
+    "subtitle": "Співпрацюйте онлайн і безпечно спілкуйтеся - 8 клас (4 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb8_kommunikation_q1",
+            "question": "Що таке протокол у мережі?",
+            "answers": [
+              {
+                "text": "правило передачі даних",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "фотоальбом",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Розуміти протоколи як правила передачі даних</li><li>Визнавати медіареальність і маніпуляції</li><li>Поважати авторські права, право на власне зображення та захист даних</li>\n            </ul>\n        </div>\n        <p>Це про новини, співпрацю, соціальні мережі, захист даних і шанобливу взаємодію в цифровому просторі.</p>\n        <p>Щоб дані надходили в Інтернет, пристроям потрібні спільні правила. Ці правила називаються протоколами. У соціальних мережах реалії виникають через вибір, редагування, обмін та алгоритми. Ось чому ви повинні критично розглядати зображення, звуки та дані.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Швидкий обмін вимагає повільного мислення: перевірте права, вплив і правду.</div>\n        {{QUIZ_dgb8_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb8_kommunikation_q2",
+            "question": "Чому не можна просто публікувати фотографії інших людей?",
+            "answers": [
+              {
+                "text": "через згоду і право на власний образ",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "тому що фотографії ніколи не є даними",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Цифровий зв’язок швидкий і практичний, але потребує чітких правил і відповідальності.</p>\n        <ol class=\"step-list\">\n            <li>Поясніть протокол із повсякденним правилом, наприклад правилами розмови.</li><li>Дослідіть вірусне зображення чи відео: що показано, чого не вистачає?</li><li>Сформулюйте правило для обміну фотографіями з класу.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb8_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb8_produktion": {
+    "title": "🛠️ Виробництво: 8 клас",
+    "subtitle": "Створення цифрового контенту та розв'язування задач - 8 клас (4 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb8_produktion_q1",
+            "question": "Що таке псевдокод?",
+            "answers": [
+              {
+                "text": "зрозуміле планування програми повсякденною мовою",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "зламаний комп'ютерний код",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Плануйте програми з циклами та умовами</li><li>Використовуйте псевдокод і документацію</li><li>Впроваджуйте цифрові проекти з розподілом завдань</li>\n            </ul>\n        </div>\n        <p>Тут ви створюєте тексти, презентації, медіа чи невеликі програми та вчитеся розбивати проблеми на прості кроки.</p>\n        <p>Великі цифрові проекти потребують планування. Програми можуть поєднувати керуючі структури: умови, цикли та вкладені процеси. Псевдокод допомагає спочатку спланувати ідеї повсякденною мовою, перш ніж передавати їх в інструмент.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Професійна робота означає: планування, створення, тестування, документування та вдосконалення.</div>\n        {{QUIZ_dgb8_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb8_produktion_q2",
+            "question": "Чому документація важлива?",
+            "answers": [
+              {
+                "text": "щоб інші могли зрозуміти рішення та продовжити роботу",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "щоб ніхто не бачив план",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Виробництво означає: планування, проектування, перевірка, вдосконалення та справедливе поводження зі стороннім вмістом.</p>\n        <ol class=\"step-list\">\n            <li>Створіть невелику програму чи веб-ідею для реальної проблеми.</li><li>Напишіть псевдокод і діліться завданнями в команді.</li><li>Тестуйте, документуйте та вдосконалюйте рішення.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb8_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb8_handeln": {
+    "title": "🧰 Дія: 8 клас",
+    "subtitle": "Використовуйте цифрові пропозиції свідомо та самостійно - 8 клас (4 клас)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Про що йдеться?",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q1",
+            "question": "Що робить шифрування?",
+            "answers": [
+              {
+                "text": "це ускладнює читання даних неавторизованим особам",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це ядро ​​цієї навчальної програми."
+              },
+              {
+                "text": "він автоматично видаляє всі дані",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ще не зовсім. Прочитайте мнемосхему та повторіть спробу."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Це можна зробити після цієї глави:</strong>\n            <ul class=\"step-list\">\n                <li>Розрізняти апаратний, системний і прикладний рівні</li><li>Розуміти шифрування як засіб захисту</li><li>Відображати цифрову участь, права споживача та самовизначення</li>\n            </ul>\n        </div>\n        <p>Це стосується пристроїв, програмного забезпечення, безпеки, допомоги у вирішенні проблем і прийняття правильних рішень у цифровому світі.</p>\n        <p>Цифрові системи складаються з кількох рівнів: обладнання, операційна система, програми та онлайн-сервіси. Encryption protects data from being read. У той же час технічні налаштування часто визначають, що можливо і які рішення будуть легкими чи важкими.</p>\n        <div class=\"remember-box\"><strong>Примітка:</strong> Діяти відповідально означає: розуміти технології, використовувати захист і знати власні права.</div>\n        {{QUIZ_dgb8_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Практикум для викладання",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q2",
+            "question": "Який приклад законодавства про захист прав споживачів у цифровому світі?",
+            "answers": [
+              {
+                "text": "Зрозумійте вартість передплати та умови покупки",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Це добре підходить для практичного застосування."
+              },
+              {
+                "text": "негайно натискайте на кожне спливаюче вікно",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Це не буде хорошою чи безпечною цифровою дією. Спробуйте знову."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Вигляд навчальної програми:</strong> Ви повинні належним чином використовувати цифрові інструменти та думати про здоров’я, довкілля, права та безпеку.</p>\n        <ol class=\"step-list\">\n            <li>Зіставте приклади з апаратним забезпеченням, операційною системою, додатком або рівнем обслуговування.</li><li>Поясніть, чому шифрування може бути важливим у повідомленнях.</li><li>Обговоріть проблему цифрового споживача: пастка підписки, покупка через програму або шахрайство.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Міні-завдання:</strong> Поясніть партнеру за 30 секунд, чому ця тема важлива в повсякденному житті.</div>\n        {{QUIZ_dgb8_handeln_q2}}"
+      }
+    ]
   },
   "wetter": {
     "title": "🌤️ Погода: яка це? 🌦️",
@@ -11656,5 +12664,16 @@
         }
       ]
     }
+  },
+  "mathespiel": {
+    "title": "Розрахункова подорож",
+    "subtitle": "Навчальна гра для базового арифметичного та просторового мислення",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "Ласкаво просимо в комп’ютерну подорож",
+        "content": "<p>Почніть із швидкої перевірки. Після цього під час розрахунку завдання автоматично коригуються: у міру того, як ви стаєте впевненішими, завдання стають складнішими. Якщо щось усе ще хитається, ви отримаєте менші кроки.</p><div id='mathGameRoot' class='math-game' data-math-game></div>"
+      }
+    ]
   }
 }

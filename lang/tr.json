@@ -5263,339 +5263,1347 @@
       ]
     }
   },
-  "dgb5": {
-    "title": "💻 Dijital temel eğitim 🖥️",
-    "subtitle": "Dijital dünyaya hoş geldiniz! Burada bilgisayarlar, İnternet ve çevrimiçi güvenli davranışlar (5. sınıf) hakkında bilmeniz gereken her şeyi öğreneceksiniz.",
+  "dgb_word_werkstatt": {
+    "title": "📝 Kelime atölyesi: Belge yazma ve tasarlama",
+    "subtitle": "Microsoft Word için bağımsız adım adım görevler",
+    "script": false,
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Donanım ve Yazılım (EVA prensibi)",
+        "id": "word_sec0",
+        "title": "1. Yönelim: Word'de ne var?",
+        "content": "<div class=\"word-workshop\">\n  <div class=\"lesson-goals\"><strong>Bu atölyeden sonra yapabilecekleriniz şunlardır:</strong><ul class=\"step-list\"><li>yeni bir Word belgesi oluşturun, kaydedin ve bulun</li><li>metni güvenli bir şekilde işaretleyin, taşıyın, kopyalayın ve biçimlendirin</li><li>Başlıklar, paragraflar, listeler, tablolar, resimler, sayfa numaraları ve Üstbilgileri/altbilgileri kullan</li><li>bitmiş bir belgeyi PDF olarak teslim edin</li></ul></div>\n  <p>Her zaman şu şekilde çalışın: <strong>oku - Word'de deneyin - kontrol edin - yalnızca sonra devam edin.</strong> Word'ünüz biraz farklı görünüyorsa, önce üstteki şeritte aynı kelimeyi arayın: <strong>Start</strong>, <strong>Insert</strong>, <strong>Layout</strong> veya <strong>Check</strong>.</p>\n  \n<div class=\"word-diagram\" role=\"img\" aria-label=\"Vereinfachte Word-Oberfläche mit Menüband, Registerkarten und Dokumentseite\">\n<svg viewBox=\"0 0 920 430\">\n  <rect x=\"18\" y=\"18\" width=\"884\" height=\"394\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"18\" y=\"18\" width=\"884\" height=\"42\" rx=\"18\" fill=\"#1d4ed8\"/>\n  <text x=\"42\" y=\"44\" class=\"word-label word-title-label\">Word penceresi</text>\n  <rect x=\"34\" y=\"76\" width=\"850\" height=\"42\" rx=\"8\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"48\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"91\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"146\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"word-tab-active\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"189\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Başlat</text><rect x=\"244\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"287\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"342\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"385\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Draw</text><rect x=\"440\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"483\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"538\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"581\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Referanslar@@TOKEN_52 @@<rect x=\"636\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"679\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"734\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"777\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"34\" y=\"126\" width=\"850\" height=\"76\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\"/>\n  <rect x=\"54\" y=\"142\" width=\"160\" height=\"42\" rx=\"8\" class=\"word-highlight\"/>\n  <text x=\"134\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Font</text>\n  <rect x=\"232\" y=\"142\" width=\"170\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"317\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Paragraf</text>\n  <rect x=\"420\" y=\"142\" width=\"210\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"525\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Şablonları biçimlendir</text>\n  <rect x=\"668\" y=\"142\" width=\"150\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"743\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Düzenle</text>\n  <rect x=\"270\" y=\"224\" width=\"380\" height=\"150\" rx=\"8\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"2\"/>\n  <line x1=\"306\" y1=\"262\" x2=\"612\" y2=\"262\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"306\" y1=\"292\" x2=\"570\" y2=\"292\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"306\" y1=\"322\" x2=\"598\" y2=\"322\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <rect x=\"698\" y=\"238\" width=\"138\" height=\"62\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"767\" y=\"263\" text-anchor=\"middle\" class=\"word-small-label\">Menü Şeridi</text>\n  <text x=\"767\" y=\"282\" text-anchor=\"middle\" class=\"word-small-label\">yukarıda ara</text>\n  <path d=\"M700 268 L620 170\" stroke=\"#fb923c\" stroke-width=\"3\" marker-end=\"url(#wordArrow)\" fill=\"none\"/>\n  <rect x=\"76\" y=\"248\" width=\"142\" height=\"70\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"147\" y=\"275\" text-anchor=\"middle\" class=\"word-small-label\">Belge sayfası:</text>\n  <text x=\"147\" y=\"294\" text-anchor=\"middle\" class=\"word-small-label\">buraya yazıyorsunuz</text>\n  <path d=\"M218 284 L270 284\" stroke=\"#fb923c\" stroke-width=\"3\" marker-end=\"url(#wordArrow)\" fill=\"none\"/>\n  <rect x=\"34\" y=\"386\" width=\"850\" height=\"14\" rx=\"7\" fill=\"#e2e8f0\"/>\n  <text x=\"54\" y=\"378\" class=\"word-small-label\">Durum çubuğu: sayfalar, kelimeler, yakınlaştırma</text>\n  <defs><marker id=\"wordArrow\" markerWidth=\"10\" markerHeight=\"8\" refX=\"8\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L9,4 L0,8 Z\" fill=\"#fb923c\"/></marker></defs>\n</svg>\n</div>\n  <div class=\"remember-box\"><strong>Önemli:</strong> Komutların çoğunu <strong>menü şeridinin en üstünde bulabilirsiniz</strong>. Öncelikle Ana Sayfa veya Ekle gibi bir <strong>tab</strong> öğesine tıklarsınız. Ardından aşağıdaki çubuktan uygun komutu seçin.</div>\n  \n<div class=\"word-task-card\">\n  <h3>Mini görev 1: Word Okuma penceresi</h3><ol class=\"word-mini-steps\"><li>Microsoft Word'ü açın ve <strong>Boş Belge</strong>.</li><li>Parmağınızı veya farenizi sekmelere yönlendirin <strong>File</strong>, <strong>Start</strong>, <strong>Insert</strong>, <strong>Layout</strong> ve <strong>Review</strong>.</li><li><strong>Başlat</strong>'ye tıklayın. <strong>Font</strong>, <strong>Paragraph</strong> ve <strong>Format şablonları</strong>.</li><li> alanlarını bulun. Beyaz sayfada bir kez tıklayın ve şunu yazın: <em>Bugün Word ile çalışıyorum.</em></li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Beyaz sayfada bir cümle görüyorsunuz ve üstte <strong>Start</strong> sekmesi açık.</div>\n</div>\n  <details class=\"guided-hint\"><summary>Şerit gittiyse</summary><p><strong>Ctrl + F1</strong> tuşuna basın veya <strong>Start</strong> gibi bir sekmeye çift tıklayın. Ardından çubuk tekrar görünecektir.</p></details>\n</div>\n{{QUIZ_word_q1}}",
         "quizzes": [
           {
-            "id": "dgb_s1_q1",
-            "question": "Donanıma neler dahildir?",
+            "id": "word_q1",
+            "question": "Word'de en çok komutu nerede bulabilirsiniz?",
             "answers": [
               {
-                "text": "Fare, klavye ve ekran",
+                "text": "Sekmeli şeridin üst kısmı",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Doğru: Bunlar dokunabileceğiniz donanım parçalarıdır."
+                "feedback": "Doğru. Önce sekmeyi seçin, ardından komutu arayın."
               },
               {
-                "text": "Oyunlar, uygulamalar ve tarayıcı",
+                "text": "Yalnızca durum çubuğunun altında",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Uygulamalar ve tarayıcılar programlardır. Donanıma değil yazılıma aittirler."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s1_q2",
-            "question": "EVA ilkesinde E neyi ifade eder?",
-            "answers": [
-              {
-                "text": "Giriş (örn. yazarak)",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru: Giriş, bilgisayara veri veya komut vermeniz anlamına gelir."
+                "pts": 0,
+                "feedback": "Örneğin aşağıda Sayfa, Kelimeler ve Yakınlaştırma yazıyor. Komutların çoğu yukarıdadır."
               },
               {
-                "text": "Bitir (bilgisayarı kapat)",
+                "text": "Yalnızca kağıt alanında",
                 "correct": false,
-                "pts": 5,
-                "feedback": "E son anlamına gelmez. EVA ilkesine göre her şey girdiyle başlar."
+                "pts": 0,
+                "feedback": "Beyaz sayfaya yazıyorsun. Komutlar en üsttedir."
               }
             ]
           }
-        ],
-        "content": "<p>Bir bilgisayar iki büyük alandan oluşur:</p>\n        <ul>\n            <li>🖥️ <strong>Donanım:</strong> Dokunabileceğiniz her şey! Buna ekran, klavye, farenin yanı sıra işlemci (bilgisayarın beyni) ve sabit sürücü (bellek) gibi iç çalışmalar da dahildir.</li>\n            <li>💾 <strong>Yazılım:</strong> Görünmez programlar. Yazılım olmazsa donanım işe yaramaz. Buna uygulamalar, oyunlar, işletim sistemi ve metin programları dahildir.</li>\n        </ul>\n        <p>Her bilgisayarın temel prensibine <strong>EVA prensibi</strong> denir. Bu şu anlama gelir:</p>\n        <ol>\n            <li><strong>E</strong>input: Bilgisayara bir komut verirsiniz (örneğin fareye tıklayın).</li>\n            <li><strong>V</strong>elaboration: Bilgisayar ne yapılması gerektiğini düşünür ve hesaplar.</li>\n            <li><strong>A</strong>output: Bilgisayar size sonucu gösterir (örn. monitördeki bir görüntü).</li>\n        </ol>\n        {{QUIZ_dgb_s1_q1}}\n        {{QUIZ_dgb_s1_q2}}"
+        ]
       },
       {
-        "id": "sec1",
-        "title": "2. Dosyalar ve Klasörler",
+        "id": "word_sec1",
+        "title": "2. Bir dosya oluşturun, kaydedin ve tekrar bulun",
+        "content": "<p>Kaydet en önemli kuraldır. <strong>early</strong>'yi kaydedin ve ardından <strong>Ctrl + S</strong>.</p> ile tekrar tekrar kaydedin.\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Datei\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Yeni</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Açık</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Farklı kaydet</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonra devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Farklı Kaydet ilk kez kaydederken veya bir kopya oluşturmak istiyorsanız gereklidir.</text>\n</svg>\n</div><div class=\"word-path\"><span>Dosya</span><b class=\"arrow\">></b><span>Kaydet altında</span><b class=\"arrow\">></b><span>Gözat</span><b class=\"arrow\">></b><span>klasör altında seç</span><b class=\"arrow\">></b><span>Dosya adını yaz</span><b class=\"arrow\">></b><span>Save</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 2: İlk belgeyi kaydet</h3>\n  <ol class=\"word-mini-steps\"><li>Yeni bir boş Word belgesi açın.</li><li>Yukarıya yazın: <strong>Ad-soyada göre Word atölyesi</strong>.</li><li>Sol üst köşeye tıklayın <strong>Dosya</strong>.</li><li><strong>Farklı kaydet</strong>'ye tıklayın. Okul klasörünüzü veya öğretmenin belirttiği klasörü seçin.</li><li>Dosya adı olarak yazın: <strong>Word_Werkstatt_Firstname_Lastname</strong>. Özel karakterler kullanmayın.</li><li><strong>Save</strong>'ye tıklayın. Ardından <strong>Ctrl + S</strong>.</li></ol> tuşlarına basın\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Dosya adınız başlık çubuğunun en üstündedir. Word'ü kapatıp yeniden açarsanız dosyayı seçilen klasörde bulacaksınız.</div>\n</div>\n<div class=\"teacher-note\"><strong>Dosya adı kuralı:</strong> İyi dosya adları kısa ve nettir: <strong>Fach_Topic_Name</strong>. Örnek: <strong>DGB_Word_AminaK</strong>.</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 3: Dosyayı yeniden aç</h3>\n  <ol class=\"word-mini-steps\"><li>Word'ü yalnızca belgeniz kaydedildiğinde kapatın.</li><li>Word'ü tekrar açın.</li><li><strong>Dosya'ya tıklayın > Open</strong>.</li><li>Select <strong>Recently</strong> veya <strong>Browse</strong>.</li><li>Dosyanızı açın ve yazın bugünün altında Tarih.</li></ol><div class=\"word-output\"><strong>Kendinizi nasıl kontrol edebilirsiniz:</strong> Eski dosya açılır ve yeni tarih ayarınız, <strong>Ctrl + S</strong>.</div> sonrasında kayıtlı kalır.\n</div>\n{{QUIZ_word_q2}}",
         "quizzes": [
           {
-            "id": "dgb_s2_q1",
-            "question": "Dosya uzantısı nedir (ör. .jpg veya .docx)?",
+            "id": "word_q2",
+            "question": "Hangi klavye kısayolu hızlı bir şekilde kaydedilir?",
             "answers": [
               {
-                "text": "Bilgisayara ne tür bir dosya olduğunu söyler.",
+                "text": "Ctrl + S",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Doğru: Uzantı, resim veya metin gibi dosya türünü gösterir."
+                "feedback": "Kesinlikle. Kaydetmek için S."
               },
               {
-                "text": "Bilgisayarın kaç yaşında olduğunu gösterir.",
+                "text": "Ctrl + Z",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ctrl + Z son adımı geri alır."
+              },
+              {
+                "text": "Ctrl + F",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ctrl + F belgedeki metni arar."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec2",
+        "title": "3. Metni yazın, vurgulayın ve iyileştirin",
+        "content": "<p>Word'deki hemen hemen her şey yalnızca <strong>@</strong> doğru metni işaretlerseniz çalışır. İşaretleme şu anlama gelir: Metin renkli olarak vurgulanır ve Word neyi değiştirmek istediğinizi bilir.</p><div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Bir kelimeyi işaretleme:</strong><br>Kelimeye çift tıklayın.</div><div class=\"word-ui-card\"><strong>A cümle veya aralık işareti:</strong><br>Sol fare tuşuna basarak metnin üzerinde sürükleyin.</div><div class=\"word-ui-card\"><strong>Tümünü işaretle:</strong><br><strong>Ctrl + A</strong>.</div><div class=\"word-ui-card\"><strong>Sıfırlama hatası:</strong><br><strong>Ctrl + Z</strong>.</div></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 4: İşaretleme alıştırması</h3>\n  <ol class=\"word-mini-steps\"><li>Belgenize şu üç satırı yazın:<br><strong>En sevdiğim konu ...</strong><br><strong>Word'ü adım adım öğreniyorum adım.</strong><br><strong>Sonunda güzel bir belge tasarlayabilirim.</strong></li><li>Sadece <strong>Word</strong> kelimesini çift ile seçin tıklayın.</li><li>Press <strong>Ctrl + C</strong>, sonraki satırın sonuna gidin ve <strong>Ctrl + V</strong>.</li><li>Eklenen metni tekrar seçin ve <strong>Delete</strong> key.</li><li>Son adımı <strong>Ctrl + Z</strong> geri al.</li></ol> ile yapın\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Tek bir kelimeyi vurgulayabilir, kopyalayabilir, yapıştırabilir, silebilir ve geri yükleyebilirsiniz.</div>\n</div>\n<div class=\"remember-box\"><strong>Önemli püf noktaları:</strong> Ctrl + C = kopyala, Ctrl + V = yapıştır, Ctrl + X = kes, Ctrl + Z = geri al, Ctrl + A = tümünü seç.</div>"
+      },
+      {
+        "id": "word_sec3",
+        "title": "4. Tasarım yazı tipi: kalın, boyut, renk",
+        "content": "<p>Yazı tipi tasarımı, <strong>Font</strong> bölümündeki <strong>Start</strong> sekmesinde bulunabilir. Her zaman önce metni işaretleyin, ardından tasarlayın.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Font</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Paragraf</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Şablonları biçimlendir</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonra devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Kalın yazı tipi boyutu, yazı tipi rengi ve alt çizgi için genellikle Başlat'ta kalırsınız.</text>\n</svg>\n</div><div class=\"word-path\"><span>Başlat</span><b class=\"arrow\">></b><span>Font</span><b class=\"arrow\">></b><span>Bold / İtalik / Altı çizili@</span><b class=\"arrow\">></b><span>Yazı tipi boyutu</span><b class=\"arrow\">@></b><span>Yazı tipi rengi</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 5: Bir profil tasarlayın</h3>\n  <ol class=\"word-mini-steps\"><li>Başlığı yazın: <strong>Profilim</strong>. Bunları işaretleyin.</li><li>Tıklayın <strong>Başlat</strong>. <strong>Font</strong> alanında şunu seçin: Boyut <strong>20</strong>, <strong>Bold</strong>, Yazı Tipi Rengi <strong>Blue</strong>.</li><li>Aşağıya dört satır yazın: Ad, sınıf, en sevdiğiniz yemek, Viyana'daki en sevdiğiniz yer.</li><li>@@<strong>Name</strong> kelimelerini işaretleyin, <strong>Class</strong>, <strong>En sevdiğiniz yemek</strong>, <strong>En sevdiğiniz konum</strong> ve bunu yapın <strong>bold</strong>.</li><li>Özellikle önemli bulduğunuz bir cümleyi vurgulayın ve ona farklı bir yazı tipi rengi verin.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Başlık büyük ve mavidir. Soldaki anahtar kelimeler kalın harflerle yazılmıştır ancak yanıtlar okunabilir durumdadır.</div>\n</div>\n<div class=\"mini-task\"><strong>Profesyonel Kural:</strong> Maksimum iki yazı tipi ve maksimum üç renk kullanın. Bir belge çok fazla efekt içeren bir poster gibi değil, net görünmelidir.</div>{{QUIZ_word_q3}}",
+        "quizzes": [
+          {
+            "id": "word_q3",
+            "question": "Bir metni kalın veya mavi hale getirmeden önce ilk olarak ne yaparsınız?",
+            "answers": [
+              {
+                "text": "Metin pasajını işaretleyin",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Kesinlikle. Word'ün hangi metnin değiştirilmesi gerektiğini bilmesi gerekiyor."
+              },
+              {
+                "text": "Belgeyi kapat",
+                "correct": false,
+                "pts": 0,
+                "feedback": "O zaman metni biçimlendiremezsiniz."
+              },
+              {
+                "text": "Her zaman önce yazdırın",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Yalnızca sonuna yazdırılır."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec4",
+        "title": "5. Paragraflar: hizalama, aralıklar, listeler",
+        "content": "<p>Paragraf, iki Enter tuşu arasındaki metin parçasıdır. <strong>Start</strong> üzerinde <strong>Paragraph</strong>.</p> alanında paragraflar oluşturursunuz.\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Font</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Paragraf</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Şablonları biçimlendir</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonra devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Paragraf alanında sola hizalanmış, ortalanmış, listeler, girintiler ve satır aralığını bulacaksınız.</text>\n</svg>\n</div><div class=\"word-path\"><span>Başlat</span><b class=\"arrow\">></b><span>Paragraph</span><b class=\"arrow\">></b><span>Bullets</span><b class=\"arrow\">></b><span>Numbering</span><b class=\"arrow\">></b><span>Center</span><b class=\"arrow\">></b><span>satır ve paragraf aralığı</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 6: Temiz bir liste oluşturma</h3>\n  <ol class=\"word-mini-steps\"><li>Başlığı yazın: <strong>Okul malzemelerim</strong>.</li><li>Enter tuşuna basın ve kendi aralarında yazın: defter, kalem, cetvel, atıştırmalık, içecek şişesi.</li><li>Bu beşini işaretleyin Words.</li><li>Click <strong>Ana Sayfa > Paragraf > Madde İşaretleri</strong>.</li><li>Başlığı vurgulayın ve tıklayın <strong>Center</strong>.</li><li>Listeyi seçin ve <strong>Satır ve paragraf aralığı</strong>'yi açın. <strong>1.15</strong> veya <strong>1.5</strong>.</li></ol>'yi seçin\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Başlık ortadadır. Okul malzemeleri, puanlı ve okumak için yeterli alana sahip bir liste halinde sunulmaktadır.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 7: Numaralandırılmış talimatları yazın</h3>\n  <ol class=\"word-mini-steps\"><li>Başlığı yazın: <strong>Doğru şekilde nasıl kaydedilir</strong>.</li><li>Bu adımları altına yazın, her adım kendi satırındadır: Dosyaya tıklayın, Farklı kaydet'i seçin, klasörü arayın, dosya adını yazın, kaydedin tıklayın.</li><li>Beş adımı işaretleyin.</li><li>Click <strong>Başlat > Paragraf > Numaralandırma</strong>.</li><li>@Kontrol: Adımlar, 1'den 5'e kadar.</li></ol><div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Talimatlarınızın sırası doğru. Sıra önemli olduğunda sayılar kullanılır.</div>\n</div>"
+      },
+      {
+        "id": "word_sec5",
+        "title": "6. Başlıklar ve stiller",
+        "content": "<p>Stiller hazır metin stilleridir. Her seferinde boyutu ve rengi elle değiştirmekten daha iyidirler. <strong>Başlık 1</strong> ve <strong>Başlık 2</strong>.</p> özellikle önemlidir.\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Font</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Paragraf</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Şablonları biçimlendir</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonra devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Biçim şablonları uzun belgelerin düzenli ve tutarlı olmasını sağlar.</text>\n</svg>\n</div><div class=\"word-path\"><span>Başlat</span><b class=\"arrow\">>@@TOKEN_52 @@<span>Styles</span><b class=\"arrow\">></b><span>Başlık 1 veya başlık 2</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 8: Gerçek başlıklara sahip mini rapor</h3>\n  <ol class=\"word-mini-steps\"><li>Ana başlık olarak yazın: <strong>Bölgem</strong>. Onu vurgulayın ve <strong>Başlat > Stiller > Başlık 1</strong>.</li><li>Aşağıya yazın: <strong>Neyi beğeniyorum</strong>'yi seçin. Bu satırı işaretleyin ve <strong>Başlık 2</strong>@</li><li>Bölgeniz hakkında aşağıya üç cümle yazın.</li><li>Sonradan yazın: <strong>Daha iyi ne olabilir</strong>. Tekrar oy verin <strong>Başlık 2</strong>.</li><li>İyileştirme için iki somut fikir yazın.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Ana başlık, küçük alt başlıklardan farklı görünüyor. Tüm başlıklar tutarlı görünüyor.</div>\n</div>\n<div class=\"remember-box\"><strong>Bu neden önemlidir:</strong> Gerçek başlıklarla, Word daha sonra otomatik olarak içindekiler tablosu oluşturabilir. Ayrıca uzun metinlerde yolunuzu daha hızlı bulabilirsiniz.</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 9: İçindekiler tablosunu deneyin</h3>\n  <ol class=\"word-mini-steps\"><li>İmleci belgenin en başına yerleştirin.</li><li>@<strong>Ctrl + Enter</strong> yeni bir ilk sayfa için.</li><li>Tıklayın top <strong>Referanslar</strong>.</li><li><strong>İçindekiler</strong> öğesine tıklayın ve otomatik bir şablon seçin.</li><li>Word, dizini değiştirmek isteyip istemediğinizi sorarsa, onaylayın.</li></ol><div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> 1. sayfada içindekiler tablosu vardır. Hiçbir şey görünmüyorsa, muhtemelen başlık stillerini kullanmamışsınızdır.</div>\n</div>"
+      },
+      {
+        "id": "word_sec6",
+        "title": "7. Sayfa düzeni: kenar boşlukları, hizalama, sayfa sonları",
+        "content": "<p>Sayfa düzeni sayfanın nasıl yapılandırılacağını belirler. Okul ödevleri için <strong>Portre formatı</strong> normal kenar boşlukları genellikle iyidir.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Layout\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Sınırlar</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Oryantasyon</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Boyut / Kırılmalar</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonradan devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Yerleşim yalnızca tek bir kelimeyi değil, sayfanın tamamını değiştirir.</text>\n</svg>\n</div><div class=\"word-path\"><span>Layout</span><b class=\"arrow\">@></b>@ @TOKEN_51@@Borders</span><b class=\"arrow\">></b><span>Normal</span></div><div class=\"word-path\"><span>Layout</span><b class=\"arrow\">>@@TOKEN_62 @@<span>Oryantasyon</span><b class=\"arrow\">></b><span>Portre veya manzara</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 10: İkinci sayfayı temiz bir şekilde başlatın</h3>\n  <ol class=\"word-mini-steps\"><li>Belgenizin sonuna tıklayın.</li><li>Press <strong>Ctrl + Enter</strong>. Bu bir sayfa sonudur.</li><li>Yeni sayfanın en üstüne yazın: <strong>İkinci sayfam</strong>.</li><li><strong>Yerleşim > Kenar Boşlukları > Normal</strong>.</li><li>Click <strong>Yerleşim > Yön > Portre</strong>.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> İkinci sayfa temiz bir şekilde üstten başlar. Çok fazla giriş satırı kullanmadınız, yalnızca gerçek bir sayfa sonu kullandınız.</div>\n</div>\n<div class=\"teacher-note\"><strong>Ortak Hata:</strong> Çoğu çocuk bir sonraki sayfaya geçmek için 20 kez Enter tuşuna basar. Bu daha sonra kayacaktır. Bunun yerine <strong>Ctrl + Enter</strong>.</div> kullanın"
+      },
+      {
+        "id": "word_sec7",
+        "title": "8. Resimleri ekleyin ve doğru şekilde yerleştirin",
+        "content": "<p>Görüntüler belgeyi netleştirir. Önemli olan <strong>Metin sarma</strong>: Resmin yanında metnin görünüp görünmeyeceğine karar verir.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Resimler</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Şekiller / Simgeler</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Masa</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonradan devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Resimler belgeye eklenir. Tıkladıktan sonra resim formatı belirir.</text>\n</svg>\n</div><div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Images</span><b class=\"arrow\">></b><span>Bu Cihaz</span></div><div class=\"word-path\"><span>Resme tıklayın</span><b class=\"arrow\">@></b>@<span>Yandaki düzen seçenekleri Image</span><b class=\"arrow\">></b><span>Satır veya kare şeklinde metin ile</span></div>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Bild mit Layoutoptionen in Word\"><svg viewBox=\"0 0 920 330\"><rect x=\"210\" y=\"30\" width=\"500\" height=\"260\" rx=\"10\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"3\"/><line x1=\"250\" y1=\"82\" x2=\"620\" y2=\"82\" stroke=\"#cbd5e1\" stroke-width=\"5\"/><line x1=\"250\" y1=\"112\" x2=\"620\" y2=\"112\" stroke=\"#cbd5e1\" stroke-width=\"5\"/><rect x=\"250\" y=\"142\" width=\"150\" height=\"92\" rx=\"10\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"4\"/><circle cx=\"292\" cy=\"176\" r=\"14\" fill=\"#facc15\"/><path d=\"M260 218 L302 184 L332 208 L358 188 L390 222\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"6\"/>@ @TOKEN_79@@<text x=\"476\" y=\"166\" text-anchor=\"middle\" class=\"word-small-label\">Düzen seçenekler</text><path d=\"M410 160 L402 160\" stroke=\"#fb923c\" stroke-width=\"3\"/><line x1=\"250\" y1=\"258\" x2=\"620\" y2=\"258\" stroke=\"#cbd5e1\" stroke-width=\"5\"/></svg></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 11: Resim veya şekil ekleyin</h3>\n  <ol class=\"word-mini-steps\"><li>Görüntünün gitmesini istediğiniz yere tıklayın.</li><li><strong>Ekle > Görüntüler > Bu Cihaz</strong>'ye tıklayın. Okul klasörünüzden bir resim seçin. Resminiz yoksa: <strong>Ekle > Şekiller</strong> ve bir dikdörtgen veya yıldız seçin.</li><li>Resmi tıklayın. Bir <strong>corner</strong> öğesini küçültmek için sürükleyin. Sayfanın ortasını sürüklemeyin, aksi takdirde bozulacaktır.</li><li>Görüntünün yanındaki <strong>Layout Options</strong> küçük simgesini tıklayın. Görüntünün metinde büyük bir harf gibi kalmasını istiyorsanız <strong>Satırdaki metinle</strong> seçeneğini seçin.</li><li>Metnin görüntünün yanında temiz bir şekilde akmasını istiyorsanız <strong>Square</strong> seçeneğini seçin gerekir.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Görüntü çok büyük değil, bozuk değil ve metin düzensiz bir şekilde kaymıyor.</div>\n</div>\n<div class=\"remember-box\"><strong>Resim kuralı:</strong> Basit okul metinleri için, <strong>Satırdaki metinle</strong> en güvenlisidir. Posterler ve aranan posterler için <strong>Quadrat</strong> genellikle daha iyidir.</div>{{QUIZ_word_q4}}",
+        "quizzes": [
+          {
+            "id": "word_q4",
+            "question": "Bir görüntüyü bozmadan küçültmek için neyi sürüklersiniz?",
+            "answers": [
+              {
+                "text": "Resmin bir köşesinde",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Köşeler oranı daha iyi korur."
+              },
+              {
+                "text": "Sadece sol tarafın ortasında",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Daha sonra görüntü çok geniş veya çok dar olabilir."
+              },
+              {
+                "text": "Yanındaki metinde",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Metin, görselin boyutunu değiştirmez."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec8",
+        "title": "9. Tablolar oluşturun ve düzenleyin",
+        "content": "<p>Tablolar, bilgi satır ve sütunlara ait olduğunda iyidir: zaman çizelgesi, alışveriş listesi, karşılaştırma, sonuç listesi.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Masa</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Resimler</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Üstbilgi ve altbilgi</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonradan devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Tablolar için önce boyutu seçersiniz, ardından satır ve sütunlar ekleyebilirsiniz.</text>\n</svg>\n</div><div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Table</span><b class=\"arrow\">></b><span>Box mark</span><b class=\"arrow\">></b><span>z. B. 4 x 5 masa</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 12: Zaman çizelgesi tablosu</h3>\n  <ol class=\"word-mini-steps\"><li>Belgedeki boş bir alana tıklayın.</li><li><strong>Ekle > Tablo</strong>'ye tıklayın. Kutuların üzerine gelin ve <strong>4 sütun x 5 satır</strong>.</li><li>İlk satıra yaz'ı seçin: <strong>Time</strong>, <strong>Monday</strong>, <strong>Salı</strong>, <strong>Wednesday</strong>.</li><li>En az üç satırı daha derslerle doldurun.</li><li>İlk satırı seçin ve yapın <strong>bold</strong>.</li><li>Tabloya tıklayın. Basit bir tablo stili seçmek için yukarıdaki <strong>Table Design</strong> öğesini kullanın.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> İlk satır bir başlık olarak tanınabilir. Tablonun net sütunları vardır ve okunması metin listesinden daha kolaydır.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 13: Satır veya sütun ekleyin</h3>\n  <ol class=\"word-mini-steps\"><li>Tablonun son satırına tıklayın.</li><li><strong>Tab</strong> tuşuna basın. Word genellikle sonuna yeni bir satır ekler.</li><li>Veya tabloda tıklayın ve üstte arama yapın <strong>Tablo düzeni > Aşağıya ekle</strong>.</li><li>Yeni bir saat ekleyin eklendi.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Masa kontrollü bir şekilde büyür. Eğri boşluk yok.</div>\n</div>"
+      },
+      {
+        "id": "word_sec9",
+        "title": "10. Üstbilgi, altbilgi ve sayfa numaraları",
+        "content": "<p>Üstbilgiler ve altbilgiler normal metnin dışındadır. Her sayfada tekrar ediyorlar. Ad, sınıf, tarih veya sayfa numaraları buraya sığar.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Başlık</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Altbilgi</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Sayfa numarası</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonradan devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Üstbilgi ve altbilgi Ekle'de bulunabilir. Üstbilgi ve altbilgiyi kapat seçeneğiyle normal metne dönebilirsiniz.</text>\n</svg>\n</div><div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Başlık</span><b class=\"arrow\">></b><span>Empty</span>@@TOKEN_5 5@@<div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Since enzahl</span><b class=\"arrow\">></b><span>Sonu sayfa</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 14: Adı olan başlık</h3>\n  <ol class=\"word-mini-steps\"><li><strong>Ekle > Başlık > Boş</strong>.</li><li>Başlığa yazın: <strong>Ad Soyadı - Dijital Temel'e tıklayın eğitim</strong>.</li><li>Metni seçin ve küçültün, örneğin boyut <strong>10</strong>.</li><li>Üste tıklayın <strong>Üstbilgi ve altbilgiyi kapat</strong> veya normal Metin'e çift tıklayın.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Ad her sayfanın üst kısmındadır ancak normal metnin ortasında değildir.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 15: Sayfa numarasını ekleyin</h3>\n  <ol class=\"word-mini-steps\"><li><strong>Ekle > Sayfa Numarası</strong>.</li><li><strong>Sayfa Sonu</strong> seçeneğini seçin ve basit bir Görüntüle.</li><li>Üstbilgi/altbilgi görünümünü kapatın.</li><li>Sayfa 2'de orada bir sayfa numarası olup olmadığını kontrol edin.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edebilirsiniz:</strong> Her sayfada otomatik olarak doğru numara bulunur. Numaraları elle yazmanıza gerek yok.</div>\n</div>"
+      },
+      {
+        "id": "word_sec10",
+        "title": "11. Yazım Denetimi, Bul ve Değiştir",
+        "content": "<p>Word düzeltme konusunda yardımcı olabilir. Ancak sonuçta karar veren insanlardır. Metninizi her zaman yüksek sesle veya sessizce tekrar okuyun.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Überprüfen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Editör / Yazım</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Dil</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Yorumlar</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonradan devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">İnceleme bir belgenin düzeltilmesine ve iyileştirilmesine yardımcı olur.</text>\n</svg>\n</div><div class=\"word-path\"><span>Check</span><b class=\"arrow\">></b>@<span>Editör veya yazım ve yazım ve Dilbilgisi</span></div><div class=\"word-path\"><span>Başlat</span><b class=\"arrow\">></b><span>Arama</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 16: Hataları bilinçli olarak iyileştirin</h3>\n  <ol class=\"word-mini-steps\"><li>@Bu cümleyi bilerek yanlış yazmak: <strong>Bir belge yazıp düzenli olarak kaydediyorum.</strong></li><li>@Kelimelerin altındaki kırmızı veya mavi işaretleri arayın.</li><li>İleriye tıklayın Sağ tıklayın vurgulanan bir kelimeyi seçin ve uygun bir öneri seçin.</li><li>Sonra <strong>Kontrol Et > Düzenleyici</strong> veya <strong>Yazım ve Dilbilgisi</strong>.</li><li>Cümleyi doğru olana kadar geliştirin: <strong>Bir belge yazıp onu düzenli olarak kaydediyorum.</strong></li></ol>\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edersiniz:</strong> Cümle iyileştirildi. Körü körüne tıklamadınız, önerileri kontrol ettiniz.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini Görev 17: Bul ve Değiştir</h3>\n  <ol class=\"word-mini-steps\"><li>@Kısa bir paragrafta, <strong>Handy</strong>.</li><li>Press <strong>Ctrl + H</strong> kelimesini yazın veya <strong>Başlat > adresine gidin. </strong>.</li><li><strong>Mobile</strong> ifadesini arayın ve <strong>Smartphone</strong>.</li><li> ile değiştirin. önce <strong>Search</strong> böylece Word'ün nerede arama yaptığını görebilirsiniz. Daha sonra <strong>Replace</strong>.</li></ol> kullanın.\n  <div class=\"word-output\"><strong>Kendinizi nasıl kontrol edebilirsiniz:</strong> Tüm metni manuel olarak aramanıza gerek kalmadan tüm uygun bölümler değiştirildi.</div>\n</div>"
+      },
+      {
+        "id": "word_sec11",
+        "title": "12. PDF olarak gönderin ve bitmiş belgeyi kontrol edin",
+        "content": "<p>Bir Word dosyası bazen diğer cihazlarda biraz hareket edebilir. Bir PDF genellikle açıldığında ve yazdırıldığında aynı kalır. PDF genellikle gönderimler için daha güvenli formdur.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Datei\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Farklı kaydet</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">İhracat</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Yazdır</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">önce buraya bakın</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">sonradan devam edin</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">gerekiyorsa</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Göndermeden önce her zaman kaydedin ve her şeyin okunabilir olup olmadığını kısaca kontrol edin.</text>\n</svg>\n</div><div class=\"word-path\"><span>Dosya</span><b class=\"arrow\">></b><span>Kaydet as</span><b class=\"arrow\">></b><span>Dosya türü: PDF</span><b class=\"arrow\">></b><span>Save</span></div><div class=\"word-path\"><span>Tarih i</span><b class=\"arrow\">></b><span>Print</span><b class=\"arrow\">></b><span>Önizleme kontrolü</span></div>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Beispielseite mit Überschrift, Liste, Tabelle, Bild und Fußzeile\">\n<svg viewBox=\"0 0 920 430\">\n  <rect x=\"180\" y=\"28\" width=\"560\" height=\"360\" rx=\"10\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"3\"/>\n  <text x=\"460\" y=\"72\" text-anchor=\"middle\" class=\"word-label\">Bitmiş Word belgem</text>\n  <line x1=\"240\" y1=\"100\" x2=\"680\" y2=\"100\" stroke=\"#dbeafe\" stroke-width=\"6\"/>\n  <text x=\"246\" y=\"136\" class=\"word-small-label\">1. Stil şablonuna sahip başlık</text>\n  <line x1=\"246\" y1=\"160\" x2=\"520\" y2=\"160\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"246\" y1=\"184\" x2=\"590\" y2=\"184\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <circle cx=\"260\" cy=\"222\" r=\"5\" fill=\"#2563eb\"/><line x1=\"278\" y1=\"222\" x2=\"450\" y2=\"222\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <circle cx=\"260\" cy=\"248\" r=\"5\" fill=\"#2563eb\"/><line x1=\"278\" y1=\"248\" x2=\"480\" y2=\"248\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <rect x=\"520\" y=\"208\" width=\"128\" height=\"76\" rx=\"8\" fill=\"#e0f2fe\" stroke=\"#2563eb\" stroke-width=\"3\"/>\n  <path d=\"M535 264 L568 230 L592 252 L610 235 L640 268\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"5\"/>\n  <rect x=\"246\" y=\"300\" width=\"210\" height=\"52\" fill=\"#f8fafc\" stroke=\"#94a3b8\"/>\n  <line x1=\"316\" y1=\"300\" x2=\"316\" y2=\"352\" stroke=\"#94a3b8\"/><line x1=\"386\" y1=\"300\" x2=\"386\" y2=\"352\" stroke=\"#94a3b8\"/><line x1=\"246\" y1=\"326\" x2=\"456\" y2=\"326\" stroke=\"#94a3b8\"/>\n  <line x1=\"220\" y1=\"372\" x2=\"700\" y2=\"372\" stroke=\"#e2e8f0\" stroke-width=\"3\"/>\n  <text x=\"460\" y=\"382\" text-anchor=\"middle\" class=\"word-small-label\">Ad ve sayfa numarasını içeren altbilgi</text>\n</svg>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini görev 18: Gönderim dosyası oluşturun</h3>\n  <ol class=\"word-mini-steps\"><li>Önce Word dosyasını <strong>Ctrl + S</strong>.</li>@<li> ile kaydedin. <strong>Dosya > Kaydet'e tıklayın at</strong>.</li><li>Dosya türü olarak <strong>PDF</strong> seçeneğini seçin. Bu seçimi bulamazsanız: <strong>Dosya > Dışa Aktar > PDF/XPS Oluştur</strong>.</li><li>Dosyayı adlandırın: <strong>DGB_Word_Werkstatt_Firstname_Lastname.pdf</strong>.</li><li>PDF dosyasını kısaca açın ve kontrol edin: Başlık, resim, tablo, sayfa numaraları ve ad görünüyor.</li></ol>\n  <div class=\"word-output\"><strong>Kendinizi bu şekilde kontrol edersiniz:</strong> İki dosyanız var: üzerinde çalışmaya devam edeceğiniz bir Word dosyası ve göndereceğiniz bir PDF dosyası.</div>\n</div><div class=\"word-check-card\"><h3>Gönderim kontrol listesi</h3><ul class=\"step-list\"><li>Dosya adı konu, konu ve adı içerir.</li><li>Başlık açık ve kapalı değil renkli.</li><li>En az bir liste düzgün şekilde biçimlendirilmiş.</li><li>En az bir tablo açıkça okunabiliyor.</li>@<li>Bir resim veya şekil uygun şekilde eklenmiş ve bozuk.</li><li>Üstbilgi veya altbilgi ad/sınıf içeriyor.</li><li>Sayfa numaraları otomatik olarak eklenir.</li><li>Yazım kontrol edildi.</li><li>PDF açılıp kontrol edilmiştir.</li></ul></div>"
+      },
+      {
+        "id": "word_sec12",
+        "title": "13. Final projesi: Bir bilgi sayfası tasarlayın",
+        "content": "<p>Son olarak her şeyi gerçek bir ürüne bağlarsınız. Bir veya iki sayfalık bir bilgi sayfası oluşturun. Konu: <strong>Viyana'da gençlerin bilmesi gereken bir yer</strong>.</p><div class=\"word-task-card\"><h3>Proje ödevi</h3><ol class=\"word-mini-steps\"><li>Yeni bir belge oluşturup farklı olarak kaydedin <strong>DGB_InfoBlatt_Firstname_Lastname</strong>.</li><li><strong>Başlık 1</strong>.</li><li>Kısa bir giriş yazısı yazın 3 ila 5 Cümle içeren metin.</li><li><strong>Başlık 2</strong> ile iki alt başlık ekleyin: <strong>Bu yer neden ilginçtir</strong> ve <strong>Orada nelere dikkat edilmeli? gerekir</strong>.</li><li>En az 4 noktalı bir liste oluşturun.</li><li>En az 3 sütunlu bir tablo ekleyin: <strong>Information</strong>, <strong>Example</strong>, <strong>Important</strong>.</li><li>Bir resim veya şekil ekleyin ve metin kaydırmayı dikkatlice ayarlayın.</li><li>Ad ve adı içeren bir başlık ekleyin ve class.</li><li>Sayfa numaralarını ekleyin a.</li><li>Yazımı kontrol edin ve ayrıca farklı kaydedin PDF.</li></ol></div><table class=\"word-rubric\"><tr><th>Area</th><th>Bu görünür olmalıdır be</th><th>Points</th></tr><tr><td>Save</td><td>yararlı dosya adı, Word dosyası ve PDF mevcut</td><td>4</td></tr><tr><td>Text</td><td>anlaşılabilir cümleler, uygun başlıklar, kaba olmayanlar Typos</td><td>8</td></tr><tr><td>Formatting</td><td>Yazı tipi boyutları, kalın harflerle yazma, aralıklar ve listeler kasıtlıdır takılı</td><td>8</td></tr><tr><td>Objects</td><td>Görüntü/şekil ve tablo temiz eklendi</td><td>6</td></tr><tr><td>Belge teknolojisi</td><td>Üstbilgi/altbilgi, sayfa numarası, PDF control</td><td>4</td></tr></table><div class=\"remember-box\"><strong>Merksatz:</strong> İyi bir Word belgesi sadece güzel değildir. Saklanır, nettir, okunabilirdir, kontrol edilir ve başkalarının açması kolaydır.</div>{{QUIZ_word_q5}}",
+        "quizzes": [
+          {
+            "id": "word_q5",
+            "question": "PDF gönderim için neden sıklıkla faydalıdır?",
+            "answers": [
+              {
+                "text": "Çünkü düzen genellikle diğer cihazlarda aynı kalır",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Kesinlikle. PDF, göndermek ve yazdırmak için iyidir."
+              },
+              {
+                "text": "Çünkü Word'de olduğundan daha iyi çalışmaya devam edebilirsiniz",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Word dosyası daha fazla çalışma için daha iyidir. PDF özellikle gönderim için iyidir."
+              },
+              {
+                "text": "Çünkü Word daha sonra otomatik olarak tüm içeriği icat eder",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hayır. İçeriği kendiniz yaratırsınız."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dgb5_orientierung": {
+    "title": "🧭 Oryantasyon: 5. sınıf",
+    "subtitle": "Dijital dünyayı anlamak ve sınıflandırmak - 5. sınıf (1. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb5_orientierung_q1",
+            "question": "EVA prensibinde V neyi temsil ediyor?",
+            "answers": [
+              {
+                "text": "işleme",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "Bağlantı",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Dosya uzantısında bilgisayarın yaşı yoktur. Dosyanın türünü açıklar."
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
               }
             ]
           }
         ],
-        "content": "<p>Bilgisayarda çok sayıda bilgi hızla birikir. Düzeni korumak için <strong>files</strong> ve <strong>folders</strong>.</p> kullanıyoruz.\n        <ul>\n            <li>📁 <strong>Klasörler (dizinler):</strong> Masadaki çekmeceler gibidirler. İçinde dosya veya diğer klasörleri saklayabilirsiniz.</li>\n            <li>📄 <strong>Files:</strong> Bunlar gerçek belgelerdir (örneğin bir resim, bir metin, bir şarkı).</li>\n        </ul>\n        <p>Bilgisayarın neyle uğraştığını bilmesi için, her dosyanın <strong>dosya uzantısı</strong> (adın en sonunda, noktadan sonra) adı verilen bir uzantısı vardır:</p>\n        <ul>\n            <li><code>.txt</code> veya <code>.docx</code> = Metin</li>\n            <li><code>.jpg</code> veya <code>.png</code> = Resim</li>\n            <li><code>.mp3</code> = Müzik</li>\n            <li><code>.pdf</code> = Değiştirilmesi zor, tamamlanmış bir belge</li>\n        </ul>\n        {{QUIZ_dgb_s2_q1}}"
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>EVA ilkesini dijital bir cihazda açıklayın</li><li>dijital ve analog şeyleri ayırt edin</li><li>kendi medya davranışınızı gözlemleyin ve sorgulayın</li>\n            </ul>\n        </div>\n        <p>Bu sadece dijital teknolojiyi kullanmakla ilgili değil, aynı zamanda onun hayatlarımızı, öğrenimimizi ve birlikte yaşamamızı nasıl değiştirdiğini anlamakla da ilgilidir.</p>\n        <p>Dijital bir cihaz girişi alır, işler ve bir sonuç verir. Bu temel prensibe EVA denir: girdi, işleme, çıktı. Dijital sadece “ekranlı” değildir: Dijital sistemler bilgiyi veri olarak saklar ve işler.</p>\n        <div class=\"remember-box\"><strong>Merke:</strong> Dijital şu anlama gelir: bilgi, veri olarak işlenir. Bu, birbirimizle öğrenme, oynama, çalışma ve konuşma şeklimizi değiştiriyor.</div>\n        {{QUIZ_dgb5_orientierung_q1}}"
       },
       {
         "id": "sec2",
-        "title": "3. İnternet ve Arama Motorları",
+        "title": "2. Öğretim atölyesi",
         "quizzes": [
           {
-            "id": "dgb_s3_q1",
-            "question": "Tarayıcı nedir?",
+            "id": "dgb5_orientierung_q2",
+            "question": "Bir çıktının iyi bir örneği nedir?",
             "answers": [
               {
-                "text": "Web sitelerini görüntülemeye yönelik bir program (ör. Firefox, Chrome).",
+                "text": "Ekranda bir görüntü belirir.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Doğru: Bir tarayıcı açılıyor ve web sitelerini görüntülüyor."
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
               },
               {
-                "text": "Bir şeyler aradığınız bir web sitesi.",
+                "text": "Bir düğmeye basıyorsunuz.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Bu bir arama motorudur. Tarayıcı, web sitelerini ziyaret etmek için kullandığınız programdır."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s3_q2",
-            "question": "İnternetteki güvenli bağlantıyı nasıl anlarsınız?",
-            "answers": [
-              {
-                "text": "Adresin yanındaki küçük kilit sembolünde (https://).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru: Kilit ve https şifreli bir bağlantıyı belirtir."
-              },
-              {
-                "text": "Büyük kırmızı yanıp sönen bir ışıkta.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Böyle bir uyarı levhası yok. Adreste kilit sembolünü ve https'yi arayın."
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
               }
             ]
           }
         ],
-        "content": "<p><strong>Internet</strong>, dünya çapında bağlı bilgisayarlardan oluşan geniş bir ağdır. Web sitelerini ziyaret etmek için özel bir programa ihtiyacınız vardır: <strong>Tarayıcı</strong> (örneğin, Google Chrome, Mozilla Firefox, Microsoft Edge veya Safari).</p>\n        <p>Her web sitesinin benzersiz bir adresi vardır: <strong>URL</strong> (ör. <code>www.wikipedia.org</code>). Bunu yukarıdaki adres çubuğuna girerseniz doğrudan oraya yönlendirilirsiniz.</p>\n        <p>Bir şey aradığınızda <strong>arama motorunu</strong> (ör. Google, DuckDuckGo, Ecosia, FragFINN) kullanırsınız. Arama motorları, arama terimlerinizle eşleşen web sitelerini internette arar.</p>\n        <div class=\"lexikon-box\">\n            🔍 <strong>Arama için profesyonel ipucu:</strong> Tam olarak bir kelimeyi aramak için tırnak işaretlerini kullanın: <code>\"Dijital Temel Eğitim\"</code>\n        </div>\n        {{QUIZ_dgb_s3_q1}}\n        {{QUIZ_dgb_s3_q2}}"
-      },
-      {
-        "id": "sec3",
-        "title": "4. Güvenlik ve Şifreler",
-        "quizzes": [
-          {
-            "id": "dgb_s4_q1",
-            "question": "Güçlü bir parolanın içinde neler vardır?",
-            "answers": [
-              {
-                "text": "Büyük ve küçük harfler, sayılar ve özel karakterler (örn. !?#).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru: Bu karışım, şifrenin tahmin edilmesini zorlaştırır."
-              },
-              {
-                "text": "Adım ve doğum tarihim.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Diğerleri adınızı ve doğum tarihinizi kolayca bilir. Bu, parolayı güvensiz hale getirir."
-              }
-            ]
-          }
-        ],
-        "content": "<p>İnternette de gerçek hayattaki gibi: dikkatli olmalısın! Hesaplarınızı (e-posta, oyunlar) korumak için güçlü bir şifreye ihtiyacınız var.</p>\n        <p><strong>Güçlü bir şifre:</strong></p>\n        <ul>\n            <li>En az 8-12 karakter uzunluğundadır.</li>\n            <li>Büyük ve küçük harflerden, rakamlardan ve özel karakterlerden oluşur (ör. $, !, ?).</li>\n            <li><strong>not</strong> adınız, evcil hayvanınız veya \"123456\"dır!</li>\n        </ul>\n        <p>Şifrelerinizi asla kimseyle paylaşmayın (ebeveynleriniz hariç)!</p>\n        <p><strong>Bilgisayar virüslerine karşı dikkatli olun:</strong> Bilinmeyen kişilerden gelen e-postalardaki garip bağlantılara tıklamayın veya şüpheli dosyalar indirmeyin. Kötü amaçlı yazılım (kötü amaçlı yazılım) içerebilirler.</p>\n        {{QUIZ_dgb_s4_q1}}"
-      },
-      {
-        "id": "sec4",
-        "title": "5. İnternet kuralları ve çevrimiçi davranış",
-        "quizzes": [
-          {
-            "id": "dgb_s5_q1",
-            "question": "Siber zorbalık ne anlama geliyor?",
-            "answers": [
-              {
-                "text": "İnternette veya cep telefonları aracılığıyla kasıtlı olarak ve tekrar tekrar birine hakaret etmek veya taciz etmek.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru: Siber zorbalık kasıtlı olarak, tekrar tekrar ve çevrimiçi olarak gerçekleşir."
-              },
-              {
-                "text": "Çevrimiçi oynarken bilgisayarınız çökerse.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Kaza teknik bir sorundur. Siber zorbalık insanlara yöneliktir."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s5_q2",
-            "question": "Bir arkadaşınızın komik bir fotoğrafını internette yayınlayabilir misiniz?",
-            "answers": [
-              {
-                "text": "Hayır, önce ondan izin istemem gerekiyor (kendi imajım için).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru: Diğer kişilerin resimlerini paylaşmayı kabul etmesi gerekir."
-              },
-              {
-                "text": "Evet, elbette, eğer komikse sorun değil.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Komiklik yeterli değil. İzinsiz olarak kendi imajınızın hakkını ihlal ediyorsunuz."
-              }
-            ]
-          }
-        ],
-        "content": "<p>Her ekranın arkasında duyguları olan gerçek bir insan var. İnternetteki kibar davranış kurallarına <strong>Netiquette</strong> (İnternet için \"Net\" ve görgü kuralları için \"Görgü Kuralları\"ndan) denir.</p>\n        <ul>\n            <li><strong>Saygılı olun:</strong> Kişinin yüzüne söylemeyeceğiniz hiçbir şeyi yazmayın.</li>\n            <li><strong>Kendi görselinize sahip olma hakkı:</strong> Yalnızca, size açıkça izin vermeleri durumunda, diğer kişilerin fotoğraflarını veya videolarını çevrimiçi olarak yayınlayabilir veya iletebilirsiniz!</li>\n            <li><strong>Telif hakkı:</strong> İnternetten alınan metinler, resimler ve şarkılar birisine aittir. Bunları kopyalayıp size aitmiş gibi davranamazsınız.</li>\n        </ul>\n        <p><strong>Siber mobbing:</strong> Birisi çevrimiçi ortamda kasıtlı olarak hakarete uğrar, tehdit edilir veya dışlanırsa, bu siber zorbalıktır. Bu eğlenceli değil, bu bir suç! Böyle bir şey fark ederseniz veya kendiniz etkilenirseniz: kişiyi engelleyin, ekran görüntüleri (kanıt) alın ve bir yetişkine güvenin!</p>\n        {{QUIZ_dgb_s5_q1}}\n        {{QUIZ_dgb_s5_q2}}"
+        "content": "<p><strong>Müfredat görünümü:</strong> Teknoloji, toplum ve kendi eylemleriniz birlikte görüntülenir.</p>\n        <ol class=\"step-list\">\n            <li>Günlük yaşamınızdan bir cihaz seçin; örneğin cep telefonu, okul tableti veya oyun konsolu.</li><li>Açıklayın: Giriş nedir? Ne işleniyor? Çıktı nedir?</li><li>Neyin dijital olduğunu ve neyin hala analog kalabileceğini düşünün.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb5_orientierung_q2}}"
       }
-    ],
-    "diplom": {
-      "title": "🎓 DGB diploması",
-      "questions": [
-        {
-          "id": "dgb_d1",
-          "question": "Donanım nedir?",
-          "answers": [
-            {
-              "text": "Bilgisayarın somut parçaları.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: Donanım dokunabildiğiniz tüm parçalardır."
-            },
-            {
-              "text": "Programlar ve uygulamalar.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Programlar ve uygulamalar yazılımdır. Donanım somut cihazlar ve bileşenlerdir."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d2",
-          "question": "EVA prensibindeki 'V' neyi ifade ediyor?",
-          "answers": [
-            {
-              "text": "işleme",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: V, girilen verilerin işlenmesi anlamına gelir."
-            },
-            {
-              "text": "Bağlantı",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Bağlantı kulağa teknik geliyor ama EVA ilkesinin bir parçası değil. V işleme anlamına gelir."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d3",
-          "question": "Hangi dosya uzantısı bir görsele aittir?",
-          "answers": [
-            {
-              "text": ".jpg",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: .jpg, resimler için tipik bir dosya uzantısıdır."
-            },
-            {
-              "text": ".mp3",
-              "correct": false,
-              "pts": 5,
-              "feedback": ".mp3 ses dosyalarına aittir. Örneğin, resimler .jpg veya .png'ye sahiptir."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d4",
-          "question": "Bir tarayıcı ne yapar?",
-          "answers": [
-            {
-              "text": "Web sitelerini görüntüler.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: Tarayıcı web sitelerini ekranda görüntülüyor."
-            },
-            {
-              "text": "Virüslere karşı koruma sağlar.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Virüs koruması güvenlik yazılımı yapar. Bir tarayıcı öncelikle web sitelerini görüntüler."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d5",
-          "question": "'Merhaba123' güçlü bir şifre midir?",
-          "answers": [
-            {
-              "text": "Hayır, tahmin etmek çok kolay.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: Basit rakamlar içeren kısa kelimeler zayıf şifrelerdir."
-            },
-            {
-              "text": "Evet çünkü içinde sayılar var.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Sayılar tek başına yeterli değil. 'hello123' kısadır ve tahmin edilmesi çok kolaydır."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d6",
-          "question": "Arkadaşlarınızın resimlerini izinsiz yayınlayabilir misiniz?",
-          "answers": [
-            {
-              "text": "Hayır, kendi imajınıza sahip olma hakkınız nedeniyle.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: Başkalarının fotoğraflarını çekmek için önce onların iznine ihtiyacınız var."
-            },
-            {
-              "text": "Evet, komik oldukları sürece.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Sadece komik resimler de yayınlayamazsınız. Kişinin kabul etmesi gerekir."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d7",
-          "question": "Çevrimiçi zorbalığa maruz kalırsanız ne yapmalısınız?",
-          "answers": [
-            {
-              "text": "Kanıtları (ekran görüntüsü) güvence altına alın ve yetişkinlerden yardım alın.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: Ekran görüntüleri yardımcı olur ve yetişkinler de sizi destekleyebilir."
-            },
-            {
-              "text": "Hakarete karşılık ver.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Karşı hakaret etmek tartışmayı daha da büyütür. Kanıtları güvence altına alın ve yardım alın."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d8",
-          "question": "URL nedir?",
-          "answers": [
-            {
-              "text": "Bir internet adresi.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru: URL, bir web sitesinin tam adresidir."
-            },
-            {
-              "text": "Bir tür bilgisayar virüsü.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "URL bir virüs değildir. Bir web sitesine ulaşabileceğiniz adrestir."
-            }
-          ]
-        }
-      ]
-    }
+    ]
+  },
+  "dgb5_information": {
+    "title": "🔎 Bilgi: 5. sınıf",
+    "subtitle": "Veriyi, aramayı ve bilgiyi güvenle kullanın - 5. sınıf (1. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb5_information_q1",
+            "question": "Daha iyi internet aramalarına ne yardımcı olur?",
+            "answers": [
+              {
+                "text": "Kesin arama terimleri kullanın",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "sadece ilk sonuca inan",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Arama motorlarını akıllıca kullanın</li><li>Basit kaynakları kontrol edin</li><li>Dosyaları kaydedin, kopyalayın, arayın, değiştirin ve silin</li>\n            </ul>\n        </div>\n        <p>Burada bilgiyi nasıl bulacağınızı, organize edeceğinizi ve değerlendireceğinizi ve verileri nasıl sorumlu bir şekilde ele alacağınızı öğreneceksiniz.</p>\n        <p>Bir arama motorunun kendisi “gerçeği” aramaz. Kurallara göre vuruşları gösterir. İyi arama şu anlama gelir: uygun arama terimlerini seçmek, birden fazla kaynağı karşılaştırmak ve bir şey kulağa çok abartılı geliyorsa dikkatli olmak.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Veriler depolanan bilgilerdir. İyi organizasyon ve iyi arama terimleri zamandan tasarruf sağlar ve kafa karışıklığını önler.</div>\n        {{QUIZ_dgb5_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb5_information_q2",
+            "question": "Dosya nedir?",
+            "answers": [
+              {
+                "text": "metin veya resim gibi depolanan içerik",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "bilgisayardaki bir kablo",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Sadece bir şey bulmak değil, aynı zamanda bunun anlamlı, güncel ve güvenilir olup olmadığını kontrol etmek de önemlidir.</p>\n        <ol class=\"step-list\">\n            <li>Basit ve gerçekçi bir soru arayın, örneğin: Gökkuşağı nasıl oluşur?</li><li>İki sonucu karşılaştırın: Sayfayı kim yazdı?</li><li>Uygun bir klasöre kısa bir not kaydedin ve dosyaya net bir ad verin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb5_information_q2}}"
+      }
+    ]
+  },
+  "dgb5_kommunikation": {
+    "title": "💬 İletişim: 5. sınıf",
+    "subtitle": "Çevrimiçi işbirliği yapın ve güvenli bir şekilde iletişim kurun - 5. sınıf (1. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb5_kommunikation_q1",
+            "question": "Kişisel veri nedir?",
+            "answers": [
+              {
+                "text": "yüzünün olduğu bir fotoğraf",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "bilgisayarın rengi",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Kişisel verileri tanıyın</li><li>Uygun iletişim araçlarını seçin</li><li>Online saygıyla işbirliği yapın</li>\n            </ul>\n        </div>\n        <p>Bu, dijital alanlarda haberler, işbirliği, sosyal medya, veri koruma ve saygılı etkileşim ile ilgilidir.</p>\n        <p>Kişisel veriler, örneğin adınız, fotoğrafınız, adresiniz, okulunuz veya telefon numaranız gibi sizinle ilgili bilgilerdir. Kendiniz veya başkaları hakkında herhangi bir şeyi paylaşmadan önce şunu düşünün: Bunu kim görebilir? Bu kişinin gerçekten bu bilgiye ihtiyacı var mı?</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Gerçek insanlar çevrimiçi oturuyor. Veri koruma ve saygı bir aradadır.</div>\n        {{QUIZ_dgb5_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb5_kommunikation_q2",
+            "question": "Çevrimiçi olarak birlikte çalışırken önemli olan nedir?",
+            "answers": [
+              {
+                "text": "Saygılı bir şekilde yazın ve görevleri adil bir şekilde paylaşın",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "diğer kişilerin dosyalarını sormadan sil",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital iletişim hızlı ve pratiktir ancak açık kurallar ve sorumluluk gerektirir.</p>\n        <ol class=\"step-list\">\n            <li>Örnekleri \"herkese açık\", \"yalnızca sınıf\", \"özel\" olarak sıralayın.</li><li>Sohbeti, e-postayı ve paylaşılan belgeyi karşılaştırın: Hangi araç ne için uygundur?</li><li>Arkadaşça olmayan bir mesaja adil bir yanıt oluşturun.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb5_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb5_produktion": {
+    "title": "🛠️ Yapım: 5. sınıf",
+    "subtitle": "Dijital içerik oluşturma ve problem çözme - 5. sınıf (1. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb5_produktion_q1",
+            "question": "Algoritma Nedir?",
+            "answers": [
+              {
+                "text": "kesin adım adım talimatlar",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "internette rastgele bir resim",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Açık adım dizileri olarak basit algoritmalar formüle edin</li><li>Metinleri ve sunumları yapılandırın</li><li>Verileri kolayca toplayın ve sunun</li>\n            </ul>\n        </div>\n        <p>Burada metinler, sunumlar, medya veya küçük programlar oluşturabilir ve sorunları basit adımlara ayırmayı öğreneceksiniz.</p>\n        <p>Algoritma açık bir talimatlar dizisidir. Bilgisayarların kesin adımlara ihtiyacı vardır. Bir adım eksik veya belirsizse bir hata oluşur. İyi bir sunumun aynı zamanda bir yapıya da ihtiyacı vardır: başlık, içerik, resimler ve net bir düzen.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> İyi dijital ürünler planlama, deneme ve iyileştirme yoluyla yaratılır.</div>\n        {{QUIZ_dgb5_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb5_produktion_q2",
+            "question": "Bir sunumu anlaşılır kılan nedir?",
+            "answers": [
+              {
+                "text": "net başlıklar ve uygun görseller",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "mümkün olduğu kadar çok farklı yazı tipi",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Üretim şu anlama gelir: üçüncü taraf içeriğini planlamak, tasarlamak, kontrol etmek, iyileştirmek ve bunlarla adil bir şekilde ilgilenmek.</p>\n        <ol class=\"step-list\">\n            <li>Talimatları yazın: \"Bir öğrenme sayfası nasıl açılır ve bir konu bulunur.\"</li><li>Talimatları bir ortakla test edin.</li><li>Anlaşılmayan adımları iyileştirin ve anlamlı bir başlık ekleyin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb5_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb5_handeln": {
+    "title": "🧰 Aksiyon: 5. sınıf",
+    "subtitle": "Dijital olanakları bilinçli ve bağımsız olarak kullanın - 5. sınıf (1. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb5_handeln_q1",
+            "question": "Donanıma neler dahildir?",
+            "answers": [
+              {
+                "text": "Klavye ve ekran",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "bir metin programı",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Önemli donanım parçalarını adlandırın</li><li>Bir işletim sisteminin temel işlevlerini kullanın</li><li>Sorun durumunda yardım sistemlerini kullanın</li>\n            </ul>\n        </div>\n        <p>Bu, cihazlar, yazılım, güvenlik, sorunlarla ilgili yardım ve dijital dünyada iyi kararlar almayla ilgilidir.</p>\n        <p>Donanım dokunabileceğiniz parçalardır: ekran, klavye, fare, bellek, işlemci. Yazılım programlardır. İşletim sistemi dosyaların yönetilmesine, programların başlatılmasına ve ayarların değiştirilmesine yardımcı olur.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Bağımsız hareket etmek şu anlama gelir: sakin kalmak, sorunu açıklamak, yardım istemek ve ancak ondan sonra tıklamak.</div>\n        {{QUIZ_dgb5_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb5_handeln_q2",
+            "question": "Bir işletim sistemi ne yapar?",
+            "answers": [
+              {
+                "text": "programların ve dosyaların yönetilmesine yardımcı olur",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "klavyenin yerini alır",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital araçları uygun şekilde kullanmalı ve sağlık, çevre, haklar ve güvenlik konularını düşünmelisiniz.</p>\n        <ol class=\"step-list\">\n            <li>Bir bilgisayarın veya tabletin en önemli parçalarını etiketleyin.</li><li>Bir program açın, bir dosyayı kaydedin ve tekrar bulun.</li><li>Bir yardım işlevini kullanın veya menüde bir ayar arayın.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb5_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb6_orientierung": {
+    "title": "🧭 Oryantasyon: 6. sınıf",
+    "subtitle": "Dijital dünyayı anlamak ve sınıflandırmak - 6. sınıf (2. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb6_orientierung_q1",
+            "question": "Dijital erişilebilirlik ne anlama geliyor?",
+            "answers": [
+              {
+                "text": "Kampanyadan mümkün olduğu kadar çok kişi yararlanabilir",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "bir web sitesinde özellikle çok sayıda açılır pencere var",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Dijital araçları göreve göre seçin</li><li>Erişilebilirliği kaliteli bir özellik olarak anlayın</li><li>Medya tekliflerinin arkasındaki ilgi alanlarını belirleyin</li>\n            </ul>\n        </div>\n        <p>Bu sadece dijital teknolojiyi kullanmakla ilgili değil, aynı zamanda onun hayatlarımızı, öğrenimimizi ve birlikte yaşamamızı nasıl değiştirdiğini anlamakla da ilgilidir.</p>\n        <p>Dijital teklifler tarafsız değildir. İnsanlar ve şirketler tarafından tasarlanmıştır. Bazıları bilgilendirmek ister, bazıları ise satmak veya dikkat çekmek ister. İyi dijital araçlar göreve uygun olmalı ve mümkün olduğu kadar çok kişi tarafından erişilebilir olmalıdır.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> İyi teknoloji kullanışlı, anlaşılır ve mümkün olduğunca engelsiz olmalıdır.</div>\n        {{QUIZ_dgb6_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb6_orientierung_q2",
+            "question": "Medyanın sunduğu teklifler neden her zaman tarafsız olmuyor?",
+            "answers": [
+              {
+                "text": "çünkü bunların arkasında çıkarlar ve kararlar var",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "çünkü tüm cihazlar aynı şekilde çalışır",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Teknoloji, toplum ve kendi eylemleriniz birlikte görüntülenir.</p>\n        <ol class=\"step-list\">\n            <li>İki uygulamayı veya web sitesini karşılaştırın: Hangisinin kullanımı daha kolay?</li><li>Yazı tipi boyutuna, kontrasta, dile ve kullanıma dikkat edin.</li><li>Kimin para kazanacağını veya tekliften yararlanacağını düşünün.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb6_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb6_information": {
+    "title": "🔎 Bilgi: 6. sınıf",
+    "subtitle": "Veriyi, aramayı ve bilgiyi güvenle kullanın - 6. sınıf (2. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb6_information_q1",
+            "question": "Verileri sıralarken ne yaparsınız?",
+            "answers": [
+              {
+                "text": "Verileri bir kurala göre düzenleme",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "Verileri kasıtlı olarak gizlemek",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Verileri toplayın, sıralayın ve görüntüleyin</li><li>Veri formatlarını ve dosya boyutlarını farklılaştırın</li><li>Creative Commons</li> gibi lisansları öğrenin\n            </ul>\n        </div>\n        <p>Burada bilgiyi nasıl bulacağınızı, organize edeceğinizi ve değerlendireceğinizi ve verileri nasıl sorumlu bir şekilde ele alacağınızı öğreneceksiniz.</p>\n        <p>Veriler tablo veya grafik olarak toplanabilir, sıralanabilir, filtrelenebilir ve görüntülenebilir. Verilerin ne anlama geldiği açık kalmalıdır. Görüntüler, müzik ve metinler için de önemlidir: Onu kim yarattı ve onunla ne yapabilirim?</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Veriler ancak düzenli, anlaşılır bir şekilde sunulduğunda ve adil kullanıldığında faydalı olur.</div>\n        {{QUIZ_dgb6_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb6_information_q2",
+            "question": "Lisanslar neden önemlidir?",
+            "answers": [
+              {
+                "text": "üçüncü taraf içeriğini nasıl kullanabileceğinizi gösterirler",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "dosyaları otomatik olarak küçültürler",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Sadece bir şey bulmak değil, aynı zamanda bunun anlamlı, güncel ve güvenilir olup olmadığını kontrol etmek de önemlidir.</p>\n        <ol class=\"step-list\">\n            <li>En sevdiğiniz sporlar gibi basit sınıf verilerini toplayın.</li><li>Tablo ve grafik oluşturun.</li><li>Açık bir lisans resmi bulun ve kaynağı not edin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb6_information_q2}}"
+      }
+    ]
+  },
+  "dgb6_kommunikation": {
+    "title": "💬 İletişim: 6. sınıf",
+    "subtitle": "Çevrimiçi işbirliği yapın ve güvenli bir şekilde iletişim kurun - 6. sınıf (2. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb6_kommunikation_q1",
+            "question": "Kimlik avı nedir?",
+            "answers": [
+              {
+                "text": "veri veya parola elde etmek için yapılan dolandırıcılık girişimi",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "çizim için bir program",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Ağlar ve veri paketlerine ilişkin temel fikri anlayın</li><li>Sosyal medya iş modellerini tanımlayın</li><li>Sahte haberlere, kimlik avına ve veri korumaya değinin</li>\n            </ul>\n        </div>\n        <p>Bu, dijital alanlarda haberler, işbirliği, sosyal medya, veri koruma ve saygılı etkileşim ile ilgilidir.</p>\n        <p>Bilgi internette paketlere benzer şekilde küçük parçalar halinde dolaşır. Sosyal medya gibi platformlar genellikle bir nedenden ötürü ücretsiz kullanım sunar: İlgi ve veriler şirketler için değerli olabilir.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Her mesaj dürüst değildir. Kontrol etmek sizi ve başkalarını korur.</div>\n        {{QUIZ_dgb6_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb6_kommunikation_q2",
+            "question": "Sosyal medya hizmetleri neden veri topluyor?",
+            "answers": [
+              {
+                "text": "Veriler reklam ve öneriler için kullanılabilir",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "böylece cep telefonu daha ağır hale gelir",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital iletişim hızlı ve pratiktir ancak açık kurallar ve sorumluluk gerektirir.</p>\n        <ol class=\"step-list\">\n            <li>Kısa bir mesajı zihinsel olarak paketlere ayırın ve yeniden birleştirin.</li><li>Şüpheli bir mesajı kontrol edin: Kim gönderiyor? Neye tıklamalıyım?</li><li>Sahte haberler veya kimlik avına yönelik uyarı işaretlerini toplayın.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb6_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb6_produktion": {
+    "title": "🛠️ Yapım: 6.sınıf",
+    "subtitle": "Dijital içerik oluşturma ve problem çözme - 6. sınıf (2. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb6_produktion_q1",
+            "question": "Hata ayıklama ne anlama geliyor?",
+            "answers": [
+              {
+                "text": "Bir programdaki hataları bulma ve düzeltme",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "ekranı temizleme",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Basit programlar oluşturun ve test edin</li><li>Hataları bulun ve iyileştirin</li><li>Medya içeriğini tasarlayın ve telif haklarına saygı gösterin</li>\n            </ul>\n        </div>\n        <p>Burada metinler, sunumlar, medya veya küçük programlar oluşturabilir ve sorunları basit adımlara ayırmayı öğreneceksiniz.</p>\n        <p>Programlar verileri işler. Programlama sırasında hatalar meydana gelir, bu normaldir. Hata ayıklama şu anlama gelir: hatayı bulmak, anlamak ve iyileştirmek. Resimler, ses ve videolar için aşağıdakiler geçerlidir: Kendi içeriğinizi kullanın veya yazarların haklarına saygı gösterin.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Test etme ve iyileştirme, programlamanın bir parçasıdır.</div>\n        {{QUIZ_dgb6_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb6_produktion_q2",
+            "question": "Üçüncü taraf içeriğini yeniden karıştırırken önemli olan nedir?",
+            "answers": [
+              {
+                "text": "Telif hakkına ve lisansa saygı gösterin",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "yaratıcının adını her zaman sil",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Üretim şu anlama gelir: üçüncü taraf içeriğini planlamak, tasarlamak, kontrol etmek, iyileştirmek ve bunlarla adil bir şekilde ilgilenmek.</p>\n        <ol class=\"step-list\">\n            <li>Başlatma, giriş ve çıkış ile küçük bir program oluşturun.</li><li>Farklı girişlerle test edin.</li>@<li>Bir görüntü veya ses oluşturun ve hangi parçaların size ait olduğunu belirtin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb6_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb6_handeln": {
+    "title": "🧰 Aksiyon: 6. sınıf",
+    "subtitle": "Dijital olanakları bilinçli ve bağımsız olarak kullanın - 6. sınıf (2. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb6_handeln_q1",
+            "question": "Bir ağı ne tanımlar?",
+            "answers": [
+              {
+                "text": "veri alışverişi yapabilen bağlı cihazlar",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "sadece bir bilgisayar ekranı",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Donanım ve yazılımın etkileşimini açıklayın</li><li>Cihazları ağlara bağlayın</li><li>Dijital kullanımı sağlıklı ve sürdürülebilir hale getirin</li>\n            </ul>\n        </div>\n        <p>Bu, cihazlar, yazılım, güvenlik, sorunlarla ilgili yardım ve dijital dünyada iyi kararlar almayla ilgilidir.</p>\n        <p>Donanım ve yazılım birlikte çalışır: cihaz seçenekler sunar, programlar bu seçenekleri kullanır. Dijital cihazlar elektrik, hammadde ve bakım gerektirir. Molalar, duruş ve gözler de iyi bir dijital işyerinin parçasıdır.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> İyi kullanım şu anlama gelir: cihazı anlamak, sorunu net bir şekilde tanımlamak ve zaman ve enerjiyi bilinçli kullanmak.</div>\n        {{QUIZ_dgb6_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb6_handeln_q2",
+            "question": "Cihazları kullanırken sürdürülebilir olan nedir?",
+            "answers": [
+              {
+                "text": "Cihazları dikkatli kullanın ve gereksiz yere değiştirmeyin",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "sürekli yeni cihazlar satın almak",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital araçları uygun şekilde kullanmalı ve sağlık, çevre, haklar ve güvenlik konularını düşünmelisiniz.</p>\n        <ol class=\"step-list\">\n            <li>Dijital bir çalışma alanı taslağı çizin: cihaz, ağ, giriş, çıkış.</li><li>Birinin yardımcı olabilmesi için teknik bir sorunu yeterince ayrıntılı olarak tanımlayın.</li><li>Sağlıklı ve sürdürülebilir kullanım için üç kurala dikkat edin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb6_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb7_orientierung": {
+    "title": "🧭 Oryantasyon: 7. sınıf",
+    "subtitle": "Dijital dünyayı anlamak ve sınıflandırmak - 7. sınıf (3. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb7_orientierung_q1",
+            "question": "Nesnelerin İnterneti örneği nedir?",
+            "answers": [
+              {
+                "text": "bir uygulamaya veri gönderen bağlı bir saat",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "teknolojisi olmayan bir kağıt defter",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Günlük yaşamda yapay zeka ve Nesnelerin İnterneti'ni tanıyın</li><li>Kişiselleştirilmiş medya kullanımının fırsatlarını ve risklerini analiz edin</li><li>Dijital erişilebilirlik ve katılım üzerine düşünün</li>\n            </ul>\n        </div>\n        <p>Bu sadece dijital teknolojiyi kullanmakla ilgili değil, aynı zamanda onun hayatlarımızı, öğrenimimizi ve birlikte yaşamamızı nasıl değiştirdiğini anlamakla da ilgilidir.</p>\n        <p>Birçok dijital sistem arka planda çalışır: öneriler, sesli asistanlar, akıllı cihazlar veya navigasyon uygulamaları. Yardımcı olabilirler ancak aynı zamanda insanları dışlayabilir, veri toplayabilir veya kararları etkileyebilirler.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Dijital teknoloji her zaman toplumun içine yerleşmiştir: fırsatlar yaratır, aynı zamanda yeni sorular da yaratır.</div>\n        {{QUIZ_dgb7_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb7_orientierung_q2",
+            "question": "Kişiselleştirme ne yapabilir?",
+            "answers": [
+              {
+                "text": "İçerik bana uygun ama aynı zamanda üzerimde tek taraflı bir etkiye de sahip olabilir",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "tüm insanlar otomatik olarak aynı şeyi görür",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Teknoloji, toplum ve kendi eylemleriniz birlikte görüntülenir.</p>\n        <ol class=\"step-list\">\n            <li>Yapay zeka veya bağlantılı cihazlara ilişkin günlük üç örnek bulun.</li><li>Notiere: Bunun pratik tarafı nedir? Sorun ne olabilir?</li><li>Teklifin daha fazla kişi tarafından nasıl kullanılabileceğini düşünün.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb7_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb7_information": {
+    "title": "🔎 Bilgi: 7. sınıf",
+    "subtitle": "Veriyi, aramayı ve bilgiyi güvenle kullanın - 7. sınıf (3. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb7_information_q1",
+            "question": "Daha iyi bir kaynağın işareti nedir?",
+            "answers": [
+              {
+                "text": "Yazar, tarih ve amaç belirlenebilir",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "başlık özellikle gürültülü",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Kaynakları planlayın ve karşılaştırın</li><li>Diyagramları ve veri temsillerini eleştirel bir şekilde okuyun</li><li>Verilerdeki kalıpları tanıyın ve gerekçelendirin</li>\n            </ul>\n        </div>\n        <p>Burada bilgiyi nasıl bulacağınızı, organize edeceğinizi ve değerlendireceğinizi ve verileri nasıl sorumlu bir şekilde ele alacağınızı öğreneceksiniz.</p>\n        <p>İyi araştırma bir soru ve planla başlar. Veriler ve grafikler bir şeyi anlamanıza yardımcı olabilir. Ancak eksenler, bölümler veya renkler akıllıca seçilirse manipülatif görünebilirler.</p>\n        <div class=\"remember-box\"><strong>Merke:</strong> Verileri gösteren herkes karar verir. Bu yüzden temsilleri eleştirel bir şekilde okumalısınız.</div>\n        {{QUIZ_dgb7_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb7_information_q2",
+            "question": "Bir diyagram nasıl aldatıcı olabilir?",
+            "answers": [
+              {
+                "text": "kesilmiş eksenler veya bağlantı eksikliği nedeniyle",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "net etiketleme yoluyla",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Sadece bir şey bulmak değil, aynı zamanda bunun anlamlı, güncel ve güvenilir olup olmadığını kontrol etmek de önemlidir.</p>\n        <ol class=\"step-list\">\n            <li>Bir araştırma sorusu oluşturun.</li><li>En az iki kaynak kullanın ve bunları karşılaştırın.</li><li>Bir diyagramı kontrol edin: Eksen 0'dan mı başlıyor? Önemli bilgiler eksik mi?</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb7_information_q2}}"
+      }
+    ]
+  },
+  "dgb7_kommunikation": {
+    "title": "💬 İletişim: 7. sınıf",
+    "subtitle": "Çevrimiçi işbirliği yapın ve güvenli bir şekilde iletişim kurun - 7. sınıf (3. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb7_kommunikation_q1",
+            "question": "İki faktörlü giriş nedir?",
+            "answers": [
+              {
+                "text": "şifreye ek olarak ikinci bir kanıt",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "iki aynı şifre",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Bulut hizmetlerini anlama</li><li>Şifreleri kullanma, iki faktörlü oturum açma ve şifreleme</li><li>Dijital kimliği ve siber riskleri yansıtma</li>\n            </ul>\n        </div>\n        <p>Bu, dijital alanlarda haberler, işbirliği, sosyal medya, veri koruma ve saygılı etkileşim ile ilgilidir.</p>\n        <p>Cloud şu anlama gelir: Veriler yalnızca cihazınızda değil, sunucularda da bulunur. Bu, paylaşım için uygundur ancak veri koruma gerektirir. Güçlü şifreler, iki faktörlü giriş ve bağlantıların dikkatli kullanımı dijital kimliğinizi korur.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Güvenlik tek bir tıklama değil, bir alışkanlıktır.</div>\n        {{QUIZ_dgb7_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb7_kommunikation_q2",
+            "question": "Bulut depolama alanı neden otomatik olarak özel değil?",
+            "answers": [
+              {
+                "text": "çünkü veriler üçüncü taraf sunucularda işlenebilmektedir",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "çünkü bulutlar her zaman halka açıktır",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital iletişim hızlı ve pratiktir ancak açık kurallar ve sorumluluk gerektirir.</p>\n        <ol class=\"step-list\">\n            <li>Yerel dosya ile bulut dosyasını karşılaştırın: avantajlar ve riskler.</li><li>Güçlü şifreler için bir kural oluşturun.</li><li>Siber zorbalık veya kimlik hırsızlığı durumunda ne yapılacağını tartışın.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb7_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb7_produktion": {
+    "title": "🛠️ Yapım: 7. sınıf",
+    "subtitle": "Dijital içerik oluşturma ve problem çözme - 7. sınıf (3. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q1",
+            "question": "Hesaplamalı düşünme nedir?",
+            "answers": [
+              {
+                "text": "bir sorunu daha küçük parçalara bölmek",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "bir plan olmadan etrafta dolaşmak",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Bilgisayarlı düşünmeyi kullanın</li><li>Medya prodüksiyonlarını eleştirel ve engeller olmadan tasarlayın</li><li>Yazılım ayarlarını duyarlı bir şekilde uyarlayın</li>\n            </ul>\n        </div>\n        <p>Burada metinler, sunumlar, medya veya küçük programlar oluşturabilir ve sorunları basit adımlara ayırmayı öğreneceksiniz.</p>\n        <p>Bilgisayarlı Düşünme şu anlama gelir: bir problemi parçalara ayırmak, kalıpları tanımak, önemli olanı basitleştirmek ve ondan bir çözüm oluşturmak. Medya prodüksiyonlarında önemli olan bir şeyin sadece güzel görünüp görünmediği değil, aynı zamanda nasıl çalıştığı ve herkesin onu kullanıp kullanamayacağıdır.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> İyi dijital tasarım anlaşılabilir, adil ve erişilebilirdir.</div>\n        {{QUIZ_dgb7_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q2",
+            "question": "Erişilebilirliği neler artırır?",
+            "answers": [
+              {
+                "text": "iyi kontrast ve net dil",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "çok küçük yazı tipi",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Üretim şu anlama gelir: üçüncü taraf içeriğini planlamak, tasarlamak, kontrol etmek, iyileştirmek ve bunlarla adil bir şekilde ilgilenmek.</p>\n        <ol class=\"step-list\">\n            <li>Problemi küçük adımlara bölün.</li><li>Dijital bir ürün oluşturun, örneğin poster, kısa video veya test.</li><li>Kontrast, yazı tipi boyutu, görüntü ayrıntısı ve anlaşılırlığını kontrol edin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb7_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb7_handeln": {
+    "title": "🧰 Aksiyon: 7. sınıf",
+    "subtitle": "Dijital olanakları bilinçli ve bağımsız olarak kullanın - 7. sınıf (3. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb7_handeln_q1",
+            "question": "Kötü Amaçlı Yazılım Nedir?",
+            "answers": [
+              {
+                "text": "kötü amaçlı yazılım",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "özellikle hızlı bir ekran",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Gündelik nesnelerdeki bilgisayarları algılama</li><li>Akıllı sistemlerin fırsatlarını ve risklerini açıklama</li><li>Cihazları kötü amaçlı yazılımlardan korumak ve ekolojik sorunları dikkate almak</li>\n            </ul>\n        </div>\n        <p>Bu, cihazlar, yazılım, güvenlik, sorunlarla ilgili yardım ve dijital dünyada iyi kararlar almayla ilgilidir.</p>\n        <p>Gündelik birçok nesnede bilgisayar sistemleri bulunur: arabalar, çamaşır makineleri, saatler, ATM'ler veya ısıtma sistemleri. İşi kolaylaştırabilirler ancak bazen veri toplarlar ve enerji, hammadde ve güncellemeler gerektirirler.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Akıllı cihazlar faydalıdır ancak zararsız değildir. Koruma, güncelleme ve bilinçli kullanım önemlidir.</div>\n        {{QUIZ_dgb7_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb7_handeln_q2",
+            "question": "Dijital cihazların neden çevresel sonuçları da var?",
+            "answers": [
+              {
+                "text": "Hammaddeye, enerjiye ve bertarafa ihtiyaçları var",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "çünkü asla elektrik kullanmazlar",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital araçları uygun şekilde kullanmalı ve sağlık, çevre, haklar ve güvenlik konularını düşünmelisiniz.</p>\n        <ol class=\"step-list\">\n            <li>Akıllı, günlük bir nesne seçin.</li><li>İşlevini, verilerini ve olası riskini açıklayın.</li><li>Kötü amaçlı yazılımlara karşı üç koruma kuralı geliştirin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb7_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb8_orientierung": {
+    "title": "🧭 Oryantasyon: 8. sınıf",
+    "subtitle": "Dijital dünyayı anlamak ve sınıflandırmak - 8. sınıf (4. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb8_orientierung_q1",
+            "question": "Filtre balonu nedir?",
+            "answers": [
+              {
+                "text": "size öncelikle benzer içerik gösteriliyorsa",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "ekran için koruyucu bir cam",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>AI'nın sınırlarını ve olanaklarını yansıtın</li><li>Filtre balonlarını ve stereotipleri tanıyın</li><li>Teknolojiye olan coşkuyu ve teknoloji korkusunu objektif bir şekilde tartışın</li>\n            </ul>\n        </div>\n        <p>Bu sadece dijital teknolojiyi kullanmakla ilgili değil, aynı zamanda onun hayatlarımızı, öğrenimimizi ve birlikte yaşamamızı nasıl değiştirdiğini anlamakla da ilgilidir.</p>\n        <p>AI kalıpları tanıyabilir, metinler oluşturabilir veya önerilerde bulunabilir. Ancak insan gibi anlamaz ve hatalar, önyargılar ya da uydurma içerikler üretebilir. Dijital sistemler her zaman benzer içerik gösterirlerse dünya görüşlerini güçlendirebilirler.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Yapay zeka bir araçtır. Bunları oluşturan, kullanan ve test eden kişiler sorumlu olmaya devam eder.</div>\n        {{QUIZ_dgb8_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb8_orientierung_q2",
+            "question": "Yapay Zeka sonuçlarını neden kontrol etmeniz gerekiyor?",
+            "answers": [
+              {
+                "text": "çünkü hatalar ve önyargılar içerebilirler",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "çünkü yapay zeka her zaman otomatik olarak doğrudur",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Teknoloji, toplum ve kendi eylemleriniz birlikte görüntülenir.</p>\n        <ol class=\"step-list\">\n            <li>İki yapay zeka yanıtını veya öneri sistemini karşılaştırın.</li><li>Olası hataları, varsayımları veya eksik bakış açılarını arayın.</li><li>Yapay zekanın okulda kullanımına ilişkin adil bir kural oluşturun.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb8_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb8_information": {
+    "title": "🔎 Bilgi: 8. sınıf",
+    "subtitle": "Veriyi, aramayı ve bilgiyi güvenle kullanın - 8. sınıf (4. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q1",
+            "question": "Yedekleme ne içindir?",
+            "answers": [
+              {
+                "text": "verileri geri yükleyebilmek için",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "kasıtlı olarak dosyaları kaybetmek",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Yedekleme ve geri yükleme gerçekleştirin</li><li>Veri toplamayı, bağlamayı ve izlemeyi açıklayın</li><li>Bilgileri hedef gruplara ve medyaya uyacak şekilde hazırlayın</li>\n            </ul>\n        </div>\n        <p>Burada bilgiyi nasıl bulacağınızı, organize edeceğinizi ve değerlendireceğinizi ve verileri nasıl sorumlu bir şekilde ele alacağınızı öğreneceksiniz.</p>\n        <p>Yedek, yedek kopyadır. Kusur, hırsızlık veya kazara silinme nedeniyle kayba karşı koruma sağlar. Aynı zamanda çok sayıda kullanım verisi toplanıyor ve dijital sistemlere bağlanıyor. Bu pratik olabilir ancak kötüye de kullanılabilir.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Verileri korumak şu anlama gelir: verilerin güvenliğini sağlamak, tasarruflu bir şekilde paylaşmak ve bunları kimin değerlendirebileceğini anlamak.</div>\n        {{QUIZ_dgb8_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q2",
+            "question": "Bağlantılı kullanım verilerinin riskli tarafı nedir?",
+            "answers": [
+              {
+                "text": "kişiler hakkında kesin profiller oluşturulabilir",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "Sonuç olarak dosyalar giderek küçülür",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Sadece bir şey bulmak değil, aynı zamanda bunun anlamlı, güncel ve güvenilir olup olmadığını kontrol etmek de önemlidir.</p>\n        <ol class=\"step-list\">\n            <li>Okul dosyaları için bir yedekleme politikası planlayın.</li><li>Hangi verilerin zararsız, hangisinin hassas olduğunu ayırt edin?</li><li>Aynı bilgileri çocuklar için bir kez, yetişkinler için bir kez hazırlayın.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb8_information_q2}}"
+      }
+    ]
+  },
+  "dgb8_kommunikation": {
+    "title": "💬 İletişim: 8. sınıf",
+    "subtitle": "Çevrimiçi işbirliği yapın ve güvenli bir şekilde iletişim kurun - 8. sınıf (4. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb8_kommunikation_q1",
+            "question": "Ağdaki protokol nedir?",
+            "answers": [
+              {
+                "text": "veri iletimi için bir kural",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "bir fotoğraf albümü",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Protokolleri veri iletimi kuralları olarak anlayın</li><li>Medya gerçekliğini ve manipülasyonunu tanıyın</li><li>Telif haklarına, kendi görüntünüze ve veri koruma hakkına saygı gösterin</li>\n            </ul>\n        </div>\n        <p>Bu, dijital alanlarda haberler, işbirliği, sosyal medya, veri koruma ve saygılı etkileşim ile ilgilidir.</p>\n        <p>Verilerin İnternet'e ulaşması için cihazların ortak kurallara ihtiyacı vardır. Bu kurallara protokol denir. Sosyal medyada seçme, düzenleme, paylaşım ve algoritmalarla gerçekler ortaya çıkıyor. Bu yüzden görüntüleri, sesleri ve verileri eleştirel bir şekilde incelemeniz gerekiyor.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Hızlı paylaşım, yavaş düşünmeyi gerektirir: hakları, etkiyi ve gerçeği kontrol edin.</div>\n        {{QUIZ_dgb8_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb8_kommunikation_q2",
+            "question": "Neden başkalarının fotoğraflarını yayınlamıyorsunuz?",
+            "answers": [
+              {
+                "text": "rıza ve kişinin kendi imajına sahip olma hakkı nedeniyle",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "çünkü fotoğraflar asla veri değildir",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital iletişim hızlı ve pratiktir ancak açık kurallar ve sorumluluk gerektirir.</p>\n        <ol class=\"step-list\">\n            <li>Gündelik bir kural içeren bir protokolü açıklayın, örneğin konuşma kuralları.</li><li>Virüsteki bir görseli veya videoyu inceleyin: ne gösteriliyor, ne eksik?</li><li>Sınıftan fotoğraf paylaşmak için bir kural oluşturun.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb8_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb8_produktion": {
+    "title": "🛠️ Yapım: 8. sınıf",
+    "subtitle": "Dijital içerik oluşturma ve problem çözme - 8. sınıf (4. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb8_produktion_q1",
+            "question": "Sözde Kod Nedir?",
+            "answers": [
+              {
+                "text": "Bir programın günlük dilde anlaşılır bir şekilde planlanması",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "bozuk bir bilgisayar kodu",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Döngüler ve koşullarla programlar planlayın</li><li>Sözde kodu ve belgeleri kullanın</li><li>Görev dağıtımıyla dijital projeleri uygulayın</li>\n            </ul>\n        </div>\n        <p>Burada metinler, sunumlar, medya veya küçük programlar oluşturabilir ve sorunları basit adımlara ayırmayı öğreneceksiniz.</p>\n        <p>Daha büyük dijital projeler planlama gerektirir. Programlar kontrol yapılarını birleştirebilir: koşullar, döngüler ve iç içe geçmiş süreçler. Sözde kod, fikirleri bir araca aktarmadan önce ilk olarak günlük dilde planlamaya yardımcı olur.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Profesyonelce çalışmak şu anlama gelir: planlama, inşa etme, test etme, belgeleme ve iyileştirme.</div>\n        {{QUIZ_dgb8_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb8_produktion_q2",
+            "question": "Dokümantasyon neden önemlidir?",
+            "answers": [
+              {
+                "text": "başkalarının çözümü anlayıp çalışmaya devam edebilmesi için",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "kimse planı görmesin diye",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Üretim şu anlama gelir: üçüncü taraf içeriğini planlamak, tasarlamak, kontrol etmek, iyileştirmek ve bunlarla adil bir şekilde ilgilenmek.</p>\n        <ol class=\"step-list\">\n            <li>Gerçek bir sorun için küçük bir program veya web fikri tasarlayın.</li><li>Sözde kod yazın ve bir ekipte görevleri paylaşın.</li><li>Çözümünü test edin, belgeleyin ve iyileştirin.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb8_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb8_handeln": {
+    "title": "🧰 Aksiyon: 8. sınıf",
+    "subtitle": "Dijital olanakları bilinçli ve bağımsız olarak kullanın - 8. sınıf (4. sınıf)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. Neyle ilgili?",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q1",
+            "question": "Şifreleme ne işe yarar?",
+            "answers": [
+              {
+                "text": "Verilerin yetkisiz kişiler tarafından okunmasını zorlaştırır",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+              },
+              {
+                "text": "tüm verileri otomatik olarak siler",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Donanım, sistem ve uygulama seviyelerini ayırt edin</li><li>Şifrelemeyi koruyucu bir önlem olarak anlayın</li><li>Dijital katılımı, tüketici haklarını ve kendi kaderini tayin hakkını yansıtın</li>\n            </ul>\n        </div>\n        <p>Bu, cihazlar, yazılım, güvenlik, sorunlarla ilgili yardım ve dijital dünyada iyi kararlar almayla ilgilidir.</p>\n        <p>Dijital sistemler birkaç katmandan oluşur: donanım, işletim sistemi, programlar ve çevrimiçi hizmetler. Şifreleme, verileri okunmaya karşı korur. Aynı zamanda teknik ayarlar sıklıkla neyin mümkün olduğunu ve hangi kararların kolay veya zor olacağını kontrol eder.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Sorumlu davranmak şu anlama gelir: teknolojiyi anlamak, korumayı kullanmak ve kendi haklarınızı bilmek.</div>\n        {{QUIZ_dgb8_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Öğretim atölyesi",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q2",
+            "question": "Dijitalde tüketici hukuku örneği nedir?",
+            "answers": [
+              {
+                "text": "Abonelik maliyetlerini ve satın alma koşullarını anlayın",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+              },
+              {
+                "text": "her açılır pencereye hemen tıklayın",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Müfredat görünümü:</strong> Dijital araçları uygun şekilde kullanmalı ve sağlık, çevre, haklar ve güvenlik konularını düşünmelisiniz.</p>\n        <ol class=\"step-list\">\n            <li>Örnekleri donanım, işletim sistemi, uygulama veya hizmet düzeyleriyle eşleştirin.</li><li>Mesajlarda şifrelemenin neden önemli olabileceğini açıklayın.</li><li>Dijital tüketici sorununu tartışın: abonelik tuzağı, uygulama içi satın alma veya sahtekarlık.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb8_handeln_q2}}"
+      }
+    ]
   },
   "wetter": {
     "title": "🌤️ Hava Durumu: Nedir? 🌦️",
@@ -11656,5 +12664,16 @@
         }
       ]
     }
+  },
+  "mathespiel": {
+    "title": "Hesaplama yolculuğu",
+    "subtitle": "Temel aritmetik ve mekansal düşünme için eğitici bir oyun",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "Bilgi işlem yolculuğuna hoş geldiniz",
+        "content": "<p>Hızlı bir kontrolle başlayın. Hesaplama yolculuğu daha sonra görevleri otomatik olarak ayarlar: Kendinize güveniniz arttıkça görevler daha da zorlaşır. Bir şey hâlâ sallanıyorsa adımlarınız daha küçük olur.</p><div id='mathGameRoot' class='math-game' data-math-game></div>"
+      }
+    ]
   }
 }

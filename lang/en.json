@@ -5263,339 +5263,1347 @@
       ]
     }
   },
-  "dgb5": {
-    "title": "💻 Digital basic education 🖥️",
-    "subtitle": "Welcome to the digital world! Here you will learn everything you need to know about computers, the Internet and safe behavior online (5th grade).",
+  "dgb_word_werkstatt": {
+    "title": "📝 Word workshop: Write and design documents",
+    "subtitle": "Self-employed step-by-step tasks for Microsoft Word",
+    "script": false,
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Hardware & Software (The EVA principle)",
+        "id": "word_sec0",
+        "title": "1. Orientation: Where is what in Word?",
+        "content": "<div class=\"word-workshop\">\n  <div class=\"lesson-goals\"><strong>This is what you can do after this workshop:</strong><ul class=\"step-list\"><li>create, save and find a new Word document</li><li>securely mark, move, copy and format text</li><li>Headings, paragraphs, lists, tables, images, page numbers and Use headers/footers</li><li>deliver a finished document as a PDF</li></ul></div>\n  <p>Always work like this: <strong>read - try it out in Word - check - only then move on.</strong> If your Word looks a little different, first look for the same word in the ribbon at the top: <strong>Start</strong>, <strong>Insert</strong>, <strong>Layout</strong> or <strong>Check</strong>.</p>\n  \n<div class=\"word-diagram\" role=\"img\" aria-label=\"Vereinfachte Word-Oberfläche mit Menüband, Registerkarten und Dokumentseite\">\n<svg viewBox=\"0 0 920 430\">\n  <rect x=\"18\" y=\"18\" width=\"884\" height=\"394\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"18\" y=\"18\" width=\"884\" height=\"42\" rx=\"18\" fill=\"#1d4ed8\"/>\n  <text x=\"42\" y=\"44\" class=\"word-label word-title-label\">Word window</text>\n  <rect x=\"34\" y=\"76\" width=\"850\" height=\"42\" rx=\"8\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"48\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"91\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"146\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"word-tab-active\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"189\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"244\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"287\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"342\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"385\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Draw</text><rect x=\"440\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"483\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"538\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"581\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">References</text><rect x=\"636\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"679\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"734\" y=\"84\" width=\"86\" height=\"26\" rx=\"6\" class=\"\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"777\" y=\"102\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"34\" y=\"126\" width=\"850\" height=\"76\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\"/>\n  <rect x=\"54\" y=\"142\" width=\"160\" height=\"42\" rx=\"8\" class=\"word-highlight\"/>\n  <text x=\"134\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Font</text>\n  <rect x=\"232\" y=\"142\" width=\"170\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"317\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Paragraph</text>\n  <rect x=\"420\" y=\"142\" width=\"210\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"525\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Format templates</text>\n  <rect x=\"668\" y=\"142\" width=\"150\" height=\"42\" rx=\"8\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/>\n  <text x=\"743\" y=\"167\" text-anchor=\"middle\" class=\"word-small-label\">Edit</text>\n  <rect x=\"270\" y=\"224\" width=\"380\" height=\"150\" rx=\"8\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"2\"/>\n  <line x1=\"306\" y1=\"262\" x2=\"612\" y2=\"262\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"306\" y1=\"292\" x2=\"570\" y2=\"292\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"306\" y1=\"322\" x2=\"598\" y2=\"322\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <rect x=\"698\" y=\"238\" width=\"138\" height=\"62\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"767\" y=\"263\" text-anchor=\"middle\" class=\"word-small-label\">Menu Ribbon</text>\n  <text x=\"767\" y=\"282\" text-anchor=\"middle\" class=\"word-small-label\">search above</text>\n  <path d=\"M700 268 L620 170\" stroke=\"#fb923c\" stroke-width=\"3\" marker-end=\"url(#wordArrow)\" fill=\"none\"/>\n  <rect x=\"76\" y=\"248\" width=\"142\" height=\"70\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"147\" y=\"275\" text-anchor=\"middle\" class=\"word-small-label\">Document page:</text>\n  <text x=\"147\" y=\"294\" text-anchor=\"middle\" class=\"word-small-label\">here you write</text>\n  <path d=\"M218 284 L270 284\" stroke=\"#fb923c\" stroke-width=\"3\" marker-end=\"url(#wordArrow)\" fill=\"none\"/>\n  <rect x=\"34\" y=\"386\" width=\"850\" height=\"14\" rx=\"7\" fill=\"#e2e8f0\"/>\n  <text x=\"54\" y=\"378\" class=\"word-small-label\">Status bar: pages, words, zoom</text>\n  <defs><marker id=\"wordArrow\" markerWidth=\"10\" markerHeight=\"8\" refX=\"8\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L9,4 L0,8 Z\" fill=\"#fb923c\"/></marker></defs>\n</svg>\n</div>\n  <div class=\"remember-box\"><strong>Important:</strong> You can find most commands at the top of the <strong>menu ribbon</strong>. First you click on a <strong>tab</strong> like Home or Insert. Then select the appropriate command in the bar below.</div>\n  \n<div class=\"word-task-card\">\n  <h3>Mini task 1: Reading Word window</h3><ol class=\"word-mini-steps\"><li>Open Microsoft Word and start with <strong>Blank Document</strong>.</li><li>Point your finger or mouse at the tabs <strong>File</strong>, <strong>Start</strong>, <strong>Insert</strong>, <strong>Layout</strong> and <strong>Review</strong>.</li><li>Click on <strong>Start</strong>. Find the areas <strong>Font</strong>, <strong>Paragraph</strong> and <strong>Format templates</strong>.</li><li>Click once in the white page and write: <em>I working with Word today.</em></li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> You see a sentence on the white page and the tab <strong>Start</strong> is open at the top.</div>\n</div>\n  <details class=\"guided-hint\"><summary>If the ribbon is gone</summary><p>Press <strong>Ctrl + F1</strong> or double-click a tab like <strong>Start</strong>. Then the bar will appear again.</p></details>\n</div>\n{{QUIZ_word_q1}}",
         "quizzes": [
           {
-            "id": "dgb_s1_q1",
-            "question": "What is included in the hardware?",
+            "id": "word_q1",
+            "question": "Where do you find the most commands in Word?",
             "answers": [
               {
-                "text": "Mouse, keyboard and screen",
+                "text": "Top of tabbed ribbon",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Correct: These are pieces of hardware that you can touch."
+                "feedback": "Correct. First select tab, then search for command."
               },
               {
-                "text": "Games, apps and the browser",
+                "text": "Only at the bottom of the status bar",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Apps and browsers are programs. They belong to the software, not the hardware."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s1_q2",
-            "question": "What does the E stand for in the EVA principle?",
-            "answers": [
-              {
-                "text": "Input (e.g. typing)",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Correct: Input means you give the computer data or commands."
+                "pts": 0,
+                "feedback": "For example, below it says Page, Words and Zoom. Most of the commands are above."
               },
               {
-                "text": "End (turn off computer)",
+                "text": "Only in paper space",
                 "correct": false,
-                "pts": 5,
-                "feedback": "The E does not stand for end. With the EVA principle, everything starts with the input."
+                "pts": 0,
+                "feedback": "You write on the white page. The commands are at the top."
               }
             ]
           }
-        ],
-        "content": "<p>A computer consists of two large areas:</p>\n        <ul>\n            <li>🖥️ <strong>Hardware:</strong> Everything you can touch! This includes the screen, the keyboard, the mouse, but also the inner workings such as the processor (brain of the computer) and the hard drive (memory).</li>\n            <li>💾 <strong>Software:</strong> The invisible programs. Without software, the hardware is useless. This includes apps, games, the operating system and text programs.</li>\n        </ul>\n        <p>The basic principle of every computer is called <strong>EVA principle</strong>. This stands for:</p>\n        <ol>\n            <li><strong>E</strong>input: You give the computer a command (e.g. click the mouse).</li>\n            <li><strong>V</strong>elaboration: The computer thinks and calculates what needs to be done.</li>\n            <li><strong>A</strong>output: The computer shows you the result (e.g. an image on the monitor).</li>\n        </ol>\n        {{QUIZ_dgb_s1_q1}}\n        {{QUIZ_dgb_s1_q2}}"
+        ]
       },
       {
-        "id": "sec1",
-        "title": "2. Files & Folders",
+        "id": "word_sec1",
+        "title": "2. Create a file, save it and find it again",
+        "content": "<p>Save is the most important rule. Save <strong>early</strong> and then repeatedly with <strong>Ctrl + S</strong>.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Datei\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">New</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Open</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Save as</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">then continue</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Save As is required when saving for the first time or if you want to make a copy.</text>\n</svg>\n</div><div class=\"word-path\"><span>File</span><b class=\"arrow\">></b><span>Save under</span><b class=\"arrow\">></b><span>Browse</span><b class=\"arrow\">></b><span>folder select</span><b class=\"arrow\">></b><span>Write file name</span><b class=\"arrow\">></b><span>Save</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 2: Save first document</h3>\n  <ol class=\"word-mini-steps\"><li>Open a new blank Word document.</li><li>Write above: <strong>Word workshop by first name last name</strong>.</li><li>Click on the top left <strong>File</strong>.</li><li>Click <strong>Save as</strong>. Choose your school folder or the folder that the teacher specifies.</li><li>Write as file name: <strong>Word_Werkstatt_Firstname_Lastname</strong>. Do not use special characters.</li><li>Click <strong>Save</strong>. Then press <strong>Ctrl + S</strong>.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> Your file name is at the top of the title bar. If you close Word and reopen it, you will find the file in the selected folder.</div>\n</div>\n<div class=\"teacher-note\"><strong>File name rule:</strong> Good file names are short and clear: <strong>Fach_Topic_Name</strong>. Example: <strong>DGB_Word_AminaK</strong>.</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 3: Reopen file</h3>\n  <ol class=\"word-mini-steps\"><li>Only close Word when your document is saved.</li><li>Open Word again.</li><li>Click on <strong>File > Open</strong>.</li><li>Select <strong>Recently</strong> or <strong>Browse</strong>.</li><li>Open your file and write today's below it Date.</li></ol><div class=\"word-output\"><strong>How to control yourself:</strong> The old file opens and your new date set remains saved after <strong>Ctrl + S</strong>.</div>\n</div>\n{{QUIZ_word_q2}}",
         "quizzes": [
           {
-            "id": "dgb_s2_q1",
-            "question": "What is a file extension (e.g. .jpg or .docx)?",
+            "id": "word_q2",
+            "question": "Which keyboard shortcut saves quickly?",
             "answers": [
               {
-                "text": "It tells the computer what type of file it is.",
+                "text": "Ctrl + S",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Correct: The extension shows the file type, for example image or text."
+                "feedback": "Exactly. S for Save."
               },
               {
-                "text": "It shows how old the computer is.",
+                "text": "Ctrl + Z",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ctrl + Z undoes the last step."
+              },
+              {
+                "text": "Ctrl + F",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ctrl + F searches text in the document."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec2",
+        "title": "3. Write, highlight and improve text",
+        "content": "<p>Almost everything in Word only works if you mark the correct text <strong></strong>. Marking means: The text is highlighted in color and Word knows what you want to change.</p><div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Marking a word:</strong><br>Double-click on the word.</div><div class=\"word-ui-card\"><strong>A sentence or range mark:</strong><br>Drag over the text with the left mouse button pressed.</div><div class=\"word-ui-card\"><strong>Mark all:</strong><br><strong>Ctrl + A</strong>.</div><div class=\"word-ui-card\"><strong>Reset error:</strong><br><strong>Ctrl + Z</strong>.</div></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 4: Practice marking</h3>\n  <ol class=\"word-mini-steps\"><li>Write these three lines in your document:<br><strong>My favorite subject is ...</strong><br><strong>I'm learning Word step by step.</strong><br><strong>In the end I can I can design a nice document.</strong></li><li>Select only the word <strong>Word</strong> with a double click.</li><li>Press <strong>Ctrl + C</strong>, go to the end of the next line and press <strong>Ctrl + V</strong>.</li><li>Select the inserted text again and delete it with the <strong>Delete</strong> key.</li><li>Do the last step with <strong>Ctrl + Z</strong> undo.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> You can highlight, copy, paste, delete and restore a single word.</div>\n</div>\n<div class=\"remember-box\"><strong>Key tricks:</strong> Ctrl + C = copy, Ctrl + V = paste, Ctrl + X = cut, Ctrl + Z = undo, Ctrl + A = select all.</div>"
+      },
+      {
+        "id": "word_sec3",
+        "title": "4. Design font: bold, size, color",
+        "content": "<p>Font design can be found on the <strong>Start</strong> tab in the <strong>Font</strong> section. Always mark text first, then design.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Font</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Paragraph</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Format templates</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">then continue</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">For bold, font size, font color and underlining you usually stay on Start.</text>\n</svg>\n</div><div class=\"word-path\"><span>Start</span><b class=\"arrow\">></b><span>Font</span><b class=\"arrow\">></b><span>Bold / Italic / Underlined</span><b class=\"arrow\">></b><span>Font size</span><b class=\"arrow\">></b><span>Font color</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 5: Design a profile</h3>\n  <ol class=\"word-mini-steps\"><li>Write the headline: <strong>My profile</strong>. Mark them.</li><li>Click <strong>Start</strong>. In the <strong>Font</strong> area, select: Size <strong>20</strong>, <strong>Bold</strong>, Font Color <strong>Blue</strong>.</li><li>Write four below Lines: Name, class, favorite food, favorite place in Vienna.</li><li>Mark only the words <strong>Name</strong>, <strong>Class</strong>, <strong>Favorite food</strong>, <strong>Favorite location</strong> and make it <strong>bold</strong>.</li><li>Highlight a sentence that you find particularly important and give it a different font color.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The heading is big and blue. The keywords on the left are bold, but the answers remain readable.</div>\n</div>\n<div class=\"mini-task\"><strong>Professional Rule:</strong> Use a maximum of two fonts and a maximum of three colors. A document should look clear, not like a poster with too many effects.</div>{{QUIZ_word_q3}}",
+        "quizzes": [
+          {
+            "id": "word_q3",
+            "question": "What do you do first before making a text bold or blue?",
+            "answers": [
+              {
+                "text": "Mark the text passage",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Exactly. Word needs to know which text should be changed."
+              },
+              {
+                "text": "Close the document",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Then you cannot format the text."
+              },
+              {
+                "text": "Always print first",
+                "correct": false,
+                "pts": 0,
+                "feedback": "It is only printed at the end."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec4",
+        "title": "5. Paragraphs: alignment, spacing, lists",
+        "content": "<p>A paragraph is a piece of text between two Enter keys. You create paragraphs on <strong>Start</strong> in the area <strong>Paragraph</strong>.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Font</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Paragraph</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Format templates</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">then continue</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">In the paragraph area you will find left-aligned, centered, lists, indents and line spacing.</text>\n</svg>\n</div><div class=\"word-path\"><span>Start</span><b class=\"arrow\">></b><span>Paragraph</span><b class=\"arrow\">></b><span>Bullets</span><b class=\"arrow\">></b><span>Numbering</span><b class=\"arrow\">></b><span>Center</span><b class=\"arrow\">></b><span>Line- and paragraph spacing</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 6: Building a clean list</h3>\n  <ol class=\"word-mini-steps\"><li>Write the heading: <strong>My school supplies</strong>.</li><li>Press enter and write among themselves: notebook, pen, ruler, snack, drinking bottle.</li><li>Mark these five Words.</li><li>Click <strong>Home > Paragraph > Bullets</strong>.</li><li>Highlight the heading and click <strong>Center</strong>.</li><li>Select the list and open <strong>Line and paragraph spacing</strong>. Select <strong>1.15</strong> or <strong>1.5</strong>.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The heading is in the middle. The school supplies are presented as a list with points and enough space for reading.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 7: Write numbered instructions</h3>\n  <ol class=\"word-mini-steps\"><li>Write the heading: <strong>How to save correctly</strong>.</li><li>Write these steps underneath, each step on its own line: Click file, select Save as, search for folder, write file name, save click.</li><li>Mark the five steps.</li><li>Click <strong>Start > Paragraph > Numbering</strong>.</li><li>Check: The steps must be numbered from 1 to 5 be.</li></ol><div class=\"word-output\"><strong>How to control yourself:</strong> Your instructions have a correct order. Numbers are used when the order is important.</div>\n</div>"
+      },
+      {
+        "id": "word_sec5",
+        "title": "6. Headings and styles",
+        "content": "<p>Styles are ready-made text styles. They are better than just changing the size and color by hand every time. Particularly important are <strong>Heading 1</strong> and <strong>Heading 2</strong>.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Start\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Font</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Paragraph</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Format templates</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">then continue</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Format templates keep long documents neat and consistent.</text>\n</svg>\n</div><div class=\"word-path\"><span>Start</span><b class=\"arrow\">></b><span>Styles</span><b class=\"arrow\">></b><span>Heading 1 or heading 2</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 8: Mini report with real headings</h3>\n  <ol class=\"word-mini-steps\"><li>Write as the main heading: <strong>My district</strong>. Highlight it and choose <strong>Start > Styles > Heading 1</strong>.</li><li>Write below: <strong>What I like</strong>. Mark this line and select <strong>Heading 2</strong>.</li><li>Write three sentences below about your district.</li><li>Afterwards write: <strong>What could be better</strong>. Vote again <strong>Heading 2</strong>.</li><li>Write two concrete ideas for improvement.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The main heading looks different than the small subheadings. All headings appear consistent.</div>\n</div>\n<div class=\"remember-box\"><strong>Why this is important:</strong> With real headings, Word can automatically create a table of contents later. You can also find your way around long texts more quickly.</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 9: Try out the table of contents</h3>\n  <ol class=\"word-mini-steps\"><li>Put the cursor at the very beginning of the document.</li><li>Press <strong>Ctrl + Enter</strong> for a new first page.</li><li>Click at the top <strong>References</strong>.</li><li>Click <strong>Table of Contents</strong> and choose an automatic template.</li><li>If Word asks if you want to replace the directory, confirm.</li></ol><div class=\"word-output\"><strong>How to control yourself:</strong> There is a table of contents on page 1. If nothing appears, you probably didn't use heading styles.</div>\n</div>"
+      },
+      {
+        "id": "word_sec6",
+        "title": "7. Page layout: margins, alignment, page breaks",
+        "content": "<p>The page layout determines how the sheet is structured. For school assignments <strong>Portrait format</strong> with normal margins is usually good.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Layout\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Borders</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Orientation</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Size / Breaks</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">continue afterwards</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Layout changes the entire page, not just a single word.</text>\n</svg>\n</div><div class=\"word-path\"><span>Layout</span><b class=\"arrow\">></b><span>Borders</span><b class=\"arrow\">></b><span>Normal</span></div><div class=\"word-path\"><span>Layout</span><b class=\"arrow\">></b><span>Orientation</span><b class=\"arrow\">></b><span>Portrait or landscape</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 10: Start a second page cleanly</h3>\n  <ol class=\"word-mini-steps\"><li>Click at the end of your document.</li><li>Press <strong>Ctrl + Enter</strong>. This is a page break.</li><li>Write at the top of the new page: <strong>My second page</strong>.</li><li>Click <strong>Layout > Margins > Normal</strong>.</li><li>Click <strong>Layout > Orientation > Portrait</strong>.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The second page starts cleanly at the top. You didn't use many enter lines, just a real page break.</div>\n</div>\n<div class=\"teacher-note\"><strong>Common Error:</strong> Many children press Enter 20 times to get to the next page. This will slip later. Use <strong>Ctrl + Enter</strong>.</div> instead"
+      },
+      {
+        "id": "word_sec7",
+        "title": "8. Insert images and place them correctly",
+        "content": "<p>Images make a document clear. What is important is the <strong>Text wrapping</strong>: It decides whether text can appear next to the image.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Images</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Shapes / Icons</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Table</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">continue afterwards</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Images are inserted into the document. After clicking, image format appears.</text>\n</svg>\n</div><div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Images</span><b class=\"arrow\">></b><span>This Device</span></div><div class=\"word-path\"><span>Click image</span><b class=\"arrow\">></b><span>Layout options next to the Image</span><b class=\"arrow\">></b><span>With text in line or square</span></div>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Bild mit Layoutoptionen in Word\"><svg viewBox=\"0 0 920 330\"><rect x=\"210\" y=\"30\" width=\"500\" height=\"260\" rx=\"10\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"3\"/><line x1=\"250\" y1=\"82\" x2=\"620\" y2=\"82\" stroke=\"#cbd5e1\" stroke-width=\"5\"/><line x1=\"250\" y1=\"112\" x2=\"620\" y2=\"112\" stroke=\"#cbd5e1\" stroke-width=\"5\"/><rect x=\"250\" y=\"142\" width=\"150\" height=\"92\" rx=\"10\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"4\"/><circle cx=\"292\" cy=\"176\" r=\"14\" fill=\"#facc15\"/><path d=\"M260 218 L302 184 L332 208 L358 188 L390 222\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"6\"/>@ @TOKEN_79@@<text x=\"476\" y=\"166\" text-anchor=\"middle\" class=\"word-small-label\">Layout options</text><path d=\"M410 160 L402 160\" stroke=\"#fb923c\" stroke-width=\"3\"/><line x1=\"250\" y1=\"258\" x2=\"620\" y2=\"258\" stroke=\"#cbd5e1\" stroke-width=\"5\"/></svg></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 11: Insert image or shape</h3>\n  <ol class=\"word-mini-steps\"><li>Click where you want the image to go.</li><li>Click <strong>Insert > Images > This Device</strong>. Choose a picture from your school folder. If you don't have an image: <strong>Insert > Shapes</strong> and select a rectangle or star.</li><li>Click the image. Drag a <strong>corner</strong> to make it smaller. Don't drag the middle of the page or it will distort.</li><li>Click the small icon <strong>Layout Options</strong> next to the image. Choose <strong>With text on line</strong> if you want the image to stay like a large letter in the text.</li><li>Choose <strong>Square</strong> if you want text to flow cleanly next to the image should.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The image is not huge, not distorted and the text does not slip chaotically.</div>\n</div>\n<div class=\"remember-box\"><strong>Image rule:</strong> For simple school texts, <strong>With text in line</strong> is safest. For posters and wanted posters, <strong>Quadrat</strong> is often better.</div>{{QUIZ_word_q4}}",
+        "quizzes": [
+          {
+            "id": "word_q4",
+            "question": "What do you drag to make an image smaller without distorting it?",
+            "answers": [
+              {
+                "text": "At one corner of the picture",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. Corners maintain ratio better."
+              },
+              {
+                "text": "Only in the middle of the left side",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Then the image can become too wide or too narrow."
+              },
+              {
+                "text": "On the text next to it",
+                "correct": false,
+                "pts": 0,
+                "feedback": "The text does not change the image size."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "word_sec8",
+        "title": "9. Create and organize tables",
+        "content": "<p>Tables are good when information belongs in rows and columns: timetable, shopping list, comparison, results list.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Table</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Images</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Header and footer</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">continue afterwards</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">For tables, you first choose the size, then you can add rows and columns.</text>\n</svg>\n</div><div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Table</span><b class=\"arrow\">></b><span>Box mark</span><b class=\"arrow\">></b><span>z. B. 4 x 5 table</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 12: Timetable table</h3>\n  <ol class=\"word-mini-steps\"><li>Click on a free space in the document.</li><li>Click <strong>Insert > Table</strong>. Hover over the boxes and select <strong>4 columns x 5 rows</strong>.</li><li>Write in the first line: <strong>Time</strong>, <strong>Monday</strong>, <strong>Tuesday</strong>, <strong>Wednesday</strong>.</li><li>Fill at least three more lines with lessons.</li><li>Select the first line and do it <strong>bold</strong>.</li><li>Click on the table. Use <strong>Table Design</strong> above to choose a simple table style.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The first line can be recognized as a heading. The table has clear columns and is easier to read than a text list.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 13: Add row or column</h3>\n  <ol class=\"word-mini-steps\"><li>Click in the last row of the table.</li><li>Press the <strong>Tab</strong> key. Word often adds a new line at the end.</li><li>Or click in the table and search at the top <strong>Table layout > Insert below</strong>.</li><li>Add a new hour added.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The table grows in a controlled manner. There are no crooked spaces.</div>\n</div>"
+      },
+      {
+        "id": "word_sec9",
+        "title": "10. Header, footer and page numbers",
+        "content": "<p>Headers and footers are outside the normal text. They repeat on every page. Name, class, date or page numbers fit there.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Einfügen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Header</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Footer</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Page number</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">continue afterwards</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Header and footer can be found on Insert. You can return to the normal text with Close header and footer.</text>\n</svg>\n</div><div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Header</span><b class=\"arrow\">></b><span>Empty</span>@@TOKEN_5 5@@<div class=\"word-path\"><span>Insert</span><b class=\"arrow\">></b><span>Since enzahl</span><b class=\"arrow\">></b><span>End of page</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 14: Header with name</h3>\n  <ol class=\"word-mini-steps\"><li>Click on <strong>Insert > Header > Blank</strong>.</li><li>Write in the header: <strong>First Name Last Name - Digital Basic education</strong>.</li><li>Select the text and make it smaller, for example size <strong>10</strong>.</li><li>Click on top <strong>Close header and footer</strong> or double click in the normal one Text.</li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The name is at the top of every page, but not in the middle of the normal text.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini-task 15: Insert page number</h3>\n  <ol class=\"word-mini-steps\"><li>Click <strong>Insert > Page Number</strong>.</li><li>Select <strong>End of Page</strong> and a simple Display.</li><li>Close the header/footer view.</li><li>Check on page 2 whether there is a page number there.</li></ol>\n  <div class=\"word-output\"><strong>How to check yourself:</strong> Each page automatically has the correct number. You don't have to write the numbers by hand.</div>\n</div>"
+      },
+      {
+        "id": "word_sec10",
+        "title": "11. Spelling, Find and Replace",
+        "content": "<p>Word can help with revision. Nevertheless, in the end it is people who decide. Always read your text again out loud or quietly.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Überprüfen\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Editor / Spelling</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Language</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Comments</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">continue afterwards</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Review helps correct and improve a document.</text>\n</svg>\n</div><div class=\"word-path\"><span>Check</span><b class=\"arrow\">></b><span>Editor or spelling and Grammar</span></div><div class=\"word-path\"><span>Start</span><b class=\"arrow\">></b><span>Search</span></div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 16: Consciously improve mistakes</h3>\n  <ol class=\"word-mini-steps\"><li>Writing this sentence incorrectly on purpose: <strong>I write a document and save it regularly.</strong></li><li>Look for red or blue markings under words.</li><li>Click along Right-click on a highlighted word and choose a suitable suggestion.</li><li>Then click on <strong>Check > Editor</strong> or <strong>Spelling and Grammar</strong>.</li><li>Improve the sentence until it is correct: <strong>I write a document and save it regularly.</strong></li></ol>\n  <div class=\"word-output\"><strong>How to control yourself:</strong> The sentence has been improved. You didn't click blindly, you checked the suggestions.</div>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini-Task 17: Find and Replace</h3>\n  <ol class=\"word-mini-steps\"><li>In a short paragraph, write the word <strong>Handy</strong>.</li><li>Press <strong>Ctrl + H</strong> or go to <strong>Start > Replace</strong>.</li><li>Search for <strong>Mobile</strong> and replace it with <strong>Smartphone</strong>.</li><li>Click first <strong>Search</strong> so you can see where Word is searching. Then use <strong>Replace</strong>.</li></ol>\n  <div class=\"word-output\"><strong>How to check yourself:</strong> All appropriate passages have been changed without you having to search through the entire text manually.</div>\n</div>"
+      },
+      {
+        "id": "word_sec11",
+        "title": "12. Submit as PDF and check the finished document",
+        "content": "<p>A Word file can sometimes move slightly on other devices. A PDF usually stays the same when opened and printed. PDF is often the safer form for submissions.</p>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Menüband in Word: Datei\">\n<svg viewBox=\"0 0 920 300\">\n  <rect x=\"20\" y=\"20\" width=\"880\" height=\"250\" rx=\"18\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n  <rect x=\"40\" y=\"44\" width=\"840\" height=\"44\" rx=\"10\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\"/>\n  <rect x=\"58\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#2563eb\" stroke=\"#cbd5e1\"/><text x=\"114\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text word-tab-active-text\">File</text><rect x=\"190\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"246\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Start</text><rect x=\"322\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"378\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Insert</text><rect x=\"454\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"510\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Layout</text><rect x=\"586\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"642\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">Review</text><rect x=\"718\" y=\"54\" width=\"112\" height=\"24\" rx=\"6\" fill=\"#ffffff\" stroke=\"#cbd5e1\"/><text x=\"774\" y=\"71\" text-anchor=\"middle\" class=\"word-tab-text \">View</text>\n  <rect x=\"52\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" class=\"word-highlight\"/>\n  <rect x=\"308\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <rect x=\"564\" y=\"110\" width=\"230\" height=\"96\" rx=\"12\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n  <text x=\"167\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Save as</text>\n  <text x=\"423\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Export</text>\n  <text x=\"679\" y=\"145\" text-anchor=\"middle\" class=\"word-label\">Print</text>\n  <text x=\"167\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">look here first</text>\n  <text x=\"423\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">continue afterwards</text>\n  <text x=\"679\" y=\"174\" text-anchor=\"middle\" class=\"word-small-label\">if needed</text>\n  <rect x=\"138\" y=\"224\" width=\"644\" height=\"34\" rx=\"10\" class=\"word-callout\"/>\n  <text x=\"460\" y=\"246\" text-anchor=\"middle\" class=\"word-small-label\">Before submitting, always save and briefly check whether everything is readable.</text>\n</svg>\n</div><div class=\"word-path\"><span>File</span><b class=\"arrow\">></b><span>Save as</span><b class=\"arrow\">></b><span>File type: PDF</span><b class=\"arrow\">></b><span>Save</span></div><div class=\"word-path\"><span>Date i</span><b class=\"arrow\">></b><span>Print</span><b class=\"arrow\">></b><span>Preview control</span></div>\n<div class=\"word-diagram\" role=\"img\" aria-label=\"Beispielseite mit Überschrift, Liste, Tabelle, Bild und Fußzeile\">\n<svg viewBox=\"0 0 920 430\">\n  <rect x=\"180\" y=\"28\" width=\"560\" height=\"360\" rx=\"10\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"3\"/>\n  <text x=\"460\" y=\"72\" text-anchor=\"middle\" class=\"word-label\">My finished Word document</text>\n  <line x1=\"240\" y1=\"100\" x2=\"680\" y2=\"100\" stroke=\"#dbeafe\" stroke-width=\"6\"/>\n  <text x=\"246\" y=\"136\" class=\"word-small-label\">1. Heading with style template</text>\n  <line x1=\"246\" y1=\"160\" x2=\"520\" y2=\"160\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <line x1=\"246\" y1=\"184\" x2=\"590\" y2=\"184\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <circle cx=\"260\" cy=\"222\" r=\"5\" fill=\"#2563eb\"/><line x1=\"278\" y1=\"222\" x2=\"450\" y2=\"222\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <circle cx=\"260\" cy=\"248\" r=\"5\" fill=\"#2563eb\"/><line x1=\"278\" y1=\"248\" x2=\"480\" y2=\"248\" stroke=\"#cbd5e1\" stroke-width=\"5\"/>\n  <rect x=\"520\" y=\"208\" width=\"128\" height=\"76\" rx=\"8\" fill=\"#e0f2fe\" stroke=\"#2563eb\" stroke-width=\"3\"/>\n  <path d=\"M535 264 L568 230 L592 252 L610 235 L640 268\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"5\"/>\n  <rect x=\"246\" y=\"300\" width=\"210\" height=\"52\" fill=\"#f8fafc\" stroke=\"#94a3b8\"/>\n  <line x1=\"316\" y1=\"300\" x2=\"316\" y2=\"352\" stroke=\"#94a3b8\"/><line x1=\"386\" y1=\"300\" x2=\"386\" y2=\"352\" stroke=\"#94a3b8\"/><line x1=\"246\" y1=\"326\" x2=\"456\" y2=\"326\" stroke=\"#94a3b8\"/>\n  <line x1=\"220\" y1=\"372\" x2=\"700\" y2=\"372\" stroke=\"#e2e8f0\" stroke-width=\"3\"/>\n  <text x=\"460\" y=\"382\" text-anchor=\"middle\" class=\"word-small-label\">Footer with name and page number</text>\n</svg>\n</div>\n\n<div class=\"word-task-card\">\n  <h3>Mini task 18: Create submission file</h3>\n  <ol class=\"word-mini-steps\"><li>First save the Word file with <strong>Ctrl + S</strong>.</li><li>Click <strong>File > Save at</strong>.</li><li>Select <strong>PDF</strong> as the file type. If you can't find this selection: Click <strong>File > Export > Create PDF/XPS</strong>.</li><li>Name the file: <strong>DGB_Word_Werkstatt_Firstname_Lastname.pdf</strong>.</li><li>Open the PDF file briefly and check: Heading, image, table, page numbers and name are visible.</li></ol>\n  <div class=\"word-output\"><strong>This is how you control yourself:</strong> You have two files: a Word file to continue working on and a PDF file to submit.</div>\n</div><div class=\"word-check-card\"><h3>Submission checklist</h3><ul class=\"step-list\"><li>File name contains subject, topic and name.</li><li>Heading is clear and not closed colorful.</li><li>At least one list is properly formatted.</li><li>At least one table is clearly readable.</li><li>An image or a shape is appropriately inserted and not distorted.</li><li>Header or footer contains name/class.</li><li>Page numbers are inserted automatically.</li><li>Spelling has been checked.</li><li>PDF has been opened and controlled.</li></ul></div>"
+      },
+      {
+        "id": "word_sec12",
+        "title": "13. Final project: Design an information sheet",
+        "content": "<p>Finally, you connect everything into a real product. Create a one-page or two-page information sheet. Topic: <strong>A place in Vienna that young people should know</strong>.</p><div class=\"word-task-card\"><h3>Project assignment</h3><ol class=\"word-mini-steps\"><li>Create a new document and save it as <strong>DGB_InfoBlatt_Firstname_Lastname</strong>.</li><li>Write a main heading with <strong>Heading 1</strong>.</li><li>Write a short introductory text with 3 to 5 Sentences.</li><li>Insert two subheadings with <strong>Heading 2</strong>: <strong>Why the place is interesting</strong> and <strong>What to pay attention to there should</strong>.</li><li>Create a list with at least 4 points.</li><li>Insert a table with at least 3 columns: <strong>Information</strong>, <strong>Example</strong>, <strong>Important</strong>.</li><li>Insert an image or a shape and carefully adjust the text wrapping.</li><li>Insert a header with name and class.</li><li>Insert page numbers a.</li><li>Check spelling and also save as PDF.</li></ol></div><table class=\"word-rubric\"><tr><th>Area</th><th>This must be visible be</th><th>Points</th></tr><tr><td>Save</td><td>useful file name, Word file and PDF available</td><td>4</td></tr><tr><td>Text</td><td>understandable sentences, appropriate headings, no rude ones Typos</td><td>8</td></tr><tr><td>Formatting</td><td>Font sizes, bolding, spacing and lists are deliberate inserted</td><td>8</td></tr><tr><td>Objects</td><td>Image/shape and table are clean inserted</td><td>6</td></tr><tr><td>Document technology</td><td>Header/footer, page number, PDF control</td><td>4</td></tr></table><div class=\"remember-box\"><strong>Merksatz:</strong> A good Word document is not just beautiful. It is stored, clear, readable, controlled and easy for others to open.</div>{{QUIZ_word_q5}}",
+        "quizzes": [
+          {
+            "id": "word_q5",
+            "question": "Why is a PDF often useful for submission?",
+            "answers": [
+              {
+                "text": "Because the layout usually stays the same on other devices",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Exactly. PDF is good for submitting and printing."
+              },
+              {
+                "text": "Because you can continue working in it better than in Word",
+                "correct": false,
+                "pts": 0,
+                "feedback": "The Word file is better for further work. PDF is particularly good for submission."
+              },
+              {
+                "text": "Because Word then automatically invents all content",
+                "correct": false,
+                "pts": 0,
+                "feedback": "No. You create the content yourself."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dgb5_orientierung": {
+    "title": "🧭 Orientation: 5th grade",
+    "subtitle": "Understanding and classifying the digital world - 5th grade (1st grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb5_orientierung_q1",
+            "question": "What does the V stand for in the EVA principle?",
+            "answers": [
+              {
+                "text": "processing",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "Connection",
                 "correct": false,
                 "pts": 5,
-                "feedback": "The age of the computer is not in the file extension. It describes the type of file."
+                "feedback": "Not quite yet. Read the mnemonic and try again."
               }
             ]
           }
         ],
-        "content": "<p>A lot of information accumulates quickly on a computer. To keep order, we use <strong>files</strong> and <strong>folders</strong>.</p>\n        <ul>\n            <li>📁 <strong>Folders (directories):</strong> They are like drawers in a desk. You can store files or other folders in it.</li>\n            <li>📄 <strong>Files:</strong> These are the actual documents (e.g. a picture, a text, a song).</li>\n        </ul>\n        <p>So that the computer knows what it is dealing with, each file has a so-called <strong>file extension</strong> (at the very end of the name, after the period):</p>\n        <ul>\n            <li><code>.txt</code> or <code>.docx</code> = Text</li>\n            <li><code>.jpg</code> or <code>.png</code> = Image</li>\n            <li><code>.mp3</code> = Music</li>\n            <li><code>.pdf</code> = A finished document that is difficult to change</li>\n        </ul>\n        {{QUIZ_dgb_s2_q1}}"
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>explain the EVA principle on a digital device</li><li>distinguish between digital and analogue things</li><li>observe and question your own media behavior</li>\n            </ul>\n        </div>\n        <p>This is about not just using digital technology, but understanding how it changes our lives, learning and coexistence.</p>\n        <p>A digital device takes input, processes it and outputs a result. This basic principle is called EVA: input, processing, output. Digital is not just “with a screen”: Digital systems store and process information as data.</p>\n        <div class=\"remember-box\"><strong>Merke:</strong> Digital means: information is processed as data. This changes how we learn, play, work and talk to each other.</div>\n        {{QUIZ_dgb5_orientierung_q1}}"
       },
       {
         "id": "sec2",
-        "title": "3. Internet & Search Engines",
+        "title": "2. Workshop for teaching",
         "quizzes": [
           {
-            "id": "dgb_s3_q1",
-            "question": "What is a Browser?",
+            "id": "dgb5_orientierung_q2",
+            "question": "What is a good example of an output?",
             "answers": [
               {
-                "text": "A program to display websites (e.g. Firefox, Chrome).",
+                "text": "An image appears on the screen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Correct: A browser opens and displays websites."
+                "feedback": "Correct. This fits well with practical application."
               },
               {
-                "text": "A website where you search for things.",
+                "text": "You press a button.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "This is a search engine. The browser is the program you use to visit websites."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s3_q2",
-            "question": "How do you recognize a secure connection on the Internet?",
-            "answers": [
-              {
-                "text": "At the small lock symbol next to the address (https://).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Correct: Lock and https indicate an encrypted connection."
-              },
-              {
-                "text": "On a big red flashing light.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "There is no such warning sign. Look for the lock symbol and https in the address."
+                "feedback": "That would not be a good or safe digital action. Try again."
               }
             ]
           }
         ],
-        "content": "<p>The <strong>Internet</strong> is a vast, worldwide network of connected computers. To visit websites, you need a special program: the <strong>Browser</strong> (e.g. Google Chrome, Mozilla Firefox, Microsoft Edge or Safari).</p>\n        <p>Each website has a unique address, the <strong>URL</strong> (e.g. <code>www.wikipedia.org</code>). If you enter this in the address bar above, you will land directly there.</p>\n        <p>When you search for something, you use a <strong>search engine</strong> (e.g. Google, DuckDuckGo, Ecosia, FragFINN). Search engines search the Internet for websites that match your search terms.</p>\n        <div class=\"lexikon-box\">\n            🔍 <strong>Pro tip for searching:</strong> Use quotation marks to search for exactly a word: <code>\"Digital Basic Education\"</code>\n        </div>\n        {{QUIZ_dgb_s3_q1}}\n        {{QUIZ_dgb_s3_q2}}"
-      },
-      {
-        "id": "sec3",
-        "title": "4. Security & Passwords",
-        "quizzes": [
-          {
-            "id": "dgb_s4_q1",
-            "question": "What goes into a strong password?",
-            "answers": [
-              {
-                "text": "Uppercase and lowercase letters, numbers and special characters (e.g. !?#).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Correct: This mix makes a password harder to guess."
-              },
-              {
-                "text": "My first name and my date of birth.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Others easily know your name and date of birth. This makes a password insecure."
-              }
-            ]
-          }
-        ],
-        "content": "<p>On the internet it's like in real life: you have to be careful! To protect your accounts (email, games), you need a strong password.</p>\n        <p><strong>A strong password:</strong></p>\n        <ul>\n            <li>Is at least 8-12 characters long.</li>\n            <li>Consists of upper and lower case letters, numbers and special characters (e.g. $, !, ?).</li>\n            <li>Is <strong>not</strong> your name, your pet or \"123456\"!</li>\n        </ul>\n        <p>Never share your passwords with anyone (except maybe your parents)!</p>\n        <p><strong>Beware of computer viruses:</strong> Do not click on strange links in emails from unknown people or download dubious files. They may contain malicious software (malware).</p>\n        {{QUIZ_dgb_s4_q1}}"
-      },
-      {
-        "id": "sec4",
-        "title": "5. Netiquette & online behavior",
-        "quizzes": [
-          {
-            "id": "dgb_s5_q1",
-            "question": "What does cyberbullying mean?",
-            "answers": [
-              {
-                "text": "Intentionally and repeatedly insulting or harassing someone on the Internet or via mobile phones.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "That's right: Cyberbullying happens intentionally, repeatedly, and online."
-              },
-              {
-                "text": "If your computer crashes while playing online.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "A crash is a technical problem. Cyberbullying is directed against people."
-              }
-            ]
-          },
-          {
-            "id": "dgb_s5_q2",
-            "question": "Can you just post a funny photo of a friend online?",
-            "answers": [
-              {
-                "text": "No, I have to ask him for permission first (right to my own image).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Correct: Other people must agree to post their picture."
-              },
-              {
-                "text": "Yes, of course, if it's funny, that's fine.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Funny isn't enough. Without permission you are violating the right to your own image."
-              }
-            ]
-          }
-        ],
-        "content": "<p>Behind every screen there is a real person with feelings. The rules for polite behavior on the Internet are called <strong>Netiquette</strong> (from \"Net\" for Internet and \"Etiquette\" for good manners).</p>\n        <ul>\n            <li><strong>Be respectful:</strong> Don't write anything that you wouldn't say to the person's face.</li>\n            <li><strong>Right to your own image:</strong> You may only post or forward photos or videos of other people online if they have expressly permitted you to do so!</li>\n            <li><strong>Copyright:</strong> Texts, images and songs from the Internet belong to someone. You can't just copy them and pretend they're your own.</li>\n        </ul>\n        <p><strong>Cybermobbing:</strong> If someone is intentionally insulted, threatened or excluded online, that is cyberbullying. This isn't fun, it's a crime! If you notice something like this or are affected yourself: block the person, take screenshots (evidence) and confide in an adult!</p>\n        {{QUIZ_dgb_s5_q1}}\n        {{QUIZ_dgb_s5_q2}}"
+        "content": "<p><strong>Curriculum view:</strong> Technology, society and your own actions are viewed together.</p>\n        <ol class=\"step-list\">\n            <li>Select a device from your everyday life, for example cell phone, school tablet or game console.</li><li>Describe: What is the input? What is being processed? What is the output?</li><li>Think about what is digital about it and what might still remain analog.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb5_orientierung_q2}}"
       }
-    ],
-    "diplom": {
-      "title": "🎓 The DGB diploma",
-      "questions": [
-        {
-          "id": "dgb_d1",
-          "question": "What is hardware?",
-          "answers": [
-            {
-              "text": "The tangible parts of a computer.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: Hardware is all parts that you can touch."
-            },
-            {
-              "text": "Programs and apps.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Programs and apps are software. Hardware is the tangible devices and components."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d2",
-          "question": "What does the 'V' stand for in the EVA principle?",
-          "answers": [
-            {
-              "text": "processing",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: The V stands for processing the entered data."
-            },
-            {
-              "text": "Connection",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Connection sounds technical, but it is not part of the EVA principle. V means processing."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d3",
-          "question": "Which file extension belongs to an image?",
-          "answers": [
-            {
-              "text": ".jpg",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: .jpg is a typical file extension for images."
-            },
-            {
-              "text": ".mp3",
-              "correct": false,
-              "pts": 5,
-              "feedback": ".mp3 belongs to audio files. For example, images have .jpg or .png."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d4",
-          "question": "What does a browser do?",
-          "answers": [
-            {
-              "text": "It displays websites.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: The browser displays websites on the screen."
-            },
-            {
-              "text": "It protects against viruses.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Virus protection makes security software. A browser primarily displays websites."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d5",
-          "question": "Is 'hello123' a strong password?",
-          "answers": [
-            {
-              "text": "No, it's too easy to guess.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: Short words with simple numbers are weak passwords."
-            },
-            {
-              "text": "Yes, because there are numbers in it.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Numbers alone are not enough. 'hello123' is short and very easy to guess."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d6",
-          "question": "Can you post pictures of friends without permission?",
-          "answers": [
-            {
-              "text": "No, because of the right to your own image.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: You need their permission first to take photos of others."
-            },
-            {
-              "text": "Yes, as long as they're funny.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "You can't just post funny pictures either. The person must agree."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d7",
-          "question": "What should you do if you are bullied online?",
-          "answers": [
-            {
-              "text": "Secure evidence (screenshot) and get help from adults.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "That's right: Screenshots help, and adults can support you."
-            },
-            {
-              "text": "Insult back.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Insulting back makes the argument bigger. Secure evidence and get help."
-            }
-          ]
-        },
-        {
-          "id": "dgb_d8",
-          "question": "What is a URL?",
-          "answers": [
-            {
-              "text": "An internet address.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Correct: A URL is the exact address of a website."
-            },
-            {
-              "text": "A type of computer virus.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "A URL is not a virus. It is the address with which you can reach a website."
-            }
-          ]
-        }
-      ]
-    }
+    ]
+  },
+  "dgb5_information": {
+    "title": "🔎 Information: 5th grade",
+    "subtitle": "Use data, search and knowledge safely - 5th grade (1st grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb5_information_q1",
+            "question": "What helps with better internet searches?",
+            "answers": [
+              {
+                "text": "Use precise search terms",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "only believe the first result",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Use search engines wisely</li><li>Check simple sources</li><li>Save, copy, search, modify and delete files</li>\n            </ul>\n        </div>\n        <p>Here you will learn how to find, organize and evaluate information and how to handle data responsibly.</p>\n        <p>A search engine does not itself look for “the truth”. It shows you hits according to rules. Good search means: choosing appropriate search terms, comparing multiple sources and being careful if something sounds very exaggerated.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Data is stored information. Good organization and good search terms save time and prevent confusion.</div>\n        {{QUIZ_dgb5_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb5_information_q2",
+            "question": "What is a file?",
+            "answers": [
+              {
+                "text": "a stored content, for example text or image",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "a cable on the computer",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> It is important not only to find something, but also to check whether it makes sense, is current and trustworthy.</p>\n        <ol class=\"step-list\">\n            <li>Search for a simple factual question, for example: How is a rainbow formed?</li><li>Compare two hits: Who wrote the page?</li><li>Save a short note in an appropriate folder and give the file a clear name.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb5_information_q2}}"
+      }
+    ]
+  },
+  "dgb5_kommunikation": {
+    "title": "💬 Communication: 5th grade",
+    "subtitle": "Collaborate online and communicate securely - 5th grade (1st grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb5_kommunikation_q1",
+            "question": "What is personal data?",
+            "answers": [
+              {
+                "text": "a photo with your face",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "the color of a computer",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Recognize personal data</li><li>Select appropriate communication tools</li><li>Collaborate respectfully online</li>\n            </ul>\n        </div>\n        <p>This is about news, collaboration, social media, data protection and respectful interaction in digital spaces.</p>\n        <p>Personal data is information about you, for example name, photo, address, school or telephone number. Before sharing anything about yourself or others, consider: Who can see this? Does this person really need this information?</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Real people are sitting online. Data protection and respect go together.</div>\n        {{QUIZ_dgb5_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb5_kommunikation_q2",
+            "question": "What is important when working together online?",
+            "answers": [
+              {
+                "text": "Write respectfully and share tasks fairly",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "delete all other people's files without asking",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Digital communication is fast and practical, but needs clear rules and responsibility.</p>\n        <ol class=\"step-list\">\n            <li>Sort examples into “public”, “class only”, “private”.</li><li>Compare chat, email and shared document: Which tool is suitable for what?</li><li>Formulate a fair response to an unfriendly message.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb5_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb5_produktion": {
+    "title": "🛠️ Production: 5th grade",
+    "subtitle": "Creating digital content and solving problems - 5th grade (1st grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb5_produktion_q1",
+            "question": "What is an Algorithm?",
+            "answers": [
+              {
+                "text": "precise step-by-step instructions",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a random picture on the internet",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Formulate simple algorithms as clear sequences of steps</li><li>Structure texts and presentations</li><li>Easily collect and present data</li>\n            </ul>\n        </div>\n        <p>Here you create texts, presentations, media or small programs and learn to break down problems into simple steps.</p>\n        <p>An algorithm is a clear set of instructions. Computers need precise steps. If a step is missing or unclear, an error occurs. A good presentation also needs structure: title, content, images and a clear order.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Good digital products are created through planning, trying out and improving.</div>\n        {{QUIZ_dgb5_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb5_produktion_q2",
+            "question": "What makes a presentation clear?",
+            "answers": [
+              {
+                "text": "clear headings and appropriate images",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "as many different fonts as possible",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Production means: planning, designing, checking, improving and dealing fairly with third-party content.</p>\n        <ol class=\"step-list\">\n            <li>Write instructions: \"How to open a learning page and find a topic.\"</li><li>Test the instructions with a partner.</li><li>Improve unclear steps and add a meaningful heading.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb5_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb5_handeln": {
+    "title": "🧰 Action: 5th grade",
+    "subtitle": "Use digital offerings consciously and independently - 5th grade (1st grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb5_handeln_q1",
+            "question": "What is included in the hardware?",
+            "answers": [
+              {
+                "text": "Keyboard and screen",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a text program",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Name important hardware parts</li><li>Use basic functions of an operating system</li><li>Use help systems in case of problems</li>\n            </ul>\n        </div>\n        <p>This is about devices, software, security, help with problems and making good decisions in a digital world.</p>\n        <p>Hardware are the parts you can touch: screen, keyboard, mouse, memory, processor. Software is programs. The operating system helps manage files, start programs and change settings.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Acting independently means: staying calm, describing the problem, seeking help and only then clicking on.</div>\n        {{QUIZ_dgb5_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb5_handeln_q2",
+            "question": "What does an operating system do?",
+            "answers": [
+              {
+                "text": "it helps manage programs and files",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "it replaces the keyboard",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> You should use digital tools appropriately and think about health, the environment, rights and security.</p>\n        <ol class=\"step-list\">\n            <li>Label the most important parts of a computer or tablet.</li><li>Open a program, save a file and find it again.</li><li>Use a help function or search for a setting in the menu.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb5_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb6_orientierung": {
+    "title": "🧭 Orientation: 6th grade",
+    "subtitle": "Understanding and classifying the digital world - 6th grade (2nd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb6_orientierung_q1",
+            "question": "What does digital accessibility mean?",
+            "answers": [
+              {
+                "text": "As many people as possible can take advantage of an offer",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a website has a particularly large number of pop-ups",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Select digital tools according to task</li><li>Understand accessibility as a quality feature</li><li>Identify interests behind media offerings</li>\n            </ul>\n        </div>\n        <p>This is about not just using digital technology, but understanding how it changes our lives, learning and coexistence.</p>\n        <p>Digital offers are not neutral. They are designed by people and companies. Some want to inform, others want to sell or get attention. Good digital tools fit the task and should be accessible to as many people as possible.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Good technology should be useful, understandable and as barrier-free as possible.</div>\n        {{QUIZ_dgb6_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb6_orientierung_q2",
+            "question": "Why are media offerings not always neutral?",
+            "answers": [
+              {
+                "text": "because there are interests and decisions behind them",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "because all devices work the same",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Technology, society and your own actions are viewed together.</p>\n        <ol class=\"step-list\">\n            <li>Compare two apps or websites: Which one is easier to use?</li><li>Pay attention to font size, contrast, language and operation.</li><li>Think about who will earn money or get benefits from the offer.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb6_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb6_information": {
+    "title": "🔎 Information: 6th grade",
+    "subtitle": "Use data, search and knowledge safely - 6th grade (2nd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb6_information_q1",
+            "question": "What do you do when sorting data?",
+            "answers": [
+              {
+                "text": "Organize data according to a rule",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "Intentionally hiding data",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Collect, sort and display data</li><li>Differentiate data formats and file sizes</li><li>Get to know licenses such as Creative Commons</li>\n            </ul>\n        </div>\n        <p>Here you will learn how to find, organize and evaluate information and how to handle data responsibly.</p>\n        <p>Data can be collected, sorted, filtered and displayed as a table or chart. What the data means must remain clear. It is also important for images, music and texts: Who created it and what can I do with it?</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Data only becomes useful when it is presented in an orderly, understandable manner and used fairly.</div>\n        {{QUIZ_dgb6_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb6_information_q2",
+            "question": "Why are licenses important?",
+            "answers": [
+              {
+                "text": "they show how you can use third-party content",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "they automatically make files smaller",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> It is important not only to find something, but also to check whether it makes sense, is current and trustworthy.</p>\n        <ol class=\"step-list\">\n            <li>Collect simple class data, for example favorite sports.</li><li>Create a table and chart.</li><li>Find an open license image and note the source.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb6_information_q2}}"
+      }
+    ]
+  },
+  "dgb6_kommunikation": {
+    "title": "💬 Communication: 6th grade",
+    "subtitle": "Collaborate online and communicate securely - 6th grade (2nd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb6_kommunikation_q1",
+            "question": "What is Phishing?",
+            "answers": [
+              {
+                "text": "an attempted scam to obtain data or passwords",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a program for drawing",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Understand the basic idea of networks and data packages</li><li>Identify social media business models</li><li>Address fake news, phishing and data protection</li>\n            </ul>\n        </div>\n        <p>This is about news, collaboration, social media, data protection and respectful interaction in digital spaces.</p>\n        <p>Information travels on the Internet in small pieces, similar to packets. Platforms like social media often offer free use for a reason: attention and data can be valuable for companies.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Not every message is honest. Checking protects you and others.</div>\n        {{QUIZ_dgb6_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb6_kommunikation_q2",
+            "question": "Why do social media services collect data?",
+            "answers": [
+              {
+                "text": "Data can be used for advertising and recommendations",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "so that the cell phone becomes heavier",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Digital communication is fast and practical, but needs clear rules and responsibility.</p>\n        <ol class=\"step-list\">\n            <li>Mentally break down a short message into packets and reassemble them.</li><li>Check a suspicious message: Who is sending it? What should I click on?</li><li>Collect warning signs for fake news or phishing.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb6_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb6_produktion": {
+    "title": "🛠️ Production: 6th grade",
+    "subtitle": "Creating digital content and solving problems - 6th grade (2nd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb6_produktion_q1",
+            "question": "What does debugging mean?",
+            "answers": [
+              {
+                "text": "Find and fix errors in a program",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "cleaning a screen",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Create and test simple programs</li><li>Find and improve errors</li><li>Design media content and respect copyrights</li>\n            </ul>\n        </div>\n        <p>Here you create texts, presentations, media or small programs and learn to break down problems into simple steps.</p>\n        <p>Programs process data. Errors occur when programming, this is normal. Debugging means: finding, understanding and improving the error. The following applies to images, sound and video: Use your own content or respect the rights of the authors.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Testing and improving are part of programming.</div>\n        {{QUIZ_dgb6_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb6_produktion_q2",
+            "question": "What is important when remixing third-party content?",
+            "answers": [
+              {
+                "text": "Respect copyright and license",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "always delete the name of the creator",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Production means: planning, designing, checking, improving and dealing fairly with third-party content.</p>\n        <ol class=\"step-list\">\n            <li>Build a small program with startup, input and output.</li><li>Test it with different inputs.</li><li>Create an image or audio and indicate which parts are yours.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb6_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb6_handeln": {
+    "title": "🧰 Action: 6th grade",
+    "subtitle": "Use digital offerings consciously and independently - 6th grade (2nd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb6_handeln_q1",
+            "question": "What describes a network?",
+            "answers": [
+              {
+                "text": "connected devices that can exchange data",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "just a computer screen",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Explain the interaction of hardware and software</li><li>Connect devices to networks</li><li>Make digital use healthy and sustainable</li>\n            </ul>\n        </div>\n        <p>This is about devices, software, security, help with problems and making good decisions in a digital world.</p>\n        <p>Hardware and software work together: the device provides options, programs use these options. Digital devices require electricity, raw materials and care. Breaks, posture and eyes are also part of a good digital workplace.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Good use means: understanding the device, describing the problem clearly and using time and energy consciously.</div>\n        {{QUIZ_dgb6_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb6_handeln_q2",
+            "question": "What is sustainable when using devices?",
+            "answers": [
+              {
+                "text": "Use devices carefully and do not replace them unnecessarily",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "constantly buying new devices",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> You should use digital tools appropriately and think about health, the environment, rights and security.</p>\n        <ol class=\"step-list\">\n            <li>Sketch a digital workspace: device, network, input, output.</li><li>Describe a technical problem in enough detail so that someone can help.</li><li>Note three rules for healthy and sustainable use.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb6_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb7_orientierung": {
+    "title": "🧭 Orientation: 7th grade",
+    "subtitle": "Understanding and classifying the digital world - 7th grade (3rd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb7_orientierung_q1",
+            "question": "What is an example of the Internet of Things?",
+            "answers": [
+              {
+                "text": "a connected watch that sends data to an app",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a paper notebook without technology",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Recognize AI and the Internet of Things in everyday life</li><li>Analyze the opportunities and risks of personalized media use</li><li>Reflect on digital accessibility and participation</li>\n            </ul>\n        </div>\n        <p>This is about not just using digital technology, but understanding how it changes our lives, learning and coexistence.</p>\n        <p>Many digital systems work in the background: recommendations, voice assistants, smart devices or navigation apps. They can be helpful, but they can also exclude people, collect data or influence decisions.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Digital technology is always embedded in society: it creates opportunities, but also new questions.</div>\n        {{QUIZ_dgb7_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb7_orientierung_q2",
+            "question": "What can personalization do?",
+            "answers": [
+              {
+                "text": "Content suits me, but can also have a one-sided influence on me",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "all people automatically see the same thing",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Technology, society and your own actions are viewed together.</p>\n        <ol class=\"step-list\">\n            <li>Find three everyday examples of AI or connected devices.</li><li>Notiere: What's practical about it? What could be problematic?</li><li>Think about how the offer can be used by more people.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb7_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb7_information": {
+    "title": "🔎 Information: 7th grade",
+    "subtitle": "Use data, search and knowledge safely - 7th grade (3rd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb7_information_q1",
+            "question": "What is a sign of a better source?",
+            "answers": [
+              {
+                "text": "Author, date and purpose can be identified",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "the headline is particularly loud",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Plan research and compare sources</li><li>Read diagrams and data representations critically</li><li>Recognize and justify patterns in data</li>\n            </ul>\n        </div>\n        <p>Here you will learn how to find, organize and evaluate information and how to handle data responsibly.</p>\n        <p>Good research starts with a question and a plan. Data and charts can help to understand something. But they can also appear manipulative if axes, sections or colors are cleverly chosen.</p>\n        <div class=\"remember-box\"><strong>Merke:</strong> Anyone who shows data makes decisions. That's why you have to read representations critically.</div>\n        {{QUIZ_dgb7_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb7_information_q2",
+            "question": "How can a diagram be deceiving?",
+            "answers": [
+              {
+                "text": "due to cut axes or a lack of connection",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "through clear labeling",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> It is important not only to find something, but also to check whether it makes sense, is current and trustworthy.</p>\n        <ol class=\"step-list\">\n            <li>Formulate a research question.</li><li>Use at least two sources and compare them.</li><li>Check a diagram: Does the axis start at 0? Important information missing?</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb7_information_q2}}"
+      }
+    ]
+  },
+  "dgb7_kommunikation": {
+    "title": "💬 Communication: 7th grade",
+    "subtitle": "Collaborate online and communicate securely - 7th grade (3rd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb7_kommunikation_q1",
+            "question": "What is two-factor login?",
+            "answers": [
+              {
+                "text": "a second proof in addition to the password",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "two same passwords",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Understanding cloud services</li><li>Using passwords, two-factor login and encryption</li><li>Reflecting digital identity and cyber risks</li>\n            </ul>\n        </div>\n        <p>This is about news, collaboration, social media, data protection and respectful interaction in digital spaces.</p>\n        <p>Cloud means: Data is not just on your device, but on servers. This is convenient for sharing, but requires data protection. Strong passwords, two-factor login and careful use of links protect your digital identity.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Security is not a single click, but a habit.</div>\n        {{QUIZ_dgb7_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb7_kommunikation_q2",
+            "question": "Why isn't cloud storage automatically private?",
+            "answers": [
+              {
+                "text": "because data can be processed on third-party servers",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "because clouds are always public",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Digital communication is fast and practical, but needs clear rules and responsibility.</p>\n        <ol class=\"step-list\">\n            <li>Compare local file and cloud file: benefits and risks.</li><li>Create a rule for strong passwords.</li><li>Discuss what to do in case of cyberbullying or identity theft.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb7_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb7_produktion": {
+    "title": "🛠️ Production: 7th grade",
+    "subtitle": "Creating digital content and solving problems - 7th grade (3rd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q1",
+            "question": "What is computational thinking?",
+            "answers": [
+              {
+                "text": "break a problem into smaller parts",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "clicking around without a plan",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Use computational thinking</li><li>Design media productions critically and without barriers</li><li>Adapt software settings sensibly</li>\n            </ul>\n        </div>\n        <p>Here you create texts, presentations, media or small programs and learn to break down problems into simple steps.</p>\n        <p>Computational Thinking means: breaking down a problem, recognizing patterns, simplifying what is important and building a solution from it. In media productions, it's not just whether something looks beautiful that counts, but also how it works and whether everyone can use it.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Good digital design is understandable, fair and accessible.</div>\n        {{QUIZ_dgb7_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q2",
+            "question": "What improves accessibility?",
+            "answers": [
+              {
+                "text": "good contrast and clear language",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "very small font",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Production means: planning, designing, checking, improving and dealing fairly with third-party content.</p>\n        <ol class=\"step-list\">\n            <li>Break a problem down into small steps.</li><li>Create a digital product, for example a poster, short video or quiz.</li><li>Check contrast, font size, image detail and comprehensibility.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb7_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb7_handeln": {
+    "title": "🧰 Action: 7th grade",
+    "subtitle": "Use digital offerings consciously and independently - 7th grade (3rd grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb7_handeln_q1",
+            "question": "What is Malware?",
+            "answers": [
+              {
+                "text": "malicious software",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a particularly fast screen",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Detecting computers in everyday objects</li><li>Explaining the opportunities and risks of smart systems</li><li>Protecting devices from malware and considering ecological issues</li>\n            </ul>\n        </div>\n        <p>This is about devices, software, security, help with problems and making good decisions in a digital world.</p>\n        <p>Many everyday objects contain computer systems: cars, washing machines, watches, ATMs or heating systems. They can make work easier, but sometimes collect data and require energy, raw materials and updates.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Smart devices are useful, but not harmless. Protection, updates and conscious use are important.</div>\n        {{QUIZ_dgb7_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb7_handeln_q2",
+            "question": "Why do digital devices also have environmental consequences?",
+            "answers": [
+              {
+                "text": "they need raw materials, energy and disposal",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "because they never use electricity",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> You should use digital tools appropriately and think about health, the environment, rights and security.</p>\n        <ol class=\"step-list\">\n            <li>Choose a smart everyday object.</li><li>Describe its function, its data and a possible risk.</li><li>Develop three protection rules against malware.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb7_handeln_q2}}"
+      }
+    ]
+  },
+  "dgb8_orientierung": {
+    "title": "🧭 Orientation: 8th grade",
+    "subtitle": "Understanding and classifying the digital world - 8th grade (4th grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb8_orientierung_q1",
+            "question": "What is a filter bubble?",
+            "answers": [
+              {
+                "text": "if you are shown primarily similar content",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a protective glass for the screen",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Reflect the limits and possibilities of AI</li><li>Recognize filter bubbles and stereotypes</li><li>Discuss enthusiasm for technology and fear of technology objectively</li>\n            </ul>\n        </div>\n        <p>This is about not just using digital technology, but understanding how it changes our lives, learning and coexistence.</p>\n        <p>AI can recognize patterns, generate texts or make suggestions. However, it does not understand like a human being and can produce mistakes, prejudices or invented content. Digital systems can reinforce worldviews if they always show similar content.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> AI is a tool. The people who build, use and test them remain responsible.</div>\n        {{QUIZ_dgb8_orientierung_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb8_orientierung_q2",
+            "question": "Why do you need to check AI results?",
+            "answers": [
+              {
+                "text": "because they may contain errors and prejudices",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "because AI is always automatically correct",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Technology, society and your own actions are viewed together.</p>\n        <ol class=\"step-list\">\n            <li>Compare two AI answers or recommendation systems.</li><li>Look for possible errors, assumptions or missing perspectives.</li><li>Formulate a fair rule for the use of AI in school.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb8_orientierung_q2}}"
+      }
+    ]
+  },
+  "dgb8_information": {
+    "title": "🔎 Information: 8th grade",
+    "subtitle": "Use data, search and knowledge safely - 8th grade (4th grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q1",
+            "question": "What is a backup for?",
+            "answers": [
+              {
+                "text": "to be able to restore data",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "to intentionally lose files",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Perform backups and restores</li><li>Explain data collection, linking and monitoring</li><li>Prepare information to suit target groups and media</li>\n            </ul>\n        </div>\n        <p>Here you will learn how to find, organize and evaluate information and how to handle data responsibly.</p>\n        <p>A backup is a backup copy. It protects against loss due to defect, theft or accidental deletion. At the same time, a lot of usage data is collected and linked in digital systems. This can be practical, but it can also be misused.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Protecting data means: securing it, sharing it sparingly and understanding who can evaluate it.</div>\n        {{QUIZ_dgb8_information_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q2",
+            "question": "What is risky about linked usage data?",
+            "answers": [
+              {
+                "text": "precise profiles about people can be created",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "As a result, files become smaller and smaller",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> It is important not only to find something, but also to check whether it makes sense, is current and trustworthy.</p>\n        <ol class=\"step-list\">\n            <li>Plan a backup policy for school files.</li><li>Distinguish between which data is harmless and which is sensitive?</li><li>Prepare the same information once for children and once for adults.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb8_information_q2}}"
+      }
+    ]
+  },
+  "dgb8_kommunikation": {
+    "title": "💬 Communication: 8th grade",
+    "subtitle": "Collaborate online and communicate securely - 8th grade (4th grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb8_kommunikation_q1",
+            "question": "What is a protocol in the network?",
+            "answers": [
+              {
+                "text": "a rule for data transmission",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a photo album",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Understand protocols as rules of data transmission</li><li>Recognize media reality and manipulation</li><li>Respect copyright, right to your own image and data protection</li>\n            </ul>\n        </div>\n        <p>This is about news, collaboration, social media, data protection and respectful interaction in digital spaces.</p>\n        <p>For data to arrive on the Internet, devices need common rules. These rules are called protocols. On social media, realities emerge through selection, editing, sharing and algorithms. That's why you have to critically examine images, sounds and data.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Fast sharing requires slow thinking: check rights, impact and truth.</div>\n        {{QUIZ_dgb8_kommunikation_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb8_kommunikation_q2",
+            "question": "Why can't you just post other people's photos?",
+            "answers": [
+              {
+                "text": "because of consent and the right to one's own image",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "because photos are never data",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Digital communication is fast and practical, but needs clear rules and responsibility.</p>\n        <ol class=\"step-list\">\n            <li>Explain a protocol with an everyday rule, for example rules of conversation.</li><li>Examine a viral image or video: what is shown, what is missing?</li><li>Formulate a rule for sharing photos from the class.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb8_kommunikation_q2}}"
+      }
+    ]
+  },
+  "dgb8_produktion": {
+    "title": "🛠️ Production: 8th grade",
+    "subtitle": "Creating digital content and solving problems - 8th grade (4th grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb8_produktion_q1",
+            "question": "What is Pseudocode?",
+            "answers": [
+              {
+                "text": "an understandable planning of a program in everyday language",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "a broken computer code",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Plan programs with loops and conditions</li><li>Use pseudocode and documentation</li><li>Implement digital projects with task distribution</li>\n            </ul>\n        </div>\n        <p>Here you create texts, presentations, media or small programs and learn to break down problems into simple steps.</p>\n        <p>Larger digital projects require planning. Programs can combine control structures: conditions, loops and nested processes. Pseudocode helps to first plan ideas in everyday language before transferring them to a tool.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Working professionally means: planning, building, testing, documenting and improving.</div>\n        {{QUIZ_dgb8_produktion_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb8_produktion_q2",
+            "question": "Why is documentation important?",
+            "answers": [
+              {
+                "text": "so that others can understand the solution and continue working",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "so that no one sees the plan",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> Production means: planning, designing, checking, improving and dealing fairly with third-party content.</p>\n        <ol class=\"step-list\">\n            <li>Design a small program or web idea for a real problem.</li><li>Write pseudocode and share tasks in a team.</li><li>Test, document and improve the solution.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb8_produktion_q2}}"
+      }
+    ]
+  },
+  "dgb8_handeln": {
+    "title": "🧰 Action: 8th grade",
+    "subtitle": "Use digital offerings consciously and independently - 8th grade (4th grade)",
+    "script": false,
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "1. What is it about?",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q1",
+            "question": "What does encryption do?",
+            "answers": [
+              {
+                "text": "it makes data difficult to read for unauthorized persons",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This is the core of this curriculum area."
+              },
+              {
+                "text": "it automatically deletes all data",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Not quite yet. Read the mnemonic and try again."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"lesson-goals\">\n            <strong>You can do this after this chapter:</strong>\n            <ul class=\"step-list\">\n                <li>Distinguish between hardware, system and application levels</li><li>Understand encryption as a protective measure</li><li>Reflect digital participation, consumer rights and self-determination</li>\n            </ul>\n        </div>\n        <p>This is about devices, software, security, help with problems and making good decisions in a digital world.</p>\n        <p>Digital systems consist of several layers: hardware, operating system, programs and online services. Encryption protects data from being read. At the same time, technical settings often control what is possible and which decisions will be easy or difficult.</p>\n        <div class=\"remember-box\"><strong>Note:</strong> Acting responsibly means: understanding technology, using protection and knowing your own rights.</div>\n        {{QUIZ_dgb8_handeln_q1}}"
+      },
+      {
+        "id": "sec2",
+        "title": "2. Workshop for teaching",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q2",
+            "question": "What is an example of consumer law in digital?",
+            "answers": [
+              {
+                "text": "Understand subscription costs and purchase terms",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Correct. This fits well with practical application."
+              },
+              {
+                "text": "click on every pop-up immediately",
+                "correct": false,
+                "pts": 5,
+                "feedback": "That would not be a good or safe digital action. Try again."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Curriculum view:</strong> You should use digital tools appropriately and think about health, the environment, rights and security.</p>\n        <ol class=\"step-list\">\n            <li>Match examples to hardware, operating system, app, or service levels.</li><li>Explain why encryption can be important in messages.</li><li>Discuss a digital consumer problem: subscription trap, in-app purchase, or fraud.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini task:</strong> Explain to a partner in 30 seconds why this topic is important in everyday life.</div>\n        {{QUIZ_dgb8_handeln_q2}}"
+      }
+    ]
   },
   "wetter": {
     "title": "🌤️ Weather: What is it? 🌦️",
@@ -11656,5 +12664,16 @@
         }
       ]
     }
+  },
+  "mathespiel": {
+    "title": "Calculation journey",
+    "subtitle": "An educational game for basic arithmetic and spatial thinking",
+    "sections": [
+      {
+        "id": "sec1",
+        "title": "Welcome to the computing journey",
+        "content": "<p>Start with a quick check. The calculation journey then automatically adjusts the tasks: as you become more confident, the tasks become more difficult. If something still wobbles, you get smaller steps.</p><div id='mathGameRoot' class='math-game' data-math-game></div>"
+      }
+    ]
   }
 }
