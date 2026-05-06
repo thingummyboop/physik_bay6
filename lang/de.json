@@ -7076,187 +7076,242 @@
     }
   },
   "klimawandel": {
-    "title": "🆘 Klimawandel: Die Krise 🧊",
-    "subtitle": "Durch das Verbrennen von Kohle, Erdöl und Gas verstärken wir den Treibhauseffekt. Die Erde wird zu schnell zu heiß.",
+    "title": "Klimawandel verstehen",
+    "subtitle": "Ursachen, Belege, Folgen und Handlungsmöglichkeiten - sachlich, anschaulich und mit Österreich-Bezug.",
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Warum wird es wärmer?",
+        "title": "1. Was bedeutet Klimawandel?",
+        "content": "\n<div class=\"lesson-goals\"><strong>Das lernst du in diesem Kapitel:</strong><ul class=\"step-list\"><li>den natürlichen und den verstärkten Treibhauseffekt unterscheiden</li><li>erklären, warum Kohle, Erdöl und Erdgas das Klima verändern</li><li>Messdaten als Belege lesen</li><li>Folgen für Österreich und Wien beschreiben</li><li>Klimaschutz und Anpassung unterscheiden</li></ul></div>\n<div class=\"climate-lede\"><div><p><strong>Klima</strong> ist das typische Wetter über viele Jahre. <strong>Klimawandel</strong> bedeutet: Diese typischen Bedingungen verschieben sich. Es geht also nicht um einen einzelnen heißen Tag, sondern um den langfristigen Trend.</p><p>Die Erde hat einen natürlichen Treibhauseffekt. Ohne ihn wäre es auf der Erde sehr kalt. Das Problem ist der <strong>verstärkte Treibhauseffekt</strong>: Seit der Industrialisierung verbrennen Menschen sehr viel Kohle, Erdöl und Erdgas. Dabei entsteht zusätzliches <strong>CO₂</strong>. Auch Methan und Lachgas spielen eine Rolle.</p></div><div class=\"remember-box\"><strong>Merksatz:</strong> Treibhausgase sind nicht „böse“. Zu viele zusätzliche Treibhausgase wirken aber wie eine dickere Wärmedecke um die Erde.</div></div>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Interaktives Modell: Treibhausgase und Wärmestrahlung</h3>\n  <p>Stelle die Menge der Treibhausgase ein. Beobachte: Sonnenlicht kommt gut hinein, aber mehr Wärmestrahlung bleibt in der Atmosphäre.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"climateGasRange\" min=\"0\" max=\"100\" value=\"70\" oninput=\"updateGreenhouseLab()\" aria-label=\"Treibhausgas-Modellwert\">\n    <span id=\"climatePpmLabel\" class=\"climate-live-value\">420 ppm</span>\n  </div>\n  <div class=\"diagram-box\">\n    <svg viewBox=\"0 0 760 420\" aria-label=\"Modell des verstärkten Treibhauseffekts\">\n      <defs>\n        <radialGradient id=\"sunGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0\" stop-color=\"#fde047\"/><stop offset=\"1\" stop-color=\"#f97316\"/></radialGradient>\n        <linearGradient id=\"skyGreenhouse\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#dbeafe\"/><stop offset=\"1\" stop-color=\"#bfdbfe\"/></linearGradient>\n        <marker id=\"climateArrowSun\" markerWidth=\"10\" markerHeight=\"8\" refX=\"8\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L9,4 L0,8 Z\" fill=\"#facc15\"/></marker>\n        <marker id=\"climateArrowHeat\" markerWidth=\"10\" markerHeight=\"8\" refX=\"8\" refY=\"4\" orient=\"auto\"><path d=\"M0,0 L9,4 L0,8 Z\" fill=\"#ef4444\"/></marker>\n      </defs>\n      <rect x=\"0\" y=\"0\" width=\"760\" height=\"420\" fill=\"url(#skyGreenhouse)\"/>\n      <circle cx=\"98\" cy=\"80\" r=\"45\" fill=\"url(#sunGlow)\"/>\n      <path d=\"M145 105 C235 150 305 185 382 247\" stroke=\"#facc15\" stroke-width=\"7\" fill=\"none\" marker-end=\"url(#climateArrowSun)\"/>\n      <path d=\"M160 70 C265 105 385 145 515 195\" stroke=\"#facc15\" stroke-width=\"5\" opacity=\"0.7\" fill=\"none\" marker-end=\"url(#climateArrowSun)\"/>\n      <ellipse cx=\"410\" cy=\"352\" rx=\"230\" ry=\"38\" fill=\"#22c55e\" opacity=\"0.55\"/>\n      <circle id=\"earthGlow\" cx=\"410\" cy=\"310\" r=\"86\" fill=\"#fb923c\" opacity=\"0.72\"/>\n      <path d=\"M315 300 C355 260 420 254 490 292 C460 330 385 342 315 300 Z\" fill=\"#16a34a\" opacity=\"0.9\"/>\n      <path id=\"greenhouseLayer\" d=\"M185 236 C270 118 520 92 640 235\" fill=\"none\" stroke=\"#475569\" stroke-width=\"38\" stroke-linecap=\"round\" opacity=\"0.74\"/>\n      <g id=\"returningHeat\" stroke=\"#ef4444\" stroke-width=\"6\" fill=\"none\" marker-end=\"url(#climateArrowHeat)\">\n        <path d=\"M377 260 C330 196 298 190 252 235\"/>\n        <path d=\"M430 256 C455 190 512 178 565 224\"/>\n      </g>\n      <g id=\"escapedHeat\" stroke=\"#ef4444\" stroke-width=\"4\" opacity=\"0.32\" fill=\"none\" marker-end=\"url(#climateArrowHeat)\">\n        <path d=\"M390 245 C385 170 386 105 382 48\"/>\n        <path d=\"M456 250 C505 165 565 115 625 58\"/>\n      </g>\n      <text x=\"70\" y=\"158\" class=\"word-small-label\">kurzwellige Sonnenstrahlung hinein</text>\n      <text x=\"482\" y=\"48\" class=\"word-small-label\">ein Teil der Wärme entweicht</text>\n      <text x=\"224\" y=\"222\" class=\"word-small-label\">Treibhausgase halten Wärme zurück</text>\n    </svg>\n  </div>\n  <p><strong id=\"climateHeatLabel\">77% Wärmerückhalt</strong></p>\n  <div class=\"meter\"><div id=\"climateHeatMeter\" class=\"meter-fill\"></div></div>\n  <p id=\"greenhouseExplanation\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"climate-source-box\"><strong>Datenbasis:</strong> IPCC AR6, NASA Climate Evidence und GeoSphere Austria. Die Darstellungen sind für die Schule vereinfacht.</div>\n{{QUIZ_kw_s1_q1}}",
         "quizzes": [
           {
             "id": "kw_s1_q1",
-            "question": "Was passiert beim Verbrennen fossiler Brennstoffe?",
+            "question": "Warum verstärkt das Verbrennen von Kohle, Erdöl und Erdgas den Klimawandel?",
             "answers": [
               {
-                "text": "Es wird CO2 freigesetzt, das vorher Millionen Jahre gespeichert war.",
+                "text": "Dabei gelangt zusätzliches CO₂ in die Atmosphäre.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Beim Verbrennen gelangt lange gespeicherter Kohlenstoff als CO2 in die Luft."
+                "feedback": "Richtig. Dieses CO₂ verstärkt den Treibhauseffekt."
               },
               {
-                "text": "Es entsteht Sauerstoff, der die Atmosphäre kühlt.",
+                "text": "Dabei entsteht Kälte, die das Wetter durcheinanderbringt.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Beim Verbrennen wird Sauerstoff verbraucht, nicht erzeugt. Dabei entsteht CO2, das wärmt."
+                "pts": 0,
+                "feedback": "Nein. Das Problem ist zusätzliche Wärmespeicherung durch Treibhausgase."
+              },
+              {
+                "text": "Dabei verschwindet die Sonne hinter Rauch.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Luftverschmutzung ist ein eigenes Problem. Der Klimawandel wird vor allem durch Treibhausgase verstärkt."
               }
             ]
           }
-        ],
-        "content": "\n        <p>Über Jahrmillionen hat die Natur CO2 in Form von Pflanzenresten im Boden vergraben. Daraus wurden <strong>Kohle, Erdöl und Erdgas</strong>. Wenn wir diese heute verbrennen, pusten wir all das gespeicherte CO2 in die Luft.</p>\n        <p>Das Ergebnis: Die \"Decke\" um die Erde wird dicker, und es wird immer wärmer.</p>\n        {{QUIZ_kw_s1_q1}}\n    "
+        ]
       },
       {
         "id": "sec2",
-        "title": "2. Die Folgen",
+        "title": "2. Woher wissen wir das?",
+        "content": "\n<p>Forschende messen Temperatur, CO₂, Gletscher, Meeresspiegel, Ozeanwärme, Schnee und viele weitere Größen. Ein einzelner Messwert kann schwanken. Viele Messreihen zusammen zeigen aber ein klares Bild.</p><div class=\"climate-fact-grid\"><div class=\"climate-fact-card\"><strong>Global:</strong><br>Die globale Mitteltemperatur lag 2011-2020 etwa 1,1 °C über 1850-1900.</div><div class=\"climate-fact-card\"><strong>Österreich:</strong><br>GeoSphere Austria nennt bis 2024 etwa +3,1 °C gegenüber 1850-1900.</div><div class=\"climate-fact-card\"><strong>Tempo:</strong><br>Die Erwärmung seit 1970 ist im Vergleich zu vielen Jahrhunderten davor sehr schnell.</div></div>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Interaktive Klimastreifen: Temperatur seit 1880</h3>\n  <p>Schiebe durch die Jahre. Blau steht für kühlere Jahre, Rot für wärmere Jahre. Die Zahlen sind für den Unterricht vereinfacht, zeigen aber den gemessenen Trend.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"climateYearRange\" min=\"1880\" max=\"2024\" value=\"2024\" step=\"1\" oninput=\"updateClimateTimeline()\" aria-label=\"Jahr im Klimadiagramm\">\n    <span id=\"climateYearLabel\" class=\"climate-live-value\">2024</span>\n  </div>\n  <div id=\"climateStripes\" class=\"climate-stripes\" aria-label=\"Klimastreifen von 1880 bis 2024\"></div>\n  <div class=\"diagram-box\">\n    <svg viewBox=\"0 0 760 350\" aria-label=\"Temperaturanzeige global und Österreich\">\n      <rect x=\"36\" y=\"28\" width=\"688\" height=\"294\" rx=\"22\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n      <circle id=\"timelineEarth\" cx=\"235\" cy=\"175\" r=\"82\" fill=\"#ef4444\" opacity=\"0.85\"/>\n      <path d=\"M190 150 C222 120 264 132 286 160 C262 182 222 184 190 150 Z\" fill=\"#22c55e\" opacity=\"0.92\"/>\n      <path d=\"M178 204 C220 226 270 218 302 194\" stroke=\"#2563eb\" stroke-width=\"16\" stroke-linecap=\"round\" opacity=\"0.8\" fill=\"none\"/>\n      <rect x=\"485\" y=\"62\" width=\"44\" height=\"160\" rx=\"22\" fill=\"#ffffff\" stroke=\"#334155\" stroke-width=\"4\"/>\n      <rect id=\"timelineTempFill\" x=\"493\" y=\"202\" width=\"28\" height=\"0\" rx=\"14\" fill=\"#ef4444\"/>\n      <circle cx=\"507\" cy=\"242\" r=\"34\" fill=\"#ef4444\" stroke=\"#334155\" stroke-width=\"4\"/>\n      <line id=\"timelineTempNeedle\" x1=\"548\" y1=\"202\" x2=\"625\" y2=\"202\" stroke=\"#111827\" stroke-width=\"3\"/>\n      <text x=\"548\" y=\"57\" class=\"word-small-label\">wärmer</text>\n      <text x=\"548\" y=\"226\" class=\"word-small-label\">kühler</text>\n      <text x=\"235\" y=\"292\" text-anchor=\"middle\" class=\"word-label\" id=\"globalTempLabel\">+1.4 °C global</text>\n      <text x=\"555\" y=\"292\" text-anchor=\"middle\" class=\"word-label\" id=\"austriaTempLabel\">+3.1 °C Österreich</text>\n    </svg>\n  </div>\n</div>\n<div class=\"remember-box\"><strong>Wichtig:</strong> Österreich erwärmt sich stärker als der globale Durchschnitt, weil Landflächen schneller warm werden als Ozeane und weil regionale Faktoren wie Schnee, Bodenfeuchte und Bewölkung mitwirken.</div>\n{{QUIZ_kw_s2_q1}}",
         "quizzes": [
           {
             "id": "kw_s2_q1",
-            "question": "Warum steigt der Meeresspiegel?",
+            "question": "Warum ist ein einzelner kalter Winter kein Beweis gegen Klimawandel?",
             "answers": [
               {
-                "text": "Gletschereis schmilzt und Wasser dehnt sich bei Wärme aus.",
+                "text": "Weil Klima aus vielen Jahren und vielen Messungen besteht.",
                 "correct": true,
-                "pts": 15,
-                "feedback": "Richtig: Beides lässt den Meeresspiegel steigen."
+                "pts": 10,
+                "feedback": "Genau. Wetter schwankt, Klima beschreibt den langfristigen Trend."
               },
               {
-                "text": "Weil es mehr regnet.",
+                "text": "Weil Winter nicht zum Klima gehören.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Mehr Regen ist nicht der Hauptgrund. Entscheidend sind schmelzendes Landeis und wärmeres Meerwasser."
+                "pts": 0,
+                "feedback": "Doch, Winter gehören dazu. Entscheidend ist der Trend über viele Jahre."
+              },
+              {
+                "text": "Weil Thermometer im Winter nicht funktionieren.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Thermometer funktionieren auch im Winter. Man muss die Daten richtig einordnen."
               }
             ]
           }
-        ],
-        "content": "\n        <p>Die Erwärmung hat dramatische Folgen:</p>\n        <ul>\n            <li>🏔️ <strong>Eisschmelze:</strong> Gletscher und das Eis an den Polen schmelzen.</li>\n            <li>🌊 <strong>Meeresspiegelanstieg:</strong> Küstenstädte sind in Gefahr.</li>\n            <li>🌪️ <strong>Extremwetter:</strong> Mehr Dürren, aber auch heftigere Stürme und Überflutungen.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧊 Die Zeitreise-Eisschmelze</h3>\n            <p>Verschiebe das Jahr und beobachte das Eis:</p>\n            <input type=\"range\" id=\"yearRange\" min=\"1900\" max=\"2100\" value=\"1900\" oninput=\"updateGlacier()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"200\" viewBox=\"0 0 350 200\">\n                    <rect id=\"seaLevel\" x=\"0\" y=\"150\" width=\"350\" height=\"50\" fill=\"#2196F3\" />\n                    <rect id=\"glacierArea\" x=\"50\" y=\"50\" width=\"200\" height=\"100\" fill=\"#E0F7FA\" stroke=\"#B2EBF2\" />\n                    <text x=\"20\" y=\"30\" fill=\"#333\" font-size=\"20\" font-weight=\"bold\">Jahr: <tspan id=\"yearLabel\">1900</tspan></text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_kw_s2_q1}}\n    "
+        ]
       },
       {
         "id": "sec3",
-        "title": "3. Was können wir tun?",
-        "content": "\n        <p>Jeder Beitrag zählt! Wir müssen den Ausstoß von CO2 stoppen. Das nennt man <strong>Klimaschutz</strong>.</p>\n        <ul>\n            <li>☀️ <strong>Erneuerbare Energien:</strong> Sonne und Wind statt Kohle.</li>\n            <li>🚲 <strong>Mobilität:</strong> Mehr Fahrrad und Bahn, weniger Auto und Flugzeug.</li>\n            <li>🥦 <strong>Ernährung:</strong> Regionale und pflanzliche Lebensmittel verbrauchen oft weniger CO2.</li>\n        </ul>\n        <div class=\"lexikon-box\">\n            🌍 <strong>Recherche-Aufgabe:</strong> Suche im Internet nach dem \"CO2-Fußabdruck-Rechner\". Versuche herauszufinden, wie viel CO2 dein Lebensstil pro Jahr verursacht. Was ist dein größter Posten? (Tipp: Meistens ist es Wohnen, Mobilität oder Ernährung).\n        </div>\n    "
+        "title": "3. Folgen: Was verändert sich bei uns?",
+        "content": "\n<p>Klimawandel wirkt nicht überall gleich. Für Wien und Österreich sind besonders Hitze, Trockenstress, Starkregen, Veränderungen im Alpenraum und Belastungen für Gesundheit, Landwirtschaft und Wälder wichtig.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Folgen-Explorer: Was verändert sich?</h3>\n  <p>Klicke eine Folge an. Wichtig: Klimawandel bedeutet nicht, dass jedes Unwetter automatisch Klimawandel ist. Er verändert aber Wahrscheinlichkeiten und Stärke vieler Ereignisse.</p>\n  <div class=\"climate-impact-grid\">\n    <button type=\"button\" class=\"climate-impact-card\" data-impact=\"heat\" onclick=\"showClimateImpact('heat')\"><strong>Hitze in Städten</strong><br>heiße Tage, warme Nächte, Gesundheitsbelastung</button>\n    <button type=\"button\" class=\"climate-impact-card\" data-impact=\"drought\" onclick=\"showClimateImpact('drought')\"><strong>Trockenstress</strong><br>Böden und Wälder trocknen schneller aus</button>\n    <button type=\"button\" class=\"climate-impact-card\" data-impact=\"heavyRain\" onclick=\"showClimateImpact('heavyRain')\"><strong>Starkregen</strong><br>mehr Wasser in kurzer Zeit</button>\n    <button type=\"button\" class=\"climate-impact-card\" data-impact=\"alps\" onclick=\"showClimateImpact('alps')\"><strong>Alpen</strong><br>Gletscher, Schnee und Permafrost verändern sich</button>\n  </div>\n  <div class=\"diagram-box\">\n    <svg viewBox=\"0 0 760 310\" aria-label=\"Ausgewählte Klimawandelfolge\">\n      <rect x=\"40\" y=\"42\" width=\"680\" height=\"220\" rx=\"24\" fill=\"#ffffff\" stroke=\"#bfdbfe\" stroke-width=\"3\"/>\n      <circle id=\"impactIcon\" cx=\"150\" cy=\"152\" r=\"62\" fill=\"#ef4444\" opacity=\"0.85\"/>\n      <path d=\"M95 230 H668\" stroke=\"#94a3b8\" stroke-width=\"5\" stroke-linecap=\"round\"/>\n      <rect x=\"308\" y=\"156\" width=\"70\" height=\"74\" fill=\"#cbd5e1\" stroke=\"#64748b\" stroke-width=\"3\"/>\n      <rect x=\"390\" y=\"124\" width=\"92\" height=\"106\" fill=\"#e2e8f0\" stroke=\"#64748b\" stroke-width=\"3\"/>\n      <rect x=\"496\" y=\"176\" width=\"60\" height=\"54\" fill=\"#cbd5e1\" stroke=\"#64748b\" stroke-width=\"3\"/>\n      <path d=\"M238 230 C258 184 286 170 320 230\" fill=\"#22c55e\" opacity=\"0.75\"/>\n      <text id=\"impactTitle\" x=\"240\" y=\"90\" class=\"word-label\">Hitze in der Stadt</text>\n      <foreignObject x=\"240\" y=\"104\" width=\"430\" height=\"82\"><div xmlns=\"http://www.w3.org/1999/xhtml\" id=\"impactText\" style=\"font: 15px Segoe UI, sans-serif; color:#334155; line-height:1.35;\">Asphalt, Beton und dunkle Dächer speichern Wärme.</div></foreignObject>\n    </svg>\n  </div>\n</div>\n<div class=\"teacher-note\"><strong>Genau sprechen:</strong> Klimawandel „macht“ nicht jedes einzelne Gewitter. Er kann aber die Bedingungen so verändern, dass bestimmte Extreme häufiger oder stärker werden.</div>\n{{QUIZ_kw_s3_q1}}",
+        "quizzes": [
+          {
+            "id": "kw_s3_q1",
+            "question": "Warum kann Trockenstress zunehmen, obwohl der Sommerniederschlag nicht überall klar weniger wird?",
+            "answers": [
+              {
+                "text": "Weil höhere Temperaturen mehr Verdunstung verursachen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Wärme entzieht Böden und Pflanzen mehr Wasser."
+              },
+              {
+                "text": "Weil Regen in Österreich nicht mehr aus Wasser besteht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nein. Entscheidend sind Temperatur, Verdunstung und Verteilung des Regens."
+              },
+              {
+                "text": "Weil Wolken schwerer werden.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist nicht die Erklärung. Es geht vor allem um Wärme und Verdunstung."
+              }
+            ]
+          }
+        ]
       },
       {
         "id": "sec4",
-        "title": "4. Wie weit sind wir schon? (Das Temperatur-Limit)",
+        "title": "4. Klimaschutz und Anpassung",
+        "content": "\n<p>Es gibt zwei wichtige Arten zu handeln. <strong>Klimaschutz</strong> senkt den Ausstoß von Treibhausgasen. <strong>Anpassung</strong> bereitet uns auf unvermeidbare Folgen vor. Wir brauchen beides.</p>\n<div class=\"climate-fact-grid\"><div class=\"climate-fact-card\"><strong>Klimaschutz:</strong><br>weniger fossile Energie, mehr erneuerbare Energie, Gebäude dämmen, kurze Wege, Dinge länger nutzen.</div><div class=\"climate-fact-card\"><strong>Anpassung:</strong><br>Schatten, Trinkwasser, Hitzeschutz, Hochwasserschutz, Schwammstadt, Warnsysteme.</div><div class=\"climate-fact-card\"><strong>Gerechtigkeit:</strong><br>Menschen mit wenig Geld oder schlechter Wohnung sind oft stärker betroffen, obwohl sie meist weniger verursachen.</div></div>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Sortierlabor: Klimaschutz oder Anpassung?</h3>\n  <p><strong>Klimaschutz</strong> verringert Treibhausgase. <strong>Anpassung</strong> hilft, mit Folgen besser zurechtzukommen. Viele gute Maßnahmen brauchen beides.</p>\n  <div class=\"climate-action-grid\">\n    <div class=\"climate-action-card\" data-action-id=\"solar\" data-type=\"schutz\"><strong>Schule nutzt Solarstrom</strong><br><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'schutz')\">Klimaschutz</button><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'anpassung')\">Anpassung</button></div>\n    <div class=\"climate-action-card\" data-action-id=\"trees\" data-type=\"anpassung\"><strong>Bäume und Schatten am Schulhof</strong><br><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'schutz')\">Klimaschutz</button><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'anpassung')\">Anpassung</button></div>\n    <div class=\"climate-action-card\" data-action-id=\"train\" data-type=\"schutz\"><strong>Mit Bahn statt Kurzflug fahren</strong><br><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'schutz')\">Klimaschutz</button><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'anpassung')\">Anpassung</button></div>\n    <div class=\"climate-action-card\" data-action-id=\"warning\" data-type=\"anpassung\"><strong>Hitzewarnung und Trinkplan</strong><br><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'schutz')\">Klimaschutz</button><button type=\"button\" onclick=\"classifyClimateAction(this.closest('.climate-action-card'),'anpassung')\">Anpassung</button></div>\n  </div>\n  <p id=\"climateActionFeedback\" class=\"lab-feedback\">Wähle eine Karte und ordne sie zu.</p>\n  <p><strong>Zwischenstand:</strong> <span id=\"climateActionScore\">0/0 richtig</span> <button type=\"button\" onclick=\"resetClimateActions()\">Zurücksetzen</button></p>\n</div>\n{{QUIZ_kw_s4_q1}}",
         "quizzes": [
           {
             "id": "kw_s4_q1",
-            "question": "Auf welches maximale Erwärmungs-Limit haben sich die Länder im Pariser Klimaabkommen geeinigt?",
+            "question": "Welche Maßnahme ist vor allem Anpassung?",
             "answers": [
               {
-                "text": "+1,5 °C",
+                "text": "Mehr Schatten und Trinkbrunnen am Schulhof",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Das Pariser Abkommen zielt darauf, die Erwärmung möglichst auf 1,5 °C zu begrenzen."
+                "feedback": "Richtig. Das hilft bei Hitze, die schon auftritt."
               },
               {
-                "text": "+5,0 °C",
+                "text": "Kohlekraftwerke durch erneuerbare Energie ersetzen",
                 "correct": false,
-                "pts": 5,
-                "feedback": "5 °C wäre sehr gefährlich und ist nicht das vereinbarte Limit. Ziel ist möglichst 1,5 °C."
+                "pts": 0,
+                "feedback": "Das ist vor allem Klimaschutz, weil es Emissionen verringert."
+              },
+              {
+                "text": "Weniger Energie verschwenden",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist vor allem Klimaschutz."
               }
             ]
           }
-        ],
-        "content": "\n        <p>Um die schlimmsten Katastrophen zu verhindern, haben sich fast alle Länder der Welt geeinigt: Die Erde darf sich im Vergleich zur Zeit vor den großen Fabriken (vorindustrielle Zeit) <strong>nicht mehr als 1,5 °C</strong> erwärmen!</p>\n        <div class=\"interactive-zone\" style=\"background: #fff1f2; border: 2px solid #fecdd3; border-radius: 12px; padding: 15px;\">\n            <h3>🌡️ Das Gefahren-Thermometer</h3>\n            <p>Wo stehen wir aktuell im Vergleich zum Limit?</p>\n            <div style=\"display: flex; align-items: center; justify-content: center; gap: 20px;\">\n                <svg width=\"100\" height=\"250\" viewBox=\"0 0 100 250\">\n                    <rect x=\"40\" y=\"20\" width=\"20\" height=\"180\" rx=\"10\" fill=\"#e2e8f0\" stroke=\"#94a3b8\" />\n                    <circle cx=\"50\" cy=\"200\" r=\"20\" fill=\"#ef4444\" />\n                    <rect x=\"45\" y=\"110\" width=\"10\" height=\"80\" fill=\"#ef4444\">\n                        <animate attributeName=\"y\" values=\"190;110\" dur=\"2s\" fill=\"freeze\" />\n                        <animate attributeName=\"height\" values=\"10;80\" dur=\"2s\" fill=\"freeze\" />\n                    </rect>\n                    <line x1=\"30\" y1=\"180\" x2=\"40\" y2=\"180\" stroke=\"#334155\" /> <text x=\"5\" y=\"184\" font-size=\"10\" font-weight=\"bold\">0.0°C</text>\n                    <line x1=\"30\" y1=\"110\" x2=\"40\" y2=\"110\" stroke=\"#ef4444\" stroke-width=\"2\" /> <text x=\"5\" y=\"114\" fill=\"#ef4444\" font-size=\"10\" font-weight=\"bold\">1.2°C</text>\n                    <line x1=\"30\" y1=\"90\" x2=\"40\" y2=\"90\" stroke=\"#991b1b\" stroke-width=\"2\" /> <text x=\"5\" y=\"94\" fill=\"#991b1b\" font-size=\"10\" font-weight=\"bold\">1.5°C</text>\n                </svg>\n                <div style=\"font-size: 0.9em; text-align: left; max-width: 250px;\">\n                    <p><strong>0.0°C:</strong> Normalzustand (vor 1850)</p>\n                    <p style=\"color: #ef4444;\"><strong>~1.2°C:</strong> Unser aktueller Stand heute! Wir spüren bereits deutlich mehr Hitzewellen und Starkregen.</p>\n                    <p style=\"color: #991b1b;\"><strong>1.5°C:</strong> Das absolute Limit. Wird es wärmer, drohen unumkehrbare Folgen (Kipppunkte).</p>\n                </div>\n            </div>\n        </div>\n        {{QUIZ_kw_s4_q1}}\n      "
+        ]
       },
       {
         "id": "sec5",
-        "title": "5. Die Domino-Steine der Erde (Kipppunkte)",
+        "title": "5. Kipppunkte: Risiken statt Grusel-Domino",
+        "content": "\n<p>Ein <strong>Kipppunkt</strong> ist ein Bereich, in dem ein Teil des Klimasystems in einen neuen Zustand wechseln kann. Das passiert nicht wie in einem Film von einer Sekunde auf die andere. Manche Prozesse dauern Jahrzehnte oder Jahrhunderte. Trotzdem sind sie wichtig, weil sie schwer umkehrbar sein können.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Risiko-Regler: Kipppunkte vorsichtig verstehen</h3>\n  <p>Kipppunkte sind keine einfache Domino-Show mit genauem Datum. Sie sind Bereiche, in denen das Risiko für schwer umkehrbare Veränderungen wächst.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"Erwärmung in Grad Celsius\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>Korallenriffe</strong><br>Viele Riffe geraten schon bei niedriger Erwärmung stark unter Stress.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>Alpengletscher</strong><br>Weiterer Eisverlust verändert Wasserhaushalt, Tourismus und Naturgefahren.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>Permafrost</strong><br>Auftauende Böden können zusätzlich Treibhausgase freisetzen.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>Große Eisschilde</strong><br>Langsame, aber sehr langfristige Meeresspiegel-Folgen werden wahrscheinlicher.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>Merksatz:</strong> 1,5 °C ist keine magische Wand. Aber jedes Zehntelgrad weniger Erwärmung verringert Risiken, Schäden und Anpassungsdruck.</div>\n{{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "Was passiert, wenn der Permafrost-Boden in Sibirien auftaut?",
+            "question": "Welche Aussage zu Kipppunkten ist am besten?",
             "answers": [
               {
-                "text": "Er gibt riesige Mengen des Treibhausgases Methan frei, was die Erde noch schneller erhitzt.",
+                "text": "Mit steigender Erwärmung wachsen Risiken für schwer umkehrbare Veränderungen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Auftauender Permafrost kann Methan freisetzen und die Erwärmung verstärken."
+                "feedback": "Genau. Es geht um Risiko-Bereiche, nicht um eine exakte Domino-Uhr."
               },
               {
-                "text": "Es wachsen dort sofort Palmen.",
+                "text": "Wenn ein Kipppunkt erreicht ist, fällt sofort die ganze Erde um.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Auftauen bedeutet nicht sofort tropisches Klima. Wichtig ist, dass Methan freiwerden kann."
+                "pts": 0,
+                "feedback": "Das ist zu dramatisch und falsch. Einzelne Systeme können sich stark verändern."
+              },
+              {
+                "text": "Kipppunkte haben nichts mit Temperatur zu tun.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Doch. Die Höhe der Erwärmung beeinflusst viele Risiken."
               }
             ]
           }
-        ],
-        "content": "\n        <p>Stell dir vor, du lehnst dich immer weiter auf einem Stuhl zurück. Lange Zeit passiert nichts, aber plötzlich erreichst du einen Punkt, an dem du unweigerlich nach hinten fällst. Das ist ein <strong>Kipppunkt</strong>.</p>\n        <p>In unserem Klima gibt es solche Kipppunkte. Wenn sie fallen, lösen sie eine Kettenreaktion (wie Dominosteine) aus, die wir Menschen <strong>nicht mehr stoppen können</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Die Kipppunkt-Kettenreaktion</h3>\n            <p>Klicke auf den ersten Dominostein, um zu sehen, was passieren könnte, wenn wir das Limit ignorieren:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Stein anstoßen 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Grönlandeis schmilzt 🧊</strong><br><span style=\"font-size:0.8em;\">Süßwasser fließt in den Ozean.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Golfstrom stoppt 🌊</strong><br><span style=\"font-size:0.8em;\">Das salzarme Wasser ist zu leicht zum Absinken. Die Strömung bricht ab.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Amazonas vertrocknet 🌳</strong><br><span style=\"font-size:0.8em;\">Ohne die Strömung ändert sich der Regen in Südamerika. Der Regenwald stirbt.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Permafrost taut 🌫️</strong><br><span style=\"font-size:0.8em;\">Die Natur speichert kein CO2 mehr. Methan entweicht -> Erde überhitzt!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 Wenn der erste Stein fällt, können wir den Rest nicht mehr aufhalten!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}\n      "
+        ]
+      },
+      {
+        "id": "sec6",
+        "title": "6. Vom Wissen zum Handeln",
+        "content": "\n<p>Klimawandel ist kein Thema, bei dem einzelne Kinder die ganze Verantwortung tragen. Aber Wissen hilft, gute Entscheidungen zu verstehen und mitzureden: in der Schule, zu Hause, in der Gemeinde und später als Erwachsene.</p><div class=\"climate-fact-grid\"><div class=\"climate-fact-card\"><strong>Ich kann:</strong><br>Geräte ausschalten, Wege planen, Dinge reparieren, Essen nicht verschwenden, Fakten prüfen.</div><div class=\"climate-fact-card\"><strong>Wir als Klasse können:</strong><br>Hitzeregeln erstellen, Schattenplätze kartieren, Müll und Energieverbrauch untersuchen, Schulgarten/Bäume vorschlagen.</div><div class=\"climate-fact-card\"><strong>Politik und Wirtschaft müssen:</strong><br>Energie, Verkehr, Gebäude, Industrie und Landwirtschaft so umbauen, dass viel weniger Treibhausgase entstehen.</div></div><div class=\"mini-task\"><strong>Mini-Projekt:</strong> Wähle einen Ort in deiner Schule. Notiere: Wo ist es im Sommer zu heiß? Was wäre Klimaschutz? Was wäre Anpassung? Zeichne eine einfache Verbesserungsidee.</div><div class=\"climate-source-box\"><strong>Quellen für Lehrpersonen:</strong> <a href=\"https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/\" target=\"_blank\" rel=\"noopener\">IPCC AR6 Synthesis Report</a>, <a href=\"https://science.nasa.gov/climate-change/evidence/\" target=\"_blank\" rel=\"noopener\">NASA Climate Evidence</a>, <a href=\"https://klimaportal.geosphere.at/informationsportal-klimawandel/neoklim_lufttemperatur.html\" target=\"_blank\" rel=\"noopener\">GeoSphere Austria: Lufttemperatur</a>, <a href=\"https://klimaportal.geosphere.at/informationsportal-klimawandel/faq.html\" target=\"_blank\" rel=\"noopener\">GeoSphere Austria: FAQ</a>.</div>"
       }
     ],
     "diplom": {
-      "title": "🎓 Das Klimawandel-Diplom",
+      "title": "Klimawandel-Diplom",
       "questions": [
         {
           "id": "kw_d1",
-          "question": "Was sind fossile Brennstoffe?",
+          "question": "Was beschreibt Klima?",
           "answers": [
             {
-              "text": "Kohle, Erdöl, Erdgas",
+              "text": "Typisches Wetter über viele Jahre",
               "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Diese Brennstoffe entstanden aus sehr alten Pflanzen- und Tierresten."
+              "pts": 10,
+              "feedback": "Richtig."
             },
             {
-              "text": "Holz und Wind",
+              "text": "Nur das Wetter morgen",
               "correct": false,
-              "pts": 5,
-              "feedback": "Wind ist kein Brennstoff, und Holz ist nicht fossil wie Kohle, Erdöl oder Erdgas."
+              "pts": 0,
+              "feedback": "Das ist Wetter, nicht Klima."
             }
           ]
         },
         {
           "id": "kw_d2",
-          "question": "Wie nennt man den Effekt, wenn weißes Eis Sonnenlicht zurückwirft?",
+          "question": "Was ist die wichtigste Ursache der aktuellen Erwärmung?",
           "answers": [
             {
-              "text": "Albedo-Effekt",
+              "text": "Zusätzliche Treibhausgase durch menschliche Aktivitäten",
               "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Helle Flächen werfen viel Sonnenlicht zurück."
+              "pts": 10,
+              "feedback": "Richtig."
             },
             {
-              "text": "Kühleffekt",
+              "text": "Die Sonne scheint seit 2020 doppelt so stark",
               "correct": false,
-              "pts": 5,
-              "feedback": "Das beschreibt die Wirkung, ist aber nicht der Fachbegriff. Der Begriff heißt Albedo-Effekt."
+              "pts": 0,
+              "feedback": "Nein. So funktioniert die aktuelle Erwärmung nicht."
             }
           ]
         },
         {
           "id": "kw_d3",
-          "question": "Auf welches Limit haben sich die Staaten geeinigt?",
+          "question": "Was ist Klimaschutz?",
           "answers": [
             {
-              "text": "1,5 °C Erwärmung",
+              "text": "Maßnahmen, die Treibhausgase verringern",
               "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Die Staaten wollen die Erwärmung möglichst auf 1,5 °C begrenzen."
+              "pts": 10,
+              "feedback": "Richtig."
             },
             {
-              "text": "4,0 °C Erwärmung",
+              "text": "Nur Sonnencreme verwenden",
               "correct": false,
-              "pts": 5,
-              "feedback": "4 °C ist kein Schutzlimit. Vereinbart wurde, deutlich darunter zu bleiben und 1,5 °C anzustreben."
+              "pts": 0,
+              "feedback": "Sonnenschutz kann wichtig sein, ist aber kein Klimaschutz."
             }
           ]
         },
         {
           "id": "kw_d4",
-          "question": "Was ist ein Klimakipppunkt?",
+          "question": "Warum ist Anpassung trotzdem nötig?",
           "answers": [
             {
-              "text": "Eine Schwelle, bei deren Überschreiten unaufhaltsame Kettenreaktionen ausgelöst werden.",
+              "text": "Weil einige Folgen schon da sind und weiter zunehmen können",
               "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Nach einem Kipppunkt kann sich ein System selbst weiter verändern."
+              "pts": 10,
+              "feedback": "Genau."
             },
             {
-              "text": "Ein Ort am Polarkreis, wo das Thermometer kippt.",
+              "text": "Weil Klimaschutz völlig sinnlos ist",
               "correct": false,
-              "pts": 5,
-              "feedback": "Ein Kipppunkt ist kein Ort. Es ist eine kritische Schwelle im Klimasystem."
+              "pts": 0,
+              "feedback": "Nein. Klimaschutz bleibt entscheidend, Anpassung ergänzt ihn."
             }
           ]
         }
