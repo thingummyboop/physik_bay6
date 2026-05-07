@@ -7082,6 +7082,7 @@
       {
         "id": "sec1",
         "title": "1. Чому стає тепліше?",
+        "content": "<p>Протягом мільйонів років природа ховала CO2 у землі у вигляді рослинних залишків. Ним стали <strong>вугілля, нафта та природний газ</strong>. Якщо ми спалимо їх сьогодні, ми видалемо весь накопичений CO2 у повітря.</p>\n        <p>Результат: «ковдра» навколо землі стає товщою, і стає тепліше.</p>\n        {{QUIZ_kw_s1_q1}}",
         "quizzes": [
           {
             "id": "kw_s1_q1",
@@ -7096,17 +7097,23 @@
               {
                 "text": "Утворюється кисень, який охолоджує атмосферу.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "При горінні кисень витрачається, а не створюється. Це створює CO2, який нагріває."
+              },
+              {
+                "text": "Сонце ховається за димом.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Забруднення повітря є окремою проблемою. Зміна клімату в першу чергу посилюється парниковими газами."
               }
             ]
           }
-        ],
-        "content": "<p>Протягом мільйонів років природа ховала CO2 у землі у вигляді рослинних залишків. Ним стали <strong>вугілля, нафта та природний газ</strong>. Якщо ми спалимо їх сьогодні, ми видалемо весь накопичений CO2 у повітря.</p>\n        <p>Результат: «ковдра» навколо землі стає товщою, і стає тепліше.</p>\n        {{QUIZ_kw_s1_q1}}"
+        ]
       },
       {
         "id": "sec2",
         "title": "2. Наслідки",
+        "content": "<p>Потепління має драматичні наслідки:</p>\n        <ul>\n            <li>🏔️ <strong>Лід тане:</strong> Льодовики та лід на полюсах тануть.</li>\n            <li>🌊 <strong>Підвищення рівня моря:</strong> Прибережні міста в небезпеці.</li>\n            <li>🌪️ <strong>Екстремальна погода:</strong> Більше посух, але також сильніші шторми та повені.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧊 Танення льоду подорожей у часі</h3>\n            <p>Перемістіть рік і спостерігайте за льодом:</p>\n            <input type=\"range\" id=\"yearRange\" min=\"1900\" max=\"2100\" value=\"1900\" oninput=\"updateGlacier()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"200\" viewBox=\"0 0 350 200\">\n                    <rect id=\"seaLevel\" x=\"0\" y=\"150\" width=\"350\" height=\"50\" fill=\"#2196F3\" />\n                    <rect id=\"glacierArea\" x=\"50\" y=\"50\" width=\"200\" height=\"100\" fill=\"#E0F7FA\" stroke=\"#B2EBF2\" />\n                    <text x=\"20\" y=\"30\" fill=\"#333\" font-size=\"20\" font-weight=\"bold\">Рік: <tspan id=\"yearLabel\">1900</tspan></text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_kw_s2_q1}}",
         "quizzes": [
           {
             "id": "kw_s2_q1",
@@ -7115,28 +7122,60 @@
               {
                 "text": "Льодовиковий лід тане, а вода розширюється, коли нагрівається.",
                 "correct": true,
-                "pts": 15,
+                "pts": 10,
                 "feedback": "Правильно: обидва викликають підвищення рівня моря."
               },
               {
                 "text": "Тому що дощить більше.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Більше дощів – не головна причина. Танення наземного льоду та підвищення температури морської води мають вирішальне значення."
+              },
+              {
+                "text": "Бо взимку термометри не працюють.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Термометри працюють і взимку. Ви повинні правильно класифікувати дані."
               }
             ]
           }
-        ],
-        "content": "<p>Потепління має драматичні наслідки:</p>\n        <ul>\n            <li>🏔️ <strong>Лід тане:</strong> Льодовики та лід на полюсах тануть.</li>\n            <li>🌊 <strong>Підвищення рівня моря:</strong> Прибережні міста в небезпеці.</li>\n            <li>🌪️ <strong>Екстремальна погода:</strong> Більше посух, але також сильніші шторми та повені.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧊 Танення льоду подорожей у часі</h3>\n            <p>Перемістіть рік і спостерігайте за льодом:</p>\n            <input type=\"range\" id=\"yearRange\" min=\"1900\" max=\"2100\" value=\"1900\" oninput=\"updateGlacier()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\">\n                <svg width=\"350\" height=\"200\" viewBox=\"0 0 350 200\">\n                    <rect id=\"seaLevel\" x=\"0\" y=\"150\" width=\"350\" height=\"50\" fill=\"#2196F3\" />\n                    <rect id=\"glacierArea\" x=\"50\" y=\"50\" width=\"200\" height=\"100\" fill=\"#E0F7FA\" stroke=\"#B2EBF2\" />\n                    <text x=\"20\" y=\"30\" fill=\"#333\" font-size=\"20\" font-weight=\"bold\">Рік: <tspan id=\"yearLabel\">1900</tspan></text>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_kw_s2_q1}}"
+        ]
       },
       {
         "id": "sec3",
         "title": "3. Що ми можемо зробити?",
-        "content": "<p>Кожен внесок має значення! Ми повинні зупинити викиди CO2. Це називається <strong>Захист клімату</strong>.</p>\n        <ul>\n            <li>☀️ <strong>Відновлювані джерела енергії:</strong> Сонце та вітер замість вугілля.</li>\n            <li>🚲 <strong>Мобільність:</strong> Більше велосипедів і поїздів, менше автомобілів і літаків.</li>\n            <li>🥦 <strong>Харчування:</strong> Регіональні та рослинні продукти часто споживають менше CO2.</li>\n        </ul>\n        <div class=\"lexikon-box\">\n            🌍 <strong>Дослідницьке завдання:</strong> Знайдіть в Інтернеті «CO2 footprint calculator». Спробуйте з’ясувати, скільки CO2 щорічно виділяється вашим способом життя. Яка твоя найкраща посада? (Порада: у більшості випадків це житло, мобільність або харчування).\n        </div>"
+        "content": "<p>Кожен внесок має значення! Ми повинні зупинити викиди CO2. Це називається <strong>Захист клімату</strong>.</p>\n        <ul>\n            <li>☀️ <strong>Відновлювані джерела енергії:</strong> Сонце та вітер замість вугілля.</li>\n            <li>🚲 <strong>Мобільність:</strong> Більше велосипедів і поїздів, менше автомобілів і літаків.</li>\n            <li>🥦 <strong>Харчування:</strong> Регіональні та рослинні продукти часто споживають менше CO2.</li>\n        </ul>\n        <div class=\"lexikon-box\">\n            🌍 <strong>Дослідницьке завдання:</strong> Знайдіть в Інтернеті «CO2 footprint calculator». Спробуйте з’ясувати, скільки CO2 щорічно виділяється вашим способом життя. Яка твоя найкраща посада? (Порада: у більшості випадків це житло, мобільність або харчування).\n        </div>",
+        "quizzes": [
+          {
+            "id": "kw_s3_q1",
+            "question": "Чому стрес від посухи може посилитися, навіть якщо літні опади явно не скрізь зменшуються?",
+            "answers": [
+              {
+                "text": "Оскільки більш високі температури викликають більше випаровування.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Тепло забирає більше води з ґрунту та рослин."
+              },
+              {
+                "text": "Тому що дощ в Австрії більше не складається з води.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ні. Вирішальними факторами є температура, випаровування та розподіл дощу."
+              },
+              {
+                "text": "Бо хмари стають важчими.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Це не пояснення. Вся справа в теплі та випаровуванні."
+              }
+            ]
+          }
+        ]
       },
       {
         "id": "sec4",
         "title": "4. Як далеко ми зайшли? (Обмеження температури)",
+        "content": "<p>Щоб запобігти найстрашнішим катастрофам, майже всі країни світу погодилися: Земля не повинна нагріватися більше ніж на 1,5 °C</strong> порівняно з часом до появи великих заводів (доіндустріальний період) <strong></strong>!</p>\n        <div class=\"interactive-zone\" style=\"background: #fff1f2; border: 2px solid #fecdd3; border-radius: 12px; padding: 15px;\">\n            <h3>🌡️ Термометр небезпеки</h3>\n            <p>Де ми зараз порівняно з лімітом?</p>\n            <div style=\"display: flex; align-items: center; justify-content: center; gap: 20px;\">\n                <svg width=\"100\" height=\"250\" viewBox=\"0 0 100 250\">\n                    <rect x=\"40\" y=\"20\" width=\"20\" height=\"180\" rx=\"10\" fill=\"#e2e8f0\" stroke=\"#94a3b8\" />\n                    <circle cx=\"50\" cy=\"200\" r=\"20\" fill=\"#ef4444\" />\n                    <rect x=\"45\" y=\"110\" width=\"10\" height=\"80\" fill=\"#ef4444\">\n                        <animate attributeName=\"y\" values=\"190;110\" dur=\"2s\" fill=\"freeze\" />\n                        <animate attributeName=\"height\" values=\"10;80\" dur=\"2s\" fill=\"freeze\" />\n                    </rect>\n                    <line x1=\"30\" y1=\"180\" x2=\"40\" y2=\"180\" stroke=\"#334155\" /> <text x=\"5\" y=\"184\" font-size=\"10\" font-weight=\"bold\">0,0°C</text>\n                    <line x1=\"30\" y1=\"110\" x2=\"40\" y2=\"110\" stroke=\"#ef4444\" stroke-width=\"2\" /> <text x=\"5\" y=\"114\" fill=\"#ef4444\" font-size=\"10\" font-weight=\"bold\">1,2°C</text>\n                    <line x1=\"30\" y1=\"90\" x2=\"40\" y2=\"90\" stroke=\"#991b1b\" stroke-width=\"2\" /> <text x=\"5\" y=\"94\" fill=\"#991b1b\" font-size=\"10\" font-weight=\"bold\">1,5°C</text>\n                </svg>\n                <div style=\"font-size: 0.9em; text-align: left; max-width: 250px;\">\n                    <p><strong>0.0°C:</strong> Нормальний стан (до 1850)</p>\n                    <p style=\"color: #ef4444;\"><strong>~1,2°C:</strong> Наш поточний стан сьогодні! Ми вже відчуваємо значно більше хвиль спеки та сильних дощів.</p>\n                    <p style=\"color: #991b1b;\"><strong>1,5°C:</strong> Абсолютна межа. Якщо потеплішає, є ризик незворотних наслідків (переломні точки).</p>\n                </div>\n            </div>\n        </div>\n        {{QUIZ_kw_s4_q1}}",
         "quizzes": [
           {
             "id": "kw_s4_q1",
@@ -7151,17 +7190,23 @@
               {
                 "text": "+5,0°C",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "5°C було б дуже небезпечним і не є узгодженою межею. Ціль – 1,5 °C, якщо можливо."
+              },
+              {
+                "text": "Витрачайте менше енергії",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Це, перш за все, захист клімату."
               }
             ]
           }
-        ],
-        "content": "<p>Щоб запобігти найстрашнішим катастрофам, майже всі країни світу погодилися: Земля не повинна нагріватися більше ніж на 1,5 °C</strong> порівняно з часом до появи великих заводів (доіндустріальний період) <strong></strong>!</p>\n        <div class=\"interactive-zone\" style=\"background: #fff1f2; border: 2px solid #fecdd3; border-radius: 12px; padding: 15px;\">\n            <h3>🌡️ Термометр небезпеки</h3>\n            <p>Де ми зараз порівняно з лімітом?</p>\n            <div style=\"display: flex; align-items: center; justify-content: center; gap: 20px;\">\n                <svg width=\"100\" height=\"250\" viewBox=\"0 0 100 250\">\n                    <rect x=\"40\" y=\"20\" width=\"20\" height=\"180\" rx=\"10\" fill=\"#e2e8f0\" stroke=\"#94a3b8\" />\n                    <circle cx=\"50\" cy=\"200\" r=\"20\" fill=\"#ef4444\" />\n                    <rect x=\"45\" y=\"110\" width=\"10\" height=\"80\" fill=\"#ef4444\">\n                        <animate attributeName=\"y\" values=\"190;110\" dur=\"2s\" fill=\"freeze\" />\n                        <animate attributeName=\"height\" values=\"10;80\" dur=\"2s\" fill=\"freeze\" />\n                    </rect>\n                    <line x1=\"30\" y1=\"180\" x2=\"40\" y2=\"180\" stroke=\"#334155\" /> <text x=\"5\" y=\"184\" font-size=\"10\" font-weight=\"bold\">0,0°C</text>\n                    <line x1=\"30\" y1=\"110\" x2=\"40\" y2=\"110\" stroke=\"#ef4444\" stroke-width=\"2\" /> <text x=\"5\" y=\"114\" fill=\"#ef4444\" font-size=\"10\" font-weight=\"bold\">1,2°C</text>\n                    <line x1=\"30\" y1=\"90\" x2=\"40\" y2=\"90\" stroke=\"#991b1b\" stroke-width=\"2\" /> <text x=\"5\" y=\"94\" fill=\"#991b1b\" font-size=\"10\" font-weight=\"bold\">1,5°C</text>\n                </svg>\n                <div style=\"font-size: 0.9em; text-align: left; max-width: 250px;\">\n                    <p><strong>0.0°C:</strong> Нормальний стан (до 1850)</p>\n                    <p style=\"color: #ef4444;\"><strong>~1,2°C:</strong> Наш поточний стан сьогодні! Ми вже відчуваємо значно більше хвиль спеки та сильних дощів.</p>\n                    <p style=\"color: #991b1b;\"><strong>1,5°C:</strong> Абсолютна межа. Якщо потеплішає, є ризик незворотних наслідків (переломні точки).</p>\n                </div>\n            </div>\n        </div>\n        {{QUIZ_kw_s4_q1}}"
+        ]
       },
       {
         "id": "sec5",
         "title": "5. Доміно землі (переломні точки)",
+        "content": "<p>Уявіть, що ви все більше відкидаєтеся на спинку стільця. Довгий час нічого не відбувається, але раптом ви досягаєте точки, де неминуче падаєте назад. Це <strong>переломний момент</strong>.</p>\n        <p>У нашому кліматі є такі переломні моменти. Коли вони падають, вони викликають ланцюгову реакцію (як доміно), яку ми, люди <strong>більше не можемо зупинити</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Ланцюгова реакція переломного моменту</h3>\n            <p>Натисніть першу доміно, щоб побачити, що може статися, якщо ми проігноруємо обмеження:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Тостовий камінь 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Гренландський лід тане 🧊</strong><br><span style=\"font-size:0.8em;\">Прісна вода тече в океан.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Гольфстрім зупиняється 🌊</strong><br><span style=\"font-size:0.8em;\">Вода з низькою солоністю занадто легка, щоб тонути. Струм припиняється.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Амазонка висихає 🌳</strong><br><span style=\"font-size:0.8em;\">Без течії дощі в Південній Америці змінюються. Тропічний ліс вмирає.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Вічна мерзлота тане 🌫️</strong><br><span style=\"font-size:0.8em;\">Природа більше не зберігає CO2. Витік метану -> Земля перегрівається!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 Коли падає перший камінь, ми не можемо зупинити решту!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
@@ -7176,13 +7221,23 @@
               {
                 "text": "Там одразу ростуть пальми.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Відлига не відразу означає тропічний клімат. Важливо те, що метан може вивільнятися."
+              },
+              {
+                "text": "Точки перелому не мають нічого спільного з температурою.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "але. Рівень потепління впливає на багато ризиків."
               }
             ]
           }
-        ],
-        "content": "<p>Уявіть, що ви все більше відкидаєтеся на спинку стільця. Довгий час нічого не відбувається, але раптом ви досягаєте точки, де неминуче падаєте назад. Це <strong>переломний момент</strong>.</p>\n        <p>У нашому кліматі є такі переломні моменти. Коли вони падають, вони викликають ланцюгову реакцію (як доміно), яку ми, люди <strong>більше не можемо зупинити</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Ланцюгова реакція переломного моменту</h3>\n            <p>Натисніть першу доміно, щоб побачити, що може статися, якщо ми проігноруємо обмеження:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Тостовий камінь 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Гренландський лід тане 🧊</strong><br><span style=\"font-size:0.8em;\">Прісна вода тече в океан.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Гольфстрім зупиняється 🌊</strong><br><span style=\"font-size:0.8em;\">Вода з низькою солоністю занадто легка, щоб тонути. Струм припиняється.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Амазонка висихає 🌳</strong><br><span style=\"font-size:0.8em;\">Без течії дощі в Південній Америці змінюються. Тропічний ліс вмирає.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Вічна мерзлота тане 🌫️</strong><br><span style=\"font-size:0.8em;\">Природа більше не зберігає CO2. Витік метану -> Земля перегрівається!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 Коли падає перший камінь, ми не можемо зупинити решту!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}"
+        ]
+      },
+      {
+        "id": "sec6",
+        "title": "6. Від знань до дії",
+        "content": "<p>Зміна клімату не є проблемою, за яку відповідальність несуть окремі діти. Але знання допомагають зрозуміти правильні рішення та мати право голосу: у школі, вдома, у суспільстві, а потім і в дорослому віці.</p><div class=\"climate-fact-grid\"><div class=\"climate-fact-card\"><strong>Я можу:</strong><br>Вимикати пристрої, планувати маршрути, лагодити речі, не витрачати їжу, факти перевірити.</div><div class=\"climate-fact-card\"><strong>Ми, як клас, можемо:</strong><br>Створити правила опалення, нанести на карту затінені території, дослідити відходи та споживання енергії, запропонувати шкільні сади/дерева.</div><div class=\"climate-fact-card\"><strong>Політика та економіка до:</strong><br>Перетворіть енергію, транспорт, будівлі, промисловість і сільське господарство, щоб утворювати набагато менше парникових газів.</div></div><div class=\"mini-task\"><strong>Міні-проект:</strong> Виберіть місце у своїй школі. Примітка: Де влітку дуже жарко? Яким би був захист клімату? Якою буде адаптація? Намалюйте просту ідею покращення.</div><div class=\"climate-source-box\"><strong>Джерела для вчителів:</strong> <a href=\"https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/\" target=\"_blank\" rel=\"noopener\">IPCC AR6 Synthesis Report</a>, <a href=\"https://science.nasa.gov/climate-change/evidence/\" target=\"_blank\" rel=\"noopener\">NASA Climate Evidence</a>, <a href=\"https://klimaportal.geosphere.at/informationsportal-klimawandel/neoklim_lufttemperatur.html\" target=\"_blank\" rel=\"noopener\">GeoSphere Австрія: Температура повітря</a>, <a href=\"https://klimaportal.geosphere.at/informationsportal-klimawandel/faq.html\" target=\"_blank\" rel=\"noopener\">GeoSphere Австрія: FAQ</a>.</div>"
       }
     ],
     "diplom": {
@@ -7195,13 +7250,13 @@
             {
               "text": "Вугілля, нафта, природний газ",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Правильно: це паливо було створено з дуже старих решток рослин і тварин."
             },
             {
               "text": "дерево і вітер",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Вітер не є паливом, а деревина не є викопним паливом, як вугілля, нафта чи природний газ."
             }
           ]
@@ -7213,13 +7268,13 @@
             {
               "text": "Ефект альбедо",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Правильно: яскраві поверхні відбивають багато сонячного світла."
             },
             {
               "text": "Охолоджуючий ефект",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Це описує ефект, але не є технічним терміном. Цей термін називається ефектом альбедо."
             }
           ]
@@ -7231,13 +7286,13 @@
             {
               "text": "Потепління 1,5°C",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Правильно: держави хочуть обмежити потепління до 1,5 °C, якщо це можливо."
             },
             {
               "text": "Потепління 4,0°C",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "4 °C не є межею захисту. Було погоджено залишатися значно нижче цього значення та прагнути до 1,5 °C."
             }
           ]
@@ -7249,13 +7304,13 @@
             {
               "text": "Поріг, перевищення якого викликає нестримні ланцюгові реакції.",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Правильно: після переломного моменту сама система може продовжувати змінюватися."
             },
             {
               "text": "Місце за Полярним колом, де кінчик термометра.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Переломний момент - це не місце. Це критичний поріг у кліматичній системі."
             }
           ]
