@@ -12,6 +12,114 @@ function stripQuestionNumber(question) {
     return String(question || '').replace(/^\s*\d+\.\s*/, '');
 }
 
+function extractHtmlIds(value) {
+    const ids = new Set();
+    const text = String(value || '');
+    const pattern = /id\s*=\s*["']([^"']+)["']/g;
+    let match;
+
+    while ((match = pattern.exec(text)) !== null) {
+        ids.add(match[1]);
+    }
+
+    return ids;
+}
+
+function extractTopicHtmlIds(topic) {
+    const ids = new Set();
+    if (!topic || !Array.isArray(topic.sections)) return ids;
+
+    topic.sections.forEach(section => {
+        extractHtmlIds(section.content).forEach(id => ids.add(id));
+    });
+
+    return ids;
+}
+
+function topicNeedsGermanInteractiveStructure(topic, germanTopic) {
+    const germanIds = extractTopicHtmlIds(germanTopic);
+    if (germanIds.size < 8) return false;
+
+    const topicIds = extractTopicHtmlIds(topic);
+    let missing = 0;
+    germanIds.forEach(id => {
+        if (!topicIds.has(id)) missing += 1;
+    });
+
+    return missing / germanIds.size > 0.35;
+}
+
+function topLevelStructuralBlocks(root) {
+    const selector = ".interactive-zone, .diagram-box, .klima-map-stage";
+    return Array.from(root.querySelectorAll(selector))
+        .filter(block => !block.parentElement || !block.parentElement.closest(selector));
+}
+
+function syncInteractiveBlocks(content, germanContent) {
+    if (!content || !germanContent || typeof document === "undefined") return content;
+
+    const germanTemplate = document.createElement("template");
+    germanTemplate.innerHTML = germanContent;
+    const germanBlocks = topLevelStructuralBlocks(germanTemplate.content)
+        .filter(block => extractHtmlIds(block.outerHTML).size > 0);
+    if (!germanBlocks.length) return content;
+
+    const template = document.createElement("template");
+    template.innerHTML = content;
+    let changed = false;
+
+    germanBlocks.forEach((germanBlock, index) => {
+        const requiredIds = extractHtmlIds(germanBlock.outerHTML);
+        const currentIds = extractHtmlIds(template.innerHTML);
+        let current = topLevelStructuralBlocks(template.content)[index];
+
+        let hasCurrentBlock = true;
+        requiredIds.forEach(id => {
+            if (!currentIds.has(id)) hasCurrentBlock = false;
+        });
+
+        if (hasCurrentBlock) return;
+
+        const clone = germanBlock.cloneNode(true);
+        if (current) {
+            current.replaceWith(clone);
+        } else {
+            const reference = template.content.querySelector(".climate-source-box, .teacher-note");
+            if (reference && reference.parentNode) {
+                reference.parentNode.insertBefore(clone, reference);
+            } else {
+                template.content.appendChild(clone);
+            }
+        }
+        changed = true;
+    });
+
+    return changed ? template.innerHTML : content;
+}
+
+function withCurrentInteractiveStructure(topic, germanTopic) {
+    if (!topic || !germanTopic || topic === germanTopic) return topic;
+
+    if (topicNeedsGermanInteractiveStructure(topic, germanTopic)) {
+        return {
+            ...germanTopic,
+            title: topic.title || germanTopic.title,
+            subtitle: topic.subtitle || germanTopic.subtitle
+        };
+    }
+
+    return {
+        ...topic,
+        sections: (topic.sections || []).map((section, index) => {
+            const germanSection = germanTopic.sections && germanTopic.sections[index];
+            if (!germanSection || !germanSection.content) return section;
+
+            const content = syncInteractiveBlocks(section.content, germanSection.content);
+            return content === section.content ? section : { ...section, content };
+        })
+    };
+}
+
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
@@ -29,17 +137,26 @@ async function renderTopic() {
         let response = await fetch(`../lang/${lang}.json?v=6.5`);
         let langData = await response.json();
         let topic = langData[topicId];
+        let germanTopic = null;
 
-        // Fallback to German
-        if (!topic && lang !== 'de') {
+        if (lang !== 'de') {
             const deRes = await fetch(`../lang/de.json?v=6.5`);
             const deData = await deRes.json();
-            topic = deData[topicId];
+            germanTopic = deData[topicId];
+        }
+
+        // Fallback to German
+        if (!topic && germanTopic) {
+            topic = germanTopic;
         }
 
         if (!topic) {
             showError(`Das Thema "${topicId}" wurde nicht gefunden.`);
             return;
+        }
+
+        if (germanTopic) {
+            topic = withCurrentInteractiveStructure(topic, germanTopic);
         }
 
         document.title = topic.title;
