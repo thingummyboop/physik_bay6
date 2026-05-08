@@ -26,13 +26,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=6.1`);
+        let response = await fetch(`../lang/${lang}.json?v=6.2`);
         let langData = await response.json();
         let topic = langData[topicId];
 
         // Fallback to German
         if (!topic && lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=6.1`);
+            const deRes = await fetch(`../lang/de.json?v=6.2`);
             const deData = await deRes.json();
             topic = deData[topicId];
         }
