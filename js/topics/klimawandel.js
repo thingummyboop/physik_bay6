@@ -79,6 +79,9 @@ function updateGreenhouseLab() {
     const escapedHeat = document.getElementById("escapedHeat");
     const heatMeter = document.getElementById("climateHeatMeter");
     const earthGlow = document.getElementById("earthGlow");
+    const warmingLabel = document.getElementById("greenhouseWarmingLabel");
+    const warmingBar = document.getElementById("greenhouseWarmingBar");
+    const warmingBox = document.getElementById("greenhouseWarmingBox");
 
     range.setAttribute("aria-valuetext", `${ppm} ppm CO2-Modellwert`);
     if (ppmLabel) ppmLabel.textContent = `${ppm} ppm`;
@@ -88,6 +91,13 @@ function updateGreenhouseLab() {
     if (escapedHeat) escapedHeat.setAttribute("opacity", String(clamp(0.85 - val / 130, 0.15, 0.85)));
     if (heatMeter) heatMeter.style.width = `${retained}%`;
     if (earthGlow) earthGlow.setAttribute("fill", val > 75 ? "#fb923c" : val > 45 ? "#fbbf24" : "#86efac");
+    if (warmingLabel) warmingLabel.textContent = `+${tempRise} °C`;
+    if (warmingBar) {
+        const warmingBarHeight = 8 + (val / 100) * 28;
+        warmingBar.setAttribute("y", (54 - warmingBarHeight).toFixed(1));
+        warmingBar.setAttribute("height", warmingBarHeight.toFixed(1));
+    }
+    if (warmingBox) warmingBox.setAttribute("stroke", val > 75 ? "#dc2626" : val > 45 ? "#f97316" : "#22c55e");
 
     const explanation = document.getElementById("greenhouseExplanation");
     if (explanation) {
@@ -226,7 +236,7 @@ function enhanceClimateChangeAccessibility() {
         if (range) range.setAttribute("role", "slider");
     });
 
-    ["climatePpmLabel", "climateYearLabel", "impactText", "climateActionFeedback", "tippingNote"].forEach(id => {
+    ["climatePpmLabel", "greenhouseWarmingLabel", "climateYearLabel", "impactText", "climateActionFeedback", "tippingNote"].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
             el.setAttribute("role", "status");
