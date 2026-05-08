@@ -2632,6 +2632,133 @@ body.math-theme {
     overflow-x: auto;
 }
 
+/* --- KLIMA --- */
+.klima-map-stage,
+.greenhouse-stage {
+    background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+    border: 2px solid #bfdbfe;
+    border-radius: 16px;
+    padding: 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+}
+
+.klima-map-stage svg,
+.greenhouse-stage svg {
+    width: 100%;
+    max-width: 900px;
+    min-width: 560px;
+    height: auto;
+}
+
+.klima-map-label,
+.greenhouse-label {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 800;
+    fill: #0f172a;
+}
+
+.klima-map-small,
+.greenhouse-small {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 700;
+    fill: #334155;
+}
+
+.klima-zone-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.klima-zone-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #dbeafe;
+    border-radius: 12px;
+    padding: 9px 10px;
+    font-weight: 700;
+}
+
+.klima-zone-chip span {
+    width: 22px;
+    height: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    flex: 0 0 auto;
+}
+
+.greenhouse-control {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto auto;
+    gap: 10px;
+    align-items: center;
+    max-width: 760px;
+    margin: 8px auto 14px auto;
+}
+
+.greenhouse-control input[type="range"] {
+    width: 100%;
+}
+
+.greenhouse-value {
+    background: #ffffff;
+    border: 2px solid #bfdbfe;
+    border-radius: 10px;
+    color: #1d4ed8;
+    font-weight: 800;
+    min-width: 104px;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.greenhouse-meter {
+    width: 100%;
+    max-width: 540px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid #bfdbfe;
+    overflow: hidden;
+    background: #e0f2fe;
+    margin: 10px auto;
+}
+
+.greenhouse-meter-fill {
+    height: 100%;
+    width: 50%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #38bdf8, #facc15, #ef4444);
+    transition: width 0.25s ease;
+}
+
+@media (max-width: 760px) {
+    .greenhouse-control {
+        grid-template-columns: 1fr;
+    }
+}
+
+[data-theme="dark"] .klima-map-stage,
+[data-theme="dark"] .greenhouse-stage {
+    background: linear-gradient(180deg, #0f172a 0%, #172554 100%);
+    border-color: #334155;
+}
+
+[data-theme="dark"] .klima-zone-chip,
+[data-theme="dark"] .greenhouse-value {
+    background: #172033;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .klima-map-label,
+[data-theme="dark"] .greenhouse-label,
+[data-theme="dark"] .klima-map-small,
+[data-theme="dark"] .greenhouse-small {
+    fill: #e5e7eb;
+}
+
 /* --- KLIMAWANDEL --- */
 .climate-lede {
     display: grid;
