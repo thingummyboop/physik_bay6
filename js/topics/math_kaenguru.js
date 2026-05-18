@@ -92,8 +92,31 @@ function updateKangarooRuleInfo() {
 }
 
 function scoreDescription(config) {
-    if (config.tasks === 24) return "Aufgaben 1-8: 3 Punkte, 9-16: 4 Punkte, 17-24: 5 Punkte.";
-    return "Aufgaben 1-10: 3 Punkte, 11-20: 4 Punkte, 21-30: 5 Punkte.";
+    return createScoreGroups(config)
+        .map(group => `Aufgaben ${group.from}-${group.to}: ${group.points} Punkte`)
+        .join(", ") + ".";
+}
+
+function createScoreGroups(config) {
+    const ranges = config.tasks === 24
+        ? [[1, 8, 3], [9, 16, 4], [17, 24, 5]]
+        : [[1, 10, 3], [11, 20, 4], [21, 30, 5]];
+
+    return ranges.map(([from, to, points]) => ({
+        label: `${points}-Punkte-Aufgaben`,
+        from,
+        to,
+        points,
+        correct: 0,
+        wrong: 0,
+        empty: 0,
+        gained: 0,
+        lost: 0
+    }));
+}
+
+function findScoreGroup(groups, number) {
+    return groups.find(group => number >= group.from && number <= group.to);
 }
 
 function startKangarooTest() {
@@ -191,8 +214,9 @@ function submitKangarooTest() {
 
     const result = document.getElementById("kangarooResult");
     result.innerHTML = `
-        <strong>Ergebnis: ${score.points.toFixed(2).replace(".00", "")} von ${KANGAROO_STATE.config.max} Punkten</strong>
+        <strong>Ergebnis: ${formatKangarooPoints(score.points)} von ${KANGAROO_STATE.config.max} Punkten</strong>
         <span>${score.correct} richtig - ${score.wrong} falsch - ${score.empty} leer - Startpunkte: ${KANGAROO_STATE.config.start}</span>
+        ${renderKangarooEvaluation(score)}
         <button type="button" class="kangaroo-secondary" onclick="openKangarooWorksheet()">Diesen Test als Arbeitsblatt \u00f6ffnen</button>
     `;
 }
@@ -202,21 +226,104 @@ function calculateKangarooScore() {
     let correct = 0;
     let wrong = 0;
     let empty = 0;
+    let gained = 0;
+    let lost = 0;
+    const groups = createScoreGroups(KANGAROO_STATE.config);
 
     KANGAROO_STATE.test.forEach(question => {
         const answer = KANGAROO_STATE.answers[`q${question.number}`];
+        const group = findScoreGroup(groups, question.number);
         if (answer === undefined) {
             empty += 1;
+            if (group) group.empty += 1;
         } else if (Number(answer) === question.answer) {
             correct += 1;
             points += question.points;
+            gained += question.points;
+            if (group) {
+                group.correct += 1;
+                group.gained += question.points;
+            }
         } else {
             wrong += 1;
-            points -= question.points / 4;
+            const penalty = question.points / 4;
+            points -= penalty;
+            lost += penalty;
+            if (group) {
+                group.wrong += 1;
+                group.lost += penalty;
+            }
         }
     });
 
-    return { points: Math.max(0, points), correct, wrong, empty };
+    return {
+        points: Math.max(0, points),
+        correct,
+        wrong,
+        empty,
+        gained,
+        lost,
+        groups,
+        percentage: Math.round((Math.max(0, points) / KANGAROO_STATE.config.max) * 100)
+    };
+}
+
+function renderKangarooEvaluation(score) {
+    return `
+        <div class="kangaroo-evaluation">
+            <div class="kangaroo-evaluation-grid" aria-label="Auswertung nach K\u00e4nguru-Wertung">
+                <div class="kangaroo-evaluation-metric">
+                    <strong>${formatKangarooPoints(score.gained)}</strong>
+                    <span>Punkte gewonnen</span>
+                </div>
+                <div class="kangaroo-evaluation-metric">
+                    <strong>${formatKangarooPenalty(score.lost)}</strong>
+                    <span>Punkte durch Fehler</span>
+                </div>
+                <div class="kangaroo-evaluation-metric">
+                    <strong>${score.percentage}%</strong>
+                    <span>vom Maximum</span>
+                </div>
+            </div>
+            <table class="kangaroo-evaluation-table">
+                <thead>
+                    <tr>
+                        <th>Aufgabengruppe</th>
+                        <th>Richtig</th>
+                        <th>Falsch</th>
+                        <th>Leer</th>
+                        <th>Punkte</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${score.groups.map(group => `
+                        <tr>
+                            <td>${group.label} ${group.from}-${group.to}</td>
+                            <td>${group.correct}</td>
+                            <td>${group.wrong}</td>
+                            <td>${group.empty}</td>
+                            <td>+${formatKangarooPoints(group.gained)} / ${formatKangarooPenalty(group.lost)}</td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
+            <p class="kangaroo-evaluation-note">
+                Offiziell gibt es beim K\u00e4nguru eine Punktewertung, keine Schulnote. Diese Auswertung zeigt deshalb, wo Punkte gewonnen, verloren oder liegen gelassen wurden.
+            </p>
+        </div>
+    `;
+}
+
+function formatKangarooPenalty(points) {
+    return points === 0 ? "0" : `-${formatKangarooPoints(points)}`;
+}
+
+function formatKangarooPoints(points) {
+    return points
+        .toFixed(2)
+        .replace(/\.00$/, "")
+        .replace(/(\.\d)0$/, "$1")
+        .replace(".", ",");
 }
 
 function clearKangarooTimer() {
@@ -331,16 +438,16 @@ function genPerimeter(rng, stage) {
 }
 
 function genCalendar(rng) {
-    const day = randInt(rng, 4, 19);
+    const dayIndex = randInt(rng, 0, 6);
     const later = randInt(rng, 9, 26);
-    const correct = (day + later - 1) % 7 + 1;
+    const correctIndex = (dayIndex + later) % 7;
     const names = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
-    const { choices, answer } = makeChoices(correct, [correct % 7 + 1, (correct + 1) % 7 + 1, (correct + 2) % 7 + 1, (correct + 3) % 7 + 1]);
+    const dayChoices = shuffleWithRng([0, 1, 2, 3, 4].map(offset => (correctIndex + offset) % 7), rng);
     return {
-        text: `Heute ist ${names[day % 7]}. Welcher Wochentag ist in ${later} Tagen?`,
-        choices: choices.map(value => names[Number(value) - 1]),
-        answer,
-        explanation: `${later} Tage entsprechen ${later % 7} Tagen weiter im Wochenkreis.`
+        text: `Heute ist ${names[dayIndex]}. Welcher Wochentag ist in ${later} Tagen?`,
+        choices: dayChoices.map(index => names[index]),
+        answer: dayChoices.indexOf(correctIndex),
+        explanation: `${later} Tage entsprechen ${later % 7} Tagen weiter im Wochenkreis: ${names[dayIndex]} + ${later % 7} Tage = ${names[correctIndex]}.`
     };
 }
 

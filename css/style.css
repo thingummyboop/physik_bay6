@@ -838,6 +838,55 @@ body.math-theme {
     display: block;
 }
 
+.kangaroo-evaluation {
+    background: #ffffff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    display: grid;
+    gap: 12px;
+    padding: 12px;
+}
+
+.kangaroo-evaluation-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.kangaroo-evaluation-metric {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.kangaroo-evaluation-metric strong {
+    color: #0f766e;
+    font-size: 1.25rem;
+}
+
+.kangaroo-evaluation-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.kangaroo-evaluation-table th,
+.kangaroo-evaluation-table td {
+    border: 1px solid #cbd5e1;
+    padding: 7px 8px;
+    text-align: left;
+}
+
+.kangaroo-evaluation-table th {
+    background: #ecfeff;
+    color: #0f172a;
+}
+
+.kangaroo-evaluation-note {
+    color: #334155;
+    margin: 0;
+}
+
 .kangaroo-worksheet-preview {
     background: #ffffff;
     border-top: 3px solid #0f766e;
@@ -2647,6 +2696,7 @@ body.math-theme {
 [data-theme="dark"] .kangaroo-shell,
 [data-theme="dark"] .kangaroo-question,
 [data-theme="dark"] .kangaroo-info,
+[data-theme="dark"] .kangaroo-evaluation,
 [data-theme="dark"] .kangaroo-source-note,
 [data-theme="dark"] .kangaroo-note,
 [data-theme="dark"] .kangaroo-worksheet-preview {
@@ -2655,10 +2705,20 @@ body.math-theme {
     color: #e2e8f0;
 }
 
+[data-theme="dark"] .kangaroo-evaluation-metric,
 [data-theme="dark"] .kangaroo-options label {
     background: #111827;
     border-color: #334155;
     color: #e2e8f0;
+}
+
+[data-theme="dark"] .kangaroo-evaluation-table th {
+    background: #042f2e;
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .kangaroo-evaluation-note {
+    color: #cbd5e1;
 }
 
 [data-theme="dark"] .math-game-hud {
