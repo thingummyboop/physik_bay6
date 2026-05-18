@@ -816,6 +816,31 @@ body.math-theme {
     padding: 8px 10px;
 }
 
+.kangaroo-choice-letter {
+    flex: 0 0 auto;
+    font-weight: 800;
+}
+
+.kangaroo-choice-content {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+}
+
+.kangaroo-choice-svg {
+    background: #ffffff;
+    border-radius: 6px;
+    flex: 0 0 auto;
+    height: 58px;
+    max-width: 140px;
+}
+
+.kangaroo-choice-text {
+    font-weight: 700;
+}
+
 .kangaroo-options label:hover {
     border-color: #0ea5e9;
 }
@@ -935,6 +960,19 @@ body.math-theme {
 .kangaroo-worksheet-list > li {
     break-inside: avoid;
     padding-bottom: 8px;
+}
+
+.kangaroo-print-choice {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    min-height: 52px;
+    vertical-align: top;
+}
+
+.kangaroo-print-choice svg {
+    max-height: 54px;
+    width: auto;
 }
 
 .kangaroo-solution-table {
@@ -2729,6 +2767,10 @@ body.math-theme {
     background: #111827;
     border-color: #334155;
     color: #e2e8f0;
+}
+
+[data-theme="dark"] .kangaroo-choice-svg {
+    background: #f8fafc;
 }
 
 [data-theme="dark"] .kangaroo-evaluation-table th {

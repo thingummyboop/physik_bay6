@@ -170,13 +170,40 @@ function renderKangarooQuestion(question) {
                 ${question.choices.map((choice, index) => `
                     <label>
                         <input type="radio" name="q${question.number}" value="${index}">
-                        <span>${String.fromCharCode(65 + index)}) ${choice}</span>
+                        ${renderKangarooChoice(choice, index)}
                     </label>
                 `).join("")}
             </div>
             <p class="kangaroo-explanation" id="kangarooExplanation${question.number}"></p>
         </article>
     `;
+}
+
+function renderKangarooChoice(choice, index) {
+    const letter = `${String.fromCharCode(65 + index)})`;
+    if (isGraphicChoice(choice)) {
+        return `
+            <span class="kangaroo-choice-letter">${letter}</span>
+            <span class="kangaroo-choice-content">
+                ${choice.html}
+                <span class="kangaroo-choice-text">${choice.text}</span>
+            </span>
+        `;
+    }
+    return `<span>${letter} ${choice}</span>`;
+}
+
+function renderKangarooWorksheetChoice(choice) {
+    if (!isGraphicChoice(choice)) return choice;
+    return `<span class="kangaroo-print-choice">${choice.html}<span>${choice.text}</span></span>`;
+}
+
+function choiceText(choice) {
+    return isGraphicChoice(choice) ? choice.text : `${choice}`;
+}
+
+function isGraphicChoice(choice) {
+    return typeof choice === "object" && choice !== null && typeof choice.html === "string";
 }
 
 function updateKangarooProgress() {
@@ -209,7 +236,7 @@ function submitKangarooTest() {
         card.classList.add(selected === question.answer ? "is-correct" : selected === null ? "is-empty" : "is-wrong");
         card.querySelectorAll("input").forEach(input => input.disabled = true);
         const explanation = document.getElementById(`kangarooExplanation${number}`);
-        explanation.innerHTML = `<strong>Richtig:</strong> ${String.fromCharCode(65 + question.answer)}) ${question.choices[question.answer]} - ${question.explanation}`;
+        explanation.innerHTML = `<strong>Richtig:</strong> ${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])} - ${question.explanation}`;
     });
 
     const result = document.getElementById("kangarooResult");
@@ -460,13 +487,147 @@ function makeChoices(correct, distractors, suffix = "") {
     return { choices, answer };
 }
 
+function makeGraphicChoices(items, correctKey, rng) {
+    const unique = [];
+    const seen = new Set();
+    items.forEach(item => {
+        if (!seen.has(item.key)) {
+            seen.add(item.key);
+            unique.push(item);
+        }
+    });
+    const choices = shuffleWithRng(unique.slice(0, 5), rng);
+    return { choices, answer: choices.findIndex(choice => choice.key === correctKey) };
+}
+
+function numericChoiceValues(correct, candidates, min, max) {
+    const values = [];
+    const add = value => {
+        const rounded = Math.round(value);
+        const bounded = Math.max(min, Math.min(max, rounded));
+        if (!values.includes(bounded)) values.push(bounded);
+    };
+    add(correct);
+    candidates.forEach(add);
+    let step = 1;
+    while (values.length < 5 && step <= 40) {
+        add(correct + step);
+        add(correct - step);
+        step += 1;
+    }
+    return values.slice(0, 5);
+}
+
+function svgFrame(width, height, body, label) {
+    return `<svg class="kangaroo-choice-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+}
+
+function gridChoiceSvg(rows, cols, removed) {
+    const cell = 12;
+    const gap = 2;
+    const pad = 5;
+    const width = cols * cell + (cols - 1) * gap + pad * 2;
+    const height = rows * cell + (rows - 1) * gap + pad * 2;
+    const total = rows * cols;
+    const missing = Math.max(0, Math.min(total, removed));
+    const missingCells = new Set();
+    for (let i = 0; i < missing; i++) {
+        const row = Math.floor(i / cols);
+        const col = cols - 1 - i % cols;
+        missingCells.add(`${row}:${col}`);
+    }
+    let body = `<rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>`;
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            const x = pad + col * (cell + gap);
+            const y = pad + row * (cell + gap);
+            const isMissing = missingCells.has(`${row}:${col}`);
+            body += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${isMissing ? "#ffffff" : "#38bdf8"}" stroke="${isMissing ? "#94a3b8" : "#0369a1"}" stroke-dasharray="${isMissing ? "3 2" : "0"}"/>`;
+        }
+    }
+    return svgFrame(width, height, body, `${rows} mal ${cols} Gitter`);
+}
+
+function clockChoiceSvg(hour) {
+    const center = 36;
+    const radius = 28;
+    const normalized = hour % 12 || 12;
+    const angle = (normalized * 30 - 90) * Math.PI / 180;
+    const handX = center + Math.cos(angle) * 18;
+    const handY = center + Math.sin(angle) * 18;
+    let ticks = "";
+    for (let i = 0; i < 12; i++) {
+        const tickAngle = (i * 30 - 90) * Math.PI / 180;
+        const x1 = center + Math.cos(tickAngle) * 23;
+        const y1 = center + Math.sin(tickAngle) * 23;
+        const x2 = center + Math.cos(tickAngle) * 26;
+        const y2 = center + Math.sin(tickAngle) * 26;
+        ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#64748b" stroke-width="1.5"/>`;
+    }
+    const body = `<circle cx="${center}" cy="${center}" r="${radius}" fill="#ffffff" stroke="#0f766e" stroke-width="3"/>${ticks}<line x1="${center}" y1="${center}" x2="${handX.toFixed(1)}" y2="${handY.toFixed(1)}" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/><line x1="${center}" y1="${center}" x2="${center}" y2="${center - 22}" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/><circle cx="${center}" cy="${center}" r="3" fill="#0f172a"/>`;
+    return svgFrame(72, 72, body, `${hour} Uhr`);
+}
+
+function digitCardSvg(number) {
+    const digits = String(number).padStart(3, "0").split("");
+    const body = digits.map((digit, index) => {
+        const x = 8 + index * 34;
+        return `<g><rect x="${x}" y="10" width="28" height="38" rx="5" fill="#fef3c7" stroke="#92400e" stroke-width="2"/><text x="${x + 14}" y="36" text-anchor="middle" font-size="22" font-weight="800" fill="#7c2d12">${digit}</text></g>`;
+    }).join("");
+    return svgFrame(112, 58, body, `Zahlenkarten ${number}`);
+}
+
+function patternStripSvg(sequence) {
+    const cell = 12;
+    const gap = 2;
+    const shown = sequence.slice(0, 14);
+    const width = shown.length * cell + (shown.length - 1) * gap + 10;
+    const body = `<rect x="1" y="1" width="${width - 2}" height="30" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>` + shown.map((color, index) => {
+        const fill = color === "r" ? "#ef4444" : "#3b82f6";
+        const stroke = color === "r" ? "#991b1b" : "#1d4ed8";
+        return `<rect x="${5 + index * (cell + gap)}" y="9" width="${cell}" height="${cell}" rx="2" fill="${fill}" stroke="${stroke}"/>`;
+    }).join("");
+    return svgFrame(width, 32, body, "Musterleiste");
+}
+
+function borderGridSvg(side, mode) {
+    const cell = 10;
+    const gap = 1;
+    const pad = 5;
+    const size = side * cell + (side - 1) * gap + pad * 2;
+    let body = `<rect x="1" y="1" width="${size - 2}" height="${size - 2}" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>`;
+    for (let row = 0; row < side; row++) {
+        for (let col = 0; col < side; col++) {
+            const isBorder = row === 0 || col === 0 || row === side - 1 || col === side - 1;
+            const isBlue = mode === "border" && isBorder
+                || mode === "all"
+                || mode === "diagonal" && row === col
+                || mode === "corners" && (row === 0 || row === side - 1) && (col === 0 || col === side - 1)
+                || mode === "inner" && !isBorder;
+            body += `<rect x="${pad + col * (cell + gap)}" y="${pad + row * (cell + gap)}" width="${cell}" height="${cell}" fill="${isBlue ? "#2563eb" : "#ffffff"}" stroke="#94a3b8"/>`;
+        }
+    }
+    return svgFrame(size, size, body, `${side} mal ${side} Feld`);
+}
+
+function angleChoiceSvg(degrees) {
+    const sweep = Math.max(20, Math.min(150, degrees));
+    const endAngle = (180 - sweep) * Math.PI / 180;
+    const x2 = 20 + Math.cos(endAngle) * 46;
+    const y2 = 54 - Math.sin(endAngle) * 46;
+    const arcX = 20 + Math.cos(endAngle) * 22;
+    const arcY = 54 - Math.sin(endAngle) * 22;
+    const body = `<line x1="12" y1="54" x2="74" y2="54" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="54" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/><path d="M42 54 A22 22 0 0 0 ${arcX.toFixed(1)} ${arcY.toFixed(1)}" fill="none" stroke="#f59e0b" stroke-width="3"/><circle cx="20" cy="54" r="3" fill="#0f172a"/><text x="54" y="24" text-anchor="middle" font-size="14" font-weight="800" fill="#7c2d12">${degrees}\u00b0</text>`;
+    return svgFrame(84, 64, body, `${degrees} Grad`);
+}
+
 function genSequence(rng, stage) {
     const start = randInt(rng, 2, 8 + stage);
     const step = randInt(rng, 2, 4 + Math.floor(stage / 2));
     const correct = start + step * 5;
     const { choices, answer } = makeChoices(correct, [correct - step, correct + step, correct + 2 * step, correct - 2]);
     return {
-        text: `Die Zahlenfolge lautet ${start}, ${start + step}, ${start + 2 * step}, ${start + 3 * step}, ${start + 4 * step}, ... Welche Zahl kommt als n\u00e4chste?`,
+        text: `Mira schreibt f\u00fcr ein Geheimtor immer nach derselben Regel weiter. Auf ihrem Zettel stehen ${start}, ${start + step}, ${start + 2 * step}, ${start + 3 * step}, ${start + 4 * step}, ... Welche Zahl muss als n\u00e4chste Zahl in die Reihe?`,
         choices,
         answer,
         explanation: `Jedes Mal wird ${step} addiert.`
@@ -479,7 +640,7 @@ function genPerimeter(rng, stage) {
     const correct = 2 * (a + b);
     const { choices, answer } = makeChoices(correct, [a * b, a + b, correct + 4, correct - 2], " cm");
     return {
-        text: `Ein Rechteck ist ${a} cm lang und ${b} cm breit. Wie gro\u00df ist sein Umfang?`,
+        text: `Im Werkraum legt eine Klasse eine Schnur genau um ein rechteckiges Schild. Das Schild ist ${a} cm lang und ${b} cm breit. Wie lang muss die Schnur mindestens sein, wenn sie einmal ganz rundherum reichen soll?`,
         choices,
         answer,
         explanation: `Umfang = ${a}+${b}+${a}+${b} = ${correct} cm.`
@@ -493,7 +654,7 @@ function genCalendar(rng) {
     const names = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
     const dayChoices = shuffleWithRng([0, 1, 2, 3, 4].map(offset => (correctIndex + offset) % 7), rng);
     return {
-        text: `Heute ist ${names[dayIndex]}. Welcher Wochentag ist in ${later} Tagen?`,
+        text: `Die Mathegruppe plant ein kleines Turnier. Heute ist ${names[dayIndex]}; die Einladungen sollen aber erst in ${later} Tagen verteilt werden. Auf welchen Wochentag f\u00e4llt dieser Tag?`,
         choices: dayChoices.map(index => names[index]),
         answer: dayChoices.indexOf(correctIndex),
         explanation: `${later} Tage entsprechen ${later % 7} Tagen weiter im Wochenkreis: ${names[dayIndex]} + ${later % 7} Tage = ${names[correctIndex]}.`
@@ -508,7 +669,7 @@ function genFraction(rng, stage) {
     const correct = numerator * unit;
     const { choices, answer } = makeChoices(correct, [correct + unit, Math.max(1, correct - unit), total - correct, denominator + numerator]);
     return {
-        text: `${numerator}/${denominator} von ${total} Kindern haben ein R\u00e4tsel richtig. Wie viele Kinder sind das?`,
+        text: `Bei einem Knobelspiel machen ${total} Kinder mit. Nach der ersten Runde haben ${numerator}/${denominator} der Kinder die Aufgabe richtig gel\u00f6st. Wie viele Kinder sind das?`,
         choices,
         answer,
         explanation: `${total} : ${denominator} = ${unit}; ${numerator} Teile sind ${correct}.`
@@ -523,7 +684,7 @@ function genShopping(rng, stage) {
     const correct = pens * pen + books * book;
     const { choices, answer } = makeChoices(correct, [correct + pen, correct - book, pens + books + pen + book, correct + 3], " \u20ac");
     return {
-        text: `Ein Stift kostet ${pen} \u20ac, ein Heft kostet ${book} \u20ac. Wie viel kosten ${pens} Stifte und ${books} Hefte zusammen?`,
+        text: `F\u00fcr eine Zeichenrunde werden im Schulshop Materialien gekauft. Ein Stift kostet ${pen} \u20ac, ein Heft kostet ${book} \u20ac. Wie viel muss die Gruppe f\u00fcr ${pens} Stifte und ${books} Hefte zusammen bezahlen?`,
         choices,
         answer,
         explanation: `${pens}*${pen} + ${books}*${book} = ${correct}.`
@@ -538,7 +699,7 @@ function genAverage(rng, stage) {
     const c = correct + delta;
     const { choices, answer } = makeChoices(correct, [correct - 2, correct + 2, a + b + c, b + delta]);
     return {
-        text: `Drei Kinder sammeln ${a}, ${b} und ${c} Punkte. Wie viele Punkte haben sie durchschnittlich?`,
+        text: `Drei Kinder sammeln bei drei Stationen Punkte: ${a}, ${b} und ${c}. Die Lehrperson m\u00f6chte wissen, wie viele Punkte ein Kind im Durchschnitt erreicht hat. Welcher Wert passt?`,
         choices,
         answer,
         explanation: `Zusammen sind es ${a + b + c}; durch 3 geteilt ergibt ${correct}.`
@@ -551,7 +712,7 @@ function genScale(rng) {
     const correct = 2 * box + 3 * ball;
     const { choices, answer } = makeChoices(correct, [box + ball, 3 * box + ball, correct - ball, correct + box], " kg");
     return {
-        text: `Eine Kiste wiegt ${box} kg, ein Ball wiegt ${ball} kg. Wie viel wiegen 2 Kisten und 3 B\u00e4lle?`,
+        text: `Beim Aufr\u00e4umen im Turnsaal werden gleich schwere Kisten und B\u00e4lle auf einen Wagen gelegt. Eine Kiste wiegt ${box} kg, ein Ball wiegt ${ball} kg. Wie schwer sind 2 Kisten und 3 B\u00e4lle zusammen?`,
         choices,
         answer,
         explanation: `2*${box} + 3*${ball} = ${correct} kg.`
@@ -563,9 +724,14 @@ function genGrid(rng, stage) {
     const cols = randInt(rng, 4, 6 + Math.floor(stage / 3));
     const cut = randInt(rng, 1, Math.min(rows, cols));
     const correct = rows * cols - cut;
-    const { choices, answer } = makeChoices(correct, [rows * cols, correct + cut, correct - 1, rows + cols]);
+    const values = numericChoiceValues(correct, [rows * cols, correct - 1, correct - cut, rows + cols], 1, rows * cols);
+    const { choices, answer } = makeGraphicChoices(values.map(value => ({
+        key: value,
+        text: `${value} Felder`,
+        html: gridChoiceSvg(rows, cols, rows * cols - value)
+    })), correct, rng);
     return {
-        text: `Ein Rechteck aus kleinen Quadraten hat ${rows} Reihen und ${cols} Spalten. ${cut} Quadrate werden entfernt. Wie viele bleiben?`,
+        text: `Auf einem Spielplan liegen kleine quadratische Pl\u00e4ttchen in ${rows} Reihen und ${cols} Spalten. Rechts oben werden ${cut} Pl\u00e4ttchen weggenommen. Welche Zeichnung zeigt, wie viele Pl\u00e4ttchen noch auf dem Plan liegen?`,
         choices,
         answer,
         explanation: `${rows}*${cols} = ${rows * cols}; danach bleiben ${correct}.`
@@ -579,7 +745,7 @@ function genRemainder(rng, stage) {
     const number = divisor * quotient + remainder;
     const { choices, answer } = makeChoices(remainder, [divisor - remainder, quotient, remainder + 1, 0]);
     return {
-        text: `Welcher Rest bleibt, wenn ${number} durch ${divisor} geteilt wird?`,
+        text: `Eine Gruppe teilt ${number} Spielkarten m\u00f6glichst gleich auf ${divisor} Stapel auf. Alle vollen Stapel sollen gleich viele Karten haben. Wie viele Karten bleiben dann \u00fcbrig?`,
         choices,
         answer,
         explanation: `${number} = ${divisor}*${quotient} + ${remainder}.`
@@ -593,7 +759,7 @@ function genRectangleArea(rng, stage) {
     const correct = width * height - missing * missing;
     const { choices, answer } = makeChoices(correct, [width * height, correct + missing, correct - missing, 2 * (width + height)], " cm\u00b2");
     return {
-        text: `Aus einem ${width} cm mal ${height} cm gro\u00dfen Rechteck wird ein ${missing} cm mal ${missing} cm gro\u00dfes Quadrat ausgeschnitten. Welche Fl\u00e4che bleibt?`,
+        text: `Aus einem Papierst\u00fcck mit ${width} cm L\u00e4nge und ${height} cm Breite wird an einer Ecke ein Quadrat mit ${missing} cm Seitenl\u00e4nge herausgeschnitten. Wie gro\u00df ist die Fl\u00e4che des restlichen Papierst\u00fccks?`,
         choices,
         answer,
         explanation: `Rechteck: ${width * height} cm\u00b2, Ausschnitt: ${missing * missing} cm\u00b2.`
@@ -607,7 +773,7 @@ function genLogicOrder(rng) {
     const correct = before + 1;
     const { choices, answer } = makeChoices(correct, [after + 1, total - before, before, total]);
     return {
-        text: `In einer Reihe stehen ${total} Kinder. Vor Mira stehen ${before} Kinder. An welcher Stelle steht Mira von vorne?`,
+        text: `Vor der Sporthalle stellen sich ${total} Kinder in einer Reihe an. Mira steht so, dass vor ihr genau ${before} Kinder stehen. An welcher Stelle steht Mira, wenn man von vorne zu z\u00e4hlen beginnt?`,
         choices,
         answer,
         explanation: `Wenn ${before} Kinder vor ihr stehen, ist Mira auf Platz ${before + 1}.`
@@ -618,9 +784,18 @@ function genClock(rng) {
     const start = randInt(rng, 1, 12);
     const add = randInt(rng, 5, 17);
     const correct = (start + add - 1) % 12 + 1;
-    const { choices, answer } = makeChoices(correct, [correct % 12 + 1, (correct + 2) % 12 + 1, start + add, start]);
+    const hourValues = [];
+    [correct, correct % 12 + 1, (correct + 2) % 12 + 1, start, (correct + 5) % 12 + 1, (correct + 8) % 12 + 1].forEach(value => {
+        const hour = (value - 1) % 12 + 1;
+        if (!hourValues.includes(hour)) hourValues.push(hour);
+    });
+    const { choices, answer } = makeGraphicChoices(hourValues.map(value => ({
+        key: value,
+        text: `${value}:00`,
+        html: clockChoiceSvg(value)
+    })), correct, rng);
     return {
-        text: `Eine Uhr zeigt ${start}:00. Welche Stundenzahl zeigt sie ${add} Stunden sp\u00e4ter?`,
+        text: `Im K\u00e4nguru-Camp beginnt eine Nachtwanderung, als die Uhr ${start}:00 zeigt. ${add} Stunden sp\u00e4ter schaut jemand wieder auf die Uhr. Welche Uhr passt zu diesem Zeitpunkt?`,
         choices,
         answer,
         explanation: `Nach jeweils 12 Stunden beginnt die Stundenzahl wieder von vorne.`
@@ -633,7 +808,7 @@ function genCombinations(rng, stage) {
     const correct = shirts * pants;
     const { choices, answer } = makeChoices(correct, [shirts + pants, correct + shirts, correct - pants, shirts * pants + 2]);
     return {
-        text: `Lina hat ${shirts} T-Shirts und ${pants} Hosen. Wie viele verschiedene Outfits aus einem T-Shirt und einer Hose kann sie bilden?`,
+        text: `Lina packt f\u00fcr eine Projektwoche Kleidung ein. Sie hat ${shirts} verschiedene T-Shirts und ${pants} verschiedene Hosen. Wie viele Outfits kann sie zusammenstellen, wenn jedes Outfit aus genau einem T-Shirt und genau einer Hose besteht?`,
         choices,
         answer,
         explanation: `Zu jedem T-Shirt passen ${pants} Hosen: ${shirts}*${pants} = ${correct}.`
@@ -648,7 +823,7 @@ function genCubes(rng, stage) {
     const correct = length * width * height - missing;
     const { choices, answer } = makeChoices(correct, [length * width * height, correct - height, correct + missing, length + width + height]);
     return {
-        text: `Ein Quader besteht aus ${length}*${width}*${height} kleinen W\u00fcrfeln. ${missing} W\u00fcrfel fehlen. Wie viele W\u00fcrfel sind vorhanden?`,
+        text: `Ein Bauwerk soll eigentlich ein voller Quader aus kleinen W\u00fcrfeln sein: ${length} W\u00fcrfel lang, ${width} W\u00fcrfel breit und ${height} W\u00fcrfel hoch. Beim Aufbauen fehlen vorne ${missing} W\u00fcrfel. Wie viele W\u00fcrfel sind trotzdem vorhanden?`,
         choices,
         answer,
         explanation: `Voll w\u00e4ren es ${length * width * height}; es fehlen ${missing}.`
@@ -662,7 +837,7 @@ function genEquation(rng, stage) {
     const result = factor * x + add;
     const { choices, answer } = makeChoices(x, [x + 1, x - 1, result - add, result]);
     return {
-        text: `Welche Zahl muss f\u00fcr x eingesetzt werden, damit ${factor}*x + ${add} = ${result} gilt?`,
+        text: `Auf einer Rechenkarte steht eine verdeckte Zahl x. Wenn man diese Zahl mit ${factor} multipliziert und danach ${add} addiert, erh\u00e4lt man ${result}. Welche Zahl steckt hinter x?`,
         choices,
         answer,
         explanation: `${result} - ${add} = ${result - add}; ${result - add} : ${factor} = ${x}.`
@@ -672,9 +847,14 @@ function genEquation(rng, stage) {
 function genAngle(rng, stage) {
     const angle = randInt(rng, 25, stage >= 7 ? 120 : 90);
     const correct = 180 - angle;
-    const { choices, answer } = makeChoices(correct, [angle, Math.abs(90 - angle), correct + 10, correct - 10], "\u00b0");
+    const angleValues = numericChoiceValues(correct, [angle, Math.abs(90 - angle), correct - 10, correct + 10], 10, 170);
+    const { choices, answer } = makeGraphicChoices(angleValues.map(value => ({
+        key: value,
+        text: `${value}\u00b0`,
+        html: angleChoiceSvg(value)
+    })), correct, rng);
     return {
-        text: `Zwei Nebenwinkel liegen auf einer Geraden. Einer ist ${angle}\u00b0 gro\u00df. Wie gro\u00df ist der andere?`,
+        text: `Auf einem Geobrett liegen zwei Winkel direkt nebeneinander auf einer geraden Linie. Der linke Winkel ist ${angle}\u00b0 gro\u00df. Welche Zeichnung kann den anderen Winkel zeigen?`,
         choices,
         answer,
         explanation: `Nebenwinkel ergeben zusammen 180\u00b0.`
@@ -687,7 +867,7 @@ function genPercent(rng, stage) {
     const correct = base * percent / 100;
     const { choices, answer } = makeChoices(correct, [base - correct, correct + 10, percent, base + correct]);
     return {
-        text: `Wie viel sind ${percent}% von ${base}?`,
+        text: `Bei einem Schulfest werden ${base} Lose vorbereitet. ${percent}% davon sind Gewinnlose. Wie viele Gewinnlose gibt es?`,
         choices,
         answer,
         explanation: `${percent}% bedeutet ${percent} von 100; das sind ${correct}.`
@@ -700,7 +880,7 @@ function genPathCount(rng) {
     const correct = binomial(right + up, right);
     const { choices, answer } = makeChoices(correct, [right * up, correct - 2, correct + 2, right + up]);
     return {
-        text: `Auf einem Gitter darf man nur nach rechts oder nach oben gehen. Wie viele k\u00fcrzeste Wege gibt es mit ${right} Schritten nach rechts und ${up} Schritten nach oben?`,
+        text: `Eine Spielfigur steht links unten auf einem Gitter und soll auf k\u00fcrzestem Weg nach rechts oben. Sie darf nur ${right} Schritte nach rechts und ${up} Schritte nach oben machen, aber die Reihenfolge darf wechseln. Wie viele k\u00fcrzeste Wege gibt es?`,
         choices,
         answer,
         explanation: `Die Reihenfolge der ${right} Rechts- und ${up} Hoch-Schritte entscheidet: ${correct} Wege.`
@@ -714,7 +894,7 @@ function genTrianglePerimeter(rng, stage) {
     const correct = a + b + c;
     const { choices, answer } = makeChoices(correct, [a * b, correct - c, correct + 3, a + b], " cm");
     return {
-        text: `Ein Dreieck hat Seiten mit ${a} cm, ${b} cm und ${c} cm. Wie gro\u00df ist sein Umfang?`,
+        text: `F\u00fcr ein dreieckiges Namensschild sollen alle drei Kanten mit einem Band beklebt werden. Die Seiten sind ${a} cm, ${b} cm und ${c} cm lang. Wie viele Zentimeter Band braucht man insgesamt?`,
         choices,
         answer,
         explanation: `Alle drei Seiten werden addiert: ${a}+${b}+${c} = ${correct} cm.`
@@ -727,7 +907,7 @@ function genMissingNumber(rng, stage) {
     const result = x + add;
     const { choices, answer } = makeChoices(x, [add, result, x + 2, Math.max(1, x - 3)]);
     return {
-        text: `Welche Zahl fehlt? ___ + ${add} = ${result}`,
+        text: `Auf einem Arbeitsblatt ist eine Zahl mit einem Fleck verdeckt. Man kann noch lesen: verdeckte Zahl + ${add} = ${result}. Welche Zahl muss unter dem Fleck stehen?`,
         choices,
         answer,
         explanation: `${result} - ${add} = ${x}.`
@@ -741,7 +921,7 @@ function genDigitSum(rng, stage) {
     const correct = String(number).split("").reduce((sum, digit) => sum + Number(digit), 0);
     const { choices, answer } = makeChoices(correct, [correct + 1, correct - 1, tens * ones, number % 10]);
     return {
-        text: `Wie gro\u00df ist die Ziffernsumme von ${number}?`,
+        text: `Auf einem Tresor steht die Zahl ${number}. Der Code zum \u00d6ffnen ist nicht die Zahl selbst, sondern ihre Ziffernsumme. Welche Zahl muss eingegeben werden?`,
         choices,
         answer,
         explanation: `Die Ziffern werden addiert: ${String(number).split("").join("+")} = ${correct}.`
@@ -751,9 +931,16 @@ function genDigitSum(rng, stage) {
 function genBorderTiles(rng, stage) {
     const side = randInt(rng, 4, 7 + Math.floor(stage / 3));
     const correct = side * side - (side - 2) * (side - 2);
-    const { choices, answer } = makeChoices(correct, [side * 4, side * side, correct - 4, correct + 4]);
+    const modes = [
+        { key: "border", text: `Randfelder: ${correct}`, html: borderGridSvg(side, "border") },
+        { key: "all", text: `Alle Felder: ${side * side}`, html: borderGridSvg(side, "all") },
+        { key: "diagonal", text: "Nur Diagonale", html: borderGridSvg(side, "diagonal") },
+        { key: "corners", text: "Nur Ecken", html: borderGridSvg(side, "corners") },
+        { key: "inner", text: "Nur Innenfeld", html: borderGridSvg(side, "inner") }
+    ];
+    const { choices, answer } = makeGraphicChoices(modes, "border", rng);
     return {
-        text: `Ein quadratisches Feld hat ${side} Reihen und ${side} Spalten. Nur die Randfelder werden blau gef\u00e4rbt. Wie viele Randfelder gibt es?`,
+        text: `Ein quadratisches Feld hat ${side} Reihen und ${side} Spalten. F\u00fcr ein Spiel sollen genau die Randfelder blau gef\u00e4rbt werden, die inneren Felder bleiben wei\u00df. Welche Zeichnung passt dazu?`,
         choices,
         answer,
         explanation: `Alle Felder minus inneres Quadrat: ${side * side} - ${(side - 2) * (side - 2)} = ${correct}.`
@@ -766,7 +953,7 @@ function genAge(rng, stage) {
     const correct = younger + diff;
     const { choices, answer } = makeChoices(correct, [younger - diff, younger + diff + 1, diff, younger * 2]);
     return {
-        text: `Sam ist ${younger} Jahre alt. Alex ist ${diff} Jahre \u00e4lter. Wie alt ist Alex?`,
+        text: `Sam und Alex vergleichen ihre Geburtstage. Sam ist ${younger} Jahre alt. Alex ist ${diff} Jahre \u00e4lter als Sam. Wie alt ist Alex?`,
         choices,
         answer,
         explanation: `\u00c4lter bedeutet addieren: ${younger}+${diff} = ${correct}.`
@@ -780,7 +967,7 @@ function genBusSeats(rng, stage) {
     const correct = rows * seats - occupied;
     const { choices, answer } = makeChoices(correct, [rows * seats, occupied, correct + seats, Math.max(0, correct - 2)]);
     return {
-        text: `Ein Bus hat ${rows} Reihen mit je ${seats} Sitzen. ${occupied} Sitze sind besetzt. Wie viele Sitze sind frei?`,
+        text: `Eine Klasse steigt in einen Bus. Der Bus hat ${rows} Reihen mit jeweils ${seats} Sitzen. Schon ${occupied} Sitze sind besetzt. Wie viele Sitze sind noch frei?`,
         choices,
         answer,
         explanation: `Insgesamt gibt es ${rows * seats} Sitze. ${rows * seats}-${occupied} = ${correct}.`
@@ -793,7 +980,7 @@ function genMapDistance(rng, stage) {
     const correct = scale * cm;
     const { choices, answer } = makeChoices(correct, [scale + cm, correct + scale, correct - scale, cm], " km");
     return {
-        text: `Auf einer Karte bedeutet 1 cm genau ${scale} km. Zwei Orte sind ${cm} cm voneinander entfernt. Wie weit ist das in Wirklichkeit?`,
+        text: `Auf einer Wanderkarte entspricht 1 cm auf dem Papier genau ${scale} km in Wirklichkeit. Zwei H\u00fctten liegen auf der Karte ${cm} cm auseinander. Wie weit sind sie in Wirklichkeit voneinander entfernt?`,
         choices,
         answer,
         explanation: `${cm}*${scale} = ${correct} km.`
@@ -806,7 +993,7 @@ function genBookPages(rng, stage) {
     const correct = days * pages;
     const { choices, answer } = makeChoices(correct, [days + pages, correct - pages, correct + days, pages * (days + 1)]);
     return {
-        text: `Nora liest ${days} Tage lang jeden Tag ${pages} Seiten. Wie viele Seiten liest sie insgesamt?`,
+        text: `Nora nimmt sich vor, in den Ferien jeden Tag gleich viel zu lesen. Sie liest ${days} Tage lang jeden Tag ${pages} Seiten. Wie viele Seiten hat sie danach insgesamt gelesen?`,
         choices,
         answer,
         explanation: `${days} Tage mit je ${pages} Seiten ergeben ${correct} Seiten.`
@@ -819,9 +1006,14 @@ function genLargestNumber(rng) {
     const c = randInt(rng, 0, 9);
     const digits = [a, b, c].sort((x, y) => y - x);
     const correct = digits[0] * 100 + digits[1] * 10 + digits[2];
-    const { choices, answer } = makeChoices(correct, [a * 100 + b * 10 + c, digits[2] * 100 + digits[1] * 10 + digits[0], correct - 9, correct - 90]);
+    const numbers = numericChoiceValues(correct, [a * 100 + b * 10 + c, digits[2] * 100 + digits[1] * 10 + digits[0], correct - 9, correct - 90], 100, 999);
+    const { choices, answer } = makeGraphicChoices(numbers.map(value => ({
+        key: value,
+        text: `${value}`,
+        html: digitCardSvg(value)
+    })), correct, rng);
     return {
-        text: `Aus den Ziffern ${a}, ${b} und ${c} soll die gr\u00f6\u00dfte dreistellige Zahl gebildet werden. Welche ist es?`,
+        text: `Drei Zahlenkarten tragen die Ziffern ${a}, ${b} und ${c}. Die Karten d\u00fcrfen umgelegt werden, aber jede Karte muss genau einmal verwendet werden. Welche Anordnung bildet die gr\u00f6\u00dfte dreistellige Zahl?`,
         choices,
         answer,
         explanation: `Die gr\u00f6\u00dfte Ziffer kommt nach vorne: ${correct}.`
@@ -833,7 +1025,7 @@ function genHandshake(rng, stage) {
     const correct = people * (people - 1) / 2;
     const { choices, answer } = makeChoices(correct, [people * 2, people * (people - 1), correct - 1, correct + people]);
     return {
-        text: `${people} Kinder geben einander alle genau einmal die Hand. Wie viele Handschl\u00e4ge gibt es?`,
+        text: `Bei einer kleinen Siegerehrung begr\u00fc\u00dfen sich ${people} Kinder. Jedes Kind gibt jedem anderen Kind genau einmal die Hand. Wie viele Handschl\u00e4ge gibt es insgesamt?`,
         choices,
         answer,
         explanation: `Jedes Paar z\u00e4hlt einmal: ${people}*${people - 1}/2 = ${correct}.`
@@ -844,13 +1036,20 @@ function genPatternTiles(rng) {
     const full = randInt(rng, 3, 7);
     const extra = randInt(rng, 0, 2);
     const length = full * 3 + extra;
-    const correct = full + (extra >= 1 ? 1 : 0);
-    const { choices, answer } = makeChoices(correct, [full, full + extra, Math.ceil(length / 2), length - correct]);
+    const correctSequence = Array.from({ length }, (_, index) => index % 3 === 0 ? "r" : "b");
+    const variants = [
+        { key: "correct", text: "rot, blau, blau, ...", html: patternStripSvg(correctSequence) },
+        { key: "shifted", text: "blau, rot, blau, ...", html: patternStripSvg(Array.from({ length }, (_, index) => index % 3 === 1 ? "r" : "b")) },
+        { key: "alternating", text: "rot, blau, rot, ...", html: patternStripSvg(Array.from({ length }, (_, index) => index % 2 === 0 ? "r" : "b")) },
+        { key: "double", text: "rot, rot, blau, ...", html: patternStripSvg(Array.from({ length }, (_, index) => index % 3 === 2 ? "b" : "r")) },
+        { key: "few", text: "nur jeder vierte rot", html: patternStripSvg(Array.from({ length }, (_, index) => index % 4 === 0 ? "r" : "b")) }
+    ];
+    const { choices, answer } = makeGraphicChoices(variants, "correct", rng);
     return {
-        text: `Ein Muster wiederholt sich so: rot, blau, blau. Wie viele rote Felder gibt es unter den ersten ${length} Feldern?`,
+        text: `Eine Girlande wird nach einer festen Regel gelegt: rot, blau, blau, rot, blau, blau, ... Insgesamt soll die Leiste ${length} Felder lang sein. Welche Antwort zeigt den richtigen Anfang der Leiste?`,
         choices,
         answer,
-        explanation: `In jedem Dreierblock ist 1 Feld rot. Bei ${length} Feldern sind das ${correct}.`
+        explanation: `Der Dreierblock rot-blau-blau wird immer wiederholt.`
     };
 }
 
@@ -860,7 +1059,7 @@ function genBalance(rng, stage) {
     const correct = box - small;
     const { choices, answer } = makeChoices(correct, [box + small, box, small, correct + 2], " kg");
     return {
-        text: `Eine Kiste wiegt ${box} kg. Ein Paket ist ${small} kg leichter als die Kiste. Wie schwer ist das Paket?`,
+        text: `Im Lager wird eine Kiste gewogen: Sie wiegt ${box} kg. Daneben liegt ein Paket, das ${small} kg leichter ist als die Kiste. Wie schwer ist dieses Paket?`,
         choices,
         answer,
         explanation: `Leichter bedeutet abziehen: ${box}-${small} = ${correct} kg.`
@@ -895,6 +1094,9 @@ function openKangarooWorksheet() {
                 .task { break-inside: avoid; border-top: 1px solid #cbd5e1; padding: 10px 0; }
                 .task strong { display: inline-block; min-width: 90px; }
                 ol { margin-top: 6px; columns: 2; }
+                li { break-inside: avoid; margin-bottom: 4px; }
+                .kangaroo-print-choice { align-items: center; display: inline-flex; gap: 8px; min-height: 52px; vertical-align: top; }
+                .kangaroo-print-choice svg { max-height: 54px; width: auto; }
                 .solutions { margin-top: 24px; border-top: 3px solid #111827; padding-top: 12px; }
                 table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
                 th, td { border: 1px solid #cbd5e1; padding: 6px; vertical-align: top; }
@@ -908,7 +1110,7 @@ function openKangarooWorksheet() {
             ${test.map(question => `
                 <section class="task">
                     <p><strong>${question.number}. (${question.points} P.)</strong> ${question.text}</p>
-                    <ol type="A">${question.choices.map(choice => `<li>${choice}</li>`).join("")}</ol>
+                    <ol type="A">${question.choices.map(choice => `<li>${renderKangarooWorksheetChoice(choice)}</li>`).join("")}</ol>
                 </section>
             `).join("")}
             <section class="solutions">
@@ -916,7 +1118,7 @@ function openKangarooWorksheet() {
                 <table>
                     <thead><tr><th>Nr.</th><th>Antwort</th><th>Kurze Begr\u00fcndung</th></tr></thead>
                     <tbody>
-                        ${test.map(question => `<tr><td>${question.number}</td><td>${String.fromCharCode(65 + question.answer)}) ${question.choices[question.answer]}</td><td>${question.explanation}</td></tr>`).join("")}
+                        ${test.map(question => `<tr><td>${question.number}</td><td>${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])}</td><td>${question.explanation}</td></tr>`).join("")}
                     </tbody>
                 </table>
                 <p>Offizielle alte Aufgaben und L\u00f6sungen: ${KANGAROO_ARCHIVE_URL}</p>
@@ -943,7 +1145,7 @@ function renderKangarooWorksheetPreview(test, config) {
             ${test.map(question => `
                 <li>
                     <strong>(${question.points} P.)</strong> ${question.text}
-                    <ol type="A">${question.choices.map(choice => `<li>${choice}</li>`).join("")}</ol>
+                    <ol type="A">${question.choices.map(choice => `<li>${renderKangarooWorksheetChoice(choice)}</li>`).join("")}</ol>
                 </li>
             `).join("")}
         </ol>
@@ -952,7 +1154,7 @@ function renderKangarooWorksheetPreview(test, config) {
             <table class="kangaroo-solution-table">
                 <thead><tr><th>Nr.</th><th>Antwort</th><th>Begr\u00fcndung</th></tr></thead>
                 <tbody>
-                    ${test.map(question => `<tr><td>${question.number}</td><td>${String.fromCharCode(65 + question.answer)}) ${question.choices[question.answer]}</td><td>${question.explanation}</td></tr>`).join("")}
+                    ${test.map(question => `<tr><td>${question.number}</td><td>${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])}</td><td>${question.explanation}</td></tr>`).join("")}
                 </tbody>
             </table>
         </details>
