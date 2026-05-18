@@ -216,6 +216,7 @@ function submitKangarooTest() {
     result.innerHTML = `
         <strong>Ergebnis: ${formatKangarooPoints(score.points)} von ${KANGAROO_STATE.config.max} Punkten</strong>
         <span>${score.correct} richtig - ${score.wrong} falsch - ${score.empty} leer - Startpunkte: ${KANGAROO_STATE.config.start}</span>
+        ${renderKangarooOralFeedback(score)}
         ${renderKangarooEvaluation(score)}
         <button type="button" class="kangaroo-secondary" onclick="openKangarooWorksheet()">Diesen Test als Arbeitsblatt \u00f6ffnen</button>
     `;
@@ -266,6 +267,54 @@ function calculateKangarooScore() {
         groups,
         percentage: Math.round((Math.max(0, points) / KANGAROO_STATE.config.max) * 100)
     };
+}
+
+function renderKangarooOralFeedback(score) {
+    const config = KANGAROO_STATE.config;
+    const correctRate = score.correct / config.tasks;
+    const strongest = score.groups.reduce((best, group) => group.correct > best.correct ? group : best, score.groups[0]);
+    const needsPractice = score.groups.reduce((worst, group) => {
+        const groupOpen = group.wrong + group.empty;
+        const worstOpen = worst.wrong + worst.empty;
+        return groupOpen > worstOpen ? group : worst;
+    }, score.groups[0]);
+
+    let title = "Weitertrainieren";
+    let main = "Du hast schon angefangen, die K\u00e4nguru-Aufgaben zu bearbeiten. Jetzt geht es darum, die leichten Aufgaben sicherer zu erkennen und Schritt f\u00fcr Schritt mehr Punkte zu holen.";
+
+    if (correctRate >= 0.8 && score.wrong <= 2) {
+        title = "Sehr starke Leistung";
+        main = "Du hast sehr viele Aufgaben richtig gel\u00f6st und nur wenige Punkte durch Fehler verloren. Das zeigt, dass du genau liest und deine Antworten gut kontrollierst.";
+    } else if (correctRate >= 0.55) {
+        title = "Gute Leistung";
+        main = "Du hast eine gute Grundlage gezeigt. Viele Aufgaben hast du richtig gel\u00f6st; bei den schwierigeren Aufgaben lohnt sich jetzt besonders das genaue Skizzieren und Probieren.";
+    } else if (correctRate >= 0.35) {
+        title = "Solide Grundlage";
+        main = "Du hast mehrere Aufgaben richtig gel\u00f6st. Man sieht, dass du mitdenkst, aber du solltest noch \u00fcben, welche Aufgaben du sicher beantworten kannst und welche du lieber zuerst \u00fcberspringst.";
+    } else if (score.correct === 0) {
+        title = "Erster Versuch";
+        main = "Heute war noch keine Aufgabe richtig. Das ist ein klares Zeichen: Starte beim n\u00e4chsten Training mit den ersten, leichteren Aufgaben und nimm dir f\u00fcr jede Aufgabe eine kleine Skizze oder Rechnung.";
+    }
+
+    let strategy = "Gute Strategie: Bearbeite zuerst Aufgaben, bei denen du wirklich einen Plan hast. Danach kommst du zu den unsicheren Aufgaben zur\u00fcck.";
+    if (score.wrong >= score.empty + 3) {
+        strategy = "Achte besonders auf das Raten: Beim K\u00e4nguru kosten falsche Antworten Punkte. Wenn du gar keinen Plan hast, ist Auslassen oft kl\u00fcger als blindes Raten.";
+    } else if (score.empty >= Math.ceil(config.tasks / 3)) {
+        strategy = "Du hast einiges ausgelassen. Das kann klug sein, aber versuche beim n\u00e4chsten Mal zuerst alle leichten Aufgaben zu suchen, damit keine sicheren Punkte liegen bleiben.";
+    } else if (score.empty === 0 && score.wrong <= 2) {
+        strategy = "Sehr gute Teststrategie: Du hast den Test voll bearbeitet und dabei nur wenige Fehler gemacht.";
+    }
+
+    const nextStep = `N\u00e4chster Schritt: \u00dcbe besonders die ${needsPractice.label.toLowerCase()} (${needsPractice.from}-${needsPractice.to}). Deine st\u00e4rkste Gruppe war diesmal: ${strongest.label.toLowerCase()} (${strongest.from}-${strongest.to}).`;
+
+    return `
+        <div class="kangaroo-oral-feedback">
+            <strong>M\u00fcndliche R\u00fcckmeldung: ${title}</strong>
+            <p>${main}</p>
+            <p>${strategy}</p>
+            <p>${nextStep}</p>
+        </div>
+    `;
 }
 
 function renderKangarooEvaluation(score) {
