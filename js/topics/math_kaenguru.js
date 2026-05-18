@@ -235,14 +235,27 @@ function buildKangarooTest(config) {
     const generators = [
         genSequence, genPerimeter, genCalendar, genFraction, genShopping, genAverage,
         genScale, genGrid, genRemainder, genRectangleArea, genLogicOrder, genClock,
-        genCombinations, genCubes, genEquation, genAngle, genPercent, genPathCount
+        genCombinations, genCubes, genEquation, genAngle, genPercent, genPathCount,
+        genTrianglePerimeter, genMissingNumber, genDigitSum, genBorderTiles, genAge,
+        genBusSeats, genMapDistance, genBookPages, genLargestNumber, genHandshake,
+        genPatternTiles, genBalance
     ];
+    const generatorOrder = shuffleWithRng(generators, rng);
+    const usedTexts = new Set();
 
     return Array.from({ length: config.tasks }, (_, index) => {
         const number = index + 1;
         const points = pointsForQuestion(config, number);
-        const generator = generators[(index + config.stage + points) % generators.length];
-        return { ...generator(rng, config.stage, number, points), number, points };
+        const generator = generatorOrder[index % generatorOrder.length];
+        let question = null;
+
+        for (let attempt = 0; attempt < 30; attempt++) {
+            question = generator(rng, config.stage, number, points);
+            if (!usedTexts.has(question.text)) break;
+        }
+
+        usedTexts.add(question.text);
+        return { ...question, number, points };
     });
 }
 
@@ -270,13 +283,22 @@ function randInt(rng, min, max) {
     return Math.floor(rng() * (max - min + 1)) + min;
 }
 
+function shuffleWithRng(items, rng) {
+    const copy = [...items];
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+}
+
 function makeChoices(correct, distractors, suffix = "") {
     const values = [correct, ...distractors]
         .filter((value, index, array) => array.indexOf(value) === index)
         .slice(0, 5);
     while (values.length < 5) values.push(correct + values.length + 2);
 
-    const choices = values.slice(0, 5).map(value => `${value}${suffix}`);
+    const choices = shuffleWithRng(values.slice(0, 5), Math.random).map(value => `${value}${suffix}`);
     const answerText = `${correct}${suffix}`;
     const answer = choices.indexOf(answerText);
     return { choices, answer };
@@ -526,6 +548,166 @@ function genPathCount(rng) {
         choices,
         answer,
         explanation: `Die Reihenfolge der ${right} Rechts- und ${up} Hoch-Schritte entscheidet: ${correct} Wege.`
+    };
+}
+
+function genTrianglePerimeter(rng, stage) {
+    const a = randInt(rng, 4, 8 + Math.floor(stage / 2));
+    const b = randInt(rng, 4, 8 + Math.floor(stage / 2));
+    const c = randInt(rng, 5, 10 + Math.floor(stage / 2));
+    const correct = a + b + c;
+    const { choices, answer } = makeChoices(correct, [a * b, correct - c, correct + 3, a + b], " cm");
+    return {
+        text: `Ein Dreieck hat Seiten mit ${a} cm, ${b} cm und ${c} cm. Wie gro\u00df ist sein Umfang?`,
+        choices,
+        answer,
+        explanation: `Alle drei Seiten werden addiert: ${a}+${b}+${c} = ${correct} cm.`
+    };
+}
+
+function genMissingNumber(rng, stage) {
+    const x = randInt(rng, 5, 18 + stage);
+    const add = randInt(rng, 7, 24);
+    const result = x + add;
+    const { choices, answer } = makeChoices(x, [add, result, x + 2, Math.max(1, x - 3)]);
+    return {
+        text: `Welche Zahl fehlt? ___ + ${add} = ${result}`,
+        choices,
+        answer,
+        explanation: `${result} - ${add} = ${x}.`
+    };
+}
+
+function genDigitSum(rng, stage) {
+    const tens = randInt(rng, 2, 8);
+    const ones = randInt(rng, 1, 9);
+    const number = stage >= 7 ? tens * 100 + ones * 10 + randInt(rng, 1, 9) : tens * 10 + ones;
+    const correct = String(number).split("").reduce((sum, digit) => sum + Number(digit), 0);
+    const { choices, answer } = makeChoices(correct, [correct + 1, correct - 1, tens * ones, number % 10]);
+    return {
+        text: `Wie gro\u00df ist die Ziffernsumme von ${number}?`,
+        choices,
+        answer,
+        explanation: `Die Ziffern werden addiert: ${String(number).split("").join("+")} = ${correct}.`
+    };
+}
+
+function genBorderTiles(rng, stage) {
+    const side = randInt(rng, 4, 7 + Math.floor(stage / 3));
+    const correct = side * side - (side - 2) * (side - 2);
+    const { choices, answer } = makeChoices(correct, [side * 4, side * side, correct - 4, correct + 4]);
+    return {
+        text: `Ein quadratisches Feld hat ${side} Reihen und ${side} Spalten. Nur die Randfelder werden blau gef\u00e4rbt. Wie viele Randfelder gibt es?`,
+        choices,
+        answer,
+        explanation: `Alle Felder minus inneres Quadrat: ${side * side} - ${(side - 2) * (side - 2)} = ${correct}.`
+    };
+}
+
+function genAge(rng, stage) {
+    const younger = randInt(rng, 7, 11 + Math.floor(stage / 2));
+    const diff = randInt(rng, 2, 7);
+    const correct = younger + diff;
+    const { choices, answer } = makeChoices(correct, [younger - diff, younger + diff + 1, diff, younger * 2]);
+    return {
+        text: `Sam ist ${younger} Jahre alt. Alex ist ${diff} Jahre \u00e4lter. Wie alt ist Alex?`,
+        choices,
+        answer,
+        explanation: `\u00c4lter bedeutet addieren: ${younger}+${diff} = ${correct}.`
+    };
+}
+
+function genBusSeats(rng, stage) {
+    const rows = randInt(rng, 5, 9 + Math.floor(stage / 3));
+    const seats = randInt(rng, 2, 4);
+    const occupied = randInt(rng, 4, rows * seats - 4);
+    const correct = rows * seats - occupied;
+    const { choices, answer } = makeChoices(correct, [rows * seats, occupied, correct + seats, Math.max(0, correct - 2)]);
+    return {
+        text: `Ein Bus hat ${rows} Reihen mit je ${seats} Sitzen. ${occupied} Sitze sind besetzt. Wie viele Sitze sind frei?`,
+        choices,
+        answer,
+        explanation: `Insgesamt gibt es ${rows * seats} Sitze. ${rows * seats}-${occupied} = ${correct}.`
+    };
+}
+
+function genMapDistance(rng, stage) {
+    const scale = randInt(rng, 2, 5 + Math.floor(stage / 3));
+    const cm = randInt(rng, 3, 9);
+    const correct = scale * cm;
+    const { choices, answer } = makeChoices(correct, [scale + cm, correct + scale, correct - scale, cm], " km");
+    return {
+        text: `Auf einer Karte bedeutet 1 cm genau ${scale} km. Zwei Orte sind ${cm} cm voneinander entfernt. Wie weit ist das in Wirklichkeit?`,
+        choices,
+        answer,
+        explanation: `${cm}*${scale} = ${correct} km.`
+    };
+}
+
+function genBookPages(rng, stage) {
+    const days = randInt(rng, 3, 6);
+    const pages = randInt(rng, 8, 14 + stage);
+    const correct = days * pages;
+    const { choices, answer } = makeChoices(correct, [days + pages, correct - pages, correct + days, pages * (days + 1)]);
+    return {
+        text: `Nora liest ${days} Tage lang jeden Tag ${pages} Seiten. Wie viele Seiten liest sie insgesamt?`,
+        choices,
+        answer,
+        explanation: `${days} Tage mit je ${pages} Seiten ergeben ${correct} Seiten.`
+    };
+}
+
+function genLargestNumber(rng) {
+    const a = randInt(rng, 1, 8);
+    const b = randInt(rng, 0, 9);
+    const c = randInt(rng, 0, 9);
+    const digits = [a, b, c].sort((x, y) => y - x);
+    const correct = digits[0] * 100 + digits[1] * 10 + digits[2];
+    const { choices, answer } = makeChoices(correct, [a * 100 + b * 10 + c, digits[2] * 100 + digits[1] * 10 + digits[0], correct - 9, correct - 90]);
+    return {
+        text: `Aus den Ziffern ${a}, ${b} und ${c} soll die gr\u00f6\u00dfte dreistellige Zahl gebildet werden. Welche ist es?`,
+        choices,
+        answer,
+        explanation: `Die gr\u00f6\u00dfte Ziffer kommt nach vorne: ${correct}.`
+    };
+}
+
+function genHandshake(rng, stage) {
+    const people = randInt(rng, 4, stage >= 7 ? 8 : 6);
+    const correct = people * (people - 1) / 2;
+    const { choices, answer } = makeChoices(correct, [people * 2, people * (people - 1), correct - 1, correct + people]);
+    return {
+        text: `${people} Kinder geben einander alle genau einmal die Hand. Wie viele Handschl\u00e4ge gibt es?`,
+        choices,
+        answer,
+        explanation: `Jedes Paar z\u00e4hlt einmal: ${people}*${people - 1}/2 = ${correct}.`
+    };
+}
+
+function genPatternTiles(rng) {
+    const full = randInt(rng, 3, 7);
+    const extra = randInt(rng, 0, 2);
+    const length = full * 3 + extra;
+    const correct = full + (extra >= 1 ? 1 : 0);
+    const { choices, answer } = makeChoices(correct, [full, full + extra, Math.ceil(length / 2), length - correct]);
+    return {
+        text: `Ein Muster wiederholt sich so: rot, blau, blau. Wie viele rote Felder gibt es unter den ersten ${length} Feldern?`,
+        choices,
+        answer,
+        explanation: `In jedem Dreierblock ist 1 Feld rot. Bei ${length} Feldern sind das ${correct}.`
+    };
+}
+
+function genBalance(rng, stage) {
+    const box = randInt(rng, 3, 8 + Math.floor(stage / 2));
+    const small = randInt(rng, 1, 4);
+    const correct = box - small;
+    const { choices, answer } = makeChoices(correct, [box + small, box, small, correct + 2], " kg");
+    return {
+        text: `Eine Kiste wiegt ${box} kg. Ein Paket ist ${small} kg leichter als die Kiste. Wie schwer ist das Paket?`,
+        choices,
+        answer,
+        explanation: `Leichter bedeutet abziehen: ${box}-${small} = ${correct} kg.`
     };
 }
 
