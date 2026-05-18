@@ -597,6 +597,304 @@ body.math-theme {
     margin-top: 20px;
 }
 
+.kangaroo-source-note,
+.kangaroo-note {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #0ea5e9;
+    border-radius: 8px;
+    color: #334155;
+    margin: 14px 0;
+    padding: 12px 14px;
+}
+
+.kangaroo-shell {
+    border: 2px solid #bae6fd;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ecfeff 58%, #fff7ed 100%);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.kangaroo-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    gap: 20px;
+    align-items: center;
+    background: #0f766e;
+    color: #ffffff;
+    padding: 22px;
+}
+
+.kangaroo-hero h3 {
+    color: #ffffff;
+    font-size: 1.55rem;
+    margin: 2px 0 8px;
+}
+
+.kangaroo-hero p {
+    margin: 0;
+    max-width: 720px;
+}
+
+.kangaroo-eyebrow {
+    color: #ccfbf1;
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.kangaroo-score-card {
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.kangaroo-score-card strong,
+.kangaroo-score-card span {
+    display: block;
+}
+
+.kangaroo-score-card strong {
+    font-size: 1.4rem;
+}
+
+.kangaroo-controls {
+    align-items: end;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: minmax(180px, 260px) auto auto auto;
+    padding: 18px 22px 8px;
+}
+
+.kangaroo-controls label {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.kangaroo-controls select {
+    border: 2px solid #bae6fd;
+    border-radius: 8px;
+    display: block;
+    font: inherit;
+    margin-top: 4px;
+    padding: 10px;
+    width: 100%;
+}
+
+.kangaroo-controls button,
+.kangaroo-link-button,
+.kangaroo-result button {
+    align-items: center;
+    background: #0f766e;
+    border: 0;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-weight: 800;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    text-decoration: none;
+}
+
+.kangaroo-controls button:hover,
+.kangaroo-link-button:hover,
+.kangaroo-result button:hover {
+    background: #115e59;
+}
+
+.kangaroo-secondary {
+    background: #334155 !important;
+}
+
+.kangaroo-info {
+    background: #ffffff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    margin: 12px 22px 18px;
+    padding: 12px 14px;
+}
+
+.kangaroo-info strong,
+.kangaroo-info span {
+    display: block;
+}
+
+.kangaroo-testbar {
+    align-items: center;
+    background: #042f2e;
+    color: #ffffff;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    padding: 14px 22px;
+    position: sticky;
+    top: 70px;
+    z-index: 5;
+}
+
+.kangaroo-testbar strong,
+.kangaroo-testbar span {
+    display: block;
+}
+
+.kangaroo-timer {
+    background: #ecfeff;
+    border-radius: 8px;
+    color: #0f766e;
+    font-weight: 900;
+    padding: 8px 12px;
+}
+
+.kangaroo-timer.is-low {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.kangaroo-question-list {
+    display: grid;
+    gap: 14px;
+    padding: 18px 22px 22px;
+}
+
+.kangaroo-question {
+    background: #ffffff;
+    border: 2px solid #dbeafe;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.kangaroo-question.is-correct {
+    border-color: #16a34a;
+}
+
+.kangaroo-question.is-wrong {
+    border-color: #dc2626;
+}
+
+.kangaroo-question.is-empty {
+    border-color: #f59e0b;
+}
+
+.kangaroo-question-head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.kangaroo-question-head span {
+    background: #fef3c7;
+    border-radius: 999px;
+    color: #92400e;
+    font-size: 0.88rem;
+    font-weight: 900;
+    padding: 4px 10px;
+}
+
+.kangaroo-options {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 12px;
+}
+
+.kangaroo-options label {
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 10px;
+}
+
+.kangaroo-options label:hover {
+    border-color: #0ea5e9;
+}
+
+.kangaroo-explanation {
+    color: #334155;
+    margin-bottom: 0;
+}
+
+.kangaroo-result {
+    background: #ecfeff;
+    border-top: 2px solid #bae6fd;
+    display: grid;
+    gap: 8px;
+    padding: 18px 22px;
+}
+
+.kangaroo-result strong,
+.kangaroo-result span {
+    display: block;
+}
+
+.kangaroo-worksheet-preview {
+    background: #ffffff;
+    border-top: 3px solid #0f766e;
+    padding: 18px 22px 24px;
+}
+
+.kangaroo-worksheet-head {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.kangaroo-worksheet-head strong,
+.kangaroo-worksheet-head span {
+    display: block;
+}
+
+.kangaroo-worksheet-list {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding-left: 24px;
+}
+
+.kangaroo-worksheet-list > li {
+    break-inside: avoid;
+    padding-bottom: 8px;
+}
+
+.kangaroo-solution-table {
+    border-collapse: collapse;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.kangaroo-solution-table th,
+.kangaroo-solution-table td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+@media (max-width: 820px) {
+    .kangaroo-hero,
+    .kangaroo-controls,
+    .kangaroo-testbar {
+        grid-template-columns: 1fr;
+    }
+
+    .kangaroo-testbar {
+        position: static;
+    }
+}
+
 .math-game-shell {
     background: linear-gradient(180deg, #f8fafc 0%, #ecfeff 48%, #fff7ed 100%);
     border: 2px solid #bae6fd;
@@ -2344,6 +2642,23 @@ body.math-theme {
     background: #0f172a;
     color: #e2e8f0;
     border-color: #334155;
+}
+
+[data-theme="dark"] .kangaroo-shell,
+[data-theme="dark"] .kangaroo-question,
+[data-theme="dark"] .kangaroo-info,
+[data-theme="dark"] .kangaroo-source-note,
+[data-theme="dark"] .kangaroo-note,
+[data-theme="dark"] .kangaroo-worksheet-preview {
+    background: #0f172a;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .kangaroo-options label {
+    background: #111827;
+    border-color: #334155;
+    color: #e2e8f0;
 }
 
 [data-theme="dark"] .math-game-hud {

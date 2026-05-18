@@ -134,13 +134,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=6.5`);
+        let response = await fetch(`../lang/${lang}.json?v=6.6`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=6.5`);
+            const deRes = await fetch(`../lang/de.json?v=6.6`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
@@ -167,7 +167,7 @@ async function renderTopic() {
 
         if (topicId.startsWith('math')) {
             document.body.classList.add('math-theme');
-            if (topicId !== 'mathespiel') {
+            if (!['mathespiel', 'math_kaenguru'].includes(topicId)) {
                 const wsBtn = document.createElement('button');
                 wsBtn.innerHTML = '🖨️ Arbeitsblätter zum Üben drucken';
                 wsBtn.className = 'worksheet-btn';
@@ -244,7 +244,7 @@ async function renderTopic() {
         // Load optional topic script
         if (topic.script !== false) {
             const script = document.createElement('script');
-            script.src = `../js/topics/${topicId}.js?v=7.4`;
+            script.src = `../js/topics/${topicId}.js?v=7.5`;
             script.async = false;
             script.onload = () => {
                 if (typeof topicInit === 'function') {
