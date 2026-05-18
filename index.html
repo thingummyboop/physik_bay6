@@ -74,7 +74,7 @@
         </div>
         
                 <div style="padding: 10px 20px;">
-            <select id="subject-select" onchange="renderNav()" style="width: 100%; padding: 8px; border-radius: 6px; background: var(--main-bg); color: var(--text-color); border: 1px solid var(--nav-btn-active-border); outline: none; margin-bottom: 10px; font-weight: bold; cursor: pointer;">
+            <select id="subject-select" onchange="handleSubjectChange()" style="width: 100%; padding: 8px; border-radius: 6px; background: var(--main-bg); color: var(--text-color); border: 1px solid var(--nav-btn-active-border); outline: none; margin-bottom: 10px; font-weight: bold; cursor: pointer;">
                 <option value="physik">🚀 Physik</option>
                 <option value="geographie">🌍 Geographie & Umwelt</option>
                 <option value="dgb">💻 Digitale Grundbildung</option>
@@ -244,6 +244,63 @@
         };
 
         let currentSortMode = 'grade';
+        const selectedSubjectKey = 'physik_selected_subject';
+
+        function isKnownSubject(subject) {
+            return Boolean(subject && curriculum[subject]);
+        }
+
+        function normalizeTopicPage(page) {
+            if (!page) return '';
+            let normalized = page;
+            try {
+                normalized = decodeURIComponent(normalized);
+            } catch (error) {
+                // Keep original value when it is not URI encoded.
+            }
+
+            if (normalized.includes('?')) {
+                const query = normalized.split('?')[1].split('#')[0];
+                const topic = new URLSearchParams(query).get('topic');
+                if (topic) return topic;
+            }
+
+            if (!normalized.includes('/') && !normalized.includes('.html')) return normalized;
+            if (normalized.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => normalized.includes(x))) {
+                return normalized.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
+            }
+            return normalized;
+        }
+
+        function findSubjectForPage(page) {
+            const topicId = normalizeTopicPage(page);
+            for (const [subject, data] of Object.entries(curriculum)) {
+                if (data.topics.some(item => item.id === topicId)) return subject;
+            }
+            return null;
+        }
+
+        function setSelectedSubject(subject, shouldSave = true) {
+            if (!isKnownSubject(subject)) return;
+            const select = document.getElementById('subject-select');
+            if (!select) return;
+            select.value = subject;
+            if (shouldSave) localStorage.setItem(selectedSubjectKey, subject);
+        }
+
+        function restoreSelectedSubject(page) {
+            const hashSubject = findSubjectForPage(window.location.hash.substring(1));
+            const savedSubject = localStorage.getItem(selectedSubjectKey);
+            const pageSubject = findSubjectForPage(page);
+            const subject = hashSubject || (isKnownSubject(savedSubject) ? savedSubject : null) || pageSubject || 'physik';
+            setSelectedSubject(subject);
+        }
+
+        function handleSubjectChange() {
+            const subject = document.getElementById('subject-select').value;
+            setSelectedSubject(subject);
+            renderNav();
+        }
 
         function setSortMode(mode) {
             currentSortMode = mode;
@@ -299,6 +356,12 @@
 
         function loadPage(page, button, fromHash = false) {
             localStorage.setItem('physik_current_page', page);
+            const pageSubject = findSubjectForPage(page);
+            const subjectSelect = document.getElementById('subject-select');
+            if (pageSubject && subjectSelect && subjectSelect.value !== pageSubject) {
+                setSelectedSubject(pageSubject);
+                renderNav();
+            }
             let url = page;
 
             // Update URL hash for bookmarking (unless triggered by hashchange already)
@@ -390,6 +453,7 @@
             // Restore Page (Prefer Hash -> LocalStorage -> Default)
             const hashPage = window.location.hash.substring(1);
             const savedPage = hashPage || localStorage.getItem('physik_current_page') || 'topics/start.html';
+            restoreSelectedSubject(savedPage);
             renderNav();
             loadPage(savedPage, null);
         });
