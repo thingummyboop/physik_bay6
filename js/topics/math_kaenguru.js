@@ -166,6 +166,7 @@ function renderKangarooQuestion(question) {
                 <span>${question.points} Punkte</span>
             </div>
             <p>${question.text}</p>
+            ${question.visual ? renderKangarooVisual(question.visual) : ""}
             <div class="kangaroo-options">
                 ${question.choices.map((choice, index) => `
                     <label>
@@ -179,12 +180,16 @@ function renderKangarooQuestion(question) {
     `;
 }
 
+function renderKangarooVisual(visual) {
+    return `<div class="kangaroo-question-visual">${visual}</div>`;
+}
+
 function renderKangarooChoice(choice, index) {
     const letter = `${String.fromCharCode(65 + index)})`;
     if (isGraphicChoice(choice)) {
         return `
             <span class="kangaroo-choice-letter">${letter}</span>
-            <span class="kangaroo-choice-content">
+            <span class="kangaroo-choice-content ${choice.kind ? `is-${choice.kind}` : ""}">
                 ${choice.html}
                 <span class="kangaroo-choice-text">${choice.text}</span>
             </span>
@@ -196,6 +201,10 @@ function renderKangarooChoice(choice, index) {
 function renderKangarooWorksheetChoice(choice) {
     if (!isGraphicChoice(choice)) return choice;
     return `<span class="kangaroo-print-choice">${choice.html}<span>${choice.text}</span></span>`;
+}
+
+function renderKangarooWorksheetVisual(question) {
+    return question.visual ? `<div class="kangaroo-print-visual">${question.visual}</div>` : "";
 }
 
 function choiceText(choice) {
@@ -436,7 +445,15 @@ function buildKangarooTest(config) {
     
     // Ensure we have enough variety
     const generatorOrder = shuffleWithRng(pool, rng);
-    const usedTexts = new Set();
+    const usedQuestions = new Set();
+    const questionKey = question => [
+        question.text,
+        question.visual || "",
+        question.choices
+            .map(choice => isGraphicChoice(choice) ? `${choice.key}:${choice.text}` : choice)
+            .sort()
+            .join("|")
+    ].join("||");
 
     return Array.from({ length: config.tasks }, (_, index) => {
         const number = index + 1;
@@ -446,10 +463,10 @@ function buildKangarooTest(config) {
 
         for (let attempt = 0; attempt < 30; attempt++) {
             question = generator(rng, config.stage, number, points);
-            if (!usedTexts.has(question.text)) break;
+            if (!usedQuestions.has(questionKey(question))) break;
         }
 
-        usedTexts.add(question.text);
+        usedQuestions.add(questionKey(question));
         return { ...question, number, points };
     });
 }
@@ -480,7 +497,8 @@ function genTrianglesCount(rng, stage) {
     const { choices, answer } = makeChoices(type.correct, [type.correct + 2, type.correct - 1, type.correct * 2, 4]);
 
     return {
-        text: `${type.text}<br>${svgFrame(100, 100, type.svg, "Dreiecke")}`,
+        text: type.text,
+        visual: trianglePuzzleSvg(type.svg),
         choices,
         answer,
         explanation: `Es sind insgesamt ${type.correct} Dreiecke vorhanden, wenn man alle Größen (klein, mittel, groß) berücksichtigt.`
@@ -494,7 +512,7 @@ function genPaperPunch(rng, stage) {
                       <line x1="10" y1="50" x2="90" y2="50" stroke="#334155" stroke-dasharray="4 2"/>
                       <path d="M 50 30 L 50 70 M 40 60 L 50 70 L 60 60" fill="none" stroke="#0ea5e9" stroke-width="2"/>`,
             punchX: 30, punchY: 30,
-            correctSvg: `<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="30" cy="70" r="5" fill="#334155"/>`,
+            correctSvg: `<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="30" cy="52" r="5" fill="#334155"/>`,
             desc: "Einmal nach unten gefaltet"
         },
         {
@@ -502,28 +520,29 @@ function genPaperPunch(rng, stage) {
                       <line x1="50" y1="10" x2="50" y2="90" stroke="#334155" stroke-dasharray="4 2"/>
                       <line x1="10" y1="50" x2="90" y2="50" stroke="#334155" stroke-dasharray="4 2"/>`,
             punchX: 30, punchY: 30,
-            correctSvg: `<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="70" cy="30" r="5" fill="#334155"/><circle cx="30" cy="70" r="5" fill="#334155"/><circle cx="70" cy="70" r="5" fill="#334155"/>`,
+            correctSvg: `<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="52" cy="30" r="5" fill="#334155"/><circle cx="30" cy="52" r="5" fill="#334155"/><circle cx="52" cy="52" r="5" fill="#334155"/>`,
             desc: "Zweimal gefaltet (Viertel)"
         }
     ];
     
     const fold = folds[randInt(rng, 0, stage >= 5 ? 1 : 0)];
-    const punchSvg = `<circle cx="${fold.punchX}" cy="${fold.punchY}" r="5" fill="red" stroke="none"/>`;
+    const punchSvg = `<circle cx="${fold.punchX}" cy="${fold.punchY}" r="6" fill="#ef4444" stroke="#991b1b" stroke-width="1.5"/>`;
     
-    const makeFull = (circles) => svgFrame(60, 60, `<rect x="5" y="5" width="50" height="50" fill="#fff" stroke="#334155" stroke-width="1.5"/>${circles}`, "Papier");
+    const makeFull = (circles) => unfoldedPaperSvg(circles, "Aufgefaltetes Papier");
     
     const choices = [
-        { key: "correct", text: "Richtig", html: makeFull(fold.correctSvg) },
-        { key: "w1", text: "Falsch 1", html: makeFull(`<circle cx="30" cy="30" r="5" fill="#334155"/>`) },
-        { key: "w2", text: "Falsch 2", html: makeFull(`<circle cx="50" cy="50" r="5" fill="#334155"/>`) },
-        { key: "w3", text: "Falsch 3", html: makeFull(`<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="70" cy="70" r="5" fill="#334155"/>`) },
-        { key: "w4", text: "Falsch 4", html: makeFull(`<circle cx="10" cy="10" r="8" fill="#334155"/>`) }
+        { key: "correct", text: "passt", html: makeFull(fold.correctSvg) },
+        { key: "one", text: "ein Loch", html: makeFull(`<circle cx="30" cy="30" r="5" fill="#334155"/>`) },
+        { key: "middle", text: "Mitte", html: makeFull(`<circle cx="41" cy="41" r="5" fill="#334155"/>`) },
+        { key: "diagonal", text: "diagonal", html: makeFull(`<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="52" cy="52" r="5" fill="#334155"/>`) },
+        { key: "corners", text: "Ecken", html: makeFull(`<circle cx="24" cy="24" r="5" fill="#334155"/><circle cx="58" cy="24" r="5" fill="#334155"/><circle cx="24" cy="58" r="5" fill="#334155"/><circle cx="58" cy="58" r="5" fill="#334155"/>`) }
     ];
 
     const { choices: shuffled, answer } = makeGraphicChoices(choices, "correct", rng);
 
     return {
-        text: `Ein quadratisches Blatt Papier wird gefaltet (${fold.desc}). Dann wird an der roten Stelle ein Loch durchgestochen:<br>${svgFrame(100, 100, fold.foldSvg + punchSvg, "Faltung")}<br> Wie sieht das Papier aus, wenn man es wieder ganz aufgefaltet hat?`,
+        text: `Ein quadratisches Blatt Papier wird gefaltet (${fold.desc}). Dann wird an der roten Stelle ein Loch durchgestochen. Wie sieht das Papier aus, wenn man es wieder ganz aufgefaltet hat?`,
+        visual: foldedPaperSvg(fold.foldSvg, punchSvg),
         choices: shuffled,
         answer,
         explanation: "Beim Auffalten spiegelt sich das Loch an jeder Faltkante."
@@ -535,18 +554,12 @@ function genOverlappingRects(rng, stage) {
     const h = randInt(rng, 3, 6);
     const overlap = randInt(rng, 1, 3);
     const totalW = 2 * w - overlap;
-    
-    const svg = svgFrame(120, 60, `
-        <rect x="10" y="10" width="${w*5}" height="${h*5}" fill="rgba(59, 130, 246, 0.5)" stroke="#1e40af" stroke-width="1.5"/>
-        <rect x="${10 + (w-overlap)*5}" y="10" width="${w*5}" height="${h*5}" fill="rgba(16, 185, 129, 0.5)" stroke="#065f46" stroke-width="1.5"/>
-        <text x="${10 + w*2.5}" y="${15 + h*5}" text-anchor="middle" font-size="8">${w}cm</text>
-        <text x="${10 + (w-overlap)*5 + w*2.5}" y="${15 + h*5}" text-anchor="middle" font-size="8">${w}cm</text>
-    `, "Rechtecke");
 
     const { choices, answer } = makeChoices(totalW, [2*w, 2*w + overlap, w + overlap, 10], " cm");
 
     return {
-        text: `Zwei identische Rechtecke (je ${w} cm breit) werden so nebeneinander gelegt, dass sie sich um ${overlap} cm überlappen:<br>${svg}<br> Wie breit ist die gesamte Figur von ganz links bis ganz rechts?`,
+        text: `Zwei identische Rechtecke (je ${w} cm breit) werden so nebeneinander gelegt, dass sie sich um ${overlap} cm überlappen. Wie breit ist die gesamte Figur von ganz links bis ganz rechts?`,
+        visual: overlapRectsSvg(w, h, overlap),
         choices,
         answer,
         explanation: `Gesamtbreite = Breite1 + Breite2 - Überlappung = ${w} + ${w} - ${overlap} = ${totalW} cm.`
@@ -556,28 +569,12 @@ function genOverlappingRects(rng, stage) {
 function genLogicDie(rng) {
     const top = randInt(rng, 1, 6);
     const correct = 7 - top;
-    
-    const dieSvg = (val) => svgFrame(40, 40, `
-        <rect x="2" y="2" width="36" height="36" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
-        ${renderDieDots(val)}
-    `, `Würfel ${val}`);
-
-    function renderDieDots(v) {
-        const dots = {
-            1: '<circle cx="20" cy="20" r="3" fill="#000"/>',
-            2: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
-            3: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="20" cy="20" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
-            4: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="10" r="3" fill="#000"/><circle cx="10" cy="30" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
-            5: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="10" r="3" fill="#000"/><circle cx="20" cy="20" r="3" fill="#000"/><circle cx="10" cy="30" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
-            6: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="10" r="3" fill="#000"/><circle cx="10" cy="20" r="3" fill="#000"/><circle cx="30" cy="20" r="3" fill="#000"/><circle cx="10" cy="30" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>'
-        };
-        return dots[v];
-    }
 
     const { choices, answer } = makeChoices(correct, [1, 2, 3, 4, 5, 6].filter(v => v !== correct));
 
     return {
-        text: `Bei einem normalen Spielwürfel ist die Summe der Augen auf gegenüberliegenden Seiten immer 7. Hüpfi sieht oben auf dem Würfel diese Seite:<br>${dieSvg(top)}<br> Wie viele Augen liegen auf der Unterseite, die Hüpfi gerade nicht sehen kann?`,
+        text: `Bei einem normalen Spielwürfel ist die Summe der Augen auf gegenüberliegenden Seiten immer 7. Hüpfi sieht oben auf dem Würfel diese Seite. Wie viele Augen liegen auf der Unterseite, die Hüpfi gerade nicht sehen kann?`,
+        visual: dieFaceSvg(top),
         choices,
         answer,
         explanation: `Gegenüberliegende Seiten ergeben 7. Also: 7 - ${top} = ${correct}.`
@@ -604,10 +601,8 @@ function genSpatialBlocks(rng, stage) {
     const { choices, answer } = makeChoices(shape.correct, [shape.correct + 1, shape.correct - 1, 6, 8]);
 
     return {
-        text: `Hüpfi baut ein Bauwerk aus gleich großen Würfeln. Hier siehst du die Ansicht von VORNE und von OBEN:<br>
-               Vorne: ${svgFrame(110, 80, shape.front)} <br>
-               Oben: ${svgFrame(110, 80, shape.top)} <br>
-               Aus wie vielen Würfeln besteht das Bauwerk mindestens?`,
+        text: `Hüpfi baut ein Bauwerk aus gleich großen Würfeln. Hier siehst du die Ansicht von vorne und von oben. Aus wie vielen Würfeln besteht das Bauwerk mindestens?`,
+        visual: spatialViewsSvg(shape),
         choices,
         answer,
         explanation: `Durch den Vergleich von Vorder- und Draufsicht lässt sich die minimale Anzahl der Würfel bestimmen: ${shape.correct}.`
@@ -615,47 +610,75 @@ function genSpatialBlocks(rng, stage) {
 }
 
 function genPathOnCube(rng) {
-    const net = `
-        <rect x="30" y="0" width="30" height="30" fill="none" stroke="#333"/>
-        <rect x="0" y="30" width="30" height="30" fill="none" stroke="#333"/>
-        <rect x="30" y="30" width="30" height="30" fill="none" stroke="#333"/>
-        <rect x="60" y="30" width="30" height="30" fill="none" stroke="#333"/>
-        <rect x="30" y="60" width="30" height="30" fill="none" stroke="#333"/>
-        <rect x="30" y="90" width="30" height="30" fill="none" stroke="#333"/>
-        <path d="M 30 30 L 60 60" stroke="red" stroke-width="3"/>
-    `;
+    const variants = [
+        {
+            path: `<path d="M49 45 L79 75" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/><circle cx="49" cy="45" r="4" fill="#dc2626"/><circle cx="79" cy="75" r="4" fill="#dc2626"/>`,
+            correct: "nur Fläche C"
+        },
+        {
+            path: `<path d="M21 60 L76 60" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/><circle cx="21" cy="60" r="4" fill="#dc2626"/><circle cx="76" cy="60" r="4" fill="#dc2626"/>`,
+            correct: "B und C"
+        },
+        {
+            path: `<path d="M54 60 L109 60" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/><circle cx="54" cy="60" r="4" fill="#dc2626"/><circle cx="109" cy="60" r="4" fill="#dc2626"/>`,
+            correct: "C und D"
+        },
+        {
+            path: `<path d="M64 52 L64 108" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/><circle cx="64" cy="52" r="4" fill="#dc2626"/><circle cx="64" cy="108" r="4" fill="#dc2626"/>`,
+            correct: "C und E"
+        }
+    ];
+    const variant = variants[randInt(rng, 0, variants.length - 1)];
+    const distractors = ["nur Fläche C", "B und C", "C und D", "C und E", "A und F", "D und F"].filter(choice => choice !== variant.correct);
     
-    const correct = "Punkt A zu Punkt B"; 
-    const distractors = ["Punkt A zu Punkt C", "Punkt B zu Punkt D", "Punkt C zu Punkt E", "Keine Verbindung"];
-    
-    const { choices, answer } = makeChoices(correct, distractors);
+    const { choices, answer } = makeChoices(variant.correct, distractors);
     
     return {
-        text: `Auf einem Würfelnetz ist eine rote Linie gezeichnet. Wo verläuft diese Linie, wenn der Würfel zusammengefaltet wird?`,
+        text: "Auf einem Würfelnetz ist eine rote Linie gezeichnet. Welche Fläche oder welche Flächen berührt die rote Linie?",
+        visual: cubeNetSvg(variant.path),
         choices,
         answer,
-        explanation: "Beim Falten treffen bestimmte Kanten und Punkte aufeinander. Man muss die räumliche Zuordnung beachten.",
+        explanation: "Lies im Netz ab, über welche beschrifteten Quadrate die rote Linie verläuft.",
     };
 }
 
 function genLogicKnights(rng) {
-    const correct = "A ist ein Knappe, B ist ein Ritter.";
+    const variants = [
+        {
+            statements: `A sagt: "Ich bin ein Knappe oder B ist ein Ritter."`,
+            correct: "Beide sind Ritter.",
+            explanation: "Wäre A ein Knappe, wäre seine Aussage wahr. Das geht nicht. Also ist A ein Ritter; dann muss auch B ein Ritter sein."
+        },
+        {
+            statements: `A sagt: "B ist ein Knappe."<br>B sagt: "A und ich sind verschieden."`,
+            correct: "A ist ein Knappe, B ist ein Ritter.",
+            explanation: "Ist A ein Knappe, dann ist seine Aussage falsch und B ist ein Ritter. B sagt dann wahr, dass beide verschieden sind."
+        },
+        {
+            statements: `A sagt: "Wir sind beide Ritter."<br>B sagt: "A ist ein Knappe."`,
+            correct: "A ist ein Knappe, B ist ein Ritter.",
+            explanation: "A kann kein Ritter sein, sonst widerspricht B als Ritter. Als Knappe lügt A; B sagt wahr, dass A ein Knappe ist."
+        }
+    ];
+    const variant = variants[randInt(rng, 0, variants.length - 1)];
+    const correct = variant.correct;
     const distractors = [
         "Beide sind Ritter.",
         "Beide sind Knappen.",
         "A ist ein Ritter, B ist ein Knappe.",
+        "A ist ein Knappe, B ist ein Ritter.",
         "Man kann es nicht wissen."
-    ];
+    ].filter(choice => choice !== correct);
     
     const { choices, answer } = makeChoices(correct, distractors);
     
     return {
         text: `Auf einer Insel leben nur Ritter (sagen immer die Wahrheit) und Knappen (lügen immer). Du triffst A und B.<br>
-               A sagt: "Ich bin ein Knappe oder B ist ein Ritter."<br>
+               ${variant.statements}<br>
                Was sind A und B?`,
         choices,
         answer,
-        explanation: "Wenn A ein Knappe wäre, wäre seine Aussage wahr (da er ein Knappe ist), aber Knappen lügen immer. Also muss A ein Ritter sein. Dann ist seine Aussage wahr, und da er kein Knappe ist, muss B ein Ritter sein."
+        explanation: variant.explanation
     };
 }
 
@@ -671,32 +694,28 @@ function genRotation(rng, stage) {
     const baseShape = shapes[shapeIdx];
     
     const rotations = [0, 90, 180, 270];
-    const correctRot = rotations[randInt(rng, 1, 3)];
-    
-    const makeShapeSvg = (rot, flip = false) => {
-        const transform = `rotate(${rot} 30 30)${flip ? ' scale(-1 1) translate(-60 0)' : ''}`;
-        return svgFrame(60, 60, `<g transform="${transform}">${baseShape}</g>`, "Form");
-    };
-
-    const choices = rotations.map(r => ({
+    const targetRot = rotations[randInt(rng, 0, rotations.length - 1)];
+    const items = rotations.map(r => ({
         key: `rot${r}`,
-        text: `Gedreht`,
-        html: makeShapeSvg(r)
+        text: `${r}°`,
+        html: shapeChoiceSvg(baseShape, r, false, `${r} Grad gedrehte Form`),
+        kind: "shape"
     }));
-    
-    choices[randInt(rng, 0, 3)] = {
-        key: "flipped",
-        text: "Spiegelverkehrt",
-        html: makeShapeSvg(0, true)
-    };
 
-    const targetIdx = randInt(rng, 0, 3);
-    const targetSvg = makeShapeSvg(rotations[targetIdx]);
+    items.push({
+        key: `mirror${targetRot}`,
+        text: "Spiegelverkehrt",
+        html: shapeChoiceSvg(baseShape, targetRot, true, "Spiegelverkehrte Form"),
+        kind: "shape"
+    });
+
+    const { choices, answer } = makeGraphicChoices(items, `rot${targetRot}`, rng);
 
     return {
-        text: `Hüpfi das Känguru sieht diese Form hier: <br>${targetSvg}<br> Welche der folgenden Formen ist genau dieselbe Form, nur gedreht?`,
+        text: "Hüpfi sieht eine Ziel-Form. Welche Antwort zeigt genau dieselbe Form in derselben Lage? Spiegelbilder zählen nicht.",
+        visual: shapeChoiceSvg(baseShape, targetRot, false, "Ziel-Form"),
         choices,
-        answer: targetIdx,
+        answer,
         explanation: "Die Form kann durch Drehung in die Zielform überführt werden. Spiegelbilder zählen nicht."
     };
 }
@@ -721,25 +740,18 @@ function genBalanceLogic(rng, stage) {
 }
 
 function genUnfolding(rng) {
-    const symbols = ['🔴', '🔵', '🟢', '🟡', '⚫', '⚪'];
-    const netHtml = `
-        <div style="display: grid; grid-template-columns: repeat(3, 30px); grid-template-rows: repeat(4, 30px); gap: 2px; margin: 10px 0;">
-            <div style="grid-area: 1/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[0]}</div>
-            <div style="grid-area: 2/1; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[1]}</div>
-            <div style="grid-area: 2/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[2]}</div>
-            <div style="grid-area: 2/3; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[3]}</div>
-            <div style="grid-area: 3/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[4]}</div>
-            <div style="grid-area: 4/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[5]}</div>
-        </div>
-    `;
-    const correct = `${symbols[1]} und ${symbols[3]}`;
-    const distractors = [`${symbols[0]} und ${symbols[5]}`, `${symbols[2]} und ${symbols[4]}`, `${symbols[1]} und ${symbols[2]}`, `${symbols[0]} und ${symbols[4]}`];
+    const opposites = { A: "E", E: "A", B: "D", D: "B", C: "F", F: "C" };
+    const faces = Object.keys(opposites);
+    const target = faces[randInt(rng, 0, faces.length - 1)];
+    const correct = opposites[target];
+    const distractors = faces.filter(face => face !== target && face !== correct);
     const { choices, answer } = makeChoices(correct, distractors);
     return {
-        text: `Hüpfi faltet aus diesem Netz einen Würfel:<br>${netHtml}<br> Welche zwei Symbole liegen sich auf dem fertigen Würfel gegenüber?`,
+        text: `Hüpfi faltet aus diesem Netz einen Würfel. Welche Fläche liegt der Fläche ${target} auf dem fertigen Würfel gegenüber?`,
+        visual: cubeNetSvg(),
         choices,
         answer,
-        explanation: "In einem Würfelnetz liegen Flächen, die durch eine andere Fläche getrennt sind, später gegenüber."
+        explanation: `Beim Zusammenfalten liegt ${correct} der Fläche ${target} gegenüber.`
     };
 }
 
@@ -776,9 +788,10 @@ function genMissingPiece(rng, stage) {
             svgFrame(30, 30, `<path d="M 0 10 L 15 25 L 30 10" stroke="#ef4444" stroke-width="3"/>`)
         ];
     }
-    const { choices, answer } = makeGraphicChoices([{ key: "correct", text: "Dieses Teil", html: correctPiece }, ...distSvg.map((d, i) => ({ key: `w${i}`, text: "Anderes Teil", html: d }))], "correct", rng);
+    const { choices, answer } = makeGraphicChoices([{ key: "correct", text: "passt genau", html: correctPiece }, ...distSvg.map((d, i) => ({ key: `w${i}`, text: `Teil ${i + 1}`, html: d }))], "correct", rng);
     return {
-        text: `In diesem Muster fehlt ein Stück (markiert durch das gestrichelte Quadrat):<br>${patternSvg}<br> Welches Teil passt genau in die Lücke?`,
+        text: "In diesem Muster fehlt ein Stück. Welches Teil passt genau in die Lücke?",
+        visual: patternSvg,
         choices,
         answer,
         explanation: "Das Teil muss das Muster grafisch korrekt fortsetzen."
@@ -793,7 +806,8 @@ function genLogicLiars(rng) {
     if (liarIdx === 1) { text = `${names[0]}: "${names[1]} lügt!"<br>${names[1]}: "${names[2]} lügt!"<br>${names[2]}: "Ich sage die Wahrheit!"`; }
     else if (liarIdx === 0) { text = `${names[0]}: "Berta sagt die Wahrheit."<br>${names[1]}: "Anton lügt."<br>${names[2]}: "Ich bin kein Lügner."`; }
     else { text = `${names[0]}: "Ich sage die Wahrheit."<br>${names[1]}: "Anton sagt die Wahrheit."<br>${names[2]}: "Anton lügt."`; }
-    const { choices, answer } = makeChoices(correct, names.filter(n => n !== correct));
+    const distractors = [...names.filter(n => n !== correct), "Niemand lügt.", "Zwei Kinder lügen."];
+    const { choices, answer } = makeChoices(correct, distractors);
     return {
         text: `Drei Kinder machen eine Aussage. Genau eines von ihnen lügt immer, die anderen sagen immer die Wahrheit.<br>${text}<br> Wer ist der Lügner?`,
         choices,
@@ -813,6 +827,7 @@ function genPaintedCube(rng, stage) {
     const { choices, answer } = makeChoices(correct, [total, 12, 0, size * size, 4]);
     return {
         text: `Hüpfi hat einen großen Würfel aus ${size}x${size}x${size} kleinen weißen Würfeln gebaut. Er malt die Außenseite komplett rot an und nimmt ihn dann wieder auseinander. Wie viele kleine Würfel haben jetzt an genau <strong>${questionText}</strong> rote Farbe?`,
+        visual: paintedCubeSvg(size),
         choices,
         answer,
         explanation: `Bei einem ${size}x${size}x${size} Würfel haben 8 Ecken 3 Seiten, 12*(size-2) Kanten 2 Seiten und 6*(size-2)^2 Flächen 1 Seite angemalt.`
@@ -896,14 +911,127 @@ function numericChoiceValues(correct, candidates, min, max) {
     return values.slice(0, 5);
 }
 
-function svgFrame(width, height, body, label) {
-    return `<svg class="kangaroo-choice-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+function svgFrame(width, height, body, label = "Grafik", className = "") {
+    const classes = ["kangaroo-choice-svg", className].filter(Boolean).join(" ");
+    return `<svg class="${classes}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+}
+
+function softBackdrop(width, height) {
+    return `<rect x="1.5" y="1.5" width="${width - 3}" height="${height - 3}" rx="10" fill="#f8fafc" stroke="#cbd5e1"/><ellipse cx="${width * 0.52}" cy="${height - 9}" rx="${width * 0.34}" ry="6" fill="#cbd5e1" opacity="0.45"/>`;
+}
+
+function shapeChoiceSvg(baseShape, rotation = 0, flipped = false, label = "Form") {
+    const transform = `translate(12 12) translate(30 30) rotate(${rotation}) ${flipped ? "scale(-1 1)" : ""} translate(-30 -30)`;
+    const body = `${softBackdrop(84, 84)}
+        <rect x="15" y="15" width="54" height="54" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+        <g transform="${transform}">${baseShape}</g>`;
+    return svgFrame(84, 84, body, label, "is-shape");
+}
+
+function trianglePuzzleSvg(shape) {
+    const body = `${softBackdrop(142, 122)}
+        <g transform="translate(21 12) scale(1.0)">
+            <rect x="0" y="0" width="100" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+            <g color="#0f172a">${shape}</g>
+        </g>`;
+    return svgFrame(142, 122, body, "Dreiecksfigur", "is-main-visual");
+}
+
+function foldedPaperSvg(foldSvg, punchSvg) {
+    const body = `${softBackdrop(134, 118)}
+        <g transform="translate(17 9)">${foldSvg}${punchSvg}</g>
+        <text x="67" y="111" text-anchor="middle" font-size="10" font-weight="800" fill="#475569">gefaltetes Papier</text>`;
+    return svgFrame(134, 118, body, "Gefaltetes Papier mit Loch", "is-paper is-main-visual");
+}
+
+function unfoldedPaperSvg(circles, label = "Papier") {
+    const body = `${softBackdrop(82, 82)}
+        <rect x="13" y="13" width="56" height="56" rx="5" fill="#ffffff" stroke="#334155" stroke-width="1.8"/>
+        <path d="M41 13 V69 M13 41 H69" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3 3"/>
+        ${circles}`;
+    return svgFrame(82, 82, body, label, "is-paper");
+}
+
+function overlapRectsSvg(widthCm, heightCm, overlapCm) {
+    const scale = 8;
+    const leftX = 20;
+    const topY = 26;
+    const rectWidth = widthCm * scale;
+    const rectHeight = heightCm * scale;
+    const secondX = leftX + (widthCm - overlapCm) * scale;
+    const totalX = secondX + rectWidth;
+    const body = `${softBackdrop(180, 92)}
+        <rect x="${leftX}" y="${topY}" width="${rectWidth}" height="${rectHeight}" rx="4" fill="#93c5fd" fill-opacity="0.72" stroke="#1d4ed8" stroke-width="2"/>
+        <rect x="${secondX}" y="${topY}" width="${rectWidth}" height="${rectHeight}" rx="4" fill="#86efac" fill-opacity="0.72" stroke="#15803d" stroke-width="2"/>
+        <line x1="${leftX}" y1="${topY + rectHeight + 12}" x2="${totalX}" y2="${topY + rectHeight + 12}" stroke="#0f172a" stroke-width="2" marker-end="url(#arrowEnd)" marker-start="url(#arrowStart)"/>
+        <defs>
+            <marker id="arrowStart" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M10 0 L0 5 L10 10 Z" fill="#0f172a"/></marker>
+            <marker id="arrowEnd" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#0f172a"/></marker>
+        </defs>
+        <text x="${(leftX + totalX) / 2}" y="${topY + rectHeight + 28}" text-anchor="middle" font-size="10" font-weight="800" fill="#0f172a">gesamte Breite?</text>
+        <text x="${secondX + overlapCm * scale / 2}" y="${topY - 7}" text-anchor="middle" font-size="10" font-weight="800" fill="#b45309">${overlapCm} cm Überlappung</text>`;
+    return svgFrame(180, 92, body, "Überlappende Rechtecke", "is-main-visual");
+}
+
+function dieFaceSvg(value, size = 82) {
+    const dots = {
+        1: [[41, 41]],
+        2: [[28, 28], [54, 54]],
+        3: [[28, 28], [41, 41], [54, 54]],
+        4: [[28, 28], [54, 28], [28, 54], [54, 54]],
+        5: [[28, 28], [54, 28], [41, 41], [28, 54], [54, 54]],
+        6: [[28, 26], [54, 26], [28, 41], [54, 41], [28, 56], [54, 56]]
+    };
+    const body = `${softBackdrop(size, size)}
+        <rect x="16" y="16" width="50" height="50" rx="11" fill="#ffffff" stroke="#0f172a" stroke-width="2.4"/>
+        <path d="M22 22 H60" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round"/>
+        ${dots[value].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4.2" fill="#0f172a"/>`).join("")}`;
+    return svgFrame(size, size, body, `Würfel ${value}`, "is-die");
+}
+
+function spatialViewsSvg(shape) {
+    const body = `${softBackdrop(208, 108)}
+        <text x="55" y="18" text-anchor="middle" font-size="11" font-weight="900" fill="#0f172a">Vorne</text>
+        <text x="154" y="18" text-anchor="middle" font-size="11" font-weight="900" fill="#0f172a">Oben</text>
+        <g transform="translate(8 21)">${shape.front}</g>
+        <g transform="translate(107 21)">${shape.top}</g>`;
+    return svgFrame(208, 108, body, "Vorderansicht und Draufsicht", "is-main-visual");
+}
+
+function cubeNetSvg(path = "") {
+    const square = (x, y, label, fill) => `<rect x="${x}" y="${y}" width="30" height="30" rx="3" fill="${fill}" stroke="#334155" stroke-width="1.5"/><text x="${x + 15}" y="${y + 19}" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">${label}</text>`;
+    const body = `${softBackdrop(128, 156)}
+        ${square(49, 12, "A", "#dbeafe")}
+        ${square(16, 45, "B", "#dcfce7")}
+        ${square(49, 45, "C", "#fef3c7")}
+        ${square(82, 45, "D", "#fee2e2")}
+        ${square(49, 78, "E", "#f3e8ff")}
+        ${square(49, 111, "F", "#e0f2fe")}
+        ${path}`;
+    return svgFrame(128, 156, body, "Würfelnetz", "is-net is-main-visual");
+}
+
+function paintedCubeSvg(size) {
+    const cfg = { ox: 76, oy: 86, dx: 13, dy: 7, dz: 14 };
+    const cubes = [];
+    for (let z = 0; z < size; z++) {
+        for (let y = size - 1; y >= 0; y--) {
+            for (let x = 0; x < size; x++) cubes.push({ x, y, z });
+        }
+    }
+    cubes.sort((a, b) => (a.x + a.y + a.z * 2) - (b.x + b.y + b.z * 2));
+    const paint = { left: "#b91c1c", right: "#dc2626", top: "#fecaca", highlight: "#fee2e2" };
+    const body = `${softBackdrop(154, 122)}
+        ${cubes.map(cube => isoCube(cube.x, cube.y, cube.z, cfg, paint)).join("")}
+        <path d="M21 20 h62" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+        <text x="52" y="16" text-anchor="middle" font-size="10" font-weight="900" fill="#b91c1c">außen bemalt</text>`;
+    return svgFrame(154, 122, body, `${size} mal ${size} mal ${size} Würfel`, "is-cube is-main-visual");
 }
 
 function gridChoiceSvg(rows, cols, removed) {
-    const cell = 12;
+    const cell = 13;
     const gap = 2;
-    const pad = 5;
+    const pad = 8;
     const width = cols * cell + (cols - 1) * gap + pad * 2;
     const height = rows * cell + (rows - 1) * gap + pad * 2;
     const total = rows * cols;
@@ -914,66 +1042,70 @@ function gridChoiceSvg(rows, cols, removed) {
         const col = cols - 1 - i % cols;
         missingCells.add(`${row}:${col}`);
     }
-    let body = `<rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>`;
+    let body = softBackdrop(width, height);
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
             const x = pad + col * (cell + gap);
             const y = pad + row * (cell + gap);
             const isMissing = missingCells.has(`${row}:${col}`);
-            body += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${isMissing ? "#ffffff" : "#38bdf8"}" stroke="${isMissing ? "#94a3b8" : "#0369a1"}" stroke-dasharray="${isMissing ? "3 2" : "0"}"/>`;
+            body += `<rect x="${x + 1.5}" y="${y + 2}" width="${cell}" height="${cell}" rx="3" fill="#0369a1" opacity="${isMissing ? "0" : "0.16"}"/>`;
+            body += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="3" fill="${isMissing ? "#ffffff" : "#38bdf8"}" stroke="${isMissing ? "#94a3b8" : "#0369a1"}" stroke-width="1.4" stroke-dasharray="${isMissing ? "3 2" : "0"}"/>`;
+            if (!isMissing) body += `<path d="M${x + 2} ${y + 3} H${x + cell - 2}" stroke="#e0f2fe" stroke-width="1.5" stroke-linecap="round" opacity="0.75"/>`;
         }
     }
-    return svgFrame(width, height, body, `${rows} mal ${cols} Gitter`);
+    return svgFrame(width, height, body, `${rows} mal ${cols} Gitter`, "is-grid");
 }
 
 function clockChoiceSvg(hour) {
-    const center = 36;
-    const radius = 28;
+    const center = 42;
+    const radius = 31;
     const normalized = hour % 12 || 12;
     const angle = (normalized * 30 - 90) * Math.PI / 180;
-    const handX = center + Math.cos(angle) * 18;
-    const handY = center + Math.sin(angle) * 18;
+    const handX = center + Math.cos(angle) * 20;
+    const handY = center + Math.sin(angle) * 20;
     let ticks = "";
     for (let i = 0; i < 12; i++) {
         const tickAngle = (i * 30 - 90) * Math.PI / 180;
-        const x1 = center + Math.cos(tickAngle) * 23;
-        const y1 = center + Math.sin(tickAngle) * 23;
-        const x2 = center + Math.cos(tickAngle) * 26;
-        const y2 = center + Math.sin(tickAngle) * 26;
-        ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#64748b" stroke-width="1.5"/>`;
+        const x1 = center + Math.cos(tickAngle) * 24;
+        const y1 = center + Math.sin(tickAngle) * 24;
+        const x2 = center + Math.cos(tickAngle) * 28;
+        const y2 = center + Math.sin(tickAngle) * 28;
+        ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#64748b" stroke-width="${i % 3 === 0 ? "2.2" : "1.3"}" stroke-linecap="round"/>`;
     }
-    const body = `<circle cx="${center}" cy="${center}" r="${radius}" fill="#ffffff" stroke="#0f766e" stroke-width="3"/>${ticks}<line x1="${center}" y1="${center}" x2="${handX.toFixed(1)}" y2="${handY.toFixed(1)}" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/><line x1="${center}" y1="${center}" x2="${center}" y2="${center - 22}" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/><circle cx="${center}" cy="${center}" r="3" fill="#0f172a"/>`;
-    return svgFrame(72, 72, body, `${hour} Uhr`);
+    const body = `${softBackdrop(84, 84)}<circle cx="${center}" cy="${center}" r="${radius}" fill="#ffffff" stroke="#0f766e" stroke-width="3.5"/><circle cx="${center}" cy="${center}" r="${radius - 5}" fill="#ecfeff" opacity="0.55"/>${ticks}<line x1="${center}" y1="${center}" x2="${handX.toFixed(1)}" y2="${handY.toFixed(1)}" stroke="#dc2626" stroke-width="4.2" stroke-linecap="round"/><line x1="${center}" y1="${center}" x2="${center}" y2="${center - 23}" stroke="#0f172a" stroke-width="2.6" stroke-linecap="round"/><circle cx="${center}" cy="${center}" r="3.8" fill="#0f172a"/>`;
+    return svgFrame(84, 84, body, `${hour} Uhr`, "is-clock");
 }
 
 function digitCardSvg(number) {
     const digits = String(number).padStart(3, "0").split("");
+    const back = softBackdrop(124, 68);
     const body = digits.map((digit, index) => {
-        const x = 8 + index * 34;
-        return `<g><rect x="${x}" y="10" width="28" height="38" rx="5" fill="#fef3c7" stroke="#92400e" stroke-width="2"/><text x="${x + 14}" y="36" text-anchor="middle" font-size="22" font-weight="800" fill="#7c2d12">${digit}</text></g>`;
+        const x = 10 + index * 36;
+        return `<g><rect x="${x + 2}" y="14" width="29" height="40" rx="6" fill="#92400e" opacity="0.18"/><rect x="${x}" y="11" width="29" height="40" rx="6" fill="#fef3c7" stroke="#92400e" stroke-width="2"/><path d="M${x + 4} 16 H${x + 25}" stroke="#fff7ed" stroke-width="2" stroke-linecap="round"/><text x="${x + 14.5}" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#7c2d12">${digit}</text></g>`;
     }).join("");
-    return svgFrame(112, 58, body, `Zahlenkarten ${number}`);
+    return svgFrame(124, 68, back + body, `Zahlenkarten ${number}`, "is-cards");
 }
 
 function patternStripSvg(sequence) {
-    const cell = 12;
+    const cell = 13;
     const gap = 2;
     const shown = sequence.slice(0, 14);
-    const width = shown.length * cell + (shown.length - 1) * gap + 10;
-    const body = `<rect x="1" y="1" width="${width - 2}" height="30" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>` + shown.map((color, index) => {
+    const width = shown.length * cell + (shown.length - 1) * gap + 16;
+    const body = softBackdrop(width, 42) + shown.map((color, index) => {
         const fill = color === "r" ? "#ef4444" : "#3b82f6";
         const stroke = color === "r" ? "#991b1b" : "#1d4ed8";
-        return `<rect x="${5 + index * (cell + gap)}" y="9" width="${cell}" height="${cell}" rx="2" fill="${fill}" stroke="${stroke}"/>`;
+        const x = 8 + index * (cell + gap);
+        return `<rect x="${x + 1}" y="15" width="${cell}" height="${cell}" rx="3" fill="${stroke}" opacity="0.25"/><rect x="${x}" y="13" width="${cell}" height="${cell}" rx="3" fill="${fill}" stroke="${stroke}"/><path d="M${x + 2} 16 H${x + cell - 2}" stroke="#ffffff" stroke-width="1.2" opacity="0.6"/>`;
     }).join("");
-    return svgFrame(width, 32, body, "Musterleiste");
+    return svgFrame(width, 42, body, "Musterleiste", "is-pattern");
 }
 
 function borderGridSvg(side, mode) {
-    const cell = 10;
+    const cell = 11;
     const gap = 1;
-    const pad = 5;
+    const pad = 8;
     const size = side * cell + (side - 1) * gap + pad * 2;
-    let body = `<rect x="1" y="1" width="${size - 2}" height="${size - 2}" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>`;
+    let body = softBackdrop(size, size);
     for (let row = 0; row < side; row++) {
         for (let col = 0; col < side; col++) {
             const isBorder = row === 0 || col === 0 || row === side - 1 || col === side - 1;
@@ -982,21 +1114,134 @@ function borderGridSvg(side, mode) {
                 || mode === "diagonal" && row === col
                 || mode === "corners" && (row === 0 || row === side - 1) && (col === 0 || col === side - 1)
                 || mode === "inner" && !isBorder;
-            body += `<rect x="${pad + col * (cell + gap)}" y="${pad + row * (cell + gap)}" width="${cell}" height="${cell}" fill="${isBlue ? "#2563eb" : "#ffffff"}" stroke="#94a3b8"/>`;
+            const x = pad + col * (cell + gap);
+            const y = pad + row * (cell + gap);
+            body += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${isBlue ? "#2563eb" : "#ffffff"}" stroke="#94a3b8"/><path d="M${x + 2} ${y + 2} H${x + cell - 2}" stroke="${isBlue ? "#bfdbfe" : "#f8fafc"}" stroke-width="1" opacity="0.8"/>`;
         }
     }
-    return svgFrame(size, size, body, `${side} mal ${side} Feld`);
+    return svgFrame(size, size, body, `${side} mal ${side} Feld`, "is-border-grid");
 }
 
 function angleChoiceSvg(degrees) {
-    const sweep = Math.max(20, Math.min(150, degrees));
+    const sweep = Math.max(18, Math.min(162, degrees));
     const endAngle = (180 - sweep) * Math.PI / 180;
-    const x2 = 20 + Math.cos(endAngle) * 46;
-    const y2 = 54 - Math.sin(endAngle) * 46;
-    const arcX = 20 + Math.cos(endAngle) * 22;
-    const arcY = 54 - Math.sin(endAngle) * 22;
-    const body = `<line x1="12" y1="54" x2="74" y2="54" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="54" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/><path d="M42 54 A22 22 0 0 0 ${arcX.toFixed(1)} ${arcY.toFixed(1)}" fill="none" stroke="#f59e0b" stroke-width="3"/><circle cx="20" cy="54" r="3" fill="#0f172a"/><text x="54" y="24" text-anchor="middle" font-size="14" font-weight="800" fill="#7c2d12">${degrees}°</text>`;
-    return svgFrame(84, 64, body, `${degrees} Grad`);
+    const x2 = 24 + Math.cos(endAngle) * 52;
+    const y2 = 64 - Math.sin(endAngle) * 52;
+    const arcX = 24 + Math.cos(endAngle) * 26;
+    const arcY = 64 - Math.sin(endAngle) * 26;
+    const largeArc = sweep > 180 ? 1 : 0;
+    const body = `${softBackdrop(98, 78)}<line x1="13" y1="64" x2="86" y2="64" stroke="#0f172a" stroke-width="3.4" stroke-linecap="round"/><line x1="24" y1="64" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#dc2626" stroke-width="3.4" stroke-linecap="round"/><path d="M50 64 A26 26 0 ${largeArc} 0 ${arcX.toFixed(1)} ${arcY.toFixed(1)}" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="64" r="4" fill="#0f172a"/><text x="64" y="26" text-anchor="middle" font-size="15" font-weight="800" fill="#7c2d12">${degrees}°</text>`;
+    return svgFrame(98, 78, body, `${degrees} Grad`, "is-angle");
+}
+
+function isoPoint(x, y, z, cfg) {
+    return [
+        cfg.ox + (x - y) * cfg.dx,
+        cfg.oy + (x + y) * cfg.dy - z * cfg.dz
+    ];
+}
+
+function svgPolygon(points, fill, stroke = "#1e40af", opacity = 1) {
+    const d = points.map(point => point.map(value => value.toFixed(1)).join(",")).join(" ");
+    return `<polygon points="${d}" fill="${fill}" stroke="${stroke}" stroke-width="1" opacity="${opacity}"/>`;
+}
+
+function isoCube(x, y, z, cfg, palette = {}) {
+    const colors = {
+        left: "#1d4ed8",
+        right: "#2563eb",
+        top: "#93c5fd",
+        highlight: "#dbeafe",
+        ...palette
+    };
+    const p000 = isoPoint(x, y, z, cfg);
+    const p100 = isoPoint(x + 1, y, z, cfg);
+    const p010 = isoPoint(x, y + 1, z, cfg);
+    const p110 = isoPoint(x + 1, y + 1, z, cfg);
+    const p001 = isoPoint(x, y, z + 1, cfg);
+    const p101 = isoPoint(x + 1, y, z + 1, cfg);
+    const p011 = isoPoint(x, y + 1, z + 1, cfg);
+    const p111 = isoPoint(x + 1, y + 1, z + 1, cfg);
+    const shine = Math.min(0.16, z * 0.025);
+    return [
+        svgPolygon([p010, p110, p111, p011], colors.left),
+        svgPolygon([p100, p110, p111, p101], colors.right),
+        svgPolygon([p001, p101, p111, p011], colors.top),
+        `<path d="M${p001[0].toFixed(1)} ${p001[1].toFixed(1)} L${p101[0].toFixed(1)} ${p101[1].toFixed(1)} L${p111[0].toFixed(1)} ${p111[1].toFixed(1)}" fill="none" stroke="${colors.highlight}" stroke-width="1.2" opacity="${0.65 + shine}"/>`
+    ].join("");
+}
+
+function cubeMissingSet(length, width, height, count) {
+    const positions = [];
+    for (let z = height - 1; z >= 0; z--) {
+        for (let x = 0; x < length; x++) {
+            positions.push(`${x}:0:${z}`);
+        }
+    }
+    for (let z = height - 1; z >= 0; z--) {
+        for (let y = 1; y < width; y++) {
+            for (let x = 0; x < length; x++) {
+                positions.push(`${x}:${y}:${z}`);
+            }
+        }
+    }
+    return new Set(positions.slice(0, Math.max(0, count)));
+}
+
+function cubeBlockSvg(length, width, height, missingCount = 0) {
+    const cfg = { ox: 82, oy: 84, dx: 13, dy: 7, dz: 14 };
+    const missing = cubeMissingSet(length, width, height, missingCount);
+    const cubes = [];
+    for (let z = 0; z < height; z++) {
+        for (let y = width - 1; y >= 0; y--) {
+            for (let x = 0; x < length; x++) {
+                if (!missing.has(`${x}:${y}:${z}`)) cubes.push({ x, y, z });
+            }
+        }
+    }
+    cubes.sort((a, b) => (a.x + a.y + a.z * 2) - (b.x + b.y + b.z * 2));
+
+    const base = [
+        isoPoint(-0.2, -0.2, -0.02, cfg),
+        isoPoint(length + 0.25, -0.2, -0.02, cfg),
+        isoPoint(length + 0.25, width + 0.25, -0.02, cfg),
+        isoPoint(-0.2, width + 0.25, -0.02, cfg)
+    ];
+    const body = [
+        softBackdrop(170, 126),
+        svgPolygon(base, "#dbeafe", "#93c5fd", 0.8),
+        ...cubes.map(cube => isoCube(cube.x, cube.y, cube.z, cfg))
+    ].join("");
+    return svgFrame(170, 126, body, `${length} mal ${width} mal ${height} Würfelbauwerk`, "is-cube");
+}
+
+function pathGridSvg(right, up) {
+    const cell = 24;
+    const pad = 18;
+    const width = right * cell + pad * 2 + 72;
+    const height = up * cell + pad * 2 + 20;
+    const startX = pad;
+    const startY = pad + up * cell;
+    const finishX = pad + right * cell;
+    const finishY = pad;
+    let grid = softBackdrop(width, height);
+    for (let x = 0; x <= right; x++) {
+        const px = pad + x * cell;
+        grid += `<line x1="${px}" y1="${pad}" x2="${px}" y2="${startY}" stroke="#bfdbfe" stroke-width="1.5"/>`;
+    }
+    for (let y = 0; y <= up; y++) {
+        const py = pad + y * cell;
+        grid += `<line x1="${pad}" y1="${py}" x2="${finishX}" y2="${py}" stroke="#bfdbfe" stroke-width="1.5"/>`;
+    }
+    for (let y = 0; y <= up; y++) {
+        for (let x = 0; x <= right; x++) {
+            grid += `<circle cx="${pad + x * cell}" cy="${pad + y * cell}" r="3" fill="#0f766e"/>`;
+        }
+    }
+    grid += `<circle cx="${startX}" cy="${startY}" r="7" fill="#22c55e" stroke="#166534" stroke-width="2"/><text x="${startX - 2}" y="${startY + 4}" text-anchor="middle" font-size="10" font-weight="900" fill="#ffffff">S</text>`;
+    grid += `<circle cx="${finishX}" cy="${finishY}" r="7" fill="#f97316" stroke="#9a3412" stroke-width="2"/><text x="${finishX}" y="${finishY + 4}" text-anchor="middle" font-size="10" font-weight="900" fill="#ffffff">Z</text>`;
+    grid += `<path d="M${width - 60} ${height - 42} h26 m-8 -7 8 7 -8 7" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M${width - 48} ${height - 30} v-24 m-7 8 7 -8 7 8" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="${width - 44}" y="${height - 10}" text-anchor="middle" font-size="10" font-weight="800" fill="#0f766e">nur rechts/hoch</text>`;
+    return svgFrame(width, height, grid, "Gitterweg mit Start und Ziel", "is-path is-main-visual");
 }
 
 // --- BASIC GENERATORS ---
@@ -1200,10 +1445,18 @@ function genCubes(rng, stage) {
     const width = randInt(rng, 2, 4);
     const height = randInt(rng, 2, stage >= 7 ? 4 : 3);
     const missing = randInt(rng, 1, width);
+    const full = length * width * height;
     const correct = length * width * height - missing;
-    const { choices, answer } = makeChoices(correct, [length * width * height, correct - height, correct + missing, length + width + height]);
+    const values = numericChoiceValues(correct, [full, correct - height, correct + missing, length + width + height], 1, full);
+    const { choices, answer } = makeGraphicChoices(values.map(value => ({
+        key: value,
+        text: `${value} Würfel`,
+        html: cubeBlockSvg(length, width, height, full - value),
+        kind: "cube"
+    })), correct, rng);
     return {
         text: `Ein Bauwerk soll eigentlich ein voller Quader aus kleinen Würfeln sein: ${length} Würfel lang, ${width} Würfel breit und ${height} Würfel hoch. Beim Aufbauen fehlen vorne ${missing} Würfel. Wie viele Würfel sind trotzdem vorhanden?`,
+        visual: cubeBlockSvg(length, width, height, missing),
         choices,
         answer,
         explanation: `Voll wären es ${length * width * height}; es fehlen ${missing}.`
@@ -1261,6 +1514,7 @@ function genPathCount(rng) {
     const { choices, answer } = makeChoices(correct, [right * up, correct - 2, correct + 2, right + up]);
     return {
         text: `Eine Spielfigur steht links unten auf einem Gitter und soll auf kürzestem Weg nach rechts oben. Sie darf nur ${right} Schritte nach rechts und ${up} Schritte nach oben machen, aber die Reihenfolge darf wechseln. Wie viele kürzeste Wege gibt es?`,
+        visual: pathGridSvg(right, up),
         choices,
         answer,
         explanation: `Die Reihenfolge der ${right} Rechts- und ${up} Hoch-Schritte entscheidet: ${correct} Wege.`
@@ -1393,7 +1647,7 @@ function genLargestNumber(rng) {
         html: digitCardSvg(value)
     })), correct, rng);
     return {
-        text: `Drei Zahlenkarten tragen die Ziffern ${a}, ${b} and ${c}. Die Karten dürfen umgelegt werden, aber jede Karte muss genau einmal verwendet werden. Welche Anordnung bildet die größte dreistellige Zahl?`,
+        text: `Drei Zahlenkarten tragen die Ziffern ${a}, ${b} und ${c}. Die Karten dürfen umgelegt werden, aber jede Karte muss genau einmal verwendet werden. Welche Anordnung bildet die größte dreistellige Zahl?`,
         choices,
         answer,
         explanation: `Die größte Ziffer kommt nach vorne: ${correct}.`
@@ -1472,10 +1726,12 @@ function openKangarooWorksheet() {
                 .meta { color: #475569; margin-bottom: 18px; }
                 .task { break-inside: avoid; border-top: 1px solid #cbd5e1; padding: 10px 0; }
                 .task strong { display: inline-block; min-width: 90px; }
+                .kangaroo-print-visual { margin: 8px 0 10px 96px; }
+                .kangaroo-print-visual svg { max-height: 148px; max-width: 360px; width: auto; }
                 ol { margin-top: 6px; columns: 2; }
                 li { break-inside: avoid; margin-bottom: 4px; }
-                .kangaroo-print-choice { align-items: center; display: inline-flex; gap: 8px; min-height: 52px; vertical-align: top; }
-                .kangaroo-print-choice svg { max-height: 54px; width: auto; }
+                .kangaroo-print-choice { align-items: center; display: inline-flex; gap: 8px; min-height: 58px; vertical-align: top; }
+                .kangaroo-print-choice svg { max-height: 76px; width: auto; }
                 .solutions { margin-top: 24px; border-top: 3px solid #111827; padding-top: 12px; }
                 table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
                 th, td { border: 1px solid #cbd5e1; padding: 6px; vertical-align: top; }
@@ -1489,6 +1745,7 @@ function openKangarooWorksheet() {
             ${test.map(question => `
                 <section class="task">
                     <p><strong>${question.number}. (${question.points} P.)</strong> ${question.text}</p>
+                    ${renderKangarooWorksheetVisual(question)}
                     <ol type="A">${question.choices.map(choice => `<li>${renderKangarooWorksheetChoice(choice)}</li>`).join("")}</ol>
                 </section>
             `).join("")}
@@ -1524,6 +1781,7 @@ function renderKangarooWorksheetPreview(test, config) {
             ${test.map(question => `
                 <li>
                     <strong>(${question.points} P.)</strong> ${question.text}
+                    ${renderKangarooWorksheetVisual(question)}
                     <ol type="A">${question.choices.map(choice => `<li>${renderKangarooWorksheetChoice(choice)}</li>`).join("")}</ol>
                 </li>
             `).join("")}

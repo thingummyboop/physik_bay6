@@ -799,26 +799,34 @@ body.math-theme {
 
 .kangaroo-options {
     display: grid;
-    gap: 8px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     margin-top: 12px;
 }
 
 .kangaroo-options label {
-    align-items: center;
+    align-items: flex-start;
     background: #f8fafc;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
-    gap: 8px;
-    min-height: 44px;
-    padding: 8px 10px;
+    gap: 10px;
+    min-height: 62px;
+    padding: 10px 12px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.kangaroo-options input {
+    accent-color: #0f766e;
+    flex: 0 0 auto;
+    margin-top: 4px;
 }
 
 .kangaroo-choice-letter {
     flex: 0 0 auto;
     font-weight: 800;
+    margin-top: 2px;
 }
 
 .kangaroo-choice-content {
@@ -831,10 +839,38 @@ body.math-theme {
 
 .kangaroo-choice-svg {
     background: #ffffff;
-    border-radius: 6px;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
     flex: 0 0 auto;
-    height: 58px;
-    max-width: 140px;
+    height: 74px;
+    max-width: 170px;
+}
+
+.kangaroo-choice-svg.is-cube {
+    height: 116px;
+    max-width: 190px;
+}
+
+.kangaroo-choice-svg.is-paper,
+.kangaroo-choice-svg.is-shape,
+.kangaroo-choice-svg.is-die {
+    height: 84px;
+    max-width: 112px;
+}
+
+.kangaroo-choice-svg.is-path,
+.kangaroo-question-visual .kangaroo-choice-svg {
+    height: 132px;
+    max-width: 100%;
+}
+
+.kangaroo-question-visual .kangaroo-choice-svg.is-net {
+    height: 156px;
+}
+
+.kangaroo-question-visual .kangaroo-choice-svg.is-cube {
+    height: 148px;
 }
 
 .kangaroo-choice-text {
@@ -843,6 +879,27 @@ body.math-theme {
 
 .kangaroo-options label:hover {
     border-color: #0ea5e9;
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.14);
+    transform: translateY(-1px);
+}
+
+.kangaroo-options label:has(input:checked) {
+    background: #ecfeff;
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16);
+}
+
+.kangaroo-question-visual {
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin: 12px 0;
+    min-height: 132px;
+    overflow: hidden;
+    padding: 10px;
 }
 
 .kangaroo-explanation {
@@ -966,12 +1023,22 @@ body.math-theme {
     align-items: center;
     display: inline-flex;
     gap: 8px;
-    min-height: 52px;
+    min-height: 58px;
     vertical-align: top;
 }
 
 .kangaroo-print-choice svg {
-    max-height: 54px;
+    max-height: 76px;
+    width: auto;
+}
+
+.kangaroo-print-visual {
+    margin: 8px 0 10px 24px;
+}
+
+.kangaroo-print-visual svg {
+    max-height: 148px;
+    max-width: 360px;
     width: auto;
 }
 
@@ -2771,6 +2838,11 @@ body.math-theme {
 
 [data-theme="dark"] .kangaroo-choice-svg {
     background: #f8fafc;
+}
+
+[data-theme="dark"] .kangaroo-question-visual {
+    background: #111827;
+    border-color: #334155;
 }
 
 [data-theme="dark"] .kangaroo-evaluation-table th {
