@@ -4,8 +4,8 @@ const KANGAROO_ARCHIVE_URL = "https://www.kaenguru.at/aufgaben.html";
 const KANGAROO_RULES_URL = "https://www.kaenguru.at/files/downloads/Wettbewerbsregeln.pdf";
 
 const KANGAROO_CONFIGS = {
-    3: { stage: 3, label: "3. Schulstufe", category: "\u00c9colier", tasks: 24, minutes: 60, start: 24, max: 120 },
-    4: { stage: 4, label: "4. Schulstufe", category: "\u00c9colier", tasks: 24, minutes: 60, start: 24, max: 120 },
+    3: { stage: 3, label: "3. Schulstufe", category: "Écolier", tasks: 24, minutes: 60, start: 24, max: 120 },
+    4: { stage: 4, label: "4. Schulstufe", category: "Écolier", tasks: 24, minutes: 60, start: 24, max: 120 },
     5: { stage: 5, label: "5. Schulstufe", category: "Benjamin", tasks: 24, minutes: 60, start: 24, max: 120 },
     6: { stage: 6, label: "6. Schulstufe", category: "Benjamin", tasks: 24, minutes: 60, start: 24, max: 120 },
     7: { stage: 7, label: "7. Schulstufe", category: "Kadett", tasks: 30, minutes: 75, start: 30, max: 150 },
@@ -42,10 +42,10 @@ function renderKangarooSetup() {
             <div class="kangaroo-hero">
                 <div>
                     <span class="kangaroo-eyebrow">Mathe-Extra</span>
-                    <h3>K\u00e4nguru der Mathematik trainieren</h3>
-                    <p>W\u00e4hle deine Schulstufe, starte einen Test unter Wettbewerbsbedingungen und \u00f6ffne den aktuellen Test als Arbeitsblatt mit L\u00f6sungen.</p>
+                    <h3>Känguru der Mathematik trainieren</h3>
+                    <p>Wähle deine Schulstufe, starte einen Test unter Wettbewerbsbedingungen und öffne den aktuellen Test als Arbeitsblatt mit Lösungen.</p>
                 </div>
-                <div class="kangaroo-score-card" aria-label="K\u00e4nguru-Regeln">
+                <div class="kangaroo-score-card" aria-label="Känguru-Regeln">
                     <strong id="kangarooRuleTitle">Benjamin</strong>
                     <span id="kangarooRuleText">24 Aufgaben - 60 Minuten - Startpunkte: 24</span>
                 </div>
@@ -60,11 +60,11 @@ function renderKangarooSetup() {
                     `).join("")}
                 </select>
                 <button type="button" id="kangarooStart">Test starten</button>
-                <button type="button" class="kangaroo-secondary" id="kangarooWorksheet">Arbeitsblatt mit L\u00f6sungen \u00f6ffnen</button>
+                <button type="button" class="kangaroo-secondary" id="kangarooWorksheet">Arbeitsblatt mit Lösungen öffnen</button>
                 <a class="kangaroo-link-button" href="${KANGAROO_ARCHIVE_URL}" target="_blank" rel="noopener">Offizielle alte Aufgaben</a>
             </div>
             <div class="kangaroo-note">
-                Der digitale Modus verwendet eigene Aufgaben im K\u00e4nguru-Stil. Die offiziellen alten Originalaufgaben und L\u00f6sungen bleiben \u00fcber das K\u00e4nguru-Archiv verlinkt.
+                Der digitale Modus verwendet eigene Aufgaben im Känguru-Stil. Die offiziellen alten Originalaufgaben und Lösungen bleiben über das Känguru-Archiv verlinkt.
             </div>
             <div id="kangarooStageInfo" class="kangaroo-info"></div>
             <div id="kangarooTestArea"></div>
@@ -245,7 +245,7 @@ function submitKangarooTest() {
         <span>${score.correct} richtig - ${score.wrong} falsch - ${score.empty} leer - Startpunkte: ${KANGAROO_STATE.config.start}</span>
         ${renderKangarooOralFeedback(score)}
         ${renderKangarooEvaluation(score)}
-        <button type="button" class="kangaroo-secondary" onclick="openKangarooWorksheet()">Diesen Test als Arbeitsblatt \u00f6ffnen</button>
+        <button type="button" class="kangaroo-secondary" onclick="openKangarooWorksheet()">Diesen Test als Arbeitsblatt öffnen</button>
     `;
 }
 
@@ -307,36 +307,36 @@ function renderKangarooOralFeedback(score) {
     }, score.groups[0]);
 
     let title = "Weitertrainieren";
-    let main = "Du hast schon angefangen, die K\u00e4nguru-Aufgaben zu bearbeiten. Jetzt geht es darum, die leichten Aufgaben sicherer zu erkennen und Schritt f\u00fcr Schritt mehr Punkte zu holen.";
+    let main = "Du hast schon angefangen, die Känguru-Aufgaben zu bearbeiten. Jetzt geht es darum, die leichten Aufgaben sicherer zu erkennen und Schritt für Schritt mehr Punkte zu holen.";
 
     if (correctRate >= 0.8 && score.wrong <= 2) {
         title = "Sehr starke Leistung";
-        main = "Du hast sehr viele Aufgaben richtig gel\u00f6st und nur wenige Punkte durch Fehler verloren. Das zeigt, dass du genau liest und deine Antworten gut kontrollierst.";
+        main = "Du hast sehr viele Aufgaben richtig gelöst und nur wenige Punkte durch Fehler verloren. Das zeigt, dass du genau liest und deine Antworten gut kontrollierst.";
     } else if (correctRate >= 0.55) {
         title = "Gute Leistung";
-        main = "Du hast eine gute Grundlage gezeigt. Viele Aufgaben hast du richtig gel\u00f6st; bei den schwierigeren Aufgaben lohnt sich jetzt besonders das genaue Skizzieren und Probieren.";
+        main = "Du hast eine gute Grundlage gezeigt. Viele Aufgaben hast du richtig gelöst; bei den schwierigeren Aufgaben lohnt sich jetzt besonders das genaue Skizzieren und Probieren.";
     } else if (correctRate >= 0.35) {
         title = "Solide Grundlage";
-        main = "Du hast mehrere Aufgaben richtig gel\u00f6st. Man sieht, dass du mitdenkst, aber du solltest noch \u00fcben, welche Aufgaben du sicher beantworten kannst und welche du lieber zuerst \u00fcberspringst.";
+        main = "Du hast mehrere Aufgaben richtig gelöst. Man sieht, dass du mitdenkst, aber du solltest noch üben, welche Aufgaben du sicher beantworten kannst und welche du lieber zuerst überspringst.";
     } else if (score.correct === 0) {
         title = "Erster Versuch";
-        main = "Heute war noch keine Aufgabe richtig. Das ist ein klares Zeichen: Starte beim n\u00e4chsten Training mit den ersten, leichteren Aufgaben und nimm dir f\u00fcr jede Aufgabe eine kleine Skizze oder Rechnung.";
+        main = "Heute war noch keine Aufgabe richtig. Das ist ein klares Zeichen: Starte beim nächsten Training mit den ersten, leichteren Aufgaben und nimm dir für jede Aufgabe eine kleine Skizze oder Rechnung.";
     }
 
-    let strategy = "Gute Strategie: Bearbeite zuerst Aufgaben, bei denen du wirklich einen Plan hast. Danach kommst du zu den unsicheren Aufgaben zur\u00fcck.";
+    let strategy = "Gute Strategie: Bearbeite zuerst Aufgaben, bei denen du wirklich einen Plan hast. Danach kommst du zu den unsicheren Aufgaben zurück.";
     if (score.wrong >= score.empty + 3) {
-        strategy = "Achte besonders auf das Raten: Beim K\u00e4nguru kosten falsche Antworten Punkte. Wenn du gar keinen Plan hast, ist Auslassen oft kl\u00fcger als blindes Raten.";
+        strategy = "Achte besonders auf das Raten: Beim Känguru kosten falsche Antworten Punkte. Wenn du gar keinen Plan hast, ist Auslassen oft klüger als blindes Raten.";
     } else if (score.empty >= Math.ceil(config.tasks / 3)) {
-        strategy = "Du hast einiges ausgelassen. Das kann klug sein, aber versuche beim n\u00e4chsten Mal zuerst alle leichten Aufgaben zu suchen, damit keine sicheren Punkte liegen bleiben.";
+        strategy = "Du hast einiges ausgelassen. Das kann klug sein, aber versuche beim nächsten Mal zuerst alle leichten Aufgaben zu suchen, damit keine sicheren Punkte liegen bleiben.";
     } else if (score.empty === 0 && score.wrong <= 2) {
         strategy = "Sehr gute Teststrategie: Du hast den Test voll bearbeitet und dabei nur wenige Fehler gemacht.";
     }
 
-    const nextStep = `N\u00e4chster Schritt: \u00dcbe besonders die ${needsPractice.label.toLowerCase()} (${needsPractice.from}-${needsPractice.to}). Deine st\u00e4rkste Gruppe war diesmal: ${strongest.label.toLowerCase()} (${strongest.from}-${strongest.to}).`;
+    const nextStep = `Nächster Schritt: Übe besonders die ${needsPractice.label.toLowerCase()} (${needsPractice.from}-${needsPractice.to}). Deine stärkste Gruppe war diesmal: ${strongest.label.toLowerCase()} (${strongest.from}-${strongest.to}).`;
 
     return `
         <div class="kangaroo-oral-feedback">
-            <strong>M\u00fcndliche R\u00fcckmeldung: ${title}</strong>
+            <strong>Mündliche Rückmeldung: ${title}</strong>
             <p>${main}</p>
             <p>${strategy}</p>
             <p>${nextStep}</p>
@@ -347,7 +347,7 @@ function renderKangarooOralFeedback(score) {
 function renderKangarooEvaluation(score) {
     return `
         <div class="kangaroo-evaluation">
-            <div class="kangaroo-evaluation-grid" aria-label="Auswertung nach K\u00e4nguru-Wertung">
+            <div class="kangaroo-evaluation-grid" aria-label="Auswertung nach Känguru-Wertung">
                 <div class="kangaroo-evaluation-metric">
                     <strong>${formatKangarooPoints(score.gained)}</strong>
                     <span>Punkte gewonnen</span>
@@ -384,7 +384,7 @@ function renderKangarooEvaluation(score) {
                 </tbody>
             </table>
             <p class="kangaroo-evaluation-note">
-                Offiziell gibt es beim K\u00e4nguru eine Punktewertung, keine Schulnote. Diese Auswertung zeigt deshalb, wo Punkte gewonnen, verloren oder liegen gelassen wurden.
+                Offiziell gibt es beim Känguru eine Punktewertung, keine Schulnote. Diese Auswertung zeigt deshalb, wo Punkte gewonnen, verloren oder liegen gelassen wurden.
             </p>
         </div>
     `;
@@ -415,15 +415,27 @@ function formatKangarooTime(seconds) {
 
 function buildKangarooTest(config) {
     const rng = seededRandom(config.stage * 1009 + Date.now() % 100000);
-    const generators = [
-        genSequence, genPerimeter, genCalendar, genFraction, genShopping, genAverage,
-        genScale, genGrid, genRemainder, genRectangleArea, genLogicOrder, genClock,
-        genCombinations, genCubes, genEquation, genAngle, genPercent, genPathCount,
-        genTrianglePerimeter, genMissingNumber, genDigitSum, genBorderTiles, genAge,
-        genBusSeats, genMapDistance, genBookPages, genLargestNumber, genHandshake,
-        genPatternTiles, genBalance
+    
+    // Base generators for stages 3-4 (Écolier)
+    const ecolierGenerators = [
+        genSequence, genPerimeter, genGrid, genClock, genCubes, 
+        genDigitSum, genBorderTiles, genLargestNumber, genPatternTiles, 
+        genRotation, genMissingPiece, genTrianglesCount, genOverlappingRects,
+        genLogicOrder, genMissingNumber, genCalendar, genLogicLiars
     ];
-    const generatorOrder = shuffleWithRng(generators, rng);
+    
+    // Advanced/Themed generators for Benjamin (5-6) and Kadett (7-8)
+    const advancedGenerators = [
+        genEquation, genAngle, genPercent, genPathCount, genHandshake,
+        genBalanceLogic, genUnfolding, genLogicLiars, genPaintedCube,
+        genPaperPunch, genLogicDie, genSpatialBlocks, genRotation,
+        genOverlappingRects, genTrianglesCount, genPathOnCube, genLogicKnights
+    ];
+
+    let pool = config.stage >= 5 ? [...advancedGenerators] : [...ecolierGenerators];
+    
+    // Ensure we have enough variety
+    const generatorOrder = shuffleWithRng(pool, rng);
     const usedTexts = new Set();
 
     return Array.from({ length: config.tasks }, (_, index) => {
@@ -441,6 +453,373 @@ function buildKangarooTest(config) {
         return { ...question, number, points };
     });
 }
+
+// --- NEW AUTHENTIC KANGAROO STYLE GENERATORS ---
+
+function genTrianglesCount(rng, stage) {
+    const types = [
+        {
+            svg: `<path d="M 10 90 L 90 90 L 50 10 Z M 30 90 L 50 10 M 70 90 L 50 10" fill="none" stroke="currentColor" stroke-width="2"/>`,
+            correct: 6, // 3 small, 2 medium (1+2, 2+3), 1 large
+            text: "Wie viele Dreiecke sind in dieser Figur zu sehen?"
+        },
+        {
+            svg: `<path d="M 10 90 L 90 90 L 50 10 Z M 10 90 L 90 50 M 90 90 L 10 50" fill="none" stroke="currentColor" stroke-width="2"/>`,
+            correct: 8,
+            text: "Wie viele Dreiecke kannst du in dieser Zeichnung zählen?"
+        },
+        {
+            svg: `<rect x="10" y="10" width="80" height="80" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M 10 10 L 90 90 M 90 10 L 10 90 M 50 10 L 50 90 M 10 50 L 90 50" fill="none" stroke="currentColor" stroke-width="2"/>`,
+            correct: 16,
+            text: "Wie viele Dreiecke verstecken sich in diesem unterteilten Quadrat?"
+        }
+    ];
+    
+    const type = types[randInt(rng, 0, stage >= 5 ? 2 : 1)];
+    const { choices, answer } = makeChoices(type.correct, [type.correct + 2, type.correct - 1, type.correct * 2, 4]);
+
+    return {
+        text: `${type.text}<br>${svgFrame(100, 100, type.svg, "Dreiecke")}`,
+        choices,
+        answer,
+        explanation: `Es sind insgesamt ${type.correct} Dreiecke vorhanden, wenn man alle Größen (klein, mittel, groß) berücksichtigt.`
+    };
+}
+
+function genPaperPunch(rng, stage) {
+    const folds = [
+        {
+            foldSvg: `<rect x="10" y="10" width="80" height="80" fill="#fff" stroke="#334155" stroke-width="2"/>
+                      <line x1="10" y1="50" x2="90" y2="50" stroke="#334155" stroke-dasharray="4 2"/>
+                      <path d="M 50 30 L 50 70 M 40 60 L 50 70 L 60 60" fill="none" stroke="#0ea5e9" stroke-width="2"/>`,
+            punchX: 30, punchY: 30,
+            correctSvg: `<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="30" cy="70" r="5" fill="#334155"/>`,
+            desc: "Einmal nach unten gefaltet"
+        },
+        {
+            foldSvg: `<rect x="10" y="10" width="80" height="80" fill="#fff" stroke="#334155" stroke-width="2"/>
+                      <line x1="50" y1="10" x2="50" y2="90" stroke="#334155" stroke-dasharray="4 2"/>
+                      <line x1="10" y1="50" x2="90" y2="50" stroke="#334155" stroke-dasharray="4 2"/>`,
+            punchX: 30, punchY: 30,
+            correctSvg: `<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="70" cy="30" r="5" fill="#334155"/><circle cx="30" cy="70" r="5" fill="#334155"/><circle cx="70" cy="70" r="5" fill="#334155"/>`,
+            desc: "Zweimal gefaltet (Viertel)"
+        }
+    ];
+    
+    const fold = folds[randInt(rng, 0, stage >= 5 ? 1 : 0)];
+    const punchSvg = `<circle cx="${fold.punchX}" cy="${fold.punchY}" r="5" fill="red" stroke="none"/>`;
+    
+    const makeFull = (circles) => svgFrame(60, 60, `<rect x="5" y="5" width="50" height="50" fill="#fff" stroke="#334155" stroke-width="1.5"/>${circles}`, "Papier");
+    
+    const choices = [
+        { key: "correct", text: "Richtig", html: makeFull(fold.correctSvg) },
+        { key: "w1", text: "Falsch 1", html: makeFull(`<circle cx="30" cy="30" r="5" fill="#334155"/>`) },
+        { key: "w2", text: "Falsch 2", html: makeFull(`<circle cx="50" cy="50" r="5" fill="#334155"/>`) },
+        { key: "w3", text: "Falsch 3", html: makeFull(`<circle cx="30" cy="30" r="5" fill="#334155"/><circle cx="70" cy="70" r="5" fill="#334155"/>`) },
+        { key: "w4", text: "Falsch 4", html: makeFull(`<circle cx="10" cy="10" r="8" fill="#334155"/>`) }
+    ];
+
+    const { choices: shuffled, answer } = makeGraphicChoices(choices, "correct", rng);
+
+    return {
+        text: `Ein quadratisches Blatt Papier wird gefaltet (${fold.desc}). Dann wird an der roten Stelle ein Loch durchgestochen:<br>${svgFrame(100, 100, fold.foldSvg + punchSvg, "Faltung")}<br> Wie sieht das Papier aus, wenn man es wieder ganz aufgefaltet hat?`,
+        choices: shuffled,
+        answer,
+        explanation: "Beim Auffalten spiegelt sich das Loch an jeder Faltkante."
+    };
+}
+
+function genOverlappingRects(rng, stage) {
+    const w = randInt(rng, 5, 10);
+    const h = randInt(rng, 3, 6);
+    const overlap = randInt(rng, 1, 3);
+    const totalW = 2 * w - overlap;
+    
+    const svg = svgFrame(120, 60, `
+        <rect x="10" y="10" width="${w*5}" height="${h*5}" fill="rgba(59, 130, 246, 0.5)" stroke="#1e40af" stroke-width="1.5"/>
+        <rect x="${10 + (w-overlap)*5}" y="10" width="${w*5}" height="${h*5}" fill="rgba(16, 185, 129, 0.5)" stroke="#065f46" stroke-width="1.5"/>
+        <text x="${10 + w*2.5}" y="${15 + h*5}" text-anchor="middle" font-size="8">${w}cm</text>
+        <text x="${10 + (w-overlap)*5 + w*2.5}" y="${15 + h*5}" text-anchor="middle" font-size="8">${w}cm</text>
+    `, "Rechtecke");
+
+    const { choices, answer } = makeChoices(totalW, [2*w, 2*w + overlap, w + overlap, 10], " cm");
+
+    return {
+        text: `Zwei identische Rechtecke (je ${w} cm breit) werden so nebeneinander gelegt, dass sie sich um ${overlap} cm überlappen:<br>${svg}<br> Wie breit ist die gesamte Figur von ganz links bis ganz rechts?`,
+        choices,
+        answer,
+        explanation: `Gesamtbreite = Breite1 + Breite2 - Überlappung = ${w} + ${w} - ${overlap} = ${totalW} cm.`
+    };
+}
+
+function genLogicDie(rng) {
+    const top = randInt(rng, 1, 6);
+    const correct = 7 - top;
+    
+    const dieSvg = (val) => svgFrame(40, 40, `
+        <rect x="2" y="2" width="36" height="36" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+        ${renderDieDots(val)}
+    `, `Würfel ${val}`);
+
+    function renderDieDots(v) {
+        const dots = {
+            1: '<circle cx="20" cy="20" r="3" fill="#000"/>',
+            2: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
+            3: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="20" cy="20" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
+            4: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="10" r="3" fill="#000"/><circle cx="10" cy="30" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
+            5: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="10" r="3" fill="#000"/><circle cx="20" cy="20" r="3" fill="#000"/><circle cx="10" cy="30" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>',
+            6: '<circle cx="10" cy="10" r="3" fill="#000"/><circle cx="30" cy="10" r="3" fill="#000"/><circle cx="10" cy="20" r="3" fill="#000"/><circle cx="30" cy="20" r="3" fill="#000"/><circle cx="10" cy="30" r="3" fill="#000"/><circle cx="30" cy="30" r="3" fill="#000"/>'
+        };
+        return dots[v];
+    }
+
+    const { choices, answer } = makeChoices(correct, [1, 2, 3, 4, 5, 6].filter(v => v !== correct));
+
+    return {
+        text: `Bei einem normalen Spielwürfel ist die Summe der Augen auf gegenüberliegenden Seiten immer 7. Hüpfi sieht oben auf dem Würfel diese Seite:<br>${dieSvg(top)}<br> Wie viele Augen liegen auf der Unterseite, die Hüpfi gerade nicht sehen kann?`,
+        choices,
+        answer,
+        explanation: `Gegenüberliegende Seiten ergeben 7. Also: 7 - ${top} = ${correct}.`
+    };
+}
+
+function genSpatialBlocks(rng, stage) {
+    const shapes = [
+        {
+            front: `<rect x="10" y="40" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/><rect x="40" y="40" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/><rect x="10" y="10" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/>`,
+            top: `<rect x="10" y="10" width="30" height="30" fill="#fbbf24" stroke="#92400e"/><rect x="40" y="10" width="30" height="30" fill="#fbbf24" stroke="#92400e"/>`,
+            correct: 3,
+            desc: "L-Form liegend"
+        },
+        {
+            front: `<rect x="10" y="40" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/><rect x="40" y="40" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/><rect x="70" y="40" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/><rect x="40" y="10" width="30" height="30" fill="#60a5fa" stroke="#1e40af"/>`,
+            top: `<rect x="10" y="10" width="30" height="30" fill="#fbbf24" stroke="#92400e"/><rect x="40" y="10" width="30" height="30" fill="#fbbf24" stroke="#92400e"/><rect x="70" y="10" width="30" height="30" fill="#fbbf24" stroke="#92400e"/>`,
+            correct: 4,
+            desc: "T-Form liegend"
+        }
+    ];
+    
+    const shape = shapes[randInt(rng, 0, shapes.length - 1)];
+    const { choices, answer } = makeChoices(shape.correct, [shape.correct + 1, shape.correct - 1, 6, 8]);
+
+    return {
+        text: `Hüpfi baut ein Bauwerk aus gleich großen Würfeln. Hier siehst du die Ansicht von VORNE und von OBEN:<br>
+               Vorne: ${svgFrame(110, 80, shape.front)} <br>
+               Oben: ${svgFrame(110, 80, shape.top)} <br>
+               Aus wie vielen Würfeln besteht das Bauwerk mindestens?`,
+        choices,
+        answer,
+        explanation: `Durch den Vergleich von Vorder- und Draufsicht lässt sich die minimale Anzahl der Würfel bestimmen: ${shape.correct}.`
+    };
+}
+
+function genPathOnCube(rng) {
+    const net = `
+        <rect x="30" y="0" width="30" height="30" fill="none" stroke="#333"/>
+        <rect x="0" y="30" width="30" height="30" fill="none" stroke="#333"/>
+        <rect x="30" y="30" width="30" height="30" fill="none" stroke="#333"/>
+        <rect x="60" y="30" width="30" height="30" fill="none" stroke="#333"/>
+        <rect x="30" y="60" width="30" height="30" fill="none" stroke="#333"/>
+        <rect x="30" y="90" width="30" height="30" fill="none" stroke="#333"/>
+        <path d="M 30 30 L 60 60" stroke="red" stroke-width="3"/>
+    `;
+    
+    const correct = "Punkt A zu Punkt B"; 
+    const distractors = ["Punkt A zu Punkt C", "Punkt B zu Punkt D", "Punkt C zu Punkt E", "Keine Verbindung"];
+    
+    const { choices, answer } = makeChoices(correct, distractors);
+    
+    return {
+        text: `Auf einem Würfelnetz ist eine rote Linie gezeichnet. Wo verläuft diese Linie, wenn der Würfel zusammengefaltet wird?`,
+        choices,
+        answer,
+        explanation: "Beim Falten treffen bestimmte Kanten und Punkte aufeinander. Man muss die räumliche Zuordnung beachten.",
+    };
+}
+
+function genLogicKnights(rng) {
+    const correct = "A ist ein Knappe, B ist ein Ritter.";
+    const distractors = [
+        "Beide sind Ritter.",
+        "Beide sind Knappen.",
+        "A ist ein Ritter, B ist ein Knappe.",
+        "Man kann es nicht wissen."
+    ];
+    
+    const { choices, answer } = makeChoices(correct, distractors);
+    
+    return {
+        text: `Auf einer Insel leben nur Ritter (sagen immer die Wahrheit) und Knappen (lügen immer). Du triffst A und B.<br>
+               A sagt: "Ich bin ein Knappe oder B ist ein Ritter."<br>
+               Was sind A und B?`,
+        choices,
+        answer,
+        explanation: "Wenn A ein Knappe wäre, wäre seine Aussage wahr (da er ein Knappe ist), aber Knappen lügen immer. Also muss A ein Ritter sein. Dann ist seine Aussage wahr, und da er kein Knappe ist, muss B ein Ritter sein."
+    };
+}
+
+// --- IMPROVED KANGAROO STYLE GENERATORS ---
+
+function genRotation(rng, stage) {
+    const shapes = [
+        `<path d="M 15 15 L 15 45 L 35 45 L 35 30 L 45 30 L 45 15 Z" fill="#f87171" stroke="#991b1b" stroke-width="2"/>`,
+        `<path d="M 15 15 L 45 15 L 45 30 L 35 30 L 35 45 L 25 45 L 25 30 L 15 30 Z" fill="#60a5fa" stroke="#1e40af" stroke-width="2"/>`,
+        `<path d="M 15 15 L 35 15 L 35 30 L 45 30 L 45 45 L 25 45 L 25 30 L 15 30 Z" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>`
+    ];
+    const shapeIdx = randInt(rng, 0, shapes.length - 1);
+    const baseShape = shapes[shapeIdx];
+    
+    const rotations = [0, 90, 180, 270];
+    const correctRot = rotations[randInt(rng, 1, 3)];
+    
+    const makeShapeSvg = (rot, flip = false) => {
+        const transform = `rotate(${rot} 30 30)${flip ? ' scale(-1 1) translate(-60 0)' : ''}`;
+        return svgFrame(60, 60, `<g transform="${transform}">${baseShape}</g>`, "Form");
+    };
+
+    const choices = rotations.map(r => ({
+        key: `rot${r}`,
+        text: `Gedreht`,
+        html: makeShapeSvg(r)
+    }));
+    
+    choices[randInt(rng, 0, 3)] = {
+        key: "flipped",
+        text: "Spiegelverkehrt",
+        html: makeShapeSvg(0, true)
+    };
+
+    const targetIdx = randInt(rng, 0, 3);
+    const targetSvg = makeShapeSvg(rotations[targetIdx]);
+
+    return {
+        text: `Hüpfi das Känguru sieht diese Form hier: <br>${targetSvg}<br> Welche der folgenden Formen ist genau dieselbe Form, nur gedreht?`,
+        choices,
+        answer: targetIdx,
+        explanation: "Die Form kann durch Drehung in die Zielform überführt werden. Spiegelbilder zählen nicht."
+    };
+}
+
+function genBalanceLogic(rng, stage) {
+    const symbols = ["🍎", "🍐", "🍌", "🍓"];
+    const s1 = symbols[0], s2 = symbols[1];
+    const val1 = randInt(rng, 2, 5);
+    const val2 = randInt(rng, 2, 5);
+    const weight1 = 2 * val1; 
+    const weight2 = val1 + val2;
+    const { choices, answer } = makeChoices(val1 + 2*val2, [val1 + val2, 2*val1 + val2, val1 + 3*val2, 10]);
+    return {
+        text: `Auf zwei Waagen herrscht Gleichgewicht:<br>
+               Waage 1: ${s1} + ${s1} wiegt so viel wie ${weight1} kg.<br>
+               Waage 2: ${s1} + ${s2} wiegt so viel wie ${weight2} kg.<br>
+               Wie schwer ist die Kombination ${s1} + ${s2} + ${s2}?`,
+        choices,
+        answer,
+        explanation: `${s1}=${val1}, ${s2}=${val2}. Somit ${val1}+${val2}+${val2}=${val1 + 2*val2}.`
+    };
+}
+
+function genUnfolding(rng) {
+    const symbols = ['🔴', '🔵', '🟢', '🟡', '⚫', '⚪'];
+    const netHtml = `
+        <div style="display: grid; grid-template-columns: repeat(3, 30px); grid-template-rows: repeat(4, 30px); gap: 2px; margin: 10px 0;">
+            <div style="grid-area: 1/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[0]}</div>
+            <div style="grid-area: 2/1; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[1]}</div>
+            <div style="grid-area: 2/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[2]}</div>
+            <div style="grid-area: 2/3; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[3]}</div>
+            <div style="grid-area: 3/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[4]}</div>
+            <div style="grid-area: 4/2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; background: #fff;">${symbols[5]}</div>
+        </div>
+    `;
+    const correct = `${symbols[1]} und ${symbols[3]}`;
+    const distractors = [`${symbols[0]} und ${symbols[5]}`, `${symbols[2]} und ${symbols[4]}`, `${symbols[1]} und ${symbols[2]}`, `${symbols[0]} und ${symbols[4]}`];
+    const { choices, answer } = makeChoices(correct, distractors);
+    return {
+        text: `Hüpfi faltet aus diesem Netz einen Würfel:<br>${netHtml}<br> Welche zwei Symbole liegen sich auf dem fertigen Würfel gegenüber?`,
+        choices,
+        answer,
+        explanation: "In einem Würfelnetz liegen Flächen, die durch eine andere Fläche getrennt sind, später gegenüber."
+    };
+}
+
+function genMissingPiece(rng, stage) {
+    const patternType = randInt(rng, 0, 1);
+    let patternSvg = "";
+    let correctPiece = "";
+    let distSvg = [];
+    if (patternType === 0) {
+        patternSvg = svgFrame(100, 100, `
+            <defs><pattern id="p1" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="8" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            </pattern></defs>
+            <rect x="0" y="0" width="100" height="100" fill="url(#p1)" />
+            <rect x="40" y="40" width="20" height="20" fill="white" stroke="#666" stroke-dasharray="4 2" />
+        `, "Muster");
+        correctPiece = svgFrame(25, 25, `<circle cx="12.5" cy="12.5" r="8" fill="none" stroke="#3b82f6" stroke-width="2"/>`, "Teil");
+        distSvg = [
+            svgFrame(25, 25, `<rect x="4" y="4" width="17" height="17" fill="none" stroke="#3b82f6" stroke-width="2"/>`),
+            svgFrame(25, 25, `<circle cx="12.5" cy="12.5" r="4" fill="#3b82f6"/>`),
+            svgFrame(25, 25, `<path d="M 4 4 L 21 21 M 21 4 L 4 21" stroke="#3b82f6" stroke-width="2"/>`),
+            svgFrame(25, 25, `<rect x="0" y="0" width="25" height="25" fill="#3b82f6" opacity="0.2"/>`)
+        ];
+    } else {
+        patternSvg = svgFrame(100, 40, `
+            <path d="M 0 20 L 20 10 L 40 20 L 60 10 L 80 20 L 100 10" fill="none" stroke="#ef4444" stroke-width="3"/>
+            <rect x="35" y="5" width="30" height="30" fill="white" stroke="#666" stroke-dasharray="4 2" />
+        `, "Zickzack");
+        correctPiece = svgFrame(30, 30, `<path d="M 0 20 L 5 15 L 25 20 L 30 15" fill="none" stroke="#ef4444" stroke-width="3"/>`, "Teil");
+        distSvg = [
+            svgFrame(30, 30, `<path d="M 0 5 L 30 5" stroke="#ef4444" stroke-width="3"/>`),
+            svgFrame(30, 30, `<path d="M 15 0 L 15 30" stroke="#ef4444" stroke-width="3"/>`),
+            svgFrame(30, 30, `<circle cx="15" cy="15" r="5" stroke="#ef4444" fill="none" stroke-width="3"/>`),
+            svgFrame(30, 30, `<path d="M 0 10 L 15 25 L 30 10" stroke="#ef4444" stroke-width="3"/>`)
+        ];
+    }
+    const { choices, answer } = makeGraphicChoices([{ key: "correct", text: "Dieses Teil", html: correctPiece }, ...distSvg.map((d, i) => ({ key: `w${i}`, text: "Anderes Teil", html: d }))], "correct", rng);
+    return {
+        text: `In diesem Muster fehlt ein Stück (markiert durch das gestrichelte Quadrat):<br>${patternSvg}<br> Welches Teil passt genau in die Lücke?`,
+        choices,
+        answer,
+        explanation: "Das Teil muss das Muster grafisch korrekt fortsetzen."
+    };
+}
+
+function genLogicLiars(rng) {
+    const names = ["Anton", "Berta", "Clemens"];
+    const liarIdx = randInt(rng, 0, 2);
+    const correct = names[liarIdx];
+    let text;
+    if (liarIdx === 1) { text = `${names[0]}: "${names[1]} lügt!"<br>${names[1]}: "${names[2]} lügt!"<br>${names[2]}: "Ich sage die Wahrheit!"`; }
+    else if (liarIdx === 0) { text = `${names[0]}: "Berta sagt die Wahrheit."<br>${names[1]}: "Anton lügt."<br>${names[2]}: "Ich bin kein Lügner."`; }
+    else { text = `${names[0]}: "Ich sage die Wahrheit."<br>${names[1]}: "Anton sagt die Wahrheit."<br>${names[2]}: "Anton lügt."`; }
+    const { choices, answer } = makeChoices(correct, names.filter(n => n !== correct));
+    return {
+        text: `Drei Kinder machen eine Aussage. Genau eines von ihnen lügt immer, die anderen sagen immer die Wahrheit.<br>${text}<br> Wer ist der Lügner?`,
+        choices,
+        answer,
+        explanation: "Nur wenn diese Person lügt (und die anderen die Wahrheit sagen), gibt es keinen logischen Widerspruch."
+    };
+}
+
+function genPaintedCube(rng, stage) {
+    const size = randInt(rng, 3, 4);
+    const total = size * size * size;
+    const type = randInt(rng, 0, 2); 
+    let correct, questionText;
+    if (type === 0) { correct = 8; questionText = "3 Seiten"; }
+    else if (type === 1) { correct = 12 * (size - 2); questionText = "2 Seiten"; }
+    else { correct = 6 * (size - 2) * (size - 2); questionText = "1 Seite"; }
+    const { choices, answer } = makeChoices(correct, [total, 12, 0, size * size, 4]);
+    return {
+        text: `Hüpfi hat einen großen Würfel aus ${size}x${size}x${size} kleinen weißen Würfeln gebaut. Er malt die Außenseite komplett rot an und nimmt ihn dann wieder auseinander. Wie viele kleine Würfel haben jetzt an genau <strong>${questionText}</strong> rote Farbe?`,
+        choices,
+        answer,
+        explanation: `Bei einem ${size}x${size}x${size} Würfel haben 8 Ecken 3 Seiten, 12*(size-2) Kanten 2 Seiten und 6*(size-2)^2 Flächen 1 Seite angemalt.`
+    };
+}
+
+// --- UTILITIES ---
 
 function pointsForQuestion(config, number) {
     if (config.tasks === 24) {
@@ -480,7 +859,6 @@ function makeChoices(correct, distractors, suffix = "") {
         .filter((value, index, array) => array.indexOf(value) === index)
         .slice(0, 5);
     while (values.length < 5) values.push(correct + values.length + 2);
-
     const choices = shuffleWithRng(values.slice(0, 5), Math.random).map(value => `${value}${suffix}`);
     const answerText = `${correct}${suffix}`;
     const answer = choices.indexOf(answerText);
@@ -617,9 +995,11 @@ function angleChoiceSvg(degrees) {
     const y2 = 54 - Math.sin(endAngle) * 46;
     const arcX = 20 + Math.cos(endAngle) * 22;
     const arcY = 54 - Math.sin(endAngle) * 22;
-    const body = `<line x1="12" y1="54" x2="74" y2="54" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="54" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/><path d="M42 54 A22 22 0 0 0 ${arcX.toFixed(1)} ${arcY.toFixed(1)}" fill="none" stroke="#f59e0b" stroke-width="3"/><circle cx="20" cy="54" r="3" fill="#0f172a"/><text x="54" y="24" text-anchor="middle" font-size="14" font-weight="800" fill="#7c2d12">${degrees}\u00b0</text>`;
+    const body = `<line x1="12" y1="54" x2="74" y2="54" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="54" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/><path d="M42 54 A22 22 0 0 0 ${arcX.toFixed(1)} ${arcY.toFixed(1)}" fill="none" stroke="#f59e0b" stroke-width="3"/><circle cx="20" cy="54" r="3" fill="#0f172a"/><text x="54" y="24" text-anchor="middle" font-size="14" font-weight="800" fill="#7c2d12">${degrees}°</text>`;
     return svgFrame(84, 64, body, `${degrees} Grad`);
 }
+
+// --- BASIC GENERATORS ---
 
 function genSequence(rng, stage) {
     const start = randInt(rng, 2, 8 + stage);
@@ -627,7 +1007,7 @@ function genSequence(rng, stage) {
     const correct = start + step * 5;
     const { choices, answer } = makeChoices(correct, [correct - step, correct + step, correct + 2 * step, correct - 2]);
     return {
-        text: `Mira schreibt f\u00fcr ein Geheimtor immer nach derselben Regel weiter. Auf ihrem Zettel stehen ${start}, ${start + step}, ${start + 2 * step}, ${start + 3 * step}, ${start + 4 * step}, ... Welche Zahl muss als n\u00e4chste Zahl in die Reihe?`,
+        text: `Hüpfi schreibt für ein Geheimtor immer nach derselben Regel weiter. Auf ihrem Zettel stehen ${start}, ${start + step}, ${start + 2 * step}, ${start + 3 * step}, ${start + 4 * step}, ... Welche Zahl muss als nächste Zahl in die Reihe?`,
         choices,
         answer,
         explanation: `Jedes Mal wird ${step} addiert.`
@@ -654,7 +1034,7 @@ function genCalendar(rng) {
     const names = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
     const dayChoices = shuffleWithRng([0, 1, 2, 3, 4].map(offset => (correctIndex + offset) % 7), rng);
     return {
-        text: `Die Mathegruppe plant ein kleines Turnier. Heute ist ${names[dayIndex]}; die Einladungen sollen aber erst in ${later} Tagen verteilt werden. Auf welchen Wochentag f\u00e4llt dieser Tag?`,
+        text: `Die Mathegruppe plant ein kleines Turnier. Heute ist ${names[dayIndex]}; die Einladungen sollen aber erst in ${later} Tagen verteilt werden. Auf welchen Wochentag fällt dieser Tag?`,
         choices: dayChoices.map(index => names[index]),
         answer: dayChoices.indexOf(correctIndex),
         explanation: `${later} Tage entsprechen ${later % 7} Tagen weiter im Wochenkreis: ${names[dayIndex]} + ${later % 7} Tage = ${names[correctIndex]}.`
@@ -669,7 +1049,7 @@ function genFraction(rng, stage) {
     const correct = numerator * unit;
     const { choices, answer } = makeChoices(correct, [correct + unit, Math.max(1, correct - unit), total - correct, denominator + numerator]);
     return {
-        text: `Bei einem Knobelspiel machen ${total} Kinder mit. Nach der ersten Runde haben ${numerator}/${denominator} der Kinder die Aufgabe richtig gel\u00f6st. Wie viele Kinder sind das?`,
+        text: `Bei einem Knobelspiel machen ${total} Kinder mit. Nach der ersten Runde haben ${numerator}/${denominator} der Kinder die Aufgabe richtig gelöst. Wie viele Kinder sind das?`,
         choices,
         answer,
         explanation: `${total} : ${denominator} = ${unit}; ${numerator} Teile sind ${correct}.`
@@ -682,9 +1062,9 @@ function genShopping(rng, stage) {
     const pens = randInt(rng, 2, 5);
     const books = randInt(rng, 1, 3);
     const correct = pens * pen + books * book;
-    const { choices, answer } = makeChoices(correct, [correct + pen, correct - book, pens + books + pen + book, correct + 3], " \u20ac");
+    const { choices, answer } = makeChoices(correct, [correct + pen, correct - book, pens + books + pen + book, correct + 3], " €");
     return {
-        text: `F\u00fcr eine Zeichenrunde werden im Schulshop Materialien gekauft. Ein Stift kostet ${pen} \u20ac, ein Heft kostet ${book} \u20ac. Wie viel muss die Gruppe f\u00fcr ${pens} Stifte und ${books} Hefte zusammen bezahlen?`,
+        text: `Für eine Zeichenrunde werden im Schulshop Materialien gekauft. Ein Stift kostet ${pen} €, ein Heft kostet ${book} €. Wie viel muss die Gruppe für ${pens} Stifte und ${books} Hefte zusammen bezahlen?`,
         choices,
         answer,
         explanation: `${pens}*${pen} + ${books}*${book} = ${correct}.`
@@ -699,7 +1079,7 @@ function genAverage(rng, stage) {
     const c = correct + delta;
     const { choices, answer } = makeChoices(correct, [correct - 2, correct + 2, a + b + c, b + delta]);
     return {
-        text: `Drei Kinder sammeln bei drei Stationen Punkte: ${a}, ${b} und ${c}. Die Lehrperson m\u00f6chte wissen, wie viele Punkte ein Kind im Durchschnitt erreicht hat. Welcher Wert passt?`,
+        text: `Drei Kinder sammeln bei drei Stationen Punkte: ${a}, ${b} und ${c}. Die Lehrperson möchte wissen, wie viele Punkte ein Kind im Durchschnitt erreicht hat. Welcher Wert passt?`,
         choices,
         answer,
         explanation: `Zusammen sind es ${a + b + c}; durch 3 geteilt ergibt ${correct}.`
@@ -712,7 +1092,7 @@ function genScale(rng) {
     const correct = 2 * box + 3 * ball;
     const { choices, answer } = makeChoices(correct, [box + ball, 3 * box + ball, correct - ball, correct + box], " kg");
     return {
-        text: `Beim Aufr\u00e4umen im Turnsaal werden gleich schwere Kisten und B\u00e4lle auf einen Wagen gelegt. Eine Kiste wiegt ${box} kg, ein Ball wiegt ${ball} kg. Wie schwer sind 2 Kisten und 3 B\u00e4lle zusammen?`,
+        text: `Beim Aufräumen im Turnsaal werden gleich schwere Kisten und Bälle auf einen Wagen gelegt. Eine Kiste wiegt ${box} kg, ein Ball wiegt ${ball} kg. Wie schwer sind 2 Kisten und 3 Bälle zusammen?`,
         choices,
         answer,
         explanation: `2*${box} + 3*${ball} = ${correct} kg.`
@@ -731,7 +1111,7 @@ function genGrid(rng, stage) {
         html: gridChoiceSvg(rows, cols, rows * cols - value)
     })), correct, rng);
     return {
-        text: `Auf einem Spielplan liegen kleine quadratische Pl\u00e4ttchen in ${rows} Reihen und ${cols} Spalten. Rechts oben werden ${cut} Pl\u00e4ttchen weggenommen. Welche Zeichnung zeigt, wie viele Pl\u00e4ttchen noch auf dem Plan liegen?`,
+        text: `Auf einem Spielplan liegen kleine quadratische Plättchen in ${rows} Reihen und ${cols} Spalten. Rechts oben werden ${cut} Plättchen weggenommen. Welche Zeichnung zeigt, wie viele Plättchen noch auf dem Plan liegen?`,
         choices,
         answer,
         explanation: `${rows}*${cols} = ${rows * cols}; danach bleiben ${correct}.`
@@ -745,7 +1125,7 @@ function genRemainder(rng, stage) {
     const number = divisor * quotient + remainder;
     const { choices, answer } = makeChoices(remainder, [divisor - remainder, quotient, remainder + 1, 0]);
     return {
-        text: `Eine Gruppe teilt ${number} Spielkarten m\u00f6glichst gleich auf ${divisor} Stapel auf. Alle vollen Stapel sollen gleich viele Karten haben. Wie viele Karten bleiben dann \u00fcbrig?`,
+        text: `Eine Gruppe teilt ${number} Spielkarten möglichst gleich auf ${divisor} Stapel auf. Alle vollen Stapel sollen gleich viele Karten haben. Wie viele Karten bleiben dann übrig?`,
         choices,
         answer,
         explanation: `${number} = ${divisor}*${quotient} + ${remainder}.`
@@ -757,12 +1137,12 @@ function genRectangleArea(rng, stage) {
     const height = randInt(rng, 3, 7 + Math.floor(stage / 3));
     const missing = randInt(rng, 2, Math.min(width, height));
     const correct = width * height - missing * missing;
-    const { choices, answer } = makeChoices(correct, [width * height, correct + missing, correct - missing, 2 * (width + height)], " cm\u00b2");
+    const { choices, answer } = makeChoices(correct, [width * height, correct + missing, correct - missing, 2 * (width + height)], " cm²");
     return {
-        text: `Aus einem Papierst\u00fcck mit ${width} cm L\u00e4nge und ${height} cm Breite wird an einer Ecke ein Quadrat mit ${missing} cm Seitenl\u00e4nge herausgeschnitten. Wie gro\u00df ist die Fl\u00e4che des restlichen Papierst\u00fccks?`,
+        text: `Aus einem Papierstück mit ${width} cm Länge und ${height} cm Breite wird an einer Ecke ein Quadrat mit ${missing} cm Seitenlänge herausgeschnitten. Wie groß ist die Fläche des restlichen Papierstückks?`,
         choices,
         answer,
-        explanation: `Rechteck: ${width * height} cm\u00b2, Ausschnitt: ${missing * missing} cm\u00b2.`
+        explanation: `Rechteck: ${width * height} cm², Ausschnitt: ${missing * missing} cm².`
     };
 }
 
@@ -773,10 +1153,10 @@ function genLogicOrder(rng) {
     const correct = before + 1;
     const { choices, answer } = makeChoices(correct, [after + 1, total - before, before, total]);
     return {
-        text: `Vor der Sporthalle stellen sich ${total} Kinder in einer Reihe an. Mira steht so, dass vor ihr genau ${before} Kinder stehen. An welcher Stelle steht Mira, wenn man von vorne zu z\u00e4hlen beginnt?`,
+        text: `Vor der Sporthalle stellen sich ${total} Kinder in einer Reihe an. Hüpfi steht so, dass vor ihr genau ${before} Kinder stehen. An welcher Stelle steht Hüpfi, wenn man von vorne zu zählen beginnt?`,
         choices,
         answer,
-        explanation: `Wenn ${before} Kinder vor ihr stehen, ist Mira auf Platz ${before + 1}.`
+        explanation: `Wenn ${before} Kinder vor ihr stehen, ist Hüpfi auf Platz ${before + 1}.`
     };
 }
 
@@ -795,7 +1175,7 @@ function genClock(rng) {
         html: clockChoiceSvg(value)
     })), correct, rng);
     return {
-        text: `Im K\u00e4nguru-Camp beginnt eine Nachtwanderung, als die Uhr ${start}:00 zeigt. ${add} Stunden sp\u00e4ter schaut jemand wieder auf die Uhr. Welche Uhr passt zu diesem Zeitpunkt?`,
+        text: `Im Känguru-Camp beginnt eine Nachtwanderung, als die Uhr ${start}:00 zeigt. ${add} Stunden später schaut jemand wieder auf die Uhr. Welche Uhr passt zu diesem Zeitpunkt?`,
         choices,
         answer,
         explanation: `Nach jeweils 12 Stunden beginnt die Stundenzahl wieder von vorne.`
@@ -808,7 +1188,7 @@ function genCombinations(rng, stage) {
     const correct = shirts * pants;
     const { choices, answer } = makeChoices(correct, [shirts + pants, correct + shirts, correct - pants, shirts * pants + 2]);
     return {
-        text: `Lina packt f\u00fcr eine Projektwoche Kleidung ein. Sie hat ${shirts} verschiedene T-Shirts und ${pants} verschiedene Hosen. Wie viele Outfits kann sie zusammenstellen, wenn jedes Outfit aus genau einem T-Shirt und genau einer Hose besteht?`,
+        text: `Hüpfine packt für eine Projektwoche Kleidung ein. Sie hat ${shirts} verschiedene T-Shirts und ${pants} verschiedene Hosen. Wie viele Outfits kann sie zusammenstellen, wenn jedes Outfit aus genau einem T-Shirt und genau einer Hose besteht?`,
         choices,
         answer,
         explanation: `Zu jedem T-Shirt passen ${pants} Hosen: ${shirts}*${pants} = ${correct}.`
@@ -823,10 +1203,10 @@ function genCubes(rng, stage) {
     const correct = length * width * height - missing;
     const { choices, answer } = makeChoices(correct, [length * width * height, correct - height, correct + missing, length + width + height]);
     return {
-        text: `Ein Bauwerk soll eigentlich ein voller Quader aus kleinen W\u00fcrfeln sein: ${length} W\u00fcrfel lang, ${width} W\u00fcrfel breit und ${height} W\u00fcrfel hoch. Beim Aufbauen fehlen vorne ${missing} W\u00fcrfel. Wie viele W\u00fcrfel sind trotzdem vorhanden?`,
+        text: `Ein Bauwerk soll eigentlich ein voller Quader aus kleinen Würfeln sein: ${length} Würfel lang, ${width} Würfel breit und ${height} Würfel hoch. Beim Aufbauen fehlen vorne ${missing} Würfel. Wie viele Würfel sind trotzdem vorhanden?`,
         choices,
         answer,
-        explanation: `Voll w\u00e4ren es ${length * width * height}; es fehlen ${missing}.`
+        explanation: `Voll wären es ${length * width * height}; es fehlen ${missing}.`
     };
 }
 
@@ -837,7 +1217,7 @@ function genEquation(rng, stage) {
     const result = factor * x + add;
     const { choices, answer } = makeChoices(x, [x + 1, x - 1, result - add, result]);
     return {
-        text: `Auf einer Rechenkarte steht eine verdeckte Zahl x. Wenn man diese Zahl mit ${factor} multipliziert und danach ${add} addiert, erh\u00e4lt man ${result}. Welche Zahl steckt hinter x?`,
+        text: `Auf einer Rechenkarte steht eine verdeckte Zahl x. Wenn man diese Zahl mit ${factor} multipliziert und danach ${add} addiert, erhält man ${result}. Welche Zahl steckt hinter x?`,
         choices,
         answer,
         explanation: `${result} - ${add} = ${result - add}; ${result - add} : ${factor} = ${x}.`
@@ -850,14 +1230,14 @@ function genAngle(rng, stage) {
     const angleValues = numericChoiceValues(correct, [angle, Math.abs(90 - angle), correct - 10, correct + 10], 10, 170);
     const { choices, answer } = makeGraphicChoices(angleValues.map(value => ({
         key: value,
-        text: `${value}\u00b0`,
+        text: `${value}°`,
         html: angleChoiceSvg(value)
     })), correct, rng);
     return {
-        text: `Auf einem Geobrett liegen zwei Winkel direkt nebeneinander auf einer geraden Linie. Der linke Winkel ist ${angle}\u00b0 gro\u00df. Welche Zeichnung kann den anderen Winkel zeigen?`,
+        text: `Auf einem Geobrett liegen zwei Winkel direkt nebeneinander auf einer geraden Linie. Der linke Winkel ist ${angle}° groß. Welche Zeichnung kann den anderen Winkel zeigen?`,
         choices,
         answer,
-        explanation: `Nebenwinkel ergeben zusammen 180\u00b0.`
+        explanation: `Nebenwinkel ergeben zusammen 180°.`
     };
 }
 
@@ -880,7 +1260,7 @@ function genPathCount(rng) {
     const correct = binomial(right + up, right);
     const { choices, answer } = makeChoices(correct, [right * up, correct - 2, correct + 2, right + up]);
     return {
-        text: `Eine Spielfigur steht links unten auf einem Gitter und soll auf k\u00fcrzestem Weg nach rechts oben. Sie darf nur ${right} Schritte nach rechts und ${up} Schritte nach oben machen, aber die Reihenfolge darf wechseln. Wie viele k\u00fcrzeste Wege gibt es?`,
+        text: `Eine Spielfigur steht links unten auf einem Gitter und soll auf kürzestem Weg nach rechts oben. Sie darf nur ${right} Schritte nach rechts und ${up} Schritte nach oben machen, aber die Reihenfolge darf wechseln. Wie viele kürzeste Wege gibt es?`,
         choices,
         answer,
         explanation: `Die Reihenfolge der ${right} Rechts- und ${up} Hoch-Schritte entscheidet: ${correct} Wege.`
@@ -894,7 +1274,7 @@ function genTrianglePerimeter(rng, stage) {
     const correct = a + b + c;
     const { choices, answer } = makeChoices(correct, [a * b, correct - c, correct + 3, a + b], " cm");
     return {
-        text: `F\u00fcr ein dreieckiges Namensschild sollen alle drei Kanten mit einem Band beklebt werden. Die Seiten sind ${a} cm, ${b} cm und ${c} cm lang. Wie viele Zentimeter Band braucht man insgesamt?`,
+        text: `Für ein dreieckiges Namensschild sollen alle drei Kanten mit einem Band beklebt werden. Die Seiten sind ${a} cm, ${b} cm und ${c} cm lang. Wie viele Zentimeter Band braucht man insgesamt?`,
         choices,
         answer,
         explanation: `Alle drei Seiten werden addiert: ${a}+${b}+${c} = ${correct} cm.`
@@ -921,7 +1301,7 @@ function genDigitSum(rng, stage) {
     const correct = String(number).split("").reduce((sum, digit) => sum + Number(digit), 0);
     const { choices, answer } = makeChoices(correct, [correct + 1, correct - 1, tens * ones, number % 10]);
     return {
-        text: `Auf einem Tresor steht die Zahl ${number}. Der Code zum \u00d6ffnen ist nicht die Zahl selbst, sondern ihre Ziffernsumme. Welche Zahl muss eingegeben werden?`,
+        text: `Auf einem Tresor steht die Zahl ${number}. Der Code zum Öffnen ist nicht die Zahl selbst, sondern ihre Ziffernsumme. Welche Zahl muss eingegeben werden?`,
         choices,
         answer,
         explanation: `Die Ziffern werden addiert: ${String(number).split("").join("+")} = ${correct}.`
@@ -940,7 +1320,7 @@ function genBorderTiles(rng, stage) {
     ];
     const { choices, answer } = makeGraphicChoices(modes, "border", rng);
     return {
-        text: `Ein quadratisches Feld hat ${side} Reihen und ${side} Spalten. F\u00fcr ein Spiel sollen genau die Randfelder blau gef\u00e4rbt werden, die inneren Felder bleiben wei\u00df. Welche Zeichnung passt dazu?`,
+        text: `Ein quadratisches Feld hat ${side} Reihen und ${side} Spalten. Für ein Spiel sollen genau die Randfelder blau gefärbt werden, die inneren Felder bleiben weiß. Welche Zeichnung passt dazu?`,
         choices,
         answer,
         explanation: `Alle Felder minus inneres Quadrat: ${side * side} - ${(side - 2) * (side - 2)} = ${correct}.`
@@ -953,10 +1333,10 @@ function genAge(rng, stage) {
     const correct = younger + diff;
     const { choices, answer } = makeChoices(correct, [younger - diff, younger + diff + 1, diff, younger * 2]);
     return {
-        text: `Sam und Alex vergleichen ihre Geburtstage. Sam ist ${younger} Jahre alt. Alex ist ${diff} Jahre \u00e4lter als Sam. Wie alt ist Alex?`,
+        text: `Hüpfi und sein Freund vergleichen ihre Geburtstage. Sam ist ${younger} Jahre alt. Alex ist ${diff} Jahre älter als Sam. Wie alt ist Alex?`,
         choices,
         answer,
-        explanation: `\u00c4lter bedeutet addieren: ${younger}+${diff} = ${correct}.`
+        explanation: `Älter bedeutet addieren: ${younger}+${diff} = ${correct}.`
     };
 }
 
@@ -980,7 +1360,7 @@ function genMapDistance(rng, stage) {
     const correct = scale * cm;
     const { choices, answer } = makeChoices(correct, [scale + cm, correct + scale, correct - scale, cm], " km");
     return {
-        text: `Auf einer Wanderkarte entspricht 1 cm auf dem Papier genau ${scale} km in Wirklichkeit. Zwei H\u00fctten liegen auf der Karte ${cm} cm auseinander. Wie weit sind sie in Wirklichkeit voneinander entfernt?`,
+        text: `Auf einer Wanderkarte entspricht 1 cm auf dem Papier genau ${scale} km in Wirklichkeit. Zwei Hütten liegen auf der Karte ${cm} cm auseinander. Wie weit sind sie in Wirklichkeit voneinander entfernt?`,
         choices,
         answer,
         explanation: `${cm}*${scale} = ${correct} km.`
@@ -993,7 +1373,7 @@ function genBookPages(rng, stage) {
     const correct = days * pages;
     const { choices, answer } = makeChoices(correct, [days + pages, correct - pages, correct + days, pages * (days + 1)]);
     return {
-        text: `Nora nimmt sich vor, in den Ferien jeden Tag gleich viel zu lesen. Sie liest ${days} Tage lang jeden Tag ${pages} Seiten. Wie viele Seiten hat sie danach insgesamt gelesen?`,
+        text: `Hüpfine nimmt sich vor, in den Ferien jeden Tag gleich viel zu lesen. Sie liest ${days} Tage lang jeden Tag ${pages} Seiten. Wie viele Seiten hat sie danach insgesamt gelesen?`,
         choices,
         answer,
         explanation: `${days} Tage mit je ${pages} Seiten ergeben ${correct} Seiten.`
@@ -1013,10 +1393,10 @@ function genLargestNumber(rng) {
         html: digitCardSvg(value)
     })), correct, rng);
     return {
-        text: `Drei Zahlenkarten tragen die Ziffern ${a}, ${b} und ${c}. Die Karten d\u00fcrfen umgelegt werden, aber jede Karte muss genau einmal verwendet werden. Welche Anordnung bildet die gr\u00f6\u00dfte dreistellige Zahl?`,
+        text: `Drei Zahlenkarten tragen die Ziffern ${a}, ${b} and ${c}. Die Karten dürfen umgelegt werden, aber jede Karte muss genau einmal verwendet werden. Welche Anordnung bildet die größte dreistellige Zahl?`,
         choices,
         answer,
-        explanation: `Die gr\u00f6\u00dfte Ziffer kommt nach vorne: ${correct}.`
+        explanation: `Die größte Ziffer kommt nach vorne: ${correct}.`
     };
 }
 
@@ -1025,10 +1405,10 @@ function genHandshake(rng, stage) {
     const correct = people * (people - 1) / 2;
     const { choices, answer } = makeChoices(correct, [people * 2, people * (people - 1), correct - 1, correct + people]);
     return {
-        text: `Bei einer kleinen Siegerehrung begr\u00fc\u00dfen sich ${people} Kinder. Jedes Kind gibt jedem anderen Kind genau einmal die Hand. Wie viele Handschl\u00e4ge gibt es insgesamt?`,
+        text: `Bei einer kleinen Siegerehrung begrüßen sich ${people} Kinder. Jedes Kind gibt jedem anderen Kind genau einmal die Hand. Wie viele Handschläge gibt es insgesamt?`,
         choices,
         answer,
-        explanation: `Jedes Paar z\u00e4hlt einmal: ${people}*${people - 1}/2 = ${correct}.`
+        explanation: `Jedes Paar zählt einmal: ${people}*${people - 1}/2 = ${correct}.`
     };
 }
 
@@ -1080,13 +1460,12 @@ function openKangarooWorksheet() {
         renderKangarooWorksheetPreview(test, config);
         return;
     }
-
     win.document.write(`
         <!doctype html>
         <html lang="de">
         <head>
             <meta charset="utf-8">
-            <title>K\u00e4nguru-Training ${config.label}</title>
+            <title>Känguru-Training ${config.label}</title>
             <style>
                 body { font-family: Arial, sans-serif; margin: 24px; color: #111827; }
                 h1 { margin-bottom: 4px; }
@@ -1105,7 +1484,7 @@ function openKangarooWorksheet() {
         </head>
         <body>
             <button onclick="window.print()">Drucken</button>
-            <h1>K\u00e4nguru-Training: ${config.category}</h1>
+            <h1>Känguru-Training: ${config.category}</h1>
             <p class="meta">${config.label} - ${config.tasks} Aufgaben - ${config.minutes} Minuten - Startpunkte: ${config.start} - ${scoreDescription(config)}</p>
             ${test.map(question => `
                 <section class="task">
@@ -1114,14 +1493,14 @@ function openKangarooWorksheet() {
                 </section>
             `).join("")}
             <section class="solutions">
-                <h2>L\u00f6sungen</h2>
+                <h2>Lösungen</h2>
                 <table>
-                    <thead><tr><th>Nr.</th><th>Antwort</th><th>Kurze Begr\u00fcndung</th></tr></thead>
+                    <thead><tr><th>Nr.</th><th>Antwort</th><th>Kurze Begründung</th></tr></thead>
                     <tbody>
                         ${test.map(question => `<tr><td>${question.number}</td><td>${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])}</td><td>${question.explanation}</td></tr>`).join("")}
                     </tbody>
                 </table>
-                <p>Offizielle alte Aufgaben und L\u00f6sungen: ${KANGAROO_ARCHIVE_URL}</p>
+                <p>Offizielle alte Aufgaben und Lösungen: ${KANGAROO_ARCHIVE_URL}</p>
             </section>
         </body>
         </html>
@@ -1150,16 +1529,15 @@ function renderKangarooWorksheetPreview(test, config) {
             `).join("")}
         </ol>
         <details open>
-            <summary>L\u00f6sungen anzeigen</summary>
+            <summary>Lösungen anzeigen</summary>
             <table class="kangaroo-solution-table">
-                <thead><tr><th>Nr.</th><th>Antwort</th><th>Begr\u00fcndung</th></tr></thead>
+                <thead><tr><th>Nr.</th><th>Antwort</th><th>Begründung</th></tr></thead>
                 <tbody>
                     ${test.map(question => `<tr><td>${question.number}</td><td>${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])}</td><td>${question.explanation}</td></tr>`).join("")}
                 </tbody>
             </table>
         </details>
     `;
-
     const area = document.getElementById("kangarooTestArea") || KANGAROO_STATE.root;
     if (!document.getElementById("kangarooWorksheetPreview")) area.appendChild(host);
     host.scrollIntoView({ behavior: "smooth", block: "start" });
