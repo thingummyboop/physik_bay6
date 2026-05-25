@@ -3,49 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎓 Das große Physik-Abenteuer (MS/AHS Unterstufe)</title>
-    <link rel="stylesheet" href="css/style.css?v=5.5">
+    <title>🎓 Lernabenteuer MS/AHS Unterstufe</title>
+    <link rel="stylesheet" href="css/style.css?v=5.6">
     <style>
         :root {
             --sidebar-bg: #0f172a;
-            --main-bg: #1e293b;
+            --main-bg: #eaf2fb;
             --text-color: white;
             --nav-btn-color: #cbd5e0;
-            --nav-btn-active-bg: #1e293b;
-            --nav-btn-active-border: #3b82f6;
-            --nav-btn-active-text: #60a5fa;
-            --header-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+            --nav-btn-active-bg: #172554;
+            --nav-btn-active-border: #14b8a6;
+            --nav-btn-active-text: #ffffff;
+            --sidebar-muted: #94a3b8;
+            --sidebar-panel: #111c31;
+            --header-gradient: linear-gradient(180deg, #123c69, #0f766e);
             --header-border: #1e40af;
         }
 
         [data-theme="dark"] {
             --sidebar-bg: #000000;
-            --main-bg: #0a0a0a;
+            --main-bg: #050816;
             --text-color: #e5e7eb;
             --nav-btn-color: #a0aec0;
-            --nav-btn-active-bg: #121212;
-            --nav-btn-active-border: #2196F3;
-            --nav-btn-active-text: #64b5f6;
-            --header-gradient: linear-gradient(135deg, #1e3a8a, #1e40af);
+            --nav-btn-active-bg: #172033;
+            --nav-btn-active-border: #2dd4bf;
+            --nav-btn-active-text: #f8fafc;
+            --sidebar-muted: #94a3b8;
+            --sidebar-panel: #111827;
+            --header-gradient: linear-gradient(180deg, #0f172a, #134e4a);
             --header-border: #172554;
         }
 
         body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background-color: var(--main-bg); color: var(--text-color); overflow: hidden; transition: background-color 0.3s, color 0.3s; }
-        #sidebar { width: 320px; background-color: var(--sidebar-bg); overflow-y: auto; display: flex; flex-direction: column; transition: margin-left 0.3s, background-color 0.3s; box-shadow: 4px 0 15px rgba(0,0,0,0.3); z-index: 10; }
-        #sidebar.collapsed { margin-left: -320px; }
-        .sidebar-header { padding: 60px 20px 20px 20px; text-align: center; background: var(--header-gradient); border-bottom: 2px solid var(--header-border); }
-        .sidebar-header h1 { margin: 10px 0; font-size: 1.4em; text-shadow: 0 2px 4px rgba(0,0,0,0.3); color: white; }
-        .grade-section { padding: 15px 20px 5px 20px; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; border-bottom: 1px solid #334155; margin-top: 10px; font-weight: bold; }
-        .nav-btn { background: transparent; color: var(--nav-btn-color); border: none; width: 100%; text-align: left; padding: 12px 20px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; font-size: 0.95em; }
-        .nav-btn:hover, .nav-btn.active { background-color: var(--nav-btn-active-bg); color: var(--text-color); border-left: 4px solid var(--nav-btn-active-border); }
-        .nav-btn.active { color: var(--nav-btn-active-text); font-weight: bold; }
-        #content-area { flex-grow: 1; position: relative; }
-        iframe { width: 100%; height: 100%; border: none; background-color: white; }
-        #zeugnis-btn { position: fixed; top: 8px; right: 20px; z-index: 1000; background: linear-gradient(135deg, #FFD700, #FF9800); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; border: 2px solid white; color: #1e293b; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); display: flex; align-items: center; gap: 8px; transition: transform 0.2s; }
-        #zeugnis-btn:hover { transform: scale(1.05); }
-        #menu-toggle { position: fixed; top: 15px; left: 15px; z-index: 100; background: #3b82f6; color: white; border: none; padding: 10px 12px; border-radius: 5px; cursor: pointer; }
-        .lang-btn { background: #334155; color: white; border: 1px solid #475569; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8em; }
-        .lang-btn.active { background: #3b82f6; border-color: #60a5fa; }
+        #sidebar { width: 336px; background-color: var(--sidebar-bg); overflow-y: auto; display: flex; flex-direction: column; transition: margin-left 0.3s, background-color 0.3s; box-shadow: 4px 0 18px rgba(15,23,42,0.28); z-index: 10; }
+        #sidebar.collapsed { margin-left: -336px; }
+        .sidebar-header { padding: 54px 18px 18px 18px; background: var(--header-gradient); border-bottom: 1px solid rgba(255,255,255,0.18); }
+        .language-row { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; padding: 2px 0 14px 0; }
+        .sidebar-title { margin: 6px 0 4px 0; font-size: 1.35em; color: white; text-align: center; line-height: 1.15; }
+        .sidebar-subtitle { color: #dbeafe; font-size: 0.84em; margin: 0 0 12px 0; text-align: center; }
+        .sidebar-progress { background: rgba(15, 23, 42, 0.56); padding: 12px; border-radius: 8px; border: 1px solid rgba(203,213,225,0.28); }
+        .score-line { font-size: 1.08em; font-weight: 800; color: #facc15; margin-bottom: 10px; text-align: center; }
+        .sidebar-actions, .sort-row { display: flex; gap: 6px; }
+        .control-panel { padding: 12px 16px; border-bottom: 1px solid #1e293b; background: rgba(15, 23, 42, 0.42); }
+        .subject-select, .topic-search { width: 100%; box-sizing: border-box; padding: 9px 10px; border-radius: 6px; background: var(--sidebar-panel); color: var(--text-color); border: 1px solid #334155; outline: none; margin-bottom: 8px; font-weight: 700; }
+        .topic-search { font-weight: 500; color: #e2e8f0; }
+        .sort-btn, .small-action-btn { flex: 1; padding: 8px; border-radius: 6px; border: 1px solid #334155; background: var(--sidebar-panel); color: var(--nav-btn-color); cursor: pointer; font-size: 0.82em; font-weight: 700; }
+        .sort-btn.active { background: var(--nav-btn-active-border); color: #062c2a; border-color: var(--nav-btn-active-border); }
+        .small-action-btn.danger { background: #b91c1c; color: white; border-color: #ef4444; }
+        .grade-section { padding: 15px 18px 7px 18px; font-size: 0.76em; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sidebar-muted); border-bottom: 1px solid #243145; margin-top: 6px; font-weight: 800; }
+        .nav-btn { background: transparent; color: var(--nav-btn-color); border: none; width: 100%; text-align: left; padding: 11px 18px 11px 20px; cursor: pointer; border-left: 4px solid transparent; transition: background-color 0.2s, color 0.2s, border-color 0.2s; font-size: 0.94em; line-height: 1.25; }
+        .nav-btn:hover, .nav-btn.active { background-color: var(--nav-btn-active-bg); color: var(--text-color); border-left-color: var(--nav-btn-active-border); }
+        .nav-btn.active { color: var(--nav-btn-active-text); font-weight: 800; }
+        .nav-empty { padding: 18px; color: var(--sidebar-muted); text-align: center; font-style: italic; font-size: 0.9em; }
+        #content-area { flex-grow: 1; position: relative; padding: 12px; box-sizing: border-box; }
+        iframe { width: 100%; height: 100%; border: 1px solid #cbd5e1; background-color: white; border-radius: 8px; box-shadow: 0 14px 32px rgba(15,23,42,0.16); }
+        #zeugnis-btn { position: fixed; top: 10px; right: 18px; z-index: 1000; background: #facc15; padding: 9px 15px; border-radius: 999px; cursor: pointer; font-weight: 800; border: 1px solid #fde68a; color: #1e293b; box-shadow: 0 8px 18px rgba(15,23,42,0.22); display: flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+        #zeugnis-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(15,23,42,0.26); }
+        #menu-toggle { position: fixed; top: 14px; left: 14px; z-index: 100; background: #0f766e; color: white; border: 1px solid #5eead4; padding: 9px 12px; border-radius: 6px; cursor: pointer; font-weight: 800; }
+        .lang-btn { background: rgba(15,23,42,0.42); color: white; border: 1px solid rgba(203,213,225,0.35); padding: 5px 9px; border-radius: 6px; cursor: pointer; font-size: 0.78em; font-weight: 800; }
+        .lang-btn.active { background: #f8fafc; border-color: white; color: #0f172a; }
+        .home-links { border-bottom: 1px solid #243145; padding: 8px 0; }
+        .home-links .nav-btn { font-weight: 800; }
+        @media (max-width: 820px) {
+            #sidebar { position: fixed; inset: 0 auto 0 0; width: min(88vw, 336px); }
+            #sidebar.collapsed { margin-left: calc(-1 * min(88vw, 336px)); }
+            #content-area { padding: 8px; }
+            iframe { border-radius: 6px; }
+            #zeugnis-btn { right: 8px; padding: 8px 11px; font-size: 0.86em; }
+        }
     </style>
 </head>
 <body>
@@ -53,7 +78,7 @@
     <button id="zeugnis-btn" onclick="loadPage('topics/dashboard.html', null)">🎓 Mein Zeugnis</button>
     <div id="sidebar">
         <div class="sidebar-header">
-            <div style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; padding: 5px 0 15px 0;">
+            <div class="language-row" aria-label="Sprache wählen">
                 <button onclick="setLanguage('de')" class="lang-btn" id="lang-de" title="Deutsch">DE</button>
                 <button onclick="setLanguage('en')" class="lang-btn" id="lang-en" title="English">EN</button>
                 <button onclick="setLanguage('ar')" class="lang-btn" id="lang-ar" title="العربية">AR</button>
@@ -61,20 +86,21 @@
                 <button onclick="setLanguage('sr')" class="lang-btn" id="lang-sr" title="Српски">SR</button>
                 <button onclick="setLanguage('tr')" class="lang-btn" id="lang-tr" title="Türkçe">TR</button>
             </div>
-            <h1>🚀 Physik-Abenteuer</h1>
-            <div style="margin-top: 10px; background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid #3b82f6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);">
-                <div style="font-size: 1.2em; font-weight: bold; color: #fbbf24; margin-bottom: 10px; text-align: center;">
+            <h1 class="sidebar-title">Lernabenteuer</h1>
+            <p class="sidebar-subtitle">MS/AHS Unterstufe · selbstständig üben</p>
+            <div class="sidebar-progress">
+                <div class="score-line">
                     🏆 <span id="global-score-val">0</span> Punkte
                 </div>
-                <div style="display: flex; gap: 5px;">
-                    <button onclick="toggleDarkMode()" id="dark-mode-toggle" style="flex: 1; background: #475569; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Nachtmodus 🌙</button>
-                    <button onclick="resetProgress()" style="flex: 1; background: #e53e3e; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Reset 🔄</button>
+                <div class="sidebar-actions">
+                    <button onclick="toggleDarkMode()" id="dark-mode-toggle" class="small-action-btn">Nachtmodus 🌙</button>
+                    <button onclick="resetProgress()" class="small-action-btn danger">Reset 🔄</button>
                 </div>
             </div>
         </div>
         
-                <div style="padding: 10px 20px;">
-            <select id="subject-select" onchange="handleSubjectChange()" style="width: 100%; padding: 8px; border-radius: 6px; background: var(--main-bg); color: var(--text-color); border: 1px solid var(--nav-btn-active-border); outline: none; margin-bottom: 10px; font-weight: bold; cursor: pointer;">
+        <div class="control-panel">
+            <select id="subject-select" class="subject-select" onchange="handleSubjectChange()" aria-label="Unterrichtsfach auswählen">
                 <option value="physik">🚀 Physik</option>
                 <option value="geographie">🌍 Geographie & Umwelt</option>
                 <option value="dgb">💻 Digitale Grundbildung</option>
@@ -82,14 +108,17 @@
                 <option value="biologie">🧬 Biologie</option>
                 <option value="mathematik">📐 Mathematik</option>
             </select>
-            <div style="display: flex; gap: 5px; margin-bottom: 10px;">
-                <button id="sort-grade-btn" onclick="setSortMode('grade')" style="flex: 1; padding: 6px; border-radius: 4px; border: none; background: var(--nav-btn-active-border); color: white; cursor: pointer; font-size: 0.85em;">Nach Schuljahr</button>
-                <button id="sort-topic-btn" onclick="setSortMode('topic')" style="flex: 1; padding: 6px; border-radius: 4px; border: none; background: var(--nav-btn-active-bg); color: var(--nav-btn-color); cursor: pointer; font-size: 0.85em;">Nach Thema</button>
+            <input id="topic-search" class="topic-search" type="search" placeholder="Thema suchen..." aria-label="Thema suchen" oninput="renderNav()">
+            <div class="sort-row">
+                <button id="sort-grade-btn" class="sort-btn active" onclick="setSortMode('grade')">Schuljahr</button>
+                <button id="sort-topic-btn" class="sort-btn" onclick="setSortMode('topic')">Thema</button>
             </div>
         </div>
 
-        <button class="nav-btn" data-page="topics/start.html" onclick="loadPage('topics/start.html', this)" style="font-weight: bold; color: var(--nav-btn-active-text);">🏠 Startseite</button>
-        <button class="nav-btn" data-page="topics/glossar.html" onclick="loadPage('topics/glossar.html', this)" style="margin-bottom: 10px;">📖 Glossar</button>
+        <div class="home-links">
+            <button class="nav-btn" data-page="topics/start.html" onclick="loadPage('topics/start.html', this)">🏠 Startseite</button>
+            <button class="nav-btn" data-page="topics/glossar.html" onclick="loadPage('topics/glossar.html', this)">📖 Glossar</button>
+        </div>
         
         <div id="dynamic-nav-container"></div>
     </div>
@@ -299,27 +328,31 @@
         function handleSubjectChange() {
             const subject = document.getElementById('subject-select').value;
             setSelectedSubject(subject);
+            const search = document.getElementById('topic-search');
+            if (search) search.value = '';
             renderNav();
         }
 
         function setSortMode(mode) {
             currentSortMode = mode;
-            document.getElementById('sort-grade-btn').style.background = mode === 'grade' ? 'var(--nav-btn-active-border)' : 'var(--nav-btn-active-bg)';
-            document.getElementById('sort-grade-btn').style.color = mode === 'grade' ? 'white' : 'var(--nav-btn-color)';
-            document.getElementById('sort-topic-btn').style.background = mode === 'topic' ? 'var(--nav-btn-active-border)' : 'var(--nav-btn-active-bg)';
-            document.getElementById('sort-topic-btn').style.color = mode === 'topic' ? 'white' : 'var(--nav-btn-color)';
+            document.getElementById('sort-grade-btn').classList.toggle('active', mode === 'grade');
+            document.getElementById('sort-topic-btn').classList.toggle('active', mode === 'topic');
             renderNav();
         }
 
         function renderNav() {
             const subject = document.getElementById('subject-select').value;
             const container = document.getElementById('dynamic-nav-container');
+            const query = (document.getElementById('topic-search')?.value || '').trim().toLowerCase();
             container.innerHTML = '';
             
-            const items = curriculum[subject].topics;
+            const items = curriculum[subject].topics.filter(item => {
+                if (!query) return true;
+                return [item.title, item.grade, item.category].some(value => String(value).toLowerCase().includes(query));
+            });
             
             if (items.length === 0) {
-                container.innerHTML = '<div style="padding: 20px; color: #94a3b8; text-align: center; font-style: italic; font-size: 0.9em;">Inhalte für dieses Fach folgen in Kürze! 🚧</div>';
+                container.innerHTML = '<div class="nav-empty">Keine passenden Themen gefunden.</div>';
                 return;
             }
 
