@@ -43,10 +43,13 @@ node scripts/audit_new_subject_didactics.js
 echo "[13/15] Inline alert audit"
 node scripts/audit_inline_alerts.js
 
-echo "[14/15] Topic syntax audit"
+echo "[14/16] Navigation integrity audit"
+node scripts/audit_navigation_integrity.js
+
+echo "[15/16] Topic syntax audit"
 node scripts/audit_topic_syntax.js
 
-echo "[15/15] Git whitespace/conflict check"
+echo "[16/16] Git whitespace/conflict check"
 git diff --check
 
 echo "QUALITY_GATE_CLEAR"
