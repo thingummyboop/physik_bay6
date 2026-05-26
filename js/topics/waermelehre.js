@@ -9,6 +9,9 @@ let particleHintState = '';
 let soupHeatTimers = [];
 let soupConductionFrame;
 let soupConductionStart = 0;
+let phaseGasFrame;
+let phaseGasLastTime = 0;
+let phaseGasMolecules = [];
 
 function getParticleBounds(temp) {
     const expansion = Math.max(0, Math.min(1, temp / 100));
@@ -493,10 +496,12 @@ function setPhase(phase) {
     };
 
     if(phase === 'ice') {
+        stopPhaseGasMotion();
         if (ice) ice.style.display = '';
         txt.innerText = txt.dataset.iceText || fallbackText.ice;
         txt.style.color = "#1976D2";
     } else if(phase === 'water') {
+        stopPhaseGasMotion();
         if (water) water.style.display = '';
         txt.innerText = txt.dataset.waterText || fallbackText.water;
         txt.style.color = "#0288D1";
@@ -504,7 +509,107 @@ function setPhase(phase) {
         if (steam) steam.style.display = '';
         txt.innerText = txt.dataset.steamText || fallbackText.steam;
         txt.style.color = "#78909C";
+        startPhaseGasMotion();
     }
+}
+
+function stopPhaseGasMotion() {
+    if (phaseGasFrame) {
+        cancelAnimationFrame(phaseGasFrame);
+        phaseGasFrame = null;
+    }
+    phaseGasLastTime = 0;
+}
+
+function startPhaseGasMotion() {
+    const molecules = Array.from(document.querySelectorAll('#phaseSteam .steam-molecule'));
+    if (!molecules.length) return;
+    const starts = [
+        { x: 92, y: 210, vx: 54, vy: -38 },
+        { x: 190, y: 88, vx: 66, vy: 28 },
+        { x: 278, y: 176, vx: -58, vy: -44 },
+        { x: 360, y: 78, vx: -42, vy: 52 },
+        { x: 402, y: 215, vx: -64, vy: -32 }
+    ];
+    phaseGasMolecules = molecules.map((el, i) => {
+        const start = starts[i % starts.length];
+        return {
+            el,
+            x: Number(el.dataset.gasX || start.x),
+            y: Number(el.dataset.gasY || start.y),
+            vx: Number(el.dataset.gasVx || start.vx),
+            vy: Number(el.dataset.gasVy || start.vy),
+            angle: Number(el.dataset.gasAngle || 0)
+        };
+    });
+    stopPhaseGasMotion();
+    phaseGasFrame = requestAnimationFrame(animatePhaseGas);
+}
+
+function animatePhaseGas(timestamp) {
+    const model = document.getElementById('phaseModel');
+    if (!model || model.dataset.phase !== 'steam') {
+        stopPhaseGasMotion();
+        return;
+    }
+
+    const dt = Math.min(0.035, ((timestamp - phaseGasLastTime) || 16) / 1000);
+    phaseGasLastTime = timestamp;
+    const bounds = { left: 76, right: 424, top: 82, bottom: 232 };
+    const radius = 24;
+
+    phaseGasMolecules.forEach(molecule => {
+        molecule.x += molecule.vx * dt;
+        molecule.y += molecule.vy * dt;
+
+        if (molecule.x < bounds.left) {
+            molecule.x = bounds.left;
+            molecule.vx = Math.abs(molecule.vx);
+        } else if (molecule.x > bounds.right) {
+            molecule.x = bounds.right;
+            molecule.vx = -Math.abs(molecule.vx);
+        }
+        if (molecule.y < bounds.top) {
+            molecule.y = bounds.top;
+            molecule.vy = Math.abs(molecule.vy);
+        } else if (molecule.y > bounds.bottom) {
+            molecule.y = bounds.bottom;
+            molecule.vy = -Math.abs(molecule.vy);
+        }
+    });
+
+    for (let i = 0; i < phaseGasMolecules.length; i++) {
+        for (let j = i + 1; j < phaseGasMolecules.length; j++) {
+            const a = phaseGasMolecules[i];
+            const b = phaseGasMolecules[j];
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist > 0 && dist < radius * 1.7) {
+                const nx = dx / dist;
+                const ny = dy / dist;
+                const relativeVelocity = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+                if (relativeVelocity > 0) {
+                    a.vx -= relativeVelocity * nx;
+                    a.vy -= relativeVelocity * ny;
+                    b.vx += relativeVelocity * nx;
+                    b.vy += relativeVelocity * ny;
+                }
+                const push = (radius * 1.7 - dist) / 2;
+                a.x -= nx * push;
+                a.y -= ny * push;
+                b.x += nx * push;
+                b.y += ny * push;
+            }
+        }
+    }
+
+    phaseGasMolecules.forEach(molecule => {
+        molecule.angle = Math.atan2(molecule.vy, molecule.vx) * 180 / Math.PI;
+        molecule.el.setAttribute('transform', `translate(${molecule.x.toFixed(1)} ${molecule.y.toFixed(1)}) rotate(${molecule.angle.toFixed(1)})`);
+    });
+
+    phaseGasFrame = requestAnimationFrame(animatePhaseGas);
 }
 
 // 6. Ausdehnung
