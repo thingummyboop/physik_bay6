@@ -93,8 +93,10 @@ if (deOnlyTopics.length) {
 }
 
 const scriptOnlyTopics = [...topicScripts].filter((topicId) => !navSet.has(topicId)).sort();
-if (scriptOnlyTopics.length) {
-  warnings.push(`Topic scripts not used by navigation: ${scriptOnlyTopics.join(', ')}`);
+const ignoredSharedScripts = new Set(['chemie_common']);
+const reportableScriptOnlyTopics = scriptOnlyTopics.filter((topicId) => !ignoredSharedScripts.has(topicId));
+if (reportableScriptOnlyTopics.length) {
+  warnings.push(`Topic scripts not used by navigation: ${reportableScriptOnlyTopics.join(', ')}`);
 }
 
 if (warnings.length) {
