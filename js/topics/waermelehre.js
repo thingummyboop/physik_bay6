@@ -6,6 +6,9 @@ let burnerInterval;
 let coolingInterval;
 let sunTimer;
 let particleHintState = '';
+let soupHeatTimers = [];
+let soupConductionFrame;
+let soupConductionStart = 0;
 
 function getParticleBounds(temp) {
     const expansion = Math.max(0, Math.min(1, temp / 100));
@@ -61,6 +64,7 @@ function topicInit() {
     // Initial calls
     particleHintState = '';
     updateThermometer();
+    resetSoupConductionModel();
     setPhase('ice');
 }
 
@@ -198,6 +202,104 @@ function animateParticles() {
 }
 
 // 2. Wärmeleitung
+function clearSoupHeatTimers() {
+    soupHeatTimers.forEach((timer) => clearTimeout(timer));
+    soupHeatTimers = [];
+}
+
+function getSoupConductionAtoms() {
+    return Array.from(document.querySelectorAll('.conduction-atom'));
+}
+
+function resetSoupConductionModel() {
+    clearSoupHeatTimers();
+    stopSoupConductionVibration(true);
+
+    const diagram = document.getElementById('soupDiagram');
+    if (diagram) diagram.classList.remove('is-heating', 'is-hot');
+
+    document.querySelectorAll('.conduction-spring').forEach((spring) => {
+        spring.setAttribute('stroke', '#94a3b8');
+        spring.setAttribute('stroke-width', '3');
+    });
+
+    getSoupConductionAtoms().forEach((atom) => {
+        atom.setAttribute('fill', '#cbd5e1');
+        atom.setAttribute('stroke', '#64748b');
+        atom.setAttribute('cx', atom.dataset.baseCx || atom.getAttribute('cx'));
+        atom.setAttribute('cy', atom.dataset.baseCy || atom.getAttribute('cy'));
+    });
+
+    document.querySelectorAll('.conduction-energy').forEach((energy) => {
+        energy.setAttribute('opacity', '0');
+    });
+}
+
+function setSoupConductionProgress(progress) {
+    const atoms = getSoupConductionAtoms();
+    atoms.forEach((atom) => {
+        const row = Number(atom.dataset.row || 0);
+        const heatAtRow = Math.max(0, Math.min(1, progress * 1.25 - row * 0.28));
+        const color = heatAtRow > 0.72 ? '#ef4444' : heatAtRow > 0.35 ? '#f97316' : heatAtRow > 0.08 ? '#facc15' : '#cbd5e1';
+        atom.setAttribute('fill', color);
+        atom.setAttribute('stroke', heatAtRow > 0.2 ? '#b91c1c' : '#64748b');
+    });
+
+    document.querySelectorAll('.conduction-spring').forEach((spring) => {
+        const row = Number(spring.dataset.row || 0);
+        const heatAtRow = Math.max(0, Math.min(1, progress * 1.2 - row * 0.28));
+        spring.setAttribute('stroke', heatAtRow > 0.45 ? '#f97316' : heatAtRow > 0.15 ? '#facc15' : '#94a3b8');
+        spring.setAttribute('stroke-width', heatAtRow > 0.45 ? '4' : '3');
+    });
+
+    document.querySelectorAll('.conduction-energy').forEach((energy) => {
+        const index = Number(energy.dataset.step || 0);
+        const visible = progress > 0.18 + index * 0.18;
+        energy.setAttribute('opacity', visible ? '1' : '0');
+    });
+}
+
+function startSoupConductionVibration() {
+    stopSoupConductionVibration(false);
+    const atoms = getSoupConductionAtoms();
+    atoms.forEach((atom) => {
+        if (!atom.dataset.baseCx) atom.dataset.baseCx = atom.getAttribute('cx');
+        if (!atom.dataset.baseCy) atom.dataset.baseCy = atom.getAttribute('cy');
+    });
+
+    const diagram = document.getElementById('soupDiagram');
+    if (diagram) diagram.classList.add('is-heating');
+
+    soupConductionStart = performance.now();
+    const vibrate = (now) => {
+        const elapsed = (now - soupConductionStart) / 1000;
+        atoms.forEach((atom) => {
+            const row = Number(atom.dataset.row || 0);
+            const col = Number(atom.dataset.col || 0);
+            const baseCx = Number(atom.dataset.baseCx);
+            const baseCy = Number(atom.dataset.baseCy);
+            const heatLevel = atom.getAttribute('fill') === '#cbd5e1' ? 0.5 : 1.8;
+            const dx = Math.sin(elapsed * 24 + row * 1.7 + col * 0.9) * heatLevel;
+            const dy = Math.cos(elapsed * 27 + row * 1.1 + col * 1.4) * heatLevel;
+            atom.setAttribute('cx', (baseCx + dx).toFixed(2));
+            atom.setAttribute('cy', (baseCy + dy).toFixed(2));
+        });
+        soupConductionFrame = requestAnimationFrame(vibrate);
+    };
+    soupConductionFrame = requestAnimationFrame(vibrate);
+}
+
+function stopSoupConductionVibration(resetPositions) {
+    if (soupConductionFrame) cancelAnimationFrame(soupConductionFrame);
+    soupConductionFrame = null;
+    if (resetPositions) {
+        getSoupConductionAtoms().forEach((atom) => {
+            if (atom.dataset.baseCx) atom.setAttribute('cx', atom.dataset.baseCx);
+            if (atom.dataset.baseCy) atom.setAttribute('cy', atom.dataset.baseCy);
+        });
+    }
+}
+
 function heatSoup() {
     let btn = document.getElementById('soupBtn');
     let mSpoon = document.getElementById('metalSpoon');
@@ -206,25 +308,36 @@ function heatSoup() {
     let txt = document.getElementById('soupText');
     if (!btn || !mSpoon || !soup || !txt) return;
 
+    resetSoupConductionModel();
     btn.disabled = true;
     soup.setAttribute('fill', '#FF5722');
     txt.innerText = "Suppe kocht! Die Wärme wandert den Metalllöffel hinauf...";
     txt.style.color = "#FF5722";
+    startSoupConductionVibration();
 
-    setTimeout(() => {
+    const diagram = document.getElementById('soupDiagram');
+    if (diagram) diagram.classList.add('is-heating');
+
+    [0.2, 0.4, 0.6, 0.8, 1].forEach((progress, index) => {
+        soupHeatTimers.push(setTimeout(() => setSoupConductionProgress(progress), 350 + index * 500));
+    });
+
+    soupHeatTimers.push(setTimeout(() => {
         if (mSpoonBowl) mSpoonBowl.setAttribute('fill', '#ef5350');
         mSpoon.setAttribute('fill', '#ef5350');
+        if (diagram) diagram.classList.add('is-hot');
         txt.innerText = "Aua! Der Metalllöffel ist oben heiß! Das Holz bleibt kalt.";
         
-        setTimeout(() => {
+        soupHeatTimers.push(setTimeout(() => {
+            resetSoupConductionModel();
             mSpoon.setAttribute('fill', '#cfd8dc');
             if (mSpoonBowl) mSpoonBowl.setAttribute('fill', '#cfd8dc');
             soup.setAttribute('fill', '#ffb74d');
             txt.innerText = "Alles wieder abgekühlt.";
             txt.style.color = "#718096";
             btn.disabled = false;
-        }, 4000);
-    }, 500);
+        }, 4000));
+    }, 2800));
 }
 
 // 3. Wärmestrahlung
