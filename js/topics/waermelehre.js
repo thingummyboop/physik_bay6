@@ -7,6 +7,20 @@ let coolingInterval;
 let sunTimer;
 let particleHintState = '';
 
+function getParticleBounds(temp) {
+    const expansion = Math.max(0, Math.min(1, temp / 100));
+    const width = 220 + expansion * 70;
+    const height = 130 + expansion * 55;
+    return {
+        xMin: (300 - width) / 2,
+        xMax: (300 + width) / 2,
+        yMin: (200 - height) / 2,
+        yMax: (200 + height) / 2,
+        width,
+        height
+    };
+}
+
 function topicInit() {
     enhanceAccessibility();
 
@@ -14,11 +28,23 @@ function topicInit() {
     const particleSvg = document.getElementById('particleSvg');
     if (particleSvg) {
         particleSvg.innerHTML = '';
+        particleSvg.setAttribute('viewBox', '0 0 300 200');
+        particleSvg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        const expansionBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        expansionBox.setAttribute('id', 'particleExpansionBox');
+        expansionBox.setAttribute('rx', '12');
+        expansionBox.setAttribute('fill', 'rgba(239, 68, 68, 0.08)');
+        expansionBox.setAttribute('stroke', '#ef4444');
+        expansionBox.setAttribute('stroke-width', '3');
+        expansionBox.setAttribute('stroke-dasharray', '8 6');
+        particleSvg.appendChild(expansionBox);
+
+        const initialBounds = getParticleBounds(Number(document.getElementById('tempRange')?.value || 10));
         particlesData = [];
         for(let i=0; i<60; i++) {
             let p = {
-                x: 20 + Math.random() * 260,
-                y: 20 + Math.random() * 160,
+                x: initialBounds.xMin + 12 + Math.random() * (initialBounds.width - 24),
+                y: initialBounds.yMin + 12 + Math.random() * (initialBounds.height - 24),
                 el: document.createElementNS('http://www.w3.org/2000/svg', 'circle')
             };
             p.el.setAttribute('cx', p.x);
@@ -121,7 +147,20 @@ function animateParticles() {
     let color = temp < 40 ? '#1976D2' : (temp < 70 ? '#FF9800' : '#E53935');
     
     let bgBox = document.getElementById('particleBox');
-    if (bgBox) bgBox.style.background = temp < 40 ? '#e3f2fd' : (temp < 70 ? '#fff3e0' : '#ffebee');
+    const bounds = getParticleBounds(temp);
+    if (bgBox) {
+        bgBox.style.background = temp < 40 ? '#e3f2fd' : (temp < 70 ? '#fff3e0' : '#ffebee');
+        bgBox.style.transition = 'background 0.25s ease';
+    }
+    const expansionBox = document.getElementById('particleExpansionBox');
+    if (expansionBox) {
+        expansionBox.setAttribute('x', bounds.xMin.toFixed(1));
+        expansionBox.setAttribute('y', bounds.yMin.toFixed(1));
+        expansionBox.setAttribute('width', bounds.width.toFixed(1));
+        expansionBox.setAttribute('height', bounds.height.toFixed(1));
+        expansionBox.setAttribute('stroke', color);
+        expansionBox.setAttribute('fill', temp < 40 ? 'rgba(25, 118, 210, 0.07)' : (temp < 70 ? 'rgba(255, 152, 0, 0.08)' : 'rgba(229, 57, 53, 0.10)'));
+    }
     
     let tempLabel = temp < 40 ? "Kalt" : (temp < 70 ? "Warm" : "Heiß!");
     let txt = document.getElementById('tempValue');
@@ -146,8 +185,10 @@ function animateParticles() {
         
         let newX = p.x + jitterX;
         let newY = p.y + jitterY;
-        if(newX > 10 && newX < 290) p.x = newX;
-        if(newY > 10 && newY < 190) p.y = newY;
+        if(newX > bounds.xMin + 8 && newX < bounds.xMax - 8) p.x = newX;
+        else p.x = Math.min(bounds.xMax - 8, Math.max(bounds.xMin + 8, p.x));
+        if(newY > bounds.yMin + 8 && newY < bounds.yMax - 8) p.y = newY;
+        else p.y = Math.min(bounds.yMax - 8, Math.max(bounds.yMin + 8, p.y));
 
         p.el.setAttribute('cx', p.x);
         p.el.setAttribute('cy', p.y);
