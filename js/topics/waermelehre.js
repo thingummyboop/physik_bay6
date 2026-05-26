@@ -211,6 +211,10 @@ function getSoupConductionAtoms() {
     return Array.from(document.querySelectorAll('.conduction-atom'));
 }
 
+function getSoupWoodNodes() {
+    return Array.from(document.querySelectorAll('.wood-fiber-node'));
+}
+
 function resetSoupConductionModel() {
     clearSoupHeatTimers();
     stopSoupConductionVibration(true);
@@ -232,6 +236,18 @@ function resetSoupConductionModel() {
 
     document.querySelectorAll('.conduction-energy').forEach((energy) => {
         energy.setAttribute('opacity', '0');
+    });
+
+    getSoupWoodNodes().forEach((node) => {
+        node.setAttribute('fill', node.dataset.baseFill || '#a16207');
+        node.setAttribute('stroke', '#78350f');
+        node.setAttribute('cx', node.dataset.baseCx || node.getAttribute('cx'));
+        node.setAttribute('cy', node.dataset.baseCy || node.getAttribute('cy'));
+    });
+
+    document.querySelectorAll('.wood-damping-wave').forEach((wave) => {
+        wave.setAttribute('opacity', '0');
+        wave.setAttribute('stroke-width', '3');
     });
 }
 
@@ -257,6 +273,21 @@ function setSoupConductionProgress(progress) {
         const visible = progress > 0.18 + index * 0.18;
         energy.setAttribute('opacity', visible ? '1' : '0');
     });
+
+    getSoupWoodNodes().forEach((node) => {
+        const index = Number(node.dataset.index || 0);
+        const heatAtNode = Math.max(0, Math.min(1, progress * 0.9 - index * 0.18));
+        const color = heatAtNode > 0.55 ? '#d97706' : heatAtNode > 0.22 ? '#f59e0b' : (node.dataset.baseFill || '#a16207');
+        node.setAttribute('fill', color);
+        node.setAttribute('stroke', heatAtNode > 0.35 ? '#92400e' : '#78350f');
+    });
+
+    document.querySelectorAll('.wood-damping-wave').forEach((wave) => {
+        const index = Number(wave.dataset.step || 0);
+        const waveStrength = Math.max(0, Math.min(1, progress * 1.1 - index * 0.26));
+        wave.setAttribute('opacity', waveStrength > 0.12 ? String(0.8 - index * 0.18) : '0');
+        wave.setAttribute('stroke-width', String(Math.max(1.2, 4 - index * 0.55)));
+    });
 }
 
 function startSoupConductionVibration() {
@@ -265,6 +296,12 @@ function startSoupConductionVibration() {
     atoms.forEach((atom) => {
         if (!atom.dataset.baseCx) atom.dataset.baseCx = atom.getAttribute('cx');
         if (!atom.dataset.baseCy) atom.dataset.baseCy = atom.getAttribute('cy');
+    });
+    const woodNodes = getSoupWoodNodes();
+    woodNodes.forEach((node) => {
+        if (!node.dataset.baseCx) node.dataset.baseCx = node.getAttribute('cx');
+        if (!node.dataset.baseCy) node.dataset.baseCy = node.getAttribute('cy');
+        if (!node.dataset.baseFill) node.dataset.baseFill = node.getAttribute('fill');
     });
 
     const diagram = document.getElementById('soupDiagram');
@@ -284,6 +321,18 @@ function startSoupConductionVibration() {
             atom.setAttribute('cx', (baseCx + dx).toFixed(2));
             atom.setAttribute('cy', (baseCy + dy).toFixed(2));
         });
+        woodNodes.forEach((node) => {
+            const index = Number(node.dataset.index || 0);
+            const baseCx = Number(node.dataset.baseCx);
+            const baseCy = Number(node.dataset.baseCy);
+            const damping = Math.max(0.15, 1 - index * 0.12);
+            const isWarm = node.getAttribute('fill') !== node.dataset.baseFill;
+            const heatLevel = (isWarm ? 1.05 : 0.3) * damping;
+            const dx = Math.sin(elapsed * 16 + index * 1.4) * heatLevel;
+            const dy = Math.cos(elapsed * 13 + index * 0.8) * heatLevel;
+            node.setAttribute('cx', (baseCx + dx).toFixed(2));
+            node.setAttribute('cy', (baseCy + dy).toFixed(2));
+        });
         soupConductionFrame = requestAnimationFrame(vibrate);
     };
     soupConductionFrame = requestAnimationFrame(vibrate);
@@ -296,6 +345,10 @@ function stopSoupConductionVibration(resetPositions) {
         getSoupConductionAtoms().forEach((atom) => {
             if (atom.dataset.baseCx) atom.setAttribute('cx', atom.dataset.baseCx);
             if (atom.dataset.baseCy) atom.setAttribute('cy', atom.dataset.baseCy);
+        });
+        getSoupWoodNodes().forEach((node) => {
+            if (node.dataset.baseCx) node.setAttribute('cx', node.dataset.baseCx);
+            if (node.dataset.baseCy) node.setAttribute('cy', node.dataset.baseCy);
         });
     }
 }
