@@ -36,13 +36,25 @@ class WaermelehreTeilchen(Scene):
 
         self.play(FadeIn(cold_dots), FadeIn(hot_dots))
 
+        def keep_dot_inside_box(dot, box):
+            center = box.get_center()
+            margin = dot.radius + 0.12
+            half_width = box.get_width() / 2 - margin
+            half_height = box.get_height() / 2 - margin
+            position = dot.get_center()
+            x = min(max(position[0], center[0] - half_width), center[0] + half_width)
+            y = min(max(position[1], center[1] - half_height), center[1] + half_height)
+            dot.move_to([x, y, position[2]])
+
         def update_cold(mobs, dt):
             for dot in mobs:
                 dot.shift((RIGHT * random.uniform(-0.5, 0.5) + UP * random.uniform(-0.5, 0.5)) * dt)
+                keep_dot_inside_box(dot, box_cold)
 
         def update_hot(mobs, dt):
             for dot in mobs:
                 dot.shift((RIGHT * random.uniform(-12, 12) + UP * random.uniform(-12, 12)) * dt)
+                keep_dot_inside_box(dot, box_hot)
 
         cold_dots.add_updater(update_cold)
         hot_dots.add_updater(update_hot)

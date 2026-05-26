@@ -185,10 +185,9 @@ function animateParticles() {
         
         let newX = p.x + jitterX;
         let newY = p.y + jitterY;
-        if(newX > bounds.xMin + 8 && newX < bounds.xMax - 8) p.x = newX;
-        else p.x = Math.min(bounds.xMax - 8, Math.max(bounds.xMin + 8, p.x));
-        if(newY > bounds.yMin + 8 && newY < bounds.yMax - 8) p.y = newY;
-        else p.y = Math.min(bounds.yMax - 8, Math.max(bounds.yMin + 8, p.y));
+        const particleMargin = 10;
+        p.x = Math.min(bounds.xMax - particleMargin, Math.max(bounds.xMin + particleMargin, newX));
+        p.y = Math.min(bounds.yMax - particleMargin, Math.max(bounds.yMin + particleMargin, newY));
 
         p.el.setAttribute('cx', p.x);
         p.el.setAttribute('cy', p.y);
