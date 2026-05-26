@@ -7205,30 +7205,30 @@
       },
       {
         "id": "sec5",
-        "title": "5. The dominoes of the earth (tipping points)",
-        "content": "<p>Imagine leaning further and further back on a chair. Nothing happens for a long time, but suddenly you reach a point where you inevitably fall backwards. This is a <strong>tipping point</strong>.</p>\n        <p>There are tipping points like this in our climate. When they fall, they trigger a chain reaction (like dominoes) that we humans <strong>can no longer stop</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 The Tipping Point Chain Reaction</h3>\n            <p>Click on the first domino to see what could happen if we ignore the limit:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Toast stone 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Greenland ice is melting 🧊</strong><br><span style=\"font-size:0.8em;\">Fresh water flows into the ocean.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Gulf Stream stops 🌊</strong><br><span style=\"font-size:0.8em;\">The low-salinity water is too light to sink. The current stops.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Amazon dries up 🌳</strong><br><span style=\"font-size:0.8em;\">Without the current, the rain in South America changes. The rainforest is dying.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Permafrost is thawing 🌫️</strong><br><span style=\"font-size:0.8em;\">Nature no longer stores CO2. Methane escapes -> Earth overheats!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 When the first stone falls, we can't stop the rest!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
+        "title": "5. Tipping points: risks instead of scary domino images",
+        "content": "\n<p>A <strong>tipping point</strong> is a range where part of the climate system can shift into a new state. It does not happen like a movie scene from one second to the next. Some processes take decades or centuries. Still, they matter because they can be difficult to reverse.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Risk slider: understanding tipping points carefully</h3>\n  <p>Tipping points are not a simple domino show with an exact date. They are ranges where the risk of hard-to-reverse changes grows.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"Warming in degrees Celsius\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>Coral reefs</strong><br>Many reefs are already under strong stress at lower warming levels.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>Alpine glaciers</strong><br>Further ice loss changes water supply, tourism and natural hazards.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>Permafrost</strong><br>Thawing ground can release additional greenhouse gases.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>Large ice sheets</strong><br>Slow but very long-term sea-level consequences become more likely.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>Key idea:</strong> 1.5 °C is not a magic wall. But every tenth of a degree less warming reduces risks, damage and pressure to adapt.</div>\n{{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "What happens if the permafrost in Siberia thaws?",
+            "question": "Which statement about tipping points is best?",
             "answers": [
               {
-                "text": "It releases huge amounts of the greenhouse gas methane, which heats the earth even faster.",
+                "text": "As warming rises, the risk of hard-to-reverse changes grows.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Correct: Thawing permafrost can release methane and increase warming."
+                "feedback": "Correct. It is about risk ranges, not an exact domino clock."
               },
               {
-                "text": "Palm trees immediately grow there.",
+                "text": "When a tipping point is reached, the whole Earth immediately falls over.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Thawing does not immediately mean a tropical climate. What is important is that methane can be released."
+                "feedback": "That is too dramatic and incorrect. Individual systems can change strongly."
               },
               {
                 "text": "Tipping points have nothing to do with temperature.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "But. The level of warming influences many risks."
+                "feedback": "They do. The amount of warming influences many risks."
               }
             ]
           }

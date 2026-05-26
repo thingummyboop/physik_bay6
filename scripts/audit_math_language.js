@@ -20,6 +20,10 @@ const mathTopics = fs
   .sort();
 
 const MAX_FEEDBACK_LENGTH = 180;
+const JS_DRIVEN_FEEDBACK_TOPICS = new Set([
+  'math_kaenguru',
+  'mathespiel'
+]);
 const GENERIC_FEEDBACK_MARKERS = new Set([
   'richtig',
   'falsch',
@@ -84,7 +88,7 @@ for (const fileName of languageFiles) {
   }
 
   for (const [topicKey, scannedCount] of perLanguageTopicCoverage[langCode].entries()) {
-    if (scannedCount === 0) {
+    if (scannedCount === 0 && !JS_DRIVEN_FEEDBACK_TOPICS.has(topicKey)) {
       issues.push({
         lang: langCode,
         path: topicKey,

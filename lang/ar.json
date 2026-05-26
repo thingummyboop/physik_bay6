@@ -7205,30 +7205,30 @@
       },
       {
         "id": "sec5",
-        "title": "5. أحجار الدومينو على الأرض (نقاط التحول)",
-        "content": "<p> تخيل أنك تميل أكثر فأكثر إلى الخلف على الكرسي. لا شيء يحدث لفترة طويلة، لكن فجأة تصل إلى نقطة تتراجع فيها حتماً إلى الوراء. هذه <strong>نقطة التحول</strong>.</p>\n        <p> هناك نقاط تحول كهذه في مناخنا. عندما تسقط، فإنها تؤدي إلى سلسلة من ردود الفعل (مثل الدومينو) التي لم يعد بإمكاننا نحن البشر <strong> إيقافها</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 تفاعل سلسلة نقاط التحول</h3>\n            <p> انقر على قطعة الدومينو الأولى لمعرفة ما يمكن أن يحدث إذا تجاهلنا الحد:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. حجر التوست 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. جليد جرينلاند يذوب 🧊</strong><span style=\"font-size:0.8em;\">تتدفق المياه العذبة إلى المحيط.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. توقف تيار الخليج 🌊</strong><br><span style=\"font-size:0.8em;\"> المياه منخفضة الملوحة خفيفة جدًا بحيث لا يمكن غرقها. يتوقف التيار.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. جفاف الأمازون 🌳</strong><br> بدون التيار يتغير المطر في أمريكا الجنوبية. الغابة المطيرة تحتضر.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. التربة الصقيعية تذوب 🌫️</strong><br><span style=\"font-size:0.8em;\"> لم تعد الطبيعة تخزن ثاني أكسيد الكربون. هروب الميثان -> ارتفاع درجة حرارة الأرض!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 عندما يسقط الحجر الأول، لا يمكننا إيقاف الباقي!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
+        "title": "5. نقاط التحول: مخاطر بدلا من صورة دومينو مخيفة",
+        "content": "\n<p><strong>نقطة التحول</strong> هي مجال يمكن أن ينتقل فيه جزء من نظام المناخ إلى حالة جديدة. هذا لا يحدث مثل مشهد في فيلم خلال ثانية واحدة. بعض العمليات قد تستغرق عقودا أو قرونا. لكنها مهمة، لأن عكسها قد يكون صعبا.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>مؤشر المخاطر: فهم نقاط التحول بحذر</h3>\n  <p>نقاط التحول ليست عرض دومينو بسيطا له تاريخ دقيق. إنها مجالات يزداد فيها خطر تغيرات يصعب عكسها.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"الاحترار بدرجات مئوية\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>الشعاب المرجانية</strong><br>كثير من الشعاب يتعرض لضغط قوي حتى عند مستويات احترار منخفضة.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>الأنهار الجليدية في الألب</strong><br>فقدان المزيد من الجليد يغير توازن المياه والسياحة والأخطار الطبيعية.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>التربة المتجمدة</strong><br>ذوبان التربة المتجمدة يمكن أن يطلق غازات دفيئة إضافية.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>صفائح الجليد الكبيرة</strong><br>تصبح آثار مستوى البحر البطيئة والطويلة جدا أكثر احتمالا.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>الفكرة المهمة:</strong> 1.5 °C ليست جدارا سحريا. لكن كل عُشر درجة أقل من الاحترار يقلل المخاطر والأضرار وضغط التكيف.</div>\n{{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "ماذا يحدث إذا ذابت التربة الصقيعية في سيبيريا؟",
+            "question": "أي عبارة عن نقاط التحول هي الأفضل؟",
             "answers": [
               {
-                "text": "فهو يطلق كميات هائلة من غاز الميثان، وهو غاز الدفيئة، الذي يسخن الأرض بشكل أسرع.",
+                "text": "كلما زاد الاحترار زاد خطر تغيرات يصعب عكسها.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "صحيح: ذوبان التربة الصقيعية يمكن أن يؤدي إلى إطلاق غاز الميثان وزيادة الاحتباس الحراري."
+                "feedback": "صحيح. الأمر يتعلق بمجالات خطر، وليس بساعة دومينو دقيقة."
               },
               {
-                "text": "تنمو أشجار النخيل هناك على الفور.",
+                "text": "عند الوصول إلى نقطة تحول تنقلب الأرض كلها فورا.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "الذوبان لا يعني على الفور مناخًا استوائيًا. المهم هو إمكانية إطلاق غاز الميثان."
+                "feedback": "هذا وصف مبالغ فيه وغير صحيح. قد تتغير أنظمة منفردة بقوة."
               },
               {
                 "text": "نقاط التحول لا علاقة لها بدرجة الحرارة.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "لكن. يؤثر مستوى الاحترار على العديد من المخاطر."
+                "feedback": "بل لها علاقة. مقدار الاحترار يؤثر في كثير من المخاطر."
               }
             ]
           }

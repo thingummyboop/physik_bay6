@@ -7205,30 +7205,30 @@
       },
       {
         "id": "sec5",
-        "title": "5. Доміно землі (переломні точки)",
-        "content": "<p>Уявіть, що ви все більше відкидаєтеся на спинку стільця. Довгий час нічого не відбувається, але раптом ви досягаєте точки, де неминуче падаєте назад. Це <strong>переломний момент</strong>.</p>\n        <p>У нашому кліматі є такі переломні моменти. Коли вони падають, вони викликають ланцюгову реакцію (як доміно), яку ми, люди <strong>більше не можемо зупинити</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Ланцюгова реакція переломного моменту</h3>\n            <p>Натисніть першу доміно, щоб побачити, що може статися, якщо ми проігноруємо обмеження:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Тостовий камінь 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Гренландський лід тане 🧊</strong><br><span style=\"font-size:0.8em;\">Прісна вода тече в океан.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Гольфстрім зупиняється 🌊</strong><br><span style=\"font-size:0.8em;\">Вода з низькою солоністю занадто легка, щоб тонути. Струм припиняється.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Амазонка висихає 🌳</strong><br><span style=\"font-size:0.8em;\">Без течії дощі в Південній Америці змінюються. Тропічний ліс вмирає.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Вічна мерзлота тане 🌫️</strong><br><span style=\"font-size:0.8em;\">Природа більше не зберігає CO2. Витік метану -> Земля перегрівається!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 Коли падає перший камінь, ми не можемо зупинити решту!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
+        "title": "5. Критичні точки: ризики замість страшного доміно",
+        "content": "\n<p><strong>Критична точка</strong> — це діапазон, у якому частина кліматичної системи може перейти в новий стан. Це не відбувається як у фільмі за одну секунду. Деякі процеси тривають десятиліттями або століттями. Але вони важливі, бо їх може бути важко повернути назад.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Регулятор ризику: обережно розуміти критичні точки</h3>\n  <p>Критичні точки — це не просте доміно з точною датою. Це діапазони, у яких зростає ризик змін, які важко повернути назад.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"Потепління у градусах Цельсія\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>Коралові рифи</strong><br>Багато рифів уже за нижчого потепління зазнають сильного стресу.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>Альпійські льодовики</strong><br>Подальша втрата льоду змінює водний баланс, туризм і природні небезпеки.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>Вічна мерзлота</strong><br>Танення мерзлих ґрунтів може вивільняти додаткові парникові гази.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>Великі крижані щити</strong><br>Повільні, але дуже довготривалі наслідки для рівня моря стають імовірнішими.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>Головна думка:</strong> 1,5 °C — це не магічна стіна. Але кожна десята частка градуса меншого потепління зменшує ризики, шкоду і тиск адаптації.</div>\n{{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "Що станеться, якщо вічна мерзлота в Сибіру відтане?",
+            "question": "Яке твердження про критичні точки найкраще?",
             "answers": [
               {
-                "text": "Він виділяє величезну кількість парникового газу метану, який нагріває землю ще швидше.",
+                "text": "Зі зростанням потепління зростає ризик змін, які важко повернути назад.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Правильно: відтавання вічної мерзлоти може вивільняти метан і посилювати потепління."
+                "feedback": "Правильно. Йдеться про діапазони ризику, а не про точний годинник доміно."
               },
               {
-                "text": "Там одразу ростуть пальми.",
+                "text": "Коли досягнуто критичної точки, уся Земля одразу перекидається.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Відлига не відразу означає тропічний клімат. Важливо те, що метан може вивільнятися."
+                "feedback": "Це надто драматично і неправильно. Окремі системи можуть сильно змінюватися."
               },
               {
-                "text": "Точки перелому не мають нічого спільного з температурою.",
+                "text": "Критичні точки не мають нічого спільного з температурою.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "але. Рівень потепління впливає на багато ризиків."
+                "feedback": "Мають. Рівень потепління впливає на багато ризиків."
               }
             ]
           }

@@ -7205,30 +7205,30 @@
       },
       {
         "id": "sec5",
-        "title": "5. Домино земље (преломне тачке)",
-        "content": "<p>Замислите да се све више наслоните на столицу. Дуго се ништа не дешава, али одједном дођете до тачке у којој неизбежно падате уназад. Ово је <strong> преломна тачка</strong>.</p>\n        <p>Постоје овакве прекретнице у нашем поднебљу. Када падну, покрећу ланчану реакцију (као домине) коју ми људи <strong> више не можемо да зауставимо</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Преломна тачка Ланчана реакција</h3>\n            <p>Кликните на прву домино да видите шта би се могло догодити ако занемаримо ограничење:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Камен за здравицу 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Лед на Гренланду се топи 🧊</strong><br><span style=\"font-size:0.8em;\">Свежа вода тече у океан.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Голфска струја се зауставља 🌊</strong><br><span style=\"font-size:0.8em;\">Вода ниског салинитета је превише лагана да би потонула. Струја се зауставља.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Амазон се суши 🌳</strong><br><span style=\"font-size:0.8em;\">Без струје, киша у Јужној Америци се мења. Прашума умире.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Пермафрост се отапа 🌫</strong><br><span style=\"font-size:0.8em;\">Природа више не складишти ЦО2. Метан излази -> Земља се прегрева!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 Када падне први камен, не можемо зауставити остале!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
+        "title": "5. Преломне тачке: ризици уместо страшног домина",
+        "content": "\n<p><strong>Преломна тачка</strong> је опсег у коме део климатског система може прећи у ново стање. То се не дешава као у филму, из једне секунде у другу. Неки процеси трају деценијама или вековима. Ипак су важни, јер их може бити тешко вратити назад.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Клизач ризика: пажљиво разумевање преломних тачака</h3>\n  <p>Преломне тачке нису једноставна домино-представа са тачним датумом. То су опсези у којима расте ризик од промена које је тешко преокренути.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"Загревање у степенима Целзијуса\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>Корални гребени</strong><br>Многи гребени су већ при нижем загревању под јаким стресом.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>Алпски глечери</strong><br>Даљи губитак леда мења водни биланс, туризам и природне опасности.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>Пермафрост</strong><br>Одмрзавање тла може ослободити додатне гасове стаклене баште.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>Велики ледени покривачи</strong><br>Споре, али веома дугорочне последице по ниво мора постају вероватније.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>Запамти:</strong> 1,5 °C није магични зид. Али свака десетина степена мањег загревања смањује ризике, штету и притисак прилагођавања.</div>\n{{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "Шта се дешава ако се пермафрост у Сибиру одмрзне?",
+            "question": "Која изјава о преломним тачкама је најбоља?",
             "answers": [
               {
-                "text": "Ослобађа огромне количине метана са ефектом стаклене баште, који још брже загрева земљу.",
+                "text": "Како загревање расте, расте ризик од промена које је тешко преокренути.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Тачно: Одмрзавање пермафроста може ослободити метан и повећати загревање."
+                "feedback": "Тачно. Ради се о опсезима ризика, а не о тачном домино сату."
               },
               {
-                "text": "Ту одмах расту палме.",
+                "text": "Када се достигне преломна тачка, цела Земља се одмах преврне.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Одмрзавање не значи одмах тропску климу. Оно што је важно је да се метан може ослободити."
+                "feedback": "То је превише драматично и нетачно. Поједини системи могу снажно да се промене."
               },
               {
-                "text": "Прекретнице немају никакве везе са температуром.",
+                "text": "Преломне тачке немају никакве везе са температуром.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Али. Ниво загревања утиче на многе ризике."
+                "feedback": "Имају. Количина загревања утиче на многе ризике."
               }
             ]
           }

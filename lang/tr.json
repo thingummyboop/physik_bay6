@@ -7205,30 +7205,30 @@
       },
       {
         "id": "sec5",
-        "title": "5. Dünyanın domino taşları (devrilme noktaları)",
-        "content": "<p>Bir sandalyeye daha da geriye yaslandığınızı hayal edin. Uzun süre hiçbir şey olmuyor ama bir anda öyle bir noktaya geliyorsunuz ki kaçınılmaz olarak geriye düşüyorsunuz. Bu bir <strong>taşma noktası</strong>.</p>\n        <p>İklimimizde bunun gibi devrilme noktaları var. Düştüklerinde, biz insanların <strong>artık durduramayacağı bir zincirleme reaksiyonu (domino taşları gibi) tetiklerler</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 Devrilme Noktası Zincirleme Reaksiyonu</h3>\n            <p>Sınırı göz ardı edersek neler olabileceğini görmek için ilk domino taşına tıklayın:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. Tost taşı 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. Grönland buzu eriyor 🧊</strong><br><span style=\"font-size:0.8em;\">Tatlı su okyanusa akıyor.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. Körfez Akıntısı duruyor 🌊</strong><br><span style=\"font-size:0.8em;\">Düşük tuzlu su batmak için çok hafif. Akım durur.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. Amazon kurur 🌳</strong><br><span style=\"font-size:0.8em;\">Akıntı olmazsa Güney Amerika'da yağmur değişir. Yağmur ormanları ölüyor.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. Permafrost çözülüyor 🌫️</strong><br><span style=\"font-size:0.8em;\">Nature artık CO2 depolamıyor. Metan kaçıyor -> Dünya aşırı ısınıyor!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 İlk taş düştüğünde gerisini durduramayız!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
+        "title": "5. Devrilme noktaları: korkutucu domino yerine riskler",
+        "content": "\n<p><strong>Devrilme noktası</strong>, iklim sisteminin bir bölümünün yeni bir duruma geçebileceği bir aralıktır. Bu, bir film sahnesi gibi bir saniyede olmaz. Bazı süreçler onlarca yıl ya da yüzyıllar sürebilir. Yine de önemlidir, çünkü geri döndürülmesi zor olabilir.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>Risk ayarı: devrilme noktalarını dikkatli anlamak</h3>\n  <p>Devrilme noktaları kesin tarihi olan basit bir domino gösterisi değildir. Geri döndürülmesi zor değişimlerin riskinin arttığı aralıklardır.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"Santigrat derece cinsinden ısınma\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>Mercan resifleri</strong><br>Birçok resif daha düşük ısınmada bile güçlü stres altına girer.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>Alp buzulları</strong><br>Daha fazla buz kaybı su dengesini, turizmi ve doğal tehlikeleri değiştirir.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>Permafrost</strong><br>Çözülen donmuş topraklar ek sera gazları salabilir.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>Büyük buz tabakaları</strong><br>Yavaş ama çok uzun vadeli deniz seviyesi sonuçları daha olası olur.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>Akılda kalacak fikir:</strong> 1,5 °C sihirli bir duvar değildir. Ama her onda bir derece daha az ısınma riskleri, zararları ve uyum baskısını azaltır.</div>\n{{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "Sibirya'daki permafrost çözülürse ne olur?",
+            "question": "Devrilme noktaları hakkında en doğru ifade hangisidir?",
             "answers": [
               {
-                "text": "Dünyayı daha da hızlı ısıtan büyük miktarda sera gazı metanı açığa çıkarır.",
+                "text": "Isınma arttıkça geri döndürülmesi zor değişimlerin riski artar.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Doğru: Permafrost'un çözülmesi metan açığa çıkarabilir ve ısınmayı artırabilir."
+                "feedback": "Doğru. Bu, kesin bir domino saati değil, risk aralıklarıyla ilgilidir."
               },
               {
-                "text": "Palmiye ağaçları orada hemen büyüyor.",
+                "text": "Bir devrilme noktasına ulaşılırsa bütün Dünya hemen devrilir.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Çözülme hemen tropik bir iklim anlamına gelmez. Önemli olan metanın salınabilmesidir."
+                "feedback": "Bu fazla dramatik ve yanlıştır. Tek tek sistemler güçlü biçimde değişebilir."
               },
               {
-                "text": "Devrilme noktalarının sıcaklıkla hiçbir ilgisi yoktur.",
+                "text": "Devrilme noktalarının sıcaklıkla ilgisi yoktur.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ancak. Isınma düzeyi birçok riski etkiler."
+                "feedback": "Vardır. Isınmanın miktarı birçok riski etkiler."
               }
             ]
           }

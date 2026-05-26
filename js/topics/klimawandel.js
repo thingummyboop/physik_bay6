@@ -236,6 +236,16 @@ function enhanceClimateChangeAccessibility() {
         if (range) range.setAttribute("role", "slider");
     });
 
+    const sliderDescriptions = {
+        climateGasRange: "greenhouseExplanation",
+        climateYearRange: "climateYearLabel",
+        warmingRange: "tippingNote"
+    };
+    Object.entries(sliderDescriptions).forEach(([id, describedBy]) => {
+        const range = document.getElementById(id);
+        if (range) range.setAttribute("aria-describedby", describedBy);
+    });
+
     ["climatePpmLabel", "greenhouseWarmingLabel", "climateYearLabel", "impactText", "climateActionFeedback", "tippingNote"].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
