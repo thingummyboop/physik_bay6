@@ -399,12 +399,15 @@ function sunShine() {
     if (!btn) return;
     btn.disabled = true;
     
+    const parkingSvg = document.getElementById('parkingSunSvg');
+    if (parkingSvg) parkingSvg.classList.remove('is-sunny', 'is-cooking');
     const rB = document.getElementById('sunRayBlack');
     const rW = document.getElementById('sunRayWhite');
     const bR = document.getElementById('bounceRay');
     if(rB) rB.style.display = 'block';
     if(rW) rW.style.display = 'block';
     if(bR) bR.style.display = 'block';
+    if (parkingSvg) parkingSvg.classList.add('is-sunny');
     
     let tempB = 20;
     let tempW = 20;
@@ -420,14 +423,17 @@ function sunShine() {
         tempW += 0.5;
         if (tBlack) tBlack.innerText = Math.floor(tempB) + "°C";
         if (tWhite) tWhite.innerText = Math.floor(tempW) + "°C";
+        if (parkingSvg && tempB >= 44) parkingSvg.classList.add('is-cooking');
         
         if(tempB >= 60) {
             clearInterval(sunTimer);
-            if (txt) txt.innerText = "Ergebnis: Das schwarze Auto wird viel heißer. Helle Farbe reflektiert mehr Sonnenstrahlung.";
+            if (parkingSvg) parkingSvg.classList.add('is-cooking');
+            if (txt) txt.innerText = "Ergebnis: Auf dem schwarzen Auto brät das Spiegelei. Auf dem weißen bleibt es roh, weil viel Sonnenstrahlung reflektiert wird.";
             setTimeout(() => {
                 if(rB) rB.style.display = 'none';
                 if(rW) rW.style.display = 'none';
                 if(bR) bR.style.display = 'none';
+                if (parkingSvg) parkingSvg.classList.remove('is-sunny', 'is-cooking');
                 if (tBlack) tBlack.innerText = "20°C";
                 if (tWhite) tWhite.innerText = "20°C";
                 if (txt) txt.innerText = "";
