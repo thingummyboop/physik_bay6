@@ -5,6 +5,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const INDEX_PATH = path.join(ROOT, 'index.html');
+const DASHBOARD_PATH = path.join(ROOT, 'topics', 'dashboard.html');
 const LANG_DIR = path.join(ROOT, 'lang');
 const TOPICS_DIR = path.join(ROOT, 'js', 'topics');
 
@@ -25,6 +26,11 @@ function collectNavTopicIds() {
   return [...html.matchAll(/\{\s*id:\s*"([^"]+)"/g)].map((match) => match[1]);
 }
 
+function collectDashboardTopicIds() {
+  const html = read(DASHBOARD_PATH);
+  return [...html.matchAll(/\{\s*id:\s*"([^"]+)"/g)].map((match) => match[1]);
+}
+
 function isTopicComplete(topic) {
   return Boolean(
     topic
@@ -36,6 +42,7 @@ function isTopicComplete(topic) {
 
 const navTopicIds = collectNavTopicIds();
 const uniqueNavTopicIds = unique(navTopicIds);
+const dashboardTopicIds = collectDashboardTopicIds();
 const duplicateNavIds = uniqueNavTopicIds.filter((id) => navTopicIds.filter((item) => item === id).length > 1);
 const langFiles = fs.readdirSync(LANG_DIR).filter((file) => file.endsWith('.json')).sort();
 const topicScripts = new Set(
@@ -73,7 +80,14 @@ for (const langFile of langFiles) {
 }
 
 const navSet = new Set(uniqueNavTopicIds);
-const deOnlyTopics = Object.keys(de).filter((topicId) => !navSet.has(topicId)).sort();
+const dashboardOnlyTopics = dashboardTopicIds.filter((topicId) => !navSet.has(topicId)).sort();
+if (dashboardOnlyTopics.length) {
+  failures.push(`Dashboard badges point to topics not reachable from navigation: ${dashboardOnlyTopics.join(', ')}`);
+}
+
+const deOnlyTopics = Object.keys(de)
+  .filter((topicId) => isTopicComplete(de[topicId]) && !navSet.has(topicId))
+  .sort();
 if (deOnlyTopics.length) {
   warnings.push(`German topics not reachable from navigation: ${deOnlyTopics.join(', ')}`);
 }

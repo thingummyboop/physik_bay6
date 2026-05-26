@@ -12,7 +12,7 @@ const languageFiles = fs
   .filter((file) => file.endsWith('.json'))
   .sort();
 
-const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
+const nonPhysicsTopics = new Set(['wetter', 'klima', 'klimawandel']);
 const nonPhysicsPrefixes = ['geo_', 'chemie_', 'bio_'];
 const physicsTopics = fs
   .readdirSync(topicsDir)
