@@ -693,6 +693,63 @@ window.ChemieLabs = (() => {
         }, {});
     }
 
+    function atomSvg(symbol, x, y, radius, fill, textFill = '#0f172a') {
+        return `<g>
+            <circle cx="${x}" cy="${y}" r="${radius}" fill="${fill}" stroke="#0f172a" stroke-width="1.8"></circle>
+            <text x="${x}" y="${y + 4}" text-anchor="middle" font-size="${radius + 2}" font-weight="900" fill="${textFill}">${symbol}</text>
+        </g>`;
+    }
+
+    function moleculeSvg(plain) {
+        const bond = (x1, y1, x2, y2, width = 4) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#334155" stroke-width="${width}" stroke-linecap="round"></line>`;
+        if (plain === 'CH4') {
+            return `
+                ${bond(48, 50, 48, 24)}${bond(48, 50, 20, 60)}${bond(48, 50, 76, 60)}${bond(48, 50, 48, 78)}
+                ${atomSvg('H', 48, 22, 10, '#f8fafc')}
+                ${atomSvg('H', 18, 62, 10, '#f8fafc')}
+                ${atomSvg('H', 78, 62, 10, '#f8fafc')}
+                ${atomSvg('H', 48, 80, 10, '#f8fafc')}
+                ${atomSvg('C', 48, 50, 15, '#111827', '#ffffff')}
+            `;
+        }
+        if (plain === 'O2') {
+            return `
+                ${bond(34, 52, 64, 52, 5)}
+                ${bond(34, 59, 64, 59, 3)}
+                ${atomSvg('O', 30, 56, 15, '#ef4444', '#ffffff')}
+                ${atomSvg('O', 68, 56, 15, '#ef4444', '#ffffff')}
+            `;
+        }
+        if (plain === 'CO2') {
+            return `
+                ${bond(24, 54, 48, 54, 5)}
+                ${bond(24, 61, 48, 61, 3)}
+                ${bond(48, 54, 72, 54, 5)}
+                ${bond(48, 61, 72, 61, 3)}
+                ${atomSvg('O', 18, 58, 14, '#ef4444', '#ffffff')}
+                ${atomSvg('C', 48, 58, 14, '#111827', '#ffffff')}
+                ${atomSvg('O', 78, 58, 14, '#ef4444', '#ffffff')}
+            `;
+        }
+        if (plain === 'H2O') {
+            return `
+                ${bond(48, 48, 24, 70, 5)}
+                ${bond(48, 48, 72, 70, 5)}
+                ${atomSvg('O', 48, 46, 16, '#ef4444', '#ffffff')}
+                ${atomSvg('H', 22, 72, 11, '#f8fafc')}
+                ${atomSvg('H', 74, 72, 11, '#f8fafc')}
+            `;
+        }
+        if (plain === 'H2') {
+            return `
+                ${bond(34, 56, 64, 56, 5)}
+                ${atomSvg('H', 30, 56, 13, '#f8fafc')}
+                ${atomSvg('H', 68, 56, 13, '#f8fafc')}
+            `;
+        }
+        return atomSvg(plain, 48, 56, 18, '#cbd5e1');
+    }
+
     function updateReactionBuilder(lab) {
         const reactionKey = lab.dataset.chemReaction || lab.dataset.chemChoice || 'methane';
         const reaction = REACTIONS[reactionKey] || REACTIONS.methane;
@@ -721,11 +778,13 @@ window.ChemieLabs = (() => {
         const equationRight = reaction.right.map((term) => `${coeffs[term.key] || ''} ${term.formula}`).join(' + ');
         const moleculeCards = (side, terms) => terms.map((term) => {
             const coeff = coeffs[term.key] || 0;
-            const dots = Array.from({ length: Math.min(coeff, 6) }, (_, i) => `<circle cx="${18 + (i % 3) * 18}" cy="${50 + Math.floor(i / 3) * 18}" r="6" fill="${term.color}" stroke="#0f172a" stroke-width="1"></circle>`).join('');
-            return `<g transform="translate(${side === 'left' ? 42 + terms.indexOf(term) * 104 : 314 + terms.indexOf(term) * 104} 42)">
-                <rect width="86" height="88" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"></rect>
-                <text x="43" y="24" text-anchor="middle" font-size="13" font-weight="900">${coeff || 0} ${term.plain}</text>
-                ${dots}
+            const x = side === 'left' ? 36 + terms.indexOf(term) * 116 : 354 + terms.indexOf(term) * 116;
+            return `<g transform="translate(${x} 42)" opacity="${coeff > 0 ? 1 : 0.42}">
+                <rect width="104" height="96" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"></rect>
+                <rect x="8" y="8" width="34" height="22" rx="7" fill="${coeff > 0 ? '#dbeafe' : '#f1f5f9'}" stroke="#2563eb" stroke-width="2"></rect>
+                <text x="25" y="24" text-anchor="middle" font-size="13" font-weight="900">x${coeff}</text>
+                <text x="72" y="24" text-anchor="middle" font-size="13" font-weight="900">${term.plain}</text>
+                <g transform="translate(4 16)">${moleculeSvg(term.plain)}</g>
             </g>`;
         }).join('');
         visual(lab, `
