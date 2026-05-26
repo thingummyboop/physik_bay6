@@ -478,24 +478,31 @@ function setPhase(phase) {
     const ice = document.getElementById('phaseIce');
     const water = document.getElementById('phaseWater');
     const steam = document.getElementById('phaseSteam');
+    const model = document.getElementById('phaseModel');
     if (ice) ice.style.display = 'none';
     if (water) water.style.display = 'none';
     if (steam) steam.style.display = 'none';
-    
+    if (model) model.dataset.phase = phase;
+
     let txt = document.getElementById('phaseText');
     if (!txt) return;
+    const fallbackText = {
+        ice: "Fest (Eis): H\u2082O-Molek\u00fcle sitzen geordnet im Gitter. Bindungskr\u00e4fte halten Nachbarn fest, sie zittern nur.",
+        water: "Fl\u00fcssig (Wasser): Die H\u2082O-Molek\u00fcle bleiben nahe beisammen, ihre Bindungen entstehen kurz und l\u00f6sen sich wieder. Deshalb kann Wasser flie\u00dfen.",
+        steam: "Gasf\u00f6rmig (Dampf): Die H\u2082O-Molek\u00fcle sind weit auseinander. Zwischen ihnen wirken kaum noch Bindungskr\u00e4fte, sie fliegen frei umher."
+    };
 
     if(phase === 'ice') {
-        if (ice) ice.style.display = 'block';
-        txt.innerText = "Fest (Eis): Die Teilchen sitzen dicht zusammen und bleiben fast an ihrem Platz.";
+        if (ice) ice.style.display = '';
+        txt.innerText = txt.dataset.iceText || fallbackText.ice;
         txt.style.color = "#1976D2";
     } else if(phase === 'water') {
-        if (water) water.style.display = 'block';
-        txt.innerText = "Flüssig (Wasser): Die Teilchen bleiben nahe beisammen, können aber aneinander vorbeirutschen.";
+        if (water) water.style.display = '';
+        txt.innerText = txt.dataset.waterText || fallbackText.water;
         txt.style.color = "#0288D1";
     } else {
-        if (steam) steam.style.display = 'block';
-        txt.innerText = "Gasförmig (Dampf): Die Teilchen sind weit auseinander und bewegen sich schnell durch den Raum.";
+        if (steam) steam.style.display = '';
+        txt.innerText = txt.dataset.steamText || fallbackText.steam;
         txt.style.color = "#78909C";
     }
 }
