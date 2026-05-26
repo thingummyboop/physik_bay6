@@ -178,6 +178,21 @@ async function renderTopic() {
             document.body.classList.remove('math-theme');
         }
 
+        const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
+
+        function renderQuizBox(q) {
+            const shuffledAnswers = shuffleArray([...q.answers]);
+            return `
+                <div class="quiz-box" data-id="${q.id}">
+                    <p><strong>${q.question}</strong></p>
+                    ${shuffledAnswers.map(ans => `
+                        <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
+                    `).join('')}
+                    <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+                </div>
+            `;
+        }
+
         topic.sections.forEach(section => {
             const card = document.createElement('div');
             card.className = "card";
@@ -186,23 +201,11 @@ async function renderTopic() {
             let content = section.content;
 
             // Replace Quiz Placeholders
-            if (section.quizzes) {
-                section.quizzes.forEach(q => {
-                    // LIVE SHUFFLE: Randomize answers every time
-                    const shuffledAnswers = shuffleArray([...q.answers]);
-                    
-                    const quizHtml = `
-                        <div class="quiz-box" data-id="${q.id}">
-                            <p><strong>${q.question}</strong></p>
-                            ${shuffledAnswers.map(ans => `
-                                <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
-                            `).join('')}
-                            <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-                        </div>
-                    `;
-                    content = content.replace(`{{QUIZ_${q.id}}}`, quizHtml);
-                });
-            }
+            const sectionQuizMap = new Map((section.quizzes || []).map(q => [q.id, q]));
+            content = content.replace(/\{\{QUIZ_([^}]+)\}\}/g, (placeholder, quizId) => {
+                const quiz = sectionQuizMap.get(quizId) || topicQuizMap.get(quizId);
+                return quiz ? renderQuizBox(quiz) : '';
+            });
 
             html += content;
             card.innerHTML = html;
