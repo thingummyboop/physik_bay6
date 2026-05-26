@@ -11,6 +11,36 @@ window.ChemieLabs = (() => {
         9: { symbol: 'F', name: 'Fluor' },
         10: { symbol: 'Ne', name: 'Neon' }
     };
+    const particleCanvasStates = new WeakMap();
+    const REACTIONS = {
+        methane: {
+            title: 'Methan verbrennen',
+            left: [
+                { key: 'a', formula: 'CH<sub>4</sub>', plain: 'CH4', atoms: { C: 1, H: 4 }, color: '#111827' },
+                { key: 'b', formula: 'O<sub>2</sub>', plain: 'O2', atoms: { O: 2 }, color: '#38bdf8' }
+            ],
+            right: [
+                { key: 'c', formula: 'CO<sub>2</sub>', plain: 'CO2', atoms: { C: 1, O: 2 }, color: '#64748b' },
+                { key: 'd', formula: 'H<sub>2</sub>O', plain: 'H2O', atoms: { H: 2, O: 1 }, color: '#2563eb' }
+            ],
+            start: { a: 1, b: 1, c: 1, d: 1 },
+            target: { a: 1, b: 2, c: 1, d: 2 },
+            hint: 'Beim Verbrennen werden Atome nicht weggezaubert: 1 C, 4 H und 4 O müssen auf beiden Seiten stehen.'
+        },
+        hydrogen: {
+            title: 'Wasser bilden',
+            left: [
+                { key: 'a', formula: 'H<sub>2</sub>', plain: 'H2', atoms: { H: 2 }, color: '#60a5fa' },
+                { key: 'b', formula: 'O<sub>2</sub>', plain: 'O2', atoms: { O: 2 }, color: '#38bdf8' }
+            ],
+            right: [
+                { key: 'c', formula: 'H<sub>2</sub>O', plain: 'H2O', atoms: { H: 2, O: 1 }, color: '#2563eb' }
+            ],
+            start: { a: 1, b: 1, c: 1, d: 0 },
+            target: { a: 2, b: 1, c: 2, d: 0 },
+            hint: 'Die kleinste passende Einstellung ist 2 H2 + 1 O2 -> 2 H2O.'
+        }
+    };
 
     function topicInit() {
         document.querySelectorAll('.chem-lab.interactive-zone, .chem-lab').forEach((lab) => {
@@ -82,6 +112,10 @@ window.ChemieLabs = (() => {
                 updateChemLab(lab);
             });
             range.setAttribute('aria-valuetext', range.value);
+        });
+        lab.querySelectorAll('input[type="number"]').forEach((input) => {
+            input.addEventListener('input', () => updateChemLab(lab));
+            input.addEventListener('change', () => updateChemLab(lab));
         });
         lab.querySelectorAll('input[type="checkbox"]').forEach((box) => {
             box.addEventListener('change', () => updateChemLab(lab));
@@ -160,9 +194,17 @@ window.ChemieLabs = (() => {
                 reuse: 'Mehrweg ist stark, wenn Reinigung und Transport sinnvoll bleiben.',
                 repair: 'Reparieren spart Rohstoffe und verlängert die Nutzungszeit.',
                 recycle: 'Recycling hilft, ersetzt aber nicht Vermeiden und Wiederverwenden.'
+            },
+            'reaction-builder': {
+                methane: 'Methan-Reaktion gewählt: Stelle die Zahlen so ein, dass links und rechts gleich viele C-, H- und O-Atome stehen.',
+                hydrogen: 'Wasser-Reaktion gewählt: Die kleinste passende Lösung ist 2 H2 + 1 O2 -> 2 H2O.',
+                reset: 'Startwerte geladen. Zähle jetzt die Atome links und rechts.'
             }
         };
 
+        if (type === 'reaction-builder') {
+            setReactionBuilderPreset(lab, action);
+        }
         chemStatus(lab, messages[type]?.[action] || 'Gute Beobachtung. Begründe mit Stoffeigenschaft, Teilchenmodell oder Reaktion.');
         updateChemLab(lab);
     }
@@ -177,6 +219,7 @@ window.ChemieLabs = (() => {
         if (type === 'atom-builder') updateAtomLab(lab);
         if (type === 'bonding') renderBonding(lab);
         if (type === 'reaction-evidence') updateEvidenceLab(lab);
+        if (type === 'reaction-builder') updateReactionBuilder(lab);
         if (type === 'combustion') updateCombustionLab(lab);
         if (type === 'ph-scale') updatePhLab(lab);
         if (type === 'crystal') updateCrystalLab(lab);
@@ -256,41 +299,187 @@ window.ChemieLabs = (() => {
         const gas = value > 70;
         const liquid = value > 35 && value <= 70;
         const stateLabel = gas ? 'Gas' : liquid ? 'Flüssigkeit' : 'Feststoff';
-        const particleCount = gas ? 13 : liquid ? 18 : 18;
-        const particles = Array.from({ length: particleCount }, (_, i) => {
+        if (!lab.querySelector('.chem-particle-canvas')) {
+            visual(lab, `
+                <div class="chem-canvas-model" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:12px;align-items:center;max-width:560px;margin:0 auto;text-align:left;">
+                    <canvas class="chem-particle-canvas" width="520" height="250" style="width:100%;height:auto;border:3px solid #64748b;border-radius:16px;background:#f8fafc;" aria-label="Dynamisches Teilchenmodell"></canvas>
+                    <div class="chem-particle-readout" style="border:3px solid #2563eb;border-radius:14px;background:#eff6ff;padding:10px;color:#0f172a;">
+                        <strong data-chem-particle-state>Feststoff</strong>
+                        <p data-chem-particle-distance style="margin:.45rem 0 0;font-size:.9rem;">feste Plätze</p>
+                        <p data-chem-particle-speed style="margin:.3rem 0 0;font-size:.9rem;">zittern nur</p>
+                        <p data-chem-particle-temp style="margin:.55rem 0 0;font-weight:800;">20% Temperatur</p>
+                    </div>
+                </div>
+            `);
+        }
+        const readout = {
+            state: lab.querySelector('[data-chem-particle-state]'),
+            distance: lab.querySelector('[data-chem-particle-distance]'),
+            speed: lab.querySelector('[data-chem-particle-speed]'),
+            temp: lab.querySelector('[data-chem-particle-temp]')
+        };
+        if (readout.state) readout.state.textContent = stateLabel;
+        if (readout.distance) readout.distance.textContent = gas ? 'große Abstände' : liquid ? 'nahe zusammen' : 'feste Plätze';
+        if (readout.speed) readout.speed.textContent = gas ? 'frei und schnell' : liquid ? 'gleiten aneinander vorbei' : 'zittern um feste Orte';
+        if (readout.temp) readout.temp.textContent = `${value}% Temperatur`;
+        updateParticleCanvas(lab, value);
+        chemStatus(lab, gas ? 'Gasmodell: schnelle, freie Teilchen mit großen Abständen.' : liquid ? 'Flüssigkeitsmodell: Teilchen bewegen sich, bleiben aber nahe zusammen.' : 'Feststoffmodell: feste Plätze, nur Zittern.');
+    }
+
+    function particleMode(value) {
+        if (value > 70) return 'gas';
+        if (value > 35) return 'liquid';
+        return 'solid';
+    }
+
+    function makeParticles(mode) {
+        const count = mode === 'gas' ? 16 : 22;
+        return Array.from({ length: count }, (_, i) => {
             const row = Math.floor(i / 6);
             const col = i % 6;
-            const x = gas ? 50 + ((i * 61) % 246) : liquid ? 56 + ((i * 37) % 238) : 70 + col * 36;
-            const y = gas ? 50 + ((i * 43) % 82) : liquid ? 76 + ((i * 23) % 58) : 64 + row * 30;
-            const dx = gas ? (i % 2 ? -24 : 24) : liquid ? (i % 2 ? -8 : 8) : 0;
-            const dy = gas ? ((i % 3) - 1) * 18 : liquid ? 8 : 0;
-            const anim = gas
-                ? `<animate attributeName="cx" values="${x};${Math.max(42, Math.min(302, x + dx))};${x}" dur="1.25s" repeatCount="indefinite"></animate><animate attributeName="cy" values="${y};${Math.max(42, Math.min(142, y + dy))};${y}" dur="1.25s" repeatCount="indefinite"></animate>`
-                : liquid
-                    ? `<animate attributeName="cx" values="${x};${x + dx};${x}" dur="1.8s" repeatCount="indefinite"></animate><animate attributeName="cy" values="${y};${y + 7};${y}" dur="1.7s" repeatCount="indefinite"></animate>`
-                    : `<animate attributeName="r" values="7.8;8.8;7.8" dur="1.1s" repeatCount="indefinite"></animate>`;
-            return `<circle cx="${x}" cy="${y}" r="8" fill="${gas ? '#fca5a5' : liquid ? '#38bdf8' : '#60a5fa'}" stroke="#0f172a" stroke-width="1.5">${anim}</circle>`;
-        }).join('');
-        visual(lab, `
-            <svg class="chem-particle-svg" width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="img" aria-label="Teilchenmodell">
-                <defs>
-                    <clipPath id="chemParticleClip"><rect x="26" y="34" width="300" height="126" rx="16"></rect></clipPath>
-                </defs>
-                <rect x="20" y="24" width="312" height="146" rx="18" fill="#f8fafc" stroke="#64748b" stroke-width="3"></rect>
-                <rect x="26" y="34" width="300" height="126" rx="16" fill="${gas ? '#fff7ed' : liquid ? '#eff6ff' : '#f8fafc'}" stroke="#cbd5e1" stroke-width="2"></rect>
-                <g clip-path="url(#chemParticleClip)">${particles}</g>
-                <text x="176" y="194" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">Teilchen bleiben in der Modellbox</text>
-                <g transform="translate(370 28)">
-                    <rect width="122" height="144" rx="14" fill="${gas ? '#fed7aa' : liquid ? '#dbeafe' : '#e0f2fe'}" stroke="#2563eb" stroke-width="3"></rect>
-                    <text x="61" y="32" text-anchor="middle" font-size="16" font-weight="900">${stateLabel}</text>
-                    <line x1="24" y1="54" x2="98" y2="54" stroke="#0f172a" stroke-width="2"></line>
-                    <text x="61" y="80" text-anchor="middle" font-size="12" font-weight="800">${gas ? 'große Abstände' : liquid ? 'nahe zusammen' : 'feste Plätze'}</text>
-                    <text x="61" y="106" text-anchor="middle" font-size="12">${gas ? 'frei und schnell' : liquid ? 'gleiten vorbei' : 'zittern nur'}</text>
-                    <text x="61" y="130" text-anchor="middle" font-size="12">${value}% Temperatur</text>
-                </g>
-            </svg>
-        `);
-        chemStatus(lab, gas ? 'Gasmodell: schnelle, freie Teilchen mit großen Abständen.' : liquid ? 'Flüssigkeitsmodell: Teilchen bewegen sich, bleiben aber nahe zusammen.' : 'Feststoffmodell: feste Plätze, nur Zittern.');
+            const anchorX = 68 + col * 42;
+            const anchorY = 66 + row * 34;
+            const x = mode === 'gas' ? 50 + ((i * 67) % 420) : mode === 'liquid' ? 72 + ((i * 53) % 360) : anchorX;
+            const y = mode === 'gas' ? 54 + ((i * 41) % 142) : mode === 'liquid' ? 98 + ((i * 31) % 82) : anchorY;
+            return {
+                x,
+                y,
+                anchorX,
+                anchorY,
+                vx: (mode === 'gas' ? 1.2 : 0.45) * (i % 2 ? 1 : -1),
+                vy: (mode === 'gas' ? 1.1 : 0.35) * (i % 3 === 0 ? 1 : -1),
+                phase: i * 0.7
+            };
+        });
+    }
+
+    function updateParticleCanvas(lab, value) {
+        const canvas = lab.querySelector('.chem-particle-canvas');
+        if (!canvas || !canvas.getContext) return;
+        const mode = particleMode(value);
+        let state = particleCanvasStates.get(lab);
+        if (!state || state.canvas !== canvas || state.mode !== mode) {
+            state = {
+                canvas,
+                ctx: canvas.getContext('2d'),
+                mode,
+                value,
+                particles: makeParticles(mode),
+                running: false,
+                startedAt: performance.now()
+            };
+            particleCanvasStates.set(lab, state);
+        }
+        state.value = value;
+        state.mode = mode;
+        if (!state.running) {
+            state.running = true;
+            requestAnimationFrame((time) => drawParticleCanvas(lab, time));
+        }
+    }
+
+    function drawParticleCanvas(lab, time) {
+        const state = particleCanvasStates.get(lab);
+        if (!state || !state.canvas.isConnected) return;
+        const { canvas, ctx, particles, mode } = state;
+        const speed = 0.25 + state.value / 45;
+        const width = canvas.width;
+        const height = canvas.height;
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = mode === 'gas' ? '#fff7ed' : mode === 'liquid' ? '#eff6ff' : '#f8fafc';
+        roundRect(ctx, 22, 22, width - 44, height - 44, 18);
+        ctx.fill();
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = '700 14px system-ui, sans-serif';
+        ctx.fillText('Dynamisches Mikromodell', 36, 48);
+        ctx.font = '600 12px system-ui, sans-serif';
+        ctx.fillText(mode === 'gas' ? 'Gas: freie elastische Bewegung' : mode === 'liquid' ? 'Flüssigkeit: Bewegung mit lockerer Anziehung' : 'Feststoff: feste Plätze, nur Schwingung', 36, 226);
+
+        const minX = 38;
+        const maxX = width - 38;
+        const minY = 58;
+        const maxY = height - 50;
+        particles.forEach((p, i) => {
+            if (mode === 'solid') {
+                p.x = p.anchorX + Math.sin(time / 120 + p.phase) * (2 + state.value / 35);
+                p.y = p.anchorY + Math.cos(time / 130 + p.phase) * (2 + state.value / 40);
+            } else {
+                const attraction = mode === 'liquid' ? 0.004 : 0;
+                p.vx += (260 - p.x) * attraction;
+                p.vy += (132 - p.y) * attraction;
+                p.x += p.vx * speed;
+                p.y += p.vy * speed;
+                if (p.x < minX || p.x > maxX) p.vx *= -1;
+                if (p.y < minY || p.y > maxY) p.vy *= -1;
+                p.x = Math.max(minX, Math.min(maxX, p.x));
+                p.y = Math.max(minY, Math.min(maxY, p.y));
+            }
+            if (mode === 'liquid') {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const other = particles[j];
+                    const dx = other.x - p.x;
+                    const dy = other.y - p.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 58) {
+                        ctx.globalAlpha = Math.max(0, (58 - dist) / 58) * 0.35;
+                        ctx.strokeStyle = '#2563eb';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(other.x, other.y);
+                        ctx.stroke();
+                    }
+                }
+                ctx.globalAlpha = 1;
+            }
+        });
+
+        particles.forEach((p) => {
+            ctx.beginPath();
+            ctx.fillStyle = mode === 'gas' ? '#fca5a5' : mode === 'liquid' ? '#38bdf8' : '#60a5fa';
+            ctx.strokeStyle = '#0f172a';
+            ctx.lineWidth = 2;
+            ctx.arc(p.x, p.y, 8.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        });
+
+        if (mode === 'solid') {
+            ctx.globalAlpha = 0.5;
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 1.5;
+            particles.forEach((p, i) => {
+                const right = particles.find((other, j) => j !== i && Math.abs(other.anchorX - p.anchorX - 42) < 1 && Math.abs(other.anchorY - p.anchorY) < 1);
+                const down = particles.find((other, j) => j !== i && Math.abs(other.anchorY - p.anchorY - 34) < 1 && Math.abs(other.anchorX - p.anchorX) < 1);
+                [right, down].filter(Boolean).forEach((other) => {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(other.x, other.y);
+                    ctx.stroke();
+                });
+            });
+            ctx.globalAlpha = 1;
+        }
+
+        requestAnimationFrame((nextTime) => drawParticleCanvas(lab, nextTime));
+    }
+
+    function roundRect(ctx, x, y, width, height, radius) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
     }
 
     function updateSeparationLab(lab) {
@@ -441,6 +630,96 @@ window.ChemieLabs = (() => {
             </svg>
         `);
         chemStatus(lab, count === 0 ? 'Noch keine Beobachtung gewählt.' : count === 1 ? 'Ein Zeichen allein kann ein Hinweis sein. Suche weitere Beobachtungen.' : 'Mehrere Zeichen: Eine chemische Reaktion ist wahrscheinlich. Prüfe, ob neue Stoffe entstanden sind.');
+    }
+
+    function setReactionBuilderPreset(lab, action) {
+        const reactionKey = action === 'hydrogen' ? 'hydrogen' : action === 'reset' ? (lab.dataset.chemReaction || 'methane') : 'methane';
+        lab.dataset.chemReaction = reactionKey;
+        const start = REACTIONS[reactionKey].start;
+        lab.querySelectorAll('[data-chem-coeff]').forEach((input) => {
+            const key = input.dataset.chemCoeff;
+            input.value = start[key] ?? 0;
+        });
+    }
+
+    function reactionCoeff(lab, key) {
+        const input = lab.querySelector(`[data-chem-coeff="${key}"]`);
+        const value = Number(input?.value ?? 0);
+        return Number.isFinite(value) ? Math.max(0, Math.min(9, Math.round(value))) : 0;
+    }
+
+    function reactionTotals(terms, coeffs) {
+        return terms.reduce((totals, term) => {
+            const coeff = coeffs[term.key] || 0;
+            Object.entries(term.atoms).forEach(([atom, count]) => {
+                totals[atom] = (totals[atom] || 0) + count * coeff;
+            });
+            return totals;
+        }, {});
+    }
+
+    function updateReactionBuilder(lab) {
+        const reactionKey = lab.dataset.chemReaction || lab.dataset.chemChoice || 'methane';
+        const reaction = REACTIONS[reactionKey] || REACTIONS.methane;
+        lab.dataset.chemReaction = reactionKey;
+        const coeffs = {
+            a: reactionCoeff(lab, 'a'),
+            b: reactionCoeff(lab, 'b'),
+            c: reactionCoeff(lab, 'c'),
+            d: reactionCoeff(lab, 'd')
+        };
+        const allTerms = [...reaction.left, ...reaction.right];
+        lab.querySelectorAll('[data-chem-reaction-label]').forEach((label) => {
+            const term = allTerms.find((item) => item.key === label.dataset.chemReactionLabel);
+            label.innerHTML = term ? term.formula : '-';
+        });
+        lab.querySelectorAll('[data-chem-coeff]').forEach((input) => {
+            const term = allTerms.find((item) => item.key === input.dataset.chemCoeff);
+            input.disabled = !term;
+            input.closest('label')?.toggleAttribute('hidden', !term);
+        });
+        const leftTotals = reactionTotals(reaction.left, coeffs);
+        const rightTotals = reactionTotals(reaction.right, coeffs);
+        const atoms = Array.from(new Set([...Object.keys(leftTotals), ...Object.keys(rightTotals)])).sort();
+        const balanced = atoms.length > 0 && atoms.every((atom) => leftTotals[atom] === rightTotals[atom]) && allTerms.every((term) => coeffs[term.key] > 0);
+        const equationLeft = reaction.left.map((term) => `${coeffs[term.key] || ''} ${term.formula}`).join(' + ');
+        const equationRight = reaction.right.map((term) => `${coeffs[term.key] || ''} ${term.formula}`).join(' + ');
+        const moleculeCards = (side, terms) => terms.map((term) => {
+            const coeff = coeffs[term.key] || 0;
+            const dots = Array.from({ length: Math.min(coeff, 6) }, (_, i) => `<circle cx="${18 + (i % 3) * 18}" cy="${50 + Math.floor(i / 3) * 18}" r="6" fill="${term.color}" stroke="#0f172a" stroke-width="1"></circle>`).join('');
+            return `<g transform="translate(${side === 'left' ? 42 + terms.indexOf(term) * 104 : 314 + terms.indexOf(term) * 104} 42)">
+                <rect width="86" height="88" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"></rect>
+                <text x="43" y="24" text-anchor="middle" font-size="13" font-weight="900">${coeff || 0} ${term.plain}</text>
+                ${dots}
+            </g>`;
+        }).join('');
+        visual(lab, `
+            <div style="max-width:620px;margin:0 auto;text-align:left;">
+                <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;font-size:1.05rem;font-weight:900;color:#0f172a;">
+                    <span>${equationLeft}</span><span style="color:#2563eb;">-></span><span>${equationRight}</span>
+                </div>
+                <svg width="100%" height="260" viewBox="0 0 620 260" style="max-width:620px;height:auto;" role="img" aria-label="Reaktionsgleichung ausgleichen">
+                    <rect x="18" y="22" width="584" height="190" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
+                    <text x="160" y="34" text-anchor="middle" font-size="13" font-weight="900">Edukte links</text>
+                    <text x="460" y="34" text-anchor="middle" font-size="13" font-weight="900">Produkte rechts</text>
+                    ${moleculeCards('left', reaction.left)}
+                    ${moleculeCards('right', reaction.right)}
+                    <line x1="292" y1="60" x2="328" y2="60" stroke="#2563eb" stroke-width="5" marker-end="url(#reactionArrow)"></line>
+                    <g transform="translate(222 132)">
+                        <rect width="176" height="58" rx="12" fill="${balanced ? '#dcfce7' : '#fee2e2'}" stroke="${balanced ? '#16a34a' : '#dc2626'}" stroke-width="3"></rect>
+                        <text x="88" y="24" text-anchor="middle" font-size="14" font-weight="900">${balanced ? 'ausgeglichen' : 'noch nicht gleich'}</text>
+                        <text x="88" y="44" text-anchor="middle" font-size="11" fill="#334155">${balanced ? 'Atome bleiben erhalten' : 'links und rechts vergleichen'}</text>
+                    </g>
+                    <defs><marker id="reactionArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563eb"></path></marker></defs>
+                    <text x="310" y="236" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">${reaction.hint}</text>
+                </svg>
+                <table class="word-rubric" style="margin-top:10px;">
+                    <tr><th>Atom</th><th>links</th><th>rechts</th><th>passt?</th></tr>
+                    ${atoms.map((atom) => `<tr><td>${atom}</td><td>${leftTotals[atom] || 0}</td><td>${rightTotals[atom] || 0}</td><td>${leftTotals[atom] === rightTotals[atom] ? 'ja' : 'nein'}</td></tr>`).join('')}
+                </table>
+            </div>
+        `);
+        chemStatus(lab, balanced ? 'Richtig ausgeglichen: Von jedem Atom gibt es links und rechts gleich viele.' : 'Noch nicht ausgeglichen: Zähle jede Atomart links und rechts und ändere nur die großen Zahlen vor den Stoffen.');
     }
 
     function updateCombustionLab(lab) {
