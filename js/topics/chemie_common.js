@@ -92,7 +92,10 @@ window.ChemieLabs = (() => {
             roadmap: {
                 experiment: 'Empfehlung: Sicherheit -> Stoffeigenschaften -> Trennverfahren -> Reaktionen. Dort arbeitest du besonders praktisch.',
                 model: 'Empfehlung: Teilchenmodell -> Atome -> Bindungen -> Reaktionen. Dort baust du Erklärungen auf Teilchenebene.',
-                alltag: 'Empfehlung: Stoffe im Alltag -> Säuren/Basen -> Kunststoffe -> Umweltchemie. Dort prüfst du Nutzen und Risiko.'
+                alltag: 'Empfehlung: Stoffe im Alltag -> Säuren/Basen -> Kunststoffe -> Umweltchemie. Dort prüfst du Nutzen und Risiko.',
+                grade3: '3. Klasse: Starte mit Sicherheit, Stoffen im Alltag, Eigenschaften, Trennverfahren, Teilchenmodell und Wasser/Lösungen.',
+                grade4: '4. Klasse: Starte mit chemischen Reaktionen, Verbrennung, Säuren/Basen, Redox und arbeite dann mit Atomen, Bindungen und Anwendungen weiter.',
+                review: 'Wiederholung: Prüfe zuerst Stoffeigenschaften, Trennverfahren und Teilchenmodell. Diese Grundlagen brauchst du für Reaktionen und Bindungen.'
             },
             'safety-sort': {
                 eyes: 'Sofort melden, Auge offen halten und Augendusche nutzen. Nicht reiben. Lehrkraft holt Hilfe.',
