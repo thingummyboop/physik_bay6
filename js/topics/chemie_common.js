@@ -231,10 +231,21 @@ window.ChemieLabs = (() => {
     function renderRoadmap(lab) {
         visual(lab, `
             <svg width="100%" height="190" viewBox="0 0 520 190" style="max-width:520px;height:auto;" role="img" aria-label="Chemie Lernweg">
-                <path d="M40 145 C110 50 180 145 245 72 S390 112 470 42" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 8"></path>
+                <defs>
+                    <linearGradient id="roadGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+                    <linearGradient id="nodeGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde047"/><stop offset="1" stop-color="#eab308"/></linearGradient>
+                    <filter id="roadGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <path d="M40 145 C110 50 180 145 245 72 S390 112 470 42" fill="none" stroke="url(#roadGradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 12" filter="url(#roadGlow)">
+                    <animate attributeName="stroke-dashoffset" from="48" to="0" dur="2s" repeatCount="indefinite"/>
+                </path>
                 ${['Sicherheit', 'Stoffe', 'Teilchen', 'Reaktionen', 'Umwelt'].map((label, i) => {
                     const pts = [[40,145], [155,78], [260,78], [370,110], [470,42]][i];
-                    return `<g><circle cx="${pts[0]}" cy="${pts[1]}" r="20" fill="#facc15" stroke="#92400e" stroke-width="3"></circle><text x="${pts[0]}" y="${pts[1] + 44}" text-anchor="middle" font-size="13" font-weight="800" fill="#0f172a">${label}</text></g>`;
+                    return `<g transform="translate(${pts[0]} ${pts[1]})">
+                        <circle cx="0" cy="0" r="22" fill="url(#nodeGradient)" stroke="#854d0e" stroke-width="3" filter="url(#roadGlow)"></circle>
+                        <text x="0" y="5" text-anchor="middle" font-size="16" font-weight="900" fill="#713f12">${i+1}</text>
+                        <text x="0" y="44" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">${label}</text>
+                    </g>`;
                 }).join('')}
             </svg>
         `);
@@ -243,16 +254,31 @@ window.ChemieLabs = (() => {
     function renderSafety(lab) {
         visual(lab, `
             <svg width="100%" height="190" viewBox="0 0 520 190" style="max-width:520px;height:auto;" role="img" aria-label="Sicherheitsstation">
-                <rect x="28" y="32" width="120" height="120" rx="14" fill="#fee2e2" stroke="#dc2626" stroke-width="3"></rect>
-                <text x="88" y="82" text-anchor="middle" font-size="44">!</text>
-                <text x="88" y="128" text-anchor="middle" font-size="14" font-weight="800">Etikett lesen</text>
-                <rect x="200" y="32" width="120" height="120" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"></rect>
-                <circle cx="260" cy="86" r="28" fill="none" stroke="#0f172a" stroke-width="5"></circle>
-                <path d="M232 86 H288" stroke="#0f172a" stroke-width="5"></path>
-                <text x="260" y="128" text-anchor="middle" font-size="14" font-weight="800">Brille tragen</text>
-                <rect x="372" y="32" width="120" height="120" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="3"></rect>
-                <path d="M412 95 l16 16 42 -50" fill="none" stroke="#15803d" stroke-width="8" stroke-linecap="round"></path>
-                <text x="432" y="128" text-anchor="middle" font-size="14" font-weight="800">melden</text>
+                <defs>
+                    <linearGradient id="safetyRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fca5a5"/><stop offset="1" stop-color="#ef4444"/></linearGradient>
+                    <linearGradient id="safetyBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93c5fd"/><stop offset="1" stop-color="#3b82f6"/></linearGradient>
+                    <linearGradient id="safetyGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86efac"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
+                    <filter id="safetyShadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.2"/></filter>
+                </defs>
+                <g filter="url(#safetyShadow)">
+                    <rect x="28" y="32" width="120" height="120" rx="18" fill="url(#safetyRed)" stroke="#991b1b" stroke-width="4"></rect>
+                    <polygon points="88,48 112,96 64,96" fill="#fff" stroke="#991b1b" stroke-width="3" stroke-linejoin="round"/>
+                    <text x="88" y="86" text-anchor="middle" font-size="28" font-weight="900" fill="#991b1b">!</text>
+                    <text x="88" y="132" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">Etikett lesen</text>
+                </g>
+                <g filter="url(#safetyShadow)">
+                    <rect x="200" y="32" width="120" height="120" rx="18" fill="url(#safetyBlue)" stroke="#1e40af" stroke-width="4"></rect>
+                    <path d="M220 76 C236 76 244 88 248 94 C252 88 260 76 276 76 C292 76 296 88 296 94" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+                    <rect x="222" y="78" width="30" height="20" rx="8" fill="#e0f2fe" stroke="#1e40af" stroke-width="3"/>
+                    <rect x="268" y="78" width="30" height="20" rx="8" fill="#e0f2fe" stroke="#1e40af" stroke-width="3"/>
+                    <path d="M252 88 H268" stroke="#1e40af" stroke-width="4" stroke-linecap="round"/>
+                    <text x="260" y="132" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">Brille tragen</text>
+                </g>
+                <g filter="url(#safetyShadow)">
+                    <rect x="372" y="32" width="120" height="120" rx="18" fill="url(#safetyGreen)" stroke="#166534" stroke-width="4"></rect>
+                    <path d="M402 85 l18 18 38 -45" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <text x="432" y="132" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">melden</text>
+                </g>
             </svg>
         `);
     }
@@ -571,30 +597,39 @@ window.ChemieLabs = (() => {
         `;
         visual(lab, `
             <svg width="100%" height="220" viewBox="0 0 520 220" style="max-width:520px;height:auto;" role="img" aria-label="Bindungsmodelle">
+                <defs>
+                    <radialGradient id="posIon" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#fecaca"/><stop offset="100%" stop-color="#ef4444"/></radialGradient>
+                    <radialGradient id="negIon" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="100%" stop-color="#3b82f6"/></radialGradient>
+                    <radialGradient id="metalIon" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#e2e8f0"/><stop offset="100%" stop-color="#94a3b8"/></radialGradient>
+                    <radialGradient id="atomH" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#cbd5e1"/></radialGradient>
+                    <filter id="bondShadow"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.25"/></filter>
+                </defs>
                 ${panel('salt', 18, 'Ionengitter', '+ und - ziehen sich an', [0,1,2].map(r => [0,1,2].map(c => {
                     const plus = (r + c) % 2 === 0;
-                    return `<g><circle cx="${38 + c * 36}" cy="${48 + r * 28}" r="13" fill="${plus ? '#fca5a5' : '#93c5fd'}" stroke="#0f172a" stroke-width="1.5"></circle><text x="${38 + c * 36}" y="${53 + r * 28}" text-anchor="middle" font-size="14" font-weight="900">${plus ? '+' : '-'}</text></g>`;
+                    return `<g filter="url(#bondShadow)"><circle cx="${38 + c * 36}" cy="${48 + r * 28}" r="14" fill="${plus ? 'url(#posIon)' : 'url(#negIon)'}"></circle><text x="${38 + c * 36}" y="${53 + r * 28}" text-anchor="middle" font-size="14" font-weight="900" fill="${plus ? '#7f1d1d' : '#1e3a8a'}">${plus ? '+' : '-'}</text></g>`;
                 }).join('')).join(''))}
                 ${panel('water', 186, 'Wasser', 'Elektronen werden geteilt', `
-                    <line x1="74" y1="67" x2="45" y2="95" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"></line>
-                    <line x1="74" y1="67" x2="103" y2="95" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"></line>
-                    <circle cx="74" cy="64" r="22" fill="#ef4444" stroke="#991b1b" stroke-width="2"></circle>
-                    <circle cx="45" cy="95" r="13" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"></circle>
-                    <circle cx="103" cy="95" r="13" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"></circle>
-                    <text x="74" y="70" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">O</text>
-                    <text x="45" y="100" text-anchor="middle" font-size="11" font-weight="900">H</text>
-                    <text x="103" y="100" text-anchor="middle" font-size="11" font-weight="900">H</text>
-                    <text x="100" y="52" font-size="12" font-weight="900" fill="#2563eb">δ-</text>
-                    <text x="24" y="114" font-size="12" font-weight="900" fill="#ef4444">δ+</text>
+                    <g filter="url(#bondShadow)">
+                        <line x1="74" y1="67" x2="45" y2="95" stroke="#93c5fd" stroke-width="10" stroke-linecap="round"></line>
+                        <line x1="74" y1="67" x2="103" y2="95" stroke="#93c5fd" stroke-width="10" stroke-linecap="round"></line>
+                        <circle cx="74" cy="64" r="24" fill="url(#posIon)"></circle>
+                        <circle cx="45" cy="95" r="14" fill="url(#atomH)"></circle>
+                        <circle cx="103" cy="95" r="14" fill="url(#atomH)"></circle>
+                        <text x="74" y="70" text-anchor="middle" font-size="14" font-weight="900" fill="#7f1d1d">O</text>
+                        <text x="45" y="100" text-anchor="middle" font-size="12" font-weight="900" fill="#334155">H</text>
+                        <text x="103" y="100" text-anchor="middle" font-size="12" font-weight="900" fill="#334155">H</text>
+                        <text x="104" y="52" font-size="13" font-weight="900" fill="#1d4ed8">δ-</text>
+                        <text x="24" y="116" font-size="13" font-weight="900" fill="#b91c1c">δ+</text>
+                    </g>
                 `)}
                 ${panel('metal', 354, 'Metall', 'Elektronen sind beweglich', `
-                    ${[0,1,2].map(r => [0,1,2].map(c => `<circle cx="${38 + c * 36}" cy="${48 + r * 28}" r="12" fill="#cbd5e1" stroke="#64748b" stroke-width="2"></circle>`).join('')).join('')}
+                    ${[0,1,2].map(r => [0,1,2].map(c => `<circle cx="${38 + c * 36}" cy="${48 + r * 28}" r="13" fill="url(#metalIon)" filter="url(#bondShadow)"></circle>`).join('')).join('')}
                     <path d="M24 106 C46 82 72 120 100 88 C112 76 122 78 132 84" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 5">
                         <animate attributeName="stroke-dashoffset" values="0;-24" dur="1.4s" repeatCount="indefinite"></animate>
                     </path>
-                    <text x="38" y="42" text-anchor="middle" font-size="12" font-weight="900">+</text>
-                    <text x="74" y="70" text-anchor="middle" font-size="12" font-weight="900">+</text>
-                    <text x="110" y="98" text-anchor="middle" font-size="12" font-weight="900">+</text>
+                    <text x="38" y="42" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">+</text>
+                    <text x="74" y="70" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">+</text>
+                    <text x="110" y="98" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">+</text>
                 `)}
                 <text x="260" y="202" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">Klicke ein Modell: Das grün markierte Bild gehört zur Rückmeldung.</text>
             </svg>
@@ -728,18 +763,30 @@ window.ChemieLabs = (() => {
         const all = values.length === 3;
         visual(lab, `
             <svg width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="img" aria-label="Branddreieck">
-                <defs><filter id="chemFireGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs>
-                <polygon points="260,30 118,174 402,174" fill="${all ? '#fee2e2' : '#f8fafc'}" stroke="#ef4444" stroke-width="4"></polygon>
+                <defs>
+                    <filter id="chemFireGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+                    <linearGradient id="nodeActive" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bbf7d0"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
+                    <linearGradient id="nodeInactive" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fecaca"/><stop offset="1" stop-color="#ef4444"/></linearGradient>
+                </defs>
+                <polygon points="260,30 118,174 402,174" fill="${all ? '#fef2f2' : '#f8fafc'}" stroke="${all ? '#ef4444' : '#94a3b8'}" stroke-width="6" stroke-linejoin="round"></polygon>
                 ${[
                     ['heat', 260, 54, 'Zündtemperatur'],
                     ['fuel', 166, 162, 'Brennstoff'],
                     ['oxygen', 354, 162, 'Sauerstoff']
                 ].map(([key, x, y, label]) => `<g>
-                    <circle cx="${x}" cy="${y}" r="24" fill="${has(key) ? '#dcfce7' : '#fee2e2'}" stroke="${has(key) ? '#16a34a' : '#dc2626'}" stroke-width="3"></circle>
-                    <text x="${x}" y="${y + 5}" text-anchor="middle" font-size="16" font-weight="900">${has(key) ? '✓' : '–'}</text>
-                    <text x="${x}" y="${y + 40}" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">${label}</text>
+                    <circle cx="${x}" cy="${y}" r="28" fill="${has(key) ? 'url(#nodeActive)' : 'url(#nodeInactive)'}" stroke="${has(key) ? '#166534' : '#991b1b'}" stroke-width="3" filter="url(#chemFireGlow)"></circle>
+                    <text x="${x}" y="${y + 8}" text-anchor="middle" font-size="22" font-weight="900" fill="${has(key) ? '#14532d' : '#7f1d1d'}">${has(key) ? '✓' : '✗'}</text>
+                    <text x="${x}" y="${y + 50}" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">${label}</text>
                 </g>`).join('')}
-                ${all ? '<path filter="url(#chemFireGlow)" d="M260 126 C232 94 270 78 262 46 C306 78 332 114 294 160 C282 174 238 170 228 148 C220 128 238 120 246 104 C252 116 256 122 260 126 Z" fill="#f97316"></path><path d="M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z" fill="#fde047"></path>' : '<text x="260" y="208" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">Zum Löschen genügt es, eine Ecke wegzunehmen.</text>'}
+                ${all ? `
+                <g filter="url(#chemFireGlow)">
+                    <path d="M260 126 C232 94 270 78 262 46 C306 78 332 114 294 160 C282 174 238 170 228 148 C220 128 238 120 246 104 C252 116 256 122 260 126 Z" fill="#ea580c">
+                        <animate attributeName="d" values="M260 126 C232 94 270 78 262 46 C306 78 332 114 294 160 C282 174 238 170 228 148 C220 128 238 120 246 104 C252 116 256 122 260 126 Z; M260 120 C220 90 280 60 250 40 C320 80 320 120 280 150 C290 170 230 180 220 150 C210 130 240 110 240 100 C250 110 256 120 260 120 Z; M260 126 C232 94 270 78 262 46 C306 78 332 114 294 160 C282 174 238 170 228 148 C220 128 238 120 246 104 C252 116 256 122 260 126 Z" dur="0.8s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z" fill="#facc15">
+                        <animate attributeName="d" values="M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z; M266 138 C240 120 280 100 260 80 C300 110 300 140 280 150 C280 160 240 160 240 150 C230 140 250 130 250 120 Z; M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z" dur="0.7s" repeatCount="indefinite"/>
+                    </path>
+                </g>` : '<text x="260" y="210" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">Zum Löschen genügt es, eine Ecke wegzunehmen.</text>'}
             </svg>
         `);
         chemStatus(lab, all ? 'Alle drei Bedingungen sind da: Verbrennung ist möglich.' : 'Es fehlt noch mindestens eine Bedingung. Zum Löschen nimmt man eine weg.');
@@ -753,32 +800,35 @@ window.ChemieLabs = (() => {
         const label = value < 7 ? 'sauer' : value === 7 ? 'neutral' : 'basisch';
         const sample = lab.dataset.chemSample || 'reines Wasser';
         const left = Math.max(2, Math.min(98, value / 14 * 100));
-        const strip = lab.querySelector('.chem-ph-strip');
-        if (strip) strip.style.cssText = `height:28px;border-radius:8px;background:${color};border:2px solid #0f172a;margin:8px 0;`;
         visual(lab, `
             <svg width="100%" height="250" viewBox="0 0 520 250" style="max-width:520px;height:auto;" role="img" aria-label="pH-Indikator">
-                <rect x="22" y="24" width="476" height="190" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
-                <g transform="translate(54 44)">
-                    <path d="M34 6 H126 L112 128 H48 Z" fill="#e0f2fe" stroke="#0f172a" stroke-width="3"></path>
-                    <path d="M49 86 C68 76 92 96 111 84 L106 122 H54 Z" fill="${color}" opacity="0.86"></path>
-                    <rect x="147" y="20" width="20" height="122" rx="6" fill="#f8fafc" stroke="#0f172a" stroke-width="2"></rect>
-                    <rect x="150" y="${118 - value * 6.5}" width="14" height="${value * 6.5 + 4}" rx="4" fill="${color}"></rect>
-                    <text x="80" y="158" text-anchor="middle" font-size="13" font-weight="900">${sample}</text>
-                </g>
-                <g transform="translate(246 62)">
-                    <rect x="0" y="0" width="210" height="28" rx="14" fill="url(#chemPhGradient)" stroke="#0f172a" stroke-width="2"></rect>
-                    <line x1="${left * 2.1}" y1="-8" x2="${left * 2.1}" y2="40" stroke="#0f172a" stroke-width="4" stroke-linecap="round"></line>
-                    <text x="0" y="58" font-size="11" font-weight="800">0 sauer</text>
-                    <text x="96" y="58" text-anchor="middle" font-size="11" font-weight="800">7 neutral</text>
-                    <text x="210" y="58" text-anchor="end" font-size="11" font-weight="800">14 basisch</text>
-                    <text x="105" y="100" text-anchor="middle" font-size="17" font-weight="900">pH ${value}: ${label}</text>
-                    <text x="105" y="126" text-anchor="middle" font-size="12" fill="#334155">Indikatorfarbe vergleichen, nicht probieren.</text>
-                </g>
                 <defs>
                     <linearGradient id="chemPhGradient" x1="0" x2="1" y1="0" y2="0">
                         <stop offset="0" stop-color="#dc2626"></stop><stop offset="0.28" stop-color="#f97316"></stop><stop offset="0.5" stop-color="#22c55e"></stop><stop offset="0.72" stop-color="#38bdf8"></stop><stop offset="1" stop-color="#2563eb"></stop>
                     </linearGradient>
+                    <filter id="phShadow"><feDropShadow dx="1" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/></filter>
                 </defs>
+                <rect x="22" y="24" width="476" height="190" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
+                <g transform="translate(54 44)" filter="url(#phShadow)">
+                    <path d="M34 6 H126 L112 128 H48 Z" fill="#ffffff" stroke="#94a3b8" stroke-width="3"></path>
+                    <path d="M49 86 C68 76 92 96 111 84 L106 122 H54 Z" fill="${color}" opacity="0.9">
+                        <animate attributeName="d" values="M49 86 C68 76 92 96 111 84 L106 122 H54 Z; M49 84 C68 96 92 76 111 86 L106 122 H54 Z; M49 86 C68 76 92 96 111 84 L106 122 H54 Z" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M34 6 H126 L112 128 H48 Z" fill="none" stroke="#0f172a" stroke-width="3"></path>
+                    <rect x="147" y="20" width="20" height="122" rx="6" fill="#f8fafc" stroke="#0f172a" stroke-width="2"></rect>
+                    <rect x="150" y="${118 - value * 6.5}" width="14" height="${value * 6.5 + 4}" rx="4" fill="${color}"></rect>
+                    <text x="80" y="158" text-anchor="middle" font-size="13" font-weight="900">${sample}</text>
+                </g>
+                <g transform="translate(246 62)" filter="url(#phShadow)">
+                    <rect x="0" y="0" width="210" height="28" rx="14" fill="url(#chemPhGradient)" stroke="#0f172a" stroke-width="2"></rect>
+                    <line x1="${left * 2.1}" y1="-8" x2="${left * 2.1}" y2="40" stroke="#0f172a" stroke-width="5" stroke-linecap="round"></line>
+                    <circle cx="${left * 2.1}" cy="-8" r="4" fill="#0f172a"></circle>
+                    <text x="0" y="58" font-size="11" font-weight="800">0 sauer</text>
+                    <text x="96" y="58" text-anchor="middle" font-size="11" font-weight="800">7 neutral</text>
+                    <text x="210" y="58" text-anchor="end" font-size="11" font-weight="800">14 basisch</text>
+                    <text x="105" y="100" text-anchor="middle" font-size="18" font-weight="900">pH ${value}: ${label}</text>
+                    <text x="105" y="126" text-anchor="middle" font-size="12" fill="#334155">Indikatorfarbe vergleichen, nicht probieren.</text>
+                </g>
             </svg>
         `);
         chemStatus(lab, `${sample}: pH ${value}, also ${label}. Neutralisation heißt: vorsichtig Richtung pH 7 bringen.`);
