@@ -747,3 +747,8 @@ Mini-Pilot (Run 2026-04-28 17:xx):
 - Fünf studentische Walkthrough-Snapshots geprüft: Geo DE Einstieg, Geo EN Öffi-Route, Chemie EN Mischen/Trennen, Bio DE Atmen/Kreislauf und Bio EN Schutz/Hygiene.
 - Ergebnis: Lernfluss ist verständlich, Merke/Fehlvorstellung/Transfer erscheinen in allen geprüften Kapiteln, und die neuen Interaktionen sitzen nahe am passenden Lernziel.
 - Fokuspatches: doppelten `geographie`-Key in `index.html` entfernt und Bio-EN-Reglertext von `walking stairs` zu natürlicherem `climbing stairs` geglättet.
+
+QA-Ausbau (Run 2026-05-27):
+- Neues Gate-Audit **`scripts/audit_visual_i18n_darkmode.js`** ergänzt.
+- Abgedeckt: UTF-8-/Mojibake-Regressionsschutz in allen Sprachdateien sowie Baseline-Guard für neue SVG-Beschriftungen ohne robuste Darkmode-Farbe in übersetzten Themen und dynamischen Topic-Grafiken.
+- Astronomie-Folgepatch: Ekliptik-SVG erhält eine helle Zeichenfläche und feste Textfarbe.
