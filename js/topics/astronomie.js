@@ -248,3 +248,18 @@ function triggerSupernova() {
         lines.style.display = "none";
     }, 4000);
 }
+
+function updateSolarZoom() {
+    const val = document.getElementById('solarZoomRange')?.value;
+    const group = document.getElementById('solarSystemGroup');
+    if (!val || !group) return;
+    // Map 0-100 to a pan/scale transformation
+    // 0 = inner planets, 100 = outer planets
+    const maxPan = -3600;
+    const pan = (val / 100) * maxPan;
+    // Slightly zoom out as we go further out to fit inclinations
+    const scale = 1 - (val / 100) * 0.7;
+    // Keep the sun anchored to the left but move the view right
+    const baseX = 50;
+    group.setAttribute('transform', `translate(${baseX + pan}, 140) scale(${scale})`);
+}
