@@ -750,6 +750,17 @@ window.ChemieLabs = (() => {
         return atomSvg(plain, 48, 56, 18, '#cbd5e1');
     }
 
+    function moleculeCopies(term, coeff) {
+        if (coeff <= 0) {
+            return '<text x="52" y="76" text-anchor="middle" font-size="12" font-weight="800" fill="#64748b">0 Moleküle</text>';
+        }
+        return Array.from({ length: Math.min(coeff, 9) }, (_, i) => {
+            const col = i % 3;
+            const row = Math.floor(i / 3);
+            return `<g transform="translate(${8 + col * 31} ${35 + row * 24}) scale(0.23)">${moleculeSvg(term.plain)}</g>`;
+        }).join('');
+    }
+
     function updateReactionBuilder(lab) {
         const reactionKey = lab.dataset.chemReaction || lab.dataset.chemChoice || 'methane';
         const reaction = REACTIONS[reactionKey] || REACTIONS.methane;
@@ -780,11 +791,11 @@ window.ChemieLabs = (() => {
             const coeff = coeffs[term.key] || 0;
             const x = side === 'left' ? 36 + terms.indexOf(term) * 116 : 354 + terms.indexOf(term) * 116;
             return `<g transform="translate(${x} 42)" opacity="${coeff > 0 ? 1 : 0.42}">
-                <rect width="104" height="96" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"></rect>
+                <rect width="104" height="118" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"></rect>
                 <rect x="8" y="8" width="34" height="22" rx="7" fill="${coeff > 0 ? '#dbeafe' : '#f1f5f9'}" stroke="#2563eb" stroke-width="2"></rect>
                 <text x="25" y="24" text-anchor="middle" font-size="13" font-weight="900">x${coeff}</text>
                 <text x="72" y="24" text-anchor="middle" font-size="13" font-weight="900">${term.plain}</text>
-                <g transform="translate(4 16)">${moleculeSvg(term.plain)}</g>
+                ${moleculeCopies(term, coeff)}
             </g>`;
         }).join('');
         visual(lab, `
@@ -792,20 +803,20 @@ window.ChemieLabs = (() => {
                 <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;font-size:1.05rem;font-weight:900;color:#0f172a;">
                     <span>${equationLeft}</span><span style="color:#2563eb;">-></span><span>${equationRight}</span>
                 </div>
-                <svg width="100%" height="260" viewBox="0 0 620 260" style="max-width:620px;height:auto;" role="img" aria-label="Reaktionsgleichung ausgleichen">
-                    <rect x="18" y="22" width="584" height="190" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
+                <svg width="100%" height="300" viewBox="0 0 620 300" style="max-width:620px;height:auto;" role="img" aria-label="Reaktionsgleichung ausgleichen">
+                    <rect x="18" y="22" width="584" height="232" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
                     <text x="160" y="34" text-anchor="middle" font-size="13" font-weight="900">Edukte links</text>
                     <text x="460" y="34" text-anchor="middle" font-size="13" font-weight="900">Produkte rechts</text>
                     ${moleculeCards('left', reaction.left)}
                     ${moleculeCards('right', reaction.right)}
                     <line x1="292" y1="60" x2="328" y2="60" stroke="#2563eb" stroke-width="5" marker-end="url(#reactionArrow)"></line>
-                    <g transform="translate(222 132)">
+                    <g transform="translate(222 174)">
                         <rect width="176" height="58" rx="12" fill="${balanced ? '#dcfce7' : '#fee2e2'}" stroke="${balanced ? '#16a34a' : '#dc2626'}" stroke-width="3"></rect>
                         <text x="88" y="24" text-anchor="middle" font-size="14" font-weight="900">${balanced ? 'ausgeglichen' : 'noch nicht gleich'}</text>
                         <text x="88" y="44" text-anchor="middle" font-size="11" fill="#334155">${balanced ? 'Atome bleiben erhalten' : 'links und rechts vergleichen'}</text>
                     </g>
                     <defs><marker id="reactionArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563eb"></path></marker></defs>
-                    <text x="310" y="236" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">${reaction.hint}</text>
+                    <text x="310" y="278" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">${reaction.hint}</text>
                 </svg>
                 <table class="word-rubric" style="margin-top:10px;">
                     <tr><th>Atom</th><th>links</th><th>rechts</th><th>passt?</th></tr>
