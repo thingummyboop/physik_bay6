@@ -269,6 +269,7 @@
         .challenge-hero,
         .character-hero,
         .home-panel,
+        .challenge-subject-panel,
         .challenge-map {
             background: var(--shell-panel);
             border: 1px solid var(--shell-border);
@@ -317,6 +318,10 @@
         [data-theme="dark"] .eyebrow { color: #86efac !important; }
 
         .home-panel { padding: 22px; }
+        .challenge-subject-panel {
+            margin-bottom: 18px;
+            padding: 22px;
+        }
         .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
         .section-heading h2, .tree-header h2 { margin: 0; }
         .section-heading p { color: var(--shell-muted); margin: 0; max-width: 640px; }
@@ -730,11 +735,8 @@
         }
 
         .challenge-map {
-            padding: 22px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr));
-            gap: 24px;
-            align-items: start;
+            display: block;
+            padding: 0;
         }
 
         #main-view[data-shell-view="challenge"] .challenge-map {
@@ -742,6 +744,105 @@
             border-color: transparent;
             box-shadow: none;
             padding: 0;
+        }
+
+        .challenge-subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .challenge-subject-card {
+            --accent: #0f766e;
+            align-items: center;
+            border: 1px solid color-mix(in srgb, var(--accent), white 52%);
+            border-radius: 14px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.78), color-mix(in srgb, var(--accent), white 90%));
+            color: var(--shell-text);
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 46px 1fr;
+            gap: 10px;
+            min-height: 94px;
+            padding: 11px;
+            position: relative;
+            text-align: left;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .challenge-subject-card:hover,
+        .challenge-subject-card.active {
+            border-color: var(--accent);
+            box-shadow: 0 10px 22px color-mix(in srgb, var(--accent), transparent 78%);
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .challenge-subject-card {
+            background:
+                linear-gradient(135deg, rgba(15, 23, 42, 0.86), color-mix(in srgb, var(--accent), #0f172a 76%));
+            border-color: color-mix(in srgb, var(--accent), #0f172a 50%);
+        }
+
+        .challenge-subject-card .challenge-subject-symbol,
+        .skill-branch header .challenge-subject-symbol {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.78);
+            font-weight: 900;
+            font-size: 1.62rem;
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 60%);
+        }
+
+        .challenge-subject-card .challenge-subject-symbol {
+            width: 44px;
+            height: 44px;
+            font-size: 1.45rem;
+        }
+
+        .challenge-subject-copy {
+            display: grid;
+            gap: 4px;
+            min-width: 0;
+        }
+
+        .challenge-subject-copy strong {
+            line-height: 1.12;
+        }
+
+        .challenge-subject-copy small {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .challenge-subject-copy small {
+            color: var(--shell-muted);
+            font-weight: 900;
+        }
+
+        .subject-progress {
+            grid-column: 1 / -1;
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--accent), white 78%);
+        }
+
+        [data-theme="dark"] .subject-progress {
+            background: color-mix(in srgb, var(--accent), #0f172a 68%);
+        }
+
+        .subject-progress span {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--accent);
         }
 
         .skill-branch {
@@ -769,20 +870,31 @@
             margin-bottom: 14px;
         }
 
-        .skill-branch header .challenge-subject-symbol {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            color: var(--accent);
-            background: rgba(255, 255, 255, 0.78);
-            font-weight: 900;
-            font-size: 1.62rem;
-            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 60%);
+        .skill-branch h2 { margin: 0; }
+
+        .skill-branch-focused {
+            padding: clamp(16px, 2.2vw, 28px);
         }
 
-        .skill-branch h2 { margin: 0; }
+        .challenge-focus-header {
+            justify-content: space-between;
+        }
+
+        .challenge-focus-header > div {
+            min-width: 0;
+        }
+
+        .challenge-focus-header .eyebrow {
+            margin: 0 0 4px !important;
+            font-size: 0.76rem;
+        }
+
+        .challenge-focus-header small {
+            color: var(--shell-muted);
+            display: block;
+            font-weight: 900;
+            margin-top: 4px;
+        }
 
         .challenge-subject-symbol svg {
             display: block;
@@ -1306,6 +1418,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=2.5"></script>
+    <script src="js/app_shell.js?v=2.6"></script>
 </body>
 </html>

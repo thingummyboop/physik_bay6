@@ -372,6 +372,66 @@ function isTopicUnlocked(subject, topic, index, completed) {
     return completed.has(earlierAvailable[earlierAvailable.length - 1].id);
 }
 
+function subjectProgress(subject, completed) {
+    const available = subject.topics.filter(topic => topic.available);
+    const done = available.filter(topic => completed.has(topic.id));
+    const next = subject.topics.find((topic, index) => {
+        return topic.available && !completed.has(topic.id) && isTopicUnlocked(subject, topic, index, completed);
+    }) || available.find(topic => !completed.has(topic.id));
+
+    return {
+        done: done.length,
+        total: available.length,
+        percent: available.length ? Math.round((done.length / available.length) * 100) : 0,
+        next
+    };
+}
+
+function renderChallengeSubjects(target, completed) {
+    target.innerHTML = "";
+    getSubjects().forEach(([subjectId, subject]) => {
+        const progress = subjectProgress(subject, completed);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `challenge-subject-card ${subjectId === currentSubject ? "active" : ""}`;
+        btn.style.setProperty("--accent", subject.accent);
+        btn.dataset.subject = subjectId;
+        btn.innerHTML = `
+            <span class="challenge-subject-symbol">${subjectSymbol(subjectId, subject)}</span>
+            <span class="challenge-subject-copy">
+                <strong>${subject.label}</strong>
+                <small>${progress.done}/${progress.total} Kapitel</small>
+            </span>
+            <span class="subject-progress" aria-hidden="true"><span style="width:${progress.percent}%"></span></span>
+        `;
+        btn.onclick = () => {
+            currentSubject = subjectId;
+            localStorage.setItem(SUBJECT_KEY, subjectId);
+            renderChallenge();
+        };
+        target.appendChild(btn);
+    });
+}
+
+function renderChallengeFocus(target, completed) {
+    const subject = APP.subjects[currentSubject] || APP.subjects.physik;
+    const progress = subjectProgress(subject, completed);
+    target.innerHTML = `
+        <section class="skill-branch skill-branch-focused" style="--accent:${subject.accent}">
+            <header class="challenge-focus-header">
+                <span class="challenge-subject-symbol">${subjectSymbol(currentSubject, subject)}</span>
+                <div>
+                    <p class="eyebrow">Aktueller Fach-Ast</p>
+                    <h2>${subject.label}</h2>
+                    <small>${progress.done}/${progress.total} Kapitel abgeschlossen${progress.next ? ` · N&auml;chstes Ziel: ${progress.next.title}` : " · alles geschafft"}</small>
+                </div>
+            </header>
+            <div class="learning-tree challenge-tree"></div>
+        </section>
+    `;
+    renderTopicTree(target.querySelector(".challenge-tree"), subject, { mode: "challenge", completed });
+}
+
 function renderChallenge() {
     currentView = "challenge";
     showMainView();
@@ -385,18 +445,18 @@ function renderChallenge() {
             <p>Schlie&szlig;e Kapitelquizzes mit mindestens 75% ab. Dann erscheint das n&auml;chste Thema im Fach-Ast. Kapiteltests geben Plus-M&uuml;nzen; &Uuml;bungsfragen im Kapitel geben keine Punkte.</p>
             <div class="challenge-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
         </section>
+        <section class="challenge-subject-panel">
+            <div class="section-heading">
+                <h2>Fach ausw&auml;hlen</h2>
+                <p>W&auml;hle einen Fach-Ast. Darunter siehst du nur diesen Skilltree mit freigeschalteten, gesperrten und abgeschlossenen Kapiteln.</p>
+            </div>
+            <div class="challenge-subject-grid" id="challenge-subject-grid"></div>
+        </section>
         <section class="challenge-map" id="challenge-map"></section>
     `;
 
-    const map = document.getElementById("challenge-map");
-    getSubjects().forEach(([subjectId, subject]) => {
-        const branch = document.createElement("section");
-        branch.className = "skill-branch";
-        branch.style.setProperty("--accent", subject.accent);
-        branch.innerHTML = `<header><span class="challenge-subject-symbol">${subjectSymbol(subjectId, subject)}</span><h2>${subject.label}</h2></header><div class="learning-tree challenge-tree"></div>`;
-        renderTopicTree(branch.querySelector(".challenge-tree"), subject, { mode: "challenge", completed });
-        map.appendChild(branch);
-    });
+    renderChallengeSubjects(document.getElementById("challenge-subject-grid"), completed);
+    renderChallengeFocus(document.getElementById("challenge-map"), completed);
     updateShellStats();
     resetMainViewScroll();
     updateTopNav();
