@@ -283,6 +283,11 @@
             margin-bottom: 18px;
         }
 
+        #main-view[data-shell-view="challenge"] .challenge-hero {
+            margin-bottom: clamp(10px, 1.8vh, 18px);
+            padding: clamp(16px, 2.25vw, 32px);
+        }
+
         .home-hero h1,
         .challenge-hero h1,
         .character-hero h1 {
@@ -291,6 +296,11 @@
             line-height: 0.95;
             margin: 0 0 16px 0;
             color: #f97316;
+        }
+
+        #main-view[data-shell-view="challenge"] .challenge-hero h1 {
+            font-size: clamp(2.25rem, min(4.9vw, 6.8vh), 4.4rem);
+            margin-bottom: clamp(8px, 1.4vh, 14px);
         }
 
         [data-theme="dark"] .home-hero h1,
@@ -306,6 +316,12 @@
             margin: 0;
         }
 
+        #main-view[data-shell-view="challenge"] .challenge-hero p {
+            font-size: clamp(0.94rem, 1.1vw, 1.02rem);
+            line-height: 1.5;
+            max-width: min(860px, 78vw);
+        }
+
         .eyebrow {
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -315,6 +331,34 @@
         }
 
         [data-theme="dark"] .eyebrow { color: #86efac !important; }
+
+        @media (max-height: 820px) {
+            #main-view[data-shell-view="challenge"] .challenge-hero {
+                padding: clamp(14px, 2.1vw, 26px);
+            }
+
+            #main-view[data-shell-view="challenge"] .challenge-hero h1 {
+                font-size: clamp(2.05rem, min(4.6vw, 6.3vh), 3.6rem);
+            }
+
+            #main-view[data-shell-view="challenge"] .eyebrow {
+                margin-bottom: 6px !important;
+            }
+        }
+
+        @media (max-width: 720px) {
+            #main-view[data-shell-view="challenge"] .challenge-hero {
+                padding: 18px;
+            }
+
+            #main-view[data-shell-view="challenge"] .challenge-hero h1 {
+                font-size: clamp(2.1rem, 12vw, 3.5rem);
+            }
+
+            #main-view[data-shell-view="challenge"] .challenge-hero p {
+                max-width: 100%;
+            }
+        }
 
         .home-panel { padding: 22px; }
         .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
@@ -712,14 +756,14 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 18px;
+            margin-top: clamp(9px, 1.35vh, 14px);
         }
 
         .challenge-stats span {
             background: #ecfdf5;
             border: 1px solid #99f6e4;
             border-radius: 999px;
-            padding: 9px 13px;
+            padding: clamp(6px, 0.95vh, 8px) 12px;
             color: #064e3b;
             font-weight: 800;
         }
