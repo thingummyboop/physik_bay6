@@ -41,6 +41,19 @@ body {
     display: none !important;
 }
 
+html.topic-page-root,
+body.topic-page {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html.topic-page-root::-webkit-scrollbar,
+body.topic-page::-webkit-scrollbar {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
 /* Layout for topic pages (inside iframe) */
 .topic-body {
     width: min(100%, 1120px);
