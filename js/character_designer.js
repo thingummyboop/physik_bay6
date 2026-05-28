@@ -724,3 +724,57 @@ function miniPortraitSvg(groupId, index) {
         </svg>
     `;
 }
+
+// Hidden Feature: Principal (Direktor)
+window.secretDirektorSvg = function secretDirektorSvg(metal) {
+    const m = {
+        gold: { base: "#fbbf24", dark: "#b45309", light: "#fef08a", robe: "#451a03", accent: "#f59e0b" },
+        silber: { base: "#94a3b8", dark: "#334155", light: "#f8fafc", robe: "#0f172a", accent: "#cbd5e1" },
+        kupfer: { base: "#d97706", dark: "#78350f", light: "#fcd34d", robe: "#2e1065", accent: "#b45309" }
+    };
+    const c = m[metal] || m.gold;
+    return `
+        <svg class="character-svg" viewBox="0 0 220 300" role="img" aria-label="Geheimer Direktor">
+            <defs>
+                <linearGradient id="dir-robe" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="${c.robe}"/>
+                    <stop offset="100%" stop-color="#000"/>
+                </linearGradient>
+                <radialGradient id="dir-metal" cx="30%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="${c.light}"/>
+                    <stop offset="40%" stop-color="${c.base}"/>
+                    <stop offset="100%" stop-color="${c.dark}"/>
+                </radialGradient>
+                <filter id="dir-shadow">
+                    <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+                </filter>
+            </defs>
+            <ellipse cx="110" cy="285" rx="75" ry="12" fill="#0f172a" opacity="0.25"/>
+            <!-- Robe -->
+            <path d="M 60 120 C 30 150, 20 200, 10 300 L 210 300 C 200 200, 190 150, 160 120 C 130 100, 90 100, 60 120 Z" fill="url(#dir-robe)" filter="url(#dir-shadow)"/>
+            <!-- Robe Accents -->
+            <path d="M 110 130 L 90 300 L 130 300 Z" fill="${c.accent}" opacity="0.3"/>
+            <!-- Metal Head (Neutral, abstract/funny shape) -->
+            <path d="M 110 130 C 60 130, 60 60, 110 60 C 160 60, 160 130, 110 130 Z" fill="url(#dir-metal)" filter="url(#dir-shadow)"/>
+            <!-- Big Metal Nose -->
+            <ellipse cx="110" cy="100" rx="15" ry="10" fill="url(#dir-metal)" filter="url(#dir-shadow)"/>
+            <!-- Big Mustache -->
+            <path d="M 80 110 Q 110 100 140 110 Q 150 120 145 125 Q 110 115 75 125 Q 70 120 80 110 Z" fill="${c.light}" filter="url(#dir-shadow)"/>
+            <!-- Stern Eyes -->
+            <path d="M 85 85 L 105 90 L 105 85 Z" fill="#000"/>
+            <path d="M 135 85 L 115 90 L 115 85 Z" fill="#000"/>
+            <circle cx="95" cy="92" r="3" fill="#000"/>
+            <circle cx="125" cy="92" r="3" fill="#000"/>
+            <!-- Monocle -->
+            <circle cx="125" cy="92" r="10" fill="none" stroke="${c.light}" stroke-width="2" filter="url(#dir-shadow)"/>
+            <path d="M 133 100 Q 140 120 135 150" fill="none" stroke="${c.light}" stroke-width="1.5"/>
+            <!-- Graduation Cap -->
+            <path d="M 110 20 L 160 40 L 110 60 L 60 40 Z" fill="#111827" filter="url(#dir-shadow)"/>
+            <path d="M 80 48 L 80 65 C 80 70, 140 70, 140 65 L 140 48 Z" fill="#1f2937"/>
+            <!-- Tassel -->
+            <path d="M 110 40 Q 150 40 155 60 L 155 75" fill="none" stroke="${c.accent}" stroke-width="2"/>
+            <path d="M 152 75 L 158 75 L 156 85 L 154 85 Z" fill="${c.accent}"/>
+        </svg>
+    `;
+};
+
