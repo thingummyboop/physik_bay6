@@ -513,19 +513,64 @@ function characterSvg(state) {
                     <stop offset="0" stop-color="#ffffff" stop-opacity="0.76"/>
                     <stop offset="1" stop-color="${outfitColor}" stop-opacity="0.18"/>
                 </linearGradient>
+                <radialGradient id="skin-gradient" cx="40%" cy="40%" r="70%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
+                    <stop offset="50%" stop-color="${model.skin}"/>
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.3"/>
+                </radialGradient>
+                <linearGradient id="outfit-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="${outfitColor}"/>
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.4"/>
+                </linearGradient>
+                <linearGradient id="leg-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#111827"/>
+                    <stop offset="50%" stop-color="#374151"/>
+                    <stop offset="100%" stop-color="#111827"/>
+                </linearGradient>
+                <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.3"/>
+                </filter>
+                <filter id="soft-shadow">
+                    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+                </filter>
+                <radialGradient id="eye-iris" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="${outfitColor}"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                </radialGradient>
             </defs>
-            <ellipse cx="110" cy="270" rx="70" ry="14" fill="#0f172a" opacity="0.18"/>
-            ${accessory.id === "acc_backpack" ? `<rect x="${body.backpackX}" y="120" width="44" height="92" rx="16" fill="#78350f" opacity="0.88"/><path d="M72 138c-18 22-18 48-2 70" fill="none" stroke="#92400e" stroke-width="6" stroke-linecap="round"/>` : ""}
-            <path d="M${110 - body.shoulder} 130 Q110 112 ${110 + body.shoulder} 130 L${110 + body.waist} 235 Q110 252 ${110 - body.waist} 235 Z" fill="${outfitColor}" stroke="#102a27" stroke-width="4"/>
+            <ellipse cx="110" cy="285" rx="75" ry="12" fill="#0f172a" opacity="0.25" filter="url(#soft-shadow)"/>
+            
+            ${accessory.id === "acc_backpack" ? `<rect x="${body.backpackX}" y="120" width="46" height="96" rx="18" fill="#78350f" filter="url(#drop-shadow)"/><path d="M70 140c-20 24-20 52-2 74" fill="none" stroke="#92400e" stroke-width="8" stroke-linecap="round" filter="url(#soft-shadow)"/>` : ""}
+            
+            <!-- Body -->
+            <path d="M${110 - body.shoulder} 130 Q110 115 ${110 + body.shoulder} 130 L${110 + body.waist} 240 Q110 255 ${110 - body.waist} 240 Z" fill="url(#outfit-gradient)" filter="url(#drop-shadow)"/>
             ${outfitPattern(outfit, body, accent)}
-            <path d="M${110 - body.shoulder + 6} 145 Q${60 - body.armOffset} 172 ${69 - body.armOffset} 218" fill="none" stroke="${model.skin}" stroke-width="17" stroke-linecap="round"/>
-            <path d="M${110 + body.shoulder - 6} 145 Q${160 + body.armOffset} 172 ${151 + body.armOffset} 218" fill="none" stroke="${model.skin}" stroke-width="17" stroke-linecap="round"/>
+            
+            <!-- Legs -->
+            <path d="M91 235 L83 275" stroke="url(#leg-gradient)" stroke-width="${body.legWidth}" stroke-linecap="round" filter="url(#soft-shadow)"/>
+            <path d="M129 235 L137 275" stroke="url(#leg-gradient)" stroke-width="${body.legWidth}" stroke-linecap="round" filter="url(#soft-shadow)"/>
+            
+            <!-- Shoes -->
+            <path d="M68 275h32a6 6 0 0 1 0 12H68a6 6 0 0 1 0-12zM120 275h32a6 6 0 0 1 0 12h-32a6 6 0 0 1 0-12z" fill="#1f2937" filter="url(#soft-shadow)"/>
+            <path d="M72 284h24M124 284h24" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+            <!-- Arms -->
+            <path d="M${110 - body.shoulder + 6} 145 Q${55 - body.armOffset} 175 ${66 - body.armOffset} 225" fill="none" stroke="url(#skin-gradient)" stroke-width="18" stroke-linecap="round" filter="url(#drop-shadow)"/>
+            <path d="M${110 + body.shoulder - 6} 145 Q${165 + body.armOffset} 175 ${154 + body.armOffset} 225" fill="none" stroke="url(#skin-gradient)" stroke-width="18" stroke-linecap="round" filter="url(#drop-shadow)"/>
+            
+            <!-- Hands -->
+            <circle cx="${66 - body.armOffset}" cy="225" r="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>
+            <circle cx="${154 + body.armOffset}" cy="225" r="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>
+
             ${heldAccessory(accessory, accent)}
-            <path d="M91 232 L83 268" stroke="#1f2937" stroke-width="${body.legWidth}" stroke-linecap="round"/>
-            <path d="M129 232 L137 268" stroke="#1f2937" stroke-width="${body.legWidth}" stroke-linecap="round"/>
-            <path d="M70 268h30M120 268h30" stroke="#111827" stroke-width="10" stroke-linecap="round"/>
             ${groupExtrasBehind(state.group, model)}
-            <circle cx="110" cy="78" r="${body.head}" fill="${model.skin}" stroke="#102a27" stroke-width="4"/>
+            
+            <!-- Neck shadow -->
+            <path d="M98 128 Q110 140 122 128" fill="#000000" opacity="0.2"/>
+
+            <!-- Head -->
+            <circle cx="110" cy="78" r="${body.head}" fill="url(#skin-gradient)" filter="url(#drop-shadow)"/>
+            
             ${earSvg(state.group, model, body)}
             ${hairSvg(hair.style || "short", hairColor, state.group)}
             ${faceSvg(state, model, makeup)}
@@ -537,89 +582,117 @@ function characterSvg(state) {
 
 function bodyMetrics(body) {
     const map = {
-        power: { shoulder: 55, waist: 35, head: 31, legWidth: 15, armOffset: 12, backpackX: 52 },
-        compact: { shoulder: 48, waist: 42, head: 30, legWidth: 18, armOffset: 5, backpackX: 56 },
-        slim: { shoulder: 38, waist: 24, head: 28, legWidth: 12, armOffset: 0, backpackX: 62 },
-        clever: { shoulder: 42, waist: 29, head: 29, legWidth: 13, armOffset: 0, backpackX: 60 },
-        nature: { shoulder: 44, waist: 31, head: 30, legWidth: 14, armOffset: 4, backpackX: 58 }
+        power: { shoulder: 58, waist: 38, head: 33, legWidth: 17, armOffset: 14, backpackX: 50 },
+        compact: { shoulder: 50, waist: 44, head: 32, legWidth: 20, armOffset: 6, backpackX: 54 },
+        slim: { shoulder: 40, waist: 26, head: 29, legWidth: 14, armOffset: 0, backpackX: 60 },
+        clever: { shoulder: 44, waist: 30, head: 31, legWidth: 15, armOffset: 0, backpackX: 58 },
+        nature: { shoulder: 46, waist: 33, head: 32, legWidth: 16, armOffset: 4, backpackX: 56 }
     };
     return map[body] || map.clever;
 }
 
 function outfitPattern(outfit, body, accent) {
     if (outfit.style === "overall") {
-        return `<path d="M86 132v95M134 132v95M86 178h48" stroke="#e0f2fe" stroke-width="6" opacity="0.5"/><circle cx="92" cy="154" r="4" fill="#facc15"/><circle cx="128" cy="154" r="4" fill="#facc15"/>`;
+        return `<path d="M84 135v105M136 135v105M84 185h52" stroke="#e0f2fe" stroke-width="6" opacity="0.6" filter="url(#soft-shadow)"/><circle cx="90" cy="156" r="5" fill="#facc15" filter="url(#soft-shadow)"/><circle cx="130" cy="156" r="5" fill="#facc15" filter="url(#soft-shadow)"/>`;
     }
     if (outfit.style === "jacket") {
-        return `<path d="M110 122v117M80 152h60" stroke="#ffffff" stroke-width="5" opacity="0.62"/><rect x="96" y="154" width="28" height="36" rx="8" fill="${accent}" opacity="0.42"/>`;
+        return `<path d="M110 125v115M78 155h64" stroke="#ffffff" stroke-width="6" opacity="0.7" filter="url(#soft-shadow)"/><rect x="94" y="156" width="32" height="40" rx="10" fill="${accent}" opacity="0.6" filter="url(#soft-shadow)"/>`;
     }
-    return `<path d="M85 150 Q110 166 135 150" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.58"/><path d="M101 130l9 14 9-14" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.62"/>`;
+    return `<path d="M82 152 Q110 170 138 152" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.6" filter="url(#soft-shadow)"/><path d="M99 132l11 16 11-16" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.7" filter="url(#soft-shadow)"/>`;
 }
 
 function hairSvg(style, color, groupId) {
-    const twig = groupId === "druide" ? `<path d="M94 35l-10-17M125 36l13-18" stroke="#365314" stroke-width="4" stroke-linecap="round"/><circle cx="82" cy="17" r="5" fill="#84cc16"/><circle cx="139" cy="17" r="5" fill="#84cc16"/>` : "";
-    if (style === "long") return `${twig}<path d="M78 72 Q77 33 111 31 Q146 34 144 83 Q139 119 128 133 Q126 98 129 69 Q111 53 88 67 Q91 102 86 132 Q76 112 78 72Z" fill="${color}" stroke="#102a27" stroke-width="3"/>`;
-    if (style === "curls") return `${twig}<g fill="${color}" stroke="#102a27" stroke-width="2"><circle cx="82" cy="57" r="13"/><circle cx="96" cy="43" r="14"/><circle cx="114" cy="39" r="15"/><circle cx="132" cy="48" r="14"/><circle cx="142" cy="65" r="12"/></g>`;
-    if (style === "bun") return `${twig}<path d="M80 72 Q84 37 111 34 Q139 38 141 72 Q113 54 80 72Z" fill="${color}" stroke="#102a27" stroke-width="3"/><circle cx="145" cy="47" r="14" fill="${color}" stroke="#102a27" stroke-width="3"/>`;
-    if (style === "streak") return `${twig}<path d="M80 72 Q84 34 111 32 Q140 38 141 74 Q112 52 80 72Z" fill="${color}" stroke="#102a27" stroke-width="3"/><path d="M101 34 Q111 52 105 83" stroke="#fff7ed" stroke-width="7" stroke-linecap="round" opacity="0.82"/>`;
-    return `${twig}<path d="M80 72 Q84 35 111 32 Q140 38 141 73 Q111 54 80 72Z" fill="${color}" stroke="#102a27" stroke-width="3"/>`;
+    const twig = groupId === "druide" ? `<path d="M92 32l-12-19M128 33l15-20" stroke="#365314" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/><circle cx="78" cy="12" r="6" fill="#84cc16" filter="url(#soft-shadow)"/><circle cx="145" cy="12" r="6" fill="#84cc16" filter="url(#soft-shadow)"/>` : "";
+    const highlight = `<path d="M85 55 Q110 45 135 55" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.15" stroke-linecap="round"/>`;
+    
+    if (style === "long") return `${twig}<path d="M74 74 Q73 30 111 28 Q150 32 148 85 Q142 125 130 140 Q127 100 131 68 Q111 50 86 65 Q89 105 84 138 Q72 115 74 74Z" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
+    if (style === "curls") return `${twig}<g fill="${color}" filter="url(#drop-shadow)"><circle cx="80" cy="55" r="15"/><circle cx="94" cy="40" r="16"/><circle cx="114" cy="35" r="18"/><circle cx="134" cy="45" r="16"/><circle cx="145" cy="65" r="14"/><circle cx="75" cy="70" r="12"/><circle cx="142" cy="82" r="12"/></g>${highlight}`;
+    if (style === "bun") return `${twig}<path d="M78 74 Q82 34 111 30 Q142 36 144 74 Q113 52 78 74Z" fill="${color}" filter="url(#drop-shadow)"/><circle cx="148" cy="45" r="16" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
+    if (style === "streak") return `${twig}<path d="M78 74 Q82 32 111 28 Q144 36 144 76 Q112 50 78 74Z" fill="${color}" filter="url(#drop-shadow)"/><path d="M99 32 Q110 52 103 86" stroke="#fff7ed" stroke-width="8" stroke-linecap="round" opacity="0.9" filter="url(#soft-shadow)"/>${highlight}`;
+    return `${twig}<path d="M78 74 Q82 32 111 28 Q144 36 144 75 Q111 52 78 74Z" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
 }
 
 function earSvg(groupId, model, body) {
     if (groupId === "elf") {
-        return `<path d="M82 76 L49 58 L78 94Z" fill="${model.skin}" stroke="#102a27" stroke-width="4"/><path d="M138 76 L171 58 L142 94Z" fill="${model.skin}" stroke="#102a27" stroke-width="4"/>`;
+        return `<path d="M80 76 L42 54 L76 96Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><path d="M140 76 L178 54 L144 96Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
     }
     if (groupId === "ork") {
-        return `<path d="M82 80 L56 72 L78 96Z" fill="${model.skin}" stroke="#102a27" stroke-width="4"/><path d="M138 80 L164 72 L142 96Z" fill="${model.skin}" stroke="#102a27" stroke-width="4"/>`;
+        return `<path d="M80 82 L50 72 L76 100Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><path d="M140 82 L170 72 L144 100Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
     }
-    return `<circle cx="${110 - body.head}" cy="80" r="8" fill="${model.skin}" stroke="#102a27" stroke-width="3"/><circle cx="${110 + body.head}" cy="80" r="8" fill="${model.skin}" stroke="#102a27" stroke-width="3"/>`;
+    return `<ellipse cx="${110 - body.head}" cy="80" rx="6" ry="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><ellipse cx="${110 + body.head}" cy="80" rx="6" ry="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
 }
 
 function faceSvg(state, model, makeup) {
-    const lashes = state.gender === "female" ? `<path d="M96 75l-6-5M124 75l6-5" stroke="#102a27" stroke-width="2" stroke-linecap="round"/>` : "";
-    const freckles = makeup.style === "freckles" ? `<g fill="${model.cheek}"><circle cx="91" cy="87" r="2"/><circle cx="98" cy="90" r="1.8"/><circle cx="122" cy="90" r="1.8"/><circle cx="129" cy="87" r="2"/></g>` : "";
-    const star = makeup.style === "star" ? `<path d="M135 88l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#facc15" stroke="#92400e" stroke-width="1.5"/>` : "";
-    const choco = makeup.style === "choco" ? `<path d="M84 91 Q95 102 106 93" fill="none" stroke="#7c2d12" stroke-width="5" stroke-linecap="round" opacity="0.75"/>` : "";
+    const lashes = state.gender === "female" ? `<path d="M92 73l-7-6M128 73l7-6" stroke="#111827" stroke-width="3" stroke-linecap="round"/>` : "";
+    const freckles = makeup.style === "freckles" ? `<g fill="${model.cheek}" opacity="0.8"><circle cx="89" cy="89" r="2.5"/><circle cx="97" cy="92" r="2"/><circle cx="123" cy="92" r="2"/><circle cx="131" cy="89" r="2.5"/><circle cx="93" cy="94" r="1.5"/><circle cx="127" cy="94" r="1.5"/></g>` : "";
+    const star = makeup.style === "star" ? `<path d="M136 90l3.5 7 8 1-6 6 1.5 8-7-3.5-7 3.5 1.5-8-6-6 8-1z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5" filter="url(#soft-shadow)"/>` : "";
+    const choco = makeup.style === "choco" ? `<path d="M82 93 Q94 105 106 95" fill="none" stroke="#7c2d12" stroke-width="6" stroke-linecap="round" opacity="0.85"/>` : "";
+    
     return `
-        <circle cx="97" cy="78" r="4" fill="#102a27"/>
-        <circle cx="123" cy="78" r="4" fill="#102a27"/>
+        <!-- Eye Whites -->
+        <ellipse cx="96" cy="78" rx="8" ry="6" fill="#ffffff" filter="url(#soft-shadow)"/>
+        <ellipse cx="124" cy="78" rx="8" ry="6" fill="#ffffff" filter="url(#soft-shadow)"/>
+        
+        <!-- Irises & Pupils -->
+        <circle cx="96" cy="78" r="4.5" fill="url(#eye-iris)"/>
+        <circle cx="96" cy="78" r="2" fill="#000000"/>
+        <circle cx="124" cy="78" r="4.5" fill="url(#eye-iris)"/>
+        <circle cx="124" cy="78" r="2" fill="#000000"/>
+        
+        <!-- Eye Highlights -->
+        <circle cx="94" cy="76" r="1.5" fill="#ffffff" opacity="0.9"/>
+        <circle cx="122" cy="76" r="1.5" fill="#ffffff" opacity="0.9"/>
+        
         ${lashes}
-        <path d="M104 94 Q110 99 116 94" fill="none" stroke="#102a27" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="88" cy="92" r="7" fill="${model.cheek}" opacity="0.35"/>
-        <circle cx="132" cy="92" r="7" fill="${model.cheek}" opacity="0.35"/>
+        
+        <!-- Eyebrows -->
+        <path d="M86 68 Q96 64 104 68" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round" filter="url(#soft-shadow)"/>
+        <path d="M134 68 Q124 64 116 68" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round" filter="url(#soft-shadow)"/>
+        
+        <!-- Nose -->
+        <path d="M106 88 Q110 93 114 88" fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        
+        <!-- Mouth -->
+        <path d="M102 98 Q110 104 118 98" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+        <path d="M106 98 Q110 102 114 98" fill="#ec4899" opacity="0.6"/>
+        
+        <!-- Blush -->
+        <ellipse cx="86" cy="94" rx="9" ry="6" fill="${model.cheek}" opacity="0.5" filter="url(#soft-shadow)"/>
+        <ellipse cx="134" cy="94" rx="9" ry="6" fill="${model.cheek}" opacity="0.5" filter="url(#soft-shadow)"/>
+        
         ${freckles}${star}${choco}
     `;
 }
 
 function groupExtrasBehind(groupId, model) {
-    if (groupId === "elf") return `<path d="M110 45 Q120 16 138 31" fill="none" stroke="#fef3c7" stroke-width="4" opacity="0.8"/>`;
+    if (groupId === "elf") return `<path d="M110 42 Q122 10 142 28" fill="none" stroke="#fde047" stroke-width="5" opacity="0.9" filter="url(#drop-shadow)"/>`;
     return "";
 }
 
 function groupExtrasFront(groupId, model) {
     if (groupId === "ork") {
-        return `<path d="M94 99l5 13 6-13M116 99l6 13 5-13" fill="#f8fafc" stroke="#102a27" stroke-width="2"/><path d="M90 67l16-5M130 67l-16-5" stroke="#102a27" stroke-width="4" stroke-linecap="round"/>`;
+        return `<path d="M93 103l4 14 5-14M117 103l5 14 4-14" fill="#f8fafc" stroke="#111827" stroke-width="2" filter="url(#soft-shadow)"/><path d="M88 65l18-6M132 65l-18-6" stroke="#111827" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/>`;
     }
     if (groupId === "zauberer") {
-        return `<circle cx="97" cy="78" r="10" fill="none" stroke="#0f172a" stroke-width="3"/><circle cx="123" cy="78" r="10" fill="none" stroke="#0f172a" stroke-width="3"/><path d="M107 78h6" stroke="#0f172a" stroke-width="3"/><path d="M136 54l14-9" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>`;
+        return `<circle cx="96" cy="78" r="11" fill="none" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><circle cx="124" cy="78" r="11" fill="none" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><path d="M107 78h9" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><path d="M138 52l15-10" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" filter="url(#drop-shadow)"/>`;
     }
     if (groupId === "druide") {
-        return `<path d="M129 96q11 10 20 1" stroke="#7c2d12" stroke-width="5" stroke-linecap="round" opacity="0.7"/>`;
+        return `<path d="M128 98q12 12 22 2" stroke="#451a03" stroke-width="6" stroke-linecap="round" opacity="0.8" filter="url(#soft-shadow)"/>`;
     }
     if (groupId === "zwerg") {
-        return `<circle cx="86" cy="78" r="3" fill="#92400e"/><circle cx="134" cy="78" r="3" fill="#92400e"/>`;
+        return `<ellipse cx="85" cy="80" rx="4" ry="5" fill="#78350f" filter="url(#soft-shadow)"/><ellipse cx="135" cy="80" rx="4" ry="5" fill="#78350f" filter="url(#soft-shadow)"/>`;
     }
     return "";
 }
 
 function heldAccessory(accessory, accent) {
     if (accessory.id === "acc_none" || accessory.id === "acc_backpack" || accessory.id === "acc_glasses" || accessory.id === "acc_headphones") return "";
-    return `<g transform="translate(151 190)"><rect x="-15" y="-18" width="30" height="34" rx="8" fill="${accent}" stroke="#102a27" stroke-width="3"/><text x="0" y="5" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">${accessory.icon || "A"}</text></g>`;
+    return `<g transform="translate(151 190)" filter="url(#soft-shadow)"><rect x="-15" y="-18" width="30" height="34" rx="8" fill="${accent}" stroke="#102a27" stroke-width="3"/><text x="0" y="5" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">${accessory.icon || "A"}</text></g>`;
 }
 
 function accessoryOnFace(accessory, accent) {
-    if (accessory.id === "acc_glasses") return `<circle cx="97" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3"/><circle cx="123" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3"/><path d="M108 78h4" stroke="#111827" stroke-width="3"/>`;
-    if (accessory.id === "acc_headphones") return `<path d="M80 76 Q110 35 140 76" fill="none" stroke="#111827" stroke-width="6"/><rect x="73" y="72" width="13" height="28" rx="6" fill="${accent}"/><rect x="134" y="72" width="13" height="28" rx="6" fill="${accent}"/>`;
+    if (accessory.id === "acc_glasses") return `<circle cx="97" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/><circle cx="123" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/><path d="M108 78h4" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/>`;
+    if (accessory.id === "acc_headphones") return `<path d="M80 76 Q110 35 140 76" fill="none" stroke="#111827" stroke-width="6" filter="url(#soft-shadow)"/><rect x="73" y="72" width="13" height="28" rx="6" fill="${accent}" filter="url(#soft-shadow)"/><rect x="134" y="72" width="13" height="28" rx="6" fill="${accent}" filter="url(#soft-shadow)"/>`;
     return "";
 }
 
@@ -628,16 +701,26 @@ function miniPortraitSvg(groupId, index) {
     const model = group.models[index % group.models.length];
     return `
         <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-            <circle cx="32" cy="24" r="16" fill="${model.skin}" stroke="#102a27" stroke-width="3"/>
-            ${groupId === "elf" ? `<path d="M18 25L5 17l10 18M46 25l13-8-10 18" fill="${model.skin}" stroke="#102a27" stroke-width="3"/>` : ""}
-            ${groupId === "ork" ? `<path d="M18 26L8 22l8 12M46 26l10-4-8 12" fill="${model.skin}" stroke="#102a27" stroke-width="3"/>` : ""}
-            <path d="M16 24 Q19 6 33 8 Q48 10 48 26 Q33 16 16 24Z" fill="${model.hair}" stroke="#102a27" stroke-width="2"/>
-            <circle cx="26" cy="24" r="2" fill="#102a27"/>
-            <circle cx="38" cy="24" r="2" fill="#102a27"/>
-            <path d="M27 34q5 4 10 0" fill="none" stroke="#102a27" stroke-width="2" stroke-linecap="round"/>
-            <path d="M18 46 Q32 38 46 46 L50 62H14Z" fill="#0f766e" stroke="#102a27" stroke-width="3"/>
-            ${groupId === "druide" ? `<path d="M27 8l-6-8M39 9l8-7" stroke="#365314" stroke-width="3"/><circle cx="20" cy="1" r="3" fill="#84cc16"/>` : ""}
-            ${groupId === "zauberer" ? `<circle cx="26" cy="24" r="5" fill="none" stroke="#111827" stroke-width="2"/><circle cx="38" cy="24" r="5" fill="none" stroke="#111827" stroke-width="2"/>` : ""}
+            <defs>
+                <radialGradient id="mini-skin-${index}" cx="40%" cy="40%" r="70%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
+                    <stop offset="50%" stop-color="${model.skin}"/>
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.3"/>
+                </radialGradient>
+                <filter id="mini-shadow"><feDropShadow dx="1" dy="2" stdDeviation="1" flood-opacity="0.3"/></filter>
+            </defs>
+            <circle cx="32" cy="24" r="16" fill="url(#mini-skin-${index})" filter="url(#mini-shadow)"/>
+            ${groupId === "elf" ? `<path d="M18 25L3 15l12 20M46 25l15-10-12 20" fill="url(#mini-skin-${index})" filter="url(#mini-shadow)"/>` : ""}
+            ${groupId === "ork" ? `<path d="M18 26L6 20l10 14M46 26l12-6-10 14" fill="url(#mini-skin-${index})" filter="url(#mini-shadow)"/>` : ""}
+            <path d="M16 24 Q19 4 33 6 Q48 8 48 26 Q33 14 16 24Z" fill="${model.hair}" filter="url(#mini-shadow)"/>
+            
+            <ellipse cx="26" cy="24" r="3" fill="#ffffff"/><circle cx="26" cy="24" r="1.5" fill="#111827"/>
+            <ellipse cx="38" cy="24" r="3" fill="#ffffff"/><circle cx="38" cy="24" r="1.5" fill="#111827"/>
+            
+            <path d="M27 34q5 5 10 0" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 46 Q32 36 48 46 L52 64H12Z" fill="#0f766e" filter="url(#mini-shadow)"/>
+            ${groupId === "druide" ? `<path d="M27 6l-8-10M39 7l10-9" stroke="#365314" stroke-width="4"/><circle cx="19" cy="-4" r="4" fill="#84cc16"/>` : ""}
+            ${groupId === "zauberer" ? `<circle cx="26" cy="24" r="5" fill="none" stroke="#eab308" stroke-width="2"/><circle cx="38" cy="24" r="5" fill="none" stroke="#eab308" stroke-width="2"/>` : ""}
         </svg>
     `;
 }
