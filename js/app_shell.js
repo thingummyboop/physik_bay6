@@ -215,6 +215,10 @@ function gradeLabel(grade) {
     return `${grade}. Klasse`;
 }
 
+function sortGradeKey(grade) {
+    return grade || 99;
+}
+
 function renderLearningTree(subjectId) {
     const subject = APP.subjects[subjectId];
     const tree = document.getElementById("learning-tree");
@@ -227,20 +231,36 @@ function renderLearningTree(subjectId) {
         byGrade.get(grade).push(topic);
     });
 
-    [...byGrade.entries()].sort((a, b) => a[0] - b[0]).forEach(([grade, topics]) => {
+    [...byGrade.entries()].sort((a, b) => sortGradeKey(a[0]) - sortGradeKey(b[0])).forEach(([grade, topics]) => {
         const gradeBlock = document.createElement("section");
         gradeBlock.className = "tree-grade";
         gradeBlock.innerHTML = `<h3>${gradeLabel(grade)}</h3><div class="tree-lanes"></div>`;
         const lanes = gradeBlock.querySelector(".tree-lanes");
 
+        const byStrand = new Map();
         topics.forEach(topic => {
-            const node = document.createElement("button");
-            node.type = "button";
-            node.className = `tree-node ${topic.available ? "" : "planned"}`;
-            node.style.setProperty("--accent", subject.accent);
-            node.innerHTML = `<span class="node-kicker">${topic.strand}</span><strong>${topic.title}</strong><small>${topic.available ? "Lerninhalt &ouml;ffnen" : "Thema geplant"}</small>`;
-            node.onclick = () => openTopic(topic.id, "learn");
-            lanes.appendChild(node);
+            if (!byStrand.has(topic.strand)) byStrand.set(topic.strand, []);
+            byStrand.get(topic.strand).push(topic);
+        });
+
+        [...byStrand.entries()].forEach(([strand, strandTopics]) => {
+            const branch = document.createElement("section");
+            branch.className = "strand-branch";
+            branch.style.setProperty("--accent", subject.accent);
+            branch.innerHTML = `<div class="strand-label">${strand}</div><div class="strand-nodes"></div>`;
+            const nodes = branch.querySelector(".strand-nodes");
+
+            strandTopics.forEach(topic => {
+                const node = document.createElement("button");
+                node.type = "button";
+                node.className = `tree-node ${topic.available ? "" : "planned"}`;
+                node.style.setProperty("--accent", subject.accent);
+                node.innerHTML = `<span class="node-kicker">${gradeLabel(topic.grade)}</span><strong>${topic.title}</strong><small>${topic.available ? "Lerninhalt &ouml;ffnen" : "Thema geplant"}</small>`;
+                node.onclick = () => openTopic(topic.id, "learn");
+                nodes.appendChild(node);
+            });
+
+            lanes.appendChild(branch);
         });
 
         tree.appendChild(gradeBlock);
@@ -261,7 +281,7 @@ function renderHome() {
                 <h2>Unterrichtsfach w&auml;hlen</h2>
                 <p>Jedes Fach hat seinen eigenen Lernbaum. Gleichrangige Themen stehen nebeneinander.</p>
             </div>
-            <div id="subject-buttons" class="subject-grid"></div>
+            <div id="subject-buttons" class="subject-grid" aria-label="Unterrichtsfaecher"></div>
             <div class="tree-header">
                 <h2 id="tree-title"></h2>
                 <button type="button" class="quiet-action" onclick="navigate('challenge', currentSubject)">Zur Herausforderung</button>
