@@ -1,7 +1,7 @@
 // Central curriculum and skill-tree data for the main app shell.
 // Existing topics point to real content in lang/*.json. Planned topics build the full subject tree.
 window.LEARNQUEST_CURRICULUM = {
-    appName: "Wissenspfad",
+    appName: "SciVerse",
     subjects: {
         physik: {
             label: "Physik",
