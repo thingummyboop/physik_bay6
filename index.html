@@ -156,10 +156,22 @@
             text-align: center;
         }
 
+        .theme-toggle {
+            min-width: 46px;
+            padding: 8px 10px;
+            text-align: center;
+        }
+
         .language-glyph {
             display: inline-block;
             font-weight: 900;
             letter-spacing: 0;
+        }
+
+        .theme-glyph {
+            display: inline-block;
+            font-size: 1.18rem;
+            line-height: 1;
         }
 
         .lang-row {
@@ -544,7 +556,7 @@
                         <button type="button" class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
                     </div>
                 </div>
-                <button type="button" class="shell-action" id="dark-mode-toggle" onclick="toggleDarkMode()">Wald</button>
+                <button type="button" class="shell-action theme-toggle" id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Waldmodus aktivieren" title="Waldmodus aktivieren"><span class="theme-glyph" aria-hidden="true">&#127794;</span></button>
                 <button type="button" class="shell-action" onclick="resetAllProgress()">Reset</button>
             </div>
         </header>
@@ -564,6 +576,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=1.6"></script>
+    <script src="js/app_shell.js?v=1.7"></script>
 </body>
 </html>

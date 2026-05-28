@@ -87,12 +87,20 @@ function applyTheme(isDark) {
         document.documentElement.removeAttribute("data-theme");
     }
     const btn = document.getElementById("dark-mode-toggle");
-    if (btn) btn.textContent = isDark ? "Sonne" : "Wald";
+    if (btn) updateThemeToggleButton(btn, isDark);
 
     const frame = document.getElementById("game-frame");
     if (frame?.contentWindow) {
         frame.contentWindow.postMessage({ type: "themeChange", isDark }, "*");
     }
+}
+
+function updateThemeToggleButton(btn, isDark) {
+    const label = isDark ? "Sonnenmodus aktivieren" : "Waldmodus aktivieren";
+    const symbol = isDark ? "\u2600" : "\uD83C\uDF32";
+    btn.innerHTML = `<span class="theme-glyph" aria-hidden="true">${symbol}</span>`;
+    btn.setAttribute("aria-label", label);
+    btn.title = label;
 }
 
 function resetAllProgress() {
