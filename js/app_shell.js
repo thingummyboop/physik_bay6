@@ -60,7 +60,11 @@ function toggleDarkMode() {
 }
 
 function applyTheme(isDark) {
-    document.documentElement.toggleAttribute("data-theme", isDark);
+    if (isDark) {
+        document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+        document.documentElement.removeAttribute("data-theme");
+    }
     const btn = document.getElementById("dark-mode-toggle");
     if (btn) btn.textContent = isDark ? "Tagmodus" : "Nachtmodus";
 
