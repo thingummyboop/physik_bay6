@@ -3,9 +3,9 @@ const SUBJECT_KEY = "wissenspfad_selected_subject";
 const COINS_KEY = "learning_coins";
 const COMPLETED_KEY = "challenge_completed_topics";
 const SKILL_ZOOM_KEY = "challenge_skill_map_zoom";
-const RADIAL_VIEWBOX = 2400;
+const RADIAL_VIEWBOX = 3600;
 const RADIAL_CENTER = RADIAL_VIEWBOX / 2;
-const RADIAL_BASE_WIDTH = 1700;
+const RADIAL_BASE_WIDTH = 2300;
 const RADIAL_NODE_DIAMETERS = {
     subject: 48,
     entry: 40,
@@ -607,6 +607,15 @@ function bindSkillMapWheelZoom(target) {
         if (activeSkillWheelTarget === scroll) activeSkillWheelTarget = null;
     });
     scroll.addEventListener("wheel", event => {
+        if (!event.ctrlKey && !event.metaKey && !event.altKey) {
+            event.preventDefault();
+            window.scrollBy({
+                left: event.deltaX,
+                top: event.deltaY,
+                behavior: "auto"
+            });
+            return;
+        }
         if (activeSkillWheelTarget !== scroll && document.activeElement !== scroll) return;
         event.preventDefault();
         const ratioX = (scroll.scrollLeft + scroll.clientWidth / 2) / Math.max(1, scroll.scrollWidth);
@@ -648,8 +657,8 @@ function bindSkillMapWheelZoom(target) {
         }
         if (!dragStart.moved) return;
         event.preventDefault();
-        scroll.scrollLeft = dragStart.left - dx;
-        scroll.scrollTop = dragStart.top - dy;
+        scroll.scrollLeft = dragStart.left - dx * 0.72;
+        scroll.scrollTop = dragStart.top - dy * 0.72;
     });
 
     const finishDrag = event => {
@@ -732,8 +741,8 @@ function renderCircularSkillMap(target, completed) {
 
     subjects.forEach(([subjectId, subject], subjectIndex) => {
         const angle = -90 + subjectIndex * step;
-        const subjectPoint = radialPoint(220, angle);
-        const entryPoint = radialPoint(460, angle);
+        const subjectPoint = radialPoint(320, angle);
+        const entryPoint = radialPoint(660, angle);
         const entry = entryTopic(subject);
         const roadmapTotal = subject.topics.length;
         const roadmapDone = subject.topics.filter(topic => completed.has(topic.id)).length;
@@ -768,7 +777,7 @@ function renderCircularSkillMap(target, completed) {
                 const rawOffset = -spread / 2 + slotStep * slot;
                 const offset = Math.abs(rawOffset) < 1 ? slotStep / 2 : rawOffset;
                 const childAngle = angle + offset;
-                const childPoint = radialPoint(710 + ring * 88, childAngle);
+                const childPoint = radialPoint(1020 + ring * 126, childAngle);
                 const state = topicSkillState(subject, topic, completed);
                 const visible = visibleTopics.has(topic.id);
                 state.future = !visible;
@@ -784,11 +793,11 @@ function renderCircularSkillMap(target, completed) {
         <div class="radial-skill-scroll" tabindex="0" aria-label="Kreisfoermiger Skillbaum">
             <div class="radial-skill-map" style="width:${Math.round(RADIAL_BASE_WIDTH * skillMapZoom)}px">
                 <svg class="radial-links" viewBox="0 0 ${RADIAL_VIEWBOX} ${RADIAL_VIEWBOX}" aria-hidden="true" focusable="false">
-                    <circle class="radial-orbit orbit-one" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="220" />
-                    <circle class="radial-orbit orbit-two" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="460" />
-                    <circle class="radial-orbit orbit-three" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="710" />
-                    <circle class="radial-orbit orbit-four" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="930" />
-                    <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1150" />
+                    <circle class="radial-orbit orbit-one" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="320" />
+                    <circle class="radial-orbit orbit-two" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="660" />
+                    <circle class="radial-orbit orbit-three" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1020" />
+                    <circle class="radial-orbit orbit-four" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1280" />
+                    <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1540" />
                     ${lines.join("")}
                 </svg>
                 ${nodes.join("")}
@@ -837,12 +846,7 @@ function renderChallenge() {
     const mainView = document.getElementById("main-view");
     mainView.dataset.shellView = "challenge";
     mainView.innerHTML = `
-        <section class="challenge-hero">
-            <p class="eyebrow">Herausforderung</p>
-            <h1>Dein Fortschritt</h1>
-            <p>Schlie&szlig;e Kapitelquizzes mit mindestens 75% ab. Dann erscheint das n&auml;chste Thema im Fach-Ast. Kapiteltests geben Plus-M&uuml;nzen; &Uuml;bungsfragen im Kapitel geben keine Punkte.</p>
-            <div class="challenge-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
-        </section>
+        <div class="challenge-compact-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
         <section class="challenge-map" id="challenge-map"></section>
     `;
 

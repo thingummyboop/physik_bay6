@@ -773,6 +773,23 @@
             color: #ccfbf1;
         }
 
+        .challenge-compact-stats {
+            display: flex;
+            justify-content: flex-start;
+            margin: 0 0 10px;
+        }
+
+        .challenge-compact-stats span {
+            background: color-mix(in srgb, var(--shell-panel), #22c55e 12%);
+            border: 1px solid #99f6e4;
+            border-radius: 999px;
+            color: var(--shell-text);
+            display: inline-flex;
+            font-weight: 900;
+            gap: 4px;
+            padding: 7px 12px;
+        }
+
         .challenge-map {
             display: block;
             padding: 0;
@@ -787,7 +804,7 @@
 
         .radial-skill-scroll {
             cursor: grab;
-            height: min(78vh, 860px);
+            height: min(82vh, 900px);
             min-height: 560px;
             overflow: auto;
             outline: none;
@@ -933,7 +950,7 @@
         .radial-node-dot {
             align-items: center;
             background:
-                radial-gradient(circle at 35% 28%, rgba(255,255,255,0.96) 0 12%, rgba(255,255,255,0.28) 13% 25%, transparent 26%),
+                radial-gradient(circle at 34% 27%, rgba(255,255,255,0.88) 0 6%, rgba(255,255,255,0.18) 7% 13%, transparent 14%),
                 radial-gradient(circle at 50% 62%, color-mix(in srgb, var(--accent), white 18%), var(--accent) 62%, color-mix(in srgb, var(--accent), black 24%));
             border: max(1px, calc(2px * var(--orb-scale))) solid color-mix(in srgb, var(--accent), white 44%);
             border-radius: 50%;
@@ -1933,6 +1950,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=3.2"></script>
+    <script src="js/app_shell.js?v=3.3"></script>
 </body>
 </html>
