@@ -127,6 +127,14 @@ function showMainView() {
     if (resetBtn) resetBtn.hidden = true;
 }
 
+function resetMainViewScroll() {
+    const mainView = document.getElementById("main-view");
+    if (!mainView) return;
+    mainView.scrollTop = 0;
+    requestAnimationFrame(() => { mainView.scrollTop = 0; });
+    setTimeout(() => { mainView.scrollTop = 0; }, 0);
+}
+
 function showTopicFrame(url, title, mode = "learn") {
     const frameShell = document.getElementById("frame-shell");
     const frame = document.getElementById("game-frame");
@@ -153,7 +161,7 @@ function navigate(view, subjectId = currentSubject) {
         currentSubject = subjectId;
         localStorage.setItem(SUBJECT_KEY, subjectId);
     }
-    const nextHash = view === "challenge" ? "challenge" : "start";
+    const nextHash = view === "challenge" ? "challenge" : view === "character" ? "character" : "start";
     if (location.hash !== `#${nextHash}`) {
         suppressNextHashRender = true;
         location.hash = nextHash;
@@ -352,6 +360,7 @@ function renderHome() {
     renderSubjectButtons("subject-buttons", currentSubject, selectSubject);
     document.getElementById("tree-title").textContent = `${APP.subjects[currentSubject].label}: Themenbaum`;
     renderLearningTree(currentSubject);
+    resetMainViewScroll();
     updateTopNav();
 }
 
@@ -389,11 +398,27 @@ function renderChallenge() {
         map.appendChild(branch);
     });
     updateShellStats();
+    resetMainViewScroll();
+    updateTopNav();
+}
+
+function renderCharacterPage() {
+    currentView = "character";
+    showMainView();
+    const mainView = document.getElementById("main-view");
+    if (typeof window.renderCharacterDesigner === "function") {
+        window.renderCharacterDesigner(mainView);
+    } else {
+        mainView.dataset.shellView = "character";
+        mainView.innerHTML = `<section class="character-hero"><h1>Charakterdesigner</h1><p>Der Charakterdesigner konnte nicht geladen werden.</p></section>`;
+    }
+    resetMainViewScroll();
     updateTopNav();
 }
 
 function renderCurrentView() {
     if (currentView === "challenge") renderChallenge();
+    else if (currentView === "character") renderCharacterPage();
     else renderHome();
 }
 
@@ -429,6 +454,9 @@ window.addEventListener("hashchange", () => {
     } else if (hash === "challenge") {
         currentView = "challenge";
         renderChallenge();
+    } else if (hash === "character") {
+        currentView = "character";
+        renderCharacterPage();
     } else {
         currentView = "home";
         renderHome();
@@ -450,6 +478,8 @@ document.addEventListener("DOMContentLoaded", () => {
         openTopic(hash.split(":")[1], "learn");
     } else if (hash === "challenge") {
         renderChallenge();
+    } else if (hash === "character") {
+        renderCharacterPage();
     } else {
         renderHome();
     }
