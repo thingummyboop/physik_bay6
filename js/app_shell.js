@@ -204,10 +204,30 @@ function renderSubjectButtons(targetId, selectedSubject, onClick) {
         btn.className = "subject-pill";
         btn.style.setProperty("--accent", subject.accent);
         btn.classList.toggle("active", subjectId === selectedSubject);
-        btn.innerHTML = `<span>${subject.icon}</span><strong>${subject.label}</strong>`;
+        btn.dataset.label = subject.label;
+        btn.title = subject.label;
+        btn.setAttribute("aria-label", subject.label);
+        btn.innerHTML = `<span class="subject-symbol">${subjectSymbol(subjectId, subject)}</span><strong class="subject-label">${subject.label}</strong>`;
         btn.onclick = () => onClick(subjectId);
         target.appendChild(btn);
     });
+}
+
+function subjectSymbol(subjectId, subject) {
+    const symbols = {
+        physik: "&#9883;",
+        mathematik: "&sum;",
+        chemie: "&#9879;",
+        dgb: "&lt;/&gt;",
+        geographie: "&#9711;",
+        biologie: "DNA",
+        deutsch: "Aa",
+        englisch: "EN",
+        musik: "&#9835;",
+        kunst: "&#9673;",
+        ernaehrung: "&#8962;"
+    };
+    return symbols[subjectId] || subject.icon;
 }
 
 function gradeLabel(grade) {

@@ -295,101 +295,143 @@
         .section-heading p { color: var(--shell-muted); margin: 0; max-width: 640px; }
 
         .subject-grid {
-            min-height: 455px;
-            margin: 24px 0 34px;
+            min-height: 278px;
+            margin: 18px 0 24px;
             position: relative;
         }
+
+        .subject-grid::before {
+            content: "";
+            position: absolute;
+            inset: 18px 6% 16px 6%;
+            border-radius: 999px;
+            background:
+                radial-gradient(circle at 20% 30%, color-mix(in srgb, #f97316, transparent 76%), transparent 28%),
+                radial-gradient(circle at 68% 42%, color-mix(in srgb, #0f766e, transparent 78%), transparent 32%);
+            opacity: 0.72;
+            pointer-events: none;
+        }
+
+        [data-theme="dark"] .subject-grid::before { opacity: 0.42; }
 
         .subject-pill {
             --accent: #0f766e;
-            min-height: 82px;
-            position: absolute;
-            width: clamp(154px, 18vw, 210px);
-            border-radius: 14px;
-            border: 2px solid color-mix(in srgb, var(--accent), transparent 60%);
-            background: linear-gradient(145deg, color-mix(in srgb, var(--accent), transparent 85%), rgba(255,255,255,0.6));
-            backdrop-filter: blur(10px);
-            color: var(--shell-text);
-            cursor: pointer;
-            text-align: left;
-            padding: 14px;
-            display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            background: radial-gradient(circle at 32% 24%, rgba(255,255,255,0.96), color-mix(in srgb, var(--accent), white 76%) 34%, var(--accent) 112%);
+            border: 2px solid color-mix(in srgb, var(--accent), transparent 60%);
+            border-radius: 999px;
+            box-shadow: 0 10px 22px color-mix(in srgb, var(--accent), transparent 78%);
+            color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            height: 74px;
+            justify-content: center;
+            min-height: 74px;
+            overflow: visible;
+            padding: 0;
+            position: absolute;
+            text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            width: 74px;
+            z-index: 1;
         }
 
-        .subject-pill:nth-child(1) { left: 2%; top: 26px; }
-        .subject-pill:nth-child(2) { left: 23%; top: 92px; }
-        .subject-pill:nth-child(3) { left: 46%; top: 22px; }
-        .subject-pill:nth-child(4) { left: 70%; top: 104px; }
-        .subject-pill:nth-child(5) { left: 10%; top: 206px; }
-        .subject-pill:nth-child(6) { left: 34%; top: 246px; }
-        .subject-pill:nth-child(7) { left: 58%; top: 218px; }
-        .subject-pill:nth-child(8) { left: 78%; top: 278px; }
-        .subject-pill:nth-child(9) { left: 3%; top: 320px; }
-        .subject-pill:nth-child(10) { left: 28%; top: 356px; }
-        .subject-pill:nth-child(11) { left: 54%; top: 344px; }
+        .subject-pill:nth-child(1) { left: 7%; top: 18px; }
+        .subject-pill:nth-child(2) { left: 22%; top: 58px; }
+        .subject-pill:nth-child(3) { left: 37%; top: 14px; }
+        .subject-pill:nth-child(4) { left: 52%; top: 62px; }
+        .subject-pill:nth-child(5) { left: 67%; top: 20px; }
+        .subject-pill:nth-child(6) { left: 80%; top: 70px; }
+        .subject-pill:nth-child(7) { left: 13%; top: 158px; }
+        .subject-pill:nth-child(8) { left: 29%; top: 128px; }
+        .subject-pill:nth-child(9) { left: 45%; top: 168px; }
+        .subject-pill:nth-child(10) { left: 61%; top: 132px; }
+        .subject-pill:nth-child(11) { left: 76%; top: 176px; }
 
         .subject-pill:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 25px color-mix(in srgb, var(--accent), transparent 70%);
             border-color: var(--accent);
+            box-shadow: 0 12px 25px color-mix(in srgb, var(--accent), transparent 70%);
+            transform: translateY(-5px) scale(1.08);
+        }
+
+        .subject-pill::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 8px);
+            transform: translateX(-50%) translateY(-4px);
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            border-radius: 999px;
+            background: var(--shell-panel);
+            border: 1px solid var(--shell-border);
+            color: var(--shell-text);
+            font-size: 0.76rem;
+            font-weight: 900;
+            padding: 5px 9px;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 3;
+        }
+
+        .subject-pill:hover::before,
+        .subject-pill:focus-visible::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         .subject-pill::after {
             content: "";
             position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-20deg);
-            transition: all 0.5s ease;
-        }
-
-        .subject-pill:hover::after {
-            left: 150%;
+            inset: 9px;
+            border-radius: inherit;
+            background: rgba(255,255,255,0.74);
+            z-index: -1;
         }
 
         [data-theme="dark"] .subject-pill {
-            background: linear-gradient(145deg, color-mix(in srgb, var(--accent), transparent 80%), rgba(15, 23, 42, 0.6));
+            background: radial-gradient(circle at 32% 24%, color-mix(in srgb, var(--accent), white 38%), color-mix(in srgb, var(--accent), #0f172a 58%) 42%, #0f172a 114%);
             border-color: color-mix(in srgb, var(--accent), transparent 70%);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: #f8fafc;
         }
-        
+
         [data-theme="dark"] .subject-pill::after {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: rgba(15, 23, 42, 0.62);
         }
 
-        .subject-pill span {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .subject-symbol {
             display: grid;
-            place-items: center;
-            background: var(--accent);
-            color: white;
+            font-size: 1.42rem;
             font-weight: 900;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px color-mix(in srgb, var(--accent), transparent 50%);
+            height: 54px;
+            line-height: 1;
+            place-items: center;
             transition: transform 0.3s ease;
-        }
-        
-        .subject-pill:hover span {
-            transform: scale(1.1) rotate(5deg);
+            width: 54px;
         }
 
-        .subject-pill strong {
-            font-size: 1.1rem;
-            font-weight: 800;
+        .subject-pill:hover .subject-symbol {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .subject-label {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
         }
 
         .subject-pill.active {
             border-color: var(--accent);
-            background: color-mix(in srgb, var(--accent), transparent 85%);
-            box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent), transparent 60%);
+            box-shadow:
+                0 0 0 4px color-mix(in srgb, var(--accent), transparent 64%),
+                0 16px 28px color-mix(in srgb, var(--accent), transparent 72%);
         }
 
         .tree-header {
@@ -731,7 +773,7 @@
             .subject-grid {
                 display: grid;
                 gap: 12px;
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
                 min-height: 0;
             }
 
@@ -739,7 +781,8 @@
                 position: relative;
                 left: auto !important;
                 top: auto !important;
-                width: auto;
+                justify-self: center;
+                width: 72px;
             }
         }
     </style>
@@ -814,6 +857,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=1.8"></script>
+    <script src="js/app_shell.js?v=1.9"></script>
 </body>
 </html>
