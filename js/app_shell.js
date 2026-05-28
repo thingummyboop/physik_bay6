@@ -497,7 +497,7 @@ function radialPoint(radius, angleDeg) {
 }
 
 function radialStyle(point) {
-    return `left:${(point.x / RADIAL_VIEWBOX) * 100}%;top:${(point.y / RADIAL_VIEWBOX) * 100}%`;
+    return `left:calc(${(point.x / RADIAL_VIEWBOX) * 100}% - var(--node-size) / 2);top:calc(${(point.y / RADIAL_VIEWBOX) * 100}% - var(--node-size) / 2)`;
 }
 
 function radialNodeKind(depth) {

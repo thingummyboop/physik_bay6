@@ -919,31 +919,36 @@
             --accent: #0f766e;
             --node-size: calc(34px * var(--orb-scale));
             align-items: center;
+            appearance: none;
+            -webkit-appearance: none;
             background: transparent;
             border: 0;
+            box-sizing: border-box;
             color: var(--shell-text);
             cursor: pointer;
             display: grid;
             height: var(--node-size);
             justify-items: center;
+            line-height: 1;
+            margin: 0;
             overflow: visible;
             padding: 0;
             position: absolute;
             text-align: center;
-            transform: translate(-50%, -50%);
+            transform-origin: 50% 50%;
             transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             width: var(--node-size);
             z-index: 2;
         }
 
         .radial-node:hover:not(:disabled) {
-            transform: translate(-50%, -50%) scale(1.08);
+            transform: scale(1.08);
             z-index: 8;
         }
 
         .radial-node:focus-visible {
             outline: none;
-            transform: translate(-50%, -50%) scale(1.08);
+            transform: scale(1.08);
             z-index: 8;
         }
 
@@ -954,6 +959,7 @@
                 radial-gradient(circle at 50% 62%, color-mix(in srgb, var(--accent), white 18%), var(--accent) 62%, color-mix(in srgb, var(--accent), black 24%));
             border: max(1px, calc(2px * var(--orb-scale))) solid color-mix(in srgb, var(--accent), white 44%);
             border-radius: 50%;
+            box-sizing: border-box;
             box-shadow:
                 inset -6px -8px 12px rgba(15, 23, 42, 0.2),
                 inset 4px 5px 10px rgba(255,255,255,0.35),
@@ -1098,7 +1104,7 @@
         .radial-topic-node.future-hidden {
             opacity: 0.06;
             pointer-events: none;
-            transform: translate(-50%, -50%) scale(0.86);
+            transform: scale(0.86);
         }
 
         .radial-topic-node:disabled {
@@ -1950,6 +1956,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=3.4"></script>
+    <script src="js/app_shell.js?v=3.6"></script>
 </body>
 </html>
