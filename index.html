@@ -705,7 +705,9 @@
         .challenge-map {
             padding: 22px;
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr));
             gap: 24px;
+            align-items: start;
         }
 
         .skill-branch {
@@ -717,6 +719,7 @@
                 radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent), transparent 82%), transparent 26%),
                 color-mix(in srgb, var(--accent), white 93%);
             box-shadow: 0 10px 24px color-mix(in srgb, var(--accent), transparent 86%);
+            min-width: 0;
         }
 
         [data-theme="dark"] .skill-branch {
@@ -759,11 +762,44 @@
         }
 
         .challenge-tree {
+            gap: 22px;
             margin-top: 10px;
+            padding-left: 48px;
+        }
+
+        .challenge-tree::before {
+            left: 18px;
         }
 
         .challenge-tree .tree-grade {
             background: rgba(255, 255, 255, 0.44);
+            padding: 16px;
+        }
+
+        .challenge-tree .tree-grade::before {
+            left: -32px;
+            width: 32px;
+        }
+
+        .challenge-tree .tree-grade::after {
+            left: -42px;
+        }
+
+        .challenge-tree .strand-branch {
+            grid-template-columns: minmax(92px, 128px) 1fr;
+        }
+
+        .challenge-tree .strand-branch::before {
+            left: 110px;
+        }
+
+        .challenge-tree .strand-label {
+            font-size: 0.74rem;
+            padding: 8px 10px;
+        }
+
+        .challenge-tree .strand-nodes {
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
         }
 
         [data-theme="dark"] .challenge-tree .tree-grade {
