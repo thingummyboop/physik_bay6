@@ -319,7 +319,9 @@ function renderLearningTree(subjectId) {
 function renderHome() {
     currentView = "home";
     showMainView();
-    document.getElementById("main-view").innerHTML = `
+    const mainView = document.getElementById("main-view");
+    mainView.dataset.shellView = "home";
+    mainView.innerHTML = `
         <section class="home-hero">
             <p class="eyebrow">Lernseite f&uuml;r die Mittelschule</p>
             <h1>${APP.appName}</h1>
@@ -365,7 +367,9 @@ function renderChallenge() {
     currentView = "challenge";
     showMainView();
     const completed = getCompletedTopics();
-    document.getElementById("main-view").innerHTML = `
+    const mainView = document.getElementById("main-view");
+    mainView.dataset.shellView = "challenge";
+    mainView.innerHTML = `
         <section class="challenge-hero">
             <p class="eyebrow">Herausforderung</p>
             <h1>Dein Fortschritt</h1>

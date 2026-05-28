@@ -241,6 +241,16 @@
             max-width: 1280px;
             margin: 0 auto;
             padding-bottom: 80px;
+            scrollbar-width: none;
+            width: 100%;
+        }
+
+        #main-view::-webkit-scrollbar {
+            display: none;
+        }
+
+        #main-view[data-shell-view="challenge"] {
+            max-width: min(1880px, calc(100vw - 44px));
         }
 
         .home-hero,
@@ -710,6 +720,13 @@
             align-items: start;
         }
 
+        #main-view[data-shell-view="challenge"] .challenge-map {
+            background: transparent;
+            border-color: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+
         .skill-branch {
             --accent: #0f766e;
             border: 1px solid color-mix(in srgb, var(--accent), white 55%);
@@ -987,6 +1004,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=2.3"></script>
+    <script src="js/app_shell.js?v=2.4"></script>
 </body>
 </html>
