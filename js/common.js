@@ -390,7 +390,6 @@ function renderChapterQuizPanel(topicId, topicTitle, questions) {
             <div class="chapter-meta">
                 <span>${freeAttemptsLeft > 0 ? `${freeAttemptsLeft} freie Versuche &uuml;brig` : "Cooldown-System aktiv"}</span>
                 <span>Bestwert: ${Math.round(Number(state.bestPercent || 0))}%</span>
-                <span>${getCoins()} Plus-M&uuml;nzen</span>
             </div>
             ${completed ? `<p class="chapter-result success">Kapitel geschafft. Du kannst das Quiz trotzdem weiter ueben.</p>` : ""}
             ${lockedMs > 0 ? `

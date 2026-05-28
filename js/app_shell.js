@@ -67,7 +67,7 @@ function applyTheme(isDark) {
         document.documentElement.removeAttribute("data-theme");
     }
     const btn = document.getElementById("dark-mode-toggle");
-    if (btn) btn.textContent = isDark ? "Tagmodus" : "Nachtmodus";
+    if (btn) btn.textContent = isDark ? "Sonne" : "Wald";
 
     const frame = document.getElementById("game-frame");
     if (frame?.contentWindow) {
@@ -273,7 +273,7 @@ function renderChallenge() {
             <p class="eyebrow">Herausforderung</p>
             <h1>Skillbaum statt Zeugnis</h1>
             <p>Schlie&szlig;e Kapitelquizzes mit mindestens 75% ab. Dann erscheint das n&auml;chste Thema im Fach-Ast. Kapiteltests geben Plus-M&uuml;nzen; &Uuml;bungsfragen im Kapitel geben keine Punkte.</p>
-            <div class="challenge-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span><span><strong data-coin-count>${getCoins()}</strong> Plus-M&uuml;nzen</span></div>
+            <div class="challenge-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
         </section>
         <section class="challenge-map" id="challenge-map"></section>
     `;

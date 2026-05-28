@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wissenspfad</title>
-    <link rel="stylesheet" href="css/style.css?v=8.5">
+    <link rel="stylesheet" href="css/style.css?v=8.6">
     <style>
         :root {
-            --shell-bg: #eaf4ef;
-            --shell-panel: rgba(255, 255, 255, 0.84);
-            --shell-border: #b7d9ce;
-            --shell-text: #12342f;
-            --shell-muted: #475569;
-            --shell-shadow: 0 18px 44px rgba(15, 23, 42, 0.14);
+            --shell-bg: #fff3cf;
+            --shell-panel: rgba(255, 252, 239, 0.9);
+            --shell-border: #f2b84b;
+            --shell-text: #3b2507;
+            --shell-muted: #7c5c26;
+            --shell-shadow: 0 18px 44px rgba(146, 64, 14, 0.16);
         }
 
         [data-theme="dark"] {
@@ -29,9 +29,9 @@
             min-height: 100vh;
             margin: 0;
             background:
-                radial-gradient(circle at 8% 12%, rgba(20, 184, 166, 0.24), transparent 28%),
-                radial-gradient(circle at 86% 18%, rgba(132, 204, 22, 0.18), transparent 30%),
-                linear-gradient(135deg, #e8f5ef, var(--shell-bg));
+                radial-gradient(circle at 10% 10%, rgba(255, 197, 71, 0.42), transparent 30%),
+                radial-gradient(circle at 84% 16%, rgba(249, 115, 22, 0.22), transparent 28%),
+                linear-gradient(135deg, #fff7d6, var(--shell-bg));
             color: var(--shell-text);
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
@@ -57,7 +57,7 @@
             gap: 16px;
             padding: 14px 24px;
             border-bottom: 1px solid var(--shell-border);
-            background: rgba(240, 253, 250, 0.78);
+            background: rgba(255, 248, 220, 0.82);
             backdrop-filter: blur(14px);
             box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
             z-index: 2;
@@ -78,14 +78,19 @@
             border-radius: 10px;
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, #0f766e, #84cc16);
+            background: linear-gradient(135deg, #f97316, #facc15);
             color: white;
             font-weight: 900;
-            box-shadow: 0 10px 22px rgba(15, 118, 110, 0.24);
+            box-shadow: 0 10px 22px rgba(194, 65, 12, 0.24);
         }
 
         .brand strong { display: block; font-size: 1.05rem; }
         .brand small { color: var(--shell-muted); font-weight: 700; }
+
+        [data-theme="dark"] .brand-mark {
+            background: linear-gradient(135deg, #0f766e, #84cc16);
+            box-shadow: 0 10px 22px rgba(15, 118, 110, 0.24);
+        }
 
         .top-nav {
             display: flex;
@@ -109,9 +114,14 @@
         }
 
         .top-nav button.active {
+            background: #f97316;
+            border-color: #f97316;
+            color: white;
+        }
+
+        [data-theme="dark"] .top-nav button.active {
             background: #0f766e;
             border-color: #0f766e;
-            color: white;
         }
 
         .shell-actions {
@@ -138,7 +148,7 @@
 
         .lang-row { display: flex; gap: 4px; }
         .lang-btn { padding: 7px 8px; font-size: 0.78rem; }
-        .lang-btn.active { background: #d1fae5; border-color: #0f766e; color: #064e3b; }
+        .lang-btn.active { background: #ffedd5; border-color: #f97316; color: #7c2d12; }
 
         .workspace {
             min-height: 0;
@@ -180,7 +190,7 @@
             letter-spacing: 0;
             line-height: 0.95;
             margin: 0 0 16px 0;
-            color: #0f766e;
+            color: #f97316;
         }
 
         [data-theme="dark"] .home-hero h1,
@@ -198,9 +208,11 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             font-weight: 900;
-            color: #15803d !important;
+            color: #c2410c !important;
             margin-bottom: 10px !important;
         }
+
+        [data-theme="dark"] .eyebrow { color: #86efac !important; }
 
         .home-panel { padding: 22px; }
         .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
@@ -265,9 +277,11 @@
         }
 
         .tree-grade {
-            border-left: 4px solid #0f766e;
+            border-left: 4px solid #f97316;
             padding-left: 16px;
         }
+
+        [data-theme="dark"] .tree-grade { border-left-color: #0f766e; }
 
         .tree-grade h3 {
             margin: 0 0 10px;
@@ -491,7 +505,7 @@
                     <button type="button" class="lang-btn" data-lang="sr" onclick="setLanguage('sr')">SR</button>
                     <button type="button" class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
                 </div>
-                <button type="button" class="shell-action" id="dark-mode-toggle" onclick="toggleDarkMode()">Nachtmodus</button>
+                <button type="button" class="shell-action" id="dark-mode-toggle" onclick="toggleDarkMode()">Wald</button>
                 <button type="button" class="shell-action" onclick="resetAllProgress()">Reset</button>
             </div>
         </header>
@@ -503,7 +517,6 @@
                     <button type="button" class="quiet-action" onclick="backToShell()">Zur&uuml;ck</button>
                     <div class="frame-toolbar-group">
                         <button type="button" class="quiet-action" id="frame-practice-reset" onclick="resetCurrentTopicPractice()" hidden>&Uuml;bungsfragen zur&uuml;cksetzen</button>
-                        <span class="coin-chip"><span data-coin-count>0</span> Plus-M&uuml;nzen</span>
                     </div>
                 </div>
                 <iframe id="game-frame" name="game-frame" title="Kapitel"></iframe>
@@ -512,6 +525,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=1.4"></script>
+    <script src="js/app_shell.js?v=1.5"></script>
 </body>
 </html>
