@@ -368,7 +368,7 @@ function renderChallenge() {
     document.getElementById("main-view").innerHTML = `
         <section class="challenge-hero">
             <p class="eyebrow">Herausforderung</p>
-            <h1>Skillbaum statt Zeugnis</h1>
+            <h1>Dein Fortschritt</h1>
             <p>Schlie&szlig;e Kapitelquizzes mit mindestens 75% ab. Dann erscheint das n&auml;chste Thema im Fach-Ast. Kapiteltests geben Plus-M&uuml;nzen; &Uuml;bungsfragen im Kapitel geben keine Punkte.</p>
             <div class="challenge-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
         </section>
