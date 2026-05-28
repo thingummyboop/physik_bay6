@@ -217,13 +217,28 @@ function renderSubjectButtons(targetId, selectedSubject, onClick) {
 function subjectSymbol(subjectId, subject) {
     const symbols = {
         physik: "&#9883;",
-        mathematik: "+-*/",
-        chemie: "&#9879;",
+        mathematik: `<svg class="math-ops-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect x="8" y="8" width="48" height="48" rx="12" fill="none" stroke="currentColor" stroke-width="4"/>
+            <path d="M23 17v14M16 24h14M38 24h12M18 43l11-11M18 32l11 11M39 39h13" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="45.5" cy="34" r="2.4" fill="currentColor"/>
+            <circle cx="45.5" cy="44" r="2.4" fill="currentColor"/>
+        </svg>`,
+        chemie: `<svg class="chem-flask-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <path d="M25 7h14M28 7v17L14.5 49.5C12 54 15.2 58 20.5 58h23c5.3 0 8.5-4 6-8.5L36 24V7" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.5 48h23L37 36H27z" fill="currentColor" opacity="0.22"/>
+            <path d="M24 36.5c4.8 3.4 11.2 3.4 16 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>`,
         dgb: "&#128187;",
         geographie: "&#127757;",
         biologie: "&#128004;",
         deutsch: "Aa",
-        englisch: "&#127468;&#127463;",
+        englisch: `<svg class="uk-flag-icon" viewBox="0 0 60 36" aria-hidden="true" focusable="false">
+            <rect width="60" height="36" fill="#012169"/>
+            <path d="M0 0l60 36M60 0L0 36" stroke="#fff" stroke-width="8"/>
+            <path d="M0 0l60 36M60 0L0 36" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30 0v36M0 18h60" stroke="#fff" stroke-width="12"/>
+            <path d="M30 0v36M0 18h60" stroke="#C8102E" stroke-width="7"/>
+        </svg>`,
         musik: "&#9835;",
         kunst: "&#128511;",
         ernaehrung: "&#129365;"

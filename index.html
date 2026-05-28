@@ -412,13 +412,44 @@
             width: 54px;
         }
 
+        .subject-symbol svg {
+            display: block;
+            height: 46px;
+            overflow: visible;
+            width: 46px;
+        }
+
         .subject-pill[data-subject="physik"] .subject-symbol {
-            font-size: 1.9rem;
+            font-size: 2.65rem;
+            height: 60px;
+            width: 60px;
         }
 
         .subject-pill[data-subject="mathematik"] .subject-symbol {
-            font-size: 1.12rem;
-            letter-spacing: 0.04em;
+            font-size: 1rem;
+            letter-spacing: 0;
+        }
+
+        .subject-symbol .math-ops-icon {
+            color: color-mix(in srgb, var(--accent), #3b0764 24%);
+            filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.74));
+            height: 48px;
+            width: 48px;
+        }
+
+        .subject-symbol .chem-flask-icon {
+            color: color-mix(in srgb, var(--accent), #064e3b 18%);
+            filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.68));
+            height: 49px;
+            width: 49px;
+        }
+
+        .subject-symbol .uk-flag-icon {
+            border-radius: 6px;
+            box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.72);
+            height: 34px;
+            overflow: hidden;
+            width: 50px;
         }
 
         .subject-pill[data-subject="englisch"] .subject-symbol,
@@ -432,6 +463,15 @@
 
         .subject-pill:hover .subject-symbol {
             transform: scale(1.1) rotate(3deg);
+        }
+
+        [data-theme="dark"] .math-ops-icon,
+        [data-theme="dark"] .chem-flask-icon {
+            filter: drop-shadow(0 3px 0 rgba(15, 23, 42, 0.7));
+        }
+
+        [data-theme="dark"] .uk-flag-icon {
+            box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.55), 0 8px 16px rgba(0, 0, 0, 0.22);
         }
 
         .subject-label {
@@ -875,6 +915,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=2.0"></script>
+    <script src="js/app_shell.js?v=2.1"></script>
 </body>
 </html>
