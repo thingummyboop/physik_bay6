@@ -37,6 +37,12 @@ function enhanceAstronomieAccessibility() {
         thrustRange.setAttribute('aria-valuetext', `${Number(thrustRange.value || 3).toFixed(1)} Kilometer pro Sekunde`);
     }
 
+    const cannonVelocity = document.getElementById('cannonVelocity');
+    if (cannonVelocity) {
+        cannonVelocity.setAttribute('aria-describedby', 'cannonStatus');
+        cannonVelocity.setAttribute('aria-valuetext', `${Number(cannonVelocity.value || 8).toFixed(1)} Kilometer pro Sekunde`);
+    }
+
     const startBtn = document.getElementById('startBtn');
     const stopBtn = document.getElementById('stopBtn');
     if (startBtn) startBtn.setAttribute('aria-label', 'Laser starten');
@@ -272,53 +278,79 @@ function updateCannonball() {
     const status = document.getElementById('cannonStatus');
     const velText = document.getElementById('cannonVelVal');
     const velVector = document.getElementById('velVector');
-    
-    if(!velInput || !path || !anim || !status) return;
+    const impactPoint = document.getElementById('impactPoint');
+
+    if(!velInput || !path || !anim || !status || !velText || !velVector) return;
 
     const v = parseFloat(velInput.value);
     velText.innerText = v.toFixed(1) + " km/s";
-    
-    // Scale vector length based on velocity
-    const vecLength = 310 + (v * 10);
+    velInput.setAttribute('aria-valuetext', `${v.toFixed(1)} Kilometer pro Sekunde`);
+
+    const vecLength = 338 + (v - 3) * 9;
     velVector.setAttribute('x2', vecLength);
 
+    if (impactPoint) {
+        impactPoint.setAttribute('opacity', '0');
+        impactPoint.setAttribute('r', '0');
+    }
+
+    let flightPath = '';
+
     if (v < 7.5) {
-        // Crash
-        path.setAttribute('d', `M 310 50 Q ${310 + v*15} 50 ${310 + v*20} 115`);
+        const t = Math.max(0, Math.min(1, (v - 3) / 4.5));
+        const theta = (-76 + t * 98) * Math.PI / 180;
+        const hitX = 310 + Math.cos(theta) * 72;
+        const hitY = 165 + Math.sin(theta) * 72;
+        const controlX = 328 + v * 12;
+        const controlY = 34 + t * 58;
+        flightPath = `M 310 53 Q ${controlX.toFixed(1)} ${controlY.toFixed(1)} ${hitX.toFixed(1)} ${hitY.toFixed(1)}`;
         path.setAttribute('stroke', '#ef4444');
-        path.setAttribute('stroke-dasharray', '4 4');
-        anim.setAttribute('path', `M 310 50 Q ${310 + v*15} 50 ${310 + v*20} 115`);
-        anim.setAttribute('dur', '2s');
-        status.innerText = "Zu langsam: Die Kugel stürzt ab.";
+        path.setAttribute('stroke-dasharray', '5 6');
+        anim.setAttribute('dur', '2.6s');
+        status.innerText = "Zu langsam: Die Kugel trifft wieder auf die Erde.";
         status.style.color = "#ef4444";
+        if (impactPoint) {
+            impactPoint.setAttribute('cx', hitX.toFixed(1));
+            impactPoint.setAttribute('cy', hitY.toFixed(1));
+            impactPoint.setAttribute('r', '5');
+            impactPoint.setAttribute('opacity', '1');
+        }
     } else if (v >= 7.5 && v <= 8.5) {
-        // Perfect Circular Orbit
-        path.setAttribute('d', "M 310 50 A 100 100 0 0 1 510 150 A 100 100 0 0 1 310 250 A 100 100 0 0 1 110 150 A 100 100 0 0 1 310 50");
+        flightPath = "M 310 53 A 112 112 0 1 1 309.9 53";
         path.setAttribute('stroke', '#38bdf8');
         path.setAttribute('stroke-dasharray', '8 8');
-        anim.setAttribute('path', "M 310 50 A 100 100 0 0 1 510 150 A 100 100 0 0 1 310 250 A 100 100 0 0 1 110 150 A 100 100 0 0 1 310 50");
-        anim.setAttribute('dur', '4s');
-        status.innerText = "Perfekt! Kreisrunder Orbit.";
+        anim.setAttribute('dur', '5s');
+        status.innerText = "Passende Geschwindigkeit: Die Kugel fällt ständig zur Erde, verfehlt aber den Boden.";
         status.style.color = "#38bdf8";
     } else if (v > 8.5 && v < 11.2) {
-        // Elliptical Orbit
-        const rx = 100 + (v - 8)*30;
-        path.setAttribute('d', `M 310 50 A ${rx} 100 0 0 1 ${310 + rx*2} 150 A ${rx} 100 0 0 1 310 250 A ${rx} 100 0 0 1 ${310 - rx*2} 150 A ${rx} 100 0 0 1 310 50`);
+        const t = (v - 8.5) / 2.7;
+        const rx = 116 + t * 74;
+        const bottom = 277 + t * 30;
+        const right = 310 + rx;
+        const left = 310 - rx;
+        flightPath = `M 310 53 C ${310 + rx * 0.9} 52 ${right} 96 ${right} 165 C ${right} 238 ${310 + rx * 0.72} ${bottom} 310 ${bottom} C ${310 - rx * 0.72} ${bottom} ${left} 238 ${left} 165 C ${left} 96 ${310 - rx * 0.9} 52 310 53`;
         path.setAttribute('stroke', '#facc15');
         path.setAttribute('stroke-dasharray', '8 8');
-        anim.setAttribute('path', `M 310 50 A ${rx} 100 0 0 1 ${310 + rx*2} 150 A ${rx} 100 0 0 1 310 250 A ${rx} 100 0 0 1 ${310 - rx*2} 150 A ${rx} 100 0 0 1 310 50`);
-        anim.setAttribute('dur', '6s');
-        status.innerText = "Schnell: Elliptischer Orbit.";
+        anim.setAttribute('dur', '6.5s');
+        status.innerText = "Schneller Start: Die Kugel bleibt gebunden, aber auf einer längeren elliptischen Bahn.";
         status.style.color = "#facc15";
     } else {
-        // Escape velocity
-        path.setAttribute('d', `M 310 50 Q 550 50 650 -50`);
+        flightPath = `M 310 53 C 380 45 470 18 600 -18`;
         path.setAttribute('stroke', '#22c55e');
         path.setAttribute('stroke-dasharray', '10 10');
-        anim.setAttribute('path', `M 310 50 Q 550 50 650 -50`);
         anim.setAttribute('dur', '3s');
-        status.innerText = "Fluchtgeschwindigkeit! Die Kugel verlässt die Erde.";
+        status.innerText = "Sehr schnell: Die Kugel erreicht Fluchtgeschwindigkeit und verlässt die Erde.";
         status.style.color = "#22c55e";
+    }
+
+    path.setAttribute('d', flightPath);
+    anim.setAttribute('path', flightPath);
+    if (typeof anim.beginElement === 'function') {
+        try {
+            anim.beginElement();
+        } catch (e) {
+            // Some browsers do not allow restarting SMIL animations programmatically.
+        }
     }
 }
 
