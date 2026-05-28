@@ -130,9 +130,10 @@ function showMainView() {
 function resetMainViewScroll() {
     const mainView = document.getElementById("main-view");
     if (!mainView) return;
-    mainView.scrollTop = 0;
-    requestAnimationFrame(() => { mainView.scrollTop = 0; });
-    setTimeout(() => { mainView.scrollTop = 0; }, 0);
+    const reset = () => { mainView.scrollTop = 0; };
+    reset();
+    requestAnimationFrame(reset);
+    [0, 90, 240].forEach(delay => setTimeout(reset, delay));
 }
 
 function showTopicFrame(url, title, mode = "learn") {
@@ -389,33 +390,38 @@ function subjectProgress(subject, completed) {
 
 function renderChallengeSubjects(target, completed) {
     target.innerHTML = "";
-    getSubjects().forEach(([subjectId, subject]) => {
-        const progress = subjectProgress(subject, completed);
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = `challenge-subject-card ${subjectId === currentSubject ? "active" : ""}`;
-        btn.style.setProperty("--accent", subject.accent);
-        btn.dataset.subject = subjectId;
-        btn.innerHTML = `
-            <span class="challenge-subject-symbol">${subjectSymbol(subjectId, subject)}</span>
-            <span class="challenge-subject-copy">
-                <strong>${subject.label}</strong>
-                <small>${progress.done}/${progress.total} Kapitel</small>
-            </span>
-            <span class="subject-progress" aria-hidden="true"><span style="width:${progress.percent}%"></span></span>
-        `;
-        btn.onclick = () => {
-            currentSubject = subjectId;
-            localStorage.setItem(SUBJECT_KEY, subjectId);
-            renderChallenge();
-        };
-        target.appendChild(btn);
-    });
+    getSubjects()
+        .sort((a, b) => a[1].label.localeCompare(b[1].label, "de"))
+        .forEach(([subjectId, subject]) => {
+            const progress = subjectProgress(subject, completed);
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = `challenge-subject-card ${subjectId === currentSubject ? "active" : ""}`;
+            btn.style.setProperty("--accent", subject.accent);
+            btn.dataset.subject = subjectId;
+            btn.innerHTML = `
+                <span class="challenge-subject-symbol">${subjectSymbol(subjectId, subject)}</span>
+                <span class="challenge-subject-copy">
+                    <strong>${subject.label}</strong>
+                    <small>${progress.done}/${progress.total} Kapitel</small>
+                </span>
+                <span class="subject-progress" aria-hidden="true"><span style="width:${progress.percent}%"></span></span>
+            `;
+            btn.onclick = () => {
+                currentSubject = subjectId;
+                localStorage.setItem(SUBJECT_KEY, subjectId);
+                renderChallenge();
+            };
+            target.appendChild(btn);
+        });
 }
 
 function renderChallengeFocus(target, completed) {
     const subject = APP.subjects[currentSubject] || APP.subjects.physik;
     const progress = subjectProgress(subject, completed);
+    const nextGoalText = progress.next
+        ? ` &middot; N&auml;chstes Ziel: ${progress.next.title}`
+        : " &middot; alles geschafft";
     target.innerHTML = `
         <section class="skill-branch skill-branch-focused" style="--accent:${subject.accent}">
             <header class="challenge-focus-header">
@@ -429,6 +435,8 @@ function renderChallengeFocus(target, completed) {
             <div class="learning-tree challenge-tree"></div>
         </section>
     `;
+    const focusMeta = target.querySelector(".challenge-focus-header small");
+    if (focusMeta) focusMeta.innerHTML = `${progress.done}/${progress.total} Kapitel abgeschlossen${nextGoalText}`;
     renderTopicTree(target.querySelector(".challenge-tree"), subject, { mode: "challenge", completed });
 }
 
