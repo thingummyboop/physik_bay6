@@ -11,6 +11,7 @@ let currentView = "home";
 let suppressNextHashRender = false;
 let currentFrameMode = "learn";
 let skillMapZoom = Number(localStorage.getItem(SKILL_ZOOM_KEY) || 0.82);
+let activeSkillWheelTarget = null;
 
 function getSubjects() {
     return Object.entries(APP.subjects);
@@ -521,6 +522,112 @@ function resetSkillMapZoom() {
     setSkillMapZoom(0.82);
 }
 
+function centerSkillMap(target) {
+    const scroll = target.querySelector(".radial-skill-scroll");
+    if (!scroll) return;
+    window.requestAnimationFrame(() => {
+        scroll.scrollLeft = Math.max(0, (scroll.scrollWidth - scroll.clientWidth) / 2);
+        scroll.scrollTop = Math.max(0, (scroll.scrollHeight - scroll.clientHeight) / 2);
+    });
+}
+
+function bindSkillMapWheelZoom(target) {
+    const scroll = target.querySelector(".radial-skill-scroll");
+    if (!scroll) return;
+    let dragStart = null;
+
+    scroll.addEventListener("pointerdown", () => {
+        activeSkillWheelTarget = scroll;
+        scroll.focus({ preventScroll: true });
+    });
+    scroll.addEventListener("focus", () => {
+        activeSkillWheelTarget = scroll;
+    });
+    scroll.addEventListener("blur", () => {
+        if (activeSkillWheelTarget === scroll) activeSkillWheelTarget = null;
+    });
+    scroll.addEventListener("wheel", event => {
+        if (activeSkillWheelTarget !== scroll && document.activeElement !== scroll) return;
+        event.preventDefault();
+        const ratioX = (scroll.scrollLeft + scroll.clientWidth / 2) / Math.max(1, scroll.scrollWidth);
+        const ratioY = (scroll.scrollTop + scroll.clientHeight / 2) / Math.max(1, scroll.scrollHeight);
+        const direction = event.deltaY > 0 ? -1 : 1;
+        setSkillMapZoom(skillMapZoom + direction * 0.08);
+        window.requestAnimationFrame(() => {
+            scroll.scrollLeft = scroll.scrollWidth * ratioX - scroll.clientWidth / 2;
+            scroll.scrollTop = scroll.scrollHeight * ratioY - scroll.clientHeight / 2;
+        });
+    }, { passive: false });
+
+    document.addEventListener("pointerdown", event => {
+        if (!scroll.contains(event.target) && activeSkillWheelTarget === scroll) {
+            activeSkillWheelTarget = null;
+        }
+    }, { capture: true });
+
+    scroll.addEventListener("pointerdown", event => {
+        if (event.button !== 0) return;
+        dragStart = {
+            x: event.clientX,
+            y: event.clientY,
+            left: scroll.scrollLeft,
+            top: scroll.scrollTop,
+            moved: false
+        };
+        scroll.dataset.suppressClick = "";
+        scroll.setPointerCapture?.(event.pointerId);
+    });
+
+    scroll.addEventListener("pointermove", event => {
+        if (!dragStart) return;
+        const dx = event.clientX - dragStart.x;
+        const dy = event.clientY - dragStart.y;
+        if (Math.abs(dx) + Math.abs(dy) > 5) {
+            dragStart.moved = true;
+            scroll.classList.add("is-dragging");
+        }
+        if (!dragStart.moved) return;
+        event.preventDefault();
+        scroll.scrollLeft = dragStart.left - dx;
+        scroll.scrollTop = dragStart.top - dy;
+    });
+
+    const finishDrag = event => {
+        if (!dragStart) return;
+        if (dragStart.moved) {
+            scroll.dataset.suppressClick = "true";
+            window.setTimeout(() => {
+                if (scroll.dataset.suppressClick === "true") scroll.dataset.suppressClick = "";
+            }, 0);
+        }
+        scroll.classList.remove("is-dragging");
+        try {
+            scroll.releasePointerCapture?.(event.pointerId);
+        } catch (error) {
+            // The pointer can already be released when the browser cancels a drag.
+        }
+        dragStart = null;
+    };
+
+    scroll.addEventListener("pointerup", finishDrag);
+    scroll.addEventListener("pointercancel", finishDrag);
+
+    scroll.addEventListener("keydown", event => {
+        if (event.key === "+" || event.key === "=") {
+            event.preventDefault();
+            zoomSkillMap(0.08);
+        }
+        if (event.key === "-") {
+            event.preventDefault();
+            zoomSkillMap(-0.08);
+        }
+        if (event.key === "0") {
+            event.preventDefault();
+            resetSkillMapZoom();
+        }
+    });
+}
+
 function visibleRadialTopics(subject, entry, completed) {
     const visible = new Set();
     if (entry) visible.add(entry.id);
@@ -540,14 +647,19 @@ function radialTopicNode(subjectId, subject, topic, point, state, depth) {
     const active = subjectId === currentSubject ? "active-subject" : "";
     const future = state.future ? "future-hidden" : "";
     const fade = state.fade ? `fade-${state.fade}` : "";
+    const label = `${topic.title}: ${state.label}`;
     return `
         <button type="button" class="radial-node radial-topic-node ${depth} ${state.status} ${active} ${future} ${fade}"
             style="--accent:${subject.accent};${radialStyle(point)}"
             title="${topic.title}"
+            aria-label="${label}"
             data-radial-topic="${topic.id}" ${disabled}>
-            <span>${depth === "entry" ? "Einstieg" : topic.strand}</span>
-            <strong>${topic.title}</strong>
-            <small>${state.label}</small>
+            <span class="radial-node-dot" aria-hidden="true"></span>
+            <span class="radial-tooltip" aria-hidden="true">
+                <span>${depth === "entry" ? "Einstieg" : topic.strand}</span>
+                <strong>${topic.title}</strong>
+                <small>${state.label}</small>
+            </span>
         </button>
     `;
 }
@@ -569,9 +681,13 @@ function renderCircularSkillMap(target, completed) {
         nodes.push(`
             <button type="button" class="radial-node radial-subject-word ${subjectId === currentSubject ? "active" : ""}"
                 style="--accent:${subject.accent};${radialStyle(subjectPoint)}"
+                aria-label="${subject.label}: ${roadmapDone} von ${roadmapTotal} Kapiteln abgeschlossen"
                 data-radial-subject="${subjectId}">
-                <strong>${subject.label}</strong>
-                <small>${roadmapDone}/${roadmapTotal}</small>
+                <span class="radial-node-dot" aria-hidden="true">${subject.icon}</span>
+                <span class="radial-tooltip" aria-hidden="true">
+                    <strong>${subject.label}</strong>
+                    <small>${roadmapDone}/${roadmapTotal}</small>
+                </span>
             </button>
         `);
 
@@ -605,7 +721,7 @@ function renderCircularSkillMap(target, completed) {
     });
 
     target.innerHTML = `
-        <div class="radial-skill-scroll" aria-label="Kreisfoermiger Skillbaum">
+        <div class="radial-skill-scroll" tabindex="0" aria-label="Kreisfoermiger Skillbaum">
             <div class="radial-skill-map" style="width:${Math.round(1700 * skillMapZoom)}px">
                 <svg class="radial-links" viewBox="0 0 ${RADIAL_VIEWBOX} ${RADIAL_VIEWBOX}" aria-hidden="true" focusable="false">
                     <circle class="radial-orbit orbit-one" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="220" />
@@ -615,10 +731,6 @@ function renderCircularSkillMap(target, completed) {
                     <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1100" />
                     ${lines.join("")}
                 </svg>
-                <div class="radial-core">
-                    <strong>Skillkreis</strong>
-                    <span>Fach &rarr; Einstieg &rarr; Themen</span>
-                </div>
                 ${nodes.join("")}
             </div>
         </div>
@@ -631,9 +743,19 @@ function renderCircularSkillMap(target, completed) {
         </div>
     `;
     applySkillMapZoom();
+    bindSkillMapWheelZoom(target);
+    centerSkillMap(target);
+
+    target.querySelectorAll(".radial-node").forEach(button => {
+        button.addEventListener("pointerenter", () => button.classList.add("show-tooltip"));
+        button.addEventListener("pointerleave", () => button.classList.remove("show-tooltip"));
+        button.addEventListener("focus", () => button.classList.add("show-tooltip"));
+        button.addEventListener("blur", () => button.classList.remove("show-tooltip"));
+    });
 
     target.querySelectorAll("[data-radial-subject]").forEach(button => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", event => {
+            if (event.currentTarget.closest(".radial-skill-scroll")?.dataset.suppressClick === "true") return;
             currentSubject = button.dataset.radialSubject;
             localStorage.setItem(SUBJECT_KEY, currentSubject);
             renderChallenge();
@@ -641,7 +763,10 @@ function renderCircularSkillMap(target, completed) {
     });
 
     target.querySelectorAll("[data-radial-topic]").forEach(button => {
-        button.addEventListener("click", () => openTopic(button.dataset.radialTopic, "challenge"));
+        button.addEventListener("click", event => {
+            if (event.currentTarget.closest(".radial-skill-scroll")?.dataset.suppressClick === "true") return;
+            openTopic(button.dataset.radialTopic, "challenge");
+        });
     });
 }
 
@@ -657,18 +782,6 @@ function renderChallenge() {
             <h1>Dein Fortschritt</h1>
             <p>Schlie&szlig;e Kapitelquizzes mit mindestens 75% ab. Dann erscheint das n&auml;chste Thema im Fach-Ast. Kapiteltests geben Plus-M&uuml;nzen; &Uuml;bungsfragen im Kapitel geben keine Punkte.</p>
             <div class="challenge-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
-        </section>
-        <section class="challenge-subject-panel">
-            <div class="section-heading">
-                <h2>Skillkreis</h2>
-                <p>Innen stehen die F&auml;cher. Jedes Fach ist mit seinem Einstiegskapitel verbunden. Danach folgen die ersten Themenkomplexe des ersten Lernjahres.</p>
-            </div>
-            <div class="skill-map-toolbar" aria-label="Skillkarte zoomen">
-                <button type="button" class="quiet-action" onclick="zoomSkillMap(-0.1)">-</button>
-                <span data-skill-zoom-label>${Math.round(skillMapZoom * 100)}%</span>
-                <button type="button" class="quiet-action" onclick="zoomSkillMap(0.1)">+</button>
-                <button type="button" class="quiet-action" onclick="resetSkillMapZoom()">Reset</button>
-            </div>
         </section>
         <section class="challenge-map" id="challenge-map"></section>
     `;

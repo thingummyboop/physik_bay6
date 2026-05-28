@@ -269,7 +269,6 @@
         .challenge-hero,
         .character-hero,
         .home-panel,
-        .challenge-subject-panel,
         .challenge-map {
             background: var(--shell-panel);
             border: 1px solid var(--shell-border);
@@ -318,57 +317,6 @@
         [data-theme="dark"] .eyebrow { color: #86efac !important; }
 
         .home-panel { padding: 22px; }
-        .challenge-subject-panel {
-            margin-bottom: 18px;
-            padding: 22px;
-            position: relative;
-            overflow: hidden;
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 214, 0.78)),
-                radial-gradient(circle at 88% 18%, rgba(249, 115, 22, 0.18), transparent 28%);
-        }
-
-        .challenge-subject-panel::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px);
-            background-size: 34px 34px;
-            opacity: 0.28;
-            pointer-events: none;
-        }
-
-        [data-theme="dark"] .challenge-subject-panel {
-            background:
-                linear-gradient(135deg, rgba(8, 18, 35, 0.92), rgba(5, 46, 42, 0.72)),
-                radial-gradient(circle at 88% 18%, rgba(20, 184, 166, 0.18), transparent 30%);
-        }
-
-        .challenge-subject-panel > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .skill-map-toolbar {
-            align-items: center;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .skill-map-toolbar span {
-            border: 1px solid var(--shell-border);
-            border-radius: 999px;
-            background: var(--shell-panel);
-            color: var(--shell-text);
-            font-weight: 900;
-            min-width: 64px;
-            padding: 8px 12px;
-            text-align: center;
-        }
         .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
         .section-heading h2, .tree-header h2 { margin: 0; }
         .section-heading p { color: var(--shell-muted); margin: 0; max-width: 640px; }
@@ -794,9 +742,30 @@
         }
 
         .radial-skill-scroll {
+            cursor: grab;
+            height: min(78vh, 860px);
+            min-height: 560px;
             overflow: auto;
+            outline: none;
             padding: 6px 0 18px;
             scrollbar-width: none;
+            touch-action: none;
+        }
+
+        .radial-skill-scroll.is-dragging {
+            cursor: grabbing;
+            user-select: none;
+        }
+
+        .radial-skill-scroll.is-dragging .radial-node {
+            pointer-events: none;
+        }
+
+        .radial-skill-scroll:focus-visible .radial-skill-map {
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.38),
+                0 0 0 3px rgba(249, 115, 22, 0.32),
+                0 24px 50px rgba(15, 23, 42, 0.12);
         }
 
         .radial-skill-scroll::-webkit-scrollbar {
@@ -806,9 +775,7 @@
         .radial-skill-map {
             aspect-ratio: 1;
             background:
-                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.84), rgba(255,255,255,0.38) 16%, rgba(255,255,255,0.08) 34%, transparent 60%),
-                radial-gradient(circle at 50% 50%, color-mix(in srgb, #f97316, transparent 84%), transparent 24%),
-                linear-gradient(135deg, rgba(255, 248, 220, 0.8), rgba(236, 253, 245, 0.58));
+                linear-gradient(135deg, rgba(255, 248, 220, 0.84), rgba(236, 253, 245, 0.66) 48%, rgba(254, 243, 199, 0.62));
             border: 1px solid var(--shell-border);
             border-radius: 28px;
             box-shadow:
@@ -816,7 +783,7 @@
                 0 24px 50px rgba(15, 23, 42, 0.12);
             margin: 0 auto;
             min-width: 920px;
-            overflow: hidden;
+            overflow: visible;
             position: relative;
             transition: width 0.22s ease;
         }
@@ -835,8 +802,6 @@
 
         [data-theme="dark"] .radial-skill-map {
             background:
-                radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.18), rgba(15, 23, 42, 0.36) 18%, rgba(15, 23, 42, 0.16) 34%, transparent 62%),
-                radial-gradient(circle at 50% 50%, rgba(132, 204, 22, 0.12), transparent 28%),
                 linear-gradient(135deg, rgba(2, 6, 23, 0.96), rgba(5, 46, 42, 0.72));
             border-color: #1f4f46;
             box-shadow:
@@ -847,6 +812,7 @@
         .radial-links {
             height: 100%;
             inset: 0;
+            pointer-events: none;
             position: absolute;
             width: 100%;
             z-index: 0;
@@ -867,7 +833,7 @@
             fill: none;
             stroke: rgba(15, 118, 110, 0.56);
             stroke-linecap: round;
-            stroke-width: 4;
+            stroke-width: 3;
         }
 
         .radial-link.unlocked { stroke: rgba(45, 212, 191, 0.86); }
@@ -886,129 +852,156 @@
             stroke-dasharray: 4 14;
         }
 
-        .radial-core {
-            align-items: center;
-            background:
-                radial-gradient(circle at 38% 28%, rgba(255,255,255,0.96), rgba(250, 204, 21, 0.34)),
-                linear-gradient(135deg, #f97316, #0f766e);
-            border: 2px solid rgba(255,255,255,0.72);
-            border-radius: 50%;
-            box-shadow: 0 0 34px rgba(249, 115, 22, 0.34);
-            color: white;
-            display: grid;
-            height: 150px;
-            justify-items: center;
-            left: 50%;
-            padding: 28px;
-            position: absolute;
-            text-align: center;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 142px;
-            z-index: 2;
-        }
-
-        .radial-core strong {
-            font-size: 1.25rem;
-            line-height: 1;
-        }
-
-        .radial-core span {
-            font-size: 0.72rem;
-            font-weight: 900;
-            line-height: 1.25;
-            opacity: 0.92;
-        }
-
         .radial-node {
             --accent: #0f766e;
-            border: 1px solid color-mix(in srgb, var(--accent), white 42%);
-            background:
-                linear-gradient(145deg, rgba(255,255,255,0.98), color-mix(in srgb, var(--accent), white 91%) 62%, rgba(255,255,255,0.86));
-            border-radius: 16px;
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.5),
-                0 10px 22px rgba(15, 23, 42, 0.1);
+            --node-size: 42px;
+            align-items: center;
+            background: transparent;
+            border: 0;
             color: var(--shell-text);
             cursor: pointer;
-            overflow: hidden;
+            display: grid;
+            height: var(--node-size);
+            justify-items: center;
+            overflow: visible;
+            padding: 0;
             position: absolute;
-            text-align: left;
+            text-align: center;
             transform: translate(-50%, -50%);
             transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            width: var(--node-size);
             z-index: 2;
         }
 
         .radial-node:hover:not(:disabled) {
+            transform: translate(-50%, -50%) scale(1.08);
+            z-index: 8;
+        }
+
+        .radial-node:focus-visible {
+            outline: none;
+            transform: translate(-50%, -50%) scale(1.08);
+            z-index: 8;
+        }
+
+        .radial-node-dot {
+            align-items: center;
+            background:
+                radial-gradient(circle at 35% 28%, rgba(255,255,255,0.96) 0 12%, rgba(255,255,255,0.28) 13% 25%, transparent 26%),
+                radial-gradient(circle at 50% 62%, color-mix(in srgb, var(--accent), white 18%), var(--accent) 62%, color-mix(in srgb, var(--accent), black 24%));
+            border: 2px solid color-mix(in srgb, var(--accent), white 44%);
+            border-radius: 50%;
             box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.62),
-                0 0 0 2px color-mix(in srgb, var(--accent), transparent 72%),
-                0 14px 28px color-mix(in srgb, var(--accent), transparent 76%);
-            transform: translate(-50%, -52%);
+                inset -6px -8px 12px rgba(15, 23, 42, 0.2),
+                inset 4px 5px 10px rgba(255,255,255,0.35),
+                0 0 0 3px color-mix(in srgb, var(--accent), transparent 74%),
+                0 10px 20px rgba(15, 23, 42, 0.16);
+            color: white;
+            display: inline-flex;
+            font-size: 0.64rem;
+            font-weight: 950;
+            height: var(--node-size);
+            justify-content: center;
+            letter-spacing: 0;
+            line-height: 1;
+            text-shadow: 0 1px 3px rgba(15, 23, 42, 0.42);
+            width: var(--node-size);
         }
 
-        .radial-subject-word {
-            border-radius: 999px;
-            display: grid;
-            justify-items: center;
-            min-height: 50px;
-            padding: 8px 10px;
-            width: 118px;
-        }
-
-        .radial-subject-word strong {
-            display: block;
-            font-size: 0.72rem;
-            line-height: 1.05;
-            max-width: 98px;
-            text-align: center;
-        }
-
-        .radial-subject-word small {
-            color: var(--shell-muted);
-            font-size: 0.68rem;
-            font-weight: 900;
-        }
-
-        .radial-subject-word.active {
-            border-color: var(--accent);
-            box-shadow:
-                0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%),
-                0 0 24px color-mix(in srgb, var(--accent), transparent 58%);
-        }
-
-        .radial-topic-node {
-            min-height: 78px;
-            padding: 10px 11px 10px 17px;
-            width: 150px;
-        }
-
-        .radial-topic-node::before {
-            background: var(--accent);
-            border-radius: 16px 0 0 16px;
-            content: "";
-            inset: 0 auto 0 0;
+        .radial-tooltip {
+            background: var(--shell-panel);
+            border: 1px solid color-mix(in srgb, var(--accent), white 42%);
+            border-radius: 14px;
+            box-shadow: var(--shell-shadow);
+            color: var(--shell-text);
+            left: 50%;
+            max-width: 220px;
+            min-width: 150px;
+            opacity: 0;
+            padding: 9px 11px;
+            pointer-events: none;
             position: absolute;
-            width: 6px;
+            text-align: left;
+            top: calc(100% + 10px);
+            transform: translate(-50%, -6px) scale(0.96);
+            transition: opacity 0.16s ease, transform 0.16s ease;
+            z-index: 12;
         }
 
-        .radial-topic-node.entry {
-            width: 148px;
+        .radial-tooltip::before {
+            background: var(--shell-panel);
+            border-left: 1px solid color-mix(in srgb, var(--accent), white 42%);
+            border-top: 1px solid color-mix(in srgb, var(--accent), white 42%);
+            content: "";
+            height: 10px;
+            left: 50%;
+            position: absolute;
+            top: -6px;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
         }
 
-        .radial-topic-node.branch {
-            width: 140px;
+        .radial-node:hover:not(:disabled) .radial-tooltip,
+        .radial-node:focus-visible .radial-tooltip,
+        .radial-node.show-tooltip .radial-tooltip {
+            opacity: 1;
+            transform: translate(-50%, 0) scale(1);
         }
 
-        .radial-topic-node span,
-        .radial-topic-node strong,
-        .radial-topic-node small {
+        .radial-tooltip span,
+        .radial-tooltip strong,
+        .radial-tooltip small {
             display: block;
             position: relative;
             z-index: 1;
         }
 
-        .radial-topic-node span {
+        .radial-subject-word {
+            --node-size: 58px;
+        }
+
+        .radial-subject-word .radial-node-dot {
+            font-size: 0.7rem;
+        }
+
+        .radial-subject-word.active .radial-node-dot {
+            border-color: #fff7ed;
+            box-shadow:
+                inset -7px -9px 13px rgba(15, 23, 42, 0.24),
+                inset 5px 6px 11px rgba(255,255,255,0.42),
+                0 0 0 4px color-mix(in srgb, var(--accent), transparent 54%),
+                0 0 26px color-mix(in srgb, var(--accent), transparent 42%);
+        }
+
+        .radial-tooltip strong {
+            font-size: 0.86rem;
+            line-height: 1.12;
+        }
+
+        .radial-tooltip small {
+            color: var(--shell-muted);
+            font-size: 0.72rem;
+            font-weight: 900;
+            margin-top: 5px;
+        }
+
+        .radial-topic-node.entry {
+            --node-size: 52px;
+        }
+
+        .radial-topic-node.branch {
+            --node-size: 42px;
+        }
+
+        .radial-topic-node.entry .radial-node-dot {
+            box-shadow:
+                inset -6px -8px 12px rgba(15, 23, 42, 0.2),
+                inset 4px 5px 10px rgba(255,255,255,0.35),
+                0 0 0 4px color-mix(in srgb, var(--accent), transparent 68%),
+                0 10px 22px rgba(15, 23, 42, 0.18);
+        }
+
+        .radial-tooltip span {
             color: var(--accent);
             font-size: 0.66rem;
             font-weight: 900;
@@ -1016,36 +1009,23 @@
             text-transform: uppercase;
         }
 
-        .radial-topic-node strong {
-            font-size: 0.78rem;
-            line-height: 1.12;
-            margin-top: 4px;
-        }
-
-        .radial-topic-node small {
-            color: var(--shell-muted);
-            font-size: 0.72rem;
-            font-weight: 900;
-            margin-top: 6px;
-        }
-
-        .radial-topic-node.unlocked:not(.done) {
-            border-color: color-mix(in srgb, var(--accent), white 24%);
+        .radial-topic-node.unlocked:not(.done) .radial-node-dot {
             box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.56),
-                0 0 0 2px color-mix(in srgb, var(--accent), transparent 72%),
-                0 12px 24px color-mix(in srgb, var(--accent), transparent 74%);
+                inset -6px -8px 12px rgba(15, 23, 42, 0.18),
+                inset 4px 5px 10px rgba(255,255,255,0.42),
+                0 0 0 4px color-mix(in srgb, var(--accent), transparent 58%),
+                0 0 24px color-mix(in srgb, var(--accent), transparent 56%);
         }
 
-        .radial-topic-node.done {
-            background: linear-gradient(145deg, #ecfdf5, color-mix(in srgb, #22c55e, white 84%));
+        .radial-topic-node.done .radial-node-dot {
+            --accent: #22c55e;
             border-color: #22c55e;
         }
 
-        .radial-topic-node.locked,
-        .radial-topic-node.planned {
+        .radial-topic-node.locked .radial-node-dot,
+        .radial-topic-node.planned .radial-node-dot {
             filter: grayscale(0.25);
-            opacity: 0.62;
+            opacity: 0.7;
         }
 
         .radial-topic-node.fade-1 { opacity: 0.5; }
@@ -1062,17 +1042,14 @@
             cursor: not-allowed;
         }
 
-        [data-theme="dark"] .radial-subject-word,
-        [data-theme="dark"] .radial-topic-node {
-            background:
-                linear-gradient(145deg, rgba(15, 23, 42, 0.96), color-mix(in srgb, var(--accent), #0f172a 82%));
-            border-color: color-mix(in srgb, var(--accent), #0f172a 38%);
-            color: var(--shell-text);
+        [data-theme="dark"] .radial-tooltip {
+            background: #081322;
+            border-color: color-mix(in srgb, var(--accent), #0f172a 30%);
         }
 
-        [data-theme="dark"] .radial-topic-node.done {
-            background: linear-gradient(145deg, #052e1a, color-mix(in srgb, #22c55e, #0f172a 78%));
-            border-color: #22c55e;
+        [data-theme="dark"] .radial-tooltip::before {
+            background: #081322;
+            border-color: color-mix(in srgb, var(--accent), #0f172a 30%);
         }
 
         .radial-legend {
@@ -1910,6 +1887,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=2.9"></script>
+    <script src="js/app_shell.js?v=3.1"></script>
 </body>
 </html>
