@@ -737,6 +737,7 @@ function renderCircularSkillMap(target, completed) {
     const subjects = getSubjects().sort((a, b) => a[1].label.localeCompare(b[1].label, "de"));
     const lines = [];
     const nodes = [];
+    const orbitRadii = new Set([320, 660]);
     const step = 360 / subjects.length;
 
     subjects.forEach(([subjectId, subject], subjectIndex) => {
@@ -777,7 +778,9 @@ function renderCircularSkillMap(target, completed) {
                 const rawOffset = -spread / 2 + slotStep * slot;
                 const offset = Math.abs(rawOffset) < 1 ? slotStep / 2 : rawOffset;
                 const childAngle = angle + offset;
-                const childPoint = radialPoint(1020 + ring * 126, childAngle);
+                const childRadius = 1020 + ring * 126;
+                orbitRadii.add(childRadius);
+                const childPoint = radialPoint(childRadius, childAngle);
                 const state = topicSkillState(subject, topic, completed);
                 const visible = visibleTopics.has(topic.id);
                 state.future = !visible;
@@ -789,15 +792,16 @@ function renderCircularSkillMap(target, completed) {
         }
     });
 
+    const orbitCircles = [...orbitRadii]
+        .sort((a, b) => a - b)
+        .map(radius => `<circle class="radial-orbit" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="${radius}" />`)
+        .join("");
+
     target.innerHTML = `
         <div class="radial-skill-scroll" tabindex="0" aria-label="Kreisfoermiger Skillbaum">
             <div class="radial-skill-map" style="width:${Math.round(RADIAL_BASE_WIDTH * skillMapZoom)}px">
                 <svg class="radial-links" viewBox="0 0 ${RADIAL_VIEWBOX} ${RADIAL_VIEWBOX}" aria-hidden="true" focusable="false">
-                    <circle class="radial-orbit orbit-one" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="320" />
-                    <circle class="radial-orbit orbit-two" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="660" />
-                    <circle class="radial-orbit orbit-three" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1020" />
-                    <circle class="radial-orbit orbit-four" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1280" />
-                    <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1540" />
+                    ${orbitCircles}
                     ${lines.join("")}
                 </svg>
                 ${nodes.join("")}
