@@ -2,11 +2,15 @@ const APP = window.LEARNQUEST_CURRICULUM;
 const SUBJECT_KEY = "wissenspfad_selected_subject";
 const COINS_KEY = "learning_coins";
 const COMPLETED_KEY = "challenge_completed_topics";
+const SKILL_ZOOM_KEY = "challenge_skill_map_zoom";
+const RADIAL_VIEWBOX = 2400;
+const RADIAL_CENTER = RADIAL_VIEWBOX / 2;
 
 let currentSubject = localStorage.getItem(SUBJECT_KEY) || "physik";
 let currentView = "home";
 let suppressNextHashRender = false;
 let currentFrameMode = "learn";
+let skillMapZoom = Number(localStorage.getItem(SKILL_ZOOM_KEY) || 0.82);
 
 function getSubjects() {
     return Object.entries(APP.subjects);
@@ -440,6 +444,207 @@ function renderChallengeFocus(target, completed) {
     renderTopicTree(target.querySelector(".challenge-tree"), subject, { mode: "challenge", completed });
 }
 
+function topicSkillState(subject, topic, completed) {
+    const index = subject.topics.indexOf(topic);
+    const done = completed.has(topic.id);
+    const available = Boolean(topic.available);
+    const unlocked = available && isTopicUnlocked(subject, topic, index, completed);
+    return {
+        done,
+        available,
+        unlocked,
+        status: done ? "done" : !available ? "planned" : unlocked ? "unlocked" : "locked",
+        label: done ? "abgeschlossen" : !available ? "geplant" : unlocked ? "Kapitelquiz" : "gesperrt"
+    };
+}
+
+function firstLearningGrade(subject) {
+    const grades = subject.topics
+        .map(topic => topic.grade || 0)
+        .filter(grade => grade > 0);
+    return grades.length ? Math.min(...grades) : 0;
+}
+
+function entryTopic(subject) {
+    const firstGrade = firstLearningGrade(subject);
+    return subject.topics.find(topic => (topic.grade || 0) === firstGrade) || subject.topics[0];
+}
+
+function firstThemeTopics(subject, entry) {
+    const firstGrade = firstLearningGrade(subject);
+    const byStrand = new Map();
+    subject.topics
+        .filter(topic => (topic.grade || 0) === firstGrade && topic.id !== entry?.id)
+        .forEach(topic => {
+            if (!byStrand.has(topic.strand)) byStrand.set(topic.strand, topic);
+        });
+    return [...byStrand.values()];
+}
+
+function radialPoint(radius, angleDeg) {
+    const angle = (Math.PI / 180) * angleDeg;
+    return {
+        x: RADIAL_CENTER + Math.cos(angle) * radius,
+        y: RADIAL_CENTER + Math.sin(angle) * radius
+    };
+}
+
+function radialStyle(point) {
+    return `left:${(point.x / RADIAL_VIEWBOX) * 100}%;top:${(point.y / RADIAL_VIEWBOX) * 100}%`;
+}
+
+function clampSkillZoom(value) {
+    return Math.max(0.55, Math.min(1.55, Number(value) || 0.82));
+}
+
+function applySkillMapZoom() {
+    skillMapZoom = clampSkillZoom(skillMapZoom);
+    const map = document.querySelector(".radial-skill-map");
+    const value = Math.round(1700 * skillMapZoom);
+    if (map) map.style.width = `${value}px`;
+    document.querySelectorAll("[data-skill-zoom-label]").forEach(el => {
+        el.textContent = `${Math.round(skillMapZoom * 100)}%`;
+    });
+}
+
+function setSkillMapZoom(value) {
+    skillMapZoom = clampSkillZoom(value);
+    localStorage.setItem(SKILL_ZOOM_KEY, String(skillMapZoom));
+    applySkillMapZoom();
+}
+
+function zoomSkillMap(delta) {
+    setSkillMapZoom(skillMapZoom + delta);
+}
+
+function resetSkillMapZoom() {
+    setSkillMapZoom(0.82);
+}
+
+function visibleRadialTopics(subject, entry, completed) {
+    const visible = new Set();
+    if (entry) visible.add(entry.id);
+    firstThemeTopics(subject, entry).forEach(topic => visible.add(topic.id));
+
+    const topics = subject.topics.filter(topic => topic.id !== entry?.id);
+    const firstUnsolvedIndex = topics.findIndex(topic => topic.available && !completed.has(topic.id));
+    topics.forEach((topic, index) => {
+        if (completed.has(topic.id)) visible.add(topic.id);
+        if (firstUnsolvedIndex >= 0 && index <= firstUnsolvedIndex + 2) visible.add(topic.id);
+    });
+    return visible;
+}
+
+function radialTopicNode(subjectId, subject, topic, point, state, depth) {
+    const disabled = !state.unlocked && !state.done ? "disabled" : "";
+    const active = subjectId === currentSubject ? "active-subject" : "";
+    const future = state.future ? "future-hidden" : "";
+    const fade = state.fade ? `fade-${state.fade}` : "";
+    return `
+        <button type="button" class="radial-node radial-topic-node ${depth} ${state.status} ${active} ${future} ${fade}"
+            style="--accent:${subject.accent};${radialStyle(point)}"
+            title="${topic.title}"
+            data-radial-topic="${topic.id}" ${disabled}>
+            <span>${depth === "entry" ? "Einstieg" : topic.strand}</span>
+            <strong>${topic.title}</strong>
+            <small>${state.label}</small>
+        </button>
+    `;
+}
+
+function renderCircularSkillMap(target, completed) {
+    const subjects = getSubjects().sort((a, b) => a[1].label.localeCompare(b[1].label, "de"));
+    const lines = [];
+    const nodes = [];
+    const step = 360 / subjects.length;
+
+    subjects.forEach(([subjectId, subject], subjectIndex) => {
+        const angle = -90 + subjectIndex * step;
+        const subjectPoint = radialPoint(220, angle);
+        const entryPoint = radialPoint(430, angle);
+        const entry = entryTopic(subject);
+        const roadmapTotal = subject.topics.length;
+        const roadmapDone = subject.topics.filter(topic => completed.has(topic.id)).length;
+
+        nodes.push(`
+            <button type="button" class="radial-node radial-subject-word ${subjectId === currentSubject ? "active" : ""}"
+                style="--accent:${subject.accent};${radialStyle(subjectPoint)}"
+                data-radial-subject="${subjectId}">
+                <strong>${subject.label}</strong>
+                <small>${roadmapDone}/${roadmapTotal}</small>
+            </button>
+        `);
+
+        if (!entry) return;
+        const entryState = topicSkillState(subject, entry, completed);
+        lines.push(`<path class="radial-link ${entryState.status}" d="M${subjectPoint.x} ${subjectPoint.y} L${entryPoint.x} ${entryPoint.y}" />`);
+        nodes.push(radialTopicNode(subjectId, subject, entry, entryPoint, entryState, "entry"));
+
+        if (subjectId === currentSubject) {
+            const childTopics = subject.topics.filter(topic => topic.id !== entry.id);
+            const visibleTopics = visibleRadialTopics(subject, entry, completed);
+            const slots = 5;
+            const spread = Math.min(step * 2.95, 104);
+            childTopics.forEach((topic, topicIndex) => {
+                const ring = Math.floor(topicIndex / slots);
+                const slot = topicIndex % slots;
+                const slotStep = spread / (slots - 1);
+                const rawOffset = -spread / 2 + slotStep * slot;
+                const offset = Math.abs(rawOffset) < 1 ? slotStep / 2 : rawOffset;
+                const childAngle = angle + offset;
+                const childPoint = radialPoint(650 + ring * 75, childAngle);
+                const state = topicSkillState(subject, topic, completed);
+                const visible = visibleTopics.has(topic.id);
+                state.future = !visible;
+                state.fade = visible && !state.done && !state.unlocked ? Math.min(3, ring + 1) : 0;
+                const lineFade = state.future ? "future-hidden" : state.fade ? `fade-${state.fade}` : "";
+                lines.push(`<path class="radial-link ${state.status} ${lineFade}" d="M${entryPoint.x} ${entryPoint.y} L${childPoint.x} ${childPoint.y}" />`);
+                nodes.push(radialTopicNode(subjectId, subject, topic, childPoint, state, "branch"));
+            });
+        }
+    });
+
+    target.innerHTML = `
+        <div class="radial-skill-scroll" aria-label="Kreisfoermiger Skillbaum">
+            <div class="radial-skill-map" style="width:${Math.round(1700 * skillMapZoom)}px">
+                <svg class="radial-links" viewBox="0 0 ${RADIAL_VIEWBOX} ${RADIAL_VIEWBOX}" aria-hidden="true" focusable="false">
+                    <circle class="radial-orbit orbit-one" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="220" />
+                    <circle class="radial-orbit orbit-two" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="430" />
+                    <circle class="radial-orbit orbit-three" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="650" />
+                    <circle class="radial-orbit orbit-four" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="875" />
+                    <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1100" />
+                    ${lines.join("")}
+                </svg>
+                <div class="radial-core">
+                    <strong>Skillkreis</strong>
+                    <span>Fach &rarr; Einstieg &rarr; Themen</span>
+                </div>
+                ${nodes.join("")}
+            </div>
+        </div>
+        <div class="radial-legend">
+            <span><i class="legend-dot unlocked"></i> verf&uuml;gbar</span>
+            <span><i class="legend-dot locked"></i> gesperrt</span>
+            <span><i class="legend-dot done"></i> abgeschlossen</span>
+            <span><i class="legend-dot planned"></i> geplant</span>
+            <span><i class="legend-dot future"></i> Zukunft</span>
+        </div>
+    `;
+    applySkillMapZoom();
+
+    target.querySelectorAll("[data-radial-subject]").forEach(button => {
+        button.addEventListener("click", () => {
+            currentSubject = button.dataset.radialSubject;
+            localStorage.setItem(SUBJECT_KEY, currentSubject);
+            renderChallenge();
+        });
+    });
+
+    target.querySelectorAll("[data-radial-topic]").forEach(button => {
+        button.addEventListener("click", () => openTopic(button.dataset.radialTopic, "challenge"));
+    });
+}
+
 function renderChallenge() {
     currentView = "challenge";
     showMainView();
@@ -455,16 +660,20 @@ function renderChallenge() {
         </section>
         <section class="challenge-subject-panel">
             <div class="section-heading">
-                <h2>Fach ausw&auml;hlen</h2>
-                <p>W&auml;hle einen Fach-Ast. Darunter siehst du nur diesen Skilltree mit freigeschalteten, gesperrten und abgeschlossenen Kapiteln.</p>
+                <h2>Skillkreis</h2>
+                <p>Innen stehen die F&auml;cher. Jedes Fach ist mit seinem Einstiegskapitel verbunden. Danach folgen die ersten Themenkomplexe des ersten Lernjahres.</p>
             </div>
-            <div class="challenge-subject-grid" id="challenge-subject-grid"></div>
+            <div class="skill-map-toolbar" aria-label="Skillkarte zoomen">
+                <button type="button" class="quiet-action" onclick="zoomSkillMap(-0.1)">-</button>
+                <span data-skill-zoom-label>${Math.round(skillMapZoom * 100)}%</span>
+                <button type="button" class="quiet-action" onclick="zoomSkillMap(0.1)">+</button>
+                <button type="button" class="quiet-action" onclick="resetSkillMapZoom()">Reset</button>
+            </div>
         </section>
         <section class="challenge-map" id="challenge-map"></section>
     `;
 
-    renderChallengeSubjects(document.getElementById("challenge-subject-grid"), completed);
-    renderChallengeFocus(document.getElementById("challenge-map"), completed);
+    renderCircularSkillMap(document.getElementById("challenge-map"), completed);
     updateShellStats();
     resetMainViewScroll();
     updateTopNav();
