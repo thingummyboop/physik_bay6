@@ -13,6 +13,7 @@ function topicInit() {
     enhanceAstronomieAccessibility();
     updateGravity();
     calcSpeed();
+    if (typeof updateCannonball === 'function') updateCannonball();
 }
 
 function enhanceAstronomieAccessibility() {
@@ -261,5 +262,60 @@ function updateSolarZoom() {
     const scale = 1 - (val / 100) * 0.7;
     // Keep the sun anchored to the left but move the view right
     const baseX = 50;
-    group.setAttribute('transform', `translate(${baseX + pan}, 140) scale(${scale})`);
+function updateCannonball() {
+    const velInput = document.getElementById('cannonVelocity');
+    const path = document.getElementById('cannonPath');
+    const anim = document.getElementById('cannonAnim');
+    const status = document.getElementById('cannonStatus');
+    const velText = document.getElementById('cannonVelVal');
+    const velVector = document.getElementById('velVector');
+    
+    if(!velInput || !path || !anim || !status) return;
+
+    const v = parseFloat(velInput.value);
+    velText.innerText = v.toFixed(1) + " km/s";
+    
+    // Scale vector length based on velocity
+    const vecLength = 310 + (v * 10);
+    velVector.setAttribute('x2', vecLength);
+
+    if (v < 7.5) {
+        // Crash
+        path.setAttribute('d', `M 310 50 Q ${310 + v*15} 50 ${310 + v*20} 115`);
+        path.setAttribute('stroke', '#ef4444');
+        path.setAttribute('stroke-dasharray', '4 4');
+        anim.setAttribute('path', `M 310 50 Q ${310 + v*15} 50 ${310 + v*20} 115`);
+        anim.setAttribute('dur', '2s');
+        status.innerText = "Zu langsam: Die Kugel stürzt ab.";
+        status.style.color = "#ef4444";
+    } else if (v >= 7.5 && v <= 8.5) {
+        // Perfect Circular Orbit
+        path.setAttribute('d', "M 310 50 A 100 100 0 0 1 510 150 A 100 100 0 0 1 310 250 A 100 100 0 0 1 110 150 A 100 100 0 0 1 310 50");
+        path.setAttribute('stroke', '#38bdf8');
+        path.setAttribute('stroke-dasharray', '8 8');
+        anim.setAttribute('path', "M 310 50 A 100 100 0 0 1 510 150 A 100 100 0 0 1 310 250 A 100 100 0 0 1 110 150 A 100 100 0 0 1 310 50");
+        anim.setAttribute('dur', '4s');
+        status.innerText = "Perfekt! Kreisrunder Orbit.";
+        status.style.color = "#38bdf8";
+    } else if (v > 8.5 && v < 11.2) {
+        // Elliptical Orbit
+        const rx = 100 + (v - 8)*30;
+        path.setAttribute('d', `M 310 50 A ${rx} 100 0 0 1 ${310 + rx*2} 150 A ${rx} 100 0 0 1 310 250 A ${rx} 100 0 0 1 ${310 - rx*2} 150 A ${rx} 100 0 0 1 310 50`);
+        path.setAttribute('stroke', '#facc15');
+        path.setAttribute('stroke-dasharray', '8 8');
+        anim.setAttribute('path', `M 310 50 A ${rx} 100 0 0 1 ${310 + rx*2} 150 A ${rx} 100 0 0 1 310 250 A ${rx} 100 0 0 1 ${310 - rx*2} 150 A ${rx} 100 0 0 1 310 50`);
+        anim.setAttribute('dur', '6s');
+        status.innerText = "Schnell: Elliptischer Orbit.";
+        status.style.color = "#facc15";
+    } else {
+        // Escape velocity
+        path.setAttribute('d', `M 310 50 Q 550 50 650 -50`);
+        path.setAttribute('stroke', '#22c55e');
+        path.setAttribute('stroke-dasharray', '10 10');
+        anim.setAttribute('path', `M 310 50 Q 550 50 650 -50`);
+        anim.setAttribute('dur', '3s');
+        status.innerText = "Fluchtgeschwindigkeit! Die Kugel verlässt die Erde.";
+        status.style.color = "#22c55e";
+    }
 }
+
