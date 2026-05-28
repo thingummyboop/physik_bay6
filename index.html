@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wissenspfad</title>
-    <link rel="stylesheet" href="css/style.css?v=8.3">
+    <link rel="stylesheet" href="css/style.css?v=8.5">
     <style>
         :root {
             --shell-bg: #eaf4ef;
@@ -433,6 +433,13 @@
             gap: 12px;
         }
 
+        .frame-toolbar-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
         iframe {
             width: 100%;
             height: 100%;
@@ -494,7 +501,10 @@
             <div id="frame-shell" hidden>
                 <div class="frame-toolbar">
                     <button type="button" class="quiet-action" onclick="backToShell()">Zur&uuml;ck</button>
-                    <span class="coin-chip"><span data-coin-count>0</span> Plus-M&uuml;nzen</span>
+                    <div class="frame-toolbar-group">
+                        <button type="button" class="quiet-action" id="frame-practice-reset" onclick="resetCurrentTopicPractice()" hidden>&Uuml;bungsfragen zur&uuml;cksetzen</button>
+                        <span class="coin-chip"><span data-coin-count>0</span> Plus-M&uuml;nzen</span>
+                    </div>
                 </div>
                 <iframe id="game-frame" name="game-frame" title="Kapitel"></iframe>
             </div>
@@ -502,6 +512,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=1.3"></script>
+    <script src="js/app_shell.js?v=1.4"></script>
 </body>
 </html>

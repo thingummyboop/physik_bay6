@@ -6,6 +6,7 @@ const COMPLETED_KEY = "challenge_completed_topics";
 let currentSubject = localStorage.getItem(SUBJECT_KEY) || "physik";
 let currentView = "home";
 let suppressNextHashRender = false;
+let currentFrameMode = "learn";
 
 function getSubjects() {
     return Object.entries(APP.subjects);
@@ -94,15 +95,28 @@ function resetAllProgress() {
 function showMainView() {
     document.getElementById("main-view").hidden = false;
     document.getElementById("frame-shell").hidden = true;
+    const resetBtn = document.getElementById("frame-practice-reset");
+    if (resetBtn) resetBtn.hidden = true;
 }
 
-function showTopicFrame(url, title) {
+function showTopicFrame(url, title, mode = "learn") {
     const frameShell = document.getElementById("frame-shell");
     const frame = document.getElementById("game-frame");
+    const resetBtn = document.getElementById("frame-practice-reset");
+    currentFrameMode = mode;
     document.getElementById("main-view").hidden = true;
     frameShell.hidden = false;
     frame.title = title || "Kapitel";
     frame.src = url;
+    if (resetBtn) resetBtn.hidden = mode !== "challenge";
+}
+
+function resetCurrentTopicPractice() {
+    if (currentFrameMode !== "challenge") return;
+    const frame = document.getElementById("game-frame");
+    if (typeof frame?.contentWindow?.resetTopicProgress === "function") {
+        frame.contentWindow.resetTopicProgress();
+    }
 }
 
 function navigate(view, subjectId = currentSubject) {
@@ -132,13 +146,13 @@ function openTopic(topicId, mode) {
             grade: String(found.topic.grade),
             strand: found.topic.strand
         });
-        showTopicFrame(`topics/placeholder.html?${qs.toString()}`, found.topic.title);
+        showTopicFrame(`topics/placeholder.html?${qs.toString()}`, found.topic.title, mode);
         setAppHash(`${mode}:${topicId}`);
         return;
     }
 
     const qs = new URLSearchParams({ topic: topicId, mode });
-    showTopicFrame(`topics/template.html?${qs.toString()}`, found.topic.title);
+    showTopicFrame(`topics/template.html?${qs.toString()}`, found.topic.title, mode);
     setAppHash(`${mode}:${topicId}`);
 }
 

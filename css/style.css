@@ -37,6 +37,10 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 /* Layout for topic pages (inside iframe) */
 .topic-body {
     width: min(100%, 1120px);
@@ -655,7 +659,8 @@ h3 {
     padding: 18px; border-radius: 8px; margin: 16px 0;
 }
 
-body[data-topic-mode="learn"] .topic-body {
+body[data-topic-mode="learn"] .topic-body,
+body[data-topic-mode="challenge"] .topic-body {
     padding-top: 24px;
 }
 

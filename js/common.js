@@ -70,7 +70,7 @@ function updateScoreDisplays() {
     const resetBtn = document.querySelector(".topic-reset-btn");
 
     if (scoreBoard) {
-        scoreBoard.hidden = IS_LEARN_MODE;
+        scoreBoard.hidden = IS_LEARN_MODE || IS_CHALLENGE_MODE;
     }
 
     if (resetBtn) {
