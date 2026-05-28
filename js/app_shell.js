@@ -255,52 +255,65 @@ function sortGradeKey(grade) {
     return grade || 99;
 }
 
-function renderLearningTree(subjectId) {
-    const subject = APP.subjects[subjectId];
-    const tree = document.getElementById("learning-tree");
-    tree.innerHTML = "";
-
+function renderTopicTree(target, subject, options = {}) {
+    const mode = options.mode || "learn";
+    const completed = options.completed || new Set();
+    target.innerHTML = "";
     const byGrade = new Map();
-    subject.topics.forEach(topic => {
+    subject.topics.forEach((topic, index) => {
         const grade = topic.grade || 0;
         if (!byGrade.has(grade)) byGrade.set(grade, []);
-        byGrade.get(grade).push(topic);
+        byGrade.get(grade).push({ topic, index });
     });
 
-    [...byGrade.entries()].sort((a, b) => sortGradeKey(a[0]) - sortGradeKey(b[0])).forEach(([grade, topics]) => {
+    [...byGrade.entries()].sort((a, b) => sortGradeKey(a[0]) - sortGradeKey(b[0])).forEach(([grade, entries]) => {
         const gradeBlock = document.createElement("section");
         gradeBlock.className = "tree-grade";
         gradeBlock.innerHTML = `<h3>${gradeLabel(grade)}</h3><div class="tree-lanes"></div>`;
         const lanes = gradeBlock.querySelector(".tree-lanes");
 
         const byStrand = new Map();
-        topics.forEach(topic => {
+        entries.forEach(({ topic, index }) => {
             if (!byStrand.has(topic.strand)) byStrand.set(topic.strand, []);
-            byStrand.get(topic.strand).push(topic);
+            byStrand.get(topic.strand).push({ topic, index });
         });
 
-        [...byStrand.entries()].forEach(([strand, strandTopics]) => {
+        [...byStrand.entries()].forEach(([strand, strandEntries]) => {
             const branch = document.createElement("section");
             branch.className = "strand-branch";
             branch.style.setProperty("--accent", subject.accent);
             branch.innerHTML = `<div class="strand-label">${strand}</div><div class="strand-nodes"></div>`;
             const nodes = branch.querySelector(".strand-nodes");
 
-            strandTopics.forEach(topic => {
+            strandEntries.forEach(({ topic, index }) => {
+                const available = Boolean(topic.available);
                 const node = document.createElement("button");
                 node.type = "button";
-                node.className = `tree-node ${topic.available ? "" : "planned"}`;
                 node.style.setProperty("--accent", subject.accent);
-                node.innerHTML = `<span class="node-kicker">${gradeLabel(topic.grade)}</span><strong>${topic.title}</strong><small>${topic.available ? "Lerninhalt &ouml;ffnen" : "Thema geplant"}</small>`;
-                node.onclick = () => openTopic(topic.id, "learn");
+                if (mode === "challenge") {
+                    const done = completed.has(topic.id);
+                    const unlocked = isTopicUnlocked(subject, topic, index, completed);
+                    node.className = `tree-node skill-node ${done ? "done" : ""} ${unlocked ? "unlocked" : "locked"} ${available ? "" : "planned"}`;
+                    node.disabled = !unlocked;
+                    node.innerHTML = `<span class="node-kicker">${gradeLabel(topic.grade)}</span><strong>${topic.title}</strong><small>${done ? "abgeschlossen" : available ? unlocked ? "Kapitelquiz verf&uuml;gbar" : "gesperrt" : "geplant"}</small>`;
+                    node.onclick = () => openTopic(topic.id, "challenge");
+                } else {
+                    node.className = `tree-node ${available ? "" : "planned"}`;
+                    node.innerHTML = `<span class="node-kicker">${gradeLabel(topic.grade)}</span><strong>${topic.title}</strong><small>${available ? "Lerninhalt &ouml;ffnen" : "Thema geplant"}</small>`;
+                    node.onclick = () => openTopic(topic.id, "learn");
+                }
                 nodes.appendChild(node);
             });
 
             lanes.appendChild(branch);
         });
 
-        tree.appendChild(gradeBlock);
+        target.appendChild(gradeBlock);
     });
+}
+
+function renderLearningTree(subjectId) {
+    renderTopicTree(document.getElementById("learning-tree"), APP.subjects[subjectId], { mode: "learn" });
 }
 
 function renderHome() {
@@ -367,19 +380,8 @@ function renderChallenge() {
         const branch = document.createElement("section");
         branch.className = "skill-branch";
         branch.style.setProperty("--accent", subject.accent);
-        branch.innerHTML = `<header><span>${subject.icon}</span><h2>${subject.label}</h2></header><div class="skill-track"></div>`;
-        const track = branch.querySelector(".skill-track");
-        subject.topics.forEach((topic, index) => {
-            const unlocked = isTopicUnlocked(subject, topic, index, completed);
-            const done = completed.has(topic.id);
-            const node = document.createElement("button");
-            node.type = "button";
-            node.className = `skill-node ${done ? "done" : ""} ${unlocked ? "unlocked" : "locked"} ${topic.available ? "" : "planned"}`;
-            node.disabled = !unlocked;
-            node.innerHTML = `<span class="node-kicker">${gradeLabel(topic.grade)} - ${topic.strand}</span><strong>${topic.title}</strong><small>${done ? "abgeschlossen" : topic.available ? unlocked ? "Kapitelquiz verf&uuml;gbar" : "gesperrt" : "geplant"}</small>`;
-            node.onclick = () => openTopic(topic.id, "challenge");
-            track.appendChild(node);
-        });
+        branch.innerHTML = `<header><span class="challenge-subject-symbol">${subjectSymbol(subjectId, subject)}</span><h2>${subject.label}</h2></header><div class="learning-tree challenge-tree"></div>`;
+        renderTopicTree(branch.querySelector(".challenge-tree"), subject, { mode: "challenge", completed });
         map.appendChild(branch);
     });
     updateShellStats();

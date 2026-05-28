@@ -655,10 +655,16 @@
         }
 
         .tree-node.planned,
+        .tree-node.locked,
         .skill-node.planned,
         .skill-node.locked {
             opacity: 0.58;
             filter: grayscale(0.25);
+        }
+
+        .tree-node:disabled,
+        .skill-node:disabled {
+            cursor: not-allowed;
         }
 
         .node-kicker {
@@ -699,19 +705,24 @@
         .challenge-map {
             padding: 22px;
             display: grid;
-            gap: 22px;
+            gap: 24px;
         }
 
         .skill-branch {
             --accent: #0f766e;
             border: 1px solid color-mix(in srgb, var(--accent), white 55%);
             border-radius: 14px;
-            padding: 16px;
-            background: color-mix(in srgb, var(--accent), white 93%);
+            padding: 18px;
+            background:
+                radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent), transparent 82%), transparent 26%),
+                color-mix(in srgb, var(--accent), white 93%);
+            box-shadow: 0 10px 24px color-mix(in srgb, var(--accent), transparent 86%);
         }
 
         [data-theme="dark"] .skill-branch {
-            background: color-mix(in srgb, var(--accent), #0f172a 86%);
+            background:
+                radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent), transparent 78%), transparent 28%),
+                color-mix(in srgb, var(--accent), #0f172a 86%);
         }
 
         .skill-branch header {
@@ -721,18 +732,43 @@
             margin-bottom: 14px;
         }
 
-        .skill-branch header span {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
+        .skill-branch header .challenge-subject-symbol {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
             display: grid;
             place-items: center;
-            color: white;
-            background: var(--accent);
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.78);
             font-weight: 900;
+            font-size: 1.62rem;
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 60%);
         }
 
         .skill-branch h2 { margin: 0; }
+
+        .challenge-subject-symbol svg {
+            display: block;
+            width: 34px;
+            height: 34px;
+        }
+
+        .challenge-subject-symbol .uk-flag-icon {
+            width: 38px;
+            height: 24px;
+        }
+
+        .challenge-tree {
+            margin-top: 10px;
+        }
+
+        .challenge-tree .tree-grade {
+            background: rgba(255, 255, 255, 0.44);
+        }
+
+        [data-theme="dark"] .challenge-tree .tree-grade {
+            background: rgba(15, 23, 42, 0.48);
+        }
 
         .skill-track {
             display: grid;
@@ -748,7 +784,7 @@
         [data-theme="dark"] .skill-node.done { background: #052e1a; }
 
         .skill-node.done::after {
-            content: "✓";
+            content: "\2713";
             position: absolute;
             top: 10px;
             right: 12px;
@@ -915,6 +951,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=2.1"></script>
+    <script src="js/app_shell.js?v=2.2"></script>
 </body>
 </html>
