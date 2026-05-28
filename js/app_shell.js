@@ -204,6 +204,7 @@ function renderSubjectButtons(targetId, selectedSubject, onClick) {
         btn.className = "subject-pill";
         btn.style.setProperty("--accent", subject.accent);
         btn.classList.toggle("active", subjectId === selectedSubject);
+        btn.dataset.subject = subjectId;
         btn.dataset.label = subject.label;
         btn.title = subject.label;
         btn.setAttribute("aria-label", subject.label);
@@ -216,16 +217,16 @@ function renderSubjectButtons(targetId, selectedSubject, onClick) {
 function subjectSymbol(subjectId, subject) {
     const symbols = {
         physik: "&#9883;",
-        mathematik: "&sum;",
+        mathematik: "+-*/",
         chemie: "&#9879;",
-        dgb: "&lt;/&gt;",
-        geographie: "&#9711;",
-        biologie: "DNA",
+        dgb: "&#128187;",
+        geographie: "&#127757;",
+        biologie: "&#128004;",
         deutsch: "Aa",
-        englisch: "EN",
+        englisch: "&#127468;&#127463;",
         musik: "&#9835;",
-        kunst: "&#9673;",
-        ernaehrung: "&#8962;"
+        kunst: "&#128511;",
+        ernaehrung: "&#129365;"
     };
     return symbols[subjectId] || subject.icon;
 }
