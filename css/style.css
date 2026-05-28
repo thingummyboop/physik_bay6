@@ -199,6 +199,19 @@ h3 {
     border-color: #a78bfa;
 }
 
+.teacher-note a {
+    color: #6d28d9;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.teacher-note a:hover,
+.teacher-note a:focus-visible {
+    color: #4c1d95;
+}
+
 [data-theme="dark"] .lesson-goals {
     background: #12351f;
     border-color: #2e7d32;
@@ -217,6 +230,21 @@ h3 {
 [data-theme="dark"] .teacher-note {
     background: #2e174d;
     border-color: #7c3aed;
+}
+
+[data-theme="dark"] .teacher-note a {
+    color: #fde68a;
+}
+
+[data-theme="dark"] .teacher-note a:hover,
+[data-theme="dark"] .teacher-note a:focus-visible {
+    color: #ffffff;
+}
+
+.teacher-note a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 .formula-card {
