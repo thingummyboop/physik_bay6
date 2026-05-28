@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thema geplant</title>
+    <link rel="stylesheet" href="../css/style.css?v=8.3">
+    <style>
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .placeholder-card {
+            width: min(760px, 100%);
+            background: var(--card-bg);
+            border: 1px solid var(--box-border);
+            border-top: 6px solid var(--primary);
+            border-radius: 12px;
+            box-shadow: var(--soft-shadow);
+            padding: clamp(22px, 5vw, 42px);
+        }
+
+        .placeholder-card h1 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .placeholder-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        .placeholder-meta span {
+            background: var(--interactive-bg);
+            border: 1px solid var(--box-border);
+            border-radius: 999px;
+            color: var(--text);
+            font-weight: 800;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+    <main class="placeholder-card">
+        <p class="eyebrow">Thema geplant</p>
+        <h1 id="placeholder-title">Kapitel</h1>
+        <div class="placeholder-meta">
+            <span id="placeholder-subject"></span>
+            <span id="placeholder-grade"></span>
+            <span id="placeholder-strand"></span>
+        </div>
+        <p>Dieses Themengebiet ist schon im Lehrplanbaum angelegt, aber noch nicht ausgearbeitet. Es erscheint deshalb im Lernbaum und im Skillbaum als Platzhalter.</p>
+        <p>Wenn das Kapitel sp&auml;ter erstellt wird, bekommt es zuerst Lerninhalte, danach &Uuml;bungsfragen und zuletzt ein eigenes Kapitelquiz f&uuml;r die Herausforderung.</p>
+    </main>
+
+    <script>
+        if (localStorage.getItem("physik_dark_mode") === "true") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("placeholder-title").textContent = params.get("title") || "Kapitel";
+        document.getElementById("placeholder-subject").textContent = params.get("subject") || "Fach";
+        const grade = params.get("grade");
+        document.getElementById("placeholder-grade").textContent = grade === "0" ? "Extra" : `${grade || "-"}. Klasse`;
+        document.getElementById("placeholder-strand").textContent = params.get("strand") || "Themengebiet";
+    </script>
+</body>
+</html>

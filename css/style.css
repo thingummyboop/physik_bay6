@@ -655,6 +655,119 @@ h3 {
     padding: 18px; border-radius: 8px; margin: 16px 0;
 }
 
+body[data-topic-mode="learn"] .topic-body {
+    padding-top: 24px;
+}
+
+.practice-quiz {
+    border-left-color: var(--secondary);
+    background: color-mix(in srgb, var(--interactive-bg), var(--card-bg) 55%);
+}
+
+.practice-quiz::before {
+    content: "\00dc bungsfrage ohne Punkte";
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--secondary);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.chapter-quiz-card {
+    border-left-color: var(--primary);
+    border-top: 5px solid var(--primary);
+}
+
+.chapter-quiz-intro {
+    display: grid;
+    gap: 12px;
+}
+
+.chapter-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chapter-meta span {
+    background: var(--interactive-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 999px;
+    color: var(--text);
+    font-weight: 800;
+    padding: 8px 12px;
+}
+
+.chapter-quiz-form {
+    display: grid;
+    gap: 16px;
+}
+
+.chapter-question {
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.chapter-question legend {
+    color: var(--text);
+    font-weight: 900;
+    padding: 0 6px;
+}
+
+.chapter-answer-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.chapter-answer-list label {
+    align-items: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+}
+
+.chapter-answer-list input {
+    margin-top: 0.32em;
+}
+
+.chapter-correct {
+    border-color: var(--correct);
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--correct), transparent 70%);
+}
+
+.chapter-wrong {
+    border-color: var(--wrong);
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--wrong), transparent 74%);
+}
+
+.chapter-quiz-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.chapter-result {
+    font-weight: 900;
+    margin: 0;
+}
+
+.chapter-result.success {
+    color: var(--correct);
+}
+
+.chapter-result.warning {
+    color: var(--wrong);
+}
+
 button {
     background: var(--primary); color: var(--button-text); border: none; padding: 10px 20px;
     border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold;

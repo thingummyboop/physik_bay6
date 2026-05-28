@@ -1,4 +1,4 @@
-// Physik-Abenteuer Topic Renderer
+// Topic renderer for learning and challenge modes.
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -9,12 +9,12 @@ function shuffleArray(array) {
 }
 
 function stripQuestionNumber(question) {
-    return String(question || '').replace(/^\s*\d+\.\s*/, '');
+    return String(question || "").replace(/^\s*\d+\.\s*/, "");
 }
 
 function extractHtmlIds(value) {
     const ids = new Set();
-    const text = String(value || '');
+    const text = String(value || "");
     const pattern = /id\s*=\s*["']([^"']+)["']/g;
     let match;
 
@@ -71,7 +71,7 @@ function syncInteractiveBlocks(content, germanContent) {
     germanBlocks.forEach((germanBlock, index) => {
         const requiredIds = extractHtmlIds(germanBlock.outerHTML);
         const currentIds = extractHtmlIds(template.innerHTML);
-        let current = topLevelStructuralBlocks(template.content)[index];
+        const current = topLevelStructuralBlocks(template.content)[index];
 
         let hasCurrentBlock = true;
         requiredIds.forEach(id => {
@@ -120,91 +120,102 @@ function withCurrentInteractiveStructure(topic, germanTopic) {
     };
 }
 
+function collectChapterQuestions(topic) {
+    if (Array.isArray(topic?.diplom?.questions) && topic.diplom.questions.length) {
+        return topic.diplom.questions;
+    }
+
+    return (topic.sections || []).flatMap(section => section.quizzes || []).slice(0, 12);
+}
+
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
-    const topicId = params.get('topic');
-    const lang = localStorage.getItem('physik_lang') || 'de';
-
-    const container = document.getElementById('sections-container');
+    const topicId = params.get("topic");
+    const mode = params.get("mode") || "legacy";
+    const lang = localStorage.getItem("physik_lang") || "de";
+    const container = document.getElementById("sections-container");
+    document.body.dataset.topicMode = mode;
 
     if (!topicId) {
-        showError("Kein Thema ausgewählt.");
+        showError("Kein Thema ausgewaehlt.");
         return;
     }
 
     try {
-        // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=8.8`);
+        let response = await fetch(`../lang/${lang}.json?v=8.9`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
-        if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=8.8`);
+        if (lang !== "de") {
+            const deRes = await fetch("../lang/de.json?v=8.9");
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
 
-        // Fallback to German
-        if (!topic && germanTopic) {
-            topic = germanTopic;
-        }
+        if (!topic && germanTopic) topic = germanTopic;
 
         if (!topic) {
             showError(`Das Thema "${topicId}" wurde nicht gefunden.`);
             return;
         }
 
-        if (germanTopic) {
-            topic = withCurrentInteractiveStructure(topic, germanTopic);
-        }
+        if (germanTopic) topic = withCurrentInteractiveStructure(topic, germanTopic);
 
         document.title = topic.title;
-        document.getElementById('topic-title').innerHTML = topic.title;
-        document.getElementById('topic-subtitle').innerHTML = topic.subtitle;
+        document.getElementById("topic-title").innerHTML = topic.title;
+        document.getElementById("topic-subtitle").innerHTML = topic.subtitle || "";
 
         container.innerHTML = "";
 
-        if (topicId.startsWith('math')) {
-            document.body.classList.add('math-theme');
-            if (!['mathespiel', 'math_kaenguru'].includes(topicId)) {
-                const wsBtn = document.createElement('button');
-                wsBtn.innerHTML = '🖨️ Arbeitsblätter zum Üben drucken';
-                wsBtn.className = 'worksheet-btn';
-                wsBtn.onclick = () => window.open('worksheet.html?topic=' + topicId, '_blank');
+        if (topicId.startsWith("math")) {
+            document.body.classList.add("math-theme");
+            if (mode !== "learn" && !["mathespiel", "math_kaenguru"].includes(topicId)) {
+                const wsBtn = document.createElement("button");
+                wsBtn.innerHTML = "Arbeitsbl&auml;tter zum &Uuml;ben drucken";
+                wsBtn.className = "worksheet-btn";
+                wsBtn.onclick = () => window.open(`worksheet.html?topic=${topicId}`, "_blank");
                 container.appendChild(wsBtn);
             }
         } else {
-            document.body.classList.remove('math-theme');
+            document.body.classList.remove("math-theme");
         }
 
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
 
-        function renderQuizBox(q) {
-            const shuffledAnswers = shuffleArray([...q.answers]);
+        function renderQuizBox(q, options = {}) {
+            const isPractice = Boolean(options.practice);
+            const handler = isPractice ? "handlePracticeAnswer" : "handleAnswer";
+            const shuffledAnswers = shuffleArray([...(q.answers || [])]);
             return `
-                <div class="quiz-box" data-id="${q.id}">
+                <div class="quiz-box ${isPractice ? "practice-quiz" : ""}" data-id="${escapeHtmlAttr(q.id || "")}">
                     <p><strong>${q.question}</strong></p>
-                    ${shuffledAnswers.map(ans => `
-                        <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
-                    `).join('')}
+                    ${shuffledAnswers.map(ans => {
+                        const pts = Number(ans.pts || q.pts || 0);
+                        const feedback = escapeHtmlAttr(ans.feedback || "");
+                        const clickArgs = isPractice
+                            ? `this, ${Boolean(ans.correct)}, this.dataset.feedback || null`
+                            : `this, ${Boolean(ans.correct)}, ${pts}, this.dataset.feedback || null`;
+                        return `<button type="button" data-feedback="${feedback}" onclick="${handler}(${clickArgs})">${ans.text}</button>`;
+                    }).join("")}
                     <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
                 </div>
             `;
         }
 
-        topic.sections.forEach(section => {
-            const card = document.createElement('div');
+        (topic.sections || []).forEach(section => {
+            const card = document.createElement("div");
             card.className = "card";
-            
-            let html = `<h2>${section.title}</h2>`;
-            let content = section.content;
 
-            // Replace Quiz Placeholders
+            let html = `<h2>${section.title}</h2>`;
+            let content = section.content || "";
+
             const sectionQuizMap = new Map((section.quizzes || []).map(q => [q.id, q]));
             content = content.replace(/\{\{QUIZ_([^}]+)\}\}/g, (placeholder, quizId) => {
+                if (mode === "learn") return "";
                 const quiz = sectionQuizMap.get(quizId) || topicQuizMap.get(quizId);
-                return quiz ? renderQuizBox(quiz) : '';
+                if (!quiz) return "";
+                return renderQuizBox(quiz, { practice: mode === "challenge" });
             });
 
             html += content;
@@ -212,25 +223,22 @@ async function renderTopic() {
             container.appendChild(card);
         });
 
-        // Diplom
-        if (topic.diplom) {
-            const diplomCard = document.createElement('div');
+        if (mode === "legacy" && topic.diplom) {
+            const diplomCard = document.createElement("div");
             diplomCard.className = "card";
             diplomCard.style.border = "5px solid var(--primary)";
-            
-            let diplomHtml = `<h2 style="text-align: center; color: var(--primary);">🎓 ${topic.diplom.title}</h2>`;
+
+            let diplomHtml = `<h2 style="text-align: center; color: var(--primary);">${topic.diplom.title}</h2>`;
             diplomHtml += `<p style="text-align: center;">Zeige, was du gelernt hast!</p>`;
-            
-            topic.diplom.questions.forEach((q, i) => {
-                // LIVE SHUFFLE: Randomize diplom answers too
-                const shuffledAnswers = shuffleArray([...q.answers]);
-                
+
+            topic.diplom.questions.forEach((q, index) => {
+                const shuffledAnswers = shuffleArray([...(q.answers || [])]);
                 diplomHtml += `
-                    <div class="quiz-box" data-id="${q.id}">
-                        <p><strong>${i+1}. ${stripQuestionNumber(q.question)}</strong></p>
-                            ${shuffledAnswers.map(ans => `
-                            <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${ans.correct}, ${ans.pts}, this.dataset.feedback || null)">${ans.text}</button>
-                        `).join('')}
+                    <div class="quiz-box" data-id="${escapeHtmlAttr(q.id || "")}">
+                        <p><strong>${index + 1}. ${stripQuestionNumber(q.question)}</strong></p>
+                        ${shuffledAnswers.map(ans => `
+                            <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || "")}" onclick="handleAnswer(this, ${Boolean(ans.correct)}, ${Number(ans.pts || q.pts || 0)}, this.dataset.feedback || null)">${ans.text}</button>
+                        `).join("")}
                         <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
                     </div>
                 `;
@@ -239,39 +247,51 @@ async function renderTopic() {
             container.appendChild(diplomCard);
         }
 
-        // Check which questions are already solved
-        if (typeof checkAnsweredStatus === 'function') {
+        if (mode === "challenge") {
+            const chapterQuestions = collectChapterQuestions(topic);
+            const finalCard = document.createElement("div");
+            finalCard.className = "card chapter-quiz-card";
+            finalCard.innerHTML = `
+                <h2>Kapitelquiz</h2>
+                <p>Dieses Quiz entscheidet, ob das n&auml;chste Thema im Skillbaum freigeschaltet wird. &Uuml;bungsfragen im Kapitel geben keine Punkte.</p>
+                <div id="chapter-quiz-slot"></div>
+            `;
+            container.appendChild(finalCard);
+            if (typeof renderChapterQuizPanel === "function") {
+                renderChapterQuizPanel(topicId, stripQuestionNumber(topic.title), chapterQuestions);
+            }
+        }
+
+        if (typeof checkAnsweredStatus === "function") {
             checkAnsweredStatus();
         }
 
-        // Load optional topic script
         if (topic.script !== false) {
-            const script = document.createElement('script');
-            script.src = `../js/topics/${topicId}.js?v=9.4`;
+            const script = document.createElement("script");
+            script.src = `../js/topics/${topicId}.js?v=9.5`;
             script.async = false;
             script.onload = () => {
-                if (typeof topicInit === 'function') {
+                if (typeof topicInit === "function") {
                     try {
                         topicInit();
-                    } catch (e) {
-                        console.error(`Error in topicInit for ${topicId}:`, e);
+                    } catch (error) {
+                        console.error(`Error in topicInit for ${topicId}:`, error);
                     }
                 }
             };
             document.body.appendChild(script);
         }
-
-    } catch (e) {
-        console.error("Render Error:", e);
-        showError("Fehler beim Laden des Inhalts. Bitte überprüfe deine Internetverbindung.");
+    } catch (error) {
+        console.error("Render Error:", error);
+        showError("Fehler beim Laden des Inhalts. Bitte &uuml;berpr&uuml;fe die Verbindung oder lade die Seite neu.");
     }
 }
 
 function showError(msg) {
-    const container = document.getElementById('sections-container');
+    const container = document.getElementById("sections-container");
     container.innerHTML = `
         <div class="card" style="text-align: center; border-top: 4px solid #e53e3e;">
-            <h2 style="color: #e53e3e;">⚠️ Hoppla!</h2>
+            <h2 style="color: #e53e3e;">Hoppla!</h2>
             <p>${msg}</p>
             <button onclick="location.reload()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Seite neu laden</button>
         </div>
@@ -280,27 +300,25 @@ function showError(msg) {
 
 function escapeHtmlAttr(value) {
     return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
 }
 
-// Listen for theme changes from parent
-window.addEventListener('message', (e) => {
-    if (e.data.type === 'themeChange') {
-        if (e.data.isDark) {
-            document.documentElement.setAttribute('data-theme', 'dark');
+window.addEventListener("message", event => {
+    if (event.data.type === "themeChange") {
+        if (event.data.isDark) {
+            document.documentElement.setAttribute("data-theme", "dark");
         } else {
-            document.documentElement.removeAttribute('data-theme');
+            document.documentElement.removeAttribute("data-theme");
         }
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Sync initial theme
-    if (localStorage.getItem('physik_dark_mode') === 'true') {
-        document.documentElement.setAttribute('data-theme', 'dark');
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("physik_dark_mode") === "true") {
+        document.documentElement.setAttribute("data-theme", "dark");
     }
     renderTopic();
 });
