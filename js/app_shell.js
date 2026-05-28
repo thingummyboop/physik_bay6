@@ -5,6 +5,12 @@ const COMPLETED_KEY = "challenge_completed_topics";
 const SKILL_ZOOM_KEY = "challenge_skill_map_zoom";
 const RADIAL_VIEWBOX = 2400;
 const RADIAL_CENTER = RADIAL_VIEWBOX / 2;
+const RADIAL_BASE_WIDTH = 1700;
+const RADIAL_NODE_DIAMETERS = {
+    subject: 48,
+    entry: 40,
+    branch: 34
+};
 
 let currentSubject = localStorage.getItem(SUBJECT_KEY) || "physik";
 let currentView = "home";
@@ -494,6 +500,56 @@ function radialStyle(point) {
     return `left:${(point.x / RADIAL_VIEWBOX) * 100}%;top:${(point.y / RADIAL_VIEWBOX) * 100}%`;
 }
 
+function radialNodeKind(depth) {
+    return depth === "subject" || depth === "entry" ? depth : "branch";
+}
+
+function skillOrbScale() {
+    return Math.max(0.84, Math.min(1.08, 0.78 + skillMapZoom * 0.2));
+}
+
+function radialNodeRadius(kind) {
+    return (RADIAL_NODE_DIAMETERS[radialNodeKind(kind)] || RADIAL_NODE_DIAMETERS.branch) * skillOrbScale() / 2 + 3;
+}
+
+function radialPixelsToViewbox(px) {
+    return (px / Math.max(1, RADIAL_BASE_WIDTH * skillMapZoom)) * RADIAL_VIEWBOX;
+}
+
+function radialLinePath(from, to, fromKind, toKind) {
+    const dx = to.x - from.x;
+    const dy = to.y - from.y;
+    const distance = Math.hypot(dx, dy);
+    if (!distance) return `M${from.x} ${from.y}`;
+    const startInset = radialPixelsToViewbox(radialNodeRadius(fromKind));
+    const endInset = radialPixelsToViewbox(radialNodeRadius(toKind));
+    const start = Math.min(startInset, distance / 2);
+    const end = Math.min(endInset, distance / 2);
+    const ux = dx / distance;
+    const uy = dy / distance;
+    return [
+        `M${from.x + ux * start}`,
+        `${from.y + uy * start}`,
+        `L${to.x - ux * end}`,
+        `${to.y - uy * end}`
+    ].join(" ");
+}
+
+function radialLineElement(from, to, fromKind, toKind, className = "") {
+    return `<path class="radial-link ${className}"
+        data-x1="${from.x}" data-y1="${from.y}" data-x2="${to.x}" data-y2="${to.y}"
+        data-from-kind="${radialNodeKind(fromKind)}" data-to-kind="${radialNodeKind(toKind)}"
+        d="${radialLinePath(from, to, fromKind, toKind)}" />`;
+}
+
+function updateRadialLinkGeometry(map) {
+    (map || document).querySelectorAll(".radial-link").forEach(line => {
+        const from = { x: Number(line.dataset.x1), y: Number(line.dataset.y1) };
+        const to = { x: Number(line.dataset.x2), y: Number(line.dataset.y2) };
+        line.setAttribute("d", radialLinePath(from, to, line.dataset.fromKind, line.dataset.toKind));
+    });
+}
+
 function clampSkillZoom(value) {
     return Math.max(0.55, Math.min(1.55, Number(value) || 0.82));
 }
@@ -501,8 +557,12 @@ function clampSkillZoom(value) {
 function applySkillMapZoom() {
     skillMapZoom = clampSkillZoom(skillMapZoom);
     const map = document.querySelector(".radial-skill-map");
-    const value = Math.round(1700 * skillMapZoom);
-    if (map) map.style.width = `${value}px`;
+    const value = Math.round(RADIAL_BASE_WIDTH * skillMapZoom);
+    if (map) {
+        map.style.width = `${value}px`;
+        map.style.setProperty("--orb-scale", skillOrbScale().toFixed(3));
+        updateRadialLinkGeometry(map);
+    }
     document.querySelectorAll("[data-skill-zoom-label]").forEach(el => {
         el.textContent = `${Math.round(skillMapZoom * 100)}%`;
     });
@@ -673,7 +733,7 @@ function renderCircularSkillMap(target, completed) {
     subjects.forEach(([subjectId, subject], subjectIndex) => {
         const angle = -90 + subjectIndex * step;
         const subjectPoint = radialPoint(220, angle);
-        const entryPoint = radialPoint(430, angle);
+        const entryPoint = radialPoint(460, angle);
         const entry = entryTopic(subject);
         const roadmapTotal = subject.topics.length;
         const roadmapDone = subject.topics.filter(topic => completed.has(topic.id)).length;
@@ -693,14 +753,14 @@ function renderCircularSkillMap(target, completed) {
 
         if (!entry) return;
         const entryState = topicSkillState(subject, entry, completed);
-        lines.push(`<path class="radial-link ${entryState.status}" d="M${subjectPoint.x} ${subjectPoint.y} L${entryPoint.x} ${entryPoint.y}" />`);
+        lines.push(radialLineElement(subjectPoint, entryPoint, "subject", "entry", entryState.status));
         nodes.push(radialTopicNode(subjectId, subject, entry, entryPoint, entryState, "entry"));
 
         if (subjectId === currentSubject) {
             const childTopics = subject.topics.filter(topic => topic.id !== entry.id);
             const visibleTopics = visibleRadialTopics(subject, entry, completed);
-            const slots = 5;
-            const spread = Math.min(step * 2.95, 104);
+            const slots = Math.max(5, Math.min(7, Math.ceil(Math.sqrt(childTopics.length || 1))));
+            const spread = Math.min(step * 3.35, 116);
             childTopics.forEach((topic, topicIndex) => {
                 const ring = Math.floor(topicIndex / slots);
                 const slot = topicIndex % slots;
@@ -708,13 +768,13 @@ function renderCircularSkillMap(target, completed) {
                 const rawOffset = -spread / 2 + slotStep * slot;
                 const offset = Math.abs(rawOffset) < 1 ? slotStep / 2 : rawOffset;
                 const childAngle = angle + offset;
-                const childPoint = radialPoint(650 + ring * 75, childAngle);
+                const childPoint = radialPoint(710 + ring * 88, childAngle);
                 const state = topicSkillState(subject, topic, completed);
                 const visible = visibleTopics.has(topic.id);
                 state.future = !visible;
                 state.fade = visible && !state.done && !state.unlocked ? Math.min(3, ring + 1) : 0;
                 const lineFade = state.future ? "future-hidden" : state.fade ? `fade-${state.fade}` : "";
-                lines.push(`<path class="radial-link ${state.status} ${lineFade}" d="M${entryPoint.x} ${entryPoint.y} L${childPoint.x} ${childPoint.y}" />`);
+                lines.push(radialLineElement(entryPoint, childPoint, "entry", "branch", `${state.status} ${lineFade}`));
                 nodes.push(radialTopicNode(subjectId, subject, topic, childPoint, state, "branch"));
             });
         }
@@ -722,13 +782,13 @@ function renderCircularSkillMap(target, completed) {
 
     target.innerHTML = `
         <div class="radial-skill-scroll" tabindex="0" aria-label="Kreisfoermiger Skillbaum">
-            <div class="radial-skill-map" style="width:${Math.round(1700 * skillMapZoom)}px">
+            <div class="radial-skill-map" style="width:${Math.round(RADIAL_BASE_WIDTH * skillMapZoom)}px">
                 <svg class="radial-links" viewBox="0 0 ${RADIAL_VIEWBOX} ${RADIAL_VIEWBOX}" aria-hidden="true" focusable="false">
                     <circle class="radial-orbit orbit-one" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="220" />
-                    <circle class="radial-orbit orbit-two" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="430" />
-                    <circle class="radial-orbit orbit-three" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="650" />
-                    <circle class="radial-orbit orbit-four" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="875" />
-                    <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1100" />
+                    <circle class="radial-orbit orbit-two" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="460" />
+                    <circle class="radial-orbit orbit-three" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="710" />
+                    <circle class="radial-orbit orbit-four" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="930" />
+                    <circle class="radial-orbit orbit-five" cx="${RADIAL_CENTER}" cy="${RADIAL_CENTER}" r="1150" />
                     ${lines.join("")}
                 </svg>
                 ${nodes.join("")}

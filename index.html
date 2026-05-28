@@ -773,6 +773,7 @@
         }
 
         .radial-skill-map {
+            --orb-scale: 1;
             aspect-ratio: 1;
             background:
                 linear-gradient(135deg, rgba(255, 248, 220, 0.84), rgba(236, 253, 245, 0.66) 48%, rgba(254, 243, 199, 0.62));
@@ -833,7 +834,8 @@
             fill: none;
             stroke: rgba(15, 118, 110, 0.56);
             stroke-linecap: round;
-            stroke-width: 3;
+            stroke-width: 2.6;
+            vector-effect: non-scaling-stroke;
         }
 
         .radial-link.unlocked { stroke: rgba(45, 212, 191, 0.86); }
@@ -854,7 +856,7 @@
 
         .radial-node {
             --accent: #0f766e;
-            --node-size: 42px;
+            --node-size: calc(34px * var(--orb-scale));
             align-items: center;
             background: transparent;
             border: 0;
@@ -889,13 +891,13 @@
             background:
                 radial-gradient(circle at 35% 28%, rgba(255,255,255,0.96) 0 12%, rgba(255,255,255,0.28) 13% 25%, transparent 26%),
                 radial-gradient(circle at 50% 62%, color-mix(in srgb, var(--accent), white 18%), var(--accent) 62%, color-mix(in srgb, var(--accent), black 24%));
-            border: 2px solid color-mix(in srgb, var(--accent), white 44%);
+            border: max(1px, calc(2px * var(--orb-scale))) solid color-mix(in srgb, var(--accent), white 44%);
             border-radius: 50%;
             box-shadow:
                 inset -6px -8px 12px rgba(15, 23, 42, 0.2),
                 inset 4px 5px 10px rgba(255,255,255,0.35),
-                0 0 0 3px color-mix(in srgb, var(--accent), transparent 74%),
-                0 10px 20px rgba(15, 23, 42, 0.16);
+                0 0 0 calc(2px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 76%),
+                0 calc(8px * var(--orb-scale)) calc(18px * var(--orb-scale)) rgba(15, 23, 42, 0.16);
             color: white;
             display: inline-flex;
             font-size: 0.64rem;
@@ -957,7 +959,7 @@
         }
 
         .radial-subject-word {
-            --node-size: 58px;
+            --node-size: calc(48px * var(--orb-scale));
         }
 
         .radial-subject-word .radial-node-dot {
@@ -969,8 +971,8 @@
             box-shadow:
                 inset -7px -9px 13px rgba(15, 23, 42, 0.24),
                 inset 5px 6px 11px rgba(255,255,255,0.42),
-                0 0 0 4px color-mix(in srgb, var(--accent), transparent 54%),
-                0 0 26px color-mix(in srgb, var(--accent), transparent 42%);
+                0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 54%),
+                0 0 calc(22px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 42%);
         }
 
         .radial-tooltip strong {
@@ -986,19 +988,19 @@
         }
 
         .radial-topic-node.entry {
-            --node-size: 52px;
+            --node-size: calc(40px * var(--orb-scale));
         }
 
         .radial-topic-node.branch {
-            --node-size: 42px;
+            --node-size: calc(34px * var(--orb-scale));
         }
 
         .radial-topic-node.entry .radial-node-dot {
             box-shadow:
                 inset -6px -8px 12px rgba(15, 23, 42, 0.2),
                 inset 4px 5px 10px rgba(255,255,255,0.35),
-                0 0 0 4px color-mix(in srgb, var(--accent), transparent 68%),
-                0 10px 22px rgba(15, 23, 42, 0.18);
+                0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 68%),
+                0 calc(8px * var(--orb-scale)) calc(20px * var(--orb-scale)) rgba(15, 23, 42, 0.18);
         }
 
         .radial-tooltip span {
@@ -1013,8 +1015,8 @@
             box-shadow:
                 inset -6px -8px 12px rgba(15, 23, 42, 0.18),
                 inset 4px 5px 10px rgba(255,255,255,0.42),
-                0 0 0 4px color-mix(in srgb, var(--accent), transparent 58%),
-                0 0 24px color-mix(in srgb, var(--accent), transparent 56%);
+                0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 58%),
+                0 0 calc(22px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 56%);
         }
 
         .radial-topic-node.done .radial-node-dot {
@@ -1887,6 +1889,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=3.1"></script>
+    <script src="js/app_shell.js?v=3.2"></script>
 </body>
 </html>
