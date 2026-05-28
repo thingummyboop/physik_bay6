@@ -146,9 +146,43 @@
             color: #fde68a;
         }
 
-        .lang-row { display: flex; gap: 4px; }
+        .language-menu {
+            position: relative;
+        }
+
+        .language-toggle {
+            min-width: 46px;
+            padding: 8px 10px;
+            text-align: center;
+        }
+
+        .language-glyph {
+            display: inline-block;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .lang-row {
+            display: grid;
+            gap: 4px;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 8px);
+            min-width: 104px;
+            z-index: 20;
+            padding: 8px;
+            border: 1px solid var(--shell-border);
+            border-radius: 10px;
+            background: var(--shell-panel);
+            box-shadow: var(--shell-shadow);
+        }
+
         .lang-btn { padding: 7px 8px; font-size: 0.78rem; }
         .lang-btn.active { background: #ffedd5; border-color: #f97316; color: #7c2d12; }
+        [data-theme="dark"] .lang-btn.active { background: #d1fae5; border-color: #0f766e; color: #064e3b; }
 
         .workspace {
             min-height: 0;
@@ -497,13 +531,18 @@
 
             <div class="shell-actions">
                 <span class="coin-chip"><span data-coin-count>0</span> Plus-M&uuml;nzen</span>
-                <div class="lang-row" aria-label="Sprache waehlen">
-                    <button type="button" class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
-                    <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
-                    <button type="button" class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
-                    <button type="button" class="lang-btn" data-lang="uk" onclick="setLanguage('uk')">UK</button>
-                    <button type="button" class="lang-btn" data-lang="sr" onclick="setLanguage('sr')">SR</button>
-                    <button type="button" class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                <div class="language-menu" id="language-menu">
+                    <button type="button" class="shell-action language-toggle" id="language-toggle" onclick="toggleLanguageMenu()" aria-label="Sprache waehlen" aria-haspopup="true" aria-expanded="false">
+                        <span class="language-glyph" aria-hidden="true">A/&#25991;</span>
+                    </button>
+                    <div class="lang-row language-dropdown" id="language-dropdown" aria-label="Sprache waehlen" hidden>
+                        <button type="button" class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+                        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+                        <button type="button" class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
+                        <button type="button" class="lang-btn" data-lang="uk" onclick="setLanguage('uk')">UK</button>
+                        <button type="button" class="lang-btn" data-lang="sr" onclick="setLanguage('sr')">SR</button>
+                        <button type="button" class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                    </div>
                 </div>
                 <button type="button" class="shell-action" id="dark-mode-toggle" onclick="toggleDarkMode()">Wald</button>
                 <button type="button" class="shell-action" onclick="resetAllProgress()">Reset</button>
@@ -525,6 +564,6 @@
     </div>
 
     <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=1.5"></script>
+    <script src="js/app_shell.js?v=1.6"></script>
 </body>
 </html>

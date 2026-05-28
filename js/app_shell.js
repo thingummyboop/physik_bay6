@@ -49,9 +49,29 @@ function setLanguage(lang) {
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
     });
+    closeLanguageMenu();
 
     const frame = document.getElementById("game-frame");
     if (frame && frame.src && !frame.hidden) frame.contentWindow.location.reload();
+}
+
+function toggleLanguageMenu() {
+    const menu = document.getElementById("language-dropdown");
+    const toggle = document.getElementById("language-toggle");
+    if (!menu || !toggle) return;
+
+    const shouldOpen = menu.hidden;
+    menu.hidden = !shouldOpen;
+    toggle.setAttribute("aria-expanded", String(shouldOpen));
+}
+
+function closeLanguageMenu() {
+    const menu = document.getElementById("language-dropdown");
+    const toggle = document.getElementById("language-toggle");
+    if (!menu || !toggle) return;
+
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
 }
 
 function toggleDarkMode() {
@@ -363,4 +383,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         renderHome();
     }
+});
+
+document.addEventListener("click", event => {
+    const menu = document.getElementById("language-menu");
+    if (menu && !menu.contains(event.target)) closeLanguageMenu();
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeLanguageMenu();
 });
