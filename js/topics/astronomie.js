@@ -262,6 +262,9 @@ function updateSolarZoom() {
     const scale = 1 - (val / 100) * 0.7;
     // Keep the sun anchored to the left but move the view right
     const baseX = 50;
+    group.setAttribute('transform', `translate(${baseX + pan}, 140) scale(${scale})`);
+}
+
 function updateCannonball() {
     const velInput = document.getElementById('cannonVelocity');
     const path = document.getElementById('cannonPath');
