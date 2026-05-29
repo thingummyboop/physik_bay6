@@ -606,93 +606,87 @@ function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColo
     const genderPose = state.gender === "male" ? 2 : state.gender === "female" ? -1 : 0;
     const modelLean = (modelIndex - 1) * 0.8 + genderPose * 0.25;
     const coatColor = modelIndex === 1 ? "#2f5138" : modelIndex === 2 ? "#315c3a" : "#2f6f3e";
-    const coatDark = modelIndex === 1 ? "#253a2e" : "#17472e";
 
     return `
         <svg class="character-svg" viewBox="0 0 280 360" role="img" aria-label="Schulavatar Ork">
             <defs>
                 <linearGradient id="${ids.classroom}" x1="0%" x2="100%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#efe2ca"/>
-                    <stop offset="48%" stop-color="#f8ecd7"/>
-                    <stop offset="100%" stop-color="#c6ad8f"/>
+                    <stop offset="0%" stop-color="#cfc2b6"/>
+                    <stop offset="100%" stop-color="#8c7b6c"/>
                 </linearGradient>
                 <linearGradient id="${ids.floor}" x1="0%" x2="0%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#a77745"/>
-                    <stop offset="100%" stop-color="#5f351d"/>
+                    <stop offset="0%" stop-color="#69513e"/>
+                    <stop offset="100%" stop-color="#402e21"/>
                 </linearGradient>
-                <radialGradient id="${ids.skin}" cx="35%" cy="30%" r="72%">
-                    <stop offset="0%" stop-color="#f4ffd8" stop-opacity="0.45"/>
-                    <stop offset="42%" stop-color="${model.skin}"/>
-                    <stop offset="100%" stop-color="#2f5b2d"/>
-                </radialGradient>
-                <linearGradient id="${ids.skinSide}" x1="0%" x2="100%" y1="0%" y2="100%">
+                <linearGradient id="${ids.skin}" x1="0%" x2="100%" y1="0%" y2="100%">
                     <stop offset="0%" stop-color="${model.skin}"/>
                     <stop offset="100%" stop-color="#345c32"/>
                 </linearGradient>
+                <linearGradient id="${ids.skinSide}" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#6ba64b"/>
+                    <stop offset="100%" stop-color="#214221"/>
+                </linearGradient>
                 <linearGradient id="${ids.coat}" x1="0%" x2="100%" y1="0%" y2="100%">
                     <stop offset="0%" stop-color="${coatColor}"/>
-                    <stop offset="64%" stop-color="${coatDark}"/>
-                    <stop offset="100%" stop-color="#0f2f25"/>
+                    <stop offset="100%" stop-color="#143621"/>
                 </linearGradient>
                 <linearGradient id="${ids.hoodie}" x1="0%" x2="100%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#5a4033"/>
-                    <stop offset="58%" stop-color="#34251f"/>
-                    <stop offset="100%" stop-color="#17100d"/>
+                    <stop offset="0%" stop-color="#6b4c3a"/>
+                    <stop offset="100%" stop-color="#302018"/>
                 </linearGradient>
-                <linearGradient id="${ids.pants}" x1="0%" x2="100%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#9a6a3a"/>
-                    <stop offset="55%" stop-color="#6f4a2d"/>
-                    <stop offset="100%" stop-color="#3b2417"/>
+                <linearGradient id="${ids.pants}" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#8a5c37"/>
+                    <stop offset="100%" stop-color="#462c18"/>
                 </linearGradient>
                 <linearGradient id="${ids.boot}" x1="0%" x2="0%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#6b4a2e"/>
-                    <stop offset="100%" stop-color="#2a1710"/>
+                    <stop offset="0%" stop-color="#4a3b32"/>
+                    <stop offset="100%" stop-color="#1c1410"/>
                 </linearGradient>
                 <linearGradient id="${ids.scarf}" x1="0%" x2="100%" y1="0%" y2="0%">
-                    <stop offset="0%" stop-color="#f5c94c"/>
-                    <stop offset="47%" stop-color="#9a641c"/>
-                    <stop offset="100%" stop-color="#f5c94c"/>
+                    <stop offset="0%" stop-color="#e8b923"/>
+                    <stop offset="47%" stop-color="#a67c0c"/>
+                    <stop offset="100%" stop-color="#e8b923"/>
                 </linearGradient>
                 <radialGradient id="${ids.iris}" cx="45%" cy="38%" r="65%">
-                    <stop offset="0%" stop-color="#dffbff"/>
+                    <stop offset="0%" stop-color="#fdfa72"/>
                     <stop offset="58%" stop-color="${outfitColor || accent}"/>
-                    <stop offset="100%" stop-color="#0f172a"/>
+                    <stop offset="100%" stop-color="#022c22"/>
                 </radialGradient>
                 <filter id="${ids.shadow}" x="-25%" y="-25%" width="150%" height="150%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="6" flood-color="#020617" flood-opacity="0.34"/>
+                    <feDropShadow dx="2" dy="8" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>  
                 </filter>
                 <filter id="${ids.soft}" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#020617" flood-opacity="0.20"/>
+                    <feDropShadow dx="1" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>   
                 </filter>
             </defs>
+            
             ${premiumOrkClassroomBackdrop(modelIndex, ids)}
-            <ellipse cx="140" cy="337" rx="92" ry="16" fill="#020617" opacity="0.30"/>
+            <ellipse cx="140" cy="340" rx="80" ry="12" fill="#000000" opacity="0.4"/>
 
-            <g transform="rotate(${modelLean} 140 184)" filter="url(#${ids.shadow})">
+            <g filter="url(#${ids.shadow})" transform="rotate(${modelLean} 140 184)">
                 ${premiumOrkSatchel(accessory, ids, accent)}
                 ${premiumOrkLegs(ids, accent, modelIndex)}
-                ${premiumOrkArmsBehind(ids, modelIndex)}
+                ${premiumOrkArmsBehind(ids, modelIndex, model)}
                 ${premiumOrkOutfit(outfit, ids, accent, modelIndex)}
-                ${premiumOrkArmsFront(ids, modelIndex)}
+                ${premiumOrkArmsFront(ids, modelIndex, model)}
                 ${premiumOrkHeldAccessory(accessory, accent)}
 
-                <path d="M122 119h36v38q-18 13-36 0z" fill="url(#${ids.skin})"/>
-                <path d="M119 151q21 15 42 0" fill="none" stroke="#0f172a" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
+                <!-- Low Poly Head Base -->
+                <polygon points="105,120 135,120 160,110 170,80 160,40 135,25 105,25 80,40 70,80 80,110" fill="url(#${ids.skin})"/>
+                <!-- Faceted shading on jaw -->
+                <polygon points="105,120 135,120 120,135" fill="url(#${ids.skinSide})"/>
+                <polygon points="80,110 105,120 120,135 90,125" fill="#2d4a23"/>
+                <polygon points="160,110 135,120 120,135 150,125" fill="#1b3314"/>
 
-                <path d="M93 91L42 60l34 61z" fill="url(#${ids.skinSide})"/>
-                <path d="M187 91l51-31l-34 61z" fill="url(#${ids.skinSide})"/>
-                <path d="M76 93l-17-16M204 93l17-16" fill="none" stroke="#f8fafc" stroke-width="4" opacity="0.30" stroke-linecap="round"/>
+                <!-- Ears (Polygonal) -->
+                <polygon points="75,70 30,85 70,90" fill="url(#${ids.skinSide})"/>
+                <polygon points="75,70 30,85 60,75" fill="url(#${ids.skin})"/>
+                
+                <polygon points="165,70 210,85 170,90" fill="url(#${ids.skinSide})"/>
+                <polygon points="165,70 210,85 180,75" fill="url(#${ids.skin})"/>
 
-                <path d="M88 86
-                    C88 46 109 25 141 25
-                    C176 25 196 48 193 87
-                    C190 127 169 148 140 148
-                    C111 148 91 127 88 86Z"
-                    fill="url(#${ids.skin})"/>
-                <path d="M101 124c11 21 67 21 78 0c-8 26-28 43-39 43c-12 0-31-17-39-43z" fill="#264724" opacity="0.24"/>
-
-                ${premiumOrkHair(modelIndex, hair.style || "short", hairColor, accent)}
-                ${premiumOrkFace(state, makeup, cheek, ids, accent)}
+                ${premiumOrkHair(modelIndex, hair.style || "short", hairColor, accent, ids)}
+                ${premiumOrkFace(state, makeup, cheek, ids, accent, model)}
                 ${premiumOrkFaceAccessory(accessory, ids, accent)}
             </g>
         </svg>
@@ -700,352 +694,198 @@ function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColo
 }
 
 function premiumOrkClassroomBackdrop(modelIndex, ids) {
-    const boardText = modelIndex === 0 ? "ORK 1" : modelIndex === 1 ? "ORK 2" : "ORK 3";
     return `
         <g opacity="0.95">
-            <rect x="12" y="10" width="256" height="340" rx="26" fill="url(#${ids.classroom})"/>
-            <rect x="12" y="250" width="256" height="100" rx="0" fill="url(#${ids.floor})"/>
-            <path d="M38 350l77-100M87 350l48-100M140 350l10-100M193 350l-27-100M244 350l-66-100" stroke="#3c2415" stroke-width="2" opacity="0.30"/>
-            <rect x="28" y="69" width="64" height="43" rx="6" fill="#27352d" opacity="0.82"/>
-            <rect x="26" y="67" width="68" height="47" rx="7" fill="none" stroke="#7a5737" stroke-width="5"/>
-            <path d="M191 54h46v39h-46z" fill="#fef3c7" opacity="0.70"/>
-            <path d="M214 54v39M191 73h46" stroke="#b7793b" stroke-width="3" opacity="0.70"/>
-            <path d="M22 246h236" stroke="#4b2d1d" stroke-width="7" opacity="0.70"/>
-            <path d="M29 228h59M191 226h55" stroke="#6b4327" stroke-width="10" stroke-linecap="round" opacity="0.40"/>
-            <text x="60" y="91" text-anchor="middle" font-size="11" font-weight="900" fill="#d5d8c8" opacity="0.62">${boardText}</text>
+            <rect x="12" y="10" width="256" height="340" rx="16" fill="url(#${ids.classroom})"/>
+            <!-- Stone wall pattern (polygonal background) -->
+            <path d="M 12 10 L 80 10 L 90 60 L 12 70 Z" fill="#b0a396" opacity="0.4"/>
+            <path d="M 80 10 L 170 10 L 160 50 L 90 60 Z" fill="#c4b6a8" opacity="0.4"/>
+            <path d="M 170 10 L 268 10 L 268 70 L 160 50 Z" fill="#9e9185" opacity="0.4"/>
+            <path d="M 12 70 L 90 60 L 80 120 L 12 110 Z" fill="#9e9185" opacity="0.4"/>
+            <path d="M 90 60 L 160 50 L 180 100 L 80 120 Z" fill="#a69a8e" opacity="0.4"/>
+            <path d="M 160 50 L 268 70 L 268 130 L 180 100 Z" fill="#b0a396" opacity="0.4"/>
+
+            <rect x="12" y="220" width="256" height="130" fill="url(#${ids.floor})"/>
+            <!-- Wooden floor boards -->
+            <polygon points="12,220 50,220 30,350 12,350" fill="#523a27" stroke="#362416" stroke-width="2"/>
+            <polygon points="50,220 120,220 100,350 30,350" fill="#4d3523" stroke="#362416" stroke-width="2"/>
+            <polygon points="120,220 180,220 170,350 100,350" fill="#5c412c" stroke="#362416" stroke-width="2"/>
+            <polygon points="180,220 268,220 268,350 170,350" fill="#4a3322" stroke="#362416" stroke-width="2"/>
+
+            <!-- Chalkboard -->
+            <polygon points="30,80 110,80 110,180 30,180" fill="#3a453f" stroke="#5c432d" stroke-width="6"/>
+            <!-- Chalk runes -->
+            <path d="M 45 100 L 55 100 L 50 110 M 65 100 L 60 110 L 70 110 M 80 100 L 80 110 L 90 105 Z" fill="none" stroke="#e2e8f0" stroke-width="2" opacity="0.6"/>
         </g>
     `;
 }
 
 function premiumOrkLegs(ids, accent, modelIndex) {
-    const leftPatch = modelIndex === 2 ? `<path d="M101 270h18v18h-18z" fill="#3f2d22" stroke="#c89b63" stroke-width="2" opacity="0.75"/>` : "";
     return `
-        <path d="M113 223C105 254 99 281 94 309" fill="none" stroke="url(#${ids.pants})" stroke-width="25" stroke-linecap="round"/>
-        <path d="M167 223c8 31 14 58 19 86" fill="none" stroke="url(#${ids.pants})" stroke-width="25" stroke-linecap="round"/>
-        <path d="M97 237c13 8 28 8 41 0M144 237c13 8 27 8 40 0" fill="none" stroke="#2b160d" stroke-width="3" opacity="0.42"/>
-        <path d="M90 294h22M169 294h22" stroke="#806044" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
-        <path d="M71 305h43c10 0 18 6 20 14c-21 8-52 8-75 2c0-11 4-16 12-16z" fill="url(#${ids.boot})"/>
-        <path d="M168 305h43c8 0 14 5 15 16c-23 6-53 6-74-2c2-8 8-14 16-14z" fill="url(#${ids.boot})"/>
-        <path d="M82 318h34M178 318h34" stroke="${accent}" stroke-width="3" stroke-linecap="round" opacity="0.58"/>
-        <path d="M158 258h21v19h-21z" fill="#3f2d22" stroke="#c89b63" stroke-width="2" opacity="0.75"/>
-        ${leftPatch}
+        <!-- Left Leg -->
+        <polygon points="115,220 115,280 90,300 80,220" fill="url(#${ids.pants})" stroke="#26170d" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Right Leg -->
+        <polygon points="125,220 160,220 150,300 125,280" fill="url(#${ids.pants})" stroke="#26170d" stroke-width="3" stroke-linejoin="round"/>
+        
+        <!-- Patches -->
+        <polygon points="90,260 105,255 100,275 85,270" fill="#593c24" stroke="#a37651" stroke-width="1.5" stroke-dasharray="2 2"/>
+        <polygon points="135,265 148,270 145,285 130,280" fill="#452f1b" stroke="#a37651" stroke-width="1.5" stroke-dasharray="2 2"/>
+
+        <!-- Left Boot -->
+        <polygon points="90,290 115,280 120,310 110,335 70,335 70,310" fill="url(#${ids.boot})" stroke="#120c08" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="70,335 110,335 110,345 70,345" fill="#291e17" stroke="#120c08" stroke-width="2"/>
+        
+        <!-- Right Boot -->
+        <polygon points="125,280 150,290 170,310 170,335 130,335 120,310" fill="url(#${ids.boot})" stroke="#120c08" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="130,335 170,335 170,345 130,345" fill="#291e17" stroke="#120c08" stroke-width="2"/>
     `;
 }
 
-function premiumOrkArmsBehind(ids, modelIndex) {
-    const sleeve = modelIndex === 1 ? "#4a3b32" : "#5a4033";
+function premiumOrkArmsBehind(ids, modelIndex, model) {
     return `
-        <path d="M93 158C67 178 58 215 68 257" fill="none" stroke="${sleeve}" stroke-width="23" stroke-linecap="round"/>
-        <path d="M187 158c28 18 37 45 24 73" fill="none" stroke="${sleeve}" stroke-width="23" stroke-linecap="round"/>
-        <path d="M78 189c18 10 35 11 50 3M171 189c17 8 33 7 47-3" fill="none" stroke="#9ca3af" stroke-width="7" stroke-linecap="round" opacity="0.34"/>
+        <!-- Left Arm Sleeve (Low Poly) -->
+        <polygon points="70,140 85,150 70,220 45,200" fill="url(#${ids.hoodie})" stroke="#1c110b" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Right Arm Sleeve -->
+        <polygon points="170,140 155,150 170,220 195,200" fill="url(#${ids.hoodie})" stroke="#1c110b" stroke-width="3" stroke-linejoin="round"/>
     `;
 }
 
-function premiumOrkArmsFront(ids, modelIndex) {
-    const handY = modelIndex === 1 ? 225 : 229;
+function premiumOrkArmsFront(ids, modelIndex, model) {
     return `
-        <circle cx="69" cy="259" r="13" fill="url(#${ids.skin})"/>
-        <circle cx="205" cy="${handY}" r="14" fill="url(#${ids.skin})"/>
-        <path d="M63 257l-7 9M72 263l-5 10M77 259l3 9" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
-        <path d="M197 ${handY - 4}q8 9 18 0M204 ${handY + 8}l-1 10" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
-        <g transform="translate(55 244) rotate(8)" filter="url(#${ids.soft})">
-            <rect x="-9" y="-4" width="31" height="43" rx="5" fill="#ead7b8" stroke="#51351f" stroke-width="3"/>
-            <path d="M-2 3h15M-2 13h14M-2 23h13" stroke="#8a6b4a" stroke-width="2" stroke-linecap="round"/>
-            <path d="M23 26l22 19" stroke="#2f2417" stroke-width="4" stroke-linecap="round"/>
-            <path d="M43 43l6 5" stroke="#f5c94c" stroke-width="5" stroke-linecap="round"/>
-        </g>
+        <!-- Left Hand -->
+        <polygon points="45,200 70,220 65,245 40,240 35,215" fill="url(#${ids.skin})" stroke="#182e16" stroke-width="2" stroke-linejoin="round"/>
+        <polygon points="40,240 65,245 55,230" fill="url(#${ids.skinSide})"/>
+        
+        <!-- Right Hand -->
+        <polygon points="195,200 170,220 175,245 200,240 205,215" fill="url(#${ids.skin})" stroke="#182e16" stroke-width="2" stroke-linejoin="round"/>
+        <polygon points="200,240 175,245 185,230" fill="url(#${ids.skinSide})"/>
+        
+        <!-- Book in left hand (Zelda style prop) -->
+        <polygon points="20,195 45,205 35,255 10,245" fill="#8b3420" stroke="#3d140b" stroke-width="2" stroke-linejoin="round" filter="url(#${ids.soft})"/>
+        <polygon points="45,205 52,202 42,252 35,255" fill="#d4c39e" stroke="#3d140b" stroke-width="1"/>
     `;
 }
 
 function premiumOrkOutfit(outfit, ids, accent, modelIndex) {
-    const style = outfit.style || "hoodie";
-    const badge = style === "shirt"
-        ? `<path d="M128 181h24M140 169v24" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.74"/>`
-        : style === "overall"
-            ? `<path d="M115 161v66M165 161v66" stroke="#d6b585" stroke-width="8" stroke-linecap="round" opacity="0.82"/><circle cx="115" cy="173" r="4" fill="#f5c94c"/><circle cx="165" cy="173" r="4" fill="#f5c94c"/>`
-            : style === "jacket"
-                ? `<path d="M140 143v96" stroke="#d6b585" stroke-width="5" opacity="0.82"/><path d="M118 190h44" stroke="${accent}" stroke-width="8" stroke-linecap="round" opacity="0.72"/>`
-                : `<path d="M126 213q15 8 30 0" fill="none" stroke="#ead7b8" stroke-width="3" stroke-linecap="round" opacity="0.58"/>`;
-    const scarfTail = modelIndex === 0
-        ? `<path d="M142 149c10 23 10 46 0 67l18 0c9-23 9-45-1-68z" fill="url(#${ids.scarf})"/><path d="M144 166h16M145 184h14M145 202h11" stroke="#5f3b1b" stroke-width="3" opacity="0.60"/>`
-        : `<path d="M136 148c-5 22-5 45 0 65l18-2c8-22 6-43-2-64z" fill="url(#${ids.scarf})"/><path d="M138 166h16M138 184h15M139 202h11" stroke="#5f3b1b" stroke-width="3" opacity="0.60"/>`;
     return `
-        <path d="M82 145C94 132 117 126 140 128C164 126 187 132 198 145L221 236C199 243 179 236 166 221L159 323H121L114 221C101 236 81 243 59 236Z" fill="url(#${ids.coat})"/>
-        <path d="M91 151C112 169 168 169 189 151" fill="none" stroke="#d9f99d" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
-        <path d="M105 151C118 141 129 137 140 137C152 137 163 141 176 151L168 231C158 241 122 241 112 231Z" fill="url(#${ids.hoodie})"/>
-        <path d="M108 151l32 33l32-33" fill="none" stroke="#102a1e" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
-        <path d="M107 135c12 24 54 24 66 0c7 10 6 22-5 31c-18 13-38 13-56 0c-11-9-12-21-5-31z" fill="url(#${ids.scarf})"/>
-        <path d="M118 146h44M114 159h52" stroke="#5f3b1b" stroke-width="4" opacity="0.62"/>
-        ${scarfTail}
-        <path d="M105 227h70" stroke="#3b2417" stroke-width="11" stroke-linecap="round"/>
-        <rect x="130" y="221" width="23" height="16" rx="5" fill="#d1a161" stroke="#22130c" stroke-width="3"/>
-        <path d="M91 196c19 13 38 17 58 12M190 195c-18 13-37 17-57 12" fill="none" stroke="#f8fafc" stroke-width="3" opacity="0.15"/>
-        ${badge}
+        <!-- Undershirt -->
+        <polygon points="90,120 150,120 155,160 145,230 95,230 85,160" fill="url(#${ids.hoodie})" stroke="#1c110b" stroke-width="3" stroke-linejoin="round"/>
+        
+        <!-- Heavy Tunic / Coat -->
+        <polygon points="75,130 95,120 90,240 65,230" fill="url(#${ids.coat})" stroke="#0a1a10" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="165,130 145,120 150,240 175,230" fill="url(#${ids.coat})" stroke="#0a1a10" stroke-width="3" stroke-linejoin="round"/>
+        
+        <!-- Scarf Wrapped -->
+        <polygon points="85,115 155,115 160,135 80,135" fill="url(#${ids.scarf})" stroke="#5c4403" stroke-width="3" stroke-linejoin="round"/>
+        <!-- Scarf Tails -->
+        <polygon points="110,135 130,135 135,185 125,190 115,185" fill="url(#${ids.scarf})" stroke="#5c4403" stroke-width="3" stroke-linejoin="round" filter="url(#${ids.soft})"/>
+        <polygon points="110,135 115,185 110,175" fill="#9e7304"/>
+        
+        <!-- Belt -->
+        <polygon points="88,210 152,210 150,225 90,225" fill="#4a2e19" stroke="#1c1008" stroke-width="2"/>
+        <polygon points="110,205 130,205 130,230 110,230" fill="#a8a39a" stroke="#2e2b27" stroke-width="2" filter="url(#${ids.soft})"/>
+        <rect x="115" y="210" width="10" height="15" fill="#1c1008"/>
     `;
 }
 
 function premiumOrkSatchel(accessory, ids, accent) {
-    const patch = accessory.id === "acc_backpack"
-        ? `<path d="M218 234l9 5l9-5v12c0 7-5 12-9 14c-4-2-9-7-9-14z" fill="${accent}" opacity="0.90"/><path d="M221 243h12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>`
-        : `<path d="M218 235h15M219 246h19" stroke="#d6b585" stroke-width="3" stroke-linecap="round" opacity="0.70"/>`;
+    if (accessory.id !== "acc_backpack") return "";
     return `
-        <g filter="url(#${ids.soft})">
-            <path d="M174 153C197 180 210 210 217 247" fill="none" stroke="#6b3f22" stroke-width="8" stroke-linecap="round"/>
-            <path d="M196 213h44c12 0 22 9 22 21v54c-23 12-54 12-86 0v-55c0-11 9-20 20-20z" fill="#9a5b2c" stroke="#4a2817" stroke-width="4"/>
-            <path d="M196 220c17 13 46 13 64 0" fill="none" stroke="#d49b5b" stroke-width="5" opacity="0.55"/>
-            <rect x="204" y="226" width="22" height="25" rx="7" fill="#c49a6a" stroke="#5b321b" stroke-width="3"/>
-            ${patch}
-            <path d="M199 278h58M207 213v-11c11-8 25-8 36 0v11" fill="none" stroke="#4a2817" stroke-width="5" stroke-linecap="round"/>
-        </g>
+        <!-- Satchel Strap -->
+        <polygon points="90,135 175,210 165,220 80,145" fill="#633c1d" stroke="#2e1a0b" stroke-width="2"/>
+        <!-- Satchel Bag -->
+        <polygon points="150,185 210,195 200,260 140,250" fill="#9c6335" stroke="#3b2311" stroke-width="3" stroke-linejoin="round" filter="url(#${ids.shadow})"/>
+        <polygon points="150,185 210,195 205,230 145,220" fill="#ba7c47" stroke="#3b2311" stroke-width="2"/>
+        <!-- Satchel Buckle -->
+        <polygon points="170,215 180,217 178,235 168,233" fill="#cfc1a5" stroke="#3b2311" stroke-width="1.5"/>
+        <!-- Fun Patch -->
+        <polygon points="185,205 195,207 193,217 183,215" fill="${accent}" opacity="0.9" stroke="#fff" stroke-width="1"/>
     `;
 }
 
-function premiumOrkHair(modelIndex, style, hairColor, accent) {
-    const color = hairColor || "#1f2937";
-    if (modelIndex === 0) {
-        return `
-            <path d="M92 82C99 40 124 24 154 29C179 34 190 55 189 86C161 67 123 66 92 82Z" fill="${color}"/>
-            <path d="M108 56c22-17 49-16 68 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.18" stroke-linecap="round"/>
-            <g fill="${color}" stroke="#0f172a" stroke-width="1.5" opacity="0.98">
-                <ellipse cx="92" cy="118" rx="9" ry="13"/><ellipse cx="87" cy="137" rx="8" ry="12"/><ellipse cx="84" cy="155" rx="7" ry="10"/>
-                <ellipse cx="188" cy="118" rx="9" ry="13"/><ellipse cx="193" cy="137" rx="8" ry="12"/><ellipse cx="196" cy="155" rx="7" ry="10"/>
-            </g>
-            <path d="M85 152h-13M195 152h13" stroke="${accent}" stroke-width="5" stroke-linecap="round"/>
-            <path d="M139 27c-12-12-24-10-32 0c10 7 22 7 32 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="3"/>
-            <path d="M141 27c12-12 24-10 32 0c-10 7-22 7-32 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="3"/>
-            <circle cx="140" cy="27" r="6" fill="#9a641c" stroke="#6b3f1f" stroke-width="2"/>
-        `;
-    }
-    if (modelIndex === 2 || style === "bun") {
-        return `
-            <path d="M93 82C101 39 126 24 155 30C178 36 188 56 188 85C158 66 124 65 93 82Z" fill="${color}"/>
-            <circle cx="144" cy="20" r="19" fill="${color}"/>
-            <path d="M117 44c17-11 45-11 62 0" fill="none" stroke="#9a6b3c" stroke-width="6" stroke-linecap="round"/>
-            <g fill="${color}" opacity="0.95">
-                <ellipse cx="96" cy="118" rx="7" ry="12"/><ellipse cx="91" cy="136" rx="7" ry="11"/>
-                <ellipse cx="184" cy="118" rx="7" ry="12"/><ellipse cx="189" cy="136" rx="7" ry="11"/>
-            </g>
-            <path d="M127 18q17 11 34 0M130 27q14 8 28 0" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.15"/>
-        `;
-    }
+function premiumOrkHair(modelIndex, style, hairColor, accent, ids) {
+    let hair = ``;
     if (style === "long") {
-        return `
-            <path d="M91 82C91 39 119 22 149 27C183 32 193 62 188 103C181 92 170 80 156 71C137 59 117 66 99 83C101 118 94 143 80 157C82 132 75 103 91 82Z" fill="${color}"/>
-            <path d="M105 58c20-15 48-14 66 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
+        hair = `
+            <polygon points="105,30 135,30 155,45 165,80 155,95 165,130 150,140 145,110 150,85 140,65" fill="${hairColor}" stroke="#111" stroke-width="2"/>
+            <polygon points="105,30 135,30 85,45 75,80 85,95 75,130 90,140 95,110 90,85 100,65" fill="${hairColor}" stroke="#111" stroke-width="2"/>
+        `;
+    } else if (style === "bun") {
+        hair = `
+            <polygon points="105,30 135,30 150,55 140,65 100,65 90,55" fill="${hairColor}" stroke="#111" stroke-width="2"/>
+            <polygon points="110,30 130,30 135,10 120,5 105,10" fill="${hairColor}" stroke="#111" stroke-width="2"/>
+        `;
+    } else {
+        hair = `
+            <polygon points="95,45 110,25 120,35 130,25 145,45 155,65 145,75 140,60 100,60 95,75 85,65" fill="${hairColor}" stroke="#111" stroke-width="2"/>
         `;
     }
-    return `
-        <path d="M94 83C101 38 126 23 154 30C177 35 188 56 188 86C160 66 126 65 94 83Z" fill="${color}"/>
-        <path d="M125 30c6-22 28-23 36-5c-16 0-20 12-12 26" fill="${color}"/>
-        <path d="M116 31l-22 55l39-39l6 43l33-52" fill="${color}" opacity="0.94"/>
-        <path d="M108 61c21-16 45-18 66 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
-    `;
+    return hair;
 }
 
-function premiumOrkFace(state, makeup, cheek, ids, accent) {
-    const lashes = state.gender === "female" ? `<path d="M116 78l-7-6M164 78l7-6" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>` : "";
-    const freckles = makeup.style === "freckles" ? `<g fill="${cheek}" opacity="0.85"><circle cx="113" cy="105" r="2.2"/><circle cx="121" cy="109" r="1.8"/><circle cx="159" cy="109" r="1.8"/><circle cx="167" cy="105" r="2.2"/><circle cx="117" cy="114" r="1.5"/><circle cx="163" cy="114" r="1.5"/></g>` : "";
-    const star = makeup.style === "star" ? `<path d="M170 105l3 6l7 .9l-5 4.7l1.3 7l-6.3-3.4l-6.2 3.4l1.2-7l-5-4.7l7-.9z" fill="#fde047" stroke="#b45309" stroke-width="1.5"/>` : "";
-    const choco = makeup.style === "choco" ? `<path d="M103 107c9 12 22 10 28 1" fill="none" stroke="#78350f" stroke-width="6" stroke-linecap="round" opacity="0.9"/>` : "";
+function premiumOrkFace(state, makeup, cheek, ids, accent, model) {
+    const isFemale = state.gender === "female";
+    
     return `
-        <path d="M105 72c12-10 27-10 39 0M137 72c12-10 29-9 40 1" stroke="#0f172a" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
-        <path d="M108 85q11-9 22 0q-11 8-22 0z" fill="#f8fafc"/>
-        <path d="M150 85q11-9 22 0q-11 8-22 0z" fill="#f8fafc"/>
-        <circle cx="119" cy="85" r="4.2" fill="url(#${ids.iris})"/><circle cx="161" cy="85" r="4.2" fill="url(#${ids.iris})"/>
-        <circle cx="119" cy="85" r="1.9" fill="#020617"/><circle cx="161" cy="85" r="1.9" fill="#020617"/>
-        <circle cx="117" cy="83" r="1.3" fill="#ffffff"/><circle cx="159" cy="83" r="1.3" fill="#ffffff"/>
-        ${lashes}
-        <path d="M132 96q8 8 16 0" fill="none" stroke="#122113" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
-        <path d="M131 104q9 5 18 0" fill="none" stroke="#244522" stroke-width="2.5" stroke-linecap="round" opacity="0.48"/>
-        <ellipse cx="116" cy="111" rx="9" ry="6" fill="${cheek}" opacity="0.42"/>
-        <ellipse cx="164" cy="111" rx="9" ry="6" fill="${cheek}" opacity="0.42"/>
-        <path d="M120 121q20 14 40 0" fill="none" stroke="#101b12" stroke-width="4" stroke-linecap="round"/>
-        <path d="M124 121l5 15l7-13M152 123l7 13l5-15" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
-        <path d="M130 128q10 5 20 0" fill="none" stroke="#d48b91" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
-        <g fill="${cheek}" opacity="0.42"><circle cx="105" cy="94" r="2"/><circle cx="172" cy="96" r="2"/><circle cx="111" cy="100" r="1.6"/><circle cx="168" cy="102" r="1.6"/></g>
-        ${freckles}${star}${choco}
+        <!-- Brow Ridge (Heavy) -->
+        <polygon points="85,65 115,75 125,75 155,65 145,55 120,60 95,55" fill="url(#${ids.skinSide})"/>
+        
+        <!-- Eyes (Deep set, angled) -->
+        <polygon points="95,75 110,78 115,73 98,70" fill="#fff"/>
+        <polygon points="145,75 130,78 125,73 142,70" fill="#fff"/>
+        
+        <circle cx="105" cy="74" r="3" fill="url(#${ids.iris})"/>
+        <circle cx="105" cy="74" r="1.5" fill="#000"/>
+        
+        <circle cx="135" cy="74" r="3" fill="url(#${ids.iris})"/>
+        <circle cx="135" cy="74" r="1.5" fill="#000"/>
+        
+        ${isFemale ? `<path d="M 95 70 L 90 65 M 145 70 L 150 65" stroke="#111" stroke-width="2"/>` : ""}
+
+        <!-- Nose (Wide, flat polygon) -->
+        <polygon points="115,75 125,75 130,95 110,95" fill="url(#${ids.skinSide})" opacity="0.8"/>
+        <polygon points="110,95 130,95 120,105" fill="#2d4a23"/>
+        
+        <!-- Nostrils -->
+        <polygon points="105,95 115,95 110,100" fill="#111"/>
+        <polygon points="135,95 125,95 130,100" fill="#111"/>
+
+        <!-- Underbite / Mouth -->
+        <polygon points="100,110 140,110 135,115 105,115" fill="#111"/>
+        
+        <!-- Tusks -->
+        <polygon points="105,115 110,115 105,95" fill="#fdfaed" stroke="#b0a582" stroke-width="1" stroke-linejoin="round"/>
+        <polygon points="135,115 130,115 135,95" fill="#fdfaed" stroke="#b0a582" stroke-width="1" stroke-linejoin="round"/>
+        
+        <!-- Blush -->
+        <polygon points="85,90 100,95 90,100" fill="${cheek}" opacity="0.6" filter="url(#${ids.soft})"/>
+        <polygon points="155,90 140,95 150,100" fill="${cheek}" opacity="0.6" filter="url(#${ids.soft})"/>
     `;
 }
 
 function premiumOrkHeldAccessory(accessory, accent) {
-    if (accessory.id === "acc_none" || accessory.id === "acc_backpack" || accessory.id === "acc_glasses" || accessory.id === "acc_headphones") return "";
-    return `
-        <g transform="translate(224 211)" filter="url(#premium-ork-soft)">
-            <rect x="-19" y="-24" width="38" height="47" rx="12" fill="${accent}" stroke="#0f172a" stroke-width="3"/>
-            <path d="M-8-9h16M-8 3h16" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.72"/>
-            <text x="0" y="17" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">${accessory.icon || "A"}</text>
-        </g>
-    `;
+    if (accessory.id !== "acc_backpack") {
+        return `<g transform="translate(195 240)" filter="url(#premium-ork-soft)"><rect x="-15" y="-15" width="30" height="30" rx="4" fill="${accent}" stroke="#111" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">${accessory.icon || "A"}</text></g>`;
+    }
+    return "";
 }
 
 function premiumOrkFaceAccessory(accessory, ids, accent) {
     if (accessory.id === "acc_glasses") {
-        return `<circle cx="119" cy="86" r="14" fill="none" stroke="#0f172a" stroke-width="4"/><circle cx="161" cy="86" r="14" fill="none" stroke="#0f172a" stroke-width="4"/><path d="M133 86h14" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>`;
+        return `
+            <polygon points="90,75 115,80 115,65 95,65" fill="none" stroke="#111" stroke-width="3"/>
+            <polygon points="150,75 125,80 125,65 145,65" fill="none" stroke="#111" stroke-width="3"/>
+            <line x1="115" y1="72" x2="125" y2="72" stroke="#111" stroke-width="3"/>
+        `;
     }
     if (accessory.id === "acc_headphones") {
-        return `<path d="M94 86C101 31 179 31 186 86" fill="none" stroke="#0f172a" stroke-width="7" stroke-linecap="round"/><rect x="82" y="80" width="16" height="34" rx="8" fill="${accent}" stroke="#0f172a" stroke-width="3"/><rect x="182" y="80" width="16" height="34" rx="8" fill="${accent}" stroke="#0f172a" stroke-width="3"/>`;
+        return `
+            <path d="M 85 70 C 85 20, 155 20, 155 70" fill="none" stroke="#111" stroke-width="6"/>
+            <polygon points="75,60 90,60 90,95 75,95" fill="${accent}" stroke="#111" stroke-width="2"/>
+            <polygon points="165,60 150,60 150,95 165,95" fill="${accent}" stroke="#111" stroke-width="2"/>
+        `;
     }
     return "";
-}
-
-function bodyMetrics(body) {
-    const map = {
-        power: { shoulder: 58, waist: 38, head: 33, legWidth: 17, armOffset: 14, backpackX: 50 },
-        compact: { shoulder: 50, waist: 44, head: 32, legWidth: 20, armOffset: 6, backpackX: 54 },
-        slim: { shoulder: 40, waist: 26, head: 29, legWidth: 14, armOffset: 0, backpackX: 60 },
-        clever: { shoulder: 44, waist: 30, head: 31, legWidth: 15, armOffset: 0, backpackX: 58 },
-        nature: { shoulder: 46, waist: 33, head: 32, legWidth: 16, armOffset: 4, backpackX: 56 }
-    };
-    return map[body] || map.clever;
-}
-
-function outfitPattern(outfit, body, accent) {
-    if (outfit.style === "overall") {
-        return `<path d="M84 135v105M136 135v105M84 185h52" stroke="#e0f2fe" stroke-width="6" opacity="0.6" filter="url(#soft-shadow)"/><circle cx="90" cy="156" r="5" fill="#facc15" filter="url(#soft-shadow)"/><circle cx="130" cy="156" r="5" fill="#facc15" filter="url(#soft-shadow)"/>`;
-    }
-    if (outfit.style === "jacket") {
-        return `<path d="M110 125v115M78 155h64" stroke="#ffffff" stroke-width="6" opacity="0.7" filter="url(#soft-shadow)"/><rect x="94" y="156" width="32" height="40" rx="10" fill="${accent}" opacity="0.6" filter="url(#soft-shadow)"/>`;
-    }
-    return `<path d="M82 152 Q110 170 138 152" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.6" filter="url(#soft-shadow)"/><path d="M99 132l11 16 11-16" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.7" filter="url(#soft-shadow)"/>`;
-}
-
-function hairSvg(style, color, groupId) {
-    const twig = groupId === "druide" ? `<path d="M92 32l-12-19M128 33l15-20" stroke="#365314" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/><circle cx="78" cy="12" r="6" fill="#84cc16" filter="url(#soft-shadow)"/><circle cx="145" cy="12" r="6" fill="#84cc16" filter="url(#soft-shadow)"/>` : "";
-    const highlight = `<path d="M85 55 Q110 45 135 55" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.15" stroke-linecap="round"/>`;
-    
-    if (style === "long") return `${twig}<path d="M74 74 Q73 30 111 28 Q150 32 148 85 Q142 125 130 140 Q127 100 131 68 Q111 50 86 65 Q89 105 84 138 Q72 115 74 74Z" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
-    if (style === "curls") return `${twig}<g fill="${color}" filter="url(#drop-shadow)"><circle cx="80" cy="55" r="15"/><circle cx="94" cy="40" r="16"/><circle cx="114" cy="35" r="18"/><circle cx="134" cy="45" r="16"/><circle cx="145" cy="65" r="14"/><circle cx="75" cy="70" r="12"/><circle cx="142" cy="82" r="12"/></g>${highlight}`;
-    if (style === "bun") return `${twig}<path d="M78 74 Q82 34 111 30 Q142 36 144 74 Q113 52 78 74Z" fill="${color}" filter="url(#drop-shadow)"/><circle cx="148" cy="45" r="16" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
-    if (style === "streak") return `${twig}<path d="M78 74 Q82 32 111 28 Q144 36 144 76 Q112 50 78 74Z" fill="${color}" filter="url(#drop-shadow)"/><path d="M99 32 Q110 52 103 86" stroke="#fff7ed" stroke-width="8" stroke-linecap="round" opacity="0.9" filter="url(#soft-shadow)"/>${highlight}`;
-    return `${twig}<path d="M78 74 Q82 32 111 28 Q144 36 144 75 Q111 52 78 74Z" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
-}
-
-function earSvg(groupId, model, body) {
-    if (groupId === "elf") {
-        return `<path d="M80 76 L42 54 L76 96Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><path d="M140 76 L178 54 L144 96Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
-    }
-    if (groupId === "ork") {
-        return `<path d="M80 82 L50 72 L76 100Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><path d="M140 82 L170 72 L144 100Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
-    }
-    return `<ellipse cx="${110 - body.head}" cy="80" rx="6" ry="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><ellipse cx="${110 + body.head}" cy="80" rx="6" ry="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
-}
-
-function faceSvg(state, model, makeup) {
-    const lashes = state.gender === "female" ? `<path d="M92 73l-7-6M128 73l7-6" stroke="#111827" stroke-width="3" stroke-linecap="round"/>` : "";
-    const freckles = makeup.style === "freckles" ? `<g fill="${model.cheek}" opacity="0.8"><circle cx="89" cy="89" r="2.5"/><circle cx="97" cy="92" r="2"/><circle cx="123" cy="92" r="2"/><circle cx="131" cy="89" r="2.5"/><circle cx="93" cy="94" r="1.5"/><circle cx="127" cy="94" r="1.5"/></g>` : "";
-    const star = makeup.style === "star" ? `<path d="M136 90l3.5 7 8 1-6 6 1.5 8-7-3.5-7 3.5 1.5-8-6-6 8-1z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5" filter="url(#soft-shadow)"/>` : "";
-    const choco = makeup.style === "choco" ? `<path d="M82 93 Q94 105 106 95" fill="none" stroke="#7c2d12" stroke-width="6" stroke-linecap="round" opacity="0.85"/>` : "";
-    
-    return `
-        <!-- Eye Whites -->
-        <ellipse cx="96" cy="78" rx="8" ry="6" fill="#ffffff" filter="url(#soft-shadow)"/>
-        <ellipse cx="124" cy="78" rx="8" ry="6" fill="#ffffff" filter="url(#soft-shadow)"/>
-        
-        <!-- Irises & Pupils -->
-        <circle cx="96" cy="78" r="4.5" fill="url(#eye-iris)"/>
-        <circle cx="96" cy="78" r="2" fill="#000000"/>
-        <circle cx="124" cy="78" r="4.5" fill="url(#eye-iris)"/>
-        <circle cx="124" cy="78" r="2" fill="#000000"/>
-        
-        <!-- Eye Highlights -->
-        <circle cx="94" cy="76" r="1.5" fill="#ffffff" opacity="0.9"/>
-        <circle cx="122" cy="76" r="1.5" fill="#ffffff" opacity="0.9"/>
-        
-        ${lashes}
-        
-        <!-- Eyebrows -->
-        <path d="M86 68 Q96 64 104 68" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round" filter="url(#soft-shadow)"/>
-        <path d="M134 68 Q124 64 116 68" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round" filter="url(#soft-shadow)"/>
-        
-        <!-- Nose -->
-        <path d="M106 88 Q110 93 114 88" fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
-        
-        <!-- Mouth -->
-        <path d="M102 98 Q110 104 118 98" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
-        <path d="M106 98 Q110 102 114 98" fill="#ec4899" opacity="0.6"/>
-        
-        <!-- Blush -->
-        <ellipse cx="86" cy="94" rx="9" ry="6" fill="${model.cheek}" opacity="0.5" filter="url(#soft-shadow)"/>
-        <ellipse cx="134" cy="94" rx="9" ry="6" fill="${model.cheek}" opacity="0.5" filter="url(#soft-shadow)"/>
-        
-        ${freckles}${star}${choco}
-    `;
-}
-
-function groupExtrasBehind(groupId, model) {
-    if (groupId === "elf") return `<path d="M110 42 Q122 10 142 28" fill="none" stroke="#fde047" stroke-width="5" opacity="0.9" filter="url(#drop-shadow)"/>`;
-    return "";
-}
-
-function groupExtrasFront(groupId, model) {
-    if (groupId === "ork") {
-        return `<path d="M93 103l4 14 5-14M117 103l5 14 4-14" fill="#f8fafc" stroke="#111827" stroke-width="2" filter="url(#soft-shadow)"/><path d="M88 65l18-6M132 65l-18-6" stroke="#111827" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/>`;
-    }
-    if (groupId === "zauberer") {
-        return `<circle cx="96" cy="78" r="11" fill="none" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><circle cx="124" cy="78" r="11" fill="none" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><path d="M107 78h9" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><path d="M138 52l15-10" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" filter="url(#drop-shadow)"/>`;
-    }
-    if (groupId === "druide") {
-        return `<path d="M128 98q12 12 22 2" stroke="#451a03" stroke-width="6" stroke-linecap="round" opacity="0.8" filter="url(#soft-shadow)"/>`;
-    }
-    if (groupId === "zwerg") {
-        return `<ellipse cx="85" cy="80" rx="4" ry="5" fill="#78350f" filter="url(#soft-shadow)"/><ellipse cx="135" cy="80" rx="4" ry="5" fill="#78350f" filter="url(#soft-shadow)"/>`;
-    }
-    return "";
-}
-
-function heldAccessory(accessory, accent) {
-    if (accessory.id === "acc_none" || accessory.id === "acc_backpack" || accessory.id === "acc_glasses" || accessory.id === "acc_headphones") return "";
-    return `<g transform="translate(151 190)" filter="url(#soft-shadow)"><rect x="-15" y="-18" width="30" height="34" rx="8" fill="${accent}" stroke="#102a27" stroke-width="3"/><text x="0" y="5" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">${accessory.icon || "A"}</text></g>`;
-}
-
-function accessoryOnFace(accessory, accent) {
-    if (accessory.id === "acc_glasses") return `<circle cx="97" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/><circle cx="123" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/><path d="M108 78h4" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/>`;
-    if (accessory.id === "acc_headphones") return `<path d="M80 76 Q110 35 140 76" fill="none" stroke="#111827" stroke-width="6" filter="url(#soft-shadow)"/><rect x="73" y="72" width="13" height="28" rx="6" fill="${accent}" filter="url(#soft-shadow)"/><rect x="134" y="72" width="13" height="28" rx="6" fill="${accent}" filter="url(#soft-shadow)"/>`;
-    return "";
-}
-
-function orkMiniPortraitSvg(index) {
-    const model = CHARACTER_GROUPS.ork.models[index % CHARACTER_GROUPS.ork.models.length];
-    const hair = model.hair || "#1f2937";
-    const ribbon = index % 3 === 0
-        ? `<path d="M32 11c-6-6-12-5-16 0c5 3 11 3 16 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="1.5"/><path d="M34 11c6-6 12-5 16 0c-5 3-11 3-16 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="1.5"/><circle cx="33" cy="11" r="2.8" fill="#9a641c"/>`
-        : index % 3 === 1
-            ? `<path d="M31 8c3-10 14-9 16 0c-8 0-10 6-6 12" fill="${hair}"/>`
-            : `<circle cx="33" cy="8" r="8" fill="${hair}"/><path d="M21 16q12-7 24 0" stroke="#9a6b3c" stroke-width="3" stroke-linecap="round"/>`;
-    const braids = index % 3 === 1 ? "" : `
-        <g fill="${hair}" opacity="0.95">
-            <ellipse cx="18" cy="35" rx="4" ry="6"/><ellipse cx="16" cy="44" rx="4" ry="6"/>
-            <ellipse cx="46" cy="35" rx="4" ry="6"/><ellipse cx="48" cy="44" rx="4" ry="6"/>
-        </g>
-    `;
-    return `
-        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-            <defs>
-                <radialGradient id="ork-mini-skin-${index}" cx="38%" cy="34%" r="70%">
-                    <stop offset="0%" stop-color="#f2ffd7" stop-opacity="0.35"/>
-                    <stop offset="52%" stop-color="${model.skin}"/>
-                    <stop offset="100%" stop-color="#33582e"/>
-                </radialGradient>
-                <filter id="ork-mini-shadow-${index}"><feDropShadow dx="1" dy="2" stdDeviation="1" flood-opacity="0.28"/></filter>
-            </defs>
-            <rect x="2" y="2" width="60" height="60" rx="19" fill="#d9f99d"/>
-            <rect x="5" y="6" width="54" height="56" rx="17" fill="#14532d" opacity="0.18"/>
-            <path d="M16 30L4 22l9 17M48 30l12-8l-9 17" fill="url(#ork-mini-skin-${index})" filter="url(#ork-mini-shadow-${index})"/>
-            <path d="M18 57q14-15 28 0l5 7H13z" fill="#166534" filter="url(#ork-mini-shadow-${index})"/>
-            <path d="M22 47q10 7 20 0" stroke="#f5c94c" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="32" cy="27" r="18" fill="url(#ork-mini-skin-${index})" filter="url(#ork-mini-shadow-${index})"/>
-            <path d="M17 26Q21 6 34 8Q48 10 48 28Q33 17 17 26Z" fill="${hair}" filter="url(#ork-mini-shadow-${index})"/>
-            ${ribbon}
-            ${braids}
-            <ellipse cx="26" cy="27" rx="3.6" ry="3" fill="#ffffff"/><circle cx="26" cy="27" r="1.6" fill="#111827"/>
-            <ellipse cx="38" cy="27" rx="3.6" ry="3" fill="#ffffff"/><circle cx="38" cy="27" r="1.6" fill="#111827"/>
-            <path d="M21 21l8-3M35 18l8 3" stroke="#111827" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M26 38q6 5 12 0" fill="none" stroke="#111827" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M26 37l2 7l3-6M36 38l3 6l2-7" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-            <g fill="${model.cheek}" opacity="0.62"><circle cx="23" cy="35" r="1.4"/><circle cx="41" cy="35" r="1.4"/></g>
-            <rect x="3" y="3" width="58" height="58" rx="18" fill="none" stroke="#bbf7d0" stroke-width="2"/>
-        </svg>
-    `;
 }
 
 function miniPortraitSvg(groupId, index) {
