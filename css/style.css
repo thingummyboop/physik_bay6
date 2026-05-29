@@ -189,7 +189,7 @@ h3 {
     padding: 15px; border-radius: 8px; margin: 15px 0;
 }
 
-.lesson-goals, .mini-task, .remember-box, .teacher-note {
+.lesson-goals, .mini-task, .remember-box, .teacher-note, .misconception-box {
     border-radius: 12px;
     padding: 16px 18px;
     margin: 16px 0;
@@ -214,6 +214,35 @@ h3 {
 .teacher-note {
     background: #f3e8ff;
     border-color: #a78bfa;
+}
+
+.misconception-box {
+    background: #fff1f2;
+    border-color: #fb7185;
+}
+
+.physics-remodel {
+    border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--box-border));
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary) 10%, transparent), transparent 48%),
+        var(--card-bg);
+    margin: 0 0 18px;
+    padding: 18px;
+}
+
+.physics-leitfrage {
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+}
+
+.physics-chapter-compass {
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary) 18%, #e8f5e9), #e8f5e9);
+}
+
+.physics-chapter-compass .step-list {
+    margin-bottom: 0;
 }
 
 .teacher-note a {
@@ -246,6 +275,22 @@ h3 {
 [data-theme="dark"] .teacher-note {
     background: #2e174d;
     border-color: #7c3aed;
+}
+
+[data-theme="dark"] .misconception-box {
+    background: #3f1620;
+    border-color: #fb7185;
+}
+
+[data-theme="dark"] .physics-remodel {
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary) 16%, transparent), transparent 52%),
+        var(--card-bg);
+}
+
+[data-theme="dark"] .physics-chapter-compass {
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary) 18%, #12351f), #12351f);
 }
 
 [data-theme="dark"] .teacher-note a {
