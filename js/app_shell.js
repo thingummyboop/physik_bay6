@@ -776,6 +776,12 @@ function visibleRadialTopics(subject, entry, completed) {
     return visible;
 }
 
+function radialShortLabel(value, maxLength = 18) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    if (text.length <= maxLength) return text;
+    return `${text.slice(0, Math.max(1, maxLength - 1)).trim()}…`;
+}
+
 function radialTopicNode(subjectId, subject, topic, point, state, depth) {
     const active = subjectId === currentSubject ? "active-subject" : "";
     const future = state.future ? "future-hidden" : "";
@@ -792,7 +798,10 @@ function radialTopicNode(subjectId, subject, topic, point, state, depth) {
             aria-label="${label}"
             aria-disabled="${!state.unlocked && !state.done ? "true" : "false"}"
             data-radial-topic="${topic.id}">
-            <span class="radial-node-dot" aria-hidden="true"></span>
+            <span class="radial-node-dot" aria-hidden="true">
+                <span class="radial-card-kicker">${depth === "entry" ? "Start" : gradeLabel(topic.grade)}</span>
+                <strong class="radial-card-title">${radialShortLabel(topic.title, depth === "entry" ? 19 : 15)}</strong>
+            </span>
             <span class="radial-tooltip" aria-hidden="true">
                 <span>${depth === "entry" ? "Einstieg" : topic.strand}</span>
                 <strong>${topic.title}</strong>
@@ -822,7 +831,13 @@ function renderCircularSkillMap(target, completed) {
                 style="--accent:${subject.accent};${radialStyle(subjectPoint)}"
                 aria-label="${subject.label}: ${roadmapDone} von ${roadmapTotal} Kapiteln abgeschlossen"
                 data-radial-subject="${subjectId}">
-                <span class="radial-node-dot" aria-hidden="true">${subject.icon}</span>
+                <span class="radial-node-dot" aria-hidden="true">
+                    <span class="radial-subject-icon">${subject.icon}</span>
+                    <span>
+                        <span class="radial-card-kicker">Fach</span>
+                        <strong class="radial-card-title">${radialShortLabel(subject.label, 14)}</strong>
+                    </span>
+                </span>
                 <span class="radial-tooltip" aria-hidden="true">
                     <strong>${subject.label}</strong>
                     <small>${roadmapDone}/${roadmapTotal}</small>
@@ -927,7 +942,7 @@ function renderChallenge() {
                 <button type="button" class="quiet-action" data-map-center aria-label="Karte zentrieren">Zentrum</button>
                 <button type="button" class="quiet-action" data-map-zoom-in aria-label="Karte vergroessern">+</button>
             </div>
-            <span class="challenge-map-hint">Ziehen zum Verschieben · + / - zum Zoomen · Strg + Mausrad geht auch · Kugel öffnet Kapitel</span>
+            <span class="challenge-map-hint">Ziehen zum Verschieben · + / - zum Zoomen · Strg + Mausrad geht auch · Kärtchen öffnet Kapitel</span>
         </div>
         <section class="challenge-map" id="challenge-map"></section>
     `;

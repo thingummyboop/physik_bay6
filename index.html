@@ -945,6 +945,7 @@
         .radial-node {
             --accent: #0f766e;
             --node-size: calc(34px * var(--orb-scale));
+            --card-width: calc(var(--node-size) * 2.65);
             align-items: center;
             appearance: none;
             -webkit-appearance: none;
@@ -982,26 +983,70 @@
         .radial-node-dot {
             align-items: center;
             background:
-                radial-gradient(circle at 34% 27%, rgba(255,255,255,0.88) 0 6%, rgba(255,255,255,0.18) 7% 13%, transparent 14%),
-                radial-gradient(circle at 50% 62%, color-mix(in srgb, var(--accent), white 18%), var(--accent) 62%, color-mix(in srgb, var(--accent), black 24%));
+                linear-gradient(145deg, rgba(255,255,255,0.98), color-mix(in srgb, var(--accent), white 88%) 58%, color-mix(in srgb, var(--accent), white 76%)),
+                radial-gradient(circle at 18% 14%, rgba(255,255,255,0.72), transparent 34%);
             border: max(1px, calc(2px * var(--orb-scale))) solid color-mix(in srgb, var(--accent), white 44%);
-            border-radius: 50%;
+            border-radius: calc(9px * var(--orb-scale));
             box-sizing: border-box;
             box-shadow:
-                inset -6px -8px 12px rgba(15, 23, 42, 0.2),
-                inset 4px 5px 10px rgba(255,255,255,0.35),
+                inset 0 0 0 1px rgba(255,255,255,0.62),
+                inset -5px -6px 9px rgba(15, 23, 42, 0.08),
                 0 0 0 calc(2px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 76%),
-                0 calc(8px * var(--orb-scale)) calc(18px * var(--orb-scale)) rgba(15, 23, 42, 0.16);
-            color: white;
-            display: inline-flex;
-            font-size: 0.64rem;
+                0 calc(8px * var(--orb-scale)) calc(18px * var(--orb-scale)) rgba(15, 23, 42, 0.13);
+            color: color-mix(in srgb, var(--accent), #0f172a 44%);
+            display: grid;
+            font-size: calc(0.52rem * var(--orb-scale));
             font-weight: 950;
             height: var(--node-size);
             justify-content: center;
             letter-spacing: 0;
             line-height: 1;
+            overflow: hidden;
+            padding: calc(4px * var(--orb-scale)) calc(7px * var(--orb-scale));
+            position: relative;
             text-shadow: 0 1px 3px rgba(15, 23, 42, 0.42);
-            width: var(--node-size);
+            width: var(--card-width);
+        }
+
+        .radial-node-dot::before {
+            background: var(--accent);
+            border-radius: 999px;
+            content: "";
+            height: calc(4px * var(--orb-scale));
+            left: calc(7px * var(--orb-scale));
+            opacity: 0.76;
+            position: absolute;
+            right: calc(7px * var(--orb-scale));
+            top: calc(3px * var(--orb-scale));
+        }
+
+        .radial-card-kicker,
+        .radial-card-title {
+            display: block;
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .radial-card-kicker {
+            color: var(--accent);
+            font-size: calc(0.42rem * var(--orb-scale));
+            font-weight: 950;
+            letter-spacing: 0.05em;
+            margin-top: calc(2px * var(--orb-scale));
+            opacity: 0.92;
+            text-transform: uppercase;
+        }
+
+        .radial-card-title {
+            color: var(--shell-text);
+            font-size: calc(0.48rem * var(--orb-scale));
+            line-height: 1.05;
+            margin-top: calc(1px * var(--orb-scale));
+            text-shadow: none;
         }
 
         .radial-tooltip {
@@ -1054,17 +1099,56 @@
 
         .radial-subject-word {
             --node-size: calc(48px * var(--orb-scale));
+            --card-width: calc(var(--node-size) * 2.55);
         }
 
         .radial-subject-word .radial-node-dot {
-            font-size: 0.7rem;
+            gap: calc(2px * var(--orb-scale));
+            grid-template-columns: auto minmax(0, 1fr);
+            justify-content: start;
+            padding-left: calc(9px * var(--orb-scale));
+            text-align: left;
+        }
+
+        .radial-subject-icon {
+            color: var(--accent);
+            display: inline-grid;
+            font-size: calc(0.72rem * var(--orb-scale));
+            place-items: center;
+            position: relative;
+            text-shadow: none;
+            z-index: 1;
+        }
+
+        .radial-subject-word .radial-card-title {
+            font-size: calc(0.56rem * var(--orb-scale));
+        }
+
+        [data-theme="dark"] .radial-node-dot {
+            background:
+                linear-gradient(145deg, rgba(15, 23, 42, 0.96), color-mix(in srgb, var(--accent), #0f172a 80%) 60%, rgba(2, 6, 23, 0.92));
+            border-color: color-mix(in srgb, var(--accent), #d1fae5 22%);
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.06),
+                inset -5px -6px 9px rgba(0, 0, 0, 0.18),
+                0 0 0 calc(2px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 78%),
+                0 calc(8px * var(--orb-scale)) calc(18px * var(--orb-scale)) rgba(0, 0, 0, 0.28);
+        }
+
+        [data-theme="dark"] .radial-card-title {
+            color: #f8fafc;
+        }
+
+        [data-theme="dark"] .radial-card-kicker,
+        [data-theme="dark"] .radial-subject-icon {
+            color: #a7f3d0;
         }
 
         .radial-subject-word.active .radial-node-dot {
             border-color: #fff7ed;
             box-shadow:
-                inset -7px -9px 13px rgba(15, 23, 42, 0.24),
-                inset 5px 6px 11px rgba(255,255,255,0.42),
+                inset 0 0 0 1px rgba(255,255,255,0.7),
+                inset -5px -6px 10px rgba(15, 23, 42, 0.12),
                 0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 54%),
                 0 0 calc(22px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 42%);
         }
@@ -1083,16 +1167,18 @@
 
         .radial-topic-node.entry {
             --node-size: calc(40px * var(--orb-scale));
+            --card-width: calc(var(--node-size) * 2.75);
         }
 
         .radial-topic-node.branch {
             --node-size: calc(34px * var(--orb-scale));
+            --card-width: calc(var(--node-size) * 2.65);
         }
 
         .radial-topic-node.entry .radial-node-dot {
             box-shadow:
-                inset -6px -8px 12px rgba(15, 23, 42, 0.2),
-                inset 4px 5px 10px rgba(255,255,255,0.35),
+                inset 0 0 0 1px rgba(255,255,255,0.66),
+                inset -5px -6px 9px rgba(15, 23, 42, 0.08),
                 0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 68%),
                 0 calc(8px * var(--orb-scale)) calc(20px * var(--orb-scale)) rgba(15, 23, 42, 0.18);
         }
@@ -1107,8 +1193,8 @@
 
         .radial-topic-node.unlocked:not(.done) .radial-node-dot {
             box-shadow:
-                inset -6px -8px 12px rgba(15, 23, 42, 0.18),
-                inset 4px 5px 10px rgba(255,255,255,0.42),
+                inset 0 0 0 1px rgba(255,255,255,0.72),
+                inset -5px -6px 9px rgba(15, 23, 42, 0.08),
                 0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 58%),
                 0 0 calc(22px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 56%);
         }
@@ -1116,6 +1202,12 @@
         .radial-topic-node.done .radial-node-dot {
             --accent: #22c55e;
             border-color: #22c55e;
+            background:
+                linear-gradient(145deg, #ecfdf5, #bbf7d0 72%, #86efac);
+        }
+
+        .radial-topic-node.done .radial-card-kicker::after {
+            content: " \2713";
         }
 
         .radial-topic-node.locked .radial-node-dot,
@@ -1983,6 +2075,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.2"></script>
-    <script src="js/app_shell.js?v=3.9"></script>
+    <script src="js/app_shell.js?v=4.0"></script>
 </body>
 </html>
