@@ -772,24 +772,37 @@ function premiumOrkArmsFront(ids, modelIndex, model) {
 }
 
 function premiumOrkOutfit(outfit, ids, accent, modelIndex) {
+    const trim = outfit.style === "jacket" ? accent : "#d6a92f";
+    const tunicAccent = outfit.style === "overall" ? "#315c74" : outfit.style === "sport" ? "#1d4ed8" : accent;
     return `
-        <!-- Undershirt -->
-        <polygon points="90,120 150,120 155,160 145,230 95,230 85,160" fill="url(#${ids.hoodie})" stroke="#1c110b" stroke-width="3" stroke-linejoin="round"/>
-        
-        <!-- Heavy Tunic / Coat -->
-        <polygon points="75,130 95,120 90,240 65,230" fill="url(#${ids.coat})" stroke="#0a1a10" stroke-width="3" stroke-linejoin="round"/>
-        <polygon points="165,130 145,120 150,240 175,230" fill="url(#${ids.coat})" stroke="#0a1a10" stroke-width="3" stroke-linejoin="round"/>
-        
-        <!-- Scarf Wrapped -->
-        <polygon points="85,115 155,115 160,135 80,135" fill="url(#${ids.scarf})" stroke="#5c4403" stroke-width="3" stroke-linejoin="round"/>
-        <!-- Scarf Tails -->
-        <polygon points="110,135 130,135 135,185 125,190 115,185" fill="url(#${ids.scarf})" stroke="#5c4403" stroke-width="3" stroke-linejoin="round" filter="url(#${ids.soft})"/>
-        <polygon points="110,135 115,185 110,175" fill="#9e7304"/>
-        
-        <!-- Belt -->
-        <polygon points="88,210 152,210 150,225 90,225" fill="#4a2e19" stroke="#1c1008" stroke-width="2"/>
-        <polygon points="110,205 130,205 130,230 110,230" fill="#a8a39a" stroke="#2e2b27" stroke-width="2" filter="url(#${ids.soft})"/>
-        <rect x="115" y="210" width="10" height="15" fill="#1c1008"/>
+        <!-- Torso base follows the same slight three-quarter tilt as the body. -->
+        <polygon points="88,123 118,116 151,123 158,162 149,232 93,232 82,162" fill="url(#${ids.hoodie})" stroke="#1c110b" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="118,116 151,123 145,232 122,226 126,142" fill="#1f1712" opacity="0.22"/>
+
+        <!-- Coat panels wrap around the shoulders instead of sitting flat on top. -->
+        <polygon points="73,132 95,121 116,126 101,242 66,232 70,169" fill="url(#${ids.coat})" stroke="#0a1a10" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="166,132 145,121 123,126 139,242 176,232 171,169" fill="url(#${ids.coat})" stroke="#0a1a10" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="95,121 116,126 106,150 82,143" fill="#6f8f4a" opacity="0.38"/>
+        <polygon points="145,121 123,126 134,151 158,143" fill="#102a1a" opacity="0.36"/>
+        <path d="M82 164 L72 224 M158 164 L170 224 M103 145 L96 226 M136 146 L145 226" fill="none" stroke="#0b1f14" stroke-width="2.2" stroke-linecap="round" opacity="0.72"/>
+        <path d="M94 178 L110 182 M146 178 L131 182" stroke="${trim}" stroke-width="3" stroke-linecap="round" opacity="0.74"/>
+
+        <!-- Wrapped scarf: upper band curves around the neck, tails hang in front. -->
+        <polygon points="83,113 119,108 157,115 164,132 132,139 96,136 77,126" fill="url(#${ids.scarf})" stroke="#5c4403" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="86,119 119,115 160,121 151,131 112,130" fill="#f1c84a" opacity="0.4"/>
+        <polygon points="108,135 128,137 134,187 124,195 114,185" fill="url(#${ids.scarf})" stroke="#5c4403" stroke-width="3" stroke-linejoin="round" filter="url(#${ids.soft})"/>
+        <polygon points="116,137 123,139 121,188 114,184" fill="#7c5706" opacity="0.58"/>
+        <path d="M103 138 L139 139 M112 152 L131 154 M115 169 L134 171" stroke="#5c4403" stroke-width="2" opacity="0.6"/>
+
+        <!-- Shirt detail changes with the selected outfit but keeps the body orientation. -->
+        ${outfit.style === "overall" ? `<path d="M101 135 L101 218 M139 137 L139 218 M98 177 L143 179" stroke="#c7d2fe" stroke-width="5" opacity="0.72"/><circle cx="103" cy="153" r="4" fill="#facc15"/><circle cx="137" cy="154" r="4" fill="#facc15"/>` : ""}
+        ${outfit.style === "jacket" ? `<path d="M120 129 L119 224" stroke="${tunicAccent}" stroke-width="5" opacity="0.78"/><polygon points="105,154 134,156 132,193 108,190" fill="${tunicAccent}" opacity="0.32" stroke="#e0f2fe" stroke-width="1.5"/>` : ""}
+
+        <!-- Belt is angled with the hips and sits in front of the coat. -->
+        <polygon points="87,207 154,209 151,225 90,224" fill="#4a2e19" stroke="#1c1008" stroke-width="2"/>
+        <polygon points="109,203 131,204 130,229 110,229" fill="#a8a39a" stroke="#2e2b27" stroke-width="2" filter="url(#${ids.soft})"/>
+        <rect x="115" y="210" width="10" height="13" fill="#1c1008"/>
+        <path d="M94 217 L107 217 M133 218 L148 218" stroke="#c79f59" stroke-width="2" opacity="0.7"/>
     `;
 }
 
@@ -809,23 +822,72 @@ function premiumOrkSatchel(accessory, ids, accent) {
 }
 
 function premiumOrkHair(modelIndex, style, hairColor, accent, ids) {
-    let hair = ``;
+    const shine = "#fff7ed";
+    const braidWrap = accent || "#caa13d";
+    const modelDetail = modelIndex === 0
+        ? `<path d="M95 36 Q119 21 145 38" fill="none" stroke="${shine}" stroke-width="3" opacity="0.22" stroke-linecap="round"/>`
+        : modelIndex === 1
+            ? `<path d="M115 27 Q128 20 145 32" fill="none" stroke="${shine}" stroke-width="3" opacity="0.18" stroke-linecap="round"/>`
+            : `<path d="M96 37 Q116 27 143 36" fill="none" stroke="${braidWrap}" stroke-width="4" opacity="0.7" stroke-linecap="round"/>`;
+
     if (style === "long") {
-        hair = `
-            <polygon points="105,30 135,30 155,45 165,80 155,95 165,130 150,140 145,110 150,85 140,65" fill="${hairColor}" stroke="#111" stroke-width="2"/>
-            <polygon points="105,30 135,30 85,45 75,80 85,95 75,130 90,140 95,110 90,85 100,65" fill="${hairColor}" stroke="#111" stroke-width="2"/>
-        `;
-    } else if (style === "bun") {
-        hair = `
-            <polygon points="105,30 135,30 150,55 140,65 100,65 90,55" fill="${hairColor}" stroke="#111" stroke-width="2"/>
-            <polygon points="110,30 130,30 135,10 120,5 105,10" fill="${hairColor}" stroke="#111" stroke-width="2"/>
-        `;
-    } else {
-        hair = `
-            <polygon points="95,45 110,25 120,35 130,25 145,45 155,65 145,75 140,60 100,60 95,75 85,65" fill="${hairColor}" stroke="#111" stroke-width="2"/>
+        return `
+            <g stroke="#111" stroke-width="2" stroke-linejoin="round">
+                <polygon points="98,33 120,24 145,31 160,50 161,84 153,112 158,138 143,147 137,113 143,82 135,61 119,55 105,62 96,86 101,115 92,147 77,138 82,110 76,84 80,51" fill="${hairColor}"/>
+                <polygon points="82,52 105,38 119,55 101,64 87,84" fill="#ffffff" opacity="0.1"/>
+                <polygon points="143,38 160,50 151,83 135,61" fill="#000000" opacity="0.22"/>
+                <path d="M88 97 C74 111 75 132 88 145 M151 96 C164 112 164 132 151 146" fill="none" stroke="${hairColor}" stroke-width="8" stroke-linecap="round"/>
+                <path d="M84 121 L92 125 M148 121 L156 125" stroke="${braidWrap}" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            ${modelDetail}
         `;
     }
-    return hair;
+
+    if (style === "bun") {
+        return `
+            <g stroke="#111" stroke-width="2" stroke-linejoin="round">
+                <polygon points="89,55 101,34 121,27 144,35 154,56 141,68 119,62 99,68" fill="${hairColor}"/>
+                <polygon points="105,28 121,7 140,13 145,30 130,41" fill="${hairColor}"/>
+                <polygon points="112,17 132,14 141,25 128,32" fill="#ffffff" opacity="0.12"/>
+                <path d="M95 57 Q119 46 150 57" fill="none" stroke="#000000" stroke-width="4" opacity="0.22" stroke-linecap="round"/>
+                <path d="M103 34 L139 36" stroke="${braidWrap}" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            ${modelDetail}
+        `;
+    }
+
+    if (style === "curls") {
+        return `
+            <g fill="${hairColor}" stroke="#111" stroke-width="2" stroke-linejoin="round">
+                <polygon points="87,62 94,43 108,31 126,28 143,34 154,51 153,70 139,63 121,57 103,61" />
+                <circle cx="94" cy="54" r="11"/><circle cx="108" cy="41" r="12"/><circle cx="125" cy="37" r="13"/><circle cx="143" cy="48" r="12"/><circle cx="151" cy="66" r="9"/>
+                <circle cx="88" cy="72" r="8"/><circle cx="139" cy="72" r="8"/>
+            </g>
+            <path d="M97 49 Q120 34 146 50" fill="none" stroke="${shine}" stroke-width="3" opacity="0.2" stroke-linecap="round"/>
+        `;
+    }
+
+    if (style === "streak") {
+        return `
+            <g stroke="#111" stroke-width="2" stroke-linejoin="round">
+                <polygon points="87,61 97,40 116,27 138,31 154,50 157,69 144,79 137,61 120,57 103,63 95,80" fill="${hairColor}"/>
+                <polygon points="111,30 126,27 118,58 105,66" fill="${shine}" opacity="0.9"/>
+                <polygon points="138,33 154,50 144,69 132,57" fill="#000000" opacity="0.18"/>
+                <path d="M91 62 Q119 45 154 63" fill="none" stroke="#000000" stroke-width="4" opacity="0.2" stroke-linecap="round"/>
+            </g>
+            ${modelDetail}
+        `;
+    }
+
+    return `
+        <g stroke="#111" stroke-width="2" stroke-linejoin="round">
+            <polygon points="88,61 97,42 111,28 121,39 133,28 149,42 158,64 148,78 140,61 121,56 102,62 94,79" fill="${hairColor}"/>
+            <polygon points="97,42 111,28 121,39 104,55" fill="#ffffff" opacity="0.12"/>
+            <polygon points="133,28 149,42 148,78 139,59" fill="#000000" opacity="0.22"/>
+            <path d="M94 62 Q118 46 153 62" fill="none" stroke="#000000" stroke-width="4" opacity="0.22" stroke-linecap="round"/>
+        </g>
+        ${modelDetail}
+    `;
 }
 
 function premiumOrkFace(state, makeup, cheek, ids, accent, model) {
