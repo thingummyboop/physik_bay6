@@ -157,13 +157,13 @@ async function renderTopic() {
     }
 
     try {
-        let response = await fetch(`../lang/${lang}.json?v=8.9`);
+        let response = await fetch(`../lang/${lang}.json?v=9.0`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== "de") {
-            const deRes = await fetch("../lang/de.json?v=8.9");
+            const deRes = await fetch("../lang/de.json?v=9.0");
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
@@ -176,6 +176,9 @@ async function renderTopic() {
         }
 
         if (germanTopic) topic = withCurrentInteractiveStructure(topic, germanTopic);
+        if (!topic.chapterCompassText && germanTopic?.chapterCompassText) {
+            topic = { ...topic, chapterCompassText: germanTopic.chapterCompassText };
+        }
 
         document.title = topic.title;
         document.getElementById("topic-title").innerHTML = topic.title;
@@ -194,6 +197,13 @@ async function renderTopic() {
             }
         } else {
             document.body.classList.remove("math-theme");
+        }
+
+        if (topic.chapterCompassText) {
+            const compass = document.createElement("section");
+            compass.className = "topic-compass-card";
+            compass.innerHTML = `<strong>Kapitelkompass:</strong> ${topic.chapterCompassText}`;
+            container.appendChild(compass);
         }
 
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));

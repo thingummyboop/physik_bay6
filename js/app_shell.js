@@ -237,6 +237,8 @@ function navigate(view, subjectId = currentSubject) {
     renderCurrentView();
 }
 
+window.navigate = navigate;
+
 function openTopic(topicId, mode) {
     const found = topicById(topicId);
     if (!found) return;
@@ -1019,6 +1021,7 @@ window.addEventListener("hashchange", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("app-title").textContent = APP.appName;
+    document.getElementById("brand-character-link")?.addEventListener("click", () => navigate("character"));
     setLanguage(localStorage.getItem("physik_lang") || "de");
     applyTheme(localStorage.getItem("physik_dark_mode") === "true");
     updateShellStats();
