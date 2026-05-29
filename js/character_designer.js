@@ -271,7 +271,7 @@ window.renderCharacterDesigner = function renderCharacterDesigner(mainView) {
         <section class="character-hero">
             <p class="eyebrow">Charakterdesigner</p>
             <h1>Dein Schulavatar</h1>
-            <p>Erstelle eine Spielfigur f&uuml;r deinen Lernweg. Neue Fach-Styles werden durch abgeschlossene Themen freigeschaltet und mit Plus-M&uuml;nzen gekauft.</p>
+            <p>Erstelle eine Spielfigur f&uuml;r deinen Lernweg. Neue Fach-Styles werden durch abgeschlossene Themen freigeschaltet und mit + gekauft.</p>
         </section>
         <section class="character-layout">
             <aside class="character-preview-panel">
@@ -279,7 +279,7 @@ window.renderCharacterDesigner = function renderCharacterDesigner(mainView) {
                 <div class="character-summary">
                     <strong>${CHARACTER_GROUPS[state.group].label}</strong>
                     <span>${genderLabel(state.gender)} &middot; Modell ${Number(state.model) + 1}</span>
-                    <small>${ownedCount(state)} Gegenst&auml;nde verf&uuml;gbar &middot; ${getCharacterCoins()} Plus-M&uuml;nzen</small>
+                    <small>${ownedCount(state)} Gegenst&auml;nde verf&uuml;gbar &middot; ${getCharacterCoins()} +</small>
                 </div>
             </aside>
             <section class="character-control-panel">
@@ -310,7 +310,7 @@ window.renderCharacterDesigner = function renderCharacterDesigner(mainView) {
                 <div class="designer-block">
                     <div class="designer-block-head">
                         <h2>Shop</h2>
-                        <span>Freischalten durch Themen, kaufen mit Plus</span>
+                        <span>Freischalten durch Themen, kaufen mit +</span>
                     </div>
                     ${renderShopFilters()}
                     <div class="shop-grid">${renderShopItems(state, completed)}</div>
@@ -376,7 +376,7 @@ function buyCharacterItem(itemId, mainView) {
     if (!progress.unlocked) return;
     const coins = getCharacterCoins();
     if (coins < item.cost) {
-        window.alert("Dafuer fehlen noch Plus-Muenzen.");
+        window.alert("Dafuer fehlen noch +.");
         return;
     }
     state.purchased = [...new Set([...state.purchased, item.id])];
@@ -450,7 +450,7 @@ function renderItemCard(item, state, completed, mode) {
             ? "gekauft"
             : locked
                 ? `gesperrt ${progress.done}/${progress.total}`
-                : `${item.cost} Plus`;
+                : `${item.cost} +`;
     const action = owned
         ? `<button type="button" class="item-action" data-character-equip="${item.id}" ${equipped ? "disabled" : ""}>${equipped ? "aktiv" : "anlegen"}</button>`
         : `<button type="button" class="item-action" data-character-buy="${item.id}" ${canBuy ? "" : "disabled"}>${locked ? "gesperrt" : "kaufen"}</button>`;

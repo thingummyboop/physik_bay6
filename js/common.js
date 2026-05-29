@@ -78,7 +78,7 @@ function updateScoreDisplays() {
     }
 
     if (IS_CHALLENGE_MODE) {
-        if (scoreLabel) scoreLabel.innerText = "Plus-M\u00fcnzen:";
+        if (scoreLabel) scoreLabel.innerText = "+:";
         if (scoreEl) scoreEl.innerText = String(getCoins());
     } else if (scoreEl) {
         if (scoreLabel) scoreLabel.innerText = "Punkte:";
@@ -394,7 +394,7 @@ function renderChapterQuizPanel(topicId, topicTitle, questions) {
             ${completed ? `<p class="chapter-result success">Kapitel geschafft. Du kannst das Quiz trotzdem weiter ueben.</p>` : ""}
             ${lockedMs > 0 ? `
                 <p class="chapter-result warning">N&auml;chster Versuch in ${formatWait(lockedMs)}.</p>
-                <button type="button" onclick="skipChapterCooldown('${topicId}')">Wartezeit f&uuml;r ${skipCost} Plus-M&uuml;nzen &uuml;berspringen</button>
+                <button type="button" onclick="skipChapterCooldown('${topicId}')">Wartezeit f&uuml;r ${skipCost} + &uuml;berspringen</button>
             ` : `<button type="button" onclick="startChapterQuiz('${topicId}')">Kapitelquiz starten</button>`}
         </div>
     `;
@@ -487,7 +487,7 @@ function submitChapterQuiz(topicId) {
         const reward = firstCompletion ? 25 + Math.round(percent / 5) : 0;
         if (reward) setCoins(getCoins() + reward);
         if (feedback) {
-            feedback.innerText = `Bestanden: ${correctCount}/${questions.length} richtig (${percent}%). ${reward ? `+${reward} Plus-M\u00fcnzen.` : "Kapitel war schon geschafft."}`;
+            feedback.innerText = `Bestanden: ${correctCount}/${questions.length} richtig (${percent}%). ${reward ? `Belohnung: ${reward} +.` : "Kapitel war schon geschafft."}`;
             feedback.className = "chapter-result success";
         }
         form.querySelectorAll("input, button").forEach(control => control.disabled = true);
@@ -509,7 +509,7 @@ function skipChapterCooldown(topicId) {
 
     const cost = 10 + Math.max(0, (Number(state.attempts) || 0) - 3) * 5;
     if (getCoins() < cost) {
-        alert("Daf\u00fcr hast du noch nicht genug Plus-M\u00fcnzen.");
+        alert("Daf\u00fcr hast du noch nicht genug +.");
         return;
     }
 
