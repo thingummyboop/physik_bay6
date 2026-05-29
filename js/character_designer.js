@@ -506,6 +506,10 @@ function characterSvg(state) {
     const hairColor = hair.color || model.hair;
     const accent = accessory.color || outfitColor;
 
+    if (state.group === "ork") {
+        return premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColor, hairColor, accent);
+    }
+
     return `
         <svg class="character-svg" viewBox="0 0 220 300" role="img" aria-label="Schulavatar">
             <defs>
@@ -578,6 +582,253 @@ function characterSvg(state) {
             ${accessoryOnFace(accessory, accent)}
         </svg>
     `;
+}
+
+function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColor, hairColor, accent) {
+    const ids = {
+        skin: "premium-ork-skin",
+        skinSide: "premium-ork-skin-side",
+        outfit: "premium-ork-outfit",
+        pants: "premium-ork-pants",
+        boot: "premium-ork-boot",
+        shadow: "premium-ork-shadow",
+        soft: "premium-ork-soft",
+        iris: "premium-ork-iris"
+    };
+    const cheek = model.cheek || "#4f7f37";
+    const genderPose = state.gender === "male" ? 2 : state.gender === "female" ? -1 : 0;
+    const modelLean = ((Number(state.model) || 0) % 3 - 1) * 1.2 + genderPose * 0.35;
+
+    return `
+        <svg class="character-svg" viewBox="0 0 280 360" role="img" aria-label="Schulavatar Ork">
+            <defs>
+                <radialGradient id="${ids.skin}" cx="35%" cy="30%" r="72%">
+                    <stop offset="0%" stop-color="#f4ffd8" stop-opacity="0.45"/>
+                    <stop offset="42%" stop-color="${model.skin}"/>
+                    <stop offset="100%" stop-color="#2f5b2d"/>
+                </radialGradient>
+                <linearGradient id="${ids.skinSide}" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="${model.skin}"/>
+                    <stop offset="100%" stop-color="#345c32"/>
+                </linearGradient>
+                <linearGradient id="${ids.outfit}" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="${outfitColor}"/>
+                    <stop offset="58%" stop-color="#1d4ed8"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                </linearGradient>
+                <linearGradient id="${ids.pants}" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#172554"/>
+                    <stop offset="55%" stop-color="#1f2937"/>
+                    <stop offset="100%" stop-color="#020617"/>
+                </linearGradient>
+                <linearGradient id="${ids.boot}" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#334155"/>
+                    <stop offset="100%" stop-color="#020617"/>
+                </linearGradient>
+                <radialGradient id="${ids.iris}" cx="45%" cy="38%" r="65%">
+                    <stop offset="0%" stop-color="#dffbff"/>
+                    <stop offset="58%" stop-color="${accent}"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                </radialGradient>
+                <filter id="${ids.shadow}" x="-25%" y="-25%" width="150%" height="150%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="6" flood-color="#020617" flood-opacity="0.34"/>
+                </filter>
+                <filter id="${ids.soft}" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#020617" flood-opacity="0.20"/>
+                </filter>
+            </defs>
+            <ellipse cx="140" cy="337" rx="92" ry="16" fill="#020617" opacity="0.30"/>
+
+            ${premiumOrkBackpack(accessory, ids)}
+            <g transform="rotate(${modelLean} 140 184)" filter="url(#${ids.shadow})">
+                ${premiumOrkLegs(ids, accent)}
+                ${premiumOrkArmsBehind(ids)}
+                ${premiumOrkOutfit(outfit, ids, accent)}
+                ${premiumOrkArmsFront(ids)}
+                ${premiumOrkHeldAccessory(accessory, accent)}
+
+                <path d="M122 119h36v39q-18 13-36 0z" fill="url(#${ids.skin})"/>
+                <path d="M119 151q21 15 42 0" fill="none" stroke="#0f172a" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
+
+                <path d="M92 91L42 62l34 59z" fill="url(#${ids.skinSide})"/>
+                <path d="M188 91l50-29l-34 59z" fill="url(#${ids.skinSide})"/>
+                <path d="M76 93l-17-16M204 93l17-16" fill="none" stroke="#f8fafc" stroke-width="4" opacity="0.30" stroke-linecap="round"/>
+
+                <path d="M88 86
+                    C88 46 109 25 141 25
+                    C176 25 196 48 193 87
+                    C190 127 169 148 140 148
+                    C111 148 91 127 88 86Z"
+                    fill="url(#${ids.skin})"/>
+                <path d="M101 124c11 21 67 21 78 0c-8 26-28 43-39 43c-12 0-31-17-39-43z" fill="#264724" opacity="0.24"/>
+
+                ${premiumOrkHair(hair.style || "short", hairColor, accent)}
+                ${premiumOrkFace(state, makeup, cheek, ids, accent)}
+                ${premiumOrkFaceAccessory(accessory, ids, accent)}
+            </g>
+        </svg>
+    `;
+}
+
+function premiumOrkLegs(ids, accent) {
+    return `
+        <path d="M111 226C103 253 97 279 91 308" fill="none" stroke="url(#${ids.pants})" stroke-width="22" stroke-linecap="round"/>
+        <path d="M169 226c8 27 14 53 20 82" fill="none" stroke="url(#${ids.pants})" stroke-width="22" stroke-linecap="round"/>
+        <path d="M72 306h42c10 0 17 6 19 13c-21 8-51 8-73 2c0-10 4-15 12-15z" fill="url(#${ids.boot})"/>
+        <path d="M168 306h42c8 0 13 5 14 15c-22 6-52 6-73-2c2-8 8-13 17-13z" fill="url(#${ids.boot})"/>
+        <path d="M82 318h34M177 318h34" stroke="${accent}" stroke-width="3" stroke-linecap="round" opacity="0.72"/>
+    `;
+}
+
+function premiumOrkArmsBehind(ids) {
+    return `
+        <path d="M91 165C66 181 54 210 62 244" fill="none" stroke="url(#${ids.skinSide})" stroke-width="20" stroke-linecap="round"/>
+        <path d="M189 165c25 16 37 45 29 79" fill="none" stroke="url(#${ids.skinSide})" stroke-width="20" stroke-linecap="round"/>
+    `;
+}
+
+function premiumOrkArmsFront(ids) {
+    return `
+        <circle cx="62" cy="247" r="13" fill="url(#${ids.skin})"/>
+        <circle cx="218" cy="247" r="13" fill="url(#${ids.skin})"/>
+        <path d="M56 246l-7 8M65 251l-5 10M70 247l3 9" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+        <path d="M224 246l7 8M215 251l5 10M210 247l-3 9" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+    `;
+}
+
+function premiumOrkOutfit(outfit, ids, accent) {
+    const style = outfit.style || "hoodie";
+    const torso = `
+        <path d="M84 153
+            C96 134 119 128 140 130
+            C162 128 184 134 196 153
+            L179 231
+            C169 244 111 244 101 231Z"
+            fill="url(#${ids.outfit})"/>
+        <path d="M94 158C116 176 164 176 186 158" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.48" stroke-linecap="round"/>
+    `;
+    if (style === "overall") {
+        return `
+            ${torso}
+            <path d="M111 144v88M169 144v88" stroke="#bfdbfe" stroke-width="10" stroke-linecap="round" opacity="0.75"/>
+            <rect x="109" y="186" width="62" height="44" rx="13" fill="#0f172a" opacity="0.22"/>
+            <circle cx="111" cy="164" r="5" fill="#fde047"/><circle cx="169" cy="164" r="5" fill="#fde047"/>
+            <path d="M122 206h36" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+        `;
+    }
+    if (style === "jacket") {
+        return `
+            ${torso}
+            <path d="M140 134v102" stroke="#f8fafc" stroke-width="5" opacity="0.86"/>
+            <path d="M101 164c20 18 20 47 12 66M179 164c-20 18-20 47-12 66" fill="none" stroke="#f8fafc" stroke-width="5" opacity="0.68"/>
+            <rect x="119" y="177" width="42" height="35" rx="12" fill="${accent}" opacity="0.72"/>
+        `;
+    }
+    if (style === "shirt") {
+        return `
+            ${torso}
+            <circle cx="140" cy="184" r="24" fill="#ffffff" opacity="0.18"/>
+            <path d="M127 185h26M140 172v26" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.82"/>
+        `;
+    }
+    return `
+        ${torso}
+        <path d="M119 137l21 29l21-29" fill="none" stroke="#f8fafc" stroke-width="7" stroke-linecap="round" opacity="0.80"/>
+        <rect x="111" y="197" width="58" height="29" rx="15" fill="#020617" opacity="0.18"/>
+        <path d="M125 212q15 8 30 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.48"/>
+    `;
+}
+
+function premiumOrkBackpack(accessory, ids) {
+    if (accessory.id !== "acc_backpack") return "";
+    return `
+        <g filter="url(#${ids.soft})">
+            <rect x="54" y="148" width="51" height="116" rx="21" fill="#92400e"/>
+            <path d="M69 170h23M66 202h30" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" opacity="0.82"/>
+            <path d="M91 155C75 182 73 222 94 252" fill="none" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+        </g>
+    `;
+}
+
+function premiumOrkHair(style, hairColor, accent) {
+    const color = hairColor || "#1f2937";
+    if (style === "long") {
+        return `
+            <path d="M91 82C90 41 118 22 145 25C184 31 192 63 188 102C181 92 170 80 156 71C137 59 117 66 99 83C100 117 93 142 79 155C82 132 75 103 91 82Z" fill="${color}"/>
+            <path d="M102 61c21-18 51-16 70 5" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
+        `;
+    }
+    if (style === "curls") {
+        return `
+            <g fill="${color}">
+                <circle cx="96" cy="75" r="15"/><circle cx="105" cy="54" r="16"/><circle cx="126" cy="42" r="18"/>
+                <circle cx="150" cy="43" r="18"/><circle cx="172" cy="59" r="16"/><circle cx="184" cy="82" r="13"/>
+                <circle cx="90" cy="98" r="12"/>
+            </g>
+        `;
+    }
+    if (style === "bun") {
+        return `
+            <path d="M94 82C101 41 124 25 151 30C174 34 185 54 188 84C158 65 124 64 94 82Z" fill="${color}"/>
+            <circle cx="190" cy="61" r="18" fill="${color}"/>
+            <path d="M176 56q14 8 28 0" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.16"/>
+        `;
+    }
+    if (style === "streak") {
+        return `
+            <path d="M94 82C101 40 126 25 154 30C177 35 187 55 188 85C160 66 126 65 94 82Z" fill="${color}"/>
+            <path d="M133 31C145 51 145 78 135 104" fill="none" stroke="${accent}" stroke-width="9" stroke-linecap="round"/>
+        `;
+    }
+    return `
+        <path d="M94 83C101 39 126 24 154 30C177 35 187 56 188 86C160 66 126 65 94 83Z" fill="${color}"/>
+        <path d="M120 32l-25 54l44-42l7 48l30-54" fill="${color}" opacity="0.94"/>
+        <path d="M107 61c21-16 45-18 66 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
+    `;
+}
+
+function premiumOrkFace(state, makeup, cheek, ids, accent) {
+    const lashes = state.gender === "female" ? `<path d="M116 78l-7-6M164 78l7-6" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>` : "";
+    const freckles = makeup.style === "freckles" ? `<g fill="${cheek}" opacity="0.85"><circle cx="113" cy="105" r="2.2"/><circle cx="121" cy="109" r="1.8"/><circle cx="159" cy="109" r="1.8"/><circle cx="167" cy="105" r="2.2"/><circle cx="117" cy="114" r="1.5"/><circle cx="163" cy="114" r="1.5"/></g>` : "";
+    const star = makeup.style === "star" ? `<path d="M170 105l3 6l7 .9l-5 4.7l1.3 7l-6.3-3.4l-6.2 3.4l1.2-7l-5-4.7l7-.9z" fill="#fde047" stroke="#b45309" stroke-width="1.5"/>` : "";
+    const choco = makeup.style === "choco" ? `<path d="M103 107c9 12 22 10 28 1" fill="none" stroke="#78350f" stroke-width="6" stroke-linecap="round" opacity="0.9"/>` : "";
+    return `
+        <path d="M105 69c12-9 27-8 39 1M136 70c13-9 29-8 40 2" stroke="#0f172a" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+        <ellipse cx="119" cy="86" rx="11" ry="8" fill="#ffffff"/>
+        <ellipse cx="161" cy="86" rx="11" ry="8" fill="#ffffff"/>
+        <circle cx="119" cy="86" r="5" fill="url(#${ids.iris})"/><circle cx="161" cy="86" r="5" fill="url(#${ids.iris})"/>
+        <circle cx="119" cy="86" r="2.2" fill="#020617"/><circle cx="161" cy="86" r="2.2" fill="#020617"/>
+        <circle cx="116" cy="83" r="1.6" fill="#ffffff"/><circle cx="158" cy="83" r="1.6" fill="#ffffff"/>
+        ${lashes}
+        <path d="M135 96q5 10 12 0" fill="none" stroke="#122113" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+        <ellipse cx="116" cy="111" rx="9" ry="6" fill="${cheek}" opacity="0.42"/>
+        <ellipse cx="164" cy="111" rx="9" ry="6" fill="${cheek}" opacity="0.42"/>
+        <path d="M120 121q20 19 40 0" fill="none" stroke="#101b12" stroke-width="5" stroke-linecap="round"/>
+        <path d="M121 120l7 19l8-16M152 123l8 16l7-19" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+        <path d="M128 130q12 7 24 0" fill="none" stroke="#f472b6" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+        ${freckles}${star}${choco}
+    `;
+}
+
+function premiumOrkHeldAccessory(accessory, accent) {
+    if (accessory.id === "acc_none" || accessory.id === "acc_backpack" || accessory.id === "acc_glasses" || accessory.id === "acc_headphones") return "";
+    return `
+        <g transform="translate(218 221)" filter="url(#premium-ork-soft)">
+            <rect x="-19" y="-24" width="38" height="47" rx="12" fill="${accent}" stroke="#0f172a" stroke-width="3"/>
+            <path d="M-8-9h16M-8 3h16" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.72"/>
+            <text x="0" y="17" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">${accessory.icon || "A"}</text>
+        </g>
+    `;
+}
+
+function premiumOrkFaceAccessory(accessory, ids, accent) {
+    if (accessory.id === "acc_glasses") {
+        return `<circle cx="119" cy="86" r="14" fill="none" stroke="#0f172a" stroke-width="4"/><circle cx="161" cy="86" r="14" fill="none" stroke="#0f172a" stroke-width="4"/><path d="M133 86h14" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>`;
+    }
+    if (accessory.id === "acc_headphones") {
+        return `<path d="M94 86C101 31 179 31 186 86" fill="none" stroke="#0f172a" stroke-width="7" stroke-linecap="round"/><rect x="82" y="80" width="16" height="34" rx="8" fill="${accent}" stroke="#0f172a" stroke-width="3"/><rect x="182" y="80" width="16" height="34" rx="8" fill="${accent}" stroke="#0f172a" stroke-width="3"/>`;
+    }
+    return "";
 }
 
 function bodyMetrics(body) {
