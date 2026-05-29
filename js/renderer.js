@@ -1,4 +1,19 @@
 // Topic renderer for learning and challenge modes.
+const TOPIC_LANGS = ["de", "en", "ar", "uk", "sr", "tr"];
+
+function normalizeTopicLanguage(lang) {
+    return TOPIC_LANGS.includes(lang) ? lang : "de";
+}
+
+function topicLanguage(params) {
+    const queryLang = params.get("lang");
+    const storedLang = localStorage.getItem("physik_lang") || "de";
+    const lang = normalizeTopicLanguage(queryLang || storedLang);
+    if (queryLang) localStorage.setItem("physik_lang", lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    return lang;
+}
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -132,7 +147,7 @@ async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get("topic");
     const mode = params.get("mode") || "legacy";
-    const lang = localStorage.getItem("physik_lang") || "de";
+    const lang = topicLanguage(params);
     const container = document.getElementById("sections-container");
     document.body.dataset.topicMode = mode;
 

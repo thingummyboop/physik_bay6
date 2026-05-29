@@ -3,6 +3,7 @@ const SUBJECT_KEY = "wissenspfad_selected_subject";
 const COINS_KEY = "learning_coins";
 const COMPLETED_KEY = "challenge_completed_topics";
 const SKILL_ZOOM_KEY = "challenge_skill_map_zoom";
+const SUPPORTED_LANGS = ["de", "en", "ar", "uk", "sr", "tr"];
 const RADIAL_VIEWBOX = 3600;
 const RADIAL_CENTER = RADIAL_VIEWBOX / 2;
 const RADIAL_BASE_WIDTH = 2300;
@@ -35,6 +36,46 @@ function getCompletedTopics() {
     }
 }
 
+function normalizeLanguage(lang) {
+    return SUPPORTED_LANGS.includes(lang) ? lang : "de";
+}
+
+function currentLanguage() {
+    return normalizeLanguage(localStorage.getItem("physik_lang") || "de");
+}
+
+function topicFrameUrl(topicId, mode) {
+    const qs = new URLSearchParams({
+        topic: topicId,
+        mode,
+        lang: currentLanguage()
+    });
+    return `topics/template.html?${qs.toString()}`;
+}
+
+function placeholderFrameUrl(found, mode) {
+    const qs = new URLSearchParams({
+        subject: found.subject.label,
+        title: found.topic.title,
+        grade: String(found.topic.grade),
+        strand: found.topic.strand,
+        mode,
+        lang: currentLanguage()
+    });
+    return `topics/placeholder.html?${qs.toString()}`;
+}
+
+function updateFrameLanguage(frame, lang) {
+    if (!frame?.src) return;
+    const url = new URL(frame.src, location.href);
+    url.searchParams.set("lang", normalizeLanguage(lang));
+    if (frame.src !== url.href) {
+        frame.src = url.href;
+    } else {
+        frame.contentWindow?.location.reload();
+    }
+}
+
 function topicById(topicId) {
     for (const [subjectId, subject] of getSubjects()) {
         const topic = subject.topics.find(item => item.id === topicId);
@@ -56,14 +97,15 @@ function updateShellStats() {
 }
 
 function setLanguage(lang) {
-    localStorage.setItem("physik_lang", lang);
+    const nextLang = normalizeLanguage(lang);
+    localStorage.setItem("physik_lang", nextLang);
     document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
+        btn.classList.toggle("active", btn.dataset.lang === nextLang);
     });
     closeLanguageMenu();
 
     const frame = document.getElementById("game-frame");
-    if (frame && frame.src && !frame.hidden) frame.contentWindow.location.reload();
+    if (frame && frame.src && !frame.hidden) updateFrameLanguage(frame, nextLang);
 }
 
 function toggleLanguageMenu() {
@@ -202,19 +244,12 @@ function openTopic(topicId, mode) {
     localStorage.setItem(SUBJECT_KEY, found.subjectId);
 
     if (!found.topic.available) {
-        const qs = new URLSearchParams({
-            subject: found.subject.label,
-            title: found.topic.title,
-            grade: String(found.topic.grade),
-            strand: found.topic.strand
-        });
-        showTopicFrame(`topics/placeholder.html?${qs.toString()}`, found.topic.title, mode);
+        showTopicFrame(placeholderFrameUrl(found, mode), found.topic.title, mode);
         setAppHash(`${mode}:${topicId}`);
         return;
     }
 
-    const qs = new URLSearchParams({ topic: topicId, mode });
-    showTopicFrame(`topics/template.html?${qs.toString()}`, found.topic.title, mode);
+    showTopicFrame(topicFrameUrl(topicId, mode), found.topic.title, mode);
     setAppHash(`${mode}:${topicId}`);
 }
 
@@ -747,8 +782,8 @@ function radialTopicNode(subjectId, subject, topic, point, state, depth) {
     const fade = state.fade ? `fade-${state.fade}` : "";
     const label = `${topic.title}: ${state.label}`;
     const href = topic.available
-        ? `topics/template.html?topic=${encodeURIComponent(topic.id)}&mode=challenge`
-        : `topics/placeholder.html?title=${encodeURIComponent(topic.title)}`;
+        ? topicFrameUrl(topic.id, "challenge")
+        : `topics/placeholder.html?title=${encodeURIComponent(topic.title)}&mode=challenge&lang=${encodeURIComponent(currentLanguage())}`;
     return `
         <a class="radial-node radial-topic-node ${depth} ${state.status} ${active} ${future} ${fade}"
             href="${href}"
