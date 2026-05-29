@@ -147,6 +147,20 @@ function resetMainViewScroll() {
     [0, 90, 240].forEach(delay => setTimeout(reset, delay));
 }
 
+function centerChallengeMapInView() {
+    const mainView = document.getElementById("main-view");
+    const map = document.querySelector(".radial-skill-map");
+    if (!mainView || !map) return;
+    const center = () => {
+        const mainRect = mainView.getBoundingClientRect();
+        const mapRect = map.getBoundingClientRect();
+        const targetTop = mainView.scrollTop + (mapRect.top - mainRect.top) + mapRect.height / 2 - mainView.clientHeight / 2;
+        mainView.scrollTop = Math.max(0, targetTop);
+    };
+    requestAnimationFrame(() => requestAnimationFrame(center));
+    [90, 240].forEach(delay => setTimeout(center, delay));
+}
+
 function showTopicFrame(url, title, mode = "learn") {
     const frameShell = document.getElementById("frame-shell");
     const frame = document.getElementById("game-frame");
@@ -582,6 +596,28 @@ function resetSkillMapZoom() {
     setSkillMapZoom(0.82);
 }
 
+function zoomSkillMapFromControl(delta) {
+    const scroll = document.querySelector(".radial-skill-scroll");
+    if (!scroll) {
+        zoomSkillMap(delta);
+        centerChallengeMapInView();
+        return;
+    }
+    const ratioX = (scroll.scrollLeft + scroll.clientWidth / 2) / Math.max(1, scroll.scrollWidth);
+    zoomSkillMap(delta);
+    window.requestAnimationFrame(() => {
+        scroll.scrollLeft = scroll.scrollWidth * ratioX - scroll.clientWidth / 2;
+        centerChallengeMapInView();
+    });
+}
+
+function resetSkillMapView() {
+    resetSkillMapZoom();
+    const target = document.getElementById("challenge-map");
+    if (target) centerSkillMap(target);
+    centerChallengeMapInView();
+}
+
 function centerSkillMap(target) {
     const scroll = target.querySelector(".radial-skill-scroll");
     if (!scroll) return;
@@ -629,6 +665,7 @@ function bindSkillMapWheelZoom(target) {
 
     scroll.addEventListener("pointerdown", event => {
         if (event.button !== 0) return;
+        if (event.target.closest(".radial-node")) return;
         dragStart = {
             x: event.clientX,
             y: event.clientY,
@@ -705,24 +742,28 @@ function visibleRadialTopics(subject, entry, completed) {
 }
 
 function radialTopicNode(subjectId, subject, topic, point, state, depth) {
-    const disabled = !state.unlocked && !state.done ? "disabled" : "";
     const active = subjectId === currentSubject ? "active-subject" : "";
     const future = state.future ? "future-hidden" : "";
     const fade = state.fade ? `fade-${state.fade}` : "";
     const label = `${topic.title}: ${state.label}`;
+    const href = topic.available
+        ? `topics/template.html?topic=${encodeURIComponent(topic.id)}&mode=challenge`
+        : `topics/placeholder.html?title=${encodeURIComponent(topic.title)}`;
     return `
-        <button type="button" class="radial-node radial-topic-node ${depth} ${state.status} ${active} ${future} ${fade}"
+        <a class="radial-node radial-topic-node ${depth} ${state.status} ${active} ${future} ${fade}"
+            href="${href}"
             style="--accent:${subject.accent};${radialStyle(point)}"
             title="${topic.title}"
             aria-label="${label}"
-            data-radial-topic="${topic.id}" ${disabled}>
+            aria-disabled="${!state.unlocked && !state.done ? "true" : "false"}"
+            data-radial-topic="${topic.id}">
             <span class="radial-node-dot" aria-hidden="true"></span>
             <span class="radial-tooltip" aria-hidden="true">
                 <span>${depth === "entry" ? "Einstieg" : topic.strand}</span>
                 <strong>${topic.title}</strong>
                 <small>${state.label}</small>
             </span>
-        </button>
+        </a>
     `;
 }
 
@@ -830,6 +871,7 @@ function renderCircularSkillMap(target, completed) {
 
     target.querySelectorAll("[data-radial-topic]").forEach(button => {
         button.addEventListener("click", event => {
+            event.preventDefault();
             if (event.currentTarget.closest(".radial-skill-scroll")?.dataset.suppressClick === "true") return;
             openTopic(button.dataset.radialTopic, "challenge");
         });
@@ -843,13 +885,24 @@ function renderChallenge() {
     const mainView = document.getElementById("main-view");
     mainView.dataset.shellView = "challenge";
     mainView.innerHTML = `
-        <div class="challenge-compact-stats"><span><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span></div>
+        <div class="challenge-map-toolbar">
+            <span class="challenge-compact-stats"><strong data-completed-count>${completed.size}</strong> Kapitel geschafft</span>
+            <div class="challenge-map-actions" aria-label="Skillkarte steuern">
+                <button type="button" class="quiet-action" data-map-zoom-out aria-label="Karte verkleinern">-</button>
+                <button type="button" class="quiet-action" data-map-center aria-label="Karte zentrieren">Zentrum</button>
+                <button type="button" class="quiet-action" data-map-zoom-in aria-label="Karte vergroessern">+</button>
+            </div>
+            <span class="challenge-map-hint">Ziehen zum Verschieben · + / - zum Zoomen · Strg + Mausrad geht auch · Kugel öffnet Kapitel</span>
+        </div>
         <section class="challenge-map" id="challenge-map"></section>
     `;
 
     renderCircularSkillMap(document.getElementById("challenge-map"), completed);
+    mainView.querySelector("[data-map-zoom-out]")?.addEventListener("click", () => zoomSkillMapFromControl(-0.1));
+    mainView.querySelector("[data-map-zoom-in]")?.addEventListener("click", () => zoomSkillMapFromControl(0.1));
+    mainView.querySelector("[data-map-center]")?.addEventListener("click", resetSkillMapView);
     updateShellStats();
-    resetMainViewScroll();
+    centerChallengeMapInView();
     updateTopNav();
 }
 

@@ -773,13 +773,23 @@
             color: #ccfbf1;
         }
 
-        .challenge-compact-stats {
+        .challenge-map-toolbar {
+            align-items: center;
+            background: color-mix(in srgb, var(--shell-panel), transparent 4%);
+            border: 1px solid var(--shell-border);
+            border-radius: 16px;
+            box-shadow: var(--shell-shadow);
             display: flex;
-            justify-content: flex-start;
-            margin: 0 0 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 0 12px;
+            padding: 9px 11px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
-        .challenge-compact-stats span {
+        .challenge-compact-stats {
             background: color-mix(in srgb, var(--shell-panel), #22c55e 12%);
             border: 1px solid #99f6e4;
             border-radius: 999px;
@@ -788,6 +798,22 @@
             font-weight: 900;
             gap: 4px;
             padding: 7px 12px;
+        }
+
+        .challenge-map-actions {
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .challenge-map-actions .quiet-action {
+            min-height: 36px;
+            padding: 7px 10px;
+        }
+
+        .challenge-map-hint {
+            color: var(--shell-muted);
+            font-size: 0.82rem;
+            font-weight: 800;
         }
 
         .challenge-map {
@@ -1108,8 +1134,8 @@
             transform: scale(0.86);
         }
 
-        .radial-topic-node:disabled {
-            cursor: not-allowed;
+        .radial-topic-node[aria-disabled="true"] {
+            cursor: pointer;
         }
 
         [data-theme="dark"] .radial-tooltip {
@@ -1957,6 +1983,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=3.7"></script>
+    <script src="js/app_shell.js?v=3.8"></script>
 </body>
 </html>
