@@ -170,13 +170,18 @@ function allThemeGroups() {
     return groups;
 }
 
+function characterGradeLabel(grade) {
+    if (!grade) return "Extra";
+    return `${grade}. Klasse`;
+}
+
 function themeShopItems() {
     const items = [];
     allThemeGroups().forEach(group => {
         const style = SUBJECT_ITEM_STYLES[group.subjectId] || { icon: group.subject.icon, color: group.subject.accent, thing: "Fundstueck" };
         const idBase = `${group.subjectId}_${group.grade}_${slugify(group.strand)}`;
         const requiredTopics = group.topics.filter(topic => topic.available).map(topic => topic.id);
-        const labelBase = `${group.subject.label}: ${gradeLabel(group.grade)} ${group.strand}`;
+        const labelBase = `${group.subject.label}: ${characterGradeLabel(group.grade)} ${group.strand}`;
         items.push({
             id: `${idBase}_hair`,
             type: "hair",
@@ -886,6 +891,151 @@ function premiumOrkFaceAccessory(accessory, ids, accent) {
         `;
     }
     return "";
+}
+
+function bodyMetrics(body) {
+    const map = {
+        power: { shoulder: 58, waist: 38, head: 33, legWidth: 17, armOffset: 14, backpackX: 50 },
+        compact: { shoulder: 50, waist: 44, head: 32, legWidth: 20, armOffset: 6, backpackX: 54 },
+        slim: { shoulder: 40, waist: 26, head: 29, legWidth: 14, armOffset: 0, backpackX: 60 },
+        clever: { shoulder: 44, waist: 30, head: 31, legWidth: 15, armOffset: 0, backpackX: 58 },
+        nature: { shoulder: 46, waist: 33, head: 32, legWidth: 16, armOffset: 4, backpackX: 56 }
+    };
+    return map[body] || map.clever;
+}
+
+function outfitPattern(outfit, body, accent) {
+    if (outfit.style === "overall") {
+        return `<path d="M84 135v105M136 135v105M84 185h52" stroke="#e0f2fe" stroke-width="6" opacity="0.6" filter="url(#soft-shadow)"/><circle cx="90" cy="156" r="5" fill="#facc15" filter="url(#soft-shadow)"/><circle cx="130" cy="156" r="5" fill="#facc15" filter="url(#soft-shadow)"/>`;
+    }
+    if (outfit.style === "jacket") {
+        return `<path d="M110 125v115M78 155h64" stroke="#ffffff" stroke-width="6" opacity="0.7" filter="url(#soft-shadow)"/><rect x="94" y="156" width="32" height="40" rx="10" fill="${accent}" opacity="0.6" filter="url(#soft-shadow)"/>`;
+    }
+    return `<path d="M82 152 Q110 170 138 152" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.6" filter="url(#soft-shadow)"/><path d="M99 132l11 16 11-16" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.7" filter="url(#soft-shadow)"/>`;
+}
+
+function hairSvg(style, color, groupId) {
+    const twig = groupId === "druide" ? `<path d="M92 32l-12-19M128 33l15-20" stroke="#365314" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/><circle cx="78" cy="12" r="6" fill="#84cc16" filter="url(#soft-shadow)"/><circle cx="145" cy="12" r="6" fill="#84cc16" filter="url(#soft-shadow)"/>` : "";
+    const highlight = `<path d="M85 55 Q110 45 135 55" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.15" stroke-linecap="round"/>`;
+
+    if (style === "long") return `${twig}<path d="M74 74 Q73 30 111 28 Q150 32 148 85 Q142 125 130 140 Q127 100 131 68 Q111 50 86 65 Q89 105 84 138 Q72 115 74 74Z" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
+    if (style === "curls") return `${twig}<g fill="${color}" filter="url(#drop-shadow)"><circle cx="80" cy="55" r="15"/><circle cx="94" cy="40" r="16"/><circle cx="114" cy="35" r="18"/><circle cx="134" cy="45" r="16"/><circle cx="145" cy="65" r="14"/><circle cx="75" cy="70" r="12"/><circle cx="142" cy="82" r="12"/></g>${highlight}`;
+    if (style === "bun") return `${twig}<path d="M78 74 Q82 34 111 30 Q142 36 144 74 Q113 52 78 74Z" fill="${color}" filter="url(#drop-shadow)"/><circle cx="148" cy="45" r="16" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
+    if (style === "streak") return `${twig}<path d="M78 74 Q82 32 111 28 Q144 36 144 76 Q112 50 78 74Z" fill="${color}" filter="url(#drop-shadow)"/><path d="M99 32 Q110 52 103 86" stroke="#fff7ed" stroke-width="8" stroke-linecap="round" opacity="0.9" filter="url(#soft-shadow)"/>${highlight}`;
+    return `${twig}<path d="M78 74 Q82 32 111 28 Q144 36 144 75 Q111 52 78 74Z" fill="${color}" filter="url(#drop-shadow)"/>${highlight}`;
+}
+
+function earSvg(groupId, model, body) {
+    if (groupId === "elf") {
+        return `<path d="M80 76 L42 54 L76 96Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><path d="M140 76 L178 54 L144 96Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
+    }
+    if (groupId === "ork") {
+        return `<path d="M80 82 L50 72 L76 100Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><path d="M140 82 L170 72 L144 100Z" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
+    }
+    return `<ellipse cx="${110 - body.head}" cy="80" rx="6" ry="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/><ellipse cx="${110 + body.head}" cy="80" rx="6" ry="10" fill="url(#skin-gradient)" filter="url(#soft-shadow)"/>`;
+}
+
+function faceSvg(state, model, makeup) {
+    const lashes = state.gender === "female" ? `<path d="M92 73l-7-6M128 73l7-6" stroke="#111827" stroke-width="3" stroke-linecap="round"/>` : "";
+    const freckles = makeup.style === "freckles" ? `<g fill="${model.cheek}" opacity="0.8"><circle cx="89" cy="89" r="2.5"/><circle cx="97" cy="92" r="2"/><circle cx="123" cy="92" r="2"/><circle cx="131" cy="89" r="2.5"/><circle cx="93" cy="94" r="1.5"/><circle cx="127" cy="94" r="1.5"/></g>` : "";
+    const star = makeup.style === "star" ? `<path d="M136 90l3.5 7 8 1-6 6 1.5 8-7-3.5-7 3.5 1.5-8-6-6 8-1z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5" filter="url(#soft-shadow)"/>` : "";
+    const choco = makeup.style === "choco" ? `<path d="M82 93 Q94 105 106 95" fill="none" stroke="#7c2d12" stroke-width="6" stroke-linecap="round" opacity="0.85"/>` : "";
+
+    return `
+        <ellipse cx="96" cy="78" rx="8" ry="6" fill="#ffffff" filter="url(#soft-shadow)"/>
+        <ellipse cx="124" cy="78" rx="8" ry="6" fill="#ffffff" filter="url(#soft-shadow)"/>
+        <circle cx="96" cy="78" r="4.5" fill="url(#eye-iris)"/>
+        <circle cx="96" cy="78" r="2" fill="#000000"/>
+        <circle cx="124" cy="78" r="4.5" fill="url(#eye-iris)"/>
+        <circle cx="124" cy="78" r="2" fill="#000000"/>
+        <circle cx="94" cy="76" r="1.5" fill="#ffffff" opacity="0.9"/>
+        <circle cx="122" cy="76" r="1.5" fill="#ffffff" opacity="0.9"/>
+        ${lashes}
+        <path d="M86 68 Q96 64 104 68" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round" filter="url(#soft-shadow)"/>
+        <path d="M134 68 Q124 64 116 68" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round" filter="url(#soft-shadow)"/>
+        <path d="M106 88 Q110 93 114 88" fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        <path d="M102 98 Q110 104 118 98" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+        <path d="M106 98 Q110 102 114 98" fill="#ec4899" opacity="0.6"/>
+        <ellipse cx="86" cy="94" rx="9" ry="6" fill="${model.cheek}" opacity="0.5" filter="url(#soft-shadow)"/>
+        <ellipse cx="134" cy="94" rx="9" ry="6" fill="${model.cheek}" opacity="0.5" filter="url(#soft-shadow)"/>
+        ${freckles}${star}${choco}
+    `;
+}
+
+function groupExtrasBehind(groupId, model) {
+    if (groupId === "elf") return `<path d="M110 42 Q122 10 142 28" fill="none" stroke="#fde047" stroke-width="5" opacity="0.9" filter="url(#drop-shadow)"/>`;
+    return "";
+}
+
+function groupExtrasFront(groupId, model) {
+    if (groupId === "ork") {
+        return `<path d="M93 103l4 14 5-14M117 103l5 14 4-14" fill="#f8fafc" stroke="#111827" stroke-width="2" filter="url(#soft-shadow)"/><path d="M88 65l18-6M132 65l-18-6" stroke="#111827" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/>`;
+    }
+    if (groupId === "zauberer") {
+        return `<circle cx="96" cy="78" r="11" fill="none" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><circle cx="124" cy="78" r="11" fill="none" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><path d="M107 78h9" stroke="#eab308" stroke-width="3" filter="url(#soft-shadow)"/><path d="M138 52l15-10" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" filter="url(#drop-shadow)"/>`;
+    }
+    if (groupId === "druide") {
+        return `<path d="M128 98q12 12 22 2" stroke="#451a03" stroke-width="6" stroke-linecap="round" opacity="0.8" filter="url(#soft-shadow)"/>`;
+    }
+    if (groupId === "zwerg") {
+        return `<ellipse cx="85" cy="80" rx="4" ry="5" fill="#78350f" filter="url(#soft-shadow)"/><ellipse cx="135" cy="80" rx="4" ry="5" fill="#78350f" filter="url(#soft-shadow)"/>`;
+    }
+    return "";
+}
+
+function heldAccessory(accessory, accent) {
+    if (accessory.id === "acc_none" || accessory.id === "acc_backpack" || accessory.id === "acc_glasses" || accessory.id === "acc_headphones") return "";
+    return `<g transform="translate(151 190)" filter="url(#soft-shadow)"><rect x="-15" y="-18" width="30" height="34" rx="8" fill="${accent}" stroke="#102a27" stroke-width="3"/><text x="0" y="5" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">${accessory.icon || "A"}</text></g>`;
+}
+
+function accessoryOnFace(accessory, accent) {
+    if (accessory.id === "acc_glasses") return `<circle cx="97" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/><circle cx="123" cy="78" r="11" fill="none" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/><path d="M108 78h4" stroke="#111827" stroke-width="3" filter="url(#soft-shadow)"/>`;
+    if (accessory.id === "acc_headphones") return `<path d="M80 76 Q110 35 140 76" fill="none" stroke="#111827" stroke-width="6" filter="url(#soft-shadow)"/><rect x="73" y="72" width="13" height="28" rx="6" fill="${accent}" filter="url(#soft-shadow)"/><rect x="134" y="72" width="13" height="28" rx="6" fill="${accent}" filter="url(#soft-shadow)"/>`;
+    return "";
+}
+
+function orkMiniPortraitSvg(index) {
+    const model = CHARACTER_GROUPS.ork.models[index % CHARACTER_GROUPS.ork.models.length];
+    const hair = model.hair || "#1f2937";
+    const ribbon = index % 3 === 0
+        ? `<path d="M32 11c-6-6-12-5-16 0c5 3 11 3 16 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="1.5"/><path d="M34 11c6-6 12-5 16 0c-5 3-11 3-16 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="1.5"/><circle cx="33" cy="11" r="2.8" fill="#9a641c"/>`
+        : index % 3 === 1
+            ? `<path d="M31 8c3-10 14-9 16 0c-8 0-10 6-6 12" fill="${hair}"/>`
+            : `<circle cx="33" cy="8" r="8" fill="${hair}"/><path d="M21 16q12-7 24 0" stroke="#9a6b3c" stroke-width="3" stroke-linecap="round"/>`;
+    const braids = index % 3 === 1 ? "" : `
+        <g fill="${hair}" opacity="0.95">
+            <ellipse cx="18" cy="35" rx="4" ry="6"/><ellipse cx="16" cy="44" rx="4" ry="6"/>
+            <ellipse cx="46" cy="35" rx="4" ry="6"/><ellipse cx="48" cy="44" rx="4" ry="6"/>
+        </g>
+    `;
+    return `
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <defs>
+                <radialGradient id="ork-mini-skin-${index}" cx="38%" cy="34%" r="70%">
+                    <stop offset="0%" stop-color="#f2ffd7" stop-opacity="0.35"/>
+                    <stop offset="52%" stop-color="${model.skin}"/>
+                    <stop offset="100%" stop-color="#33582e"/>
+                </radialGradient>
+                <filter id="ork-mini-shadow-${index}"><feDropShadow dx="1" dy="2" stdDeviation="1" flood-opacity="0.28"/></filter>
+            </defs>
+            <rect x="2" y="2" width="60" height="60" rx="19" fill="#d9f99d"/>
+            <rect x="5" y="6" width="54" height="56" rx="17" fill="#14532d" opacity="0.18"/>
+            <path d="M16 30L4 22l9 17M48 30l12-8l-9 17" fill="url(#ork-mini-skin-${index})" filter="url(#ork-mini-shadow-${index})"/>
+            <path d="M18 57q14-15 28 0l5 7H13z" fill="#166534" filter="url(#ork-mini-shadow-${index})"/>
+            <path d="M22 47q10 7 20 0" stroke="#f5c94c" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="27" r="18" fill="url(#ork-mini-skin-${index})" filter="url(#ork-mini-shadow-${index})"/>
+            <path d="M17 26Q21 6 34 8Q48 10 48 28Q33 17 17 26Z" fill="${hair}" filter="url(#ork-mini-shadow-${index})"/>
+            ${ribbon}
+            ${braids}
+            <ellipse cx="26" cy="27" rx="3.6" ry="3" fill="#ffffff"/><circle cx="26" cy="27" r="1.6" fill="#111827"/>
+            <ellipse cx="38" cy="27" rx="3.6" ry="3" fill="#ffffff"/><circle cx="38" cy="27" r="1.6" fill="#111827"/>
+            <path d="M21 21l8-3M35 18l8 3" stroke="#111827" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M26 38q6 5 12 0" fill="none" stroke="#111827" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M26 37l2 7l3-6M36 38l3 6l2-7" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+            <g fill="${model.cheek}" opacity="0.62"><circle cx="23" cy="35" r="1.4"/><circle cx="41" cy="35" r="1.4"/></g>
+            <rect x="3" y="3" width="58" height="58" rx="18" fill="none" stroke="#bbf7d0" stroke-width="2"/>
+        </svg>
+    `;
 }
 
 function miniPortraitSvg(groupId, index) {

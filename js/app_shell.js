@@ -963,7 +963,13 @@ function renderCharacterPage() {
     showMainView();
     const mainView = document.getElementById("main-view");
     if (typeof window.renderCharacterDesigner === "function") {
-        window.renderCharacterDesigner(mainView);
+        try {
+            window.renderCharacterDesigner(mainView);
+        } catch (error) {
+            console.error("Character designer render failed", error);
+            mainView.dataset.shellView = "character";
+            mainView.innerHTML = `<section class="character-hero"><h1>Charakterdesigner</h1><p>Der Charakterdesigner konnte gerade nicht geladen werden.</p></section>`;
+        }
     } else {
         mainView.dataset.shellView = "character";
         mainView.innerHTML = `<section class="character-hero"><h1>Charakterdesigner</h1><p>Der Charakterdesigner konnte nicht geladen werden.</p></section>`;
