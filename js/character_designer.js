@@ -10,10 +10,7 @@ const CHARACTER_GROUPS = {
         models: [
             { skin: "#8fcf5b", hair: "#172413", cheek: "#5b8f3f" },
             { skin: "#78b957", hair: "#2f2417", cheek: "#4f7f37" },
-            { skin: "#a3d86c", hair: "#1f2937", cheek: "#699a42" },
-            { skin: "#6eaa52", hair: "#3f2a1d", cheek: "#4c7a37" },
-            { skin: "#9cc96a", hair: "#553c1c", cheek: "#6a913d" },
-            { skin: "#7fc36b", hair: "#111827", cheek: "#4f8d42" }
+            { skin: "#a3d86c", hair: "#1f2937", cheek: "#699a42" }
         ]
     },
     zwerg: {
@@ -265,6 +262,11 @@ function characterEscape(value) {
 
 window.renderCharacterDesigner = function renderCharacterDesigner(mainView) {
     const state = loadCharacterState();
+    const group = CHARACTER_GROUPS[state.group] || CHARACTER_GROUPS.ork;
+    if (Number(state.model) >= group.models.length) {
+        state.model = Number(state.model) % group.models.length;
+        saveCharacterState(state);
+    }
     const completed = getCompletedForCharacter();
     mainView.dataset.shellView = "character";
     mainView.innerHTML = `
@@ -296,7 +298,7 @@ window.renderCharacterDesigner = function renderCharacterDesigner(mainView) {
                         <div class="choice-row">${renderGenderChoices(state)}</div>
                     </div>
                     <div>
-                        <div class="designer-block-head"><h2>Modell</h2><span>6 Varianten je Gruppe</span></div>
+                        <div class="designer-block-head"><h2>Modell</h2><span>${CHARACTER_GROUPS[state.group].models.length} Varianten</span></div>
                         <div class="model-row">${renderModelChoices(state)}</div>
                     </div>
                 </div>
@@ -585,23 +587,39 @@ function characterSvg(state) {
 }
 
 function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColor, hairColor, accent) {
+    const modelIndex = Math.abs(Number(state.model) || 0) % 3;
     const ids = {
         skin: "premium-ork-skin",
         skinSide: "premium-ork-skin-side",
-        outfit: "premium-ork-outfit",
+        coat: "premium-ork-coat",
+        hoodie: "premium-ork-hoodie",
         pants: "premium-ork-pants",
         boot: "premium-ork-boot",
+        scarf: "premium-ork-scarf",
         shadow: "premium-ork-shadow",
         soft: "premium-ork-soft",
-        iris: "premium-ork-iris"
+        iris: "premium-ork-iris",
+        classroom: "premium-ork-classroom",
+        floor: "premium-ork-floor"
     };
     const cheek = model.cheek || "#4f7f37";
     const genderPose = state.gender === "male" ? 2 : state.gender === "female" ? -1 : 0;
-    const modelLean = ((Number(state.model) || 0) % 3 - 1) * 1.2 + genderPose * 0.35;
+    const modelLean = (modelIndex - 1) * 0.8 + genderPose * 0.25;
+    const coatColor = modelIndex === 1 ? "#2f5138" : modelIndex === 2 ? "#315c3a" : "#2f6f3e";
+    const coatDark = modelIndex === 1 ? "#253a2e" : "#17472e";
 
     return `
         <svg class="character-svg" viewBox="0 0 280 360" role="img" aria-label="Schulavatar Ork">
             <defs>
+                <linearGradient id="${ids.classroom}" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#efe2ca"/>
+                    <stop offset="48%" stop-color="#f8ecd7"/>
+                    <stop offset="100%" stop-color="#c6ad8f"/>
+                </linearGradient>
+                <linearGradient id="${ids.floor}" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#a77745"/>
+                    <stop offset="100%" stop-color="#5f351d"/>
+                </linearGradient>
                 <radialGradient id="${ids.skin}" cx="35%" cy="30%" r="72%">
                     <stop offset="0%" stop-color="#f4ffd8" stop-opacity="0.45"/>
                     <stop offset="42%" stop-color="${model.skin}"/>
@@ -611,23 +629,33 @@ function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColo
                     <stop offset="0%" stop-color="${model.skin}"/>
                     <stop offset="100%" stop-color="#345c32"/>
                 </linearGradient>
-                <linearGradient id="${ids.outfit}" x1="0%" x2="0%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="${outfitColor}"/>
-                    <stop offset="58%" stop-color="#1d4ed8"/>
-                    <stop offset="100%" stop-color="#0f172a"/>
+                <linearGradient id="${ids.coat}" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="${coatColor}"/>
+                    <stop offset="64%" stop-color="${coatDark}"/>
+                    <stop offset="100%" stop-color="#0f2f25"/>
+                </linearGradient>
+                <linearGradient id="${ids.hoodie}" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#5a4033"/>
+                    <stop offset="58%" stop-color="#34251f"/>
+                    <stop offset="100%" stop-color="#17100d"/>
                 </linearGradient>
                 <linearGradient id="${ids.pants}" x1="0%" x2="100%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#172554"/>
-                    <stop offset="55%" stop-color="#1f2937"/>
-                    <stop offset="100%" stop-color="#020617"/>
+                    <stop offset="0%" stop-color="#9a6a3a"/>
+                    <stop offset="55%" stop-color="#6f4a2d"/>
+                    <stop offset="100%" stop-color="#3b2417"/>
                 </linearGradient>
                 <linearGradient id="${ids.boot}" x1="0%" x2="0%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color="#334155"/>
-                    <stop offset="100%" stop-color="#020617"/>
+                    <stop offset="0%" stop-color="#6b4a2e"/>
+                    <stop offset="100%" stop-color="#2a1710"/>
+                </linearGradient>
+                <linearGradient id="${ids.scarf}" x1="0%" x2="100%" y1="0%" y2="0%">
+                    <stop offset="0%" stop-color="#f5c94c"/>
+                    <stop offset="47%" stop-color="#9a641c"/>
+                    <stop offset="100%" stop-color="#f5c94c"/>
                 </linearGradient>
                 <radialGradient id="${ids.iris}" cx="45%" cy="38%" r="65%">
                     <stop offset="0%" stop-color="#dffbff"/>
-                    <stop offset="58%" stop-color="${accent}"/>
+                    <stop offset="58%" stop-color="${outfitColor || accent}"/>
                     <stop offset="100%" stop-color="#0f172a"/>
                 </radialGradient>
                 <filter id="${ids.shadow}" x="-25%" y="-25%" width="150%" height="150%">
@@ -637,21 +665,22 @@ function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColo
                     <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#020617" flood-opacity="0.20"/>
                 </filter>
             </defs>
+            ${premiumOrkClassroomBackdrop(modelIndex, ids)}
             <ellipse cx="140" cy="337" rx="92" ry="16" fill="#020617" opacity="0.30"/>
 
-            ${premiumOrkBackpack(accessory, ids)}
             <g transform="rotate(${modelLean} 140 184)" filter="url(#${ids.shadow})">
-                ${premiumOrkLegs(ids, accent)}
-                ${premiumOrkArmsBehind(ids)}
-                ${premiumOrkOutfit(outfit, ids, accent)}
-                ${premiumOrkArmsFront(ids)}
+                ${premiumOrkSatchel(accessory, ids, accent)}
+                ${premiumOrkLegs(ids, accent, modelIndex)}
+                ${premiumOrkArmsBehind(ids, modelIndex)}
+                ${premiumOrkOutfit(outfit, ids, accent, modelIndex)}
+                ${premiumOrkArmsFront(ids, modelIndex)}
                 ${premiumOrkHeldAccessory(accessory, accent)}
 
-                <path d="M122 119h36v39q-18 13-36 0z" fill="url(#${ids.skin})"/>
+                <path d="M122 119h36v38q-18 13-36 0z" fill="url(#${ids.skin})"/>
                 <path d="M119 151q21 15 42 0" fill="none" stroke="#0f172a" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
 
-                <path d="M92 91L42 62l34 59z" fill="url(#${ids.skinSide})"/>
-                <path d="M188 91l50-29l-34 59z" fill="url(#${ids.skinSide})"/>
+                <path d="M93 91L42 60l34 61z" fill="url(#${ids.skinSide})"/>
+                <path d="M187 91l51-31l-34 61z" fill="url(#${ids.skinSide})"/>
                 <path d="M76 93l-17-16M204 93l17-16" fill="none" stroke="#f8fafc" stroke-width="4" opacity="0.30" stroke-linecap="round"/>
 
                 <path d="M88 86
@@ -662,7 +691,7 @@ function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColo
                     fill="url(#${ids.skin})"/>
                 <path d="M101 124c11 21 67 21 78 0c-8 26-28 43-39 43c-12 0-31-17-39-43z" fill="#264724" opacity="0.24"/>
 
-                ${premiumOrkHair(hair.style || "short", hairColor, accent)}
+                ${premiumOrkHair(modelIndex, hair.style || "short", hairColor, accent)}
                 ${premiumOrkFace(state, makeup, cheek, ids, accent)}
                 ${premiumOrkFaceAccessory(accessory, ids, accent)}
             </g>
@@ -670,120 +699,146 @@ function premiumOrkSvg(state, model, hair, outfit, accessory, makeup, outfitColo
     `;
 }
 
-function premiumOrkLegs(ids, accent) {
+function premiumOrkClassroomBackdrop(modelIndex, ids) {
+    const boardText = modelIndex === 0 ? "ORK 1" : modelIndex === 1 ? "ORK 2" : "ORK 3";
     return `
-        <path d="M111 226C103 253 97 279 91 308" fill="none" stroke="url(#${ids.pants})" stroke-width="22" stroke-linecap="round"/>
-        <path d="M169 226c8 27 14 53 20 82" fill="none" stroke="url(#${ids.pants})" stroke-width="22" stroke-linecap="round"/>
-        <path d="M72 306h42c10 0 17 6 19 13c-21 8-51 8-73 2c0-10 4-15 12-15z" fill="url(#${ids.boot})"/>
-        <path d="M168 306h42c8 0 13 5 14 15c-22 6-52 6-73-2c2-8 8-13 17-13z" fill="url(#${ids.boot})"/>
-        <path d="M82 318h34M177 318h34" stroke="${accent}" stroke-width="3" stroke-linecap="round" opacity="0.72"/>
-    `;
-}
-
-function premiumOrkArmsBehind(ids) {
-    return `
-        <path d="M91 165C66 181 54 210 62 244" fill="none" stroke="url(#${ids.skinSide})" stroke-width="20" stroke-linecap="round"/>
-        <path d="M189 165c25 16 37 45 29 79" fill="none" stroke="url(#${ids.skinSide})" stroke-width="20" stroke-linecap="round"/>
-    `;
-}
-
-function premiumOrkArmsFront(ids) {
-    return `
-        <circle cx="62" cy="247" r="13" fill="url(#${ids.skin})"/>
-        <circle cx="218" cy="247" r="13" fill="url(#${ids.skin})"/>
-        <path d="M56 246l-7 8M65 251l-5 10M70 247l3 9" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
-        <path d="M224 246l7 8M215 251l5 10M210 247l-3 9" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
-    `;
-}
-
-function premiumOrkOutfit(outfit, ids, accent) {
-    const style = outfit.style || "hoodie";
-    const torso = `
-        <path d="M84 153
-            C96 134 119 128 140 130
-            C162 128 184 134 196 153
-            L179 231
-            C169 244 111 244 101 231Z"
-            fill="url(#${ids.outfit})"/>
-        <path d="M94 158C116 176 164 176 186 158" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.48" stroke-linecap="round"/>
-    `;
-    if (style === "overall") {
-        return `
-            ${torso}
-            <path d="M111 144v88M169 144v88" stroke="#bfdbfe" stroke-width="10" stroke-linecap="round" opacity="0.75"/>
-            <rect x="109" y="186" width="62" height="44" rx="13" fill="#0f172a" opacity="0.22"/>
-            <circle cx="111" cy="164" r="5" fill="#fde047"/><circle cx="169" cy="164" r="5" fill="#fde047"/>
-            <path d="M122 206h36" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
-        `;
-    }
-    if (style === "jacket") {
-        return `
-            ${torso}
-            <path d="M140 134v102" stroke="#f8fafc" stroke-width="5" opacity="0.86"/>
-            <path d="M101 164c20 18 20 47 12 66M179 164c-20 18-20 47-12 66" fill="none" stroke="#f8fafc" stroke-width="5" opacity="0.68"/>
-            <rect x="119" y="177" width="42" height="35" rx="12" fill="${accent}" opacity="0.72"/>
-        `;
-    }
-    if (style === "shirt") {
-        return `
-            ${torso}
-            <circle cx="140" cy="184" r="24" fill="#ffffff" opacity="0.18"/>
-            <path d="M127 185h26M140 172v26" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.82"/>
-        `;
-    }
-    return `
-        ${torso}
-        <path d="M119 137l21 29l21-29" fill="none" stroke="#f8fafc" stroke-width="7" stroke-linecap="round" opacity="0.80"/>
-        <rect x="111" y="197" width="58" height="29" rx="15" fill="#020617" opacity="0.18"/>
-        <path d="M125 212q15 8 30 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.48"/>
-    `;
-}
-
-function premiumOrkBackpack(accessory, ids) {
-    if (accessory.id !== "acc_backpack") return "";
-    return `
-        <g filter="url(#${ids.soft})">
-            <rect x="54" y="148" width="51" height="116" rx="21" fill="#92400e"/>
-            <path d="M69 170h23M66 202h30" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" opacity="0.82"/>
-            <path d="M91 155C75 182 73 222 94 252" fill="none" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+        <g opacity="0.95">
+            <rect x="12" y="10" width="256" height="340" rx="26" fill="url(#${ids.classroom})"/>
+            <rect x="12" y="250" width="256" height="100" rx="0" fill="url(#${ids.floor})"/>
+            <path d="M38 350l77-100M87 350l48-100M140 350l10-100M193 350l-27-100M244 350l-66-100" stroke="#3c2415" stroke-width="2" opacity="0.30"/>
+            <rect x="28" y="69" width="64" height="43" rx="6" fill="#27352d" opacity="0.82"/>
+            <rect x="26" y="67" width="68" height="47" rx="7" fill="none" stroke="#7a5737" stroke-width="5"/>
+            <path d="M191 54h46v39h-46z" fill="#fef3c7" opacity="0.70"/>
+            <path d="M214 54v39M191 73h46" stroke="#b7793b" stroke-width="3" opacity="0.70"/>
+            <path d="M22 246h236" stroke="#4b2d1d" stroke-width="7" opacity="0.70"/>
+            <path d="M29 228h59M191 226h55" stroke="#6b4327" stroke-width="10" stroke-linecap="round" opacity="0.40"/>
+            <text x="60" y="91" text-anchor="middle" font-size="11" font-weight="900" fill="#d5d8c8" opacity="0.62">${boardText}</text>
         </g>
     `;
 }
 
-function premiumOrkHair(style, hairColor, accent) {
+function premiumOrkLegs(ids, accent, modelIndex) {
+    const leftPatch = modelIndex === 2 ? `<path d="M101 270h18v18h-18z" fill="#3f2d22" stroke="#c89b63" stroke-width="2" opacity="0.75"/>` : "";
+    return `
+        <path d="M113 223C105 254 99 281 94 309" fill="none" stroke="url(#${ids.pants})" stroke-width="25" stroke-linecap="round"/>
+        <path d="M167 223c8 31 14 58 19 86" fill="none" stroke="url(#${ids.pants})" stroke-width="25" stroke-linecap="round"/>
+        <path d="M97 237c13 8 28 8 41 0M144 237c13 8 27 8 40 0" fill="none" stroke="#2b160d" stroke-width="3" opacity="0.42"/>
+        <path d="M90 294h22M169 294h22" stroke="#806044" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
+        <path d="M71 305h43c10 0 18 6 20 14c-21 8-52 8-75 2c0-11 4-16 12-16z" fill="url(#${ids.boot})"/>
+        <path d="M168 305h43c8 0 14 5 15 16c-23 6-53 6-74-2c2-8 8-14 16-14z" fill="url(#${ids.boot})"/>
+        <path d="M82 318h34M178 318h34" stroke="${accent}" stroke-width="3" stroke-linecap="round" opacity="0.58"/>
+        <path d="M158 258h21v19h-21z" fill="#3f2d22" stroke="#c89b63" stroke-width="2" opacity="0.75"/>
+        ${leftPatch}
+    `;
+}
+
+function premiumOrkArmsBehind(ids, modelIndex) {
+    const sleeve = modelIndex === 1 ? "#4a3b32" : "#5a4033";
+    return `
+        <path d="M93 158C67 178 58 215 68 257" fill="none" stroke="${sleeve}" stroke-width="23" stroke-linecap="round"/>
+        <path d="M187 158c28 18 37 45 24 73" fill="none" stroke="${sleeve}" stroke-width="23" stroke-linecap="round"/>
+        <path d="M78 189c18 10 35 11 50 3M171 189c17 8 33 7 47-3" fill="none" stroke="#9ca3af" stroke-width="7" stroke-linecap="round" opacity="0.34"/>
+    `;
+}
+
+function premiumOrkArmsFront(ids, modelIndex) {
+    const handY = modelIndex === 1 ? 225 : 229;
+    return `
+        <circle cx="69" cy="259" r="13" fill="url(#${ids.skin})"/>
+        <circle cx="205" cy="${handY}" r="14" fill="url(#${ids.skin})"/>
+        <path d="M63 257l-7 9M72 263l-5 10M77 259l3 9" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+        <path d="M197 ${handY - 4}q8 9 18 0M204 ${handY + 8}l-1 10" stroke="#244522" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+        <g transform="translate(55 244) rotate(8)" filter="url(#${ids.soft})">
+            <rect x="-9" y="-4" width="31" height="43" rx="5" fill="#ead7b8" stroke="#51351f" stroke-width="3"/>
+            <path d="M-2 3h15M-2 13h14M-2 23h13" stroke="#8a6b4a" stroke-width="2" stroke-linecap="round"/>
+            <path d="M23 26l22 19" stroke="#2f2417" stroke-width="4" stroke-linecap="round"/>
+            <path d="M43 43l6 5" stroke="#f5c94c" stroke-width="5" stroke-linecap="round"/>
+        </g>
+    `;
+}
+
+function premiumOrkOutfit(outfit, ids, accent, modelIndex) {
+    const style = outfit.style || "hoodie";
+    const badge = style === "shirt"
+        ? `<path d="M128 181h24M140 169v24" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.74"/>`
+        : style === "overall"
+            ? `<path d="M115 161v66M165 161v66" stroke="#d6b585" stroke-width="8" stroke-linecap="round" opacity="0.82"/><circle cx="115" cy="173" r="4" fill="#f5c94c"/><circle cx="165" cy="173" r="4" fill="#f5c94c"/>`
+            : style === "jacket"
+                ? `<path d="M140 143v96" stroke="#d6b585" stroke-width="5" opacity="0.82"/><path d="M118 190h44" stroke="${accent}" stroke-width="8" stroke-linecap="round" opacity="0.72"/>`
+                : `<path d="M126 213q15 8 30 0" fill="none" stroke="#ead7b8" stroke-width="3" stroke-linecap="round" opacity="0.58"/>`;
+    const scarfTail = modelIndex === 0
+        ? `<path d="M142 149c10 23 10 46 0 67l18 0c9-23 9-45-1-68z" fill="url(#${ids.scarf})"/><path d="M144 166h16M145 184h14M145 202h11" stroke="#5f3b1b" stroke-width="3" opacity="0.60"/>`
+        : `<path d="M136 148c-5 22-5 45 0 65l18-2c8-22 6-43-2-64z" fill="url(#${ids.scarf})"/><path d="M138 166h16M138 184h15M139 202h11" stroke="#5f3b1b" stroke-width="3" opacity="0.60"/>`;
+    return `
+        <path d="M82 145C94 132 117 126 140 128C164 126 187 132 198 145L221 236C199 243 179 236 166 221L159 323H121L114 221C101 236 81 243 59 236Z" fill="url(#${ids.coat})"/>
+        <path d="M91 151C112 169 168 169 189 151" fill="none" stroke="#d9f99d" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
+        <path d="M105 151C118 141 129 137 140 137C152 137 163 141 176 151L168 231C158 241 122 241 112 231Z" fill="url(#${ids.hoodie})"/>
+        <path d="M108 151l32 33l32-33" fill="none" stroke="#102a1e" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
+        <path d="M107 135c12 24 54 24 66 0c7 10 6 22-5 31c-18 13-38 13-56 0c-11-9-12-21-5-31z" fill="url(#${ids.scarf})"/>
+        <path d="M118 146h44M114 159h52" stroke="#5f3b1b" stroke-width="4" opacity="0.62"/>
+        ${scarfTail}
+        <path d="M105 227h70" stroke="#3b2417" stroke-width="11" stroke-linecap="round"/>
+        <rect x="130" y="221" width="23" height="16" rx="5" fill="#d1a161" stroke="#22130c" stroke-width="3"/>
+        <path d="M91 196c19 13 38 17 58 12M190 195c-18 13-37 17-57 12" fill="none" stroke="#f8fafc" stroke-width="3" opacity="0.15"/>
+        ${badge}
+    `;
+}
+
+function premiumOrkSatchel(accessory, ids, accent) {
+    const patch = accessory.id === "acc_backpack"
+        ? `<path d="M218 234l9 5l9-5v12c0 7-5 12-9 14c-4-2-9-7-9-14z" fill="${accent}" opacity="0.90"/><path d="M221 243h12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>`
+        : `<path d="M218 235h15M219 246h19" stroke="#d6b585" stroke-width="3" stroke-linecap="round" opacity="0.70"/>`;
+    return `
+        <g filter="url(#${ids.soft})">
+            <path d="M174 153C197 180 210 210 217 247" fill="none" stroke="#6b3f22" stroke-width="8" stroke-linecap="round"/>
+            <path d="M196 213h44c12 0 22 9 22 21v54c-23 12-54 12-86 0v-55c0-11 9-20 20-20z" fill="#9a5b2c" stroke="#4a2817" stroke-width="4"/>
+            <path d="M196 220c17 13 46 13 64 0" fill="none" stroke="#d49b5b" stroke-width="5" opacity="0.55"/>
+            <rect x="204" y="226" width="22" height="25" rx="7" fill="#c49a6a" stroke="#5b321b" stroke-width="3"/>
+            ${patch}
+            <path d="M199 278h58M207 213v-11c11-8 25-8 36 0v11" fill="none" stroke="#4a2817" stroke-width="5" stroke-linecap="round"/>
+        </g>
+    `;
+}
+
+function premiumOrkHair(modelIndex, style, hairColor, accent) {
     const color = hairColor || "#1f2937";
+    if (modelIndex === 0) {
+        return `
+            <path d="M92 82C99 40 124 24 154 29C179 34 190 55 189 86C161 67 123 66 92 82Z" fill="${color}"/>
+            <path d="M108 56c22-17 49-16 68 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.18" stroke-linecap="round"/>
+            <g fill="${color}" stroke="#0f172a" stroke-width="1.5" opacity="0.98">
+                <ellipse cx="92" cy="118" rx="9" ry="13"/><ellipse cx="87" cy="137" rx="8" ry="12"/><ellipse cx="84" cy="155" rx="7" ry="10"/>
+                <ellipse cx="188" cy="118" rx="9" ry="13"/><ellipse cx="193" cy="137" rx="8" ry="12"/><ellipse cx="196" cy="155" rx="7" ry="10"/>
+            </g>
+            <path d="M85 152h-13M195 152h13" stroke="${accent}" stroke-width="5" stroke-linecap="round"/>
+            <path d="M139 27c-12-12-24-10-32 0c10 7 22 7 32 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="3"/>
+            <path d="M141 27c12-12 24-10 32 0c-10 7-22 7-32 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="3"/>
+            <circle cx="140" cy="27" r="6" fill="#9a641c" stroke="#6b3f1f" stroke-width="2"/>
+        `;
+    }
+    if (modelIndex === 2 || style === "bun") {
+        return `
+            <path d="M93 82C101 39 126 24 155 30C178 36 188 56 188 85C158 66 124 65 93 82Z" fill="${color}"/>
+            <circle cx="144" cy="20" r="19" fill="${color}"/>
+            <path d="M117 44c17-11 45-11 62 0" fill="none" stroke="#9a6b3c" stroke-width="6" stroke-linecap="round"/>
+            <g fill="${color}" opacity="0.95">
+                <ellipse cx="96" cy="118" rx="7" ry="12"/><ellipse cx="91" cy="136" rx="7" ry="11"/>
+                <ellipse cx="184" cy="118" rx="7" ry="12"/><ellipse cx="189" cy="136" rx="7" ry="11"/>
+            </g>
+            <path d="M127 18q17 11 34 0M130 27q14 8 28 0" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.15"/>
+        `;
+    }
     if (style === "long") {
         return `
-            <path d="M91 82C90 41 118 22 145 25C184 31 192 63 188 102C181 92 170 80 156 71C137 59 117 66 99 83C100 117 93 142 79 155C82 132 75 103 91 82Z" fill="${color}"/>
-            <path d="M102 61c21-18 51-16 70 5" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
-        `;
-    }
-    if (style === "curls") {
-        return `
-            <g fill="${color}">
-                <circle cx="96" cy="75" r="15"/><circle cx="105" cy="54" r="16"/><circle cx="126" cy="42" r="18"/>
-                <circle cx="150" cy="43" r="18"/><circle cx="172" cy="59" r="16"/><circle cx="184" cy="82" r="13"/>
-                <circle cx="90" cy="98" r="12"/>
-            </g>
-        `;
-    }
-    if (style === "bun") {
-        return `
-            <path d="M94 82C101 41 124 25 151 30C174 34 185 54 188 84C158 65 124 64 94 82Z" fill="${color}"/>
-            <circle cx="190" cy="61" r="18" fill="${color}"/>
-            <path d="M176 56q14 8 28 0" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.16"/>
-        `;
-    }
-    if (style === "streak") {
-        return `
-            <path d="M94 82C101 40 126 25 154 30C177 35 187 55 188 85C160 66 126 65 94 82Z" fill="${color}"/>
-            <path d="M133 31C145 51 145 78 135 104" fill="none" stroke="${accent}" stroke-width="9" stroke-linecap="round"/>
+            <path d="M91 82C91 39 119 22 149 27C183 32 193 62 188 103C181 92 170 80 156 71C137 59 117 66 99 83C101 118 94 143 80 157C82 132 75 103 91 82Z" fill="${color}"/>
+            <path d="M105 58c20-15 48-14 66 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
         `;
     }
     return `
-        <path d="M94 83C101 39 126 24 154 30C177 35 187 56 188 86C160 66 126 65 94 83Z" fill="${color}"/>
-        <path d="M120 32l-25 54l44-42l7 48l30-54" fill="${color}" opacity="0.94"/>
-        <path d="M107 61c21-16 45-18 66 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
+        <path d="M94 83C101 38 126 23 154 30C177 35 188 56 188 86C160 66 126 65 94 83Z" fill="${color}"/>
+        <path d="M125 30c6-22 28-23 36-5c-16 0-20 12-12 26" fill="${color}"/>
+        <path d="M116 31l-22 55l39-39l6 43l33-52" fill="${color}" opacity="0.94"/>
+        <path d="M108 61c21-16 45-18 66 4" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.16" stroke-linecap="round"/>
     `;
 }
 
@@ -793,19 +848,21 @@ function premiumOrkFace(state, makeup, cheek, ids, accent) {
     const star = makeup.style === "star" ? `<path d="M170 105l3 6l7 .9l-5 4.7l1.3 7l-6.3-3.4l-6.2 3.4l1.2-7l-5-4.7l7-.9z" fill="#fde047" stroke="#b45309" stroke-width="1.5"/>` : "";
     const choco = makeup.style === "choco" ? `<path d="M103 107c9 12 22 10 28 1" fill="none" stroke="#78350f" stroke-width="6" stroke-linecap="round" opacity="0.9"/>` : "";
     return `
-        <path d="M105 69c12-9 27-8 39 1M136 70c13-9 29-8 40 2" stroke="#0f172a" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
-        <ellipse cx="119" cy="86" rx="11" ry="8" fill="#ffffff"/>
-        <ellipse cx="161" cy="86" rx="11" ry="8" fill="#ffffff"/>
-        <circle cx="119" cy="86" r="5" fill="url(#${ids.iris})"/><circle cx="161" cy="86" r="5" fill="url(#${ids.iris})"/>
-        <circle cx="119" cy="86" r="2.2" fill="#020617"/><circle cx="161" cy="86" r="2.2" fill="#020617"/>
-        <circle cx="116" cy="83" r="1.6" fill="#ffffff"/><circle cx="158" cy="83" r="1.6" fill="#ffffff"/>
+        <path d="M105 72c12-10 27-10 39 0M137 72c12-10 29-9 40 1" stroke="#0f172a" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+        <path d="M108 85q11-9 22 0q-11 8-22 0z" fill="#f8fafc"/>
+        <path d="M150 85q11-9 22 0q-11 8-22 0z" fill="#f8fafc"/>
+        <circle cx="119" cy="85" r="4.2" fill="url(#${ids.iris})"/><circle cx="161" cy="85" r="4.2" fill="url(#${ids.iris})"/>
+        <circle cx="119" cy="85" r="1.9" fill="#020617"/><circle cx="161" cy="85" r="1.9" fill="#020617"/>
+        <circle cx="117" cy="83" r="1.3" fill="#ffffff"/><circle cx="159" cy="83" r="1.3" fill="#ffffff"/>
         ${lashes}
-        <path d="M135 96q5 10 12 0" fill="none" stroke="#122113" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+        <path d="M132 96q8 8 16 0" fill="none" stroke="#122113" stroke-width="3" stroke-linecap="round" opacity="0.62"/>
+        <path d="M131 104q9 5 18 0" fill="none" stroke="#244522" stroke-width="2.5" stroke-linecap="round" opacity="0.48"/>
         <ellipse cx="116" cy="111" rx="9" ry="6" fill="${cheek}" opacity="0.42"/>
         <ellipse cx="164" cy="111" rx="9" ry="6" fill="${cheek}" opacity="0.42"/>
-        <path d="M120 121q20 19 40 0" fill="none" stroke="#101b12" stroke-width="5" stroke-linecap="round"/>
-        <path d="M121 120l7 19l8-16M152 123l8 16l7-19" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
-        <path d="M128 130q12 7 24 0" fill="none" stroke="#f472b6" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+        <path d="M120 121q20 14 40 0" fill="none" stroke="#101b12" stroke-width="4" stroke-linecap="round"/>
+        <path d="M124 121l5 15l7-13M152 123l7 13l5-15" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
+        <path d="M130 128q10 5 20 0" fill="none" stroke="#d48b91" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+        <g fill="${cheek}" opacity="0.42"><circle cx="105" cy="94" r="2"/><circle cx="172" cy="96" r="2"/><circle cx="111" cy="100" r="1.6"/><circle cx="168" cy="102" r="1.6"/></g>
         ${freckles}${star}${choco}
     `;
 }
@@ -813,7 +870,7 @@ function premiumOrkFace(state, makeup, cheek, ids, accent) {
 function premiumOrkHeldAccessory(accessory, accent) {
     if (accessory.id === "acc_none" || accessory.id === "acc_backpack" || accessory.id === "acc_glasses" || accessory.id === "acc_headphones") return "";
     return `
-        <g transform="translate(218 221)" filter="url(#premium-ork-soft)">
+        <g transform="translate(224 211)" filter="url(#premium-ork-soft)">
             <rect x="-19" y="-24" width="38" height="47" rx="12" fill="${accent}" stroke="#0f172a" stroke-width="3"/>
             <path d="M-8-9h16M-8 3h16" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.72"/>
             <text x="0" y="17" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">${accessory.icon || "A"}</text>
@@ -947,7 +1004,53 @@ function accessoryOnFace(accessory, accent) {
     return "";
 }
 
+function orkMiniPortraitSvg(index) {
+    const model = CHARACTER_GROUPS.ork.models[index % CHARACTER_GROUPS.ork.models.length];
+    const hair = model.hair || "#1f2937";
+    const ribbon = index % 3 === 0
+        ? `<path d="M32 11c-6-6-12-5-16 0c5 3 11 3 16 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="1.5"/><path d="M34 11c6-6 12-5 16 0c-5 3-11 3-16 0z" fill="#d8a546" stroke="#6b3f1f" stroke-width="1.5"/><circle cx="33" cy="11" r="2.8" fill="#9a641c"/>`
+        : index % 3 === 1
+            ? `<path d="M31 8c3-10 14-9 16 0c-8 0-10 6-6 12" fill="${hair}"/>`
+            : `<circle cx="33" cy="8" r="8" fill="${hair}"/><path d="M21 16q12-7 24 0" stroke="#9a6b3c" stroke-width="3" stroke-linecap="round"/>`;
+    const braids = index % 3 === 1 ? "" : `
+        <g fill="${hair}" opacity="0.95">
+            <ellipse cx="18" cy="35" rx="4" ry="6"/><ellipse cx="16" cy="44" rx="4" ry="6"/>
+            <ellipse cx="46" cy="35" rx="4" ry="6"/><ellipse cx="48" cy="44" rx="4" ry="6"/>
+        </g>
+    `;
+    return `
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <defs>
+                <radialGradient id="ork-mini-skin-${index}" cx="38%" cy="34%" r="70%">
+                    <stop offset="0%" stop-color="#f2ffd7" stop-opacity="0.35"/>
+                    <stop offset="52%" stop-color="${model.skin}"/>
+                    <stop offset="100%" stop-color="#33582e"/>
+                </radialGradient>
+                <filter id="ork-mini-shadow-${index}"><feDropShadow dx="1" dy="2" stdDeviation="1" flood-opacity="0.28"/></filter>
+            </defs>
+            <rect x="2" y="2" width="60" height="60" rx="19" fill="#d9f99d"/>
+            <rect x="5" y="6" width="54" height="56" rx="17" fill="#14532d" opacity="0.18"/>
+            <path d="M16 30L4 22l9 17M48 30l12-8l-9 17" fill="url(#ork-mini-skin-${index})" filter="url(#ork-mini-shadow-${index})"/>
+            <path d="M18 57q14-15 28 0l5 7H13z" fill="#166534" filter="url(#ork-mini-shadow-${index})"/>
+            <path d="M22 47q10 7 20 0" stroke="#f5c94c" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="27" r="18" fill="url(#ork-mini-skin-${index})" filter="url(#ork-mini-shadow-${index})"/>
+            <path d="M17 26Q21 6 34 8Q48 10 48 28Q33 17 17 26Z" fill="${hair}" filter="url(#ork-mini-shadow-${index})"/>
+            ${ribbon}
+            ${braids}
+            <ellipse cx="26" cy="27" rx="3.6" ry="3" fill="#ffffff"/><circle cx="26" cy="27" r="1.6" fill="#111827"/>
+            <ellipse cx="38" cy="27" rx="3.6" ry="3" fill="#ffffff"/><circle cx="38" cy="27" r="1.6" fill="#111827"/>
+            <path d="M21 21l8-3M35 18l8 3" stroke="#111827" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M26 38q6 5 12 0" fill="none" stroke="#111827" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M26 37l2 7l3-6M36 38l3 6l2-7" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+            <g fill="${model.cheek}" opacity="0.62"><circle cx="23" cy="35" r="1.4"/><circle cx="41" cy="35" r="1.4"/></g>
+            <rect x="3" y="3" width="58" height="58" rx="18" fill="none" stroke="#bbf7d0" stroke-width="2"/>
+        </svg>
+    `;
+}
+
 function miniPortraitSvg(groupId, index) {
+    if (groupId === "ork") return orkMiniPortraitSvg(index);
+
     const group = CHARACTER_GROUPS[groupId] || CHARACTER_GROUPS.ork;
     const model = group.models[index % group.models.length];
     return `
