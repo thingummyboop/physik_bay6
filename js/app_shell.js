@@ -587,7 +587,7 @@ function centerSkillMap(target) {
     if (!scroll) return;
     window.requestAnimationFrame(() => {
         scroll.scrollLeft = Math.max(0, (scroll.scrollWidth - scroll.clientWidth) / 2);
-        scroll.scrollTop = Math.max(0, (scroll.scrollHeight - scroll.clientHeight) / 2);
+        scroll.scrollTop = 0;
     });
 }
 
@@ -608,15 +608,8 @@ function bindSkillMapWheelZoom(target) {
     });
     scroll.addEventListener("wheel", event => {
         if (!event.ctrlKey && !event.metaKey && !event.altKey) {
-            event.preventDefault();
-            window.scrollBy({
-                left: event.deltaX,
-                top: event.deltaY,
-                behavior: "auto"
-            });
             return;
         }
-        if (activeSkillWheelTarget !== scroll && document.activeElement !== scroll) return;
         event.preventDefault();
         const ratioX = (scroll.scrollLeft + scroll.clientWidth / 2) / Math.max(1, scroll.scrollWidth);
         const ratioY = (scroll.scrollTop + scroll.clientHeight / 2) / Math.max(1, scroll.scrollHeight);

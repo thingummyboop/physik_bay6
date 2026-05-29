@@ -804,13 +804,14 @@
 
         .radial-skill-scroll {
             cursor: grab;
-            height: min(82vh, 900px);
-            min-height: 560px;
-            overflow: auto;
+            height: auto;
+            min-height: 0;
+            overflow-x: auto;
+            overflow-y: visible;
             outline: none;
-            padding: 6px 0 18px;
+            padding: 54px 0 72px;
             scrollbar-width: none;
-            touch-action: none;
+            touch-action: pan-y;
         }
 
         .radial-skill-scroll.is-dragging {
@@ -1956,6 +1957,6 @@
 
     <script src="js/curriculum.js?v=1.0"></script>
     <script src="js/character_designer.js?v=1.0"></script>
-    <script src="js/app_shell.js?v=3.6"></script>
+    <script src="js/app_shell.js?v=3.7"></script>
 </body>
 </html>
