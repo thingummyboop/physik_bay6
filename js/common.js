@@ -145,6 +145,33 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 // Standard helper for compatibility
 function handleQuiz(btn, isCorrect, pts) { handleAnswer(btn, isCorrect, pts); }
 
+function handlePracticeAnswer(btn, isCorrect, customMsg = null) {
+    const box = btn.closest('.practice-box') || btn.closest('.quiz-box') || btn.parentElement;
+    if (!box) return;
+
+    const fb = box.querySelector('.feedback');
+    box.querySelectorAll('button').forEach(button => {
+        button.style.background = '';
+        button.style.opacity = '1';
+    });
+
+    if (isCorrect) {
+        playSuccessSound();
+        btn.style.background = "var(--correct)";
+        if (fb) {
+            fb.innerText = customMsg ? "✅ " + customMsg : "✅ Richtig. Genau diese Idee ist wichtig.";
+            fb.style.color = "var(--correct)";
+        }
+    } else {
+        btn.style.background = "var(--wrong)";
+        btn.style.opacity = "0.72";
+        if (fb) {
+            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Noch nicht. Lies den Abschnitt noch einmal und probiere es neu.";
+            fb.style.color = "var(--wrong)";
+        }
+    }
+}
+
 /**
  * Resets progress for the current topic only.
  */
@@ -161,6 +188,14 @@ function resetTopicProgress() {
     let ptsToRemove = topicScores[topicId] || 0;
     topicScores[topicId] = 0;
     localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
+
+    try {
+        const chapterResults = JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+        delete chapterResults[topicId];
+        localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(chapterResults));
+    } catch (error) {
+        localStorage.removeItem('sciverse_chapter_quiz_results');
+    }
 
     globalPhysikScore = Math.max(0, globalPhysikScore - ptsToRemove);
     localStorage.setItem('physik_score', globalPhysikScore);

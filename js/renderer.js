@@ -120,6 +120,263 @@ function withCurrentInteractiveStructure(topic, germanTopic) {
     };
 }
 
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function isCorrectAnswer(answer) {
+    return answer && (answer.correct === true || answer.correct === 'true');
+}
+
+function cleanQuestionText(question) {
+    return stripQuestionNumber(String(question || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim());
+}
+
+function normalizeQuizQuestion(q, source, index) {
+    if (!q || !Array.isArray(q.answers) || q.answers.length < 2) return null;
+    const question = cleanQuestionText(q.question);
+    if (!question) return null;
+
+    const answers = q.answers
+        .filter(ans => ans && ans.text)
+        .map(ans => ({
+            text: String(ans.text),
+            correct: isCorrectAnswer(ans),
+            feedback: ans.feedback ? String(ans.feedback) : ''
+        }));
+
+    if (answers.length < 2 || !answers.some(ans => ans.correct)) return null;
+
+    return {
+        id: String(q.id || `${source}_${index}`),
+        source,
+        question,
+        answers
+    };
+}
+
+function collectChapterQuizQuestions(topic) {
+    const seen = new Set();
+    const addUnique = (list, q) => {
+        if (!q) return;
+        const key = `${q.question.toLowerCase()}|${q.answers.map(ans => ans.text.toLowerCase()).join('|')}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+        list.push(q);
+    };
+
+    const sectionQuestions = [];
+    (topic.sections || []).forEach((section, sectionIndex) => {
+        (section.quizzes || []).forEach((q, quizIndex) => {
+            addUnique(sectionQuestions, normalizeQuizQuestion(q, `section_${sectionIndex}`, quizIndex));
+        });
+    });
+
+    const topicQuestions = [];
+    (topic.quizzes || []).forEach((q, quizIndex) => {
+        addUnique(topicQuestions, normalizeQuizQuestion(q, 'topic', quizIndex));
+    });
+
+    const diplomQuestions = [];
+    ((topic.diplom && topic.diplom.questions) || []).forEach((q, quizIndex) => {
+        addUnique(diplomQuestions, normalizeQuizQuestion(q, 'chapter', quizIndex));
+    });
+
+    const combined = [...diplomQuestions, ...sectionQuestions, ...topicQuestions];
+    return combined.slice(0, 12);
+}
+
+function readChapterQuizResults() {
+    try {
+        return JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+    } catch (error) {
+        return {};
+    }
+}
+
+function writeChapterQuizResults(results) {
+    localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(results || {}));
+}
+
+function getChapterQuizResult(topicId) {
+    const results = readChapterQuizResults();
+    const result = results[topicId] || { attempts: 0, passed: false, bestPercent: 0 };
+    if (!result.passed && result.lockUntil && Number(result.lockUntil) <= Date.now()) {
+        result.attempts = 0;
+        result.lockUntil = 0;
+        results[topicId] = result;
+        writeChapterQuizResults(results);
+    }
+    return result;
+}
+
+function chapterWaitDuration(lockCount) {
+    const hours = [1, 4, 12, 24];
+    return hours[Math.min(Math.max(0, lockCount || 0), hours.length - 1)] * 60 * 60 * 1000;
+}
+
+function formatWaitTime(timestamp) {
+    const remaining = Math.max(0, Number(timestamp || 0) - Date.now());
+    const minutes = Math.ceil(remaining / 60000);
+    if (minutes < 60) return `${minutes} min`;
+    const hours = Math.ceil(minutes / 60);
+    return `${hours} h`;
+}
+
+function unlockChapterQuizWithPlus() {
+    const quiz = window.currentChapterQuiz;
+    if (!quiz) return;
+    const result = getChapterQuizResult(quiz.topicId);
+    if (!result.lockUntil || result.lockUntil <= Date.now()) return;
+
+    const cost = 25;
+    if (globalPhysikScore < cost) {
+        alert(`Du brauchst ${cost} +, um die Wartezeit zu überspringen.`);
+        return;
+    }
+
+    globalPhysikScore -= cost;
+    localStorage.setItem('physik_score', globalPhysikScore);
+    if (typeof updateScoreDisplays === 'function') updateScoreDisplays();
+
+    const results = readChapterQuizResults();
+    results[quiz.topicId] = { ...result, attempts: 0, lockUntil: 0 };
+    writeChapterQuizResults(results);
+    location.reload();
+}
+
+function getTopicSequence(topicId) {
+    const curriculum = (window.parent && window.parent.SCIVERSE_CURRICULUM) || window.SCIVERSE_CURRICULUM;
+    if (!curriculum) return null;
+
+    for (const subject of Object.values(curriculum)) {
+        const topics = (subject.topics || []).filter(topic => topic && topic.available !== false);
+        const index = topics.findIndex(topic => topic.id === topicId);
+        if (index >= 0) return { topics, index };
+    }
+    return null;
+}
+
+function isChapterQuizUnlocked(topicId) {
+    const sequence = getTopicSequence(topicId);
+    if (!sequence || sequence.index <= 0) return true;
+
+    const previous = sequence.topics[sequence.index - 1];
+    if (!previous) return true;
+
+    if (getChapterQuizResult(previous.id).passed) return true;
+    try {
+        const topicScores = JSON.parse(localStorage.getItem('physik_topic_scores') || '{}');
+        return Number(topicScores[previous.id] || 0) > 70;
+    } catch (error) {
+        return false;
+    }
+}
+
+function renderPracticeBox(q) {
+    const normalized = normalizeQuizQuestion(q, 'practice', 0);
+    if (!normalized) return '';
+    const shuffledAnswers = shuffleArray([...normalized.answers]);
+
+    return `
+        <div class="practice-box" data-id="${escapeHtmlAttr(normalized.id)}">
+            <p class="practice-label">Übung</p>
+            <p><strong>${escapeHtml(normalized.question)}</strong></p>
+            ${shuffledAnswers.map(ans => `
+                <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handlePracticeAnswer(this, ${ans.correct}, this.dataset.feedback || null)">${escapeHtml(ans.text)}</button>
+            `).join('')}
+            <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+    `;
+}
+
+function renderChapterQuizCard(topicId, topic, questions) {
+    const result = getChapterQuizResult(topicId);
+    const unlocked = isChapterQuizUnlocked(topicId);
+    const attemptsLeft = Math.max(0, 3 - Number(result.attempts || 0));
+    const waiting = !result.passed && result.lockUntil && Number(result.lockUntil) > Date.now();
+
+    if (!questions.length) {
+        return `
+            <div class="card chapter-quiz-card">
+                <p class="chapter-quiz-kicker">Kapitelquiz</p>
+                <h2>Verständnischeck</h2>
+                <p>Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.</p>
+            </div>
+        `;
+    }
+
+    const lockText = !unlocked
+        ? 'Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.'
+        : waiting
+            ? `Du hast 3 Versuche verbraucht. Neuer Versuch in ${formatWaitTime(result.lockUntil)}.`
+            : '';
+
+    const buttonDisabled = !unlocked || waiting;
+    const status = result.passed
+        ? `Bestanden: ${Math.round(result.bestPercent || 0)}%`
+        : waiting
+            ? 'Wartezeit aktiv'
+            : `${attemptsLeft} von 3 Versuchen übrig`;
+
+    return `
+        <div class="card chapter-quiz-card" id="chapter-quiz-card">
+            <p class="chapter-quiz-kicker">Kapitelquiz</p>
+            <h2>${escapeHtml((topic.diplom && topic.diplom.title) || 'Verständnischeck')}</h2>
+            <p>Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.</p>
+            <div class="chapter-quiz-meta">
+                <span>${escapeHtml(status)}</span>
+                <span>${questions.length} Aufgaben</span>
+            </div>
+            ${lockText ? `<p class="chapter-lock">${escapeHtml(lockText)}</p>` : ''}
+            ${waiting ? '<button type="button" onclick="unlockChapterQuizWithPlus()">Für 25 + sofort freischalten</button>' : ''}
+            <button id="chapter-quiz-launch" type="button" onclick="startChapterQuiz()" ${buttonDisabled ? 'disabled' : ''}>Kapitelquiz öffnen</button>
+        </div>
+    `;
+}
+
+function renderChapterQuizPanel(topicId, topic, questions) {
+    const questionHtml = questions.map((q, questionIndex) => {
+        const answers = shuffleArray(q.answers.map((ans, originalIndex) => ({ ...ans, originalIndex })));
+        return `
+            <fieldset class="chapter-question" data-question-index="${questionIndex}">
+                <legend>${questionIndex + 1}. ${escapeHtml(q.question)}</legend>
+                <div class="chapter-options">
+                    ${answers.map(ans => `
+                        <label>
+                            <input type="radio" name="chapter_q_${questionIndex}" value="${ans.originalIndex}">
+                            <span>${escapeHtml(ans.text)}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            </fieldset>
+        `;
+    }).join('');
+
+    return `
+        <div id="chapter-quiz-panel" class="chapter-quiz-panel" hidden>
+            <div class="chapter-quiz-panel-header">
+                <p class="chapter-quiz-kicker">Kapitelquiz</p>
+                <h1>${escapeHtml(topic.title || 'Kapitelquiz')}</h1>
+                <p>Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.</p>
+            </div>
+            <form id="chapter-quiz-form">
+                ${questionHtml}
+                <div class="chapter-quiz-actions">
+                    <button type="button" onclick="closeChapterQuiz()">Zurück zum Kapitel</button>
+                    <button type="button" class="chapter-submit-btn" onclick="submitChapterQuiz()">Abgeben</button>
+                </div>
+            </form>
+            <div id="chapter-quiz-result" class="chapter-result" role="status" aria-live="polite"></div>
+        </div>
+    `;
+}
+
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
@@ -179,22 +436,9 @@ async function renderTopic() {
         }
 
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
-
-        function renderQuizBox(q) {
-            const shuffledAnswers = shuffleArray([...(q.answers || [])]);
-            return `
-                <div class="quiz-box" data-id="${q.id}">
-                    <p><strong>${q.question}</strong></p>
-                    ${shuffledAnswers.map(ans => {
-                        const pts = Number(ans.pts || q.pts || 0);
-                        return `
-                            <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handleAnswer(this, ${Boolean(ans.correct)}, ${pts}, this.dataset.feedback || null)">${ans.text}</button>
-                        `;
-                    }).join('')}
-                    <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-                </div>
-            `;
-        }
+        const chapterQuestions = collectChapterQuizQuestions(topic);
+        let practiceCount = 0;
+        const maxInlinePractice = Math.min(4, Math.max(1, Math.ceil((topic.sections || []).length / 2)));
 
         topic.sections.forEach(section => {
             const card = document.createElement('div');
@@ -207,7 +451,9 @@ async function renderTopic() {
             // Replace quiz placeholders from old section quizzes and newer topic-level quizzes.
             content = content.replace(/\{\{QUIZ_([^}]+)\}\}/g, (match, quizId) => {
                 const q = sectionQuizMap.get(quizId) || topicQuizMap.get(quizId);
-                return q ? renderQuizBox(q) : match;
+                if (!q || practiceCount >= maxInlinePractice) return '';
+                practiceCount += 1;
+                return renderPracticeBox(q);
             });
 
             html += content;
@@ -215,8 +461,8 @@ async function renderTopic() {
             container.appendChild(card);
         });
 
-        // Diplom
-        if (topic.diplom) {
+        // The old diploma quiz renderer is kept inactive while chapter quizzes use the new test flow.
+        if (false && topic.diplom) {
             const diplomCard = document.createElement('div');
             diplomCard.className = "card";
             diplomCard.style.border = "5px solid var(--primary)";
@@ -241,6 +487,11 @@ async function renderTopic() {
             diplomCard.innerHTML = diplomHtml;
             container.appendChild(diplomCard);
         }
+
+        const quizWrapper = document.createElement('div');
+        quizWrapper.innerHTML = renderChapterQuizCard(topicId, topic, chapterQuestions) + renderChapterQuizPanel(topicId, topic, chapterQuestions);
+        container.appendChild(quizWrapper);
+        window.currentChapterQuiz = { topicId, topicTitle: topic.title, questions: chapterQuestions };
 
         // Check which questions are already solved
         if (typeof checkAnsweredStatus === 'function') {
@@ -268,6 +519,134 @@ async function renderTopic() {
         console.error("Render Error:", e);
         showError("Fehler beim Laden des Inhalts. Bitte überprüfe deine Internetverbindung.");
     }
+}
+
+function setLearningContentVisible(isVisible) {
+    ['topic-title', 'topic-subtitle', 'score-board'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.hidden = !isVisible;
+    });
+
+    document.querySelectorAll('#sections-container > .card, #sections-container > .worksheet-btn, #chapter-quiz-card')
+        .forEach(el => {
+            el.hidden = !isVisible;
+        });
+}
+
+function startChapterQuiz() {
+    const quiz = window.currentChapterQuiz;
+    if (!quiz || !quiz.questions || !quiz.questions.length) return;
+    if (!isChapterQuizUnlocked(quiz.topicId)) return;
+
+    const result = getChapterQuizResult(quiz.topicId);
+    if (!result.passed && Number(result.attempts || 0) >= 3) return;
+    if (!result.passed && result.lockUntil && Number(result.lockUntil) > Date.now()) return;
+
+    const panel = document.getElementById('chapter-quiz-panel');
+    if (!panel) return;
+
+    setLearningContentVisible(false);
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeChapterQuiz() {
+    const panel = document.getElementById('chapter-quiz-panel');
+    if (panel) panel.hidden = true;
+    setLearningContentVisible(true);
+    const card = document.getElementById('chapter-quiz-card');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function submitChapterQuiz() {
+    const quiz = window.currentChapterQuiz;
+    const form = document.getElementById('chapter-quiz-form');
+    const resultBox = document.getElementById('chapter-quiz-result');
+    if (!quiz || !form || !resultBox) return;
+
+    const previousResult = getChapterQuizResult(quiz.topicId);
+    if (!previousResult.passed && previousResult.lockUntil && Number(previousResult.lockUntil) > Date.now()) {
+        resultBox.innerHTML = `<p class="wrong">Bitte warte noch ${formatWaitTime(previousResult.lockUntil)} oder schalte mit + frei.</p>`;
+        return;
+    }
+    if (!previousResult.passed && Number(previousResult.attempts || 0) >= 3) {
+        resultBox.innerHTML = '<p class="wrong">Du hast die 3 Versuche bereits verbraucht.</p>';
+        return;
+    }
+
+    const answers = quiz.questions.map((q, index) => {
+        const selected = form.querySelector(`input[name="chapter_q_${index}"]:checked`);
+        return selected ? Number(selected.value) : null;
+    });
+
+    const firstMissing = answers.findIndex(value => value === null);
+    if (firstMissing >= 0) {
+        resultBox.innerHTML = `<p class="wrong">Bitte beantworte zuerst Aufgabe ${firstMissing + 1}. Du kannst deine Antworten vor der Abgabe noch ändern.</p>`;
+        return;
+    }
+
+    let correct = 0;
+    const details = quiz.questions.map((q, index) => {
+        const selectedAnswer = q.answers[answers[index]];
+        const isCorrect = Boolean(selectedAnswer && selectedAnswer.correct);
+        if (isCorrect) correct += 1;
+        return { question: q, selectedAnswer, isCorrect };
+    });
+
+    const percent = Math.round((correct / quiz.questions.length) * 100);
+    const passed = percent > 70;
+    const results = readChapterQuizResults();
+    const nextResult = {
+        attempts: previousResult.passed ? Number(previousResult.attempts || 0) : Number(previousResult.attempts || 0) + 1,
+        passed: Boolean(previousResult.passed || passed),
+        bestPercent: Math.max(Number(previousResult.bestPercent || 0), percent),
+        lastPercent: percent,
+        lastCorrect: correct,
+        total: quiz.questions.length
+    };
+    if (!nextResult.passed && nextResult.attempts >= 3) {
+        const lockCount = Number(previousResult.lockCount || 0);
+        nextResult.lockCount = lockCount + 1;
+        nextResult.lockUntil = Date.now() + chapterWaitDuration(lockCount);
+    }
+    results[quiz.topicId] = nextResult;
+    writeChapterQuizResults(results);
+
+    let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores') || '{}');
+    const oldTopicScore = Number(topicScores[quiz.topicId] || 0);
+    const newTopicScore = Math.max(oldTopicScore, nextResult.passed ? nextResult.bestPercent : 0);
+    if (newTopicScore > oldTopicScore) {
+        topicScores[quiz.topicId] = newTopicScore;
+        localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
+        globalPhysikScore += Math.round(newTopicScore - oldTopicScore);
+        localStorage.setItem('physik_score', globalPhysikScore);
+        if (typeof updateScoreDisplays === 'function') updateScoreDisplays();
+    }
+
+    form.querySelectorAll('input').forEach(input => input.disabled = true);
+    const submitButton = form.querySelector('.chapter-submit-btn');
+    if (submitButton) submitButton.disabled = true;
+
+    const attemptsLeft = Math.max(0, 3 - nextResult.attempts);
+    const detailHtml = details.slice(0, 4).map((detail, index) => `
+        <li>
+            <strong>${index + 1}.</strong>
+            ${detail.isCorrect ? 'Richtig' : 'Noch nicht'}${detail.selectedAnswer && detail.selectedAnswer.feedback ? `: ${escapeHtml(detail.selectedAnswer.feedback)}` : ''}
+        </li>
+    `).join('');
+
+    resultBox.innerHTML = `
+        <div class="${passed ? 'chapter-passed' : 'chapter-failed'}">
+            <h2>${passed ? 'Bestanden' : 'Noch nicht bestanden'}</h2>
+            <p>${correct} von ${quiz.questions.length} richtig: <strong>${percent}%</strong>.</p>
+            <p>${passed ? 'Das nächste Kapitelquiz ist jetzt freigeschaltet.' : `Du brauchst mehr als 70%. Übrige Versuche: ${attemptsLeft}.`}</p>
+            ${detailHtml ? `<ul>${detailHtml}</ul>` : ''}
+            <div class="chapter-quiz-actions">
+                <button type="button" onclick="location.reload()">${passed ? 'Zurück zum Kapitel' : 'Noch einmal lernen'}</button>
+                ${!passed && attemptsLeft > 0 ? '<button type="button" onclick="location.reload();">Neuen Versuch starten</button>' : ''}
+            </div>
+        </div>
+    `;
 }
 
 function showError(msg) {
