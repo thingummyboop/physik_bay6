@@ -82,58 +82,27 @@ function showColorObject(kind) {
     text.textContent = state.text;
 
     // Build Reflected Rays
-    reflectedRays.innerHTML = '';
+    let reflHtml = '';
     state.reflected.forEach(r => {
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         const yBase = 90 + r.off;
-        path.setAttribute('d', `M 280 ${yBase} Q 330 ${yBase - 20} 380 ${yBase}`);
-        path.setAttribute('fill', 'none');
-        path.setAttribute('stroke', r.c);
-        path.setAttribute('stroke-width', r.w);
-        path.setAttribute('stroke-dasharray', '10,5');
-        path.setAttribute('stroke-linecap', 'round');
-        path.setAttribute('filter', 'url(#glow)');
-        
-        const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-        anim.setAttribute('attributeName', 'stroke-dashoffset');
-        anim.setAttribute('values', '15;0');
-        anim.setAttribute('dur', '0.5s');
-        anim.setAttribute('repeatCount', 'indefinite');
-        path.appendChild(anim);
-        
-        reflectedRays.appendChild(path);
+        reflHtml += `<path d="M 280 ${yBase} Q 330 ${yBase - 20} 380 ${yBase}" fill="none" stroke="${r.c}" stroke-width="${r.w}" stroke-dasharray="10,5" stroke-linecap="round" filter="url(#glow)">
+            <animate attributeName="stroke-dashoffset" values="15;0" dur="0.5s" repeatCount="indefinite" />
+        </path>`;
     });
+    reflectedRays.innerHTML = reflHtml;
 
     // Build Absorbed Rays
-    absorbedRays.innerHTML = '';
+    let absHtml = '';
     if (state.absorbed.length > 0) {
         state.absorbed.forEach((c, i) => {
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
             const x = 210 + i * 20;
-            path.setAttribute('d', `M ${x} 150 L ${x} 200`);
-            path.setAttribute('stroke', c);
-            path.setAttribute('stroke-width', 4);
-            path.setAttribute('stroke-dasharray', '4,4');
-            
-            const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-            anim.setAttribute('attributeName', 'stroke-dashoffset');
-            anim.setAttribute('values', '8;0');
-            anim.setAttribute('dur', '0.6s');
-            anim.setAttribute('repeatCount', 'indefinite');
-            path.appendChild(anim);
-            
-            absorbedRays.appendChild(path);
+            absHtml += `<path d="M ${x} 150 L ${x} 200" stroke="${c}" stroke-width="4" stroke-dasharray="4,4">
+                <animate attributeName="stroke-dashoffset" values="8;0" dur="0.6s" repeatCount="indefinite" />
+            </path>`;
         });
-        
-        const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        txt.setAttribute('x', '230');
-        txt.setAttribute('y', '225');
-        txt.setAttribute('text-anchor', 'middle');
-        txt.setAttribute('fill', '#94a3b8');
-        txt.setAttribute('font-size', '11');
-        txt.textContent = 'absorbiert';
-        absorbedRays.appendChild(txt);
+        absHtml += `<text x="230" y="225" text-anchor="middle" fill="#94a3b8" font-size="11">absorbiert</text>`;
     }
+    absorbedRays.innerHTML = absHtml;
 }
 
 function simulateJump() {

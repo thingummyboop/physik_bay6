@@ -504,7 +504,7 @@ async function renderTopic() {
         // Load optional topic script
         if (topic.script !== false) {
             const script = document.createElement('script');
-            script.src = `../js/topics/${topicId}.js?v=8.5`;
+            script.src = `../js/topics/${topicId}.js?v=8.6`;
             script.async = false;
             script.onload = () => {
                 if (typeof topicInit === 'function') {
