@@ -327,7 +327,7 @@ function renderChapterQuizCard(topicId, topic, questions) {
     return `
         <div class="card chapter-quiz-card" id="chapter-quiz-card">
             <p class="chapter-quiz-kicker">Kapitelquiz</p>
-            <h2>${escapeHtml((topic.diplom && topic.diplom.title) || 'Verständnischeck')}</h2>
+            <h2>${escapeHtml(topic.chapterQuizTitle || 'Verständnischeck zum Kapitel')}</h2>
             <p>Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.</p>
             <div class="chapter-quiz-meta">
                 <span>${escapeHtml(status)}</span>
@@ -391,13 +391,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=6.8`);
+        let response = await fetch(`../lang/${lang}.json?v=6.9`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=6.8`);
+            const deRes = await fetch(`../lang/de.json?v=6.9`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
@@ -438,7 +438,7 @@ async function renderTopic() {
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
         const chapterQuestions = collectChapterQuizQuestions(topic);
         let practiceCount = 0;
-        const maxInlinePractice = Math.min(4, Math.max(1, Math.ceil((topic.sections || []).length / 2)));
+        const maxInlinePractice = Math.min(5, Math.max(2, (topic.sections || []).length));
 
         topic.sections.forEach(section => {
             const card = document.createElement('div');

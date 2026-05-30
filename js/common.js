@@ -259,5 +259,10 @@ window.addEventListener('message', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const resetBtn = document.getElementById('topic-reset-btn');
+    const mode = new URLSearchParams(window.location.search).get('mode');
+    if (resetBtn && mode !== 'challenge') {
+        resetBtn.hidden = true;
+    }
     updateScoreDisplays();
 });
