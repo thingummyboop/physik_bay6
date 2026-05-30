@@ -54,6 +54,8 @@
         .nav-btn { background: transparent; color: var(--nav-btn-color); border: none; width: 100%; text-align: left; padding: 12px 20px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; font-size: 0.95em; }
         .nav-btn:hover, .nav-btn.active { background-color: var(--nav-btn-active-bg); color: var(--text-color); border-left: 4px solid var(--nav-btn-active-border); }
         .nav-btn.active { color: var(--nav-btn-active-text); font-weight: bold; }
+        .nav-btn.planned-topic { color: #94a3b8; opacity: 0.82; font-style: italic; }
+        .nav-btn.planned-topic:hover { opacity: 1; }
         #content-area { flex-grow: 1; position: relative; }
         iframe { width: 100%; height: 100%; border: none; background-color: white; }
         #zeugnis-btn { position: fixed; top: 8px; right: 20px; z-index: 1000; background: linear-gradient(135deg, #FFD700, #FF9800); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; border: 2px solid white; color: #1e293b; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); display: flex; align-items: center; gap: 8px; transition: transform 0.2s; }
@@ -117,9 +119,14 @@
             <select id="subject-select" onchange="handleSubjectChange()" style="width: 100%; padding: 8px; border-radius: 6px; background: var(--main-bg); color: var(--text-color); border: 1px solid var(--nav-btn-active-border); outline: none; margin-bottom: 10px; font-weight: bold; cursor: pointer;">
                 <option value="biologie">🧬 Biologie</option>
                 <option value="chemie">🧪 Chemie</option>
+                <option value="deutsch">📚 Deutsch</option>
                 <option value="dgb">💻 Digitale Grundbildung</option>
+                <option value="englisch">🇬🇧 Englisch</option>
+                <option value="ernaehrung">🥕 Ernährung & Haushalt</option>
                 <option value="geographie">🌍 Geographie & Umwelt</option>
+                <option value="kunst">🗿 Kunst</option>
                 <option value="mathematik">📐 Mathematik</option>
+                <option value="musik">🎵 Musik</option>
                 <option value="physik">🚀 Physik</option>
             </select>
             <div style="display: flex; gap: 5px; margin-bottom: 10px;">
@@ -228,7 +235,11 @@
             },
             geographie: {
                 topics: [
-                    { id: "geo_oesterreich_alltag", title: "🗺️ Österreich im Alltag", grade: "5./6. Schulstufe", category: "Orientierung & Lebensraum" }
+                    { id: "geo_oesterreich_alltag", title: "🗺️ Österreich im Alltag", grade: "5./6. Schulstufe", category: "Orientierung & Lebensraum" },
+                    { id: "geo_1_karten_raeume", title: "🧭 Karten und Räume", grade: "5. Schulstufe (1. Kl.)", category: "Orientierung", available: false },
+                    { id: "geo_2_wirtschaften", title: "🛒 Wirtschaften im Alltag", grade: "6. Schulstufe (2. Kl.)", category: "Wirtschaft", available: false },
+                    { id: "geo_3_europa", title: "🇪🇺 Europa und Vernetzung", grade: "7. Schulstufe (3. Kl.)", category: "Räume", available: false },
+                    { id: "geo_4_globalisierung", title: "🌐 Globalisierung und Nachhaltigkeit", grade: "8. Schulstufe (4. Kl.)", category: "Welt", available: false }
                 ]
             },
             chemie: {
@@ -252,7 +263,72 @@
             },
             biologie: {
                 topics: [
-                    { id: "bio_koerper_gesundheit", title: "🫀 Körper & Gesundheit", grade: "5./6. Schulstufe", category: "Mensch & Gesundheit" }
+                    { id: "bio_koerper_gesundheit", title: "🫀 Körper & Gesundheit", grade: "5./6. Schulstufe", category: "Mensch & Gesundheit" },
+                    { id: "bio_1_lebewesen", title: "🐄 Lebewesen beobachten", grade: "5. Schulstufe (1. Kl.)", category: "Lebewesen", available: false },
+                    { id: "bio_2_oekosysteme", title: "🌿 Ökosysteme und Lebensräume", grade: "6. Schulstufe (2. Kl.)", category: "Umwelt", available: false },
+                    { id: "bio_3_humanbiologie", title: "🫁 Humanbiologie vertiefen", grade: "7. Schulstufe (3. Kl.)", category: "Mensch", available: false },
+                    { id: "bio_4_genetik_evolution", title: "🧬 Genetik, Evolution und Verantwortung", grade: "8. Schulstufe (4. Kl.)", category: "Entwicklung", available: false }
+                ]
+            },
+            deutsch: {
+                topics: [
+                    { id: "deutsch_1_lesen", title: "📖 Lesen: Informationen finden", grade: "5. Schulstufe (1. Kl.)", category: "Lesen", available: false },
+                    { id: "deutsch_1_schreiben", title: "✍️ Sätze, Abschnitte, Erzählen", grade: "5. Schulstufe (1. Kl.)", category: "Schreiben", available: false },
+                    { id: "deutsch_1_sprechen", title: "🎙️ Zuhören und Sprechen", grade: "5. Schulstufe (1. Kl.)", category: "Sprechen", available: false },
+                    { id: "deutsch_1_sprache", title: "🔤 Wortarten und Satzbau", grade: "5. Schulstufe (1. Kl.)", category: "Sprache", available: false },
+                    { id: "deutsch_2_sachtexte", title: "📰 Sachtexte verstehen", grade: "6. Schulstufe (2. Kl.)", category: "Lesen", available: false },
+                    { id: "deutsch_2_berichte", title: "📝 Berichten und Beschreiben", grade: "6. Schulstufe (2. Kl.)", category: "Schreiben", available: false },
+                    { id: "deutsch_2_literatur", title: "📚 Literarische Texte", grade: "6. Schulstufe (2. Kl.)", category: "Literatur", available: false },
+                    { id: "deutsch_3_argumentieren", title: "💬 Argumentieren und Stellung nehmen", grade: "7. Schulstufe (3. Kl.)", category: "Schreiben", available: false },
+                    { id: "deutsch_3_medien", title: "📱 Medien kritisch nutzen", grade: "7. Schulstufe (3. Kl.)", category: "Medien", available: false },
+                    { id: "deutsch_4_bewerbung", title: "📄 Bewerbung und formelle Texte", grade: "8. Schulstufe (4. Kl.)", category: "Praxis", available: false },
+                    { id: "deutsch_4_analyse", title: "🔎 Texte analysieren und interpretieren", grade: "8. Schulstufe (4. Kl.)", category: "Literatur", available: false }
+                ]
+            },
+            englisch: {
+                topics: [
+                    { id: "englisch_1_basics", title: "🇬🇧 Classroom English and me", grade: "5. Schulstufe (1. Kl.)", category: "Communication", available: false },
+                    { id: "englisch_1_listening", title: "🎧 Listening and speaking", grade: "5. Schulstufe (1. Kl.)", category: "Skills", available: false },
+                    { id: "englisch_1_reading", title: "💬 Short texts and messages", grade: "5. Schulstufe (1. Kl.)", category: "Reading", available: false },
+                    { id: "englisch_2_everyday", title: "🚌 Everyday situations", grade: "6. Schulstufe (2. Kl.)", category: "Communication", available: false },
+                    { id: "englisch_2_stories", title: "📘 Stories and descriptions", grade: "6. Schulstufe (2. Kl.)", category: "Writing", available: false },
+                    { id: "englisch_3_opinions", title: "🗣️ Opinions and plans", grade: "7. Schulstufe (3. Kl.)", category: "Speaking", available: false },
+                    { id: "englisch_3_media", title: "🎬 Media and online life", grade: "7. Schulstufe (3. Kl.)", category: "Culture", available: false },
+                    { id: "englisch_4_work", title: "✈️ Work, travel and future", grade: "8. Schulstufe (4. Kl.)", category: "Practice", available: false },
+                    { id: "englisch_4_exam", title: "🧾 Reading, writing, mediation", grade: "8. Schulstufe (4. Kl.)", category: "Skills", available: false }
+                ]
+            },
+            ernaehrung: {
+                topics: [
+                    { id: "eh_1_hygiene", title: "🧼 Hygiene und Sicherheit", grade: "5. Schulstufe (1. Kl.)", category: "Haushalt", available: false },
+                    { id: "eh_1_ernaehrung", title: "🥗 Essen, Trinken, Gesundheit", grade: "5. Schulstufe (1. Kl.)", category: "Ernährung", available: false },
+                    { id: "eh_2_einkaufen", title: "🛒 Einkaufen, Geld, Vorrat", grade: "6. Schulstufe (2. Kl.)", category: "Konsum", available: false },
+                    { id: "eh_2_zubereiten", title: "🍳 Einfache Speisen zubereiten", grade: "6. Schulstufe (2. Kl.)", category: "Praxis", available: false },
+                    { id: "eh_3_nachhaltig", title: "🌱 Nachhaltig essen und handeln", grade: "7. Schulstufe (3. Kl.)", category: "Nachhaltigkeit", available: false },
+                    { id: "eh_3_haushalt", title: "🏠 Haushalt organisieren", grade: "7. Schulstufe (3. Kl.)", category: "Haushalt", available: false },
+                    { id: "eh_4_projekt", title: "🍽️ Mahlzeit planen und reflektieren", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
+                ]
+            },
+            kunst: {
+                topics: [
+                    { id: "kunst_1_linie_farbe", title: "🎨 Linie, Farbe, Form", grade: "5. Schulstufe (1. Kl.)", category: "Grundlagen", available: false },
+                    { id: "kunst_1_wahrnehmen", title: "🖼️ Bilder wahrnehmen", grade: "5. Schulstufe (1. Kl.)", category: "Wahrnehmen", available: false },
+                    { id: "kunst_2_raum", title: "🧊 Raum, Körper, Perspektive", grade: "6. Schulstufe (2. Kl.)", category: "Raum", available: false },
+                    { id: "kunst_2_design", title: "🪑 Design und Alltagsobjekte", grade: "6. Schulstufe (2. Kl.)", category: "Design", available: false },
+                    { id: "kunst_3_foto_medien", title: "📷 Foto, Film und digitale Bilder", grade: "7. Schulstufe (3. Kl.)", category: "Medien", available: false },
+                    { id: "kunst_3_kunstgeschichte", title: "🏛️ Kunst und Gesellschaft", grade: "7. Schulstufe (3. Kl.)", category: "Kultur", available: false },
+                    { id: "kunst_4_portfolio", title: "📁 Portfolio und eigenes Projekt", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
+                ]
+            },
+            musik: {
+                topics: [
+                    { id: "musik_1_stimme_rhythmus", title: "🎤 Stimme, Rhythmus, Puls", grade: "5. Schulstufe (1. Kl.)", category: "Musizieren", available: false },
+                    { id: "musik_1_hoeren", title: "🎧 Hören und Beschreiben", grade: "5. Schulstufe (1. Kl.)", category: "Hören", available: false },
+                    { id: "musik_2_instrumente", title: "🎸 Instrumente und Ensembles", grade: "6. Schulstufe (2. Kl.)", category: "Musikpraxis", available: false },
+                    { id: "musik_2_notation", title: "🎼 Notation und Formen", grade: "6. Schulstufe (2. Kl.)", category: "Grundlagen", available: false },
+                    { id: "musik_3_pop_kultur", title: "🎧 Pop, Medien und Kultur", grade: "7. Schulstufe (3. Kl.)", category: "Kultur", available: false },
+                    { id: "musik_3_gestalten", title: "🎛️ Musik gestalten", grade: "7. Schulstufe (3. Kl.)", category: "Produktion", available: false },
+                    { id: "musik_4_projekt", title: "🎵 Musikprojekt und Reflexion", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
                 ]
             },
             mathematik: {
@@ -345,6 +421,19 @@
             return null;
         }
 
+        function findTopicById(topicId) {
+            for (const [subject, data] of Object.entries(curriculum)) {
+                const topic = data.topics.find(item => item.id === topicId);
+                if (topic) return { subject, topic };
+            }
+            return null;
+        }
+
+        function getSubjectLabel(subject) {
+            const option = document.querySelector(`#subject-select option[value="${subject}"]`);
+            return option ? option.textContent.replace(/^\S+\s*/, '').trim() : subject;
+        }
+
         function setSelectedSubject(subject, shouldSave = true) {
             if (!isKnownSubject(subject)) return;
             const select = document.getElementById('subject-select');
@@ -404,9 +493,10 @@
                 groupItems.forEach(item => {
                     const btn = document.createElement('button');
                     btn.className = 'nav-btn';
+                    if (item.available === false) btn.classList.add('planned-topic');
                     btn.setAttribute('data-page', item.id);
                     btn.onclick = function() { loadPage(item.id, this); };
-                    btn.innerText = item.title;
+                    btn.innerText = item.available === false ? item.title + ' · geplant' : item.title;
                     container.appendChild(btn);
                 });
             }
@@ -436,14 +526,25 @@
 
             // Mapping for simple topic IDs to template URL
             if (!page.includes('/') && !page.includes('.html')) {
-                url = `topics/template.html?topic=${encodeURIComponent(page)}`;
+                const planned = findTopicById(page);
+                if (planned && planned.topic.available === false) {
+                    const params = new URLSearchParams({
+                        title: planned.topic.title.replace(/\s*·\s*geplant$/, ''),
+                        subject: getSubjectLabel(planned.subject),
+                        grade: planned.topic.grade,
+                        strand: planned.topic.category
+                    });
+                    url = `topics/placeholder.html?${params.toString()}`;
+                } else {
+                    url = `topics/template.html?topic=${encodeURIComponent(page)}`;
+                }
             } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => page.includes(x))) {
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
                 url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
             } else if (page === 'topics/glossar.html') {
                 url = 'topics/glossar.html?v=4';
             } else if (page === 'topics/start.html') {
-                url = 'topics/start.html?v=9';
+                url = 'topics/start.html?v=10';
             }
 
             const frame = document.getElementById('game-frame');

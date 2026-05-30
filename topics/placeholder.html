@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thema geplant</title>
+    <link rel="stylesheet" href="../css/style.css?v=5.7">
+    <style>
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .placeholder-card {
+            width: min(760px, 100%);
+            background: var(--card-bg);
+            border: 1px solid var(--box-border);
+            border-top: 6px solid var(--primary);
+            border-radius: 12px;
+            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+            padding: clamp(22px, 5vw, 42px);
+        }
+
+        .placeholder-card h1 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .placeholder-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        .placeholder-meta span {
+            background: var(--interactive-bg);
+            border: 1px solid var(--box-border);
+            border-radius: 999px;
+            color: var(--text);
+            font-weight: 800;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+    <main class="placeholder-card">
+        <p class="eyebrow">Thema geplant</p>
+        <h1 id="placeholder-title">Kapitel</h1>
+        <div class="placeholder-meta">
+            <span id="placeholder-subject">Fach</span>
+            <span id="placeholder-grade">Schulstufe</span>
+            <span id="placeholder-strand">Themengebiet</span>
+        </div>
+        <p>Dieses Themengebiet ist schon im Lehrplanbaum angelegt, aber noch nicht ausgearbeitet.</p>
+        <p>Wenn das Kapitel später erstellt wird, bekommt es zuerst Lerninhalte, danach Übungsfragen und zuletzt ein eigenes Kapitelquiz für die Herausforderung.</p>
+    </main>
+
+    <script>
+        if (localStorage.getItem("physik_dark_mode") === "true") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+
+        window.addEventListener("message", (event) => {
+            if (event.data && event.data.type === "themeChange") {
+                if (event.data.isDark) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.removeAttribute("data-theme");
+                }
+            }
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("placeholder-title").textContent = params.get("title") || "Kapitel";
+        document.getElementById("placeholder-subject").textContent = params.get("subject") || "Fach";
+        document.getElementById("placeholder-grade").textContent = params.get("grade") || "Schulstufe";
+        document.getElementById("placeholder-strand").textContent = params.get("strand") || "Themengebiet";
+    </script>
+</body>
+</html>
