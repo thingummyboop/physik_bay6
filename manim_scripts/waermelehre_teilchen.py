@@ -1,41 +1,74 @@
 from manim import *
 import random
 
+
 class WaermelehreTeilchen(Scene):
     def construct(self):
         self.camera.frame_width = 26
         self.camera.frame_height = 26 * 9 / 16
-        title = Text("Temperatur = Teilchenbewegung").to_edge(UP)
+
+        title = Text("Temperatur = Teilchenbewegung", font_size=44).to_edge(UP, buff=0.45)
         self.play(Write(title))
 
-        box_cold = Rectangle(width=4, height=4, color=BLUE).shift(LEFT*4)
-        box_hot = Rectangle(width=4, height=4, color=RED).shift(RIGHT*4)
+        cold_center = LEFT * 4 + DOWN * 0.8
+        hot_center = RIGHT * 4 + DOWN * 0.8
 
-        cold_text = Text("Kalt (Wenig Bewegung)", color=BLUE, font_size=28).next_to(box_cold, UP, buff=0.5)
-        hot_text = Text("Heiß (Viel Bewegung)", color=RED, font_size=28).next_to(box_hot, UP, buff=0.5)
+        box_cold = Rectangle(width=4, height=4, color=BLUE).move_to(cold_center)
+        box_hot = Rectangle(width=4, height=4, color=RED).move_to(hot_center)
+
+        cold_text = Text("Kalt (wenig Bewegung)", color=BLUE, font_size=28).next_to(box_cold, UP, buff=0.45)
+        hot_text = Text("Heiß (viel Bewegung)", color=RED, font_size=28).next_to(box_hot, UP, buff=0.45)
 
         self.play(Create(box_cold), Create(box_hot), Write(cold_text), Write(hot_text))
 
-        cold_dots = VGroup(*[Dot(color=BLUE, radius=0.15).move_to(LEFT*4 + RIGHT*random.uniform(-1.5,1.5) + UP*random.uniform(-1.5,1.5)) for _ in range(40)])
-        hot_dots = VGroup(*[Dot(color=RED, radius=0.15).move_to(RIGHT*4 + RIGHT*random.uniform(-1.5,1.5) + UP*random.uniform(-1.5,1.5)) for _ in range(40)])
+        cold_dots = VGroup(*[
+            Dot(color=BLUE, radius=0.15).move_to(
+                cold_center + RIGHT * random.uniform(-1.5, 1.5) + UP * random.uniform(-1.5, 1.5)
+            )
+            for _ in range(40)
+        ])
+        hot_dots = VGroup(*[
+            Dot(color=RED, radius=0.15).move_to(
+                hot_center + RIGHT * random.uniform(-1.5, 1.5) + UP * random.uniform(-1.5, 1.5)
+            )
+            for _ in range(40)
+        ])
 
         self.play(FadeIn(cold_dots), FadeIn(hot_dots))
 
+        def keep_dot_inside_box(dot, box):
+            center = box.get_center()
+            margin = dot.radius + 0.12
+            half_width = box.get_width() / 2 - margin
+            half_height = box.get_height() / 2 - margin
+            position = dot.get_center()
+            x = min(max(position[0], center[0] - half_width), center[0] + half_width)
+            y = min(max(position[1], center[1] - half_height), center[1] + half_height)
+            dot.move_to([x, y, position[2]])
+
         def update_cold(mobs, dt):
             for dot in mobs:
-                dot.shift((RIGHT*random.uniform(-0.5,0.5) + UP*random.uniform(-0.5,0.5)) * dt)
+                dot.shift((RIGHT * random.uniform(-0.5, 0.5) + UP * random.uniform(-0.5, 0.5)) * dt)
+                keep_dot_inside_box(dot, box_cold)
 
         def update_hot(mobs, dt):
             for dot in mobs:
-                dot.shift((RIGHT*random.uniform(-12,12) + UP*random.uniform(-12,12)) * dt)
+                dot.shift((RIGHT * random.uniform(-12, 12) + UP * random.uniform(-12, 12)) * dt)
+                keep_dot_inside_box(dot, box_hot)
 
         cold_dots.add_updater(update_cold)
         hot_dots.add_updater(update_hot)
 
-        self.wait(5)
+        self.play(
+            box_hot.animate.stretch_to_fit_width(5.8).stretch_to_fit_height(5.1).move_to(hot_center),
+            hot_text.animate.next_to(hot_center + UP * 2.55, UP, buff=0.25),
+            run_time=2.4,
+        )
+        self.wait(3)
+
         cold_dots.clear_updaters()
         hot_dots.clear_updaters()
-        
-        info = Text("Mehr Wärme = Mehr Platzbedarf (Ausdehnung)", color=YELLOW, font_size=32).move_to(DOWN*4)
+
+        info = Text("Mehr Wärme = mehr Platzbedarf (Ausdehnung)", color=YELLOW, font_size=32).move_to(DOWN * 5.6)
         self.play(Write(info))
         self.wait(2)

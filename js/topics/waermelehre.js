@@ -6,6 +6,26 @@ let burnerInterval;
 let coolingInterval;
 let sunTimer;
 let particleHintState = '';
+let soupHeatTimers = [];
+let soupConductionFrame;
+let soupConductionStart = 0;
+let phaseGasFrame;
+let phaseGasLastTime = 0;
+let phaseGasMolecules = [];
+
+function getParticleBounds(temp) {
+    const expansion = Math.max(0, Math.min(1, temp / 100));
+    const width = 220 + expansion * 70;
+    const height = 130 + expansion * 55;
+    return {
+        xMin: (300 - width) / 2,
+        xMax: (300 + width) / 2,
+        yMin: (200 - height) / 2,
+        yMax: (200 + height) / 2,
+        width,
+        height
+    };
+}
 
 function topicInit() {
     enhanceAccessibility();
@@ -14,11 +34,23 @@ function topicInit() {
     const particleSvg = document.getElementById('particleSvg');
     if (particleSvg) {
         particleSvg.innerHTML = '';
+        particleSvg.setAttribute('viewBox', '0 0 300 200');
+        particleSvg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        const expansionBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        expansionBox.setAttribute('id', 'particleExpansionBox');
+        expansionBox.setAttribute('rx', '12');
+        expansionBox.setAttribute('fill', 'rgba(239, 68, 68, 0.08)');
+        expansionBox.setAttribute('stroke', '#ef4444');
+        expansionBox.setAttribute('stroke-width', '3');
+        expansionBox.setAttribute('stroke-dasharray', '8 6');
+        particleSvg.appendChild(expansionBox);
+
+        const initialBounds = getParticleBounds(Number(document.getElementById('tempRange')?.value || 10));
         particlesData = [];
         for(let i=0; i<60; i++) {
             let p = {
-                x: 20 + Math.random() * 260,
-                y: 20 + Math.random() * 160,
+                x: initialBounds.xMin + 12 + Math.random() * (initialBounds.width - 24),
+                y: initialBounds.yMin + 12 + Math.random() * (initialBounds.height - 24),
                 el: document.createElementNS('http://www.w3.org/2000/svg', 'circle')
             };
             p.el.setAttribute('cx', p.x);
@@ -35,6 +67,7 @@ function topicInit() {
     // Initial calls
     particleHintState = '';
     updateThermometer();
+    resetSoupConductionModel();
     setPhase('ice');
 }
 
@@ -121,7 +154,20 @@ function animateParticles() {
     let color = temp < 40 ? '#1976D2' : (temp < 70 ? '#FF9800' : '#E53935');
     
     let bgBox = document.getElementById('particleBox');
-    if (bgBox) bgBox.style.background = temp < 40 ? '#e3f2fd' : (temp < 70 ? '#fff3e0' : '#ffebee');
+    const bounds = getParticleBounds(temp);
+    if (bgBox) {
+        bgBox.style.background = temp < 40 ? '#e3f2fd' : (temp < 70 ? '#fff3e0' : '#ffebee');
+        bgBox.style.transition = 'background 0.25s ease';
+    }
+    const expansionBox = document.getElementById('particleExpansionBox');
+    if (expansionBox) {
+        expansionBox.setAttribute('x', bounds.xMin.toFixed(1));
+        expansionBox.setAttribute('y', bounds.yMin.toFixed(1));
+        expansionBox.setAttribute('width', bounds.width.toFixed(1));
+        expansionBox.setAttribute('height', bounds.height.toFixed(1));
+        expansionBox.setAttribute('stroke', color);
+        expansionBox.setAttribute('fill', temp < 40 ? 'rgba(25, 118, 210, 0.07)' : (temp < 70 ? 'rgba(255, 152, 0, 0.08)' : 'rgba(229, 57, 53, 0.10)'));
+    }
     
     let tempLabel = temp < 40 ? "Kalt" : (temp < 70 ? "Warm" : "Heiß!");
     let txt = document.getElementById('tempValue');
@@ -146,8 +192,9 @@ function animateParticles() {
         
         let newX = p.x + jitterX;
         let newY = p.y + jitterY;
-        if(newX > 10 && newX < 290) p.x = newX;
-        if(newY > 10 && newY < 190) p.y = newY;
+        const particleMargin = 10;
+        p.x = Math.min(bounds.xMax - particleMargin, Math.max(bounds.xMin + particleMargin, newX));
+        p.y = Math.min(bounds.yMax - particleMargin, Math.max(bounds.yMin + particleMargin, newY));
 
         p.el.setAttribute('cx', p.x);
         p.el.setAttribute('cy', p.y);
@@ -158,6 +205,157 @@ function animateParticles() {
 }
 
 // 2. Wärmeleitung
+function clearSoupHeatTimers() {
+    soupHeatTimers.forEach((timer) => clearTimeout(timer));
+    soupHeatTimers = [];
+}
+
+function getSoupConductionAtoms() {
+    return Array.from(document.querySelectorAll('.conduction-atom'));
+}
+
+function getSoupWoodNodes() {
+    return Array.from(document.querySelectorAll('.wood-fiber-node'));
+}
+
+function resetSoupConductionModel() {
+    clearSoupHeatTimers();
+    stopSoupConductionVibration(true);
+
+    const diagram = document.getElementById('soupDiagram');
+    if (diagram) diagram.classList.remove('is-heating', 'is-hot');
+
+    document.querySelectorAll('.conduction-spring').forEach((spring) => {
+        spring.setAttribute('stroke', '#94a3b8');
+        spring.setAttribute('stroke-width', '3');
+    });
+
+    getSoupConductionAtoms().forEach((atom) => {
+        atom.setAttribute('fill', '#cbd5e1');
+        atom.setAttribute('stroke', '#64748b');
+        atom.setAttribute('cx', atom.dataset.baseCx || atom.getAttribute('cx'));
+        atom.setAttribute('cy', atom.dataset.baseCy || atom.getAttribute('cy'));
+    });
+
+    document.querySelectorAll('.conduction-energy').forEach((energy) => {
+        energy.setAttribute('opacity', '0');
+    });
+
+    getSoupWoodNodes().forEach((node) => {
+        node.setAttribute('fill', node.dataset.baseFill || '#a16207');
+        node.setAttribute('stroke', '#78350f');
+        node.setAttribute('cx', node.dataset.baseCx || node.getAttribute('cx'));
+        node.setAttribute('cy', node.dataset.baseCy || node.getAttribute('cy'));
+    });
+
+    document.querySelectorAll('.wood-damping-wave').forEach((wave) => {
+        wave.setAttribute('opacity', '0');
+        wave.setAttribute('stroke-width', '3');
+    });
+}
+
+function setSoupConductionProgress(progress) {
+    const atoms = getSoupConductionAtoms();
+    atoms.forEach((atom) => {
+        const row = Number(atom.dataset.row || 0);
+        const heatAtRow = Math.max(0, Math.min(1, progress * 1.25 - row * 0.28));
+        const color = heatAtRow > 0.72 ? '#ef4444' : heatAtRow > 0.35 ? '#f97316' : heatAtRow > 0.08 ? '#facc15' : '#cbd5e1';
+        atom.setAttribute('fill', color);
+        atom.setAttribute('stroke', heatAtRow > 0.2 ? '#b91c1c' : '#64748b');
+    });
+
+    document.querySelectorAll('.conduction-spring').forEach((spring) => {
+        const row = Number(spring.dataset.row || 0);
+        const heatAtRow = Math.max(0, Math.min(1, progress * 1.2 - row * 0.28));
+        spring.setAttribute('stroke', heatAtRow > 0.45 ? '#f97316' : heatAtRow > 0.15 ? '#facc15' : '#94a3b8');
+        spring.setAttribute('stroke-width', heatAtRow > 0.45 ? '4' : '3');
+    });
+
+    document.querySelectorAll('.conduction-energy').forEach((energy) => {
+        const index = Number(energy.dataset.step || 0);
+        const visible = progress > 0.18 + index * 0.18;
+        energy.setAttribute('opacity', visible ? '1' : '0');
+    });
+
+    getSoupWoodNodes().forEach((node) => {
+        const index = Number(node.dataset.index || 0);
+        const heatAtNode = Math.max(0, Math.min(1, progress * 0.9 - index * 0.18));
+        const color = heatAtNode > 0.55 ? '#d97706' : heatAtNode > 0.22 ? '#f59e0b' : (node.dataset.baseFill || '#a16207');
+        node.setAttribute('fill', color);
+        node.setAttribute('stroke', heatAtNode > 0.35 ? '#92400e' : '#78350f');
+    });
+
+    document.querySelectorAll('.wood-damping-wave').forEach((wave) => {
+        const index = Number(wave.dataset.step || 0);
+        const waveStrength = Math.max(0, Math.min(1, progress * 1.1 - index * 0.26));
+        wave.setAttribute('opacity', waveStrength > 0.12 ? String(0.8 - index * 0.18) : '0');
+        wave.setAttribute('stroke-width', String(Math.max(1.2, 4 - index * 0.55)));
+    });
+}
+
+function startSoupConductionVibration() {
+    stopSoupConductionVibration(false);
+    const atoms = getSoupConductionAtoms();
+    atoms.forEach((atom) => {
+        if (!atom.dataset.baseCx) atom.dataset.baseCx = atom.getAttribute('cx');
+        if (!atom.dataset.baseCy) atom.dataset.baseCy = atom.getAttribute('cy');
+    });
+    const woodNodes = getSoupWoodNodes();
+    woodNodes.forEach((node) => {
+        if (!node.dataset.baseCx) node.dataset.baseCx = node.getAttribute('cx');
+        if (!node.dataset.baseCy) node.dataset.baseCy = node.getAttribute('cy');
+        if (!node.dataset.baseFill) node.dataset.baseFill = node.getAttribute('fill');
+    });
+
+    const diagram = document.getElementById('soupDiagram');
+    if (diagram) diagram.classList.add('is-heating');
+
+    soupConductionStart = performance.now();
+    const vibrate = (now) => {
+        const elapsed = (now - soupConductionStart) / 1000;
+        atoms.forEach((atom) => {
+            const row = Number(atom.dataset.row || 0);
+            const col = Number(atom.dataset.col || 0);
+            const baseCx = Number(atom.dataset.baseCx);
+            const baseCy = Number(atom.dataset.baseCy);
+            const heatLevel = atom.getAttribute('fill') === '#cbd5e1' ? 0.5 : 1.8;
+            const dx = Math.sin(elapsed * 24 + row * 1.7 + col * 0.9) * heatLevel;
+            const dy = Math.cos(elapsed * 27 + row * 1.1 + col * 1.4) * heatLevel;
+            atom.setAttribute('cx', (baseCx + dx).toFixed(2));
+            atom.setAttribute('cy', (baseCy + dy).toFixed(2));
+        });
+        woodNodes.forEach((node) => {
+            const index = Number(node.dataset.index || 0);
+            const baseCx = Number(node.dataset.baseCx);
+            const baseCy = Number(node.dataset.baseCy);
+            const damping = Math.max(0.15, 1 - index * 0.12);
+            const isWarm = node.getAttribute('fill') !== node.dataset.baseFill;
+            const heatLevel = (isWarm ? 1.05 : 0.3) * damping;
+            const dx = Math.sin(elapsed * 16 + index * 1.4) * heatLevel;
+            const dy = Math.cos(elapsed * 13 + index * 0.8) * heatLevel;
+            node.setAttribute('cx', (baseCx + dx).toFixed(2));
+            node.setAttribute('cy', (baseCy + dy).toFixed(2));
+        });
+        soupConductionFrame = requestAnimationFrame(vibrate);
+    };
+    soupConductionFrame = requestAnimationFrame(vibrate);
+}
+
+function stopSoupConductionVibration(resetPositions) {
+    if (soupConductionFrame) cancelAnimationFrame(soupConductionFrame);
+    soupConductionFrame = null;
+    if (resetPositions) {
+        getSoupConductionAtoms().forEach((atom) => {
+            if (atom.dataset.baseCx) atom.setAttribute('cx', atom.dataset.baseCx);
+            if (atom.dataset.baseCy) atom.setAttribute('cy', atom.dataset.baseCy);
+        });
+        getSoupWoodNodes().forEach((node) => {
+            if (node.dataset.baseCx) node.setAttribute('cx', node.dataset.baseCx);
+            if (node.dataset.baseCy) node.setAttribute('cy', node.dataset.baseCy);
+        });
+    }
+}
+
 function heatSoup() {
     let btn = document.getElementById('soupBtn');
     let mSpoon = document.getElementById('metalSpoon');
@@ -166,25 +364,36 @@ function heatSoup() {
     let txt = document.getElementById('soupText');
     if (!btn || !mSpoon || !soup || !txt) return;
 
+    resetSoupConductionModel();
     btn.disabled = true;
     soup.setAttribute('fill', '#FF5722');
     txt.innerText = "Suppe kocht! Die Wärme wandert den Metalllöffel hinauf...";
     txt.style.color = "#FF5722";
+    startSoupConductionVibration();
 
-    setTimeout(() => {
+    const diagram = document.getElementById('soupDiagram');
+    if (diagram) diagram.classList.add('is-heating');
+
+    [0.2, 0.4, 0.6, 0.8, 1].forEach((progress, index) => {
+        soupHeatTimers.push(setTimeout(() => setSoupConductionProgress(progress), 350 + index * 500));
+    });
+
+    soupHeatTimers.push(setTimeout(() => {
         if (mSpoonBowl) mSpoonBowl.setAttribute('fill', '#ef5350');
         mSpoon.setAttribute('fill', '#ef5350');
+        if (diagram) diagram.classList.add('is-hot');
         txt.innerText = "Aua! Der Metalllöffel ist oben heiß! Das Holz bleibt kalt.";
         
-        setTimeout(() => {
+        soupHeatTimers.push(setTimeout(() => {
+            resetSoupConductionModel();
             mSpoon.setAttribute('fill', '#cfd8dc');
             if (mSpoonBowl) mSpoonBowl.setAttribute('fill', '#cfd8dc');
             soup.setAttribute('fill', '#ffb74d');
             txt.innerText = "Alles wieder abgekühlt.";
             txt.style.color = "#718096";
             btn.disabled = false;
-        }, 4000);
-    }, 500);
+        }, 4000));
+    }, 2800));
 }
 
 // 3. Wärmestrahlung
@@ -193,12 +402,15 @@ function sunShine() {
     if (!btn) return;
     btn.disabled = true;
     
+    const parkingSvg = document.getElementById('parkingSunSvg');
+    if (parkingSvg) parkingSvg.classList.remove('is-sunny', 'is-cooking');
     const rB = document.getElementById('sunRayBlack');
     const rW = document.getElementById('sunRayWhite');
     const bR = document.getElementById('bounceRay');
     if(rB) rB.style.display = 'block';
     if(rW) rW.style.display = 'block';
     if(bR) bR.style.display = 'block';
+    if (parkingSvg) parkingSvg.classList.add('is-sunny');
     
     let tempB = 20;
     let tempW = 20;
@@ -214,14 +426,17 @@ function sunShine() {
         tempW += 0.5;
         if (tBlack) tBlack.innerText = Math.floor(tempB) + "°C";
         if (tWhite) tWhite.innerText = Math.floor(tempW) + "°C";
+        if (parkingSvg && tempB >= 44) parkingSvg.classList.add('is-cooking');
         
         if(tempB >= 60) {
             clearInterval(sunTimer);
-            if (txt) txt.innerText = "Ergebnis: Das schwarze Auto wird viel heißer. Helle Farbe reflektiert mehr Sonnenstrahlung.";
+            if (parkingSvg) parkingSvg.classList.add('is-cooking');
+            if (txt) txt.innerText = "Ergebnis: Auf dem schwarzen Auto brät das Spiegelei. Auf dem weißen bleibt es roh, weil viel Sonnenstrahlung reflektiert wird.";
             setTimeout(() => {
                 if(rB) rB.style.display = 'none';
                 if(rW) rW.style.display = 'none';
                 if(bR) bR.style.display = 'none';
+                if (parkingSvg) parkingSvg.classList.remove('is-sunny', 'is-cooking');
                 if (tBlack) tBlack.innerText = "20°C";
                 if (tWhite) tWhite.innerText = "20°C";
                 if (txt) txt.innerText = "";
@@ -266,26 +481,135 @@ function setPhase(phase) {
     const ice = document.getElementById('phaseIce');
     const water = document.getElementById('phaseWater');
     const steam = document.getElementById('phaseSteam');
+    const model = document.getElementById('phaseModel');
     if (ice) ice.style.display = 'none';
     if (water) water.style.display = 'none';
     if (steam) steam.style.display = 'none';
-    
+    if (model) model.dataset.phase = phase;
+
     let txt = document.getElementById('phaseText');
     if (!txt) return;
+    const fallbackText = {
+        ice: "Fest (Eis): H\u2082O-Molek\u00fcle sitzen geordnet im Gitter. Bindungskr\u00e4fte halten Nachbarn fest, sie zittern nur.",
+        water: "Fl\u00fcssig (Wasser): Die H\u2082O-Molek\u00fcle bleiben nahe beisammen, ihre Bindungen entstehen kurz und l\u00f6sen sich wieder. Deshalb kann Wasser flie\u00dfen.",
+        steam: "Gasf\u00f6rmig (Dampf): Die H\u2082O-Molek\u00fcle sind weit auseinander. Zwischen ihnen wirken kaum noch Bindungskr\u00e4fte, sie fliegen frei umher."
+    };
 
     if(phase === 'ice') {
-        if (ice) ice.style.display = 'block';
-        txt.innerText = "Fest (Eis): Die Teilchen sitzen dicht zusammen und bleiben fast an ihrem Platz.";
+        stopPhaseGasMotion();
+        if (ice) ice.style.display = '';
+        txt.innerText = txt.dataset.iceText || fallbackText.ice;
         txt.style.color = "#1976D2";
     } else if(phase === 'water') {
-        if (water) water.style.display = 'block';
-        txt.innerText = "Flüssig (Wasser): Die Teilchen bleiben nahe beisammen, können aber aneinander vorbeirutschen.";
+        stopPhaseGasMotion();
+        if (water) water.style.display = '';
+        txt.innerText = txt.dataset.waterText || fallbackText.water;
         txt.style.color = "#0288D1";
     } else {
-        if (steam) steam.style.display = 'block';
-        txt.innerText = "Gasförmig (Dampf): Die Teilchen sind weit auseinander und bewegen sich schnell durch den Raum.";
+        if (steam) steam.style.display = '';
+        txt.innerText = txt.dataset.steamText || fallbackText.steam;
         txt.style.color = "#78909C";
+        startPhaseGasMotion();
     }
+}
+
+function stopPhaseGasMotion() {
+    if (phaseGasFrame) {
+        cancelAnimationFrame(phaseGasFrame);
+        phaseGasFrame = null;
+    }
+    phaseGasLastTime = 0;
+}
+
+function startPhaseGasMotion() {
+    const molecules = Array.from(document.querySelectorAll('#phaseSteam .steam-molecule'));
+    if (!molecules.length) return;
+    const starts = [
+        { x: 92, y: 210, vx: 54, vy: -38 },
+        { x: 190, y: 88, vx: 66, vy: 28 },
+        { x: 278, y: 176, vx: -58, vy: -44 },
+        { x: 360, y: 78, vx: -42, vy: 52 },
+        { x: 402, y: 215, vx: -64, vy: -32 }
+    ];
+    phaseGasMolecules = molecules.map((el, i) => {
+        const start = starts[i % starts.length];
+        return {
+            el,
+            x: Number(el.dataset.gasX || start.x),
+            y: Number(el.dataset.gasY || start.y),
+            vx: Number(el.dataset.gasVx || start.vx),
+            vy: Number(el.dataset.gasVy || start.vy),
+            angle: Number(el.dataset.gasAngle || 0)
+        };
+    });
+    stopPhaseGasMotion();
+    phaseGasFrame = requestAnimationFrame(animatePhaseGas);
+}
+
+function animatePhaseGas(timestamp) {
+    const model = document.getElementById('phaseModel');
+    if (!model || model.dataset.phase !== 'steam') {
+        stopPhaseGasMotion();
+        return;
+    }
+
+    const dt = Math.min(0.035, ((timestamp - phaseGasLastTime) || 16) / 1000);
+    phaseGasLastTime = timestamp;
+    const bounds = { left: 76, right: 424, top: 82, bottom: 232 };
+    const radius = 24;
+
+    phaseGasMolecules.forEach(molecule => {
+        molecule.x += molecule.vx * dt;
+        molecule.y += molecule.vy * dt;
+
+        if (molecule.x < bounds.left) {
+            molecule.x = bounds.left;
+            molecule.vx = Math.abs(molecule.vx);
+        } else if (molecule.x > bounds.right) {
+            molecule.x = bounds.right;
+            molecule.vx = -Math.abs(molecule.vx);
+        }
+        if (molecule.y < bounds.top) {
+            molecule.y = bounds.top;
+            molecule.vy = Math.abs(molecule.vy);
+        } else if (molecule.y > bounds.bottom) {
+            molecule.y = bounds.bottom;
+            molecule.vy = -Math.abs(molecule.vy);
+        }
+    });
+
+    for (let i = 0; i < phaseGasMolecules.length; i++) {
+        for (let j = i + 1; j < phaseGasMolecules.length; j++) {
+            const a = phaseGasMolecules[i];
+            const b = phaseGasMolecules[j];
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist > 0 && dist < radius * 1.7) {
+                const nx = dx / dist;
+                const ny = dy / dist;
+                const relativeVelocity = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+                if (relativeVelocity > 0) {
+                    a.vx -= relativeVelocity * nx;
+                    a.vy -= relativeVelocity * ny;
+                    b.vx += relativeVelocity * nx;
+                    b.vy += relativeVelocity * ny;
+                }
+                const push = (radius * 1.7 - dist) / 2;
+                a.x -= nx * push;
+                a.y -= ny * push;
+                b.x += nx * push;
+                b.y += ny * push;
+            }
+        }
+    }
+
+    phaseGasMolecules.forEach(molecule => {
+        molecule.angle = Math.atan2(molecule.vy, molecule.vx) * 180 / Math.PI;
+        molecule.el.setAttribute('transform', `translate(${molecule.x.toFixed(1)} ${molecule.y.toFixed(1)}) rotate(${molecule.angle.toFixed(1)})`);
+    });
+
+    phaseGasFrame = requestAnimationFrame(animatePhaseGas);
 }
 
 // 6. Ausdehnung

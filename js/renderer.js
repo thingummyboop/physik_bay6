@@ -391,13 +391,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=7.0`);
+        let response = await fetch(`../lang/${lang}.json?v=7.1`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=7.0`);
+            const deRes = await fetch(`../lang/de.json?v=7.1`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
@@ -438,7 +438,10 @@ async function renderTopic() {
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
         const chapterQuestions = collectChapterQuizQuestions(topic);
         let practiceCount = 0;
-        const maxInlinePractice = Math.min(5, Math.max(2, (topic.sections || []).length));
+        const configuredPracticeLimit = Number(topic.inlinePracticeLimit);
+        const maxInlinePractice = Number.isFinite(configuredPracticeLimit)
+            ? Math.max(0, configuredPracticeLimit)
+            : Math.min(5, Math.max(2, (topic.sections || []).length));
 
         topic.sections.forEach(section => {
             const card = document.createElement('div');
@@ -501,7 +504,7 @@ async function renderTopic() {
         // Load optional topic script
         if (topic.script !== false) {
             const script = document.createElement('script');
-            script.src = `../js/topics/${topicId}.js?v=8.4`;
+            script.src = `../js/topics/${topicId}.js?v=8.5`;
             script.async = false;
             script.onload = () => {
                 if (typeof topicInit === 'function') {
