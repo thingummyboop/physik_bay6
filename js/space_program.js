@@ -87,10 +87,10 @@ const SLOTS = [
 ];
 
 const MISSIONS = [
-    { id: "hop", name: "Trainingssprung", targetAlt: 220, targetSpeed: 5.2, reward: "Erste Startkontrolle", desc: "Steige auf 220 m, sammle ein Science-Symbol und lande weich." },
-    { id: "suborbit", name: "Suborbitalflug", targetAlt: 520, targetSpeed: 6.3, reward: "Atmosphären-Daten", desc: "Fliege höher als die Wolken und bringe die Daten zurück." },
-    { id: "orbit", name: "Niedriger Orbit", targetAlt: 900, targetSpeed: 7.6, reward: "Orbit-Badge", desc: "Erreiche genug Höhe und seitliche Geschwindigkeit für einen stabilen Orbit." },
-    { id: "moon", name: "Mond-Vorbeiflug", targetAlt: 1250, targetSpeed: 8.6, reward: "Mondkarte", desc: "Schaffe eine weite Flugbahn und halte die Rakete kontrollierbar." }
+    { id: "hop", name: "Trainingssprung", targetAlt: 220, targetSpeed: 5.2, reward: "Erste Startkontrolle", points: 12, desc: "Steige auf 220 m, aktiviere dein Science-Modul, sammle ein Science-Symbol und lande weich." },
+    { id: "suborbit", name: "Suborbitalflug", targetAlt: 520, targetSpeed: 6.3, reward: "Atmosphären-Daten", points: 18, desc: "Fliege höher als die Wolken, sichere die Daten und bringe sie zurück." },
+    { id: "orbit", name: "Niedriger Orbit", targetAlt: 900, targetSpeed: 7.6, reward: "Orbit-Badge", points: 26, desc: "Erreiche genug Höhe und seitliche Geschwindigkeit für einen stabilen Orbit." },
+    { id: "moon", name: "Mond-Vorbeiflug", targetAlt: 1250, targetSpeed: 8.6, reward: "Mondkarte", points: 34, desc: "Schaffe eine weite Flugbahn, sammle Daten und halte die Rakete kontrollierbar." }
 ];
 
 const DEFAULT_STATE = {
@@ -116,6 +116,7 @@ let flightState = null;
 let controls = { left: false, right: false, throttleUp: false, throttleDown: false };
 let animationId = null;
 let lastFrameTime = 0;
+let lastUiRenderTime = 0;
 
 document.addEventListener("DOMContentLoaded", initSpaceProgram);
 
@@ -144,12 +145,16 @@ function initSpaceProgram() {
         programState.selectedMission = event.target.value;
         saveProgramState();
         resetFlight();
+        renderMissionOptions();
         renderMission();
+        renderMissionJournal();
     });
 
     document.getElementById("btnIgnite").addEventListener("click", igniteFlight);
     document.getElementById("btnPause").addEventListener("click", togglePause);
     document.getElementById("btnResetFlight").addEventListener("click", resetFlight);
+    document.getElementById("btnScienceActivate")?.addEventListener("click", activateScience);
+    document.getElementById("btnTransmitScience")?.addEventListener("click", transmitScience);
     setupControls();
 
     renderModelCards();
@@ -249,8 +254,10 @@ function chooseModel(modelId) {
 
 function renderEverything() {
     document.getElementById("sspPoints").textContent = getPoints();
+    normalizeSelectedMission();
     renderMissionOptions();
     renderMission();
+    renderMissionJournal();
     renderRocketPanels();
     renderUnlockSummary();
     renderWorkshop();
@@ -270,6 +277,10 @@ function getPart(id) {
 
 function getEquippedParts() {
     return SLOTS.map(slot => getPart(programState.equipped[slot.id])).filter(Boolean);
+}
+
+function getEquippedPart(slotId) {
+    return getPart(programState.equipped[slotId]);
 }
 
 function getRocketStats() {
@@ -304,23 +315,99 @@ function statCard(label, value) {
 }
 
 function renderMissionOptions() {
+    normalizeSelectedMission();
     const select = document.getElementById("missionSelect");
-    select.innerHTML = MISSIONS.map(mission => `<option value="${mission.id}">${escapeHtml(mission.name)}</option>`).join("");
+    select.innerHTML = getAvailableMissions().map(mission => {
+        const done = programState.missionLog[mission.id];
+        return `<option value="${mission.id}">${escapeHtml(mission.name)}${done ? " ✓" : ""}</option>`;
+    }).join("");
     select.value = programState.selectedMission;
 }
 
 function getMission() {
+    normalizeSelectedMission();
     return MISSIONS.find(mission => mission.id === programState.selectedMission) || MISSIONS[0];
 }
 
 function renderMission() {
+    normalizeSelectedMission();
     const mission = getMission();
     const done = programState.missionLog[mission.id];
+    const next = getNextMission(mission.id);
     document.getElementById("missionBrief").innerHTML = `
         <strong>${escapeHtml(mission.name)}</strong>
         <p>${escapeHtml(mission.desc)}</p>
-        <small>Zielhöhe: ${mission.targetAlt} m · Ziel: ${escapeHtml(mission.reward)}${done ? " · geschafft" : ""}</small>
+        <small>Zielhöhe: ${mission.targetAlt} m · Belohnung: ${escapeHtml(mission.reward)} · ${mission.points} Punkte${done ? " · geschafft" : ""}${next && !done ? " · danach: " + escapeHtml(next.name) : ""}</small>
     `;
+}
+
+function normalizeSelectedMission() {
+    const selected = MISSIONS.find(mission => mission.id === programState.selectedMission);
+    const available = getAvailableMissions();
+    if (!selected || !available.some(mission => mission.id === selected.id)) {
+        const firstOpen = getFirstOpenMission();
+        programState.selectedMission = firstOpen.id;
+        saveProgramState();
+    }
+}
+
+function getAvailableMissions() {
+    const firstOpenIndex = MISSIONS.findIndex(mission => !programState.missionLog[mission.id]);
+    const openIndex = firstOpenIndex === -1 ? MISSIONS.length - 1 : firstOpenIndex;
+    return MISSIONS.filter((mission, index) => index <= openIndex || programState.missionLog[mission.id]);
+}
+
+function getFirstOpenMission() {
+    return MISSIONS.find(mission => !programState.missionLog[mission.id]) || MISSIONS[MISSIONS.length - 1];
+}
+
+function getNextMission(missionId) {
+    const index = MISSIONS.findIndex(mission => mission.id === missionId);
+    return index >= 0 ? MISSIONS[index + 1] || null : null;
+}
+
+function renderMissionJournal() {
+    const container = document.getElementById("missionJournal");
+    if (!container) return;
+    const firstOpen = getFirstOpenMission();
+    container.innerHTML = `
+        <p class="space-kicker">Journal</p>
+        ${MISSIONS.map((mission, index) => {
+            const done = programState.missionLog[mission.id];
+            const current = mission.id === programState.selectedMission;
+            const locked = !done && mission.id !== firstOpen.id && !getAvailableMissions().some(item => item.id === mission.id);
+            const detail = done
+                ? `geschafft · max. ${Math.round(done.maxAlt || 0)} m · Science ${Math.round(done.science || 0)}`
+                : locked ? "gesperrt bis zur vorherigen Mission" : "aktive Mission";
+            return `
+                <div class="journal-row ${done ? "done" : ""} ${current ? "current" : ""}">
+                    <div>
+                        <strong>${index + 1}. ${escapeHtml(mission.name)}</strong>
+                        <small>${escapeHtml(detail)}</small>
+                    </div>
+                    ${locked ? "" : `<button type="button" data-replay-mission="${mission.id}">${done ? "Wiederholen" : "Starten"}</button>`}
+                </div>
+            `;
+        }).join("")}
+    `;
+    container.querySelectorAll("[data-replay-mission]").forEach(button => {
+        button.addEventListener("click", () => replayMission(button.dataset.replayMission));
+    });
+}
+
+function replayMission(missionId) {
+    if (!getAvailableMissions().some(mission => mission.id === missionId)) return;
+    programState.selectedMission = missionId;
+    saveProgramState();
+    renderMissionOptions();
+    renderMission();
+    renderMissionJournal();
+    resetFlight();
+    if (flightState) {
+        const mission = getMission();
+        flightState.message = `${mission.name} im Journal geladen. Space startet die erste Stufe.`;
+        renderFlightSystems();
+    }
 }
 
 function renderUnlockSummary() {
@@ -521,6 +608,7 @@ function setTab(tabName) {
 
 function resetFlight() {
     const stats = getRocketStats();
+    lastUiRenderTime = 0;
     flightState = {
         x: 550,
         y: 585,
@@ -537,9 +625,15 @@ function resetFlight() {
         throttle: 0,
         engineActive: false,
         boostersAttached: true,
+        boosterActive: false,
         boosterFuel: Math.max(38, 24 + stats.thrust * 5),
         boosterMaxFuel: Math.max(38, 24 + stats.thrust * 5),
+        lastBoosterPct: 100,
         boosterEmptyAnnounced: false,
+        scienceActive: false,
+        scienceStored: false,
+        scienceTransmitted: false,
+        scienceValue: 0,
         parachuteDeployed: false,
         chuteDamaged: false,
         currentStage: 3,
@@ -636,28 +730,59 @@ function setThrottle(value) {
     if (fill) fill.style.width = `${Math.round(flightState.throttle * 100)}%`;
 }
 
+function activateScience() {
+    if (!flightState) return;
+    const sciencePart = getEquippedPart("science");
+    flightState.scienceActive = true;
+    flightState.message = `${sciencePart?.name || "Science-Modul"} aktiv: fliege durch das grüne Symbol, dann Daten sichern.`;
+    tryCollectScience();
+    renderFlightSystems();
+}
+
+function transmitScience() {
+    if (!flightState) return;
+    if (!flightState.scienceStored) {
+        flightState.message = "Noch keine Science-Daten gespeichert. Erst Experiment aktivieren und durch das grüne Symbol fliegen.";
+        renderFlightSystems();
+        return;
+    }
+    flightState.scienceTransmitted = true;
+    if (flightState.currentStage === 1) flightState.currentStage = 0;
+    flightState.message = `Science-Daten gesichert: +${flightState.scienceValue} Forschungswert für diese Mission.`;
+    renderFlightSystems();
+}
+
 function stageRocket() {
     if (!flightState || flightState.crashed || flightState.completed) resetFlight();
     if (flightState.currentStage === 3) {
         flightState.engineActive = true;
+        flightState.boosterActive = flightState.boostersAttached && flightState.boosterFuel > 0;
         flightState.launched = true;
         flightState.landed = false;
         flightState.paused = false;
         flightState.message = flightState.throttle < 0.04
-            ? "Stufe 3 gezündet. Schubhebel steht auf 0: Z oder Shift gibt Schub."
-            : "Stufe 3: Haupttriebwerk und Booster gezündet.";
+            ? "Stufe 3 gezündet. Solid-Booster brennen, Haupttriebwerk wartet auf Schubhebel."
+            : "Stufe 3: Haupttriebwerk und Solid-Booster gezündet.";
         flightState.currentStage = 2;
     } else if (flightState.currentStage === 2) {
         flightState.boostersAttached = false;
+        flightState.boosterActive = false;
         flightState.vx *= 1.03;
         flightState.vy *= 0.98;
         flightState.message = "Stufe 2: leere Booster abgeworfen. Die Rakete ist leichter.";
         flightState.currentStage = 1;
     } else if (flightState.currentStage === 1) {
-        flightState.message = flightState.collected
-            ? "Stufe 1: Science-Daten im Bordcomputer gesichert."
-            : "Stufe 1: Science-Modul bereit. Fliege durch das grüne Symbol.";
-        flightState.currentStage = 0;
+        if (!flightState.scienceActive) {
+            activateScience();
+            flightState.message = "Stufe 1: Science-Modul aktiviert. Fliege durch das grüne Symbol.";
+        } else if (flightState.scienceStored && !flightState.scienceTransmitted) {
+            transmitScience();
+        } else if (flightState.scienceTransmitted) {
+            flightState.currentStage = 0;
+            flightState.message = "Science erledigt. Nächste Stufe ist der Fallschirm.";
+        } else {
+            flightState.message = "Science-Modul sucht noch Daten. Fliege durch das grüne Symbol.";
+        }
     } else if (flightState.currentStage === 0) {
         flightState.parachuteDeployed = true;
         flightState.message = "Stufe 0: Fallschirm ausgefahren. Nicht zu früh und nicht zu schnell!";
@@ -762,16 +887,23 @@ function updateManeuverReadout() {
 }
 
 function startAnimationLoop() {
-    if (animationId) cancelAnimationFrame(animationId);
+    if (animationId) clearTimeout(animationId);
     lastFrameTime = performance.now();
-    const tick = now => {
-        const dt = Math.min(3, (now - lastFrameTime) / 16.67);
+    const tick = () => {
+        const now = performance.now();
+        const elapsed = now - lastFrameTime;
+        const minFrameMs = flightState?.launched && !flightState.paused ? 34 : 180;
+        if (elapsed < minFrameMs) {
+            animationId = setTimeout(tick, 16);
+            return;
+        }
+        const dt = Math.min(3, elapsed / 16.67);
         lastFrameTime = now;
         updateFlight(dt);
         drawFlight();
-        animationId = requestAnimationFrame(tick);
+        animationId = setTimeout(tick, 16);
     };
-    animationId = requestAnimationFrame(tick);
+    animationId = setTimeout(tick, 16);
 }
 
 function updateFlight(dt) {
@@ -801,17 +933,26 @@ function updateFlight(dt) {
         flightState.fuel = Math.max(0, flightState.fuel - 0.025 * dt);
     }
 
-    if (flightState.engineActive && flightState.throttle > 0.001 && flightState.fuel > 0) {
-        let power = stats.thrustPower * flightState.throttle * dt;
-        if (flightState.boostersAttached && flightState.boosterFuel > 0) {
-            power += stats.thrustPower * 0.46 * dt;
-            flightState.boosterFuel = Math.max(0, flightState.boosterFuel - 0.72 * dt);
-            if (flightState.boosterFuel === 0 && flightState.currentStage === 2 && !flightState.boosterEmptyAnnounced) {
-                flightState.boosterEmptyAnnounced = true;
-                flightState.message = "Booster leer. Mit Space die leere Stufe abwerfen.";
-                updateStageStack();
-            }
+    if (flightState.boosterActive && flightState.boostersAttached && flightState.boosterFuel > 0) {
+        const boosterPower = stats.thrustPower * (3.2 + stats.thrust * 0.08) * dt;
+        flightState.vx += Math.sin(flightState.angle) * boosterPower * 1.1;
+        flightState.vy -= Math.cos(flightState.angle) * boosterPower * 1.1;
+        flightState.boosterFuel = Math.max(0, flightState.boosterFuel - 0.64 * dt);
+        const boosterPct = Math.round((flightState.boosterFuel / flightState.boosterMaxFuel) * 100);
+        if (Math.abs(boosterPct - flightState.lastBoosterPct) >= 10) {
+            flightState.lastBoosterPct = boosterPct;
+            updateStageStack();
         }
+        if (flightState.boosterFuel === 0 && flightState.currentStage === 2 && !flightState.boosterEmptyAnnounced) {
+            flightState.boosterActive = false;
+            flightState.boosterEmptyAnnounced = true;
+            flightState.message = "Booster ausgebrannt. Mit Space die leere Stufe abwerfen.";
+            updateStageStack();
+        }
+    }
+
+    if (flightState.engineActive && flightState.throttle > 0.001 && flightState.fuel > 0) {
+        const power = stats.thrustPower * flightState.throttle * dt;
         flightState.vx += Math.sin(flightState.angle) * power * 1.1;
         flightState.vy -= Math.cos(flightState.angle) * power * 1.1;
         const efficiency = 0.52 - Math.min(0.18, stats.control * 0.008);
@@ -849,12 +990,7 @@ function updateFlight(dt) {
     const altitude = Math.max(0, Math.round(585 - flightState.y));
     flightState.maxAlt = Math.max(flightState.maxAlt, altitude);
 
-    const scienceX = 540 + Math.sin(mission.targetAlt * 0.02) * 170;
-    const scienceY = 585 - mission.targetAlt;
-    if (!flightState.collected && distance(flightState.x, flightState.y, scienceX, scienceY) < 34) {
-        flightState.collected = true;
-        flightState.message = "Science-Modul eingesammelt.";
-    }
+    tryCollectScience();
 
     if (mission.id === "orbit" && altitude > mission.targetAlt && Math.abs(flightState.vx) > mission.targetSpeed * 0.12) {
         completeMission("Stabiler Orbit erreicht.");
@@ -866,7 +1002,7 @@ function updateFlight(dt) {
 
     if (flightState.y >= 585) {
         flightState.y = 585;
-        if (flightState.engineActive && flightState.throttle < 0.04 && flightState.maxAlt < 1) {
+        if (flightState.engineActive && !flightState.boosterActive && flightState.throttle < 0.04 && flightState.maxAlt < 1) {
             flightState.vx = 0;
             flightState.vy = 0;
             flightState.message = "Stufe ist aktiv. Gib mit Z, Shift oder dem Schubhebel Leistung.";
@@ -888,6 +1024,31 @@ function updateFlight(dt) {
         flightState.vx = 0;
         flightState.vy = 0;
     }
+}
+
+function getScienceTarget(mission = getMission()) {
+    return {
+        x: 540 + Math.sin(mission.targetAlt * 0.02) * 170,
+        y: 585 - mission.targetAlt
+    };
+}
+
+function tryCollectScience() {
+    if (!flightState || flightState.scienceStored) return;
+    const mission = getMission();
+    const target = getScienceTarget(mission);
+    const stats = getRocketStats();
+    const radius = flightState.scienceActive ? 34 + stats.science * 3.2 : 18;
+    if (distance(flightState.x, flightState.y, target.x, target.y) >= radius) return;
+    if (!flightState.scienceActive) {
+        flightState.message = "Science-Symbol erreicht, aber das Experiment ist nicht aktiv. Science-Block oder Stage 1 nutzen.";
+        return;
+    }
+    flightState.collected = true;
+    flightState.scienceStored = true;
+    flightState.scienceValue = Math.max(1, Math.round(stats.science * 3 + mission.points * 0.35));
+    flightState.message = `Science-Probe gesammelt. Jetzt Daten sichern oder landen.`;
+    renderFlightSystems();
 }
 
 function renderFlightSystems() {
@@ -914,12 +1075,44 @@ function renderFlightSystems() {
     });
 
     updateStageStack();
+    updateSciencePanel();
     updateManeuverReadout();
-    updateFlightReadouts();
+    updateFlightReadouts(true);
 }
 
-function updateFlightReadouts() {
+function updateSciencePanel() {
+    const status = document.getElementById("scienceStatus");
+    if (!status || !flightState) return;
+    const sciencePart = getEquippedPart("science");
+    const name = sciencePart?.name || "Science-Modul";
+    const stateText = !flightState.scienceActive
+        ? "nicht aktiv"
+        : flightState.scienceStored
+            ? flightState.scienceTransmitted ? "Daten gesichert" : "Probe gespeichert"
+            : "scannt Umgebung";
+    status.innerHTML = `
+        <strong>${escapeHtml(name)}</strong>
+        <span>${escapeHtml(stateText)}</span>
+        <small>${flightState.scienceStored ? `${flightState.scienceValue} Forschungswert` : "Aktivieren, durch das grüne Symbol fliegen, dann Daten sichern."}</small>
+    `;
+    const activateButton = document.getElementById("btnScienceActivate");
+    const transmitButton = document.getElementById("btnTransmitScience");
+    if (activateButton) {
+        activateButton.textContent = flightState.scienceActive ? "Experiment aktiv" : "Experiment aktivieren";
+        activateButton.disabled = flightState.scienceActive;
+        activateButton.classList.toggle("active", flightState.scienceActive);
+    }
+    if (transmitButton) {
+        transmitButton.disabled = !flightState.scienceStored || flightState.scienceTransmitted;
+        transmitButton.classList.toggle("active", flightState.scienceTransmitted);
+    }
+}
+
+function updateFlightReadouts(force = false) {
     if (!flightState) return;
+    const now = performance.now();
+    if (!force && now - lastUiRenderTime < 120) return;
+    lastUiRenderTime = now;
     renderNavball();
     const altitude = Math.max(0, Math.round(585 - flightState.y));
     const speed = Math.hypot(flightState.vx, flightState.vy).toFixed(1);
@@ -935,7 +1128,7 @@ function updateFlightReadouts() {
             `Stage ${Math.max(0, flightState.currentStage)}`,
             flightState.sas ? `SAS ${getSasModeLabel(flightState.sasMode)}` : "SAS aus",
             flightState.rcs ? "RCS an" : "RCS aus",
-            flightState.collected ? "Science gesichert" : "Science offen",
+            flightState.scienceTransmitted ? "Science gesichert" : flightState.scienceStored ? "Science gespeichert" : flightState.scienceActive ? "Science aktiv" : "Science aus",
             flightState.message
         ].map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
     }
@@ -949,8 +1142,8 @@ function updateStageStack() {
         : 0;
     const stages = [
         { id: 3, name: "Triebwerk", detail: flightState.engineActive ? "gezündet" : "Startstufe" },
-        { id: 2, name: "Booster", detail: flightState.boostersAttached ? `${boosterPct}% Rest` : "abgeworfen" },
-        { id: 1, name: "Science", detail: flightState.collected ? "Daten sichern" : "Experiment bereit" },
+        { id: 2, name: "Booster", detail: flightState.boostersAttached ? `${boosterPct}% · ${flightState.boosterActive ? "brennt" : "bereit/leer"}` : "abgeworfen" },
+        { id: 1, name: "Science", detail: flightState.scienceTransmitted ? "Daten gesichert" : flightState.scienceStored ? "Daten sichern" : flightState.scienceActive ? "scannt" : "Experiment aktivieren" },
         { id: 0, name: "Fallschirm", detail: flightState.parachuteDeployed ? (flightState.chuteDamaged ? "beschädigt" : "offen") : "Landestufe" }
     ];
     stageStack.innerHTML = stages.map(stage => {
@@ -1030,15 +1223,36 @@ function wrapAngle(angle) {
 
 function completeMission(message) {
     const mission = getMission();
-    flightState.completed = true;
-    flightState.message = message;
+    const alreadyDone = Boolean(programState.missionLog[mission.id]);
+    const scienceBonus = flightState.scienceTransmitted ? flightState.scienceValue : Math.floor(flightState.scienceValue * 0.5);
+    const earned = alreadyDone ? 0 : mission.points + scienceBonus;
     programState.missionLog[mission.id] = {
         at: Date.now(),
         maxAlt: flightState.maxAlt,
-        rocket: programState.model
+        rocket: programState.model,
+        science: scienceBonus,
+        points: earned
     };
+    if (earned > 0) setPoints(getPoints() + earned);
+    const next = getNextMission(mission.id);
+    if (next) {
+        programState.selectedMission = next.id;
+        saveProgramState();
+        renderMissionOptions();
+        renderMission();
+        renderMissionJournal();
+        renderSolarMap();
+        resetFlight();
+        flightState.message = `${message} +${earned} Punkte. Nächste Mission: ${next.name}.`;
+        renderFlightSystems();
+        return;
+    }
+    flightState.completed = true;
+    flightState.message = `${message}${earned ? ` +${earned} Punkte.` : ""} Alle Missionen im Journal geschafft.`;
     saveProgramState();
+    renderMissionOptions();
     renderMission();
+    renderMissionJournal();
     renderSolarMap();
     renderFlightSystems();
 }
@@ -1072,7 +1286,7 @@ function drawFlight() {
         flightState.y - cameraY,
         flightState.angle,
         flightState.engineActive && flightState.throttle > 0.02 && flightState.fuel > 0,
-        { boostersAttached: flightState.boostersAttached }
+        { boostersAttached: flightState.boostersAttached, boosterActive: flightState.boosterActive && flightState.boosterFuel > 0 }
     );
 
     updateFlightReadouts();
@@ -1123,17 +1337,18 @@ function drawGround(ctx, w, h, cameraY) {
 }
 
 function drawScienceOrb(ctx, mission, cameraY) {
-    if (flightState.collected) return;
-    const x = 540 + Math.sin(mission.targetAlt * 0.02) * 170;
-    const y = 585 - mission.targetAlt - cameraY;
+    if (flightState.scienceStored) return;
+    const target = getScienceTarget(mission);
+    const x = target.x;
+    const y = target.y - cameraY;
     const pulse = 1 + Math.sin(performance.now() * 0.005) * 0.15;
     ctx.save();
     ctx.translate(x, y);
-    ctx.fillStyle = "rgba(52, 211, 153, 0.18)";
+    ctx.fillStyle = flightState.scienceActive ? "rgba(52, 211, 153, 0.24)" : "rgba(148, 163, 184, 0.16)";
     ctx.beginPath();
     ctx.arc(0, 0, 28 * pulse, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = "#34d399";
+    ctx.fillStyle = flightState.scienceActive ? "#34d399" : "#94a3b8";
     ctx.beginPath();
     ctx.arc(0, 0, 12 * pulse, 0, Math.PI * 2);
     ctx.fill();
@@ -1214,14 +1429,44 @@ function drawParachute(ctx, x, y, damaged) {
     ctx.restore();
 }
 
+function getRocketVisuals(model = getCurrentModel()) {
+    const parts = Object.fromEntries(SLOTS.map(slot => [slot.id, getEquippedPart(slot.id)]));
+    const paint = parts.paint;
+    return {
+        parts,
+        color: paint?.color || model.color,
+        accent: paint?.accent || model.accent,
+        bodyFill: parts.body?.id === "chem_alloy" ? "#cbd5e1" : parts.body?.id === "eh_life_support" ? "#d8f3dc" : "#e5e7eb",
+        engineFill: parts.engine?.id === "engine_vector" ? "#475569" : "#334155",
+        noseFill: parts.nose?.id === "chem_crystal" ? "#a7f3d0" : "#e5e7eb"
+    };
+}
+
 function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
     const model = getCurrentModel();
-    const paint = getEquippedParts().find(part => part.slot === "paint");
-    const color = paint?.color || model.color;
-    const accent = paint?.accent || model.accent;
+    const visual = getRocketVisuals(model);
+    const { parts, color, accent } = visual;
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(angle);
+
+    if (parts.utility?.id === "solar_panel") {
+        ctx.fillStyle = "rgba(56, 189, 248, 0.84)";
+        ctx.strokeStyle = "#0f172a";
+        ctx.lineWidth = 2;
+        ctx.fillRect(-74, -2, 46, 17);
+        ctx.strokeRect(-74, -2, 46, 17);
+        ctx.fillRect(28, -2, 46, 17);
+        ctx.strokeRect(28, -2, 46, 17);
+        ctx.strokeStyle = "rgba(226, 232, 240, 0.55)";
+        [-62, -50, -38, 40, 52, 64].forEach(lineX => {
+            ctx.beginPath();
+            ctx.moveTo(lineX, -1);
+            ctx.lineTo(lineX, 15);
+            ctx.stroke();
+        });
+    }
+
     if (options.boostersAttached) {
         ctx.fillStyle = "#cbd5e1";
         ctx.strokeStyle = "#0f172a";
@@ -1234,6 +1479,17 @@ function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
             ctx.fillStyle = "#fb7185";
             ctx.fillRect(side - 6, 18, 12, 18);
             ctx.fillStyle = "#cbd5e1";
+            if (options.boosterActive) {
+                const flame = 26 + Math.sin(performance.now() * 0.045 + side) * 6;
+                ctx.fillStyle = "rgba(249, 115, 22, 0.92)";
+                ctx.beginPath();
+                ctx.moveTo(side - 7, 46);
+                ctx.lineTo(side, 46 + flame);
+                ctx.lineTo(side + 7, 46);
+                ctx.closePath();
+                ctx.fill();
+                ctx.fillStyle = "#cbd5e1";
+            }
         });
     }
     if (thrusting) {
@@ -1253,7 +1509,7 @@ function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
         ctx.closePath();
         ctx.fill();
     }
-    ctx.fillStyle = "#e5e7eb";
+    ctx.fillStyle = visual.bodyFill;
     ctx.strokeStyle = "#0f172a";
     ctx.lineWidth = 3;
     ctx.beginPath();
@@ -1264,13 +1520,86 @@ function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
+    if (parts.nose?.id === "chem_crystal") {
+        ctx.fillStyle = "rgba(52, 211, 153, 0.9)";
+        ctx.beginPath();
+        ctx.moveTo(0, -58);
+        ctx.lineTo(12, -35);
+        ctx.lineTo(0, -25);
+        ctx.lineTo(-12, -35);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    } else if (parts.nose?.id === "math_nav" || parts.nose?.id === "dgb_autopilot") {
+        ctx.fillStyle = parts.nose.id === "math_nav" ? "#2563eb" : "#22d3ee";
+        ctx.fillRect(-11, -42, 22, 8);
+        ctx.strokeRect(-11, -42, 22, 8);
+    }
+
     ctx.fillStyle = color;
     ctx.fillRect(-16, -12, 32, 34);
+    if (parts.body?.id === "chem_fuel") {
+        ctx.fillStyle = "rgba(249, 115, 22, 0.86)";
+        ctx.fillRect(-16, -4, 32, 6);
+        ctx.fillRect(-16, 12, 32, 6);
+    } else if (parts.body?.id === "chem_alloy") {
+        ctx.strokeStyle = "rgba(15, 23, 42, 0.5)";
+        ctx.beginPath();
+        ctx.moveTo(-15, 0);
+        ctx.lineTo(15, 0);
+        ctx.moveTo(-15, 18);
+        ctx.lineTo(15, 18);
+        ctx.stroke();
+    } else if (parts.body?.id === "eh_life_support") {
+        ctx.fillStyle = "#22c55e";
+        ctx.fillRect(-21, -2, 8, 24);
+        ctx.fillRect(13, -2, 8, 24);
+    }
     ctx.fillStyle = accent;
     ctx.beginPath();
     ctx.arc(0, -21, 9, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
+
+    if (parts.science?.id && parts.science.id !== "science_empty") {
+        ctx.fillStyle = parts.science.id === "bio_greenhouse" ? "#86efac" : parts.science.id === "geo_mapper" ? "#60a5fa" : "#34d399";
+        ctx.strokeStyle = "#0f172a";
+        if (parts.science.id === "bio_greenhouse") {
+            ctx.beginPath();
+            ctx.arc(0, 7, 12, Math.PI, 0);
+            ctx.lineTo(12, 16);
+            ctx.lineTo(-12, 16);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        } else {
+            ctx.roundRect(-10, 3, 20, 17, 5);
+            ctx.fill();
+            ctx.stroke();
+        }
+    }
+
+    if (parts.utility?.id === "shield_heat") {
+        ctx.fillStyle = "#111827";
+        ctx.fillRect(-20, 34, 40, 8);
+    } else if (parts.utility?.id === "music_radio" || parts.utility?.id === "english_radio") {
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.beginPath();
+        ctx.moveTo(15, -20);
+        ctx.lineTo(33, -42);
+        ctx.stroke();
+        ctx.fillStyle = "#fbbf24";
+        ctx.beginPath();
+        ctx.arc(34, -44, 4, 0, Math.PI * 2);
+        ctx.fill();
+    } else if (parts.utility?.id === "math_optimizer") {
+        ctx.fillStyle = "#0f172a";
+        ctx.fillRect(-8, 22, 16, 10);
+        ctx.fillStyle = "#38bdf8";
+        ctx.fillRect(-5, 25, 10, 2);
+    }
+
     ctx.fillStyle = color;
     ctx.beginPath();
     ctx.moveTo(-18, 20);
@@ -1286,24 +1615,87 @@ function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
+    if (parts.fin?.id === "fin_gyro") {
+        ctx.fillStyle = "#a7f3d0";
+        [-28, 28].forEach(side => {
+            ctx.beginPath();
+            ctx.arc(side, 32, 6, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        });
+    }
+
+    ctx.fillStyle = visual.engineFill;
+    if (parts.engine?.id === "engine_vector") {
+        ctx.beginPath();
+        ctx.moveTo(-18, 37);
+        ctx.lineTo(18, 37);
+        ctx.lineTo(12 + Math.sin(angle) * 6, 58);
+        ctx.lineTo(-12 + Math.sin(angle) * 6, 58);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    } else {
+        ctx.fillRect(-15, 36, 30, 14);
+        ctx.strokeRect(-15, 36, 30, 14);
+    }
     ctx.restore();
 }
 
 function rocketSvg({ model, compact = false, large = false }) {
-    const paint = getEquippedParts().find(part => part && part.slot === "paint");
-    const color = paint?.color || model.color;
-    const accent = paint?.accent || model.accent;
+    const visual = getRocketVisuals(model);
+    const { parts, color, accent } = visual;
     const height = large ? 360 : 135;
     const scale = large ? 2.3 : compact ? 0.95 : 1.25;
+    const solar = parts.utility?.id === "solar_panel"
+        ? `<g opacity="0.92"><rect x="-94" y="-2" width="46" height="18" rx="3" fill="#38bdf8" stroke="#0f172a" stroke-width="3"/><rect x="48" y="-2" width="46" height="18" rx="3" fill="#38bdf8" stroke="#0f172a" stroke-width="3"/><path d="M-83 -1V15M-71 -1V15M-59 -1V15M59 -1V15M71 -1V15M83 -1V15" stroke="#dbeafe" stroke-width="1.5"/></g>`
+        : "";
+    const noseAddon = parts.nose?.id === "chem_crystal"
+        ? `<path d="M0 -94 L15 -62 L0 -47 L-15 -62Z" fill="#6ee7b7" stroke="#0f172a" stroke-width="4"/>`
+        : (parts.nose?.id === "math_nav" || parts.nose?.id === "dgb_autopilot")
+            ? `<rect x="-17" y="-70" width="34" height="11" rx="4" fill="${parts.nose.id === "math_nav" ? "#2563eb" : "#22d3ee"}" stroke="#0f172a" stroke-width="3"/>`
+            : "";
+    const bodyAddon = parts.body?.id === "chem_fuel"
+        ? `<path d="M-16 -3H16M-16 17H16" stroke="#f97316" stroke-width="7"/>`
+        : parts.body?.id === "chem_alloy"
+            ? `<path d="M-15 4H15M-13 25H13" stroke="#64748b" stroke-width="3" opacity="0.65"/>`
+            : parts.body?.id === "eh_life_support"
+                ? `<rect x="-27" y="-4" width="10" height="36" rx="4" fill="#22c55e" stroke="#0f172a" stroke-width="3"/><rect x="17" y="-4" width="10" height="36" rx="4" fill="#22c55e" stroke="#0f172a" stroke-width="3"/>`
+                : "";
+    const scienceAddon = parts.science?.id && parts.science.id !== "science_empty"
+        ? parts.science.id === "bio_greenhouse"
+            ? `<path d="M-17 20 Q0 -2 17 20Z" fill="#86efac" stroke="#0f172a" stroke-width="3"/><rect x="-17" y="20" width="34" height="10" rx="3" fill="#16a34a" stroke="#0f172a" stroke-width="3"/>`
+            : `<rect x="-15" y="14" width="30" height="20" rx="6" fill="${parts.science.id === "geo_mapper" ? "#60a5fa" : "#34d399"}" stroke="#0f172a" stroke-width="3"/>`
+        : "";
+    const utilityAddon = parts.utility?.id === "shield_heat"
+        ? `<path d="M-25 58H25L16 74H-16Z" fill="#111827" stroke="#0f172a" stroke-width="4"/>`
+        : (parts.utility?.id === "music_radio" || parts.utility?.id === "english_radio")
+            ? `<path d="M18 -36L42 -72" stroke="#e2e8f0" stroke-width="4"/><circle cx="44" cy="-75" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="3"/>`
+            : parts.utility?.id === "math_optimizer"
+                ? `<rect x="-14" y="39" width="28" height="15" rx="4" fill="#0f172a"/><path d="M-8 44H8M-8 49H8" stroke="#38bdf8" stroke-width="2"/>`
+                : "";
+    const finAddon = parts.fin?.id === "fin_gyro"
+        ? `<circle cx="-39" cy="48" r="8" fill="#a7f3d0" stroke="#0f172a" stroke-width="3"/><circle cx="39" cy="48" r="8" fill="#a7f3d0" stroke="#0f172a" stroke-width="3"/>`
+        : "";
+    const engineAddon = parts.engine?.id === "engine_vector"
+        ? `<path d="M-22 58H22L15 82H-15Z" fill="#475569" stroke="#0f172a" stroke-width="4"/>`
+        : `<rect x="-15" y="58" width="30" height="18" rx="5" fill="#334155" stroke="#0f172a" stroke-width="4"/>`;
     return `
         <svg class="rocket-svg" width="${large ? 240 : 130}" height="${height}" viewBox="-70 -95 140 210" role="img" aria-label="${escapeHtml(model.name)}">
             <g transform="scale(${scale})">
-                <path d="M0 -82 C30 -50 30 28 18 58 L-18 58 C-30 28 -30 -50 0 -82Z" fill="#e5e7eb" stroke="#0f172a" stroke-width="4"/>
+                ${solar}
+                <path d="M0 -82 C30 -50 30 28 18 58 L-18 58 C-30 28 -30 -50 0 -82Z" fill="${visual.bodyFill}" stroke="#0f172a" stroke-width="4"/>
+                ${noseAddon}
                 <path d="M-16 -10 H16 V38 H-16Z" fill="${color}" opacity="0.95"/>
+                ${bodyAddon}
                 <circle cx="0" cy="-28" r="13" fill="${accent}" stroke="#0f172a" stroke-width="4"/>
+                ${scienceAddon}
+                ${utilityAddon}
                 <path d="M-18 22 L-52 66 L-16 58Z" fill="${color}" stroke="#0f172a" stroke-width="4"/>
                 <path d="M18 22 L52 66 L16 58Z" fill="${color}" stroke="#0f172a" stroke-width="4"/>
-                <rect x="-15" y="58" width="30" height="18" rx="5" fill="#334155" stroke="#0f172a" stroke-width="4"/>
+                ${finAddon}
+                ${engineAddon}
                 <path d="M-10 76 L0 108 L10 76Z" fill="#fbbf24" opacity="0.9"/>
                 <path d="M-4 76 L0 94 L4 76Z" fill="#38bdf8" opacity="0.9"/>
             </g>

@@ -347,6 +347,53 @@ select {
     padding: 12px;
 }
 
+.mission-journal {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.journal-row {
+    align-items: center;
+    background: rgba(15, 23, 42, 0.48);
+    border: 1px solid rgba(148, 203, 255, 0.15);
+    border-radius: 12px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr auto;
+    padding: 9px 10px;
+}
+
+.journal-row strong {
+    color: var(--space-text);
+    display: block;
+    font-size: 0.86rem;
+}
+
+.journal-row small {
+    color: var(--space-muted);
+    display: block;
+}
+
+.journal-row.current {
+    border-color: rgba(251, 191, 36, 0.5);
+}
+
+.journal-row.done {
+    border-color: rgba(52, 211, 153, 0.36);
+}
+
+.journal-row button {
+    background: rgba(148, 203, 255, 0.10);
+    border: 1px solid rgba(148, 203, 255, 0.24);
+    border-radius: 999px;
+    color: var(--space-text);
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 850;
+    padding: 7px 10px;
+}
+
 .compact-preview {
     display: grid;
     min-height: 170px;
@@ -482,7 +529,7 @@ select {
 .flight-systems {
     display: grid;
     gap: 12px;
-    grid-template-columns: minmax(190px, 0.9fr) minmax(180px, 0.8fr) minmax(220px, 1fr) minmax(220px, 1fr) minmax(260px, 1.2fr);
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     margin-top: 14px;
 }
 
@@ -726,6 +773,39 @@ select {
     border-radius: 12px;
     color: #dbeafe;
     padding: 8px;
+}
+
+.science-status {
+    background:
+        radial-gradient(circle at 10% 0%, rgba(52, 211, 153, 0.18), transparent 44%),
+        rgba(2, 6, 23, 0.5);
+    border: 1px solid rgba(52, 211, 153, 0.18);
+    border-radius: 12px;
+    color: #d1fae5;
+    font-size: 0.82rem;
+    font-weight: 750;
+    min-height: 74px;
+    padding: 9px;
+}
+
+.science-status strong,
+.science-status span,
+.science-status small {
+    display: block;
+}
+
+.science-status strong {
+    color: var(--space-text);
+}
+
+.science-status span {
+    color: #86efac;
+    margin-top: 3px;
+}
+
+.science-status small {
+    color: var(--space-muted);
+    margin-top: 6px;
 }
 
 .control-pad {

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciVerse Space Program</title>
-    <link rel="stylesheet" href="../css/space_program.css?v=1.1">
+    <link rel="stylesheet" href="../css/space_program.css?v=1.2">
 </head>
 <body>
     <main class="space-shell">
         <header class="space-hero">
             <div>
                 <p class="space-kicker">SciVerse Space Program</p>
-                <h1>Startrampe zum Sonnensystem</h1>
+                <h1>Explore the SciVerse</h1>
                 <p class="space-lead">Baue eine Rakete, starte Missionen und schalte durch bestandene Kapitelquizzes neue Bauteile frei. Das Spiel ist ein 2D-Orbitlabor: ein bisschen Werkstatt, ein bisschen Geschicklichkeit, viel Physik.</p>
             </div>
             <div class="space-score-card" aria-live="polite">
@@ -45,6 +45,7 @@
                         <label class="field-label" for="missionSelect">Aktive Mission</label>
                         <select id="missionSelect"></select>
                         <div id="missionBrief" class="mission-brief"></div>
+                        <div id="missionJournal" class="mission-journal" aria-label="Missionsjournal"></div>
                     </div>
 
                     <div class="panel-block">
@@ -127,6 +128,15 @@
                                 <button type="button" id="btnStage" class="stage-fire">Space: n&auml;chste Stufe</button>
                             </section>
 
+                            <section class="system-card science-card">
+                                <p class="space-kicker">Science</p>
+                                <div id="scienceStatus" class="science-status">Experiment noch nicht aktiv.</div>
+                                <div class="system-actions">
+                                    <button type="button" id="btnScienceActivate" class="ghost-btn">Experiment aktivieren</button>
+                                    <button type="button" id="btnTransmitScience" class="ghost-btn">Daten sichern</button>
+                                </div>
+                            </section>
+
                             <section class="system-card maneuver-panel">
                                 <p class="space-kicker">Maneuver Node</p>
                                 <label>Prograde / Retrograde
@@ -193,6 +203,6 @@
         </section>
     </main>
 
-    <script src="../js/space_program.js?v=1.1"></script>
+    <script src="../js/space_program.js?v=1.2"></script>
 </body>
 </html>
