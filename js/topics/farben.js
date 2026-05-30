@@ -2,10 +2,11 @@
 function topicInit() {
     enhanceColorAccessibility();
     initPrismDispersion();
+    showColorObject('red');
 }
 
 function enhanceColorAccessibility() {
-    ['waveDesc', 'dispersionAngleLabel', 'dispersionText'].forEach((id) => {
+    ['waveDesc', 'dispersionAngleLabel', 'dispersionText', 'colorObjectText'].forEach((id) => {
         const el = document.getElementById(id);
         if (!el) return;
         el.setAttribute('role', 'status');
@@ -18,6 +19,56 @@ function enhanceColorAccessibility() {
         slider.setAttribute("aria-describedby", "dispersionAngleLabel dispersionText");
         slider.setAttribute("aria-valuetext", `${slider.value} Grad Einfallsrichtung`);
     }
+}
+
+function showColorObject(kind) {
+    const object = document.getElementById('colorObject');
+    const reflected = document.getElementById('colorReturnRay');
+    const absorbed = document.getElementById('colorAbsorbRay');
+    const label = document.getElementById('colorObjectLabel');
+    const text = document.getElementById('colorObjectText');
+    const eye = document.getElementById('colorEye');
+    if (!object || !reflected || !absorbed || !label || !text) return;
+
+    const states = {
+        red: {
+            fill: '#ef4444',
+            ray: '#ef4444',
+            label: 'roter Pulli',
+            absorbOpacity: '0.75',
+            text: 'Der rote Pulli reflektiert vor allem Rot. Viele andere Farben werden absorbiert.'
+        },
+        green: {
+            fill: '#22c55e',
+            ray: '#22c55e',
+            label: 'gr\u00fcnes Blatt',
+            absorbOpacity: '0.75',
+            text: 'Das gr\u00fcne Blatt reflektiert vor allem Gr\u00fcn. Deshalb kommt gr\u00fcnes Licht in dein Auge.'
+        },
+        black: {
+            fill: '#111827',
+            ray: '#475569',
+            label: 'schwarzer Stoff',
+            absorbOpacity: '1',
+            text: 'Schwarzer Stoff absorbiert sehr viel Licht. Darum kommt nur wenig Licht zur\u00fcck ins Auge.'
+        },
+        white: {
+            fill: '#f8fafc',
+            ray: '#f8fafc',
+            label: 'wei\u00dfes Papier',
+            absorbOpacity: '0.2',
+            text: 'Wei\u00dfes Papier reflektiert viele Lichtfarben gemeinsam. F\u00fcr dein Auge wirkt das wei\u00df.'
+        }
+    };
+
+    const state = states[kind] || states.red;
+    object.setAttribute('fill', state.fill);
+    reflected.setAttribute('stroke', state.ray);
+    reflected.setAttribute('stroke-width', kind === 'black' ? '5' : '10');
+    absorbed.setAttribute('opacity', state.absorbOpacity);
+    if (eye) eye.setAttribute('fill', kind === 'black' ? '#64748b' : state.ray);
+    label.textContent = state.label;
+    text.textContent = state.text;
 }
 
 function simulateJump() {
