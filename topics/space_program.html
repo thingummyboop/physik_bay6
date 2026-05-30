@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciVerse Space Program</title>
+    <link rel="stylesheet" href="../css/space_program.css?v=1.0">
+</head>
+<body>
+    <main class="space-shell">
+        <header class="space-hero">
+            <div>
+                <p class="space-kicker">SciVerse Space Program</p>
+                <h1>Startrampe zum Sonnensystem</h1>
+                <p class="space-lead">Baue eine Rakete, starte Missionen und schalte durch bestandene Kapitelquizzes neue Bauteile frei. Das Spiel ist ein 2D-Orbitlabor: ein bisschen Werkstatt, ein bisschen Geschicklichkeit, viel Physik.</p>
+            </div>
+            <div class="space-score-card" aria-live="polite">
+                <span class="score-label">Punkte</span>
+                <strong id="sspPoints">0</strong>
+                <small>f&uuml;r Shop und Werkstatt</small>
+            </div>
+        </header>
+
+        <section id="rocketSelect" class="selection-panel">
+            <div class="section-heading">
+                <p class="space-kicker">Startauswahl</p>
+                <h2>W&auml;hle dein erstes Raketenmodell</h2>
+                <p>Du kannst sp&auml;ter jederzeit in der Werkstatt umbauen. Die drei Modelle haben unterschiedliche St&auml;rken.</p>
+            </div>
+            <div id="rocketModelCards" class="model-grid"></div>
+        </section>
+
+        <section id="spaceGame" class="game-shell" hidden>
+            <nav class="space-tabs" aria-label="Space Program Bereiche">
+                <button type="button" class="space-tab active" data-tab="flight">Flug</button>
+                <button type="button" class="space-tab" data-tab="workshop">Werkstatt</button>
+                <button type="button" class="space-tab" data-tab="shop">Shop</button>
+                <button type="button" class="space-tab" data-tab="system">Sonnensystem</button>
+            </nav>
+
+            <div class="game-grid">
+                <aside class="mission-panel">
+                    <div class="panel-block">
+                        <p class="space-kicker">Mission Control</p>
+                        <label class="field-label" for="missionSelect">Aktive Mission</label>
+                        <select id="missionSelect"></select>
+                        <div id="missionBrief" class="mission-brief"></div>
+                    </div>
+
+                    <div class="panel-block">
+                        <div class="panel-title-row">
+                            <h2>Rakete</h2>
+                            <button type="button" id="changeModelBtn" class="ghost-btn">Modell wechseln</button>
+                        </div>
+                        <div id="compactRocketPreview" class="compact-preview"></div>
+                        <div id="rocketStats" class="stat-grid"></div>
+                    </div>
+
+                    <div class="panel-block">
+                        <h2>Freischaltungen</h2>
+                        <div id="unlockSummary" class="unlock-summary"></div>
+                    </div>
+                </aside>
+
+                <section class="stage-panel">
+                    <section id="tab-flight" class="tab-page active">
+                        <div class="flight-toolbar">
+                            <div>
+                                <p class="space-kicker">2D-Flugsimulator</p>
+                                <h2>Start, Steuern, Landen</h2>
+                            </div>
+                            <div class="flight-buttons">
+                                <button type="button" id="btnIgnite">Start</button>
+                                <button type="button" id="btnPause" class="ghost-btn">Pause</button>
+                                <button type="button" id="btnResetFlight" class="ghost-btn">Zur&uuml;cksetzen</button>
+                            </div>
+                        </div>
+
+                        <div class="canvas-wrap">
+                            <canvas id="spaceCanvas" width="1100" height="650" aria-label="2D Raketenflug"></canvas>
+                            <div id="flightHud" class="flight-hud"></div>
+                        </div>
+
+                        <div class="control-pad" aria-label="Flugsteuerung">
+                            <button type="button" class="control-btn" data-control="left">Links drehen</button>
+                            <button type="button" class="control-btn thrust" data-control="thrust">Schub</button>
+                            <button type="button" class="control-btn" data-control="right">Rechts drehen</button>
+                        </div>
+                        <p class="control-hint">Tastatur: Leertaste oder W = Schub, A/D oder Pfeiltasten = drehen. Ziel: kontrolliert starten, Wissenschaft einsammeln und weich landen oder einen stabilen Orbit erreichen.</p>
+                    </section>
+
+                    <section id="tab-workshop" class="tab-page">
+                        <div class="section-heading compact">
+                            <p class="space-kicker">Werkstatt</p>
+                            <h2>Baue dein Raumschiff</h2>
+                            <p>W&auml;hle einen Slot aus und r&uuml;ste gekaufte Teile aus. Die Werte links zeigen sofort, wie sich dein Schiff ver&auml;ndert.</p>
+                        </div>
+                        <div class="workshop-grid">
+                            <div class="rocket-bay">
+                                <div id="workshopRocketPreview" class="rocket-preview"></div>
+                                <div id="slotList" class="slot-list"></div>
+                            </div>
+                            <div>
+                                <div id="slotPartList" class="part-list"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="tab-shop" class="tab-page">
+                        <div class="section-heading compact">
+                            <p class="space-kicker">Shop</p>
+                            <h2>Neue Teile kaufen</h2>
+                            <p>Bestandene Kapitelquizzes schalten Bauteile frei. Gekauft wird mit Punkten.</p>
+                        </div>
+                        <div id="shopFilters" class="shop-filters"></div>
+                        <div id="shopGrid" class="shop-grid"></div>
+                    </section>
+
+                    <section id="tab-system" class="tab-page">
+                        <div class="section-heading compact">
+                            <p class="space-kicker">Sonnensystem</p>
+                            <h2>Missionen und Fach-Boni</h2>
+                            <p>Je mehr Kapitel du abschlie&szlig;t, desto weiter reichen deine Missionen. Jedes Fach bringt andere Vorteile f&uuml;r dein Raumfahrtprogramm.</p>
+                        </div>
+                        <div id="solarMap" class="solar-map"></div>
+                        <div id="subjectBonusList" class="bonus-list"></div>
+                    </section>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/space_program.js?v=1.0"></script>
+</body>
+</html>
