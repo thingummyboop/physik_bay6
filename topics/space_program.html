@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciVerse Space Program</title>
-    <link rel="stylesheet" href="../css/space_program.css?v=1.0">
+    <link rel="stylesheet" href="../css/space_program.css?v=1.1">
 </head>
 <body>
     <main class="space-shell">
@@ -81,12 +81,75 @@
                             <div id="flightHud" class="flight-hud"></div>
                         </div>
 
-                        <div class="control-pad" aria-label="Flugsteuerung">
-                            <button type="button" class="control-btn" data-control="left">Links drehen</button>
-                            <button type="button" class="control-btn thrust" data-control="thrust">Schub</button>
-                            <button type="button" class="control-btn" data-control="right">Rechts drehen</button>
+                        <div class="flight-systems" aria-label="KSP-nahe Flugsteuerung">
+                            <section class="system-card navball-card">
+                                <p class="space-kicker">Navball</p>
+                                <div id="navball" class="navball" aria-label="Navball mit Fluglage, Prograde, Retrograde und Maneuver-Marker">
+                                    <div id="navballHorizon" class="navball-horizon"></div>
+                                    <div class="navball-grid"></div>
+                                    <div id="progradeMarker" class="navball-marker prograde">P</div>
+                                    <div id="retrogradeMarker" class="navball-marker retrograde">R</div>
+                                    <div id="maneuverMarker" class="navball-marker maneuver">N</div>
+                                    <div class="navball-cross"></div>
+                                </div>
+                                <div id="navballReadout" class="system-readout">Pitch 90&deg; &middot; Orbitmodus</div>
+                            </section>
+
+                            <section class="system-card throttle-card">
+                                <p class="space-kicker">Throttle</p>
+                                <label class="throttle-label" for="throttleSlider">Schubhebel</label>
+                                <input id="throttleSlider" type="range" min="0" max="100" value="0">
+                                <div class="throttle-meter" aria-hidden="true"><i id="throttleFill"></i></div>
+                                <div class="system-actions">
+                                    <button type="button" id="btnThrottleZero" class="ghost-btn">X&nbsp;0%</button>
+                                    <button type="button" id="btnThrottleFull" class="ghost-btn">Z&nbsp;100%</button>
+                                </div>
+                            </section>
+
+                            <section class="system-card">
+                                <p class="space-kicker">SAS / RCS</p>
+                                <div class="system-actions">
+                                    <button type="button" id="btnSas" class="ghost-btn">SAS: aus</button>
+                                    <button type="button" id="btnRcs" class="ghost-btn">RCS: aus</button>
+                                    <button type="button" id="btnMapMode" class="ghost-btn">Karte: aus</button>
+                                </div>
+                                <div class="sas-mode-row" aria-label="SAS-Ausrichtung">
+                                    <button type="button" data-sas-mode="stability">Stabil</button>
+                                    <button type="button" data-sas-mode="prograde">Prograde</button>
+                                    <button type="button" data-sas-mode="retrograde">Retrograde</button>
+                                    <button type="button" data-sas-mode="maneuver">Node</button>
+                                </div>
+                            </section>
+
+                            <section class="system-card staging-card">
+                                <p class="space-kicker">Staging</p>
+                                <div id="stageStack" class="stage-stack"></div>
+                                <button type="button" id="btnStage" class="stage-fire">Space: n&auml;chste Stufe</button>
+                            </section>
+
+                            <section class="system-card maneuver-panel">
+                                <p class="space-kicker">Maneuver Node</p>
+                                <label>Prograde / Retrograde
+                                    <input id="maneuverPrograde" type="range" min="-40" max="40" value="0">
+                                </label>
+                                <label>Radial rein / raus
+                                    <input id="maneuverRadial" type="range" min="-30" max="30" value="0">
+                                </label>
+                                <div id="maneuverReadout" class="maneuver-readout">Kein Node geplant.</div>
+                                <div class="system-actions">
+                                    <button type="button" id="btnAddNode" class="ghost-btn">Node planen</button>
+                                    <button type="button" id="btnPointNode" class="ghost-btn">SAS auf Node</button>
+                                    <button type="button" id="btnClearNode" class="ghost-btn">L&ouml;schen</button>
+                                </div>
+                            </section>
                         </div>
-                        <p class="control-hint">Tastatur: Leertaste oder W = Schub, A/D oder Pfeiltasten = drehen. Ziel: kontrolliert starten, Wissenschaft einsammeln und weich landen oder einen stabilen Orbit erreichen.</p>
+
+                        <div class="control-pad compact-controls" aria-label="Touch-Steuerung">
+                            <button type="button" class="control-btn" data-control="left">A / Links</button>
+                            <button type="button" class="control-btn thrust" id="btnStageTouch">Space / Stufe</button>
+                            <button type="button" class="control-btn" data-control="right">D / Rechts</button>
+                        </div>
+                        <p class="control-hint">KSP-nahe Steuerung: Space = Staging, Shift/Ctrl = Schubhebel, Z/X = Vollschub/Schnitt, A/D oder Pfeiltasten = drehen, T = SAS, R = RCS, M = Kartenmodus. Ziel: Stufen bewusst ausl&ouml;sen, Wissenschaft einsammeln und weich landen oder einen stabilen Orbit erreichen.</p>
                     </section>
 
                     <section id="tab-workshop" class="tab-page">
@@ -130,6 +193,6 @@
         </section>
     </main>
 
-    <script src="../js/space_program.js?v=1.0"></script>
+    <script src="../js/space_program.js?v=1.1"></script>
 </body>
 </html>

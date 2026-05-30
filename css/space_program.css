@@ -479,11 +479,264 @@ select {
     padding: 7px 10px;
 }
 
+.flight-systems {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: minmax(190px, 0.9fr) minmax(180px, 0.8fr) minmax(220px, 1fr) minmax(220px, 1fr) minmax(260px, 1.2fr);
+    margin-top: 14px;
+}
+
+.system-card {
+    background: linear-gradient(145deg, rgba(15, 35, 62, 0.90), rgba(4, 11, 24, 0.88));
+    border: 1px solid rgba(148, 203, 255, 0.2);
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    min-height: 178px;
+    padding: 14px;
+}
+
+.system-card label,
+.system-readout,
+.maneuver-readout {
+    color: var(--space-muted);
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 750;
+}
+
+.navball {
+    --bank: 0deg;
+    --pitch: 0px;
+    background: #111827;
+    border: 3px solid rgba(232, 244, 255, 0.85);
+    border-radius: 999px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35), inset 0 0 22px rgba(255, 255, 255, 0.08);
+    height: 148px;
+    margin: 2px auto 10px;
+    overflow: hidden;
+    position: relative;
+    width: 148px;
+}
+
+.navball-horizon {
+    background:
+        linear-gradient(180deg, rgba(56, 189, 248, 0.95) 0 49%, rgba(232, 244, 255, 0.75) 49% 51%, rgba(146, 64, 14, 0.95) 51% 100%);
+    height: 230%;
+    left: -65%;
+    position: absolute;
+    top: -65%;
+    transform: rotate(var(--bank)) translateY(var(--pitch));
+    transform-origin: 50% 50%;
+    width: 230%;
+}
+
+.navball-grid {
+    background:
+        linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px);
+    background-size: 100% 26px, 26px 100%;
+    border-radius: inherit;
+    inset: 0;
+    opacity: 0.45;
+    position: absolute;
+}
+
+.navball-cross {
+    border: 2px solid #fbbf24;
+    border-radius: 999px;
+    height: 18px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+}
+
+.navball-cross::before,
+.navball-cross::after {
+    background: #fbbf24;
+    content: "";
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navball-cross::before {
+    height: 2px;
+    width: 42px;
+}
+
+.navball-cross::after {
+    height: 42px;
+    width: 2px;
+}
+
+.navball-marker {
+    align-items: center;
+    border: 2px solid currentColor;
+    border-radius: 999px;
+    display: flex;
+    font-size: 0.66rem;
+    font-weight: 950;
+    height: 24px;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+}
+
+.navball-marker.prograde {
+    color: #22c55e;
+}
+
+.navball-marker.retrograde {
+    color: #f97316;
+}
+
+.navball-marker.maneuver {
+    color: #60a5fa;
+    opacity: 0;
+}
+
+.navball-marker.visible {
+    opacity: 1;
+}
+
+.throttle-label {
+    margin-bottom: 8px;
+}
+
+#throttleSlider,
+.maneuver-panel input[type="range"] {
+    accent-color: var(--space-accent-2);
+    width: 100%;
+}
+
+.throttle-meter {
+    background: rgba(15, 23, 42, 0.82);
+    border: 1px solid rgba(232, 244, 255, 0.22);
+    border-radius: 999px;
+    height: 18px;
+    margin: 10px 0 12px;
+    overflow: hidden;
+}
+
+.throttle-meter i {
+    background: linear-gradient(90deg, #22c55e, #facc15, #f97316);
+    display: block;
+    height: 100%;
+    transition: width 0.12s linear;
+    width: 0%;
+}
+
+.system-actions,
+.sas-mode-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.system-actions button,
+.sas-mode-row button,
+.stage-fire {
+    background: rgba(148, 203, 255, 0.10);
+    border: 1px solid rgba(148, 203, 255, 0.26);
+    border-radius: 999px;
+    color: var(--space-text);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 850;
+    padding: 8px 11px;
+}
+
+.system-actions button.active,
+.sas-mode-row button.active {
+    background: rgba(52, 211, 153, 0.2);
+    border-color: rgba(52, 211, 153, 0.65);
+    color: #d1fae5;
+}
+
+.stage-stack {
+    display: grid;
+    gap: 7px;
+    margin: 4px 0 10px;
+}
+
+.stage-card {
+    align-items: center;
+    background: rgba(15, 23, 42, 0.64);
+    border: 1px solid rgba(148, 203, 255, 0.18);
+    border-radius: 12px;
+    display: grid;
+    gap: 4px;
+    grid-template-columns: 34px 1fr;
+    padding: 8px;
+}
+
+.stage-card strong {
+    align-items: center;
+    background: rgba(251, 191, 36, 0.18);
+    border-radius: 999px;
+    color: #fde68a;
+    display: flex;
+    height: 34px;
+    justify-content: center;
+    width: 34px;
+}
+
+.stage-card span {
+    color: var(--space-text);
+    font-size: 0.82rem;
+    font-weight: 850;
+}
+
+.stage-card small {
+    color: var(--space-muted);
+    display: block;
+    font-size: 0.72rem;
+}
+
+.stage-card.active {
+    border-color: rgba(251, 191, 36, 0.72);
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.08);
+}
+
+.stage-card.done {
+    opacity: 0.54;
+}
+
+.stage-fire {
+    background: linear-gradient(135deg, #f97316, #facc15);
+    border: 0;
+    color: #111827;
+    width: 100%;
+}
+
+.maneuver-panel {
+    display: grid;
+    gap: 8px;
+}
+
+.maneuver-readout {
+    background: rgba(2, 6, 23, 0.5);
+    border: 1px solid rgba(148, 203, 255, 0.16);
+    border-radius: 12px;
+    color: #dbeafe;
+    padding: 8px;
+}
+
 .control-pad {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 12px 0;
+}
+
+.compact-controls {
+    margin-top: 14px;
 }
 
 .control-btn {
@@ -678,7 +931,8 @@ select {
 @media (max-width: 1100px) {
     .space-hero,
     .game-grid,
-    .workshop-grid {
+    .workshop-grid,
+    .flight-systems {
         grid-template-columns: 1fr;
     }
 
@@ -711,6 +965,10 @@ select {
 
     .control-pad {
         grid-template-columns: 1fr;
+    }
+
+    .system-card {
+        min-height: auto;
     }
 
     #spaceCanvas {

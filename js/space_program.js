@@ -113,7 +113,7 @@ const DEFAULT_STATE = {
 
 let programState = loadProgramState();
 let flightState = null;
-let controls = { thrust: false, left: false, right: false };
+let controls = { left: false, right: false, throttleUp: false, throttleDown: false };
 let animationId = null;
 let lastFrameTime = 0;
 
@@ -534,17 +534,38 @@ function resetFlight() {
         crashed: false,
         completed: false,
         collected: false,
+        throttle: 0,
+        engineActive: false,
+        boostersAttached: true,
+        boosterFuel: Math.max(38, 24 + stats.thrust * 5),
+        boosterMaxFuel: Math.max(38, 24 + stats.thrust * 5),
+        boosterEmptyAnnounced: false,
+        parachuteDeployed: false,
+        chuteDamaged: false,
+        currentStage: 3,
+        sas: false,
+        sasMode: "stability",
+        sasTarget: 0,
+        rcs: false,
+        mapMode: false,
+        maneuverNode: null,
         maxAlt: 0,
         message: "Bereit auf der Startrampe."
     };
+    renderFlightSystems();
 }
 
 function igniteFlight() {
     if (!flightState || flightState.crashed || flightState.completed) resetFlight();
-    flightState.launched = true;
-    flightState.landed = false;
-    flightState.paused = false;
-    flightState.message = "Start frei.";
+    if (!flightState.engineActive) {
+        stageRocket();
+    } else {
+        flightState.launched = true;
+        flightState.landed = false;
+        flightState.paused = false;
+        flightState.message = "Start frei. Schubhebel mit Shift/Ctrl oder Z/X steuern.";
+    }
+    renderFlightSystems();
 }
 
 function togglePause() {
@@ -558,7 +579,6 @@ function setupControls() {
         const key = button.dataset.control;
         const set = value => {
             controls[key] = value;
-            if (key === "thrust" && value) igniteFlight();
         };
         button.addEventListener("pointerdown", event => { event.preventDefault(); set(true); });
         button.addEventListener("pointerup", () => set(false));
@@ -566,17 +586,179 @@ function setupControls() {
         button.addEventListener("pointercancel", () => set(false));
     });
 
+    document.getElementById("throttleSlider")?.addEventListener("input", event => {
+        setThrottle(Number(event.target.value) / 100);
+    });
+    document.getElementById("btnThrottleZero")?.addEventListener("click", () => setThrottle(0));
+    document.getElementById("btnThrottleFull")?.addEventListener("click", () => setThrottle(1));
+    document.getElementById("btnStage")?.addEventListener("click", stageRocket);
+    document.getElementById("btnStageTouch")?.addEventListener("click", stageRocket);
+    document.getElementById("btnSas")?.addEventListener("click", toggleSas);
+    document.getElementById("btnRcs")?.addEventListener("click", toggleRcs);
+    document.getElementById("btnMapMode")?.addEventListener("click", toggleMapMode);
+    document.querySelectorAll("[data-sas-mode]").forEach(button => {
+        button.addEventListener("click", () => setSasMode(button.dataset.sasMode));
+    });
+    document.getElementById("btnAddNode")?.addEventListener("click", planManeuverNode);
+    document.getElementById("btnPointNode")?.addEventListener("click", pointToManeuver);
+    document.getElementById("btnClearNode")?.addEventListener("click", clearManeuverNode);
+    ["maneuverPrograde", "maneuverRadial"].forEach(id => {
+        document.getElementById(id)?.addEventListener("input", updateManeuverReadout);
+    });
+
     window.addEventListener("keydown", event => {
         if (event.repeat) return;
-        if (["Space", "KeyW", "ArrowUp"].includes(event.code)) { event.preventDefault(); controls.thrust = true; igniteFlight(); }
+        if (event.code === "Space") { event.preventDefault(); stageRocket(); }
+        if (["ShiftLeft", "ShiftRight"].includes(event.code)) { event.preventDefault(); controls.throttleUp = true; }
+        if (["ControlLeft", "ControlRight"].includes(event.code)) { event.preventDefault(); controls.throttleDown = true; }
+        if (event.code === "KeyZ") setThrottle(1);
+        if (event.code === "KeyX") setThrottle(0);
+        if (event.code === "KeyT") toggleSas();
+        if (event.code === "KeyR") toggleRcs();
+        if (event.code === "KeyM") toggleMapMode();
         if (["KeyA", "ArrowLeft"].includes(event.code)) controls.left = true;
         if (["KeyD", "ArrowRight"].includes(event.code)) controls.right = true;
     });
     window.addEventListener("keyup", event => {
-        if (["Space", "KeyW", "ArrowUp"].includes(event.code)) controls.thrust = false;
+        if (["ShiftLeft", "ShiftRight"].includes(event.code)) controls.throttleUp = false;
+        if (["ControlLeft", "ControlRight"].includes(event.code)) controls.throttleDown = false;
         if (["KeyA", "ArrowLeft"].includes(event.code)) controls.left = false;
         if (["KeyD", "ArrowRight"].includes(event.code)) controls.right = false;
     });
+}
+
+function setThrottle(value) {
+    if (!flightState) return;
+    flightState.throttle = Math.max(0, Math.min(1, value));
+    const slider = document.getElementById("throttleSlider");
+    const fill = document.getElementById("throttleFill");
+    if (slider) slider.value = Math.round(flightState.throttle * 100);
+    if (fill) fill.style.width = `${Math.round(flightState.throttle * 100)}%`;
+}
+
+function stageRocket() {
+    if (!flightState || flightState.crashed || flightState.completed) resetFlight();
+    if (flightState.currentStage === 3) {
+        flightState.engineActive = true;
+        flightState.launched = true;
+        flightState.landed = false;
+        flightState.paused = false;
+        flightState.message = flightState.throttle < 0.04
+            ? "Stufe 3 gezündet. Schubhebel steht auf 0: Z oder Shift gibt Schub."
+            : "Stufe 3: Haupttriebwerk und Booster gezündet.";
+        flightState.currentStage = 2;
+    } else if (flightState.currentStage === 2) {
+        flightState.boostersAttached = false;
+        flightState.vx *= 1.03;
+        flightState.vy *= 0.98;
+        flightState.message = "Stufe 2: leere Booster abgeworfen. Die Rakete ist leichter.";
+        flightState.currentStage = 1;
+    } else if (flightState.currentStage === 1) {
+        flightState.message = flightState.collected
+            ? "Stufe 1: Science-Daten im Bordcomputer gesichert."
+            : "Stufe 1: Science-Modul bereit. Fliege durch das grüne Symbol.";
+        flightState.currentStage = 0;
+    } else if (flightState.currentStage === 0) {
+        flightState.parachuteDeployed = true;
+        flightState.message = "Stufe 0: Fallschirm ausgefahren. Nicht zu früh und nicht zu schnell!";
+        flightState.currentStage = -1;
+    } else {
+        flightState.message = "Keine Stufe mehr im Stack.";
+    }
+    renderFlightSystems();
+}
+
+function toggleSas() {
+    if (!flightState) return;
+    flightState.sas = !flightState.sas;
+    if (flightState.sas && flightState.sasMode === "stability") {
+        flightState.sasTarget = flightState.angle;
+    }
+    flightState.message = flightState.sas ? "SAS hält die Ausrichtung." : "SAS ausgeschaltet.";
+    renderFlightSystems();
+}
+
+function toggleRcs() {
+    if (!flightState) return;
+    flightState.rcs = !flightState.rcs;
+    flightState.message = flightState.rcs ? "RCS aktiv: kleine Korrekturdüsen helfen beim Steuern." : "RCS ausgeschaltet.";
+    renderFlightSystems();
+}
+
+function toggleMapMode() {
+    if (!flightState) return;
+    flightState.mapMode = !flightState.mapMode;
+    flightState.message = flightState.mapMode ? "Kartenmodus: Flugbahn und Planung werden sichtbar." : "Kartenmodus ausgeschaltet.";
+    renderFlightSystems();
+}
+
+function setSasMode(mode) {
+    if (!flightState) return;
+    flightState.sas = true;
+    flightState.sasMode = mode;
+    if (mode === "stability") flightState.sasTarget = flightState.angle;
+    if (mode === "maneuver" && !flightState.maneuverNode) planManeuverNode();
+    flightState.message = `SAS-Modus: ${getSasModeLabel(mode)}.`;
+    renderFlightSystems();
+}
+
+function getSasModeLabel(mode) {
+    return {
+        stability: "Stabil halten",
+        prograde: "Prograde",
+        retrograde: "Retrograde",
+        maneuver: "Maneuver Node"
+    }[mode] || "Stabil halten";
+}
+
+function planManeuverNode() {
+    if (!flightState) return;
+    let { prograde, radial } = getManeuverInputs();
+    if (Math.hypot(prograde, radial) < 1) {
+        prograde = 18;
+        const slider = document.getElementById("maneuverPrograde");
+        if (slider) slider.value = prograde;
+    }
+    flightState.maneuverNode = { prograde, radial };
+    flightState.mapMode = true;
+    flightState.message = "Maneuver Node geplant. Die blaue Linie zeigt die geplante Änderung.";
+    updateManeuverReadout();
+    renderFlightSystems();
+}
+
+function pointToManeuver() {
+    if (!flightState) return;
+    if (!flightState.maneuverNode) planManeuverNode();
+    flightState.sas = true;
+    flightState.sasMode = "maneuver";
+    flightState.message = "SAS dreht Richtung Maneuver Node.";
+    renderFlightSystems();
+}
+
+function clearManeuverNode() {
+    if (!flightState) return;
+    flightState.maneuverNode = null;
+    if (flightState.sasMode === "maneuver") flightState.sasMode = "stability";
+    flightState.message = "Maneuver Node gelöscht.";
+    updateManeuverReadout();
+    renderFlightSystems();
+}
+
+function getManeuverInputs() {
+    return {
+        prograde: Number(document.getElementById("maneuverPrograde")?.value || 0),
+        radial: Number(document.getElementById("maneuverRadial")?.value || 0)
+    };
+}
+
+function updateManeuverReadout() {
+    const readout = document.getElementById("maneuverReadout");
+    if (!readout) return;
+    const node = flightState?.maneuverNode || getManeuverInputs();
+    const strength = Math.hypot(node.prograde, node.radial);
+    readout.textContent = strength < 1
+        ? "Kein Node geplant."
+        : `Delta-v ${Math.round(strength)} m/s · Prograde ${node.prograde} · Radial ${node.radial}`;
 }
 
 function startAnimationLoop() {
@@ -593,26 +775,73 @@ function startAnimationLoop() {
 }
 
 function updateFlight(dt) {
-    if (!flightState || flightState.paused || !flightState.launched || flightState.crashed || flightState.completed) return;
+    if (!flightState || flightState.paused || flightState.crashed || flightState.completed) return;
     const stats = getRocketStats();
     const mission = getMission();
 
+    if (controls.throttleUp) setThrottle(flightState.throttle + 0.018 * dt);
+    if (controls.throttleDown) setThrottle(flightState.throttle - 0.018 * dt);
+
+    if (!flightState.launched) return;
+
+    const manualSteering = controls.left || controls.right;
     if (controls.left) flightState.angle -= stats.turnPower * dt;
     if (controls.right) flightState.angle += stats.turnPower * dt;
+    if (!manualSteering && flightState.sas) {
+        const target = getSasTargetAngle();
+        const correction = wrapAngle(target - flightState.angle);
+        const maxTurn = stats.turnPower * (0.8 + stats.control * 0.04) * dt;
+        flightState.angle += Math.max(-maxTurn, Math.min(maxTurn, correction));
+    }
     flightState.angle = Math.max(-1.35, Math.min(1.35, flightState.angle));
 
-    if (controls.thrust && flightState.fuel > 0) {
-        const power = stats.thrustPower * dt;
-        flightState.vx += Math.sin(flightState.angle) * power * 12;
-        flightState.vy -= Math.cos(flightState.angle) * power * 12;
-        flightState.fuel = Math.max(0, flightState.fuel - (0.52 - Math.min(0.18, stats.control * 0.008)) * dt);
+    if (flightState.rcs && manualSteering && flightState.fuel > 0) {
+        const sidePush = (controls.right ? 1 : 0) - (controls.left ? 1 : 0);
+        flightState.vx += sidePush * stats.control * 0.0045 * dt;
+        flightState.fuel = Math.max(0, flightState.fuel - 0.025 * dt);
+    }
+
+    if (flightState.engineActive && flightState.throttle > 0.001 && flightState.fuel > 0) {
+        let power = stats.thrustPower * flightState.throttle * dt;
+        if (flightState.boostersAttached && flightState.boosterFuel > 0) {
+            power += stats.thrustPower * 0.46 * dt;
+            flightState.boosterFuel = Math.max(0, flightState.boosterFuel - 0.72 * dt);
+            if (flightState.boosterFuel === 0 && flightState.currentStage === 2 && !flightState.boosterEmptyAnnounced) {
+                flightState.boosterEmptyAnnounced = true;
+                flightState.message = "Booster leer. Mit Space die leere Stufe abwerfen.";
+                updateStageStack();
+            }
+        }
+        flightState.vx += Math.sin(flightState.angle) * power * 1.1;
+        flightState.vy -= Math.cos(flightState.angle) * power * 1.1;
+        const efficiency = 0.52 - Math.min(0.18, stats.control * 0.008);
+        flightState.fuel = Math.max(0, flightState.fuel - efficiency * flightState.throttle * dt);
     }
 
     flightState.vy += 0.045 * dt;
-    flightState.vx *= Math.pow(stats.drag, dt);
-    flightState.vy *= Math.pow(0.999, dt);
-    flightState.x += flightState.vx * dt * 8;
-    flightState.y += flightState.vy * dt * 8;
+    const boosterDrag = flightState.boostersAttached ? 0.997 : 1;
+    const chuteDrag = flightState.parachuteDeployed && !flightState.chuteDamaged ? 0.955 : 1;
+    flightState.vx *= Math.pow(stats.drag * boosterDrag * chuteDrag, dt);
+    flightState.vy *= Math.pow(0.999 * chuteDrag, dt);
+    if (flightState.parachuteDeployed && !flightState.chuteDamaged) {
+        const speed = Math.hypot(flightState.vx, flightState.vy);
+        const altitudeRaw = Math.max(0, 585 - flightState.y);
+        if (speed > 8.6 && altitudeRaw > 80) {
+            flightState.chuteDamaged = true;
+            flightState.message = "Fallschirm zu früh bei zu hoher Geschwindigkeit geöffnet.";
+        } else if (flightState.vy > 1.6) {
+            flightState.vy -= Math.min(0.055 * dt, flightState.vy - 1.6);
+        }
+    }
+    const terminalSpeed = 3.1 + stats.control * 0.04;
+    const currentSpeed = Math.hypot(flightState.vx, flightState.vy);
+    if (currentSpeed > terminalSpeed) {
+        const factor = terminalSpeed / currentSpeed;
+        flightState.vx *= factor;
+        flightState.vy *= factor;
+    }
+    flightState.x += flightState.vx * dt * 1.6;
+    flightState.y += flightState.vy * dt * 1.6;
 
     if (flightState.x < 80) { flightState.x = 80; flightState.vx *= -0.35; }
     if (flightState.x > 1020) { flightState.x = 1020; flightState.vx *= -0.35; }
@@ -637,20 +866,166 @@ function updateFlight(dt) {
 
     if (flightState.y >= 585) {
         flightState.y = 585;
+        if (flightState.engineActive && flightState.throttle < 0.04 && flightState.maxAlt < 1) {
+            flightState.vx = 0;
+            flightState.vy = 0;
+            flightState.message = "Stufe ist aktiv. Gib mit Z, Shift oder dem Schubhebel Leistung.";
+            return;
+        }
         const speed = Math.hypot(flightState.vx, flightState.vy);
-        if (flightState.maxAlt > mission.targetAlt * 0.75 && flightState.collected && speed <= stats.landingTolerance) {
+        const landingTolerance = stats.landingTolerance + (flightState.parachuteDeployed && !flightState.chuteDamaged ? 1.6 : 0);
+        if (flightState.maxAlt > mission.targetAlt * 0.75 && flightState.collected && speed <= landingTolerance) {
             completeMission("Saubere Landung. Mission geschafft.");
-        } else if (flightState.launched && speed > stats.landingTolerance) {
+        } else if (flightState.launched && speed > landingTolerance) {
             flightState.crashed = true;
             flightState.message = "Zu schnell gelandet. In der Werkstatt verbessern oder ruhiger bremsen.";
         } else {
             flightState.launched = false;
             flightState.landed = true;
-            flightState.message = "Gelandet. Für mehr Höhe länger Schub geben.";
+            flightState.engineActive = false;
+            flightState.message = "Gelandet. Starte neu mit Space und plane die Stufen ruhiger.";
         }
         flightState.vx = 0;
         flightState.vy = 0;
     }
+}
+
+function renderFlightSystems() {
+    if (!flightState) return;
+    setThrottle(flightState.throttle || 0);
+
+    const btnSas = document.getElementById("btnSas");
+    const btnRcs = document.getElementById("btnRcs");
+    const btnMap = document.getElementById("btnMapMode");
+    if (btnSas) {
+        btnSas.textContent = flightState.sas ? `SAS: ${getSasModeLabel(flightState.sasMode)}` : "SAS: aus";
+        btnSas.classList.toggle("active", flightState.sas);
+    }
+    if (btnRcs) {
+        btnRcs.textContent = flightState.rcs ? "RCS: an" : "RCS: aus";
+        btnRcs.classList.toggle("active", flightState.rcs);
+    }
+    if (btnMap) {
+        btnMap.textContent = flightState.mapMode ? "Karte: an" : "Karte: aus";
+        btnMap.classList.toggle("active", flightState.mapMode);
+    }
+    document.querySelectorAll("[data-sas-mode]").forEach(button => {
+        button.classList.toggle("active", flightState.sas && button.dataset.sasMode === flightState.sasMode);
+    });
+
+    updateStageStack();
+    updateManeuverReadout();
+    updateFlightReadouts();
+}
+
+function updateFlightReadouts() {
+    if (!flightState) return;
+    renderNavball();
+    const altitude = Math.max(0, Math.round(585 - flightState.y));
+    const speed = Math.hypot(flightState.vx, flightState.vy).toFixed(1);
+    const stats = getRocketStats();
+    const fuelPct = Math.round((flightState.fuel / stats.maxFuel) * 100);
+    const hud = document.getElementById("flightHud");
+    if (hud) {
+        hud.innerHTML = [
+            `Höhe ${altitude} m`,
+            `Tempo ${speed}`,
+            `Schub ${Math.round(flightState.throttle * 100)}%`,
+            `Treibstoff ${fuelPct}%`,
+            `Stage ${Math.max(0, flightState.currentStage)}`,
+            flightState.sas ? `SAS ${getSasModeLabel(flightState.sasMode)}` : "SAS aus",
+            flightState.rcs ? "RCS an" : "RCS aus",
+            flightState.collected ? "Science gesichert" : "Science offen",
+            flightState.message
+        ].map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
+    }
+}
+
+function updateStageStack() {
+    const stageStack = document.getElementById("stageStack");
+    if (!stageStack || !flightState) return;
+    const boosterPct = flightState.boosterMaxFuel
+        ? Math.round((flightState.boosterFuel / flightState.boosterMaxFuel) * 100)
+        : 0;
+    const stages = [
+        { id: 3, name: "Triebwerk", detail: flightState.engineActive ? "gezündet" : "Startstufe" },
+        { id: 2, name: "Booster", detail: flightState.boostersAttached ? `${boosterPct}% Rest` : "abgeworfen" },
+        { id: 1, name: "Science", detail: flightState.collected ? "Daten sichern" : "Experiment bereit" },
+        { id: 0, name: "Fallschirm", detail: flightState.parachuteDeployed ? (flightState.chuteDamaged ? "beschädigt" : "offen") : "Landestufe" }
+    ];
+    stageStack.innerHTML = stages.map(stage => {
+        const done = stage.id > flightState.currentStage;
+        const active = stage.id === flightState.currentStage;
+        return `
+            <div class="stage-card ${active ? "active" : ""} ${done ? "done" : ""}">
+                <strong>${stage.id}</strong>
+                <span>${escapeHtml(stage.name)}<small>${escapeHtml(stage.detail)}</small></span>
+            </div>
+        `;
+    }).join("");
+}
+
+function renderNavball() {
+    const navball = document.getElementById("navball");
+    if (!navball || !flightState) return;
+    const horizon = document.getElementById("navballHorizon");
+    if (horizon) {
+        horizon.style.setProperty("--bank", `${-flightState.angle}rad`);
+        horizon.style.setProperty("--pitch", `${Math.sin(flightState.angle) * 18}px`);
+    }
+
+    placeNavballMarker("progradeMarker", getProgradeAngle(), 46);
+    placeNavballMarker("retrogradeMarker", wrapAngle(getProgradeAngle() + Math.PI), 46);
+    const maneuverMarker = document.getElementById("maneuverMarker");
+    if (maneuverMarker) {
+        maneuverMarker.classList.toggle("visible", Boolean(flightState.maneuverNode));
+        if (flightState.maneuverNode) placeNavballMarker("maneuverMarker", getManeuverAngle(), 38);
+    }
+
+    const readout = document.getElementById("navballReadout");
+    if (readout) {
+        const pitch = Math.round(90 - Math.abs(flightState.angle * 180 / Math.PI));
+        readout.textContent = `Pitch ${pitch}° · Prograde ${Math.round(getProgradeAngle() * 180 / Math.PI)}°`;
+    }
+}
+
+function placeNavballMarker(id, absoluteAngle, radius) {
+    const marker = document.getElementById(id);
+    if (!marker) return;
+    const relative = wrapAngle(absoluteAngle - flightState.angle);
+    marker.style.left = `${50 + Math.sin(relative) * radius}%`;
+    marker.style.top = `${50 - Math.cos(relative) * radius}%`;
+}
+
+function getProgradeAngle() {
+    if (!flightState || Math.hypot(flightState.vx, flightState.vy) < 0.08) return flightState?.angle || 0;
+    return wrapAngle(Math.atan2(flightState.vx, -flightState.vy));
+}
+
+function getSasTargetAngle() {
+    if (!flightState) return 0;
+    if (flightState.sasMode === "prograde") return getProgradeAngle();
+    if (flightState.sasMode === "retrograde") return wrapAngle(getProgradeAngle() + Math.PI);
+    if (flightState.sasMode === "maneuver" && flightState.maneuverNode) return getManeuverAngle();
+    return flightState.sasTarget;
+}
+
+function getManeuverAngle() {
+    if (!flightState?.maneuverNode) return flightState?.angle || 0;
+    const base = getProgradeAngle();
+    const prograde = flightState.maneuverNode.prograde;
+    const radial = flightState.maneuverNode.radial;
+    const vx = Math.sin(base) * prograde + Math.cos(base) * radial;
+    const vy = -Math.cos(base) * prograde + Math.sin(base) * radial;
+    if (Math.hypot(vx, vy) < 0.5) return base;
+    return wrapAngle(Math.atan2(vx, -vy));
+}
+
+function wrapAngle(angle) {
+    let next = angle;
+    while (next > Math.PI) next -= Math.PI * 2;
+    while (next < -Math.PI) next += Math.PI * 2;
+    return next;
 }
 
 function completeMission(message) {
@@ -665,6 +1040,7 @@ function completeMission(message) {
     saveProgramState();
     renderMission();
     renderSolarMap();
+    renderFlightSystems();
 }
 
 function drawFlight() {
@@ -674,7 +1050,6 @@ function drawFlight() {
     const w = canvas.width;
     const h = canvas.height;
     const mission = getMission();
-    const stats = getRocketStats();
 
     ctx.clearRect(0, 0, w, h);
     const sky = ctx.createLinearGradient(0, 0, 0, h);
@@ -689,19 +1064,18 @@ function drawFlight() {
     drawTargetLines(ctx, mission, cameraY);
     drawGround(ctx, w, h, cameraY);
     drawScienceOrb(ctx, mission, cameraY);
-    drawRocketCanvas(ctx, flightState.x, flightState.y - cameraY, flightState.angle, controls.thrust && flightState.fuel > 0);
+    if (flightState.mapMode || flightState.maneuverNode) drawProjectedTrajectory(ctx, cameraY);
+    if (flightState.parachuteDeployed) drawParachute(ctx, flightState.x, flightState.y - cameraY, flightState.chuteDamaged);
+    drawRocketCanvas(
+        ctx,
+        flightState.x,
+        flightState.y - cameraY,
+        flightState.angle,
+        flightState.engineActive && flightState.throttle > 0.02 && flightState.fuel > 0,
+        { boostersAttached: flightState.boostersAttached }
+    );
 
-    const altitude = Math.max(0, Math.round(585 - flightState.y));
-    const speed = Math.hypot(flightState.vx, flightState.vy).toFixed(1);
-    const fuelPct = Math.round((flightState.fuel / stats.maxFuel) * 100);
-    document.getElementById("flightHud").innerHTML = [
-        `Höhe ${altitude} m`,
-        `Tempo ${speed}`,
-        `Treibstoff ${fuelPct}%`,
-        `Max ${Math.round(flightState.maxAlt)} m`,
-        flightState.collected ? "Science gesichert" : "Science offen",
-        flightState.message
-    ].map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
+    updateFlightReadouts();
 }
 
 function drawStars(ctx, w, h, cameraY) {
@@ -774,7 +1148,73 @@ function drawScienceOrb(ctx, mission, cameraY) {
     ctx.restore();
 }
 
-function drawRocketCanvas(ctx, x, y, angle, thrusting) {
+function drawProjectedTrajectory(ctx, cameraY) {
+    const stats = getRocketStats();
+    const sim = {
+        x: flightState.x,
+        y: flightState.y,
+        vx: flightState.vx,
+        vy: flightState.vy,
+        angle: flightState.angle
+    };
+    const node = flightState.maneuverNode;
+    ctx.save();
+    ctx.setLineDash([6, 8]);
+    ctx.lineWidth = 2.4;
+    ctx.strokeStyle = node ? "rgba(96, 165, 250, 0.85)" : "rgba(125, 211, 252, 0.58)";
+    ctx.beginPath();
+    ctx.moveTo(sim.x, sim.y - cameraY);
+    for (let i = 0; i < 150; i++) {
+        if (node && i === 36) {
+            const angle = getManeuverAngle();
+            const impulse = Math.hypot(node.prograde, node.radial) * 0.009;
+            sim.vx += Math.sin(angle) * impulse;
+            sim.vy -= Math.cos(angle) * impulse;
+        }
+        sim.vy += 0.045;
+        sim.vx *= stats.drag;
+        sim.vy *= 0.999;
+        sim.x += sim.vx * 1.6;
+        sim.y += sim.vy * 1.6;
+        if (sim.y > 616) break;
+        ctx.lineTo(sim.x, sim.y - cameraY);
+    }
+    ctx.stroke();
+    ctx.restore();
+}
+
+function drawParachute(ctx, x, y, damaged) {
+    ctx.save();
+    ctx.translate(x, y - 78);
+    ctx.strokeStyle = damaged ? "rgba(251, 113, 133, 0.78)" : "rgba(226, 232, 240, 0.84)";
+    ctx.fillStyle = damaged ? "rgba(127, 29, 29, 0.72)" : "rgba(248, 113, 113, 0.88)";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-58, 10);
+    ctx.quadraticCurveTo(0, -48, 58, 10);
+    ctx.lineTo(-58, 10);
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(-42, 10);
+    ctx.lineTo(-14, 62);
+    ctx.moveTo(0, -12);
+    ctx.lineTo(0, 62);
+    ctx.moveTo(42, 10);
+    ctx.lineTo(14, 62);
+    ctx.stroke();
+    if (damaged) {
+        ctx.strokeStyle = "#fecaca";
+        ctx.beginPath();
+        ctx.moveTo(-12, -16);
+        ctx.lineTo(4, 6);
+        ctx.lineTo(-5, 14);
+        ctx.stroke();
+    }
+    ctx.restore();
+}
+
+function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
     const model = getCurrentModel();
     const paint = getEquippedParts().find(part => part.slot === "paint");
     const color = paint?.color || model.color;
@@ -782,6 +1222,20 @@ function drawRocketCanvas(ctx, x, y, angle, thrusting) {
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(angle);
+    if (options.boostersAttached) {
+        ctx.fillStyle = "#cbd5e1";
+        ctx.strokeStyle = "#0f172a";
+        ctx.lineWidth = 3;
+        [-30, 30].forEach(side => {
+            ctx.beginPath();
+            ctx.roundRect(side - 8, -12, 16, 58, 8);
+            ctx.fill();
+            ctx.stroke();
+            ctx.fillStyle = "#fb7185";
+            ctx.fillRect(side - 6, 18, 12, 18);
+            ctx.fillStyle = "#cbd5e1";
+        });
+    }
     if (thrusting) {
         const flame = 34 + Math.sin(performance.now() * 0.04) * 8;
         ctx.fillStyle = "rgba(251, 191, 36, 0.95)";
