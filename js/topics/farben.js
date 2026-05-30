@@ -23,52 +23,117 @@ function enhanceColorAccessibility() {
 
 function showColorObject(kind) {
     const object = document.getElementById('colorObject');
-    const reflected = document.getElementById('colorReturnRay');
-    const absorbed = document.getElementById('colorAbsorbRay');
     const label = document.getElementById('colorObjectLabel');
     const text = document.getElementById('colorObjectText');
     const eye = document.getElementById('colorEye');
-    if (!object || !reflected || !absorbed || !label || !text) return;
+    const reflectedRays = document.getElementById('reflectedRayGroup');
+    const absorbedRays = document.getElementById('absorbedRays');
+    
+    if (!object) return;
 
     const states = {
         red: {
             fill: '#ef4444',
-            ray: '#ef4444',
-            label: 'roter Pulli',
-            absorbOpacity: '0.75',
-            text: 'Der rote Pulli reflektiert vor allem Rot. Viele andere Farben werden absorbiert.'
+            shape: 'M -30 -30 Q -15 -40 0 -40 Q 15 -40 30 -30 L 50 -10 L 35 5 L 25 -5 L 25 40 Q 0 45 -25 40 L -25 -5 L -35 5 Z', // T-Shirt
+            reflected: [{c: '#ef4444', w: 8, off: 0}],
+            absorbed: ['#22c55e', '#3b82f6'],
+            eye: '#ef4444',
+            label: 'Roter Pulli',
+            text: 'Der rote Pulli wirft (reflektiert) das rote Licht zurück in dein Auge. Das grüne und blaue Licht wird geschluckt (absorbiert).'
         },
         green: {
             fill: '#22c55e',
-            ray: '#22c55e',
-            label: 'gr\u00fcnes Blatt',
-            absorbOpacity: '0.75',
-            text: 'Das gr\u00fcne Blatt reflektiert vor allem Gr\u00fcn. Deshalb kommt gr\u00fcnes Licht in dein Auge.'
+            shape: 'M 0 -45 C 30 -45 45 -15 0 45 C -45 -15 -30 -45 0 -45 Z', // Leaf shape
+            reflected: [{c: '#22c55e', w: 8, off: 0}],
+            absorbed: ['#ef4444', '#3b82f6'],
+            eye: '#22c55e',
+            label: 'Grünes Blatt',
+            text: 'Das grüne Blatt reflektiert vor allem grünes Licht. Rot und Blau werden vom Blatt absorbiert.'
         },
         black: {
             fill: '#111827',
-            ray: '#475569',
-            label: 'schwarzer Stoff',
-            absorbOpacity: '1',
-            text: 'Schwarzer Stoff absorbiert sehr viel Licht. Darum kommt nur wenig Licht zur\u00fcck ins Auge.'
+            shape: 'M -30 -20 L -10 -40 L 20 -35 L 40 -10 L 35 20 L 10 40 L -25 30 Z', // Rock/Cloth shape
+            reflected: [], // None
+            absorbed: ['#ef4444', '#22c55e', '#3b82f6'],
+            eye: '#111827',
+            label: 'Schwarzer Stoff',
+            text: 'Schwarzer Stoff schluckt (absorbiert) fast das gesamte Licht. Es kommt kaum Licht am Auge an – deshalb sehen wir Schwarz!'
         },
         white: {
             fill: '#f8fafc',
-            ray: '#f8fafc',
-            label: 'wei\u00dfes Papier',
-            absorbOpacity: '0.2',
-            text: 'Wei\u00dfes Papier reflektiert viele Lichtfarben gemeinsam. F\u00fcr dein Auge wirkt das wei\u00df.'
+            shape: 'M -30 -35 L 30 -35 L 30 35 L -30 35 Z', // Paper sheet shape
+            reflected: [
+                {c: '#ef4444', w: 4, off: -8}, 
+                {c: '#22c55e', w: 4, off: 0}, 
+                {c: '#3b82f6', w: 4, off: 8}
+            ],
+            absorbed: [], // None
+            eye: '#f8fafc',
+            label: 'Weißes Papier',
+            text: 'Weißes Papier reflektiert alle Farben des Lichts gleichermaßen. Wenn alle Lichtfarben zusammen in unser Auge treffen, sehen wir Weiß.'
         }
     };
 
     const state = states[kind] || states.red;
     object.setAttribute('fill', state.fill);
-    reflected.setAttribute('stroke', state.ray);
-    reflected.setAttribute('stroke-width', kind === 'black' ? '5' : '10');
-    absorbed.setAttribute('opacity', state.absorbOpacity);
-    if (eye) eye.setAttribute('fill', kind === 'black' ? '#64748b' : state.ray);
+    object.setAttribute('d', state.shape);
+    eye.setAttribute('fill', state.eye);
     label.textContent = state.label;
     text.textContent = state.text;
+
+    // Build Reflected Rays
+    reflectedRays.innerHTML = '';
+    state.reflected.forEach(r => {
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        const yBase = 90 + r.off;
+        path.setAttribute('d', `M 280 ${yBase} Q 330 ${yBase - 20} 380 ${yBase}`);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', r.c);
+        path.setAttribute('stroke-width', r.w);
+        path.setAttribute('stroke-dasharray', '10,5');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('filter', 'url(#glow)');
+        
+        const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+        anim.setAttribute('attributeName', 'stroke-dashoffset');
+        anim.setAttribute('values', '15;0');
+        anim.setAttribute('dur', '0.5s');
+        anim.setAttribute('repeatCount', 'indefinite');
+        path.appendChild(anim);
+        
+        reflectedRays.appendChild(path);
+    });
+
+    // Build Absorbed Rays
+    absorbedRays.innerHTML = '';
+    if (state.absorbed.length > 0) {
+        state.absorbed.forEach((c, i) => {
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            const x = 210 + i * 20;
+            path.setAttribute('d', `M ${x} 150 L ${x} 200`);
+            path.setAttribute('stroke', c);
+            path.setAttribute('stroke-width', 4);
+            path.setAttribute('stroke-dasharray', '4,4');
+            
+            const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+            anim.setAttribute('attributeName', 'stroke-dashoffset');
+            anim.setAttribute('values', '8;0');
+            anim.setAttribute('dur', '0.6s');
+            anim.setAttribute('repeatCount', 'indefinite');
+            path.appendChild(anim);
+            
+            absorbedRays.appendChild(path);
+        });
+        
+        const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        txt.setAttribute('x', '230');
+        txt.setAttribute('y', '225');
+        txt.setAttribute('text-anchor', 'middle');
+        txt.setAttribute('fill', '#94a3b8');
+        txt.setAttribute('font-size', '11');
+        txt.textContent = 'absorbiert';
+        absorbedRays.appendChild(txt);
+    }
 }
 
 function simulateJump() {
