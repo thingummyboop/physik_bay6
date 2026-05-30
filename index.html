@@ -433,12 +433,14 @@
             } else if (page === 'topics/glossar.html') {
                 url = 'topics/glossar.html?v=2';
             } else if (page === 'topics/start.html') {
-                url = 'topics/start.html?v=3';
+                url = 'topics/start.html?v=4';
             }
 
             const frame = document.getElementById('game-frame');
             if (frame.src !== window.location.origin + '/' + url && !frame.src.endsWith(url)) {
                 frame.src = url;
+            } else {
+                syncFrameTheme(localStorage.getItem('physik_dark_mode') === 'true');
             }
 
             // Highlight active button
@@ -475,8 +477,23 @@
                 btn.innerHTML = "Nachtmodus 🌙";
             }
             
-            // Notify iframe about theme change
+            syncFrameTheme(isDark);
+        }
+
+        function syncFrameTheme(isDark) {
             const frame = document.getElementById('game-frame');
+            if (!frame) return;
+            try {
+                if (frame.contentDocument) {
+                    if (isDark) {
+                        frame.contentDocument.documentElement.setAttribute('data-theme', 'dark');
+                    } else {
+                        frame.contentDocument.documentElement.removeAttribute('data-theme');
+                    }
+                }
+            } catch (error) {
+                // Keep the postMessage fallback for hosted browsers that restrict iframe access.
+            }
             if (frame.contentWindow) {
                 frame.contentWindow.postMessage({ type: 'themeChange', isDark: isDark }, '*');
             }
@@ -508,6 +525,9 @@
             // Restore Theme
             const isDark = localStorage.getItem('physik_dark_mode') === 'true';
             applyTheme(isDark);
+            document.getElementById('game-frame').addEventListener('load', () => {
+                syncFrameTheme(localStorage.getItem('physik_dark_mode') === 'true');
+            });
             
             // Restore Page (Prefer Hash -> LocalStorage -> Default)
             const hashPage = window.location.hash.substring(1);

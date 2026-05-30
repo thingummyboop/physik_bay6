@@ -10,12 +10,11 @@
         .hero-banner {
             text-align: center;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, #fff7d6 0%, #ffd166 55%, #f59e0b 100%);
+            background: var(--header-bg);
             padding: 40px 20px;
             border-radius: 15px;
             color: #172033;
-            border: 3px solid #f59e0b;
-            box-shadow: 0 16px 34px rgba(245, 158, 11, 0.22);
+            border: 3px solid var(--primary);
         }
         .hero-banner h1 { font-size: 2.5em; margin-bottom: 10px; color: #172033; }
         .hero-banner p { font-size: 1.2em; max-width: 600px; margin: 0 auto; line-height: 1.5; color: #263244; }
@@ -23,7 +22,6 @@
             background: linear-gradient(135deg, #0b1f1a 0%, #14532d 58%, #0f766e 100%);
             color: #ecfdf5;
             border-color: #34d399;
-            box-shadow: 0 16px 34px rgba(16, 185, 129, 0.16);
         }
         [data-theme="dark"] .hero-banner h1,
         [data-theme="dark"] .hero-banner p {
@@ -76,6 +74,15 @@
         if (localStorage.getItem('physik_dark_mode') === 'true') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'themeChange') {
+                if (event.data.isDark) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+            }
+        });
     </script>
 </body>
 </html>
