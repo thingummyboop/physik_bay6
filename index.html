@@ -384,6 +384,8 @@
             }
         };
 
+        window.SCIVERSE_CURRICULUM = curriculum;
+
         let currentSortMode = 'grade';
         const selectedSubjectKey = 'physik_selected_subject';
 
@@ -541,6 +543,8 @@
             } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => page.includes(x))) {
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
                 url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
+            } else if (page === 'topics/dashboard.html') {
+                url = 'topics/dashboard.html?v=2';
             } else if (page === 'topics/glossar.html') {
                 url = 'topics/glossar.html?v=4';
             } else if (page === 'topics/start.html') {
