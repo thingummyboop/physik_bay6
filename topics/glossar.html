@@ -3,36 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physik-Glossar</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>SciVerse Glossar</title>
+    <link rel="stylesheet" href="../css/style.css?v=5.6">
     <style>
-        .topic-body { padding-top: 40px; }
-        .glossar-search { width: 100%; padding: 15px; font-size: 1.2em; border-radius: 10px; border: 2px solid var(--primary); margin-bottom: 20px; box-sizing: border-box; }
-        .glossar-item { background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .glossar-item h3 { margin-top: 0; color: var(--primary); }
+        .topic-body { padding-top: 36px; }
+        .glossary-hero {
+            background: linear-gradient(135deg, #0f766e, #2563eb 58%, #f59e0b);
+            border-radius: 18px;
+            color: white;
+            padding: 34px 28px;
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+            margin-bottom: 22px;
+            position: relative;
+            overflow: hidden;
+        }
+        .glossary-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -40px -80px auto;
+            width: 220px;
+            height: 220px;
+            border: 3px solid rgba(255,255,255,0.38);
+            border-radius: 50%;
+        }
+        .glossary-hero h1 {
+            color: white;
+            margin: 0 0 8px;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+        }
+        .glossary-hero p {
+            margin: 0;
+            max-width: 720px;
+            font-size: 1.1rem;
+        }
+        .glossary-tools {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: minmax(220px, 1fr) auto;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .glossary-search {
+            width: 100%;
+            padding: 15px 18px;
+            font-size: 1.08rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            box-sizing: border-box;
+            background: var(--card-bg);
+            color: var(--text);
+        }
+        .glossary-filter {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .glossary-filter button {
+            border: 1px solid var(--box-border);
+            background: var(--card-bg);
+            color: var(--text);
+            border-radius: 999px;
+            padding: 9px 13px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .glossary-filter button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+        .glossary-item {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid var(--box-border);
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+        }
+        .glossary-item h3 {
+            margin: 0 0 6px;
+            color: var(--primary);
+        }
+        .glossary-item p {
+            margin: 0;
+        }
+        .glossary-tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: var(--interactive-bg);
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+        .glossary-empty {
+            text-align: center;
+            padding: 28px;
+            border: 2px dashed var(--box-border);
+            border-radius: 14px;
+            color: var(--text);
+        }
+        @media (max-width: 760px) {
+            .glossary-tools { grid-template-columns: 1fr; }
+            .glossary-filter { justify-content: flex-start; }
+        }
     </style>
 </head>
 <body class="topic-body">
-    <h1 style="text-align: center; font-size: 3em; color: var(--primary);">📖 Physik-Glossar</h1>
-    <div class="card">
-        <input type="text" class="glossar-search" id="searchInput" placeholder="Suche..." onkeyup="filterGlossar()">
-        <div id="glossarList">
-            <div class="glossar-item"><h3>Absorption</h3><p>Verschlucken von Strahlung.</p></div>
-            <div class="glossar-item"><h3>Energie</h3><p>Fähigkeit, Arbeit zu verrichten.</p></div>
-            <div class="glossar-item"><h3>Kraft</h3><p>Einwirkung auf einen Körper.</p></div>
+    <section class="glossary-hero">
+        <h1>SciVerse Glossar</h1>
+        <p>Kurze Erklärungen zu wichtigen Fachwörtern aus Physik, Chemie, Mathematik und den anderen Lernbereichen.</p>
+    </section>
+
+    <section class="card">
+        <div class="glossary-tools">
+            <input type="search" class="glossary-search" id="searchInput" placeholder="Begriff suchen, z. B. Energie, pH, Teilchen..." autocomplete="off">
+            <div class="glossary-filter" aria-label="Fach filtern">
+                <button type="button" class="active" data-filter="all">Alle</button>
+                <button type="button" data-filter="Physik">Physik</button>
+                <button type="button" data-filter="Chemie">Chemie</button>
+                <button type="button" data-filter="Mathematik">Mathe</button>
+                <button type="button" data-filter="DGB">DGB</button>
+            </div>
         </div>
-    </div>
+        <div id="glossaryCount" style="margin-bottom: 14px; font-weight: 700; color: var(--primary);"></div>
+        <div id="glossaryList" class="glossary-grid"></div>
+        <p id="glossaryEmpty" class="glossary-empty" hidden>Kein Begriff gefunden. Probiere ein anderes Wort oder wähle „Alle“.</p>
+    </section>
+
     <script>
         if (localStorage.getItem('physik_dark_mode') === 'true') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
-        function filterGlossar() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let items = document.getElementsByClassName('glossar-item');
-            for (let i = 0; i < items.length; i++) {
-                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "block" : "none";
-            }
+
+        const glossaryTerms = [
+            { term: 'Absorption', subject: 'Physik', text: 'Ein Stoff nimmt Licht, Wärme oder andere Strahlung auf. Dunkle Flächen absorbieren oft stärker als helle.' },
+            { term: 'Arbeit', subject: 'Physik', text: 'Mechanische Arbeit wird verrichtet, wenn eine Kraft einen Körper entlang eines Weges bewegt.' },
+            { term: 'Energie', subject: 'Physik', text: 'Energie ist die Fähigkeit, etwas zu verändern: bewegen, erwärmen, verformen, leuchten oder klingen lassen.' },
+            { term: 'Kraft', subject: 'Physik', text: 'Eine Kraft kann die Bewegung oder Form eines Körpers ändern. Man gibt sie in Newton an.' },
+            { term: 'Schall', subject: 'Physik', text: 'Schall entsteht durch Schwingungen und braucht einen Stoff, zum Beispiel Luft, Wasser oder Metall.' },
+            { term: 'Spannung', subject: 'Physik', text: 'Spannung ist der elektrische Antrieb im Stromkreis. Sie wird in Volt gemessen.' },
+            { term: 'Stromstärke', subject: 'Physik', text: 'Die Stromstärke beschreibt, wie viel elektrische Ladung pro Zeit durch einen Leiter fließt.' },
+            { term: 'Stoff', subject: 'Chemie', text: 'Ein Stoff hat bestimmte Eigenschaften, zum Beispiel Farbe, Geruch, Dichte, Löslichkeit oder Schmelztemperatur.' },
+            { term: 'Gemisch', subject: 'Chemie', text: 'Ein Gemisch besteht aus mehreren Stoffen. Beispiele sind Luft, Salzwasser oder Müsli.' },
+            { term: 'Teilchenmodell', subject: 'Chemie', text: 'Das Modell erklärt Stoffe mit winzigen Teilchen, die sich bewegen und unterschiedlich angeordnet sein können.' },
+            { term: 'Chemische Reaktion', subject: 'Chemie', text: 'Dabei entstehen neue Stoffe mit neuen Eigenschaften. Hinweise sind Gasbildung, Farbänderung, Wärme oder Licht.' },
+            { term: 'pH-Wert', subject: 'Chemie', text: 'Der pH-Wert zeigt, ob eine Lösung sauer, neutral oder basisch ist. pH 7 ist ungefähr neutral.' },
+            { term: 'Indikator', subject: 'Chemie', text: 'Ein Indikator zeigt durch eine Farbänderung bestimmte Stoffeigenschaften, zum Beispiel sauer oder basisch.' },
+            { term: 'Oxidation', subject: 'Chemie', text: 'Eine Reaktion mit Sauerstoff. Verbrennung und Rosten sind wichtige Beispiele.' },
+            { term: 'Variable', subject: 'Mathematik', text: 'Ein Buchstabe oder Zeichen, das für eine Zahl steht, die noch unbekannt oder veränderbar ist.' },
+            { term: 'Gleichung', subject: 'Mathematik', text: 'Eine mathematische Aussage mit Gleichheitszeichen. Links und rechts muss derselbe Wert stehen.' },
+            { term: 'Prozent', subject: 'Mathematik', text: 'Prozent bedeutet Hundertstel. 25 Prozent sind 25 von 100.' },
+            { term: 'Algorithmus', subject: 'DGB', text: 'Eine genaue Schritt-für-Schritt-Anleitung, mit der ein Problem gelöst wird.' },
+            { term: 'Datei', subject: 'DGB', text: 'Gespeicherte Daten auf einem Gerät, zum Beispiel ein Text, Bild, Video oder eine Präsentation.' },
+            { term: 'Quelle', subject: 'DGB', text: 'Der Ort, von dem eine Information stammt. Gute Quellen sind überprüfbar und nennen Autor oder Herausgeber.' }
+        ];
+
+        let activeFilter = 'all';
+
+        function renderGlossary() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const list = document.getElementById('glossaryList');
+            const empty = document.getElementById('glossaryEmpty');
+            const count = document.getElementById('glossaryCount');
+            const filtered = glossaryTerms.filter(item => {
+                const matchesFilter = activeFilter === 'all' || item.subject === activeFilter;
+                const haystack = `${item.term} ${item.subject} ${item.text}`.toLowerCase();
+                return matchesFilter && haystack.includes(query);
+            }).sort((a, b) => a.term.localeCompare(b.term, 'de'));
+
+            list.innerHTML = filtered.map(item => `
+                <article class="glossary-item">
+                    <h3>${item.term}</h3>
+                    <p>${item.text}</p>
+                    <span class="glossary-tag">${item.subject}</span>
+                </article>
+            `).join('');
+            empty.hidden = filtered.length > 0;
+            count.textContent = `${filtered.length} Begriff${filtered.length === 1 ? '' : 'e'} gefunden`;
         }
+
+        document.getElementById('searchInput').addEventListener('input', renderGlossary);
+        document.querySelectorAll('[data-filter]').forEach(button => {
+            button.addEventListener('click', () => {
+                activeFilter = button.dataset.filter;
+                document.querySelectorAll('[data-filter]').forEach(btn => btn.classList.toggle('active', btn === button));
+                renderGlossary();
+            });
+        });
+        renderGlossary();
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎓 Das große Physik-Abenteuer (MS/AHS Unterstufe)</title>
+    <title>SciVerse - Lernseite für die Mittelschule</title>
     <link rel="stylesheet" href="css/style.css?v=5.5">
     <style>
         :root {
@@ -35,6 +35,10 @@
         #sidebar.collapsed { margin-left: -320px; }
         .sidebar-header { padding: 60px 20px 20px 20px; text-align: center; background: var(--header-gradient); border-bottom: 2px solid var(--header-border); }
         .sidebar-header h1 { margin: 10px 0; font-size: 1.4em; text-shadow: 0 2px 4px rgba(0,0,0,0.3); color: white; }
+        .sciverse-brand { display: grid; justify-items: center; gap: 8px; margin: 4px 0 12px; }
+        .sciverse-logo { width: 86px; height: 86px; filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.38)); }
+        .sciverse-title { margin: 0; font-size: 1.7em; letter-spacing: 0.04em; color: white; }
+        .sciverse-subtitle { margin: 0; color: #dbeafe; font-size: 0.78em; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
         .grade-section { padding: 15px 20px 5px 20px; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; border-bottom: 1px solid #334155; margin-top: 10px; font-weight: bold; }
         .nav-btn { background: transparent; color: var(--nav-btn-color); border: none; width: 100%; text-align: left; padding: 12px 20px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; font-size: 0.95em; }
         .nav-btn:hover, .nav-btn.active { background-color: var(--nav-btn-active-bg); color: var(--text-color); border-left: 4px solid var(--nav-btn-active-border); }
@@ -61,7 +65,33 @@
                 <button onclick="setLanguage('sr')" class="lang-btn" id="lang-sr" title="Српски">SR</button>
                 <button onclick="setLanguage('tr')" class="lang-btn" id="lang-tr" title="Türkçe">TR</button>
             </div>
-            <h1>🚀 Physik-Abenteuer</h1>
+            <div class="sciverse-brand" aria-label="SciVerse">
+                <svg class="sciverse-logo" viewBox="0 0 120 120" role="img" aria-label="SciVerse Logo">
+                    <defs>
+                        <linearGradient id="sv-orbit" x1="8" y1="12" x2="112" y2="108" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#67e8f9"/>
+                            <stop offset="0.48" stop-color="#34d399"/>
+                            <stop offset="1" stop-color="#facc15"/>
+                        </linearGradient>
+                        <radialGradient id="sv-core" cx="42%" cy="35%" r="64%">
+                            <stop offset="0" stop-color="#ffffff"/>
+                            <stop offset="0.36" stop-color="#bfdbfe"/>
+                            <stop offset="1" stop-color="#2563eb"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="44" fill="#0f172a" stroke="url(#sv-orbit)" stroke-width="5"/>
+                    <ellipse cx="60" cy="60" rx="50" ry="18" fill="none" stroke="#67e8f9" stroke-width="4" transform="rotate(-22 60 60)" opacity="0.9"/>
+                    <ellipse cx="60" cy="60" rx="50" ry="18" fill="none" stroke="#fde68a" stroke-width="3" transform="rotate(32 60 60)" opacity="0.78"/>
+                    <circle cx="60" cy="60" r="22" fill="url(#sv-core)"/>
+                    <path d="M49 56l10-10 12 10-12 10z" fill="#0f172a" opacity="0.65"/>
+                    <path d="M43 76c10 9 26 9 36 0" fill="none" stroke="#bbf7d0" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="92" cy="43" r="7" fill="#facc15"/>
+                    <circle cx="30" cy="76" r="5" fill="#34d399"/>
+                    <path d="M78 26l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#f8fafc"/>
+                </svg>
+                <h1 class="sciverse-title">SciVerse</h1>
+                <p class="sciverse-subtitle">Mittelschule Wien</p>
+            </div>
             <div style="margin-top: 10px; background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid #3b82f6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);">
                 <div style="font-size: 1.2em; font-weight: bold; color: #fbbf24; margin-bottom: 10px; text-align: center;">
                     🏆 <span id="global-score-val">0</span> Punkte
@@ -93,7 +123,7 @@
         
         <div id="dynamic-nav-container"></div>
     </div>
-    <div id="content-area"><iframe id="game-frame" name="game-frame" title="Physik Spiel"></iframe></div>
+    <div id="content-area"><iframe id="game-frame" name="game-frame" title="SciVerse Lernbereich"></iframe></div>
     
     <script>
         // Message handling for communication from iframe
@@ -389,6 +419,10 @@
             } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => page.includes(x))) {
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
                 url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
+            } else if (page === 'topics/glossar.html') {
+                url = 'topics/glossar.html?v=2';
+            } else if (page === 'topics/start.html') {
+                url = 'topics/start.html?v=2';
             }
 
             const frame = document.getElementById('game-frame');
