@@ -27,10 +27,46 @@
         [data-theme="dark"] .hero-banner p {
             color: #dbeafe;
         }
-        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .action-card { background: var(--card-bg); border: 2px solid var(--box-border); padding: 20px; border-radius: 12px; text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-        .action-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-color: var(--primary); }
-        .action-icon { font-size: 3em; margin-bottom: 10px; }
+        .subject-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+        }
+        .subject-card {
+            background: var(--card-bg);
+            border: 2px solid var(--box-border);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .subject-card:hover,
+        .subject-card:focus {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+            border-color: var(--primary);
+            outline: none;
+        }
+        .subject-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 8px;
+            color: var(--primary);
+        }
+        .subject-icon { font-size: 2rem; line-height: 1; }
+        .subject-card p { margin: 0 0 12px; color: var(--text); }
+        .subject-pill {
+            display: inline-block;
+            background: rgba(33, 150, 243, 0.12);
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 5px 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="topic-body">
@@ -50,21 +86,36 @@
             </ol>
         </div>
 
-        <div class="action-grid">
-            <div class="action-card" onclick="window.parent.postMessage({type:'navigate', page:'optik1'}, '*')">
-                <div class="action-icon">🌑</div>
-                <h3>Mit der Optik starten</h3>
-                <p>Beginne dein Abenteuer mit Licht und Schatten!</p>
+        <div class="subject-overview" aria-label="Fachgebiete">
+            <div class="subject-card" role="button" tabindex="0" onclick="openSubject('biologie')" onkeydown="handleSubjectKey(event, 'biologie')">
+                <h3><span class="subject-icon">🧬</span>Biologie</h3>
+                <p>Lebewesen, Körper, Gesundheit und Natur verstehen.</p>
+                <span class="subject-pill">Themenbaum öffnen</span>
             </div>
-            <div class="action-card" onclick="window.parent.postMessage({type:'navigate', page:'wetter'}, '*')">
-                <div class="action-icon">🌤️</div>
-                <h3>Neues: Wetter & Klima</h3>
-                <p>Entdecke die brandneuen Kapitel zu unserer Umwelt!</p>
+            <div class="subject-card" role="button" tabindex="0" onclick="openSubject('chemie')" onkeydown="handleSubjectKey(event, 'chemie')">
+                <h3><span class="subject-icon">🧪</span>Chemie</h3>
+                <p>Stoffe, Reaktionen, Laborregeln und Experimente.</p>
+                <span class="subject-pill">Themenbaum öffnen</span>
             </div>
-            <div class="action-card" onclick="window.parent.postMessage({type:'navigate', page:'topics/dashboard.html'}, '*')">
-                <div class="action-icon">🎓</div>
-                <h3>Mein Zeugnis ansehen</h3>
-                <p>Überprüfe deine Abzeichen und deinen aktuellen Rang.</p>
+            <div class="subject-card" role="button" tabindex="0" onclick="openSubject('dgb')" onkeydown="handleSubjectKey(event, 'dgb')">
+                <h3><span class="subject-icon">💻</span>Digitale Grundbildung</h3>
+                <p>Computer, Informationen, Kommunikation und Medien.</p>
+                <span class="subject-pill">Themenbaum öffnen</span>
+            </div>
+            <div class="subject-card" role="button" tabindex="0" onclick="openSubject('geographie')" onkeydown="handleSubjectKey(event, 'geographie')">
+                <h3><span class="subject-icon">🌍</span>Geographie & Umwelt</h3>
+                <p>Räume, Karten, Lebensräume und unsere Umwelt.</p>
+                <span class="subject-pill">Themenbaum öffnen</span>
+            </div>
+            <div class="subject-card" role="button" tabindex="0" onclick="openSubject('mathematik')" onkeydown="handleSubjectKey(event, 'mathematik')">
+                <h3><span class="subject-icon">📐</span>Mathematik</h3>
+                <p>Zahlen, Rechnen, Geometrie, Statistik und Spiele.</p>
+                <span class="subject-pill">Themenbaum öffnen</span>
+            </div>
+            <div class="subject-card" role="button" tabindex="0" onclick="openSubject('physik')" onkeydown="handleSubjectKey(event, 'physik')">
+                <h3><span class="subject-icon">🚀</span>Physik</h3>
+                <p>Licht, Wärme, Kräfte, Energie, Wetter und Astronomie.</p>
+                <span class="subject-pill">Themenbaum öffnen</span>
             </div>
         </div>
     </div>
@@ -82,6 +133,22 @@
                 }
             }
         });
+
+        function openSubject(subject) {
+            localStorage.setItem('physik_selected_subject', subject);
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'selectSubject', subject }, '*');
+            } else {
+                window.location.href = '../index.html#topics/start.html';
+            }
+        }
+
+        function handleSubjectKey(event, subject) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openSubject(subject);
+            }
+        }
     </script>
 </body>
 </html>

@@ -118,12 +118,12 @@
         
                 <div style="padding: 10px 20px;">
             <select id="subject-select" onchange="handleSubjectChange()" style="width: 100%; padding: 8px; border-radius: 6px; background: var(--main-bg); color: var(--text-color); border: 1px solid var(--nav-btn-active-border); outline: none; margin-bottom: 10px; font-weight: bold; cursor: pointer;">
-                <option value="physik">🚀 Physik</option>
-                <option value="geographie">🌍 Geographie & Umwelt</option>
-                <option value="dgb">💻 Digitale Grundbildung</option>
-                <option value="chemie">🧪 Chemie</option>
                 <option value="biologie">🧬 Biologie</option>
+                <option value="chemie">🧪 Chemie</option>
+                <option value="dgb">💻 Digitale Grundbildung</option>
+                <option value="geographie">🌍 Geographie & Umwelt</option>
                 <option value="mathematik">📐 Mathematik</option>
+                <option value="physik">🚀 Physik</option>
             </select>
             <div style="display: flex; gap: 5px; margin-bottom: 10px;">
                 <button id="sort-grade-btn" onclick="setSortMode('grade')" style="flex: 1; padding: 6px; border-radius: 4px; border: none; background: var(--nav-btn-active-border); color: white; cursor: pointer; font-size: 0.85em;">Nach Schuljahr</button>
@@ -146,6 +146,17 @@
             }
             if (e.data.type === 'navigate') {
                 loadPage(e.data.page, null);
+            }
+            if (e.data.type === 'selectSubject' && isKnownSubject(e.data.subject)) {
+                setSelectedSubject(e.data.subject);
+                renderNav();
+                const sidebar = document.getElementById('sidebar');
+                const toggle = document.getElementById('menu-toggle');
+                if (sidebar.classList.contains('collapsed')) {
+                    sidebar.classList.remove('collapsed');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+                sidebar.scrollTo({ top: document.getElementById('dynamic-nav-container').offsetTop - 12, behavior: 'smooth' });
             }
         });
 
@@ -435,7 +446,7 @@
             } else if (page === 'topics/glossar.html') {
                 url = 'topics/glossar.html?v=2';
             } else if (page === 'topics/start.html') {
-                url = 'topics/start.html?v=5';
+                url = 'topics/start.html?v=6';
             }
 
             const frame = document.getElementById('game-frame');
