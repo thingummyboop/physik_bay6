@@ -145,10 +145,22 @@ function collectChapterQuestions(topic) {
 
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
-    const topicId = params.get("topic");
-    const mode = params.get("mode") || "legacy";
+    let topicId = params.get("topic");
+    let mode = params.get("mode") || "legacy";
     const lang = topicLanguage(params);
     const container = document.getElementById("sections-container");
+
+    const routedTopic = /^(learn|challenge):(.+)$/.exec(topicId || "");
+    if (routedTopic) {
+        mode = params.get("mode") || routedTopic[1];
+        topicId = routedTopic[2];
+
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.set("topic", topicId);
+        if (!params.get("mode")) cleanUrl.searchParams.set("mode", mode);
+        window.history.replaceState(null, "", cleanUrl);
+    }
+
     document.body.dataset.topicMode = mode;
 
     if (!topicId) {
