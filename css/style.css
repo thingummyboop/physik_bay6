@@ -98,7 +98,7 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     padding: 15px; border-radius: 8px; margin: 15px 0; font-style: italic;
 }
 
-.lesson-goals, .mini-task, .remember-box, .teacher-note {
+.lesson-goals, .mini-task, .remember-box, .teacher-note, .misconception-box {
     border-radius: 12px;
     padding: 16px 18px;
     margin: 16px 0;
@@ -125,6 +125,38 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     border-color: #a78bfa;
 }
 
+.misconception-box {
+    background: #fff1f2;
+    border-color: #fb7185;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.astro-image {
+    overflow: hidden;
+}
+
+.astro-image img {
+    display: block;
+    width: 100%;
+}
+
+.astro-image figcaption {
+    color: var(--muted-text, #475569);
+    font-size: 0.9rem;
+    line-height: 1.35;
+    margin-top: 0.35rem;
+}
+
+.astro-task {
+    border-left: 8px solid #38bdf8;
+}
+
 [data-theme="dark"] .lesson-goals {
     background: #12351f;
     border-color: #2e7d32;
@@ -143,6 +175,15 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 [data-theme="dark"] .teacher-note {
     background: #2e174d;
     border-color: #7c3aed;
+}
+
+[data-theme="dark"] .misconception-box {
+    background: #3f1620;
+    border-color: #fb7185;
+}
+
+[data-theme="dark"] .astro-image figcaption {
+    color: #cbd5e1;
 }
 
 .formula-card {

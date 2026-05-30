@@ -13,6 +13,7 @@ function topicInit() {
     enhanceAstronomieAccessibility();
     updateGravity();
     calcSpeed();
+    if (typeof updateCannonball === 'function') updateCannonball();
 }
 
 function enhanceAstronomieAccessibility() {
@@ -34,6 +35,12 @@ function enhanceAstronomieAccessibility() {
     if (thrustRange) {
         thrustRange.setAttribute('aria-describedby', 'speedText');
         thrustRange.setAttribute('aria-valuetext', `${Number(thrustRange.value || 3).toFixed(1)} Kilometer pro Sekunde`);
+    }
+
+    const cannonVelocity = document.getElementById('cannonVelocity');
+    if (cannonVelocity) {
+        cannonVelocity.setAttribute('aria-describedby', 'cannonStatus');
+        cannonVelocity.setAttribute('aria-valuetext', `${Number(cannonVelocity.value || 8).toFixed(1)} Kilometer pro Sekunde`);
     }
 
     const startBtn = document.getElementById('startBtn');
@@ -247,4 +254,102 @@ function triggerSupernova() {
         core.setAttribute("fill", "#FFEB3B");
         lines.style.display = "none";
     }, 4000);
+}
+
+function updateSolarZoom() {
+    const val = document.getElementById('solarZoomRange')?.value;
+    const group = document.getElementById('solarSystemGroup');
+    if (!val || !group) return;
+    // Map 0-100 to a pan/scale transformation
+    // 0 = inner planets, 100 = outer planets
+    const maxPan = -3600;
+    const pan = (val / 100) * maxPan;
+    // Slightly zoom out as we go further out to fit inclinations
+    const scale = 1 - (val / 100) * 0.7;
+    // Keep the sun anchored to the left but move the view right
+    const baseX = 50;
+    group.setAttribute('transform', `translate(${baseX + pan}, 140) scale(${scale})`);
+}
+
+function updateCannonball() {
+    const velInput = document.getElementById('cannonVelocity');
+    const path = document.getElementById('cannonPath');
+    const anim = document.getElementById('cannonAnim');
+    const status = document.getElementById('cannonStatus');
+    const velText = document.getElementById('cannonVelVal');
+    const velVector = document.getElementById('velVector');
+    const impactPoint = document.getElementById('impactPoint');
+
+    if(!velInput || !path || !anim || !status || !velText || !velVector) return;
+
+    const v = parseFloat(velInput.value);
+    velText.innerText = v.toFixed(1) + " km/s";
+    velInput.setAttribute('aria-valuetext', `${v.toFixed(1)} Kilometer pro Sekunde`);
+
+    const vecLength = 338 + (v - 3) * 9;
+    velVector.setAttribute('x2', vecLength);
+
+    if (impactPoint) {
+        impactPoint.setAttribute('opacity', '0');
+        impactPoint.setAttribute('r', '0');
+    }
+
+    let flightPath = '';
+
+    if (v < 7.5) {
+        const t = Math.max(0, Math.min(1, (v - 3) / 4.5));
+        const theta = (-76 + t * 98) * Math.PI / 180;
+        const hitX = 310 + Math.cos(theta) * 72;
+        const hitY = 165 + Math.sin(theta) * 72;
+        const controlX = 328 + v * 12;
+        const controlY = 34 + t * 58;
+        flightPath = `M 310 53 Q ${controlX.toFixed(1)} ${controlY.toFixed(1)} ${hitX.toFixed(1)} ${hitY.toFixed(1)}`;
+        path.setAttribute('stroke', '#ef4444');
+        path.setAttribute('stroke-dasharray', '5 6');
+        anim.setAttribute('dur', '2.6s');
+        status.innerText = "Zu langsam: Die Kugel trifft wieder auf die Erde.";
+        status.style.color = "#ef4444";
+        if (impactPoint) {
+            impactPoint.setAttribute('cx', hitX.toFixed(1));
+            impactPoint.setAttribute('cy', hitY.toFixed(1));
+            impactPoint.setAttribute('r', '5');
+            impactPoint.setAttribute('opacity', '1');
+        }
+    } else if (v >= 7.5 && v <= 8.5) {
+        flightPath = "M 310 53 A 112 112 0 1 1 309.9 53";
+        path.setAttribute('stroke', '#38bdf8');
+        path.setAttribute('stroke-dasharray', '8 8');
+        anim.setAttribute('dur', '5s');
+        status.innerText = "Passende Geschwindigkeit: Die Kugel fällt ständig zur Erde, verfehlt aber den Boden.";
+        status.style.color = "#38bdf8";
+    } else if (v > 8.5 && v < 11.2) {
+        const t = (v - 8.5) / 2.7;
+        const rx = 116 + t * 74;
+        const bottom = 277 + t * 30;
+        const right = 310 + rx;
+        const left = 310 - rx;
+        flightPath = `M 310 53 C ${310 + rx * 0.9} 52 ${right} 96 ${right} 165 C ${right} 238 ${310 + rx * 0.72} ${bottom} 310 ${bottom} C ${310 - rx * 0.72} ${bottom} ${left} 238 ${left} 165 C ${left} 96 ${310 - rx * 0.9} 52 310 53`;
+        path.setAttribute('stroke', '#facc15');
+        path.setAttribute('stroke-dasharray', '8 8');
+        anim.setAttribute('dur', '6.5s');
+        status.innerText = "Schneller Start: Die Kugel bleibt gebunden, aber auf einer längeren elliptischen Bahn.";
+        status.style.color = "#facc15";
+    } else {
+        flightPath = `M 310 53 C 380 45 470 18 600 -18`;
+        path.setAttribute('stroke', '#22c55e');
+        path.setAttribute('stroke-dasharray', '10 10');
+        anim.setAttribute('dur', '3s');
+        status.innerText = "Sehr schnell: Die Kugel erreicht Fluchtgeschwindigkeit und verlässt die Erde.";
+        status.style.color = "#22c55e";
+    }
+
+    path.setAttribute('d', flightPath);
+    anim.setAttribute('path', flightPath);
+    if (typeof anim.beginElement === 'function') {
+        try {
+            anim.beginElement();
+        } catch (e) {
+            // Some browsers do not allow restarting SMIL animations programmatically.
+        }
+    }
 }

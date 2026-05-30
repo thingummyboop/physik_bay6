@@ -747,315 +747,754 @@
     }
   },
   "astronomie": {
-    "title": "🌌 Das Astrophysik-Abenteuer 🚀",
-    "subtitle": "Hallo Weltraum-Forscher! Schnall dich an. Wir verlassen die Erde und reisen zu Schwarzen Löchern, explodierenden Sternen und den Grenzen von Raum und Zeit!",
+    "title": "🌌 Astronomie: Vom Sternenhimmel zum Universum",
+    "subtitle": "Ein großes Kapitel für die 4. Klasse: Beobachten, Geschichte, Orbits, Teleskope, Sonnensystem, Planeten, Galaxien und die großen offenen Fragen des Kosmos.",
     "sections": [
       {
-        "id": "sec0",
-        "title": "1. Kosmische Dimensionen: Wie klein sind wir wirklich?",
+        "title": "1. Was ist Astronomie?",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "Welche Maßeinheit nutzen Astronomen oft für Entfernungen in unserem Sonnensystem?",
+            "id": "astro_s1_q0",
+            "question": "Was untersucht Astronomie?",
             "answers": [
               {
-                "text": "Millimeter.",
+                "text": "Nur das Wetter auf der Erde.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Fast. Für Entfernungen im All sind Millimeter ungeeignet. Zwischen Erde und Sonne nutzt man die Astronomische Einheit."
+                "pts": 5,
+                "feedback": "Noch nicht. Astronomie schaut über die Erde hinaus."
               },
               {
-                "text": "Die Astronomische Einheit (AE).",
+                "text": "Himmelskörper und das Universum.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Die Astronomische Einheit (AE) ist die typische Entfernung Erde–Sonne und praktisch für unser Sonnensystem."
+                "feedback": "Richtig. Astronomie schaut über die Erde hinaus."
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Auf der Erde kommt uns ein Berg riesig vor. Aber im Weltraum ist die Erde nur ein winziges Staubkorn. Wenn wir ins All schauen, müssen wir uns an völlig neue Größenordnungen gewöhnen. Der Jupiter ist so groß, dass die Erde über 1.300 Mal hineinpassen würde. Und unsere Sonne? Ein gigantischer Feuerball!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Raum-Wörterbuch:</strong><br>\n            Weil Kilometer im All viel zu kleine Zahlen sind, messen Astronomen in <strong>Astronomischen Einheiten (AE)</strong>. 1 AE ist die Entfernung von der Erde zur Sonne (ca. 150 Millionen Kilometer).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌍 Der Planeten-Vergleich</h3>\n            <p>Klicke auf die Himmelskörper, um zu sehen, wie sie im Vergleich zueinander aussehen!</p>\n            <button onclick=\"showPlanet('erde')\">Erde ansehen</button>\n            <button onclick=\"showPlanet('jupiter')\">Jupiter ansehen</button>\n            <button onclick=\"showPlanet('sonne')\">Sonne ansehen</button>\n            <div class=\"diagram-box\" style=\"height: 180px;\">\n                <svg width=\"400\" height=\"120\" viewBox=\"0 0 400 120\">\n                    <g id=\"planetErde\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"60\" r=\"5\" fill=\"#2196F3\"></circle>\n                        <text x=\"200\" y=\"100\" font-size=\"14\" text-anchor=\"middle\" fill=\"#555\">Die Erde (Durchmesser: ~12.700 km)</text>\n                    </g>\n                    \n                    <g id=\"planetJupiter\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"60\" r=\"50\" fill=\"#FFC107\"></circle>\n                        <circle cx=\"100\" cy=\"60\" r=\"5\" fill=\"#2196F3\"></circle> <text x=\"200\" y=\"130\" font-size=\"14\" text-anchor=\"middle\" fill=\"#555\">Jupiter (Erde links zum Vergleich)</text>\n                    </g>\n\n                    <g id=\"planetSonne\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"200\" r=\"180\" fill=\"#FF5722\"></circle>\n                        <circle cx=\"200\" cy=\"10\" r=\"5\" fill=\"#2196F3\"></circle> <text x=\"200\" y=\"25\" font-size=\"14\" text-anchor=\"middle\" fill=\"#FFF\">Erde (winziger Punkt oben)</text>\n                    </g>\n                </svg>\n                <p id=\"planetText\" style=\"font-size: 1.3em; font-weight: bold; color: #4A148C; margin-top: 10px;\">Was willst du untersuchen?</p>\n            </div>\n        </div>\n        {{QUIZ_q1}}\n    "
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/dynamicimage/assets/science/astro/universe/2023/09/diagram_still_hi_res_122019.webp\" alt=\"Blick in das Universum mit Galaxien und kosmischer Struktur\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p><strong>Astronomie</strong> ist die Wissenschaft von Himmelskörpern und vom Universum: Sonne, Mond, Planeten, Sterne, Galaxien und alles, was dazwischen liegt. Astronomie fragt: Was sehen wir am Himmel? Wie bewegt es sich? Woraus besteht es? Wie ist es entstanden?</p>\n    <div class=\"remember-box\"><strong>Kernidee:</strong> Astronomie beginnt mit Beobachtung. Astrophysik erklärt diese Beobachtungen mit Physik: Licht, Gravitation, Bewegung, Energie und Materie.</div>\n    <div class=\"mini-task astro-task\"><strong>Heftauftrag:</strong> Lege im Heft eine Tabelle mit drei Spalten an: mit freiem Auge sichtbar, mit Teleskop sichtbar, mit Raumsonde erforschbar. Trage je drei Beispiele ein und markiere dein spannendstes Beispiel mit einem Stern.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/astrophysics/\" target=\"_blank\" rel=\"noopener\">NASA Astrophysics</a></li><li><a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Universe Overview</a></li></ul></div>\n  {{QUIZ_astro_s1_q0}}"
       },
       {
-        "id": "sec1",
-        "title": "2. Die Lichtgeschwindigkeit: Das absolute Tempolimit",
+        "title": "2. Geschichte: Antike bis Galileo",
         "quizzes": [
           {
-            "id": "q2",
-            "question": "Was genau ist ein \"Lichtjahr\"?",
+            "id": "astro_s2_q0",
+            "question": "Warum war Galileo für die Astronomie wichtig?",
             "answers": [
               {
-                "text": "Die Zeit, die man braucht, um zur Sonne zu fliegen.",
+                "text": "Er erfand die Sonne.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Nicht ganz: Ein Lichtjahr beschreibt keine Zeit für eine Reise, sondern eine Strecke."
+                "pts": 5,
+                "feedback": "Noch nicht. Galileos Beobachtungen stützten das heliozentrische Weltbild."
               },
               {
-                "text": "Die Strecke, die das Licht in einem Jahr zurücklegt.",
+                "text": "Er nutzte das Fernrohr systematisch zur Himmelsbeobachtung.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Ein Lichtjahr ist die Strecke, die Licht in einem Jahr zurücklegt."
+                "feedback": "Richtig. Galileos Beobachtungen stützten das heliozentrische Weltbild."
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Nichts im Universum ist schneller als das Licht. Es rast mit unglaublichen <strong>300.000 Kilometern pro Sekunde</strong> durchs All! Wenn du eine Taschenlampe einschaltest, ist das Licht fast sofort an der Wand. Aber der Weltraum ist so riesig, dass selbst das rasend schnelle Licht Zeit braucht.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das Lichtjahr:</strong><br>\n            Ein Lichtjahr ist <em>keine</em> Zeit, sondern eine <strong>Strecke</strong>! Es ist die Entfernung, die das Licht in einem ganzen Jahr zurücklegt (fast 9,5 Billionen Kilometer).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⏱️ Das Laser-Experiment: Erde zum Mond</h3>\n            <p>Das Licht braucht vom Mond zur Erde nicht ganz eineinhalb Sekunden. Klicke auf \"Laser abfeuern\" und stoppe die Zeit bei <strong>exakt 1.30 Sekunden</strong>!</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">Laser abfeuern 🔦</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">Stoppen! ⏹️</button>\n            <div class=\"diagram-box\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #4A148C; margin: 0;\" id=\"timerDisplay\">0.00 s</p>\n                <p id=\"timerResult\" style=\"font-weight: bold; color: #E91E63; min-height: 25px;\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/04/27946391011_d40ff10573_h-jpg.webp\" alt=\"Hubble-Weltraumteleskop über der Erde\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA, modernes Werkzeug einer langen Beobachtungsgeschichte</figcaption></figure>\n    <p>Schon in der Antike beobachteten Menschen Sonne, Mond, Planeten und Sternbilder. Viele Kulturen nutzten den Himmel für Kalender, Landwirtschaft, Orientierung und Religion. Lange glaubten viele Gelehrte an ein <strong>geozentrisches Weltbild</strong>: Die Erde steht in der Mitte.</p>\n    <ol class=\"step-list\"><li><strong>Antike:</strong> Aristoteles und Ptolemäus beschreiben ein Erde-zentriertes Modell.</li><li><strong>Kopernikus:</strong> Die Sonne rückt in die Mitte des Planetensystems.</li><li><strong>Tycho Brahe:</strong> Sehr genaue Messungen ohne modernes Teleskop.</li><li><strong>Kepler:</strong> Mathematische Gesetze der Planetenbewegung.</li><li><strong>Galileo Galilei:</strong> Er nutzt ab 1609 ein Fernrohr systematisch für den Himmel: Mondberge, Sonnenflecken, Venusphasen und Jupitermonde.</li></ol>\n    <div class=\"misconception-box\"><strong>Wichtig:</strong> Galileo hat das Fernrohr nicht erfunden. Aber er machte es zu einem wissenschaftlichen Werkzeug für Astronomie.</div>\n    <div class=\"mini-task astro-task\"><strong>Zeitleiste ins Heft:</strong> Zeichne eine Linie von Antike bis Galileo. Trage Antike, Kopernikus, Tycho Brahe, Kepler und Galileo ein. Suche im Internet ein Bild von Galileos Mondzeichnungen und notiere einen Satz dazu.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/mission/galileo/\" target=\"_blank\" rel=\"noopener\">NASA: Galileo Mission (Namensbezug)</a></li><li><a href=\"https://www.nasa.gov/aeronautics/history-of-airborne-astronomy-at-nasa/\" target=\"_blank\" rel=\"noopener\">NASA: History of Airborne Astronomy</a></li></ul></div>\n  {{QUIZ_astro_s2_q0}}"
       },
       {
-        "id": "sec2",
-        "title": "3. Gravitation: Wenn Masse den Raum verbiegt",
+        "title": "3. Keplersche Gesetze",
         "quizzes": [
           {
-            "id": "q3",
-            "question": "Warum heißt ein Schwarzes Loch \"schwarz\"?",
+            "id": "astro_s3_q0",
+            "question": "Welche Form hat eine Planetenbahn nach Kepler meistens?",
             "answers": [
               {
-                "text": "Weil seine Schwerkraft so stark ist, dass nicht einmal Licht entkommen kann.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Sehr gut. Ein Schwarzes Loch wirkt schwarz, weil selbst Licht seiner extremen Schwerkraft nicht entkommt."
+                "text": "Ein perfektes Quadrat.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Keplers erstes Gesetz beschreibt Ellipsenbahnen."
               },
               {
-                "text": "Weil es aus dunkler Kohle besteht.",
-                "correct": false,
+                "text": "Eine Ellipse.",
+                "correct": true,
                 "pts": 10,
-                "feedback": "Das ist ein Mythos. Schwarze Löcher bestehen nicht aus Kohle, sondern sind Regionen mit extrem starker Gravitation."
+                "feedback": "Richtig. Keplers erstes Gesetz beschreibt Ellipsenbahnen."
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Warum fallen wir nicht von der Erde? Wegen der Schwerkraft (Gravitation)! Albert Einstein hat herausgefunden: Jeder schwere Körper (wie eine Art Bowlingkugel auf einem Trampolin) biegt den Raum um sich herum. Je schwerer etwas ist, desto stärker zieht es andere Dinge an.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das Schwarze Loch:</strong><br>\n            Wenn ein riesiger Stern stirbt, kann er in sich zusammenstürzen. Er wird unendlich klein, behält aber seine enorme Masse. Die Schwerkraft wird dort so extrem, dass nicht einmal mehr das Licht entkommen kann – ein Schwarzes Loch ist geboren!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ Der Schwerkraft-Verzerrer</h3>\n            <p>Erhöhe die Masse und beobachte, wie stark Raum und Zeit gebogen werden!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">Die Erde</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">Mäßige Schwerkraft. Ein leichtes \"Eindellen\" des Raums.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 High-Quality Animation: Das 2. Keplersche Gesetz (Flächensatz)</h3>\n            <p>Schau dir diese präzise, mit Python (Manim) generierte Animation an, um den physikalischen Vorgang genau zu verstehen:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/gravitation_kepler.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}\n    "
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2023/06/s/solar-system-illustration-16x9-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"Illustration des Sonnensystems\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Johannes Kepler fand drei Regeln, mit denen man Planetenbahnen viel besser beschreiben kann. Sie gelten nicht nur für Planeten, sondern grundsätzlich auch für Monde, Satelliten und viele Raumsonden.</p>\n    <div class=\"diagram-box\">\n        <svg width=\"100%\" height=\"330\" viewBox=\"0 0 620 330\" role=\"img\" aria-label=\"Keplersche Gesetze als Schema\" style=\"background:#0f172a;border-radius:12px;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);\">\n            <defs>\n                <radialGradient id=\"astroSunGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"20%\" stop-color=\"#f59e0b\"/><stop offset=\"100%\" stop-color=\"#0f172a\" stop-opacity=\"0\"/></radialGradient>\n                <filter id=\"astroGlow\"><feGaussianBlur stdDeviation=\"5\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                <linearGradient id=\"planetGrad\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#93c5fd\"/><stop offset=\"100%\" stop-color=\"#2563eb\"/></linearGradient>\n                <marker id=\"pathArrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M 0 0 L 10 5 L 0 10 Z\" fill=\"#f8fafc\" /></marker>\n            </defs>\n\n            <!-- Orbit Path -->\n            <path id=\"orbitPath\" d=\"M 110 150 A 200 120 0 0 1 510 150 A 200 120 0 0 1 110 150\" fill=\"none\" stroke=\"#334155\" stroke-width=\"2\" stroke-dasharray=\"8 6\" />\n            <path d=\"M 110 150 L 510 150\" stroke=\"#334155\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/>\n            <circle cx=\"470\" cy=\"150\" r=\"4\" fill=\"#475569\" />\n            <text x=\"470\" y=\"168\" text-anchor=\"middle\" font-size=\"11\" fill=\"#64748b\">leerer Brennpunkt</text>\n\n            <!-- Kepler Areas -->\n            <g opacity=\"0.65\">\n                <!-- Perihelion Area -->\n                <path d=\"M 150 150 L 160 229 A 200 120 0 0 1 160 71 Z\" fill=\"#3b82f6\" />\n                <!-- Aphelion Area -->\n                <path d=\"M 150 150 L 508 133 A 200 120 0 0 1 508 167 Z\" fill=\"#f59e0b\" />\n            </g>\n\n            <!-- Path Indicators (Arrows showing speed) -->\n            <path d=\"M 160 229 A 200 120 0 0 1 160 71\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"3\" marker-end=\"url(#pathArrow)\" />\n            <text x=\"90\" y=\"154\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#f8fafc\">schnell</text>\n            <text x=\"175\" y=\"65\" font-size=\"11\" fill=\"#94a3b8\">Weg in 1 Monat</text>\n\n            <path d=\"M 508 133 A 200 120 0 0 1 508 167\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"3\" marker-end=\"url(#pathArrow)\" />\n            <text x=\"545\" y=\"154\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#f8fafc\">langsam</text>\n            <text x=\"500\" y=\"122\" text-anchor=\"end\" font-size=\"11\" fill=\"#94a3b8\">Weg in 1 Monat</text>\n\n            <!-- Sun -->\n            <circle cx=\"150\" cy=\"150\" r=\"80\" fill=\"url(#astroSunGlow)\" />\n            <circle cx=\"150\" cy=\"150\" r=\"18\" fill=\"#facc15\" filter=\"url(#astroGlow)\" />\n            <text x=\"150\" y=\"120\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"900\" fill=\"#fde047\">Sonne</text>\n\n            <!-- Planet Animation -->\n            <g>\n                <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"url(#planetGrad)\" filter=\"url(#astroGlow)\" />\n                <!-- Improved keySplines to prevent stopping and give realistic 9:1 speed variation -->\n                <animateMotion dur=\"8s\" repeatCount=\"indefinite\" path=\"M 110 150 A 200 120 0 0 1 510 150 A 200 120 0 0 1 110 150\" calcMode=\"spline\" keyTimes=\"0; 0.5; 1\" keySplines=\"0.2 0.6 0.7 0.9; 0.3 0.1 0.8 0.4\" keyPoints=\"0; 0.5; 1\" />\n            </g>\n\n            <!-- Title & Legend -->\n            <text x=\"310\" y=\"25\" text-anchor=\"middle\" font-weight=\"900\" fill=\"#f8fafc\" font-size=\"16\">2. Keplersches Gesetz (Flächensatz)</text>\n            <g font-size=\"13\" fill=\"#cbd5e1\" font-weight=\"600\">\n                <text x=\"310\" y=\"275\" text-anchor=\"middle\">In gleicher Zeit (<tspan fill=\"#f8fafc\">z.B. 1 Monat</tspan>) überstreicht der Planet die <tspan fill=\"#60a5fa\">gleiche Fläche</tspan> (<tspan fill=\"#60a5fa\">blau</tspan> = <tspan fill=\"#fcd34d\">gelb</tspan>).</text>\n                <text x=\"310\" y=\"295\" text-anchor=\"middle\">Darum muss er nahe der Sonne eine <tspan fill=\"#f8fafc\">viel längere Strecke</tspan> fliegen = <tspan fill=\"#f8fafc\">er ist dort schneller!</tspan></text>\n            </g>\n        </svg>\n    </div>\n    <ul class=\"step-list\"><li><strong>Erstes Gesetz:</strong> Planeten bewegen sich auf Ellipsen. Die Sonne steht in einem Brennpunkt.</li><li><strong>Zweites Gesetz:</strong> In gleicher Zeit überstreicht die Verbindungslinie Sonne-Planet gleich große Flächen. Nah an der Sonne ist der Planet schneller.</li><li><strong>Drittes Gesetz:</strong> Je weiter ein Planet von der Sonne entfernt ist, desto länger dauert eine Umrundung.</li></ul>\n    <div class=\"mini-task astro-task\"><strong>Skizze ins Heft:</strong> Zeichne eine Ellipse mit Sonne im Brennpunkt. Markiere zwei gleich große Flächen und schreibe darunter in eigenen Worten, warum ein Planet nahe der Sonne schneller ist.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/orbits-and-keplers-laws/\" target=\"_blank\" rel=\"noopener\">NASA: Orbits and Kepler's Laws</a></li><li><a href=\"https://science.nasa.gov/learn/basics-of-space-flight/chapter3-1/\" target=\"_blank\" rel=\"noopener\">NASA Basics of Space Flight: Gravity & Mechanics</a></li></ul></div>\n  {{QUIZ_astro_s3_q0}}"
       },
       {
-        "id": "sec3",
-        "title": "4. Fluchtgeschwindigkeit: Ab ins All!",
+        "title": "4. Umlaufbahn und Orbit",
         "quizzes": [
           {
-            "id": "q4",
-            "question": "Was muss eine Rakete erreichen, um die Erde dauerhaft zu verlassen?",
+            "id": "astro_s4_q0",
+            "question": "Warum bleibt ein Satellit im Orbit?",
             "answers": [
               {
-                "text": "Die Fluchtgeschwindigkeit (ca. 11,2 km/s).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Um die Erde zu verlassen, braucht eine Rakete etwa 11,2 km/s Fluchtgeschwindigkeit."
+                "text": "Die Schwerkraft hört dort völlig auf.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Im Orbit wirkt Gravitation weiterhin."
               },
               {
-                "text": "Die Lichtgeschwindigkeit.",
-                "correct": false,
+                "text": "Er fällt ständig um die Erde herum.",
+                "correct": true,
                 "pts": 10,
-                "feedback": "Zu hoch gedacht: Für das Verlassen der Erde reicht die Fluchtgeschwindigkeit, nicht die Lichtgeschwindigkeit."
+                "feedback": "Richtig. Im Orbit wirkt Gravitation weiterhin."
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Die Schwerkraft hält uns fest. Wenn eine Rakete ins All fliegen will, muss sie irre schnell sein, um der Anziehungskraft der Erde zu entkommen. Diese Geschwindigkeit nennt man <strong>Fluchtgeschwindigkeit</strong>. Für die Erde liegt sie bei ca. <strong>11,2 Kilometern pro Sekunde</strong> (etwa 40.000 km/h!).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Die Raketengleichung:</strong><br>\n            Um so schnell zu werden, braucht man viel Treibstoff. Aber Treibstoff ist schwer! Je mehr Treibstoff du einpackst, desto schwerer wird die Rakete und desto mehr Schub brauchst du wieder. Ein fieser Kreislauf!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Raketen-Tacho: Entkommst du der Erde?</h3>\n            <p>Gib Gas (Triebwerkspower) und versuche, die magischen 11,2 km/s zu erreichen, um ins All zu fliehen!</p>\n            Triebwerks-Schub: <br>\n            <input type=\"range\" id=\"tRange\" min=\"1\" max=\"15\" value=\"3\" oninput=\"calcSpeed()\"><br>\n            \n            <div class=\"diagram-box\" style=\"display: flex; flex-direction: column; align-items: center;\">\n                <svg width=\"200\" height=\"120\" viewBox=\"0 0 200 120\">\n                    <path d=\"M 20 100 A 80 80 0 0 1 180 100\" fill=\"none\" stroke=\"#E0E0E0\" stroke-width=\"20\"></path>\n                    <path d=\"M 140 35 A 80 80 0 0 1 180 100\" fill=\"none\" stroke=\"#4CAF50\" stroke-width=\"20\"></path>\n                    \n                    <circle cx=\"100\" cy=\"100\" r=\"10\" fill=\"#212121\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"100\" y1=\"100\" x2=\"40\" y2=\"60\" stroke=\"#F44336\" stroke-width=\"4\" stroke-linecap=\"round\" style=\"transition: all 0.5s; transform-origin: 100px 100px; transform: rotate(0deg);\"></line>\n                </svg>\n                <p id=\"speedText\" style=\"font-weight: bold; font-size: 1.2em; color: #1A237E;\">Geschwindigkeit: 3.0 km/s (Zu langsam!)</p>\n            </div>\n        </div>\n        {{QUIZ_q4}}\n    "
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2023/06/s/solar-system-illustration-16x9-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"Planetenbahnen im Sonnensystem\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Ein <strong>Orbit</strong> ist eine Umlaufbahn. Ein Körper fällt durch Gravitation ständig in Richtung des größeren Körpers, bewegt sich aber gleichzeitig seitlich weiter. Dadurch fällt er nicht einfach gerade herunter, sondern bleibt auf einer Bahn.</p>\n    <div class=\"remember-box\"><strong>Merke:</strong> Ein Satellit im Orbit ist nicht schwerelos, weil es keine Schwerkraft gibt. Er ist im ständigen freien Fall um die Erde.</div>\n    <div class=\"diagram-box\">\n        <div class=\"interactive-zone\" style=\"background:#0f172a; border-radius:12px; padding:15px; color:white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);\">\n            <h3 style=\"color: #38bdf8; margin-top:0;\">🚀 Newtons Kanonenkugel (Orbit-Simulator)</h3>\n            <p style=\"font-size: 0.9em; margin-bottom: 15px;\">Newtons Gedankenexperiment: Eine Kanone steht auf einem sehr hohen Berg. Je schneller die Kugel waagrecht startet, desto weiter fällt sie. Bei passender Geschwindigkeit fällt sie immer zur Erde hin, verfehlt aber ständig den Boden: Sie ist im <strong>Orbit</strong>.</p>\n            <div style=\"margin-bottom: 15px; background: #1e293b; padding: 10px; border-radius: 8px; border: 1px solid #475569;\">\n                <label for=\"cannonVelocity\" style=\"display:block; margin-bottom:8px;\">Waagrechte Startgeschwindigkeit: <span id=\"cannonVelVal\" style=\"font-weight:bold;color:#facc15;\">8.0 km/s</span></label>\n                <input type=\"range\" id=\"cannonVelocity\" min=\"3\" max=\"13\" step=\"0.5\" value=\"8\" style=\"width: 100%; cursor: pointer;\" oninput=\"updateCannonball()\">\n                <p id=\"cannonStatus\" style=\"font-weight:bold; margin-top:10px; color:#38bdf8;\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\">Passende Geschwindigkeit: Die Kugel fällt ständig zur Erde, verfehlt aber den Boden.</p>\n            </div>\n            <svg id=\"cannonSvg\" width=\"100%\" height=\"330\" viewBox=\"0 0 620 330\" role=\"img\" aria-label=\"Newtons Kanonenkugel: Orbit als freier Fall\">\n                <defs>\n                    <radialGradient id=\"earthGrad\" cx=\"30%\" cy=\"30%\" r=\"70%\"><stop offset=\"0%\" stop-color=\"#60a5fa\"/><stop offset=\"100%\" stop-color=\"#1e3a8a\"/></radialGradient>\n                    <filter id=\"earthGlow\"><feGaussianBlur stdDeviation=\"6\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                    <marker id=\"orbitArrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#facc15\"/></marker>\n                    <marker id=\"gravArrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#ef4444\"/></marker>\n                    <clipPath id=\"earthClip\"><circle cx=\"310\" cy=\"165\" r=\"72\"/></clipPath>\n                </defs>\n                <!-- Stars background -->\n                <g fill=\"#ffffff\" opacity=\"0.6\">\n                    <circle cx=\"100\" cy=\"50\" r=\"1\"/><circle cx=\"500\" cy=\"80\" r=\"1.5\"/><circle cx=\"200\" cy=\"250\" r=\"1\"/><circle cx=\"550\" cy=\"200\" r=\"2\"/><circle cx=\"300\" cy=\"40\" r=\"1\"/>\n                    <circle cx=\"50\" cy=\"180\" r=\"1.5\"/><circle cx=\"450\" cy=\"250\" r=\"1\"/><circle cx=\"600\" cy=\"100\" r=\"2\"/><circle cx=\"150\" cy=\"280\" r=\"1\"/><circle cx=\"40\" cy=\"290\" r=\"1\"/>\n                </g>\n                <!-- Earth -->\n                <circle cx=\"310\" cy=\"165\" r=\"72\" fill=\"url(#earthGrad)\" filter=\"url(#earthGlow)\"/>\n                <g clip-path=\"url(#earthClip)\" opacity=\"0.85\">\n                    <path d=\"M250 134 C270 118 294 120 310 137 C328 155 352 151 372 135 C358 173 319 184 285 171 C268 165 252 151 250 134 Z\" fill=\"#16a34a\" opacity=\"0.85\"/>\n                    <path d=\"M337 194 C356 181 382 187 394 207 C373 229 333 231 313 211 C318 204 326 198 337 194 Z\" fill=\"#22c55e\" opacity=\"0.75\"/>\n                    <path d=\"M250 188 C267 197 276 212 269 229 C245 222 231 203 234 184 C239 184 245 185 250 188 Z\" fill=\"#166534\" opacity=\"0.7\"/>\n                </g>\n                <!-- Mountain -->\n                <path d=\"M 292 103 L 310 53 L 328 103 Z\" fill=\"#94a3b8\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n                <rect x=\"306\" y=\"48\" width=\"34\" height=\"9\" rx=\"4\" fill=\"#475569\" transform=\"rotate(-4 306 48)\"/>\n                <circle cx=\"309\" cy=\"55\" r=\"5\" fill=\"#64748b\"/>\n                \n                <!-- Dynamic Path (Controlled by JS) -->\n                <path id=\"cannonPath\" d=\"M 310 53 A 112 112 0 1 1 309.9 53\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"3\" stroke-dasharray=\"8 8\"/>\n                <circle id=\"impactPoint\" cx=\"0\" cy=\"0\" r=\"0\" fill=\"#ef4444\" opacity=\"0\"/>\n\n                <!-- Vectors at top (Mountain peak) -->\n                <line id=\"velVector\" x1=\"310\" y1=\"53\" x2=\"390\" y2=\"53\" stroke=\"#facc15\" stroke-width=\"4\" marker-end=\"url(#orbitArrow)\" style=\"transition: all 0.2s ease;\" />\n                <text x=\"365\" y=\"38\" text-anchor=\"middle\" font-size=\"12\" fill=\"#facc15\" font-weight=\"bold\">waagrechte Startgeschwindigkeit v</text>\n                \n                <line x1=\"310\" y1=\"53\" x2=\"310\" y2=\"112\" stroke=\"#ef4444\" stroke-width=\"4\" marker-end=\"url(#gravArrow)\" />\n                <text x=\"295\" y=\"93\" text-anchor=\"end\" font-size=\"12\" fill=\"#ef4444\" font-weight=\"bold\">Gravitation zum Erdmittelpunkt</text>\n\n                <!-- Satellite Animation -->\n                <g>\n                    <circle cx=\"0\" cy=\"0\" r=\"6\" fill=\"#f8fafc\" />\n                    <animateMotion id=\"cannonAnim\" dur=\"5s\" repeatCount=\"indefinite\" path=\"M 310 53 A 112 112 0 1 1 309.9 53\" />\n                </g>\n                <text id=\"cannonLegend\" x=\"310\" y=\"315\" text-anchor=\"middle\" font-size=\"12\" fill=\"#cbd5e1\">Gelb: Startgeschwindigkeit | Rot: Gravitation | Blau/Gelb/Grün: Flugbahn</text>\n            </svg>\n        </div>\n    </div>\n    <p><strong>Perihel</strong> nennt man den sonnennächsten Punkt, <strong>Aphel</strong> den sonnenfernsten Punkt einer Bahn um die Sonne. Bei Bahnen um die Erde sagt man Perigäum und Apogäum.</p>\n    <div class=\"mini-task astro-task\"><strong>Erklärung ins Heft:</strong> Zeichne Erde, Satellit, Geschwindigkeits-Pfeil und Gravitations-Pfeil. Schreibe drei Sätze: Warum fällt der Satellit nicht einfach herunter?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/orbits-and-keplers-laws/\" target=\"_blank\" rel=\"noopener\">NASA: Orbits and Kepler's Laws</a></li><li><a href=\"https://science.nasa.gov/learn/basics-of-space-flight/chapter3-1/\" target=\"_blank\" rel=\"noopener\">NASA Basics of Space Flight: Gravity & Mechanics</a></li></ul></div>\n  {{QUIZ_astro_s4_q0}}"
       },
       {
-        "id": "sec4",
-        "title": "5. Supernova: Der spektakuläre Tod eines Sterns",
+        "title": "5. Teleskope im Vergleich: Galileo, Hubble, Webb, Vera Rubin",
         "quizzes": [
           {
-            "id": "q5",
-            "question": "Was passiert bei einer Supernova?",
+            "id": "astro_s5_q0",
+            "question": "Warum sind Hubble und Webb im Weltraum?",
             "answers": [
               {
-                "text": "Zwei Planeten stoßen zusammen.",
+                "text": "Weil Licht im Weltraum langsamer ist.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Nicht ganz: Eine Supernova ist keine Kollision zweier Planeten."
+                "pts": 5,
+                "feedback": "Noch nicht. Die Atmosphäre stört viele Beobachtungen."
               },
               {
-                "text": "Ein riesiger Stern explodiert am Ende seines Lebens.",
+                "text": "Sie vermeiden störende Effekte der Erdatmosphäre.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Eine Supernova ist die gewaltige Explosion eines massereichen Sterns am Lebensende."
+                "feedback": "Richtig. Die Atmosphäre stört viele Beobachtungen."
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Sterne leben nicht ewig. In ihrem Inneren verbrennen sie Wasserstoff zu Helium (Kernfusion). Dadurch leuchten sie. Aber irgendwann ist der Treibstoff alle! Bei sehr massereichen Sternen gewinnt dann plötzlich die Schwerkraft: Der Stern fällt in sich zusammen und prallt auf seinen eigenen Kern. Die Folge? Die gewaltigste Explosion im Universum: <strong>Eine Supernova!</strong></p>\n        <div class=\"interactive-zone\">\n            <h3>💥 Die Sternen-Zündung</h3>\n            <p>Klicke auf den Button, um die Lebensdauer des Sterns zu beenden und die Supernova auszulösen!</p>\n            <button onclick=\"triggerSupernova()\" id=\"novaBtn\">Stern explodieren lassen!</button>\n            \n            <div class=\"diagram-box\" style=\"height: 250px; background-color: #000; position: relative;\">\n                <svg width=\"100%\" height=\"100%\" viewBox=\"0 0 350 200\">\n                    <circle id=\"starCore\" cx=\"175\" cy=\"100\" r=\"20\" fill=\"#FFEB3B\"></circle>\n                    <g id=\"explosionLines\" style=\"display: none;\" stroke=\"#FF9800\" stroke-width=\"3\">\n                        <line x1=\"175\" y1=\"100\" x2=\"175\" y2=\"10\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"175\" y2=\"190\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"85\" y2=\"100\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"265\" y2=\"100\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"110\" y2=\"35\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"240\" y2=\"165\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"240\" y2=\"35\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"110\" y2=\"165\" class=\"anim-dash\"></line>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"novaText\" style=\"color: #FF5722; font-weight: bold;\">Der Stern brennt friedlich vor sich hin...</p>\n        </div>\n        {{QUIZ_q5}}\n    "
+        "content": "\n    <div class=\"image-grid\" style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;\"><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/04/27946391011_d40ff10573_h-jpg.webp\" alt=\"Hubble-Weltraumteleskop\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA Hubble</figcaption></figure><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/05/jwst_artist_concept_0.png\" alt=\"James-Webb-Weltraumteleskop\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA Webb</figcaption></figure></div>\n    <p>Teleskope sammeln Licht. Je größer die Öffnung und je besser die Technik, desto schwächere und feinere Details kann man sehen. Aber moderne Teleskope sind Spezialisten: Manche sehen sichtbares Licht, manche Infrarot, manche scannen sehr große Himmelsflächen.</p>\n    <table class=\"word-rubric\"><tr><th>Teleskop</th><th>Stärke</th><th>Was lernt man?</th></tr><tr><td>Galileo-Fernrohr</td><td>klein, Linsen, sichtbares Licht</td><td>erstmals systematische Teleskopbeobachtung von Mond, Venus, Jupiter</td></tr><tr><td>Hubble</td><td>Weltraum, sichtbar/UV/nahes Infrarot</td><td>scharfe Bilder von Galaxien, Nebeln, Sternen</td></tr><tr><td>Webb</td><td>Infrarot, großer Spiegel</td><td>frühe Galaxien, Sternentstehung, Exoplaneten-Atmosphären</td></tr><tr><td>Vera C. Rubin Observatory</td><td>großes Gesichtsfeld, wiederholte Himmelsdurchmusterung</td><td>Veränderungen: Asteroiden, Supernovae, dunkle Materie über Karten</td></tr></table>\n    <div class=\"mini-task astro-task\"><strong>Rechercheauftrag:</strong> Suche im Internet je ein Bild von Hubble, Webb und dem Vera-C.-Rubin-Observatorium. Notiere ins Heft: Wo beobachtet es? Welches Licht nutzt es? Welche Frage kann es besonders gut untersuchen?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/mission/hubble/observatory/\" target=\"_blank\" rel=\"noopener\">NASA Hubble Observatory</a></li><li><a href=\"https://science.nasa.gov/mission/webb/\" target=\"_blank\" rel=\"noopener\">NASA James Webb Space Telescope</a></li><li><a href=\"https://science.nasa.gov/citizen-science/rubin-comet-catchers/\" target=\"_blank\" rel=\"noopener\">NASA Rubin Comet Catchers</a></li></ul></div>\n  {{QUIZ_astro_s5_q0}}"
+      },
+      {
+        "title": "6. Entstehung des Universums",
+        "quizzes": [
+          {
+            "id": "astro_s6_q0",
+            "question": "Was meint der Urknall in der modernen Astronomie?",
+            "answers": [
+              {
+                "text": "Eine Explosion an einem Punkt im leeren Raum.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Der Raum selbst dehnt sich aus."
+              },
+              {
+                "text": "Die frühe Ausdehnung des Raums aus einem heißen, dichten Zustand.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Der Raum selbst dehnt sich aus."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/missions/webb/outreach/migrated/2019/STScI-01HV75FFFNM1V69G0GPZKT5NBR.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"Zeitlinie des Universums vom Urknall bis heute\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Das Universum begann vor etwa <strong>13,8 Milliarden Jahren</strong> in einem extrem heißen, dichten Zustand. Der Begriff <strong>Urknall</strong> meint keine Explosion in einen leeren Raum, sondern die Ausdehnung des Raums selbst.</p>\n    <ol class=\"step-list\"><li>Sehr frühes Universum: extrem heiß, dicht, schnell expandierend.</li><li>Erste Atomkerne und später Atome entstehen.</li><li>Das Licht kann frei reisen: kosmische Hintergrundstrahlung.</li><li>Erste Sterne und Galaxien entstehen.</li><li>Heute dehnt sich das Universum weiter aus.</li></ol>\n    <div class=\"misconception-box\"><strong>Denkfehler:</strong> Der Urknall war nicht \"an einem Ort\". Jeder Ort im heutigen Universum war Teil dieses frühen heißen Zustands.</div>\n    <div class=\"mini-task astro-task\"><strong>Zeitstrahl ins Heft:</strong> Zeichne einen Zeitstrahl vom Urknall bis heute. Trage mindestens fünf Stationen ein und schreibe daneben je ein Stichwort: Raum, Atome, Licht, Sterne, Galaxien.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Universe Overview</a></li><li><a href=\"https://science.nasa.gov/asset/webb/first-stars-timeline-of-the-universe\" target=\"_blank\" rel=\"noopener\">NASA Webb: First Stars Timeline</a></li></ul></div>\n  {{QUIZ_astro_s6_q0}}"
+      },
+      {
+        "title": "7. Entstehung des Sonnensystems und Ekliptik",
+        "quizzes": [
+          {
+            "id": "astro_s7_q0",
+            "question": "Was ist die Ekliptik?",
+            "answers": [
+              {
+                "text": "Die Oberfläche der Sonne.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Die Ekliptik hilft, Planetenbahnen am Himmel zu ordnen."
+              },
+              {
+                "text": "Die Ebene der Erdbahn beziehungsweise die scheinbare Sonnenbahn am Himmel.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Die Ekliptik hilft, Planetenbahnen am Himmel zu ordnen."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2023/06/s/solar-system-illustration-16x9-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"Illustration des Sonnensystems\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Unser Sonnensystem entstand vor etwa <strong>4,6 Milliarden Jahren</strong> aus einer rotierenden Gas- und Staubwolke. Die Mitte wurde zur Sonne. In der Scheibe darum verklumpten Staubteilchen zu Brocken, Planetesimalen, Protoplaneten und schließlich Planeten.</p>\n    <div class=\"remember-box\"><strong>Ekliptik:</strong> Die Ekliptik ist die scheinbare Bahn der Sonne am Himmel. Physikalisch entspricht sie der Ebene der Erdbahn um die Sonne. Weil die Planeten aus derselben flachen Scheibe entstanden, liegen ihre Bahnen meist nahe an dieser Ebene.</div>\n    <div class=\"diagram-box\">\n        <div class=\"interactive-zone\" style=\"background:#0f172a; border-radius:12px; padding:15px; color:white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);\">\n            <h3 style=\"color: #38bdf8; margin-top:0;\">🔭 Sonnensystem-Scanner (Ekliptik)</h3>\n            <p style=\"font-size: 0.9em; margin-bottom: 15px;\">Bewege den Regler, um von der Sonne bis in die Randbezirke zu fliegen. Beachte, wie weit die äußeren Planeten voneinander entfernt sind! Die gestrichelte Linie ist die <strong>Ekliptik</strong> (die Erdbahn-Ebene).</p>\n            <input type=\"range\" id=\"solarZoomRange\" min=\"0\" max=\"100\" value=\"0\" style=\"width: 100%; margin-bottom: 10px; cursor: pointer;\" aria-label=\"Zoom durch das Sonnensystem\" oninput=\"updateSolarZoom()\">\n            \n            <svg id=\"solarSystemSvg\" width=\"100%\" height=\"280\" viewBox=\"0 0 620 280\" role=\"img\" aria-label=\"Ekliptik und Planetenbahnen\">\n                <defs>\n                    <radialGradient id=\"sunGlowEcliptic\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"20%\" stop-color=\"#f59e0b\"/><stop offset=\"100%\" stop-color=\"#0f172a\" stop-opacity=\"0\"/></radialGradient>\n                    <filter id=\"glowFilter\"><feGaussianBlur stdDeviation=\"3\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                </defs>\n                \n                <g id=\"solarSystemGroup\" transform=\"translate(50, 140)\">\n                    <!-- Ecliptic Plane Reference -->\n                    <line x1=\"-50\" y1=\"0\" x2=\"5000\" y2=\"0\" stroke=\"#334155\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/>\n                    \n                    <!-- Sun -->\n                    <circle cx=\"0\" cy=\"0\" r=\"80\" fill=\"url(#sunGlowEcliptic)\" />\n                    <circle cx=\"0\" cy=\"0\" r=\"15\" fill=\"#facc15\" filter=\"url(#glowFilter)\" />\n                    \n                    <!-- Planets (Distances loosely scaled to log or relative realistic spacing, exaggerated sizes for visibility) -->\n                    <!-- Mercury (0.39 AU), 7 deg inclination -->\n                    <g transform=\"translate(39, -5)\"><circle cx=\"0\" cy=\"0\" r=\"3\" fill=\"#94a3b8\"/><text x=\"0\" y=\"15\" font-size=\"10\" fill=\"#94a3b8\" text-anchor=\"middle\">Merkur</text><path d=\"M -39 5 Q -20 5 0 0 T 39 -5\" fill=\"none\" stroke=\"#94a3b8\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Venus (0.72 AU), 3.4 deg -->\n                    <g transform=\"translate(72, -4)\"><circle cx=\"0\" cy=\"0\" r=\"4\" fill=\"#fde047\"/><text x=\"0\" y=\"-8\" font-size=\"10\" fill=\"#fde047\" text-anchor=\"middle\">Venus</text><path d=\"M -72 4 Q -36 4 0 0 T 72 -4\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Earth (1.0 AU), 0 deg (Ecliptic) -->\n                    <g transform=\"translate(100, 0)\"><circle cx=\"0\" cy=\"0\" r=\"4.5\" fill=\"#3b82f6\"/><text x=\"0\" y=\"15\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">Erde</text></g>\n                    \n                    <!-- Mars (1.52 AU), 1.8 deg -->\n                    <g transform=\"translate(152, 4)\"><circle cx=\"0\" cy=\"0\" r=\"3.5\" fill=\"#ef4444\"/><text x=\"0\" y=\"-8\" font-size=\"10\" fill=\"#ef4444\" text-anchor=\"middle\">Mars</text><path d=\"M -152 -4 Q -76 -4 0 0 T 152 4\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Asteroid Belt -->\n                    <g opacity=\"0.3\">\n                        <circle cx=\"250\" cy=\"0\" r=\"1\" fill=\"#64748b\"/><circle cx=\"260\" cy=\"-5\" r=\"1\" fill=\"#64748b\"/><circle cx=\"270\" cy=\"3\" r=\"1\" fill=\"#64748b\"/>\n                        <text x=\"260\" y=\"15\" font-size=\"9\" fill=\"#64748b\" text-anchor=\"middle\">Asteroidengürtel</text>\n                    </g>\n\n                    <!-- Jupiter (5.2 AU), 1.3 deg -->\n                    <g transform=\"translate(520, -12)\"><circle cx=\"0\" cy=\"0\" r=\"14\" fill=\"#fdba74\"/><text x=\"0\" y=\"25\" font-size=\"11\" fill=\"#fdba74\" text-anchor=\"middle\">Jupiter</text><path d=\"M -520 12 Q -260 12 0 0 T 520 -12\" fill=\"none\" stroke=\"#fdba74\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Saturn (9.5 AU), 2.5 deg -->\n                    <g transform=\"translate(950, 42)\"><ellipse cx=\"0\" cy=\"0\" rx=\"18\" ry=\"6\" fill=\"none\" stroke=\"#e2e8f0\" stroke-width=\"2\" transform=\"rotate(-15)\"/><circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#fef3c7\"/><text x=\"0\" y=\"-18\" font-size=\"11\" fill=\"#fef3c7\" text-anchor=\"middle\">Saturn</text><path d=\"M -950 -42 Q -475 -42 0 0 T 950 42\" fill=\"none\" stroke=\"#fef3c7\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Uranus (19.2 AU), 0.8 deg -->\n                    <g transform=\"translate(1920, -26)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#7dd3fc\"/><text x=\"0\" y=\"20\" font-size=\"11\" fill=\"#7dd3fc\" text-anchor=\"middle\">Uranus</text><path d=\"M -1920 26 Q -960 26 0 0 T 1920 -26\" fill=\"none\" stroke=\"#7dd3fc\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Neptune (30.1 AU), 1.8 deg -->\n                    <g transform=\"translate(3010, 94)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#2563eb\"/><text x=\"0\" y=\"-15\" font-size=\"11\" fill=\"#2563eb\" text-anchor=\"middle\">Neptun</text><path d=\"M -3010 -94 Q -1505 -94 0 0 T 3010 94\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Pluto (Dwarf, highly eccentric/inclined ~17 deg) -->\n                    <g transform=\"translate(3900, -1170)\"><circle cx=\"0\" cy=\"0\" r=\"2\" fill=\"#cbd5e1\"/><text x=\"0\" y=\"12\" font-size=\"10\" fill=\"#cbd5e1\" text-anchor=\"middle\">Pluto (Zwergplanet)</text><path d=\"M -3900 1170 Q -1950 1170 0 0 T 3900 -1170\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"0.5\" stroke-dasharray=\"4 4\" opacity=\"0.6\"/></g>\n                </g>\n            </svg>\n        </div>\n    </div>\n    <div class=\"mini-task astro-task\"><strong>Skizze ins Heft:</strong> Zeichne eine flache Scheibe aus Gas und Staub um die junge Sonne. Markiere die Ekliptik rot und schreibe darunter zwei Sätze, warum viele Planetenbahnen fast in einer Ebene liegen.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/solar-system-facts/\" target=\"_blank\" rel=\"noopener\">NASA: Solar System Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s7_q0}}"
+      },
+      {
+        "title": "8. Meteoriten, Meteoroiden und Meteore",
+        "quizzes": [
+          {
+            "id": "astro_s8_meteors_q0",
+            "question": "Welche Reihenfolge ist richtig?",
+            "answers": [
+              {
+                "text": "Meteoroid im Weltall - Meteor als Leuchtspur - Meteorit am Boden.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Der Name ändert sich je nachdem, wo sich der kleine Körper befindet und was passiert."
+              },
+              {
+                "text": "Meteorit im Weltall - Meteoroid als Leuchtspur - Meteor am Boden.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Ein Meteorit ist das Stück, das den Boden erreicht."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/10/perseids-2023-preston-dyches-16x9-1.jpg\" alt=\"NASA-Bild eines Perseiden-Meteorstroms am Nachthimmel\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA, Perseiden-Meteorstrom</figcaption></figure>\n    <p>Kleine Gesteins- und Metallstücke sind Reste aus der Entstehung des Sonnensystems. Der Name hängt davon ab, <strong>wo</strong> das Stück gerade ist: im Weltall, in der Atmosphäre oder am Boden.</p>\n    <div class=\"diagram-box\">\n      <svg width=\"100%\" height=\"310\" viewBox=\"0 0 760 310\" role=\"img\" aria-label=\"Unterschied zwischen Meteoroid, Meteor und Meteorit\" style=\"background:#0f172a;border-radius:12px;\">\n        <defs>\n          <linearGradient id=\"meteorAtmo\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a8a\"/><stop offset=\"100%\" stop-color=\"#38bdf8\" stop-opacity=\"0.35\"/></linearGradient>\n          <marker id=\"meteorArrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#facc15\"/></marker>\n          <filter id=\"meteorGlow\"><feGaussianBlur stdDeviation=\"5\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n        </defs>\n        <rect x=\"0\" y=\"0\" width=\"760\" height=\"310\" fill=\"#0f172a\"/>\n        <rect x=\"0\" y=\"110\" width=\"760\" height=\"120\" fill=\"url(#meteorAtmo)\" opacity=\"0.85\"/>\n        <path d=\"M0 238 C120 214 250 220 370 238 C500 260 628 238 760 252 L760 310 L0 310 Z\" fill=\"#14532d\"/>\n        <path d=\"M40 246 C125 220 240 230 330 244 C445 266 592 246 730 258\" fill=\"none\" stroke=\"#86efac\" stroke-width=\"3\" opacity=\"0.7\"/>\n        <g fill=\"#e0f2fe\" opacity=\"0.75\"><circle cx=\"90\" cy=\"42\" r=\"2\"/><circle cx=\"170\" cy=\"76\" r=\"1.5\"/><circle cx=\"600\" cy=\"50\" r=\"2\"/><circle cx=\"690\" cy=\"92\" r=\"1.5\"/><circle cx=\"500\" cy=\"35\" r=\"1\"/></g>\n        <path d=\"M130 60 C250 88 350 130 482 188\" fill=\"none\" stroke=\"#facc15\" stroke-width=\"5\" stroke-linecap=\"round\" marker-end=\"url(#meteorArrow)\"/>\n        <path d=\"M175 74 C276 100 362 137 475 186\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"13\" stroke-linecap=\"round\" opacity=\"0.22\" filter=\"url(#meteorGlow)\"/>\n        <circle cx=\"126\" cy=\"59\" r=\"10\" fill=\"#a8a29e\" stroke=\"#f8fafc\" stroke-width=\"2\"/>\n        <circle cx=\"488\" cy=\"190\" r=\"8\" fill=\"#f97316\" filter=\"url(#meteorGlow)\"/>\n        <ellipse cx=\"560\" cy=\"252\" rx=\"24\" ry=\"10\" fill=\"#111827\" opacity=\"0.35\"/>\n        <path d=\"M542 238 L573 246 L561 263 L531 255 Z\" fill=\"#78716c\" stroke=\"#d6d3d1\" stroke-width=\"2\"/>\n        <text x=\"126\" y=\"32\" text-anchor=\"middle\" fill=\"#e0f2fe\" font-size=\"18\" font-weight=\"800\">Meteoroid</text>\n        <text x=\"126\" y=\"104\" text-anchor=\"middle\" fill=\"#cbd5e1\" font-size=\"13\">kleiner Körper im Weltall</text>\n        <text x=\"418\" y=\"128\" text-anchor=\"middle\" fill=\"#fde68a\" font-size=\"18\" font-weight=\"800\">Meteor</text>\n        <text x=\"420\" y=\"151\" text-anchor=\"middle\" fill=\"#fef3c7\" font-size=\"13\">Leuchtspur in der Atmosphäre</text>\n        <text x=\"565\" y=\"286\" text-anchor=\"middle\" fill=\"#f8fafc\" font-size=\"18\" font-weight=\"800\">Meteorit</text>\n        <text x=\"565\" y=\"304\" text-anchor=\"middle\" fill=\"#cbd5e1\" font-size=\"13\">Reststück am Boden</text>\n      </svg>\n    </div>\n    <div class=\"remember-box\"><strong>Merkkette:</strong> <strong>Meteoroid</strong> = im Weltall. <strong>Meteor</strong> = sichtbare Leuchtspur beim Eintritt in die Atmosphäre. <strong>Meteorit</strong> = Stück, das den Boden erreicht.</div>\n    <p>Viele Meteore sind winzig und verglühen vollständig. Einen besonders hellen Meteor nennt man <strong>Feuerkugel</strong>. Ein <strong>Meteorstrom</strong> entsteht, wenn die Erde durch viele Staubteilchen fliegt, die oft von einem Kometen auf seiner Bahn zurückgelassen wurden.</p>\n    <div class=\"misconception-box\"><strong>Häufige Verwechslung:</strong> Eine \"Sternschnuppe\" ist kein fallender Stern. Sterne sind riesige Sonnen in großer Entfernung. Die Sternschnuppe ist ein kleiner Körper aus unserem Sonnensystem, der in der Atmosphäre leuchtet.</div>\n    <div class=\"mini-task astro-task\"><strong>Begriffe ins Heft:</strong> Zeichne drei Stationen: Weltall, Atmosphäre, Boden. Beschrifte sie mit Meteoroid, Meteor und Meteorit. Schreibe darunter ein Beispiel: Warum heißt eine Sternschnuppe nicht wirklich Stern?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/meteors-meteorites/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Meteors and Meteorites Facts</a></li><li><a href=\"https://science.nasa.gov/asteroids-comets-meteors/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Asteroids, Comets &amp; Meteors Facts</a></li></ul></div>\n  {{QUIZ_astro_s8_meteors_q0}}"
+      },
+      {
+        "title": "9. Asteroiden und Kometen",
+        "quizzes": [
+          {
+            "id": "astro_s9_asteroids_comets_q0",
+            "question": "Was ist ein wichtiger Unterschied zwischen Asteroiden und Kometen?",
+            "answers": [
+              {
+                "text": "Asteroiden sind meist felsig/metallisch; Kometen enthalten viel Eis und bilden nahe der Sonne oft Koma und Schweif.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Kometen werden in Sonnennähe aktiv, weil Eis verdampft und Staub mitgerissen wird."
+              },
+              {
+                "text": "Asteroiden sind Sterne; Kometen sind Planeten mit Ringen.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Beide sind kleine Körper des Sonnensystems, aber keine Sterne und keine Planeten."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <div class=\"image-grid\" style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;\"><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/b/bennu_dec10.png\" alt=\"NASA-Bild des Asteroiden Bennu\" loading=\"lazy\" style=\"width:100%;max-height:360px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Asteroid Bennu, Bild: NASA/Goddard/University of Arizona</figcaption></figure><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia13/pia13570/PIA13570.jpg\" alt=\"NASA-Bild des Kometen Hartley 2 mit Gasjets\" loading=\"lazy\" style=\"width:100%;max-height:360px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Komet Hartley 2, Bild: NASA/JPL-Caltech/UMD</figcaption></figure></div>\n    <p><strong>Asteroiden</strong> sind meist felsige oder metallische kleine Körper, die um die Sonne kreisen. Viele befinden sich im Asteroidengürtel zwischen Mars und Jupiter. <strong>Kometen</strong> enthalten viel Eis, Staub und Gestein. Wenn sie der Sonne nahe kommen, erwärmt sich das Eis: Gas und Staub bilden eine leuchtende Hülle, die <strong>Koma</strong>, und oft einen <strong>Schweif</strong>.</p>\n    <table class=\"word-rubric\"><tr><th>Körper</th><th>Material</th><th>Typischer Ort</th><th>Was sieht man?</th></tr><tr><td>Asteroid</td><td>Gestein, Metall, dunkler Staub</td><td>oft zwischen Mars und Jupiter, manche nahe der Erde</td><td>unregelmäßiger, kraterreicher Körper</td></tr><tr><td>Komet</td><td>Eis, Staub, Gestein, gefrorene Gase</td><td>oft aus äußeren Bereichen des Sonnensystems</td><td>Koma und Schweif, wenn er nahe an der Sonne ist</td></tr></table>\n    <div class=\"remember-box\"><strong>Merke:</strong> Asteroiden und Kometen sind Reste aus der Frühzeit des Sonnensystems. Sie sind deshalb wie kleine Archive: In ihnen steckt Material, das schon vor den Planeten vorhanden war.</div>\n    <p>Manche Asteroiden und Kometen werden durch die Gravitation von Planeten auf Bahnen gelenkt, die der Erde nahekommen. Solche Körper nennt man <strong>Near-Earth Objects</strong> (NEOs). Sie sind wichtig für die Forschung und für den Schutz der Erde: Mit Teleskopen sucht man sie frühzeitig, damit man ihre Bahn berechnen kann.</p>\n    <div class=\"misconception-box\"><strong>Wichtig:</strong> Der Kometenschweif zeigt nicht immer \"nach hinten\". Er zeigt meistens von der Sonne weg, weil Sonnenlicht und Sonnenwind Gas und Staub vom Kometen wegdrücken.</div>\n    <p><strong>Forschungsdetail:</strong> NASA-Missionen untersuchen kleine Körper aus der Nähe. OSIRIS-REx brachte Material vom Asteroiden Bennu zur Erde zurück. Bei Kometen zeigen Vorbeiflüge wie bei Hartley 2, dass aus dem Kern Gas- und Staubjets austreten können.</p>\n    <div class=\"mini-task astro-task\"><strong>Vergleich ins Heft:</strong> Erstelle eine Tabelle mit zwei Spalten: Asteroid und Komet. Trage Material, Aussehen, typischen Ort und eine NASA-Mission ein. Suche im Internet je ein Bild von Bennu und Hartley 2 und beschreibe, woran du den Unterschied erkennst.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/asteroids/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Asteroid Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/comets/\" target=\"_blank\" rel=\"noopener\">NASA: Comets</a></li></ul></div>\n  {{QUIZ_astro_s9_asteroids_comets_q0}}"
+      },
+      {
+        "title": "10. Unsere Planeten: Merkur",
+        "quizzes": [
+          {
+            "id": "astro_s8_q0",
+            "question": "Was ist ein wichtiges Merkmal von Merkur?",
+            "answers": [
+              {
+                "text": "Er ist der heißeste Planet.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Merkur ist nicht der heißeste Planet, obwohl er der Sonne am nächsten ist."
+              },
+              {
+                "text": "kurze Umlaufzeit und viele Krater.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Merkur ist nicht der heißeste Planet, obwohl er der Sonne am nächsten ist."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/10/pia15051-mercury.jpg\" alt=\"NASA-Bild von Merkur\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Merkur ist der innerste und kleinste Planet. Er hat fast keine Atmosphäre: am Tag wird es extrem heiß, in der Nacht extrem kalt.</p>\n    <p><strong>Forschungsdetail:</strong> In tiefen Kratern an den Polen kann es Wassereis geben, weil dort nie Sonnenlicht hineinfällt. Merkur ist außerdem so schnell und dreht sich so langsam, dass die Sonne an manchen Orten kurz aufzugehen, wieder zu sinken und dann erneut aufzugehen scheint.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Merkur: kurze Umlaufzeit und viele Krater.</div>\n    <div class=\"mini-task astro-task\"><strong>Steckbrief ins Heft:</strong> Schreibe zu Merkur vier Punkte: kleinster Planet, schnellster Umlauf, starke Temperaturunterschiede, mögliches Eis in Polkratern. Suche ein NASA-Bild von Merkur und beschreibe die Krater in einem Satz.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/mercury/facts\" target=\"_blank\" rel=\"noopener\">NASA: Merkur Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s8_q0}}"
+      },
+      {
+        "title": "11. Unsere Planeten: Venus",
+        "quizzes": [
+          {
+            "id": "astro_s9_q0",
+            "question": "Was ist ein wichtiges Merkmal von Venus?",
+            "answers": [
+              {
+                "text": "Sie hat die meisten Monde.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Venus zeigt besonders deutlich, was eine dichte Atmosphäre bewirken kann."
+              },
+              {
+                "text": "starker Treibhauseffekt.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Venus zeigt besonders deutlich, was eine dichte Atmosphäre bewirken kann."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/venus-mariner-10-pia23791-fig2-16x9-1.jpg\" alt=\"NASA-Bild von Venus\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Venus ist fast so groß wie die Erde, aber ihre dichte CO₂-Atmosphäre macht sie zur heißesten Planetenoberfläche.</p>\n    <p><strong>Forschungsdetail:</strong> Venus ist heute besonders spannend, weil sie fast so groß wie die Erde ist, aber eine völlig andere Entwicklung nahm. Ihre dichten Wolken verstecken die Oberfläche; deshalb erforscht man sie mit Radar und Infrarot. Sie zeigt sehr deutlich, wie stark eine Atmosphäre die Temperatur verändern kann.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Venus: starker Treibhauseffekt.</div>\n    <div class=\"mini-task astro-task\"><strong>Vergleich ins Heft:</strong> Zeichne zwei Spalten: Erde und Venus. Trage Größe, Atmosphäre, Temperatur und Erforschungsmethode ein. Suche kurz, warum Radar bei Venus wichtig ist.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/venus/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Venus Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s9_q0}}"
+      },
+      {
+        "title": "12. Unsere Planeten: Erde",
+        "quizzes": [
+          {
+            "id": "astro_s10_q0",
+            "question": "Was ist ein wichtiges Merkmal von Erde?",
+            "answers": [
+              {
+                "text": "Sie ist ein Gasriese.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Bei der Erde sieht man, warum Bedingungen für Leben mehrere Faktoren brauchen."
+              },
+              {
+                "text": "Wasser, Atmosphäre und Leben.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Bei der Erde sieht man, warum Bedingungen für Leben mehrere Faktoren brauchen."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002131/GSFC_20171208_Archive_e002131~large.jpg\" alt=\"NASA-Bild von Erde\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Die Erde ist unser Vergleichsplanet: flüssiges Wasser, schützende Atmosphäre, Magnetfeld und Leben.</p>\n    <p><strong>Forschungsdetail:</strong> Die Erde ist auch ein Planet, den wir mit Raumfahrt erforschen. Satelliten wie SWOT messen heute Meere, Flüsse, Seen und Hochwassergebiete sehr genau. So wird Astronomie direkt nützlich für Wetter, Klima, Wasser und Katastrophenschutz.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Erde: Wasser, Atmosphäre und Leben.</div>\n    <div class=\"mini-task astro-task\"><strong>Alltagsbezug ins Heft:</strong> Notiere drei Dinge, die Satelliten über die Erde messen können. Suche ein Beispiel für eine NASA-Erdbeobachtungsmission und schreibe: Wobei hilft diese Messung Menschen?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/earth/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Erde Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s10_q0}}"
+      },
+      {
+        "title": "13. Unsere Planeten: Mars",
+        "quizzes": [
+          {
+            "id": "astro_s11_q0",
+            "question": "Was ist ein wichtiges Merkmal von Mars?",
+            "answers": [
+              {
+                "text": "Er ist größer als Jupiter.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Mars ist kleiner als die Erde, aber wissenschaftlich sehr wichtig."
+              },
+              {
+                "text": "Rover, Eis und alte Flussspuren.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Mars ist kleiner als die Erde, aber wissenschaftlich sehr wichtig."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/11/pia17944.jpg\" alt=\"NASA-Bild von Mars\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Mars ist kalt, trocken und rot. Spuren zeigen aber: Früher gab es dort viel mehr Wasser.</p>\n    <p><strong>Forschungsdetail:</strong> Der Rover Perseverance sammelt im Jezero-Krater Gesteinsproben. Manche Proben könnten Hinweise auf frühere lebensfreundliche Bedingungen enthalten. Das ist noch kein Beweis für Leben, aber ein wichtiger Grund, warum Mars weiter untersucht wird.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Mars: Rover, Eis und alte Flussspuren.</div>\n    <div class=\"mini-task astro-task\"><strong>Marsauftrag:</strong> Schreibe einen kurzen Forschungsbericht ins Heft: Wo arbeitet Perseverance? Was sammelt der Rover? Warum sind die Proben interessant, auch wenn sie noch kein Beweis für Leben sind?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/mars/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Mars Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s11_q0}}"
+      },
+      {
+        "title": "14. Unsere Planeten: Jupiter",
+        "quizzes": [
+          {
+            "id": "astro_s12_q0",
+            "question": "Was ist ein wichtiges Merkmal von Jupiter?",
+            "answers": [
+              {
+                "text": "Ein kleiner Gesteinsplanet.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Jupiter zeigt, wie anders Gasriesen im Vergleich zu Gesteinsplaneten sind."
+              },
+              {
+                "text": "Gasriese mit Großem Roten Fleck.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Jupiter zeigt, wie anders Gasriesen im Vergleich zu Gesteinsplaneten sind."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/jupiter-marble-pia22946-16x9-1.jpg\" alt=\"NASA-Bild von Jupiter\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Jupiter ist der größte Planet. Er ist ein Gasriese, hat starke Stürme und viele Monde.</p>\n    <p><strong>Forschungsdetail:</strong> Die Sonde Juno blickt unter Jupiters Wolken. Sie zeigt, dass Stürme, Polarlichter und Winde viel tiefer reichen als man früher dachte. Neue Auswertungen machen sogar die genaue Form des Planeten präziser: Jupiter ist stark abgeplattet und ein bisschen anders geformt als alte Modelle annahmen.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Jupiter: Gasriese mit Großem Roten Fleck.</div>\n    <div class=\"mini-task astro-task\"><strong>Forscherfrage ins Heft:</strong> Suche ein aktuelles Juno-Bild von Jupiter. Beschreibe zwei sichtbare Strukturen und erkläre in drei Sätzen, warum man mit Juno unter die Wolken schauen möchte.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/jupiter/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Jupiter Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s12_q0}}"
+      },
+      {
+        "title": "15. Unsere Planeten: Saturn",
+        "quizzes": [
+          {
+            "id": "astro_s13_q0",
+            "question": "Was ist ein wichtiges Merkmal von Saturn?",
+            "answers": [
+              {
+                "text": "keine Ringe und keine Monde",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Saturns Ringe sind kein fester Körper, sondern viele kleine Teilchen."
+              },
+              {
+                "text": "auffällige Ringe.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Saturns Ringe sind kein fester Körper, sondern viele kleine Teilchen."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/426/rings_diagram_nolables-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"NASA-Bild von Saturn\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Saturn ist berühmt für seine Ringe aus Eis- und Gesteinsbrocken. Auch er ist ein Gasriese.</p>\n    <p><strong>Forschungsdetail:</strong> Saturn bleibt ein Mond-Rekordhalter: 2025 wurden viele kleine Monde bestätigt, insgesamt sind es nun 274. Besonders spannend sind Titan mit Seen aus flüssigem Methan und Enceladus, der Wasserfontänen ins All schießt.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Saturn: auffällige Ringe.</div>\n    <div class=\"mini-task astro-task\"><strong>Saturn-Steckbrief:</strong> Zeichne Saturn mit Ringsystem. Schreibe ins Heft: Woraus bestehen die Ringe? Nenne Titan und Enceladus und notiere zu jedem Mond ein spannendes Merkmal.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/saturn/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Saturn Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s13_q0}}"
+      },
+      {
+        "title": "16. Unsere Planeten: Uranus",
+        "quizzes": [
+          {
+            "id": "astro_s14_q0",
+            "question": "Was ist ein wichtiges Merkmal von Uranus?",
+            "answers": [
+              {
+                "text": "er dreht sich gar nicht",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Uranus zeigt, dass Planetenachsen sehr unterschiedlich liegen können."
+              },
+              {
+                "text": "schiefe Achse und Eisriese.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Uranus zeigt, dass Planetenachsen sehr unterschiedlich liegen können."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2016/05/uranus-jpg.webp\" alt=\"NASA-Bild von Uranus\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Uranus ist ein Eisriese. Seine Rotationsachse liegt fast auf der Seite, deshalb sind seine Jahreszeiten extrem.</p>\n    <p><strong>Forschungsdetail:</strong> Das James-Webb-Teleskop zeigte Uranus mit sehr feinen Ringen, Monden und einer hellen Polarkappe. Sogar der schwache Zeta-Ring nahe am Planeten wurde sichtbar. Uranus sieht ruhig aus, ist aber ein aktiver Eisriese mit Wetter und extremen Jahreszeiten.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Uranus: schiefe Achse und Eisriese.</div>\n    <div class=\"mini-task astro-task\"><strong>Bildvergleich:</strong> Suche ein Webb-Bild von Uranus. Notiere ins Heft drei Dinge, die man darauf erkennt: Ringe, Monde, Polarkappe oder Wolken. Erkläre, warum Uranus trotz ruhiger Farbe kein langweiliger Planet ist.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/uranus/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Uranus Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s14_q0}}"
+      },
+      {
+        "title": "17. Unsere Planeten: Neptun",
+        "quizzes": [
+          {
+            "id": "astro_s15_q0",
+            "question": "Was ist ein wichtiges Merkmal von Neptun?",
+            "answers": [
+              {
+                "text": "der sonnennächste Planet",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Neptun ist weit außen und braucht sehr lange für eine Runde um die Sonne."
+              },
+              {
+                "text": "starke Winde und große Entfernung.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Neptun ist weit außen und braucht sehr lange für eine Runde um die Sonne."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/pia01492-neptune-full-disk-16x9-1.jpg\" alt=\"NASA-Bild von Neptun\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Neptun ist der äußerste große Planet. Er ist dunkelblau, sehr windig und ein Eisriese.</p>\n    <p><strong>Forschungsdetail:</strong> 2025 konnte Webb erstmals Neptuns Polarlichter klar nachweisen. Sie sitzen nicht dort, wo man sie von der Erde erwarten würde, weil Neptuns Magnetfeld stark gekippt ist. Webb zeigte auch, dass die obere Atmosphäre seit Voyager 2 deutlich kälter geworden ist.</p>\n    <div class=\"lexikon-box\"><strong>Wichtigste Infos:</strong> Merke dir bei Neptun: starke Winde und große Entfernung.</div>\n    <div class=\"mini-task astro-task\"><strong>Neptun-Auftrag:</strong> Zeichne Neptun mit gekipptem Magnetfeld. Suche kurz nach Webb und Neptun-Polarlichtern. Schreibe ins Heft, warum die Polarlichter nicht wie auf der Erde genau bei den Polen liegen.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/neptune/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Neptun Facts</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: About the Planets</a></li></ul></div>\n  {{QUIZ_astro_s15_q0}}"
+      },
+      {
+        "title": "18. Kuipergürtel",
+        "quizzes": [
+          {
+            "id": "astro_s16_q0",
+            "question": "Was ist der Kuipergürtel?",
+            "answers": [
+              {
+                "text": "Ein Ring aus Gas um die Erde.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Der Kuipergürtel gehört zum äußeren Sonnensystem."
+              },
+              {
+                "text": "Eine äußere Zone mit vielen eisigen Körpern jenseits von Neptun.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Der Kuipergürtel gehört zum äußeren Sonnensystem."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/PIA22190_1600.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"NASA-Bild zu Kuipergürtel-Objekten\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Hinter Neptun beginnt eine Region mit vielen eisigen Körpern: der <strong>Kuipergürtel</strong>. Dort findet man Zwergplaneten wie Pluto, Haumea, Makemake und Eris sowie viele kleinere Objekte.</p>\n    <div class=\"remember-box\"><strong>Merke:</strong> Der Kuipergürtel ist kein einzelner Planet, sondern eine riesige Zone mit vielen kleinen, kalten Körpern.</div>\n    \n    <p><strong>Forschungsdetail:</strong> Der Kuipergürtel ist wie ein Tiefkühlfach des jungen Sonnensystems. New Horizons besuchte Pluto und Arrokoth, und Webb untersucht heute die Oberflächen weiterer transneptunischer Objekte. Daran erkennt man Spuren davon, wie Uranus und Neptun früher gewandert sind.</p>\n    <div class=\"mini-task astro-task\"><strong>Recherche ins Heft:</strong> Suche nach Pluto und Arrokoth. Schreibe zu beiden Körpern je zwei Stichworte. Erkläre dann, warum der Kuipergürtel für die Entstehung des Sonnensystems wichtig ist.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/kuiper-belt/\" target=\"_blank\" rel=\"noopener\">NASA: Kuiper Belt</a></li><li><a href=\"https://science.nasa.gov/mission/new-horizons/\" target=\"_blank\" rel=\"noopener\">NASA: New Horizons Mission</a></li></ul></div>\n  {{QUIZ_astro_s16_q0}}"
+      },
+      {
+        "title": "19. Die Sonne",
+        "quizzes": [
+          {
+            "id": "astro_s17_q0",
+            "question": "Warum leuchtet die Sonne?",
+            "answers": [
+              {
+                "text": "Weil dort Holz verbrennt.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Sterne gewinnen Energie aus Kernfusion."
+              },
+              {
+                "text": "Durch Kernfusion in ihrem Inneren.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Sterne gewinnen Energie aus Kernfusion."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/05/pia03149-copy.jpg\" alt=\"NASA-Bild der Sonne\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Die Sonne ist ein Stern: eine heiße Kugel aus Plasma. Im Kern verschmelzen Wasserstoffkerne zu Helium. Diese <strong>Kernfusion</strong> setzt Energie frei, die Licht und Wärme liefert.</p>\n    <ol class=\"step-list\"><li><strong>Kern:</strong> Energie entsteht durch Fusion.</li><li><strong>Photosphäre:</strong> sichtbare Oberfläche der Sonne.</li><li><strong>Korona:</strong> äußere Atmosphäre, bei Sonnenfinsternissen sichtbar.</li><li><strong>Sonnenwind:</strong> Teilchenstrom, der auch Polarlichter auslösen kann.</li></ol>\n    <div class=\"misconception-box\"><strong>Nicht wie Feuer:</strong> Die Sonne brennt nicht wie Holz. Sie leuchtet durch Kernfusion.</div>\n    \n    <p><strong>Forschungsdetail:</strong> Die Parker Solar Probe fliegt durch die äußere Sonnenatmosphäre. Sie kam der Sonne näher als jede Sonde zuvor und hilft zu klären, warum die Korona so heiß ist und wie Sonnenwind entsteht. Das ist wichtig, weil Sonnenstürme Satelliten und Stromnetze beeinflussen können.</p>\n    <div class=\"mini-task astro-task\"><strong>Sonnenauftrag:</strong> Zeichne die Sonne mit Kern, Photosphäre, Korona und Sonnenwind. Suche ein Bild oder Video der Parker Solar Probe und notiere, welche Frage sie zur Sonne klären soll.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/sun/\" target=\"_blank\" rel=\"noopener\">NASA: Sun</a></li><li><a href=\"https://science.nasa.gov/heliophysics/focus-areas/solar-science\" target=\"_blank\" rel=\"noopener\">NASA: Solar Science</a></li></ul></div>\n  {{QUIZ_astro_s17_q0}}"
+      },
+      {
+        "title": "20. Galaxien",
+        "quizzes": [
+          {
+            "id": "astro_s18_q0",
+            "question": "Was ist die Milchstraße?",
+            "answers": [
+              {
+                "text": "Ein einzelner Stern neben der Erde.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Die Sonne ist nur einer von sehr vielen Sternen in der Milchstraße."
+              },
+              {
+                "text": "Unsere Galaxie.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Die Sonne ist nur einer von sehr vielen Sternen in der Milchstraße."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/06/spiral-galaxy-jpg.webp\" alt=\"Spiralgalaxie\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Eine <strong>Galaxie</strong> ist ein riesiges System aus Sternen, Gas, Staub, Planeten, dunkler Materie und oft einem massereichen Schwarzen Loch im Zentrum. Unsere Galaxie heißt <strong>Milchstraße</strong>.</p>\n    <p>Es gibt Spiralgalaxien, elliptische Galaxien und unregelmäßige Galaxien. Galaxien können zusammenstoßen und sich dabei verformen, ohne dass einzelne Sterne häufig direkt kollidieren.</p>\n    \n    <p><strong>Forschungsdetail:</strong> Mit Webb beobachten Forschende sehr alte und weit entfernte Galaxien. Weil ihr Licht so lange unterwegs war, schauen wir damit in die Vergangenheit. Jede ferne Galaxie ist also auch eine Art Zeitkapsel aus einer frühen Phase des Universums.</p>\n    <div class=\"mini-task astro-task\"><strong>Bildauftrag:</strong> Suche ein Galaxienbild von Hubble oder Webb. Klebe es ein oder skizziere es ins Heft. Markiere Vordergrundsterne, Galaxie, Staub/Spiralarme und schreibe, warum ferne Galaxien ein Blick in die Vergangenheit sind.</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/universe/galaxies/\" target=\"_blank\" rel=\"noopener\">NASA: Galaxies</a></li><li><a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Universe Overview</a></li></ul></div>\n  {{QUIZ_astro_s18_q0}}"
+      },
+      {
+        "title": "21. Galaxien und Dunkle Materie",
+        "quizzes": [
+          {
+            "id": "astro_s19_q0",
+            "question": "Warum nimmt man Dunkle Materie an?",
+            "answers": [
+              {
+                "text": "Weil sie schwarz leuchtet.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Dunkle Materie wird über Gravitation erschlossen."
+              },
+              {
+                "text": "Ihre Gravitation erklärt Bewegungen und Lichtablenkung besser.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Dunkle Materie wird über Gravitation erschlossen."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/missions/hubble/releases/2020/09/keystones/STScI-01EVSQQ78108T9769ATGDY010A.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"NASA/Hubble-Karte von dunkler Materie\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>In Galaxien bewegen sich Sterne oft so, als gäbe es viel mehr Masse, als wir sehen können. Diese unsichtbare Masse nennen Forschende <strong>Dunkle Materie</strong>. Sie leuchtet nicht, absorbiert kein Licht und reflektiert kein Licht, aber sie wirkt durch Gravitation.</p>\n    <div class=\"remember-box\"><strong>Merke:</strong> Dunkle Materie ist kein dunkler Staub. Sie ist eine Bezeichnung für etwas Unsichtbares, dessen Gravitation wir messen.</div>\n    <p>Ein starkes Indiz ist <strong>Gravitationslinsenwirkung</strong>: Masse krümmt den Raum und lenkt Licht ferner Galaxien ab. Daraus kann man unsichtbare Masse kartieren.</p>\n    \n    <p><strong>Forschungsdetail:</strong> Webb-Daten wurden 2026 genutzt, um dunkle Materie in einem Feld mit Hunderttausenden Galaxien zu kartieren. Die dunkle Materie selbst sieht man nicht. Man erkennt sie daran, wie ihre Gravitation das Licht ferner Galaxien verzerrt.</p>\n    <div class=\"mini-task astro-task\"><strong>Modell ins Heft:</strong> Zeichne eine ferne Galaxie, eine unsichtbare Masse dazwischen und einen gebogenen Lichtweg. Schreibe dazu: Warum kann man Dunkle Materie nicht direkt sehen, aber trotzdem messen?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/universe/dark-matter-dark-energy/\" target=\"_blank\" rel=\"noopener\">NASA: Dark Matter</a></li><li><a href=\"https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-dark-matter/\" target=\"_blank\" rel=\"noopener\">NASA Hubble: Dark Matter</a></li></ul></div>\n  {{QUIZ_astro_s19_q0}}"
+      },
+      {
+        "title": "22. Dunkle Energie",
+        "quizzes": [
+          {
+            "id": "astro_s20_q0",
+            "question": "Womit hängt Dunkle Energie zusammen?",
+            "answers": [
+              {
+                "text": "Mit den Ringen des Saturn.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Noch nicht. Dunkle Energie ist ein kosmologisches Forschungsproblem."
+              },
+              {
+                "text": "Mit der beschleunigten Ausdehnung des Universums.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Dunkle Energie ist ein kosmologisches Forschungsproblem."
+              }
+            ]
+          }
+        ],
+        "content": "\n    <figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2020/09/universe-history.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"NASA-Grafik zur Geschichte des Universums\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Bild: NASA</figcaption></figure>\n    <p>Messungen zeigen: Das Universum dehnt sich nicht nur aus, die Ausdehnung beschleunigt sich. Für die unbekannte Ursache verwenden Astronominnen und Astronomen den Namen <strong>Dunkle Energie</strong>.</p>\n    <div class=\"misconception-box\"><strong>Nicht dasselbe:</strong> Dunkle Materie hält Strukturen wie Galaxien durch Gravitation zusammen. Dunkle Energie hängt mit der beschleunigten Ausdehnung des Universums zusammen.</div>\n    <div class=\"remember-box\"><strong>Aktueller Forschungsstand:</strong> Wir wissen, dass Dunkle Energie in den Modellen gebraucht wird. Was sie genau ist, ist eine der größten offenen Fragen der Physik.</div>\n    \n    <p><strong>Forschungsdetail:</strong> Dunkle Energie wird in den nächsten Jahren mit riesigen Himmelskarten untersucht. Roman, Euclid und das Vera-C.-Rubin-Observatorium sollen sehr viele Galaxien vermessen. Daraus will man lernen, ob die beschleunigte Ausdehnung immer gleich stark war.</p>\n    <div class=\"mini-task astro-task\"><strong>Abschluss-Recherche:</strong> Suche kurz nach Roman, Euclid oder Vera Rubin. Wähle ein Projekt aus und schreibe ins Heft: Was wird gemessen? Wie hilft das bei der Frage nach Dunkler Energie?</div>\n    <div class=\"teacher-note\"><strong>Weiterforschen:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/dark-energy/\" target=\"_blank\" rel=\"noopener\">NASA: Dark Energy</a></li><li><a href=\"https://science.nasa.gov/universe/dark-matter-dark-energy/\" target=\"_blank\" rel=\"noopener\">NASA: Dark Matter</a></li></ul></div>\n  {{QUIZ_astro_s20_q0}}"
       }
     ],
     "diplom": {
-      "title": "🎓 Das Astrophysik-Diplom",
+      "title": "Astronomie-Diplom",
       "questions": [
         {
-          "id": "f1",
-          "question": "1. Wie lautet die Abkürzung für die Entfernung von Erde zu Sonne?",
+          "id": "astro_d1",
+          "question": "Was ist Astronomie?",
           "answers": [
             {
-              "text": "LJ (Lichtjahr).",
+              "text": "Die Wissenschaft vom Kochen.",
               "correct": false,
               "pts": 5,
-              "feedback": "LJ bedeutet Lichtjahr. Für Erde–Sonne nutzt man aber AE."
+              "feedback": "Noch nicht. Astronomie untersucht den Kosmos."
             },
             {
-              "text": "AE (Astronomische Einheit).",
+              "text": "Die Wissenschaft von Himmelskörpern und dem Universum.",
               "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: AE steht für Astronomische Einheit, also ungefähr Erde–Sonne."
+              "pts": 10,
+              "feedback": "Richtig. Astronomie untersucht den Kosmos."
             }
           ]
         },
         {
-          "id": "f2",
-          "question": "2. Welcher Planet in unserem Sonnensystem ist der größte?",
+          "id": "astro_d2",
+          "question": "Was besagt Keplers erstes Gesetz?",
           "answers": [
             {
-              "text": "Erde.",
+              "text": "Planetenbahnen sind Ellipsen.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Richtig. Kepler beschreibt damit Ellipsenbahnen mit der Sonne in einem Brennpunkt."
+            },
+            {
+              "text": "Planetenbahnen sind immer Quadrate.",
               "correct": false,
               "pts": 5,
-              "feedback": "Die Erde ist viel kleiner. Der größte Planet ist Jupiter."
+              "feedback": "Noch nicht. Nach Kepler sind Planetenbahnen Ellipsen, keine Quadrate."
+            }
+          ]
+        },
+        {
+          "id": "astro_d3",
+          "question": "Was ist ein Orbit?",
+          "answers": [
+            {
+              "text": "Eine Umlaufbahn.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Richtig. Ein Orbit ist die Bahn, auf der ein Körper um einen anderen kreist."
             },
+            {
+              "text": "Ein Sternbild.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Ein Orbit ist eine Umlaufbahn, kein Sternbild."
+            }
+          ]
+        },
+        {
+          "id": "astro_d4",
+          "question": "Was ist die Ekliptik?",
+          "answers": [
+            {
+              "text": "Die Ebene der Erdbahn beziehungsweise scheinbare Sonnenbahn.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Richtig. Die Ekliptik beschreibt die Ebene der Erdbahn und die scheinbare Sonnenbahn."
+            },
+            {
+              "text": "Der Kern der Sonne.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Der Sonnenkern gehört zur Sonne, nicht zur Ekliptik."
+            }
+          ]
+        },
+        {
+          "id": "astro_d_meteors",
+          "question": "Was ist der Unterschied zwischen Meteoroid, Meteor und Meteorit?",
+          "answers": [
+            {
+              "text": "Meteoroid im All, Meteor als Leuchtspur, Meteorit am Boden.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Richtig. Die drei Wörter beschreiben unterschiedliche Situationen desselben Grundtyps."
+            },
+            {
+              "text": "Alle drei Wörter bedeuten exakt dasselbe.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Die Wörter unterscheiden Ort und Ereignis."
+            }
+          ]
+        },
+        {
+          "id": "astro_d_small_bodies",
+          "question": "Warum sind Asteroiden und Kometen für die Forschung wichtig?",
+          "answers": [
+            {
+              "text": "Sie enthalten altes Material aus der Frühzeit des Sonnensystems.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Richtig. Kleine Körper sind wie Archive der Entstehungszeit."
+            },
+            {
+              "text": "Sie sind die Energiequelle der Sonne.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Die Sonne leuchtet durch Kernfusion, nicht durch Asteroiden oder Kometen."
+            }
+          ]
+        },
+        {
+          "id": "astro_d5",
+          "question": "Welcher Planet ist der größte?",
+          "answers": [
             {
               "text": "Jupiter.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau, Jupiter ist der größte Planet in unserem Sonnensystem."
+              "feedback": "Richtig. Jupiter ist der gr??te Planet unseres Sonnensystems."
+            },
+            {
+              "text": "Merkur.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Merkur ist der kleinste Planet, nicht der gr??te."
             }
           ]
         },
         {
-          "id": "f3",
-          "question": "3. Wie schnell ist das Licht ungefähr?",
+          "id": "astro_d6",
+          "question": "Warum leuchtet die Sonne?",
           "answers": [
             {
-              "text": "3.000 km/h.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Das ist viel zu langsam. Licht ist enorm schnell."
-            },
-            {
-              "text": "300.000 Kilometer pro Sekunde.",
+              "text": "Durch Kernfusion.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Licht bewegt sich mit rund 300.000 km pro Sekunde."
+              "feedback": "Richtig. In der Sonne setzt Kernfusion Licht und Wärme frei."
+            },
+            {
+              "text": "Durch Holzfeuer.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Die Sonne brennt nicht wie Holz, sondern leuchtet durch Kernfusion."
             }
           ]
         },
         {
-          "id": "f4",
-          "question": "4. Was ist ein Lichtjahr?",
+          "id": "astro_d7",
+          "question": "Was ist der Kuipergürtel?",
           "answers": [
             {
-              "text": "Eine Zeitangabe (genau 365 Tage im All).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Nicht ganz: Ein Lichtjahr ist keine Zeitangabe."
-            },
-            {
-              "text": "Eine Entfernungsangabe (eine riesige Strecke).",
+              "text": "Eine Zone eisiger Körper jenseits von Neptun.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Ein Lichtjahr ist eine Entfernungsangabe für sehr große Distanzen."
+              "feedback": "Richtig. Der Kuipergürtel liegt jenseits von Neptun und enthält viele eisige Körper."
+            },
+            {
+              "text": "Ein Ring um die Erde.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Der Kuipergürtel liegt weit draußen im Sonnensystem, nicht um die Erde."
             }
           ]
         },
         {
-          "id": "f5",
-          "question": "5. Was passiert, wenn ein Objekt mehr Masse hat?",
+          "id": "astro_d8",
+          "question": "Was ist eine Galaxie?",
           "answers": [
             {
-              "text": "Seine Schwerkraft (Gravitation) wird stärker.",
+              "text": "Ein riesiges System aus Sternen, Gas, Staub und dunkler Materie.",
               "correct": true,
               "pts": 5,
-              "feedback": "Korrekt. Mehr Masse bedeutet stärkere Gravitation."
+              "feedback": "Richtig. Eine Galaxie enthält sehr viele Sterne, Gas, Staub und dunkle Materie."
             },
             {
-              "text": "Es verliert seine Schwerkraft.",
+              "text": "Ein einzelner Planet.",
               "correct": false,
               "pts": 5,
-              "feedback": "Umgekehrt: Mehr Masse erhöht die Schwerkraft, sie verschwindet nicht."
+              "feedback": "Noch nicht. Eine Galaxie ist viel gr??er als ein einzelner Planet."
             }
           ]
         },
         {
-          "id": "f6",
-          "question": "6. Warum kann nicht einmal Licht aus einem Schwarzen Loch entkommen?",
+          "id": "astro_d9",
+          "question": "Wie erkennt man Dunkle Materie?",
           "answers": [
             {
-              "text": "Weil das Lichtjahr dort endet.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Das Lichtjahr hat damit nichts zu tun."
-            },
-            {
-              "text": "Weil die Schwerkraft dort extrem stark ist.",
+              "text": "An ihrer Gravitationswirkung.",
               "correct": true,
               "pts": 5,
-              "feedback": "Richtig: Die Gravitation ist so stark, dass nicht einmal Licht entkommt."
+              "feedback": "Richtig. Dunkle Materie erkennt man indirekt an ihrer Gravitation."
+            },
+            {
+              "text": "An schwarzem Licht.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "Noch nicht. Dunkle Materie leuchtet nicht; man erkennt ihre Gravitationswirkung."
             }
           ]
         },
         {
-          "id": "f7",
-          "question": "7. Wie schnell muss eine Rakete etwa sein, um der Erdanziehung zu entkommen?",
+          "id": "astro_d10",
+          "question": "Wofür steht Dunkle Energie?",
           "answers": [
             {
-              "text": "100 Kilometer pro Stunde.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Das reicht bei weitem nicht, um das Schwerefeld der Erde zu verlassen."
-            },
-            {
-              "text": "11,2 Kilometer pro Sekunde (Fluchtgeschwindigkeit).",
+              "text": "Für die unbekannte Ursache der beschleunigten Ausdehnung.",
               "correct": true,
               "pts": 5,
-              "feedback": "Genau: Etwa 11,2 km/s sind als Fluchtgeschwindigkeit nötig."
-            }
-          ]
-        },
-        {
-          "id": "f8",
-          "question": "8. Warum sind Raketen meistens so riesig und schwer?",
-          "answers": [
-            {
-              "text": "Weil sie gigantische Mengen an Treibstoff mitnehmen müssen.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Viel Masse ist Treibstoff, damit die Rakete genug Schub erzeugt."
+              "feedback": "Richtig. Dunkle Energie steht für die unbekannte Ursache der beschleunigten Ausdehnung."
             },
             {
-              "text": "Damit die Astronauten viel Platz für Sport haben.",
+              "text": "Für die Energie von Sonnenflecken.",
               "correct": false,
               "pts": 5,
-              "feedback": "Das ist nur Spaßantwort: Hauptgrund ist der nötige Treibstoff für den Start."
-            }
-          ]
-        },
-        {
-          "id": "f9",
-          "question": "9. Wie nennt man die gewaltige Explosion eines sterbenden Sterns?",
-          "answers": [
-            {
-              "text": "Supernova.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Genau, so heißt die Explosion eines sterbenden Sterns."
-            },
-            {
-              "text": "Roter Riese.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Ein roter Riese ist ein Entwicklungsstadium, aber nicht die Explosion selbst."
-            }
-          ]
-        },
-        {
-          "id": "f10",
-          "question": "10. Woher haben Sterne (wie unsere Sonne) die Energie, um zu leuchten?",
-          "answers": [
-            {
-              "text": "Durch Kernfusion (Verschmelzung von Elementen im Inneren).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Sterne leuchten durch Kernfusion im Inneren."
-            },
-            {
-              "text": "Sie verbrennen flüssigen Sauerstoff.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Nein: Sterne funktionieren nicht wie chemische Feuer, sondern über Kernfusion."
+              "feedback": "Noch nicht. Sonnenflecken erklären nicht die beschleunigte Ausdehnung des Universums."
             }
           ]
         }
