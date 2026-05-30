@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciVerse - Lernseite für die Mittelschule</title>
-    <link rel="stylesheet" href="css/style.css?v=5.5">
+    <link rel="stylesheet" href="css/style.css?v=5.7">
     <style>
         :root {
             --sidebar-bg: #0f172a;
@@ -28,6 +28,17 @@
             --nav-btn-active-text: #64b5f6;
             --header-gradient: linear-gradient(135deg, #1e3a8a, #1e40af);
             --header-border: #172554;
+        }
+
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        *::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
         }
 
         body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background-color: var(--main-bg); color: var(--text-color); overflow: hidden; transition: background-color 0.3s, color 0.3s; }
