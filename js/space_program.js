@@ -49,12 +49,14 @@ const PARTS = [
     { id: "fin_basic", slot: "fin", name: "Kartonflossen", subject: "start", cost: 0, stats: { control: 1 }, desc: "Stabilisiert den Start." },
     { id: "science_empty", slot: "science", name: "Leerer Experimentplatz", subject: "start", cost: 0, stats: {}, desc: "Hier passt später Forschung hinein." },
     { id: "utility_basic", slot: "utility", name: "Bordlampe", subject: "start", cost: 0, stats: { hull: 1 }, desc: "Kleine Hilfe für Nachtstarts." },
+    { id: "weapon_basic", slot: "weapon", name: "Notfall-Geschütz", subject: "start", cost: 0, stats: { weapon: 1 }, desc: "Ein kleines Bordgeschütz für die ferne Endphase." },
     { id: "paint_school", slot: "paint", name: "SciVerse-Lack", subject: "start", cost: 0, stats: {}, color: "#38bdf8", accent: "#fbbf24", desc: "Der Standardlook deiner Schulrakete." },
 
     { id: "engine_vector", slot: "engine", name: "Newton-Vektortriebwerk", subject: "physik", req: 1, cost: 45, stats: { thrust: 3, control: 1 }, desc: "Mehr Schub und sichtbare Kraft-Richtung." },
     { id: "fin_gyro", slot: "fin", name: "Kreisel-Stabilisator", subject: "physik", req: 2, cost: 55, stats: { control: 3, hull: 1 }, desc: "Hilft beim Drehen und Abfangen." },
     { id: "shield_heat", slot: "utility", name: "Wärmelehre-Hitzeschild", subject: "physik", req: 3, cost: 70, stats: { hull: 4 }, desc: "Schützt beim Wiedereintritt und harten Landungen." },
     { id: "solar_panel", slot: "utility", name: "Optik-Solarpaneel", subject: "physik", req: 4, cost: 80, stats: { science: 1, fuel: 1 }, desc: "Licht wird zu Energie." },
+    { id: "weapon_photon", slot: "weapon", name: "Photonenkanone", subject: "physik", req: 5, cost: 110, stats: { weapon: 2, control: 1 }, desc: "Ein stärkerer Strahl für die Space-Invaders-Zone." },
 
     { id: "math_nav", slot: "nose", name: "Mathe-Steuercomputer", subject: "mathematik", req: 1, cost: 45, stats: { control: 4 }, desc: "Rechnet Flugwinkel sauberer." },
     { id: "math_optimizer", slot: "utility", name: "Effizienz-Rechner", subject: "mathematik", req: 3, cost: 75, stats: { fuel: 2, control: 2 }, desc: "Verbraucht weniger Treibstoff bei ruhiger Steuerung." },
@@ -63,17 +65,20 @@ const PARTS = [
     { id: "chem_fuel", slot: "body", name: "Chemie-Hochenergietank", subject: "chemie", req: 1, cost: 50, stats: { fuel: 4, thrust: 1 }, desc: "Mehr Energie durch besseren Treibstoff." },
     { id: "chem_alloy", slot: "body", name: "Leichtmetall-Rumpf", subject: "chemie", req: 3, cost: 80, stats: { hull: 3, fuel: 2 }, desc: "Stabil und leichter als der Standardrumpf." },
     { id: "chem_crystal", slot: "nose", name: "Kristall-Sensor", subject: "chemie", req: 5, cost: 95, stats: { science: 2, control: 2 }, desc: "Erkennt Stoffproben im Orbit." },
+    { id: "weapon_plasma", slot: "weapon", name: "Plasmawerfer", subject: "chemie", req: 5, cost: 120, stats: { weapon: 3 }, desc: "Mehr Schaden durch energiereiche Teilchen." },
 
     { id: "bio_probe", slot: "science", name: "Bio-Probenkapsel", subject: "biologie", req: 1, cost: 45, stats: { science: 4 }, desc: "Sammelt Sporen, Wasserproben und Mikrospuren." },
     { id: "bio_greenhouse", slot: "science", name: "Mini-Gewächshaus", subject: "biologie", req: 2, cost: 65, stats: { science: 5, hull: 1 }, desc: "Teste Pflanzen im Weltraum." },
 
     { id: "dgb_autopilot", slot: "nose", name: "DGB-Autopilot", subject: "dgb", req: 2, cost: 60, stats: { control: 5 }, desc: "Macht die Steuerung weicher." },
+    { id: "weapon_targeting", slot: "weapon", name: "Zielcomputer-Geschütz", subject: "dgb", req: 4, cost: 130, stats: { weapon: 2, control: 2 }, desc: "Feuert präziser und schneller in der Endphase." },
     { id: "geo_mapper", slot: "science", name: "Geo-Kartenkamera", subject: "geographie", req: 1, cost: 50, stats: { science: 3, control: 1 }, desc: "Scannt Oberflächen und Umlaufbahnen." },
     { id: "music_radio", slot: "utility", name: "Musik-Cockpitradio", subject: "musik", req: 1, cost: 35, stats: { control: 1 }, desc: "Schaltet Lernmusik frei und beruhigt den Flug." },
     { id: "art_paint", slot: "paint", name: "Kunst-Galaxie-Lack", subject: "kunst", req: 1, cost: 40, stats: {}, color: "#a855f7", accent: "#fb7185", desc: "Eine Rakete, die aussieht wie ein Sternennebel." },
     { id: "english_radio", slot: "utility", name: "English Mission Radio", subject: "englisch", req: 1, cost: 35, stats: { science: 1 }, desc: "Internationale Funksprüche für Mission Control." },
     { id: "de_logbook", slot: "science", name: "Deutsch-Logbuch", subject: "deutsch", req: 1, cost: 35, stats: { science: 2 }, desc: "Bessere Missionsberichte, klarere Beobachtungen." },
-    { id: "eh_life_support", slot: "body", name: "Vorrats- und Wasserrecycling", subject: "ernaehrung", req: 1, cost: 55, stats: { fuel: 1, hull: 3 }, desc: "Für lange bemannte Missionen gedacht." }
+    { id: "eh_life_support", slot: "body", name: "Vorrats- und Wasserrecycling", subject: "ernaehrung", req: 1, cost: 55, stats: { fuel: 1, hull: 3 }, desc: "Für lange bemannte Missionen gedacht." },
+    { id: "paint_gold", slot: "paint", name: "Goldene Rakete", subject: "victory", cost: 0, stats: { weapon: 1, hull: 1 }, color: "#facc15", accent: "#fff7ad", desc: "Die Auszeichnung für den vollendeten SciVerse-Flug." }
 ];
 
 const SLOTS = [
@@ -83,6 +88,7 @@ const SLOTS = [
     { id: "fin", label: "Stabilisierung" },
     { id: "science", label: "Forschung" },
     { id: "utility", label: "Nutzlast" },
+    { id: "weapon", label: "Geschütz" },
     { id: "paint", label: "Design" }
 ];
 
@@ -98,7 +104,12 @@ const PART_BUFF_LABELS = {
     bio_greenhouse: ["Science++"],
     shield_heat: ["Schildladung"],
     solar_panel: ["sparsam"],
-    fin_gyro: ["Ausweichen+"]
+    fin_gyro: ["Ausweichen+"],
+    weapon_basic: ["Endphase"],
+    weapon_photon: ["Doppelschuss"],
+    weapon_plasma: ["starker Treffer"],
+    weapon_targeting: ["schneller Schuss"],
+    paint_gold: ["Goldene Rakete"]
 };
 
 const CELESTIAL_BODIES = [
@@ -115,20 +126,32 @@ const CELESTIAL_BODIES = [
 
 const VOYAGER_ALTITUDE = CELESTIAL_BODIES.find(body => body.id === "voyager").altitude;
 
+const ROUTE_TIMELINE = [
+    { id: "satellites", name: "erste Satelliten", time: 60, type: "satellites", x: 540, radius: 64, color: "#cbd5e1", note: "nach etwa 1 Minute" },
+    { id: "moon", name: "Mond", time: 150, type: "planet", x: 740, radius: 210, color: "#cbd5e1", accent: "#64748b", gravity: 0.42, note: "nach etwa 2:30 Minuten" },
+    { id: "mars", name: "Mars", time: 240, type: "planet", x: 290, radius: 190, color: "#f97316", accent: "#7c2d12", gravity: 0.52, note: "roter Hintergrund-Vorbeiflug" },
+    { id: "jupiter", name: "Jupiter", time: 330, type: "planet", x: 845, radius: 330, color: "#f8d3a2", accent: "#b45309", gravity: 1.05, bands: true, note: "starker Schwerkraftbereich" },
+    { id: "saturn", name: "Saturn", time: 420, type: "planet", x: 270, radius: 275, color: "#fde68a", accent: "#ca8a04", gravity: 0.74, rings: true, note: "Ringe ziehen groß vorbei" },
+    { id: "uranus", name: "Uranus", time: 510, type: "planet", x: 775, radius: 220, color: "#67e8f9", accent: "#0e7490", gravity: 0.48, note: "ruhiger Eisriese" },
+    { id: "neptune", name: "Neptun", time: 600, type: "planet", x: 350, radius: 230, color: "#2563eb", accent: "#93c5fd", gravity: 0.55, note: "letzter Planet" },
+    { id: "kuiper", name: "Kuipergürtel", time: 690, type: "belt", x: 550, radius: 260, color: "#94a3b8", accent: "#475569", gravity: 0.18, note: "viele ferne Brocken" },
+    { id: "voyager", name: "Voyager", time: 780, type: "voyager", x: 745, radius: 56, color: "#f8fafc", accent: "#fbbf24", gravity: 0.02, note: "Grenze zum interstellaren Raum" }
+];
+
+const FIRST_SATELLITE_TIME = 60;
+const VOYAGER_PASS_TIME = 780;
+const CALM_PHASE_SECONDS = 90;
+const INVADER_START_TIME = VOYAGER_PASS_TIME + CALM_PHASE_SECONDS;
+const INVADER_DURATION_SECONDS = 600;
+const INVADER_END_TIME = INVADER_START_TIME + INVADER_DURATION_SECONDS;
+
 const MISSIONS = [
-    { id: "solar_moon", body: "moon", name: "Mond-Vorbeiflug", targetAlt: 760, targetSpeed: 5.6, itemGoal: 3, reward: "Mondkarte", points: 14, desc: "Starte von der Erde, sammle Ressourcen und fliege am Mond vorbei. In seiner Nähe merkst du zum ersten Mal, dass ein Himmelskörper die Flugbahn leicht verändert." },
-    { id: "solar_mars", body: "mars", name: "Transfer zu Mars", targetAlt: 1560, targetSpeed: 6.3, itemGoal: 5, reward: "Mars-Orbitdaten", points: 20, desc: "Nutze Booster und Treibstoffzellen, um die Bahn bis zum Mars zu verlängern. Der rote Planet zieht dich beim Anflug an und bremst dich nach dem Vorbeiflug wieder etwas ab." },
-    { id: "solar_jupiter", body: "jupiter", name: "Jupiter-Schleuder", targetAlt: 2620, targetSpeed: 7.3, itemGoal: 7, reward: "Gravity-Assist-Badge", points: 28, desc: "Jupiter ist groß: Wer zu nah vorbeifliegt, wird stark abgelenkt. Variiere Schub und Richtung, damit der Gravity Assist hilft statt dich in Asteroiden zu drücken." },
-    { id: "solar_saturn", body: "saturn", name: "Saturn und die Ringe", targetAlt: 3800, targetSpeed: 8.1, itemGoal: 9, reward: "Ring-Scan", points: 36, desc: "Bei Saturn wird der Flug länger. Sammle Boosts, halte die Geschwindigkeit kontrollierbar und plane den Vorbeiflug so, dass dich der Planet nicht aus der Spur zieht." },
-    { id: "solar_uranus", body: "uranus", name: "Uranus-Drift", targetAlt: 5040, targetSpeed: 8.7, itemGoal: 11, reward: "Eisriesen-Daten", points: 44, desc: "Die äußeren Planeten liegen weit auseinander. Nutze den sanften Zug von Uranus, um Geschwindigkeit zu gewinnen, aber bremse rechtzeitig retrograde." },
-    { id: "solar_neptune", body: "neptune", name: "Neptun-Passage", targetAlt: 6300, targetSpeed: 9.2, itemGoal: 13, reward: "Außenplaneten-Karte", points: 52, desc: "Jetzt zählt sauberes Fliegen: Hindernisse kommen schneller, Treibstoff ist wertvoll, und Neptuns Schwerkraft kann dich beim falschen Winkel ausbremsen." },
-    { id: "solar_kuiper", body: "kuiper", name: "Kuipergürtel", targetAlt: 7620, targetSpeed: 9.6, itemGoal: 15, reward: "Kometen-Proben", points: 62, desc: "Im Kuipergürtel warten viele kleine Körper. Sammle Science und Ressourcen, aber bleib beweglich: der Gürtel stört die Bahn schwach, dafür kommen mehr Hindernisse." },
-    { id: "solar_voyager", body: "voyager", name: "Vorbei an Voyager", targetAlt: 9020, targetSpeed: 10.0, itemGoal: 17, reward: "Interstellar-Abzeichen", points: 74, desc: "Fliege bis zur Voyager-Sonde. Danach verschwindet das letzte Sonnenlicht aus dem Hintergrund und du siehst einen klaren Sternenhimmel im interstellaren Raum." }
+    { id: "sciverse_grand_tour", body: "voyager", grandTour: true, name: "Explore the SciVerse", targetAlt: 24000, targetSpeed: 10.0, itemGoal: 24, reward: "Goldene Rakete", points: 180, desc: "Ein langer Flug durch das Sonnensystem: nach etwa 1 Minute tauchen die ersten Satelliten auf, nach etwa 2:30 Minuten der Mond. Danach ziehen die Planeten nur groß im Hintergrund vorbei. Nach Voyager folgt eine ruhige Sternenphase, dann beginnt die Space-Invaders-Endphase." }
 ];
 
 const DEFAULT_STATE = {
     model: null,
-    owned: ["nose_basic", "body_basic", "engine_basic", "fin_basic", "science_empty", "utility_basic", "paint_school"],
+    owned: ["nose_basic", "body_basic", "engine_basic", "fin_basic", "science_empty", "utility_basic", "weapon_basic", "paint_school"],
     equipped: {
         nose: "nose_basic",
         body: "body_basic",
@@ -136,12 +159,14 @@ const DEFAULT_STATE = {
         fin: "fin_basic",
         science: "science_empty",
         utility: "utility_basic",
+        weapon: "weapon_basic",
         paint: "paint_school"
     },
     selectedSlot: "engine",
     shopFilter: "all",
-    selectedMission: "solar_moon",
-    missionLog: {}
+    selectedMission: "sciverse_grand_tour",
+    missionLog: {},
+    goldenRocket: false
 };
 
 let programState = loadProgramState();
@@ -255,6 +280,10 @@ function getSubjectProgress() {
     return progress;
 }
 
+function getCompletedChapterCount() {
+    return Object.values(getSubjectProgress()).reduce((sum, item) => sum + (item.completed || 0), 0);
+}
+
 function renderModelCards() {
     const grid = document.getElementById("rocketModelCards");
     grid.innerHTML = ROCKET_MODELS.map(model => `
@@ -339,6 +368,8 @@ function getRocketStats() {
     stats.shield = (equipped.utility === "shield_heat" ? 1 : 0) + Math.floor(stats.hull / 8);
     stats.safeSpeed = 4.2 + stats.control * 0.10 + stats.hull * 0.03;
     stats.fuelEfficiency = 0.56 - Math.min(0.22, stats.control * 0.01) - (equipped.utility === "math_optimizer" ? 0.1 : 0) - (equipped.utility === "solar_panel" ? 0.05 : 0);
+    stats.weapon = Math.max(1, (stats.weapon || 0) + Math.min(4, Math.floor(getCompletedChapterCount() / 8)) + (programState.goldenRocket ? 1 : 0));
+    stats.weaponCooldown = Math.max(10, 28 - stats.weapon * 3);
     return stats;
 }
 
@@ -351,7 +382,8 @@ function renderRocketPanels() {
         + statCard("Hülle", getRocketStats().hull)
         + statCard("Booster", getRocketStats().boosters)
         + statCard("Magnet", Math.round(getRocketStats().magnetRange))
-        + statCard("Autopilot", getRocketStats().autopilot.toFixed(1));
+        + statCard("Autopilot", getRocketStats().autopilot.toFixed(1))
+        + statCard("Geschütz", getRocketStats().weapon);
 }
 
 function statCard(label, value) {
@@ -379,10 +411,13 @@ function renderMission() {
     const done = programState.missionLog[mission.id];
     const next = getNextMission(mission.id);
     const body = getMissionBody(mission);
+    const goalLine = mission.grandTour
+        ? `Reiseplan: Satelliten nach ${formatTime(FIRST_SATELLITE_TIME)} · Mond nach ${formatTime(150)} · Voyager nach ${formatTime(VOYAGER_PASS_TIME)} · Endphase ${formatTime(INVADER_DURATION_SECONDS)}`
+        : `Ziel: ${escapeHtml(body?.name || mission.name)} · Zielhöhe: ${mission.targetAlt} m · Sammelziel: ${mission.itemGoal}`;
     document.getElementById("missionBrief").innerHTML = `
         <strong>${escapeHtml(mission.name)}</strong>
         <p>${escapeHtml(mission.desc)}</p>
-        <small>Ziel: ${escapeHtml(body?.name || mission.name)} · Zielhöhe: ${mission.targetAlt} m · Sammelziel: ${mission.itemGoal} · Belohnung: ${escapeHtml(mission.reward)} · ${mission.points} Punkte${done ? " · geschafft" : ""}${next && !done ? " · danach: " + escapeHtml(next.name) : ""}</small>
+        <small>${goalLine} · Belohnung: ${escapeHtml(mission.reward)} · ${mission.points} Punkte${done ? " · geschafft" : ""}${next && !done ? " · danach: " + escapeHtml(next.name) : ""}</small>
     `;
 }
 
@@ -559,6 +594,7 @@ function slotBadge(slotId) {
         fin: "F",
         science: "S",
         utility: "U",
+        weapon: "G",
         paint: "L"
     })[slotId] || "?";
 }
@@ -576,7 +612,8 @@ function partAccentColor(part) {
         englisch: "#ef4444",
         musik: "#c084fc",
         kunst: "#f472b6",
-        ernaehrung: "#84cc16"
+        ernaehrung: "#84cc16",
+        victory: "#facc15"
     })[part.subject] || "#94a3b8";
 }
 
@@ -591,10 +628,10 @@ function equipPart(partId) {
 }
 
 function renderShop() {
-    const subjects = ["all", ...Object.keys(SUBJECT_BONUSES), "start"];
+    const subjects = ["all", ...Object.keys(SUBJECT_BONUSES), "start", "victory"];
     document.getElementById("shopFilters").innerHTML = subjects.map(subject => `
         <button type="button" class="shop-filter ${programState.shopFilter === subject ? "active" : ""}" data-filter="${subject}">
-            ${subject === "all" ? "Alle" : subject === "start" ? "Basis" : escapeHtml(SUBJECT_BONUSES[subject].label)}
+            ${subject === "all" ? "Alle" : subject === "start" ? "Basis" : subject === "victory" ? "Finale" : escapeHtml(SUBJECT_BONUSES[subject].label)}
         </button>
     `).join("");
     document.querySelectorAll(".shop-filter").forEach(button => {
@@ -611,7 +648,8 @@ function renderShop() {
         const owned = programState.owned.includes(part.id);
         const unlocked = isPartUnlocked(part, progress);
         const canBuy = unlocked && !owned && getPoints() >= part.cost;
-        const subjectLabel = part.subject === "start" ? "Basis" : (SUBJECT_BONUSES[part.subject]?.label || part.subject);
+        const buttonLabel = owned ? "gekauft" : unlocked ? `${part.cost} Punkte` : part.subject === "victory" ? "Finale schaffen" : `${part.req || 0} Kapitelquiz nötig`;
+        const subjectLabel = part.subject === "start" ? "Basis" : part.subject === "victory" ? "Finale" : (SUBJECT_BONUSES[part.subject]?.label || part.subject);
         return `
             <article class="shop-card ${owned ? "owned" : ""} ${unlocked ? "" : "locked"}">
                 <p class="space-kicker">${escapeHtml(subjectLabel)} · ${escapeHtml(slotLabel(part.slot))}</p>
@@ -619,7 +657,7 @@ function renderShop() {
                 <small>${escapeHtml(part.desc)}</small>
                 ${renderTags(part)}
                 <button type="button" class="item-action ${canBuy ? "primary" : ""}" data-buy="${part.id}" ${canBuy ? "" : "disabled"}>
-                    ${owned ? "gekauft" : unlocked ? `${part.cost} Punkte` : `${part.req || 0} Kapitelquiz nötig`}
+                    ${buttonLabel}
                 </button>
             </article>
         `;
@@ -635,6 +673,7 @@ function slotLabel(slotId) {
 
 function isPartUnlocked(part, progress = getSubjectProgress()) {
     if (part.subject === "start") return true;
+    if (part.subject === "victory") return Boolean(programState.goldenRocket || programState.owned.includes(part.id));
     const item = progress[part.subject] || { completed: 0 };
     return item.completed >= Number(part.req || 1);
 }
@@ -662,7 +701,7 @@ function renderTags(part) {
 }
 
 function statLabel(key) {
-    return ({ thrust: "Schub", fuel: "Tank", control: "Steuerung", science: "Forschung", hull: "Hülle" })[key] || key;
+    return ({ thrust: "Schub", fuel: "Tank", control: "Steuerung", science: "Forschung", hull: "Hülle", weapon: "Geschütz" })[key] || key;
 }
 
 function renderSolarMap() {
@@ -757,15 +796,17 @@ function createFlightObjects(mission, stats) {
         });
         index++;
     }
-    objects.push({
-        id: "finish-gate",
-        type: "finish",
-        x: body?.x || 550,
-        y: 585 - mission.targetAlt,
-        radius: 52,
-        taken: false,
-        value: mission.itemGoal
-    });
+    if (!mission.grandTour) {
+        objects.push({
+            id: "finish-gate",
+            type: "finish",
+            x: body?.x || 550,
+            y: 585 - mission.targetAlt,
+            radius: 52,
+            taken: false,
+            value: mission.itemGoal
+        });
+    }
     return objects;
 }
 
@@ -776,6 +817,22 @@ function seededNoise(key) {
     }
     const value = Math.sin(hash * 999.91) * 10000;
     return value - Math.floor(value);
+}
+
+function createInvaderState(stats = getRocketStats()) {
+    return {
+        enemies: [],
+        shots: [],
+        enemyShots: [],
+        score: 0,
+        hull: 3 + Math.floor(stats.hull / 5),
+        weaponLevel: stats.weapon || 1,
+        shotCooldown: 0,
+        enemySpawnCooldown: 0,
+        wave: 1,
+        started: false,
+        won: false
+    };
 }
 
 function resetFlight() {
@@ -830,7 +887,11 @@ function resetFlight() {
         gravityHint: "",
         gravityStrength: 0,
         interstellarReached: false,
-        message: "Bereit: Start zündet den Motor. Space setzt einen Booster ein."
+        elapsedSeconds: 0,
+        phase: "cruise",
+        announcedMilestones: {},
+        invader: createInvaderState(stats),
+        message: "Bereit: Starte die lange SciVerse-Reise. Space zündet Booster, später feuert es das Geschütz."
     };
     renderFlightSystems();
 }
@@ -894,6 +955,7 @@ function setupControls() {
         if (event.code === "KeyT") toggleSas();
         if (event.code === "KeyR") toggleRcs();
         if (event.code === "KeyM") toggleMapMode();
+        if (event.code === "KeyF") fireInvaderShot();
         if (["KeyA", "ArrowLeft"].includes(event.code)) controls.left = true;
         if (["KeyD", "ArrowRight"].includes(event.code)) controls.right = true;
     });
@@ -940,6 +1002,11 @@ function stageRocket() {
     if (!flightState || flightState.crashed || flightState.completed) resetFlight();
     if (!flightState.launched) {
         igniteFlight();
+        return;
+    }
+    if (flightState.phase === "invaders") {
+        fireInvaderShot();
+        renderFlightSystems();
         return;
     }
     if (flightState.boosterCharges > 0 && !flightState.boosterActive) {
@@ -1107,6 +1174,14 @@ function updateFlight(dt) {
 
     if (!flightState.launched) return;
 
+    flightState.elapsedSeconds += dt / 60;
+    updateJourneyPhase(stats);
+    if (flightState.completed) return;
+    if (flightState.phase === "invaders") {
+        updateInvaderFlight(dt, stats);
+        return;
+    }
+
     const altitude = Math.max(0, 585 - flightState.y);
     const manualSteering = controls.left || controls.right;
     const steer = (controls.right ? 1 : 0) - (controls.left ? 1 : 0);
@@ -1180,17 +1255,19 @@ function updateFlight(dt) {
     if (flightState.x > 1040) flightState.x = 60;
 
     flightState.maxAlt = Math.max(flightState.maxAlt, Math.round(altitude));
-    applyObjectInteractions(stats, mission, dt);
-    tryCollectScience();
+    if (flightState.phase !== "calm") {
+        applyObjectInteractions(stats, mission, dt);
+        tryCollectScience();
+    }
 
     const nextAltitude = Math.max(0, Math.round(585 - flightState.y));
-    if (!flightState.interstellarReached && nextAltitude >= VOYAGER_ALTITUDE) {
+    if (!getMission().grandTour && !flightState.interstellarReached && nextAltitude >= VOYAGER_ALTITUDE) {
         flightState.interstellarReached = true;
         flightState.message = "Voyager passiert. Hinter dir liegt das Sonnensystem, vor dir ein klarer Sternenhimmel.";
     }
-    if (nextAltitude > mission.targetAlt && flightState.collectedItems >= mission.itemGoal) {
+    if (!mission.grandTour && nextAltitude > mission.targetAlt && flightState.collectedItems >= mission.itemGoal) {
         completeMission("Aufstieg geschafft. Ressourcen gesammelt.");
-    } else if (nextAltitude > mission.targetAlt && flightState.collectedItems < mission.itemGoal) {
+    } else if (!mission.grandTour && nextAltitude > mission.targetAlt && flightState.collectedItems < mission.itemGoal) {
         flightState.message = `Höhe erreicht, aber noch ${mission.itemGoal - flightState.collectedItems} Kapseln fehlen.`;
     }
 
@@ -1207,56 +1284,271 @@ function updateFlight(dt) {
     }
 }
 
-function applyCelestialGravity(stats, mission, dt) {
-    if (!flightState?.launched) return;
-    const altitude = Math.max(0, 585 - flightState.y);
-    let strongest = null;
+function updateJourneyPhase(stats) {
+    const previous = flightState.phase;
+    flightState.phase = getJourneyPhase(flightState.elapsedSeconds);
+    const nextEvent = getNextRouteEvent(flightState.elapsedSeconds);
 
-    for (const body of CELESTIAL_BODIES) {
-        if (!body.influence || !body.gravity) continue;
-        if (body.altitude > mission.targetAlt + 900 && altitude < body.altitude - body.influence - 260) continue;
-
-        const bodyY = 585 - body.altitude;
-        const dx = body.x - flightState.x;
-        const dy = bodyY - flightState.y;
-        const dist = Math.hypot(dx, dy);
-        if (dist <= 2 || dist > body.influence) continue;
-
-        const falloff = 1 - dist / body.influence;
-        const pull = (0.014 + body.gravity * 0.035) * falloff * falloff * dt;
-        const nx = dx / dist;
-        const ny = dy / dist;
-        flightState.vx += nx * pull;
-        flightState.vy += ny * pull;
-
-        if (body.belt) {
-            const swirl = Math.sin((altitude + performance.now() * 0.025) * 0.028) * 0.006 * falloff * dt;
-            flightState.vx += swirl;
-        }
-
-        const radialSpeed = flightState.vx * nx + flightState.vy * ny;
-        if (!strongest || pull > strongest.pull) {
-            strongest = {
-                body,
-                pull,
-                phase: radialSpeed >= 0 ? "Anflug: beschleunigt" : "nach Vorbeiflug: bremst"
-            };
+    for (const event of ROUTE_TIMELINE) {
+        if (flightState.elapsedSeconds >= event.time && !flightState.announcedMilestones[event.id]) {
+            flightState.announcedMilestones[event.id] = true;
+            flightState.message = event.id === "voyager"
+                ? "Voyager zieht vorbei. Jetzt kommt eine ruhige Sternenhimmel-Phase."
+                : `${event.name} zieht groß im Hintergrund vorbei.`;
         }
     }
 
-    if (strongest) {
-        const previous = flightState.gravityBody;
-        flightState.gravityBody = strongest.body.name;
-        flightState.gravityStrength = strongest.pull / Math.max(0.001, dt);
-        flightState.gravityHint = `${strongest.body.name} · ${strongest.phase}`;
-        if (previous !== strongest.body.name && flightState.invulnerableTimer <= 0) {
-            flightState.message = `${strongest.body.name} beeinflusst deine Bahn: beim Anflug schneller, nach dem Vorbeiflug langsamer.`;
+    if (previous !== flightState.phase) {
+        if (flightState.phase === "calm") {
+            flightState.interstellarReached = true;
+            flightState.message = "Hinter Voyager wird es ruhig: keine Hindernisse, nur klarer Sternenhimmel.";
+        } else if (flightState.phase === "invaders") {
+            flightState.invader = createInvaderState(stats);
+            flightState.y = 535;
+            flightState.vy = 0;
+            flightState.angle = 0;
+            flightState.message = "Space-Invaders-Endphase! A/D ausweichen, Space oder F feuert das Geschütz.";
+        } else if (flightState.phase === "victory") {
+            completeGrandTour("Du hast die Endphase überstanden.");
         }
+    } else if (nextEvent && !flightState.gravityHint && Math.round(nextEvent.time - flightState.elapsedSeconds) === 30) {
+        flightState.message = `Nächste Begegnung: ${nextEvent.name} in etwa 30 Sekunden.`;
+    }
+}
+
+function getJourneyPhase(seconds) {
+    if (seconds >= INVADER_END_TIME) return "victory";
+    if (seconds >= INVADER_START_TIME) return "invaders";
+    if (seconds >= VOYAGER_PASS_TIME) return "calm";
+    return "cruise";
+}
+
+function getNextRouteEvent(seconds) {
+    return ROUTE_TIMELINE.find(event => event.time > seconds) || null;
+}
+
+function getCurrentRouteEvent(seconds = flightState?.elapsedSeconds || 0, windowSeconds = 52) {
+    return ROUTE_TIMELINE
+        .map(event => ({ ...event, delta: seconds - event.time }))
+        .filter(event => Math.abs(event.delta) <= windowSeconds)
+        .sort((a, b) => Math.abs(a.delta) - Math.abs(b.delta))[0] || null;
+}
+
+function getPhaseLabel(phase) {
+    return ({
+        cruise: "Sonnensystem-Reise",
+        calm: "Ruhige Sternenphase",
+        invaders: "Space-Invaders-Endphase",
+        victory: "Goldene Rakete"
+    })[phase] || "Start";
+}
+
+function formatTime(seconds) {
+    const value = Math.max(0, Math.round(seconds || 0));
+    const minutes = Math.floor(value / 60);
+    const rest = value % 60;
+    return `${minutes}:${String(rest).padStart(2, "0")}`;
+}
+
+function applyCelestialGravity(stats, mission, dt) {
+    if (!flightState?.launched) return;
+    const event = getCurrentRouteEvent(flightState.elapsedSeconds, 42);
+    if (event && event.gravity && flightState.phase === "cruise") {
+        const phase = event.delta / 42;
+        const falloff = Math.max(0, 1 - Math.abs(phase));
+        const horizontalPull = Math.max(-1, Math.min(1, (event.x - flightState.x) / 520));
+        const beforePass = event.delta < 0;
+        const pull = event.gravity * falloff;
+        flightState.vx += horizontalPull * pull * 0.035 * dt;
+        flightState.vy += (beforePass ? -1 : 1) * pull * 0.025 * dt;
+        flightState.gravityBody = event.name;
+        flightState.gravityStrength = pull;
+        flightState.gravityHint = `${event.name} · ${beforePass ? "Anflug: schneller" : "Vorbeiflug: bremst"}`;
     } else {
         flightState.gravityBody = null;
         flightState.gravityStrength = 0;
         flightState.gravityHint = "";
     }
+}
+
+function updateInvaderFlight(dt, stats) {
+    const seconds = dt / 60;
+    const invader = flightState.invader;
+    const steer = (controls.right ? 1 : 0) - (controls.left ? 1 : 0);
+    flightState.vx += steer * (0.16 + stats.control * 0.018) * dt;
+    flightState.vx *= Math.pow(0.86, dt);
+    flightState.x = Math.max(70, Math.min(1030, flightState.x + flightState.vx * dt));
+    flightState.y += (535 - flightState.y) * 0.08 * dt;
+    flightState.angle = Math.max(-0.55, Math.min(0.55, flightState.vx * 0.08));
+    flightState.fuel = Math.min(stats.maxFuel, flightState.fuel + 0.05 * dt);
+
+    invader.weaponLevel = stats.weapon;
+    invader.shotCooldown = Math.max(0, invader.shotCooldown - seconds);
+    invader.enemySpawnCooldown -= seconds;
+    if (invader.enemySpawnCooldown <= 0) {
+        spawnInvader();
+        const elapsedInPhase = Math.max(0, flightState.elapsedSeconds - INVADER_START_TIME);
+        invader.enemySpawnCooldown = Math.max(0.55, 2.25 - elapsedInPhase / 230 - invader.weaponLevel * 0.06);
+    }
+    if (invader.weaponLevel >= 5 && invader.shotCooldown <= 0) fireInvaderShot(true);
+
+    updateInvaderObjects(seconds);
+
+    if (invader.hull <= 0) {
+        flightState.crashed = true;
+        flightState.message = "Endphase verloren. Das Geschütz braucht bessere Ausrüstung oder ruhigere Steuerung.";
+        renderFlightSystems();
+        return;
+    }
+    if (flightState.elapsedSeconds >= INVADER_END_TIME) {
+        completeGrandTour("Space-Invaders-Endphase geschafft.");
+    }
+}
+
+function spawnInvader() {
+    const invader = flightState.invader;
+    const wave = Math.max(1, Math.floor((flightState.elapsedSeconds - INVADER_START_TIME) / 75) + 1);
+    invader.wave = wave;
+    const id = `inv-${Math.round(flightState.elapsedSeconds * 100)}-${invader.enemies.length}`;
+    const x = 95 + seededNoise(id) * 910;
+    invader.enemies.push({
+        id,
+        x,
+        y: -54,
+        vx: (seededNoise(`${id}-vx`) - 0.5) * (30 + wave * 4),
+        speed: 34 + wave * 4 + seededNoise(`${id}-speed`) * 26,
+        hp: 1 + Math.floor(wave / 3),
+        radius: 21 + Math.min(9, wave),
+        fireCooldown: 1.4 + seededNoise(`${id}-fire`) * 2.6,
+        phase: seededNoise(`${id}-phase`) * Math.PI * 2
+    });
+}
+
+function fireInvaderShot(auto = false) {
+    if (!flightState || flightState.phase !== "invaders" || flightState.crashed || flightState.completed) return;
+    const invader = flightState.invader;
+    const stats = getRocketStats();
+    if (invader.shotCooldown > 0) return;
+    const level = stats.weapon;
+    const spread = level >= 4 ? [-0.24, 0, 0.24] : level >= 2 ? [-0.13, 0.13] : [0];
+    spread.forEach(offset => {
+        invader.shots.push({
+            x: flightState.x,
+            y: flightState.y - 54,
+            dx: Math.sin(flightState.angle + offset) * 165,
+            dy: -420 - level * 22,
+            damage: level >= 3 ? 2 : 1,
+            life: 1.45
+        });
+    });
+    invader.shotCooldown = Math.max(0.12, stats.weaponCooldown / 60);
+    if (!auto) flightState.message = `Geschütz feuert Stufe ${level}.`;
+}
+
+function updateInvaderObjects(seconds) {
+    const invader = flightState.invader;
+    invader.shots.forEach(shot => {
+        shot.x += shot.dx * seconds;
+        shot.y += shot.dy * seconds;
+        shot.life -= seconds;
+    });
+    invader.enemyShots.forEach(shot => {
+        shot.x += shot.dx * seconds;
+        shot.y += shot.dy * seconds;
+        shot.life -= seconds;
+    });
+    invader.enemies.forEach(enemy => {
+        enemy.x += Math.sin(flightState.elapsedSeconds * 2.1 + enemy.phase) * 18 * seconds + enemy.vx * seconds;
+        enemy.y += enemy.speed * seconds;
+        enemy.fireCooldown -= seconds;
+        if (enemy.fireCooldown <= 0) {
+            invader.enemyShots.push({
+                x: enemy.x,
+                y: enemy.y + enemy.radius,
+                dx: (flightState.x - enemy.x) * 0.32,
+                dy: 160 + invader.wave * 10,
+                life: 3
+            });
+            enemy.fireCooldown = Math.max(0.9, 2.8 - invader.wave * 0.12);
+        }
+    });
+
+    for (const shot of invader.shots) {
+        for (const enemy of invader.enemies) {
+            if (enemy.dead || shot.dead) continue;
+            if (distance(shot.x, shot.y, enemy.x, enemy.y) < enemy.radius + 7) {
+                enemy.hp -= shot.damage;
+                shot.dead = true;
+                if (enemy.hp <= 0) {
+                    enemy.dead = true;
+                    invader.score += 10 + invader.wave;
+                }
+            }
+        }
+    }
+
+    for (const enemy of invader.enemies) {
+        if (enemy.dead) continue;
+        if (enemy.y > 640 || distance(enemy.x, enemy.y, flightState.x, flightState.y) < enemy.radius + 28) {
+            enemy.dead = true;
+            invader.hull -= 1;
+            flightState.invulnerableTimer = 30;
+            flightState.message = `Treffer in der Endphase! Hülle: ${invader.hull}.`;
+        }
+    }
+
+    for (const shot of invader.enemyShots) {
+        if (shot.dead) continue;
+        if (distance(shot.x, shot.y, flightState.x, flightState.y) < 28) {
+            shot.dead = true;
+            invader.hull -= 1;
+            flightState.invulnerableTimer = 30;
+            flightState.message = `Laser getroffen! Hülle: ${invader.hull}.`;
+        }
+    }
+
+    invader.shots = invader.shots.filter(shot => !shot.dead && shot.life > 0 && shot.y > -90 && shot.x > -90 && shot.x < 1190);
+    invader.enemyShots = invader.enemyShots.filter(shot => !shot.dead && shot.life > 0 && shot.y < 720 && shot.x > -90 && shot.x < 1190);
+    invader.enemies = invader.enemies.filter(enemy => !enemy.dead && enemy.y < 710);
+}
+
+function completeGrandTour(message) {
+    if (!flightState || flightState.completed) return;
+    const mission = getMission();
+    const alreadyDone = Boolean(programState.missionLog[mission.id]);
+    const invaderScore = flightState.invader?.score || 0;
+    const scienceBonus = flightState.scienceTransmitted ? flightState.scienceValue : Math.floor(flightState.scienceValue * 0.5);
+    const earned = alreadyDone ? 0 : mission.points + scienceBonus + Math.floor(invaderScore / 4);
+    programState.missionLog[mission.id] = {
+        at: Date.now(),
+        maxAlt: flightState.maxAlt,
+        rocket: programState.model,
+        science: scienceBonus,
+        items: flightState.collectedItems,
+        invaders: invaderScore,
+        points: earned,
+        goldenRocket: true
+    };
+    awardGoldenRocket();
+    if (earned > 0) setPoints(getPoints() + earned);
+    flightState.completed = true;
+    flightState.phase = "victory";
+    flightState.message = `${message} Goldene Rakete freigeschaltet${earned ? `, +${earned} Punkte.` : "."}`;
+    saveProgramState();
+    renderMissionOptions();
+    renderMission();
+    renderMissionJournal();
+    renderRocketPanels();
+    renderWorkshop();
+    renderShop();
+    renderSolarMap();
+    renderFlightSystems();
+}
+
+function awardGoldenRocket() {
+    programState.goldenRocket = true;
+    if (!programState.owned.includes("paint_gold")) programState.owned.push("paint_gold");
+    programState.equipped.paint = "paint_gold";
 }
 
 function applyAutopilot(stats, dt) {
@@ -1421,6 +1713,15 @@ function renderFlightSystems() {
 function updateSciencePanel() {
     const status = document.getElementById("scienceStatus");
     if (!status || !flightState) return;
+    if (flightState.phase === "invaders") {
+        const weapon = getEquippedPart("weapon");
+        status.innerHTML = `
+            <strong>${escapeHtml(weapon?.name || "Geschütz")}</strong>
+            <span>Endphase aktiv</span>
+            <small>Space oder F feuert. Fortschritt in den Fächern erhöht die Geschützstufe.</small>
+        `;
+        return;
+    }
     const sciencePart = getEquippedPart("science");
     const name = sciencePart?.name || "Science-Modul";
     const stateText = !flightState.scienceActive
@@ -1457,16 +1758,21 @@ function updateFlightReadouts(force = false) {
     const stats = getRocketStats();
     const fuelPct = Math.round((flightState.fuel / stats.maxFuel) * 100);
     const mission = getMission();
-    const zone = getCurrentSpaceZone(altitude);
+    const nextRouteEvent = getNextRouteEvent(flightState.elapsedSeconds);
+    const phaseLabel = getPhaseLabel(flightState.phase);
     const hud = document.getElementById("flightHud");
     if (hud) {
         const chips = [
-            `Höhe ${altitude} m`,
-            zone.label,
+            `Zeit ${formatTime(flightState.elapsedSeconds)}`,
+            phaseLabel,
+            nextRouteEvent ? `Nächstes Ziel: ${nextRouteEvent.name} (${formatTime(nextRouteEvent.time - flightState.elapsedSeconds)})` : "",
             `Tempo ${speed}`,
             `Schub ${Math.round(flightState.throttle * 100)}%`,
             `Treibstoff ${fuelPct}%`,
-            `Kapseln ${flightState.collectedItems}/${mission.itemGoal}`,
+            flightState.phase === "invaders" ? `Welle ${flightState.invader.wave}` : `Kapseln ${flightState.collectedItems}/${mission.itemGoal}`,
+            flightState.phase === "invaders" ? `Geschütz ${stats.weapon}` : "",
+            flightState.phase === "invaders" ? `Hülle ${flightState.invader.hull}` : "",
+            flightState.phase === "invaders" ? `Endphase ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}` : "",
             `Booster ${flightState.boosterCharges}${flightState.boosterActive ? " aktiv" : ""}`,
             flightState.gravityHint,
             flightState.shields > 0 ? `Schild ${flightState.shields}` : "",
@@ -1483,6 +1789,20 @@ function updateFlightReadouts(force = false) {
 function updateStageStack() {
     const stageStack = document.getElementById("stageStack");
     if (!stageStack || !flightState) return;
+    if (flightState.phase === "invaders") {
+        const stats = getRocketStats();
+        stageStack.innerHTML = `
+            <div class="stage-card active">
+                <strong>G</strong>
+                <span>GeschÃ¼tz<small>Stufe ${stats.weapon} Â· Space/F feuert</small></span>
+            </div>
+            <div class="stage-card">
+                <strong>${flightState.invader.hull}</strong>
+                <span>HÃ¼lle<small>${flightState.invader.score} Punkte in der Endphase</small></span>
+            </div>
+        `;
+        return;
+    }
     const boosterPct = flightState.boosterMaxFuel
         ? Math.round((flightState.boosterFuel / flightState.boosterMaxFuel) * 100)
         : 0;
@@ -1612,7 +1932,7 @@ function drawFlight() {
     const h = canvas.height;
     const mission = getMission();
     const altitude = Math.max(0, 585 - flightState.y);
-    const interstellar = altitude >= VOYAGER_ALTITUDE;
+    const interstellar = flightState.phase === "calm" || flightState.phase === "invaders" || flightState.phase === "victory" || flightState.elapsedSeconds >= VOYAGER_PASS_TIME;
 
     ctx.clearRect(0, 0, w, h);
     const sky = ctx.createLinearGradient(0, 0, 0, h);
@@ -1630,11 +1950,12 @@ function drawFlight() {
 
     const cameraY = Math.min(0, flightState.y - 420);
     drawStars(ctx, w, h, cameraY, interstellar);
-    drawSolarRoute(ctx, cameraY, mission, interstellar);
-    drawTargetLines(ctx, mission, cameraY);
-    drawGround(ctx, w, h, cameraY);
-    drawFlightObjects(ctx, cameraY);
-    if (flightState.mapMode || flightState.maneuverNode) drawProjectedTrajectory(ctx, cameraY);
+    drawTimedRouteBackdrop(ctx, w, h, interstellar);
+    if (!mission.grandTour) drawTargetLines(ctx, mission, cameraY);
+    if (flightState.phase !== "invaders") drawGround(ctx, w, h, cameraY);
+    if (flightState.phase !== "calm" && flightState.phase !== "invaders") drawFlightObjects(ctx, cameraY);
+    if (flightState.phase === "invaders") drawInvaderField(ctx);
+    if (flightState.phase !== "invaders" && (flightState.mapMode || flightState.maneuverNode)) drawProjectedTrajectory(ctx, cameraY);
     if (flightState.parachuteDeployed) drawParachute(ctx, flightState.x, flightState.y - cameraY, flightState.chuteDamaged);
     drawRocketCanvas(
         ctx,
@@ -1677,6 +1998,154 @@ function drawStars(ctx, w, h, cameraY, clearSky = false) {
         }
     }
     ctx.globalAlpha = 1;
+}
+
+function drawTimedRouteBackdrop(ctx, w, h, interstellar) {
+    const seconds = flightState.elapsedSeconds || 0;
+    const event = getCurrentRouteEvent(seconds, 58);
+    if (event) {
+        const progress = (event.delta + 58) / 116;
+        const y = -event.radius * 0.55 + progress * (h + event.radius * 1.1);
+        if (event.type === "satellites") {
+            drawBackgroundSatellites(ctx, event, y, progress);
+        } else if (event.type === "belt") {
+            drawBackgroundBelt(ctx, event, y, progress);
+        } else if (event.type === "voyager") {
+            drawBackgroundVoyager(ctx, event, y, progress);
+        } else {
+            drawBackgroundPlanet(ctx, event, y, progress);
+        }
+        drawBackdropCaption(ctx, event, progress);
+    }
+
+    if (interstellar && flightState.phase === "calm") {
+        ctx.save();
+        ctx.fillStyle = "rgba(226, 232, 240, 0.78)";
+        ctx.font = "900 20px Segoe UI";
+        ctx.fillText("Ruhige Phase nach Voyager: Sternenhimmel, auftanken, durchatmen.", 28, 98);
+        ctx.restore();
+    }
+    if (flightState.phase === "invaders") {
+        ctx.save();
+        ctx.fillStyle = "rgba(251, 191, 36, 0.86)";
+        ctx.font = "900 18px Segoe UI";
+        ctx.fillText("Space-Invaders-Endphase: Space/F feuert, 10 Minuten überstehen.", 28, 98);
+        ctx.restore();
+    }
+}
+
+function drawBackgroundPlanet(ctx, event, y, progress) {
+    ctx.save();
+    const x = event.x + Math.sin(progress * Math.PI * 2) * 34;
+    ctx.globalAlpha = 0.42;
+    ctx.shadowColor = event.color;
+    ctx.shadowBlur = 60;
+    const gradient = ctx.createRadialGradient(x - event.radius * 0.35, y - event.radius * 0.35, event.radius * 0.05, x, y, event.radius);
+    gradient.addColorStop(0, "#ffffff");
+    gradient.addColorStop(0.18, event.color);
+    gradient.addColorStop(1, event.accent || event.color);
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, event.radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (event.bands) {
+        ctx.globalAlpha = 0.25;
+        ctx.strokeStyle = "#7c2d12";
+        ctx.lineWidth = 18;
+        for (let offset = -100; offset <= 110; offset += 48) {
+            ctx.beginPath();
+            ctx.ellipse(x, y + offset, event.radius * 0.85, 16, 0, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+    }
+    if (event.rings) {
+        ctx.globalAlpha = 0.36;
+        ctx.strokeStyle = "#fde68a";
+        ctx.lineWidth = 22;
+        ctx.beginPath();
+        ctx.ellipse(x, y, event.radius * 1.9, event.radius * 0.42, -0.16, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+    ctx.restore();
+}
+
+function drawBackgroundSatellites(ctx, event, y, progress) {
+    ctx.save();
+    ctx.globalAlpha = 0.62;
+    for (let i = 0; i < 5; i++) {
+        const x = 170 + i * 190 + Math.sin(progress * Math.PI * 2 + i) * 35;
+        const yy = y + Math.sin(i * 1.7) * 70;
+        ctx.translate(x, yy);
+        ctx.rotate(-0.25 + i * 0.08);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.strokeStyle = "#0f172a";
+        ctx.lineWidth = 2;
+        ctx.fillRect(-16, -10, 32, 20);
+        ctx.strokeRect(-16, -10, 32, 20);
+        ctx.fillStyle = "#38bdf8";
+        ctx.fillRect(-58, -7, 34, 14);
+        ctx.fillRect(24, -7, 34, 14);
+        ctx.strokeRect(-58, -7, 34, 14);
+        ctx.strokeRect(24, -7, 34, 14);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+    ctx.restore();
+}
+
+function drawBackgroundBelt(ctx, event, y, progress) {
+    ctx.save();
+    ctx.globalAlpha = 0.36;
+    for (let i = 0; i < 90; i++) {
+        const x = (i * 83 + progress * 240) % 1180 - 40;
+        const yy = y + Math.sin(i * 2.1) * event.radius * 0.62;
+        const r = 3 + (i % 7);
+        ctx.fillStyle = i % 4 === 0 ? "#cbd5e1" : "#64748b";
+        ctx.beginPath();
+        ctx.arc(x, yy, r, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.restore();
+}
+
+function drawBackgroundVoyager(ctx, event, y, progress) {
+    ctx.save();
+    ctx.globalAlpha = 0.72;
+    ctx.translate(event.x + Math.sin(progress * Math.PI * 2) * 80, y);
+    ctx.scale(2.2, 2.2);
+    ctx.strokeStyle = "#e2e8f0";
+    ctx.fillStyle = "#f8fafc";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(0, 0, 12, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-38, -18);
+    ctx.lineTo(-10, -5);
+    ctx.moveTo(-38, 18);
+    ctx.lineTo(-10, 5);
+    ctx.moveTo(12, 0);
+    ctx.lineTo(50, -28);
+    ctx.moveTo(12, 0);
+    ctx.lineTo(52, 24);
+    ctx.stroke();
+    ctx.restore();
+}
+
+function drawBackdropCaption(ctx, event, progress) {
+    ctx.save();
+    ctx.globalAlpha = Math.min(1, Math.sin(Math.min(1, Math.max(0, progress)) * Math.PI) * 1.2);
+    ctx.fillStyle = "rgba(2, 6, 23, 0.56)";
+    ctx.beginPath();
+    ctx.roundRect(28, 122, 330, 62, 16);
+    ctx.fill();
+    ctx.fillStyle = "#f8fafc";
+    ctx.font = "900 22px Segoe UI";
+    ctx.fillText(event.name, 48, 150);
+    ctx.fillStyle = "#cbd5e1";
+    ctx.font = "800 13px Segoe UI";
+    ctx.fillText(event.note || "", 48, 170);
+    ctx.restore();
 }
 
 function drawSolarRoute(ctx, cameraY, mission, interstellar) {
@@ -1905,6 +2374,73 @@ function drawFlightObjects(ctx, cameraY) {
     }
 }
 
+function drawInvaderField(ctx) {
+    const invader = flightState.invader;
+    if (!invader) return;
+    ctx.save();
+    ctx.fillStyle = "rgba(56, 189, 248, 0.12)";
+    ctx.fillRect(0, 0, 1100, 650);
+    invader.shots.forEach(shot => {
+        ctx.strokeStyle = "#facc15";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(shot.x, shot.y + 12);
+        ctx.lineTo(shot.x + shot.dx * 0.035, shot.y - 20);
+        ctx.stroke();
+    });
+    invader.enemyShots.forEach(shot => {
+        ctx.strokeStyle = "#fb7185";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(shot.x, shot.y - 8);
+        ctx.lineTo(shot.x + shot.dx * 0.035, shot.y + 18);
+        ctx.stroke();
+    });
+    invader.enemies.forEach(enemy => drawInvaderEnemy(ctx, enemy));
+    ctx.fillStyle = "rgba(2, 6, 23, 0.58)";
+    ctx.beginPath();
+    ctx.roundRect(810, 18, 260, 74, 16);
+    ctx.fill();
+    ctx.fillStyle = "#e8f4ff";
+    ctx.font = "900 18px Segoe UI";
+    ctx.fillText(`Welle ${invader.wave} · Score ${invader.score}`, 830, 48);
+    ctx.fillStyle = "#fecaca";
+    ctx.font = "900 15px Segoe UI";
+    ctx.fillText(`Hülle ${invader.hull} · Ende in ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}`, 830, 72);
+    ctx.restore();
+}
+
+function drawInvaderEnemy(ctx, enemy) {
+    ctx.save();
+    ctx.translate(enemy.x, enemy.y);
+    const wobble = Math.sin(performance.now() * 0.005 + enemy.phase) * 5;
+    ctx.fillStyle = "#a78bfa";
+    ctx.strokeStyle = "#312e81";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(0, -enemy.radius - 8);
+    ctx.quadraticCurveTo(enemy.radius + 16, -enemy.radius * 0.25 + wobble, enemy.radius, enemy.radius);
+    ctx.lineTo(enemy.radius * 0.35, enemy.radius * 0.48);
+    ctx.lineTo(0, enemy.radius + 12);
+    ctx.lineTo(-enemy.radius * 0.35, enemy.radius * 0.48);
+    ctx.lineTo(-enemy.radius, enemy.radius);
+    ctx.quadraticCurveTo(-enemy.radius - 16, -enemy.radius * 0.25 - wobble, 0, -enemy.radius - 8);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#f8fafc";
+    ctx.beginPath();
+    ctx.arc(-enemy.radius * 0.32, -2, 5, 0, Math.PI * 2);
+    ctx.arc(enemy.radius * 0.32, -2, 5, 0, Math.PI * 2);
+    ctx.fill();
+    if (enemy.hp > 1) {
+        ctx.fillStyle = "#fde68a";
+        ctx.font = "900 12px Segoe UI";
+        ctx.textAlign = "center";
+        ctx.fillText(enemy.hp, 0, enemy.radius + 28);
+    }
+    ctx.restore();
+}
+
 function drawAsteroid(ctx, object, screenY) {
     const spin = performance.now() * 0.001 + object.phase;
     ctx.save();
@@ -2108,6 +2644,26 @@ function drawRocketCanvas(ctx, x, y, angle, thrusting, options = {}) {
             ctx.lineTo(lineX, 15);
             ctx.stroke();
         });
+    }
+
+    if (parts.weapon?.id && parts.weapon.id !== "weapon_basic") {
+        ctx.strokeStyle = parts.weapon.id === "weapon_plasma" ? "#f97316" : "#facc15";
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(0, -36);
+        ctx.lineTo(0, -72);
+        ctx.stroke();
+        ctx.fillStyle = parts.weapon.id === "weapon_targeting" ? "#38bdf8" : "#fde68a";
+        ctx.beginPath();
+        ctx.arc(0, -76, 7, 0, Math.PI * 2);
+        ctx.fill();
+    } else if (parts.weapon?.id === "weapon_basic") {
+        ctx.strokeStyle = "#facc15";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, -34);
+        ctx.lineTo(0, -56);
+        ctx.stroke();
     }
 
     if (options.boostersAttached) {
@@ -2324,10 +2880,16 @@ function rocketSvg({ model, compact = false, large = false }) {
     const engineAddon = parts.engine?.id === "engine_vector"
         ? `<path d="M-22 58H22L15 82H-15Z" fill="#475569" stroke="#0f172a" stroke-width="4"/>`
         : `<rect x="-15" y="58" width="30" height="18" rx="5" fill="#334155" stroke="#0f172a" stroke-width="4"/>`;
+    const weaponAddon = parts.weapon?.id && parts.weapon.id !== "weapon_basic"
+        ? `<path d="M0 -62V-105" stroke="${parts.weapon.id === "weapon_plasma" ? "#f97316" : "#facc15"}" stroke-width="6" stroke-linecap="round"/><circle cx="0" cy="-111" r="9" fill="${parts.weapon.id === "weapon_targeting" ? "#38bdf8" : "#fde68a"}" stroke="#0f172a" stroke-width="3"/>`
+        : parts.weapon?.id === "weapon_basic"
+            ? `<path d="M0 -62V-94" stroke="#facc15" stroke-width="4" stroke-linecap="round"/>`
+            : "";
     return `
-        <svg class="rocket-svg" width="${large ? 240 : 130}" height="${height}" viewBox="-70 -95 140 210" role="img" aria-label="${escapeHtml(model.name)}">
+        <svg class="rocket-svg" width="${large ? 240 : 130}" height="${height}" viewBox="-70 -125 140 240" role="img" aria-label="${escapeHtml(model.name)}">
             <g transform="scale(${scale})">
                 ${solar}
+                ${weaponAddon}
                 <path d="M0 -82 C30 -50 30 28 18 58 L-18 58 C-30 28 -30 -50 0 -82Z" fill="${visual.bodyFill}" stroke="#0f172a" stroke-width="4"/>
                 ${noseAddon}
                 <path d="M-16 -10 H16 V38 H-16Z" fill="${color}" opacity="0.95"/>
