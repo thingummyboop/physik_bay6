@@ -157,6 +157,138 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     border-left: 8px solid #38bdf8;
 }
 
+.bio-image {
+    background: linear-gradient(135deg, rgba(240, 253, 244, 0.92), rgba(236, 253, 245, 0.72));
+}
+
+.bio-image img {
+    border-radius: 10px;
+    max-height: 430px;
+    object-fit: cover;
+}
+
+.bio-image.bio-contain img {
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 12px;
+}
+
+.bio-competency-grid,
+.bio-check-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.bio-competency-card,
+.bio-check-card {
+    background: rgba(236, 253, 245, 0.92);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.bio-competency-card strong,
+.bio-check-card strong {
+    color: #047857;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.bio-process-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.bio-process-flow span {
+    background: rgba(209, 250, 229, 0.94);
+    border: 1px solid rgba(5, 150, 105, 0.35);
+    border-radius: 999px;
+    color: #064e3b;
+    font-weight: 800;
+    padding: 8px 12px;
+}
+
+.bio-process-flow i {
+    color: #047857;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.bio-data-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.bio-data-table th,
+.bio-data-table td {
+    border: 1px solid rgba(15, 118, 110, 0.22);
+    padding: 10px 12px;
+    vertical-align: top;
+}
+
+.bio-data-table th {
+    background: rgba(20, 184, 166, 0.18);
+    color: #064e3b;
+}
+
+.bio-model-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 14px 0;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 118, 110, 0.22);
+}
+
+[data-theme="dark"] .bio-image {
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.55), rgba(15, 23, 42, 0.88));
+}
+
+[data-theme="dark"] .bio-image.bio-contain img,
+[data-theme="dark"] .bio-model-svg {
+    background: #102a22;
+}
+
+[data-theme="dark"] .bio-competency-card,
+[data-theme="dark"] .bio-check-card {
+    background: rgba(6, 78, 59, 0.58);
+    border-color: rgba(52, 211, 153, 0.35);
+}
+
+[data-theme="dark"] .bio-competency-card strong,
+[data-theme="dark"] .bio-check-card strong,
+[data-theme="dark"] .bio-data-table th {
+    color: #86efac;
+}
+
+[data-theme="dark"] .bio-process-flow span {
+    background: rgba(20, 83, 45, 0.88);
+    border-color: rgba(74, 222, 128, 0.35);
+    color: #dcfce7;
+}
+
+[data-theme="dark"] .bio-process-flow i {
+    color: #86efac;
+}
+
+[data-theme="dark"] .bio-data-table th,
+[data-theme="dark"] .bio-data-table td {
+    border-color: rgba(134, 239, 172, 0.22);
+}
+
+[data-theme="dark"] .bio-data-table th {
+    background: rgba(20, 83, 45, 0.62);
+}
+
 [data-theme="dark"] .lesson-goals {
     background: #12351f;
     border-color: #2e7d32;
