@@ -1,5 +1,6 @@
 const SSP_STORAGE_KEY = "sciverse_space_program";
 const SSP_SCORE_KEY = "physik_score";
+const SSP_HIGHSCORE_KEY = "sciverse_space_highscore";
 
 const ROCKET_MODELS = [
     {
@@ -123,26 +124,23 @@ const CELESTIAL_BODIES = [
 const VOYAGER_ALTITUDE = CELESTIAL_BODIES.find(body => body.id === "voyager").altitude;
 
 const ROUTE_TIMELINE = [
-    { id: "satellites", name: "erste Satelliten", time: 60, type: "satellites", x: 540, radius: 64, color: "#cbd5e1", note: "nach etwa 1 Minute" },
-    { id: "moon", name: "Mond", time: 150, type: "planet", x: 740, radius: 210, color: "#cbd5e1", accent: "#64748b", gravity: 0.42, note: "nach etwa 2:30 Minuten" },
-    { id: "mars", name: "Mars", time: 240, type: "planet", x: 290, radius: 190, color: "#f97316", accent: "#7c2d12", gravity: 0.52, note: "roter Hintergrund-Vorbeiflug" },
-    { id: "jupiter", name: "Jupiter", time: 330, type: "planet", x: 845, radius: 330, color: "#f8d3a2", accent: "#b45309", gravity: 1.05, bands: true, note: "starker Schwerkraftbereich" },
-    { id: "saturn", name: "Saturn", time: 420, type: "planet", x: 270, radius: 275, color: "#fde68a", accent: "#ca8a04", gravity: 0.74, rings: true, note: "Ringe ziehen groß vorbei" },
-    { id: "uranus", name: "Uranus", time: 510, type: "planet", x: 775, radius: 220, color: "#67e8f9", accent: "#0e7490", gravity: 0.48, note: "ruhiger Eisriese" },
-    { id: "neptune", name: "Neptun", time: 600, type: "planet", x: 350, radius: 230, color: "#2563eb", accent: "#93c5fd", gravity: 0.55, note: "letzter Planet" },
-    { id: "kuiper", name: "Kuipergürtel", time: 690, type: "belt", x: 550, radius: 260, color: "#94a3b8", accent: "#475569", gravity: 0.18, note: "viele ferne Brocken" },
-    { id: "voyager", name: "Voyager", time: 780, type: "voyager", x: 745, radius: 56, color: "#f8fafc", accent: "#fbbf24", gravity: 0.02, note: "Grenze zum interstellaren Raum" }
+    { id: "satellites", name: "erste Satelliten", altitude: 850, type: "satellites", x: 540, radius: 64, color: "#cbd5e1", score: 90, note: "niedriger Orbit" },
+    { id: "moon", name: "Mond", altitude: 1800, type: "planet", x: 740, radius: 210, color: "#cbd5e1", accent: "#64748b", gravity: 0.42, score: 160, note: "erster grosser Vorbeiflug" },
+    { id: "mars", name: "Mars", altitude: 3050, type: "planet", x: 290, radius: 190, color: "#f97316", accent: "#7c2d12", gravity: 0.52, score: 210, note: "roter Hintergrund-Vorbeiflug" },
+    { id: "jupiter", name: "Jupiter", altitude: 5000, type: "planet", x: 845, radius: 330, color: "#f8d3a2", accent: "#b45309", gravity: 1.05, score: 280, bands: true, note: "starker Schwerkraftbereich" },
+    { id: "saturn", name: "Saturn", altitude: 6900, type: "planet", x: 270, radius: 275, color: "#fde68a", accent: "#ca8a04", gravity: 0.74, score: 330, rings: true, note: "Ringe ziehen gross vorbei" },
+    { id: "uranus", name: "Uranus", altitude: 8800, type: "planet", x: 775, radius: 220, color: "#67e8f9", accent: "#0e7490", gravity: 0.48, score: 380, note: "ruhiger Eisriese" },
+    { id: "neptune", name: "Neptun", altitude: 10700, type: "planet", x: 350, radius: 230, color: "#2563eb", accent: "#93c5fd", gravity: 0.55, score: 430, note: "letzter Planet" },
+    { id: "kuiper", name: "Kuiperguertel", altitude: 12600, type: "belt", x: 550, radius: 260, color: "#94a3b8", accent: "#475569", gravity: 0.18, score: 500, note: "viele ferne Brocken" },
+    { id: "voyager", name: "Voyager", altitude: 15000, type: "voyager", x: 745, radius: 56, color: "#f8fafc", accent: "#fbbf24", gravity: 0.02, score: 650, note: "Grenze zum interstellaren Raum" }
 ];
 
-const FIRST_SATELLITE_TIME = 60;
-const VOYAGER_PASS_TIME = 780;
-const CALM_PHASE_SECONDS = 90;
-const INVADER_START_TIME = VOYAGER_PASS_TIME + CALM_PHASE_SECONDS;
-const INVADER_DURATION_SECONDS = 600;
-const INVADER_END_TIME = INVADER_START_TIME + INVADER_DURATION_SECONDS;
+const VOYAGER_PASS_ALTITUDE = 15000;
+const INVADER_START_ALTITUDE = 16800;
+const VICTORY_ALTITUDE = 24000;
 
 const MISSIONS = [
-    { id: "sciverse_grand_tour", body: "voyager", grandTour: true, name: "Explore the SciVerse", targetAlt: 24000, targetSpeed: 10.0, itemGoal: 24, reward: "Goldene Rakete", points: 180, desc: "Ein langer Flug durch das Sonnensystem: nach etwa 1 Minute tauchen die ersten Satelliten auf, nach etwa 2:30 Minuten der Mond. Danach ziehen die Planeten nur groß im Hintergrund vorbei. Nach Voyager folgt eine ruhige Sternenphase, dann beginnt die Space-Invaders-Endphase." }
+    { id: "sciverse_grand_tour", body: "voyager", grandTour: true, name: "Explore the SciVerse", targetAlt: VICTORY_ALTITUDE, targetSpeed: 10.0, itemGoal: 24, reward: "Goldene Rakete", points: 0, desc: "Steuere eine Rakete nach oben durch das Sonnensystem. Sammle Treibstoff, Booster, Schilde und Science-Kapseln fuer den Space-Highscore. Zeit laeuft nur im Hintergrund mit: schneller und sauberer fliegen bringt am Ende mehr Rekordpunkte." }
 ];
 
 const DEFAULT_STATE = {
@@ -309,6 +307,48 @@ function setPoints(value) {
     }
 }
 
+function getSpaceHighScore() {
+    return Number(localStorage.getItem(SSP_HIGHSCORE_KEY) || 0);
+}
+
+function setSpaceHighScore(value) {
+    const next = Math.max(0, Math.round(value));
+    localStorage.setItem(SSP_HIGHSCORE_KEY, String(next));
+    renderScorePanel();
+}
+
+function getDisplayAltitude() {
+    if (!flightState) return 0;
+    return Math.max(
+        0,
+        Math.round(585 - flightState.y),
+        Math.round(flightState.maxAlt || 0),
+        Math.round(flightState.invaderAltitude || 0)
+    );
+}
+
+function getRunScore() {
+    if (!flightState) return 0;
+    const altitudeScore = Math.floor(getDisplayAltitude() / 4);
+    const invaderScore = flightState.invader?.score || 0;
+    return Math.max(0, Math.round((flightState.runScore || 0) + altitudeScore + invaderScore));
+}
+
+function addRunScore(points, reason = "") {
+    if (!flightState) return;
+    flightState.runScore = Math.max(0, (flightState.runScore || 0) + Math.round(points || 0));
+    flightState.lastScoreReason = reason;
+    const score = getRunScore();
+    if (score > getSpaceHighScore()) setSpaceHighScore(score);
+}
+
+function getFinalRunScore() {
+    if (!flightState) return 0;
+    const cleanFlightBonus = Math.max(0, 600 - Math.round(flightState.elapsedSeconds || 0));
+    const shieldBonus = (flightState.shields || 0) * 35;
+    return getRunScore() + cleanFlightBonus + shieldBonus;
+}
+
 function getCurriculum() {
     return (window.parent && window.parent.SCIVERSE_CURRICULUM) || window.SCIVERSE_CURRICULUM || {};
 }
@@ -449,6 +489,7 @@ function statCard(label, value) {
 function renderMissionOptions() {
     normalizeSelectedMission();
     const select = document.getElementById("missionSelect");
+    if (!select) return;
     select.innerHTML = getAvailableMissions().map(mission => {
         const done = programState.missionLog[mission.id];
         return `<option value="${mission.id}">${escapeHtml(trSpace(mission.name))}${done ? " ✓" : ""}</option>`;
@@ -465,16 +506,15 @@ function renderMission() {
     normalizeSelectedMission();
     const mission = getMission();
     const done = programState.missionLog[mission.id];
-    const next = getNextMission(mission.id);
-    const body = getMissionBody(mission);
-    const goalLine = mission.grandTour
-        ? `Reiseplan: Satelliten nach ${formatTime(FIRST_SATELLITE_TIME)} · Mond nach ${formatTime(150)} · Voyager nach ${formatTime(VOYAGER_PASS_TIME)} · Endphase ${formatTime(INVADER_DURATION_SECONDS)}`
-        : `Ziel: ${escapeHtml(body?.name || mission.name)} · Zielhöhe: ${mission.targetAlt} m · Sammelziel: ${mission.itemGoal}`;
+    const routeLine = ROUTE_TIMELINE
+        .map(event => `${trSpace(event.name)} ${event.altitude} m`)
+        .join(" - ");
     document.getElementById("missionBrief").innerHTML = `
         <strong>${escapeHtml(trSpace(mission.name))}</strong>
         <p>${escapeHtml(trSpace(mission.desc))}</p>
-        <small>${goalLine} · ${trSpace("Belohnung")}: ${escapeHtml(trSpace(mission.reward))} · ${mission.points} ${trSpace("Punkte")}${done ? " · " + trSpace("geschafft") : ""}${next && !done ? " · " + trSpace("danach") + ": " + escapeHtml(trSpace(next.name)) : ""}</small>
+        <small>${trSpace("Hoehenroute")}: ${escapeHtml(routeLine)} - ${trSpace("Finale ab")} ${INVADER_START_ALTITUDE} m - ${trSpace("Ziel")} ${mission.targetAlt} m${done ? " - " + trSpace("geschafft") : ""}</small>
     `;
+    renderScorePanel();
 }
 
 function normalizeSelectedMission() {
@@ -523,6 +563,7 @@ function getCurrentSpaceZone(altitude) {
 function renderMissionJournal() {
     const container = document.getElementById("missionJournal");
     if (!container) return;
+    if (container.hidden) return;
     const firstOpen = getFirstOpenMission();
     container.innerHTML = `
         <p class="space-kicker">Journal</p>
@@ -547,6 +588,16 @@ function renderMissionJournal() {
     container.querySelectorAll("[data-replay-mission]").forEach(button => {
         button.addEventListener("click", () => replayMission(button.dataset.replayMission));
     });
+}
+
+function renderScorePanel() {
+    const panel = document.getElementById("flightScorePanel");
+    if (!panel) return;
+    const done = programState.missionLog.sciverse_grand_tour;
+    panel.innerHTML = statCard("Highscore", getSpaceHighScore())
+        + statCard("Aktueller Run", getRunScore())
+        + statCard("Beste Hoehe", done?.maxAlt ? `${Math.round(done.maxAlt)} m` : "0 m")
+        + statCard("Letzter Score", done?.score || "-");
 }
 
 function replayMission(missionId) {
@@ -944,10 +995,14 @@ function resetFlight() {
         gravityStrength: 0,
         interstellarReached: false,
         elapsedSeconds: 0,
+        invaderAltitude: 0,
+        runScore: 0,
+        scoreEvents: {},
+        pickupStats: { fuel: 0, boost: 0, shield: 0, science: 0 },
         phase: "cruise",
         announcedMilestones: {},
         invader: createInvaderState(stats),
-        message: "Bereit: Starte die lange SciVerse-Reise. Space zündet Booster, später feuert es das Geschütz."
+        message: "Bereit: Fliege nach oben, sammle Objekte und halte die Rakete steuerbar."
     };
     renderFlightSystems();
 }
@@ -1089,29 +1144,8 @@ function stageRocket() {
         flightState.boostersAttached = false;
         flightState.boosterFuel = 0;
         flightState.message = "Booster-Stufe abgeworfen. Die Rakete reagiert leichter.";
-    } else if (flightState.currentStage === 2 && flightState.boosterCharges <= 0) {
-        flightState.currentStage = 1;
-        stageRocket();
-        return;
-    } else if (flightState.currentStage === 1) {
-        if (!flightState.scienceActive) {
-            activateScience();
-            flightState.message = "Stufe 1: Science-Modul aktiviert. Fliege durch das grüne Symbol.";
-        } else if (flightState.scienceStored && !flightState.scienceTransmitted) {
-            transmitScience();
-        } else if (flightState.scienceTransmitted) {
-            flightState.currentStage = 0;
-            flightState.message = "Science erledigt. Nächste Stufe ist der Fallschirm.";
-        } else {
-            flightState.message = "Science-Modul sucht noch Daten. Fliege durch das grüne Symbol.";
-        }
-    } else if (flightState.currentStage === 0) {
-        flightState.parachuteDeployed = true;
-        flightState.message = "Stufe 0: Fallschirm ausgefahren. Nicht zu früh und nicht zu schnell!";
-        flightState.currentStage = -1;
     } else {
-        flightState.currentStage = 1;
-        flightState.message = "Keine Booster mehr. Space schaltet jetzt Science.";
+        flightState.message = "Keine Booster bereit. Sammle blaue Booster-Kapseln oder steuere mit dem Haupttriebwerk weiter.";
     }
     renderFlightSystems();
 }
@@ -1241,6 +1275,8 @@ function updateFlight(dt) {
     if (!flightState.launched) return;
 
     flightState.elapsedSeconds += dt / 60;
+    flightState.maxAlt = Math.max(flightState.maxAlt, getDisplayAltitude());
+    if (getRunScore() > getSpaceHighScore()) setSpaceHighScore(getRunScore());
     updateJourneyPhase(stats);
     if (flightState.completed) return;
     if (flightState.phase === "invaders") {
@@ -1320,7 +1356,8 @@ function updateFlight(dt) {
     if (flightState.x < 60) flightState.x = 1040;
     if (flightState.x > 1040) flightState.x = 60;
 
-    flightState.maxAlt = Math.max(flightState.maxAlt, Math.round(altitude));
+    flightState.maxAlt = Math.max(flightState.maxAlt, getDisplayAltitude());
+    if (getRunScore() > getSpaceHighScore()) setSpaceHighScore(getRunScore());
     if (flightState.phase !== "calm") {
         applyObjectInteractions(stats, mission, dt);
         tryCollectScience();
@@ -1352,51 +1389,58 @@ function updateFlight(dt) {
 
 function updateJourneyPhase(stats) {
     const previous = flightState.phase;
-    flightState.phase = getJourneyPhase(flightState.elapsedSeconds);
-    const nextEvent = getNextRouteEvent(flightState.elapsedSeconds);
+    const altitude = getDisplayAltitude();
+    flightState.phase = getJourneyPhase(altitude);
+    const nextEvent = getNextRouteEvent(altitude);
 
     for (const event of ROUTE_TIMELINE) {
-        if (flightState.elapsedSeconds >= event.time && !flightState.announcedMilestones[event.id]) {
+        if (altitude >= event.altitude && !flightState.announcedMilestones[event.id]) {
             flightState.announcedMilestones[event.id] = true;
+            addRunScore(event.score || 100, event.name);
             flightState.message = event.id === "voyager"
-                ? "Voyager zieht vorbei. Jetzt kommt eine ruhige Sternenhimmel-Phase."
-                : `${event.name} zieht groß im Hintergrund vorbei.`;
+                ? "Voyager passiert: jetzt folgt eine ruhige Sternenhimmel-Strecke."
+                : `${event.name} zieht gross im Hintergrund vorbei. Bonus +${event.score || 100}`;
         }
     }
 
     if (previous !== flightState.phase) {
         if (flightState.phase === "calm") {
             flightState.interstellarReached = true;
-            flightState.message = "Hinter Voyager wird es ruhig: keine Hindernisse, nur klarer Sternenhimmel.";
+            flightState.message = "Hinter Voyager wird es ruhig: sammle Vorraete und halte Kurs.";
         } else if (flightState.phase === "invaders") {
             flightState.invader = createInvaderState(stats);
+            flightState.invaderAltitude = Math.max(INVADER_START_ALTITUDE, altitude);
             flightState.y = 535;
             flightState.vy = 0;
             flightState.angle = 0;
-            flightState.message = "Space-Invaders-Endphase! A/D ausweichen, Space oder F feuert das Geschütz.";
+            flightState.message = "Endphase: ausweichen und mit Space oder F feuern. Hoehe zaehlt weiter.";
         } else if (flightState.phase === "victory") {
-            completeGrandTour("Du hast die Endphase überstanden.");
+            completeGrandTour("SciVerse-Flug beendet.");
         }
-    } else if (nextEvent && !flightState.gravityHint && Math.round(nextEvent.time - flightState.elapsedSeconds) === 30) {
-        flightState.message = `Nächste Begegnung: ${nextEvent.name} in etwa 30 Sekunden.`;
+    } else if (nextEvent && !flightState.gravityHint) {
+        const gap = Math.round(nextEvent.altitude - altitude);
+        if (gap > 0 && gap < 420 && !flightState.announcedMilestones[`hint-${nextEvent.id}`]) {
+            flightState.announcedMilestones[`hint-${nextEvent.id}`] = true;
+            flightState.message = `Naechste Begegnung: ${nextEvent.name} in etwa ${gap} m.`;
+        }
     }
 }
 
-function getJourneyPhase(seconds) {
-    if (seconds >= INVADER_END_TIME) return "victory";
-    if (seconds >= INVADER_START_TIME) return "invaders";
-    if (seconds >= VOYAGER_PASS_TIME) return "calm";
+function getJourneyPhase(altitude) {
+    if (altitude >= VICTORY_ALTITUDE) return "victory";
+    if (altitude >= INVADER_START_ALTITUDE) return "invaders";
+    if (altitude >= VOYAGER_PASS_ALTITUDE) return "calm";
     return "cruise";
 }
 
-function getNextRouteEvent(seconds) {
-    return ROUTE_TIMELINE.find(event => event.time > seconds) || null;
+function getNextRouteEvent(altitude) {
+    return ROUTE_TIMELINE.find(event => event.altitude > altitude) || null;
 }
 
-function getCurrentRouteEvent(seconds = flightState?.elapsedSeconds || 0, windowSeconds = 52) {
+function getCurrentRouteEvent(altitude = getDisplayAltitude(), windowAltitude = 560) {
     return ROUTE_TIMELINE
-        .map(event => ({ ...event, delta: seconds - event.time }))
-        .filter(event => Math.abs(event.delta) <= windowSeconds)
+        .map(event => ({ ...event, delta: altitude - event.altitude }))
+        .filter(event => Math.abs(event.delta) <= windowAltitude)
         .sort((a, b) => Math.abs(a.delta) - Math.abs(b.delta))[0] || null;
 }
 
@@ -1418,9 +1462,9 @@ function formatTime(seconds) {
 
 function applyCelestialGravity(stats, mission, dt) {
     if (!flightState?.launched) return;
-    const event = getCurrentRouteEvent(flightState.elapsedSeconds, 42);
+    const event = getCurrentRouteEvent(getDisplayAltitude(), 560);
     if (event && event.gravity && flightState.phase === "cruise") {
-        const phase = event.delta / 42;
+        const phase = event.delta / 560;
         const falloff = Math.max(0, 1 - Math.abs(phase));
         const horizontalPull = Math.max(-1, Math.min(1, (event.x - flightState.x) / 520));
         const beforePass = event.delta < 0;
@@ -1447,14 +1491,19 @@ function updateInvaderFlight(dt, stats) {
     flightState.y += (535 - flightState.y) * 0.08 * dt;
     flightState.angle = Math.max(-0.55, Math.min(0.55, flightState.vx * 0.08));
     flightState.fuel = Math.min(stats.maxFuel, flightState.fuel + 0.05 * dt);
+    flightState.invaderAltitude = Math.max(
+        INVADER_START_ALTITUDE,
+        (flightState.invaderAltitude || INVADER_START_ALTITUDE) + (38 + stats.thrust * 3 + invader.wave * 2) * seconds
+    );
+    flightState.maxAlt = Math.max(flightState.maxAlt, Math.round(flightState.invaderAltitude));
 
     invader.weaponLevel = stats.weapon;
     invader.shotCooldown = Math.max(0, invader.shotCooldown - seconds);
     invader.enemySpawnCooldown -= seconds;
     if (invader.enemySpawnCooldown <= 0) {
         spawnInvader();
-        const elapsedInPhase = Math.max(0, flightState.elapsedSeconds - INVADER_START_TIME);
-        invader.enemySpawnCooldown = Math.max(0.55, 2.25 - elapsedInPhase / 230 - invader.weaponLevel * 0.06);
+        const phaseDistance = Math.max(0, flightState.invaderAltitude - INVADER_START_ALTITUDE);
+        invader.enemySpawnCooldown = Math.max(0.55, 2.25 - phaseDistance / 5200 - invader.weaponLevel * 0.06);
     }
     if (invader.weaponLevel >= 5 && invader.shotCooldown <= 0) fireInvaderShot(true);
 
@@ -1466,14 +1515,14 @@ function updateInvaderFlight(dt, stats) {
         renderFlightSystems();
         return;
     }
-    if (flightState.elapsedSeconds >= INVADER_END_TIME) {
+    if (flightState.invaderAltitude >= VICTORY_ALTITUDE) {
         completeGrandTour("Space-Invaders-Endphase geschafft.");
     }
 }
 
 function spawnInvader() {
     const invader = flightState.invader;
-    const wave = Math.max(1, Math.floor((flightState.elapsedSeconds - INVADER_START_TIME) / 75) + 1);
+    const wave = Math.max(1, Math.floor(((flightState.invaderAltitude || INVADER_START_ALTITUDE) - INVADER_START_ALTITUDE) / 1200) + 1);
     invader.wave = wave;
     const id = `inv-${Math.round(flightState.elapsedSeconds * 100)}-${invader.enemies.length}`;
     const x = 95 + seededNoise(id) * 910;
@@ -1547,7 +1596,9 @@ function updateInvaderObjects(seconds) {
                 shot.dead = true;
                 if (enemy.hp <= 0) {
                     enemy.dead = true;
-                    invader.score += 10 + invader.wave;
+                    const points = 10 + invader.wave;
+                    invader.score += points;
+                    addRunScore(points, "invader");
                 }
             }
         }
@@ -1581,25 +1632,25 @@ function updateInvaderObjects(seconds) {
 function completeGrandTour(message) {
     if (!flightState || flightState.completed) return;
     const mission = getMission();
-    const alreadyDone = Boolean(programState.missionLog[mission.id]);
-    const invaderScore = flightState.invader?.score || 0;
-    const scienceBonus = flightState.scienceTransmitted ? flightState.scienceValue : Math.floor(flightState.scienceValue * 0.5);
-    const earned = alreadyDone ? 0 : mission.points + scienceBonus + Math.floor(invaderScore / 4);
+    const finalScore = getFinalRunScore();
+    const bestBefore = getSpaceHighScore();
+    const best = Math.max(bestBefore, finalScore);
+    setSpaceHighScore(best);
     programState.missionLog[mission.id] = {
         at: Date.now(),
-        maxAlt: flightState.maxAlt,
+        maxAlt: getDisplayAltitude(),
         rocket: programState.model,
-        science: scienceBonus,
+        science: flightState.scienceValue || 0,
         items: flightState.collectedItems,
-        invaders: invaderScore,
-        points: earned,
+        invaders: flightState.invader?.score || 0,
+        score: finalScore,
+        time: Math.round(flightState.elapsedSeconds || 0),
         goldenRocket: true
     };
     awardGoldenRocket();
-    if (earned > 0) setPoints(getPoints() + earned);
     flightState.completed = true;
     flightState.phase = "victory";
-    flightState.message = `${message} Goldene Rakete freigeschaltet${earned ? `, +${earned} Punkte.` : "."}`;
+    flightState.message = `${message} Goldene Rakete freigeschaltet. Space-Score: ${finalScore}${finalScore >= bestBefore ? " ? neuer Highscore!" : "."}`;
     saveProgramState();
     renderMissionOptions();
     renderMission();
@@ -1683,6 +1734,12 @@ function applyObjectInteractions(stats, mission, dt) {
 function collectPickup(object, stats) {
     object.taken = true;
     flightState.collectedItems += 1;
+    const scoreByType = { fuel: 18, boost: 32, shield: 45, science: 70 };
+    const pickupScore = scoreByType[object.type] || 12;
+    addRunScore(pickupScore, object.type);
+    if (flightState.pickupStats && object.type in flightState.pickupStats) {
+        flightState.pickupStats[object.type] += 1;
+    }
     if (object.type === "fuel") {
         const gained = object.value;
         flightState.fuel = Math.min(stats.maxFuel, flightState.fuel + gained);
@@ -1780,38 +1837,18 @@ function renderFlightSystems() {
 function updateSciencePanel() {
     const status = document.getElementById("scienceStatus");
     if (!status || !flightState) return;
-    if (flightState.phase === "invaders") {
-        const weapon = getEquippedPart("weapon");
-        status.innerHTML = `
-            <strong>${escapeHtml(weapon?.name || "Geschütz")}</strong>
-            <span>Endphase aktiv</span>
-            <small>Space oder F feuert. Fortschritt in den Fächern erhöht die Geschützstufe.</small>
-        `;
-        return;
-    }
-    const sciencePart = getEquippedPart("science");
-    const name = sciencePart?.name || "Science-Modul";
-    const stateText = !flightState.scienceActive
-        ? "nicht aktiv"
-        : flightState.scienceStored
-            ? flightState.scienceTransmitted ? "Daten gesichert" : "Probe gespeichert"
-            : "scannt Umgebung";
+    const runScore = getRunScore();
+    const best = getSpaceHighScore();
+    const next = getNextRouteEvent(getDisplayAltitude());
+    const nextText = next
+        ? `${trSpace(next.name)} in ${Math.max(0, Math.round(next.altitude - getDisplayAltitude()))} m`
+        : flightState.phase === "invaders" ? "Finale: durchhalten" : "Interstellarer Raum";
     status.innerHTML = `
-        <strong>${escapeHtml(name)}</strong>
-        <span>${escapeHtml(stateText)}</span>
-        <small>${flightState.scienceStored ? `${flightState.scienceValue} Forschungswert` : "Aktivieren, durch das grüne Symbol fliegen, dann Daten sichern."}</small>
+        <strong>${runScore} Space-Score</strong>
+        <span>${getPhaseLabel(flightState.phase)}</span>
+        <small>Highscore ${best} - ${nextText}</small>
     `;
-    const activateButton = document.getElementById("btnScienceActivate");
-    const transmitButton = document.getElementById("btnTransmitScience");
-    if (activateButton) {
-        activateButton.textContent = flightState.scienceActive ? "Experiment aktiv" : "Experiment aktivieren";
-        activateButton.disabled = flightState.scienceActive;
-        activateButton.classList.toggle("active", flightState.scienceActive);
-    }
-    if (transmitButton) {
-        transmitButton.disabled = !flightState.scienceStored || flightState.scienceTransmitted;
-        transmitButton.classList.toggle("active", flightState.scienceTransmitted);
-    }
+    renderScorePanel();
 }
 
 function updateFlightReadouts(force = false) {
@@ -1820,25 +1857,27 @@ function updateFlightReadouts(force = false) {
     if (!force && now - lastUiRenderTime < 150) return;
     lastUiRenderTime = now;
     renderNavball();
-    const altitude = Math.max(0, Math.round(585 - flightState.y));
+    const altitude = getDisplayAltitude();
     const speed = Math.hypot(flightState.vx, flightState.vy).toFixed(1);
     const stats = getRocketStats();
     const fuelPct = Math.round((flightState.fuel / stats.maxFuel) * 100);
     const mission = getMission();
-    const nextRouteEvent = getNextRouteEvent(flightState.elapsedSeconds);
+    const nextRouteEvent = getNextRouteEvent(altitude);
     const phaseLabel = getPhaseLabel(flightState.phase);
     const hud = document.getElementById("flightHud");
     if (hud) {
         const chips = [
-            `${trSpace("Zeit")} ${formatTime(flightState.elapsedSeconds)}`,
+            `${trSpace("Hoehe")} ${altitude} m`,
+            `${trSpace("Run")} ${getRunScore()}`,
+            `${trSpace("Highscore")} ${getSpaceHighScore()}`,
             phaseLabel,
-            nextRouteEvent && flightState.phase !== "invaders" ? `${trSpace("Nächstes")}: ${trSpace(nextRouteEvent.name)} (${formatTime(nextRouteEvent.time - flightState.elapsedSeconds)})` : "",
+            nextRouteEvent && flightState.phase !== "invaders" ? `${trSpace("Naechstes")}: ${trSpace(nextRouteEvent.name)} (${Math.max(0, Math.round(nextRouteEvent.altitude - altitude))} m)` : "",
             `${trSpace("Tempo")} ${speed}`,
             `${trSpace("Tank")} ${fuelPct}%`,
             flightState.phase === "invaders" ? `${trSpace("Welle")} ${flightState.invader.wave}` : `${trSpace("Kapseln")} ${flightState.collectedItems}/${mission.itemGoal}`,
-            flightState.phase === "invaders" ? `${trSpace("Geschütz")} ${stats.weapon}` : "",
-            flightState.phase === "invaders" ? `${trSpace("Hülle")} ${flightState.invader.hull}` : "",
-            flightState.phase === "invaders" ? `${trSpace("Endphase")} ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}` : "",
+            flightState.phase === "invaders" ? `${trSpace("Gesch?tz")} ${stats.weapon}` : "",
+            flightState.phase === "invaders" ? `${trSpace("Huelle")} ${flightState.invader.hull}` : "",
+            flightState.phase === "invaders" ? `${trSpace("Finale")} ${Math.max(0, VICTORY_ALTITUDE - altitude)} m` : "",
             flightState.gravityHint,
             flightState.shields > 0 ? `${trSpace("Schild")} ${flightState.shields}` : "",
             Number(speed) > stats.safeSpeed ? trSpace("Tempo rot: retrograde bremsen") : "",
@@ -1869,21 +1908,17 @@ function updateStageStack() {
         ? Math.round((flightState.boosterFuel / flightState.boosterMaxFuel) * 100)
         : 0;
     const stages = [
-        { id: 3, name: "Motor", detail: flightState.engineActive ? `${Math.round(flightState.throttle * 100)}% Schub` : "Start zündet Motor" },
-        { id: 2, name: "Booster", detail: flightState.boosterActive ? `${boosterPct}% · brennt` : `${flightState.boosterCharges} bereit` },
-        { id: 1, name: "Science", detail: flightState.scienceTransmitted ? "Daten gesichert" : flightState.scienceStored ? "Daten sichern" : flightState.scienceActive ? "scannt" : "Experiment aktivieren" },
-        { id: 0, name: "Schild", detail: `${flightState.shields} Ladung${flightState.shields === 1 ? "" : "en"}` }
+        { id: "motor", name: "Motor", detail: flightState.engineActive ? `${Math.round(flightState.throttle * 100)}% Schub` : "Space startet" },
+        { id: "booster", name: "Booster", detail: flightState.boosterActive ? `${boosterPct}% brennt` : `${flightState.boosterCharges} bereit` },
+        { id: "items", name: "Sammeln", detail: `${flightState.collectedItems}/${getMission().itemGoal} Kapseln` },
+        { id: "shield", name: "Schild", detail: `${flightState.shields} Ladung` }
     ];
-    stageStack.innerHTML = stages.map(stage => {
-        const done = stage.id > flightState.currentStage;
-        const active = stage.id === flightState.currentStage;
-        return `
-            <div class="stage-card ${active ? "active" : ""} ${done ? "done" : ""}">
-                <strong>${stage.id}</strong>
-                <span>${escapeHtml(stage.name)}<small>${escapeHtml(stage.detail)}</small></span>
-            </div>
-        `;
-    }).join("");
+    stageStack.innerHTML = stages.map(stage => `
+        <div class="stage-card ${stage.id === "booster" && flightState.boosterActive ? "active" : ""}">
+            <strong>${stage.id === "motor" ? "M" : stage.id === "booster" ? "B" : stage.id === "items" ? "S" : "H"}</strong>
+            <span>${escapeHtml(stage.name)}<small>${escapeHtml(stage.detail)}</small></span>
+        </div>
+    `).join("");
 }
 
 function renderNavball() {
@@ -1951,18 +1986,18 @@ function wrapAngle(angle) {
 
 function completeMission(message) {
     const mission = getMission();
-    const alreadyDone = Boolean(programState.missionLog[mission.id]);
     const scienceBonus = flightState.scienceTransmitted ? flightState.scienceValue : Math.floor(flightState.scienceValue * 0.5);
-    const earned = alreadyDone ? 0 : mission.points + scienceBonus;
+    const earned = getFinalRunScore();
     programState.missionLog[mission.id] = {
         at: Date.now(),
         maxAlt: flightState.maxAlt,
         rocket: programState.model,
         science: scienceBonus,
         items: flightState.collectedItems,
-        points: earned
+        score: earned,
+        time: Math.round(flightState.elapsedSeconds || 0)
     };
-    if (earned > 0) setPoints(getPoints() + earned);
+    if (earned > getSpaceHighScore()) setSpaceHighScore(earned);
     const next = getNextMission(mission.id);
     if (next) {
         programState.selectedMission = next.id;
@@ -1972,12 +2007,12 @@ function completeMission(message) {
         renderMissionJournal();
         renderSolarMap();
         resetFlight();
-        flightState.message = `${message} +${earned} Punkte. Nächste Mission: ${next.name}.`;
+        flightState.message = `${message} Space-Score: ${earned}. Naechste Mission: ${next.name}.`;
         renderFlightSystems();
         return;
     }
     flightState.completed = true;
-    flightState.message = `${message}${earned ? ` +${earned} Punkte.` : ""} Alle Missionen im Journal geschafft.`;
+    flightState.message = `${message} Space-Score: ${earned}.`;
     saveProgramState();
     renderMissionOptions();
     renderMission();
@@ -1994,7 +2029,7 @@ function drawFlight() {
     const h = canvas.height;
     const mission = getMission();
     const altitude = Math.max(0, 585 - flightState.y);
-    const interstellar = flightState.phase === "calm" || flightState.phase === "invaders" || flightState.phase === "victory" || flightState.elapsedSeconds >= VOYAGER_PASS_TIME;
+    const interstellar = flightState.phase === "calm" || flightState.phase === "invaders" || flightState.phase === "victory" || getDisplayAltitude() >= VOYAGER_PASS_ALTITUDE;
 
     ctx.clearRect(0, 0, w, h);
     const sky = ctx.createLinearGradient(0, 0, 0, h);
@@ -2063,10 +2098,11 @@ function drawStars(ctx, w, h, cameraY, clearSky = false) {
 }
 
 function drawTimedRouteBackdrop(ctx, w, h, interstellar) {
-    const seconds = flightState.elapsedSeconds || 0;
-    const event = getCurrentRouteEvent(seconds, 58);
+    const altitude = getDisplayAltitude();
+    const windowAltitude = 620;
+    const event = getCurrentRouteEvent(altitude, windowAltitude);
     if (event) {
-        const progress = (event.delta + 58) / 116;
+        const progress = (event.delta + windowAltitude) / (windowAltitude * 2);
         const y = -event.radius * 0.55 + progress * (h + event.radius * 1.1);
         if (event.type === "satellites") {
             drawBackgroundSatellites(ctx, event, y, progress);
@@ -2084,14 +2120,14 @@ function drawTimedRouteBackdrop(ctx, w, h, interstellar) {
         ctx.save();
         ctx.fillStyle = "rgba(226, 232, 240, 0.78)";
         ctx.font = "900 20px Segoe UI";
-        ctx.fillText("Ruhige Phase nach Voyager: Sternenhimmel, auftanken, durchatmen.", 28, 98);
+        ctx.fillText("Ruhige Phase nach Voyager: Sternenhimmel, Vorraete sammeln, Kurs halten.", 28, 98);
         ctx.restore();
     }
     if (flightState.phase === "invaders") {
         ctx.save();
         ctx.fillStyle = "rgba(251, 191, 36, 0.86)";
         ctx.font = "900 18px Segoe UI";
-        ctx.fillText("Space-Invaders-Endphase: Space/F feuert, 10 Minuten überstehen.", 28, 98);
+        ctx.fillText("Endphase: Space/F feuert. Hoehe bis zur goldenen Rakete weiter steigern.", 28, 98);
         ctx.restore();
     }
 }
@@ -2468,7 +2504,7 @@ function drawInvaderField(ctx) {
     ctx.fillText(`Welle ${invader.wave} · Score ${invader.score}`, 830, 48);
     ctx.fillStyle = "#fecaca";
     ctx.font = "900 15px Segoe UI";
-    ctx.fillText(`Hülle ${invader.hull} · Ende in ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}`, 830, 72);
+    ctx.fillText(`Huelle ${invader.hull} ? Ziel in ${Math.max(0, VICTORY_ALTITUDE - getDisplayAltitude())} m`, 830, 72);
     ctx.restore();
 }
 

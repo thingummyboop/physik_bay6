@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciVerse Space Program</title>
-    <link rel="stylesheet" href="../css/space_program.css?v=1.7">
+    <link rel="stylesheet" href="../css/space_program.css?v=1.8">
 </head>
 <body>
     <main class="space-shell">
@@ -12,7 +12,7 @@
             <div>
                 <p class="space-kicker">SciVerse Space Program</p>
                 <h1>Explore the SciVerse</h1>
-                <p class="space-lead">Baue eine Rakete, starte Missionen und schalte durch bestandene Kapitelquizzes neue Bauteile frei. Das Spiel ist ein 2D-Orbitlabor: ein bisschen Werkstatt, ein bisschen Geschicklichkeit, viel Physik.</p>
+                <p class="space-lead">Baue eine Rakete, sammle Treibstoff und fliege immer höher durch das Sonnensystem. Bestandene Kapitelquizzes schalten neue Bauteile frei, die deine Rakete spürbar verändern.</p>
             </div>
             <div class="space-score-card" aria-live="polite">
                 <span class="score-label">Punkte</span>
@@ -41,11 +41,16 @@
             <div class="game-grid">
                 <aside class="mission-panel">
                     <div class="panel-block">
-                        <p class="space-kicker">Mission Control</p>
-                        <label class="field-label" for="missionSelect">Aktive Mission</label>
-                        <select id="missionSelect"></select>
+                        <p class="space-kicker">Flugziel</p>
+                        <h2>Explore the SciVerse</h2>
+                        <select id="missionSelect" hidden aria-hidden="true"></select>
                         <div id="missionBrief" class="mission-brief"></div>
-                        <div id="missionJournal" class="mission-journal" aria-label="Missionsjournal"></div>
+                        <div id="missionJournal" class="mission-journal" aria-label="Missionsjournal" hidden></div>
+                    </div>
+
+                    <div class="panel-block">
+                        <h2>Space-Rekord</h2>
+                        <div id="flightScorePanel" class="stat-grid"></div>
                     </div>
 
                     <div class="panel-block">
@@ -113,50 +118,10 @@
                                 <button type="button" id="btnStage" class="stage-fire">Space: n&auml;chste Stufe</button>
                             </section>
 
-                            <section class="system-card science-card primary-flight-card">
-                                <p class="space-kicker">Science</p>
-                                <div id="scienceStatus" class="science-status">Experiment noch nicht aktiv.</div>
-                                <div class="system-actions">
-                                    <button type="button" id="btnScienceActivate" class="ghost-btn">Experiment aktivieren</button>
-                                    <button type="button" id="btnTransmitScience" class="ghost-btn">Daten sichern</button>
-                                </div>
+                            <section class="system-card score-card primary-flight-card">
+                                <p class="space-kicker">Run</p>
+                                <div id="scienceStatus" class="science-status">Noch nicht gestartet.</div>
                             </section>
-
-                            <details class="system-card advanced-flight-card">
-                                <summary>Erweiterte Steuerung</summary>
-                                <div class="advanced-flight-grid">
-                                    <div>
-                                        <p class="space-kicker">SAS / RCS</p>
-                                        <div class="system-actions">
-                                            <button type="button" id="btnSas" class="ghost-btn">SAS: aus</button>
-                                            <button type="button" id="btnRcs" class="ghost-btn">RCS: aus</button>
-                                            <button type="button" id="btnMapMode" class="ghost-btn">Karte: aus</button>
-                                        </div>
-                                        <div class="sas-mode-row" aria-label="SAS-Ausrichtung">
-                                            <button type="button" data-sas-mode="stability">Stabil</button>
-                                            <button type="button" data-sas-mode="prograde">Prograde</button>
-                                            <button type="button" data-sas-mode="retrograde">Retrograde</button>
-                                            <button type="button" data-sas-mode="maneuver">Node</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="maneuver-panel">
-                                        <p class="space-kicker">Maneuver Node</p>
-                                        <label>Prograde / Retrograde
-                                            <input id="maneuverPrograde" type="range" min="-40" max="40" value="0">
-                                        </label>
-                                        <label>Radial rein / raus
-                                            <input id="maneuverRadial" type="range" min="-30" max="30" value="0">
-                                        </label>
-                                        <div id="maneuverReadout" class="maneuver-readout">Kein Node geplant.</div>
-                                        <div class="system-actions">
-                                            <button type="button" id="btnAddNode" class="ghost-btn">Node planen</button>
-                                            <button type="button" id="btnPointNode" class="ghost-btn">SAS auf Node</button>
-                                            <button type="button" id="btnClearNode" class="ghost-btn">L&ouml;schen</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </details>
                         </div>
 
                         <div class="control-pad compact-controls" aria-label="Touch-Steuerung">
@@ -164,7 +129,7 @@
                             <button type="button" class="control-btn thrust" id="btnStageTouch">Space / Stufe</button>
                             <button type="button" class="control-btn" data-control="right">D / Rechts</button>
                         </div>
-                        <p class="control-hint">A/D oder Pfeiltasten = ausweichen. Shift/Ctrl regeln den Schub, Z/X setzen 100% oder 0%. Space z&uuml;ndet Stufen und feuert sp&auml;ter das Gesch&uuml;tz.</p>
+                        <p class="control-hint">A/D oder Pfeiltasten = ausweichen. Z/X setzen den Schub auf 100% oder 0%. Space startet, z&uuml;ndet Booster und feuert in der Endphase.</p>
                     </section>
 
                     <section id="tab-workshop" class="tab-page">
@@ -217,6 +182,6 @@
         </section>
     </main>
 
-    <script src="../js/space_program.js?v=1.8"></script>
+    <script src="../js/space_program.js?v=1.9"></script>
 </body>
 </html>
