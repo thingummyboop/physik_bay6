@@ -101,11 +101,29 @@ const PART_BUFF_LABELS = {
     fin_gyro: ["Ausweichen+"]
 };
 
+const CELESTIAL_BODIES = [
+    { id: "earth", name: "Erde", altitude: 0, x: 550, radius: 118, color: "#38bdf8", accent: "#16a34a", influence: 0, gravity: 0, note: "Startwelt" },
+    { id: "moon", name: "Mond", altitude: 660, x: 735, radius: 38, color: "#cbd5e1", accent: "#64748b", influence: 210, gravity: 0.42, note: "kleiner Gravity-Assist" },
+    { id: "mars", name: "Mars", altitude: 1450, x: 315, radius: 48, color: "#f97316", accent: "#7c2d12", influence: 245, gravity: 0.55, note: "zieht leicht zur Seite" },
+    { id: "jupiter", name: "Jupiter", altitude: 2480, x: 845, radius: 96, color: "#f8d3a2", accent: "#b45309", influence: 390, gravity: 1.12, note: "starker Schleudereffekt" },
+    { id: "saturn", name: "Saturn", altitude: 3650, x: 270, radius: 80, color: "#fde68a", accent: "#ca8a04", influence: 350, gravity: 0.78, rings: true, note: "breiter Einflussbereich" },
+    { id: "uranus", name: "Uranus", altitude: 4880, x: 760, radius: 58, color: "#67e8f9", accent: "#0e7490", influence: 285, gravity: 0.52, note: "sanfter Zug" },
+    { id: "neptune", name: "Neptun", altitude: 6120, x: 360, radius: 60, color: "#2563eb", accent: "#93c5fd", influence: 300, gravity: 0.58, note: "dunkler Außenplanet" },
+    { id: "kuiper", name: "Kuipergürtel", altitude: 7420, x: 550, radius: 132, color: "#94a3b8", accent: "#475569", influence: 360, gravity: 0.24, belt: true, note: "viele kleine Körper" },
+    { id: "voyager", name: "Voyager", altitude: 8820, x: 770, radius: 24, color: "#f8fafc", accent: "#fbbf24", influence: 150, gravity: 0.04, voyager: true, note: "danach interstellarer Raum" }
+];
+
+const VOYAGER_ALTITUDE = CELESTIAL_BODIES.find(body => body.id === "voyager").altitude;
+
 const MISSIONS = [
-    { id: "hop", name: "Trainingssprung", targetAlt: 520, targetSpeed: 5.2, itemGoal: 3, reward: "Erste Startkontrolle", points: 12, desc: "Steige durch ein Trümmerfeld, sammle mindestens 3 Kapseln und erreiche 520 m Höhe." },
-    { id: "suborbit", name: "Suborbitalflug", targetAlt: 980, targetSpeed: 6.3, itemGoal: 5, reward: "Atmosphären-Daten", points: 18, desc: "Nutze Treibstoffzellen und Booster-Kapseln, weiche Asteroiden aus und erreiche 980 m." },
-    { id: "orbit", name: "Niedriger Orbit", targetAlt: 1480, targetSpeed: 7.6, itemGoal: 7, reward: "Orbit-Badge", points: 26, desc: "Halte die Rakete steuerbar: bei hoher Geschwindigkeit retrograde drehen und gegenbremsen." },
-    { id: "moon", name: "Mond-Vorbeiflug", targetAlt: 2050, targetSpeed: 8.6, itemGoal: 9, reward: "Mondkarte", points: 34, desc: "Schaffe eine lange Aufstiegsstrecke, sammle viele Ressourcen und überlebe dichte Hindernisfelder." }
+    { id: "solar_moon", body: "moon", name: "Mond-Vorbeiflug", targetAlt: 760, targetSpeed: 5.6, itemGoal: 3, reward: "Mondkarte", points: 14, desc: "Starte von der Erde, sammle Ressourcen und fliege am Mond vorbei. In seiner Nähe merkst du zum ersten Mal, dass ein Himmelskörper die Flugbahn leicht verändert." },
+    { id: "solar_mars", body: "mars", name: "Transfer zu Mars", targetAlt: 1560, targetSpeed: 6.3, itemGoal: 5, reward: "Mars-Orbitdaten", points: 20, desc: "Nutze Booster und Treibstoffzellen, um die Bahn bis zum Mars zu verlängern. Der rote Planet zieht dich beim Anflug an und bremst dich nach dem Vorbeiflug wieder etwas ab." },
+    { id: "solar_jupiter", body: "jupiter", name: "Jupiter-Schleuder", targetAlt: 2620, targetSpeed: 7.3, itemGoal: 7, reward: "Gravity-Assist-Badge", points: 28, desc: "Jupiter ist groß: Wer zu nah vorbeifliegt, wird stark abgelenkt. Variiere Schub und Richtung, damit der Gravity Assist hilft statt dich in Asteroiden zu drücken." },
+    { id: "solar_saturn", body: "saturn", name: "Saturn und die Ringe", targetAlt: 3800, targetSpeed: 8.1, itemGoal: 9, reward: "Ring-Scan", points: 36, desc: "Bei Saturn wird der Flug länger. Sammle Boosts, halte die Geschwindigkeit kontrollierbar und plane den Vorbeiflug so, dass dich der Planet nicht aus der Spur zieht." },
+    { id: "solar_uranus", body: "uranus", name: "Uranus-Drift", targetAlt: 5040, targetSpeed: 8.7, itemGoal: 11, reward: "Eisriesen-Daten", points: 44, desc: "Die äußeren Planeten liegen weit auseinander. Nutze den sanften Zug von Uranus, um Geschwindigkeit zu gewinnen, aber bremse rechtzeitig retrograde." },
+    { id: "solar_neptune", body: "neptune", name: "Neptun-Passage", targetAlt: 6300, targetSpeed: 9.2, itemGoal: 13, reward: "Außenplaneten-Karte", points: 52, desc: "Jetzt zählt sauberes Fliegen: Hindernisse kommen schneller, Treibstoff ist wertvoll, und Neptuns Schwerkraft kann dich beim falschen Winkel ausbremsen." },
+    { id: "solar_kuiper", body: "kuiper", name: "Kuipergürtel", targetAlt: 7620, targetSpeed: 9.6, itemGoal: 15, reward: "Kometen-Proben", points: 62, desc: "Im Kuipergürtel warten viele kleine Körper. Sammle Science und Ressourcen, aber bleib beweglich: der Gürtel stört die Bahn schwach, dafür kommen mehr Hindernisse." },
+    { id: "solar_voyager", body: "voyager", name: "Vorbei an Voyager", targetAlt: 9020, targetSpeed: 10.0, itemGoal: 17, reward: "Interstellar-Abzeichen", points: 74, desc: "Fliege bis zur Voyager-Sonde. Danach verschwindet das letzte Sonnenlicht aus dem Hintergrund und du siehst einen klaren Sternenhimmel im interstellaren Raum." }
 ];
 
 const DEFAULT_STATE = {
@@ -122,7 +140,7 @@ const DEFAULT_STATE = {
     },
     selectedSlot: "engine",
     shopFilter: "all",
-    selectedMission: "hop",
+    selectedMission: "solar_moon",
     missionLog: {}
 };
 
@@ -360,10 +378,11 @@ function renderMission() {
     const mission = getMission();
     const done = programState.missionLog[mission.id];
     const next = getNextMission(mission.id);
+    const body = getMissionBody(mission);
     document.getElementById("missionBrief").innerHTML = `
         <strong>${escapeHtml(mission.name)}</strong>
         <p>${escapeHtml(mission.desc)}</p>
-        <small>Zielhöhe: ${mission.targetAlt} m · Sammelziel: ${mission.itemGoal} · Belohnung: ${escapeHtml(mission.reward)} · ${mission.points} Punkte${done ? " · geschafft" : ""}${next && !done ? " · danach: " + escapeHtml(next.name) : ""}</small>
+        <small>Ziel: ${escapeHtml(body?.name || mission.name)} · Zielhöhe: ${mission.targetAlt} m · Sammelziel: ${mission.itemGoal} · Belohnung: ${escapeHtml(mission.reward)} · ${mission.points} Punkte${done ? " · geschafft" : ""}${next && !done ? " · danach: " + escapeHtml(next.name) : ""}</small>
     `;
 }
 
@@ -390,6 +409,24 @@ function getFirstOpenMission() {
 function getNextMission(missionId) {
     const index = MISSIONS.findIndex(mission => mission.id === missionId);
     return index >= 0 ? MISSIONS[index + 1] || null : null;
+}
+
+function getMissionBody(mission = getMission()) {
+    return CELESTIAL_BODIES.find(body => body.id === mission.body) || null;
+}
+
+function getCurrentSpaceZone(altitude) {
+    const passed = CELESTIAL_BODIES
+        .filter(body => body.altitude <= altitude)
+        .sort((a, b) => b.altitude - a.altitude)[0] || CELESTIAL_BODIES[0];
+    const next = CELESTIAL_BODIES.find(body => body.altitude > altitude) || null;
+    if (altitude >= VOYAGER_ALTITUDE + 160) {
+        return { label: "Interstellarer Raum", next: null };
+    }
+    return {
+        label: passed.id === "earth" && next ? `Unterwegs zu ${next.name}` : `Nach ${passed.name}`,
+        next
+    };
 }
 
 function renderMissionJournal() {
@@ -582,29 +619,28 @@ function statLabel(key) {
 function renderSolarMap() {
     const progress = getSubjectProgress();
     const completed = Object.values(progress).reduce((sum, item) => sum + item.completed, 0);
-    const planets = [
-        ["Merkur", 150, 178, 6, 0],
-        ["Venus", 230, 178, 8, 2],
-        ["Erde", 320, 178, 10, 0],
-        ["Mars", 425, 178, 8, 4],
-        ["Jupiter", 575, 178, 17, 8],
-        ["Saturn", 760, 178, 15, 12],
-        ["Uranus", 910, 178, 12, 16],
-        ["Neptun", 1030, 178, 12, 20]
-    ];
+    const route = CELESTIAL_BODIES.filter(body => body.id !== "earth");
     document.getElementById("solarMap").innerHTML = `
-        <svg viewBox="0 0 1120 360" role="img" aria-label="Sonnensystem-Fortschritt">
+        <svg viewBox="0 0 1120 360" role="img" aria-label="Sonnensystem-Route">
             <defs>
                 <radialGradient id="sspSun"><stop offset="0%" stop-color="#fff7ad"/><stop offset="45%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#7c2d12"/></radialGradient>
             </defs>
             <circle cx="70" cy="178" r="42" fill="url(#sspSun)"/>
-            ${planets.map(([name, x, y, r, req], index) => {
-                const unlocked = completed >= req;
+            <text x="70" y="248" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="900">Sonne</text>
+            ${route.map((body, index) => {
+                const x = 168 + index * 118;
+                const y = 178 + Math.sin(index * 1.2) * 34;
+                const r = Math.max(7, Math.min(24, body.radius * 0.22));
+                const req = index * 3;
+                const unlocked = completed >= req || getAvailableMissions().some(mission => mission.body === body.id);
+                const prevX = index === 0 ? 112 : 168 + (index - 1) * 118;
+                const prevY = index === 0 ? 178 : 178 + Math.sin((index - 1) * 1.2) * 34;
                 return `
-                    <line x1="${index === 0 ? 112 : planets[index - 1][1] + planets[index - 1][3]}" y1="${y}" x2="${x - r}" y2="${y}" stroke="${unlocked ? "#38bdf8" : "#334155"}" stroke-width="2" stroke-dasharray="5 7"/>
-                    <circle cx="${x}" cy="${y}" r="${r}" fill="${unlocked ? planetColor(name) : "#334155"}" opacity="${unlocked ? "1" : "0.42"}"/>
-                    <text x="${x}" y="${y + 34}" text-anchor="middle" fill="${unlocked ? "#e8f4ff" : "#64748b"}" font-size="15" font-weight="800">${name}</text>
-                    <text x="${x}" y="${y + 52}" text-anchor="middle" fill="#94a3b8" font-size="12">${unlocked ? "Missionen offen" : req + " Kapitel"}</text>
+                    <line x1="${prevX}" y1="${prevY}" x2="${x - r}" y2="${y}" stroke="${unlocked ? "#38bdf8" : "#334155"}" stroke-width="2" stroke-dasharray="5 7"/>
+                    ${body.rings ? `<ellipse cx="${x}" cy="${y}" rx="${r * 1.9}" ry="${r * 0.52}" fill="none" stroke="${unlocked ? body.accent : "#475569"}" stroke-width="3" transform="rotate(-12 ${x} ${y})"/>` : ""}
+                    <circle cx="${x}" cy="${y}" r="${r}" fill="${unlocked ? body.color : "#334155"}" opacity="${unlocked ? "1" : "0.42"}"/>
+                    <text x="${x}" y="${y + 42}" text-anchor="middle" fill="${unlocked ? "#e8f4ff" : "#64748b"}" font-size="13" font-weight="800">${escapeHtml(body.name)}</text>
+                    <text x="${x}" y="${y + 59}" text-anchor="middle" fill="#94a3b8" font-size="11">${unlocked ? "Route offen" : req + " Kapitel"}</text>
                 `;
             }).join("")}
         </svg>
@@ -637,26 +673,30 @@ function setTab(tabName) {
 function createFlightObjects(mission, stats) {
     const objects = [];
     const lanes = [170, 300, 430, 560, 690, 820, 950];
-    const maxAlt = mission.targetAlt + 420;
+    const body = getMissionBody(mission);
+    const maxAlt = Math.max(mission.targetAlt + 420, (body?.altitude || mission.targetAlt) + 360);
+    const difficulty = Math.max(1, MISSIONS.findIndex(item => item.id === mission.id) + 1);
     let index = 0;
-    for (let altitude = 115; altitude <= maxAlt; altitude += 78) {
+    for (let altitude = 115; altitude <= maxAlt; altitude += Math.max(58, 86 - difficulty * 4)) {
         const noise = seededNoise(`${mission.id}-${altitude}`);
         const lane = lanes[Math.floor(noise * lanes.length) % lanes.length];
         const drift = (seededNoise(`drift-${mission.id}-${altitude}`) - 0.5) * 58;
         const y = 585 - altitude;
-        if (altitude > 190 && index % 3 !== 1) {
+        const nearBelt = Math.abs(altitude - CELESTIAL_BODIES.find(item => item.id === "kuiper").altitude) < 360;
+        const hazardEvery = nearBelt ? 1 : Math.max(2, 4 - Math.floor(difficulty / 3));
+        if (altitude > 190 && index % hazardEvery !== 1) {
             objects.push({
                 id: `hazard-${altitude}`,
                 type: "hazard",
                 x: Math.max(115, Math.min(985, lane + drift)),
                 y: y - 18,
-                radius: 25 + Math.round(seededNoise(`size-${altitude}`) * 14),
+                radius: 22 + Math.round(seededNoise(`size-${mission.id}-${altitude}`) * (12 + difficulty)),
                 phase: seededNoise(`phase-${altitude}`) * Math.PI * 2,
                 taken: false
             });
         }
         const pickupLane = lanes[(lanes.indexOf(lane) + 2 + index) % lanes.length];
-        const type = index % 5 === 0 ? "boost" : index % 4 === 0 ? "science" : index % 6 === 0 ? "shield" : "fuel";
+        const type = index % 5 === 0 ? "boost" : index % 4 === 0 ? "science" : index % 7 === 0 ? "shield" : "fuel";
         objects.push({
             id: `pickup-${altitude}`,
             type,
@@ -671,7 +711,7 @@ function createFlightObjects(mission, stats) {
     objects.push({
         id: "finish-gate",
         type: "finish",
-        x: 550,
+        x: body?.x || 550,
         y: 585 - mission.targetAlt,
         radius: 52,
         taken: false,
@@ -737,6 +777,10 @@ function resetFlight() {
         mapMode: false,
         maneuverNode: null,
         maxAlt: 0,
+        gravityBody: null,
+        gravityHint: "",
+        gravityStrength: 0,
+        interstellarReached: false,
         message: "Bereit: Start zündet den Motor. Space setzt einen Booster ein."
     };
     renderFlightSystems();
@@ -1061,7 +1105,11 @@ function updateFlight(dt) {
         }
     }
 
-    flightState.vy += (0.034 + Math.min(0.018, altitude / 90000)) * dt;
+    applyCelestialGravity(stats, mission, dt);
+    const earthGravity = altitude > VOYAGER_ALTITUDE
+        ? 0.014
+        : 0.031 + Math.min(0.014, altitude / 120000);
+    flightState.vy += earthGravity * dt;
     flightState.vx *= Math.pow(0.988 + stats.control * 0.00035, dt);
     flightState.vy *= Math.pow(0.996, dt);
 
@@ -1087,6 +1135,10 @@ function updateFlight(dt) {
     tryCollectScience();
 
     const nextAltitude = Math.max(0, Math.round(585 - flightState.y));
+    if (!flightState.interstellarReached && nextAltitude >= VOYAGER_ALTITUDE) {
+        flightState.interstellarReached = true;
+        flightState.message = "Voyager passiert. Hinter dir liegt das Sonnensystem, vor dir ein klarer Sternenhimmel.";
+    }
     if (nextAltitude > mission.targetAlt && flightState.collectedItems >= mission.itemGoal) {
         completeMission("Aufstieg geschafft. Ressourcen gesammelt.");
     } else if (nextAltitude > mission.targetAlt && flightState.collectedItems < mission.itemGoal) {
@@ -1103,6 +1155,58 @@ function updateFlight(dt) {
             flightState.crashed = true;
             flightState.message = "Abgestürzt. In Doodle-Orbit musst du Treibstoff sammeln und oben bleiben.";
         }
+    }
+}
+
+function applyCelestialGravity(stats, mission, dt) {
+    if (!flightState?.launched) return;
+    const altitude = Math.max(0, 585 - flightState.y);
+    let strongest = null;
+
+    for (const body of CELESTIAL_BODIES) {
+        if (!body.influence || !body.gravity) continue;
+        if (body.altitude > mission.targetAlt + 900 && altitude < body.altitude - body.influence - 260) continue;
+
+        const bodyY = 585 - body.altitude;
+        const dx = body.x - flightState.x;
+        const dy = bodyY - flightState.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist <= 2 || dist > body.influence) continue;
+
+        const falloff = 1 - dist / body.influence;
+        const pull = (0.014 + body.gravity * 0.035) * falloff * falloff * dt;
+        const nx = dx / dist;
+        const ny = dy / dist;
+        flightState.vx += nx * pull;
+        flightState.vy += ny * pull;
+
+        if (body.belt) {
+            const swirl = Math.sin((altitude + performance.now() * 0.025) * 0.028) * 0.006 * falloff * dt;
+            flightState.vx += swirl;
+        }
+
+        const radialSpeed = flightState.vx * nx + flightState.vy * ny;
+        if (!strongest || pull > strongest.pull) {
+            strongest = {
+                body,
+                pull,
+                phase: radialSpeed >= 0 ? "Anflug: beschleunigt" : "nach Vorbeiflug: bremst"
+            };
+        }
+    }
+
+    if (strongest) {
+        const previous = flightState.gravityBody;
+        flightState.gravityBody = strongest.body.name;
+        flightState.gravityStrength = strongest.pull / Math.max(0.001, dt);
+        flightState.gravityHint = `${strongest.body.name} · ${strongest.phase}`;
+        if (previous !== strongest.body.name && flightState.invulnerableTimer <= 0) {
+            flightState.message = `${strongest.body.name} beeinflusst deine Bahn: beim Anflug schneller, nach dem Vorbeiflug langsamer.`;
+        }
+    } else {
+        flightState.gravityBody = null;
+        flightState.gravityStrength = 0;
+        flightState.gravityHint = "";
     }
 }
 
@@ -1304,15 +1408,18 @@ function updateFlightReadouts(force = false) {
     const stats = getRocketStats();
     const fuelPct = Math.round((flightState.fuel / stats.maxFuel) * 100);
     const mission = getMission();
+    const zone = getCurrentSpaceZone(altitude);
     const hud = document.getElementById("flightHud");
     if (hud) {
         hud.innerHTML = [
             `Höhe ${altitude} m`,
+            zone.label,
             `Tempo ${speed}`,
             `Schub ${Math.round(flightState.throttle * 100)}%`,
             `Treibstoff ${fuelPct}%`,
             `Kapseln ${flightState.collectedItems}/${mission.itemGoal}`,
             `Booster ${flightState.boosterCharges}${flightState.boosterActive ? " aktiv" : ""}`,
+            flightState.gravityHint || "Kein Gravity Assist",
             `Schild ${flightState.shields}`,
             flightState.sas ? `SAS ${getSasModeLabel(flightState.sasMode)}` : "SAS aus",
             Number(speed) > stats.safeSpeed ? "Tempo rot: retrograde bremsen" : (flightState.rcs ? "RCS an" : "RCS aus"),
@@ -1453,17 +1560,26 @@ function drawFlight() {
     const w = canvas.width;
     const h = canvas.height;
     const mission = getMission();
+    const altitude = Math.max(0, 585 - flightState.y);
+    const interstellar = altitude >= VOYAGER_ALTITUDE;
 
     ctx.clearRect(0, 0, w, h);
     const sky = ctx.createLinearGradient(0, 0, 0, h);
-    sky.addColorStop(0, "#020617");
-    sky.addColorStop(0.62, "#0f2a4a");
-    sky.addColorStop(1, "#12324f");
+    if (interstellar) {
+        sky.addColorStop(0, "#01020a");
+        sky.addColorStop(0.58, "#02030d");
+        sky.addColorStop(1, "#050716");
+    } else {
+        sky.addColorStop(0, "#020617");
+        sky.addColorStop(0.62, altitude > 4200 ? "#071525" : "#0f2a4a");
+        sky.addColorStop(1, altitude > 4200 ? "#0b1828" : "#12324f");
+    }
     ctx.fillStyle = sky;
     ctx.fillRect(0, 0, w, h);
 
     const cameraY = Math.min(0, flightState.y - 420);
-    drawStars(ctx, w, h, cameraY);
+    drawStars(ctx, w, h, cameraY, interstellar);
+    drawSolarRoute(ctx, cameraY, mission, interstellar);
     drawTargetLines(ctx, mission, cameraY);
     drawGround(ctx, w, h, cameraY);
     drawFlightObjects(ctx, cameraY);
@@ -1481,22 +1597,219 @@ function drawFlight() {
     updateFlightReadouts();
 }
 
-function drawStars(ctx, w, h, cameraY) {
-    ctx.fillStyle = "rgba(255,255,255,0.75)";
-    for (let i = 0; i < 110; i++) {
-        const x = (i * 97) % w;
-        const y = ((i * 157) % 1400) - 760 - cameraY * 0.18;
-        const yy = ((y % (h + 280)) + h + 280) % (h + 280) - 140;
-        ctx.globalAlpha = 0.25 + (i % 5) * 0.13;
+function drawStars(ctx, w, h, cameraY, clearSky = false) {
+    ctx.fillStyle = "rgba(255,255,255,0.85)";
+    const count = clearSky ? 180 : 110;
+    const band = clearSky ? 2100 : 1400;
+    const drift = clearSky ? 0.28 : 0.18;
+    for (let i = 0; i < count; i++) {
+        const x = (i * 97 + (i % 11) * 23) % w;
+        const y = ((i * 157) % band) - band * 0.55 - cameraY * drift;
+        const yy = ((y % (h + 320)) + h + 320) % (h + 320) - 160;
+        ctx.globalAlpha = clearSky ? 0.45 + (i % 7) * 0.08 : 0.25 + (i % 5) * 0.13;
         ctx.beginPath();
-        ctx.arc(x, yy, (i % 3) + 0.7, 0, Math.PI * 2);
+        ctx.arc(x, yy, clearSky ? (i % 4) * 0.45 + 0.75 : (i % 3) + 0.7, 0, Math.PI * 2);
         ctx.fill();
+    }
+    if (clearSky) {
+        ctx.strokeStyle = "rgba(255,255,255,0.16)";
+        ctx.lineWidth = 1;
+        for (let i = 0; i < 18; i++) {
+            const x = (i * 211) % w;
+            const y = ((i * 331 - cameraY * 0.22) % (h + 420) + h + 420) % (h + 420) - 210;
+            ctx.beginPath();
+            ctx.moveTo(x - 6, y);
+            ctx.lineTo(x + 6, y);
+            ctx.moveTo(x, y - 6);
+            ctx.lineTo(x, y + 6);
+            ctx.stroke();
+        }
     }
     ctx.globalAlpha = 1;
 }
 
+function drawSolarRoute(ctx, cameraY, mission, interstellar) {
+    const visibleBodies = CELESTIAL_BODIES.filter(body => {
+        const y = 585 - body.altitude - cameraY;
+        return y > -260 && y < 920;
+    });
+    if (!visibleBodies.length) return;
+
+    ctx.save();
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 12]);
+    ctx.strokeStyle = interstellar ? "rgba(148, 163, 184, 0.24)" : "rgba(125, 211, 252, 0.26)";
+    ctx.beginPath();
+    visibleBodies.forEach((body, index) => {
+        const y = 585 - body.altitude - cameraY;
+        if (index === 0) ctx.moveTo(body.x, y);
+        else ctx.lineTo(body.x, y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    for (const body of visibleBodies) {
+        drawGravityField(ctx, body, cameraY);
+        drawCelestialBody(ctx, body, cameraY, mission.body === body.id);
+    }
+
+    if (interstellar) {
+        ctx.fillStyle = "rgba(226, 232, 240, 0.84)";
+        ctx.font = "900 18px Segoe UI";
+        ctx.fillText("Interstellarer Raum: kaum Planetenlicht, klarer Sternenhimmel", 28, 92);
+    }
+    ctx.restore();
+}
+
+function drawGravityField(ctx, body, cameraY) {
+    if (!body.influence) return;
+    const y = 585 - body.altitude - cameraY;
+    const isActive = flightState.gravityBody === body.name;
+    ctx.save();
+    ctx.globalAlpha = isActive ? 0.42 : 0.18;
+    ctx.strokeStyle = isActive ? "#fbbf24" : body.color;
+    ctx.lineWidth = isActive ? 3 : 1.5;
+    ctx.setLineDash([8, 9]);
+    ctx.beginPath();
+    ctx.arc(body.x, y, body.influence, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+}
+
+function drawCelestialBody(ctx, body, cameraY, isTarget) {
+    const y = 585 - body.altitude - cameraY;
+    if (body.belt) {
+        drawKuiperBelt(ctx, body, y, isTarget);
+        return;
+    }
+    if (body.voyager) {
+        drawVoyagerProbe(ctx, body, y, isTarget);
+        return;
+    }
+
+    ctx.save();
+    ctx.shadowColor = body.color;
+    ctx.shadowBlur = isTarget ? 30 : 18;
+    const gradient = ctx.createRadialGradient(body.x - body.radius * 0.32, y - body.radius * 0.38, body.radius * 0.08, body.x, y, body.radius);
+    gradient.addColorStop(0, "#ffffff");
+    gradient.addColorStop(0.18, body.color);
+    gradient.addColorStop(1, body.accent || body.color);
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(body.x, y, body.radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (body.id === "earth") {
+        ctx.fillStyle = "rgba(34, 197, 94, 0.78)";
+        ctx.beginPath();
+        ctx.ellipse(body.x - 26, y - 16, 26, 15, -0.25, 0, Math.PI * 2);
+        ctx.ellipse(body.x + 30, y + 18, 30, 17, 0.35, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    if (body.id === "jupiter") {
+        ctx.strokeStyle = "rgba(124, 45, 18, 0.62)";
+        ctx.lineWidth = 8;
+        for (let offset = -38; offset <= 40; offset += 24) {
+            ctx.beginPath();
+            ctx.ellipse(body.x, y + offset, body.radius * 0.9, 9, 0.03, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        ctx.fillStyle = "rgba(185, 28, 28, 0.62)";
+        ctx.beginPath();
+        ctx.ellipse(body.x + 34, y + 22, 16, 10, -0.2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    if (body.rings) {
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = "rgba(253, 230, 138, 0.68)";
+        ctx.lineWidth = 9;
+        ctx.beginPath();
+        ctx.ellipse(body.x, y, body.radius * 1.82, body.radius * 0.42, -0.18, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.strokeStyle = "rgba(148, 163, 184, 0.44)";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.ellipse(body.x, y, body.radius * 2.18, body.radius * 0.52, -0.18, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+
+    drawBodyLabel(ctx, body, y, isTarget);
+    ctx.restore();
+}
+
+function drawKuiperBelt(ctx, body, y, isTarget) {
+    ctx.save();
+    ctx.strokeStyle = isTarget ? "rgba(251, 191, 36, 0.45)" : "rgba(148, 163, 184, 0.24)";
+    ctx.lineWidth = 3;
+    ctx.setLineDash([8, 12]);
+    ctx.beginPath();
+    ctx.ellipse(body.x, y, body.radius * 2.1, body.radius * 0.66, -0.08, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    for (let i = 0; i < 42; i++) {
+        const angle = (i / 42) * Math.PI * 2;
+        const rx = body.radius * (1.05 + (i % 5) * 0.16);
+        const ry = body.radius * (0.25 + (i % 7) * 0.055);
+        const px = body.x + Math.cos(angle) * rx;
+        const py = y + Math.sin(angle) * ry;
+        ctx.fillStyle = i % 3 === 0 ? "#cbd5e1" : "#64748b";
+        ctx.globalAlpha = 0.46 + (i % 4) * 0.1;
+        ctx.beginPath();
+        ctx.arc(px, py, 3 + (i % 4), 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    drawBodyLabel(ctx, body, y + 12, isTarget);
+    ctx.restore();
+}
+
+function drawVoyagerProbe(ctx, body, y, isTarget) {
+    ctx.save();
+    ctx.translate(body.x, y);
+    ctx.strokeStyle = isTarget ? "#fbbf24" : "#e2e8f0";
+    ctx.fillStyle = "#f8fafc";
+    ctx.lineWidth = 3;
+    ctx.shadowColor = "#f8fafc";
+    ctx.shadowBlur = isTarget ? 22 : 10;
+    ctx.beginPath();
+    ctx.arc(0, 0, 12, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-36, -16);
+    ctx.lineTo(-10, -5);
+    ctx.moveTo(-36, 16);
+    ctx.lineTo(-10, 5);
+    ctx.moveTo(12, 0);
+    ctx.lineTo(46, -28);
+    ctx.moveTo(12, 0);
+    ctx.lineTo(50, 24);
+    ctx.stroke();
+    ctx.strokeStyle = "#94a3b8";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.ellipse(46, -28, 16, 7, -0.5, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+    drawBodyLabel(ctx, body, y, isTarget);
+}
+
+function drawBodyLabel(ctx, body, y, isTarget) {
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = isTarget ? "#fde68a" : "#e8f4ff";
+    ctx.font = isTarget ? "900 20px Segoe UI" : "850 16px Segoe UI";
+    ctx.fillText(body.name, Math.min(930, body.x + body.radius + 18), y - body.radius - 12);
+    ctx.fillStyle = "rgba(226, 232, 240, 0.78)";
+    ctx.font = "750 12px Segoe UI";
+    ctx.fillText(body.note, Math.min(930, body.x + body.radius + 18), y - body.radius + 8);
+}
+
 function drawTargetLines(ctx, mission, cameraY) {
     const y = 585 - mission.targetAlt - cameraY;
+    const body = getMissionBody(mission);
     ctx.strokeStyle = "rgba(56, 189, 248, 0.55)";
     ctx.setLineDash([10, 10]);
     ctx.lineWidth = 2;
@@ -1507,7 +1820,7 @@ function drawTargetLines(ctx, mission, cameraY) {
     ctx.setLineDash([]);
     ctx.fillStyle = "#a5f3fc";
     ctx.font = "800 18px Segoe UI";
-    ctx.fillText(`${mission.name}: ${mission.targetAlt} m · ${mission.itemGoal} Kapseln`, 24, y - 12);
+    ctx.fillText(`${mission.name}: ${body ? body.name + " · " : ""}${mission.itemGoal} Kapseln`, 24, y - 12);
 }
 
 function drawGround(ctx, w, h, cameraY) {
