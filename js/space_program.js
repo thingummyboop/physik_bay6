@@ -171,6 +171,7 @@ let controls = { left: false, right: false, throttleUp: false, throttleDown: fal
 let animationId = null;
 let lastFrameTime = 0;
 let lastUiRenderTime = 0;
+let spaceTranslations = { de: {} };
 
 document.addEventListener("DOMContentLoaded", initSpaceProgram);
 
@@ -178,12 +179,66 @@ window.addEventListener("message", (event) => {
     if (event.data && event.data.type === "themeChange") {
         document.documentElement.toggleAttribute("data-theme", Boolean(event.data.isDark));
     }
+    if (event.data && event.data.type === "languageChange") {
+        localStorage.setItem("physik_lang", event.data.lang || "de");
+        localizeSpaceProgram();
+    }
 });
 
-function initSpaceProgram() {
+function getSpaceLang() {
+    return localStorage.getItem("physik_lang") || "de";
+}
+
+function trSpace(text) {
+    const lang = getSpaceLang();
+    return (spaceTranslations[lang] && spaceTranslations[lang][text]) || text;
+}
+
+async function loadSpaceTranslations() {
+    try {
+        const response = await fetch("../lang/space_program.json?v=1.0");
+        if (response.ok) spaceTranslations = await response.json();
+    } catch (error) {
+        spaceTranslations = { de: {} };
+    }
+}
+
+function localizeSpaceProgram(root = document.body) {
+    if (!root || getSpaceLang() === "de") return;
+    document.documentElement.lang = getSpaceLang();
+
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+            return node.nodeValue && node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+        const original = node.nodeValue;
+        const trimmed = original.replace(/\s+/g, " ").trim();
+        const translated = trSpace(trimmed);
+        if (translated !== trimmed) {
+            node.nodeValue = original.replace(trimmed, translated);
+        }
+    });
+
+    root.querySelectorAll("[aria-label], [title], [placeholder]").forEach(element => {
+        ["aria-label", "title", "placeholder"].forEach(attr => {
+            const value = element.getAttribute(attr);
+            if (!value) return;
+            element.setAttribute(attr, trSpace(value));
+        });
+    });
+}
+
+async function initSpaceProgram() {
+    await loadSpaceTranslations();
+
     if (localStorage.getItem("physik_dark_mode") === "true") {
         document.documentElement.setAttribute("data-theme", "dark");
     }
+    document.documentElement.lang = getSpaceLang();
 
     document.getElementById("changeModelBtn").addEventListener("click", () => {
         document.getElementById("spaceGame").hidden = true;
@@ -212,6 +267,7 @@ function initSpaceProgram() {
     setupControls();
 
     renderModelCards();
+    localizeSpaceProgram();
     if (programState.model) {
         document.getElementById("rocketSelect").hidden = true;
         document.getElementById("spaceGame").hidden = false;
@@ -289,12 +345,13 @@ function renderModelCards() {
             <h3>${escapeHtml(model.name)}</h3>
             <p>${escapeHtml(model.tagline)}</p>
             <div class="model-stat-list">
-                <span>Schub ${model.stats.thrust}</span>
-                <span>Treibstoff ${model.stats.fuel}</span>
-                <span>Steuerung ${model.stats.control}</span>
+                <span>${trSpace("Schub")} ${model.stats.thrust}</span>
+                <span>${trSpace("Treibstoff")} ${model.stats.fuel}</span>
+                <span>${trSpace("Steuerung")} ${model.stats.control}</span>
             </div>
         </button>
     `).join("");
+    localizeSpaceProgram(grid);
     grid.querySelectorAll(".model-card").forEach(card => {
         card.addEventListener("click", () => chooseModel(card.dataset.model));
     });
@@ -324,6 +381,7 @@ function renderEverything() {
     renderSolarMap();
     renderSubjectBonuses();
     resetFlight();
+    localizeSpaceProgram();
 }
 
 function getCurrentModel() {
@@ -385,7 +443,7 @@ function renderRocketPanels() {
 }
 
 function statCard(label, value) {
-    return `<div class="stat-card"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
+    return `<div class="stat-card"><span>${escapeHtml(trSpace(label))}</span><strong>${escapeHtml(value)}</strong></div>`;
 }
 
 function renderMissionOptions() {
@@ -393,7 +451,7 @@ function renderMissionOptions() {
     const select = document.getElementById("missionSelect");
     select.innerHTML = getAvailableMissions().map(mission => {
         const done = programState.missionLog[mission.id];
-        return `<option value="${mission.id}">${escapeHtml(mission.name)}${done ? " ✓" : ""}</option>`;
+        return `<option value="${mission.id}">${escapeHtml(trSpace(mission.name))}${done ? " ✓" : ""}</option>`;
     }).join("");
     select.value = programState.selectedMission;
 }
@@ -413,9 +471,9 @@ function renderMission() {
         ? `Reiseplan: Satelliten nach ${formatTime(FIRST_SATELLITE_TIME)} · Mond nach ${formatTime(150)} · Voyager nach ${formatTime(VOYAGER_PASS_TIME)} · Endphase ${formatTime(INVADER_DURATION_SECONDS)}`
         : `Ziel: ${escapeHtml(body?.name || mission.name)} · Zielhöhe: ${mission.targetAlt} m · Sammelziel: ${mission.itemGoal}`;
     document.getElementById("missionBrief").innerHTML = `
-        <strong>${escapeHtml(mission.name)}</strong>
-        <p>${escapeHtml(mission.desc)}</p>
-        <small>${goalLine} · Belohnung: ${escapeHtml(mission.reward)} · ${mission.points} Punkte${done ? " · geschafft" : ""}${next && !done ? " · danach: " + escapeHtml(next.name) : ""}</small>
+        <strong>${escapeHtml(trSpace(mission.name))}</strong>
+        <p>${escapeHtml(trSpace(mission.desc))}</p>
+        <small>${goalLine} · ${trSpace("Belohnung")}: ${escapeHtml(trSpace(mission.reward))} · ${mission.points} ${trSpace("Punkte")}${done ? " · " + trSpace("geschafft") : ""}${next && !done ? " · " + trSpace("danach") + ": " + escapeHtml(trSpace(next.name)) : ""}</small>
     `;
 }
 
@@ -457,7 +515,7 @@ function getCurrentSpaceZone(altitude) {
         return { label: "Interstellarer Raum", next: null };
     }
     return {
-        label: passed.id === "earth" && next ? `Unterwegs zu ${next.name}` : `Nach ${passed.name}`,
+        label: passed.id === "earth" && next ? `${trSpace("Unterwegs zu")} ${trSpace(next.name)}` : `${trSpace("Nach")} ${trSpace(passed.name)}`,
         next
     };
 }
@@ -473,15 +531,15 @@ function renderMissionJournal() {
             const current = mission.id === programState.selectedMission;
             const locked = !done && mission.id !== firstOpen.id && !getAvailableMissions().some(item => item.id === mission.id);
             const detail = done
-                ? `geschafft · max. ${Math.round(done.maxAlt || 0)} m · Kapseln ${done.items || 0} · Science ${Math.round(done.science || 0)}`
-                : locked ? "gesperrt bis zur vorherigen Mission" : "aktive Mission";
+                ? `${trSpace("geschafft")} · max. ${Math.round(done.maxAlt || 0)} m · ${trSpace("Kapseln")} ${done.items || 0} · Science ${Math.round(done.science || 0)}`
+                : locked ? trSpace("gesperrt bis zur vorherigen Mission") : trSpace("aktive Mission");
             return `
                 <div class="journal-row ${done ? "done" : ""} ${current ? "current" : ""}">
                     <div>
-                        <strong>${index + 1}. ${escapeHtml(mission.name)}</strong>
+                        <strong>${index + 1}. ${escapeHtml(trSpace(mission.name))}</strong>
                         <small>${escapeHtml(detail)}</small>
                     </div>
-                    ${locked ? "" : `<button type="button" data-replay-mission="${mission.id}">${done ? "Wiederholen" : "Starten"}</button>`}
+                    ${locked ? "" : `<button type="button" data-replay-mission="${mission.id}">${done ? trSpace("Wiederholen") : trSpace("Starten")}</button>`}
                 </div>
             `;
         }).join("")}
@@ -531,9 +589,9 @@ function renderWorkshop() {
         selectedInfo.innerHTML = `
             <span class="slot-mark">${escapeHtml(slotBadge(selectedSlot.id))}</span>
             <div>
-                <small>Aktiver Bereich</small>
-                <strong>${escapeHtml(selectedSlot.label)}</strong>
-                <em>${selectedPart ? escapeHtml(selectedPart.name) : "leer"}</em>
+                <small>${trSpace("Aktiver Bereich")}</small>
+                <strong>${escapeHtml(trSpace(selectedSlot.label))}</strong>
+                <em>${selectedPart ? escapeHtml(trSpace(selectedPart.name)) : trSpace("leer")}</em>
             </div>
         `;
     }
@@ -543,8 +601,8 @@ function renderWorkshop() {
             <button type="button" class="slot-btn ${programState.selectedSlot === slot.id ? "active" : ""}" data-slot="${slot.id}">
                 <span class="slot-mark">${escapeHtml(slotBadge(slot.id))}</span>
                 <span>
-                    <strong>${escapeHtml(slot.label)}</strong>
-                    <small>${part ? escapeHtml(part.name) : "leer"}</small>
+                    <strong>${escapeHtml(trSpace(slot.label))}</strong>
+                    <small>${part ? escapeHtml(trSpace(part.name)) : trSpace("leer")}</small>
                 </span>
             </button>
         `;
@@ -571,14 +629,14 @@ function renderSlotParts() {
                     <span>${escapeHtml(slotBadge(part.slot))}</span>
                 </div>
                 <div>
-                    <strong>${escapeHtml(part.name)}</strong>
-                    <small>${escapeHtml(part.desc)}</small>
+                    <strong>${escapeHtml(trSpace(part.name))}</strong>
+                    <small>${escapeHtml(trSpace(part.desc))}</small>
                     ${renderTags(part)}
                 </div>
-                <button type="button" class="item-action ${equipped ? "" : "primary"}" data-equip="${part.id}" ${equipped ? "disabled" : ""}>${equipped ? "aktiv" : "einbauen"}</button>
+                <button type="button" class="item-action ${equipped ? "" : "primary"}" data-equip="${part.id}" ${equipped ? "disabled" : ""}>${equipped ? trSpace("aktiv") : trSpace("einbauen")}</button>
             </div>
         `;
-    }).join("") || `<div class="part-card"><strong>Noch keine Teile</strong><small>Kaufe zuerst im Shop passende Bauteile.</small></div>`;
+    }).join("") || `<div class="part-card"><strong>${trSpace("Noch keine Teile")}</strong><small>${trSpace("Kaufe zuerst im Shop passende Bauteile.")}</small></div>`;
     document.querySelectorAll("[data-equip]").forEach(button => {
         button.addEventListener("click", () => equipPart(button.dataset.equip));
     });
@@ -629,7 +687,7 @@ function renderShop() {
     const subjects = ["all", ...Object.keys(SUBJECT_BONUSES), "start", "victory"];
     document.getElementById("shopFilters").innerHTML = subjects.map(subject => `
         <button type="button" class="shop-filter ${programState.shopFilter === subject ? "active" : ""}" data-filter="${subject}">
-            ${subject === "all" ? "Alle" : subject === "start" ? "Basis" : subject === "victory" ? "Finale" : escapeHtml(SUBJECT_BONUSES[subject].label)}
+            ${subject === "all" ? trSpace("Alle") : subject === "start" ? trSpace("Basis") : subject === "victory" ? trSpace("Finale") : escapeHtml(trSpace(SUBJECT_BONUSES[subject].label))}
         </button>
     `).join("");
     document.querySelectorAll(".shop-filter").forEach(button => {
@@ -646,13 +704,14 @@ function renderShop() {
         const owned = programState.owned.includes(part.id);
         const unlocked = isPartUnlocked(part, progress);
         const canBuy = unlocked && !owned && getPoints() >= part.cost;
-        const buttonLabel = owned ? "gekauft" : unlocked ? `${part.cost} Punkte` : part.subject === "victory" ? "Finale schaffen" : `${part.globalReq || 0} Kapitelquizze nötig`;
-        const subjectLabel = part.subject === "start" ? "Basis" : part.subject === "victory" ? "Finale" : (SUBJECT_BONUSES[part.subject]?.label || part.subject);
+        const requiredQuizzes = part.globalReq ?? part.req ?? 0;
+        const buttonLabel = owned ? trSpace("gekauft") : unlocked ? `${part.cost} ${trSpace("Punkte")}` : part.subject === "victory" ? trSpace("Finale schaffen") : `${requiredQuizzes} ${trSpace("Kapitelquizze nötig")}`;
+        const subjectLabel = part.subject === "start" ? trSpace("Basis") : part.subject === "victory" ? trSpace("Finale") : trSpace(SUBJECT_BONUSES[part.subject]?.label || part.subject);
         return `
             <article class="shop-card ${owned ? "owned" : ""} ${unlocked ? "" : "locked"}">
-                <p class="space-kicker">${escapeHtml(subjectLabel)} · ${escapeHtml(slotLabel(part.slot))}</p>
-                <strong>${escapeHtml(part.name)}</strong>
-                <small>${escapeHtml(part.desc)}</small>
+                <p class="space-kicker">${escapeHtml(subjectLabel)} · ${escapeHtml(trSpace(slotLabel(part.slot)))}</p>
+                <strong>${escapeHtml(trSpace(part.name))}</strong>
+                <small>${escapeHtml(trSpace(part.desc))}</small>
                 ${renderTags(part)}
                 <button type="button" class="item-action ${canBuy ? "primary" : ""}" data-buy="${part.id}" ${canBuy ? "" : "disabled"}>
                     ${buttonLabel}
@@ -691,9 +750,9 @@ function renderTags(part) {
     const entries = Object.entries(part.stats || {});
     const buffLabels = PART_BUFF_LABELS[part.id] || [];
     if (!entries.length && !part.color && !buffLabels.length) return "";
-    const tags = entries.map(([key, value]) => `<span class="tag">+${value} ${escapeHtml(statLabel(key))}</span>`);
-    buffLabels.forEach(label => tags.push(`<span class="tag">${escapeHtml(label)}</span>`));
-    if (part.color) tags.push(`<span class="tag">Design</span>`);
+    const tags = entries.map(([key, value]) => `<span class="tag">+${value} ${escapeHtml(trSpace(statLabel(key)))}</span>`);
+    buffLabels.forEach(label => tags.push(`<span class="tag">${escapeHtml(trSpace(label))}</span>`));
+    if (part.color) tags.push(`<span class="tag">${trSpace("Design")}</span>`);
     return `<div class="tag-row">${tags.join("")}</div>`;
 }
 
@@ -706,12 +765,12 @@ function renderSolarMap() {
     const completed = Object.values(progress).reduce((sum, item) => sum + item.completed, 0);
     const route = CELESTIAL_BODIES.filter(body => body.id !== "earth");
     document.getElementById("solarMap").innerHTML = `
-        <svg viewBox="0 0 1120 360" role="img" aria-label="Sonnensystem-Route">
+        <svg viewBox="0 0 1120 360" role="img" aria-label="${trSpace("Sonnensystem-Route")}">
             <defs>
                 <radialGradient id="sspSun"><stop offset="0%" stop-color="#fff7ad"/><stop offset="45%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#7c2d12"/></radialGradient>
             </defs>
             <circle cx="70" cy="178" r="42" fill="url(#sspSun)"/>
-            <text x="70" y="248" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="900">Sonne</text>
+            <text x="70" y="248" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="900">${trSpace("Sonne")}</text>
             ${route.map((body, index) => {
                 const x = 168 + index * 118;
                 const y = 178 + Math.sin(index * 1.2) * 34;
@@ -724,8 +783,8 @@ function renderSolarMap() {
                     <line x1="${prevX}" y1="${prevY}" x2="${x - r}" y2="${y}" stroke="${unlocked ? "#38bdf8" : "#334155"}" stroke-width="2" stroke-dasharray="5 7"/>
                     ${body.rings ? `<ellipse cx="${x}" cy="${y}" rx="${r * 1.9}" ry="${r * 0.52}" fill="none" stroke="${unlocked ? body.accent : "#475569"}" stroke-width="3" transform="rotate(-12 ${x} ${y})"/>` : ""}
                     <circle cx="${x}" cy="${y}" r="${r}" fill="${unlocked ? body.color : "#334155"}" opacity="${unlocked ? "1" : "0.42"}"/>
-                    <text x="${x}" y="${y + 42}" text-anchor="middle" fill="${unlocked ? "#e8f4ff" : "#64748b"}" font-size="13" font-weight="800">${escapeHtml(body.name)}</text>
-                    <text x="${x}" y="${y + 59}" text-anchor="middle" fill="#94a3b8" font-size="11">${unlocked ? "Route offen" : req + " Kapitel"}</text>
+                    <text x="${x}" y="${y + 42}" text-anchor="middle" fill="${unlocked ? "#e8f4ff" : "#64748b"}" font-size="13" font-weight="800">${escapeHtml(trSpace(body.name))}</text>
+                    <text x="${x}" y="${y + 59}" text-anchor="middle" fill="#94a3b8" font-size="11">${unlocked ? trSpace("Route offen") : req + " " + trSpace("Kapitel")}</text>
                 `;
             }).join("")}
         </svg>
@@ -742,9 +801,9 @@ function renderSubjectBonuses() {
         const item = progress[subject] || { completed: 0, total: 0 };
         return `
             <article class="bonus-card">
-                <h3>${escapeHtml(bonus.label)}</h3>
-                <p><strong>${item.completed}/${item.total || "-"} Kapitel:</strong> ${escapeHtml(bonus.unlock)}</p>
-                <p>${escapeHtml(bonus.effect)}</p>
+                <h3>${escapeHtml(trSpace(bonus.label))}</h3>
+                <p><strong>${item.completed}/${item.total || "-"} ${trSpace("Kapitel")}:</strong> ${escapeHtml(trSpace(bonus.unlock))}</p>
+                <p>${escapeHtml(trSpace(bonus.effect))}</p>
             </article>
         `;
     }).join("");
@@ -1342,12 +1401,12 @@ function getCurrentRouteEvent(seconds = flightState?.elapsedSeconds || 0, window
 }
 
 function getPhaseLabel(phase) {
-    return ({
+    return trSpace(({
         cruise: "Sonnensystem-Reise",
         calm: "Ruhige Sternenphase",
         invaders: "Space-Invaders-Endphase",
         victory: "Goldene Rakete"
-    })[phase] || "Start";
+    })[phase] || "Start");
 }
 
 function formatTime(seconds) {
@@ -1696,15 +1755,15 @@ function renderFlightSystems() {
     const btnRcs = document.getElementById("btnRcs");
     const btnMap = document.getElementById("btnMapMode");
     if (btnSas) {
-        btnSas.textContent = flightState.sas ? `SAS: ${getSasModeLabel(flightState.sasMode)}` : "SAS: aus";
+        btnSas.textContent = flightState.sas ? `SAS: ${getSasModeLabel(flightState.sasMode)}` : trSpace("SAS: aus");
         btnSas.classList.toggle("active", flightState.sas);
     }
     if (btnRcs) {
-        btnRcs.textContent = flightState.rcs ? "RCS: an" : "RCS: aus";
+        btnRcs.textContent = flightState.rcs ? trSpace("RCS: an") : trSpace("RCS: aus");
         btnRcs.classList.toggle("active", flightState.rcs);
     }
     if (btnMap) {
-        btnMap.textContent = flightState.mapMode ? "Karte: an" : "Karte: aus";
+        btnMap.textContent = flightState.mapMode ? trSpace("Karte: an") : trSpace("Karte: aus");
         btnMap.classList.toggle("active", flightState.mapMode);
     }
     document.querySelectorAll("[data-sas-mode]").forEach(button => {
@@ -1715,6 +1774,7 @@ function renderFlightSystems() {
     updateSciencePanel();
     updateManeuverReadout();
     updateFlightReadouts(true);
+    localizeSpaceProgram(document.querySelector(".flight-console") || document.body);
 }
 
 function updateSciencePanel() {
@@ -1770,19 +1830,19 @@ function updateFlightReadouts(force = false) {
     const hud = document.getElementById("flightHud");
     if (hud) {
         const chips = [
-            `Zeit ${formatTime(flightState.elapsedSeconds)}`,
+            `${trSpace("Zeit")} ${formatTime(flightState.elapsedSeconds)}`,
             phaseLabel,
-            nextRouteEvent && flightState.phase !== "invaders" ? `Nächstes: ${nextRouteEvent.name} (${formatTime(nextRouteEvent.time - flightState.elapsedSeconds)})` : "",
-            `Tempo ${speed}`,
-            `Tank ${fuelPct}%`,
-            flightState.phase === "invaders" ? `Welle ${flightState.invader.wave}` : `Kapseln ${flightState.collectedItems}/${mission.itemGoal}`,
-            flightState.phase === "invaders" ? `Geschütz ${stats.weapon}` : "",
-            flightState.phase === "invaders" ? `Hülle ${flightState.invader.hull}` : "",
-            flightState.phase === "invaders" ? `Endphase ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}` : "",
+            nextRouteEvent && flightState.phase !== "invaders" ? `${trSpace("Nächstes")}: ${trSpace(nextRouteEvent.name)} (${formatTime(nextRouteEvent.time - flightState.elapsedSeconds)})` : "",
+            `${trSpace("Tempo")} ${speed}`,
+            `${trSpace("Tank")} ${fuelPct}%`,
+            flightState.phase === "invaders" ? `${trSpace("Welle")} ${flightState.invader.wave}` : `${trSpace("Kapseln")} ${flightState.collectedItems}/${mission.itemGoal}`,
+            flightState.phase === "invaders" ? `${trSpace("Geschütz")} ${stats.weapon}` : "",
+            flightState.phase === "invaders" ? `${trSpace("Hülle")} ${flightState.invader.hull}` : "",
+            flightState.phase === "invaders" ? `${trSpace("Endphase")} ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}` : "",
             flightState.gravityHint,
-            flightState.shields > 0 ? `Schild ${flightState.shields}` : "",
-            Number(speed) > stats.safeSpeed ? "Tempo rot: retrograde bremsen" : "",
-            flightState.message
+            flightState.shields > 0 ? `${trSpace("Schild")} ${flightState.shields}` : "",
+            Number(speed) > stats.safeSpeed ? trSpace("Tempo rot: retrograde bremsen") : "",
+            trSpace(flightState.message)
         ].filter(Boolean);
         hud.innerHTML = chips.map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
     }

@@ -8,6 +8,28 @@ let globalPhysikScore = parseInt(localStorage.getItem('physik_score')) || 0;
 let answered = new Set();
 let failedOnce = new Set();
 
+const COMMON_UI_TRANSLATIONS = {
+    en: {
+        "Richtig, aber die Punkte gab es nur beim ersten Mal!": "Correct, but points were only awarded the first time!",
+        "Richtig!": "Correct!",
+        "Falsch! Versuch es noch einmal für halbe Punkte.": "Not correct. Try again for half points.",
+        "Richtig. Genau diese Idee ist wichtig.": "Correct. That is the important idea.",
+        "Noch nicht. Lies den Abschnitt noch einmal und probiere es neu.": "Not yet. Read the section again and try once more.",
+        "Bereits gelöst.": "Already solved.",
+        "Punkte": "points",
+        "Halbe Punkte": "half points"
+    },
+    ar: { "Richtig!": "صحيح!", "Punkte": "نقاط", "Bereits gelöst.": "تم الحل بالفعل." },
+    uk: { "Richtig!": "Правильно!", "Punkte": "бали", "Bereits gelöst.": "Уже виконано." },
+    sr: { "Richtig!": "Тачно!", "Punkte": "поени", "Bereits gelöst.": "Већ решено." },
+    tr: { "Richtig!": "Doğru!", "Punkte": "puan", "Bereits gelöst.": "Zaten çözüldü." }
+};
+
+function commonText(text) {
+    const lang = localStorage.getItem('physik_lang') || 'de';
+    return (COMMON_UI_TRANSLATIONS[lang] && COMMON_UI_TRANSLATIONS[lang][text]) || text;
+}
+
 function loadFromStorage() {
     try {
         const saved = localStorage.getItem('physik_answered');
@@ -43,6 +65,8 @@ function playSuccessSound() {
 function updateScoreDisplays() {
     const scoreEl = document.getElementById('score');
     if (scoreEl) scoreEl.innerText = globalPhysikScore;
+    const scoreLabel = document.getElementById('score-label');
+    if (scoreLabel) scoreLabel.innerText = commonText('Punkte') + ':';
     
     const globalScoreVal = document.getElementById('global-score-val');
     if (globalScoreVal) globalScoreVal.innerText = globalPhysikScore;
@@ -79,7 +103,7 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
         if (isCorrect) {
             btn.style.background = "var(--correct)";
             if(fb) {
-                fb.innerText = "✅ Richtig, aber die Punkte gab es nur beim ersten Mal!";
+                fb.innerText = "✅ " + commonText("Richtig, aber die Punkte gab es nur beim ersten Mal!");
                 fb.style.color = "orange";
             }
         }
@@ -108,11 +132,11 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
         btn.style.background = "var(--correct)";
         
         if(fb) {
-            let msg = customMsg ? "✅ " + customMsg : "✅ Richtig!";
+            let msg = customMsg ? "✅ " + customMsg : "✅ " + commonText("Richtig!");
             if (wasPreviouslyWrong && actualPts > 0) {
-                msg += " (Halbe Punkte: +" + actualPts + ")";
+                msg += " (" + commonText("Halbe Punkte") + ": +" + actualPts + ")";
             } else {
-                msg += " (+" + actualPts + " Punkte)";
+                msg += " (+" + actualPts + " " + commonText("Punkte") + ")";
             }
             fb.innerText = msg;
             fb.style.color = "var(--correct)";
@@ -136,7 +160,7 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
         btn.disabled = true; 
         btn.style.opacity = "0.5";
         if(fb) {
-            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Falsch! Versuch es noch einmal für halbe Punkte.";
+            fb.innerText = customMsg ? "❌ " + customMsg : "❌ " + commonText("Falsch! Versuch es noch einmal für halbe Punkte.");
             fb.style.color = "var(--wrong)";
         }
     }
@@ -159,14 +183,14 @@ function handlePracticeAnswer(btn, isCorrect, customMsg = null) {
         playSuccessSound();
         btn.style.background = "var(--correct)";
         if (fb) {
-            fb.innerText = customMsg ? "✅ " + customMsg : "✅ Richtig. Genau diese Idee ist wichtig.";
+            fb.innerText = customMsg ? "✅ " + customMsg : "✅ " + commonText("Richtig. Genau diese Idee ist wichtig.");
             fb.style.color = "var(--correct)";
         }
     } else {
         btn.style.background = "var(--wrong)";
         btn.style.opacity = "0.72";
         if (fb) {
-            fb.innerText = customMsg ? "❌ " + customMsg : "❌ Noch nicht. Lies den Abschnitt noch einmal und probiere es neu.";
+            fb.innerText = customMsg ? "❌ " + customMsg : "❌ " + commonText("Noch nicht. Lies den Abschnitt noch einmal und probiere es neu.");
             fb.style.color = "var(--wrong)";
         }
     }
@@ -240,7 +264,7 @@ function checkAnsweredStatus() {
             });
             const fb = box.querySelector('.feedback');
             if (fb) {
-                fb.innerText = "✅ Bereits gelöst.";
+                fb.innerText = "✅ " + commonText("Bereits gelöst.");
                 fb.style.color = "var(--correct)";
             }
         }

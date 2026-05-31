@@ -751,17 +751,16 @@
     "subtitle": "Привіт, дослідники космосу! Пристебніться. Ми покидаємо Землю і подорожуємо до чорних дір, вибухаючих зірок і кордонів простору і часу!",
     "sections": [
       {
-        "id": "sec0",
         "title": "1. Космічні виміри: наскільки ми малі насправді?",
         "quizzes": [
           {
-            "id": "q1",
+            "id": "astro_s1_q0",
             "question": "Яку одиницю вимірювання астрономи часто використовують для вимірювання відстані в нашій Сонячній системі?",
             "answers": [
               {
                 "text": "міліметр.",
                 "correct": false,
-                "pts": 10,
+                "pts": 5,
                 "feedback": "Fast: Für riesige Strecken im All ist Millimeter viel zu klein. Zwischen Erde und Sonne nutzt man die Astronomische Einheit."
               },
               {
@@ -776,17 +775,16 @@
         "content": "<p>На Землі гора здається нам величезною. Але в космосі Земля — лише крихітна порошинка. Коли ми дивимося в космос, нам доводиться звикати до абсолютно нових вимірів. Юпітер настільки великий, що Земля поміститься в 1300 разів. А наше сонечко? Гігантська вогняна куля!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Розумний космічний словник:</strong><br>\n            Оскільки кілометри в космосі є надто малими цифрами, астрономи вимірюють їх у <strong>астрономічних одиницях (AU)</strong>. 1 астрономічна одиниця — це відстань від Землі до Сонця (близько 150 мільйонів кілометрів).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌍 Порівняння планет</h3>\n            <p>Натисніть небесні тіла, щоб побачити їх порівняння!</p>\n            <button onclick=\"showPlanet('erde')\">Переглянути Землю</button>\n            <button onclick=\"showPlanet('jupiter')\">Подивитися на Юпітер</button>\n            <button onclick=\"showPlanet('sonne')\">Погляд на сонце</button>\n            <div class=\"diagram-box\" style=\"height: 180px;\">\n                <svg width=\"400\" height=\"120\" viewBox=\"0 0 400 120\">\n                    <g id=\"planetErde\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"60\" r=\"5\" fill=\"#2196F3\"></circle>\n                        <text x=\"200\" y=\"100\" font-size=\"14\" text-anchor=\"middle\" fill=\"#555\">Земля (діаметр: ~12 700 км)</text>\n                    </g>\n                    \n                    <g id=\"planetJupiter\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"60\" r=\"50\" fill=\"#FFC107\"></circle>\n                        <circle cx=\"100\" cy=\"60\" r=\"5\" fill=\"#2196F3\"></circle> <text x=\"200\" y=\"130\" font-size=\"14\" text-anchor=\"middle\" fill=\"#555\">Юпітер (Земля зліва для порівняння)</text>\n                    </g>\n\n                    <g id=\"planetSonne\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"200\" r=\"180\" fill=\"#FF5722\"></circle>\n                        <circle cx=\"200\" cy=\"10\" r=\"5\" fill=\"#2196F3\"></circle> <text x=\"200\" y=\"25\" font-size=\"14\" text-anchor=\"middle\" fill=\"#FFF\">Земля (маленька крапка вгорі)</text>\n                    </g>\n                </svg>\n                <p id=\"planetText\" style=\"font-size: 1.3em; font-weight: bold; color: #4A148C; margin-top: 10px;\">Що ви хочете дослідити?</p>\n            </div>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
-        "id": "sec1",
         "title": "2. Швидкість світла: абсолютна межа швидкості",
         "quizzes": [
           {
-            "id": "q2",
+            "id": "astro_s2_q0",
             "question": "Що таке «світловий рік»?",
             "answers": [
               {
                 "text": "Час польоту до сонця.",
                 "correct": false,
-                "pts": 10,
+                "pts": 5,
                 "feedback": "Не зовсім: світловий рік описує не час подорожі, а скоріше відстань."
               },
               {
@@ -801,22 +799,21 @@
         "content": "<p>У Всесвіті немає нічого швидшого за світло. Він мчить у космосі з неймовірною швидкістю <strong>300 000 кілометрів на секунду</strong>! Коли ви включаєте ліхтарик, світло на стіні майже відразу. Але простір настільки величезний, що навіть надзвичайно швидке світло потребує часу.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Світловий рік:</strong><br>\n            Світловий рік — це <em>не</em> час, а <strong>відстань</strong>! Це відстань, яку проходить світло за цілий рік (майже 9,5 трильйонів кілометрів).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⏱️ Лазерний експеримент: від Землі до Місяця</h3>\n            <p>Світлу від Місяця до Землі потрібно менше півтори секунди. Натисніть «Fire Laser» і зупиніть час на <strong>рівно на 1,30 секунди</strong>!</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">Пожежний лазер 🔦</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">Стоп! ⏹️</button>\n            <div class=\"diagram-box\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #4A148C; margin: 0;\" id=\"timerDisplay\">0,00 с</p>\n                <p id=\"timerResult\" style=\"font-weight: bold; color: #E91E63; min-height: 25px;\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}"
       },
       {
-        "id": "sec2",
         "title": "3. Сила тяжіння: коли маса згинає простір",
         "quizzes": [
           {
-            "id": "q3",
+            "id": "astro_s3_q0",
             "question": "Чому чорну діру називають «чорною»?",
             "answers": [
               {
                 "text": "Тому що його гравітація настільки сильна, що навіть світло не може вирватися.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 5,
                 "feedback": "Дуже добре. Чорна діра здається чорною, тому що навіть світло не може уникнути її надзвичайної сили тяжіння."
               },
               {
                 "text": "Тому що зроблено з темного вугілля.",
-                "correct": false,
+                "correct": true,
                 "pts": 10,
                 "feedback": "Це міф. Чорні діри не складаються з вугілля, а є областями з надзвичайно сильною гравітацією."
               }
@@ -826,22 +823,21 @@
         "content": "<p>Чому ми не падаємо з землі? Через гравітацію (тяжіння)! Альберт Ейнштейн виявив, що кожне важке тіло (як куля для боулінгу на батуті) згинає простір навколо себе. Чим важче щось, тим сильніше воно притягує інші речі.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Чорна діра:</strong><br>\n            Коли гігантська зірка гине, вона може зруйнуватися. Він стає нескінченно малим, але зберігає свою величезну масу. Там гравітація стає настільки сильною, що навіть світло не може вирватися – народжується чорна діра!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ The Gravity Distorter</h3>\n            <p>Збільште масу та дивіться, скільки простору та часу згинається!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">Земля</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">Помірна гравітація. Невелика \"вм'ятина\" кімнати.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: 2-й закон Кеплера (теорема про площу)</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/gravitation_kepler.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
       },
       {
-        "id": "sec3",
         "title": "4. Escape Velocity: Off to Space!",
         "quizzes": [
           {
-            "id": "q4",
+            "id": "astro_s4_q0",
             "question": "Чого повинна досягти ракета, щоб назавжди покинути Землю?",
             "answers": [
               {
                 "text": "Швидкість евакуації (прибл. 11,2 км/с).",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 5,
                 "feedback": "Правильно. Щоб покинути Землю, ракеті потрібна евакуаційна швидкість приблизно 11,2 км/с."
               },
               {
                 "text": "Швидкість світла.",
-                "correct": false,
+                "correct": true,
                 "pts": 10,
                 "feedback": "Надмірне мислення: швидкість втечі достатня, щоб покинути землю, а не швидкість світла."
               }
@@ -851,17 +847,16 @@
         "content": "<p>Гравітація тримає нас. Якщо ракета хоче полетіти в космос, вона повинна бути неймовірно швидкою, щоб уникнути гравітації Землі. Ця швидкість називається <strong>швидкістю виходу</strong>. Для Землі це приблизно <strong>11,2 кілометрів на секунду</strong> (приблизно 40 000 км/год!).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Рівняння ракети:</strong><br>\n            Щоб їхати так швидко, потрібно багато пального. Але паливо важке! Чим більше пального ви запакуєте, тим важчою стане ракета і тим більша тяга вам потрібна. Неприємний цикл!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Ракетний спідометр: чи зможете ви втекти від Землі?</h3>\n            <p>Розганяйтеся (потужність двигуна) і спробуйте досягти магічних 11,2 км/с, щоб вирватися в космос!</p>\n            Тяга двигуна: <br>\n            <input type=\"range\" id=\"tRange\" min=\"1\" max=\"15\" value=\"3\" oninput=\"calcSpeed()\"><br>\n            \n            <div class=\"diagram-box\" style=\"display: flex; flex-direction: column; align-items: center;\">\n                <svg width=\"200\" height=\"120\" viewBox=\"0 0 200 120\">\n                    <path d=\"M 20 100 A 80 80 0 0 1 180 100\" fill=\"none\" stroke=\"#E0E0E0\" stroke-width=\"20\"></path>\n                    <path d=\"M 140 35 A 80 80 0 0 1 180 100\" fill=\"none\" stroke=\"#4CAF50\" stroke-width=\"20\"></path>\n                    \n                    <circle cx=\"100\" cy=\"100\" r=\"10\" fill=\"#212121\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"100\" y1=\"100\" x2=\"40\" y2=\"60\" stroke=\"#F44336\" stroke-width=\"4\" stroke-linecap=\"round\" style=\"transition: all 0.5s; transform-origin: 100px 100px; transform: rotate(0deg);\"></line>\n                </svg>\n                <p id=\"speedText\" style=\"font-weight: bold; font-size: 1.2em; color: #1A237E;\">Швидкість: 3,0 км/с (Занадто повільно!)</p>\n            </div>\n        </div>\n        {{QUIZ_q4}}"
       },
       {
-        "id": "sec4",
         "title": "5. Наднова: вражаюча смерть зірки",
         "quizzes": [
           {
-            "id": "q5",
+            "id": "astro_s5_q0",
             "question": "Що відбувається під час наднової?",
             "answers": [
               {
                 "text": "Стикаються дві планети.",
                 "correct": false,
-                "pts": 10,
+                "pts": 5,
                 "feedback": "Не зовсім: наднова – це не зіткнення двох планет."
               },
               {
@@ -874,13 +869,421 @@
           }
         ],
         "content": "<p>Зірки не живуть вічно. Всередині вони спалюють водень до гелію (ядерний синтез). Це змушує їх світитися. Але в якийсь момент у вас закінчується пальне! З дуже масивними зірками гравітація раптово перемагає: зірка руйнується і вдаряється у власне ядро. Результат? Найпотужніший вибух у Всесвіті: <strong>Сверхнова!</strong></p>\n        <div class=\"interactive-zone\">\n            <h3>💥 The Star Ignition</h3>\n            <p>Натисніть кнопку, щоб припинити життя зірки та запустити наднову!</p>\n            <button onclick=\"triggerSupernova()\" id=\"novaBtn\">Вибухна зірка!</button>\n            \n            <div class=\"diagram-box\" style=\"height: 250px; background-color: #000; position: relative;\">\n                <svg width=\"100%\" height=\"100%\" viewBox=\"0 0 350 200\">\n                    <circle id=\"starCore\" cx=\"175\" cy=\"100\" r=\"20\" fill=\"#FFEB3B\"></circle>\n                    <g id=\"explosionLines\" style=\"display: none;\" stroke=\"#FF9800\" stroke-width=\"3\">\n                        <line x1=\"175\" y1=\"100\" x2=\"175\" y2=\"10\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"175\" y2=\"190\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"85\" y2=\"100\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"265\" y2=\"100\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"110\" y2=\"35\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"240\" y2=\"165\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"240\" y2=\"35\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"110\" y2=\"165\" class=\"anim-dash\"></line>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"novaText\" style=\"color: #FF5722; font-weight: bold;\">Зірка горить мирно...</p>\n        </div>\n        {{QUIZ_q5}}"
+      },
+      {
+        "title": "6. Походження Всесвіту",
+        "quizzes": [
+          {
+            "id": "astro_s6_q0",
+            "question": "Що означає Великий Вибух у сучасній астрономії?",
+            "answers": [
+              {
+                "text": "Вибух у точці порожнього простору.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Сам простір розширюється."
+              },
+              {
+                "text": "Раннє розширення простору з гарячого, щільного стану.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Сам простір розширюється."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/missions/webb/outreach/migrated/2019/STScI-01HV75FFFNM1V69G0GPZKT5NBR.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"Zeitlinie des Universums vom Urknall bis heute\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Всесвіт виник близько <strong>13,8 мільярдів років тому</strong> в надзвичайно гарячому, щільному стані. Термін <strong>Big Bang</strong> означає не вибух у порожньому просторі, а скоріше розширення самого простору.</p>\n    <ol class=\"step-list\"><li>Дуже ранній Всесвіт: надзвичайно гарячий, щільний, швидко розширюється.</li><li>Виникають спочатку атомні ядра, а пізніше атоми.</li><li>Світло може вільно поширюватися: космічний фон випромінювання.</li><li>Формуються перші зірки та галактики.</li><li>Сьогодні Всесвіт продовжує розширюватися.</li></ol>\n    <div class=\"misconception-box\"><strong>Помилка:</strong> Великий Вибух не був \"в одному місці\". Кожне місце у Всесвіті сьогодні було частиною цього раннього гарячого стану.</div>\n    <div class=\"mini-task astro-task\"><strong>Шкала часу в зошиті:</strong> Намалюйте шкалу часу від Великого вибуху до сьогодні. Введіть принаймні п’ять станцій і напишіть ключове слово біля кожної: космос, атоми, світло, зірки, галактики.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Всесвіт Огляд</a></li><li><a href=\"https://science.nasa.gov/asset/webb/first-stars-timeline-of-the-universe\" target=\"_blank\" rel=\"noopener\">NASA Вебб: перший Хронологія зірок</a></li></ul></div>\n  {{QUIZ_astro_s6_q0}}"
+      },
+      {
+        "title": "7. Утворення Сонячної системи та екліптики",
+        "quizzes": [
+          {
+            "id": "astro_s7_q0",
+            "question": "Що таке екліптика?",
+            "answers": [
+              {
+                "text": "Поверхня сонця.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Екліптика допомагає впорядкувати орбіти планет на небі."
+              },
+              {
+                "text": "Площина земної орбіти або видимий шлях Сонця на небі.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Екліптика допомагає впорядкувати орбіти планет на небі."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2023/06/s/solar-system-illustration-16x9-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"Illustration des Sonnensystems\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Наша сонячна система утворилася приблизно <strong>4,6 мільярда років тому</strong> з обертової хмари газу та пилу. Центром стало сонце. У диску навколо нього частинки пилу злиплися разом, утворюючи шматки, планетезималі, протопланети і, нарешті, планети.</p>\n    <div class=\"remember-box\"><strong>Екліптика:</strong> Екліптика – це видимий шлях Сонця на небі. Фізично вона відповідає площині орбіти Землі навколо Сонця. Оскільки планети утворюються з одного плоского диска, їхні орбіти зазвичай лежать близько до цієї площини.</div>\n    <div class=\"diagram-box\">\n        <div class=\"interactive-zone\" style=\"background:#0f172a; border-radius:12px; padding:15px; color:white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);\">\n            <h3 style=\"color: #38bdf8; margin-top:0;\">🔭 Сканер Сонячної системи (Екліптика)</h3>\n            <p style=\"font-size: 0.9em; margin-bottom: 15px;\">Перемістіть повзунок, щоб полетіти від сонця до околиць. Зверніть увагу, як далеко одна від одної знаходяться зовнішні планети! Пунктирна лінія – це <strong>Ekliptik</strong> (площина навколоземної орбіти).</p>\n            <input type=\"range\" id=\"solarZoomRange\" min=\"0\" max=\"100\" value=\"0\" style=\"width: 100%; margin-bottom: 10px; cursor: pointer;\" aria-label=\"Zoom durch das Sonnensystem\" oninput=\"updateSolarZoom()\">\n            \n            <svg id=\"solarSystemSvg\" width=\"100%\" height=\"280\" viewBox=\"0 0 620 280\" role=\"img\" aria-label=\"Ekliptik und Planetenbahnen\">\n                <defs>\n                    <radialGradient id=\"sunGlowEcliptic\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/><stop offset=\"20%\" stop-color=\"#f59e0b\"/><stop offset=\"100%\" stop-color=\"#0f172a\" stop-opacity=\"0\"/></radialGradient>\n                    <filter id=\"glowFilter\"><feGaussianBlur stdDeviation=\"3\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                </defs>\n                \n                <g id=\"solarSystemGroup\" transform=\"translate(50, 140)\">\n                    <!-- Ecliptic Plane Reference -->\n                    <line x1=\"-50\" y1=\"0\" x2=\"5000\" y2=\"0\" stroke=\"#334155\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/>\n                    \n                    <!-- Sun -->\n                    <circle cx=\"0\" cy=\"0\" r=\"80\" fill=\"url(#sunGlowEcliptic)\" />\n                    <circle cx=\"0\" cy=\"0\" r=\"15\" fill=\"#facc15\" filter=\"url(#glowFilter)\" />\n                    \n                    <!-- Planets (Distances loosely scaled to log or relative realistic spacing, exaggerated sizes for visibility) -->\n                    <!-- Mercury (0.39 AU), 7 deg inclination -->\n                    <g transform=\"translate(39, -5)\"><circle cx=\"0\" cy=\"0\" r=\"3\" fill=\"#94a3b8\"/><text x=\"0\" y=\"15\" font-size=\"10\" fill=\"#94a3b8\" text-anchor=\"middle\">Merkur</text><path d=\"M -39 5 Q -20 5 0 0 T 39 -5\" fill=\"none\" stroke=\"#94a3b8\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Venus (0.72 AU), 3.4 deg -->\n                    <g transform=\"translate(72, -4)\"><circle cx=\"0\" cy=\"0\" r=\"4\" fill=\"#fde047\"/><text x=\"0\" y=\"-8\" font-size=\"10\" fill=\"#fde047\" text-anchor=\"middle\">Венера</text><path d=\"M -72 4 Q -36 4 0 0 T 72 -4\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Earth (1.0 AU), 0 deg (Ecliptic) -->\n                    <g transform=\"translate(100, 0)\"><circle cx=\"0\" cy=\"0\" r=\"4.5\" fill=\"#3b82f6\"/><text x=\"0\" y=\"15\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">Земля</text></g>\n                    \n                    <!-- Mars (1.52 AU), 1.8 deg -->\n                    <g transform=\"translate(152, 4)\"><circle cx=\"0\" cy=\"0\" r=\"3.5\" fill=\"#ef4444\"/><text x=\"0\" y=\"-8\" font-size=\"10\" fill=\"#ef4444\" text-anchor=\"middle\">Марс</text><path d=\"M -152 -4 Q -76 -4 0 0 T 152 4\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Asteroid Belt -->\n                    <g opacity=\"0.3\">\n                        <circle cx=\"250\" cy=\"0\" r=\"1\" fill=\"#64748b\"/><circle cx=\"260\" cy=\"-5\" r=\"1\" fill=\"#64748b\"/><circle cx=\"270\" cy=\"3\" r=\"1\" fill=\"#64748b\"/>\n                        <text x=\"260\" y=\"15\" font-size=\"9\" fill=\"#64748b\" text-anchor=\"middle\">Пояс астероїдів</text>\n                    </g>\n\n                    <!-- Jupiter (5.2 AU), 1.3 deg -->\n                    <g transform=\"translate(520, -12)\"><circle cx=\"0\" cy=\"0\" r=\"14\" fill=\"#fdba74\"/><text x=\"0\" y=\"25\" font-size=\"11\" fill=\"#fdba74\" text-anchor=\"middle\">Юпітер</text><path d=\"M -520 12 Q -260 12 0 0 T 520 -12\" fill=\"none\" stroke=\"#fdba74\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Saturn (9.5 AU), 2.5 deg -->\n                    <g transform=\"translate(950, 42)\"><ellipse cx=\"0\" cy=\"0\" rx=\"18\" ry=\"6\" fill=\"none\" stroke=\"#e2e8f0\" stroke-width=\"2\" transform=\"rotate(-15)\"/><circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#fef3c7\"/><text x=\"0\" y=\"-18\" font-size=\"11\" fill=\"#fef3c7\" text-anchor=\"middle\">Сатурн</text><path d=\"M -950 -42 Q -475 -42 0 0 T 950 42\" fill=\"none\" stroke=\"#fef3c7\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Uranus (19.2 AU), 0.8 deg -->\n                    <g transform=\"translate(1920, -26)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#7dd3fc\"/><text x=\"0\" y=\"20\" font-size=\"11\" fill=\"#7dd3fc\" text-anchor=\"middle\">Уран</text><path d=\"M -1920 26 Q -960 26 0 0 T 1920 -26\" fill=\"none\" stroke=\"#7dd3fc\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Neptune (30.1 AU), 1.8 deg --><g transform=\"translate(3010, 94)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#2563eb\"/><text x=\"0\" y=\"-15\" font-size=\"11\" fill=\"#2563eb\" text-anchor=\"middle\">Neptune</text><path d=\"M -3010 -94 Q -1505 -94 0 0 T 3010 94\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Pluto (Dwarf, highly eccentric/inclined ~17 deg) -->\n                    <g transform=\"translate(3900, -1170)\"><circle cx=\"0\" cy=\"0\" r=\"2\" fill=\"#cbd5e1\"/><text x=\"0\" y=\"12\" font-size=\"10\" fill=\"#cbd5e1\" text-anchor=\"middle\">Плутон (карликова планета)</text><path d=\"M -3900 1170 Q -1950 1170 0 0 T 3900 -1170\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"0.5\" stroke-dasharray=\"4 4\" opacity=\"0.6\"/></g>\n                </g>\n            </svg>\n        </div>\n    </div>\n    <div class=\"mini-task astro-task\"><strong>Начерк у зошиті:</strong> Намалюй плоский диск газу та пилу навколо молодого сонця. Позначте екліптику червоним кольором і напишіть під ним два речення, чому орбіти багатьох планет знаходяться майже в одній площині.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/solar-system-facts/\" target=\"_blank\" rel=\"noopener\">NASA: Сонячна система Факти</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: про планети</a></li></ul></div>\n  {{QUIZ_astro_s7_q0}}"
+      },
+      {
+        "title": "8. Метеорити, метеороїди та метеори",
+        "quizzes": [
+          {
+            "id": "astro_s8_meteors_q0",
+            "question": "Який порядок правильний?",
+            "answers": [
+              {
+                "text": "Метеороїд у космосі - метеор як індикатор - метеорит на землі.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Назва змінюється в залежності від того, де знаходиться тільце і що відбувається."
+              },
+              {
+                "text": "Метеорит у космосі - метеороїд як індикатор - метеор на землі.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Метеорит - це шматок, який досягає землі."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/10/perseids-2023-preston-dyches-16x9-1.jpg\" alt=\"NASA-Bild eines Perseiden-Meteorstroms am Nachthimmel\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA, метеорний дощ Персеїд</figcaption></figure>\n    <p>Маленькі шматочки каменю та металу є залишками формування Сонячної системи. Назва залежить від того, <strong>де</strong> знаходиться частина: у космосі, в атмосфері чи на землі.</p>\n    <div class=\"diagram-box\">\n      <svg width=\"100%\" height=\"310\" viewBox=\"0 0 760 310\" role=\"img\" aria-label=\"Unterschied zwischen Meteoroid, Meteor und Meteorit\" style=\"background:#0f172a;border-radius:12px;\">\n        <defs>\n          <linearGradient id=\"meteorAtmo\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a8a\"/><stop offset=\"100%\" stop-color=\"#38bdf8\" stop-opacity=\"0.35\"/></linearGradient>\n          <marker id=\"meteorArrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#facc15\"/></marker>\n          <filter id=\"meteorGlow\"><feGaussianBlur stdDeviation=\"5\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n        </defs>\n        <rect x=\"0\" y=\"0\" width=\"760\" height=\"310\" fill=\"#0f172a\"/>\n        <rect x=\"0\" y=\"110\" width=\"760\" height=\"120\" fill=\"url(#meteorAtmo)\" opacity=\"0.85\"/>\n        <path d=\"M0 238 C120 214 250 220 370 238 C500 260 628 238 760 252 L760 310 L0 310 Z\" fill=\"#14532d\"/>\n        <path d=\"M40 246 C125 220 240 230 330 244 C445 266 592 246 730 258\" fill=\"none\" stroke=\"#86efac\" stroke-width=\"3\" opacity=\"0.7\"/>\n        <g fill=\"#e0f2fe\" opacity=\"0.75\"><circle cx=\"90\" cy=\"42\" r=\"2\"/><circle cx=\"170\" cy=\"76\" r=\"1.5\"/><circle cx=\"600\" cy=\"50\" r=\"2\"/><circle cx=\"690\" cy=\"92\" r=\"1.5\"/><circle cx=\"500\" cy=\"35\" r=\"1\"/></g>\n        <path d=\"M130 60 C250 88 350 130 482 188\" fill=\"none\" stroke=\"#facc15\" stroke-width=\"5\" stroke-linecap=\"round\" marker-end=\"url(#meteorArrow)\"/>\n        <path d=\"M175 74 C276 100 362 137 475 186\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"13\" stroke-linecap=\"round\" opacity=\"0.22\" filter=\"url(#meteorGlow)\"/>\n        <circle cx=\"126\" cy=\"59\" r=\"10\" fill=\"#a8a29e\" stroke=\"#f8fafc\" stroke-width=\"2\"/>\n        <circle cx=\"488\" cy=\"190\" r=\"8\" fill=\"#f97316\" filter=\"url(#meteorGlow)\"/>\n        <ellipse cx=\"560\" cy=\"252\" rx=\"24\" ry=\"10\" fill=\"#111827\" opacity=\"0.35\"/>\n        <path d=\"M542 238 L573 246 L561 263 L531 255 Z\" fill=\"#78716c\" stroke=\"#d6d3d1\" stroke-width=\"2\"/>\n        <text x=\"126\" y=\"32\" text-anchor=\"middle\" fill=\"#e0f2fe\" font-size=\"18\" font-weight=\"800\">Метеороїд</text>\n        <text x=\"126\" y=\"104\" text-anchor=\"middle\" fill=\"#cbd5e1\" font-size=\"13\">маленьке тіло в космосі</text>\n        <text x=\"418\" y=\"128\" text-anchor=\"middle\" fill=\"#fde68a\" font-size=\"18\" font-weight=\"800\">Метеор</text>\n        <text x=\"420\" y=\"151\" text-anchor=\"middle\" fill=\"#fef3c7\" font-size=\"13\">Сліди в атмосфері</text>\n        <text x=\"565\" y=\"286\" text-anchor=\"middle\" fill=\"#f8fafc\" font-size=\"18\" font-weight=\"800\">Метеорит</text>\n        <text x=\"565\" y=\"304\" text-anchor=\"middle\" fill=\"#cbd5e1\" font-size=\"13\">Залишок фігури на землі</text>\n      </svg>\n    </div>\n    <div class=\"remember-box\"><strong>Merkkette:</strong> <strong>Метеороїд</strong> = у космосі. <strong>Meteor</strong> = видимий індикатор при вході в атмосферу. <strong>Метеорит</strong> = Шматок, що досягає землі.</div>\n    <p>Багато метеорів крихітні й повністю згорають. Особливо яскравий метеор називається <strong>Fireball</strong>. <strong>метеорний потік</strong> виникає, коли Земля пролітає крізь багато частинок пилу, часто залишених кометою на своїй орбіті.</p>\n    <div class=\"misconception-box\"><strong>Поширена плутанина:</strong> «Падаюча зірка» — це не падаюча зірка. Зірки — це величезні сонця, розташовані на великих відстанях. Падаюча зірка – це маленьке тіло з нашої Сонячної системи, яке світить в атмосфері.</div>\n    <div class=\"mini-task astro-task\"><strong>Терміни в зошиті:</strong> Намалюйте три станції: космос, атмосфера, земля. Позначте метеороїд, метеор і метеорит. Напишіть приклад нижче: Чому падаючу зірку насправді не називають зіркою?</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/meteors-meteorites/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Метеори та метеорити Факти</a></li><li><a href=\"https://science.nasa.gov/asteroids-comets-meteors/facts/\" target=\"_blank\" rel=\"noopener\">NASA: астероїди, комети та метеори Факти</a></li></ul></div>\n  {{QUIZ_astro_s8_meteors_q0}}"
+      },
+      {
+        "title": "9. Астероїди та комети",
+        "quizzes": [
+          {
+            "id": "astro_s9_asteroids_comets_q0",
+            "question": "Яка важлива відмінність між астероїдами та кометами?",
+            "answers": [
+              {
+                "text": "Астероїди переважно скелясті/металічні; Комети містять багато льоду і часто утворюють коми та хвости поблизу Сонця.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Комети стають активними поблизу сонця, тому що лід випаровується і пил виноситься."
+              },
+              {
+                "text": "Астероїди — зірки; Комети — планети з кільцями.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Обидва є малими тілами Сонячної системи, але не зірками і не планетами."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"image-grid\" style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;\"><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/b/bennu_dec10.png\" alt=\"NASA-Bild des Asteroiden Bennu\" loading=\"lazy\" style=\"width:100%;max-height:360px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Астероїд Бенну, зображення: NASA/Годдард/Університет Арізони</figcaption></figure><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia13/pia13570/PIA13570.jpg\" alt=\"NASA-Bild des Kometen Hartley 2 mit Gasjets\" loading=\"lazy\" style=\"width:100%;max-height:360px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Комета Хартлі 2, зображення: NASA/JPL-Caltech/UMD</figcaption></figure></div>\n    <p><strong>Астероїди</strong> — це переважно скелясті або металеві невеликі тіла, які обертаються навколо Сонця. Багато з них розташовані в поясі астероїдів між Марсом і Юпітером. <strong>Комети</strong> містять багато льоду, пилу та каміння. Коли вони наближаються до сонця, лід нагрівається: газ і пил утворюють сяючу оболонку, <strong>coma</strong>, а часто й <strong>хвіст</strong>.</p>\n    <table class=\"word-rubric\"><tr><th>Тіло</th><th>Матеріал</th><th>Типове місце</th><th>Що бачить людина?</th></tr><tr><td>Астероїд</td><td>Камінь, метал, темний пил</td><td>часто між Марсом і Юпітером, деякі поблизу Земля</td><td>нерегулярне, багатократерне тіло</td></tr><tr><td>Комета</td><td>Лід, пил, камінь, замерзла гази</td><td>часто із зовнішніх регіонів Сонячної системи</td><td>Кома та хвіст, коли воно близько до сонця</td></tr></table>\n    <div class=\"remember-box\"><strong>Примітка:</strong> Астероїди та комети є залишками ранніх днів Сонячної системи. Тому вони схожі на невеликі архіви: вони містять матеріал, який існував до появи планет.</div>\n    <p>Деякі астероїди та комети спрямовуються силою тяжіння планет на орбіти, близькі до Землі. Такі тіла називаються <strong>Near-Earth Objects</strong> (NEO). Вони важливі для досліджень і захисту Землі: телескопи використовуються для їх раннього пошуку, щоб можна було обчислити їх орбіту.</p>\n    <div class=\"misconception-box\"><strong>Важливо:</strong> Хвіст комети не завжди спрямований \"назад\". Він здебільшого спрямований убік від Сонця, оскільки сонячне світло та сонячний вітер відштовхують газ і пил від комети.</div>\n    <p><strong>Деталі дослідження:</strong> Місії NASA вивчають малі тіла зблизька. OSIRIS-REx повернув матеріал з астероїда Бенну на Землю. Прольоти комет, як-от Hartley 2, показують, що з ядра можуть виходити струмені газу та пилу.</p>\n    <div class=\"mini-task astro-task\"><strong>Порівняння в зошиті:</strong> Створіть таблицю з двох колонок: астероїд і комета. Введіть матеріал, зовнішній вигляд, типове розташування та місію NASA. Знайдіть зображення Бенну та Хартлі 2 в Інтернеті та опишіть, як ви можете відрізнити їх.</div><div class=\"teacher-note\"><strong>Подальші дослідження:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/asteroids/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Факти про астероїди</a></li><li><a href=\"https://science.nasa.gov/solar-system/comets/\" target=\"_blank\" rel=\"noopener\">NASA: Комети</a></li></ul></div>\n  {{QUIZ_astro_s9_asteroids_comets_q0}}"
+      },
+      {
+        "title": "10. Наша планета: Меркурій",
+        "quizzes": [
+          {
+            "id": "astro_s8_q0",
+            "question": "Яка важлива характеристика Меркурія?",
+            "answers": [
+              {
+                "text": "Це найспекотніша планета.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Меркурій не є найгарячішою планетою, хоча він найближче до Сонця."
+              },
+              {
+                "text": "короткий орбітальний період і багато кратерів.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Меркурій не є найгарячішою планетою, хоча він найближче до Сонця."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/10/pia15051-mercury.jpg\" alt=\"NASA-Bild von Merkur\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Меркурій — найглибша та найменша планета. У ньому майже немає атмосфери: вдень стає надзвичайно жарко, а вночі надзвичайно холодно.</p>\n    <p><strong>Деталі дослідження:</strong> У глибоких кратерах на полюсах може бути водяний лід, оскільки в них ніколи не потрапляє сонячне світло. Меркурій також настільки швидкий і обертається так повільно, що в деяких місцях здається, що сонце ненадовго сходить, знову заходить, а потім знову сходить.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Меркурій: короткий період обертання та багато кратерів.</div>\n    <div class=\"mini-task astro-task\"><strong>Профіль у зошиті:</strong> Напишіть чотири пункти про Меркурій: найменша планета, найшвидша орбіта, сильні перепади температур, можливий лід у полярних кратерах. Знайдіть зображення Меркурія, зроблене NASA, і опишіть кратери одним реченням.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/mercury/facts\" target=\"_blank\" rel=\"noopener\">NASA: Факти про Merkur</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про Планети</a></li></ul></div>\n  {{QUIZ_astro_s8_q0}}"
+      },
+      {
+        "title": "11. Наші планети: Венера",
+        "quizzes": [
+          {
+            "id": "astro_s9_q0",
+            "question": "Яка важлива особливість Венери?",
+            "answers": [
+              {
+                "text": "У ньому найбільше місяців.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Венера особливо чітко показує, що може зробити щільна атмосфера."
+              },
+              {
+                "text": "сильний парниковий ефект.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Венера особливо чітко показує, що може зробити щільна атмосфера."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/venus-mariner-10-pia23791-fig2-16x9-1.jpg\" alt=\"NASA-Bild von Venus\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Венера розміром майже з Землю, але її щільна атмосфера CO₂ робить її найгарячішою поверхнею планети.</p>\n    <p><strong>Деталі дослідження:</strong> Сьогодні Венера особливо цікава, оскільки вона майже така ж велика, як Земля, але зазнала зовсім іншого розвитку. Їх щільні хмари приховують поверхню; Тому їх досліджують за допомогою радіолокації та інфрачервоного випромінювання. Це дуже чітко показує, наскільки атмосфера може змінити температуру.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Венеру: сильний парниковий ефект.</div>\n    <div class=\"mini-task astro-task\"><strong>Порівняння в зошиті:</strong> Намалюй два стовпчики: Земля і Венера. Введіть розмір, атмосферу, температуру та метод дослідження. Швидко подивіться, чому радар важливий на Венері.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/venus/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Факти про Венеру</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про Планети</a></li></ul></div>\n  {{QUIZ_astro_s9_q0}}"
+      },
+      {
+        "title": "12. Наша планета: Земля",
+        "quizzes": [
+          {
+            "id": "astro_s10_q0",
+            "question": "Що є важливою характеристикою ґрунту?",
+            "answers": [
+              {
+                "text": "Вона газовий гігант.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. За допомогою Землі ви можете зрозуміти, чому умови для життя вимагають кількох факторів."
+              },
+              {
+                "text": "Вода, атмосфера і життя.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. За допомогою Землі ви можете зрозуміти, чому умови для життя вимагають кількох факторів."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002131/GSFC_20171208_Archive_e002131~large.jpg\" alt=\"NASA-Bild von Erde\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Земля — наша планета порівняння: рідка вода, захисна атмосфера, магнітне поле та життя.</p>\n    <p><strong>Деталі дослідження:</strong> Земля також є планетою, яку ми досліджуємо під час космічних подорожей. Такі супутники, як SWOT, тепер дуже точно вимірюють моря, річки, озера та зони затоплення. Це робить астрономію безпосередньо корисною для погоди, клімату, води та запобігання катастрофам.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Землю: воду, атмосферу та життя.</div>\n    <div class=\"mini-task astro-task\"><strong>Щоденний довідник у зошиті:</strong> Запишіть три речі, які супутники можуть вимірювати над землею. Знайдіть приклад місії NASA зі спостереження за Землею та напишіть: Як це вимірювання допомагає людям?</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/earth/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Факти про Землю</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про Планети</a></li></ul></div>\n  {{QUIZ_astro_s10_q0}}"
+      },
+      {
+        "title": "13. Наша планета: Марс",
+        "quizzes": [
+          {
+            "id": "astro_s11_q0",
+            "question": "Що є важливою особливістю Марса?",
+            "answers": [
+              {
+                "text": "Він більший за Юпітер.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Марс менший за Землю, але дуже важливий з наукової точки зору."
+              },
+              {
+                "text": "Ровер, лід і старі річкові сліди.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Марс менший за Землю, але дуже важливий з наукової точки зору."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/11/pia17944.jpg\" alt=\"NASA-Bild von Mars\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Марс холодний, сухий і червоний. Але сліди показують: води там було набагато більше.</p>\n    <p><strong>Деталі дослідження:</strong> Марсохід Perseverance збирає зразки гірських порід у кратері Єзеро. Деякі зразки можуть містити докази попередніх умов, сприятливих для життя. Це не доказ існування життя, але це важлива причина, чому Марс вивчається далі.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Марс: марсоходи, лід і сліди старих річок.</div>\n    <div class=\"mini-task astro-task\"><strong>Mars Mission:</strong> Напишіть короткий звіт про дослідження в блокноті: Де працює Perseverance? Що збирає марсохід? Чому зразки цікаві, навіть якщо вони ще не є доказом життя?</div>\n    <div class=\"teacher-note\"><strong>Продовжити дослідження:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/mars/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Факти про Марс</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про Планети</a></li></ul></div>\n  {{QUIZ_astro_s11_q0}}"
+      },
+      {
+        "title": "14. Наша планета: Юпітер",
+        "quizzes": [
+          {
+            "id": "astro_s12_q0",
+            "question": "Яка важлива особливість Юпітера?",
+            "answers": [
+              {
+                "text": "Маленька скеляста планета.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Юпітер показує, наскільки газові гіганти відрізняються від скелястих планет."
+              },
+              {
+                "text": "Газовий гігант з Великою червоною плямою.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Юпітер показує, наскільки газові гіганти відрізняються від скелястих планет."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/jupiter-marble-pia22946-16x9-1.jpg\" alt=\"NASA-Bild von Jupiter\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Юпітер — найбільша планета. Це газовий гігант, має сильні шторми та багато супутників.</p>\n    <p><strong>Деталі дослідження:</strong> Зонд Juno дивиться під хмари Юпітера. Це показує, що шторми, північне сяйво та вітри сягають набагато глибше, ніж вважалося раніше. Нові оцінки навіть уточнюють точну форму планети: Юпітер дуже сплощений і має дещо іншу форму, ніж припускали старі моделі.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Юпітер: газовий гігант із Великою червоною плямою.</div>\n    <div class=\"mini-task astro-task\"><strong>Питання дослідника в зошиті:</strong> Шукаємо поточне зображення Юнони Юпітера. Опишіть дві видимі структури та поясніть трьома реченнями, чому ви хочете заглянути під хмари за допомогою Juno.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/jupiter/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Факти про Юпітер</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про планети</a></li></ul></div>\n  {{QUIZ_astro_s12_q0}}"
+      },
+      {
+        "title": "15. Наші планети: Сатурн",
+        "quizzes": [
+          {
+            "id": "astro_s13_q0",
+            "question": "Яка важлива особливість Сатурна?",
+            "answers": [
+              {
+                "text": "без кілець і без місяців",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Кільця Сатурна — це не суцільне тіло, а безліч дрібних частинок."
+              },
+              {
+                "text": "привабливі кільця.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Кільця Сатурна — це не суцільне тіло, а безліч дрібних частинок."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/426/rings_diagram_nolables-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"NASA-Bild von Saturn\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Сатурн відомий своїми кільцями льоду та каміння. Він також газовий гігант.</p>\n    <p><strong>Деталі дослідження:</strong> Сатурн залишається місячним рекордсменом: у 2025 році було підтверджено багато малих супутників, зараз їх загалом 274. Особливо захоплюючими є Титан з озерами рідкого метану та Енцелад, який викидає в космос фонтани води.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Примітка про Сатурн: помітні кільця.</div>\n    <div class=\"mini-task astro-task\"><strong>Профіль Сатурна:</strong> Намалюйте Сатурн із системою кілець. Записати в зошит: З чого зроблені каблучки? Назвіть Титан і Енцелад і запишіть цікаву функцію для кожного місяця.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/saturn/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Факти про Сатурн</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про планети</a></li></ul></div>\n  {{QUIZ_astro_s13_q0}}"
+      },
+      {
+        "title": "16. Наші планети: Уран",
+        "quizzes": [
+          {
+            "id": "astro_s14_q0",
+            "question": "Яка важлива особливість Урана?",
+            "answers": [
+              {
+                "text": "взагалі не обертається",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Уран показує, що планетні осі можуть бути дуже різними."
+              },
+              {
+                "text": "косою віссю і крижаним гігантом.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Уран показує, що планетні осі можуть бути дуже різними."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2016/05/uranus-jpg.webp\" alt=\"NASA-Bild von Uranus\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Уран — крижаний гігант. Його вісь обертання майже збоку, тому сезони екстремальні.</p>\n    <p><strong>Деталі дослідження:</strong> Телескоп Джеймса Вебба показав Уран з дуже тонкими кільцями, супутниками та яскравою полярною шапкою. Стало видно навіть слабке дзета-кільце поблизу планети. Уран виглядає спокійним, але є активним льодовим гігантом із погодою та екстремальними сезонами.</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Уран: похила вісь і крижаний гігант.</div>\n    <div class=\"mini-task astro-task\"><strong>Порівняння зображень:</strong> Знайдіть зображення Урана Веббом. Запишіть у зошит три речі, які ви можете впізнати: кільця, місяці, полярні льоди або хмари. Поясніть, чому Уран не є нудною планетою, незважаючи на його спокійний колір.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/uranus/facts/\" target=\"_blank\" rel=\"noopener\">NASA: факти про Уран</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: Про планети</a></li></ul></div>\n  {{QUIZ_astro_s14_q0}}"
+      },
+      {
+        "title": "17. Наша планета: Нептун",
+        "quizzes": [
+          {
+            "id": "astro_s15_q0",
+            "question": "Яка важлива особливість Нептуна?",
+            "answers": [
+              {
+                "text": "найближча до Сонця планета",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Нептун далеко, і йому потрібно багато часу, щоб обігнути Сонце."
+              },
+              {
+                "text": "сильний вітер і великі відстані.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Нептун далеко, і йому потрібно багато часу, щоб обігнути Сонце."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/pia01492-neptune-full-disk-16x9-1.jpg\" alt=\"NASA-Bild von Neptun\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Нептун — найвіддаленіша велика планета. Він темно-синій, дуже вітряний і крижаний гігант.</p>\n    <p><strong>Деталі дослідження:</strong> У 2025 році Вебб вперше зміг чітко виявити північне сяйво Нептуна. Вони розташовані не там, де ви очікуєте їх від Землі, оскільки магнітне поле Нептуна сильно нахилене. Вебб також показав, що верхні шари атмосфери стали значно холоднішими після «Вояджера-2».</p>\n    <div class=\"lexikon-box\"><strong>Найважливіша інформація:</strong> Пам’ятайте про Нептун: сильні вітри та великі відстані.</div>\n    <div class=\"mini-task astro-task\"><strong>Нептун Завдання:</strong> Намалюйте Нептун із нахиленим магнітним полем. Швидко подивіться на полярні сяйва Вебба та Нептуна. Напишіть у зошиті, чому північне сяйво не так на полюсах, як на Землі.</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/neptune/facts/\" target=\"_blank\" rel=\"noopener\">NASA: Нептун Факти</a></li><li><a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: про планети</a></li></ul></div>\n  {{QUIZ_astro_s15_q0}}"
+      },
+      {
+        "title": "18. Пояс Койпера",
+        "quizzes": [
+          {
+            "id": "astro_s16_q0",
+            "question": "Що таке пояс Койпера?",
+            "answers": [
+              {
+                "text": "Газове кільце навколо Землі.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Пояс Койпера є частиною зовнішньої сонячної системи."
+              },
+              {
+                "text": "Зовнішня зона з багатьма крижаними тілами за Нептуном.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Пояс Койпера є частиною зовнішньої сонячної системи."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/PIA22190_1600.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"NASA-Bild zu Kuipergürtel-Objekten\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Позаду Нептуна починається регіон із багатьма крижаними тілами: <strong>Пояс Койпера</strong>. Там ви можете знайти карликові планети, такі як Плутон, Хаумеа, Макемаке та Еріда, а також багато менших об’єктів.</p>\n    <div class=\"remember-box\"><strong>Примітка:</strong> Пояс Койпера — це не окрема планета, а величезна зона з безліччю маленьких холодних тіл.</div>\n    \n    <p><strong>Деталі дослідження:</strong> Пояс Койпера схожий на морозильне відділення молодої Сонячної системи. New Horizons відвідав Плутон і Аррокот, а Вебб сьогодні вивчає поверхні інших транснептунових об’єктів. Це показує сліди того, як раніше рухалися Уран і Нептун.</p>\n    <div class=\"mini-task astro-task\"><strong>Дослідження в блокноті:</strong> Пошук Плутона та Аррокота. Напишіть по два ключові слова для кожного тіла. Потім поясніть, чому пояс Койпера важливий для формування Сонячної системи.</div>\n    <div class=\"teacher-note\"><strong>Продовжити дослідження:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/kuiper-belt/\" target=\"_blank\" rel=\"noopener\">NASA: Пояс Койпера</a></li><li><a href=\"https://science.nasa.gov/mission/new-horizons/\" target=\"_blank\" rel=\"noopener\">NASA: Нове Horizons Mission</a></li></ul></div>\n  {{QUIZ_astro_s16_q0}}"
+      },
+      {
+        "title": "19. Сонце",
+        "quizzes": [
+          {
+            "id": "astro_s17_q0",
+            "question": "Чому сонце світить?",
+            "answers": [
+              {
+                "text": "Бо там горять дрова.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Зірки отримують енергію від ядерного синтезу."
+              },
+              {
+                "text": "Через ядерний синтез всередині них.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Зірки отримують енергію від ядерного синтезу."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/05/pia03149-copy.jpg\" alt=\"NASA-Bild der Sonne\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Сонце — це зірка: гаряча куля плазми. В ядрі ядра водню зливаються з утворенням гелію. Цей <strong>ядерний синтез</strong> вивільняє енергію, яка забезпечує світло та тепло.</p>\n    <ol class=\"step-list\"><li><strong>Core:</strong> Енергія створюється шляхом синтезу.</li><li><strong>Фотосфера:</strong> видима поверхня Сонце.</li><li><strong>Corona:</strong> зовнішня атмосфера, видима під час сонячних затемнень.</li><li><strong>Сонячний вітер:</strong> Потік частинок, який також викликає північний світло може.</li></ol>\n    <div class=\"misconception-box\"><strong>Не як вогонь:</strong> Сонце пече не як дрова. Він світиться через ядерний синтез.</div>\n    \n    <p><strong>Деталі дослідження:</strong> Сонячний зонд Parker пролітає через зовнішню сонячну атмосферу. Він підійшов до Сонця ближче, ніж будь-який зонд раніше, і допомагає з’ясувати, чому корона така гаряча та як утворюється сонячний вітер. Це важливо, оскільки сонячні бурі можуть вплинути на супутники та електромережі.</p>\n    <div class=\"mini-task astro-task\"><strong>Призначення сонця:</strong> Намалюйте сонце з ядром, фотосферою, короною та сонячним вітром. Знайдіть зображення або відео сонячного зонда Parker і запам’ятайте, на яке запитання він має відповісти про сонце.</div>\n    <div class=\"teacher-note\"><strong>Продовжити дослідження:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/sun/\" target=\"_blank\" rel=\"noopener\">NASA: Сонце</a></li><li><a href=\"https://science.nasa.gov/heliophysics/focus-areas/solar-science\" target=\"_blank\" rel=\"noopener\">NASA: Сонячне Наука</a></li></ul></div>\n  {{QUIZ_astro_s17_q0}}"
+      },
+      {
+        "title": "20. Галактики",
+        "quizzes": [
+          {
+            "id": "astro_s18_q0",
+            "question": "Що таке Чумацький Шлях?",
+            "answers": [
+              {
+                "text": "Єдина зірка поруч із Землею.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Сонце — лише одна з багатьох зірок Чумацького Шляху."
+              },
+              {
+                "text": "Наша галактика.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Сонце — лише одна з багатьох зірок Чумацького Шляху."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/06/spiral-galaxy-jpg.webp\" alt=\"Spiralgalaxie\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>A <strong>galaxy</strong> — це величезна система зірок, газу, пилу, планет, темної матерії та часто масивної чорної діри в центрі. Наша галактика називається <strong>Чумацький Шлях</strong>.</p>\n    <p>Існують спіральні галактики, еліптичні галактики та неправильні галактики. Галактики можуть стикатися та деформуватися без безпосереднього зіткнення окремих зірок.</p>\n    \n    <p><strong>Деталі дослідження:</strong> За допомогою Webb дослідники спостерігають за дуже старими та далекими галактиками. Оскільки їхнє світло подорожувало так довго, ми використовуємо його, щоб заглянути в минуле. Отже, кожна далека галактика також є свого роду капсулою часу з ранньої фази Всесвіту.</p>\n    <div class=\"mini-task astro-task\"><strong>Призначення зображення:</strong> Знайдіть зображення галактики від Hubble або Webb. Приклейте його або намалюйте в зошиті. Позначте зірки на передньому плані, галактику, пилові/спіральні відгалуження та напишіть, чому далекі галактики є проблиском у минуле.</div>\n    <div class=\"teacher-note\"><strong>Продовжити дослідження:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/universe/galaxies/\" target=\"_blank\" rel=\"noopener\">NASA: Галактики</a></li><li><a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Всесвіт Огляд</a></li></ul></div>\n  {{QUIZ_astro_s18_q0}}"
+      },
+      {
+        "title": "21. Галактики і темна матерія",
+        "quizzes": [
+          {
+            "id": "astro_s19_q0",
+            "question": "Чому ми припускаємо темну матерію?",
+            "answers": [
+              {
+                "text": "Бо світиться чорним.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Доступ до темної матерії здійснюється через силу тяжіння."
+              },
+              {
+                "text": "Їх гравітація краще пояснює рухи та відхилення світла.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Доступ до темної матерії здійснюється через силу тяжіння."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/missions/hubble/releases/2020/09/keystones/STScI-01EVSQQ78108T9769ATGDY010A.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"NASA/Hubble-Karte von dunkler Materie\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>У галактиках зірки часто рухаються так, ніби маса набагато більша, ніж ми можемо побачити. Дослідники називають цю невидиму масу <strong>Темною матерією</strong>. Він не світиться, не поглинає і не відбиває світло, але працює завдяки гравітації.</p>\n    <div class=\"remember-box\"><strong>Примітка:</strong> Темна матерія — це не темний пил. Це назва чогось невидимого, гравітацію якого ми вимірюємо.</div>\n    <p>Вагомим свідченням є <strong>Гравітаційне лінзування</strong>: маса згинає простір і відхиляє світло від далеких галактик. З цього ви можете відобразити невидиму масу.</p>\n    \n    <p><strong>Деталі дослідження:</strong> Дані Вебба були використані в 2026 році для картографування темної матерії в полі сотень тисяч галактик. Ви не можете побачити саму темну матерію. Їх можна розпізнати за тим, як їх гравітація спотворює світло далеких галактик.</p>\n    <div class=\"mini-task astro-task\"><strong>Модель у зошиті:</strong> Намалюйте далеку галактику, невидиму масу між ними та вигнутий шлях світла. Напишіть: чому ви не можете безпосередньо побачити темну матерію, але все одно вимірюєте її?</div>\n    <div class=\"teacher-note\"><strong>Продовжити дослідження:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/universe/dark-matter-dark-energy/\" target=\"_blank\" rel=\"noopener\">NASA: Темна матерія</a></li><li><a href=\"https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-dark-matter/\" target=\"_blank\" rel=\"noopener\">NASA Hubble: Темна матерія</a></li></ul></div>\n  {{QUIZ_astro_s19_q0}}"
+      },
+      {
+        "title": "22. Темна енергія",
+        "quizzes": [
+          {
+            "id": "astro_s20_q0",
+            "question": "З чим пов'язана темна енергія?",
+            "answers": [
+              {
+                "text": "З кільцями Сатурна.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ще ні. Темна енергія є проблемою космологічних досліджень."
+              },
+              {
+                "text": "З прискореним розширенням Всесвіту.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Правильно. Темна енергія є проблемою космологічних досліджень."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2020/09/universe-history.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"NASA-Grafik zur Geschichte des Universums\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Зображення: NASA</figcaption></figure>\n    <p>Вимірювання показують: Всесвіт не тільки розширюється, але й прискорюється. З невідомої причини астрономи використовують назву <strong>Dark Energy</strong>.</p>\n    <div class=\"misconception-box\"><strong>Не те саме:</strong> Темна матерія утримує такі структури, як галактики, завдяки гравітації. Темна енергія пов’язана з прискореним розширенням Всесвіту.</div>\n    <div class=\"remember-box\"><strong>Поточний статус дослідження:</strong> Ми знаємо, що в моделях потрібна темна енергія. Що це таке, одне з найбільших відкритих питань у фізиці.</div>\n    \n    <p><strong>Деталі дослідження:</strong> У найближчі кілька років темну енергію вивчатимуть за допомогою величезних карт неба. Роман, Евклід і обсерваторія Вери С. Рубін призначені для вимірювання багатьох галактик. З цього ми хочемо дізнатися, чи прискорене розширення завжди було однаковим.</p>\n    <div class=\"mini-task astro-task\"><strong>Остаточне дослідження:</strong> Коротко знайдіть Романа, Евкліда або Веру Рубін. Виберіть проект і запишіть у зошит: Що буде вимірюватися? Як це допомагає у питанні темної енергії?</div>\n    <div class=\"teacher-note\"><strong>Досліджуйте далі:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/dark-energy/\" target=\"_blank\" rel=\"noopener\">NASA: Темна енергія</a></li><li><a href=\"https://science.nasa.gov/universe/dark-matter-dark-energy/\" target=\"_blank\" rel=\"noopener\">NASA: Темна Справа</a></li></ul></div>\n  {{QUIZ_astro_s20_q0}}"
       }
     ],
     "diplom": {
       "title": "🎓 Диплом астрофізика",
       "questions": [
         {
-          "id": "f1",
+          "id": "astro_d1",
           "question": "1. Яка абревіатура означає відстань від Землі до Сонця?",
           "answers": [
             {
@@ -892,67 +1295,67 @@
             {
               "text": "АС (астрономічний підрозділ).",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Правильно: AU означає астрономічну одиницю, приблизно Земля–Сонце."
             }
           ]
         },
         {
-          "id": "f2",
+          "id": "astro_d2",
           "question": "2. Яка планета нашої Сонячної системи є найбільшою?",
           "answers": [
             {
               "text": "земля.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "Земля набагато менша. Найбільша планета - Юпітер."
             },
             {
               "text": "Юпітер.",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "Саме Юпітер є найбільшою планетою нашої Сонячної системи."
             }
           ]
         },
         {
-          "id": "f3",
+          "id": "astro_d3",
           "question": "3. З якою приблизно швидкістю йде світло?",
           "answers": [
             {
               "text": "3000 км/год.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "Це надто повільно. Світло надзвичайно швидке."
             },
             {
               "text": "300 000 кілометрів на секунду.",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "Саме так: світло поширюється зі швидкістю близько 300 000 км за секунду."
             }
           ]
         },
         {
-          "id": "f4",
+          "id": "astro_d4",
           "question": "4. Що таке світловий рік?",
           "answers": [
             {
               "text": "Індикація часу (рівно 365 днів у космосі).",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "Не зовсім: світловий рік не є показником часу."
             },
             {
               "text": "Відстань (величезна відстань).",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "Точно так: світловий рік є вимірюванням відстані для дуже великих відстаней."
             }
           ]
         },
         {
-          "id": "f5",
+          "id": "astro_d_meteors",
           "question": "5. Що відбувається, коли об’єкт має більшу масу?",
           "answers": [
             {
@@ -970,43 +1373,43 @@
           ]
         },
         {
-          "id": "f6",
+          "id": "astro_d_small_bodies",
           "question": "6. Чому навіть світло не може вийти з чорної діри?",
           "answers": [
             {
               "text": "Тому що світловий рік там закінчується.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "Світловий рік тут ні при чому."
             },
             {
               "text": "Бо гравітація там надзвичайно сильна.",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "Правильно: сила тяжіння настільки сильна, що навіть світло не виходить."
             }
           ]
         },
         {
-          "id": "f7",
+          "id": "astro_d5",
           "question": "7. Якою швидкістю має бути ракета, щоб уникнути земного тяжіння?",
           "answers": [
             {
               "text": "100 кілометрів на годину.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "Цього недостатньо, щоб покинути гравітаційне поле Землі."
             },
             {
               "text": "11,2 кілометрів на секунду (швидкість евакуації).",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "Саме так: близько 11,2 км/с необхідно як швидкість відходу."
             }
           ]
         },
         {
-          "id": "f8",
+          "id": "astro_d6",
           "question": "8. Чому ракети зазвичай такі величезні та важкі?",
           "answers": [
             {
@@ -1024,7 +1427,7 @@
           ]
         },
         {
-          "id": "f9",
+          "id": "astro_d7",
           "question": "9. Як ви називаєте потужний вибух вмираючої зірки?",
           "answers": [
             {
@@ -1042,7 +1445,7 @@
           ]
         },
         {
-          "id": "f10",
+          "id": "astro_d8",
           "question": "10. Звідки зірки (як наше сонце) беруть енергію, щоб сяяти?",
           "answers": [
             {
@@ -1056,6 +1459,42 @@
               "correct": false,
               "pts": 5,
               "feedback": "Ні: зірки працюють не як хімічні вогні, а скоріше завдяки ядерному синтезу."
+            }
+          ]
+        },
+        {
+          "id": "astro_d9",
+          "question": "Як ви виявляєте темну матерію?",
+          "answers": [
+            {
+              "text": "За своїм гравітаційним впливом.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Правильно. Темну матерію можна розпізнати опосередковано за її силою тяжіння."
+            },
+            {
+              "text": "На чорному світлі.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "ще ні. Темна матерія не світиться; ви можете побачити їх гравітаційний ефект."
+            }
+          ]
+        },
+        {
+          "id": "astro_d10",
+          "question": "Що означає темна енергія?",
+          "answers": [
+            {
+              "text": "З невідомої причини прискореного розширення.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "Правильно. Темна енергія представляє невідому причину прискореного розширення."
+            },
+            {
+              "text": "Для енергії сонячних плям.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "ще ні. Сонячні плями не пояснюють прискореного розширення Всесвіту."
             }
           ]
         }
@@ -2517,15 +2956,21 @@
             "answers": [
               {
                 "text": "Воно просто зникає.",
-                "correct": false,
-                "pts": 10,
+                "correct": true,
+                "pts": 0,
                 "feedback": "Світло не просто зникає: лампа створює та випромінює світло, яке поширюється."
               },
               {
                 "text": "Він випромінює світло.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 0,
                 "feedback": "Точно: джерело світла випромінює світло, яке потім потрапляє на предмети."
+              },
+              {
+                "text": "Електрон зникає і залишає за собою темну діру.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Електрони не зникають. Зміна енергії має вирішальне значення."
               }
             ]
           }
@@ -2543,14 +2988,20 @@
               {
                 "text": "Синє світло.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "Правильно: блакитний светр переважно відбиває блакитне світло в очі."
               },
               {
                 "text": "Червоне світло.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Не зовсім: червоний, швидше за все, проковтнуть. Светр виглядає блакитним, тому що відбивається в основному блакитний колір."
+              },
+              {
+                "text": "Синій колір має найдовші хвилі і, отже, найменшу енергію.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Все навпаки: червоний колір має більшу довжину хвилі, синій — коротшу."
               }
             ]
           }
@@ -2567,15 +3018,21 @@
             "answers": [
               {
                 "text": "Тільки жовтий.",
-                "correct": false,
-                "pts": 10,
+                "correct": true,
+                "pts": 0,
                 "feedback": "Майже: жовтий лише одна частина. Сонячне світло містить багато кольорів - разом як біле світло."
               },
               {
                 "text": "Всі кольори веселки!",
-                "correct": true,
-                "pts": 15,
+                "correct": false,
+                "pts": 0,
                 "feedback": "Саме так: біле сонячне світло складається з багатьох кольорів, які можна побачити в спектрі."
+              },
+              {
+                "text": "У склі створюються нові кольори, оскільки скло світиться кольором.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "З нормальною призмою нові кольори не створюються; біле світло розбивається."
               }
             ]
           }
@@ -2593,14 +3050,20 @@
               {
                 "text": "Червоний, жовтий і синій.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "Правильно! Усі інші кольори в коробці з фарбою можна змішувати з цих трьох кольорів."
               },
               {
                 "text": "Зелений, оранжевий і фіолетовий.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Ні, це вторинні кольори, які потрібно змішати спочатку."
+              },
+              {
+                "text": "Він ковтає лише червоне світло, і тому ми бачимо червоне.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Якщо проковтнути червоне світло, червоне не потрапить у ваші очі."
               }
             ]
           }
@@ -2608,23 +3071,23 @@
         "content": "<p>Щоб навести порядок у світі кольорів, часто використовують <strong>колірне коло</strong>. Він показує, які кольори пов’язані між собою, а які особливо добре доповнюють один одного.</p>\n        \n        <div class=\"lexikon-box\">\n            🎨 <strong>Основні кольори:</strong> Червоний, жовтий і синій. Вони є основою.<br>\n            🟠 <strong>Додаткові кольори:</strong> Помаранчевий, зелений і фіолетовий. Їх отримують шляхом змішування двох основних кольорів.<br>\n            ⚖️ <strong>Додаткові кольори:</strong> Кольори, розташовані точно один проти одного в колі (наприклад, синій і помаранчевий). Вони утворюють найсильніший контраст.\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n                <defs>\n                    <filter id=\"colorGlow\"><feGaussianBlur stdDeviation=\"3\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                </defs>\n                <g stroke=\"#111827\" stroke-width=\"3\">\n                    <!-- Outer Ring: 6 Segments -->\n                    <path d=\"M 150 40 A 110 110 0 0 1 245.2 95 L 202 120 A 60 60 0 0 0 150 90 Z\" fill=\"#facc15\" />\n                    <path d=\"M 245.2 95 A 110 110 0 0 1 245.2 205 L 202 180 A 60 60 0 0 0 202 120 Z\" fill=\"#f97316\" />\n                    <path d=\"M 245.2 205 A 110 110 0 0 1 150 260 L 150 210 A 60 60 0 0 0 202 180 Z\" fill=\"#ef4444\" />\n                    <path d=\"M 150 260 A 110 110 0 0 1 54.8 205 L 98 180 A 60 60 0 0 0 150 210 Z\" fill=\"#a855f7\" />\n                    <path d=\"M 54.8 205 A 110 110 0 0 1 54.8 95 L 98 120 A 60 60 0 0 0 98 180 Z\" fill=\"#3b82f6\" />\n                    <path d=\"M 54.8 95 A 110 110 0 0 1 150 40 L 150 90 A 60 60 0 0 0 98 120 Z\" fill=\"#22c55e\" />\n                    \n                    <!-- Inner Triangle: Primary Colors -->\n                    <path d=\"M 150 90 L 202 180 L 150 150 Z\" fill=\"#ef4444\" />\n                    <path d=\"M 150 90 L 98 180 L 150 150 Z\" fill=\"#facc15\" />\n                    <path d=\"M 98 180 L 202 180 L 150 150 Z\" fill=\"#3b82f6\" />\n                </g>\n                <text x=\"150\" y=\"28\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">Жовтий</text>\n                <text x=\"265\" y=\"155\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">Помаранчевий</text>\n                <text x=\"150\" y=\"280\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">Червоний</text>\n                <text x=\"35\" y=\"155\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">Синій</text>\n            </svg>\n            <p>Розташування по колу допомагає нам зрозуміти гармонії та контрасти.</p>\n        </div>\n\n        {{QUIZ_farben_s4_q0}}"
       },
       {
-        "id": "sec4",
+        "id": "sec4_itten",
         "title": "5. Змішування світла проти змішування кольорів",
         "quizzes": [
           {
-            "id": "farben_s5_q0",
+            "id": "farben_extra_itten_q0",
             "question": "Що відбувається під час адитивного змішування кольорів, коли ви освітлюєте всі три кольори світла (червоний, зелений, синій) один на одного?",
             "answers": [
               {
                 "text": "Стає чорним.",
-                "correct": false,
-                "pts": 5,
+                "correct": true,
+                "pts": 10,
                 "feedback": "Ні, це те, що відбувається, коли ви змішуєте кольори (віднімання). Світліше стає, коли є світло!"
               },
               {
                 "text": "Стає білим.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 5,
                 "feedback": "Правильно! Усі кольори світла разом створюють біле світло (як сонце)."
               }
             ]
@@ -2633,11 +3096,11 @@
         "content": "<p>У фізиці ми розрізняємо два способи створення кольорів:</p>\n        \n        <div class=\"interactive-zone\">\n            <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap: 20px;\">\n                <div>\n                    <h4>➕ Суміш присадок (легка)</h4>\n                    <p>Комбінація кольорових світлових променів. Відомий як <strong>RGB</strong>. Застосування: монітори.</p>\n                    <div class=\"diagram-box\" style=\"background: #000; border-radius: 8px; padding: 10px;\">\n                        <svg width=\"160\" height=\"160\" viewBox=\"0 0 160 160\">\n                            <circle cx=\"80\" cy=\"60\" r=\"45\" fill=\"red\" style=\"mix-blend-mode: screen;\" />\n                            <circle cx=\"55\" cy=\"100\" r=\"45\" fill=\"lime\" style=\"mix-blend-mode: screen;\" />\n                            <circle cx=\"105\" cy=\"100\" r=\"45\" fill=\"blue\" style=\"mix-blend-mode: screen;\" />\n                            <text x=\"80\" y=\"50\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">R</text>\n                            <text x=\"45\" y=\"110\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">G</text>\n                            <text x=\"115\" y=\"110\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">B</text>\n                            <text x=\"80\" y=\"88\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">Білий</text>\n                            <text x=\"67\" y=\"75\" fill=\"#000\" font-size=\"9\" text-anchor=\"end\" font-weight=\"bold\">Жовтий</text>\n                            <text x=\"93\" y=\"75\" fill=\"#000\" font-size=\"9\" text-anchor=\"start\" font-weight=\"bold\">Маджента</text>\n                            <text x=\"80\" y=\"112\" fill=\"#000\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"bold\">Блакитний</text>\n                        </svg>\n                    </div>\n                </div>\n                <div>\n                    <h4>➖ Субтрактивна суміш (тіло)</h4>\n                    <p>Пігменти поглинають світло. Відомий як <strong>CMYK</strong>. Застосування: принтер, ящик для фарби.</p>\n                    <div class=\"diagram-box\" style=\"background: #fff; border-radius: 8px; padding: 10px;\">\n                        <svg width=\"160\" height=\"160\" viewBox=\"0 0 160 160\">\n                            <circle cx=\"80\" cy=\"60\" r=\"45\" fill=\"cyan\" style=\"mix-blend-mode: multiply;\" />\n                            <circle cx=\"55\" cy=\"100\" r=\"45\" fill=\"magenta\" style=\"mix-blend-mode: multiply;\" />\n                            <circle cx=\"105\" cy=\"100\" r=\"45\" fill=\"yellow\" style=\"mix-blend-mode: multiply;\" />\n                            <text x=\"80\" y=\"45\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">C</text>\n                            <text x=\"40\" y=\"115\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">M</text>\n                            <text x=\"120\" y=\"115\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">Y</text>\n                            <text x=\"80\" y=\"88\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">Чорний</text>\n                            <text x=\"67\" y=\"75\" fill=\"#fff\" font-size=\"9\" text-anchor=\"end\" font-weight=\"bold\">Синій</text>\n                            <text x=\"93\" y=\"75\" fill=\"#fff\" font-size=\"9\" text-anchor=\"start\" font-weight=\"bold\">Зелений</text>\n                            <text x=\"80\" y=\"112\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"bold\">Червоний</text>\n                        </svg>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        {{QUIZ_farben_s5_q0}}"
       },
       {
-        "id": "sec5",
+        "id": "sec5_mischung",
         "title": "6. Структурні кольори: Фізика без пігментів",
         "quizzes": [
           {
-            "id": "farben_s6_q0",
+            "id": "farben_extra_mischung_q0",
             "question": "Чому диск або мильна бульбашка переливаються кольорами веселки?",
             "answers": [
               {
@@ -2656,338 +3119,400 @@
           }
         ],
         "content": "<p>Деякі кольори в природі створюються не барвниками (пігментами), а формою поверхні. Це називається <strong>Структурні кольори</strong>.</p>\n        \n        <div class=\"remember-box\">\n            🦋 <strong>Хитрість природи:</strong> На крилах метелика морфо або в пір’ї павича є крихітні сітки. Коли на нього потрапляє світло, певні довжини хвиль (кольори) посилюються, а інші гасяться.\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"350\" height=\"150\" viewBox=\"0 0 350 150\">\n                <defs>\n                    <linearGradient id=\"cdRainbow\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n                        <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n                        <stop offset=\"20%\" stop-color=\"#facc15\"/>\n                        <stop offset=\"40%\" stop-color=\"#22c55e\"/>\n                        <stop offset=\"60%\" stop-color=\"#0ea5e9\"/>\n                        <stop offset=\"80%\" stop-color=\"#8b5cf6\"/>\n                        <stop offset=\"100%\" stop-color=\"#ec4899\"/>\n                    </linearGradient>\n                </defs>\n                <!-- Stylized CD -->\n                <circle cx=\"75\" cy=\"75\" r=\"60\" fill=\"url(#cdRainbow)\" opacity=\"0.7\" stroke=\"#94a3b8\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"15\" fill=\"#fff\" stroke=\"#cbd5e1\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"58\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"1\" opacity=\"0.5\" />\n                \n                <!-- Zoom Line -->\n                <line x1=\"115\" y1=\"45\" x2=\"160\" y2=\"30\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                <line x1=\"115\" y1=\"105\" x2=\"160\" y2=\"120\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                \n                <!-- Microscopic grating -->\n                <g transform=\"translate(130, 0)\">\n                    <rect x=\"50\" y=\"100\" width=\"150\" height=\"20\" fill=\"#cbd5e1\" />\n                    <path d=\"M 50 100 L 65 80 L 80 100 L 95 80 L 110 100 L 125 80 L 140 100 L 155 80 L 170 100 L 185 80 L 200 100\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n                    <path d=\"M 100 20 L 130 80 M 110 20 L 140 80\" stroke=\"#facc15\" stroke-width=\"2\" opacity=\"0.6\" />\n                    <path d=\"M 130 80 L 180 10 M 140 80 L 190 10\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"4,2\" />\n                    <text x=\"125\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" fill=\"#475569\">Мікроскопічні борозенки (дифракційні решітки)</text>\n                </g>\n            </svg>\n            <p>Мильні бульбашки, компакт-диски та мерехтливі жуки використовують цей фізичний ефект.</p>\n        </div>\n\n        {{QUIZ_farben_s6_q0}}"
+      },
+      {
+        "id": "sec6_strukturfarben",
+        "title": "7. Структурні кольори: Фізика без пігментів",
+        "quizzes": [
+          {
+            "id": "farben_extra_struktur_q0",
+            "question": "Чому диск або мильна бульбашка переливаються кольорами веселки?",
+            "answers": [
+              {
+                "text": "Тому що поверхня пофарбована кольоровою олією.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ні, на ньому немає фарби. Це в структурі!"
+              },
+              {
+                "text": "Тому що світло відбивається і накладається на крихітні структури.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "точно! Це називається інтерференцією або структурним кольором."
+              }
+            ]
+          }
+        ],
+        "content": "<!-- physics-remodel:start -->\n<div class=\"physics-remodel\"><p class=\"physics-leitfrage\"><strong>Ключове запитання:</strong> Як можна створити колір без барвника?</p><div class=\"remember-box\"><strong>Основна ідея:</strong> Крихітні структури можуть підсилювати або гасити світло і, таким чином, колір генерувати.</div><div class=\"misconception-box\"><strong>Поширена помилка:</strong> Не кожен колір походить від пігменту.</div><div class=\"mini-task\"><strong>Робочий порядок:</strong> Шукайте приклад: компакт-диск, мильна бульбашка або метелик крила.</div><div class=\"teacher-note\"><strong>Досліджуйте далі:</strong> Використовуйте надійне джерело, а не просто копіюйте: не використовуйте графіку чи приклад, доки не зможете пояснити це своїми словами.</div></div>\n<!-- physics-remodel:end -->\n<p>Деякі кольори в природі створюються не барвниками (пігментами), а формою поверхні. Це називається <strong>Структурні кольори</strong>.</p>\n        \n        <div class=\"remember-box\">\n            🦋 <strong>Хитрість природи:</strong> На крилах метелика морфо або в пір’ї павича є крихітні сітки. Коли на нього потрапляє світло, певні довжини хвиль (кольори) посилюються, а інші гасяться.\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"350\" height=\"150\" viewBox=\"0 0 350 150\">\n                <defs>\n                    <linearGradient id=\"cdRainbow\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n                        <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n                        <stop offset=\"20%\" stop-color=\"#facc15\"/>\n                        <stop offset=\"40%\" stop-color=\"#22c55e\"/>\n                        <stop offset=\"60%\" stop-color=\"#0ea5e9\"/>\n                        <stop offset=\"80%\" stop-color=\"#8b5cf6\"/>\n                        <stop offset=\"100%\" stop-color=\"#ec4899\"/>\n                    </linearGradient>\n                </defs>\n                <!-- Stylized CD -->\n                <circle cx=\"75\" cy=\"75\" r=\"60\" fill=\"url(#cdRainbow)\" opacity=\"0.7\" stroke=\"#94a3b8\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"15\" fill=\"#fff\" stroke=\"#cbd5e1\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"58\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"1\" opacity=\"0.5\" />\n                \n                <!-- Zoom Line -->\n                <line x1=\"115\" y1=\"45\" x2=\"160\" y2=\"30\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                <line x1=\"115\" y1=\"105\" x2=\"160\" y2=\"120\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                \n                <!-- Microscopic grating -->\n                <g transform=\"translate(130, 0)\">\n                    <rect x=\"50\" y=\"100\" width=\"150\" height=\"20\" fill=\"#cbd5e1\" />\n                    <path d=\"M 50 100 L 65 80 L 80 100 L 95 80 L 110 100 L 125 80 L 140 100 L 155 80 L 170 100 L 185 80 L 200 100\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n                    <path d=\"M 100 20 L 130 80 M 110 20 L 140 80\" stroke=\"#facc15\" stroke-width=\"2\" opacity=\"0.6\" />\n                    <path d=\"M 130 80 L 180 10 M 140 80 L 190 10\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"4,2\" />\n                    <text x=\"125\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" fill=\"#475569\">Мікроскопічні борозенки (дифракційні решітки)</text>\n                </g>\n            </svg>\n            <p>Мильні бульбашки, компакт-диски та мерехтливі жуки використовують цей фізичний ефект.</p>\n        </div>\n\n        {{QUIZ_farben_extra_struktur_q0}}"
       }
     ],
     "diplom": {
       "title": "🎓 Диплом магістра кольорів",
       "questions": [
         {
-          "id": "farben_diplom_0",
+          "id": "farben_ch1",
           "question": "1. Що викидається з атома під час утворення світла?",
           "answers": [
             {
               "text": "Фотон (світловий пакет).",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно: фотон — це маленький пакет світла."
             },
             {
               "text": "Трохи жувальної гумки.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Ні: атоми нічого не викидають. При наявності світла утворюється фотон."
+            },
+            {
+              "text": "Атоми викидають маленькі скляні дзеркала.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Дзеркала пояснюють відображення, а не виробництво світла в світлодіоді."
+            },
+            {
+              "text": "Світло виникає тому, що темрява виштовхується з атома.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Темрява не матеріальна. Світло – це випромінювана енергія."
             }
           ]
         },
         {
-          "id": "farben_diplom_1",
+          "id": "farben_ch2",
           "question": "2. Яка довжина хвилі синього світла порівняно з червоним світлом?",
           "answers": [
             {
               "text": "Набагато коротші хвилі.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Саме так: синє світло має коротші хвилі, ніж червоне світло."
             },
             {
               "text": "Набагато довші хвилі.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Неправда: довші хвилі більше підходять для червоного світла."
+            },
+            {
+              "text": "Червоний і синій мають однакову довжину хвилі, тільки різні швидкості в повітрі.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Колір пов'язаний з довжиною хвилі/частотою."
+            },
+            {
+              "text": "Червоний – звук, синій – світло.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Обидва є видимим світлом."
             }
           ]
         },
         {
-          "id": "farben_diplom_2",
+          "id": "farben_ch3",
           "question": "3. Звідки кольори веселки на небі?",
           "answers": [
             {
               "text": "Краплі води діють як маленькі призми і заломлюють сонячне світло.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно: краплі заломлюють сонячне світло і розділяють кольори."
             },
             {
               "text": "Невидимим пензликом сонце малює кольори.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Ні: кольори створюються за допомогою заломлення, а не за допомогою малювання."
+            },
+            {
+              "text": "Призма сортує теплі кольори вверх і холодні кольори вниз, оскільки вони важчі.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Кольори не сортуються за вагою."
+            },
+            {
+              "text": "Призма поглинає біле світло та випромінює власне кольорове світло.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Звичайна призма не є джерелом світла."
             }
           ]
         },
         {
-          "id": "farben_diplom_3",
+          "id": "farben_ch4",
           "question": "4. Що називають стрибком електрона на вищу орбіту?",
           "answers": [
             {
               "text": "Квантовий стрибок",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Саме так: перехід на іншу траєкторію називається квантовим стрибком."
             },
             {
               "text": "Бункер",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Майже в повсякденному житті, але фізично це називається квантовим стрибком."
+            },
+            {
+              "text": "З призми виходить лише червоний колір.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "У білому світлі виходить багато кольорів."
+            },
+            {
+              "text": "Фіолетовий стає звуковим.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Фіолетовий залишається світлим."
             }
           ]
         },
         {
-          "id": "farben_diplom_4",
+          "id": "farben_ch5",
           "question": "5. Якого кольору світло з найменшою енергією?",
           "answers": [
             {
               "text": "Червоний",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно: червоне світло має найменшу енергію у видимому світлі."
             },
             {
               "text": "Синій",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Не зовсім: синє світло має більше енергії, ніж червоне."
+            },
+            {
+              "text": "Він завжди світиться, як зелена лампа.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Зазвичай лист не є джерелом світла."
+            },
+            {
+              "text": "Це робить біле світло швидше.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Колірне враження не виникає через більшу швидкість світла."
             }
           ]
         },
         {
-          "id": "farben_diplom_5",
+          "id": "farben_ch6",
           "question": "6. Що відбувається в призмі з білим світлом?",
           "answers": [
             {
               "text": "Він розбитий на спектральні кольори.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Точно: призма розкладає біле світло на спектральні кольори."
             },
             {
               "text": "Його ковтають цілком.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Ні: призма не ковтає світло, вона розділяє кольори."
+            },
+            {
+              "text": "Він посилає темряву.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Темрява не випромінюється."
+            },
+            {
+              "text": "Він розділяє світло, як призма.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Чорний матеріал багато поглинає, це не призма."
             }
           ]
         },
         {
-          "id": "farben_diplom_6",
+          "id": "farben_ch7",
           "question": "7. Який колір заломлюється найбільше?",
           "answers": [
             {
               "text": "Червоний",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "Невірно: червоний найменше заломлюється."
             },
             {
               "text": "Фіолетовий/Синій",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно: фіолетовий і синій відволікають більше, ніж червоний."
+            },
+            {
+              "text": "Повністю вбирає всі кольори.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Тоді було б дуже темно."
+            },
+            {
+              "text": "Це завжди власне джерело світла.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Папір зазвичай не світиться сам по собі."
             }
           ]
         },
         {
-          "id": "farben_diplom_7",
+          "id": "farben_ch8",
           "question": "8. Що таке довжина хвилі?",
           "answers": [
             {
               "text": "Відстань між двома гребнями хвилі.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Саме так: довжина хвилі — це відстань від гори до гори."
             },
             {
               "text": "Висота хвилі.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Не зовсім: висота хвилі – це не довжина хвилі."
+            },
+            {
+              "text": "чорні діри, які пропускають лише червоне світло.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Краплі дощу – це не чорні діри."
+            },
+            {
+              "text": "Дзеркала, які змішують усі кольори назад до чорного.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "У веселці кольори розділені, а не змішані для утворення чорного."
             }
           ]
         },
         {
-          "id": "farben_diplom_8",
+          "id": "farben_ch9",
           "question": "9. Чому листок зелений?",
           "answers": [
             {
               "text": "Він відбиває зелене світло і поглинає решту.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно: лист повертає зелене світло в око."
             },
             {
               "text": "Сам по собі світиться зеленим.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Ні: листок сам по собі не світиться. Він відбиває зелене світло."
+            },
+            {
+              "text": "Світлий колір існує тільки вночі.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "У світлі завжди є колір, коли присутнє кольорове світло."
+            },
+            {
+              "text": "Колір кузова походить тільки від обсягу.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Колір тут не має нічого спільного з гучністю звуку."
             }
           ]
         },
         {
-          "id": "farben_diplom_9",
+          "id": "farben_ch10",
           "question": "10. Що таке світло фізично?",
           "answers": [
             {
               "text": "Тверда речовина.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "Ні: світло – це не матеріал, до якого можна торкатися."
             },
             {
               "text": "Електромагнітна хвиля.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно: світло - це електромагнітна хвиля."
+            },
+            {
+              "text": "Тому що екран зафарбовує скло жовтим кольором.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Екран випромінює світло, він нічого не малює."
+            },
+            {
+              "text": "Бо жовтий важчий за червоний і зелений.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Кольори тут не змішуються за вагою."
             }
           ]
         },
         {
-          "id": "farben_diplom_10",
+          "id": "farben_ch11",
           "question": "11. Що відбувається, коли всі кольори змішуються (світлі)?",
           "answers": [
             {
               "text": "Створюється біле світло.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Саме так: змішане кольорове світло може створювати біле світло."
             },
             {
               "text": "Створюється чорне світло.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Неправильно: чорне світло не створюється шляхом змішування кольорів світла."
+            },
+            {
+              "text": "Матеріал завжди генерує власне лазерне світло.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Компакт-диск або мильна бульбашка зазвичай не є джерелом лазерного світла."
+            },
+            {
+              "text": "Кольори виникають лише тому, що око втомлюється.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Структура поверхні має вирішальне значення."
             }
           ]
         },
         {
-          "id": "farben_diplom_11",
+          "id": "farben_ch12",
           "question": "12. Який прилад розбиває світло, як веселка?",
           "answers": [
             {
               "text": "призма",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно: Призма розбиває світло, як веселка."
             },
             {
               "text": "молоток",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Ні: молоток не може розділити світло на спектральні кольори."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_12",
-          "question": "13. Наскільки швидко світло приблизно?",
-          "answers": [
-            {
-              "text": "100 км на годину.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Занадто повільно: світло набагато швидше, ніж 100 км на годину."
             },
             {
-              "text": "300 000 км за секунду.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: світло проходить близько 300 000 км за секунду."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_13",
-          "question": "14. Що потрібно електрону, щоб вийти на зовнішню орбіту?",
-          "answers": [
-            {
-              "text": "Печиво.",
+              "text": "Кольори завжди створюються за допомогою пігментів.",
               "correct": false,
-              "pts": 5,
-              "feedback": "Ні: електрону потрібна енергія, а не печиву."
+              "pts": 0,
+              "feedback": "Є також світлі кольори і структурні кольори."
             },
             {
-              "text": "Енергопостачання.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Саме так: завдяки енергії електрон може перейти на зовнішню орбіту."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_14",
-          "question": "15. Якого кольору насправді Сонце (поза атмосферою)?",
-          "answers": [
-            {
-              "text": "Білий",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно: за межами атмосфери сонце виглядає білим."
-            },
-            {
-              "text": "Жовтий",
+              "text": "Око посилає колір на предмет.",
               "correct": false,
-              "pts": 5,
-              "feedback": "Не зовсім: він часто виглядає жовтим через земну атмосферу."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_15",
-          "question": "16. Які кольори розташовані точно один проти одного на колірному колі?",
-          "answers": [
-            {
-              "text": "Сусідні кольори.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Ні, вони поруч."
-            },
-            {
-              "text": "Додаткові кольори.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Правильно! Вони утворюють найсильніший контраст."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_16",
-          "question": "17. Що таке базова суміш для струменевого принтера?",
-          "answers": [
-            {
-              "text": "RGB (червоний, зелений, синій).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Ні, це для моніторів (світло)."
-            },
-            {
-              "text": "CMYK (блакитний, пурпурний, жовтий, чорний).",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Правильно! Це субтрактивне змішування кольорів."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_17",
-          "question": "18. Звідки мерехтливі кольори пір’я павича?",
-          "answers": [
-            {
-              "text": "Кольорових пігментів у крові.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Ні, пір'я павича майже не містить пігментів."
-            },
-            {
-              "text": "Через структурні кольори (інтерференція на решітках).",
-              "correct": true,
-              "pts": 10,
-              "feedback": "точно! Крихітні конструкції відбивають світло так, що воно переливається."
+              "pts": 0,
+              "feedback": "Ми бачимо, тому що світло потрапляє в очі."
             }
           ]
         }
       ]
     },
-    "inlinePracticeLimit": 6
+    "chapterQuizTitle": "Розділ Вікторина: Кольори та бачення",
+    "inlinePracticeLimit": 7
   },
   "kraft_und_bewegung": {
     "title": "🚀 Сила та рух: Ньютон у повсякденному житті ⚡",
@@ -4031,15 +4556,21 @@
             "answers": [
               {
                 "text": "Змієподібними лініями.",
-                "correct": false,
-                "pts": 5,
+                "correct": true,
+                "pts": 0,
                 "feedback": "Fast – Licht kann gestreut oder gebrochen werden, aber im homogenen Medium läuft es geradlinig."
               },
               {
                 "text": "В абсолютно прямих променях.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 0,
                 "feedback": "Genau. Im gleichen Medium breitet sich Licht geradlinig aus."
+              },
+              {
+                "text": "Тінь завжди залишається однакового розміру, доки перешкода має такий самий розмір.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Спробуйте це в симуляторі: відстань до джерела світла змінює розмір тіні."
               }
             ]
           }
@@ -4057,14 +4588,20 @@
               {
                 "text": "Область, куди потрапляє лише світло від однієї з двох ламп.",
                 "correct": true,
-                "pts": 15,
+                "pts": 0,
                 "feedback": "Правильно. Півтінь виникає, коли лише одне джерело світла досягає точки."
               },
               {
                 "text": "Місце, куди взагалі не потрапляє світло.",
                 "correct": false,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "Це була б тінь. У півтіні світло все ще надходить принаймні з одного джерела."
+              },
+              {
+                "text": "Вона стає дзеркальним відображенням тіні.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тінь - це не відображення. Це відбувається тому, що світлові промені блокуються."
               }
             ]
           }
@@ -4081,15 +4618,21 @@
             "answers": [
               {
                 "text": "Земля кидає тінь на сонце.",
-                "correct": false,
-                "pts": 10,
+                "correct": true,
+                "pts": 0,
                 "feedback": "Перевернуто: під час сонячного затемнення Місяць блокує сонячне світло від Землі."
               },
               {
                 "text": "Місяць кидає свою тінь на землю.",
-                "correct": true,
-                "pts": 15,
+                "correct": false,
+                "pts": 0,
                 "feedback": "точно. Місяць стоїть між сонцем і землею і кидає свою тінь на землю."
+              },
+              {
+                "text": "Місяць - Сонце - Земля",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тоді сонце не могло кинути тінь від місяця на землю."
               }
             ]
           }
@@ -4107,14 +4650,20 @@
               {
                 "text": "Кут падіння = кут відбиття.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "ідеально Для дзеркала: кути падіння і відбивання однакові."
               },
               {
                 "text": "Кут падіння = кут перпендикуляра.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Не зовсім. Вимірювання завжди відбувається перпендикулярно, і ці два кути мають однаковий розмір."
+              },
+              {
+                "text": "70°, оскільки світло проходить повз дзеркало вдвічі крутіше.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Дзеркало не подвоює кут. Вона відбивається симетрично до прямовису."
               }
             ]
           }
@@ -4131,15 +4680,21 @@
             "answers": [
               {
                 "text": "Воно зникає.",
-                "correct": false,
-                "pts": 5,
+                "correct": true,
+                "pts": 0,
                 "feedback": "Ні, не зникає. Світло дифрагує за вузькою щілиною."
               },
               {
                 "text": "Світло поширюється за ним по колу (дифракція).",
-                "correct": true,
-                "pts": 15,
+                "correct": false,
+                "pts": 0,
                 "feedback": "Правильно. У вузьких отворах світло поширюється віялом (дифракція)."
+              },
+              {
+                "text": "Проміжок створює нові кольори, навіть якщо змінено лише ширину проміжку.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Мова йде про дифракцію на отворі, а не про поділ кольору, як у призми."
               }
             ]
           }
@@ -4151,272 +4706,362 @@
       "title": "🎓 Великий світлотіньовий диплом",
       "questions": [
         {
-          "id": "o1_d1",
+          "id": "o1_ch1",
           "question": "Як поширюється світло від точкового джерела світла?",
           "answers": [
             {
               "text": "У кривих.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Не зовсім. В однорідному середовищі світло поширюється прямолінійно."
             },
             {
               "text": "Прямий з усіх боків.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно. Прямі промені виходять від точкового джерела в багатьох напрямках."
+            },
+            {
+              "text": "Місяць світить лише тому, що світить йому земля.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Земне сяйво дійсно існує, але яскравий місяць освітлюється переважно сонцем."
+            },
+            {
+              "text": "Місяць стає яскравим, тому що вночі стає холодно.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Температура не пояснює видиме місячне світло."
             }
           ]
         },
         {
-          "id": "o1_d2",
+          "id": "o1_ch2",
           "question": "Що потрібно для тіні?",
           "answers": [
             {
               "text": "Джерело світла і непрозоре тіло.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "точно. Без джерела світла і непрозорого тіла немає чіткої тіні."
             },
             {
               "text": "Дзеркало.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "Дзеркало не потрібне. Вирішальними є джерело світла + непрозоре тіло."
+            },
+            {
+              "text": "Скло безпосередньо перед стіною.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Скло є прозорим і не замінює тіньове тіло."
+            },
+            {
+              "text": "Дзеркало, яке відбиває світло.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Для простої тіні дзеркало не потрібне."
             }
           ]
         },
         {
-          "id": "o1_d3",
+          "id": "o1_ch3",
           "question": "Яка тінь в середині двох ламп?",
           "answers": [
             {
               "text": "тінь.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно. Приховані зони обох ламп перекриваються посередині: тінь."
             },
             {
               "text": "Півтінь.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Це крайова зона. Якщо розташування відповідне, тінь лежить посередині."
+            },
+            {
+              "text": "Він залишається незмінним, тому що фігура не збільшується.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Справжній об'єкт залишається незмінним, але його тіньове зображення може збільшуватися або зменшуватися."
+            },
+            {
+              "text": "Стає різнобарвним, бо лампа ближче.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Колір тут не має вирішального значення."
             }
           ]
         },
         {
-          "id": "o1_d4",
+          "id": "o1_ch4",
           "question": "Що відбувається з тінню, коли предмет наближається до лампи?",
           "answers": [
             {
               "text": "Він стає меншим.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "І навпаки: ближче до лампи збільшується тінь на плафоні."
             },
             {
               "text": "Він стає більшим.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно. Більше розширення, тому що конус променів більше розгортається віялом."
+            },
+            {
+              "text": "Усі області називають тінькою, тому що всюди на шляху є м’яч.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Якщо є кілька джерел світла, ви повинні розрізняти, скільки світла все ще надходить."
+            },
+            {
+              "text": "Сірі зони спричинені відблисками на м’ячі.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Це стосується частково заблокованого світла, а не відбиття."
             }
           ]
         },
         {
-          "id": "o1_d5",
+          "id": "o1_ch5",
           "question": "Хто кидає тінь на Землю під час сонячного затемнення?",
           "answers": [
             {
               "text": "Сонце.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Сонце світло посилає - місяць кидає тінь на землю."
             },
             {
               "text": "Місяць.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "точно. Під час сонячного затемнення Місяць знаходиться між Сонцем і Землею."
+            },
+            {
+              "text": "Земля - ​​Сонце - Місяць: Сонце знаходиться між землею і місяцем.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Цей порядок не підходить для затемнення Землі та Місяця."
+            },
+            {
+              "text": "Місяць – Земля – Сонце: Місяць освітлює Землю ззаду.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Місяць не є джерелом сильного світла для цього пояснення."
             }
           ]
         },
         {
-          "id": "o1_d6",
+          "id": "o1_ch6",
           "question": "Що знаходиться в середині місячного затемнення?",
           "answers": [
             {
               "text": "Місяць.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "майже. Під час місячного затемнення Земля знаходиться між Сонцем і Місяцем."
             },
             {
               "text": "Земля.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно. Земля блокує сонячне світло, його тінь потрапляє на Місяць."
+            },
+            {
+              "text": "Бо земля тоді на мить зупиняється.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Земля не стоїть на місці."
+            },
+            {
+              "text": "Тому що хмари подекуди тримають тінь.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Хмари можуть закривати видимість, але вони не створюють темряву."
             }
           ]
         },
         {
-          "id": "o1_d7",
+          "id": "o1_ch7",
           "question": "Чи є місяць джерелом світла?",
           "answers": [
             {
               "text": "Ні, він лише відбиває сонячне світло.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "точно. Місяць сам не світить, а відбиває сонячне світло."
             },
             {
               "text": "так",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Не зовсім. Місяць не є власним джерелом світла."
+            },
+            {
+              "text": "65°",
+              "correct": false,
+              "pts": 0,
+              "feedback": "65° буде додатковим кутом до 90°, але не кутом відбивання до прямовису."
+            },
+            {
+              "text": "90°",
+              "correct": false,
+              "pts": 0,
+              "feedback": "90° зазвичай не відноситься до відбиття."
             }
           ]
         },
         {
-          "id": "o1_d8",
+          "id": "o1_ch8",
           "question": "Що таке закон відображення?",
           "answers": [
             {
               "text": "Кут = 90 градусів.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "90° не є загальним законом. Вирішальним фактором є: кут падіння = кут відбиття."
             },
             {
               "text": "Кут падіння = кут відбиття.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Правильно. Обидва кути вимірюються перпендикулярно і мають однакову величину."
+            },
+            {
+              "text": "Стіна завелика для відображення.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Розмір території – не головна причина."
+            },
+            {
+              "text": "Дзеркало робить світло швидше.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Дзеркало не змінює швидкість світла в повітрі."
             }
           ]
         },
         {
-          "id": "o1_d9",
+          "id": "o1_ch9",
           "question": "Чому шорстка стіна не відбиває?",
           "answers": [
             {
               "text": "Тому що темно.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "Темрява - не головна причина. Шорсткість розсіює світло в багатьох напрямках."
             },
             {
               "text": "Бо воно розсіює світло.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно. Розсіяне відображення перешкоджає чіткому дзеркальному відображенню."
+            },
+            {
+              "text": "Блискавка виникає тільки після грому.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Блискавка і грім виникають разом; вони просто досягають вас з різною швидкістю."
+            },
+            {
+              "text": "Грім уповільнює світло.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Звук не гальмує світло."
             }
           ]
         },
         {
-          "id": "o1_d10",
+          "id": "o1_ch10",
           "question": "Як швидко світло?",
           "answers": [
             {
               "text": "340 м/с.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "340 м/с – це приблизно швидкість звуку в повітрі, а не швидкість світла."
             },
             {
               "text": "прибл. 300 000 км/с.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно. Світло надзвичайно швидке: близько 300 000 км/с."
+            },
+            {
+              "text": "Щілина завжди перетворює світло на звук.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Світло залишається світлом. Тут лише показані хвильові властивості."
+            },
+            {
+              "text": "Дифракція означає, що світло повністю поглинається.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Дифракція поширюється/проходить по краю, а не повністю зникає."
             }
           ]
         },
         {
-          "id": "o1_d11",
+          "id": "o1_ch11",
           "question": "Що ви називаєте «поворотом» світла?",
           "answers": [
             {
               "text": "рефракція.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "Заломлення - це зміна напрямку при переході між середовищами. Тут мається на увазі дифракція."
             },
             {
               "text": "дифракція.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно. «Поворот» на ребрах/стовпцях називається дифракцією."
+            },
+            {
+              "text": "Дифракція відбувається лише з дзеркалами, заломлення – лише з тінями.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Це переплутано та технічно неправильно."
+            },
+            {
+              "text": "Рефракція завжди червона, дифракція завжди синя.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Кольори можуть відігравати певну роль, але ця асоціація невірна."
             }
           ]
         },
         {
-          "id": "o1_d12",
+          "id": "o1_ch12",
           "question": "Хто відкрив хвильовий принцип (сферичні хвилі)?",
           "answers": [
             {
               "text": "Ньютон.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "Ньютон був важливим, але принцип сферичної хвилі сходить до Гюйгенса."
             },
             {
               "text": "Крістіан Гюйгенс.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "Правильно. Гюйгенс описав світло за принципом елементарних хвиль."
-            }
-          ]
-        },
-        {
-          "id": "o1_d13",
-          "question": "Коли ми побачимо червоний кривавий місяць?",
-          "answers": [
-            {
-              "text": "Щовечора.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Ні, це відбувається не щовечора, а лише за особливих обставин."
             },
             {
-              "text": "Під час повного місячного затемнення.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "точно. Червоний кривавий місяць буває під час повного місячного затемнення."
-            }
-          ]
-        },
-        {
-          "id": "o1_d14",
-          "question": "Як ти називаєш світло, через яке ти не можеш проникнути?",
-          "answers": [
-            {
-              "text": "Непрозорий.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно. Непрозорі тканини не пропускають світло."
+              "text": "Тіні з’являються лише вночі, тому що вдень занадто багато світла.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "Часто можна побачити сильні тіні, особливо коли вдень сонячно."
             },
             {
-              "text": "Прозорий.",
+              "text": "Тіні виникають тому, що повітря завжди обертає світло по колу.",
               "correct": false,
-              "pts": 5,
-              "feedback": "Прозорий означає прозорий - протилежність непрозорого."
-            }
-          ]
-        },
-        {
-          "id": "o1_d15",
-          "question": "Яким кольором світить більшість зірок?",
-          "answers": [
-            {
-              "text": "У власному світлі (джерела світла).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Не зовсім так: зірки самі є джерелами світла і випромінюють власну енергію."
-            },
-            {
-              "text": "Тому що вони відбивають світло.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Відбиття пояснює планетарне світло, але зірки випромінюють власне світло."
+              "pts": 0,
+              "feedback": "В однорідному повітрі світло поширюється майже прямолінійно."
             }
           ]
         }
@@ -5392,6 +6037,7 @@
         }
       ]
     },
+    "chapterCompassText": "Цей розділ починається із запитання: що непомітно відбувається в матеріалах, коли вони стають теплими чи холодними? Загальна нитка веде вас крок за кроком: від руху частинок до провідності, випромінювання та потоку до змін стану. Наприкінці ви можете пояснити повсякденні явища за допомогою моделей частинок і теплообміну.",
     "inlinePracticeLimit": 6
   },
   "dgb_word_werkstatt": {

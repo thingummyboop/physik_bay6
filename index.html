@@ -63,8 +63,13 @@
         #zeugnis-btn { position: fixed; top: 8px; right: 20px; z-index: 1000; background: linear-gradient(135deg, #FFD700, #FF9800); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; border: 2px solid white; color: #1e293b; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); display: flex; align-items: center; gap: 8px; transition: transform 0.2s; }
         #zeugnis-btn:hover { transform: scale(1.05); }
         #menu-toggle { position: fixed; top: 15px; left: 15px; z-index: 100; background: #3b82f6; color: white; border: none; padding: 10px 12px; border-radius: 5px; cursor: pointer; }
-        .lang-btn { background: #334155; color: white; border: 1px solid #475569; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8em; }
-        .lang-btn.active { background: #3b82f6; border-color: #60a5fa; }
+        .language-menu { display: flex; justify-content: center; padding: 5px 0 15px 0; position: relative; }
+        .language-toggle { align-items: center; background: rgba(15, 23, 42, 0.74); border: 1px solid rgba(219, 234, 254, 0.35); border-radius: 999px; color: white; cursor: pointer; display: flex; font-size: 0.92em; font-weight: 800; gap: 7px; padding: 8px 12px; }
+        .language-toggle:hover, .language-toggle[aria-expanded="true"] { background: rgba(59, 130, 246, 0.35); border-color: #bfdbfe; }
+        .language-panel { background: rgba(15, 23, 42, 0.98); border: 1px solid rgba(219, 234, 254, 0.26); border-radius: 14px; box-shadow: 0 18px 34px rgba(0,0,0,0.32); display: none; gap: 6px; grid-template-columns: repeat(2, minmax(0, 1fr)); left: 50%; min-width: 190px; padding: 8px; position: absolute; top: 48px; transform: translateX(-50%); z-index: 30; }
+        .language-panel.open { display: grid; }
+        .lang-btn { background: #334155; color: white; border: 1px solid #475569; padding: 8px 10px; border-radius: 10px; cursor: pointer; font-size: 0.82em; font-weight: 800; text-align: left; }
+        .lang-btn.active { background: #3b82f6; border-color: #93c5fd; }
     </style>
 </head>
 <body>
@@ -72,13 +77,16 @@
     <button id="zeugnis-btn" onclick="loadPage('topics/dashboard.html', null)">🎓 Mein Zeugnis</button>
     <div id="sidebar">
         <div class="sidebar-header">
-            <div style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; padding: 5px 0 15px 0;">
-                <button onclick="setLanguage('de')" class="lang-btn" id="lang-de" title="Deutsch">DE</button>
-                <button onclick="setLanguage('en')" class="lang-btn" id="lang-en" title="English">EN</button>
-                <button onclick="setLanguage('ar')" class="lang-btn" id="lang-ar" title="العربية">AR</button>
-                <button onclick="setLanguage('uk')" class="lang-btn" id="lang-uk" title="Українська">UK</button>
-                <button onclick="setLanguage('sr')" class="lang-btn" id="lang-sr" title="Српски">SR</button>
-                <button onclick="setLanguage('tr')" class="lang-btn" id="lang-tr" title="Türkçe">TR</button>
+            <div class="language-menu">
+                <button type="button" class="language-toggle" id="language-toggle" onclick="toggleLanguageMenu()" aria-haspopup="true" aria-expanded="false" title="Sprache wählen">🌐 <span id="current-lang-label">DE</span></button>
+                <div class="language-panel" id="language-panel" role="menu" aria-label="Sprache wählen">
+                    <button type="button" onclick="setLanguage('de')" class="lang-btn" id="lang-de" title="Deutsch" role="menuitem">DE Deutsch</button>
+                    <button type="button" onclick="setLanguage('en')" class="lang-btn" id="lang-en" title="English" role="menuitem">EN English</button>
+                    <button type="button" onclick="setLanguage('ar')" class="lang-btn" id="lang-ar" title="العربية" role="menuitem">AR العربية</button>
+                    <button type="button" onclick="setLanguage('uk')" class="lang-btn" id="lang-uk" title="Українська" role="menuitem">UK Українська</button>
+                    <button type="button" onclick="setLanguage('sr')" class="lang-btn" id="lang-sr" title="Српски" role="menuitem">SR Српски</button>
+                    <button type="button" onclick="setLanguage('tr')" class="lang-btn" id="lang-tr" title="Türkçe" role="menuitem">TR Türkçe</button>
+                </div>
             </div>
             <a class="sciverse-brand" href="#topics/space_program.html" onclick="loadPage('topics/space_program.html', null); return false;" aria-label="SciVerse Space Program öffnen">
                 <svg class="sciverse-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -174,15 +182,36 @@
             toggle.setAttribute('aria-expanded', !isCollapsed);
         }
 
+        function toggleLanguageMenu(forceOpen = null) {
+            const panel = document.getElementById('language-panel');
+            const toggle = document.getElementById('language-toggle');
+            if (!panel || !toggle) return;
+            const isOpen = forceOpen === null ? !panel.classList.contains('open') : Boolean(forceOpen);
+            panel.classList.toggle('open', isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        }
+
+        document.addEventListener('click', (event) => {
+            const menu = document.querySelector('.language-menu');
+            if (menu && !menu.contains(event.target)) toggleLanguageMenu(false);
+        });
+
         function setLanguage(l) {
             localStorage.setItem('physik_lang', l);
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             const btn = document.getElementById('lang-' + l);
             if (btn) btn.classList.add('active');
+            const label = document.getElementById('current-lang-label');
+            if (label) label.textContent = l.toUpperCase();
+            document.documentElement.lang = l;
+            toggleLanguageMenu(false);
             
             // Reload current iframe if it's already loading something
             const frame = document.getElementById('game-frame');
             if (frame.src && frame.src !== 'about:blank') {
+                try {
+                    frame.contentWindow.postMessage({ type: 'languageChange', lang: l }, '*');
+                } catch (error) {}
                 frame.contentWindow.location.reload();
             }
         }

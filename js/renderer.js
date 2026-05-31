@@ -1,4 +1,108 @@
 // Physik-Abenteuer Topic Renderer
+const UI_TRANSLATIONS = {
+    en: {
+        "Kapitelquiz": "Chapter quiz",
+        "Übung": "Practice",
+        "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "The chapter quiz for this chapter is being prepared. The practice tasks in the text remain visible for training.",
+        "Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.": "This chapter quiz unlocks after you pass the previous chapter quiz.",
+        "Ein weiterer Versuch füllt sich in": "Another attempt refills in",
+        "Versuchen verfügbar": "attempts available",
+        "Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.": "Only your understanding counts here. You can change all answers before submitting. More than 70% means the chapter is passed.",
+        "Aufgaben": "tasks",
+        "bestanden": "passed",
+        "Für 25 Punkte einen Versuch auffüllen": "Refill one attempt for 25 points",
+        "Kapitelquiz öffnen": "Open chapter quiz",
+        "Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.": "The learning content is hidden during the test. Read carefully, choose your answers, and submit only when you are finished.",
+        "Zurück zum Kapitel": "Back to chapter",
+        "Abgeben": "Submit",
+        "Kein Thema ausgewählt.": "No topic selected.",
+        "Arbeitsblätter zum Üben drucken": "Print practice worksheets",
+        "Fehler beim Laden des Inhalts. Bitte überprüfe deine Internetverbindung.": "Error loading the content. Please check your internet connection.",
+        "Bitte beantworte zuerst Aufgabe": "Please answer task",
+        "Du kannst deine Antworten vor der Abgabe noch ändern.": "You can still change your answers before submitting.",
+        "Richtig": "Correct",
+        "Noch nicht": "Not yet",
+        "Bestanden": "Passed",
+        "Noch nicht bestanden": "Not passed yet",
+        "Das nächste Kapitelquiz ist jetzt freigeschaltet.": "The next chapter quiz is now unlocked.",
+        "Du brauchst mehr als 70%. Übrige Versuche:": "You need more than 70%. Attempts left:",
+        "Noch einmal lernen": "Study again",
+        "Neuen Versuch starten": "Start a new attempt"
+    },
+    ar: {
+        "Kapitelquiz": "اختبار الفصل",
+        "Übung": "تدريب",
+        "Aufgaben": "مهام",
+        "bestanden": "تم النجاح",
+        "Kapitelquiz öffnen": "افتح اختبار الفصل",
+        "Zurück zum Kapitel": "العودة إلى الفصل",
+        "Abgeben": "إرسال",
+        "Kein Thema ausgewählt.": "لم يتم اختيار موضوع.",
+        "Arbeitsblätter zum Üben drucken": "طباعة أوراق تدريب",
+        "Richtig": "صحيح",
+        "Noch nicht": "ليس بعد",
+        "Bestanden": "تم النجاح",
+        "Noch nicht bestanden": "لم يتم النجاح بعد",
+        "Noch einmal lernen": "تعلّم مرة أخرى",
+        "Neuen Versuch starten": "بدء محاولة جديدة"
+    },
+    uk: {
+        "Kapitelquiz": "Тест до розділу",
+        "Übung": "Вправа",
+        "Aufgaben": "завдань",
+        "bestanden": "складено",
+        "Kapitelquiz öffnen": "Відкрити тест",
+        "Zurück zum Kapitel": "Назад до розділу",
+        "Abgeben": "Здати",
+        "Kein Thema ausgewählt.": "Тему не вибрано.",
+        "Arbeitsblätter zum Üben drucken": "Надрукувати вправи",
+        "Richtig": "Правильно",
+        "Noch nicht": "Ще ні",
+        "Bestanden": "Складено",
+        "Noch nicht bestanden": "Ще не складено",
+        "Noch einmal lernen": "Повчитися ще",
+        "Neuen Versuch starten": "Почати нову спробу"
+    },
+    sr: {
+        "Kapitelquiz": "Квиз поглавља",
+        "Übung": "Вежба",
+        "Aufgaben": "задатака",
+        "bestanden": "положено",
+        "Kapitelquiz öffnen": "Отвори квиз",
+        "Zurück zum Kapitel": "Назад на поглавље",
+        "Abgeben": "Предај",
+        "Kein Thema ausgewählt.": "Није изабрана тема.",
+        "Arbeitsblätter zum Üben drucken": "Одштампај вежбе",
+        "Richtig": "Тачно",
+        "Noch nicht": "Још не",
+        "Bestanden": "Положено",
+        "Noch nicht bestanden": "Још није положено",
+        "Noch einmal lernen": "Поново учи",
+        "Neuen Versuch starten": "Покрени нови покушај"
+    },
+    tr: {
+        "Kapitelquiz": "Bölüm testi",
+        "Übung": "Alıştırma",
+        "Aufgaben": "görev",
+        "bestanden": "geçildi",
+        "Kapitelquiz öffnen": "Bölüm testini aç",
+        "Zurück zum Kapitel": "Bölüme dön",
+        "Abgeben": "Teslim et",
+        "Kein Thema ausgewählt.": "Konu seçilmedi.",
+        "Arbeitsblätter zum Üben drucken": "Alıştırma kağıtlarını yazdır",
+        "Richtig": "Doğru",
+        "Noch nicht": "Henüz değil",
+        "Bestanden": "Geçildi",
+        "Noch nicht bestanden": "Henüz geçilmedi",
+        "Noch einmal lernen": "Tekrar çalış",
+        "Neuen Versuch starten": "Yeni deneme başlat"
+    }
+};
+
+function uiText(text) {
+    const lang = localStorage.getItem('physik_lang') || 'de';
+    return (UI_TRANSLATIONS[lang] && UI_TRANSLATIONS[lang][text]) || text;
+}
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -327,7 +431,7 @@ function renderPracticeBox(q) {
 
     return `
         <div class="practice-box" data-id="${escapeHtmlAttr(normalized.id)}">
-            <p class="practice-label">Übung</p>
+            <p class="practice-label">${uiText('Übung')}</p>
             <p><strong>${escapeHtml(normalized.question)}</strong></p>
             ${shuffledAnswers.map(ans => `
                 <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handlePracticeAnswer(this, ${ans.correct}, this.dataset.feedback || null)">${escapeHtml(ans.text)}</button>
@@ -349,38 +453,38 @@ function renderChapterQuizCard(topicId, topic, questions) {
     if (!questions.length) {
         return `
             <div class="card chapter-quiz-card">
-                <p class="chapter-quiz-kicker">Kapitelquiz</p>
+                <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
                 <h2>Verständnischeck</h2>
-                <p>Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.</p>
+                <p>${uiText('Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.')}</p>
             </div>
         `;
     }
 
     const lockText = !unlocked
-        ? 'Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.'
+        ? uiText('Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.')
         : needsRefill
             ? `Du hast gerade keinen Versuch frei. Ein neuer Versuch kommt in ${formatWaitTime(result.nextRefillAt)} zurück. Wenn du nicht weiter probierst, sind in ${formatWaitTime(result.fullRefillAt)} wieder alle 3 Versuche verfügbar.`
             : (!result.passed && attemptsUsed > 0 && result.nextRefillAt)
-                ? `Ein weiterer Versuch füllt sich in ${formatWaitTime(result.nextRefillAt)} wieder auf.`
+                ? `${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(result.nextRefillAt)}.`
                 : '';
 
     const buttonDisabled = !unlocked || needsRefill;
     const status = result.passed
         ? `Bestanden: ${Math.round(result.bestPercent || 0)}%`
-        : `${attemptsAvailable} von ${CHAPTER_QUIZ_MAX_ATTEMPTS} Versuchen verfügbar`;
+        : `${attemptsAvailable} / ${CHAPTER_QUIZ_MAX_ATTEMPTS} ${uiText('Versuchen verfügbar')}`;
 
     return `
         <div class="card chapter-quiz-card" id="chapter-quiz-card">
-            <p class="chapter-quiz-kicker">Kapitelquiz</p>
+            <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
             <h2>${escapeHtml(topic.chapterQuizTitle || 'Verständnischeck zum Kapitel')}</h2>
-            <p>Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.</p>
+            <p>${uiText('Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.')}</p>
             <div class="chapter-quiz-meta">
                 <span>${escapeHtml(status)}</span>
-                <span>${questions.length} Aufgaben</span>
+                <span>${questions.length} ${uiText('Aufgaben')}</span>
             </div>
             ${lockText ? `<p class="chapter-lock">${escapeHtml(lockText)}</p>` : ''}
-            ${needsRefill ? '<button type="button" onclick="unlockChapterQuizWithPlus()">Für 25 Punkte einen Versuch auffüllen</button>' : ''}
-            <button id="chapter-quiz-launch" type="button" onclick="startChapterQuiz()" ${buttonDisabled ? 'disabled' : ''}>Kapitelquiz öffnen</button>
+            ${needsRefill ? `<button type="button" onclick="unlockChapterQuizWithPlus()">${uiText('Für 25 Punkte einen Versuch auffüllen')}</button>` : ''}
+            <button id="chapter-quiz-launch" type="button" onclick="startChapterQuiz()" ${buttonDisabled ? 'disabled' : ''}>${uiText('Kapitelquiz öffnen')}</button>
         </div>
     `;
 }
@@ -406,15 +510,15 @@ function renderChapterQuizPanel(topicId, topic, questions) {
     return `
         <div id="chapter-quiz-panel" class="chapter-quiz-panel" hidden>
             <div class="chapter-quiz-panel-header">
-                <p class="chapter-quiz-kicker">Kapitelquiz</p>
-                <h1>${escapeHtml(topic.title || 'Kapitelquiz')}</h1>
-                <p>Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.</p>
+                <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
+                <h1>${escapeHtml(topic.title || uiText('Kapitelquiz'))}</h1>
+                <p>${uiText('Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.')}</p>
             </div>
             <form id="chapter-quiz-form">
                 ${questionHtml}
                 <div class="chapter-quiz-actions">
-                    <button type="button" onclick="closeChapterQuiz()">Zurück zum Kapitel</button>
-                    <button type="button" class="chapter-submit-btn" onclick="submitChapterQuiz()">Abgeben</button>
+                    <button type="button" onclick="closeChapterQuiz()">${uiText('Zurück zum Kapitel')}</button>
+                    <button type="button" class="chapter-submit-btn" onclick="submitChapterQuiz()">${uiText('Abgeben')}</button>
                 </div>
             </form>
             <div id="chapter-quiz-result" class="chapter-result" role="status" aria-live="polite"></div>
@@ -430,7 +534,7 @@ async function renderTopic() {
     const container = document.getElementById('sections-container');
 
     if (!topicId) {
-        showError("Kein Thema ausgewählt.");
+        showError(uiText("Kein Thema ausgewählt."));
         return;
     }
 
@@ -471,7 +575,7 @@ async function renderTopic() {
             document.body.classList.add('math-theme');
             if (!['mathespiel', 'math_kaenguru'].includes(topicId)) {
                 const wsBtn = document.createElement('button');
-                wsBtn.innerHTML = '🖨️ Arbeitsblätter zum Üben drucken';
+                wsBtn.innerHTML = `🖨️ ${uiText('Arbeitsblätter zum Üben drucken')}`;
                 wsBtn.className = 'worksheet-btn';
                 wsBtn.onclick = () => window.open('worksheet.html?topic=' + topicId, '_blank');
                 container.appendChild(wsBtn);
@@ -565,7 +669,7 @@ async function renderTopic() {
 
     } catch (e) {
         console.error("Render Error:", e);
-        showError("Fehler beim Laden des Inhalts. Bitte überprüfe deine Internetverbindung.");
+        showError(uiText("Fehler beim Laden des Inhalts. Bitte überprüfe deine Internetverbindung."));
     }
 }
 
@@ -613,7 +717,7 @@ function submitChapterQuiz() {
 
     const previousResult = getChapterQuizResult(quiz.topicId);
     if (!previousResult.passed && Number(previousResult.availableAttempts || 0) <= 0) {
-        resultBox.innerHTML = `<p class="wrong">Du hast gerade keinen Versuch frei. Der nächste Versuch kommt in ${formatWaitTime(previousResult.nextRefillAt)} zurück.</p>`;
+        resultBox.innerHTML = `<p class="wrong">${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(previousResult.nextRefillAt)}.</p>`;
         return;
     }
 
@@ -624,7 +728,7 @@ function submitChapterQuiz() {
 
     const firstMissing = answers.findIndex(value => value === null);
     if (firstMissing >= 0) {
-        resultBox.innerHTML = `<p class="wrong">Bitte beantworte zuerst Aufgabe ${firstMissing + 1}. Du kannst deine Antworten vor der Abgabe noch ändern.</p>`;
+        resultBox.innerHTML = `<p class="wrong">${uiText('Bitte beantworte zuerst Aufgabe')} ${firstMissing + 1}. ${uiText('Du kannst deine Antworten vor der Abgabe noch ändern.')}</p>`;
         return;
     }
 
@@ -681,19 +785,19 @@ function submitChapterQuiz() {
     const detailHtml = details.slice(0, 4).map((detail, index) => `
         <li>
             <strong>${index + 1}.</strong>
-            ${detail.isCorrect ? 'Richtig' : 'Noch nicht'}${detail.selectedAnswer && detail.selectedAnswer.feedback ? `: ${escapeHtml(detail.selectedAnswer.feedback)}` : ''}
+            ${detail.isCorrect ? uiText('Richtig') : uiText('Noch nicht')}${detail.selectedAnswer && detail.selectedAnswer.feedback ? `: ${escapeHtml(detail.selectedAnswer.feedback)}` : ''}
         </li>
     `).join('');
 
     resultBox.innerHTML = `
         <div class="${passed ? 'chapter-passed' : 'chapter-failed'}">
-            <h2>${passed ? 'Bestanden' : 'Noch nicht bestanden'}</h2>
+            <h2>${passed ? uiText('Bestanden') : uiText('Noch nicht bestanden')}</h2>
             <p>${correct} von ${quiz.questions.length} richtig: <strong>${percent}%</strong>.</p>
-            <p>${passed ? 'Das nächste Kapitelquiz ist jetzt freigeschaltet.' : attemptsLeft > 0 ? `Du brauchst mehr als 70%. Übrige Versuche: ${attemptsLeft}.` : `Du brauchst mehr als 70%. Der nächste Versuch kommt in ${formatWaitTime(nextResult.nextRefillAt)} zurück.`}</p>
+            <p>${passed ? uiText('Das nächste Kapitelquiz ist jetzt freigeschaltet.') : attemptsLeft > 0 ? `${uiText('Du brauchst mehr als 70%. Übrige Versuche:')} ${attemptsLeft}.` : `${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(nextResult.nextRefillAt)}.`}</p>
             ${detailHtml ? `<ul>${detailHtml}</ul>` : ''}
             <div class="chapter-quiz-actions">
-                <button type="button" onclick="location.reload()">${passed ? 'Zurück zum Kapitel' : 'Noch einmal lernen'}</button>
-                ${!passed && attemptsLeft > 0 ? '<button type="button" onclick="location.reload();">Neuen Versuch starten</button>' : ''}
+                <button type="button" onclick="location.reload()">${passed ? uiText('Zurück zum Kapitel') : uiText('Noch einmal lernen')}</button>
+                ${!passed && attemptsLeft > 0 ? `<button type="button" onclick="location.reload();">${uiText('Neuen Versuch starten')}</button>` : ''}
             </div>
         </div>
     `;
