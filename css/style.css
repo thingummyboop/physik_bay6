@@ -173,6 +173,28 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     padding: 12px;
 }
 
+.bio-textbook-figure {
+    max-width: 760px;
+    margin: 20px auto;
+}
+
+.bio-textbook-figure img {
+    max-height: 360px;
+    object-fit: cover;
+}
+
+.bio-textbook-figure.bio-diagram img {
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 14px;
+}
+
+.bio-textbook-figure figcaption a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .bio-competency-grid,
 .bio-check-grid {
     display: grid;
@@ -371,6 +393,7 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 }
 
 [data-theme="dark"] .bio-image.bio-contain img,
+[data-theme="dark"] .bio-textbook-figure.bio-diagram img,
 [data-theme="dark"] .bio-model-svg {
     background: #102a22;
 }
