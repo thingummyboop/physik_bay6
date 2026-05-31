@@ -57,6 +57,62 @@
             license: "CC BY 3.0 US",
             page: "https://commons.wikimedia.org/wiki/File:Josh_Woodward_-_10_-_Evolution_Instrumental_Version.ogg",
             src: "https://upload.wikimedia.org/wikipedia/commons/8/86/Josh_Woodward_-_10_-_Evolution_Instrumental_Version.ogg"
+        },
+        {
+            title: "Tranquility",
+            artist: "Kevin MacLeod",
+            license: "CC BY 3.0",
+            page: "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_-_Tranquility.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Kevin_MacLeod_-_Tranquility.ogg"
+        },
+        {
+            title: "Inner Light",
+            artist: "Kevin MacLeod",
+            license: "CC BY 3.0",
+            page: "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_-_Inner_Light.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Kevin_MacLeod_-_Inner_Light.ogg"
+        },
+        {
+            title: "Soporific",
+            artist: "Kevin MacLeod",
+            license: "CC BY 3.0",
+            page: "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_-_Soporific.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/9/90/Kevin_MacLeod_-_Soporific.ogg"
+        },
+        {
+            title: "Long Trail",
+            artist: "Kevin MacLeod",
+            license: "Public Domain",
+            page: "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_-_Long_Trail.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/2/29/Kevin_MacLeod_-_Long_Trail.ogg"
+        },
+        {
+            title: "Direct to Video",
+            artist: "Chris Zabriskie",
+            license: "CC BY 4.0",
+            page: "https://commons.wikimedia.org/wiki/File:Chris_Zabriskie_-_01_-_Direct_to_Video.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Chris_Zabriskie_-_01_-_Direct_to_Video.ogg"
+        },
+        {
+            title: "Prelude No. 10",
+            artist: "Chris Zabriskie",
+            license: "CC BY 4.0",
+            page: "https://commons.wikimedia.org/wiki/File:Chris_Zabriskie_-_10_-_Prelude_No_10.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/5/54/Chris_Zabriskie_-_10_-_Prelude_No_10.ogg"
+        },
+        {
+            title: "Prelude No. 18",
+            artist: "Chris Zabriskie",
+            license: "CC BY 4.0",
+            page: "https://commons.wikimedia.org/wiki/File:Chris_Zabriskie_-_18_-_Prelude_No_18.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Chris_Zabriskie_-_18_-_Prelude_No_18.ogg"
+        },
+        {
+            title: "It's Always Too Late to Start Over",
+            artist: "Chris Zabriskie",
+            license: "CC BY 4.0",
+            page: "https://commons.wikimedia.org/wiki/File:Chris_Zabriskie_-_07_-_Its_Always_Too_Late_to_Start_Over.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Chris_Zabriskie_-_07_-_Its_Always_Too_Late_to_Start_Over.ogg"
         }
     ];
 
