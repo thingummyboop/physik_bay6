@@ -946,8 +946,13 @@ function setupControls() {
     });
 
     window.addEventListener("keydown", event => {
+        if (event.code === "Space") {
+            event.preventDefault();
+            event.stopPropagation();
+            if (!event.repeat) stageRocket();
+            return;
+        }
         if (event.repeat) return;
-        if (event.code === "Space") { event.preventDefault(); stageRocket(); }
         if (["ShiftLeft", "ShiftRight"].includes(event.code)) { event.preventDefault(); controls.throttleUp = true; }
         if (["ControlLeft", "ControlRight"].includes(event.code)) { event.preventDefault(); controls.throttleDown = true; }
         if (event.code === "KeyZ") setThrottle(1);
@@ -960,6 +965,11 @@ function setupControls() {
         if (["KeyD", "ArrowRight"].includes(event.code)) controls.right = true;
     });
     window.addEventListener("keyup", event => {
+        if (event.code === "Space") {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
         if (["ShiftLeft", "ShiftRight"].includes(event.code)) controls.throttleUp = false;
         if (["ControlLeft", "ControlRight"].includes(event.code)) controls.throttleDown = false;
         if (["KeyA", "ArrowLeft"].includes(event.code)) controls.left = false;
@@ -1144,23 +1154,23 @@ function updateManeuverReadout() {
 }
 
 function startAnimationLoop() {
-    if (animationId) clearTimeout(animationId);
+    if (animationId) cancelAnimationFrame(animationId);
     lastFrameTime = performance.now();
-    const tick = () => {
-        const now = performance.now();
+    const tick = now => {
         const elapsed = now - lastFrameTime;
-        const minFrameMs = flightState?.launched && !flightState.paused ? 34 : 180;
+        const isActive = flightState?.launched && !flightState.paused && !flightState.crashed && !flightState.completed;
+        const minFrameMs = isActive ? 1000 / 45 : 140;
         if (elapsed < minFrameMs) {
-            animationId = setTimeout(tick, 16);
+            animationId = requestAnimationFrame(tick);
             return;
         }
-        const dt = Math.min(3, elapsed / 16.67);
+        const dt = Math.min(2.4, elapsed / 16.67);
         lastFrameTime = now;
         updateFlight(dt);
         drawFlight();
-        animationId = setTimeout(tick, 16);
+        animationId = requestAnimationFrame(tick);
     };
-    animationId = setTimeout(tick, 16);
+    animationId = requestAnimationFrame(tick);
 }
 
 function updateFlight(dt) {
@@ -1750,7 +1760,7 @@ function updateSciencePanel() {
 function updateFlightReadouts(force = false) {
     if (!flightState) return;
     const now = performance.now();
-    if (!force && now - lastUiRenderTime < 120) return;
+    if (!force && now - lastUiRenderTime < 150) return;
     lastUiRenderTime = now;
     renderNavball();
     const altitude = Math.max(0, Math.round(585 - flightState.y));
@@ -1765,21 +1775,16 @@ function updateFlightReadouts(force = false) {
         const chips = [
             `Zeit ${formatTime(flightState.elapsedSeconds)}`,
             phaseLabel,
-            nextRouteEvent ? `Nächstes Ziel: ${nextRouteEvent.name} (${formatTime(nextRouteEvent.time - flightState.elapsedSeconds)})` : "",
+            nextRouteEvent && flightState.phase !== "invaders" ? `Nächstes: ${nextRouteEvent.name} (${formatTime(nextRouteEvent.time - flightState.elapsedSeconds)})` : "",
             `Tempo ${speed}`,
-            `Schub ${Math.round(flightState.throttle * 100)}%`,
-            `Treibstoff ${fuelPct}%`,
+            `Tank ${fuelPct}%`,
             flightState.phase === "invaders" ? `Welle ${flightState.invader.wave}` : `Kapseln ${flightState.collectedItems}/${mission.itemGoal}`,
             flightState.phase === "invaders" ? `Geschütz ${stats.weapon}` : "",
             flightState.phase === "invaders" ? `Hülle ${flightState.invader.hull}` : "",
             flightState.phase === "invaders" ? `Endphase ${formatTime(Math.max(0, INVADER_END_TIME - flightState.elapsedSeconds))}` : "",
-            `Booster ${flightState.boosterCharges}${flightState.boosterActive ? " aktiv" : ""}`,
             flightState.gravityHint,
             flightState.shields > 0 ? `Schild ${flightState.shields}` : "",
-            flightState.sas ? `SAS ${getSasModeLabel(flightState.sasMode)}` : "",
-            flightState.rcs ? "RCS an" : "",
             Number(speed) > stats.safeSpeed ? "Tempo rot: retrograde bremsen" : "",
-            flightState.scienceTransmitted ? "Science gesichert" : flightState.scienceStored ? "Science gespeichert" : flightState.scienceActive ? "Science aktiv" : "",
             flightState.message
         ].filter(Boolean);
         hud.innerHTML = chips.map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
@@ -1971,7 +1976,7 @@ function drawFlight() {
 
 function drawStars(ctx, w, h, cameraY, clearSky = false) {
     ctx.fillStyle = "rgba(255,255,255,0.85)";
-    const count = clearSky ? 180 : 110;
+    const count = clearSky ? 130 : 78;
     const band = clearSky ? 2100 : 1400;
     const drift = clearSky ? 0.28 : 0.18;
     for (let i = 0; i < count; i++) {
@@ -1986,7 +1991,7 @@ function drawStars(ctx, w, h, cameraY, clearSky = false) {
     if (clearSky) {
         ctx.strokeStyle = "rgba(255,255,255,0.16)";
         ctx.lineWidth = 1;
-        for (let i = 0; i < 18; i++) {
+        for (let i = 0; i < 10; i++) {
             const x = (i * 211) % w;
             const y = ((i * 331 - cameraY * 0.22) % (h + 420) + h + 420) % (h + 420) - 210;
             ctx.beginPath();
@@ -2073,8 +2078,8 @@ function drawBackgroundPlanet(ctx, event, y, progress) {
 function drawBackgroundSatellites(ctx, event, y, progress) {
     ctx.save();
     ctx.globalAlpha = 0.62;
-    for (let i = 0; i < 5; i++) {
-        const x = 170 + i * 190 + Math.sin(progress * Math.PI * 2 + i) * 35;
+    for (let i = 0; i < 4; i++) {
+        const x = 190 + i * 230 + Math.sin(progress * Math.PI * 2 + i) * 35;
         const yy = y + Math.sin(i * 1.7) * 70;
         ctx.translate(x, yy);
         ctx.rotate(-0.25 + i * 0.08);
@@ -2096,7 +2101,7 @@ function drawBackgroundSatellites(ctx, event, y, progress) {
 function drawBackgroundBelt(ctx, event, y, progress) {
     ctx.save();
     ctx.globalAlpha = 0.36;
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 54; i++) {
         const x = (i * 83 + progress * 240) % 1180 - 40;
         const yy = y + Math.sin(i * 2.1) * event.radius * 0.62;
         const r = 3 + (i % 7);
