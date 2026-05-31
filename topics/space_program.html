@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciVerse Space Program</title>
-    <link rel="stylesheet" href="../css/space_program.css?v=1.3">
+    <link rel="stylesheet" href="../css/space_program.css?v=1.5">
 </head>
 <body>
     <main class="space-shell">
@@ -65,10 +65,10 @@
 
                 <section class="stage-panel">
                     <section id="tab-flight" class="tab-page active">
-                        <div class="flight-toolbar">
+                        <div class="flight-toolbar compact-flight-toolbar">
                             <div>
-                                <p class="space-kicker">2D-Flugsimulator</p>
-                                <h2>Start, Steuern, Landen</h2>
+                                <p class="space-kicker">2D-Flug</p>
+                                <h2>Mission fliegen</h2>
                             </div>
                             <div class="flight-buttons">
                                 <button type="button" id="btnIgnite">Start</button>
@@ -82,8 +82,8 @@
                             <div id="flightHud" class="flight-hud"></div>
                         </div>
 
-                        <div class="flight-systems" aria-label="KSP-nahe Flugsteuerung">
-                            <section class="system-card navball-card">
+                        <div class="flight-console" aria-label="Flugsteuerung">
+                            <section class="system-card navball-card primary-flight-card">
                                 <p class="space-kicker">Navball</p>
                                 <div id="navball" class="navball" aria-label="Navball mit Fluglage, Prograde, Retrograde und Maneuver-Marker">
                                     <div id="navballHorizon" class="navball-horizon"></div>
@@ -96,8 +96,8 @@
                                 <div id="navballReadout" class="system-readout">Pitch 90&deg; &middot; Orbitmodus</div>
                             </section>
 
-                            <section class="system-card throttle-card">
-                                <p class="space-kicker">Throttle</p>
+                            <section class="system-card throttle-card primary-flight-card">
+                                <p class="space-kicker">Schub</p>
                                 <label class="throttle-label" for="throttleSlider">Schubhebel</label>
                                 <input id="throttleSlider" type="range" min="0" max="100" value="0">
                                 <div class="throttle-meter" aria-hidden="true"><i id="throttleFill"></i></div>
@@ -107,28 +107,13 @@
                                 </div>
                             </section>
 
-                            <section class="system-card">
-                                <p class="space-kicker">SAS / RCS</p>
-                                <div class="system-actions">
-                                    <button type="button" id="btnSas" class="ghost-btn">SAS: aus</button>
-                                    <button type="button" id="btnRcs" class="ghost-btn">RCS: aus</button>
-                                    <button type="button" id="btnMapMode" class="ghost-btn">Karte: aus</button>
-                                </div>
-                                <div class="sas-mode-row" aria-label="SAS-Ausrichtung">
-                                    <button type="button" data-sas-mode="stability">Stabil</button>
-                                    <button type="button" data-sas-mode="prograde">Prograde</button>
-                                    <button type="button" data-sas-mode="retrograde">Retrograde</button>
-                                    <button type="button" data-sas-mode="maneuver">Node</button>
-                                </div>
-                            </section>
-
-                            <section class="system-card staging-card">
+                            <section class="system-card staging-card primary-flight-card">
                                 <p class="space-kicker">Staging</p>
                                 <div id="stageStack" class="stage-stack"></div>
                                 <button type="button" id="btnStage" class="stage-fire">Space: n&auml;chste Stufe</button>
                             </section>
 
-                            <section class="system-card science-card">
+                            <section class="system-card science-card primary-flight-card">
                                 <p class="space-kicker">Science</p>
                                 <div id="scienceStatus" class="science-status">Experiment noch nicht aktiv.</div>
                                 <div class="system-actions">
@@ -137,21 +122,41 @@
                                 </div>
                             </section>
 
-                            <section class="system-card maneuver-panel">
-                                <p class="space-kicker">Maneuver Node</p>
-                                <label>Prograde / Retrograde
-                                    <input id="maneuverPrograde" type="range" min="-40" max="40" value="0">
-                                </label>
-                                <label>Radial rein / raus
-                                    <input id="maneuverRadial" type="range" min="-30" max="30" value="0">
-                                </label>
-                                <div id="maneuverReadout" class="maneuver-readout">Kein Node geplant.</div>
-                                <div class="system-actions">
-                                    <button type="button" id="btnAddNode" class="ghost-btn">Node planen</button>
-                                    <button type="button" id="btnPointNode" class="ghost-btn">SAS auf Node</button>
-                                    <button type="button" id="btnClearNode" class="ghost-btn">L&ouml;schen</button>
+                            <details class="system-card advanced-flight-card">
+                                <summary>Erweiterte Steuerung</summary>
+                                <div class="advanced-flight-grid">
+                                    <div>
+                                        <p class="space-kicker">SAS / RCS</p>
+                                        <div class="system-actions">
+                                            <button type="button" id="btnSas" class="ghost-btn">SAS: aus</button>
+                                            <button type="button" id="btnRcs" class="ghost-btn">RCS: aus</button>
+                                            <button type="button" id="btnMapMode" class="ghost-btn">Karte: aus</button>
+                                        </div>
+                                        <div class="sas-mode-row" aria-label="SAS-Ausrichtung">
+                                            <button type="button" data-sas-mode="stability">Stabil</button>
+                                            <button type="button" data-sas-mode="prograde">Prograde</button>
+                                            <button type="button" data-sas-mode="retrograde">Retrograde</button>
+                                            <button type="button" data-sas-mode="maneuver">Node</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="maneuver-panel">
+                                        <p class="space-kicker">Maneuver Node</p>
+                                        <label>Prograde / Retrograde
+                                            <input id="maneuverPrograde" type="range" min="-40" max="40" value="0">
+                                        </label>
+                                        <label>Radial rein / raus
+                                            <input id="maneuverRadial" type="range" min="-30" max="30" value="0">
+                                        </label>
+                                        <div id="maneuverReadout" class="maneuver-readout">Kein Node geplant.</div>
+                                        <div class="system-actions">
+                                            <button type="button" id="btnAddNode" class="ghost-btn">Node planen</button>
+                                            <button type="button" id="btnPointNode" class="ghost-btn">SAS auf Node</button>
+                                            <button type="button" id="btnClearNode" class="ghost-btn">L&ouml;schen</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </section>
+                            </details>
                         </div>
 
                         <div class="control-pad compact-controls" aria-label="Touch-Steuerung">
@@ -163,18 +168,27 @@
                     </section>
 
                     <section id="tab-workshop" class="tab-page">
-                        <div class="section-heading compact">
+                        <div class="section-heading compact designer-heading">
                             <p class="space-kicker">Werkstatt</p>
-                            <h2>Baue dein Raumschiff</h2>
-                            <p>W&auml;hle einen Slot aus und r&uuml;ste gekaufte Teile aus. Die Werte links zeigen sofort, wie sich dein Schiff ver&auml;ndert.</p>
+                            <h2>Raumschiff-Designer</h2>
+                            <p>W&auml;hle links einen Bereich deiner Rakete aus und r&uuml;ste rechts passende Teile aus. Es funktioniert wie ein Charakterdesigner: erst K&ouml;rperteil w&auml;hlen, dann Aussehen und F&auml;higkeit anpassen.</p>
                         </div>
-                        <div class="workshop-grid">
-                            <div class="rocket-bay">
-                                <div id="workshopRocketPreview" class="rocket-preview"></div>
-                                <div id="slotList" class="slot-list"></div>
+                        <div class="designer-grid">
+                            <div class="designer-stage rocket-bay">
+                                <div class="designer-backdrop" aria-hidden="true"></div>
+                                <div id="workshopRocketPreview" class="rocket-preview designer-preview"></div>
+                                <div id="designerSelectedPart" class="designer-selected-part"></div>
                             </div>
-                            <div>
-                                <div id="slotPartList" class="part-list"></div>
+                            <div class="designer-panel">
+                                <div class="designer-panel-head">
+                                    <div>
+                                        <p class="space-kicker">Slots</p>
+                                        <h3>Was willst du umbauen?</h3>
+                                    </div>
+                                    <small>Gekaufte Teile bleiben dauerhaft verf&uuml;gbar.</small>
+                                </div>
+                                <div id="slotList" class="slot-list designer-slots"></div>
+                                <div id="slotPartList" class="part-list designer-parts"></div>
                             </div>
                         </div>
                     </section>
@@ -203,6 +217,6 @@
         </section>
     </main>
 
-    <script src="../js/space_program.js?v=1.4"></script>
+    <script src="../js/space_program.js?v=1.5"></script>
 </body>
 </html>

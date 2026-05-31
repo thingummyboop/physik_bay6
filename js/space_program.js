@@ -491,12 +491,28 @@ function renderUnlockSummary() {
 
 function renderWorkshop() {
     document.getElementById("workshopRocketPreview").innerHTML = rocketSvg({ model: getCurrentModel(), large: true });
+    const selectedSlot = SLOTS.find(slot => slot.id === programState.selectedSlot) || SLOTS[0];
+    const selectedPart = getPart(programState.equipped[selectedSlot.id]);
+    const selectedInfo = document.getElementById("designerSelectedPart");
+    if (selectedInfo) {
+        selectedInfo.innerHTML = `
+            <span class="slot-mark">${escapeHtml(slotBadge(selectedSlot.id))}</span>
+            <div>
+                <small>Aktiver Bereich</small>
+                <strong>${escapeHtml(selectedSlot.label)}</strong>
+                <em>${selectedPart ? escapeHtml(selectedPart.name) : "leer"}</em>
+            </div>
+        `;
+    }
     document.getElementById("slotList").innerHTML = SLOTS.map(slot => {
         const part = getPart(programState.equipped[slot.id]);
         return `
             <button type="button" class="slot-btn ${programState.selectedSlot === slot.id ? "active" : ""}" data-slot="${slot.id}">
-                <strong>${escapeHtml(slot.label)}</strong>
-                <small>${part ? escapeHtml(part.name) : "leer"}</small>
+                <span class="slot-mark">${escapeHtml(slotBadge(slot.id))}</span>
+                <span>
+                    <strong>${escapeHtml(slot.label)}</strong>
+                    <small>${part ? escapeHtml(part.name) : "leer"}</small>
+                </span>
             </button>
         `;
     }).join("");
@@ -515,8 +531,12 @@ function renderSlotParts() {
     const ownedParts = PARTS.filter(part => part.slot === slot && programState.owned.includes(part.id));
     document.getElementById("slotPartList").innerHTML = ownedParts.map(part => {
         const equipped = programState.equipped[slot] === part.id;
+        const color = part.color || partAccentColor(part);
         return `
-            <div class="part-card">
+            <div class="part-card designer-part-card ${equipped ? "active" : ""}">
+                <div class="part-thumb" style="--part-color:${escapeHtml(color)}">
+                    <span>${escapeHtml(slotBadge(part.slot))}</span>
+                </div>
                 <div>
                     <strong>${escapeHtml(part.name)}</strong>
                     <small>${escapeHtml(part.desc)}</small>
@@ -529,6 +549,35 @@ function renderSlotParts() {
     document.querySelectorAll("[data-equip]").forEach(button => {
         button.addEventListener("click", () => equipPart(button.dataset.equip));
     });
+}
+
+function slotBadge(slotId) {
+    return ({
+        nose: "N",
+        body: "T",
+        engine: "E",
+        fin: "F",
+        science: "S",
+        utility: "U",
+        paint: "L"
+    })[slotId] || "?";
+}
+
+function partAccentColor(part) {
+    return ({
+        start: "#38bdf8",
+        physik: "#fbbf24",
+        mathematik: "#60a5fa",
+        chemie: "#34d399",
+        biologie: "#22c55e",
+        dgb: "#a78bfa",
+        geographie: "#14b8a6",
+        deutsch: "#fb7185",
+        englisch: "#ef4444",
+        musik: "#c084fc",
+        kunst: "#f472b6",
+        ernaehrung: "#84cc16"
+    })[part.subject] || "#94a3b8";
 }
 
 function equipPart(partId) {
@@ -1411,7 +1460,7 @@ function updateFlightReadouts(force = false) {
     const zone = getCurrentSpaceZone(altitude);
     const hud = document.getElementById("flightHud");
     if (hud) {
-        hud.innerHTML = [
+        const chips = [
             `Höhe ${altitude} m`,
             zone.label,
             `Tempo ${speed}`,
@@ -1419,13 +1468,15 @@ function updateFlightReadouts(force = false) {
             `Treibstoff ${fuelPct}%`,
             `Kapseln ${flightState.collectedItems}/${mission.itemGoal}`,
             `Booster ${flightState.boosterCharges}${flightState.boosterActive ? " aktiv" : ""}`,
-            flightState.gravityHint || "Kein Gravity Assist",
-            `Schild ${flightState.shields}`,
-            flightState.sas ? `SAS ${getSasModeLabel(flightState.sasMode)}` : "SAS aus",
-            Number(speed) > stats.safeSpeed ? "Tempo rot: retrograde bremsen" : (flightState.rcs ? "RCS an" : "RCS aus"),
-            flightState.scienceTransmitted ? "Science gesichert" : flightState.scienceStored ? "Science gespeichert" : flightState.scienceActive ? "Science aktiv" : "Science aus",
+            flightState.gravityHint,
+            flightState.shields > 0 ? `Schild ${flightState.shields}` : "",
+            flightState.sas ? `SAS ${getSasModeLabel(flightState.sasMode)}` : "",
+            flightState.rcs ? "RCS an" : "",
+            Number(speed) > stats.safeSpeed ? "Tempo rot: retrograde bremsen" : "",
+            flightState.scienceTransmitted ? "Science gesichert" : flightState.scienceStored ? "Science gespeichert" : flightState.scienceActive ? "Science aktiv" : "",
             flightState.message
-        ].map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
+        ].filter(Boolean);
+        hud.innerHTML = chips.map(text => `<span class="hud-chip">${escapeHtml(text)}</span>`).join("");
     }
 }
 
