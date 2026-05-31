@@ -310,7 +310,7 @@ function extractBioInsightPrompt(item) {
     return normalizeBioLabel(clone.textContent).replace(/^Erkenntnis:\s*/i, '');
 }
 
-function inferBioInsightGame(prompt) {
+function legacyBioInsightGameSetup(prompt) {
     const lower = prompt.toLowerCase();
     if (/quelle|webseite|beleg|glaubwuerdig|glaubwürdig|autor/.test(lower)) {
         return {
@@ -354,14 +354,14 @@ function inferBioInsightGame(prompt) {
     };
 }
 
-function rotateBioChoices(choices, topicId, sectionIndex, gameIndex) {
+function legacyRotateBioChoices(choices, topicId, sectionIndex, gameIndex) {
     const offset = (topicId.length + sectionIndex + gameIndex) % choices.length;
     return choices.slice(offset).concat(choices.slice(0, offset));
 }
 
-function buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex) {
-    const setup = inferBioInsightGame(prompt);
-    const choices = rotateBioChoices([
+function legacyBuildBioInsightGame(prompt, topicId, sectionIndex, gameIndex) {
+    const setup = legacyBioInsightGameSetup(prompt);
+    const choices = legacyRotateBioChoices([
         { text: setup.correct, correct: true },
         { text: 'Ich rate nach dem ersten Eindruck und schreibe sofort eine sichere Antwort.', correct: false },
         { text: 'Ich lerne nur ein Fachwort auswendig und lasse Beobachtungen oder Daten weg.', correct: false }
@@ -388,12 +388,12 @@ function buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex) {
     game.addEventListener('click', event => {
         const button = event.target.closest('[data-bio-insight-choice]');
         if (!button) return;
-        handleBioInsightChoice(button, setup.hint);
+        legacyHandleBioInsightChoice(button, setup.hint);
     });
     return game;
 }
 
-function handleBioInsightChoice(button, hint) {
+function legacyHandleBioInsightChoice(button, hint) {
     const game = button.closest('[data-bio-insight-game]');
     if (!game) return;
     const feedback = game.querySelector('.bio-insight-feedback');
@@ -416,6 +416,214 @@ function handleBioInsightChoice(button, hint) {
         button.classList.add('is-wrong');
         if (feedback) {
             feedback.textContent = `Noch nicht. ${hint}`;
+            feedback.className = 'bio-insight-feedback is-wrong';
+        }
+    }
+}
+
+// Visual biology application games. These definitions intentionally sit after the
+// earlier text-only version, so the rendered games become graphic interactions.
+function inferBioInsightGame(prompt) {
+    const lower = prompt.toLowerCase();
+    if (/quelle|webseite|beleg|glaubwuerdig|glaubwürdig|autor/.test(lower)) {
+        return { type: 'source', title: 'Quellen-Scanner', hint: 'Eine gute Quelle nennt Herkunft, Belege und bleibt sachlich.' };
+    }
+    if (/daten|mess|werte|tabelle|diagramm|puls|zeitlinie|kartiere|auswert|muster|standort|feuchtigkeit|boden|funde/.test(lower)) {
+        return { type: 'data', title: 'Daten-Lupe', hint: 'Erst alle Daten vergleichen, dann eine vorsichtige Aussage ableiten.' };
+    }
+    if (/modell|kladogramm|matrix|skizze|karte|beschrifte/.test(lower)) {
+        return { type: 'model', title: 'Modell-Werkstatt', hint: 'Ein Modell ist ein Werkzeug und hat immer Grenzen.' };
+    }
+    if (/vergleich|ordne|bestimm|merkmal|gruppen|unterscheid|faktor|lebensmerkmal/.test(lower)) {
+        return { type: 'sort', title: 'Merkmal-Sortierer', hint: 'Mehrere Merkmale sind stärker als der erste Eindruck.' };
+    }
+    if (/plane|untersuch|variable|frage|methode|vergleichsbeobachtung/.test(lower)) {
+        return { type: 'experiment', title: 'Versuchsplaner', hint: 'Eine faire Untersuchung verändert nur einen wichtigen Faktor.' };
+    }
+    return { type: 'observe', title: 'Forscher-Mission', hint: 'Aus Beobachtung wird erst mit Beleg eine starke Aussage.' };
+}
+
+function getBioScenario(prompt, type) {
+    const lower = prompt.toLowerCase();
+    if (type === 'source') {
+        return {
+            leftTitle: 'Quelle A',
+            leftBody: lower.includes('tier') ? 'Video: "Dieses Tier kann alles!"' : 'Post: "Das ist sicher so!"',
+            leftMeta: 'kein Autor, keine Daten',
+            rightTitle: 'Quelle B',
+            rightBody: lower.includes('tier') ? 'Naturmuseum: Tiersteckbrief' : 'Fachseite mit Messdaten',
+            rightMeta: 'Autor, Datum, Belege',
+            focus: 'Autor + Beleg + sachliche Sprache'
+        };
+    }
+    if (type === 'data') {
+        if (/puls|atmung|sauerstoff|kreislauf/.test(lower)) {
+            return { labels: ['Ruhe', 'Stiegen', 'Laufen'], values: [72, 98, 132], unit: 'Puls', conclusion: 'Mit Bewegung steigt der Puls, weil Muskeln mehr Sauerstoff brauchen.' };
+        }
+        if (/zeitlinie|erdgeschichte|fossil|millionen|milliarden/.test(lower)) {
+            return { labels: ['kurz', 'Mio.', 'Mrd.'], values: [8, 32, 116], unit: 'Zeit', conclusion: 'Milliarden Jahre brauchen im Modell sichtbar viel mehr Platz.' };
+        }
+        if (/kartiere|versickerung|boden|standort|lebensraum|feuchtigkeit/.test(lower)) {
+            return { labels: ['Asphalt', 'Beet', 'Laub'], values: [1, 8, 6], unit: 'Funde', conclusion: 'Feuchte, lockere und bewachsene Stellen zeigen mehr Lebensraum-Hinweise.' };
+        }
+        return { labels: ['A', 'B', 'C'], values: [3, 9, 5], unit: 'Daten', conclusion: 'Das Muster wird erst klar, wenn alle Werte verglichen werden.' };
+    }
+    if (type === 'experiment') {
+        return {
+            question: /keim|pflanz|licht/.test(lower) ? 'Keimen Samen im Licht anders?' : 'Welche Bedingung verändert die Beobachtung?',
+            variable: /feucht|wasser/.test(lower) ? 'Wasser' : /licht/.test(lower) ? 'Licht' : 'ein Faktor',
+            constantA: 'gleiche Zeit',
+            constantB: 'gleiche Menge'
+        };
+    }
+    if (type === 'model') {
+        if (/kladogramm|verwandtschaft|matrix/.test(lower)) {
+            return { center: 'Knoten', left: 'Fisch', middle: 'Frosch', right: 'Katze', note: 'Entscheidend ist der gemeinsame Knoten, nicht die Schönheit der Zeichnung.' };
+        }
+        return { center: 'Modell', left: 'zeigt', middle: 'lässt weg', right: 'Grenze', note: 'Ein Modell zeigt Wichtiges, aber nie die ganze Wirklichkeit.' };
+    }
+    if (type === 'sort') {
+        if (/lebensraum|faktor|standort/.test(lower)) {
+            return { binA: 'belebt', binB: 'unbelebt', itemsA: ['Pflanze', 'Assel'], itemsB: ['Licht', 'Wasser'] };
+        }
+        return { binA: 'passt', binB: 'passt nicht', itemsA: ['Merkmal', 'Beleg'], itemsB: ['Gefühl', 'Raten'] };
+    }
+    return { conclusion: 'Erst beobachten, dann notieren, dann begründen.' };
+}
+
+function rotateBioActions(actions, topicId, sectionIndex, gameIndex) {
+    const offset = (topicId.length + sectionIndex + gameIndex) % actions.length;
+    return actions.slice(offset).concat(actions.slice(0, offset));
+}
+
+function getBioInsightActions(setup, scenario, topicId, sectionIndex, gameIndex) {
+    const actionsByType = {
+        source: [
+            { text: `Quelle B nutzen: ${scenario.focus}`, correct: true, state: 'right', note: 'Die rechte Quelle hat klare Herkunft und Belege.' },
+            { text: 'Quelle A sofort übernehmen', correct: false, state: 'left', note: 'Links fehlen Autor oder Daten. Das ist zu unsicher.' },
+            { text: 'Beide ohne Prüfung gleich behandeln', correct: false, state: 'middle', note: 'Quellen sind nicht automatisch gleich stark.' }
+        ],
+        data: [
+            { text: 'Alle Werte vergleichen und mit einer Zahl begründen', correct: true, state: 'right', note: scenario.conclusion },
+            { text: 'Nur den ersten Wert anschauen', correct: false, state: 'left', note: 'Ein einzelner Wert zeigt noch kein Muster.' },
+            { text: 'Die Werte passend zur Meinung drehen', correct: false, state: 'middle', note: 'Daten müssen ehrlich gelesen werden.' }
+        ],
+        model: [
+            { text: 'Modell nutzen und seine Grenze nennen', correct: true, state: 'right', note: scenario.note },
+            { text: 'Das Modell wie echte Wirklichkeit behandeln', correct: false, state: 'left', note: 'Modelle sind Vereinfachungen.' },
+            { text: 'Nur das schönste Bild wählen', correct: false, state: 'middle', note: 'Entscheidend ist, ob das Modell zur Frage passt.' }
+        ],
+        experiment: [
+            { text: `Nur ${scenario.variable} verändern, den Rest gleich lassen`, correct: true, state: 'right', note: 'So bleibt die Untersuchung fair.' },
+            { text: 'Alle Bedingungen gleichzeitig verändern', correct: false, state: 'left', note: 'Dann weißt du nicht, welcher Faktor wirkt.' },
+            { text: 'Ohne Tabelle beobachten', correct: false, state: 'middle', note: 'Ohne Notizen gehen Daten leicht verloren.' }
+        ],
+        sort: [
+            { text: 'Mehrere Karten vergleichen und dann begründen', correct: true, state: 'right', note: 'Mehrere Merkmale machen die Sortierung sicherer.' },
+            { text: 'Nach dem ersten Eindruck sortieren', correct: false, state: 'left', note: 'Der erste Eindruck kann täuschen.' },
+            { text: 'Unklare Karten einfach ignorieren', correct: false, state: 'middle', note: 'Unsichere Fälle muss man markieren und begründen.' }
+        ],
+        observe: [
+            { text: 'Beobachtung sammeln und mit einem Beleg erklären', correct: true, state: 'right', note: scenario.conclusion },
+            { text: 'Sofort eine sichere Regel behaupten', correct: false, state: 'left', note: 'Eine Regel braucht mehrere Beobachtungen.' },
+            { text: 'Nur ein Fachwort auswendig nennen', correct: false, state: 'middle', note: 'Fachwörter helfen erst mit Beobachtung.' }
+        ]
+    };
+    return rotateBioActions(actionsByType[setup.type] || actionsByType.observe, topicId, sectionIndex, gameIndex);
+}
+
+function buildBioInsightVisual(setup, scenario) {
+    if (setup.type === 'source') {
+        return `
+            <svg viewBox="0 0 760 260" role="img" aria-label="Zwei Quellenkarten werden verglichen">
+                <rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/>
+                <g data-stage-target="left" class="bio-stage-target"><rect x="58" y="58" width="250" height="132" rx="14" class="bio-source-card weak"/><text x="82" y="92" class="bio-svg-title">${escapeHtml(scenario.leftTitle)}</text><text x="82" y="124" class="bio-svg-text">${escapeHtml(scenario.leftBody)}</text><text x="82" y="158" class="bio-svg-muted">${escapeHtml(scenario.leftMeta)}</text></g>
+                <g data-stage-target="right" class="bio-stage-target"><rect x="452" y="58" width="250" height="132" rx="14" class="bio-source-card strong"/><text x="476" y="92" class="bio-svg-title">${escapeHtml(scenario.rightTitle)}</text><text x="476" y="124" class="bio-svg-text">${escapeHtml(scenario.rightBody)}</text><text x="476" y="158" class="bio-svg-muted">${escapeHtml(scenario.rightMeta)}</text></g>
+                <path d="M336 120 L420 120" class="bio-stage-arrow"/>
+                <text x="380" y="216" text-anchor="middle" class="bio-insight-graphic-label">Tippe eine Entscheidung an.</text>
+            </svg>`;
+    }
+    if (setup.type === 'data') {
+        const max = Math.max(...scenario.values, 1);
+        const bars = scenario.values.map((value, index) => {
+            const h = 24 + (value / max) * 118;
+            const x = 158 + index * 152;
+            const y = 188 - h;
+            const target = value === max ? 'right' : index === 0 ? 'left' : 'middle';
+            return `<g data-stage-target="${target}" class="bio-stage-target"><rect x="${x}" y="${y.toFixed(1)}" width="74" height="${h.toFixed(1)}" rx="10" class="bio-data-bar"/><text x="${x + 37}" y="${y - 10}" text-anchor="middle" class="bio-svg-title">${escapeHtml(value)}</text><text x="${x + 37}" y="220" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.labels[index])}</text></g>`;
+        }).join('');
+        return `<svg viewBox="0 0 760 260" role="img" aria-label="Ein kleines Balkendiagramm zum Auftrag"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><line x1="110" y1="188" x2="650" y2="188" class="bio-chart-axis"/><line x1="110" y1="54" x2="110" y2="188" class="bio-chart-axis"/><text x="116" y="44" class="bio-svg-title">${escapeHtml(scenario.unit)}</text>${bars}<text x="380" y="244" text-anchor="middle" class="bio-insight-graphic-label">Welche Aussage passt zu den Daten?</text></svg>`;
+    }
+    if (setup.type === 'experiment') {
+        return `<svg viewBox="0 0 760 260" role="img" aria-label="Versuchsaufbau mit einer veränderten Variable"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><rect x="86" y="146" width="588" height="38" rx="12" class="bio-lab-table"/><g data-stage-target="right" class="bio-stage-target"><rect x="118" y="70" width="130" height="76" rx="12" class="bio-experiment-pot"/><circle cx="183" cy="96" r="20" class="bio-factor-dot active"/><text x="183" y="134" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.variable)}</text></g><g data-stage-target="middle" class="bio-stage-target"><rect x="314" y="70" width="130" height="76" rx="12" class="bio-experiment-pot"/><circle cx="379" cy="96" r="20" class="bio-factor-dot"/><text x="379" y="134" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.constantA)}</text></g><g data-stage-target="left" class="bio-stage-target"><rect x="510" y="70" width="130" height="76" rx="12" class="bio-experiment-pot"/><circle cx="575" cy="96" r="20" class="bio-factor-dot"/><text x="575" y="134" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.constantB)}</text></g><text x="380" y="216" text-anchor="middle" class="bio-insight-graphic-label">${escapeHtml(scenario.question)}</text></svg>`;
+    }
+    if (setup.type === 'model') {
+        return `<svg viewBox="0 0 760 260" role="img" aria-label="Modellskizze mit Knoten und Grenzen"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><g transform="translate(170 172)"><circle cx="0" cy="0" r="12" class="bio-model-node"/><path d="M0 0 C80 -85 165 -92 240 -128" class="bio-model-line"/><path d="M0 0 C96 -46 188 -44 292 -52" class="bio-model-line"/><path d="M0 0 C74 24 158 18 258 42" class="bio-model-line"/><g data-stage-target="left" class="bio-stage-target"><circle cx="240" cy="-128" r="28" class="bio-model-end"/><text x="240" y="-123" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.left)}</text></g><g data-stage-target="middle" class="bio-stage-target"><circle cx="292" cy="-52" r="28" class="bio-model-end"/><text x="292" y="-47" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.middle)}</text></g><g data-stage-target="right" class="bio-stage-target"><circle cx="258" cy="42" r="28" class="bio-model-end"/><text x="258" y="47" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.right)}</text></g></g><text x="380" y="226" text-anchor="middle" class="bio-insight-graphic-label">${escapeHtml(scenario.note)}</text></svg>`;
+    }
+    if (setup.type === 'sort') {
+        return `<svg viewBox="0 0 760 260" role="img" aria-label="Karten werden in zwei Gruppen sortiert"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><rect x="80" y="58" width="250" height="132" rx="16" class="bio-sort-bin"/><rect x="430" y="58" width="250" height="132" rx="16" class="bio-sort-bin"/><text x="205" y="88" text-anchor="middle" class="bio-svg-title">${escapeHtml(scenario.binA)}</text><text x="555" y="88" text-anchor="middle" class="bio-svg-title">${escapeHtml(scenario.binB)}</text><g data-stage-target="right" class="bio-stage-target"><rect x="126" y="112" width="96" height="32" rx="16" class="bio-sort-chip"/><text x="174" y="133" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.itemsA[0])}</text><rect x="236" y="112" width="74" height="32" rx="16" class="bio-sort-chip"/><text x="273" y="133" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.itemsA[1])}</text></g><g data-stage-target="left" class="bio-stage-target"><rect x="474" y="112" width="82" height="32" rx="16" class="bio-sort-chip"/><text x="515" y="133" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.itemsB[0])}</text><rect x="570" y="112" width="82" height="32" rx="16" class="bio-sort-chip"/><text x="611" y="133" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.itemsB[1])}</text></g><text x="380" y="216" text-anchor="middle" class="bio-insight-graphic-label">Sortiere mit Merkmalen, nicht nach Gefühl.</text></svg>`;
+    }
+    return `<svg viewBox="0 0 760 260" role="img" aria-label="Lupe, Notiz und Beleg als Forschungsweg"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><g data-stage-target="left" class="bio-stage-target"><circle cx="210" cy="112" r="46" class="bio-observe-lens"/><line x1="244" y1="146" x2="292" y2="194" class="bio-model-line"/></g><g data-stage-target="middle" class="bio-stage-target"><rect x="340" y="66" width="108" height="128" rx="12" class="bio-note-sheet"/><line x1="362" y1="98" x2="426" y2="98" class="bio-note-line"/><line x1="362" y1="124" x2="426" y2="124" class="bio-note-line"/></g><g data-stage-target="right" class="bio-stage-target"><path d="M520 160 C555 82 608 82 642 160" class="bio-model-line"/><circle cx="520" cy="160" r="13" class="bio-model-end"/><circle cx="642" cy="160" r="13" class="bio-model-end"/></g><text x="380" y="226" text-anchor="middle" class="bio-insight-graphic-label">${escapeHtml(scenario.conclusion)}</text></svg>`;
+}
+
+function buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex) {
+    const setup = inferBioInsightGame(prompt);
+    const scenario = getBioScenario(prompt, setup.type);
+    const actions = getBioInsightActions(setup, scenario, topicId, sectionIndex, gameIndex);
+    const game = document.createElement('div');
+    game.className = 'bio-insight-game interactive-zone';
+    game.dataset.bioInsightGame = `${topicId}-${sectionIndex}-${gameIndex}`;
+    game.dataset.bioInsightHint = setup.hint;
+    game.innerHTML = `
+        <div class="bio-insight-game-head"><span class="bio-insight-game-kicker">Anwendungsspiel</span><h3>${escapeHtml(setup.title)}</h3></div>
+        <p class="bio-insight-mission"><strong>Auftrag:</strong> ${escapeHtml(prompt)}</p>
+        <div class="bio-insight-stage" data-bio-insight-stage data-state="idle">${buildBioInsightVisual(setup, scenario)}</div>
+        <div class="bio-graphic-actions" role="group" aria-label="Interaktive Entscheidung zum Auftrag">
+            ${actions.map(action => `<button type="button" class="bio-insight-choice" data-bio-insight-action data-correct="${action.correct ? 'true' : 'false'}" data-visual-state="${escapeHtmlAttr(action.state)}" data-note="${escapeHtmlAttr(action.note)}">${escapeHtml(action.text)}</button>`).join('')}
+        </div>
+        <p class="bio-insight-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+    `;
+    game.addEventListener('click', event => {
+        const button = event.target.closest('[data-bio-insight-action]');
+        if (!button) return;
+        handleBioInsightChoice(button);
+    });
+    return game;
+}
+
+function handleBioInsightChoice(button) {
+    const game = button.closest('[data-bio-insight-game]');
+    if (!game) return;
+    const feedback = game.querySelector('.bio-insight-feedback');
+    const stage = game.querySelector('[data-bio-insight-stage]');
+    const note = button.dataset.note || '';
+    const state = button.dataset.visualState || 'middle';
+    const hint = game.dataset.bioInsightHint || '';
+    const isCorrect = button.dataset.correct === 'true';
+    game.querySelectorAll('[data-bio-insight-action]').forEach(choice => {
+        choice.classList.remove('is-correct', 'is-wrong');
+        choice.setAttribute('aria-pressed', 'false');
+    });
+    button.setAttribute('aria-pressed', 'true');
+    if (stage) {
+        stage.dataset.state = isCorrect ? 'correct' : 'wrong';
+        stage.querySelectorAll('[data-stage-target]').forEach(target => {
+            target.classList.toggle('is-active', target.dataset.stageTarget === state);
+        });
+        const label = stage.querySelector('.bio-insight-graphic-label');
+        if (label && note) label.textContent = note;
+    }
+    if (isCorrect) {
+        button.classList.add('is-correct');
+        if (typeof playSuccessSound === 'function') playSuccessSound();
+        if (feedback) {
+            feedback.textContent = `Genau. ${note || hint}`;
+            feedback.className = 'bio-insight-feedback is-correct';
+        }
+    } else {
+        button.classList.add('is-wrong');
+        if (feedback) {
+            feedback.textContent = `Noch nicht. ${note || hint}`;
             feedback.className = 'bio-insight-feedback is-wrong';
         }
     }

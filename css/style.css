@@ -373,6 +373,143 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin: 8px 0 12px;
 }
 
+.bio-insight-stage {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    border-radius: 12px;
+    margin: 12px 0;
+    overflow: hidden;
+}
+
+.bio-insight-stage svg {
+    display: block;
+    height: auto;
+    max-height: 270px;
+    width: 100%;
+}
+
+.bio-stage-bg {
+    fill: #ecfdf5;
+    stroke: rgba(5, 150, 105, 0.26);
+    stroke-width: 2;
+}
+
+.bio-stage-target {
+    opacity: 0.74;
+    transition: opacity 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+}
+
+.bio-stage-target.is-active {
+    filter: drop-shadow(0 8px 14px rgba(5, 150, 105, 0.28));
+    opacity: 1;
+}
+
+.bio-insight-stage[data-state="correct"] .bio-stage-target.is-active {
+    filter: drop-shadow(0 8px 16px rgba(22, 163, 74, 0.35));
+}
+
+.bio-insight-stage[data-state="wrong"] .bio-stage-target.is-active {
+    filter: drop-shadow(0 8px 16px rgba(225, 29, 72, 0.26));
+}
+
+.bio-source-card,
+.bio-experiment-pot,
+.bio-sort-bin,
+.bio-note-sheet {
+    fill: #ffffff;
+    stroke: rgba(15, 118, 110, 0.24);
+    stroke-width: 2;
+}
+
+.bio-source-card.weak {
+    fill: #fff7ed;
+    stroke: rgba(249, 115, 22, 0.38);
+}
+
+.bio-source-card.strong {
+    fill: #dcfce7;
+    stroke: rgba(22, 163, 74, 0.42);
+}
+
+.bio-stage-arrow,
+.bio-chart-axis,
+.bio-model-line,
+.bio-note-line {
+    fill: none;
+    stroke: #0f766e;
+    stroke-linecap: round;
+    stroke-width: 4;
+}
+
+.bio-chart-axis,
+.bio-note-line {
+    stroke-width: 3;
+}
+
+.bio-data-bar {
+    fill: #14b8a6;
+    stroke: #0f766e;
+    stroke-width: 2;
+}
+
+.bio-lab-table {
+    fill: #92400e;
+    opacity: 0.82;
+}
+
+.bio-factor-dot,
+.bio-model-node,
+.bio-model-end,
+.bio-observe-lens {
+    fill: #a7f3d0;
+    stroke: #047857;
+    stroke-width: 3;
+}
+
+.bio-factor-dot.active,
+.bio-model-node {
+    fill: #34d399;
+}
+
+.bio-sort-bin {
+    fill: #eff6ff;
+}
+
+.bio-sort-chip {
+    fill: #ffffff;
+    stroke: rgba(37, 99, 235, 0.28);
+    stroke-width: 2;
+}
+
+.bio-svg-title {
+    fill: #064e3b;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.bio-svg-text {
+    fill: #0f172a;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.bio-svg-muted,
+.bio-insight-graphic-label {
+    fill: #475569;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.bio-insight-graphic-label {
+    fill: #065f46;
+}
+
+.bio-graphic-actions {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 .bio-insight-choices {
     display: grid;
     gap: 8px;
@@ -535,6 +672,65 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 [data-theme="dark"] .bio-insight-game {
     background: linear-gradient(135deg, rgba(6, 78, 59, 0.72), rgba(15, 23, 42, 0.92));
     border-color: rgba(74, 222, 128, 0.34);
+}
+
+[data-theme="dark"] .bio-insight-stage {
+    background: rgba(15, 23, 42, 0.66);
+    border-color: rgba(134, 239, 172, 0.22);
+}
+
+[data-theme="dark"] .bio-stage-bg {
+    fill: #0f172a;
+    stroke: rgba(134, 239, 172, 0.24);
+}
+
+[data-theme="dark"] .bio-source-card,
+[data-theme="dark"] .bio-experiment-pot,
+[data-theme="dark"] .bio-sort-bin,
+[data-theme="dark"] .bio-note-sheet,
+[data-theme="dark"] .bio-sort-chip {
+    fill: rgba(15, 23, 42, 0.92);
+    stroke: rgba(134, 239, 172, 0.28);
+}
+
+[data-theme="dark"] .bio-source-card.weak {
+    fill: rgba(67, 20, 7, 0.84);
+    stroke: rgba(251, 146, 60, 0.42);
+}
+
+[data-theme="dark"] .bio-source-card.strong {
+    fill: rgba(20, 83, 45, 0.82);
+    stroke: rgba(74, 222, 128, 0.42);
+}
+
+[data-theme="dark"] .bio-stage-arrow,
+[data-theme="dark"] .bio-chart-axis,
+[data-theme="dark"] .bio-model-line,
+[data-theme="dark"] .bio-note-line {
+    stroke: #5eead4;
+}
+
+[data-theme="dark"] .bio-data-bar,
+[data-theme="dark"] .bio-factor-dot,
+[data-theme="dark"] .bio-model-node,
+[data-theme="dark"] .bio-model-end,
+[data-theme="dark"] .bio-observe-lens {
+    fill: #0f766e;
+    stroke: #99f6e4;
+}
+
+[data-theme="dark"] .bio-lab-table {
+    fill: #78350f;
+}
+
+[data-theme="dark"] .bio-svg-title,
+[data-theme="dark"] .bio-insight-graphic-label {
+    fill: #bbf7d0;
+}
+
+[data-theme="dark"] .bio-svg-text,
+[data-theme="dark"] .bio-svg-muted {
+    fill: #e5e7eb;
 }
 
 [data-theme="dark"] .bio-insight-game-head h3,
