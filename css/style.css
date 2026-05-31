@@ -196,6 +196,65 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin-bottom: 6px;
 }
 
+.bio-training-panel {
+    background: linear-gradient(135deg, rgba(236, 253, 245, 0.96), rgba(240, 249, 255, 0.92));
+    border: 2px solid rgba(20, 184, 166, 0.34);
+    border-radius: 14px;
+    margin: 18px 0;
+    padding: 16px;
+}
+
+.bio-training-panel > strong {
+    color: #0f766e;
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+.bio-training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+}
+
+.bio-training-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(15, 118, 110, 0.25);
+    border-radius: 12px;
+    padding: 13px 14px;
+}
+
+.bio-training-card h4 {
+    color: #065f46;
+    font-size: 0.98rem;
+    margin: 0 0 7px;
+}
+
+.bio-training-card p {
+    margin: 0;
+}
+
+.bio-step-list {
+    margin: 12px 0;
+    padding-left: 1.2rem;
+}
+
+.bio-step-list li {
+    margin: 7px 0;
+}
+
+.bio-worked-example {
+    background: rgba(255, 251, 235, 0.9);
+    border: 1px solid rgba(245, 158, 11, 0.38);
+    border-radius: 12px;
+    margin: 16px 0;
+    padding: 14px 16px;
+}
+
+.bio-worked-example strong {
+    color: #92400e;
+}
+
 .bio-process-flow {
     display: flex;
     flex-wrap: wrap;
@@ -264,10 +323,31 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     border-color: rgba(52, 211, 153, 0.35);
 }
 
+[data-theme="dark"] .bio-training-panel {
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.72), rgba(15, 23, 42, 0.92));
+    border-color: rgba(45, 212, 191, 0.34);
+}
+
+[data-theme="dark"] .bio-training-card {
+    background: rgba(15, 23, 42, 0.72);
+    border-color: rgba(94, 234, 212, 0.28);
+}
+
 [data-theme="dark"] .bio-competency-card strong,
 [data-theme="dark"] .bio-check-card strong,
+[data-theme="dark"] .bio-training-panel > strong,
+[data-theme="dark"] .bio-training-card h4,
 [data-theme="dark"] .bio-data-table th {
     color: #86efac;
+}
+
+[data-theme="dark"] .bio-worked-example {
+    background: rgba(69, 48, 10, 0.62);
+    border-color: rgba(251, 191, 36, 0.35);
+}
+
+[data-theme="dark"] .bio-worked-example strong {
+    color: #fde68a;
 }
 
 [data-theme="dark"] .bio-process-flow span {
