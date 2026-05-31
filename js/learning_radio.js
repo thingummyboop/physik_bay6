@@ -131,26 +131,26 @@
         style.textContent = `
             .learning-radio {
                 align-items: center;
-                background: linear-gradient(145deg, #6d28d9, #a855f7 58%, #c084fc);
-                border: 2px solid rgba(255, 255, 255, 0.82);
-                border-radius: 18px;
+                background: transparent;
+                border: 0;
+                border-radius: 0;
                 bottom: 18px;
-                box-shadow: 0 14px 34px rgba(88, 28, 135, 0.42), inset 0 2px 0 rgba(255, 255, 255, 0.36);
+                box-shadow: none;
                 color: #fff;
                 cursor: pointer;
                 display: flex;
-                height: 58px;
+                height: 64px;
                 justify-content: center;
                 padding: 0;
                 position: fixed;
                 right: 18px;
                 transition: transform 0.18s ease, box-shadow 0.18s ease;
-                width: 70px;
+                width: 76px;
                 z-index: 5000;
             }
             .learning-radio:hover,
             .learning-radio:focus-visible {
-                box-shadow: 0 18px 42px rgba(88, 28, 135, 0.52), inset 0 2px 0 rgba(255, 255, 255, 0.42);
+                filter: drop-shadow(0 16px 24px rgba(88, 28, 135, 0.45));
                 outline: none;
                 transform: translateY(-2px);
             }
