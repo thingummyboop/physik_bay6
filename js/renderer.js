@@ -540,7 +540,7 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=7.7`);
+        let response = await fetch(`../lang/${lang}.json?v=7.8`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
