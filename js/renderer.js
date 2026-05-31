@@ -242,7 +242,7 @@ function replaceBioTextPhrases(root) {
         [/Kompetenzbereichen/g, 'Arbeitsweisen'],
         [/Kompetenzbereiche/g, 'Arbeitsweisen'],
         [/kompetenzorientiert/g, 'an echten Situationen'],
-        [/Kompetenzcheck/g, 'Anwendungscheck'],
+        [/Kompetenzcheck/g, 'Kann ich das?'],
         [/Wissen, Erkenntnis und Handeln/g, 'Fachcheck, Verständnischeck und Alltagscheck'],
         [/Wissen, Erkenntnis oder Handeln/g, 'Fachcheck, Verständnischeck oder Alltagscheck'],
         [/Wissen aneignen und kommunizieren/g, 'Fachwörter nutzen und erklären'],
@@ -279,8 +279,8 @@ function softenBiologyCompetencyLanguage(root) {
     });
 
     root.querySelectorAll('.bio-section-check > strong').forEach(label => {
-        if (/Kompetenzcheck|Anwendungscheck/.test(label.textContent)) {
-            label.textContent = 'Anwendungscheck';
+        if (/Kompetenzcheck|Anwendungscheck|Kann ich das\?/.test(label.textContent)) {
+            label.textContent = 'Kann ich das?';
         }
     });
 
