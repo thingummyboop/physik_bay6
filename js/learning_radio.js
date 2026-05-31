@@ -31,11 +31,11 @@
             src: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brenticus_-_Ambient.ogg"
         },
         {
-            title: "Trance is... Ambient Cinematic Trance",
-            artist: "Whitewolf ft. cyba",
+            title: "Meditation Impromptu 01",
+            artist: "Kevin MacLeod",
             license: "CC BY 3.0",
-            page: "https://commons.wikimedia.org/wiki/File:Whitewolf225_-_Trance_is..._(Ambient_Cinematic_Trance)_10.ogg",
-            src: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Whitewolf225_-_Trance_is..._%28Ambient_Cinematic_Trance%29_10.ogg"
+            page: "https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_-_01_-_Meditation_Impromptu_01.ogg",
+            src: "https://upload.wikimedia.org/wikipedia/commons/6/67/Kevin_MacLeod_-_01_-_Meditation_Impromptu_01.ogg"
         },
         {
             title: "Peaceful",
