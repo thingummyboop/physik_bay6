@@ -5,80 +5,76 @@ const ROCKET_MODELS = [
     {
         id: "sparrow",
         name: "Spatz I",
-        tagline: "Leicht, wendig, gut für erste Starts.",
-        color: "#38bdf8",
-        accent: "#fbbf24",
+        tagline: "Schmales Rohr, leicht und wendig.",
+        color: "#78716c",
+        accent: "#ef4444",
         stats: { thrust: 7, fuel: 6, control: 8, science: 3, hull: 4 }
     },
     {
         id: "atlas",
-        name: "Atlas Schulrakete",
-        tagline: "Ausgewogenes Trainingsmodell für lange Missionen.",
-        color: "#34d399",
-        accent: "#60a5fa",
+        name: "Atlas Schrottrakete",
+        tagline: "Ein solider Stapel Ölfässer.",
+        color: "#57534e",
+        accent: "#3b82f6",
         stats: { thrust: 6, fuel: 7, control: 6, science: 5, hull: 6 }
     },
     {
         id: "mammut",
-        name: "Mammut Booster",
-        tagline: "Schwerer, kräftiger, braucht ruhige Steuerung.",
-        color: "#fb7185",
-        accent: "#f97316",
+        name: "Mammut Kessel",
+        tagline: "Breiter Boiler, viel Platz, träge.",
+        color: "#44403c",
+        accent: "#f59e0b",
         stats: { thrust: 9, fuel: 8, control: 4, science: 2, hull: 8 }
     }
 ];
 
 const SUBJECT_BONUSES = {
-    physik: { label: "Physik", unlock: "Antriebe, Stabilisatoren, Hitzeschutz", effect: "Mehr Schub und bessere Landungen." },
-    mathematik: { label: "Mathematik", unlock: "Steuercomputer, Effizienz-Software", effect: "Feinere Drehung und weniger Treibstoffverbrauch." },
-    chemie: { label: "Chemie", unlock: "Treibstoffe, Tanks, neue Werkstoffe", effect: "Mehr Energie im Tank und robustere Bauteile." },
-    biologie: { label: "Biologie", unlock: "Science-Module, Probenbehälter, Lebenserhaltung", effect: "Mehr Forschungspunkte in Missionen." },
-    dgb: { label: "Digitale Grundbildung", unlock: "Autopilot, Sensorik, Telemetrie", effect: "Bessere Anzeigen und stabilere Steuerung." },
-    geographie: { label: "Geographie", unlock: "Karten, Zielsysteme, Planetendaten", effect: "Neue Ziele im Sonnensystem." },
-    deutsch: { label: "Deutsch", unlock: "Missionslogbuch, Funktexte", effect: "Klarere Aufträge und Logbuch-Stil." },
-    englisch: { label: "Englisch", unlock: "Mission radio, crew calls", effect: "Internationale Raumfahrt-Kommunikation." },
-    musik: { label: "Musik", unlock: "Lernmusik und Cockpit-Sounds", effect: "Neue Hintergrundmusik für die Seite." },
-    kunst: { label: "Kunst", unlock: "Lackierungen, Embleme, Cockpit-Design", effect: "Optische Anpassungen für deine Rakete." },
-    ernaehrung: { label: "Ernährung & Haushalt", unlock: "Vorratsmodule, Wasserrecycling", effect: "Längere Crew-Missionen." }
+    physik: { label: "Physik", unlock: "Triebwerke, Gyros, Schilde", effect: "Mehr Schub und Stabilität." },
+    mathematik: { label: "Mathematik", unlock: "Nav-Systeme, Optimierer", effect: "Feinere Drehung und weniger Verbrauch." },
+    chemie: { label: "Chemie", unlock: "Tanks, Kristalle, Waffen", effect: "Energie und Feuerkraft." },
+    biologie: { label: "Biologie", unlock: "Gurkenglas, Terrarium", effect: "Mehr Forschungspunkte." },
+    dgb: { label: "Digitale Grundbildung", unlock: "Röhrenmonitor-Autopilot", effect: "Starke automatische Steuerung." },
+    geographie: { label: "Geographie", unlock: "Polaroid-Kamera", effect: "Scans vom Orbit." },
+    deutsch: { label: "Deutsch", unlock: "Notizbrett", effect: "Forschungs-Bonus." },
+    englisch: { label: "Englisch", unlock: "CB-Funkgerät", effect: "Internationale Kommunikation." },
+    musik: { label: "Musik", unlock: "Ghetto-Blaster", effect: "Beruhigende Tunes." },
+    kunst: { label: "Kunst", unlock: "Graffiti-Dosen", effect: "Bunter Schrottplatz-Look." },
+    ernaehrung: { label: "Ernährung & Haushalt", unlock: "Kühlschrank", effect: "Snacks für lange Flüge." }
 };
 
 const PARTS = [
-    { id: "nose_basic", slot: "nose", name: "Schul-Nase", subject: "start", cost: 0, stats: { control: 1 }, desc: "Basis-Spitze für sichere Trainingsflüge." },
-    { id: "body_basic", slot: "body", name: "Standard-Rumpf", subject: "start", cost: 0, stats: { fuel: 1, hull: 1 }, desc: "Solider Rumpf mit kleinem Tank." },
-    { id: "engine_basic", slot: "engine", name: "Kerzenmotor", subject: "start", cost: 0, stats: { thrust: 1 }, desc: "Langsam, aber zuverlässig." },
-    { id: "fin_basic", slot: "fin", name: "Kartonflossen", subject: "start", cost: 0, stats: { control: 1 }, desc: "Stabilisiert den Start." },
-    { id: "science_empty", slot: "science", name: "Leerer Experimentplatz", subject: "start", cost: 0, stats: {}, desc: "Hier passt später Forschung hinein." },
-    { id: "utility_basic", slot: "utility", name: "Bordlampe", subject: "start", cost: 0, stats: { hull: 1 }, desc: "Kleine Hilfe für Nachtstarts." },
-    { id: "weapon_basic", slot: "weapon", name: "Notfall-Geschütz", subject: "start", cost: 0, stats: { weapon: 1 }, desc: "Ein kleines Bordgeschütz für die ferne Endphase." },
-    { id: "paint_school", slot: "paint", name: "SciVerse-Lack", subject: "start", cost: 0, stats: {}, color: "#38bdf8", accent: "#fbbf24", desc: "Der Standardlook deiner Schulrakete." },
+    { id: "nose_basic", slot: "nose", name: "Verkehrspylone", subject: "start", cost: 0, globalReq: 0, stats: { control: 1 }, desc: "Ein Pylon mit Klebeband. Aerodynamisch genug." },
+    { id: "body_basic", slot: "body", name: "Rostiges Ölfass", subject: "start", cost: 0, globalReq: 0, stats: { fuel: 1, hull: 1 }, desc: "Hat mal Öl enthalten, jetzt Treibstoff." },
+    { id: "engine_basic", slot: "engine", name: "Blecheimer-Düse", subject: "start", cost: 0, globalReq: 0, stats: { thrust: 1 }, desc: "Ein durchlöcherter Eimer. Funktioniert." },
+    { id: "fin_basic", slot: "fin", name: "Pappkarton-Flügel", subject: "start", cost: 0, globalReq: 0, stats: { control: 1 }, desc: "Mit extra viel Panzertape befestigt." },
+    { id: "science_empty", slot: "science", name: "Leere Holzkiste", subject: "start", cost: 0, globalReq: 0, stats: {}, desc: "Platz für Schrott-Experimente." },
+    { id: "utility_basic", slot: "utility", name: "Taschenlampe", subject: "start", cost: 0, globalReq: 0, stats: { hull: 1 }, desc: "Mit Kabelbindern festgemacht." },
+    { id: "weapon_basic", slot: "weapon", name: "Gummiband-Schleuder", subject: "start", cost: 0, globalReq: 0, stats: { weapon: 1 }, desc: "Verschießt rostige Schrauben." },
+    { id: "paint_school", slot: "paint", name: "Rost & Grundierung", subject: "start", cost: 0, globalReq: 0, stats: {}, color: "#78716c", accent: "#fbbf24", desc: "Abgeplatzter Lack und nacktes Metall." },
 
-    { id: "engine_vector", slot: "engine", name: "Newton-Vektortriebwerk", subject: "physik", req: 1, cost: 45, stats: { thrust: 3, control: 1 }, desc: "Mehr Schub und sichtbare Kraft-Richtung." },
-    { id: "fin_gyro", slot: "fin", name: "Kreisel-Stabilisator", subject: "physik", req: 2, cost: 55, stats: { control: 3, hull: 1 }, desc: "Hilft beim Drehen und Abfangen." },
-    { id: "shield_heat", slot: "utility", name: "Wärmelehre-Hitzeschild", subject: "physik", req: 3, cost: 70, stats: { hull: 4 }, desc: "Schützt beim Wiedereintritt und harten Landungen." },
-    { id: "solar_panel", slot: "utility", name: "Optik-Solarpaneel", subject: "physik", req: 4, cost: 80, stats: { science: 1, fuel: 1 }, desc: "Licht wird zu Energie." },
-    { id: "weapon_photon", slot: "weapon", name: "Photonenkanone", subject: "physik", req: 5, cost: 110, stats: { weapon: 2, control: 1 }, desc: "Ein stärkerer Strahl für die Space-Invaders-Zone." },
-
-    { id: "math_nav", slot: "nose", name: "Mathe-Steuercomputer", subject: "mathematik", req: 1, cost: 45, stats: { control: 4 }, desc: "Rechnet Flugwinkel sauberer." },
-    { id: "math_optimizer", slot: "utility", name: "Effizienz-Rechner", subject: "mathematik", req: 3, cost: 75, stats: { fuel: 2, control: 2 }, desc: "Verbraucht weniger Treibstoff bei ruhiger Steuerung." },
-    { id: "math_grid_paint", slot: "paint", name: "Koordinaten-Lack", subject: "mathematik", req: 5, cost: 55, stats: {}, color: "#2563eb", accent: "#f8fafc", desc: "Schicker Mathe-Look mit Gitterlinien." },
-
-    { id: "chem_fuel", slot: "body", name: "Chemie-Hochenergietank", subject: "chemie", req: 1, cost: 50, stats: { fuel: 4, thrust: 1 }, desc: "Mehr Energie durch besseren Treibstoff." },
-    { id: "chem_alloy", slot: "body", name: "Leichtmetall-Rumpf", subject: "chemie", req: 3, cost: 80, stats: { hull: 3, fuel: 2 }, desc: "Stabil und leichter als der Standardrumpf." },
-    { id: "chem_crystal", slot: "nose", name: "Kristall-Sensor", subject: "chemie", req: 5, cost: 95, stats: { science: 2, control: 2 }, desc: "Erkennt Stoffproben im Orbit." },
-    { id: "weapon_plasma", slot: "weapon", name: "Plasmawerfer", subject: "chemie", req: 5, cost: 120, stats: { weapon: 3 }, desc: "Mehr Schaden durch energiereiche Teilchen." },
-
-    { id: "bio_probe", slot: "science", name: "Bio-Probenkapsel", subject: "biologie", req: 1, cost: 45, stats: { science: 4 }, desc: "Sammelt Sporen, Wasserproben und Mikrospuren." },
-    { id: "bio_greenhouse", slot: "science", name: "Mini-Gewächshaus", subject: "biologie", req: 2, cost: 65, stats: { science: 5, hull: 1 }, desc: "Teste Pflanzen im Weltraum." },
-
-    { id: "dgb_autopilot", slot: "nose", name: "DGB-Autopilot", subject: "dgb", req: 2, cost: 60, stats: { control: 5 }, desc: "Macht die Steuerung weicher." },
-    { id: "weapon_targeting", slot: "weapon", name: "Zielcomputer-Geschütz", subject: "dgb", req: 4, cost: 130, stats: { weapon: 2, control: 2 }, desc: "Feuert präziser und schneller in der Endphase." },
-    { id: "geo_mapper", slot: "science", name: "Geo-Kartenkamera", subject: "geographie", req: 1, cost: 50, stats: { science: 3, control: 1 }, desc: "Scannt Oberflächen und Umlaufbahnen." },
-    { id: "music_radio", slot: "utility", name: "Musik-Cockpitradio", subject: "musik", req: 1, cost: 35, stats: { control: 1 }, desc: "Schaltet Lernmusik frei und beruhigt den Flug." },
-    { id: "art_paint", slot: "paint", name: "Kunst-Galaxie-Lack", subject: "kunst", req: 1, cost: 40, stats: {}, color: "#a855f7", accent: "#fb7185", desc: "Eine Rakete, die aussieht wie ein Sternennebel." },
-    { id: "english_radio", slot: "utility", name: "English Mission Radio", subject: "englisch", req: 1, cost: 35, stats: { science: 1 }, desc: "Internationale Funksprüche für Mission Control." },
-    { id: "de_logbook", slot: "science", name: "Deutsch-Logbuch", subject: "deutsch", req: 1, cost: 35, stats: { science: 2 }, desc: "Bessere Missionsberichte, klarere Beobachtungen." },
-    { id: "eh_life_support", slot: "body", name: "Vorrats- und Wasserrecycling", subject: "ernaehrung", req: 1, cost: 55, stats: { fuel: 1, hull: 3 }, desc: "Für lange bemannte Missionen gedacht." },
-    { id: "paint_gold", slot: "paint", name: "Goldene Rakete", subject: "victory", cost: 0, stats: { weapon: 1, hull: 1 }, color: "#facc15", accent: "#fff7ad", desc: "Die Auszeichnung für den vollendeten SciVerse-Flug." }
+    { id: "music_radio", slot: "utility", name: "Retro Ghetto-Blaster", subject: "musik", globalReq: 1, cost: 35, stats: { control: 1 }, desc: "Spielt laute Beats zur Beruhigung." },
+    { id: "geo_mapper", slot: "science", name: "Polaroid-Kamera", subject: "geographie", globalReq: 2, cost: 50, stats: { science: 3, control: 1 }, desc: "Macht körnige Fotos vom Orbit." },
+    { id: "math_nav", slot: "nose", name: "Nudelsieb-Satellit", subject: "mathematik", globalReq: 3, cost: 45, stats: { control: 4 }, desc: "Empfängt wackelige Signale." },
+    { id: "art_paint", slot: "paint", name: "Graffiti-Sprühdose", subject: "kunst", globalReq: 4, cost: 40, stats: {}, color: "#ec4899", accent: "#06b6d4", desc: "Wilde Farben aus der Dose." },
+    { id: "bio_probe", slot: "science", name: "Gurkenglas", subject: "biologie", globalReq: 5, cost: 45, stats: { science: 4 }, desc: "Gefüllt mit mysteriöser grüner Probe." },
+    { id: "engine_vector", slot: "engine", name: "Waschmaschinentrommel", subject: "physik", globalReq: 6, cost: 45, stats: { thrust: 3, control: 1 }, desc: "Rotiert wild und gibt Schub." },
+    { id: "chem_fuel", slot: "body", name: "Propangas-Flaschen", subject: "chemie", globalReq: 7, cost: 50, stats: { fuel: 4, thrust: 1 }, desc: "Rot lackiert und hoch explosiv." },
+    { id: "english_radio", slot: "utility", name: "CB-Funkgerät", subject: "englisch", globalReq: 8, cost: 35, stats: { science: 1 }, desc: "Rauscht auf allen Frequenzen." },
+    { id: "fin_gyro", slot: "fin", name: "Fahrradreifen-Kreisel", subject: "physik", globalReq: 9, cost: 55, stats: { control: 3, hull: 1 }, desc: "Gyroskopische Stabilität." },
+    { id: "de_logbook", slot: "science", name: "Klemmbrett", subject: "deutsch", globalReq: 10, cost: 35, stats: { science: 2 }, desc: "Flattert gefährlich im Fahrtwind." },
+    { id: "math_optimizer", slot: "utility", name: "Autobatterie", subject: "mathematik", globalReq: 11, cost: 75, stats: { fuel: 2, control: 2 }, desc: "Überbrückungskabel inklusive." },
+    { id: "eh_life_support", slot: "body", name: "Kühlschrank", subject: "ernaehrung", globalReq: 12, cost: 55, stats: { fuel: 1, hull: 3 }, desc: "Hält die Crew und Snacks kalt." },
+    { id: "shield_heat", slot: "utility", name: "Gusseisen-Pfanne", subject: "physik", globalReq: 13, cost: 70, stats: { hull: 4 }, desc: "Der beste Schrottplatz-Hitzeschild." },
+    { id: "weapon_photon", slot: "weapon", name: "Schweißbrenner", subject: "physik", globalReq: 14, cost: 110, stats: { weapon: 2, control: 1 }, desc: "Spuckt heiße blaue Flammen." },
+    { id: "chem_alloy", slot: "body", name: "Alufolien-Rüstung", subject: "chemie", globalReq: 15, cost: 80, stats: { hull: 3, fuel: 2 }, desc: "Mehrfach gewickelt für Schutz." },
+    { id: "solar_panel", slot: "utility", name: "Regenschirm-Panel", subject: "physik", globalReq: 16, cost: 80, stats: { science: 1, fuel: 1 }, desc: "Mit Solarfolie beklebt." },
+    { id: "math_grid_paint", slot: "paint", name: "Kariertes Papier", subject: "mathematik", globalReq: 17, cost: 55, stats: {}, color: "#f8fafc", accent: "#3b82f6", desc: "Ein fliegendes Matheheft." },
+    { id: "bio_greenhouse", slot: "science", name: "Plastik-Terrarium", subject: "biologie", globalReq: 18, cost: 65, stats: { science: 5, hull: 1 }, desc: "Ein Bonsai kämpft ums Überleben." },
+    { id: "chem_crystal", slot: "nose", name: "Leuchtkristall", subject: "chemie", globalReq: 19, cost: 95, stats: { science: 2, control: 2 }, desc: "Vibriert und summt leise." },
+    { id: "dgb_autopilot", slot: "nose", name: "Röhrenmonitor", subject: "dgb", globalReq: 20, cost: 60, stats: { control: 5 }, desc: "Zeigt grünen Code auf schwarzem Grund." },
+    { id: "weapon_plasma", slot: "weapon", name: "Offene Mikrowelle", subject: "chemie", globalReq: 21, cost: 120, stats: { weapon: 3 }, desc: "Strahlend gefährlich." },
+    { id: "weapon_targeting", slot: "weapon", name: "Zielfernrohr", subject: "dgb", globalReq: 22, cost: 130, stats: { weapon: 2, control: 2 }, desc: "An die Schleuder getapt." },
+    { id: "paint_gold", slot: "paint", name: "Goldfolie", subject: "victory", cost: 0, globalReq: 999, stats: { weapon: 1, hull: 1 }, color: "#facc15", accent: "#fff7ad", desc: "Glänzt wie der pure Sieg." }
 ];
 
 const SLOTS = [
@@ -288,7 +284,7 @@ function renderModelCards() {
     const grid = document.getElementById("rocketModelCards");
     grid.innerHTML = ROCKET_MODELS.map(model => `
         <button type="button" class="model-card" data-model="${model.id}">
-            <div class="model-rocket">${rocketSvg({ model, compact: true })}</div>
+            <div class="model-rocket"><canvas class="rocket-preview-canvas" width="130" height="135" data-model="${model.id}" data-compact="true"></canvas></div>
             <p class="space-kicker">Startmodell</p>
             <h3>${escapeHtml(model.name)}</h3>
             <p>${escapeHtml(model.tagline)}</p>
@@ -302,6 +298,7 @@ function renderModelCards() {
     grid.querySelectorAll(".model-card").forEach(card => {
         card.addEventListener("click", () => chooseModel(card.dataset.model));
     });
+    drawAllPreviews();
 }
 
 function chooseModel(modelId) {
@@ -374,7 +371,8 @@ function getRocketStats() {
 }
 
 function renderRocketPanels() {
-    document.getElementById("compactRocketPreview").innerHTML = rocketSvg({ model: getCurrentModel(), compact: true });
+    document.getElementById("compactRocketPreview").innerHTML = `<canvas class="rocket-preview-canvas" width="130" height="135" data-model="${getCurrentModel().id}" data-compact="true"></canvas>`;
+    drawAllPreviews();
     document.getElementById("rocketStats").innerHTML = statCard("Schub", getRocketStats().thrust)
         + statCard("Tank", getRocketStats().fuel)
         + statCard("Steuerung", getRocketStats().control)
@@ -525,7 +523,7 @@ function renderUnlockSummary() {
 }
 
 function renderWorkshop() {
-    document.getElementById("workshopRocketPreview").innerHTML = rocketSvg({ model: getCurrentModel(), large: true });
+    document.getElementById("workshopRocketPreview").innerHTML = `<canvas class="rocket-preview-canvas" width="240" height="360" data-model="${getCurrentModel().id}" data-large="true"></canvas>`;
     const selectedSlot = SLOTS.find(slot => slot.id === programState.selectedSlot) || SLOTS[0];
     const selectedPart = getPart(programState.equipped[selectedSlot.id]);
     const selectedInfo = document.getElementById("designerSelectedPart");
@@ -648,7 +646,7 @@ function renderShop() {
         const owned = programState.owned.includes(part.id);
         const unlocked = isPartUnlocked(part, progress);
         const canBuy = unlocked && !owned && getPoints() >= part.cost;
-        const buttonLabel = owned ? "gekauft" : unlocked ? `${part.cost} Punkte` : part.subject === "victory" ? "Finale schaffen" : `${part.req || 0} Kapitelquiz nötig`;
+        const buttonLabel = owned ? "gekauft" : unlocked ? `${part.cost} Punkte` : part.subject === "victory" ? "Finale schaffen" : `${part.globalReq || 0} Kapitelquizze nötig`;
         const subjectLabel = part.subject === "start" ? "Basis" : part.subject === "victory" ? "Finale" : (SUBJECT_BONUSES[part.subject]?.label || part.subject);
         return `
             <article class="shop-card ${owned ? "owned" : ""} ${unlocked ? "" : "locked"}">
@@ -674,8 +672,7 @@ function slotLabel(slotId) {
 function isPartUnlocked(part, progress = getSubjectProgress()) {
     if (part.subject === "start") return true;
     if (part.subject === "victory") return Boolean(programState.goldenRocket || programState.owned.includes(part.id));
-    const item = progress[part.subject] || { completed: 0 };
-    return item.completed >= Number(part.req || 1);
+    return getCompletedChapterCount() >= (part.globalReq || 0);
 }
 
 function buyPart(partId) {
@@ -3022,4 +3019,20 @@ function escapeHtml(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+
+function drawAllPreviews() {
+    document.querySelectorAll('.rocket-preview-canvas').forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        const modelId = canvas.dataset.model;
+        const model = ROCKET_MODELS.find(m => m.id === modelId) || ROCKET_MODELS[0];
+        const w = canvas.width, h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+        ctx.save();
+        ctx.translate(w/2, h/2 + (canvas.dataset.compact ? 20 : 40));
+        const scale = canvas.dataset.large ? 2.3 : canvas.dataset.compact ? 0.95 : 1.25;
+        ctx.scale(scale, scale);
+        drawRocketCanvas(ctx, 0, 0, 0, false, { preview: true, modelOverride: model });
+        ctx.restore();
+    });
 }
