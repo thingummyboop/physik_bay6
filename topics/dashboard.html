@@ -111,6 +111,25 @@
             padding: 8px 0;
         }
 
+        .meta-line input {
+            background: transparent;
+            border: 0;
+            border-radius: 4px;
+            color: inherit;
+            font: inherit;
+            font-weight: 800;
+            margin-top: 3px;
+            outline: none;
+            padding: 3px 0;
+            width: 100%;
+        }
+
+        .meta-line input:focus {
+            background: rgba(59, 130, 246, 0.08);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+            padding-inline: 6px;
+        }
+
         .meta-line span {
             color: #64748b;
             display: block;
@@ -308,6 +327,20 @@
             color: #64748b;
         }
 
+        .easter-egg-toast {
+            background: linear-gradient(135deg, #0f766e, #22c55e);
+            border-radius: 999px;
+            bottom: 22px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.24);
+            color: white;
+            font-weight: 900;
+            left: 50%;
+            padding: 12px 18px;
+            position: fixed;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
         @media (max-width: 720px) {
             .report-header {
                 grid-template-columns: 1fr;
@@ -337,7 +370,7 @@
             </header>
 
             <div class="report-meta">
-                <div class="meta-line"><span>Name</span>Schülerin / Schüler</div>
+                <label class="meta-line" for="studentNameInput"><span>Name</span><input id="studentNameInput" type="text" autocomplete="name" spellcheck="false" placeholder="Schülerin / Schüler"></label>
                 <div class="meta-line"><span>Gesamtpunkte</span><strong id="totalScore">0</strong></div>
                 <div class="meta-line"><span>Geschaffte Kapitel</span><strong id="completedCount">0</strong></div>
                 <div class="meta-line"><span>Stand</span><strong id="reportDate">-</strong></div>
@@ -391,6 +424,19 @@
             physik: { label: "Physik", icon: "🚀", accent: "#0f766e" }
         };
 
+        const STUDENT_NAME_KEY = 'sciverse_student_name';
+        const MASTER_UNLOCK_KEY = 'sciverse_master_unlock';
+        const MASTER_UNLOCK_NAMES = new Set([
+            'simon lukas mortelbauer',
+            'simon lukas moertelbauer'
+        ]);
+        const SPACE_REWARD_PARTS = [
+            'nose_basic', 'body_basic', 'engine_basic', 'fin_basic', 'science_empty', 'utility_basic', 'weapon_basic', 'paint_school',
+            'music_radio', 'geo_mapper', 'math_nav', 'art_paint', 'bio_probe', 'engine_vector', 'chem_fuel', 'english_radio',
+            'fin_gyro', 'de_logbook', 'math_optimizer', 'eh_life_support', 'shield_heat', 'weapon_photon', 'chem_alloy', 'solar_panel',
+            'math_grid_paint', 'bio_greenhouse', 'chem_crystal', 'dgb_autopilot', 'weapon_plasma', 'weapon_targeting', 'paint_gold'
+        ];
+
         function getCurriculum() {
             try {
                 if (window.parent && window.parent.SCIVERSE_CURRICULUM) {
@@ -408,6 +454,185 @@
             } catch (error) {
                 return {};
             }
+        }
+
+        function readChapterResults() {
+            try {
+                return JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function getAvailableTopics() {
+            const curriculum = getCurriculum();
+            return Object.values(curriculum)
+                .flatMap(subject => subject.topics || [])
+                .filter(topic => topic && topic.available !== false && topic.id);
+        }
+
+        function normalizeStudentName(value) {
+            return String(value || '')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .replace(/[^a-z\s]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function isMasterUnlockName(value) {
+            return MASTER_UNLOCK_NAMES.has(normalizeStudentName(value));
+        }
+
+        function hasAllRewards(topicIds) {
+            const topicScores = readTopicScores();
+            const chapterResults = readChapterResults();
+            const allTopicsDone = topicIds.every(topicId =>
+                Number(topicScores[topicId] || 0) >= 100 && chapterResults[topicId]?.passed === true
+            );
+            let allSpaceRewards = false;
+            try {
+                const spaceState = JSON.parse(localStorage.getItem('sciverse_space_program') || '{}');
+                const owned = new Set(spaceState.owned || []);
+                allSpaceRewards = SPACE_REWARD_PARTS.every(partId => owned.has(partId)) && spaceState.goldenRocket === true;
+            } catch (error) {
+                allSpaceRewards = false;
+            }
+            return allTopicsDone && allSpaceRewards;
+        }
+
+        function unlockAllProgress() {
+            const topics = getAvailableTopics();
+            const topicIds = [...new Set(topics.map(topic => topic.id))];
+            if (!topicIds.length) return false;
+            if (hasAllRewards(topicIds)) return false;
+
+            const now = Date.now();
+            const topicScores = readTopicScores();
+            const chapterResults = readChapterResults();
+
+            topicIds.forEach(topicId => {
+                topicScores[topicId] = 100;
+                chapterResults[topicId] = {
+                    ...(chapterResults[topicId] || {}),
+                    passed: true,
+                    bestPercent: 100,
+                    lastPercent: 100,
+                    lastCorrect: 12,
+                    total: 12,
+                    attemptsUsed: 0,
+                    attempts: 0,
+                    availableAttempts: 3,
+                    lastAttemptAt: now,
+                    nextRefillAt: 0,
+                    fullRefillAt: 0,
+                    lockUntil: 0,
+                    unlockedBy: 'student-name-easter-egg',
+                    unlockedAt: now
+                };
+            });
+
+            const targetScore = Math.max(Number(localStorage.getItem('physik_score') || 0), topicIds.length * 100);
+            localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
+            localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(chapterResults));
+            localStorage.setItem('challenge_completed_topics', JSON.stringify(topicIds));
+            localStorage.setItem('physik_score', String(targetScore));
+            localStorage.setItem('learning_coins', String(targetScore));
+            localStorage.setItem(MASTER_UNLOCK_KEY, String(now));
+
+            try {
+                const previousSpaceState = JSON.parse(localStorage.getItem('sciverse_space_program') || '{}');
+                const equipped = {
+                    nose: 'chem_crystal',
+                    body: 'chem_alloy',
+                    engine: 'engine_vector',
+                    fin: 'fin_gyro',
+                    science: 'bio_greenhouse',
+                    utility: 'math_optimizer',
+                    weapon: 'weapon_targeting',
+                    paint: 'paint_gold',
+                    ...(previousSpaceState.equipped || {})
+                };
+                localStorage.setItem('sciverse_space_program', JSON.stringify({
+                    ...previousSpaceState,
+                    owned: SPACE_REWARD_PARTS,
+                    equipped,
+                    goldenRocket: true,
+                    activeMissionId: 'sciverse_grand_tour',
+                    missionLog: {
+                        ...(previousSpaceState.missionLog || {}),
+                        sciverse_grand_tour: {
+                            maxAlt: 24000,
+                            items: 24,
+                            science: 999,
+                            score: Math.max(50000, Number(localStorage.getItem('sciverse_space_highscore') || 0)),
+                            completedAt: now
+                        }
+                    }
+                }));
+                localStorage.setItem('sciverse_space_highscore', String(Math.max(50000, Number(localStorage.getItem('sciverse_space_highscore') || 0))));
+            } catch (error) {
+                localStorage.setItem('sciverse_space_program', JSON.stringify({
+                    owned: SPACE_REWARD_PARTS,
+                    equipped: {
+                        nose: 'chem_crystal',
+                        body: 'chem_alloy',
+                        engine: 'engine_vector',
+                        fin: 'fin_gyro',
+                        science: 'bio_greenhouse',
+                        utility: 'math_optimizer',
+                        weapon: 'weapon_targeting',
+                        paint: 'paint_gold'
+                    },
+                    goldenRocket: true,
+                    activeMissionId: 'sciverse_grand_tour',
+                    missionLog: {
+                        sciverse_grand_tour: {
+                            maxAlt: 24000,
+                            items: 24,
+                            science: 999,
+                            score: 50000,
+                            completedAt: now
+                        }
+                    }
+                }));
+                localStorage.setItem('sciverse_space_highscore', '50000');
+            }
+
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'updateScore', score: targetScore }, '*');
+            }
+            return true;
+        }
+
+        function showUnlockToast() {
+            const existing = document.querySelector('.easter-egg-toast');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = 'easter-egg-toast';
+            toast.textContent = 'Spezialmodus aktiviert';
+            document.body.appendChild(toast);
+            window.setTimeout(() => toast.remove(), 3800);
+        }
+
+        function checkStudentNameUnlock(value) {
+            if (!isMasterUnlockName(value)) return;
+            if (unlockAllProgress()) {
+                showUnlockToast();
+                renderCover();
+            }
+        }
+
+        function setupStudentNameInput() {
+            const input = document.getElementById('studentNameInput');
+            if (!input) return;
+            input.value = localStorage.getItem(STUDENT_NAME_KEY) || '';
+            input.addEventListener('input', () => {
+                localStorage.setItem(STUDENT_NAME_KEY, input.value);
+                checkStudentNameUnlock(input.value);
+            });
+            checkStudentNameUnlock(input.value);
         }
 
         function escapeHtml(value) {
@@ -531,7 +756,10 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', renderCover);
+        document.addEventListener('DOMContentLoaded', () => {
+            setupStudentNameInput();
+            renderCover();
+        });
     </script>
     <script src="../js/learning_radio.js?v=1.2"></script>
 </body>
