@@ -9,7 +9,7 @@ const topicsDir = path.join(repoRoot, 'js', 'topics');
 const langDir = path.join(repoRoot, 'lang');
 const languageFiles = fs
   .readdirSync(langDir)
-  .filter((file) => file.endsWith('.json'))
+  .filter((file) => file.endsWith('.json') && file !== 'space_program.json')
   .sort();
 
 const mathTopics = fs
@@ -17,6 +17,7 @@ const mathTopics = fs
   .filter((entry) => entry.endsWith('.js'))
   .map((entry) => entry.replace(/\.js$/, ''))
   .filter((topic) => topic.startsWith('math'))
+  .filter((topic) => !['mathespiel', 'math_kaenguru'].includes(topic))
   .sort();
 
 const MAX_FEEDBACK_LENGTH = 180;

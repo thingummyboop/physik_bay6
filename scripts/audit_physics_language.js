@@ -9,7 +9,7 @@ const topicsDir = path.join(repoRoot, 'js', 'topics');
 const langDir = path.join(repoRoot, 'lang');
 const languageFiles = fs
   .readdirSync(langDir)
-  .filter((file) => file.endsWith('.json'))
+  .filter((file) => file.endsWith('.json') && file !== 'space_program.json')
   .sort();
 
 const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);

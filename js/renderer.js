@@ -233,6 +233,226 @@ function escapeHtml(value) {
         .replace(/'/g, '&#039;');
 }
 
+function normalizeBioLabel(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function replaceBioTextPhrases(root) {
+    const replacements = [
+        [/Kompetenzbereichen/g, 'Arbeitsweisen'],
+        [/Kompetenzbereiche/g, 'Arbeitsweisen'],
+        [/kompetenzorientiert/g, 'an echten Situationen'],
+        [/Kompetenzcheck/g, 'Anwendungscheck'],
+        [/Wissen, Erkenntnis und Handeln/g, 'Fachwörter, Datenblick und Entscheidung'],
+        [/Wissen, Erkenntnis oder Handeln/g, 'Fachblick, Datenblick oder Entscheidung'],
+        [/Wissen aneignen und kommunizieren/g, 'Fachwörter nutzen und erklären'],
+        [/Erkenntnisse gewinnen/g, 'untersuchen und Belege nutzen'],
+        [/Standpunkte begründen und handeln/g, 'Entscheidungen begründen'],
+        [/Standpunkte begruenden und handeln/g, 'Entscheidungen begründen'],
+        [/Eine Kompetenz bedeutet/g, 'Anwenden bedeutet'],
+        [/Kompetenz bedeutet/g, 'Anwenden bedeutet'],
+        [/\bKompetenz\b/g, 'Anwenden']
+    ];
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) {
+        textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach(node => {
+        let nextValue = node.nodeValue;
+        replacements.forEach(([pattern, replacement]) => {
+            nextValue = nextValue.replace(pattern, replacement);
+        });
+        node.nodeValue = nextValue;
+    });
+}
+
+function softenBiologyCompetencyLanguage(root) {
+    replaceBioTextPhrases(root);
+
+    root.querySelectorAll('.bio-competency-card strong, .bio-check-card strong, .bio-data-table th').forEach(label => {
+        const text = normalizeBioLabel(label.textContent);
+        if (text === 'Wissen') label.textContent = 'Fachblick';
+        if (text === 'Erkenntnis') label.textContent = 'Datenblick';
+        if (text === 'Handeln') label.textContent = 'Alltagsblick';
+    });
+
+    root.querySelectorAll('.bio-section-check > strong').forEach(label => {
+        if (/Kompetenzcheck|Anwendungscheck/.test(label.textContent)) {
+            label.textContent = 'Anwendungscheck';
+        }
+    });
+
+    root.querySelectorAll('.bio-section-check li > strong').forEach(label => {
+        const text = normalizeBioLabel(label.textContent);
+        if (text === 'Wissen:') label.textContent = 'Fachblick:';
+        if (text === 'Erkenntnis:') label.textContent = 'Datenblick:';
+        if (text === 'Handeln:') label.textContent = 'Alltagsblick:';
+    });
+
+    root.querySelectorAll('.bio-training-panel > strong').forEach(label => {
+        label.textContent = 'Trainiere mit echten Situationen';
+    });
+
+    root.querySelectorAll('.bio-training-card h4').forEach(label => {
+        const text = normalizeBioLabel(label.textContent);
+        if (text === 'Wissen trainieren') label.textContent = 'Fachwörter einsetzen';
+        if (text === 'Erkenntnis trainieren') label.textContent = 'Datenblick üben';
+        if (text === 'Handeln trainieren') label.textContent = 'Entscheiden begründen';
+    });
+}
+
+function extractBioInsightPrompt(item) {
+    const clone = item.cloneNode(true);
+    const label = clone.querySelector('strong');
+    if (label) label.remove();
+    return normalizeBioLabel(clone.textContent).replace(/^Erkenntnis:\s*/i, '');
+}
+
+function inferBioInsightGame(prompt) {
+    const lower = prompt.toLowerCase();
+    if (/quelle|webseite|beleg|glaubwuerdig|glaubwürdig|autor/.test(lower)) {
+        return {
+            title: 'Quellen-Check',
+            correct: 'Ich prüfe Autor, Belege und sachliche Sprache, bevor ich der Aussage vertraue.',
+            hint: 'Eine gute Quelle nennt, woher die Information kommt und woran man sie prüfen kann.'
+        };
+    }
+    if (/daten|mess|werte|tabelle|diagramm|puls|zeitlinie|kartiere|auswert|muster/.test(lower)) {
+        return {
+            title: 'Daten-Detektiv',
+            correct: 'Ich suche ein Muster in fair gesammelten Daten und begründe mit einer Beobachtung oder Zahl.',
+            hint: 'Erst Daten ordnen, dann eine vorsichtige Aussage daraus ableiten.'
+        };
+    }
+    if (/modell|kladogramm|matrix|skizze|karte|beschrifte/.test(lower)) {
+        return {
+            title: 'Modell-Werkstatt',
+            correct: 'Ich nutze das Modell als Werkzeug und sage auch, was es nicht zeigen kann.',
+            hint: 'Modelle helfen beim Denken, sind aber nie die ganze Wirklichkeit.'
+        };
+    }
+    if (/plane|untersuch|variable|frage|methode|vergleichsbeobachtung/.test(lower)) {
+        return {
+            title: 'Versuchsplaner',
+            correct: 'Ich mache die Frage klein, verändere nur einen wichtigen Faktor und notiere meine Beobachtung.',
+            hint: 'Eine faire Untersuchung ändert nicht alles gleichzeitig.'
+        };
+    }
+    if (/vergleiche|ordne|bestimme|merkmal|gruppen|unterscheide/.test(lower)) {
+        return {
+            title: 'Merkmal-Sortierer',
+            correct: 'Ich vergleiche mehrere Merkmale und entscheide erst, wenn die Hinweise zusammenpassen.',
+            hint: 'Ein einzelnes Merkmal kann täuschen; mehrere Hinweise machen die Begründung stärker.'
+        };
+    }
+    return {
+        title: 'Forscher-Mission',
+        correct: 'Ich sammle beobachtbare Hinweise und begründe meine Antwort mit dem Abschnitt.',
+        hint: 'Biologie wird stark, wenn aus Beobachtung eine begründete Aussage wird.'
+    };
+}
+
+function rotateBioChoices(choices, topicId, sectionIndex, gameIndex) {
+    const offset = (topicId.length + sectionIndex + gameIndex) % choices.length;
+    return choices.slice(offset).concat(choices.slice(0, offset));
+}
+
+function buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex) {
+    const setup = inferBioInsightGame(prompt);
+    const choices = rotateBioChoices([
+        { text: setup.correct, correct: true },
+        { text: 'Ich rate nach dem ersten Eindruck und schreibe sofort eine sichere Antwort.', correct: false },
+        { text: 'Ich lerne nur ein Fachwort auswendig und lasse Beobachtungen oder Daten weg.', correct: false }
+    ], topicId, sectionIndex, gameIndex);
+
+    const game = document.createElement('div');
+    game.className = 'bio-insight-game interactive-zone';
+    game.dataset.bioInsightGame = `${topicId}-${sectionIndex}-${gameIndex}`;
+    game.innerHTML = `
+        <div class="bio-insight-game-head">
+            <span class="bio-insight-game-kicker">Anwendungsspiel</span>
+            <h3>${escapeHtml(setup.title)}</h3>
+        </div>
+        <p class="bio-insight-mission"><strong>Auftrag:</strong> ${escapeHtml(prompt)}</p>
+        <div class="bio-insight-choices" role="group" aria-label="Wähle die passende Forschungsstrategie">
+            ${choices.map((choice) => `
+                <button type="button" class="bio-insight-choice" data-bio-insight-choice data-correct="${choice.correct ? 'true' : 'false'}">
+                    ${escapeHtml(choice.text)}
+                </button>
+            `).join('')}
+        </div>
+        <p class="bio-insight-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+    `;
+    game.addEventListener('click', event => {
+        const button = event.target.closest('[data-bio-insight-choice]');
+        if (!button) return;
+        handleBioInsightChoice(button, setup.hint);
+    });
+    return game;
+}
+
+function handleBioInsightChoice(button, hint) {
+    const game = button.closest('[data-bio-insight-game]');
+    if (!game) return;
+    const feedback = game.querySelector('.bio-insight-feedback');
+    const isCorrect = button.dataset.correct === 'true';
+
+    game.querySelectorAll('[data-bio-insight-choice]').forEach(choice => {
+        choice.classList.remove('is-correct', 'is-wrong');
+        choice.setAttribute('aria-pressed', 'false');
+    });
+    button.setAttribute('aria-pressed', 'true');
+
+    if (isCorrect) {
+        button.classList.add('is-correct');
+        if (typeof playSuccessSound === 'function') playSuccessSound();
+        if (feedback) {
+            feedback.textContent = `Genau. ${hint}`;
+            feedback.className = 'bio-insight-feedback is-correct';
+        }
+    } else {
+        button.classList.add('is-wrong');
+        if (feedback) {
+            feedback.textContent = `Noch nicht. ${hint}`;
+            feedback.className = 'bio-insight-feedback is-wrong';
+        }
+    }
+}
+
+function addBioInsightGames(root, topicId, sectionIndex) {
+    const insightCards = Array.from(root.querySelectorAll('.bio-competency-card, .bio-check-card'))
+        .filter(card => normalizeBioLabel(card.querySelector('strong')?.textContent) === 'Erkenntnis');
+
+    insightCards.forEach((card, gameIndex) => {
+        const clone = card.cloneNode(true);
+        const label = clone.querySelector('strong');
+        if (label) label.remove();
+        const prompt = normalizeBioLabel(clone.textContent);
+        if (!prompt) return;
+        const grid = card.closest('.bio-competency-grid, .bio-check-grid') || card;
+        if (grid.nextElementSibling?.classList.contains('bio-insight-game')) return;
+        grid.insertAdjacentElement('afterend', buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex));
+    });
+
+    const insightItems = Array.from(root.querySelectorAll('.bio-section-check li'))
+        .filter(item => /^Erkenntnis\s*:/i.test(normalizeBioLabel(item.textContent)));
+
+    insightItems.forEach((item, gameIndex) => {
+        const prompt = extractBioInsightPrompt(item);
+        if (!prompt) return;
+        const check = item.closest('.bio-section-check');
+        if (!check || check.nextElementSibling?.classList.contains('bio-insight-game')) return;
+        check.insertAdjacentElement('afterend', buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex));
+    });
+}
+
+function enhanceBiologyCard(card, topicId, sectionIndex) {
+    addBioInsightGames(card, topicId, sectionIndex);
+    softenBiologyCompetencyLanguage(card);
+}
+
 function isCorrectAnswer(answer) {
     return answer && (answer.correct === true || answer.correct === 'true');
 }
@@ -530,6 +750,7 @@ async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
     const lang = localStorage.getItem('physik_lang') || 'de';
+    document.documentElement.lang = lang;
 
     const container = document.getElementById('sections-container');
 
@@ -592,7 +813,7 @@ async function renderTopic() {
             ? Math.max(0, configuredPracticeLimit)
             : Math.min(5, Math.max(2, (topic.sections || []).length));
 
-        topic.sections.forEach(section => {
+        topic.sections.forEach((section, sectionIndex) => {
             const card = document.createElement('div');
             card.className = "card";
             
@@ -610,6 +831,9 @@ async function renderTopic() {
 
             html += content;
             card.innerHTML = html;
+            if (topicId.startsWith('bio_')) {
+                enhanceBiologyCard(card, topicId, sectionIndex);
+            }
             container.appendChild(card);
         });
 

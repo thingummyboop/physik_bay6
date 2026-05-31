@@ -7,6 +7,26 @@
 
     const STORAGE_KEY = "sciverse_learning_radio_on";
     const VOLUME_KEY = "sciverse_learning_radio_volume";
+    const RADIO_TEXT = {
+        de: {
+            ready: "Lernradio bereit",
+            hint: "Klick auf das violette Radio startet ruhige Lernmusik.",
+            on: "Lernmusik ausschalten",
+            off: "Lernmusik einschalten",
+            volume: "Lautstaerke",
+            volumeHelp: "Regelt nur die Lernmusik.",
+            volumeValue: (value) => `${value} Prozent Lautstaerke`
+        },
+        en: {
+            ready: "Learning radio ready",
+            hint: "Click the purple radio to start calm study music.",
+            on: "Turn study music off",
+            off: "Turn study music on",
+            volume: "Volume",
+            volumeHelp: "Controls the study music only.",
+            volumeValue: (value) => `${value} percent volume`
+        }
+    };
 
     const TRACKS = [
         {
@@ -126,6 +146,13 @@
     let order = [];
     let currentIndex = -1;
 
+    function radioText(key, value) {
+        const lang = localStorage.getItem("physik_lang") || "de";
+        const dict = RADIO_TEXT[lang] || RADIO_TEXT.en;
+        const entry = dict[key] || RADIO_TEXT.de[key] || key;
+        return typeof entry === "function" ? entry(value) : entry;
+    }
+
     function shuffle(items) {
         const next = items.slice();
         for (let i = next.length - 1; i > 0; i -= 1) {
@@ -160,12 +187,24 @@
     function updateUi() {
         button.classList.toggle("is-on", enabled);
         button.setAttribute("aria-pressed", String(enabled));
-        button.setAttribute("aria-label", enabled ? "Lernmusik ausschalten" : "Lernmusik einschalten");
+        button.setAttribute("aria-label", enabled ? radioText("on") : radioText("off"));
         panel.classList.toggle("is-on", enabled);
         if (!enabled) {
             audio.pause();
         }
         localStorage.setItem(STORAGE_KEY, enabled ? "true" : "false");
+    }
+
+    function updateLanguageLabels() {
+        if (currentIndex < 0 && titleEl) titleEl.textContent = radioText("ready");
+        if (currentIndex < 0 && metaEl) metaEl.textContent = radioText("hint");
+        if (volumeEl) {
+            volumeEl.setAttribute("aria-label", radioText("volume"));
+            volumeEl.setAttribute("aria-valuetext", radioText("volumeValue", Number(volumeEl.value || 0)));
+        }
+        const help = document.getElementById("learningRadioVolumeHelp");
+        if (help) help.textContent = radioText("volumeHelp");
+        if (button) updateUi();
     }
 
     function toggleRadio() {
@@ -260,6 +299,12 @@
                 margin: 10px 0 6px;
                 width: 100%;
             }
+            .learning-radio-help {
+                color: #e9d5ff;
+                font-size: 0.7rem;
+                line-height: 1.3;
+                margin: 0 0 4px;
+            }
             .learning-radio-credits {
                 display: grid;
                 gap: 3px;
@@ -325,22 +370,29 @@
 
         panel = document.createElement("aside");
         panel.className = "learning-radio-panel";
+        panel.setAttribute("role", "status");
         panel.setAttribute("aria-live", "polite");
+        panel.setAttribute("aria-atomic", "true");
         panel.innerHTML = `
-            <strong class="learning-radio-title">Lernradio bereit</strong>
-            <span class="learning-radio-meta">Klick auf das violette Radio startet ruhige Lernmusik.</span>
-            <input class="learning-radio-volume" type="range" min="0" max="100" value="${Math.round(audio.volume * 100)}" aria-label="Lautstaerke">
+            <strong class="learning-radio-title">${radioText("ready")}</strong>
+            <span class="learning-radio-meta">${radioText("hint")}</span>
+            <input class="learning-radio-volume" type="range" min="0" max="100" value="${Math.round(audio.volume * 100)}" aria-label="${radioText("volume")}" aria-describedby="learningRadioVolumeHelp">
+            <p id="learningRadioVolumeHelp" class="learning-radio-help">${radioText("volumeHelp")}</p>
             <div class="learning-radio-credits">${buildCredits()}</div>
         `;
         titleEl = panel.querySelector(".learning-radio-title");
         metaEl = panel.querySelector(".learning-radio-meta");
         volumeEl = panel.querySelector(".learning-radio-volume");
+        volumeEl.setAttribute("aria-valuetext", radioText("volumeValue", Math.round(audio.volume * 100)));
         volumeEl.addEventListener("input", () => {
             audio.volume = Number(volumeEl.value) / 100;
+            volumeEl.setAttribute("aria-valuetext", radioText("volumeValue", Math.round(audio.volume * 100)));
             localStorage.setItem(VOLUME_KEY, String(audio.volume));
         });
 
         document.body.append(audio, button, panel);
+        window.SciverseLearningRadioApplyLanguage = updateLanguageLabels;
+        updateLanguageLabels();
     }
 
     if (document.readyState === "loading") {

@@ -335,6 +335,97 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin: 5px 0;
 }
 
+.bio-insight-game {
+    background: linear-gradient(135deg, rgba(240, 253, 244, 0.96), rgba(239, 246, 255, 0.94));
+    border: 2px solid rgba(16, 185, 129, 0.38);
+    border-radius: 12px;
+    margin: 14px 0 18px;
+    padding: 16px;
+}
+
+.bio-insight-game-head {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-bottom: 8px;
+}
+
+.bio-insight-game-head h3 {
+    color: #047857;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.bio-insight-game-kicker {
+    background: #dcfce7;
+    border: 1px solid rgba(22, 163, 74, 0.3);
+    border-radius: 999px;
+    color: #166534;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    padding: 4px 8px;
+    text-transform: uppercase;
+}
+
+.bio-insight-mission {
+    margin: 8px 0 12px;
+}
+
+.bio-insight-choices {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.bio-insight-choice {
+    background: #ffffff;
+    border: 2px solid rgba(15, 118, 110, 0.24);
+    border-radius: 10px;
+    color: #0f172a;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+    line-height: 1.35;
+    min-height: 72px;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.bio-insight-choice:hover,
+.bio-insight-choice:focus-visible {
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.16);
+    outline: none;
+}
+
+.bio-insight-choice.is-correct {
+    background: #dcfce7;
+    border-color: #16a34a;
+    color: #14532d;
+}
+
+.bio-insight-choice.is-wrong {
+    background: #fff1f2;
+    border-color: #fb7185;
+    color: #881337;
+}
+
+.bio-insight-feedback {
+    font-weight: 800;
+    margin: 10px 0 0;
+    min-height: 1.4em;
+}
+
+.bio-insight-feedback.is-correct {
+    color: #15803d;
+}
+
+.bio-insight-feedback.is-wrong {
+    color: #be123c;
+}
+
 .bio-process-flow {
     display: flex;
     flex-wrap: wrap;
@@ -439,6 +530,40 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 [data-theme="dark"] .bio-section-check {
     background: rgba(20, 83, 45, 0.58);
     border-left-color: #34d399;
+}
+
+[data-theme="dark"] .bio-insight-game {
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.72), rgba(15, 23, 42, 0.92));
+    border-color: rgba(74, 222, 128, 0.34);
+}
+
+[data-theme="dark"] .bio-insight-game-head h3,
+[data-theme="dark"] .bio-insight-feedback.is-correct {
+    color: #86efac;
+}
+
+[data-theme="dark"] .bio-insight-game-kicker {
+    background: rgba(20, 83, 45, 0.88);
+    border-color: rgba(74, 222, 128, 0.34);
+    color: #dcfce7;
+}
+
+[data-theme="dark"] .bio-insight-choice {
+    background: rgba(15, 23, 42, 0.78);
+    border-color: rgba(134, 239, 172, 0.24);
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] .bio-insight-choice.is-correct {
+    background: rgba(20, 83, 45, 0.88);
+    border-color: #22c55e;
+    color: #dcfce7;
+}
+
+[data-theme="dark"] .bio-insight-choice.is-wrong {
+    background: rgba(76, 5, 25, 0.86);
+    border-color: #fb7185;
+    color: #ffe4e6;
 }
 
 [data-theme="dark"] .bio-process-flow span {
