@@ -243,8 +243,8 @@ function replaceBioTextPhrases(root) {
         [/Kompetenzbereiche/g, 'Arbeitsweisen'],
         [/kompetenzorientiert/g, 'an echten Situationen'],
         [/Kompetenzcheck/g, 'Anwendungscheck'],
-        [/Wissen, Erkenntnis und Handeln/g, 'Fachwörter, Datenblick und Entscheidung'],
-        [/Wissen, Erkenntnis oder Handeln/g, 'Fachblick, Datenblick oder Entscheidung'],
+        [/Wissen, Erkenntnis und Handeln/g, 'Fachcheck, Verständnischeck und Alltagscheck'],
+        [/Wissen, Erkenntnis oder Handeln/g, 'Fachcheck, Verständnischeck oder Alltagscheck'],
         [/Wissen aneignen und kommunizieren/g, 'Fachwörter nutzen und erklären'],
         [/Erkenntnisse gewinnen/g, 'untersuchen und Belege nutzen'],
         [/Standpunkte begründen und handeln/g, 'Entscheidungen begründen'],
@@ -273,9 +273,9 @@ function softenBiologyCompetencyLanguage(root) {
 
     root.querySelectorAll('.bio-competency-card strong, .bio-check-card strong, .bio-data-table th').forEach(label => {
         const text = normalizeBioLabel(label.textContent);
-        if (text === 'Wissen') label.textContent = 'Fachblick';
-        if (text === 'Erkenntnis') label.textContent = 'Datenblick';
-        if (text === 'Handeln') label.textContent = 'Alltagsblick';
+        if (text === 'Wissen') label.textContent = 'Fachcheck';
+        if (text === 'Erkenntnis') label.textContent = 'Verständnischeck';
+        if (text === 'Handeln') label.textContent = 'Alltagscheck';
     });
 
     root.querySelectorAll('.bio-section-check > strong').forEach(label => {
@@ -286,9 +286,9 @@ function softenBiologyCompetencyLanguage(root) {
 
     root.querySelectorAll('.bio-section-check li > strong').forEach(label => {
         const text = normalizeBioLabel(label.textContent);
-        if (text === 'Wissen:') label.textContent = 'Fachblick:';
-        if (text === 'Erkenntnis:') label.textContent = 'Datenblick:';
-        if (text === 'Handeln:') label.textContent = 'Alltagsblick:';
+        if (text === 'Wissen:') label.textContent = 'Fachcheck:';
+        if (text === 'Erkenntnis:') label.textContent = 'Verständnischeck:';
+        if (text === 'Handeln:') label.textContent = 'Alltagscheck:';
     });
 
     root.querySelectorAll('.bio-training-panel > strong').forEach(label => {
@@ -298,7 +298,7 @@ function softenBiologyCompetencyLanguage(root) {
     root.querySelectorAll('.bio-training-card h4').forEach(label => {
         const text = normalizeBioLabel(label.textContent);
         if (text === 'Wissen trainieren') label.textContent = 'Fachwörter einsetzen';
-        if (text === 'Erkenntnis trainieren') label.textContent = 'Datenblick üben';
+        if (text === 'Erkenntnis trainieren') label.textContent = 'Verständnischeck üben';
         if (text === 'Handeln trainieren') label.textContent = 'Entscheiden begründen';
     });
 }
@@ -657,7 +657,6 @@ function addBioInsightGames(root, topicId, sectionIndex) {
 }
 
 function enhanceBiologyCard(card, topicId, sectionIndex) {
-    addBioInsightGames(card, topicId, sectionIndex);
     softenBiologyCompetencyLanguage(card);
 }
 
