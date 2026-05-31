@@ -2470,31 +2470,129 @@ function drawAsteroid(ctx, object, screenY) {
 }
 
 function drawPickup(ctx, object, screenY) {
-    const pulse = 1 + Math.sin(performance.now() * 0.006 + object.x) * 0.12;
-    const colors = {
-        fuel: ["#22c55e", "#bbf7d0", "F"],
-        boost: ["#f97316", "#fed7aa", "B"],
-        science: ["#38bdf8", "#cffafe", "S"],
-        shield: ["#a78bfa", "#ede9fe", "⛨"]
-    }[object.type] || ["#94a3b8", "#e2e8f0", "?"];
+    const t = performance.now();
+    const pulse = 1 + Math.sin(t * 0.005 + object.x) * 0.15;
+    const hover = Math.sin(t * 0.003 + object.x) * 4;
+    
     ctx.save();
-    ctx.translate(object.x, screenY);
-    ctx.fillStyle = `${colors[0]}33`;
+    ctx.translate(object.x, screenY + hover);
+    
+    const baseColor = {
+        fuel: "#22c55e",
+        boost: "#f97316",
+        science: "#38bdf8",
+        shield: "#a78bfa"
+    }[object.type] || "#94a3b8";
+    
+    ctx.shadowColor = baseColor;
+    ctx.shadowBlur = 15 + pulse * 10;
+    ctx.fillStyle = `${baseColor}33`;
     ctx.beginPath();
     ctx.arc(0, 0, object.radius * 1.8 * pulse, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = colors[0];
-    ctx.strokeStyle = colors[1];
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.roundRect(-object.radius, -object.radius, object.radius * 2, object.radius * 2, 8);
-    ctx.fill();
-    ctx.stroke();
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "900 18px Segoe UI";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(colors[2], 0, 1);
+    ctx.shadowBlur = 0;
+
+    const r = object.radius;
+
+    if (object.type === "fuel") {
+        ctx.fillStyle = "#064e3b";
+        ctx.strokeStyle = "#4ade80";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.roundRect(-r*0.65, -r*0.9, r*1.3, r*1.8, 6);
+        ctx.fill();
+        ctx.stroke();
+        
+        ctx.fillStyle = "#22c55e";
+        const level = 0.4 + (Math.sin(t*0.004) * 0.5 + 0.5) * 0.5;
+        ctx.beginPath();
+        ctx.roundRect(-r*0.65, r*0.9 - r*1.8*level, r*1.3, r*1.8*level, 6);
+        ctx.fill();
+        
+        ctx.fillStyle = "#94a3b8";
+        ctx.beginPath();
+        ctx.roundRect(-r*0.4, -r*1.2, r*0.8, r*0.3, 2);
+        ctx.fill();
+        
+        ctx.strokeStyle = "rgba(255,255,255,0.6)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-r*0.3, -r*0.4);
+        ctx.lineTo(-r*0.3, r*0.4);
+        ctx.stroke();
+    } 
+    else if (object.type === "boost") {
+        ctx.fillStyle = "#7c2d12";
+        ctx.strokeStyle = "#fdba74";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(0, -r*1.1);
+        ctx.lineTo(r*0.8, 0);
+        ctx.lineTo(r*0.4, r*0.3);
+        ctx.lineTo(0, r*1.3);
+        ctx.lineTo(-r*0.4, r*0.3);
+        ctx.lineTo(-r*0.8, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        
+        ctx.fillStyle = "#facc15";
+        ctx.beginPath();
+        ctx.moveTo(0, -r*0.4);
+        ctx.lineTo(r*0.3, r*0.3);
+        ctx.lineTo(0, r*0.9 + Math.random()*r*0.4);
+        ctx.lineTo(-r*0.3, r*0.3);
+        ctx.fill();
+    }
+    else if (object.type === "science") {
+        ctx.strokeStyle = "#7dd3fc";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, r*1.1, r*0.35, t*0.002, 0, Math.PI*2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, r*1.1, r*0.35, t*0.002 + Math.PI/2, 0, Math.PI*2);
+        ctx.stroke();
+        
+        ctx.fillStyle = "#0284c7";
+        ctx.beginPath();
+        ctx.arc(0, 0, r*0.4, 0, Math.PI*2);
+        ctx.fill();
+        
+        ctx.fillStyle = "#bae6fd";
+        ctx.beginPath();
+        ctx.arc(0, 0, r*0.18, 0, Math.PI*2);
+        ctx.fill();
+    }
+    else if (object.type === "shield") {
+        ctx.fillStyle = "rgba(139, 92, 246, 0.4)";
+        ctx.strokeStyle = "#c4b5fd";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const angle = (i * Math.PI) / 3 - Math.PI/2;
+            const px = Math.cos(angle) * r * 1.1;
+            const py = Math.sin(angle) * r * 1.1;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.9)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-r*0.5, -r*0.5);
+        ctx.lineTo(0, -r*0.8);
+        ctx.stroke();
+        
+        ctx.fillStyle = "#8b5cf6";
+        ctx.beginPath();
+        ctx.arc(0, 0, r*0.3, 0, Math.PI*2);
+        ctx.fill();
+    }
+    
     ctx.restore();
 }
 
