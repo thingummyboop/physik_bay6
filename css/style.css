@@ -162,6 +162,10 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 }
 
 .bio-image img {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 10px;
     max-height: 430px;
     object-fit: cover;
@@ -187,6 +191,13 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     object-fit: contain;
     background: #f8fafc;
     padding: 14px;
+}
+
+.bio-textbook-figure figcaption {
+    color: var(--muted-text, #475569);
+    font-size: 0.9rem;
+    line-height: 1.35;
+    margin-top: 0.4rem;
 }
 
 .bio-textbook-figure figcaption a {
