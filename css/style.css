@@ -193,6 +193,11 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     padding: 14px;
 }
 
+.bio-textbook-figure.bio-model-figure img {
+    max-height: 430px;
+    object-fit: contain;
+}
+
 .bio-textbook-figure figcaption {
     color: var(--muted-text, #475569);
     font-size: 0.9rem;
@@ -201,6 +206,19 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 }
 
 .bio-textbook-figure figcaption a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bio-source-note {
+    color: var(--muted-text, #475569);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: -4px 0 16px;
+}
+
+.bio-source-note a {
     color: inherit;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -691,6 +709,10 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 [data-theme="dark"] .bio-image.bio-contain img,
 [data-theme="dark"] .bio-textbook-figure.bio-diagram img {
     background: #102a22;
+}
+
+[data-theme="dark"] .bio-source-note {
+    color: #cbd5e1;
 }
 
 [data-theme="dark"] .bio-competency-card,
