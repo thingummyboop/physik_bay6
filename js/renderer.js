@@ -1313,13 +1313,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=9.1`);
+        let response = await fetch(`../lang/${lang}.json?v=9.2`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=9.1`);
+            const deRes = await fetch(`../lang/de.json?v=9.2`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
