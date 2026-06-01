@@ -1319,16 +1319,12 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     padding: 20px; border-radius: 10px; margin: 15px 0; 
 }
 
-.practice-box {
-    background: color-mix(in srgb, var(--card-bg) 92%, var(--interactive-bg));
-    border: 1px solid color-mix(in srgb, var(--box-border) 82%, var(--primary));
-    border-radius: 8px;
+.practice-block {
     margin: 32px 0 4px;
-    padding: 16px;
     position: relative;
 }
 
-.practice-box::before {
+.practice-block::before {
     background: color-mix(in srgb, var(--box-border) 76%, transparent);
     content: "";
     height: 1px;
@@ -1336,6 +1332,13 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     position: absolute;
     right: 0;
     top: -17px;
+}
+
+.practice-box {
+    background: color-mix(in srgb, var(--card-bg) 92%, var(--interactive-bg));
+    border: 1px solid color-mix(in srgb, var(--box-border) 82%, var(--primary));
+    border-radius: 8px;
+    padding: 16px;
 }
 
 .practice-head {

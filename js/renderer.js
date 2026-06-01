@@ -1196,17 +1196,19 @@ function renderPracticeBox(q) {
     const shuffledAnswers = shuffleArray([...normalized.answers]);
 
     return `
-        <div class="practice-box" data-id="${escapeHtmlAttr(normalized.id)}">
-            <div class="practice-head">
-                <p class="practice-label">${uiText('Übung')}</p>
-                <p class="practice-question"><strong>${escapeHtml(normalized.question)}</strong></p>
+        <div class="practice-block">
+            <p class="practice-label">${uiText('Übung')}</p>
+            <div class="practice-box" data-id="${escapeHtmlAttr(normalized.id)}">
+                <div class="practice-head">
+                    <p class="practice-question"><strong>${escapeHtml(normalized.question)}</strong></p>
+                </div>
+                <div class="practice-options">
+                    ${shuffledAnswers.map(ans => `
+                        <button type="button" class="practice-option" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handlePracticeAnswer(this, ${ans.correct}, this.dataset.feedback || null)">${escapeHtml(ans.text)}</button>
+                    `).join('')}
+                </div>
+                <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
             </div>
-            <div class="practice-options">
-                ${shuffledAnswers.map(ans => `
-                    <button type="button" class="practice-option" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handlePracticeAnswer(this, ${ans.correct}, this.dataset.feedback || null)">${escapeHtml(ans.text)}</button>
-                `).join('')}
-            </div>
-            <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
     `;
 }
@@ -1311,13 +1313,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=8.9`);
+        let response = await fetch(`../lang/${lang}.json?v=9.0`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=8.9`);
+            const deRes = await fetch(`../lang/de.json?v=9.0`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
@@ -1357,11 +1359,6 @@ async function renderTopic() {
 
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
         const chapterQuestions = collectChapterQuizQuestions(topic);
-        let practiceCount = 0;
-        const configuredPracticeLimit = Number(topic.inlinePracticeLimit);
-        const maxInlinePractice = Number.isFinite(configuredPracticeLimit)
-            ? Math.max(0, configuredPracticeLimit)
-            : Math.min(5, Math.max(2, (topic.sections || []).length));
 
         topic.sections.forEach((section, sectionIndex) => {
             const card = document.createElement('div');
@@ -1374,8 +1371,7 @@ async function renderTopic() {
             // Replace quiz placeholders from old section quizzes and newer topic-level quizzes.
             content = content.replace(/\{\{QUIZ_([^}]+)\}\}/g, (match, quizId) => {
                 const q = sectionQuizMap.get(quizId) || topicQuizMap.get(quizId);
-                if (!q || practiceCount >= maxInlinePractice) return '';
-                practiceCount += 1;
+                if (!q) return '';
                 return renderPracticeBox(q);
             });
 
