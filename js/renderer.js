@@ -380,74 +380,178 @@ function matchesBioTask(text, patterns) {
     return patterns.some(pattern => pattern.test(text));
 }
 
-function buildBioGuideText(taskText) {
-    const task = normalizeBioLabel(taskText || '');
-    const lowerTask = task.toLowerCase();
+const BIO_FOCUS_STOP_WORDS = new Set([
+    'Arbeitsauftrag', 'Mini-Aufgabe', 'Aufgabe', 'Kapitel', 'Abschnitt', 'Text',
+    'Tabelle', 'Skizze', 'Liste', 'Satz', 'S\u00e4tze', 'Frage', 'Fragen',
+    'Beispiel', 'Beispiele', 'Alltag', 'Heft', 'Material', 'Vorgehen',
+    'Ergebnis', 'Antwort', 'Dinge', 'Punkte', 'Teile', 'Fachwort',
+    'Fachw\u00f6rter', 'Schreibe', 'Markiere', 'Notiere', 'Benenne', 'Erkl\u00e4re',
+    'Beschreibe', 'Vergleiche', 'Ordne', 'W\u00e4hle', 'Zeichne', 'Suche',
+    'Plane', 'Erstelle', 'Formuliere', 'Entwirf', 'Beurteile', 'Erg\u00e4nze',
+    'Pr\u00fcfe', 'Nutze', 'Halte', 'Sammle', 'Nimm', 'Lege', 'Taste',
+    'Bewege', 'F\u00fchre', 'Achte', 'Danach', 'Zuerst', 'Warum', 'Welche',
+    'Welches', 'Welcher', 'Woran', 'Was'
+]);
 
-    if (matchesBioTask(lowerTask, [/frage/, /interessiert/, /wei\u00dft/])) {
-        return 'So gehst du vor: \u00dcberlege zuerst, was dich an diesem Thema interessiert oder was du noch nicht dar\u00fcber wei\u00dft. W\u00e4hle dann die Themen oder Beispiele aus, die im Arbeitsauftrag genannt sind. Schreibe deine Frage als ganzen Satz. Sie soll so klar sein, dass man sie mit dem Abschnitt, einem Lehrbuch oder einer guten Internetquelle beantworten kann.';
-    }
+function splitBioTaskSteps(taskText) {
+    const prepared = normalizeBioLabel(taskText || '')
+        .replace(/\s+und\s+(notiere|schreibe|markiere|begr\u00fcnde|erkl\u00e4re|zeichne|erg\u00e4nze|pr\u00fcfe|vergleiche|ordne|beschrifte|erstelle|plane|w\u00e4hle|formuliere|suche|miss|z\u00e4hle|skizziere|beurteile|entwirf|beschreibe|untersuche|leite|f\u00fchre|halte|nimm|taste|bewege|iss)\b/gi, '. $1')
+        .replace(/([.!?])\s+/g, '$1|');
 
-    if (matchesBioTask(lowerTask, [/zeichne/, /skizz/, /beschrifte/, /markiere/, /pfeil/, /modell/, /stammbaum/, /diagramm/, /tabelle/, /liste/, /checkliste/, /regelkarte/, /merks/])) {
-        return 'So gehst du vor: Lies den Arbeitsauftrag genau und markiere, welche Teile vorkommen m\u00fcssen. Erstelle zuerst eine einfache Skizze, Tabelle oder Liste. Beschrifte nur das, was du wirklich erkl\u00e4ren kannst. Nutze den Text, die Abbildung oder die Tabelle im Kapitel als Hilfe und erg\u00e4nze kurze Erkl\u00e4rs\u00e4tze.';
-    }
-
-    if (matchesBioTask(lowerTask, [/untersuch/, /beobacht/, /taste/, /ertaste/, /miss/, /z\u00e4hl/, /fotografiere/, /sammle/])) {
-        return 'So gehst du vor: Arbeite langsam, genau und sicher. Notiere zuerst nur, was du wirklich siehst, tastest, misst oder z\u00e4hlst. Trenne Beobachtung und Vermutung. Halte deine Ergebnisse in Stichworten, einer kleinen Tabelle oder einer Skizze fest. Verwende danach passende Fachw\u00f6rter aus dem Kapitel.';
-    }
-
-    if (matchesBioTask(lowerTask, [/vergleich/, /ordne/, /unterscheide/, /sortiere/, /bestimmungsschl\u00fcssel/])) {
-        return 'So gehst du vor: Sammle zuerst die Merkmale oder Hinweise aus dem Abschnitt. Ordne sie in einer Tabelle mit zwei oder mehr Spalten. Vergleiche Punkt f\u00fcr Punkt und schreibe nicht nur das Ergebnis auf, sondern auch, woran du es erkennst. Nutze Fachw\u00f6rter, wenn sie im Kapitel vorkommen.';
-    }
-
-    if (matchesBioTask(lowerTask, [/plane/, /entwirf/, /erstelle/, /entwickle/, /verbesserung/, /vor-dem-kauf/, /fall/])) {
-        return 'So gehst du vor: Sammle zuerst, welche Bedingungen, Bed\u00fcrfnisse oder Probleme im Arbeitsauftrag wichtig sind. Mache daraus einen Plan, eine Checkliste oder eine konkrete L\u00f6sung. Pr\u00fcfe jeden Punkt: Ist er machbar? Passt er zum Lebewesen, zum K\u00f6rper oder zum Lebensraum? Begr\u00fcnde deine Auswahl mit dem Kapitel.';
-    }
-
-    if (matchesBioTask(lowerTask, [/quelle/, /internet/, /lehrbuch/, /recherch/, /seite/])) {
-        return 'So gehst du vor: Suche zuerst im Abschnitt nach passenden Fachw\u00f6rtern. Wenn du im Lehrbuch oder Internet nachsiehst, nutze eine verl\u00e4ssliche Quelle, zum Beispiel Schule, Museum, Beh\u00f6rde oder Fachseite. Schreibe die Antwort in eigenen Worten auf und notiere, woher die Information stammt.';
-    }
-
-    if (matchesBioTask(lowerTask, [/beurteile/, /begr\u00fcnde/, /erkl\u00e4re/, /formuliere/, /verbessere/, /pr\u00fcfe/, /leite/, /bewerte/])) {
-        return 'So gehst du vor: Lies den Abschnitt noch einmal und suche die Fachw\u00f6rter, die zum Arbeitsauftrag passen. Schreibe zuerst eine einfache Antwort in eigenen Worten. Erg\u00e4nze dann eine Begr\u00fcndung mit weil, denn oder daran erkenne ich. Nutze mindestens einen Hinweis aus Text, Bild, Tabelle oder Beobachtung.';
-    }
-
-    return 'So gehst du vor: Lies den Abschnitt noch einmal und markiere die wichtigsten Hinweise. Bearbeite den Arbeitsauftrag Schritt f\u00fcr Schritt. Schreibe zuerst Stichworte auf und formuliere danach ganze S\u00e4tze. Nutze passende Fachw\u00f6rter aus dem Kapitel.';
+    return prepared
+        .split('|')
+        .map(part => {
+            const cleaned = part.trim()
+                .replace(/,\s*\.$/, '.')
+                .replace(/^(Danach|Dann|Zuerst|Zum Schluss)[,:]?\s+/i, '')
+                .replace(/^erkl\u00e4rst du\b/i, 'Erkl\u00e4re')
+                .replace(/^schreibst du\b/i, 'Schreibe')
+                .replace(/^notierst du\b/i, 'Notiere')
+                .replace(/^markierst du\b/i, 'Markiere')
+                .replace(/^begr\u00fcndest du\b/i, 'Begr\u00fcnde')
+                .replace(/^([a-z\u00e4\u00f6\u00fc])/, letter => letter.toUpperCase());
+            return /[.!?]$/.test(cleaned) ? cleaned : `${cleaned}.`;
+        })
+        .filter(part => part.length > 8)
+        .slice(0, 4);
 }
 
-function buildBioEvaluationText(taskText) {
-    const task = normalizeBioLabel(taskText || '');
-    const lowerTask = task.toLowerCase();
+function buildBioStepText(taskText) {
+    const steps = splitBioTaskSteps(taskText);
+    if (!steps.length) return 'Beginne mit einer kleinen Stichwortliste. Danach machst du daraus ein klares Ergebnis.';
+    if (steps.length === 1) return `Beginne mit diesem Schritt: ${steps[0]}`;
 
-    if (matchesBioTask(lowerTask, [/frage/, /interessiert/, /wei\u00dft/])) {
-        return 'So wertest du aus: Pr\u00fcfe zuerst, ob deine Frage sinnvoll gestellt ist: Ist sie klar? Kann man dazu eine Antwort finden? Suche zu mindestens einer Frage eine kurze Antwort im Lehrbuch, im Abschnitt oder auf einer verl\u00e4sslichen Internetseite. Schreibe die Antwort in 2 bis 4 S\u00e4tzen auf und notiere die Quelle.';
-    }
+    const labels = ['Zuerst', 'Dann', 'Danach', 'Zum Schluss'];
+    return steps
+        .map((step, index) => {
+            const label = /^(Du musst|Du sollst|Du kannst)\b/.test(step) ? 'Beachte' : labels[index];
+            return `${label}: ${step}`;
+        })
+        .join(' ');
+}
 
-    if (matchesBioTask(lowerTask, [/zeichne/, /skizz/, /beschrifte/, /markiere/, /pfeil/, /modell/, /stammbaum/, /diagramm/, /tabelle/, /liste/, /checkliste/, /regelkarte/, /merks/])) {
-        return 'So wertest du aus: Kontrolliere, ob alle geforderten Teile vorhanden und richtig beschriftet sind. Erg\u00e4nze zu deiner Skizze, Tabelle oder Liste 2 bis 4 S\u00e4tze: Was zeigt dein Ergebnis? Welche Fachw\u00f6rter passen dazu? Verbessere unklare Beschriftungen sofort.';
-    }
+function formatBioWordList(words) {
+    const clean = words.filter(Boolean);
+    if (!clean.length) return '';
+    if (clean.length === 1) return clean[0];
+    if (clean.length === 2) return `${clean[0]} und ${clean[1]}`;
+    return `${clean.slice(0, -1).join(', ')} und ${clean[clean.length - 1]}`;
+}
 
-    if (matchesBioTask(lowerTask, [/untersuch/, /beobacht/, /taste/, /ertaste/, /miss/, /z\u00e4hl/, /fotografiere/, /sammle/])) {
-        return 'So wertest du aus: Fasse deine Beobachtungen in 2 bis 4 S\u00e4tzen zusammen. Schreibe zuerst, was du festgestellt hast. Danach erkl\u00e4rst du, was das biologisch bedeuten k\u00f6nnte. Nutze mindestens ein Fachwort und einen Satzanfang wie: Ich erkenne das daran, dass ...';
-    }
+function extractBioFocusWords(root, taskText) {
+    const sectionTitle = normalizeBioLabel(root.querySelector('h2')?.textContent || '').replace(/^\d+\.\s*/, '');
+    const vocabTerms = Array.from(root.querySelectorAll('.bio-vocab-item summary'))
+        .map(item => normalizeBioLabel(item.textContent))
+        .filter(Boolean);
+    const candidateText = `${taskText} ${sectionTitle}`;
+    const words = [
+        ...vocabTerms,
+        ...((candidateText.match(/[A-Z\u00c4\u00d6\u00dc][A-Za-z\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df-]{3,}/g)) || [])
+    ];
+    const seen = new Set();
 
-    if (matchesBioTask(lowerTask, [/vergleich/, /ordne/, /unterscheide/, /sortiere/, /bestimmungsschl\u00fcssel/])) {
-        return 'So wertest du aus: Schreibe am Ende einen Vergleichssatz oder einen Ordnungssatz. Nenne mindestens zwei Merkmale oder Hinweise, die deine Entscheidung st\u00fctzen. Pr\u00fcfe, ob jemand anderes mit deinen Angaben zum gleichen Ergebnis kommen k\u00f6nnte.';
-    }
+    return words
+        .map(word => normalizeBioLabel(word)
+            .replace(/^[\d.]+\s*/, '')
+            .replace(/[^\w\s\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df-]/g, '')
+            .trim())
+        .filter(word => word.length > 3 && !BIO_FOCUS_STOP_WORDS.has(word))
+        .filter(word => {
+            const key = word.toLowerCase();
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        })
+        .slice(0, 4);
+}
 
-    if (matchesBioTask(lowerTask, [/plane/, /entwirf/, /erstelle/, /entwickle/, /verbesserung/, /vor-dem-kauf/, /fall/])) {
-        return 'So wertest du aus: Pr\u00fcfe deinen Plan oder deine L\u00f6sung mit drei Fragen: Ist sie machbar? Hilft sie wirklich beim biologischen Problem? Ist sie fair f\u00fcr Mensch, Tier oder Umwelt? Schreibe danach eine kurze Begr\u00fcndung mit mindestens einem Fachwort.';
-    }
+function detectBioTaskKind(taskText) {
+    const lowerTask = normalizeBioLabel(taskText || '').toLowerCase();
+    if (/^(erkl\u00e4re|beschreibe|begr\u00fcnde|formuliere|beurteile|verbessere|pr\u00fcfe|leite|benenne)\b/.test(lowerTask)) return 'explain';
+    if (/^(zeichne|skizziere|beschrifte|markiere)\b/.test(lowerTask)) return 'create';
+    if (/^(plane|entwirf|erstelle|entwickle)\b/.test(lowerTask)) return 'plan';
+    if (/^suche\b/.test(lowerTask)) return 'source';
+    if (matchesBioTask(lowerTask, [/quelle/, /internet/, /lehrbuch/, /recherch/, /seite/])) return 'source';
+    if (matchesBioTask(lowerTask, [/plane/, /entwirf/, /erstelle/, /entwickle/, /verbesserung/, /vor-dem-kauf/, /fall/])) return 'plan';
+    if (matchesBioTask(lowerTask, [/untersuch/, /beobacht/, /taste/, /ertaste/, /miss/, /z\u00e4hl/, /fotografiere/, /sammle/, /protokoll/, /lege eine (bohne|kresse|probe)/])) return 'observe';
+    const usesExistingTable = /(aus der tabelle|aus einer tabelle)/.test(lowerTask);
+    if (matchesBioTask(lowerTask, [/zeichne/, /skizz/, /beschrifte/, /markiere/, /pfeil/, /modell/, /stammbaum/, /diagramm/, /liste/, /checkliste/, /regelkarte/, /merks/]) ||
+        (/tabelle/.test(lowerTask) && !usesExistingTable)) return 'create';
+    if (matchesBioTask(lowerTask, [/vergleich/, /ordne/, /unterscheide/, /sortiere/, /bestimmungsschl\u00fcssel/])) return 'compare';
+    if (matchesBioTask(lowerTask, [/frage/, /interessiert/, /wei\u00dft/])) return 'question';
+    if (matchesBioTask(lowerTask, [/beurteile/, /begr\u00fcnde/, /erkl\u00e4re/, /benenne/, /formuliere/, /verbessere/, /pr\u00fcfe/, /leite/, /bewerte/])) return 'explain';
+    return 'general';
+}
 
-    if (matchesBioTask(lowerTask, [/quelle/, /internet/, /lehrbuch/, /recherch/, /seite/])) {
-        return 'So wertest du aus: Vergleiche deine Information mit dem Kapitel. Passt sie dazu oder widerspricht sie? Schreibe eine kurze Antwort in eigenen Worten und notiere die Quelle. Pr\u00fcfe au\u00dferdem: Ist die Quelle sachlich, aktuell und klar benannt?';
-    }
+function getBioResultLabel(taskText) {
+    const lowerTask = normalizeBioLabel(taskText || '').toLowerCase();
+    if (/tabelle/.test(lowerTask) && !/(aus der tabelle|aus einer tabelle)/.test(lowerTask)) return 'deine Tabelle';
+    if (/skizz|zeichne|beschrifte|pfeil|diagramm|stammbaum/.test(lowerTask)) return 'deine Zeichnung';
+    if (/plan|entwirf|entwickle|verbesserung/.test(lowerTask)) return 'deinen Plan';
+    if (/frage/.test(lowerTask)) return 'deine Frage';
+    if (/liste|checkliste|regelkarte|merks/.test(lowerTask)) return 'deine Liste';
+    if (/vergleich|ordne|unterscheide|sortiere/.test(lowerTask)) return 'deine Ordnung';
+    if (/untersuch|beobacht|miss|z\u00e4hl|taste|protokoll/.test(lowerTask)) return 'deine Beobachtung';
+    return 'dein Ergebnis';
+}
 
-    if (matchesBioTask(lowerTask, [/beurteile/, /begr\u00fcnde/, /erkl\u00e4re/, /formuliere/, /verbessere/, /pr\u00fcfe/, /leite/, /bewerte/])) {
-        return 'So wertest du aus: Lies deine Antwort noch einmal. Ist sie einfach verst\u00e4ndlich? Kommt mindestens ein Fachwort vor? Gibt es eine klare Begr\u00fcndung mit einem Hinweis aus dem Kapitel? Verbessere einen Satz, wenn er nur aus Meinung besteht.';
-    }
+function getBioResultCheckLabel(resultLabel) {
+    if (resultLabel === 'deine Tabelle') return 'bei deiner Tabelle';
+    if (resultLabel === 'deine Zeichnung') return 'bei deiner Zeichnung';
+    if (resultLabel === 'deine Frage') return 'bei deiner Frage';
+    if (resultLabel === 'deine Liste') return 'bei deiner Liste';
+    if (resultLabel === 'deine Antwort') return 'bei deiner Antwort';
+    if (resultLabel === 'deinen Plan') return 'bei deinem Plan';
+    if (resultLabel === 'deine Ordnung') return 'bei deiner Ordnung';
+    if (resultLabel === 'deine Beobachtung') return 'bei deiner Beobachtung';
+    return 'bei deinem Ergebnis';
+}
 
-    return 'So wertest du aus: Pr\u00fcfe am Ende, ob dein Ergebnis wirklich zum Arbeitsauftrag passt. Schreibe 2 bis 4 S\u00e4tze mit Ergebnis und Begr\u00fcndung. Nutze mindestens ein Fachwort und einen Hinweis aus Text, Bild, Tabelle oder Beobachtung.';
+function buildBioGuideText(taskText, root) {
+    const focusWords = extractBioFocusWords(root, taskText);
+    const focusText = focusWords.length
+        ? `Achte besonders auf ${formatBioWordList(focusWords)}.`
+        : 'Achte besonders auf die wichtigen W\u00f6rter im Abschnitt.';
+    const stepsText = buildBioStepText(taskText);
+    const kind = detectBioTaskKind(taskText);
+    const hints = {
+        source: 'Wenn du suchst, nimm eine Quelle mit klarem Namen. Schreibe nicht ab, sondern erkl\u00e4re es in deinen eigenen Worten.',
+        observe: 'Schreibe zuerst nur auf, was du wirklich siehst, tastest, misst oder z\u00e4hlst. Eine Vermutung kommt erst danach.',
+        create: 'Mach die Darstellung einfach. Lieber wenige klare Beschriftungen als viele verwirrende W\u00f6rter.',
+        compare: 'Schau immer auf dasselbe Merkmal. So vergleichst du fair und kommst nicht durcheinander.',
+        plan: 'Denke an eine echte Situation: Was brauchst du? Was ist machbar? Was w\u00e4re fair f\u00fcr Lebewesen oder Menschen?',
+        question: '\u00dcberlege, was dich wirklich interessiert oder was du noch nicht verstehst. Eine gute Frage kann man nachlesen oder untersuchen.',
+        explain: 'Schreibe erst eine einfache Antwort. Danach f\u00fcgst du eine Begr\u00fcndung mit weil, denn oder daran erkenne ich an.',
+        general: 'Arbeite langsam. Schreibe zuerst Stichworte und mache daraus kurze, klare S\u00e4tze.'
+    };
+
+    return `So gehst du vor: Lies den Auftrag einmal langsam. ${focusText} ${stepsText} ${hints[kind]} Schreibe so, dass ein anderes Kind deinen Gedanken folgen kann.`;
+}
+
+function buildBioEvaluationText(taskText, root) {
+    const focusWords = extractBioFocusWords(root, taskText);
+    const focusCheck = focusWords.length
+        ? `Achte dabei auf ${formatBioWordList(focusWords)}.`
+        : 'Achte dabei auf die Fachw\u00f6rter im Abschnitt.';
+    const kind = detectBioTaskKind(taskText);
+    let resultLabel = getBioResultLabel(taskText);
+    if (kind === 'source' || kind === 'explain') resultLabel = 'deine Antwort';
+    if (kind === 'observe') resultLabel = 'deine Beobachtung';
+    if (kind === 'compare') resultLabel = 'deine Ordnung';
+    if (kind === 'plan') resultLabel = 'deinen Plan';
+    const resultCheckLabel = getBioResultCheckLabel(resultLabel);
+    const checks = {
+        source: `Steht ${resultCheckLabel}, woher die Information kommt? Ist die Quelle sachlich und passt sie zum Auftrag?`,
+        observe: `Sind Beobachtung und Vermutung getrennt? Kann man erkennen, was du wirklich festgestellt hast?`,
+        create: `Sind ${resultCheckLabel} alle geforderten Teile vorhanden? Sind die Beschriftungen kurz und richtig?`,
+        compare: `Hat jede Gruppe oder jedes Beispiel ein klares Merkmal? Kann ein anderes Kind deine Entscheidung nachvollziehen?`,
+        plan: `Ist ${resultLabel} machbar? Hilft er wirklich bei der Aufgabe? Hast du eine kurze Begr\u00fcndung dazugeschrieben?`,
+        question: `Ist deine Frage klar gestellt? Kann man eine Antwort im Kapitel, im Lehrbuch oder in einer guten Quelle finden?`,
+        explain: `Gibt es eine klare Antwort und eine Begr\u00fcndung? Kommt mindestens ein passendes Fachwort vor?`,
+        general: `Passt ${resultLabel} genau zum Auftrag? Kommt mindestens ein passendes Fachwort vor?`
+    };
+
+    return `So wertest du aus: Lege ${resultLabel} neben den Arbeitsauftrag. ${checks[kind]} ${focusCheck} Lies es am Ende laut oder halblaut: Klingt ein Satz unklar, mach ihn k\u00fcrzer und genauer.`;
 }
 
 function mergeBiologyWorkAssignment(root) {
@@ -468,8 +572,8 @@ function mergeBiologyWorkAssignment(root) {
             task ? extractBioCardText(task) : extractBioCardText(cards[0]),
             'Bearbeite eine passende Aufgabe zum Abschnitt und begr\u00fcnde dein Ergebnis mit einem Fachwort.'
         );
-        const guideText = buildBioGuideText(taskText);
-        const resultText = buildBioEvaluationText(taskText);
+        const guideText = buildBioGuideText(taskText, root);
+        const resultText = buildBioEvaluationText(taskText, root);
 
         const title = panel.querySelector(':scope > strong');
         if (title) title.textContent = 'Arbeitsauftrag';
