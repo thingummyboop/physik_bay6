@@ -185,6 +185,8 @@
     
     <script src="js/learning_radio.js?v=1.4"></script>
     <script>
+        const TOPIC_TEMPLATE_VERSION = '12.5';
+
         // Message handling for communication from iframe
         window.addEventListener('message', (e) => {
             if (e.data.type === 'updateScore') {
@@ -723,11 +725,11 @@
                     });
                     url = `topics/placeholder.html?${params.toString()}`;
                 } else {
-                    url = `topics/template.html?topic=${encodeURIComponent(page)}`;
+                    url = `topics/template.html?topic=${encodeURIComponent(page)}&v=${TOPIC_TEMPLATE_VERSION}`;
                 }
             } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start', 'space_program'].some(x => page.includes(x))) {
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
-                url = `topics/template.html?topic=${encodeURIComponent(topicId)}`;
+                url = `topics/template.html?topic=${encodeURIComponent(topicId)}&v=${TOPIC_TEMPLATE_VERSION}`;
             } else if (page === 'topics/dashboard.html') {
                 url = 'topics/dashboard.html?v=3';
             } else if (page === 'topics/glossar.html') {
