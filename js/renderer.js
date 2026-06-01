@@ -920,12 +920,14 @@ function collectChapterQuizQuestions(topic) {
     const sectionQuestions = [];
     (topic.sections || []).forEach((section, sectionIndex) => {
         (section.quizzes || []).forEach((q, quizIndex) => {
+            if (q && q.practiceOnly) return;
             addUnique(sectionQuestions, normalizeQuizQuestion(q, `section_${sectionIndex}`, quizIndex));
         });
     });
 
     const topicQuestions = [];
     (topic.quizzes || []).forEach((q, quizIndex) => {
+        if (q && q.practiceOnly) return;
         addUnique(topicQuestions, normalizeQuizQuestion(q, 'topic', quizIndex));
     });
 
