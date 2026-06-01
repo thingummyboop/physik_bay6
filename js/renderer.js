@@ -376,22 +376,78 @@ function findBiologyTaskForPanel(panel) {
     return null;
 }
 
-function buildBioGuideText(text) {
-    const guide = ensureBioInstructionText(
-        text,
-        'Lies den Abschnitt noch einmal, markiere wichtige Hinweise und bearbeite den Arbeitsauftrag Schritt f\u00fcr Schritt.'
-    );
-
-    return `${guide} Nutze den Text, die Abbildung oder die Tabelle im Kapitel als Hilfe und arbeite geordnet.`;
+function matchesBioTask(text, patterns) {
+    return patterns.some(pattern => pattern.test(text));
 }
 
-function buildBioEvaluationText(text) {
-    const result = ensureBioInstructionText(
-        text,
-        'Halte fest, was du herausgefunden hast, und begr\u00fcnde deine Antwort mit einem Fachwort und einem Hinweis.'
-    );
+function buildBioGuideText(taskText) {
+    const task = normalizeBioLabel(taskText || '');
+    const lowerTask = task.toLowerCase();
 
-    return `${result} Pr\u00fcfe am Ende: Passt dein Ergebnis zum Arbeitsauftrag? Nutzt du mindestens ein Fachwort und einen Hinweis aus Text, Bild, Tabelle oder Beobachtung?`;
+    if (matchesBioTask(lowerTask, [/frage/, /interessiert/, /wei\u00dft/])) {
+        return 'So gehst du vor: \u00dcberlege zuerst, was dich an diesem Thema interessiert oder was du noch nicht dar\u00fcber wei\u00dft. W\u00e4hle dann die Themen oder Beispiele aus, die im Arbeitsauftrag genannt sind. Schreibe deine Frage als ganzen Satz. Sie soll so klar sein, dass man sie mit dem Abschnitt, einem Lehrbuch oder einer guten Internetquelle beantworten kann.';
+    }
+
+    if (matchesBioTask(lowerTask, [/zeichne/, /skizz/, /beschrifte/, /markiere/, /pfeil/, /modell/, /stammbaum/, /diagramm/, /tabelle/, /liste/, /checkliste/, /regelkarte/, /merks/])) {
+        return 'So gehst du vor: Lies den Arbeitsauftrag genau und markiere, welche Teile vorkommen m\u00fcssen. Erstelle zuerst eine einfache Skizze, Tabelle oder Liste. Beschrifte nur das, was du wirklich erkl\u00e4ren kannst. Nutze den Text, die Abbildung oder die Tabelle im Kapitel als Hilfe und erg\u00e4nze kurze Erkl\u00e4rs\u00e4tze.';
+    }
+
+    if (matchesBioTask(lowerTask, [/untersuch/, /beobacht/, /taste/, /ertaste/, /miss/, /z\u00e4hl/, /fotografiere/, /sammle/])) {
+        return 'So gehst du vor: Arbeite langsam, genau und sicher. Notiere zuerst nur, was du wirklich siehst, tastest, misst oder z\u00e4hlst. Trenne Beobachtung und Vermutung. Halte deine Ergebnisse in Stichworten, einer kleinen Tabelle oder einer Skizze fest. Verwende danach passende Fachw\u00f6rter aus dem Kapitel.';
+    }
+
+    if (matchesBioTask(lowerTask, [/vergleich/, /ordne/, /unterscheide/, /sortiere/, /bestimmungsschl\u00fcssel/])) {
+        return 'So gehst du vor: Sammle zuerst die Merkmale oder Hinweise aus dem Abschnitt. Ordne sie in einer Tabelle mit zwei oder mehr Spalten. Vergleiche Punkt f\u00fcr Punkt und schreibe nicht nur das Ergebnis auf, sondern auch, woran du es erkennst. Nutze Fachw\u00f6rter, wenn sie im Kapitel vorkommen.';
+    }
+
+    if (matchesBioTask(lowerTask, [/plane/, /entwirf/, /erstelle/, /entwickle/, /verbesserung/, /vor-dem-kauf/, /fall/])) {
+        return 'So gehst du vor: Sammle zuerst, welche Bedingungen, Bed\u00fcrfnisse oder Probleme im Arbeitsauftrag wichtig sind. Mache daraus einen Plan, eine Checkliste oder eine konkrete L\u00f6sung. Pr\u00fcfe jeden Punkt: Ist er machbar? Passt er zum Lebewesen, zum K\u00f6rper oder zum Lebensraum? Begr\u00fcnde deine Auswahl mit dem Kapitel.';
+    }
+
+    if (matchesBioTask(lowerTask, [/quelle/, /internet/, /lehrbuch/, /recherch/, /seite/])) {
+        return 'So gehst du vor: Suche zuerst im Abschnitt nach passenden Fachw\u00f6rtern. Wenn du im Lehrbuch oder Internet nachsiehst, nutze eine verl\u00e4ssliche Quelle, zum Beispiel Schule, Museum, Beh\u00f6rde oder Fachseite. Schreibe die Antwort in eigenen Worten auf und notiere, woher die Information stammt.';
+    }
+
+    if (matchesBioTask(lowerTask, [/beurteile/, /begr\u00fcnde/, /erkl\u00e4re/, /formuliere/, /verbessere/, /pr\u00fcfe/, /leite/, /bewerte/])) {
+        return 'So gehst du vor: Lies den Abschnitt noch einmal und suche die Fachw\u00f6rter, die zum Arbeitsauftrag passen. Schreibe zuerst eine einfache Antwort in eigenen Worten. Erg\u00e4nze dann eine Begr\u00fcndung mit weil, denn oder daran erkenne ich. Nutze mindestens einen Hinweis aus Text, Bild, Tabelle oder Beobachtung.';
+    }
+
+    return 'So gehst du vor: Lies den Abschnitt noch einmal und markiere die wichtigsten Hinweise. Bearbeite den Arbeitsauftrag Schritt f\u00fcr Schritt. Schreibe zuerst Stichworte auf und formuliere danach ganze S\u00e4tze. Nutze passende Fachw\u00f6rter aus dem Kapitel.';
+}
+
+function buildBioEvaluationText(taskText) {
+    const task = normalizeBioLabel(taskText || '');
+    const lowerTask = task.toLowerCase();
+
+    if (matchesBioTask(lowerTask, [/frage/, /interessiert/, /wei\u00dft/])) {
+        return 'So wertest du aus: Pr\u00fcfe zuerst, ob deine Frage sinnvoll gestellt ist: Ist sie klar? Kann man dazu eine Antwort finden? Suche zu mindestens einer Frage eine kurze Antwort im Lehrbuch, im Abschnitt oder auf einer verl\u00e4sslichen Internetseite. Schreibe die Antwort in 2 bis 4 S\u00e4tzen auf und notiere die Quelle.';
+    }
+
+    if (matchesBioTask(lowerTask, [/zeichne/, /skizz/, /beschrifte/, /markiere/, /pfeil/, /modell/, /stammbaum/, /diagramm/, /tabelle/, /liste/, /checkliste/, /regelkarte/, /merks/])) {
+        return 'So wertest du aus: Kontrolliere, ob alle geforderten Teile vorhanden und richtig beschriftet sind. Erg\u00e4nze zu deiner Skizze, Tabelle oder Liste 2 bis 4 S\u00e4tze: Was zeigt dein Ergebnis? Welche Fachw\u00f6rter passen dazu? Verbessere unklare Beschriftungen sofort.';
+    }
+
+    if (matchesBioTask(lowerTask, [/untersuch/, /beobacht/, /taste/, /ertaste/, /miss/, /z\u00e4hl/, /fotografiere/, /sammle/])) {
+        return 'So wertest du aus: Fasse deine Beobachtungen in 2 bis 4 S\u00e4tzen zusammen. Schreibe zuerst, was du festgestellt hast. Danach erkl\u00e4rst du, was das biologisch bedeuten k\u00f6nnte. Nutze mindestens ein Fachwort und einen Satzanfang wie: Ich erkenne das daran, dass ...';
+    }
+
+    if (matchesBioTask(lowerTask, [/vergleich/, /ordne/, /unterscheide/, /sortiere/, /bestimmungsschl\u00fcssel/])) {
+        return 'So wertest du aus: Schreibe am Ende einen Vergleichssatz oder einen Ordnungssatz. Nenne mindestens zwei Merkmale oder Hinweise, die deine Entscheidung st\u00fctzen. Pr\u00fcfe, ob jemand anderes mit deinen Angaben zum gleichen Ergebnis kommen k\u00f6nnte.';
+    }
+
+    if (matchesBioTask(lowerTask, [/plane/, /entwirf/, /erstelle/, /entwickle/, /verbesserung/, /vor-dem-kauf/, /fall/])) {
+        return 'So wertest du aus: Pr\u00fcfe deinen Plan oder deine L\u00f6sung mit drei Fragen: Ist sie machbar? Hilft sie wirklich beim biologischen Problem? Ist sie fair f\u00fcr Mensch, Tier oder Umwelt? Schreibe danach eine kurze Begr\u00fcndung mit mindestens einem Fachwort.';
+    }
+
+    if (matchesBioTask(lowerTask, [/quelle/, /internet/, /lehrbuch/, /recherch/, /seite/])) {
+        return 'So wertest du aus: Vergleiche deine Information mit dem Kapitel. Passt sie dazu oder widerspricht sie? Schreibe eine kurze Antwort in eigenen Worten und notiere die Quelle. Pr\u00fcfe au\u00dferdem: Ist die Quelle sachlich, aktuell und klar benannt?';
+    }
+
+    if (matchesBioTask(lowerTask, [/beurteile/, /begr\u00fcnde/, /erkl\u00e4re/, /formuliere/, /verbessere/, /pr\u00fcfe/, /leite/, /bewerte/])) {
+        return 'So wertest du aus: Lies deine Antwort noch einmal. Ist sie einfach verst\u00e4ndlich? Kommt mindestens ein Fachwort vor? Gibt es eine klare Begr\u00fcndung mit einem Hinweis aus dem Kapitel? Verbessere einen Satz, wenn er nur aus Meinung besteht.';
+    }
+
+    return 'So wertest du aus: Pr\u00fcfe am Ende, ob dein Ergebnis wirklich zum Arbeitsauftrag passt. Schreibe 2 bis 4 S\u00e4tze mit Ergebnis und Begr\u00fcndung. Nutze mindestens ein Fachwort und einen Hinweis aus Text, Bild, Tabelle oder Beobachtung.';
 }
 
 function mergeBiologyWorkAssignment(root) {
@@ -412,17 +468,15 @@ function mergeBiologyWorkAssignment(root) {
             task ? extractBioCardText(task) : extractBioCardText(cards[0]),
             'Bearbeite eine passende Aufgabe zum Abschnitt und begr\u00fcnde dein Ergebnis mit einem Fachwort.'
         );
-        const guideText = buildBioGuideText(extractBioCardText(cards[1]) || extractBioCardText(cards[0]));
-        const resultText = extractBioCardText(cards[2]);
-
-        const polishedResultText = buildBioEvaluationText(resultText);
+        const guideText = buildBioGuideText(taskText);
+        const resultText = buildBioEvaluationText(taskText);
 
         const title = panel.querySelector(':scope > strong');
         if (title) title.textContent = 'Arbeitsauftrag';
 
         setBioTrainingCard(cards[0], 'Arbeitsauftrag', taskText);
         setBioTrainingCard(cards[1], 'Anleitung', guideText);
-        setBioTrainingCard(cards[2], 'Auswertung', polishedResultText);
+        setBioTrainingCard(cards[2], 'Auswertung', resultText);
 
         if (task) task.remove();
     });
