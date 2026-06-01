@@ -1334,6 +1334,15 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     top: -17px;
 }
 
+.practice-block + .practice-block {
+    margin-top: 10px;
+}
+
+.practice-block + .practice-block::before,
+.practice-block + .practice-block .practice-label {
+    display: none;
+}
+
 .practice-box {
     background: color-mix(in srgb, var(--card-bg) 92%, var(--interactive-bg));
     border: 1px solid color-mix(in srgb, var(--box-border) 82%, var(--primary));
