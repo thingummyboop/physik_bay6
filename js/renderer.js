@@ -353,6 +353,47 @@ function setBioTrainingCard(card, title, text) {
     card.appendChild(paragraph);
 }
 
+function ensureBioInstructionText(text, fallback) {
+    const value = normalizeBioLabel(text || '');
+    if (!value) return fallback;
+    return /[.!?]$/.test(value) ? value : `${value}.`;
+}
+
+function findBiologyTaskForPanel(panel) {
+    let candidate = panel.previousElementSibling;
+
+    while (candidate) {
+        if (candidate.classList?.contains('bio-training-panel')) break;
+
+        const taskLabel = normalizeBioLabel(candidate.querySelector('strong')?.textContent || '');
+        const isTask = candidate.classList?.contains('mini-task') &&
+            /^(Arbeitsauftrag|Mini-Aufgabe)\s*:?/i.test(taskLabel);
+
+        if (isTask) return candidate;
+        candidate = candidate.previousElementSibling;
+    }
+
+    return null;
+}
+
+function buildBioGuideText(text) {
+    const guide = ensureBioInstructionText(
+        text,
+        'Lies den Abschnitt noch einmal, markiere wichtige Hinweise und bearbeite den Arbeitsauftrag Schritt f\u00fcr Schritt.'
+    );
+
+    return `${guide} Nutze den Text, die Abbildung oder die Tabelle im Kapitel als Hilfe und arbeite geordnet.`;
+}
+
+function buildBioEvaluationText(text) {
+    const result = ensureBioInstructionText(
+        text,
+        'Halte fest, was du herausgefunden hast, und begr\u00fcnde deine Antwort mit einem Fachwort und einem Hinweis.'
+    );
+
+    return `${result} Pr\u00fcfe am Ende: Passt dein Ergebnis zum Arbeitsauftrag? Nutzt du mindestens ein Fachwort und einen Hinweis aus Text, Bild, Tabelle oder Beobachtung?`;
+}
+
 function mergeBiologyWorkAssignment(root) {
     root.querySelectorAll('.bio-training-panel').forEach(panel => {
         const grid = panel.querySelector('.bio-training-grid');
@@ -366,22 +407,24 @@ function mergeBiologyWorkAssignment(root) {
             cards.push(card);
         }
 
-        const task = panel.previousElementSibling;
-        const taskLabel = normalizeBioLabel(task?.querySelector('strong')?.textContent || '');
-        const canMergePreviousTask = task?.classList.contains('mini-task') &&
-            /^(Arbeitsauftrag|Mini-Aufgabe):/i.test(taskLabel);
-        const taskText = canMergePreviousTask ? extractBioCardText(task) : extractBioCardText(cards[0]);
-        const guideText = extractBioCardText(cards[1]) || extractBioCardText(cards[0]);
-        const resultText = extractBioCardText(cards[2]) || 'Halte fest, was du herausgefunden hast, und begründe deine Antwort mit einem Fachwort und einem Hinweis.';
+        const task = findBiologyTaskForPanel(panel);
+        const taskText = ensureBioInstructionText(
+            task ? extractBioCardText(task) : extractBioCardText(cards[0]),
+            'Bearbeite eine passende Aufgabe zum Abschnitt und begr\u00fcnde dein Ergebnis mit einem Fachwort.'
+        );
+        const guideText = buildBioGuideText(extractBioCardText(cards[1]) || extractBioCardText(cards[0]));
+        const resultText = extractBioCardText(cards[2]);
+
+        const polishedResultText = buildBioEvaluationText(resultText);
 
         const title = panel.querySelector(':scope > strong');
         if (title) title.textContent = 'Arbeitsauftrag';
 
         setBioTrainingCard(cards[0], 'Arbeitsauftrag', taskText);
         setBioTrainingCard(cards[1], 'Anleitung', guideText);
-        setBioTrainingCard(cards[2], 'Auswertung', resultText);
+        setBioTrainingCard(cards[2], 'Auswertung', polishedResultText);
 
-        if (canMergePreviousTask) task.remove();
+        if (task) task.remove();
     });
 }
 
