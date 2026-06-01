@@ -243,8 +243,8 @@ function replaceBioTextPhrases(root) {
         [/Kompetenzbereiche/g, 'Arbeitsweisen'],
         [/kompetenzorientiert/g, 'an echten Situationen'],
         [/Kompetenzcheck/g, 'Kann ich das?'],
-        [/Wissen, Erkenntnis und Handeln/g, 'Fachcheck, Verständnischeck und Alltagscheck'],
-        [/Wissen, Erkenntnis oder Handeln/g, 'Fachcheck, Verständnischeck oder Alltagscheck'],
+        [/Wissen, Erkenntnis und Handeln/g, 'Wissen, Verstehen und Anwenden'],
+        [/Wissen, Erkenntnis oder Handeln/g, 'Wissen, Verstehen oder Anwenden'],
         [/Wissen aneignen und kommunizieren/g, 'Fachwörter nutzen und erklären'],
         [/Erkenntnisse gewinnen/g, 'untersuchen und Belege nutzen'],
         [/Standpunkte begründen und handeln/g, 'Entscheidungen begründen'],
@@ -268,14 +268,80 @@ function replaceBioTextPhrases(root) {
     });
 }
 
+function bioGoalLabelKey(value) {
+    const text = normalizeBioLabel(value)
+        .replace(/:$/, '')
+        .toLowerCase()
+        .replace(/ä/g, 'ae')
+        .replace(/ö/g, 'oe')
+        .replace(/ü/g, 'ue')
+        .replace(/ß/g, 'ss');
+
+    if (text === 'wissen' || text === 'fachcheck') return 'wissen';
+    if (text === 'erkenntnis' || text === 'verstaendnischeck') return 'verstehen';
+    if (text === 'handeln' || text === 'alltagscheck') return 'anwenden';
+    return '';
+}
+
+function mergeBiologyLearningGoalCards(root) {
+    root.querySelectorAll('.bio-competency-grid, .bio-check-grid').forEach(grid => {
+        const cards = Array.from(grid.children).filter(child =>
+            child.classList && (
+                child.classList.contains('bio-competency-card') ||
+                child.classList.contains('bio-check-card')
+            )
+        );
+        if (cards.length < 3) return;
+
+        const entries = cards.map(card => {
+            const label = card.querySelector('strong');
+            const key = bioGoalLabelKey(label?.textContent || '');
+            const clone = card.cloneNode(true);
+            const cloneLabel = clone.querySelector('strong');
+            if (cloneLabel) cloneLabel.remove();
+            return {
+                key,
+                text: normalizeBioLabel(clone.textContent)
+            };
+        });
+
+        const hasOnlyLearningGoals = entries.every(entry => entry.key && entry.text);
+        const hasAllLearningGoals = ['wissen', 'verstehen', 'anwenden']
+            .every(key => entries.some(entry => entry.key === key));
+        if (!hasOnlyLearningGoals || !hasAllLearningGoals) return;
+
+        const box = document.createElement('div');
+        box.className = 'bio-overview-box';
+        const title = document.createElement('strong');
+        title.textContent = 'Das soll ich lernen:';
+        const list = document.createElement('ul');
+
+        entries.forEach(entry => {
+            const item = document.createElement('li');
+            item.textContent = entry.text;
+            list.appendChild(item);
+        });
+
+        box.appendChild(title);
+        box.appendChild(list);
+        grid.replaceWith(box);
+    });
+
+    root.querySelectorAll('.bio-overview-box > strong').forEach(label => {
+        if (/Darum geht es:?|Das soll ich lernen:?/i.test(normalizeBioLabel(label.textContent))) {
+            label.textContent = 'Das soll ich lernen:';
+        }
+    });
+}
+
 function softenBiologyCompetencyLanguage(root) {
     replaceBioTextPhrases(root);
 
     root.querySelectorAll('.bio-competency-card strong, .bio-check-card strong, .bio-data-table th').forEach(label => {
         const text = normalizeBioLabel(label.textContent);
-        if (text === 'Wissen') label.textContent = 'Fachcheck';
-        if (text === 'Erkenntnis') label.textContent = 'Verständnischeck';
-        if (text === 'Handeln') label.textContent = 'Alltagscheck';
+        if (text === 'Wissen' || text === 'Fachcheck') label.textContent = 'Wissen';
+        if (text === 'Erkenntnis' || text === 'Verständnischeck') label.textContent = 'Verstehen';
+        if (text === 'Handeln' || text === 'Alltagscheck') label.textContent = 'Anwenden';
     });
 
     root.querySelectorAll('.bio-section-check > strong').forEach(label => {
@@ -286,9 +352,9 @@ function softenBiologyCompetencyLanguage(root) {
 
     root.querySelectorAll('.bio-section-check li > strong').forEach(label => {
         const text = normalizeBioLabel(label.textContent);
-        if (text === 'Wissen:') label.textContent = 'Fachcheck:';
-        if (text === 'Erkenntnis:') label.textContent = 'Verständnischeck:';
-        if (text === 'Handeln:') label.textContent = 'Alltagscheck:';
+        if (text === 'Wissen:' || text === 'Fachcheck:') label.textContent = 'Wissen:';
+        if (text === 'Erkenntnis:' || text === 'Verständnischeck:') label.textContent = 'Verstehen:';
+        if (text === 'Handeln:' || text === 'Alltagscheck:') label.textContent = 'Anwenden:';
     });
 
     root.querySelectorAll('.bio-training-panel > strong').forEach(label => {
@@ -298,7 +364,7 @@ function softenBiologyCompetencyLanguage(root) {
     root.querySelectorAll('.bio-training-card h4').forEach(label => {
         const text = normalizeBioLabel(label.textContent);
         if (text === 'Wissen trainieren') label.textContent = 'Fachwörter einsetzen';
-        if (text === 'Erkenntnis trainieren') label.textContent = 'Verständnischeck üben';
+        if (text === 'Erkenntnis trainieren') label.textContent = 'Verstehen üben';
         if (text === 'Handeln trainieren') label.textContent = 'Entscheiden begründen';
     });
 }
@@ -657,6 +723,7 @@ function addBioInsightGames(root, topicId, sectionIndex) {
 }
 
 function enhanceBiologyCard(card, topicId, sectionIndex) {
+    mergeBiologyLearningGoalCards(card);
     softenBiologyCompetencyLanguage(card);
 }
 
@@ -968,13 +1035,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=8.2`);
+        let response = await fetch(`../lang/${lang}.json?v=8.3`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=8.2`);
+            const deRes = await fetch(`../lang/de.json?v=8.3`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
