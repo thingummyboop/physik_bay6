@@ -334,6 +334,59 @@ function mergeBiologyLearningGoalCards(root) {
     });
 }
 
+function extractBioCardText(element) {
+    const clone = element.cloneNode(true);
+    const label = clone.querySelector('strong, h4');
+    if (label) label.remove();
+    return normalizeBioLabel(clone.textContent);
+}
+
+function setBioTrainingCard(card, title, text) {
+    card.replaceChildren();
+
+    const heading = document.createElement('h4');
+    heading.textContent = title;
+    const paragraph = document.createElement('p');
+    paragraph.textContent = text;
+
+    card.appendChild(heading);
+    card.appendChild(paragraph);
+}
+
+function mergeBiologyWorkAssignment(root) {
+    root.querySelectorAll('.bio-training-panel').forEach(panel => {
+        const task = panel.previousElementSibling;
+        if (!task || !task.classList.contains('mini-task')) return;
+
+        const taskLabel = normalizeBioLabel(task.querySelector('strong')?.textContent || '');
+        if (!/^(Arbeitsauftrag|Mini-Aufgabe):/i.test(taskLabel)) return;
+
+        const grid = panel.querySelector('.bio-training-grid');
+        if (!grid) return;
+
+        const cards = Array.from(grid.querySelectorAll('.bio-training-card'));
+        while (cards.length < 3) {
+            const card = document.createElement('div');
+            card.className = 'bio-training-card';
+            grid.appendChild(card);
+            cards.push(card);
+        }
+
+        const taskText = extractBioCardText(task);
+        const guideText = extractBioCardText(cards[1]) || extractBioCardText(cards[0]);
+        const resultText = extractBioCardText(cards[2]) || 'Halte fest, was du herausgefunden hast, und begründe deine Antwort mit einem Fachwort und einem Hinweis.';
+
+        const title = panel.querySelector(':scope > strong');
+        if (title) title.textContent = 'Arbeitsauftrag';
+
+        setBioTrainingCard(cards[0], 'Arbeitsauftrag', taskText);
+        setBioTrainingCard(cards[1], 'Anleitung', guideText);
+        setBioTrainingCard(cards[2], 'Auswertung', resultText);
+
+        task.remove();
+    });
+}
+
 function softenBiologyCompetencyLanguage(root) {
     replaceBioTextPhrases(root);
 
@@ -725,6 +778,7 @@ function addBioInsightGames(root, topicId, sectionIndex) {
 function enhanceBiologyCard(card, topicId, sectionIndex) {
     mergeBiologyLearningGoalCards(card);
     softenBiologyCompetencyLanguage(card);
+    mergeBiologyWorkAssignment(card);
 }
 
 function isCorrectAnswer(answer) {
