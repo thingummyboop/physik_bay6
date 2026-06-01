@@ -355,12 +355,6 @@ function setBioTrainingCard(card, title, text) {
 
 function mergeBiologyWorkAssignment(root) {
     root.querySelectorAll('.bio-training-panel').forEach(panel => {
-        const task = panel.previousElementSibling;
-        if (!task || !task.classList.contains('mini-task')) return;
-
-        const taskLabel = normalizeBioLabel(task.querySelector('strong')?.textContent || '');
-        if (!/^(Arbeitsauftrag|Mini-Aufgabe):/i.test(taskLabel)) return;
-
         const grid = panel.querySelector('.bio-training-grid');
         if (!grid) return;
 
@@ -372,7 +366,11 @@ function mergeBiologyWorkAssignment(root) {
             cards.push(card);
         }
 
-        const taskText = extractBioCardText(task);
+        const task = panel.previousElementSibling;
+        const taskLabel = normalizeBioLabel(task?.querySelector('strong')?.textContent || '');
+        const canMergePreviousTask = task?.classList.contains('mini-task') &&
+            /^(Arbeitsauftrag|Mini-Aufgabe):/i.test(taskLabel);
+        const taskText = canMergePreviousTask ? extractBioCardText(task) : extractBioCardText(cards[0]);
         const guideText = extractBioCardText(cards[1]) || extractBioCardText(cards[0]);
         const resultText = extractBioCardText(cards[2]) || 'Halte fest, was du herausgefunden hast, und begründe deine Antwort mit einem Fachwort und einem Hinweis.';
 
@@ -383,7 +381,7 @@ function mergeBiologyWorkAssignment(root) {
         setBioTrainingCard(cards[1], 'Anleitung', guideText);
         setBioTrainingCard(cards[2], 'Auswertung', resultText);
 
-        task.remove();
+        if (canMergePreviousTask) task.remove();
     });
 }
 
