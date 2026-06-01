@@ -290,6 +290,33 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin: 0;
 }
 
+.bio-training-direct-text {
+    line-height: 1.55;
+    margin: 0;
+}
+
+.bio-training-single {
+    display: grid;
+    gap: 10px;
+}
+
+.bio-training-section {
+    border-top: 1px solid rgba(15, 118, 110, 0.22);
+    padding-top: 10px;
+}
+
+.bio-training-section > strong {
+    color: #065f46;
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.bio-training-section p {
+    line-height: 1.55;
+    margin: 0;
+}
+
 .bio-step-list {
     margin: 12px 0;
     padding-left: 1.2rem;
@@ -687,10 +714,15 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     border-color: rgba(94, 234, 212, 0.28);
 }
 
+[data-theme="dark"] .bio-training-section {
+    border-color: rgba(94, 234, 212, 0.24);
+}
+
 [data-theme="dark"] .bio-competency-card strong,
 [data-theme="dark"] .bio-check-card strong,
 [data-theme="dark"] .bio-overview-box > strong,
 [data-theme="dark"] .bio-training-panel > strong,
+[data-theme="dark"] .bio-training-section > strong,
 [data-theme="dark"] .bio-training-card h4,
 [data-theme="dark"] .bio-data-table th {
     color: #86efac;

@@ -335,22 +335,42 @@ function mergeBiologyLearningGoalCards(root) {
 }
 
 function extractBioCardText(element) {
+    if (!element) return '';
     const clone = element.cloneNode(true);
     const label = clone.querySelector('strong, h4');
     if (label) label.remove();
     return normalizeBioLabel(clone.textContent);
 }
 
-function setBioTrainingCard(card, title, text) {
-    card.replaceChildren();
+function buildBioTrainingSection(title, text) {
+    const section = document.createElement('div');
+    section.className = 'bio-training-section';
 
-    const heading = document.createElement('h4');
+    const heading = document.createElement('strong');
     heading.textContent = title;
     const paragraph = document.createElement('p');
     paragraph.textContent = text;
 
-    card.appendChild(heading);
-    card.appendChild(paragraph);
+    section.appendChild(heading);
+    section.appendChild(paragraph);
+    return section;
+}
+
+function setBioTrainingSinglePanel(panel, taskText, guideText, resultText) {
+    const heading = document.createElement('strong');
+    heading.textContent = 'Arbeitsauftrag';
+
+    const body = document.createElement('div');
+    body.className = 'bio-training-single';
+
+    const task = document.createElement('p');
+    task.className = 'bio-training-direct-text';
+    task.textContent = taskText;
+
+    body.appendChild(task);
+    body.appendChild(buildBioTrainingSection('Anleitung', guideText));
+    body.appendChild(buildBioTrainingSection('Auswertung', resultText));
+    panel.replaceChildren(heading, body);
 }
 
 function ensureBioInstructionText(text, fallback) {
@@ -556,20 +576,19 @@ function buildBioEvaluationText(taskText, root) {
 
 function mergeBiologyWorkAssignment(root) {
     root.querySelectorAll('.bio-training-panel').forEach(panel => {
+        if (panel.dataset.assignmentMode === 'direct') {
+            const title = panel.querySelector(':scope > strong');
+            if (title) title.textContent = 'Arbeitsauftrag';
+            return;
+        }
+
         const grid = panel.querySelector('.bio-training-grid');
         if (!grid) return;
 
-        const cards = Array.from(grid.querySelectorAll('.bio-training-card'));
-        while (cards.length < 3) {
-            const card = document.createElement('div');
-            card.className = 'bio-training-card';
-            grid.appendChild(card);
-            cards.push(card);
-        }
-
         const task = findBiologyTaskForPanel(panel);
+        const fallbackCard = grid.querySelector('.bio-training-card');
         const taskText = ensureBioInstructionText(
-            task ? extractBioCardText(task) : extractBioCardText(cards[0]),
+            task ? extractBioCardText(task) : extractBioCardText(fallbackCard),
             'Bearbeite eine passende Aufgabe zum Abschnitt und begr\u00fcnde dein Ergebnis mit einem Fachwort.'
         );
         const guideText = buildBioGuideText(taskText, root);
@@ -578,9 +597,7 @@ function mergeBiologyWorkAssignment(root) {
         const title = panel.querySelector(':scope > strong');
         if (title) title.textContent = 'Arbeitsauftrag';
 
-        setBioTrainingCard(cards[0], 'Arbeitsauftrag', taskText);
-        setBioTrainingCard(cards[1], 'Anleitung', guideText);
-        setBioTrainingCard(cards[2], 'Auswertung', resultText);
+        setBioTrainingSinglePanel(panel, taskText, guideText, resultText);
 
         if (task) task.remove();
     });
@@ -1290,13 +1307,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=8.7`);
+        let response = await fetch(`../lang/${lang}.json?v=8.9`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=8.7`);
+            const deRes = await fetch(`../lang/de.json?v=8.9`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
