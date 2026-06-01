@@ -1320,12 +1320,38 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 }
 
 .practice-box {
-    background: color-mix(in srgb, var(--interactive-bg) 72%, var(--card-bg));
-    border: 1px solid var(--box-border);
-    border-left: 7px solid var(--secondary);
-    padding: 18px 20px;
-    border-radius: 12px;
-    margin: 18px 0;
+    background: color-mix(in srgb, var(--card-bg) 92%, var(--interactive-bg));
+    border: 1px solid color-mix(in srgb, var(--box-border) 82%, var(--primary));
+    border-radius: 8px;
+    margin: 32px 0 4px;
+    padding: 16px;
+    position: relative;
+}
+
+.practice-box::before {
+    background: color-mix(in srgb, var(--box-border) 76%, transparent);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -17px;
+}
+
+.practice-head {
+    margin-bottom: 12px;
+}
+
+.practice-question {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.practice-options {
+    display: grid;
+    gap: 8px;
 }
 
 .practice-label,
@@ -1336,6 +1362,58 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     letter-spacing: 0.06em;
     margin: 0 0 8px;
     text-transform: uppercase;
+}
+
+.practice-box button {
+    align-items: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    box-shadow: none;
+    color: var(--text);
+    display: flex;
+    font-size: 0.98rem;
+    font-weight: 650;
+    justify-content: flex-start;
+    line-height: 1.35;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: left;
+    width: 100%;
+}
+
+.practice-box button:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--interactive-bg) 44%, var(--card-bg));
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--box-border));
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    filter: none;
+    transform: translateY(-1px);
+}
+
+.practice-box button.is-correct,
+.practice-box button.is-wrong {
+    color: #ffffff;
+}
+
+.practice-box button.is-correct {
+    border-color: var(--correct);
+}
+
+.practice-box button.is-wrong {
+    border-color: var(--wrong);
+}
+
+.practice-box .feedback {
+    background: color-mix(in srgb, var(--card-bg) 88%, var(--interactive-bg));
+    border-left: 3px solid currentColor;
+    border-radius: 8px;
+    line-height: 1.4;
+    margin: 12px 0 0;
+    padding: 10px 12px;
+}
+
+.practice-box .feedback:empty {
+    display: none;
 }
 
 .chapter-quiz-card {

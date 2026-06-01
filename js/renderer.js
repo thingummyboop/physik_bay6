@@ -1197,11 +1197,15 @@ function renderPracticeBox(q) {
 
     return `
         <div class="practice-box" data-id="${escapeHtmlAttr(normalized.id)}">
-            <p class="practice-label">${uiText('Übung')}</p>
-            <p><strong>${escapeHtml(normalized.question)}</strong></p>
-            ${shuffledAnswers.map(ans => `
-                <button type="button" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handlePracticeAnswer(this, ${ans.correct}, this.dataset.feedback || null)">${escapeHtml(ans.text)}</button>
-            `).join('')}
+            <div class="practice-head">
+                <p class="practice-label">${uiText('Übung')}</p>
+                <p class="practice-question"><strong>${escapeHtml(normalized.question)}</strong></p>
+            </div>
+            <div class="practice-options">
+                ${shuffledAnswers.map(ans => `
+                    <button type="button" class="practice-option" data-feedback="${escapeHtmlAttr(ans.feedback || '')}" onclick="handlePracticeAnswer(this, ${ans.correct}, this.dataset.feedback || null)">${escapeHtml(ans.text)}</button>
+                `).join('')}
+            </div>
             <p class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
     `;

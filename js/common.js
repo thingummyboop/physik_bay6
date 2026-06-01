@@ -177,16 +177,19 @@ function handlePracticeAnswer(btn, isCorrect, customMsg = null) {
     box.querySelectorAll('button').forEach(button => {
         button.style.background = '';
         button.style.opacity = '1';
+        button.classList.remove('is-correct', 'is-wrong');
     });
 
     if (isCorrect) {
         playSuccessSound();
+        btn.classList.add('is-correct');
         btn.style.background = "var(--correct)";
         if (fb) {
             fb.innerText = customMsg ? "✅ " + customMsg : "✅ " + commonText("Richtig. Genau diese Idee ist wichtig.");
             fb.style.color = "var(--correct)";
         }
     } else {
+        btn.classList.add('is-wrong');
         btn.style.background = "var(--wrong)";
         btn.style.opacity = "0.72";
         if (fb) {
