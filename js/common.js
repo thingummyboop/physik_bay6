@@ -101,6 +101,7 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
     // Check if already solved (either as prefixed ID or as legacy ID)
     if (answered.has(id) || (legacyId && answered.has(legacyId))) {
         if (isCorrect) {
+            btn.classList.add('is-correct');
             btn.style.background = "var(--correct)";
             if(fb) {
                 fb.innerText = "✅ " + commonText("Richtig, aber die Punkte gab es nur beim ersten Mal!");
@@ -119,10 +120,12 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
 
         // Disable ALL buttons in this box
         box.querySelectorAll('button').forEach(b => {
+            b.classList.remove('is-correct', 'is-wrong');
             b.disabled = true;
             b.style.opacity = "0.5";
         });
         // The correct button stays visually highlighted but is technically disabled
+        btn.classList.add('is-correct');
         btn.style.opacity = "1";
 
         answered.add(id);
@@ -156,6 +159,7 @@ function handleAnswer(btn, isCorrect, pts, customMsg = null) {
         failedOnce.add(id);
         localStorage.setItem('physik_failed_once', JSON.stringify(Array.from(failedOnce)));
         
+        btn.classList.add('is-wrong');
         btn.style.background = "var(--wrong)";
         btn.disabled = true; 
         btn.style.opacity = "0.5";

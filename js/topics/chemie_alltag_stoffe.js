@@ -57,7 +57,7 @@ function ensureEverydaySubstancesLab() {
         if (status) status.textContent = text[`${button.dataset.chemAction}Status`] || text.initial;
     });
 
-    const firstQuiz = targetCard.querySelector('.quiz-box');
+    const firstQuiz = targetCard.querySelector('.practice-block, .quiz-box');
     targetCard.insertBefore(lab, firstQuiz || null);
 }
 
