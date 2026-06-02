@@ -157,6 +157,28 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     border-left: 8px solid #38bdf8;
 }
 
+.astro-vocab-box {
+    border-left: 8px solid #8b5cf6;
+}
+
+.astro-vocab-box > strong {
+    color: #6d28d9;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.astro-vocab-box .step-list {
+    margin-bottom: 0;
+}
+
+.astro-vocab-box li {
+    margin: 7px 0;
+}
+
+.astro-vocab-box li strong {
+    color: #581c87;
+}
+
 .bio-image {
     background: linear-gradient(135deg, rgba(240, 253, 244, 0.92), rgba(236, 253, 245, 0.72));
 }
@@ -930,6 +952,11 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 
 [data-theme="dark"] .astro-image figcaption {
     color: #cbd5e1;
+}
+
+[data-theme="dark"] .astro-vocab-box > strong,
+[data-theme="dark"] .astro-vocab-box li strong {
+    color: #d8b4fe;
 }
 
 .formula-card {

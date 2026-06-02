@@ -1381,7 +1381,7 @@ async function renderTopic() {
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=9.7`);
+            const deRes = await fetch(`../lang/de.json?v=9.8`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
