@@ -13450,137 +13450,1538 @@
     }
   },
   "math1_9_dezimalzahlen": {
-    "title": "Dezimalzahlen - Kommazahlen",
-    "subtitle": "Zahlen mit Komma verstehen",
+    "title": "Dezimalzahlen verstehen",
+    "subtitle": "Kommazahlen aus Br&uuml;chen entwickeln, vergleichen, runden und sicher rechnen",
+    "chapterQuizTitle": "Verständnischeck: Dezimalzahlen",
+    "script": false,
     "sections": [
       {
-        "id": "m19_sec1",
-        "title": "Was ist eine Kommazahl?",
-        "content": "<p>Eine <span style='color:red;'>Kommazahl</span> hat ein Komma. Zum Beispiel bei Geld: 1,50 Euro.</p><div class='interactive-zone'><p>Tippe 2,50 ein:</p><input type='text' id='komma_input_1' placeholder='0,00'><button onclick='checkKomma()'>Check</button><p id='komma_feedback'></p></div><p>Das Komma trennt die ganzen Euros von den Cents.</p>{{QUIZ_m19_q1}}\n<br>\n{{QUIZ_m19_q2}}",
+        "id": "m19_s1",
+        "title": "1. Von Br&uuml;chen zu Dezimalzahlen",
         "quizzes": [
           {
-            "id": "m19_q1",
-            "question": "Was bedeutet 3,50 Euro?",
+            "id": "m19_s1_p1",
+            "question": "Welche Dezimalzahl passt zu 3 Zehnteln?",
+            "practiceOnly": true,
             "answers": [
               {
-                "text": "3 Euro und 50 Cent",
+                "text": "0,3",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau: 3,50 € bedeutet 3 ganze Euro und 50 Hundertstel eines Euro (Cent)."
+                "feedback": "Richtig: 3 Zehntel schreibt man 0,3."
               },
               {
-                "text": "350 Euro",
+                "text": "0,03",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Nicht richtig: Das Komma trennt Euro und Cent. 3,50 € sind nicht 350 €, sondern 3 € 50 ct."
+                "feedback": "0,03 sind 3 Hundertstel."
+              },
+              {
+                "text": "3,0",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3,0 sind drei Ganze."
               }
             ]
           },
           {
-            "id": "m19_q2",
-            "question": "Wo ist das Komma bei 'Ein Euro und 20 Cent'?",
+            "id": "m19_s1_p2",
+            "question": "Welche Bruchschreibweise passt zu 0,07?",
+            "practiceOnly": true,
             "answers": [
               {
-                "text": "1,20 Euro",
+                "text": "7/100",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 1 Euro und 20 Cent schreibt man als 1,20 €."
+                "feedback": "Richtig: 0,07 bedeutet 7 Hundertstel."
               },
               {
-                "text": "12,0 Euro",
+                "text": "7/10",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Hier wurde das Komma verschoben. 12,0 € wären 12 Euro, gesucht ist 1,20 €."
+                "feedback": "7/10 wäre 0,7."
+              },
+              {
+                "text": "70/10",
+                "correct": false,
+                "pts": 0,
+                "feedback": "70/10 sind 7 Ganze."
               }
             ]
+          },
+          {
+            "id": "m19_s1_p3",
+            "question": "Was trennt das Komma in einer Dezimalzahl?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Ganze und Bruchteile",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Links stehen die ganzen Einheiten, rechts die Teile."
+              },
+              {
+                "text": "Zähler und Nenner",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das macht der Bruchstrich, nicht das Komma."
+              },
+              {
+                "text": "Plus und Minus",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Plus und Minus sind Rechenzeichen."
+              }
+            ]
+          },
+          {
+            "id": "m19_s1_p4",
+            "question": "Welche Zahl bedeutet 5 Hundertstel?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,05",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Hundertstel brauchen zwei Nachkommastellen."
+              },
+              {
+                "text": "0,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,5 sind 5 Zehntel."
+              },
+              {
+                "text": "5,00",
+                "correct": false,
+                "pts": 0,
+                "feedback": "5,00 sind fünf Ganze."
+              }
+            ]
+          },
+          {
+            "id": "m19_s1_p5",
+            "question": "Welche Aussage ist richtig?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "1/100 = 0,01",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: ein Hundertstel hat zwei Nachkommastellen."
+              },
+              {
+                "text": "1/100 = 0,1",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,1 ist ein Zehntel."
+              },
+              {
+                "text": "1/100 = 1,00",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1,00 ist ein Ganzes."
+              }
+            ]
+          },
+          {
+            "id": "m19_s1_p6",
+            "question": "Warum passen Dezimalzahlen gut zu Brüchen mit Nenner 10, 100 und 1000?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Weil unser Stellenwertsystem in Zehnerschritten aufgebaut ist.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Genau: Zehntel, Hundertstel und Tausendstel passen zum Zehnersystem."
+              },
+              {
+                "text": "Weil diese Brüche immer größer als 1 sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Viele davon sind kleiner als 1."
+              },
+              {
+                "text": "Weil man dann kein Komma braucht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gerade das Komma hilft bei der Dezimalschreibweise."
+              }
+            ]
+          }
+        ],
+        "content": "\n<div class=\"lesson-goals\"><strong>Das lernst du in diesem Kapitel:</strong><ul class=\"step-list\"><li>Dezimalzahlen als Br&uuml;che mit Zehnteln, Hundertsteln und Tausendsteln verstehen.</li><li>Dezimalzahlen sicher lesen, schreiben, vergleichen und runden.</li><li>Dezimalzahlen addieren und subtrahieren.</li><li>Geld, L&auml;ngen und Massen mit Dezimalzahlen beschreiben.</li></ul></div>\n<p>Du kennst schon <strong>Br&uuml;che</strong>: Ein Bruch beschreibt einen Teil eines Ganzen. Wenn ein Ganzes in <strong>10</strong>, <strong>100</strong> oder <strong>1000</strong> gleich gro&szlig;e Teile geteilt wird, kann man den Bruch besonders bequem als <strong>Dezimalzahl</strong> schreiben.</p>\n<div class=\"decimal-bridge\"><div><strong>1 Zehntel</strong><span>(\frac{1}{10}) = 0,1</span></div><div><strong>1 Hundertstel</strong><span>(\frac{1}{100}) = 0,01</span></div><div><strong>1 Tausendstel</strong><span>(\frac{1}{1000}) = 0,001</span></div></div>\n<p>Das <strong>Komma</strong> trennt die ganzen Einheiten von den Teilen nach dem Komma. Vor dem Komma stehen ganze Zahlen. Nach dem Komma stehen Bruchteile: Zehntel, Hundertstel, Tausendstel.</p>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> (\frac{37}{100}) bedeutet 37 Hundertstel. Als Dezimalzahl schreibt man <strong>0,37</strong>. Die 3 steht bei den Zehnteln, die 7 bei den Hundertsteln.</div>\n<div class=\"remember-box\"><strong>Kernidee:</strong> Eine Dezimalzahl ist keine neue Art von Zahl. Sie ist eine andere Schreibweise f&uuml;r ganze Zahlen und Bruchteile.</div>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 6 Aufgaben zu Brüchen mit Nenner 10, 100 und 1000.</div>\n{{QUIZ_m19_s1_p1}}\n{{QUIZ_m19_s1_p2}}\n{{QUIZ_m19_s1_p3}}\n{{QUIZ_m19_s1_p4}}\n{{QUIZ_m19_s1_p5}}\n{{QUIZ_m19_s1_p6}}"
+      },
+      {
+        "id": "m19_s2",
+        "title": "2. Die Stellenwerttafel nach dem Komma",
+        "quizzes": [
+          {
+            "id": "m19_s2_p1",
+            "question": "Welche Ziffer steht bei 4,305 an der Zehntelstelle?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "3",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die erste Stelle nach dem Komma ist die Zehntelstelle."
+              },
+              {
+                "text": "0",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 0 steht bei den Hundertsteln."
+              },
+              {
+                "text": "5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 5 steht bei den Tausendsteln."
+              }
+            ]
+          },
+          {
+            "id": "m19_s2_p2",
+            "question": "Was bedeutet die 8 in 6,08?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "8 Hundertstel",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 6,08 hat zwei Nachkommastellen, die 8 steht bei den Hundertsteln."
+              },
+              {
+                "text": "8 Zehntel",
+                "correct": false,
+                "pts": 0,
+                "feedback": "8 Zehntel wäre 6,8."
+              },
+              {
+                "text": "8 Ganze",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ganze stehen vor dem Komma."
+              }
+            ]
+          },
+          {
+            "id": "m19_s2_p3",
+            "question": "Welche Zahl hat 2 Ganze und 5 Hundertstel?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "2,05",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 5 Hundertstel stehen an der zweiten Stelle nach dem Komma."
+              },
+              {
+                "text": "2,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2,5 bedeutet 2 Ganze und 5 Zehntel."
+              },
+              {
+                "text": "25,0",
+                "correct": false,
+                "pts": 0,
+                "feedback": "25,0 bedeutet 25 Ganze."
+              }
+            ]
+          },
+          {
+            "id": "m19_s2_p4",
+            "question": "Welche Zahl ist genau gleich groß wie 7,4?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "7,40",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Nullen am Ende nach dem Komma ändern den Wert nicht."
+              },
+              {
+                "text": "7,04",
+                "correct": false,
+                "pts": 0,
+                "feedback": "7,04 ist kleiner als 7,4."
+              },
+              {
+                "text": "70,4",
+                "correct": false,
+                "pts": 0,
+                "feedback": "70,4 ist viel größer."
+              }
+            ]
+          },
+          {
+            "id": "m19_s2_p5",
+            "question": "Welche Stelle kommt direkt nach den Zehnteln?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Hundertstel",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Zehntel, Hundertstel, Tausendstel."
+              },
+              {
+                "text": "Hunderter",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hunderter stehen weit links vor dem Komma."
+              },
+              {
+                "text": "Einer",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Einer stehen vor dem Komma."
+              }
+            ]
+          },
+          {
+            "id": "m19_s2_p6",
+            "question": "Warum ist die Null in 3,04 wichtig?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Sie zeigt, dass es 0 Zehntel und 4 Hundertstel sind.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Ohne die Null wäre es 3,4."
+              },
+              {
+                "text": "Sie macht die Zahl automatisch größer als 3,4.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3,04 ist kleiner als 3,4."
+              },
+              {
+                "text": "Sie darf nie geschrieben werden.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Manchmal ist sie sehr wichtig."
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Dezimalzahlen funktionieren wie unser Stellenwertsystem bei nat&uuml;rlichen Zahlen. Jede Stelle hat einen Wert. Links vom Komma werden die Stellen nach links gr&ouml;&szlig;er. Rechts vom Komma werden die Stellen nach rechts kleiner.</p>\n<table class=\"decimal-place-table\"><tr><th>Hunderter</th><th>Zehner</th><th>Einer</th><th>,</th><th>Zehntel</th><th>Hundertstel</th><th>Tausendstel</th></tr><tr><td>0</td><td>0</td><td>4</td><td>,</td><td>3</td><td>0</td><td>5</td></tr></table>\n<p>Die Zahl <strong>4,305</strong> liest du als: 4 Ganze, 3 Zehntel, 0 Hundertstel und 5 Tausendstel. Die Null in der Mitte ist wichtig, weil sie die Hundertstelstelle frei h&auml;lt.</p>\n<div class=\"math-worked-example\"><strong>Schritt f&uuml;r Schritt:</strong> 6,08 hat 6 Ganze, 0 Zehntel und 8 Hundertstel. Darum ist 6,08 nicht dasselbe wie 6,8.</div>\n<table class=\"word-rubric\"><tr><th>Zahl</th><th>Bedeutung</th><th>Bruchschreibweise</th></tr><tr><td>0,4</td><td>4 Zehntel</td><td>(\frac{4}{10})</td></tr><tr><td>0,04</td><td>4 Hundertstel</td><td>(\frac{4}{100})</td></tr><tr><td>0,004</td><td>4 Tausendstel</td><td>(\frac{4}{1000})</td></tr></table>\n<div class=\"remember-box\"><strong>Achtung:</strong> Nullen nach dem Komma k&ouml;nnen Stellen zeigen. 2,05 bedeutet 2 Ganze und 5 Hundertstel, nicht 2 Ganze und 5 Zehntel.</div>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 6 Aufgaben zur Stellenwerttafel.</div>\n{{QUIZ_m19_s2_p1}}\n{{QUIZ_m19_s2_p2}}\n{{QUIZ_m19_s2_p3}}\n{{QUIZ_m19_s2_p4}}\n{{QUIZ_m19_s2_p5}}\n{{QUIZ_m19_s2_p6}}"
+      },
+      {
+        "id": "m19_s3",
+        "title": "3. Bruch und Dezimalzahl umwandeln",
+        "quizzes": [
+          {
+            "id": "m19_s3_p1",
+            "question": "Welche Dezimalzahl passt zu 9/10?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,9",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 9 Zehntel schreibt man 0,9."
+              },
+              {
+                "text": "0,09",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,09 sind 9 Hundertstel."
+              },
+              {
+                "text": "9,10",
+                "correct": false,
+                "pts": 0,
+                "feedback": "9,10 sind mehr als 9 Ganze."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p2",
+            "question": "Welche Dezimalzahl passt zu 42/100?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,42",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 42 Hundertstel sind 0,42."
+              },
+              {
+                "text": "4,2",
+                "correct": false,
+                "pts": 0,
+                "feedback": "4,2 sind 4 Ganze und 2 Zehntel."
+              },
+              {
+                "text": "0,042",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,042 sind 42 Tausendstel."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p3",
+            "question": "Wie schreibt man 6/1000 als Dezimalzahl?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,006",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Tausendstel brauchen drei Nachkommastellen."
+              },
+              {
+                "text": "0,06",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,06 sind 6 Hundertstel."
+              },
+              {
+                "text": "0,6",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,6 sind 6 Zehntel."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p4",
+            "question": "Welche Erweiterung hilft bei 3/4?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "3/4 = 75/100",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Mit 25 erweitern."
+              },
+              {
+                "text": "3/4 = 30/100",
+                "correct": false,
+                "pts": 0,
+                "feedback": "30/100 ist 0,30 und nicht 3/4."
+              },
+              {
+                "text": "3/4 = 3/100",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Wert würde sich ändern."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p5",
+            "question": "Welche Dezimalzahl ist gleich groß wie 1/2?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 1/2 = 5/10 = 0,5."
+              },
+              {
+                "text": "0,2",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,2 ist 1/5."
+              },
+              {
+                "text": "0,05",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,05 ist 1/20."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p6",
+            "question": "Welche Dezimalzahl ist gleich groß wie 1/5?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,2",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 1/5 = 2/10 = 0,2."
+              },
+              {
+                "text": "0,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,5 ist 1/2."
+              },
+              {
+                "text": "0,15",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,15 ist 15/100."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p7",
+            "question": "Wie schreibt man 125/1000?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,125",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 125 Tausendstel."
+              },
+              {
+                "text": "1,25",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1,25 ist größer als 1."
+              },
+              {
+                "text": "0,0125",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wären 125 Zehntausendstel."
+              }
+            ]
+          },
+          {
+            "id": "m19_s3_p8",
+            "question": "Was ist der beste erste Schritt, wenn ein Bruch noch keinen Nenner 10, 100 oder 1000 hat?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Prüfen, ob man ihn passend erweitern kann.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Das nutzt dein Bruchwissen."
+              },
+              {
+                "text": "Das Komma irgendwo einsetzen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre geraten."
+              },
+              {
+                "text": "Den Nenner einfach löschen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dann verändert man die Bedeutung."
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Wenn der Nenner <strong>10</strong>, <strong>100</strong> oder <strong>1000</strong> ist, kannst du direkt als Dezimalzahl schreiben. Der Nenner sagt dir, wie viele Nachkommastellen du brauchst.</p>\n<table class=\"word-rubric\"><tr><th>Bruch</th><th>Sprache</th><th>Dezimalzahl</th></tr><tr><td>(\frac{7}{10})</td><td>7 Zehntel</td><td>0,7</td></tr><tr><td>(\frac{7}{100})</td><td>7 Hundertstel</td><td>0,07</td></tr><tr><td>(\frac{7}{1000})</td><td>7 Tausendstel</td><td>0,007</td></tr></table>\n<p>Manche Br&uuml;che haben zuerst keinen Nenner 10, 100 oder 1000. Dann versuchst du, den Bruch zu <strong>erweitern</strong>. Das kennst du aus dem Bruchkapitel.</p>\n<div class=\"math-worked-example\"><strong>Beispiel 1:</strong> (\frac{3}{4}) wird mit 25 erweitert: (\frac{3}{4}=\frac{75}{100}=0,75).</div>\n<div class=\"math-worked-example\"><strong>Beispiel 2:</strong> (\frac{1}{8}) wird mit 125 erweitert: (\frac{1}{8}=\frac{125}{1000}=0,125).</div>\n<div class=\"teacher-note\"><strong>Merksatz fürs Heft:</strong> Erst den Bruch verstehen. Dann auf Zehntel, Hundertstel oder Tausendstel bringen. Dann mit Komma schreiben.</div>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 8 Aufgaben zum Umwandeln.</div>\n{{QUIZ_m19_s3_p1}}\n{{QUIZ_m19_s3_p2}}\n{{QUIZ_m19_s3_p3}}\n{{QUIZ_m19_s3_p4}}\n{{QUIZ_m19_s3_p5}}\n{{QUIZ_m19_s3_p6}}\n{{QUIZ_m19_s3_p7}}\n{{QUIZ_m19_s3_p8}}"
+      },
+      {
+        "id": "m19_s4",
+        "title": "4. Dezimalzahlen vergleichen und ordnen",
+        "quizzes": [
+          {
+            "id": "m19_s4_p1",
+            "question": "Welche Zahl ist größer: 0,7 oder 0,65?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,7",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0,7 = 0,70 und 70 Hundertstel sind größer als 65 Hundertstel."
+              },
+              {
+                "text": "0,65",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,65 hat mehr Ziffern, ist aber kleiner als 0,70."
+              },
+              {
+                "text": "Beide sind gleich groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,70 und 0,65 sind nicht gleich."
+              }
+            ]
+          },
+          {
+            "id": "m19_s4_p2",
+            "question": "Welche Zahl ist kleiner: 3,04 oder 3,4?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "3,04",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 3,04 hat nur 4 Hundertstel, 3,4 hat 4 Zehntel."
+              },
+              {
+                "text": "3,4",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3,4 = 3,40 und ist größer."
+              },
+              {
+                "text": "Beide sind gleich groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3,04 und 3,40 sind verschieden."
+              }
+            ]
+          },
+          {
+            "id": "m19_s4_p3",
+            "question": "Welche Schreibweise hilft beim Vergleichen von 5,2 und 5,19?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "5,20 und 5,19",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: So vergleichst du Hundertstel mit Hundertstel."
+              },
+              {
+                "text": "52 und 519",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das entfernt das Komma falsch."
+              },
+              {
+                "text": "5,2 und 519",
+                "correct": false,
+                "pts": 0,
+                "feedback": "So vergleichst du keine gleichen Stellen."
+              }
+            ]
+          },
+          {
+            "id": "m19_s4_p4",
+            "question": "Ordne richtig von klein nach groß.",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,09 < 0,9 < 1,09",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 9 Hundertstel, 9 Zehntel, dann mehr als 1."
+              },
+              {
+                "text": "0,9 < 0,09 < 1,09",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,9 ist größer als 0,09."
+              },
+              {
+                "text": "1,09 < 0,09 < 0,9",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1,09 ist größer als beide Zahlen unter 1."
+              }
+            ]
+          },
+          {
+            "id": "m19_s4_p5",
+            "question": "Welche Zahl liegt zwischen 0,3 und 0,4?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "0,35",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0,35 liegt zwischen 0,30 und 0,40."
+              },
+              {
+                "text": "0,25",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,25 liegt unter 0,3."
+              },
+              {
+                "text": "0,45",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,45 liegt über 0,4."
+              }
+            ]
+          },
+          {
+            "id": "m19_s4_p6",
+            "question": "Welche Aussage ist richtig?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "2,50 = 2,5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Eine Null am Ende nach dem Komma verändert den Wert nicht."
+              },
+              {
+                "text": "2,05 = 2,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2,05 ist kleiner als 2,5."
+              },
+              {
+                "text": "2,500 ist kleiner als 2,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2,500 ist gleich groß wie 2,5."
+              }
+            ]
+          },
+          {
+            "id": "m19_s4_p7",
+            "question": "Woran erkennt man am Zahlenstrahl die größere Zahl?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Sie liegt weiter rechts.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Rechts bedeutet größer."
+              },
+              {
+                "text": "Sie hat immer mehr Nachkommastellen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mehr Nachkommastellen bedeutet nicht automatisch größer."
+              },
+              {
+                "text": "Sie steht immer näher bei 0.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Näher bei 0 ist bei positiven Zahlen kleiner."
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Beim Vergleichen von Dezimalzahlen ist ein h&auml;ufiger Fehler: Man schaut nur auf die Anzahl der Ziffern nach dem Komma. Das ist gef&auml;hrlich. Vergleiche Stelle f&uuml;r Stelle.</p>\n<ol class=\"step-list\"><li>Vergleiche zuerst die ganzen Zahlen vor dem Komma.</li><li>Sind sie gleich, vergleiche die Zehntel.</li><li>Sind auch die Zehntel gleich, vergleiche die Hundertstel.</li><li>Du darfst hinten Nullen anh&auml;ngen: 0,5 = 0,50 = 0,500.</li></ol>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> 2,7 und 2,65. Schreibe 2,7 als 2,70. Jetzt vergleichst du 70 Hundertstel mit 65 Hundertstel. Also gilt: <strong>2,7 &gt; 2,65</strong>.</div>\n<div class=\"decimal-number-line\" aria-label=\"Zahlenstrahl von 0 bis 1\"><span>0</span><i></i><span>0,25</span><i></i><span>0,5</span><i></i><span>0,75</span><i></i><span>1</span></div>\n<p>Der Zahlenstrahl hilft: Je weiter rechts eine Zahl steht, desto gr&ouml;&szlig;er ist sie.</p>\n<div class=\"remember-box\"><strong>Kontrollfrage:</strong> Kann ich eine Null anh&auml;ngen, ohne die Zahl zu ver&auml;ndern? Ja: 3,4 = 3,40. Aber eine Null mitten in der Zahl ist nicht egal: 3,04 ist kleiner als 3,4.</div>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 7 Aufgaben zum Vergleichen und Ordnen.</div>\n{{QUIZ_m19_s4_p1}}\n{{QUIZ_m19_s4_p2}}\n{{QUIZ_m19_s4_p3}}\n{{QUIZ_m19_s4_p4}}\n{{QUIZ_m19_s4_p5}}\n{{QUIZ_m19_s4_p6}}\n{{QUIZ_m19_s4_p7}}"
+      },
+      {
+        "id": "m19_s5",
+        "title": "5. Dezimalzahlen runden",
+        "quizzes": [
+          {
+            "id": "m19_s5_p1",
+            "question": "Runde 4,73 auf ganze Zahlen.",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Zehntelstelle ist 7, also wird aufgerundet."
+              },
+              {
+                "text": "4",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei 7 wird aufgerundet."
+              },
+              {
+                "text": "4,7",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist auf Zehntel gerundet, nicht auf Ganze."
+              }
+            ]
+          },
+          {
+            "id": "m19_s5_p2",
+            "question": "Runde 8,24 auf Zehntel.",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "8,2",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Hundertstelstelle ist 4, also bleibt die Zehntelstelle gleich."
+              },
+              {
+                "text": "8,3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei 4 wird nicht aufgerundet."
+              },
+              {
+                "text": "8",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre auf Ganze gerundet."
+              }
+            ]
+          },
+          {
+            "id": "m19_s5_p3",
+            "question": "Runde 8,25 auf Zehntel.",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "8,3",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Hundertstelstelle ist 5, also wird aufgerundet."
+              },
+              {
+                "text": "8,2",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei 5 wird aufgerundet."
+              },
+              {
+                "text": "8,25",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist noch nicht gerundet."
+              }
+            ]
+          },
+          {
+            "id": "m19_s5_p4",
+            "question": "Runde 12,486 auf Hundertstel.",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "12,49",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Tausendstelstelle ist 6, also wird 8 zu 9."
+              },
+              {
+                "text": "12,48",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei 6 wird aufgerundet."
+              },
+              {
+                "text": "12,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre auf Zehntel gerundet."
+              }
+            ]
+          },
+          {
+            "id": "m19_s5_p5",
+            "question": "Was bedeutet „auf Hundertstel runden“?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "auf zwei Stellen nach dem Komma runden",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Hundertstel sind die zweite Nachkommastelle."
+              },
+              {
+                "text": "auf eine Stelle nach dem Komma runden",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Stelle nach dem Komma sind Zehntel."
+              },
+              {
+                "text": "auf eine ganze Zahl runden",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dann rundest du auf Einer."
+              }
+            ]
+          },
+          {
+            "id": "m19_s5_p6",
+            "question": "Welche Ziffer entscheidet beim Runden von 6,347 auf Zehntel?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "die 4",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Beim Runden auf Zehntel schaust du auf die Hundertstelstelle."
+              },
+              {
+                "text": "die 3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 3 ist die Zehntelstelle, auf die gerundet wird."
+              },
+              {
+                "text": "die 7",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 7 wäre wichtig beim Runden auf Hundertstel."
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Beim Runden entscheidest du, wie genau eine Zahl sein soll. Du kannst auf Ganze, auf Zehntel oder auf Hundertstel runden. Wichtig ist immer die Stelle <strong>direkt rechts</strong> von der Stelle, auf die du runden willst.</p>\n<table class=\"word-rubric\"><tr><th>Wenn die n&auml;chste Ziffer ...</th><th>Dann ...</th><th>Beispiel</th></tr><tr><td>0, 1, 2, 3 oder 4 ist</td><td>rundest du ab</td><td>3,24 auf Zehntel = 3,2</td></tr><tr><td>5, 6, 7, 8 oder 9 ist</td><td>rundest du auf</td><td>3,25 auf Zehntel = 3,3</td></tr></table>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> Runde 12,486 auf Hundertstel. Die Hundertstelstelle ist die 8. Rechts daneben steht die 6. Weil 6 aufrundet, wird aus 12,486 die Zahl <strong>12,49</strong>.</div>\n<div class=\"teacher-note\"><strong>Sprache:</strong> &bdquo;auf Zehntel&ldquo; bedeutet: eine Stelle nach dem Komma. &bdquo;auf Hundertstel&ldquo; bedeutet: zwei Stellen nach dem Komma.</div>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 6 Aufgaben zum Runden.</div>\n{{QUIZ_m19_s5_p1}}\n{{QUIZ_m19_s5_p2}}\n{{QUIZ_m19_s5_p3}}\n{{QUIZ_m19_s5_p4}}\n{{QUIZ_m19_s5_p5}}\n{{QUIZ_m19_s5_p6}}"
+      },
+      {
+        "id": "m19_s6",
+        "title": "6. Addieren und subtrahieren mit Dezimalzahlen",
+        "quizzes": [
+          {
+            "id": "m19_s6_p1",
+            "question": "Was ist 1,50 + 1,20?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "2,70",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 150 Hundertstel + 120 Hundertstel = 270 Hundertstel."
+              },
+              {
+                "text": "2,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Da fehlen 0,20."
+              },
+              {
+                "text": "15,20",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Komma ist verrutscht."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p2",
+            "question": "Was ist 4,35 + 2,70?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "7,05",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Komma unter Komma und fehlende Stellen mit 0 ergänzen."
+              },
+              {
+                "text": "6,105",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Stellen wurden nicht richtig zusammengefasst."
+              },
+              {
+                "text": "70,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Ergebnis ist viel zu groß."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p3",
+            "question": "Was ist 8,00 - 3,47?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "4,53",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 8,00 minus 3,47 ergibt 4,53."
+              },
+              {
+                "text": "5,47",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre zu groß."
+              },
+              {
+                "text": "4,47",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Prüfe das Entborgen bei den Hundertsteln."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p4",
+            "question": "Warum schreibt man beim Rechnen Komma unter Komma?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Damit gleiche Stellen untereinander stehen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Genau: Einer, Zehntel und Hundertstel müssen passen."
+              },
+              {
+                "text": "Damit die Aufgabe schöner aussieht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Aussehen ist nicht der mathematische Grund."
+              },
+              {
+                "text": "Damit das Ergebnis immer kleiner wird.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Addition kann größer werden."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p5",
+            "question": "Welche Ergänzung ist beim Rechnen erlaubt?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "2,7 als 2,70 schreiben",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Null am Ende verändert den Wert nicht."
+              },
+              {
+                "text": "2,7 als 20,7 schreiben",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das verändert den Wert stark."
+              },
+              {
+                "text": "2,7 als 2,07 schreiben",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das verändert die Zehntel und Hundertstel."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p6",
+            "question": "Was ist 12,6 + 0,45?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "13,05",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 12,60 + 0,45 = 13,05."
+              },
+              {
+                "text": "12,105",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Stellen wurden nicht richtig gebündelt."
+              },
+              {
+                "text": "17,1",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist viel zu groß."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p7",
+            "question": "Was ist 5,3 - 1,75?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "3,55",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 5,30 - 1,75 = 3,55."
+              },
+              {
+                "text": "4,25",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Prüfe die Hundertstel und Zehntel."
+              },
+              {
+                "text": "3,75",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist 0,20 zu viel."
+              }
+            ]
+          },
+          {
+            "id": "m19_s6_p8",
+            "question": "Welche Schätzung passt zu 9,8 - 4,9?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "ungefähr 5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 10 - 5 ist ungefähr 5."
+              },
+              {
+                "text": "ungefähr 50",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre viel zu groß."
+              },
+              {
+                "text": "ungefähr 0,05",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre viel zu klein."
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Beim schriftlichen Addieren und Subtrahieren m&uuml;ssen gleiche Stellen untereinander stehen: Einer unter Einer, Zehntel unter Zehntel, Hundertstel unter Hundertstel. Darum steht <strong>Komma unter Komma</strong>.</p>\n<div class=\"decimal-calc-grid\"><div><strong>Addition</strong><pre>  4,35\n+ 2,70\n------\n  7,05</pre></div><div><strong>Subtraktion</strong><pre>  8,00\n- 3,47\n------\n  4,53</pre></div></div>\n<p>Du darfst fehlende Stellen mit Nullen erg&auml;nzen. Das &auml;ndert den Wert nicht: 2,7 = 2,70. So stehen alle Stellen sauber untereinander.</p>\n<div class=\"math-worked-example\"><strong>Sch&auml;tzen vor dem Rechnen:</strong> 4,35 + 2,70 ist ungef&auml;hr 4 + 3 = 7. Das Ergebnis 7,05 passt. Ein Ergebnis wie 70,5 w&auml;re viel zu gro&szlig;.</div>\n<ol class=\"step-list\"><li>Zahlen mit Komma unter Komma aufschreiben.</li><li>Fehlende Nachkommastellen mit Nullen erg&auml;nzen.</li><li>Von rechts nach links rechnen.</li><li>Komma im Ergebnis an dieselbe Stelle setzen.</li><li>Mit einer groben Sch&auml;tzung kontrollieren.</li></ol>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 8 Aufgaben zum Addieren und Subtrahieren.</div>\n{{QUIZ_m19_s6_p1}}\n{{QUIZ_m19_s6_p2}}\n{{QUIZ_m19_s6_p3}}\n{{QUIZ_m19_s6_p4}}\n{{QUIZ_m19_s6_p5}}\n{{QUIZ_m19_s6_p6}}\n{{QUIZ_m19_s6_p7}}\n{{QUIZ_m19_s6_p8}}"
+      },
+      {
+        "id": "m19_s7",
+        "title": "7. Dezimalzahlen in Sachsituationen",
+        "quizzes": [
+          {
+            "id": "m19_s7_p1",
+            "question": "Was bedeutet 3,75 €?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "3 Euro und 75 Cent",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Zwei Nachkommastellen bei Euro sind Cent."
+              },
+              {
+                "text": "3 Euro und 7 Cent",
+                "correct": false,
+                "pts": 0,
+                "feedback": "7 Cent wären 3,07 €."
+              },
+              {
+                "text": "375 Euro",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Komma ist wichtig."
+              }
+            ]
+          },
+          {
+            "id": "m19_s7_p2",
+            "question": "Ein Heft kostet 1,35 €, ein Stift 0,80 €. Was kostet beides zusammen?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "2,15 €",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 1,35 + 0,80 = 2,15."
+              },
+              {
+                "text": "1,115 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Stellen wurden falsch addiert."
+              },
+              {
+                "text": "2,35 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,80 ist nicht 1,00."
+              }
+            ]
+          },
+          {
+            "id": "m19_s7_p3",
+            "question": "Du hast 5,00 € und zahlst 2,15 €. Wie viel bleibt?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "2,85 €",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 5,00 - 2,15 = 2,85."
+              },
+              {
+                "text": "3,15 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre zu viel Restgeld."
+              },
+              {
+                "text": "2,15 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist der bezahlte Betrag, nicht der Rest."
+              }
+            ]
+          },
+          {
+            "id": "m19_s7_p4",
+            "question": "Was bedeutet 1,25 m?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "1 m und 25 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0,25 m sind 25 cm."
+              },
+              {
+                "text": "1 m und 25 mm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "25 mm wären 0,025 m."
+              },
+              {
+                "text": "125 m",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Komma verändert den Wert."
+              }
+            ]
+          },
+          {
+            "id": "m19_s7_p5",
+            "question": "Was bedeutet 0,5 kg?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "500 g",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: ein halbes Kilogramm sind 500 g."
+              },
+              {
+                "text": "50 g",
+                "correct": false,
+                "pts": 0,
+                "feedback": "50 g wären 0,05 kg."
+              },
+              {
+                "text": "5 kg",
+                "correct": false,
+                "pts": 0,
+                "feedback": "5 kg sind zehnmal so viel."
+              }
+            ]
+          },
+          {
+            "id": "m19_s7_p6",
+            "question": "Was gehört zu einer vollständigen Antwort in einer Sachaufgabe?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Zahl und Einheit",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 2,85 allein ist weniger klar als 2,85 €."
+              },
+              {
+                "text": "nur ein Komma",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Komma allein ist keine Antwort."
+              },
+              {
+                "text": "nur die überschrift",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Rechnung braucht ein Ergebnis mit Einheit."
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Dezimalzahlen begegnen dir besonders oft bei <strong>Geld</strong>, <strong>L&auml;ngen</strong>, <strong>Massen</strong> und <strong>Messwerten</strong>. Dabei ist die Einheit genauso wichtig wie die Zahl.</p>\n<table class=\"word-rubric\"><tr><th>Situation</th><th>Dezimalzahl</th><th>Bedeutung</th></tr><tr><td>Geld</td><td>3,75 €</td><td>3 Euro und 75 Cent</td></tr><tr><td>L&auml;nge</td><td>1,25 m</td><td>1 Meter und 25 Zentimeter</td></tr><tr><td>Masse</td><td>0,5 kg</td><td>ein halbes Kilogramm = 500 g</td></tr><tr><td>Zeit im Sport</td><td>12,8 s</td><td>12 Sekunden und 8 Zehntelsekunden</td></tr></table>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> Ein Heft kostet 1,35 €, ein Stift 0,80 €. Zusammen: 1,35 € + 0,80 € = 2,15 €. Wenn du 5 € hast, bleiben 5,00 € - 2,15 € = 2,85 €.</div>\n<div class=\"remember-box\"><strong>Pr&uuml;fen im Alltag:</strong> Frage dich: Ist mein Ergebnis realistisch? Habe ich die Einheit dazugeschrieben? Habe ich Komma und Cent/Stellen richtig beachtet?</div>\n<div class=\"mini-task\"><strong>Heftauftrag:</strong> Schreibe eine eigene kleine Einkaufsgeschichte mit zwei Preisen und berechne Gesamtpreis und Restgeld.</div>\n<div class=\"math-exercise-summary\"><strong>Übungsrunde:</strong> 6 Aufgaben mit Geld, L&auml;ngen und Massen.</div>\n{{QUIZ_m19_s7_p1}}\n{{QUIZ_m19_s7_p2}}\n{{QUIZ_m19_s7_p3}}\n{{QUIZ_m19_s7_p4}}\n{{QUIZ_m19_s7_p5}}\n{{QUIZ_m19_s7_p6}}"
+      }
+    ],
+    "quizzes": [
+      {
+        "id": "m19_ch_q1",
+        "question": "Welche Dezimalzahl passt zu 4/10?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "0,4",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 4 Zehntel."
+          },
+          {
+            "text": "0,04",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das sind 4 Hundertstel."
+          },
+          {
+            "text": "4,10",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das ist größer als 4."
           }
         ]
       },
       {
-        "id": "m19_sec2",
-        "title": "Rechnen mit Komma",
-        "content": "<p>Beim Plusrechnen müssen die <span style='color:red;'>Kommata übereinander</span> stehen!</p><div class='interactive-zone'><svg width='100' height='50'><text x='10' y='20'>1,50</text><text x='10' y='40'>+ 1,20</text></svg><p>Was ist 1,50 + 1,20?</p><input type='text' id='komma_input_2'><button onclick='checkPlus()'>Check</button><p id='komma_feedback_2'></p></div><p>Ganz einfach, oder?</p>{{QUIZ_m19_q3}}\n<br>\n{{QUIZ_m19_q4}}",
-        "quizzes": [
+        "id": "m19_ch_q2",
+        "question": "Welche Bruchschreibweise passt zu 0,36?",
+        "practiceOnly": false,
+        "answers": [
           {
-            "id": "m19_q3",
-            "question": "Was ist 2,00 Euro + 1,50 Euro?",
-            "answers": [
-              {
-                "text": "3,50 Euro",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: 2,00 + 1,50 = 3,50."
-              },
-              {
-                "text": "2,50 Euro",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Die Einerstelle wurde zu klein gerechnet: 2 + 1 = 3, also 3,50 €."
-              }
-            ]
+            "text": "36/100",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 36 Hundertstel."
           },
           {
-            "id": "m19_q4",
-            "question": "Du kaufst ein Eis für 1,50 Euro und gibst 2,00 Euro. Wie viel zurück?",
-            "answers": [
-              {
-                "text": "0,50 Euro",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Rückgeld = 2,00 € - 1,50 € = 0,50 €."
-              },
-              {
-                "text": "1,50 Euro",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Das ist der Preis vom Eis, nicht das Rückgeld. Rechne 2,00 - 1,50 = 0,50 €."
-              }
-            ]
+            "text": "36/10",
+            "correct": false,
+            "pts": 0,
+            "feedback": "36/10 = 3,6."
+          },
+          {
+            "text": "3/6",
+            "correct": false,
+            "pts": 0,
+            "feedback": "3/6 = 0,5."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q3",
+        "question": "Was ist 3/4 als Dezimalzahl?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "0,75",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 3/4 = 75/100."
+          },
+          {
+            "text": "0,34",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Zähler und Nenner werden nicht einfach nebeneinander geschrieben."
+          },
+          {
+            "text": "0,3",
+            "correct": false,
+            "pts": 0,
+            "feedback": "0,3 ist 3/10."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q4",
+        "question": "Welche Zahl ist größer?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "5,08",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 5,08 ist größer als 5,008."
+          },
+          {
+            "text": "5,008",
+            "correct": false,
+            "pts": 0,
+            "feedback": "5,008 hat nur 8 Tausendstel nach den 5 Ganzen."
+          },
+          {
+            "text": "beide gleich",
+            "correct": false,
+            "pts": 0,
+            "feedback": "5,08 = 5,080, also größer als 5,008."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q5",
+        "question": "Runde 7,86 auf Zehntel.",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "7,9",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: Die Hundertstelstelle ist 6, also aufrunden."
+          },
+          {
+            "text": "7,8",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Bei 6 wird aufgerundet."
+          },
+          {
+            "text": "8",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das wäre auf Ganze gerundet."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q6",
+        "question": "Was ist 6,40 - 2,75?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "3,65",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 6,40 - 2,75 = 3,65."
+          },
+          {
+            "text": "4,25",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Prüfe das Entborgen."
+          },
+          {
+            "text": "3,75",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das ist 0,10 zu viel."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q7",
+        "question": "Warum darf man 0,5 als 0,50 schreiben?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "Die Null am Ende nach dem Komma ändert den Wert nicht.",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: Beide bedeuten 5 Zehntel oder 50 Hundertstel."
+          },
+          {
+            "text": "Weil jede Null immer egal ist.",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Nullen in der Mitte können sehr wichtig sein."
+          },
+          {
+            "text": "Weil 0,50 kleiner ist.",
+            "correct": false,
+            "pts": 0,
+            "feedback": "0,50 ist gleich groß wie 0,5."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q8",
+        "question": "Was ist 2,35 + 0,9?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "3,25",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 2,35 + 0,90 = 3,25."
+          },
+          {
+            "text": "2,44",
+            "correct": false,
+            "pts": 0,
+            "feedback": "0,9 sind 90 Hundertstel, nicht 9 Hundertstel."
+          },
+          {
+            "text": "11,35",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das Komma ist falsch behandelt."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q9",
+        "question": "Welche Zahl liegt zwischen 0,6 und 0,7?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "0,65",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 0,65 liegt zwischen 0,60 und 0,70."
+          },
+          {
+            "text": "0,75",
+            "correct": false,
+            "pts": 0,
+            "feedback": "0,75 liegt über 0,7."
+          },
+          {
+            "text": "0,05",
+            "correct": false,
+            "pts": 0,
+            "feedback": "0,05 liegt weit unter 0,6."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q10",
+        "question": "Was ist 1/8 als Dezimalzahl?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "0,125",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: 1/8 = 125/1000."
+          },
+          {
+            "text": "0,8",
+            "correct": false,
+            "pts": 0,
+            "feedback": "0,8 ist 8/10."
+          },
+          {
+            "text": "0,18",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das entsteht nicht durch Erweitern von 1/8."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q11",
+        "question": "Was bedeutet 4,06?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "4 Ganze und 6 Hundertstel",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: Die 0 zeigt 0 Zehntel."
+          },
+          {
+            "text": "4 Ganze und 6 Zehntel",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das wäre 4,6."
+          },
+          {
+            "text": "46 Ganze",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Das Komma darf nicht ignoriert werden."
+          }
+        ]
+      },
+      {
+        "id": "m19_ch_q12",
+        "question": "Welche Kontrolle ist bei Sachsituationen wichtig?",
+        "practiceOnly": false,
+        "answers": [
+          {
+            "text": "Ergebnis mit Einheit und grober Schätzung prüfen",
+            "correct": true,
+            "pts": 10,
+            "feedback": "Richtig: So erkennst du viele Kommafehler."
+          },
+          {
+            "text": "Einheit weglassen",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Die Einheit ist wichtig."
+          },
+          {
+            "text": "Nur möglichst viele Nachkommastellen schreiben",
+            "correct": false,
+            "pts": 0,
+            "feedback": "Genauigkeit muss sinnvoll sein."
           }
         ]
       }
-    ],
-    "diplom": {
-      "title": "🎓 Diplom: Kommazahlen-Boss",
-      "questions": [
-        {
-          "id": "m19_dip1",
-          "question": "Was ist größer: 1,90 oder 2,10?",
-          "answers": [
-            {
-              "text": "2,10",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Richtig: 2 Ganze sind mehr als 1 Ganzes, also ist 2,10 größer."
-            },
-            {
-              "text": "1,90",
-              "correct": false,
-              "pts": 0,
-              "feedback": "1,90 hat zwar 90 Cent, bleibt aber kleiner als 2,10 mit zwei ganzen Einheiten."
-            }
-          ]
-        },
-        {
-          "id": "m19_dip2",
-          "question": "Rechne: 5,50 - 2,00 =",
-          "answers": [
-            {
-              "text": "3,50",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Richtig: 5,50 - 2,00 = 3,50."
-            },
-            {
-              "text": "2,50",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Du ziehst 2 ganze Einheiten ab; die 50 Hundertstel bleiben: 3,50."
-            }
-          ]
-        }
-      ]
-    }
+    ]
   },
   "math1_10_groessen": {
     "title": "Größen - Messen und Wiegen",

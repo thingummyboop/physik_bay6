@@ -138,20 +138,35 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math1_9_dezimalzahlen') {
-        html += `<h2>1. Dezimalzahlen addieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const n1 = (rand(1, 1000) / 10).toFixed(1).replace('.', ',');
-            const n2 = (rand(1, 1000) / 100).toFixed(2).replace('.', ',');
-            html += `<div>${n1} + ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
+        html += `<h2>1. Bruch als Dezimalzahl schreiben</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        const decimalFractions = [
+            ['3/10', ''], ['7/10', ''], ['4/100', ''], ['38/100', ''],
+            ['6/1000', ''], ['125/1000', ''], ['1/2', ''], ['3/4', '']
+        ];
+        decimalFractions.forEach(([fraction]) => {
+            html += `<div>\\(${fraction}\\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:90px;"></span></div>`;
+        });
         html += `</div>`;
-        
-        html += `<h2>2. Dezimalzahlen subtrahieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const n1 = (rand(500, 2000) / 10).toFixed(1).replace('.', ',');
-            const n2 = (rand(1, 490) / 100).toFixed(2).replace('.', ',');
-            html += `<div>${n1} - ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
+
+        html += `<h2>2. Stellenwert und Vergleich</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        const comparePairs = [['0,7', '0,65'], ['3,04', '3,4'], ['5,2', '5,19'], ['0,09', '0,9'], ['2,50', '2,5'], ['1,005', '1,05']];
+        comparePairs.forEach(([a, b]) => {
+            html += `<div>${a} <span style="display:inline-block; border:1px solid #000; width:24px; height:24px;"></span> ${b}</div>`;
+        });
+        html += `</div>`;
+
+        html += `<h2>3. Runden</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        const roundTasks = [['4,73', 'Ganze'], ['8,24', 'Zehntel'], ['8,25', 'Zehntel'], ['12,486', 'Hundertstel'], ['6,347', 'Zehntel'], ['0,996', 'Hundertstel']];
+        roundTasks.forEach(([num, place]) => {
+            html += `<div>Runde ${num} auf ${place}: <span style="display:inline-block; border-bottom:1px dotted #000; width:90px;"></span></div>`;
+        });
+        html += `</div>`;
+
+        html += `<h2>4. Addieren und subtrahieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        const calcTasks = [['1,50 + 1,20'], ['4,35 + 2,70'], ['8,00 - 3,47'], ['12,6 + 0,45'], ['5,3 - 1,75'], ['9,8 - 4,9'], ['2,35 + 0,90'], ['10,00 - 6,85']];
+        calcTasks.forEach(([task]) => {
+            html += `<div>${task} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
+        });
         html += `</div>`;
     }
     else if (topicId === 'math1_10_groessen') {
