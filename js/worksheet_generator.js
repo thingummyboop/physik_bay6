@@ -168,6 +168,16 @@ function generateWorksheetContent(topicId, topicTitle) {
             html += `<div>${task} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
         });
         html += `</div>`;
+
+        html += `<h2>5. Dezimalzahlen multiplizieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        const multiplyTasks = [
+            ['2,4 &middot; 3'], ['1,5 &middot; 4'], ['0,3 &middot; 0,2'], ['2,5 &middot; 0,4'],
+            ['0,25 &middot; 4'], ['1,2 &middot; 0,3'], ['4,8 &middot; 2,1'], ['3 &middot; 1,20 €']
+        ];
+        multiplyTasks.forEach(([task]) => {
+            html += `<div>${task} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
+        });
+        html += `</div>`;
     }
     else if (topicId === 'math1_10_groessen') {
         html += `<h2>1. Längenmaße umwandeln</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

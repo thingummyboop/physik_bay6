@@ -20,7 +20,7 @@
         }
     </style>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../js/worksheet_generator.js?v=1.1"></script>
+    <script src="../js/worksheet_generator.js?v=1.2"></script>
 </head>
 <body>
     <div class="no-print" style="text-align: center; margin-bottom: 40px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 2px dashed #cbd5e1;">
@@ -44,7 +44,7 @@
             if (!topicId) return;
 
             try {
-                const res = await fetch('../lang/de.json?v=10.4');
+                const res = await fetch('../lang/de.json?v=10.5');
                 const data = await res.json();
                 const topic = data[topicId];
                 
