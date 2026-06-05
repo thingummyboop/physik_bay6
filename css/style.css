@@ -1000,6 +1000,31 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     margin-top: 4px;
 }
 
+.inline-frac,
+.decimal-bridge .inline-frac,
+.word-rubric .inline-frac {
+    align-items: center;
+    display: inline-flex;
+    gap: 1px;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.inline-frac sup,
+.inline-frac sub {
+    font-size: 0.72em;
+    line-height: 1;
+}
+
+.inline-frac sup {
+    transform: translateY(-0.18em);
+}
+
+.inline-frac sub {
+    transform: translateY(0.18em);
+}
+
 .decimal-place-table {
     border-collapse: collapse;
     margin: 16px 0;
