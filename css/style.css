@@ -1081,6 +1081,53 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
     color: var(--primary);
 }
 
+.fraction-model-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin: 16px 0;
+}
+
+.fraction-model-grid > div {
+    background: color-mix(in srgb, var(--card-bg) 92%, var(--interactive-bg));
+    border: 1px solid color-mix(in srgb, var(--box-border) 82%, var(--primary));
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.fraction-model-grid strong,
+.fraction-model-grid small {
+    display: block;
+}
+
+.fraction-model-grid strong {
+    color: var(--primary);
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.fraction-strip {
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    display: grid;
+    height: 44px;
+    margin: 8px 0;
+    overflow: hidden;
+}
+
+.fraction-strip span {
+    background: var(--card-bg);
+    border-right: 1px solid color-mix(in srgb, var(--box-border) 70%, var(--primary));
+}
+
+.fraction-strip span:last-child {
+    border-right: 0;
+}
+
+.fraction-strip .filled {
+    background: color-mix(in srgb, var(--primary) 72%, #ffffff);
+}
+
 .step-list li {
     margin-bottom: 8px;
 }
