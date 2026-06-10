@@ -1375,13 +1375,13 @@ async function renderTopic() {
 
     try {
         // Fetch language data (added cache busting)
-        let response = await fetch(`../lang/${lang}.json?v=10.6`);
+        let response = await fetch(`../lang/${lang}.json?v=10.7`);
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
 
         if (lang !== 'de') {
-            const deRes = await fetch(`../lang/de.json?v=10.6`);
+            const deRes = await fetch(`../lang/de.json?v=10.7`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
         }
@@ -1647,6 +1647,49 @@ function showError(msg) {
             <button onclick="location.reload()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Seite neu laden</button>
         </div>
     `;
+}
+
+function checkFractionColorTask(button, targetCount) {
+    const task = button.closest('.fraction-color-task');
+    if (!task) return;
+
+    const selected = task.querySelectorAll('input[type="checkbox"]:checked').length;
+    const feedback = task.querySelector('.fraction-task-feedback');
+    if (!feedback) return;
+
+    const isCorrect = selected === Number(targetCount);
+    feedback.classList.toggle('is-correct', isCorrect);
+    feedback.classList.toggle('is-wrong', !isCorrect);
+    feedback.textContent = isCorrect
+        ? `Richtig: Du hast ${selected} von 4 gleichen Teilen gefärbt. Das ist 3/4.`
+        : `Noch nicht: Du hast ${selected} Teile gefärbt. Für 3/4 brauchst du genau 3 Teile.`;
+}
+
+function updateFractionLineTask(input) {
+    const task = input.closest('.fraction-line-task');
+    if (!task) return;
+
+    const label = task.querySelector('.fraction-line-value');
+    if (!label) return;
+
+    const quarters = Math.round(Number(input.value) / 25);
+    label.textContent = `${quarters}/4`;
+}
+
+function checkFractionLineTask(button, targetValue) {
+    const task = button.closest('.fraction-line-task');
+    if (!task) return;
+
+    const input = task.querySelector('input[type="range"]');
+    const feedback = task.querySelector('.fraction-task-feedback');
+    if (!input || !feedback) return;
+
+    const isCorrect = Number(input.value) === Number(targetValue);
+    feedback.classList.toggle('is-correct', isCorrect);
+    feedback.classList.toggle('is-wrong', !isCorrect);
+    feedback.textContent = isCorrect
+        ? 'Richtig: 3/4 liegt bei drei von vier gleichen Streckenstücken.'
+        : 'Noch nicht: Schiebe den Punkt auf den dritten Strich von vier gleich großen Teilen.';
 }
 
 function escapeHtmlAttr(value) {
