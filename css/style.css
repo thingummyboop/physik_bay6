@@ -2027,8 +2027,12 @@ body.math-theme {
     align-items: end;
     display: grid;
     gap: 12px;
-    grid-template-columns: minmax(180px, 260px) auto auto auto;
+    grid-template-columns: minmax(170px, 240px) minmax(190px, 240px) auto auto auto;
     padding: 18px 22px 8px;
+}
+
+.kangaroo-control-field {
+    min-width: 0;
 }
 
 .kangaroo-controls label {
@@ -2117,6 +2121,14 @@ body.math-theme {
     color: #b91c1c;
 }
 
+.kangaroo-training-badge {
+    background: #fef3c7;
+    border-radius: 8px;
+    color: #92400e;
+    font-weight: 900;
+    padding: 8px 12px;
+}
+
 .kangaroo-question-list {
     display: grid;
     gap: 14px;
@@ -2147,6 +2159,14 @@ body.math-theme {
     display: flex;
     justify-content: space-between;
     gap: 12px;
+}
+
+.kangaroo-question-head small {
+    color: #64748b;
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-top: 2px;
 }
 
 .kangaroo-question-head span {
@@ -2250,6 +2270,29 @@ body.math-theme {
     box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16);
 }
 
+.kangaroo-clear-answer {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    color: #334155;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-top: 10px;
+    padding: 7px 10px;
+}
+
+.kangaroo-clear-answer:hover {
+    border-color: #0f766e;
+    color: #0f766e;
+}
+
+.kangaroo-clear-answer:disabled {
+    cursor: default;
+    opacity: 0.48;
+}
+
 .kangaroo-question-visual {
     align-items: center;
     background: #f8fafc;
@@ -2279,6 +2322,12 @@ body.math-theme {
 .kangaroo-result strong,
 .kangaroo-result span {
     display: block;
+}
+
+.kangaroo-result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .kangaroo-oral-feedback {
@@ -2347,6 +2396,15 @@ body.math-theme {
 .kangaroo-evaluation-note {
     color: #334155;
     margin: 0;
+}
+
+.kangaroo-skill-summary {
+    display: grid;
+    gap: 8px;
+}
+
+.kangaroo-skill-summary > strong {
+    color: #0f172a;
 }
 
 .kangaroo-worksheet-preview {
@@ -4191,10 +4249,16 @@ body.math-theme {
 }
 
 [data-theme="dark"] .kangaroo-evaluation-metric,
-[data-theme="dark"] .kangaroo-options label {
+[data-theme="dark"] .kangaroo-options label,
+[data-theme="dark"] .kangaroo-clear-answer {
     background: #111827;
     border-color: #334155;
     color: #e2e8f0;
+}
+
+[data-theme="dark"] .kangaroo-question-head small,
+[data-theme="dark"] .kangaroo-skill-summary > strong {
+    color: #cbd5e1;
 }
 
 [data-theme="dark"] .kangaroo-choice-svg {
