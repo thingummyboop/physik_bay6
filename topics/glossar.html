@@ -4,35 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Physik-Glossar</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .topic-body { padding-top: 40px; }
-        .glossar-search { width: 100%; padding: 15px; font-size: 1.2em; border-radius: 10px; border: 2px solid var(--primary); margin-bottom: 20px; box-sizing: border-box; }
-        .glossar-item { background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .glossar-item h3 { margin-top: 0; color: var(--primary); }
-    </style>
+    <link rel="stylesheet" href="../css/style.css?v=9.0">
 </head>
-<body class="topic-body">
-    <h1 style="text-align: center; font-size: 3em; color: var(--primary);">📖 Physik-Glossar</h1>
-    <div class="card">
-        <input type="text" class="glossar-search" id="searchInput" placeholder="Suche..." onkeyup="filterGlossar()">
-        <div id="glossarList">
-            <div class="glossar-item"><h3>Absorption</h3><p>Verschlucken von Strahlung.</p></div>
-            <div class="glossar-item"><h3>Energie</h3><p>Fähigkeit, Arbeit zu verrichten.</p></div>
-            <div class="glossar-item"><h3>Kraft</h3><p>Einwirkung auf einen Körper.</p></div>
-        </div>
-    </div>
+<body class="topic-page glossary-page">
+    <main class="topic-body glossary-body">
+        <header class="topic-hero glossary-hero">
+            <h1>Physik-Glossar</h1>
+            <p>Fachausdrücke kurz und einfach erklärt</p>
+        </header>
+
+        <section class="card glossary-shell" aria-labelledby="glossary-title">
+            <h2 id="glossary-title">Begriff suchen</h2>
+            <label for="searchInput" class="glossary-label">Schreibe einen Begriff oder einen Teil davon:</label>
+            <input type="search" class="glossary-search" id="searchInput" placeholder="zum Beispiel Energie" autocomplete="off">
+            <p id="glossaryCount" class="glossary-count" role="status" aria-live="polite" aria-atomic="true"></p>
+
+            <div id="glossaryList" class="glossary-list">
+                <article class="glossary-item"><h3>Absorption</h3><p>Ein Stoff nimmt Strahlung auf. Die übertragene Energie wird meist in andere Energieformen umgewandelt.</p></article>
+                <article class="glossary-item"><h3>Aktivität</h3><p>Anzahl radioaktiver Kernzerfälle pro Sekunde. Die Einheit ist Becquerel (Bq).</p></article>
+                <article class="glossary-item"><h3>Amplitude</h3><p>Größte Auslenkung einer Schwingung. Bei Schall beeinflusst sie die Lautstärke.</p></article>
+                <article class="glossary-item"><h3>Arbeit, mechanische</h3><p>Energieübertragung, wenn eine Kraft einen Körper entlang eines Weges bewegt.</p></article>
+                <article class="glossary-item"><h3>Beschleunigung</h3><p>Änderung der Geschwindigkeit pro Zeit. Auch Bremsen und eine Richtungsänderung sind Beschleunigungen.</p></article>
+                <article class="glossary-item"><h3>Brechung</h3><p>Richtungsänderung von Licht beim Übergang zwischen zwei Stoffen.</p></article>
+                <article class="glossary-item"><h3>Dosis</h3><p>Maß für die aufgenommene Strahlenenergie oder ihre biologische Wirkung. Für das Strahlenrisiko wird häufig Sievert verwendet.</p></article>
+                <article class="glossary-item"><h3>Drehmoment</h3><p>Drehwirkung einer Kraft. Sie hängt von der Kraft und ihrem Abstand zum Drehpunkt ab.</p></article>
+                <article class="glossary-item"><h3>Elektrische Spannung</h3><p>Antrieb für elektrischen Strom. Die Einheit ist Volt (V).</p></article>
+                <article class="glossary-item"><h3>Energie</h3><p>Fähigkeit eines Systems, Veränderungen zu bewirken oder Arbeit zu verrichten.</p></article>
+                <article class="glossary-item"><h3>Frequenz</h3><p>Anzahl der Schwingungen pro Sekunde. Die Einheit ist Hertz (Hz).</p></article>
+                <article class="glossary-item"><h3>Generator</h3><p>Gerät, das Bewegungsenergie mithilfe elektromagnetischer Induktion in elektrische Energie umwandelt.</p></article>
+                <article class="glossary-item"><h3>Geschwindigkeit</h3><p>Zurückgelegter Weg pro benötigter Zeit.</p></article>
+                <article class="glossary-item"><h3>Halbwertszeit</h3><p>Zeit, nach der im Mittel die Hälfte einer großen Zahl instabiler Atomkerne noch nicht zerfallen ist.</p></article>
+                <article class="glossary-item"><h3>Induktion</h3><p>Entstehung einer elektrischen Spannung durch ein veränderliches Magnetfeld.</p></article>
+                <article class="glossary-item"><h3>Ionisation</h3><p>Ein Atom oder Molekül wird elektrisch geladen, weil es Elektronen verliert oder erhält.</p></article>
+                <article class="glossary-item"><h3>Isotop</h3><p>Atome desselben Elements mit gleicher Protonenzahl, aber unterschiedlicher Neutronenzahl.</p></article>
+                <article class="glossary-item"><h3>Klima</h3><p>Typischer Verlauf des Wetters in einer Region über einen langen Zeitraum von mindestens etwa 30 Jahren.</p></article>
+                <article class="glossary-item"><h3>Kraft</h3><p>Einwirkung, die Bewegung oder Form eines Körpers ändern kann. Die Einheit ist Newton (N).</p></article>
+                <article class="glossary-item"><h3>Leistung</h3><p>Umgewandelte Energie oder verrichtete Arbeit pro Zeit. Die Einheit ist Watt (W).</p></article>
+                <article class="glossary-item"><h3>Lichtjahr</h3><p>Strecke, die Licht in einem Jahr zurücklegt. Ein Lichtjahr ist keine Zeitangabe.</p></article>
+                <article class="glossary-item"><h3>Magnetfeld</h3><p>Raum, in dem magnetische Kräfte wirken.</p></article>
+                <article class="glossary-item"><h3>Messunsicherheit</h3><p>Bereich, in dem der wirkliche Wert einer Messgröße wahrscheinlich liegt.</p></article>
+                <article class="glossary-item"><h3>Radioaktiver Zerfall</h3><p>Ein instabiler Atomkern wandelt sich von selbst um und sendet ionisierende Strahlung aus.</p></article>
+                <article class="glossary-item"><h3>Reflexion</h3><p>Zurückwerfen einer Welle, zum Beispiel von Licht an einem Spiegel.</p></article>
+                <article class="glossary-item"><h3>Resonanz</h3><p>Starkes Mitschwingen eines Systems, wenn es mit einer passenden Frequenz angeregt wird.</p></article>
+                <article class="glossary-item"><h3>Stromstärke</h3><p>Ladungsmenge, die pro Zeit durch einen Leiterquerschnitt fließt. Die Einheit ist Ampere (A).</p></article>
+                <article class="glossary-item"><h3>Temperatur</h3><p>Maß dafür, wie stark sich die Teilchen eines Stoffes ungeordnet bewegen.</p></article>
+                <article class="glossary-item"><h3>Transformator</h3><p>Gerät, das Wechselspannungen mithilfe von zwei Spulen verändert.</p></article>
+                <article class="glossary-item"><h3>Treibhauseffekt</h3><p>Erwärmung der Erdoberfläche, weil bestimmte Gase Wärmestrahlung aufnehmen und wieder abgeben.</p></article>
+                <article class="glossary-item"><h3>Wärme</h3><p>Energie, die wegen eines Temperaturunterschieds übertragen wird.</p></article>
+                <article class="glossary-item"><h3>Widerstand, elektrisch</h3><p>Gibt an, wie stark ein Bauteil den elektrischen Strom hemmt. Die Einheit ist Ohm.</p></article>
+                <article class="glossary-item"><h3>Wirkungsgrad</h3><p>Anteil der zugeführten Energie, der als gewünschte Nutzenergie ankommt.</p></article>
+            </div>
+
+            <div id="glossaryEmpty" class="glossary-empty" hidden>Kein passender Begriff gefunden. Versuche ein kürzeres Wort.</div>
+        </section>
+    </main>
+
     <script>
-        if (localStorage.getItem('physik_dark_mode') === 'true') {
-            document.documentElement.setAttribute('data-theme', 'dark');
+        if (localStorage.getItem("physik_dark_mode") === "true") {
+            document.documentElement.setAttribute("data-theme", "dark");
         }
-        function filterGlossar() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let items = document.getElementsByClassName('glossar-item');
-            for (let i = 0; i < items.length; i++) {
-                items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "block" : "none";
-            }
+
+        const searchInput = document.getElementById("searchInput");
+        const items = Array.from(document.querySelectorAll(".glossary-item"));
+        const count = document.getElementById("glossaryCount");
+        const empty = document.getElementById("glossaryEmpty");
+
+        function filterGlossary() {
+            const query = searchInput.value.trim().toLocaleLowerCase("de");
+            let visible = 0;
+            items.forEach(item => {
+                const match = item.textContent.toLocaleLowerCase("de").includes(query);
+                item.hidden = !match;
+                if (match) visible += 1;
+            });
+            count.textContent = query ? `${visible} passende Begriffe` : `${items.length} Begriffe`;
+            empty.hidden = visible !== 0;
         }
+
+        searchInput.addEventListener("input", filterGlossary);
+        filterGlossary();
     </script>
 </body>
 </html>

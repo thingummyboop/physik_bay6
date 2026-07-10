@@ -1,7 +1,8 @@
 // Shared topic logic: legacy points, practice questions, and challenge quizzes.
 const TOPIC_PARAMS = new URLSearchParams(window.location.search);
-const TOPIC_ID = TOPIC_PARAMS.get("topic") || "unknown";
-const TOPIC_MODE = TOPIC_PARAMS.get("mode") || "legacy";
+const ROUTED_TOPIC = /^(learn|challenge):(.+)$/.exec(TOPIC_PARAMS.get("topic") || "");
+const TOPIC_ID = ROUTED_TOPIC ? ROUTED_TOPIC[2] : (TOPIC_PARAMS.get("topic") || "unknown");
+const TOPIC_MODE = TOPIC_PARAMS.get("mode") || ROUTED_TOPIC?.[1] || "legacy";
 const IS_LEARN_MODE = TOPIC_MODE === "learn";
 const IS_CHALLENGE_MODE = TOPIC_MODE === "challenge";
 
@@ -233,7 +234,7 @@ function resetTopicProgress() {
     if (!TOPIC_ID) return;
 
     if (IS_CHALLENGE_MODE) {
-        if (!confirm("\u00dcbungsfragen in diesem Kapitel zur\u00fccksetzen? Das Kapitelquiz, Wartezeiten und M\u00fcnzen bleiben erhalten.")) return;
+        if (!confirm("\u00dcbungsfragen in diesem Kapitel zur\u00fccksetzen? Kapitelquiz, Bestwert und M\u00fcnzen bleiben erhalten.")) return;
         const currentTopicLegacyIds = collectCurrentBoxIds(".quiz-box.practice-quiz, .exercise-box");
         practiceAnswered = clearTopicSet(practiceAnswered, currentTopicLegacyIds);
         practiceFailedOnce = clearTopicSet(practiceFailedOnce, currentTopicLegacyIds);
@@ -337,19 +338,6 @@ function updateChapterState(topicId, patch) {
     return states[topicId];
 }
 
-function chapterCooldownMs(attempts) {
-    const waits = [0, 0, 0, 30 * 60 * 1000, 2 * 60 * 60 * 1000, 8 * 60 * 60 * 1000, 24 * 60 * 60 * 1000, 48 * 60 * 60 * 1000];
-    return waits[Math.min(attempts, waits.length - 1)];
-}
-
-function formatWait(ms) {
-    if (ms <= 0) return "0 min";
-    const minutes = Math.ceil(ms / 60000);
-    if (minutes < 60) return `${minutes} min`;
-    const hours = Math.ceil(minutes / 60);
-    return `${hours} h`;
-}
-
 function normalizeChapterQuestions(questions) {
     return (questions || [])
         .filter(q => q && Array.isArray(q.answers) && q.answers.length >= 2)
@@ -379,23 +367,16 @@ function renderChapterQuizPanel(topicId, topicTitle, questions) {
 
     const completed = getCompletedTopics().has(topicId);
     const state = getChapterState(topicId);
-    const now = Date.now();
-    const lockedMs = Math.max(0, Number(state.nextAllowed || 0) - now);
-    const freeAttemptsLeft = Math.max(0, 3 - (Number(state.attempts) || 0));
-    const skipCost = 10 + Math.max(0, (Number(state.attempts) || 0) - 3) * 5;
 
     slot.innerHTML = `
         <div class="chapter-quiz-intro">
             <p><strong>${topicTitle}</strong>: Starte das Kapitelquiz erst, wenn du das Kapitel wirklich verstanden hast. Du bestehst mit mindestens 75% richtigen Antworten.</p>
             <div class="chapter-meta">
-                <span>${freeAttemptsLeft > 0 ? `${freeAttemptsLeft} freie Versuche &uuml;brig` : "Cooldown-System aktiv"}</span>
+                <span>Beliebig oft wiederholbar</span>
                 <span>Bestwert: ${Math.round(Number(state.bestPercent || 0))}%</span>
             </div>
             ${completed ? `<p class="chapter-result success">Kapitel geschafft. Du kannst das Quiz trotzdem weiter ueben.</p>` : ""}
-            ${lockedMs > 0 ? `
-                <p class="chapter-result warning">N&auml;chster Versuch in ${formatWait(lockedMs)}.</p>
-                <button type="button" onclick="skipChapterCooldown('${topicId}')">Wartezeit f&uuml;r ${skipCost} + &uuml;berspringen</button>
-            ` : `<button type="button" onclick="startChapterQuiz('${topicId}')">Kapitelquiz starten</button>`}
+            <button type="button" onclick="startChapterQuiz('${topicId}')">Kapitelquiz starten</button>
         </div>
     `;
 }
@@ -404,12 +385,6 @@ function startChapterQuiz(topicId) {
     const questions = normalizeChapterQuestions(window.__chapterQuizQuestions || []);
     const slot = document.getElementById("chapter-quiz-slot");
     if (!slot || !questions.length) return;
-
-    const state = getChapterState(topicId);
-    if (Number(state.nextAllowed || 0) > Date.now()) {
-        renderChapterQuizPanel(topicId, document.getElementById("topic-title")?.innerText || "Kapitel", questions);
-        return;
-    }
 
     slot.innerHTML = `
         <form id="chapter-quiz-form" class="chapter-quiz-form">
@@ -475,11 +450,10 @@ function submitChapterQuiz(topicId) {
     const passed = percent >= 75;
     const oldState = getChapterState(topicId);
     const attempts = (Number(oldState.attempts) || 0) + 1;
-    const cooldown = passed ? 0 : chapterCooldownMs(attempts);
     updateChapterState(topicId, {
         attempts,
         bestPercent: Math.max(Number(oldState.bestPercent || 0), percent),
-        nextAllowed: cooldown ? Date.now() + cooldown : 0
+        nextAllowed: 0
     });
 
     if (passed) {
@@ -494,28 +468,12 @@ function submitChapterQuiz(topicId) {
         window.parent?.postMessage({ type: "challengeCompleted", topicId, coins: getCoins() }, "*");
     } else {
         if (feedback) {
-            feedback.innerText = `Noch nicht bestanden: ${correctCount}/${questions.length} richtig (${percent}%). Ziel: mindestens 75%. ${cooldown ? `N\u00e4chster Versuch in ${formatWait(cooldown)}.` : "Du hast noch freie Versuche."}`;
+            feedback.innerText = `Noch nicht bestanden: ${correctCount}/${questions.length} richtig (${percent}%). Ziel: mindestens 75%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.`;
             feedback.className = "chapter-result warning";
         }
     }
 
     updateScoreDisplays();
-}
-
-function skipChapterCooldown(topicId) {
-    const state = getChapterState(topicId);
-    const lockedMs = Math.max(0, Number(state.nextAllowed || 0) - Date.now());
-    if (lockedMs <= 0) return;
-
-    const cost = 10 + Math.max(0, (Number(state.attempts) || 0) - 3) * 5;
-    if (getCoins() < cost) {
-        alert("Daf\u00fcr hast du noch nicht genug +.");
-        return;
-    }
-
-    setCoins(getCoins() - cost);
-    updateChapterState(topicId, { nextAllowed: 0 });
-    renderChapterQuizPanel(topicId, document.getElementById("topic-title")?.innerText || "Kapitel", window.__chapterQuizQuestions || []);
 }
 
 window.addEventListener("message", event => {

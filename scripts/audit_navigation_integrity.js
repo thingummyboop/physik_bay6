@@ -2,9 +2,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
-const INDEX_PATH = path.join(ROOT, 'index.html');
+const CURRICULUM_PATH = path.join(ROOT, 'js', 'curriculum.js');
+const PHYSICS_COURSE_PATH = path.join(ROOT, 'js', 'physics_course.js');
 const DASHBOARD_PATH = path.join(ROOT, 'topics', 'dashboard.html');
 const LANG_DIR = path.join(ROOT, 'lang');
 const TOPICS_DIR = path.join(ROOT, 'js', 'topics');
@@ -22,8 +24,26 @@ function unique(values) {
 }
 
 function collectNavTopicIds() {
-  const html = read(INDEX_PATH);
-  return [...html.matchAll(/\{\s*id:\s*"([^"]+)"/g)].map((match) => match[1]);
+  const sandbox = { window: {} };
+  vm.runInNewContext(read(CURRICULUM_PATH), sandbox, { filename: CURRICULUM_PATH });
+  return Object.values(sandbox.window.LEARNQUEST_CURRICULUM?.subjects || {})
+    .flatMap((subject) => subject.topics || [])
+    .filter((topic) => topic.available)
+    .map((topic) => topic.id);
+}
+
+function collectPhysicsAdditions() {
+  if (!fs.existsSync(PHYSICS_COURSE_PATH)) return {};
+  const sandbox = { window: {} };
+  vm.runInNewContext(read(PHYSICS_COURSE_PATH), sandbox, { filename: PHYSICS_COURSE_PATH });
+  const course = sandbox.window.PHYSICS_COURSE;
+  if (!course) return {};
+
+  return Object.fromEntries(
+    collectNavTopicIds()
+      .map((topicId) => [topicId, course.getTopic(topicId)])
+      .filter(([, topic]) => isTopicComplete(topic))
+  );
 }
 
 function collectDashboardTopicIds() {
@@ -54,13 +74,15 @@ const topicScripts = new Set(
 const failures = [];
 const warnings = [];
 const de = readJson(path.join(LANG_DIR, 'de.json'));
+const physicsAdditions = collectPhysicsAdditions();
+const additionIds = new Set(Object.keys(physicsAdditions));
 
 if (duplicateNavIds.length) {
   failures.push(`Duplicate topic ids in index.html: ${duplicateNavIds.join(', ')}`);
 }
 
 for (const topicId of uniqueNavTopicIds) {
-  const germanTopic = de[topicId];
+  const germanTopic = de[topicId] || physicsAdditions[topicId];
   if (!isTopicComplete(germanTopic)) {
     failures.push(`Missing or incomplete German topic: ${topicId}`);
     continue;
@@ -73,7 +95,7 @@ for (const topicId of uniqueNavTopicIds) {
 
 for (const langFile of langFiles) {
   const lang = readJson(path.join(LANG_DIR, langFile));
-  const missing = uniqueNavTopicIds.filter((topicId) => !isTopicComplete(lang[topicId]));
+  const missing = uniqueNavTopicIds.filter((topicId) => !additionIds.has(topicId) && !isTopicComplete(lang[topicId]));
   if (missing.length) {
     failures.push(`${langFile} misses or has incomplete topics: ${missing.join(', ')}`);
   }

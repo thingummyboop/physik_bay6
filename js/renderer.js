@@ -173,6 +173,7 @@ async function renderTopic() {
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
+        const physicsCourse = window.PHYSICS_COURSE;
 
         if (lang !== "de") {
             const deRes = await fetch("../lang/de.json?v=9.0");
@@ -181,6 +182,7 @@ async function renderTopic() {
         }
 
         if (!topic && germanTopic) topic = germanTopic;
+        if (!topic && physicsCourse) topic = physicsCourse.getTopic(topicId);
 
         if (!topic) {
             showError(`Das Thema "${topicId}" wurde nicht gefunden.`);
@@ -190,6 +192,9 @@ async function renderTopic() {
         if (germanTopic) topic = withCurrentInteractiveStructure(topic, germanTopic);
         if (!topic.chapterCompassText && germanTopic?.chapterCompassText) {
             topic = { ...topic, chapterCompassText: germanTopic.chapterCompassText };
+        }
+        if (lang === "de" && physicsCourse?.isPhysicsTopic(topicId)) {
+            topic = physicsCourse.enhanceTopic(topicId, topic);
         }
 
         document.title = topic.title;
@@ -218,6 +223,14 @@ async function renderTopic() {
             container.appendChild(compass);
         }
 
+        if (lang === "de" && physicsCourse?.isPhysicsTopic(topicId)) {
+            const supportTemplate = document.createElement("template");
+            supportTemplate.innerHTML = physicsCourse.supportHtml(topicId).trim();
+            if (supportTemplate.content.firstElementChild) {
+                container.appendChild(supportTemplate.content.firstElementChild);
+            }
+        }
+
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
 
         function renderQuizBox(q, options = {}) {
@@ -240,12 +253,15 @@ async function renderTopic() {
             `;
         }
 
-        (topic.sections || []).forEach(section => {
+        (topic.sections || []).forEach((section, sectionIndex) => {
             const card = document.createElement("div");
             card.className = "card";
 
             let html = `<h2>${section.title}</h2>`;
             let content = section.content || "";
+
+            // Only MP4 versions are shipped. Removing stale WebM sources avoids a failed request before fallback.
+            content = content.replace(/\s*<source\s+src=["']\.\.\/assets\/videos\/[^"']+\.webm(?:\?[^"']*)?["']\s+type=["']video\/webm["']\s*>/gi, "");
 
             const sectionQuizMap = new Map((section.quizzes || []).map(q => [q.id, q]));
             content = content.replace(/\{\{QUIZ_([^}]+)\}\}/g, (placeholder, quizId) => {
@@ -257,6 +273,16 @@ async function renderTopic() {
 
             html += content;
             card.innerHTML = html;
+
+            if (lang === "de" && physicsCourse?.isPhysicsTopic(topicId)) {
+                const guide = physicsCourse.guideHtml(topicId, sectionIndex);
+                if (guide) {
+                    const previousGuide = Array.from(card.children)
+                        .find(element => element.classList.contains("physics-remodel"));
+                    if (previousGuide) previousGuide.remove();
+                    card.querySelector("h2")?.insertAdjacentHTML("afterend", guide);
+                }
+            }
             container.appendChild(card);
         });
 

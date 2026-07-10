@@ -264,6 +264,317 @@ h3 {
     margin-bottom: 0;
 }
 
+.physics-support-card {
+    background: var(--card-bg);
+    border: 1px solid var(--box-border);
+    border-top: 4px solid #0f766e;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    margin: 18px 0 24px;
+    overflow: hidden;
+}
+
+.physics-support-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+    gap: 24px;
+    padding: 20px;
+}
+
+.physics-support-intro h2,
+.physics-vocabulary h3 {
+    letter-spacing: 0;
+    margin: 0 0 8px;
+}
+
+.physics-support-intro h2 {
+    border: 0;
+    color: var(--secondary);
+    font-size: 1.45rem;
+    padding: 0;
+}
+
+.physics-support-kicker {
+    color: #0f766e;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin: 0 0 5px;
+    text-transform: uppercase;
+}
+
+.physics-method-steps {
+    border-left: 1px solid var(--box-border);
+    margin: 0;
+    padding: 2px 0 2px 34px;
+}
+
+.physics-method-steps li {
+    margin: 0 0 9px;
+    padding-left: 3px;
+}
+
+.physics-method-steps li:last-child {
+    margin-bottom: 0;
+}
+
+.physics-vocabulary {
+    background: color-mix(in srgb, var(--card-bg) 92%, #0f766e);
+    border-top: 1px solid var(--box-border);
+    padding: 18px 20px 20px;
+}
+
+.physics-vocabulary > p {
+    margin: 0 0 12px;
+}
+
+.physics-term-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.physics-term {
+    background: var(--card-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 6px;
+    min-width: 0;
+    padding: 0;
+}
+
+.physics-term summary {
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 800;
+    padding: 11px 13px;
+}
+
+.physics-term p {
+    border-top: 1px solid var(--box-border);
+    margin: 0;
+    padding: 11px 13px 13px;
+}
+
+.physics-section-guide {
+    border-radius: 8px;
+}
+
+.physics-section-guide .remember-box,
+.physics-section-guide .misconception-box,
+.physics-section-guide .mini-task {
+    border-radius: 6px;
+    margin: 10px 0 0;
+}
+
+.physics-lab {
+    background: color-mix(in srgb, var(--card-bg) 94%, #0f766e);
+    border: 2px solid color-mix(in srgb, #0f766e 50%, var(--box-border));
+    border-radius: 8px;
+    margin: 18px 0;
+    padding: 16px;
+}
+
+.physics-lab h3 {
+    margin-top: 0;
+}
+
+.physics-choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.physics-choice-row button {
+    background: var(--card-bg);
+    border: 2px solid #0f766e;
+    border-radius: 6px;
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 750;
+    min-height: 44px;
+    padding: 9px 13px;
+}
+
+.physics-choice-row button:hover,
+.physics-choice-row button:focus-visible {
+    background: color-mix(in srgb, var(--card-bg) 86%, #0f766e);
+    outline: 3px solid color-mix(in srgb, #0f766e 38%, transparent);
+    outline-offset: 2px;
+}
+
+.physics-live-result {
+    border-left: 4px solid #0f766e;
+    margin: 12px 0 0;
+    min-height: 1.6em;
+    padding: 8px 10px;
+}
+
+.physics-live-result[data-state="correct"] {
+    border-left-color: #15803d;
+}
+
+.physics-live-result[data-state="retry"] {
+    border-left-color: #b45309;
+}
+
+.decay-track {
+    background: color-mix(in srgb, var(--box-border) 65%, transparent);
+    border: 1px solid var(--box-border);
+    border-radius: 4px;
+    height: 28px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.decay-track span {
+    background: #0f766e;
+    display: block;
+    height: 100%;
+    min-width: 2px;
+    transition: width 180ms ease;
+}
+
+.physics-data-table-wrap {
+    margin: 18px 0;
+    overflow-x: auto;
+}
+
+.physics-data-table {
+    border-collapse: collapse;
+    min-width: 620px;
+    width: 100%;
+}
+
+.physics-data-table th,
+.physics-data-table td {
+    border: 1px solid var(--box-border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.physics-data-table th {
+    background: color-mix(in srgb, var(--card-bg) 82%, #0f766e);
+}
+
+.physics-chain {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 18px 0;
+}
+
+.physics-chain span {
+    background: color-mix(in srgb, var(--card-bg) 88%, #0f766e);
+    border: 1px solid #0f766e;
+    border-radius: 5px;
+    font-weight: 750;
+    padding: 8px 10px;
+}
+
+.physics-lab input[type="range"] {
+    display: block;
+    margin: 12px 0;
+    max-width: 560px;
+    width: 100%;
+}
+
+@media (max-width: 760px) {
+    .physics-support-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .physics-method-steps {
+        border-left: 0;
+        border-top: 1px solid var(--box-border);
+        padding: 16px 0 0 24px;
+    }
+
+    .physics-term-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.glossary-body {
+    padding-top: 28px;
+}
+
+.glossary-hero {
+    margin-bottom: 18px;
+}
+
+.glossary-shell {
+    border-radius: 8px;
+}
+
+.glossary-label {
+    display: block;
+    font-weight: 750;
+    margin-bottom: 7px;
+}
+
+.glossary-search {
+    background: var(--card-bg);
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: var(--text);
+    font: inherit;
+    font-size: 1.08rem;
+    padding: 12px 14px;
+    width: 100%;
+}
+
+.glossary-search:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent);
+    outline-offset: 2px;
+}
+
+.glossary-count {
+    color: var(--text-muted, var(--text));
+    font-size: 0.92rem;
+    margin: 8px 0 18px;
+}
+
+.glossary-list {
+    display: grid;
+    gap: 9px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.glossary-item {
+    background: color-mix(in srgb, var(--card-bg) 95%, var(--primary));
+    border: 1px solid var(--box-border);
+    border-left: 4px solid var(--secondary);
+    border-radius: 6px;
+    min-width: 0;
+    padding: 13px 15px;
+}
+
+.glossary-item h3 {
+    font-size: 1.03rem;
+    margin: 0 0 5px;
+}
+
+.glossary-item p {
+    margin: 0;
+}
+
+.glossary-empty {
+    border: 1px dashed var(--box-border);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .glossary-list {
+        grid-template-columns: 1fr;
+    }
+}
+
 .teacher-note a {
     color: #6d28d9;
     text-decoration: underline;
