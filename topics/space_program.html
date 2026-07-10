@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciVerse Space Program</title>
+    <link rel="stylesheet" href="../css/space_program.css?v=1.8">
+</head>
+<body>
+    <main class="space-shell">
+        <header class="space-hero">
+            <div>
+                <p class="space-kicker">SciVerse Space Program</p>
+                <h1>Explore the SciVerse</h1>
+                <p class="space-lead">Baue eine Rakete, sammle Treibstoff und fliege immer höher durch das Sonnensystem. Bestandene Kapitelquizzes schalten neue Bauteile frei, die deine Rakete spürbar verändern.</p>
+            </div>
+            <div class="space-score-card" aria-live="polite">
+                <span class="score-label">Punkte</span>
+                <strong id="sspPoints">0</strong>
+                <small>f&uuml;r Shop und Werkstatt</small>
+            </div>
+        </header>
+
+        <section id="rocketSelect" class="selection-panel">
+            <div class="section-heading">
+                <p class="space-kicker">Startauswahl</p>
+                <h2>W&auml;hle dein erstes Raketenmodell</h2>
+                <p>Du kannst sp&auml;ter jederzeit in der Werkstatt umbauen. Die drei Modelle haben unterschiedliche St&auml;rken.</p>
+            </div>
+            <div id="rocketModelCards" class="model-grid"></div>
+        </section>
+
+        <section id="spaceGame" class="game-shell" hidden>
+            <nav class="space-tabs" aria-label="Space Program Bereiche">
+                <button type="button" class="space-tab active" data-tab="flight">Flug</button>
+                <button type="button" class="space-tab" data-tab="workshop">Werkstatt</button>
+                <button type="button" class="space-tab" data-tab="shop">Shop</button>
+                <button type="button" class="space-tab" data-tab="system">Sonnensystem</button>
+            </nav>
+
+            <div class="game-grid">
+                <aside class="mission-panel">
+                    <div class="panel-block">
+                        <p class="space-kicker">Flugziel</p>
+                        <h2>Explore the SciVerse</h2>
+                        <select id="missionSelect" hidden aria-hidden="true"></select>
+                        <div id="missionBrief" class="mission-brief"></div>
+                        <div id="missionJournal" class="mission-journal" aria-label="Missionsjournal" hidden></div>
+                    </div>
+
+                    <div class="panel-block">
+                        <h2>Space-Rekord</h2>
+                        <div id="flightScorePanel" class="stat-grid"></div>
+                    </div>
+
+                    <div class="panel-block">
+                        <div class="panel-title-row">
+                            <h2>Rakete</h2>
+                            <button type="button" id="changeModelBtn" class="ghost-btn">Modell wechseln</button>
+                        </div>
+                        <div id="compactRocketPreview" class="compact-preview"></div>
+                        <div id="rocketStats" class="stat-grid"></div>
+                    </div>
+
+                    <div class="panel-block">
+                        <h2>Freischaltungen</h2>
+                        <div id="unlockSummary" class="unlock-summary"></div>
+                    </div>
+                </aside>
+
+                <section class="stage-panel">
+                    <section id="tab-flight" class="tab-page active">
+                        <div class="flight-toolbar compact-flight-toolbar">
+                            <div>
+                                <p class="space-kicker">2D-Flug</p>
+                                <h2>Mission fliegen</h2>
+                            </div>
+                            <div class="flight-buttons">
+                                <button type="button" id="btnIgnite">Start</button>
+                                <button type="button" id="btnPause" class="ghost-btn">Pause</button>
+                                <button type="button" id="btnResetFlight" class="ghost-btn">Zur&uuml;cksetzen</button>
+                            </div>
+                        </div>
+
+                        <div class="canvas-wrap">
+                            <canvas id="spaceCanvas" width="1100" height="650" aria-label="2D Raketenflug"></canvas>
+                            <div id="flightHud" class="flight-hud"></div>
+                        </div>
+
+                        <div class="flight-console" aria-label="Flugsteuerung">
+                            <section class="system-card navball-card primary-flight-card">
+                                <p class="space-kicker">Navball</p>
+                                <div id="navball" class="navball" aria-label="Navball mit Fluglage, Prograde, Retrograde und Maneuver-Marker">
+                                    <div id="navballHorizon" class="navball-horizon"></div>
+                                    <div class="navball-grid"></div>
+                                    <div id="progradeMarker" class="navball-marker prograde">P</div>
+                                    <div id="retrogradeMarker" class="navball-marker retrograde">R</div>
+                                    <div id="maneuverMarker" class="navball-marker maneuver">N</div>
+                                    <div class="navball-cross"></div>
+                                </div>
+                                <div id="navballReadout" class="system-readout">Pitch 90&deg; &middot; Orbitmodus</div>
+                            </section>
+
+                            <section class="system-card throttle-card primary-flight-card">
+                                <p class="space-kicker">Schub</p>
+                                <label class="throttle-label" for="throttleSlider">Schubhebel</label>
+                                <input id="throttleSlider" type="range" min="0" max="100" value="0">
+                                <div class="throttle-meter" aria-hidden="true"><i id="throttleFill"></i></div>
+                                <div class="system-actions">
+                                    <button type="button" id="btnThrottleZero" class="ghost-btn">X&nbsp;0%</button>
+                                    <button type="button" id="btnThrottleFull" class="ghost-btn">Z&nbsp;100%</button>
+                                </div>
+                            </section>
+
+                            <section class="system-card staging-card primary-flight-card">
+                                <p class="space-kicker">Staging</p>
+                                <div id="stageStack" class="stage-stack"></div>
+                                <button type="button" id="btnStage" class="stage-fire">Space: n&auml;chste Stufe</button>
+                            </section>
+
+                            <section class="system-card score-card primary-flight-card">
+                                <p class="space-kicker">Run</p>
+                                <div id="scienceStatus" class="science-status">Noch nicht gestartet.</div>
+                            </section>
+                        </div>
+
+                        <div class="control-pad compact-controls" aria-label="Touch-Steuerung">
+                            <button type="button" class="control-btn" data-control="left">A / Links</button>
+                            <button type="button" class="control-btn thrust" id="btnStageTouch">Space / Stufe</button>
+                            <button type="button" class="control-btn" data-control="right">D / Rechts</button>
+                        </div>
+                        <p class="control-hint">A/D oder Pfeiltasten = ausweichen. Z/X setzen den Schub auf 100% oder 0%. Space startet, z&uuml;ndet Booster und feuert in der Endphase.</p>
+                    </section>
+
+                    <section id="tab-workshop" class="tab-page">
+                        <div class="section-heading compact designer-heading">
+                            <p class="space-kicker">Werkstatt</p>
+                            <h2>Raumschiff-Designer</h2>
+                            <p>W&auml;hle einen Raketenbereich und r&uuml;ste rechts passende Teile aus. Jedes Bauteil ver&auml;ndert Aussehen und Flugwerte.</p>
+                        </div>
+                        <div class="designer-grid">
+                            <div class="designer-stage rocket-bay">
+                                <div class="designer-backdrop" aria-hidden="true"></div>
+                                <div id="workshopRocketPreview" class="rocket-preview designer-preview"></div>
+                                <div id="designerSelectedPart" class="designer-selected-part"></div>
+                            </div>
+                            <div class="designer-panel">
+                                <div class="designer-panel-head">
+                                    <div>
+                                        <p class="space-kicker">Slots</p>
+                                        <h3>Was willst du umbauen?</h3>
+                                    </div>
+                                    <small>Gekaufte Teile bleiben dauerhaft verf&uuml;gbar.</small>
+                                </div>
+                                <div id="slotList" class="slot-list designer-slots"></div>
+                                <div id="slotPartList" class="part-list designer-parts"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="tab-shop" class="tab-page">
+                        <div class="section-heading compact">
+                            <p class="space-kicker">Shop</p>
+                            <h2>Neue Teile kaufen</h2>
+                            <p>Bestandene Kapitelquizzes schalten Bauteile frei. Gekauft wird mit Punkten.</p>
+                        </div>
+                        <div id="shopFilters" class="shop-filters"></div>
+                        <div id="shopGrid" class="shop-grid"></div>
+                    </section>
+
+                    <section id="tab-system" class="tab-page">
+                        <div class="section-heading compact">
+                            <p class="space-kicker">Sonnensystem</p>
+                            <h2>Missionen und Fach-Boni</h2>
+                            <p>Je mehr Kapitel du abschlie&szlig;t, desto weiter reichen deine Missionen. Jedes Fach bringt andere Vorteile f&uuml;r dein Raumfahrtprogramm.</p>
+                        </div>
+                        <div id="solarMap" class="solar-map"></div>
+                        <div id="subjectBonusList" class="bonus-list"></div>
+                    </section>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/space_program.js?v=1.9"></script>
+    <script src="../js/learning_radio.js?v=1.3"></script>
+</body>
+</html>

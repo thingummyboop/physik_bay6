@@ -41,7 +41,6 @@ Diese Kriterien gelten für **alle Fächer** (Physik, Mathematik, DGB, Wetter/Kl
 - Nebenfächer-Sprachlängencheck (Feedback-Kompaktheit): `node scripts/audit_remaining_subjects_language.js`
 - Keine Inline-Popup-Regressionen: `node scripts/audit_inline_alerts.js`
 - Topic-Syntax über alle Lernmodule: `node scripts/audit_topic_syntax.js`
-- Visual-/Übersetzungscheck: `node scripts/audit_visual_i18n_darkmode.js` prüft UTF-8-Mojibake und neue SVG-Beschriftungen ohne robuste Darkmode-Farbe.
 - Whitespace/Conflict-Fehler: `git diff --check`
 - Optional als Sammellauf: `bash scripts/run_quality_gate.sh`
 

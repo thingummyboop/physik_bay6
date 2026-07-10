@@ -5,6 +5,186 @@ function generateWorksheetContent(topicId, topicTitle) {
     
     // Helper function for random numbers
     const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const blank = (width = 95) => `<span style="display:inline-block; border-bottom:1px dotted #000; width:${width}px;"></span>`;
+    const signBox = () => `<span style="display:inline-block; border:1px solid #000; width:24px; height:24px; text-align:center;"></span>`;
+    const grid = (items, columns = '1fr 1fr') => `<div style="display: grid; grid-template-columns: ${columns}; gap: 18px 24px; font-size: 1.15em;">${items.join('')}</div>`;
+    const item = (text) => `<div class="exercise-item">${text}</div>`;
+    const frac = (z, n) => `\\(\\frac{${z}}{${n}}\\)`;
+    const section = (title, items, columns = '1fr 1fr') => {
+        html += `<h2>${title}</h2>${grid(items, columns)}`;
+    };
+
+    if (topicId === 'math1_8_brueche') {
+        section('1. Brüche darstellen und erkennen', [
+            item(`Zeichne ein Rechteck mit 2 gleich großen Teilen. Färbe ${frac(1, 2)}.`),
+            item(`Zeichne ein Rechteck mit 4 gleich großen Teilen. Färbe ${frac(3, 4)}.`),
+            item(`Zeichne einen Kreis mit 3 gleich großen Teilen. Färbe ${frac(1, 3)}.`),
+            item(`Zeichne eine Schokotafel mit 10 Feldern. Färbe ${frac(7, 10)}.`),
+            item(`Ein Streifen hat 8 gleiche Teile, 5 sind gefärbt. Bruch: ${blank(70)}`),
+            item(`Ein Kreis hat 6 gleiche Teile, 2 sind gefärbt. Bruch: ${blank(70)}`),
+            item(`Ein Rechteck hat 12 gleiche Felder, 9 sind gefärbt. Bruch: ${blank(70)}`),
+            item(`Markiere ${frac(1, 4)} auf einem Zahlenstrahl von 0 bis 1: ${blank(180)}`),
+            item(`Markiere ${frac(3, 4)} auf einem Zahlenstrahl von 0 bis 1: ${blank(180)}`),
+            item(`Schreibe in Worten: ${frac(5, 8)} = ${blank(150)}`)
+        ]);
+
+        const comparePairs = [[3, 8, 5, 8], [7, 10, 4, 10], [1, 3, 1, 5], [1, 6, 1, 4], [2, 9, 7, 9], [5, 12, 5, 8], [3, 4, 2, 4], [1, 2, 1, 8], [6, 7, 3, 7], [2, 5, 2, 9]];
+        section('2. Brüche vergleichen und ordnen', [
+            ...comparePairs.map(([a, b, c, d]) => item(`${frac(a, b)} ${signBox()} ${frac(c, d)}`)),
+            item(`Ordne von klein nach groß: ${frac(1, 6)}, ${frac(1, 2)}, ${frac(1, 4)} ${blank(170)}`),
+            item(`Ordne von klein nach groß: ${frac(5, 9)}, ${frac(2, 9)}, ${frac(7, 9)} ${blank(170)}`),
+            item(`Ordne von groß nach klein: ${frac(3, 5)}, ${frac(1, 5)}, ${frac(4, 5)} ${blank(170)}`),
+            item(`Erkläre mit einem Satz: Warum ist ${frac(1, 3)} größer als ${frac(1, 8)}? ${blank(220)}`)
+        ]);
+
+        section('3. Brucharten und gemischte Zahlen', [
+            item(`Kreuze an: ${frac(3, 5)} ist echt / unecht / uneigentlich.`),
+            item(`Kreuze an: ${frac(7, 4)} ist echt / unecht / uneigentlich.`),
+            item(`Kreuze an: ${frac(8, 4)} ist echt / unecht / uneigentlich.`),
+            item(`${frac(7, 3)} = ${blank(70)} als gemischte Zahl`),
+            item(`${frac(11, 4)} = ${blank(70)} als gemischte Zahl`),
+            item(`${frac(17, 5)} = ${blank(70)} als gemischte Zahl`),
+            item(`\\(2\\frac{1}{3}\\) = ${blank(70)} als unechter Bruch`),
+            item(`\\(3\\frac{2}{5}\\) = ${blank(70)} als unechter Bruch`),
+            item(`\\(1\\frac{3}{4}\\) = ${blank(70)} als unechter Bruch`),
+            item(`Finde einen echten Bruch mit Nenner 9: ${blank(70)}`),
+            item(`Finde einen unechten Bruch mit Nenner 6: ${blank(70)}`),
+            item(`Finde einen uneigentlichen Bruch mit Nenner 5: ${blank(70)}`)
+        ], '1fr 1fr 1fr');
+
+        const addSub = [];
+        for (let i = 0; i < 10; i++) {
+            const n = [5, 6, 7, 8, 9, 10, 12][rand(0, 6)];
+            const a = rand(1, Math.floor(n / 2));
+            const b = rand(1, n - a);
+            addSub.push(item(`${frac(a, n)} + ${frac(b, n)} = ${blank(80)}`));
+        }
+        for (let i = 0; i < 10; i++) {
+            const n = [5, 6, 7, 8, 9, 10, 12][rand(0, 6)];
+            const a = rand(2, n);
+            const b = rand(1, a - 1);
+            addSub.push(item(`${frac(a, n)} - ${frac(b, n)} = ${blank(80)}`));
+        }
+        addSub.push(
+            item(`1 - ${frac(3, 8)} = ${blank(80)}`),
+            item(`1 - ${frac(2, 5)} = ${blank(80)}`),
+            item(`${frac(4, 6)} + ${frac(2, 6)} = ${blank(80)}`),
+            item(`${frac(9, 12)} - ${frac(5, 12)} = ${blank(80)}`)
+        );
+        section('4. Gleichnamige Brüche addieren und subtrahieren', addSub);
+
+        section('5. Bruchteile von Größen', [
+            item(`${frac(1, 2)} von 60 min = ${blank(80)} min`),
+            item(`${frac(3, 4)} von 20 € = ${blank(80)} €`),
+            item(`${frac(1, 4)} von 100 kg = ${blank(80)} kg`),
+            item(`${frac(2, 3)} von 18 Murmeln = ${blank(80)} Murmeln`),
+            item(`${frac(2, 5)} von 25 m = ${blank(80)} m`),
+            item(`${frac(3, 8)} von 40 Kindern = ${blank(80)} Kinder`),
+            item(`Eine Stunde hat 60 min. Wie viele Minuten sind ${frac(5, 6)} Stunde? ${blank(90)}`),
+            item(`Ein Rezept braucht ${frac(3, 4)} l Milch. Wie viele ml sind das? ${blank(90)}`),
+            item(`24 € werden gleich auf 6 Teile geteilt. Wie viel ist ${frac(5, 6)} davon? ${blank(90)}`),
+            item(`Schreibe einen Antwortsatz: ${frac(1, 3)} von 21 Schüler:innen sind ${blank(120)}`)
+        ]);
+
+        section('6. Brüche vervielfachen und aufteilen', [
+            item(`3 \\(\\cdot\\) ${frac(1, 5)} = ${blank(80)}`),
+            item(`4 \\(\\cdot\\) ${frac(2, 9)} = ${blank(80)}`),
+            item(`2 \\(\\cdot\\) ${frac(3, 8)} = ${blank(80)}`),
+            item(`5 \\(\\cdot\\) ${frac(1, 4)} = ${blank(80)}`),
+            item(`${frac(2, 7)} + ${frac(2, 7)} + ${frac(2, 7)} = ${blank(80)}`),
+            item(`Schreibe als Malrechnung: ${frac(3, 10)} + ${frac(3, 10)} + ${frac(3, 10)} ${blank(100)}`),
+            item(`2 Pizzen werden fair auf 4 Kinder verteilt. Jedes Kind bekommt ${blank(80)} Pizza.`),
+            item(`3 Tafeln werden fair auf 6 Kinder verteilt. Jedes Kind bekommt ${blank(80)} Tafel.`)
+        ]);
+
+        section('7. Brüche im Alltag und als Division', [
+            item(`${frac(3, 4)} Stunde = ${blank(80)} Minuten`),
+            item(`${frac(1, 2)} € = ${blank(80)} Cent`),
+            item(`${frac(3, 4)} kg = ${blank(80)} g`),
+            item(`${frac(1, 4)} l = ${blank(80)} ml`),
+            item(`Schreibe als Division: ${frac(5, 8)} = ${blank(90)}`),
+            item(`Schreibe als Bruch: 3 : 4 = ${blank(90)}`),
+            item(`5 Kinder teilen 2 Kuchen fair. Jedes Kind bekommt ${blank(90)} Kuchen.`),
+            item(`Erkläre mit einem Satz: Warum gehört bei Sachaufgaben eine Einheit zur Antwort? ${blank(220)}`)
+        ]);
+
+        return html;
+    }
+
+    if (topicId === 'math1_9_dezimalzahlen') {
+        section('1. Preise und Dezimalzahlen lesen', [
+            item(`Schreibe in Euro: 35 Cent = ${blank(90)}`),
+            item(`Schreibe in Euro: 7 Cent = ${blank(90)}`),
+            item(`Schreibe in Cent: 2,45 € = ${blank(90)}`),
+            item(`Schreibe in Worten: 3,75 € = ${blank(180)}`),
+            item(`Was ist billiger? 1,29 € ${signBox()} 1,35 €`),
+            item(`Was ist billiger? 0,95 € ${signBox()} 1,05 €`),
+            item(`Aktion 2+1 gratis: Ein Heft kostet 1,20 €. Was zahlst du für 3 Hefte? ${blank(90)}`),
+            item(`Schreibe eine passende Alltagssituation zu 0,75: ${blank(220)}`)
+        ]);
+
+        section('2. Stellenwerttafel', [
+            item(`Welche Stelle hat die 7 in 4,73? ${blank(100)}`),
+            item(`Welche Stelle hat die 3 in 4,73? ${blank(100)}`),
+            item(`Schreibe als Dezimalzahl: 6 Zehntel = ${blank(80)}`),
+            item(`Schreibe als Dezimalzahl: 6 Hundertstel = ${blank(80)}`),
+            item(`Schreibe als Dezimalzahl: 125 Tausendstel = ${blank(80)}`),
+            item(`3,4 \\(\\cdot\\) 10 = ${blank(80)}`),
+            item(`56,2 : 10 = ${blank(80)}`),
+            item(`0,48 \\(\\cdot\\) 100 = ${blank(80)}`),
+            item(`17,5 : 100 = ${blank(80)}`),
+            item(`Erkläre: Warum ist 0,06 nicht dasselbe wie 0,6? ${blank(220)}`)
+        ]);
+
+        const decimalCompare = [['0,7', '0,65'], ['3,04', '3,4'], ['5,2', '5,19'], ['0,09', '0,9'], ['2,50', '2,5'], ['1,005', '1,05'], ['8,08', '8,8'], ['12,30', '12,3'], ['0,505', '0,55'], ['4,099', '4,1']];
+        section('3. Vergleichen und ordnen', [
+            ...decimalCompare.map(([a, b]) => item(`${a} ${signBox()} ${b}`)),
+            item(`Ordne von klein nach groß: 0,08; 0,2; 0,35 ${blank(170)}`),
+            item(`Ordne von klein nach groß: 4,4; 4,04; 4,40; 4,004 ${blank(210)}`),
+            item(`Ordne Laufzeiten von schnell nach langsam: 12,8 s; 12,08 s; 13,1 s ${blank(210)}`),
+            item(`Ergänze eine Null ohne den Wert zu ändern: 6,5 = ${blank(80)}`)
+        ]);
+
+        const rounds = [['4,73', 'Ganze'], ['8,24', 'Zehntel'], ['8,25', 'Zehntel'], ['12,486', 'Hundertstel'], ['6,347', 'Zehntel'], ['0,996', 'Hundertstel'], ['19,95', 'Ganze'], ['3,141', 'Hundertstel'], ['7,05', 'Zehntel'], ['0,444', 'Hundertstel'], ['25,499', 'Ganze'], ['5,555', 'Zehntel']];
+        section('4. Runden', rounds.map(([num, place]) => item(`Runde ${num} auf ${place}: ${blank(90)}`)));
+
+        section('5. Dezimalzahlen und Brüche umwandeln', [
+            item(`${frac(3, 10)} = ${blank(90)}`),
+            item(`${frac(7, 10)} = ${blank(90)}`),
+            item(`${frac(4, 100)} = ${blank(90)}`),
+            item(`${frac(38, 100)} = ${blank(90)}`),
+            item(`${frac(6, 1000)} = ${blank(90)}`),
+            item(`${frac(125, 1000)} = ${blank(90)}`),
+            item(`${frac(1, 2)} = ${blank(90)}`),
+            item(`${frac(3, 4)} = ${blank(90)}`),
+            item(`0,4 = ${blank(90)} als Bruch`),
+            item(`0,07 = ${blank(90)} als Bruch`),
+            item(`2,35 = ${blank(90)} als gemischte Zahl`),
+            item(`0,125 = ${blank(90)} als Bruch`)
+        ]);
+
+        const addSubDec = ['1,50 + 1,20', '4,35 + 2,70', '8,00 - 3,47', '12,6 + 0,45', '5,3 - 1,75', '9,8 - 4,9', '2,35 + 0,90', '10,00 - 6,85', '14,25 + 3,8', '7,04 - 2,9', '0,75 + 0,125', '20 - 4,65', '3,09 + 12,7', '15,5 - 8,75'];
+        section('6. Addieren und subtrahieren', addSubDec.map((task) => item(`${task} = ${blank(110)}`)));
+
+        const multDec = ['2,4 &middot; 3', '1,5 &middot; 4', '0,3 &middot; 0,2', '2,5 &middot; 0,4', '0,25 &middot; 4', '1,2 &middot; 0,3', '4,8 &middot; 2,1', '3 &middot; 1,20 &euro;', '0,6 &middot; 0,7', '12,5 &middot; 0,8', '2,05 &middot; 6', '0,04 &middot; 9'];
+        section('7. Dezimalzahlen multiplizieren', multDec.map((task) => item(`${task} = ${blank(110)}`)));
+
+        const divDec = ['6,4 : 2', '4,5 : 5', '3,6 : 4', '7,2 : 10', '3,5 : 100', '9,6 : 3', '12,8 : 4', '2,40 &euro; : 4', '0,75 : 3', '15,0 : 6'];
+        section('8. Dezimalzahlen dividieren', divDec.map((task) => item(`${task} = ${blank(110)}`)));
+
+        section('9. Gemischte Sachaufgaben', [
+            item(`Ein Apfel kostet 0,40 €. Was kosten 6 Äpfel? ${blank(100)}`),
+            item(`Du hast 10,00 € und zahlst 3,75 €. Wie viel bleibt? ${blank(100)}`),
+            item(`Ein Stoffband ist 2,5 m lang. Du brauchst 0,75 m. Wie viel bleibt? ${blank(100)}`),
+            item(`4 gleiche Hefte kosten zusammen 6,80 €. Was kostet ein Heft? ${blank(100)}`),
+            item(`Ein Getränk kostet 1,35 €. Ein Weckerl kostet 2,20 €. Was kostet beides? ${blank(100)}`),
+            item(`Berechne mit richtiger Reihenfolge: 2 + 3 &middot; 4 = ${blank(80)}`),
+            item(`Berechne mit richtiger Reihenfolge: (2 + 3) &middot; 4 = ${blank(80)}`),
+            item(`Schreibe zu einer Rechnung einen Antwortsatz: 6 &middot; 0,40 € = 2,40 € ${blank(220)}`)
+        ]);
+
+        return html;
+    }
 
     if (topicId === 'math1_2_nat_zahlen') {
         html += `<h2>1. Runden von Zahlen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -99,58 +279,6 @@ function generateWorksheetContent(topicId, topicTitle) {
                 const b = x;
                 html += `<div>\\(${v} : ${a} = ${b}\\)<br><br>\\(${v} = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:50px;"></span></div>`;
             }
-        }
-        html += `</div>`;
-    }
-    else if (topicId === 'math1_8_brueche') {
-        html += `<h2>1. Erweitern und Kürzen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<6; i++) {
-            const n = rand(3, 12);
-            const z = rand(1, n-1);
-            const factor = rand(2, 5);
-            html += `<div>Erweitere \\(\\frac{${z}}{${n}}\\) mit ${factor}: <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
-        }
-        for(let i=0; i<6; i++) {
-            const factor = rand(2, 5);
-            const n = rand(3, 10);
-            const z = rand(1, n-1);
-            html += `<div>Kürze \\(\\frac{${z*factor}}{${n*factor}}\\) durch ${factor}: <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>2. Gemischte Zahlen in unechte Brüche</h2><div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<9; i++) {
-            const w = rand(1, 5);
-            const n = rand(2, 8);
-            const z = rand(1, n-1);
-            html += `<div>\\(${w}\\frac{${z}}{${n}}\\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>3. Unechte Brüche in gemischte Zahlen</h2><div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<9; i++) {
-            const w = rand(1, 5);
-            const n = rand(2, 8);
-            const z = rand(1, n-1);
-            const top = (w * n) + z;
-            html += `<div>\\(\\frac{${top}}{${n}}\\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-        }
-        html += `</div>`;
-    }
-    else if (topicId === 'math1_9_dezimalzahlen') {
-        html += `<h2>1. Dezimalzahlen addieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const n1 = (rand(1, 1000) / 10).toFixed(1).replace('.', ',');
-            const n2 = (rand(1, 1000) / 100).toFixed(2).replace('.', ',');
-            html += `<div>${n1} + ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>2. Dezimalzahlen subtrahieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const n1 = (rand(500, 2000) / 10).toFixed(1).replace('.', ',');
-            const n2 = (rand(1, 490) / 100).toFixed(2).replace('.', ',');
-            html += `<div>${n1} - ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
         }
         html += `</div>`;
     }

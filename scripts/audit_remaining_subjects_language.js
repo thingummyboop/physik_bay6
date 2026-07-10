@@ -9,7 +9,7 @@ const topicsDir = path.join(repoRoot, 'js', 'topics');
 const langDir = path.join(repoRoot, 'lang');
 const languageFiles = fs
   .readdirSync(langDir)
-  .filter((file) => file.endsWith('.json'))
+  .filter((file) => file.endsWith('.json') && file !== 'space_program.json')
   .sort();
 
 const REMAINING_TOPIC_PATTERN = /^(dgb\d*|wetter|klima|klimawandel)$/i;

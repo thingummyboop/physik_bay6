@@ -231,19 +231,18 @@ function updateTippingRisk() {
 }
 
 function enhanceClimateChangeAccessibility() {
+    const rangeDescriptions = {
+        climateGasRange: "climatePpmLabel climateHeatLabel greenhouseExplanation",
+        climateYearRange: "climateYearLabel globalTempLabel austriaTempLabel",
+        warmingRange: "warmingLabel tippingNote"
+    };
+
     ["climateGasRange", "climateYearRange", "warmingRange"].forEach(id => {
         const range = document.getElementById(id);
-        if (range) range.setAttribute("role", "slider");
-    });
-
-    const sliderDescriptions = {
-        climateGasRange: "greenhouseExplanation",
-        climateYearRange: "climateYearLabel",
-        warmingRange: "tippingNote"
-    };
-    Object.entries(sliderDescriptions).forEach(([id, describedBy]) => {
-        const range = document.getElementById(id);
-        if (range) range.setAttribute("aria-describedby", describedBy);
+        if (range) {
+            range.setAttribute("role", "slider");
+            range.setAttribute("aria-describedby", rangeDescriptions[id]);
+        }
     });
 
     ["climatePpmLabel", "greenhouseWarmingLabel", "climateYearLabel", "impactText", "climateActionFeedback", "tippingNote"].forEach(id => {

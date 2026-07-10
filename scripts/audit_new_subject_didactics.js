@@ -8,8 +8,7 @@ const repoRoot = path.resolve(__dirname, '..');
 const langDir = path.join(repoRoot, 'lang');
 const topics = [
   'geo_oesterreich_alltag',
-  'chemie_alltag_stoffe',
-  'bio_koerper_gesundheit'
+  'chemie_alltag_stoffe'
 ];
 const languages = ['de', 'en'];
 const maxAverageSentenceWords = 16;

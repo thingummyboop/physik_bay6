@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang="de" class="topic-page-root">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lernabenteuer</title>
-    <link rel="stylesheet" href="../css/style.css?v=9.0">
+    <title>SciVerse</title>
+    <link rel="stylesheet" href="../css/style.css?v=9.9">
     <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 </head>
-<body class="topic-page">
+<body>
     <div id="score-board">
         <span id="score-label">Punkte:</span> <span id="score" class="score-highlight">0</span>
-        <button onclick="resetTopicProgress()" class="topic-reset-btn">&Uuml;bungsfragen zur&uuml;cksetzen</button>
+        <button id="topic-reset-btn" onclick="resetTopicProgress()" style="margin-left: 20px; background: #e53e3e; font-size: 0.6em; padding: 5px 10px; vertical-align: middle;">Übungen zurücksetzen</button>
     </div>
-
+    
     <div class="topic-body">
-        <header class="topic-hero">
-            <h1 id="topic-title"></h1>
-            <p id="topic-subtitle"></p>
-        </header>
-
+        <h1 id="topic-title" style="text-align: center; font-size: 3em; margin-bottom: 10px;"></h1>
+        <p id="topic-subtitle" style="text-align: center; font-size: 1.2em; margin-bottom: 40px; color: var(--primary); font-weight: bold;"></p>
+        
         <div id="sections-container">
             <!-- Sections will be injected here -->
         </div>
     </div>
 
-    <script src="../js/common.js?v=8.4"></script>
-    <script src="../js/physics_course.js?v=1.0"></script>
-    <script src="../js/renderer.js?v=12.5"></script>
+    <script src="../js/common.js?v=7.6"></script>
+    <script src="../js/renderer.js?v=14.6"></script>
+    <script src="../js/learning_radio.js?v=1.4"></script>
 </body>
 </html>

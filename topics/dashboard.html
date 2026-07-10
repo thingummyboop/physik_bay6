@@ -3,88 +3,764 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dein Lern-Zeugnis</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>SciVerse Zeugnis</title>
+    <link rel="stylesheet" href="../css/style.css?v=5.7">
     <style>
-        .topic-body { padding-top: 40px; }
-        .dashboard-header { text-align: center; margin-bottom: 30px; }
-        .rank-title { font-size: 2.5em; color: var(--secondary); margin: 10px 0; }
-        .progress-bar-container { width: 100%; background-color: var(--box-border); border-radius: 10px; height: 25px; overflow: hidden; margin-top: 15px; }
-        .progress-bar { height: 100%; background-color: var(--correct); width: 0%; transition: width 1s ease-out; }
+        .topic-body {
+            padding-top: 34px;
+        }
+
+        .report-shell {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .report-page {
+            background:
+                linear-gradient(90deg, rgba(15, 23, 42, 0.055) 0 8px, transparent 8px),
+                linear-gradient(180deg, #fffdf7 0%, #ffffff 100%);
+            border: 1px solid #d6c7a5;
+            border-radius: 8px;
+            box-shadow: 0 22px 48px rgba(15, 23, 42, 0.18);
+            color: #1f2937;
+            min-height: 78vh;
+            padding: clamp(22px, 4vw, 42px);
+            position: relative;
+        }
+
+        [data-theme="dark"] .report-page {
+            background:
+                linear-gradient(90deg, rgba(96, 165, 250, 0.12) 0 8px, transparent 8px),
+                linear-gradient(180deg, #172033 0%, #0f172a 100%);
+            border-color: #334155;
+            color: #e5e7eb;
+        }
+
+        .report-page::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border: 2px solid rgba(30, 64, 175, 0.18);
+            border-radius: 6px;
+            pointer-events: none;
+        }
+
+        .report-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            align-items: start;
+            border-bottom: 3px double #1e40af;
+            padding-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .report-kicker {
+            color: #1e40af;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            margin: 0 0 4px;
+            text-transform: uppercase;
+        }
+
+        [data-theme="dark"] .report-kicker {
+            color: #93c5fd;
+        }
+
+        .report-title {
+            color: #111827;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.6rem, 7vw, 5rem);
+            letter-spacing: 0.02em;
+            line-height: 0.95;
+            margin: 0;
+        }
+
+        [data-theme="dark"] .report-title {
+            color: #f8fafc;
+        }
+
+        .report-stamp {
+            align-self: center;
+            border: 4px double #b91c1c;
+            border-radius: 50%;
+            color: #b91c1c;
+            display: grid;
+            font-weight: 900;
+            height: 108px;
+            letter-spacing: 0.08em;
+            place-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            transform: rotate(-10deg);
+            width: 108px;
+        }
+
+        .report-meta {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            margin: 22px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .meta-line {
+            border-bottom: 1px solid #9ca3af;
+            padding: 8px 0;
+        }
+
+        .meta-line input {
+            background: transparent;
+            border: 0;
+            border-radius: 4px;
+            color: inherit;
+            font: inherit;
+            font-weight: 800;
+            margin-top: 3px;
+            outline: none;
+            padding: 3px 0;
+            width: 100%;
+        }
+
+        .meta-line input:focus {
+            background: rgba(59, 130, 246, 0.08);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+            padding-inline: 6px;
+        }
+
+        .meta-line span {
+            color: #64748b;
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        [data-theme="dark"] .meta-line span {
+            color: #94a3b8;
+        }
+
+        .subject-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-report-card {
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px solid #d1d5db;
+            border-left: 7px solid var(--subject-accent, #2563eb);
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 16px;
+            text-align: left;
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+
+        [data-theme="dark"] .subject-report-card {
+            background: rgba(15, 23, 42, 0.72);
+            border-color: #334155;
+            color: #e5e7eb;
+        }
+
+        .subject-report-card:hover,
+        .subject-report-card:focus {
+            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16);
+            outline: none;
+            transform: translateY(-3px);
+        }
+
+        .subject-report-card h2 {
+            color: var(--subject-accent, #2563eb);
+            display: flex;
+            gap: 10px;
+            margin: 0 0 10px;
+        }
+
+        .subject-report-card p {
+            margin: 4px 0;
+        }
+
+        .progress-line {
+            background: #e5e7eb;
+            border-radius: 999px;
+            height: 9px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .progress-line span {
+            background: var(--subject-accent, #2563eb);
+            display: block;
+            height: 100%;
+            width: 0%;
+        }
+
+        .report-detail {
+            animation: pageTurn 0.36s ease both;
+            display: none;
+        }
+
+        .report-shell.flipped .report-cover {
+            display: none;
+        }
+
+        .report-shell.flipped .report-detail {
+            display: block;
+        }
+
+        @keyframes pageTurn {
+            from {
+                opacity: 0;
+                transform: rotateY(-12deg) translateX(18px);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0) translateX(0);
+            }
+        }
+
+        .detail-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-actions button {
+            background: #1e40af;
+            border: none;
+            border-radius: 999px;
+            color: white;
+            cursor: pointer;
+            font-weight: 900;
+            padding: 10px 16px;
+        }
+
+        .grade-block {
+            border-top: 2px solid rgba(30, 64, 175, 0.24);
+            margin-top: 20px;
+            padding-top: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grade-block h2 {
+            color: #1e40af;
+            margin: 0 0 10px;
+        }
+
+        [data-theme="dark"] .grade-block h2 {
+            color: #93c5fd;
+        }
+
+        .topic-row {
+            align-items: center;
+            background: rgba(255, 255, 255, 0.68);
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr auto auto;
+            margin: 8px 0;
+            padding: 10px 12px;
+        }
+
+        [data-theme="dark"] .topic-row {
+            background: rgba(15, 23, 42, 0.74);
+            border-color: #334155;
+        }
+
+        .topic-row button {
+            background: transparent;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 800;
+            padding: 0;
+            text-align: left;
+        }
+
+        .topic-row button:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        .score-pill,
+        .status-pill {
+            border-radius: 999px;
+            font-weight: 900;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        .score-pill {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-pill {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.82rem;
+        }
+
+        .status-pill.done {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-pill.started {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-pill.planned {
+            background: #e5e7eb;
+            color: #64748b;
+        }
+
+        .easter-egg-toast {
+            background: linear-gradient(135deg, #0f766e, #22c55e);
+            border-radius: 999px;
+            bottom: 22px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.24);
+            color: white;
+            font-weight: 900;
+            left: 50%;
+            padding: 12px 18px;
+            position: fixed;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        @media (max-width: 720px) {
+            .report-header {
+                grid-template-columns: 1fr;
+            }
+
+            .report-stamp {
+                height: 86px;
+                justify-self: start;
+                width: 86px;
+            }
+
+            .topic-row {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="topic-body">
-    <div class="card" style="border: 5px solid var(--primary);">
-        <div class="dashboard-header">
-            <h1>📊 Dein Lern-Dashboard</h1>
-            <p>Dein aktueller Rang:</p>
-            <h2 class="rank-title" id="rankTitle">Labor-Assistent 🧪</h2>
-            <p style="font-size: 1.5em;">Gesamtpunkte: <strong id="dashScore" style="color: var(--primary);">0</strong></p>
-            <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
-            <p style="margin-top: 5px; font-size: 0.9em;" id="progressText">Nächster Rang in 50 Punkten</p>
-        </div>
-        <h3 style="text-align: center; margin-top: 40px;">Deine Diplome & Abzeichen 🏅</h3>
-        <div class="badge-container" id="badgeContainer"></div>
-    </div>
+    <main class="report-shell" id="reportShell">
+        <section class="report-page report-cover">
+            <header class="report-header">
+                <div>
+                    <p class="report-kicker">SciVerse Mittelschule Wien</p>
+                    <h1 class="report-title">Zeugnis</h1>
+                </div>
+                <div class="report-stamp">Lern-<br>stand</div>
+            </header>
+
+            <div class="report-meta">
+                <label class="meta-line" for="studentNameInput"><span>Name</span><input id="studentNameInput" type="text" autocomplete="name" spellcheck="false" placeholder="Schülerin / Schüler"></label>
+                <div class="meta-line"><span>Gesamtpunkte</span><strong id="totalScore">0</strong></div>
+                <div class="meta-line"><span>Geschaffte Kapitel</span><strong id="completedCount">0</strong></div>
+                <div class="meta-line"><span>Stand</span><strong id="reportDate">-</strong></div>
+            </div>
+
+            <div class="subject-grid" id="subjectGrid"></div>
+        </section>
+
+        <section class="report-page report-detail">
+            <div class="detail-actions">
+                <button type="button" onclick="showCover()">← Zurück zum Zeugnis</button>
+                <button type="button" id="printButton" onclick="window.print()">Drucken</button>
+            </div>
+            <header class="report-header">
+                <div>
+                    <p class="report-kicker">Fachübersicht</p>
+                    <h1 class="report-title" id="detailTitle">Fach</h1>
+                </div>
+                <div class="report-stamp" id="detailStamp">0<br>Punkte</div>
+            </header>
+            <div id="detailContent"></div>
+        </section>
+    </main>
+
     <script>
         if (localStorage.getItem('physik_dark_mode') === 'true') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
-        const ranks = [
-            { points: 0, name: "Labor-Assistent 🧪" },
-            { points: 100, name: "Junior-Forscher 🔭" },
-            { points: 300, name: "Physik-Experte ⚛️" },
-            { points: 600, name: "Meister der Energie ⚡" },
-            { points: 1000, name: "Einstein-Erbe 👑" }
-        ];
-        const badges = [
-            { id: "optik1", icon: "🌑", title: "Optik 1" },
-            { id: "farben", icon: "🎨", title: "Farben" },
-            { id: "waermelehre", icon: "🌡️", title: "Wärme" },
-            { id: "elektrizitaet", icon: "⚡", title: "Strom" },
-            { id: "kraft_und_bewegung", icon: "🚀", title: "Mechanik" },
-            { id: "drehundstatik", icon: "🎡", title: "Statik" },
-            { id: "arbeit", icon: "🏗", title: "Arbeit" },
-            { id: "energie", icon: "🔋", title: "Energie" },
-            { id: "akustik", icon: "🎶", title: "Akustik" },
-            { id: "elektromagnetismus", icon: "🧲", title: "Magnet" },
-            { id: "linsen_spiegel", icon: "🔍", title: "Optik 2" },
-            { id: "astronomie", icon: "🌌", title: "Astronomie" },
-            { id: "dgb_word_werkstatt", icon: "🖥️", title: "DGB Word" },
-            { id: "wetter", icon: "🌤️", title: "Wetter" },
-            { id: "klima", icon: "🌡️", title: "Klima" },
-            { id: "klimawandel", icon: "🆘", title: "Klimawandel" },
-            { id: "sieinheiten", icon: "📏", title: "SI-Einheiten" },
-            { id: "rechenbeispiele", icon: "🧮", title: "Rechenbeispiele" },
-            { id: "geo_oesterreich_alltag", icon: "🗺️", title: "Geographie" },
-            { id: "chemie_roadmap", icon: "🧪", title: "Chemie" },
-            { id: "bio_koerper_gesundheit", icon: "🫀", title: "Biologie" }
-        ];
-        document.addEventListener('DOMContentLoaded', () => {
-            const score = parseInt(localStorage.getItem('physik_score')) || 0;
-            document.getElementById('dashScore').innerText = score;
-            let rank = ranks[0];
-            let next = ranks[1];
-            ranks.forEach((r, i) => { if(score >= r.points) { rank = r; next = ranks[i+1]; } });
-            document.getElementById('rankTitle').innerText = rank.name;
-            if(next) {
-                let perc = (score / next.points) * 100;
-                document.getElementById('progressBar').style.width = perc + "%";
-                document.getElementById('progressText').innerText = `Noch ${next.points - score} bis ${next.name}`;
+
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'themeChange') {
+                if (event.data.isDark) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
             }
-            const topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
-            const container = document.getElementById('badgeContainer');
-            badges.forEach(b => {
-                const s = topicScores[b.id] || 0;
-                const earned = s >= 75;
-                container.innerHTML += `
-                    <div class="badge ${earned ? 'earned' : ''}" onclick="window.parent.postMessage({type:'navigate', page:'${b.id}'}, '*')">
-                        <div class="badge-icon">${b.icon}</div>
-                        <strong>${b.title}</strong>
-                        <p style="font-size:0.7em;">${s} Pkt</p>
-                    </div>`;
+        });
+
+        const subjectMeta = {
+            biologie: { label: "Biologie", icon: "🧬", accent: "#059669" },
+            chemie: { label: "Chemie", icon: "🧪", accent: "#0891b2" },
+            deutsch: { label: "Deutsch", icon: "📚", accent: "#dc2626" },
+            dgb: { label: "Digitale Grundbildung", icon: "💻", accent: "#7c3aed" },
+            englisch: { label: "Englisch", icon: "🇬🇧", accent: "#0284c7" },
+            ernaehrung: { label: "Ernährung & Haushalt", icon: "🥕", accent: "#65a30d" },
+            geographie: { label: "Geographie & Umwelt", icon: "🌍", accent: "#16a34a" },
+            kunst: { label: "Kunst", icon: "🗿", accent: "#ea580c" },
+            mathematik: { label: "Mathematik", icon: "📐", accent: "#2563eb" },
+            musik: { label: "Musik", icon: "🎵", accent: "#c026d3" },
+            physik: { label: "Physik", icon: "🚀", accent: "#0f766e" }
+        };
+
+        const STUDENT_NAME_KEY = 'sciverse_student_name';
+        const MASTER_UNLOCK_KEY = 'sciverse_master_unlock';
+        const MASTER_UNLOCK_NAMES = new Set([
+            'simon lukas mortelbauer',
+            'simon lukas moertelbauer'
+        ]);
+        const SPACE_REWARD_PARTS = [
+            'nose_basic', 'body_basic', 'engine_basic', 'fin_basic', 'science_empty', 'utility_basic', 'weapon_basic', 'paint_school',
+            'music_radio', 'geo_mapper', 'math_nav', 'art_paint', 'bio_probe', 'engine_vector', 'chem_fuel', 'english_radio',
+            'fin_gyro', 'de_logbook', 'math_optimizer', 'eh_life_support', 'shield_heat', 'weapon_photon', 'chem_alloy', 'solar_panel',
+            'math_grid_paint', 'bio_greenhouse', 'chem_crystal', 'dgb_autopilot', 'weapon_plasma', 'weapon_targeting', 'paint_gold'
+        ];
+
+        function getCurriculum() {
+            try {
+                if (window.parent && window.parent.SCIVERSE_CURRICULUM) {
+                    return window.parent.SCIVERSE_CURRICULUM;
+                }
+            } catch (error) {
+                return {};
+            }
+            return {};
+        }
+
+        function readTopicScores() {
+            try {
+                return JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function readChapterResults() {
+            try {
+                return JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function getAvailableTopics() {
+            const curriculum = getCurriculum();
+            return Object.values(curriculum)
+                .flatMap(subject => subject.topics || [])
+                .filter(topic => topic && topic.available !== false && topic.id);
+        }
+
+        function normalizeStudentName(value) {
+            return String(value || '')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .replace(/[^a-z\s]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function isMasterUnlockName(value) {
+            return MASTER_UNLOCK_NAMES.has(normalizeStudentName(value));
+        }
+
+        function hasAllRewards(topicIds) {
+            const topicScores = readTopicScores();
+            const chapterResults = readChapterResults();
+            const allTopicsDone = topicIds.every(topicId =>
+                Number(topicScores[topicId] || 0) >= 100 && chapterResults[topicId]?.passed === true
+            );
+            let allSpaceRewards = false;
+            try {
+                const spaceState = JSON.parse(localStorage.getItem('sciverse_space_program') || '{}');
+                const owned = new Set(spaceState.owned || []);
+                allSpaceRewards = SPACE_REWARD_PARTS.every(partId => owned.has(partId)) && spaceState.goldenRocket === true;
+            } catch (error) {
+                allSpaceRewards = false;
+            }
+            return allTopicsDone && allSpaceRewards;
+        }
+
+        function unlockAllProgress() {
+            const topics = getAvailableTopics();
+            const topicIds = [...new Set(topics.map(topic => topic.id))];
+            if (!topicIds.length) return false;
+            if (hasAllRewards(topicIds)) return false;
+
+            const now = Date.now();
+            const topicScores = readTopicScores();
+            const chapterResults = readChapterResults();
+
+            topicIds.forEach(topicId => {
+                topicScores[topicId] = 100;
+                chapterResults[topicId] = {
+                    ...(chapterResults[topicId] || {}),
+                    passed: true,
+                    bestPercent: 100,
+                    lastPercent: 100,
+                    lastCorrect: 12,
+                    total: 12,
+                    attemptsUsed: 0,
+                    attempts: 0,
+                    availableAttempts: 3,
+                    lastAttemptAt: now,
+                    nextRefillAt: 0,
+                    fullRefillAt: 0,
+                    lockUntil: 0,
+                    unlockedBy: 'student-name-easter-egg',
+                    unlockedAt: now
+                };
             });
+
+            const targetScore = Math.max(Number(localStorage.getItem('physik_score') || 0), topicIds.length * 100);
+            localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
+            localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(chapterResults));
+            localStorage.setItem('challenge_completed_topics', JSON.stringify(topicIds));
+            localStorage.setItem('physik_score', String(targetScore));
+            localStorage.setItem('learning_coins', String(targetScore));
+            localStorage.setItem(MASTER_UNLOCK_KEY, String(now));
+
+            try {
+                const previousSpaceState = JSON.parse(localStorage.getItem('sciverse_space_program') || '{}');
+                const equipped = {
+                    nose: 'chem_crystal',
+                    body: 'chem_alloy',
+                    engine: 'engine_vector',
+                    fin: 'fin_gyro',
+                    science: 'bio_greenhouse',
+                    utility: 'math_optimizer',
+                    weapon: 'weapon_targeting',
+                    paint: 'paint_gold',
+                    ...(previousSpaceState.equipped || {})
+                };
+                localStorage.setItem('sciverse_space_program', JSON.stringify({
+                    ...previousSpaceState,
+                    owned: SPACE_REWARD_PARTS,
+                    equipped,
+                    goldenRocket: true,
+                    activeMissionId: 'sciverse_grand_tour',
+                    missionLog: {
+                        ...(previousSpaceState.missionLog || {}),
+                        sciverse_grand_tour: {
+                            maxAlt: 24000,
+                            items: 24,
+                            science: 999,
+                            score: Math.max(50000, Number(localStorage.getItem('sciverse_space_highscore') || 0)),
+                            completedAt: now
+                        }
+                    }
+                }));
+                localStorage.setItem('sciverse_space_highscore', String(Math.max(50000, Number(localStorage.getItem('sciverse_space_highscore') || 0))));
+            } catch (error) {
+                localStorage.setItem('sciverse_space_program', JSON.stringify({
+                    owned: SPACE_REWARD_PARTS,
+                    equipped: {
+                        nose: 'chem_crystal',
+                        body: 'chem_alloy',
+                        engine: 'engine_vector',
+                        fin: 'fin_gyro',
+                        science: 'bio_greenhouse',
+                        utility: 'math_optimizer',
+                        weapon: 'weapon_targeting',
+                        paint: 'paint_gold'
+                    },
+                    goldenRocket: true,
+                    activeMissionId: 'sciverse_grand_tour',
+                    missionLog: {
+                        sciverse_grand_tour: {
+                            maxAlt: 24000,
+                            items: 24,
+                            science: 999,
+                            score: 50000,
+                            completedAt: now
+                        }
+                    }
+                }));
+                localStorage.setItem('sciverse_space_highscore', '50000');
+            }
+
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'updateScore', score: targetScore }, '*');
+            }
+            return true;
+        }
+
+        function showUnlockToast() {
+            const existing = document.querySelector('.easter-egg-toast');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = 'easter-egg-toast';
+            toast.textContent = 'Spezialmodus aktiviert';
+            document.body.appendChild(toast);
+            window.setTimeout(() => toast.remove(), 3800);
+        }
+
+        function checkStudentNameUnlock(value) {
+            if (!isMasterUnlockName(value)) return;
+            if (unlockAllProgress()) {
+                showUnlockToast();
+                renderCover();
+            }
+        }
+
+        function setupStudentNameInput() {
+            const input = document.getElementById('studentNameInput');
+            if (!input) return;
+            input.value = localStorage.getItem(STUDENT_NAME_KEY) || '';
+            input.addEventListener('input', () => {
+                localStorage.setItem(STUDENT_NAME_KEY, input.value);
+                checkStudentNameUnlock(input.value);
+            });
+            checkStudentNameUnlock(input.value);
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function topicScore(topicScores, topicId) {
+            return Number(topicScores[topicId] || 0);
+        }
+
+        function topicStatus(topic, score) {
+            if (topic.available === false) return { text: "geplant", className: "planned" };
+            if (score >= 75) return { text: "geschafft", className: "done" };
+            if (score > 0) return { text: "begonnen", className: "started" };
+            return { text: "offen", className: "" };
+        }
+
+        function subjectStats(topics, topicScores) {
+            const realTopics = topics.filter(topic => topic.available !== false);
+            const completed = realTopics.filter(topic => topicScore(topicScores, topic.id) >= 75).length;
+            const points = topics.reduce((sum, topic) => sum + topicScore(topicScores, topic.id), 0);
+            return {
+                completed,
+                points,
+                planned: topics.length - realTopics.length,
+                realCount: realTopics.length,
+                progress: realTopics.length ? Math.round((completed / realTopics.length) * 100) : 0
+            };
+        }
+
+        function renderCover() {
+            const curriculum = getCurriculum();
+            const topicScores = readTopicScores();
+            const subjectGrid = document.getElementById('subjectGrid');
+            const subjectKeys = Object.keys(curriculum).sort((a, b) => {
+                const labelA = (subjectMeta[a]?.label || a).localeCompare(subjectMeta[b]?.label || b, 'de');
+                return labelA;
+            });
+
+            const totalScore = Number(localStorage.getItem('physik_score') || 0);
+            const completedTotal = Object.values(curriculum)
+                .flatMap(subject => subject.topics || [])
+                .filter(topic => topic.available !== false && topicScore(topicScores, topic.id) >= 75).length;
+
+            document.getElementById('totalScore').textContent = `${totalScore} Punkte`;
+            document.getElementById('completedCount').textContent = completedTotal;
+            document.getElementById('reportDate').textContent = new Date().toLocaleDateString('de-AT');
+
+            if (!subjectKeys.length) {
+                subjectGrid.innerHTML = '<p>Das Zeugnis wird im SciVerse-Rahmen geladen.</p>';
+                return;
+            }
+
+            subjectGrid.innerHTML = subjectKeys.map(subjectKey => {
+                const meta = subjectMeta[subjectKey] || { label: subjectKey, icon: "📘", accent: "#2563eb" };
+                const topics = curriculum[subjectKey].topics || [];
+                const stats = subjectStats(topics, topicScores);
+                return `
+                    <button class="subject-report-card" style="--subject-accent:${meta.accent}" onclick="openSubject('${subjectKey}')">
+                        <h2><span>${meta.icon}</span>${escapeHtml(meta.label)}</h2>
+                        <p><strong>${stats.points}</strong> Punkte</p>
+                        <p>${stats.completed} von ${stats.realCount} ausgearbeiteten Kapiteln geschafft</p>
+                        <p>${stats.planned} Themen geplant</p>
+                        <div class="progress-line"><span style="width:${stats.progress}%"></span></div>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function openSubject(subjectKey) {
+            const curriculum = getCurriculum();
+            const subject = curriculum[subjectKey];
+            if (!subject) return;
+
+            const meta = subjectMeta[subjectKey] || { label: subjectKey, icon: "📘", accent: "#2563eb" };
+            const topicScores = readTopicScores();
+            const topics = subject.topics || [];
+            const stats = subjectStats(topics, topicScores);
+            const groups = topics.reduce((all, topic) => {
+                const key = topic.grade || "Weitere Themen";
+                if (!all[key]) all[key] = [];
+                all[key].push(topic);
+                return all;
+            }, {});
+
+            document.getElementById('detailTitle').textContent = `${meta.icon} ${meta.label}`;
+            document.getElementById('detailStamp').innerHTML = `${stats.points}<br>Punkte`;
+            document.getElementById('detailContent').innerHTML = Object.entries(groups).map(([grade, gradeTopics]) => `
+                <section class="grade-block">
+                    <h2>${escapeHtml(grade)}</h2>
+                    ${gradeTopics.map(topic => {
+                        const score = topicScore(topicScores, topic.id);
+                        const status = topicStatus(topic, score);
+                        return `
+                            <div class="topic-row">
+                                <button type="button" onclick="navigateTopic('${topic.id}')">${escapeHtml(topic.title)}</button>
+                                <span class="score-pill">${score} Pkt</span>
+                                <span class="status-pill ${status.className}">${status.text}</span>
+                            </div>
+                        `;
+                    }).join('')}
+                </section>
+            `).join('');
+
+            document.getElementById('reportShell').classList.add('flipped');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showCover() {
+            document.getElementById('reportShell').classList.remove('flipped');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function navigateTopic(topicId) {
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'navigate', page: topicId }, '*');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupStudentNameInput();
+            renderCover();
         });
     </script>
+    <script src="../js/learning_radio.js?v=1.3"></script>
 </body>
 </html>

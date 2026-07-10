@@ -712,7 +712,7 @@ P2 Fortschritt (Run 2026-04-28 07:0x):
 
 P3 Fortschritt (Run 2026-04-28 10:xx):
 - Leere Fachbereiche **Geographie**, **Chemie** und **Biologie** in der Navigation durch je ein erstes Einstiegsmodul ersetzt.
-- Neu angelegt: **`geo_oesterreich_alltag`**, **`chemie_alltag_stoffe`** und **`bio_koerper_gesundheit`** mit A2-B1-Sprache, Österreich-/Alltagsbezug, kurzen Merksätzen, Mini-Aufgaben, Quizfragen und Diplomchecks.
+- Neu angelegt: **`geo_oesterreich_alltag`** und **`chemie_alltag_stoffe`** mit A2-B1-Sprache, Österreich-/Alltagsbezug, kurzen Merksätzen, Mini-Aufgaben, Quizfragen und Diplomchecks.
 - Layout/A11y: Quiz-Feedback im Renderer nutzt jetzt `role="status"` + `aria-live` + `aria-atomic`, und Quizbuttons sind explizit `type="button"`.
 - QA-Scope: Physik-Audits schließen neue Geo-/Chemie-/Bio-Topic-Dateien korrekt aus, damit Nicht-Physik-Fächer nicht als Physik-Regressionsfälle zählen.
 - Qualitätssicherung: `node -e "JSON.parse(...lang/de.json...)"`, `node --check` für Renderer/neue Topic-Dateien und vollständiger Sammellauf `bash scripts/run_quality_gate.sh` (`QUALITY_GATE_CLEAR`).
@@ -732,7 +732,7 @@ P1/P2 Fortschritt (Run 2026-04-28 10:xx):
 P3 Fortschritt (Run 2026-04-28 16:xx):
 - Neue Einstiegsfächer **Geographie**, **Chemie** und **Biologie** didaktisch von Starter-Niveau auf klassentaugliche A2-B1-Module erweitert.
 - Pro Kapitel ergänzt: 2-3 Mini-Aufgaben, eine Transferaufgabe, klare **Merke**-Boxen, Alltagssituationen und explizite Hinweise auf typische Fehlvorstellungen.
-- EN-Backfill für **`geo_oesterreich_alltag`**, **`chemie_alltag_stoffe`** und **`bio_koerper_gesundheit`** mit gleicher Struktur/gleichen Quiz-IDs ergänzt, damit diese neuen Topics nicht mehr auf Deutsch zurückfallen.
+- EN-Backfill für **`geo_oesterreich_alltag`** und **`chemie_alltag_stoffe`** mit gleicher Struktur/gleichen Quiz-IDs ergänzt, damit diese neuen Topics nicht mehr auf Deutsch zurückfallen.
 - QA-Ausbau: neuer sichtbarer Warning-Audit **`scripts/audit_new_subject_english_blocks.js`** im Sammel-Gate; meldet neue `geo_`/`chemie_`/`bio_`-Topickeys ohne `lang/en.json`-Block als `NEW_SUBJECT_EN_BLOCK_WARNING`.
 
 P3 Fortschritt (Run 2026-04-28 17:xx):
@@ -747,8 +747,3 @@ Mini-Pilot (Run 2026-04-28 17:xx):
 - Fünf studentische Walkthrough-Snapshots geprüft: Geo DE Einstieg, Geo EN Öffi-Route, Chemie EN Mischen/Trennen, Bio DE Atmen/Kreislauf und Bio EN Schutz/Hygiene.
 - Ergebnis: Lernfluss ist verständlich, Merke/Fehlvorstellung/Transfer erscheinen in allen geprüften Kapiteln, und die neuen Interaktionen sitzen nahe am passenden Lernziel.
 - Fokuspatches: doppelten `geographie`-Key in `index.html` entfernt und Bio-EN-Reglertext von `walking stairs` zu natürlicherem `climbing stairs` geglättet.
-
-QA-Ausbau (Run 2026-05-27):
-- Neues Gate-Audit **`scripts/audit_visual_i18n_darkmode.js`** ergänzt.
-- Abgedeckt: UTF-8-/Mojibake-Regressionsschutz in allen Sprachdateien sowie Baseline-Guard für neue SVG-Beschriftungen ohne robuste Darkmode-Farbe in übersetzten Themen und dynamischen Topic-Grafiken.
-- Astronomie-Folgepatch: Ekliptik-SVG erhält eine helle Zeichenfläche und feste Textfarbe.

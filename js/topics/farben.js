@@ -2,10 +2,11 @@
 function topicInit() {
     enhanceColorAccessibility();
     initPrismDispersion();
+    showColorObject('red');
 }
 
 function enhanceColorAccessibility() {
-    ['waveDesc', 'dispersionAngleLabel', 'dispersionText'].forEach((id) => {
+    ['waveDesc', 'dispersionAngleLabel', 'dispersionText', 'colorObjectText'].forEach((id) => {
         const el = document.getElementById(id);
         if (!el) return;
         el.setAttribute('role', 'status');
@@ -18,6 +19,90 @@ function enhanceColorAccessibility() {
         slider.setAttribute("aria-describedby", "dispersionAngleLabel dispersionText");
         slider.setAttribute("aria-valuetext", `${slider.value} Grad Einfallsrichtung`);
     }
+}
+
+function showColorObject(kind) {
+    const object = document.getElementById('colorObject');
+    const label = document.getElementById('colorObjectLabel');
+    const text = document.getElementById('colorObjectText');
+    const eye = document.getElementById('colorEye');
+    const reflectedRays = document.getElementById('reflectedRayGroup');
+    const absorbedRays = document.getElementById('absorbedRays');
+    
+    if (!object) return;
+
+    const states = {
+        red: {
+            fill: '#ef4444',
+            shape: 'M -30 -30 Q -15 -40 0 -40 Q 15 -40 30 -30 L 50 -10 L 35 5 L 25 -5 L 25 40 Q 0 45 -25 40 L -25 -5 L -35 5 Z', // T-Shirt
+            reflected: [{c: '#ef4444', w: 8, off: 0}],
+            absorbed: ['#22c55e', '#3b82f6'],
+            eye: '#ef4444',
+            label: 'Roter Pulli',
+            text: 'Der rote Pulli wirft (reflektiert) das rote Licht zurück in dein Auge. Das grüne und blaue Licht wird geschluckt (absorbiert).'
+        },
+        green: {
+            fill: '#22c55e',
+            shape: 'M 0 -45 C 30 -45 45 -15 0 45 C -45 -15 -30 -45 0 -45 Z', // Leaf shape
+            reflected: [{c: '#22c55e', w: 8, off: 0}],
+            absorbed: ['#ef4444', '#3b82f6'],
+            eye: '#22c55e',
+            label: 'Grünes Blatt',
+            text: 'Das grüne Blatt reflektiert vor allem grünes Licht. Rot und Blau werden vom Blatt absorbiert.'
+        },
+        black: {
+            fill: '#111827',
+            shape: 'M -30 -20 L -10 -40 L 20 -35 L 40 -10 L 35 20 L 10 40 L -25 30 Z', // Rock/Cloth shape
+            reflected: [], // None
+            absorbed: ['#ef4444', '#22c55e', '#3b82f6'],
+            eye: '#111827',
+            label: 'Schwarzer Stoff',
+            text: 'Schwarzer Stoff schluckt (absorbiert) fast das gesamte Licht. Es kommt kaum Licht am Auge an – deshalb sehen wir Schwarz!'
+        },
+        white: {
+            fill: '#f8fafc',
+            shape: 'M -30 -35 L 30 -35 L 30 35 L -30 35 Z', // Paper sheet shape
+            reflected: [
+                {c: '#ef4444', w: 4, off: -8}, 
+                {c: '#22c55e', w: 4, off: 0}, 
+                {c: '#3b82f6', w: 4, off: 8}
+            ],
+            absorbed: [], // None
+            eye: '#f8fafc',
+            label: 'Weißes Papier',
+            text: 'Weißes Papier reflektiert alle Farben des Lichts gleichermaßen. Wenn alle Lichtfarben zusammen in unser Auge treffen, sehen wir Weiß.'
+        }
+    };
+
+    const state = states[kind] || states.red;
+    object.setAttribute('fill', state.fill);
+    object.setAttribute('d', state.shape);
+    eye.setAttribute('fill', state.eye);
+    label.textContent = state.label;
+    text.textContent = state.text;
+
+    // Build Reflected Rays
+    let reflHtml = '';
+    state.reflected.forEach(r => {
+        const yBase = 90 + r.off;
+        reflHtml += `<path d="M 280 ${yBase} Q 330 ${yBase - 20} 380 ${yBase}" fill="none" stroke="${r.c}" stroke-width="${r.w}" stroke-dasharray="10,5" stroke-linecap="round" filter="url(#glow)">
+            <animate attributeName="stroke-dashoffset" values="15;0" dur="0.5s" repeatCount="indefinite" />
+        </path>`;
+    });
+    reflectedRays.innerHTML = reflHtml;
+
+    // Build Absorbed Rays
+    let absHtml = '';
+    if (state.absorbed.length > 0) {
+        state.absorbed.forEach((c, i) => {
+            const x = 210 + i * 20;
+            absHtml += `<path d="M ${x} 150 L ${x} 200" stroke="${c}" stroke-width="4" stroke-dasharray="4,4">
+                <animate attributeName="stroke-dashoffset" values="8;0" dur="0.6s" repeatCount="indefinite" />
+            </path>`;
+        });
+        absHtml += `<text x="230" y="225" text-anchor="middle" fill="#94a3b8" font-size="11">absorbiert</text>`;
+    }
+    absorbedRays.innerHTML = absHtml;
 }
 
 function simulateJump() {

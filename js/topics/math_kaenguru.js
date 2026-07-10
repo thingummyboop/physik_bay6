@@ -12,15 +12,24 @@ const KANGAROO_CONFIGS = {
     8: { stage: 8, label: "8. Schulstufe", category: "Kadett", tasks: 30, minutes: 75, start: 30, max: 150 }
 };
 
+const KANGAROO_MODES = {
+    training5: { id: "training5", label: "Kurzes Training", description: "5 Aufgaben, ohne Timer, sofortige Rückmeldung", taskCount: 5, timed: false, instantFeedback: true },
+    training10: { id: "training10", label: "Training", description: "10 Aufgaben, ohne Timer, sofortige Rückmeldung", taskCount: 10, timed: false, instantFeedback: true },
+    contest: { id: "contest", label: "Wettbewerbstest", description: "ganzer Test mit Timer und Känguru-Wertung", taskCount: null, timed: true, instantFeedback: false }
+};
+
 const KANGAROO_STATE = {
     root: null,
     config: KANGAROO_CONFIGS[5],
+    mode: KANGAROO_MODES.training10,
     test: [],
     answers: {},
     submitted: false,
     remaining: 0,
     timer: null
 };
+
+let KANGAROO_CHOICE_RNG = Math.random;
 
 function topicInit() {
     initKangarooTraining();
@@ -43,28 +52,40 @@ function renderKangarooSetup() {
                 <div>
                     <span class="kangaroo-eyebrow">Mathe-Extra</span>
                     <h3>Känguru der Mathematik trainieren</h3>
-                    <p>Wähle deine Schulstufe, starte einen Test unter Wettbewerbsbedingungen und öffne den aktuellen Test als Arbeitsblatt mit Lösungen.</p>
+                    <p>Wähle deine Schulstufe und entscheide, ob du kurz üben oder einen ganzen Test unter Wettbewerbsbedingungen starten möchtest.</p>
                 </div>
                 <div class="kangaroo-score-card" aria-label="Känguru-Regeln">
                     <strong id="kangarooRuleTitle">Benjamin</strong>
-                    <span id="kangarooRuleText">24 Aufgaben - 60 Minuten - Startpunkte: 24</span>
+                    <span id="kangarooRuleText">10 Aufgaben - ohne Timer - sofortige Rückmeldung</span>
                 </div>
             </div>
             <div class="kangaroo-controls">
-                <label for="kangarooStage">Schulstufe</label>
-                <select id="kangarooStage">
-                    ${Object.values(KANGAROO_CONFIGS).map(config => `
-                        <option value="${config.stage}" ${config.stage === KANGAROO_STATE.config.stage ? "selected" : ""}>
-                            ${config.label} (${config.category})
-                        </option>
-                    `).join("")}
-                </select>
-                <button type="button" id="kangarooStart">Test starten</button>
+                <div class="kangaroo-control-field">
+                    <label for="kangarooStage">Schulstufe</label>
+                    <select id="kangarooStage">
+                        ${Object.values(KANGAROO_CONFIGS).map(config => `
+                            <option value="${config.stage}" ${config.stage === KANGAROO_STATE.config.stage ? "selected" : ""}>
+                                ${config.label} (${config.category})
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+                <div class="kangaroo-control-field">
+                    <label for="kangarooMode">Modus</label>
+                    <select id="kangarooMode">
+                        ${Object.values(KANGAROO_MODES).map(mode => `
+                            <option value="${mode.id}" ${mode.id === KANGAROO_STATE.mode.id ? "selected" : ""}>
+                                ${mode.label}
+                            </option>
+                        `).join("")}
+                    </select>
+                </div>
+                <button type="button" id="kangarooStart">Starten</button>
                 <button type="button" class="kangaroo-secondary" id="kangarooWorksheet">Arbeitsblatt mit Lösungen öffnen</button>
                 <a class="kangaroo-link-button" href="${KANGAROO_ARCHIVE_URL}" target="_blank" rel="noopener">Offizielle alte Aufgaben</a>
             </div>
             <div class="kangaroo-note">
-                Der digitale Modus verwendet eigene Aufgaben im Känguru-Stil. Die offiziellen alten Originalaufgaben und Lösungen bleiben über das Känguru-Archiv verlinkt.
+                Der digitale Modus verwendet eigene Aufgaben im Känguru-Stil. Im Training bekommst du sofort Rückmeldung; im Wettbewerbstest gelten Timer, Startpunkte und Minuspunkte wie beim Känguru.
             </div>
             <div id="kangarooStageInfo" class="kangaroo-info"></div>
             <div id="kangarooTestArea"></div>
@@ -76,6 +97,11 @@ function renderKangarooSetup() {
         KANGAROO_STATE.config = KANGAROO_CONFIGS[stageSelect.value] || KANGAROO_CONFIGS[5];
         updateKangarooRuleInfo();
     });
+    const modeSelect = document.getElementById("kangarooMode");
+    modeSelect.addEventListener("change", () => {
+        KANGAROO_STATE.mode = KANGAROO_MODES[modeSelect.value] || KANGAROO_MODES.training10;
+        updateKangarooRuleInfo();
+    });
     document.getElementById("kangarooStart").addEventListener("click", startKangarooTest);
     document.getElementById("kangarooWorksheet").addEventListener("click", openKangarooWorksheet);
     updateKangarooRuleInfo();
@@ -83,11 +109,18 @@ function renderKangarooSetup() {
 
 function updateKangarooRuleInfo() {
     const config = KANGAROO_STATE.config;
+    const mode = KANGAROO_STATE.mode;
+    const taskCount = getKangarooTaskCount(config, mode);
     document.getElementById("kangarooRuleTitle").textContent = config.category;
-    document.getElementById("kangarooRuleText").textContent = `${config.tasks} Aufgaben - ${config.minutes} Minuten - Startpunkte: ${config.start}`;
+    document.getElementById("kangarooRuleText").textContent = mode.timed
+        ? `${config.tasks} Aufgaben - ${config.minutes} Minuten - Startpunkte: ${config.start}`
+        : `${taskCount} Aufgaben - ohne Timer - sofortige Rückmeldung`;
     document.getElementById("kangarooStageInfo").innerHTML = `
         <strong>${config.label}: ${config.category}</strong>
-        <span>${scoreDescription(config)} Falsche Antworten kosten ein Viertel der Aufgabenpunkte; leere Antworten geben 0 Punkte.</span>
+        <span>${mode.timed
+            ? `${scoreDescription(config)} Falsche Antworten kosten ein Viertel der Aufgabenpunkte; leere Antworten geben 0 Punkte.`
+            : `Du übst ${taskCount} gemischte Aufgaben. Es gibt keine Minuspunkte. Nach jeder Antwort siehst du sofort, ob dein Gedanke passt.`
+        }</span>
     `;
 }
 
@@ -115,32 +148,75 @@ function createScoreGroups(config) {
     }));
 }
 
+function createScoreGroupsForTest(test, config) {
+    if (test.length === config.tasks) return createScoreGroups(config);
+
+    return [3, 4, 5].map(points => {
+        const numbers = test
+            .filter(question => question.points === points)
+            .map(question => question.number);
+        return {
+            label: `${points}-Punkte-Aufgaben`,
+            from: numbers[0] || 0,
+            to: numbers[numbers.length - 1] || 0,
+            numbers,
+            points,
+            correct: 0,
+            wrong: 0,
+            empty: 0,
+            gained: 0,
+            lost: 0
+        };
+    }).filter(group => group.numbers.length);
+}
+
+function scoreGroupRangeText(group) {
+    if (group.numbers) return `(${group.numbers.join(", ")})`;
+    return `${group.from}-${group.to}`;
+}
+
 function findScoreGroup(groups, number) {
-    return groups.find(group => number >= group.from && number <= group.to);
+    return groups.find(group => group.numbers ? group.numbers.includes(number) : number >= group.from && number <= group.to);
+}
+
+function getKangarooTaskCount(config, mode = KANGAROO_STATE.mode) {
+    return mode.timed ? config.tasks : Math.min(mode.taskCount || 10, config.tasks);
+}
+
+function isKangarooTrainingMode() {
+    return !KANGAROO_STATE.mode.timed;
 }
 
 function startKangarooTest() {
     clearKangarooTimer();
     const config = KANGAROO_STATE.config;
-    KANGAROO_STATE.test = buildKangarooTest(config);
+    const mode = KANGAROO_STATE.mode;
+    KANGAROO_STATE.test = buildKangarooTest(config, {
+        taskCount: getKangarooTaskCount(config, mode)
+    });
     KANGAROO_STATE.answers = {};
     KANGAROO_STATE.submitted = false;
-    KANGAROO_STATE.remaining = config.minutes * 60;
+    KANGAROO_STATE.remaining = mode.timed ? config.minutes * 60 : 0;
     renderKangarooTest();
-    KANGAROO_STATE.timer = window.setInterval(tickKangarooTimer, 1000);
+    if (mode.timed) KANGAROO_STATE.timer = window.setInterval(tickKangarooTimer, 1000);
 }
 
 function renderKangarooTest() {
     const area = document.getElementById("kangarooTestArea");
     const config = KANGAROO_STATE.config;
+    const mode = KANGAROO_STATE.mode;
+    const total = KANGAROO_STATE.test.length;
     area.innerHTML = `
         <div class="kangaroo-testbar">
             <div>
-                <strong>${config.category} - ${config.label}</strong>
-                <span id="kangarooProgress">0/${config.tasks} beantwortet</span>
+                <strong>${mode.label}: ${config.category} - ${config.label}</strong>
+                <span id="kangarooProgress">0/${total} beantwortet</span>
             </div>
-            <div class="kangaroo-timer" id="kangarooTimer">Zeit: ${formatKangarooTime(KANGAROO_STATE.remaining)}</div>
-            <button type="button" id="kangarooSubmit">Abgeben</button>
+            ${mode.timed
+                ? `<div class="kangaroo-timer" id="kangarooTimer">Zeit: ${formatKangarooTime(KANGAROO_STATE.remaining)}</div>`
+                : `<div class="kangaroo-training-badge">ohne Timer</div>`
+            }
+            <button type="button" id="kangarooSubmit">${mode.timed ? "Abgeben" : "Training auswerten"}</button>
         </div>
         <div class="kangaroo-question-list">
             ${KANGAROO_STATE.test.map(renderKangarooQuestion).join("")}
@@ -151,9 +227,17 @@ function renderKangarooTest() {
     document.getElementById("kangarooSubmit").addEventListener("click", submitKangarooTest);
     area.querySelectorAll("input[type='radio']").forEach(input => {
         input.addEventListener("change", event => {
+            if (KANGAROO_STATE.submitted) return;
             KANGAROO_STATE.answers[event.target.name] = event.target.value;
+            if (KANGAROO_STATE.mode.instantFeedback) {
+                const number = Number(event.target.name.replace("q", ""));
+                revealKangarooTrainingFeedback(number);
+            }
             updateKangarooProgress();
         });
+    });
+    area.querySelectorAll("[data-kangaroo-clear]").forEach(button => {
+        button.addEventListener("click", () => clearKangarooAnswer(Number(button.dataset.kangarooClear)));
     });
     updateKangarooProgress();
 }
@@ -162,7 +246,10 @@ function renderKangarooQuestion(question) {
     return `
         <article class="kangaroo-question" id="kangarooQ${question.number}">
             <div class="kangaroo-question-head">
-                <strong>${question.number}. Aufgabe</strong>
+                <div>
+                    <strong>${question.number}. Aufgabe</strong>
+                    <small>${question.skill || "Gemischt"}</small>
+                </div>
                 <span>${question.points} Punkte</span>
             </div>
             <p>${question.text}</p>
@@ -175,6 +262,7 @@ function renderKangarooQuestion(question) {
                     </label>
                 `).join("")}
             </div>
+            <button type="button" class="kangaroo-clear-answer" data-kangaroo-clear="${question.number}">Antwort leer lassen</button>
             <p class="kangaroo-explanation" id="kangarooExplanation${question.number}"></p>
         </article>
     `;
@@ -218,7 +306,50 @@ function isGraphicChoice(choice) {
 function updateKangarooProgress() {
     const answered = Object.keys(KANGAROO_STATE.answers).length;
     const progress = document.getElementById("kangarooProgress");
-    if (progress) progress.textContent = `${answered}/${KANGAROO_STATE.config.tasks} beantwortet`;
+    const total = KANGAROO_STATE.test.length || getKangarooTaskCount(KANGAROO_STATE.config);
+    if (progress) progress.textContent = `${answered}/${total} beantwortet`;
+}
+
+function clearKangarooAnswer(number) {
+    if (KANGAROO_STATE.submitted) return;
+
+    const key = `q${number}`;
+    delete KANGAROO_STATE.answers[key];
+    document.querySelectorAll(`input[name="${key}"]`).forEach(input => {
+        input.checked = false;
+        input.disabled = false;
+    });
+
+    const card = document.getElementById(`kangarooQ${number}`);
+    if (card) {
+        card.classList.remove("is-correct", "is-wrong", "is-empty");
+        const explanation = document.getElementById(`kangarooExplanation${number}`);
+        if (explanation) explanation.textContent = "";
+    }
+
+    updateKangarooProgress();
+}
+
+function revealKangarooTrainingFeedback(number) {
+    const question = KANGAROO_STATE.test[number - 1];
+    if (!question) return;
+
+    const answer = KANGAROO_STATE.answers[`q${number}`];
+    if (answer === undefined) return;
+
+    const card = document.getElementById(`kangarooQ${number}`);
+    const explanation = document.getElementById(`kangarooExplanation${number}`);
+    const selected = Number(answer);
+    const isCorrect = selected === question.answer;
+    if (!card || !explanation) return;
+
+    card.classList.remove("is-correct", "is-wrong", "is-empty");
+    card.classList.add(isCorrect ? "is-correct" : "is-wrong");
+    card.querySelectorAll("input").forEach(input => input.disabled = true);
+    card.querySelectorAll(".kangaroo-clear-answer").forEach(button => button.disabled = true);
+    explanation.innerHTML = isCorrect
+        ? `<strong>Richtig.</strong> ${question.explanation}`
+        : `<strong>Noch nicht.</strong> Richtig wäre ${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])}. ${question.explanation}`;
 }
 
 function tickKangarooTimer() {
@@ -244,35 +375,52 @@ function submitKangarooTest() {
         const selected = answer !== undefined ? Number(answer) : null;
         card.classList.add(selected === question.answer ? "is-correct" : selected === null ? "is-empty" : "is-wrong");
         card.querySelectorAll("input").forEach(input => input.disabled = true);
+        card.querySelectorAll(".kangaroo-clear-answer").forEach(button => button.disabled = true);
         const explanation = document.getElementById(`kangarooExplanation${number}`);
         explanation.innerHTML = `<strong>Richtig:</strong> ${String.fromCharCode(65 + question.answer)}) ${choiceText(question.choices[question.answer])} - ${question.explanation}`;
     });
 
     const result = document.getElementById("kangarooResult");
+    const headline = score.training
+        ? `Training: ${score.correct} von ${score.total} Aufgaben richtig`
+        : `Ergebnis: ${formatKangarooPoints(score.points)} von ${score.max} Punkten`;
+    const detail = score.training
+        ? `${score.correct} richtig - ${score.wrong} falsch - ${score.empty} leer - keine Minuspunkte im Training`
+        : `${score.correct} richtig - ${score.wrong} falsch - ${score.empty} leer - Startpunkte: ${KANGAROO_STATE.config.start}`;
     result.innerHTML = `
-        <strong>Ergebnis: ${formatKangarooPoints(score.points)} von ${KANGAROO_STATE.config.max} Punkten</strong>
-        <span>${score.correct} richtig - ${score.wrong} falsch - ${score.empty} leer - Startpunkte: ${KANGAROO_STATE.config.start}</span>
+        <strong>${headline}</strong>
+        <span>${detail}</span>
         ${renderKangarooOralFeedback(score)}
         ${renderKangarooEvaluation(score)}
-        <button type="button" class="kangaroo-secondary" onclick="openKangarooWorksheet()">Diesen Test als Arbeitsblatt öffnen</button>
+        <div class="kangaroo-result-actions">
+            <button type="button" onclick="startKangarooTest()">Neue Runde starten</button>
+            <button type="button" class="kangaroo-secondary" onclick="openKangarooWorksheet()">Diese Runde als Arbeitsblatt öffnen</button>
+        </div>
     `;
 }
 
 function calculateKangarooScore() {
-    let points = KANGAROO_STATE.config.start;
+    const training = isKangarooTrainingMode();
+    const max = training
+        ? KANGAROO_STATE.test.reduce((sum, question) => sum + question.points, 0)
+        : KANGAROO_STATE.config.max;
+    let points = training ? 0 : KANGAROO_STATE.config.start;
     let correct = 0;
     let wrong = 0;
     let empty = 0;
     let gained = 0;
     let lost = 0;
-    const groups = createScoreGroups(KANGAROO_STATE.config);
+    const groups = createScoreGroupsForTest(KANGAROO_STATE.test, KANGAROO_STATE.config);
+    const skills = createKangarooSkillGroups(KANGAROO_STATE.test);
 
     KANGAROO_STATE.test.forEach(question => {
         const answer = KANGAROO_STATE.answers[`q${question.number}`];
         const group = findScoreGroup(groups, question.number);
+        const skillGroup = findKangarooSkillGroup(skills, question.skill);
         if (answer === undefined) {
             empty += 1;
             if (group) group.empty += 1;
+            if (skillGroup) skillGroup.empty += 1;
         } else if (Number(answer) === question.answer) {
             correct += 1;
             points += question.points;
@@ -281,42 +429,86 @@ function calculateKangarooScore() {
                 group.correct += 1;
                 group.gained += question.points;
             }
+            if (skillGroup) {
+                skillGroup.correct += 1;
+                skillGroup.gained += question.points;
+            }
         } else {
             wrong += 1;
-            const penalty = question.points / 4;
+            const penalty = training ? 0 : question.points / 4;
             points -= penalty;
             lost += penalty;
             if (group) {
                 group.wrong += 1;
                 group.lost += penalty;
             }
+            if (skillGroup) {
+                skillGroup.wrong += 1;
+                skillGroup.lost += penalty;
+            }
         }
     });
 
+    const boundedPoints = Math.max(0, points);
     return {
-        points: Math.max(0, points),
+        points: boundedPoints,
+        max,
+        training,
+        total: KANGAROO_STATE.test.length,
         correct,
         wrong,
         empty,
         gained,
         lost,
         groups,
-        percentage: Math.round((Math.max(0, points) / KANGAROO_STATE.config.max) * 100)
+        skills,
+        percentage: Math.round((boundedPoints / max) * 100)
     };
 }
 
+function createKangarooSkillGroups(test) {
+    const groups = new Map();
+    test.forEach(question => {
+        const label = question.skill || "Gemischt";
+        if (!groups.has(label)) {
+            groups.set(label, {
+                label,
+                total: 0,
+                correct: 0,
+                wrong: 0,
+                empty: 0,
+                gained: 0,
+                lost: 0
+            });
+        }
+        groups.get(label).total += 1;
+    });
+    return Array.from(groups.values()).sort((a, b) => a.label.localeCompare(b.label, "de"));
+}
+
+function findKangarooSkillGroup(groups, label = "Gemischt") {
+    return groups.find(group => group.label === label);
+}
+
 function renderKangarooOralFeedback(score) {
-    const config = KANGAROO_STATE.config;
-    const correctRate = score.correct / config.tasks;
+    const correctRate = score.total ? score.correct / score.total : 0;
     const strongest = score.groups.reduce((best, group) => group.correct > best.correct ? group : best, score.groups[0]);
     const needsPractice = score.groups.reduce((worst, group) => {
         const groupOpen = group.wrong + group.empty;
         const worstOpen = worst.wrong + worst.empty;
         return groupOpen > worstOpen ? group : worst;
     }, score.groups[0]);
+    const strongestSkill = score.skills.reduce((best, group) => group.correct > best.correct ? group : best, score.skills[0]);
+    const needsPracticeSkill = score.skills.reduce((worst, group) => {
+        const groupOpen = group.wrong + group.empty;
+        const worstOpen = worst.wrong + worst.empty;
+        return groupOpen > worstOpen ? group : worst;
+    }, score.skills[0]);
 
     let title = "Weitertrainieren";
-    let main = "Du hast schon angefangen, die Känguru-Aufgaben zu bearbeiten. Jetzt geht es darum, die leichten Aufgaben sicherer zu erkennen und Schritt für Schritt mehr Punkte zu holen.";
+    let main = score.training
+        ? "Du hast eine kurze Trainingsrunde gemacht. Wichtig ist jetzt: Schau nicht nur auf richtig oder falsch, sondern darauf, welche Art von Aufgabe dir leichtfällt."
+        : "Du hast schon angefangen, die Känguru-Aufgaben zu bearbeiten. Jetzt geht es darum, die leichten Aufgaben sicherer zu erkennen und Schritt für Schritt mehr Punkte zu holen.";
 
     if (correctRate >= 0.8 && score.wrong <= 2) {
         title = "Sehr starke Leistung";
@@ -333,15 +525,17 @@ function renderKangarooOralFeedback(score) {
     }
 
     let strategy = "Gute Strategie: Bearbeite zuerst Aufgaben, bei denen du wirklich einen Plan hast. Danach kommst du zu den unsicheren Aufgaben zurück.";
-    if (score.wrong >= score.empty + 3) {
+    if (!score.training && score.wrong >= score.empty + 3) {
         strategy = "Achte besonders auf das Raten: Beim Känguru kosten falsche Antworten Punkte. Wenn du gar keinen Plan hast, ist Auslassen oft klüger als blindes Raten.";
-    } else if (score.empty >= Math.ceil(config.tasks / 3)) {
+    } else if (score.empty >= Math.ceil(score.total / 3)) {
         strategy = "Du hast einiges ausgelassen. Das kann klug sein, aber versuche beim nächsten Mal zuerst alle leichten Aufgaben zu suchen, damit keine sicheren Punkte liegen bleiben.";
     } else if (score.empty === 0 && score.wrong <= 2) {
         strategy = "Sehr gute Teststrategie: Du hast den Test voll bearbeitet und dabei nur wenige Fehler gemacht.";
+    } else if (score.training) {
+        strategy = "Nutze das Training langsam: Lies die Frage, mache eine kleine Skizze oder Rechnung und entscheide erst dann. Es geht hier nicht um Tempo.";
     }
 
-    const nextStep = `Nächster Schritt: Übe besonders die ${needsPractice.label.toLowerCase()} (${needsPractice.from}-${needsPractice.to}). Deine stärkste Gruppe war diesmal: ${strongest.label.toLowerCase()} (${strongest.from}-${strongest.to}).`;
+    const nextStep = `Nächster Schritt: Übe besonders ${needsPracticeSkill.label}. Deine stärkste Art war diesmal: ${strongestSkill.label}. Bei den Punktebereichen war ${strongest.label.toLowerCase()} ${scoreGroupRangeText(strongest)} am sichersten.`;
 
     return `
         <div class="kangaroo-oral-feedback">
@@ -383,7 +577,7 @@ function renderKangarooEvaluation(score) {
                 <tbody>
                     ${score.groups.map(group => `
                         <tr>
-                            <td>${group.label} ${group.from}-${group.to}</td>
+                            <td>${group.label} ${scoreGroupRangeText(group)}</td>
                             <td>${group.correct}</td>
                             <td>${group.wrong}</td>
                             <td>${group.empty}</td>
@@ -392,9 +586,43 @@ function renderKangarooEvaluation(score) {
                     `).join("")}
                 </tbody>
             </table>
+            ${renderKangarooSkillEvaluation(score)}
             <p class="kangaroo-evaluation-note">
-                Offiziell gibt es beim Känguru eine Punktewertung, keine Schulnote. Diese Auswertung zeigt deshalb, wo Punkte gewonnen, verloren oder liegen gelassen wurden.
+                ${score.training
+                    ? "Im Training geht es um Verstehen: Welche Art von Aufgabe war sicher, und wo brauchst du noch einen ruhigeren Lösungsweg?"
+                    : "Offiziell gibt es beim Känguru eine Punktewertung, keine Schulnote. Diese Auswertung zeigt deshalb, wo Punkte gewonnen, verloren oder liegen gelassen wurden."
+                }
             </p>
+        </div>
+    `;
+}
+
+function renderKangarooSkillEvaluation(score) {
+    if (!score.skills.length) return "";
+
+    return `
+        <div class="kangaroo-skill-summary">
+            <strong>Nach Aufgabentyp</strong>
+            <table class="kangaroo-evaluation-table">
+                <thead>
+                    <tr>
+                        <th>Aufgabentyp</th>
+                        <th>Richtig</th>
+                        <th>Falsch</th>
+                        <th>Leer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${score.skills.map(group => `
+                        <tr>
+                            <td>${group.label}</td>
+                            <td>${group.correct}/${group.total}</td>
+                            <td>${group.wrong}</td>
+                            <td>${group.empty}</td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
         </div>
     `;
 }
@@ -422,29 +650,12 @@ function formatKangarooTime(seconds) {
     return `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
 }
 
-function buildKangarooTest(config) {
+function buildKangarooTest(config, options = {}) {
+    const taskCount = options.taskCount || config.tasks;
     const rng = seededRandom(config.stage * 1009 + Date.now() % 100000);
-    
-    // Base generators for stages 3-4 (Écolier)
-    const ecolierGenerators = [
-        genSequence, genPerimeter, genGrid, genClock, genCubes, 
-        genDigitSum, genBorderTiles, genLargestNumber, genPatternTiles, 
-        genRotation, genMissingPiece, genTrianglesCount, genOverlappingRects,
-        genLogicOrder, genMissingNumber, genCalendar, genLogicLiars
-    ];
-    
-    // Advanced/Themed generators for Benjamin (5-6) and Kadett (7-8)
-    const advancedGenerators = [
-        genEquation, genAngle, genPercent, genPathCount, genHandshake,
-        genBalanceLogic, genUnfolding, genLogicLiars, genPaintedCube,
-        genPaperPunch, genLogicDie, genSpatialBlocks, genRotation,
-        genOverlappingRects, genTrianglesCount, genPathOnCube, genLogicKnights
-    ];
-
-    let pool = config.stage >= 5 ? [...advancedGenerators] : [...ecolierGenerators];
-    
-    // Ensure we have enough variety
-    const generatorOrder = shuffleWithRng(pool, rng);
+    const entries = getKangarooGeneratorEntries(config.stage);
+    const generatorOrders = {};
+    const generatorPositions = {};
     const usedQuestions = new Set();
     const questionKey = question => [
         question.text,
@@ -455,20 +666,100 @@ function buildKangarooTest(config) {
             .join("|")
     ].join("||");
 
-    return Array.from({ length: config.tasks }, (_, index) => {
-        const number = index + 1;
-        const points = pointsForQuestion(config, number);
-        const generator = generatorOrder[index % generatorOrder.length];
-        let question = null;
+    const previousChoiceRng = KANGAROO_CHOICE_RNG;
+    KANGAROO_CHOICE_RNG = rng;
+    try {
+        return Array.from({ length: taskCount }, (_, index) => {
+            const number = index + 1;
+            const points = pointsForQuestionPosition(config, number, taskCount);
+            let entry = nextKangarooGeneratorEntry(entries, points, generatorOrders, generatorPositions, rng);
+            let question = null;
 
-        for (let attempt = 0; attempt < 30; attempt++) {
-            question = generator(rng, config.stage, number, points);
-            if (!usedQuestions.has(questionKey(question))) break;
-        }
+            for (let attempt = 0; attempt < 30; attempt++) {
+                question = entry.fn(rng, config.stage, number, points);
+                if (!usedQuestions.has(questionKey(question))) break;
+                entry = nextKangarooGeneratorEntry(entries, points, generatorOrders, generatorPositions, rng);
+            }
 
-        usedQuestions.add(questionKey(question));
-        return { ...question, number, points };
-    });
+            usedQuestions.add(questionKey(question));
+            return { ...question, number, points, skill: question.skill || entry.skill };
+        });
+    } finally {
+        KANGAROO_CHOICE_RNG = previousChoiceRng;
+    }
+}
+
+function getKangarooGeneratorEntries(stage) {
+    const lower = [
+        kangarooGenerator(genSequence, "Muster und Reihen", [3, 4]),
+        kangarooGenerator(genPerimeter, "Geometrie", [3, 4]),
+        kangarooGenerator(genGrid, "Geometrie", [3]),
+        kangarooGenerator(genClock, "Zeit und Alltag", [3]),
+        kangarooGenerator(genCubes, "Raumvorstellung", [3, 4]),
+        kangarooGenerator(genDigitSum, "Zahlen und Rechnen", [3, 4]),
+        kangarooGenerator(genBorderTiles, "Geometrie", [4, 5]),
+        kangarooGenerator(genLargestNumber, "Zahlen und Rechnen", [3, 4]),
+        kangarooGenerator(genPatternTiles, "Muster und Reihen", [3, 4]),
+        kangarooGenerator(genRotation, "Raumvorstellung", [4, 5]),
+        kangarooGenerator(genMissingPiece, "Muster und Reihen", [4, 5]),
+        kangarooGenerator(genTrianglesCount, "Geometrie", [4, 5]),
+        kangarooGenerator(genOverlappingRects, "Geometrie", [4, 5]),
+        kangarooGenerator(genLogicOrder, "Logik", [3, 4]),
+        kangarooGenerator(genMissingNumber, "Zahlen und Rechnen", [3, 4]),
+        kangarooGenerator(genCalendar, "Zeit und Alltag", [3, 4]),
+        kangarooGenerator(genLogicLiars, "Logik", [5])
+    ];
+
+    const advanced = [
+        kangarooGenerator(genEquation, "Gleichungen", [3, 4]),
+        kangarooGenerator(genAngle, "Geometrie", [3, 4]),
+        kangarooGenerator(genPercent, "Brüche und Prozent", [4, 5]),
+        kangarooGenerator(genPathCount, "Kombinatorik", [4, 5]),
+        kangarooGenerator(genHandshake, "Kombinatorik", [4, 5]),
+        kangarooGenerator(genBalanceLogic, "Gleichungen", [3, 4]),
+        kangarooGenerator(genUnfolding, "Raumvorstellung", [4, 5]),
+        kangarooGenerator(genLogicLiars, "Logik", [3, 4]),
+        kangarooGenerator(genPaintedCube, "Raumvorstellung", [5]),
+        kangarooGenerator(genPaperPunch, "Raumvorstellung", [4, 5]),
+        kangarooGenerator(genLogicDie, "Raumvorstellung", [3]),
+        kangarooGenerator(genSpatialBlocks, "Raumvorstellung", [4, 5]),
+        kangarooGenerator(genRotation, "Raumvorstellung", [3, 4]),
+        kangarooGenerator(genOverlappingRects, "Geometrie", [3, 4]),
+        kangarooGenerator(genTrianglesCount, "Geometrie", [4, 5]),
+        kangarooGenerator(genPathOnCube, "Raumvorstellung", [5]),
+        kangarooGenerator(genLogicKnights, "Logik", [5])
+    ];
+
+    return stage >= 5 ? advanced : lower;
+}
+
+function kangarooGenerator(fn, skill, bands) {
+    return { fn, skill, bands };
+}
+
+function nextKangarooGeneratorEntry(entries, points, orders, positions, rng) {
+    const key = `${points}`;
+    const candidates = entries.filter(entry => entry.bands.includes(points));
+    const source = candidates.length ? candidates : entries;
+
+    if (!orders[key] || positions[key] >= orders[key].length) {
+        orders[key] = shuffleWithRng(source, rng);
+        positions[key] = 0;
+    }
+
+    const entry = orders[key][positions[key]];
+    positions[key] += 1;
+    return entry;
+}
+
+function pointsForQuestionPosition(config, number, taskCount) {
+    if (taskCount === config.tasks) return pointsForQuestion(config, number);
+
+    const firstEnd = Math.ceil(taskCount / 3);
+    const secondEnd = Math.ceil(taskCount * 2 / 3);
+    if (number <= firstEnd) return 3;
+    if (number <= secondEnd) return 4;
+    return 5;
 }
 
 // --- NEW AUTHENTIC KANGAROO STYLE GENERATORS ---
@@ -869,12 +1160,12 @@ function shuffleWithRng(items, rng) {
     return copy;
 }
 
-function makeChoices(correct, distractors, suffix = "") {
+function makeChoices(correct, distractors, suffix = "", rng = KANGAROO_CHOICE_RNG) {
     const values = [correct, ...distractors]
         .filter((value, index, array) => array.indexOf(value) === index)
         .slice(0, 5);
     while (values.length < 5) values.push(correct + values.length + 2);
-    const choices = shuffleWithRng(values.slice(0, 5), Math.random).map(value => `${value}${suffix}`);
+    const choices = shuffleWithRng(values.slice(0, 5), rng).map(value => `${value}${suffix}`);
     const answerText = `${correct}${suffix}`;
     const answer = choices.indexOf(answerText);
     return { choices, answer };

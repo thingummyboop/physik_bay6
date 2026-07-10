@@ -3,2078 +3,843 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SciVerse</title>
-    <link rel="stylesheet" href="css/style.css?v=8.6">
+    <title>SciVerse - Lernseite für die Mittelschule</title>
+    <link rel="stylesheet" href="css/style.css?v=6.0">
     <style>
         :root {
-            --shell-bg: #fff3cf;
-            --shell-panel: rgba(255, 252, 239, 0.9);
-            --shell-border: #f2b84b;
-            --shell-text: #3b2507;
-            --shell-muted: #7c5c26;
-            --shell-shadow: 0 18px 44px rgba(146, 64, 14, 0.16);
-            --neon-glow: 0 0 15px rgba(249, 115, 22, 0.5);
+            --sidebar-bg: #0f172a;
+            --main-bg: #1e293b;
+            --text-color: white;
+            --nav-btn-color: #cbd5e0;
+            --nav-btn-active-bg: #1e293b;
+            --nav-btn-active-border: #3b82f6;
+            --nav-btn-active-text: #60a5fa;
+            --header-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+            --header-border: #1e40af;
         }
 
         [data-theme="dark"] {
-            --shell-bg: #071411;
-            --shell-panel: rgba(15, 23, 42, 0.88);
-            --shell-border: #1f4f46;
-            --shell-text: #e6fffb;
-            --shell-muted: #b6c7c3;
-            --shell-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
-            --neon-glow: 0 0 15px rgba(20, 184, 166, 0.5);
+            --sidebar-bg: #000000;
+            --main-bg: #0a0a0a;
+            --text-color: #e5e7eb;
+            --nav-btn-color: #a0aec0;
+            --nav-btn-active-bg: #121212;
+            --nav-btn-active-border: #2196F3;
+            --nav-btn-active-text: #64b5f6;
+            --header-gradient: linear-gradient(135deg, #1e3a8a, #1e40af);
+            --header-border: #172554;
         }
 
-        * { box-sizing: border-box; }
-        body {
-            min-height: 100vh;
-            margin: 0;
-            background:
-                radial-gradient(circle at 10% 10%, rgba(255, 197, 71, 0.42), transparent 30%),
-                radial-gradient(circle at 84% 16%, rgba(249, 115, 22, 0.22), transparent 28%),
-                linear-gradient(135deg, #fff7d6, var(--shell-bg));
-            color: var(--shell-text);
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-
-        [data-theme="dark"] body {
-            background:
-                radial-gradient(circle at 8% 12%, rgba(20, 184, 166, 0.18), transparent 28%),
-                radial-gradient(circle at 86% 18%, rgba(132, 204, 22, 0.10), transparent 30%),
-                linear-gradient(135deg, #03110f, var(--shell-bg));
-        }
-
-        .app-shell {
-            min-height: 100vh;
-            display: grid;
-            grid-template-rows: auto 1fr;
-        }
-
-        .topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 14px 24px;
-            border-bottom: 1px solid var(--shell-border);
-            background: rgba(255, 248, 220, 0.82);
-            backdrop-filter: blur(14px);
-            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-            z-index: 2;
-        }
-
-        [data-theme="dark"] .topbar { background: rgba(3, 17, 15, 0.86); }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 180px;
-        }
-
-        .brand-mark {
-            border: 0;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(135deg, #f97316, #facc15);
-            color: white;
-            font-weight: 900;
-            font-size: 1.2rem;
-            padding: 0;
-            box-shadow: var(--neon-glow);
-            transform: rotate(-3deg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .brand-mark:hover {
-            transform: rotate(3deg) scale(1.05);
-            box-shadow: 0 0 25px rgba(249, 115, 22, 0.8);
-        }
-
-        .brand-mark:focus-visible {
-            outline: 3px solid #facc15;
-            outline-offset: 3px;
-        }
-
-        .brand strong { 
-            display: block; 
-            font-size: 1.3rem; 
-            font-weight: 900;
-            background: linear-gradient(90deg, #ea580c, #ca8a04);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-        
-        [data-theme="dark"] .brand strong {
-            background: linear-gradient(90deg, #2dd4bf, #a3e635);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .brand small { color: var(--shell-muted); font-weight: 700; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1px;}
-
-        [data-theme="dark"] .brand-mark {
-            background: linear-gradient(135deg, #0d9488, #84cc16);
-            box-shadow: var(--neon-glow);
-        }
-
-        [data-theme="dark"] .brand-mark:hover {
-            box-shadow: 0 0 25px rgba(20, 184, 166, 0.8);
-        }
-
-        .top-nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .top-nav button,
-        .shell-action,
-        .lang-btn,
-        .quiet-action {
-            border: 1px solid var(--shell-border);
-            border-radius: 8px;
-            background: var(--shell-panel);
-            color: var(--shell-text);
-            padding: 9px 12px;
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        .top-nav button.active {
-            background: #f97316;
-            border-color: #f97316;
-            color: white;
-        }
-
-        [data-theme="dark"] .top-nav button.active {
-            background: #0f766e;
-            border-color: #0f766e;
-        }
-
-        .shell-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .coin-chip {
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            color: #78350f;
-            font-weight: 900;
-        }
-
-        [data-theme="dark"] .coin-chip {
-            background: #422006;
-            color: #fde68a;
-        }
-
-        .language-menu {
-            position: relative;
-        }
-
-        .language-toggle {
-            min-width: 46px;
-            padding: 8px 10px;
-            text-align: center;
-        }
-
-        .theme-toggle {
-            min-width: 46px;
-            padding: 8px 10px;
-            text-align: center;
-        }
-
-        .language-glyph {
-            display: inline-block;
-            font-weight: 900;
-            letter-spacing: 0;
-        }
-
-        .theme-glyph {
-            display: inline-block;
-            font-size: 1.18rem;
-            line-height: 1;
-        }
-
-        .lang-row {
-            display: grid;
-            gap: 4px;
-        }
-
-        .language-dropdown {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 8px);
-            min-width: 104px;
-            z-index: 20;
-            padding: 8px;
-            border: 1px solid var(--shell-border);
-            border-radius: 10px;
-            background: var(--shell-panel);
-            box-shadow: var(--shell-shadow);
-        }
-
-        .lang-btn { padding: 7px 8px; font-size: 0.78rem; }
-        .lang-btn.active { background: #ffedd5; border-color: #f97316; color: #7c2d12; }
-        [data-theme="dark"] .lang-btn.active { background: #d1fae5; border-color: #0f766e; color: #064e3b; }
-
-        .workspace {
-            min-height: 0;
-            padding: 22px;
-            overflow: hidden;
-        }
-
-        #main-view,
-        #frame-shell {
-            height: calc(100vh - 98px);
-            overflow: auto;
-        }
-
-        #main-view {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding-bottom: 80px;
+        * {
             scrollbar-width: none;
-            width: 100%;
+            -ms-overflow-style: none;
         }
 
-        #main-view::-webkit-scrollbar {
+        *::-webkit-scrollbar {
+            width: 0;
+            height: 0;
             display: none;
         }
 
-        #main-view[data-shell-view="challenge"] {
-            max-width: min(1880px, calc(100vw - 44px));
-        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background-color: var(--main-bg); color: var(--text-color); overflow: hidden; transition: background-color 0.3s, color 0.3s; }
+        #sidebar { width: 320px; background-color: var(--sidebar-bg); overflow-y: auto; display: flex; flex-direction: column; transition: margin-left 0.3s, background-color 0.3s; box-shadow: 4px 0 15px rgba(0,0,0,0.3); z-index: 10; }
+        #sidebar.collapsed { margin-left: -320px; }
+        .sidebar-header { padding: 60px 20px 20px 20px; text-align: center; background: var(--header-gradient); border-bottom: 2px solid var(--header-border); }
+        .sidebar-header h1 { margin: 10px 0; font-size: 1.4em; text-shadow: 0 2px 4px rgba(0,0,0,0.3); color: white; }
+        .sciverse-logo-link { align-items: center; border-radius: 18px; display: inline-flex; height: 86px; justify-content: center; margin: 4px auto 12px; text-decoration: none; transition: none; width: 86px; }
+        .sciverse-logo-link:focus-visible { outline: 3px solid #fbbf24; outline-offset: 6px; }
+        .sciverse-logo { width: 86px; height: 86px; filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.38)); transition: none; }
+        .sciverse-title { margin: 0; font-size: 1.7em; letter-spacing: 0.04em; color: white; }
+        .sciverse-subtitle { margin: 0; color: #dbeafe; font-size: 0.78em; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        .grade-section { padding: 15px 20px 5px 20px; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; border-bottom: 1px solid #334155; margin-top: 10px; font-weight: bold; }
+        .nav-btn { background: transparent; color: var(--nav-btn-color); border: none; width: 100%; text-align: left; padding: 12px 20px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; font-size: 0.95em; }
+        .nav-btn:hover, .nav-btn.active { background-color: var(--nav-btn-active-bg); color: var(--text-color); border-left: 4px solid var(--nav-btn-active-border); }
+        .nav-btn.active { color: var(--nav-btn-active-text); font-weight: bold; }
+        .nav-btn.planned-topic { color: #94a3b8; opacity: 0.82; font-style: italic; }
+        .nav-btn.planned-topic:hover { opacity: 1; }
+        #content-area { flex-grow: 1; position: relative; }
+        iframe { width: 100%; height: 100%; border: none; background-color: white; }
+        #zeugnis-btn { position: fixed; top: 8px; right: 20px; z-index: 1000; background: linear-gradient(135deg, #FFD700, #FF9800); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; border: 2px solid white; color: #1e293b; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); display: flex; align-items: center; gap: 8px; transition: transform 0.2s; }
+        #zeugnis-btn:hover { transform: scale(1.05); }
+        #menu-toggle { position: fixed; top: 15px; left: 15px; z-index: 100; background: #3b82f6; color: white; border: none; padding: 10px 12px; border-radius: 5px; cursor: pointer; }
+        .language-menu { display: flex; justify-content: center; padding: 5px 0 15px 0; position: relative; }
+        .language-toggle { align-items: center; background: rgba(15, 23, 42, 0.74); border: 1px solid rgba(219, 234, 254, 0.35); border-radius: 999px; color: white; cursor: pointer; display: flex; font-size: 0.92em; font-weight: 800; gap: 7px; padding: 8px 12px; }
+        .language-toggle:hover, .language-toggle[aria-expanded="true"] { background: rgba(59, 130, 246, 0.35); border-color: #bfdbfe; }
+        .language-panel { background: rgba(15, 23, 42, 0.98); border: 1px solid rgba(219, 234, 254, 0.26); border-radius: 14px; box-shadow: 0 18px 34px rgba(0,0,0,0.32); display: none; gap: 6px; grid-template-columns: repeat(2, minmax(0, 1fr)); left: 50%; min-width: 190px; padding: 8px; position: absolute; top: 48px; transform: translateX(-50%); z-index: 30; }
+        .language-panel.open { display: grid; }
+        .lang-btn { background: #334155; color: white; border: 1px solid #475569; padding: 8px 10px; border-radius: 10px; cursor: pointer; font-size: 0.82em; font-weight: 800; text-align: left; }
+        .lang-btn.active { background: #3b82f6; border-color: #93c5fd; }
 
-        #main-view[data-shell-view="character"] {
-            max-width: min(1680px, calc(100vw - 44px));
-        }
-
-        .home-hero,
-        .challenge-hero,
-        .character-hero,
-        .home-panel,
-        .challenge-map {
-            background: var(--shell-panel);
-            border: 1px solid var(--shell-border);
-            border-radius: 16px;
-            box-shadow: var(--shell-shadow);
-        }
-
-        .home-hero,
-        .challenge-hero,
-        .character-hero {
-            padding: clamp(28px, 5vw, 58px);
-            margin-bottom: 18px;
-        }
-
-        #main-view[data-shell-view="challenge"] .challenge-hero {
-            margin-bottom: clamp(10px, 1.8vh, 18px);
-            padding: clamp(16px, 2.25vw, 32px);
-        }
-
-        .home-hero h1,
-        .challenge-hero h1,
-        .character-hero h1 {
-            font-size: clamp(2.6rem, 7vw, 6rem);
-            letter-spacing: 0;
-            line-height: 0.95;
-            margin: 0 0 16px 0;
-            color: #f97316;
-        }
-
-        #main-view[data-shell-view="challenge"] .challenge-hero h1 {
-            font-size: clamp(2.25rem, min(4.9vw, 6.8vh), 4.4rem);
-            margin-bottom: clamp(8px, 1.4vh, 14px);
-        }
-
-        [data-theme="dark"] .home-hero h1,
-        [data-theme="dark"] .challenge-hero h1,
-        [data-theme="dark"] .character-hero h1 { color: #5eead4; }
-
-        .home-hero p,
-        .challenge-hero p,
-        .character-hero p {
-            max-width: 860px;
-            font-size: 1.08rem;
-            color: var(--shell-muted);
-            margin: 0;
-        }
-
-        #main-view[data-shell-view="challenge"] .challenge-hero p {
-            font-size: clamp(0.94rem, 1.1vw, 1.02rem);
-            line-height: 1.5;
-            max-width: min(860px, 78vw);
-        }
-
-        .eyebrow {
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: 900;
-            color: #c2410c !important;
-            margin-bottom: 10px !important;
-        }
-
-        [data-theme="dark"] .eyebrow { color: #86efac !important; }
-
-        @media (max-height: 820px) {
-            #main-view[data-shell-view="challenge"] .challenge-hero {
-                padding: clamp(14px, 2.1vw, 26px);
+        @media (max-width: 760px) {
+            body { display: block; }
+            #sidebar {
+                height: 100vh;
+                left: 0;
+                margin-left: 0;
+                max-width: 320px;
+                position: fixed;
+                top: 0;
+                transform: translateX(0);
+                transition: transform 0.3s, background-color 0.3s;
+                width: min(86vw, 320px);
+                z-index: 900;
             }
-
-            #main-view[data-shell-view="challenge"] .challenge-hero h1 {
-                font-size: clamp(2.05rem, min(4.6vw, 6.3vh), 3.6rem);
+            #sidebar.collapsed {
+                margin-left: 0;
+                transform: translateX(-105%);
             }
-
-            #main-view[data-shell-view="challenge"] .eyebrow {
-                margin-bottom: 6px !important;
+            #content-area {
+                height: 100vh;
+                width: 100vw;
             }
-        }
-
-        @media (max-width: 720px) {
-            #main-view[data-shell-view="challenge"] .challenge-hero {
-                padding: 18px;
+            #menu-toggle {
+                z-index: 1100;
             }
-
-            #main-view[data-shell-view="challenge"] .challenge-hero h1 {
-                font-size: clamp(2.1rem, 12vw, 3.5rem);
-            }
-
-            #main-view[data-shell-view="challenge"] .challenge-hero p {
-                max-width: 100%;
-            }
-        }
-
-        .home-panel { padding: 22px; }
-        .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-        .section-heading h2, .tree-header h2 { margin: 0; }
-        .section-heading p { color: var(--shell-muted); margin: 0; max-width: 640px; }
-
-        .subject-grid {
-            min-height: 278px;
-            margin: 18px 0 24px;
-            position: relative;
-        }
-
-        .subject-grid::before {
-            content: "";
-            position: absolute;
-            inset: 18px 6% 16px 6%;
-            border-radius: 999px;
-            background:
-                radial-gradient(circle at 20% 30%, color-mix(in srgb, #f97316, transparent 76%), transparent 28%),
-                radial-gradient(circle at 68% 42%, color-mix(in srgb, #0f766e, transparent 78%), transparent 32%);
-            opacity: 0.72;
-            pointer-events: none;
-        }
-
-        [data-theme="dark"] .subject-grid::before { opacity: 0.42; }
-
-        .subject-pill {
-            --accent: #0f766e;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            background: radial-gradient(circle at 32% 24%, rgba(255,255,255,0.96), color-mix(in srgb, var(--accent), white 76%) 34%, var(--accent) 112%);
-            border: 2px solid color-mix(in srgb, var(--accent), transparent 60%);
-            border-radius: 999px;
-            box-shadow: 0 10px 22px color-mix(in srgb, var(--accent), transparent 78%);
-            color: var(--accent);
-            cursor: pointer;
-            display: flex;
-            height: 74px;
-            justify-content: center;
-            min-height: 74px;
-            overflow: visible;
-            padding: 0;
-            position: absolute;
-            text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            width: 74px;
-            z-index: 1;
-        }
-
-        .subject-pill:nth-child(1) { left: 7%; top: 18px; }
-        .subject-pill:nth-child(2) { left: 22%; top: 58px; }
-        .subject-pill:nth-child(3) { left: 37%; top: 14px; }
-        .subject-pill:nth-child(4) { left: 52%; top: 62px; }
-        .subject-pill:nth-child(5) { left: 67%; top: 20px; }
-        .subject-pill:nth-child(6) { left: 80%; top: 70px; }
-        .subject-pill:nth-child(7) { left: 13%; top: 158px; }
-        .subject-pill:nth-child(8) { left: 29%; top: 128px; }
-        .subject-pill:nth-child(9) { left: 45%; top: 168px; }
-        .subject-pill:nth-child(10) { left: 61%; top: 132px; }
-        .subject-pill:nth-child(11) { left: 76%; top: 176px; }
-
-        .subject-pill:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 25px color-mix(in srgb, var(--accent), transparent 70%);
-            transform: translateY(-5px) scale(1.08);
-        }
-
-        .subject-pill::before {
-            content: attr(data-label);
-            position: absolute;
-            left: 50%;
-            top: calc(100% + 8px);
-            transform: translateX(-50%) translateY(-4px);
-            opacity: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            border-radius: 999px;
-            background: var(--shell-panel);
-            border: 1px solid var(--shell-border);
-            color: var(--shell-text);
-            font-size: 0.76rem;
-            font-weight: 900;
-            padding: 5px 9px;
-            transition: opacity 0.18s ease, transform 0.18s ease;
-            z-index: 3;
-        }
-
-        .subject-pill:hover::before,
-        .subject-pill:focus-visible::before {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .subject-pill::after {
-            content: "";
-            position: absolute;
-            inset: 9px;
-            border-radius: inherit;
-            background: rgba(255,255,255,0.74);
-            z-index: -1;
-        }
-
-        [data-theme="dark"] .subject-pill {
-            background: radial-gradient(circle at 32% 24%, color-mix(in srgb, var(--accent), white 38%), color-mix(in srgb, var(--accent), #0f172a 58%) 42%, #0f172a 114%);
-            border-color: color-mix(in srgb, var(--accent), transparent 70%);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            color: #f8fafc;
-        }
-
-        [data-theme="dark"] .subject-pill::after {
-            background: rgba(15, 23, 42, 0.62);
-        }
-
-        .subject-symbol {
-            display: grid;
-            font-size: 1.42rem;
-            font-weight: 900;
-            height: 54px;
-            line-height: 1;
-            place-items: center;
-            transition: transform 0.3s ease;
-            width: 54px;
-        }
-
-        .subject-symbol svg {
-            display: block;
-            height: 46px;
-            overflow: visible;
-            width: 46px;
-        }
-
-        .subject-pill[data-subject="physik"] .subject-symbol {
-            font-size: 2.65rem;
-            height: 60px;
-            width: 60px;
-        }
-
-        .subject-pill[data-subject="mathematik"] .subject-symbol {
-            font-size: 1rem;
-            letter-spacing: 0;
-        }
-
-        .subject-symbol .math-ops-icon {
-            color: color-mix(in srgb, var(--accent), #3b0764 24%);
-            filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.74));
-            height: 48px;
-            width: 48px;
-        }
-
-        .subject-symbol .chem-flask-icon {
-            color: color-mix(in srgb, var(--accent), #064e3b 18%);
-            filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.68));
-            height: 49px;
-            width: 49px;
-        }
-
-        .subject-symbol .uk-flag-icon {
-            border-radius: 6px;
-            box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.72);
-            height: 34px;
-            overflow: hidden;
-            width: 50px;
-        }
-
-        .subject-pill[data-subject="englisch"] .subject-symbol,
-        .subject-pill[data-subject="geographie"] .subject-symbol,
-        .subject-pill[data-subject="kunst"] .subject-symbol,
-        .subject-pill[data-subject="ernaehrung"] .subject-symbol,
-        .subject-pill[data-subject="biologie"] .subject-symbol,
-        .subject-pill[data-subject="dgb"] .subject-symbol {
-            font-size: 1.7rem;
-        }
-
-        .subject-pill:hover .subject-symbol {
-            transform: scale(1.1) rotate(3deg);
-        }
-
-        [data-theme="dark"] .math-ops-icon,
-        [data-theme="dark"] .chem-flask-icon {
-            filter: drop-shadow(0 3px 0 rgba(15, 23, 42, 0.7));
-        }
-
-        [data-theme="dark"] .uk-flag-icon {
-            box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.55), 0 8px 16px rgba(0, 0, 0, 0.22);
-        }
-
-        .subject-label {
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
-
-        .subject-pill.active {
-            border-color: var(--accent);
-            box-shadow:
-                0 0 0 4px color-mix(in srgb, var(--accent), transparent 64%),
-                0 16px 28px color-mix(in srgb, var(--accent), transparent 72%);
-        }
-
-        .tree-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin: 10px 0 22px;
-        }
-
-        .learning-tree {
-            display: grid;
-            gap: 30px;
-            padding-left: 68px;
-            position: relative;
-        }
-
-        .learning-tree::before {
-            content: "";
-            position: absolute;
-            left: 26px;
-            top: 14px;
-            bottom: 18px;
-            width: 6px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, #f97316, #facc15);
-            box-shadow: 0 0 0 5px color-mix(in srgb, #f97316, transparent 84%);
-        }
-
-        [data-theme="dark"] .learning-tree::before {
-            background: linear-gradient(180deg, #0f766e, #84cc16);
-            box-shadow: 0 0 0 5px color-mix(in srgb, #0f766e, transparent 80%);
-        }
-
-        .tree-grade {
-            border: 1px solid color-mix(in srgb, #f97316, transparent 70%);
-            border-radius: 14px;
-            padding: 18px;
-            position: relative;
-            background: rgba(255, 255, 255, 0.32);
-            box-shadow: 0 10px 24px rgba(146, 64, 14, 0.08);
-        }
-
-        .tree-grade::before {
-            content: "";
-            position: absolute;
-            left: -42px;
-            top: 31px;
-            width: 42px;
-            height: 4px;
-            border-radius: 999px;
-            background: #f97316;
-        }
-
-        .tree-grade::after {
-            content: "";
-            position: absolute;
-            left: -50px;
-            top: 22px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: #facc15;
-            border: 4px solid #f97316;
-        }
-
-        [data-theme="dark"] .tree-grade {
-            border-color: color-mix(in srgb, #0f766e, transparent 55%);
-            background: rgba(15, 23, 42, 0.42);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-        }
-
-        [data-theme="dark"] .tree-grade::before { background: #0f766e; }
-        [data-theme="dark"] .tree-grade::after {
-            background: #84cc16;
-            border-color: #0f766e;
-        }
-
-        .tree-grade h3 {
-            margin: 0 0 14px;
-            color: var(--shell-text);
-        }
-
-        .tree-lanes {
-            display: grid;
-            gap: 16px;
-        }
-
-        .strand-branch {
-            --accent: #0f766e;
-            align-items: stretch;
-            display: grid;
-            grid-template-columns: minmax(112px, 150px) 1fr;
-            gap: 14px;
-            position: relative;
-        }
-
-        .strand-branch::before {
-            content: "";
-            position: absolute;
-            left: 128px;
-            right: 0;
-            top: 26px;
-            height: 2px;
-            background: color-mix(in srgb, var(--accent), transparent 62%);
-        }
-
-        .strand-label {
-            align-self: start;
-            border: 1px solid color-mix(in srgb, var(--accent), transparent 48%);
-            border-radius: 999px;
-            color: var(--accent);
-            font-size: 0.82rem;
-            font-weight: 900;
-            padding: 9px 12px;
-            text-align: center;
-            background: color-mix(in srgb, var(--accent), white 90%);
-            position: relative;
-            z-index: 1;
-        }
-
-        [data-theme="dark"] .strand-label {
-            background: color-mix(in srgb, var(--accent), #0f172a 78%);
-        }
-
-        .strand-nodes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tree-node,
-        .skill-node {
-            --accent: #0f766e;
-            border: 1px solid color-mix(in srgb, var(--accent), white 45%);
-            background: #ffffff;
-            color: #132f2a;
-            border-radius: 12px;
-            padding: 13px 14px;
-            text-align: left;
-            cursor: pointer;
-            min-height: 96px;
-            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
-            position: relative;
-        }
-
-        [data-theme="dark"] .tree-node,
-        [data-theme="dark"] .skill-node {
-            background: #111827;
-            color: var(--shell-text);
-        }
-
-        .tree-node::before,
-        .skill-node::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 6px;
-            border-radius: 12px 0 0 12px;
-            background: var(--accent);
-        }
-
-        .tree-node.planned,
-        .tree-node.locked,
-        .skill-node.planned,
-        .skill-node.locked {
-            opacity: 0.58;
-            filter: grayscale(0.25);
-        }
-
-        .tree-node:disabled,
-        .skill-node:disabled {
-            cursor: not-allowed;
-        }
-
-        .node-kicker {
-            display: block;
-            color: var(--accent);
-            font-weight: 900;
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .tree-node strong,
-        .skill-node strong { display: block; line-height: 1.2; }
-        .tree-node small,
-        .skill-node small { display: block; color: var(--shell-muted); margin-top: 8px; font-weight: 700; }
-
-        .challenge-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: clamp(9px, 1.35vh, 14px);
-        }
-
-        .challenge-stats span {
-            background: #ecfdf5;
-            border: 1px solid #99f6e4;
-            border-radius: 999px;
-            padding: clamp(6px, 0.95vh, 8px) 12px;
-            color: #064e3b;
-            font-weight: 800;
-        }
-
-        [data-theme="dark"] .challenge-stats span {
-            background: #042f2e;
-            color: #ccfbf1;
-        }
-
-        .challenge-map-toolbar {
-            align-items: center;
-            background: color-mix(in srgb, var(--shell-panel), transparent 4%);
-            border: 1px solid var(--shell-border);
-            border-radius: 16px;
-            box-shadow: var(--shell-shadow);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 0 0 12px;
-            padding: 9px 11px;
-            position: sticky;
-            top: 0;
-            z-index: 20;
-        }
-
-        .challenge-compact-stats {
-            background: color-mix(in srgb, var(--shell-panel), #22c55e 12%);
-            border: 1px solid #99f6e4;
-            border-radius: 999px;
-            color: var(--shell-text);
-            display: inline-flex;
-            font-weight: 900;
-            gap: 4px;
-            padding: 7px 12px;
-        }
-
-        .challenge-map-actions {
-            display: inline-flex;
-            gap: 6px;
-        }
-
-        .challenge-map-actions .quiet-action {
-            min-height: 36px;
-            padding: 7px 10px;
-        }
-
-        .challenge-map-hint {
-            color: var(--shell-muted);
-            font-size: 0.82rem;
-            font-weight: 800;
-        }
-
-        .challenge-map {
-            display: block;
-            padding: 0;
-        }
-
-        #main-view[data-shell-view="challenge"] .challenge-map {
-            background: transparent;
-            border-color: transparent;
-            box-shadow: none;
-            padding: 0;
-        }
-
-        .radial-skill-scroll {
-            cursor: grab;
-            height: auto;
-            min-height: 0;
-            overflow-x: auto;
-            overflow-y: visible;
-            outline: none;
-            padding: 54px 0 72px;
-            scrollbar-width: none;
-            touch-action: pan-y;
-        }
-
-        .radial-skill-scroll.is-dragging {
-            cursor: grabbing;
-            user-select: none;
-        }
-
-        .radial-skill-scroll.is-dragging .radial-node {
-            pointer-events: none;
-        }
-
-        .radial-skill-scroll:focus-visible .radial-skill-map {
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.38),
-                0 0 0 3px rgba(249, 115, 22, 0.32),
-                0 24px 50px rgba(15, 23, 42, 0.12);
-        }
-
-        .radial-skill-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .radial-skill-map {
-            --orb-scale: 1;
-            aspect-ratio: 1;
-            background:
-                linear-gradient(135deg, rgba(255, 248, 220, 0.84), rgba(236, 253, 245, 0.66) 48%, rgba(254, 243, 199, 0.62));
-            border: 1px solid var(--shell-border);
-            border-radius: 28px;
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.54),
-                0 24px 50px rgba(15, 23, 42, 0.12);
-            margin: 0 auto;
-            min-width: 920px;
-            overflow: visible;
-            position: relative;
-            transition: width 0.22s ease;
-        }
-
-        .radial-skill-map::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(15, 118, 110, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
-            background-size: 36px 36px;
-            mask-image: radial-gradient(circle at 50% 50%, black 0 72%, transparent 82%);
-            pointer-events: none;
-        }
-
-        [data-theme="dark"] .radial-skill-map {
-            background:
-                linear-gradient(135deg, rgba(2, 6, 23, 0.96), rgba(5, 46, 42, 0.72));
-            border-color: #1f4f46;
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.05),
-                0 24px 50px rgba(0, 0, 0, 0.38);
-        }
-
-        .radial-links {
-            height: 100%;
-            inset: 0;
-            pointer-events: none;
-            position: absolute;
-            width: 100%;
-            z-index: 0;
-        }
-
-        .radial-orbit {
-            fill: none;
-            stroke: rgba(15, 118, 110, 0.2);
-            stroke-dasharray: 10 13;
-            stroke-width: 2;
-        }
-
-        [data-theme="dark"] .radial-orbit {
-            stroke: rgba(94, 234, 212, 0.18);
-        }
-
-        .radial-link {
-            fill: none;
-            stroke: rgba(15, 118, 110, 0.56);
-            stroke-linecap: round;
-            stroke-width: 2.6;
-            vector-effect: non-scaling-stroke;
-        }
-
-        .radial-link.unlocked { stroke: rgba(45, 212, 191, 0.86); }
-        .radial-link.done { stroke: rgba(34, 197, 94, 0.92); }
-        .radial-link.locked { stroke: rgba(100, 116, 139, 0.42); }
-        .radial-link.planned {
-            stroke: rgba(148, 163, 184, 0.34);
-            stroke-dasharray: 8 10;
-        }
-
-        .radial-link.fade-1 { opacity: 0.64; }
-        .radial-link.fade-2 { opacity: 0.36; }
-        .radial-link.fade-3 { opacity: 0.18; }
-        .radial-link.future-hidden {
-            opacity: 0.06;
-            stroke-dasharray: 4 14;
-        }
-
-        .radial-node {
-            --accent: #0f766e;
-            --node-size: calc(34px * var(--orb-scale));
-            --card-width: calc(var(--node-size) * 2.65);
-            align-items: center;
-            appearance: none;
-            -webkit-appearance: none;
-            background: transparent;
-            border: 0;
-            box-sizing: border-box;
-            color: var(--shell-text);
-            cursor: pointer;
-            display: grid;
-            height: var(--node-size);
-            justify-items: center;
-            line-height: 1;
-            margin: 0;
-            overflow: visible;
-            padding: 0;
-            position: absolute;
-            text-align: center;
-            transform-origin: 50% 50%;
-            transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            width: var(--node-size);
-            z-index: 2;
-        }
-
-        .radial-node:hover:not(:disabled) {
-            transform: scale(1.08);
-            z-index: 8;
-        }
-
-        .radial-node:focus-visible {
-            outline: none;
-            transform: scale(1.08);
-            z-index: 8;
-        }
-
-        .radial-node-dot {
-            align-items: center;
-            background:
-                linear-gradient(145deg, rgba(255,255,255,0.98), color-mix(in srgb, var(--accent), white 88%) 58%, color-mix(in srgb, var(--accent), white 76%)),
-                radial-gradient(circle at 18% 14%, rgba(255,255,255,0.72), transparent 34%);
-            border: max(1px, calc(2px * var(--orb-scale))) solid color-mix(in srgb, var(--accent), white 44%);
-            border-radius: calc(9px * var(--orb-scale));
-            box-sizing: border-box;
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.62),
-                inset -5px -6px 9px rgba(15, 23, 42, 0.08),
-                0 0 0 calc(2px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 76%),
-                0 calc(8px * var(--orb-scale)) calc(18px * var(--orb-scale)) rgba(15, 23, 42, 0.13);
-            color: color-mix(in srgb, var(--accent), #0f172a 44%);
-            display: grid;
-            font-size: calc(0.52rem * var(--orb-scale));
-            font-weight: 950;
-            height: var(--node-size);
-            justify-content: center;
-            letter-spacing: 0;
-            line-height: 1;
-            overflow: hidden;
-            padding: calc(4px * var(--orb-scale)) calc(7px * var(--orb-scale));
-            position: relative;
-            text-shadow: 0 1px 3px rgba(15, 23, 42, 0.42);
-            width: var(--card-width);
-        }
-
-        .radial-node-dot::before {
-            background: var(--accent);
-            border-radius: 999px;
-            content: "";
-            height: calc(4px * var(--orb-scale));
-            left: calc(7px * var(--orb-scale));
-            opacity: 0.76;
-            position: absolute;
-            right: calc(7px * var(--orb-scale));
-            top: calc(3px * var(--orb-scale));
-        }
-
-        .radial-card-kicker,
-        .radial-card-title {
-            display: block;
-            max-width: 100%;
-            overflow: hidden;
-            position: relative;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-        .radial-card-kicker {
-            color: var(--accent);
-            font-size: calc(0.42rem * var(--orb-scale));
-            font-weight: 950;
-            letter-spacing: 0.05em;
-            margin-top: calc(2px * var(--orb-scale));
-            opacity: 0.92;
-            text-transform: uppercase;
-        }
-
-        .radial-card-title {
-            color: var(--shell-text);
-            font-size: calc(0.48rem * var(--orb-scale));
-            line-height: 1.05;
-            margin-top: calc(1px * var(--orb-scale));
-            text-shadow: none;
-        }
-
-        .radial-tooltip {
-            background: var(--shell-panel);
-            border: 1px solid color-mix(in srgb, var(--accent), white 42%);
-            border-radius: 14px;
-            box-shadow: var(--shell-shadow);
-            color: var(--shell-text);
-            left: 50%;
-            max-width: 220px;
-            min-width: 150px;
-            opacity: 0;
-            padding: 9px 11px;
-            pointer-events: none;
-            position: absolute;
-            text-align: left;
-            top: calc(100% + 10px);
-            transform: translate(-50%, -6px) scale(0.96);
-            transition: opacity 0.16s ease, transform 0.16s ease;
-            z-index: 12;
-        }
-
-        .radial-tooltip::before {
-            background: var(--shell-panel);
-            border-left: 1px solid color-mix(in srgb, var(--accent), white 42%);
-            border-top: 1px solid color-mix(in srgb, var(--accent), white 42%);
-            content: "";
-            height: 10px;
-            left: 50%;
-            position: absolute;
-            top: -6px;
-            transform: translateX(-50%) rotate(45deg);
-            width: 10px;
-        }
-
-        .radial-node:hover:not(:disabled) .radial-tooltip,
-        .radial-node:focus-visible .radial-tooltip,
-        .radial-node.show-tooltip .radial-tooltip {
-            opacity: 1;
-            transform: translate(-50%, 0) scale(1);
-        }
-
-        .radial-tooltip span,
-        .radial-tooltip strong,
-        .radial-tooltip small {
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-
-        .radial-subject-word {
-            --node-size: calc(48px * var(--orb-scale));
-            --card-width: calc(var(--node-size) * 2.55);
-        }
-
-        .radial-subject-word .radial-node-dot {
-            gap: calc(2px * var(--orb-scale));
-            grid-template-columns: auto minmax(0, 1fr);
-            justify-content: start;
-            padding-left: calc(9px * var(--orb-scale));
-            text-align: left;
-        }
-
-        .radial-subject-icon {
-            color: var(--accent);
-            display: inline-grid;
-            font-size: calc(0.72rem * var(--orb-scale));
-            place-items: center;
-            position: relative;
-            text-shadow: none;
-            z-index: 1;
-        }
-
-        .radial-subject-word .radial-card-title {
-            font-size: calc(0.56rem * var(--orb-scale));
-        }
-
-        [data-theme="dark"] .radial-node-dot {
-            background:
-                linear-gradient(145deg, rgba(15, 23, 42, 0.96), color-mix(in srgb, var(--accent), #0f172a 80%) 60%, rgba(2, 6, 23, 0.92));
-            border-color: color-mix(in srgb, var(--accent), #d1fae5 22%);
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.06),
-                inset -5px -6px 9px rgba(0, 0, 0, 0.18),
-                0 0 0 calc(2px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 78%),
-                0 calc(8px * var(--orb-scale)) calc(18px * var(--orb-scale)) rgba(0, 0, 0, 0.28);
-        }
-
-        [data-theme="dark"] .radial-card-title {
-            color: #f8fafc;
-        }
-
-        [data-theme="dark"] .radial-card-kicker,
-        [data-theme="dark"] .radial-subject-icon {
-            color: #a7f3d0;
-        }
-
-        .radial-subject-word.active .radial-node-dot {
-            border-color: #fff7ed;
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.7),
-                inset -5px -6px 10px rgba(15, 23, 42, 0.12),
-                0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 54%),
-                0 0 calc(22px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 42%);
-        }
-
-        .radial-tooltip strong {
-            font-size: 0.86rem;
-            line-height: 1.12;
-        }
-
-        .radial-tooltip small {
-            color: var(--shell-muted);
-            font-size: 0.72rem;
-            font-weight: 900;
-            margin-top: 5px;
-        }
-
-        .radial-topic-node.entry {
-            --node-size: calc(40px * var(--orb-scale));
-            --card-width: calc(var(--node-size) * 2.75);
-        }
-
-        .radial-topic-node.branch {
-            --node-size: calc(34px * var(--orb-scale));
-            --card-width: calc(var(--node-size) * 2.65);
-        }
-
-        .radial-topic-node.entry .radial-node-dot {
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.66),
-                inset -5px -6px 9px rgba(15, 23, 42, 0.08),
-                0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 68%),
-                0 calc(8px * var(--orb-scale)) calc(20px * var(--orb-scale)) rgba(15, 23, 42, 0.18);
-        }
-
-        .radial-tooltip span {
-            color: var(--accent);
-            font-size: 0.66rem;
-            font-weight: 900;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .radial-topic-node.unlocked:not(.done) .radial-node-dot {
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.72),
-                inset -5px -6px 9px rgba(15, 23, 42, 0.08),
-                0 0 0 calc(3px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 58%),
-                0 0 calc(22px * var(--orb-scale)) color-mix(in srgb, var(--accent), transparent 56%);
-        }
-
-        .radial-topic-node.done .radial-node-dot {
-            --accent: #22c55e;
-            border-color: #22c55e;
-            background:
-                linear-gradient(145deg, #ecfdf5, #bbf7d0 72%, #86efac);
-        }
-
-        .radial-topic-node.done .radial-card-kicker::after {
-            content: " \2713";
-        }
-
-        .radial-topic-node.locked .radial-node-dot,
-        .radial-topic-node.planned .radial-node-dot {
-            filter: grayscale(0.25);
-            opacity: 0.7;
-        }
-
-        .radial-topic-node.fade-1 { opacity: 0.5; }
-        .radial-topic-node.fade-2 { opacity: 0.34; }
-        .radial-topic-node.fade-3 { opacity: 0.2; }
-
-        .radial-topic-node.future-hidden {
-            opacity: 0.06;
-            pointer-events: none;
-            transform: scale(0.86);
-        }
-
-        .radial-topic-node[aria-disabled="true"] {
-            cursor: pointer;
-        }
-
-        [data-theme="dark"] .radial-tooltip {
-            background: #081322;
-            border-color: color-mix(in srgb, var(--accent), #0f172a 30%);
-        }
-
-        [data-theme="dark"] .radial-tooltip::before {
-            background: #081322;
-            border-color: color-mix(in srgb, var(--accent), #0f172a 30%);
-        }
-
-        .radial-legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 12px;
-        }
-
-        .radial-legend span {
-            align-items: center;
-            background: var(--shell-panel);
-            border: 1px solid var(--shell-border);
-            border-radius: 999px;
-            color: var(--shell-muted);
-            display: inline-flex;
-            font-size: 0.78rem;
-            font-weight: 900;
-            gap: 7px;
-            padding: 7px 10px;
-        }
-
-        .legend-dot {
-            border-radius: 50%;
-            display: inline-block;
-            height: 10px;
-            width: 10px;
-        }
-
-        .legend-dot.unlocked { background: #2dd4bf; }
-        .legend-dot.locked { background: #64748b; }
-        .legend-dot.done { background: #22c55e; }
-        .legend-dot.planned { background: #cbd5e1; }
-        .legend-dot.future { background: rgba(148, 163, 184, 0.38); }
-
-        .challenge-subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .challenge-subject-card {
-            --accent: #0f766e;
-            align-items: center;
-            border: 1px solid color-mix(in srgb, var(--accent), white 38%);
-            border-radius: 16px;
-            background:
-                linear-gradient(145deg, rgba(255, 255, 255, 0.88), color-mix(in srgb, var(--accent), white 88%) 58%, color-mix(in srgb, var(--accent), white 74%));
-            color: var(--shell-text);
-            cursor: pointer;
-            display: grid;
-            grid-template-columns: 46px 1fr;
-            gap: 10px;
-            min-height: 94px;
-            padding: 11px;
-            position: relative;
-            text-align: left;
-            overflow: hidden;
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-        }
-
-        .challenge-subject-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(110deg, transparent 0 42%, rgba(255, 255, 255, 0.34) 48%, transparent 56%),
-                radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--accent), transparent 72%), transparent 32%);
-            opacity: 0.72;
-            pointer-events: none;
-        }
-
-        .challenge-subject-card:hover,
-        .challenge-subject-card.active {
-            border-color: var(--accent);
-            box-shadow:
-                0 0 0 2px color-mix(in srgb, var(--accent), transparent 70%),
-                0 14px 30px color-mix(in srgb, var(--accent), transparent 74%);
-            transform: translateY(-2px);
-            filter: saturate(1.08);
-        }
-
-        [data-theme="dark"] .challenge-subject-card {
-            background:
-                linear-gradient(145deg, rgba(9, 18, 34, 0.96), color-mix(in srgb, var(--accent), #0f172a 76%) 58%, rgba(2, 6, 23, 0.88));
-            border-color: color-mix(in srgb, var(--accent), #0f172a 50%);
-        }
-
-        .challenge-subject-card .challenge-subject-symbol,
-        .skill-branch header .challenge-subject-symbol {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            color: var(--accent);
-            background: rgba(255, 255, 255, 0.78);
-            font-weight: 900;
-            font-size: 1.62rem;
-            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 60%);
-        }
-
-        .challenge-subject-card .challenge-subject-symbol {
-            width: 44px;
-            height: 44px;
-            font-size: 1.45rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .challenge-subject-copy {
-            display: grid;
-            gap: 4px;
-            min-width: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .challenge-subject-copy strong {
-            line-height: 1.12;
-        }
-
-        .challenge-subject-copy small {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .challenge-subject-copy small {
-            color: var(--shell-muted);
-            font-weight: 900;
-        }
-
-        .subject-progress {
-            grid-column: 1 / -1;
-            height: 7px;
-            overflow: hidden;
-            border-radius: 999px;
-            background: color-mix(in srgb, var(--accent), white 78%);
-            position: relative;
-            z-index: 1;
-        }
-
-        [data-theme="dark"] .subject-progress {
-            background: color-mix(in srgb, var(--accent), #0f172a 68%);
-        }
-
-        .subject-progress span {
-            display: block;
-            height: 100%;
-            border-radius: inherit;
-            background:
-                linear-gradient(90deg, color-mix(in srgb, var(--accent), white 20%), var(--accent)),
-                repeating-linear-gradient(90deg, transparent 0 10px, rgba(255,255,255,0.32) 10px 13px);
-            box-shadow: 0 0 12px color-mix(in srgb, var(--accent), transparent 46%);
-        }
-
-        .skill-branch {
-            --accent: #0f766e;
-            border: 1px solid color-mix(in srgb, var(--accent), white 55%);
-            border-radius: 14px;
-            padding: 18px;
-            background:
-                radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent), transparent 82%), transparent 26%),
-                color-mix(in srgb, var(--accent), white 93%);
-            box-shadow: 0 10px 24px color-mix(in srgb, var(--accent), transparent 86%);
-            min-width: 0;
-        }
-
-        [data-theme="dark"] .skill-branch {
-            background:
-                radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent), transparent 78%), transparent 28%),
-                color-mix(in srgb, var(--accent), #0f172a 86%);
-        }
-
-        .skill-branch header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-
-        .skill-branch h2 { margin: 0; }
-
-        .skill-branch-focused {
-            padding: clamp(16px, 2.2vw, 28px);
-            background:
-                radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--accent), transparent 70%), transparent 26%),
-                linear-gradient(135deg, rgba(255, 255, 255, 0.92), color-mix(in srgb, var(--accent), white 93%) 42%, rgba(255, 248, 220, 0.92));
-            border-color: color-mix(in srgb, var(--accent), white 35%);
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.45),
-                0 18px 40px color-mix(in srgb, var(--accent), transparent 82%);
-            overflow: hidden;
-        }
-
-        [data-theme="dark"] .skill-branch-focused {
-            background:
-                radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--accent), transparent 64%), transparent 28%),
-                linear-gradient(135deg, rgba(8, 18, 35, 0.98), color-mix(in srgb, var(--accent), #0f172a 82%) 50%, rgba(2, 6, 23, 0.94));
-            border-color: color-mix(in srgb, var(--accent), #0f172a 34%);
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-                0 18px 40px rgba(0, 0, 0, 0.38);
-        }
-
-        .challenge-focus-header {
-            justify-content: space-between;
-        }
-
-        .challenge-focus-header > div {
-            min-width: 0;
-        }
-
-        .challenge-focus-header .eyebrow {
-            margin: 0 0 4px !important;
-            font-size: 0.76rem;
-        }
-
-        .challenge-focus-header small {
-            color: var(--shell-muted);
-            display: block;
-            font-weight: 900;
-            margin-top: 4px;
-        }
-
-        .challenge-subject-symbol svg {
-            display: block;
-            width: 34px;
-            height: 34px;
-        }
-
-        .challenge-subject-symbol .uk-flag-icon {
-            width: 38px;
-            height: 24px;
-        }
-
-        .challenge-tree {
-            gap: 22px;
-            margin-top: 10px;
-            padding-left: 48px;
-        }
-
-        .challenge-tree::before {
-            left: 18px;
-        }
-
-        .challenge-tree .tree-grade {
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.64), color-mix(in srgb, var(--accent), white 94%));
-            border-color: color-mix(in srgb, var(--accent), white 46%);
-            border-radius: 18px;
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.34),
-                0 12px 24px color-mix(in srgb, var(--accent), transparent 88%);
-            padding: 16px;
-        }
-
-        .challenge-tree .tree-grade h3 {
-            display: inline-grid;
-            place-items: center;
-            min-height: 34px;
-            border-radius: 999px;
-            padding: 7px 13px;
-            background: color-mix(in srgb, var(--accent), white 84%);
-            color: color-mix(in srgb, var(--accent), #0f172a 20%);
-            font-size: 0.95rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .challenge-tree .tree-grade::before {
-            left: -32px;
-            width: 32px;
-        }
-
-        .challenge-tree .tree-grade::after {
-            left: -42px;
-        }
-
-        .challenge-tree .strand-branch {
-            grid-template-columns: minmax(92px, 128px) 1fr;
-        }
-
-        .challenge-tree .strand-branch::before {
-            left: 110px;
-        }
-
-        .challenge-tree .strand-label {
-            box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent), transparent 84%);
-            font-size: 0.74rem;
-            padding: 8px 10px;
-        }
-
-        .challenge-tree .strand-nodes {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        }
-
-        [data-theme="dark"] .challenge-tree .tree-grade {
-            background:
-                linear-gradient(135deg, rgba(15, 23, 42, 0.78), color-mix(in srgb, var(--accent), #0f172a 88%));
-            border-color: color-mix(in srgb, var(--accent), #0f172a 42%);
-        }
-
-        [data-theme="dark"] .challenge-tree .tree-grade h3 {
-            background: color-mix(in srgb, var(--accent), #0f172a 76%);
-            color: #f8fafc;
-        }
-
-        .challenge-tree .skill-node {
-            min-height: 112px;
-            border-radius: 16px;
-            background:
-                linear-gradient(145deg, rgba(255,255,255,0.98), color-mix(in srgb, var(--accent), white 92%) 62%, rgba(255,255,255,0.82));
-            border-color: color-mix(in srgb, var(--accent), white 34%);
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.56),
-                0 10px 20px rgba(15, 23, 42, 0.08);
-            overflow: hidden;
-            padding-right: 58px;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-        }
-
-        .challenge-tree .skill-node:hover:not(:disabled) {
-            border-color: var(--accent);
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.65),
-                0 14px 26px color-mix(in srgb, var(--accent), transparent 78%);
-            transform: translateY(-2px);
-        }
-
-        [data-theme="dark"] .challenge-tree .skill-node {
-            background:
-                linear-gradient(145deg, rgba(15, 23, 42, 0.96), color-mix(in srgb, var(--accent), #0f172a 82%) 62%, rgba(2, 6, 23, 0.88));
-            border-color: color-mix(in srgb, var(--accent), #0f172a 34%);
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-                0 10px 22px rgba(0, 0, 0, 0.28);
-        }
-
-        .challenge-tree .skill-node.unlocked:not(.done)::after {
-            content: "START";
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            border-radius: 999px;
-            background: color-mix(in srgb, var(--accent), white 72%);
-            color: color-mix(in srgb, var(--accent), #0f172a 16%);
-            font-size: 0.64rem;
-            font-weight: 900;
-            letter-spacing: 0.06em;
-            padding: 6px 8px;
-        }
-
-        .challenge-tree .skill-node.locked:not(.done)::after {
-            content: "LOCK";
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            border-radius: 999px;
-            background: rgba(100, 116, 139, 0.18);
-            color: var(--shell-muted);
-            font-size: 0.64rem;
-            font-weight: 900;
-            letter-spacing: 0.06em;
-            padding: 6px 8px;
-        }
-
-        .skill-track {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
-
-        .skill-node.done {
-            border-color: #16a34a;
-            background: #ecfdf5;
-        }
-
-        [data-theme="dark"] .skill-node.done { background: #052e1a; }
-
-        .skill-node.done::after {
-            content: "\2713";
-            position: absolute;
-            top: 10px;
-            right: 12px;
-            width: 26px;
-            height: 26px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: #16a34a;
-            color: white;
-            font-weight: 900;
-        }
-
-        .character-layout {
-            display: grid;
-            grid-template-columns: minmax(330px, 430px) 1fr;
-            gap: 22px;
-            align-items: start;
-        }
-
-        .character-preview-panel,
-        .character-control-panel,
-        .designer-block {
-            border: 1px solid var(--shell-border);
-            border-radius: 16px;
-            background: var(--shell-panel);
-            box-shadow: var(--shell-shadow);
-        }
-
-        .character-preview-panel {
-            position: sticky;
-            top: 0;
-            padding: 20px;
-        }
-
-        .character-stage {
-            min-height: 430px;
-            display: grid;
-            place-items: center;
-            border-radius: 14px;
-            background:
-                radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.86), transparent 34%),
-                linear-gradient(180deg, rgba(250, 204, 21, 0.18), rgba(15, 118, 110, 0.12));
-            overflow: hidden;
-        }
-
-        [data-theme="dark"] .character-stage {
-            background:
-                radial-gradient(circle at 50% 16%, rgba(45, 212, 191, 0.18), transparent 34%),
-                linear-gradient(180deg, rgba(15, 118, 110, 0.22), rgba(15, 23, 42, 0.28));
-        }
-
-        .character-svg {
-            width: min(100%, 360px);
-            height: auto;
-            filter: drop-shadow(0 18px 24px rgba(15, 23, 42, 0.16));
-        }
-
-        .character-summary {
-            display: grid;
-            gap: 4px;
-            margin-top: 16px;
-        }
-
-        .character-summary strong {
-            font-size: 1.45rem;
-            color: var(--shell-text);
-        }
-
-        .character-summary span,
-        .character-summary small {
-            color: var(--shell-muted);
-            font-weight: 800;
-        }
-
-        .character-control-panel {
-            display: grid;
-            gap: 16px;
-            padding: 18px;
-        }
-
-        .designer-block {
-            padding: 16px;
-        }
-
-        .designer-block-head {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .designer-block-head h2,
-        .wardrobe-section h3 {
-            margin: 0;
-        }
-
-        .designer-block-head span,
-        .wardrobe-section h3 {
-            color: var(--shell-muted);
-            font-weight: 900;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .split-block {
-            display: grid;
-            grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
-            gap: 16px;
-        }
-
-        .choice-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
-            gap: 12px;
-        }
-
-        .group-choice,
-        .pill-choice,
-        .model-choice,
-        .item-action {
-            border: 1px solid var(--shell-border);
-            background: rgba(255, 255, 255, 0.72);
-            color: var(--shell-text);
-            cursor: pointer;
-            font-weight: 900;
-        }
-
-        [data-theme="dark"] .group-choice,
-        [data-theme="dark"] .pill-choice,
-        [data-theme="dark"] .model-choice,
-        [data-theme="dark"] .item-action {
-            background: rgba(15, 23, 42, 0.76);
-        }
-
-        .group-choice {
-            display: grid;
-            grid-template-columns: 54px 1fr;
-            gap: 10px;
-            min-height: 82px;
-            align-items: center;
-            border-radius: 14px;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .group-choice.active,
-        .pill-choice.active,
-        .model-choice.active,
-        .item-card.equipped {
-            border-color: #f97316;
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
-        }
-
-        [data-theme="dark"] .group-choice.active,
-        [data-theme="dark"] .pill-choice.active,
-        [data-theme="dark"] .model-choice.active,
-        [data-theme="dark"] .item-card.equipped {
-            border-color: #5eead4;
-            box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.18);
-        }
-
-        .group-mini,
-        .model-choice {
-            display: grid;
-            place-items: center;
-        }
-
-        .group-mini svg,
-        .model-choice svg {
-            width: 52px;
-            height: 52px;
-        }
-
-        .group-choice strong,
-        .group-choice small {
-            display: block;
-        }
-
-        .group-choice small {
-            margin-top: 3px;
-            color: var(--shell-muted);
-            font-size: 0.75rem;
-            font-weight: 800;
-        }
-
-        .choice-row,
-        .model-row,
-        .shop-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-        }
-
-        .pill-choice {
-            border-radius: 999px;
-            padding: 9px 13px;
-        }
-
-        .model-choice {
-            width: 62px;
-            height: 62px;
-            border-radius: 16px;
-            padding: 4px;
-        }
-
-        .wardrobe-section {
-            display: grid;
-            gap: 9px;
-            margin-top: 14px;
-        }
-
-        .item-row,
-        .shop-grid {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-        }
-
-        .shop-grid {
-            margin-top: 12px;
-            max-height: 520px;
-            overflow: auto;
-            padding-right: 4px;
-            scrollbar-width: thin;
-        }
-
-        .item-card {
-            border: 1px solid color-mix(in srgb, var(--item-color, #0f766e), white 50%);
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.74);
-            color: var(--shell-text);
-            display: grid;
-            gap: 6px;
-            min-height: 160px;
-            padding: 12px;
-            position: relative;
-        }
-
-        [data-theme="dark"] .item-card {
-            background: rgba(15, 23, 42, 0.76);
-            border-color: color-mix(in srgb, var(--item-color, #0f766e), #0f172a 46%);
-        }
-
-        .item-card.locked {
-            opacity: 0.56;
-            filter: grayscale(0.25);
-        }
-
-        .item-card strong,
-        .item-card small,
-        .item-card span {
-            display: block;
-        }
-
-        .item-card small,
-        .item-card span {
-            color: var(--shell-muted);
-            font-size: 0.77rem;
-            font-weight: 800;
-        }
-
-        .item-token {
-            width: 42px;
-            height: 42px;
-            border-radius: 13px;
-            display: grid;
-            place-items: center;
-            background: color-mix(in srgb, var(--item-color, #0f766e), white 78%);
-            color: color-mix(in srgb, var(--item-color, #0f766e), #0f172a 20%);
-            font-weight: 900;
-            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--item-color, #0f766e), white 42%);
-        }
-
-        .item-action {
-            align-self: end;
-            border-radius: 999px;
-            padding: 8px 10px;
-        }
-
-        .item-action:disabled {
-            cursor: not-allowed;
-            opacity: 0.62;
-        }
-
-        #frame-shell {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            gap: 12px;
-        }
-
-        .frame-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .frame-toolbar-group {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--shell-border);
-            border-radius: 12px;
-            background: white;
-            box-shadow: var(--shell-shadow);
-        }
-
-        [data-theme="dark"] iframe {
-            background: #0f172a;
-            border-color: #1f4f46;
-        }
-
-        [hidden] { display: none !important; }
-
-        @media (max-width: 860px) {
-            body { overflow: auto; }
-            .topbar { align-items: flex-start; flex-direction: column; }
-            .shell-actions { justify-content: flex-start; }
-            #main-view, #frame-shell { height: auto; min-height: calc(100vh - 160px); }
-            iframe { min-height: 76vh; }
-            .learning-tree { padding-left: 38px; }
-            .learning-tree::before { left: 13px; }
-            .tree-grade::before {
-                left: -25px;
-                width: 25px;
-            }
-            .tree-grade::after { left: -35px; }
-            .strand-branch {
-                grid-template-columns: 1fr;
-            }
-            .strand-branch::before {
-                left: 18px;
-                right: auto;
-                top: 38px;
-                bottom: 0;
-                width: 2px;
-                height: auto;
-            }
-            .strand-label {
-                justify-self: start;
-            }
-            .character-layout,
-            .split-block {
-                grid-template-columns: 1fr;
-            }
-            .character-preview-panel {
-                position: static;
-            }
-            .character-stage {
-                min-height: 360px;
-            }
-        }
-
-        @media (max-width: 680px) {
-            .subject-grid {
-                display: grid;
-                gap: 12px;
-                grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-                min-height: 0;
-            }
-
-            .subject-pill {
-                position: relative;
-                left: auto !important;
-                top: auto !important;
-                justify-self: center;
-                width: 72px;
+            #zeugnis-btn {
+                right: 10px;
+                top: 10px;
+                max-width: calc(100vw - 72px);
             }
         }
     </style>
 </head>
 <body>
-    <div class="app-shell">
-        <header class="topbar">
-            <div class="brand">
-                <button type="button" id="brand-character-link" class="brand-mark" aria-label="Charakterdesigner oeffnen" title="Charakterdesigner oeffnen">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Graduation Cap -->
-                        <path d="M12 2 L22 6 L12 10 L2 6 Z" />
-                        <path d="M6 7.6 V10 C6 13 18 13 18 10 V7.6" />
-                        <path d="M12 6 C18 6 21 8 21 12" />
-                        <!-- Troll Face Outline -->
-                        <path d="M6 11 V17 C6 22 18 22 18 17 V11" />
-                        <!-- Pointy Ears -->
-                        <path d="M6 12 L1 13 L6 15" />
-                        <path d="M18 12 L23 13 L18 15" />
-                        <!-- Angry Eyebrows & Eyes -->
-                        <path d="M8 13 L10 14 M16 13 L14 14" />
-                        <!-- Big Nose -->
-                        <path d="M11 15 C10 15 10 17 12 17 C14 17 14 15 13 15" />
-                        <!-- Tusks & Mouth -->
-                        <path d="M9 17 L9 19 M15 17 L15 19" />
-                        <path d="M8 19 Q12 20 16 19" />
-                    </svg>
-                </button>
-                <div>
-                    <strong id="app-title">SciVerse</strong>
-                    <small>Mittelschule Wien</small>
+    <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menü umschalten" aria-expanded="true">☰</button>
+    <button id="zeugnis-btn" onclick="loadPage('topics/dashboard.html', null)">🎓 Mein Zeugnis</button>
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <div class="language-menu">
+                <button type="button" class="language-toggle" id="language-toggle" onclick="toggleLanguageMenu()" aria-haspopup="true" aria-expanded="false" title="Sprache wählen">🌐 <span id="current-lang-label">DE</span></button>
+                <div class="language-panel" id="language-panel" role="menu" aria-label="Sprache wählen">
+                    <button type="button" onclick="setLanguage('de')" class="lang-btn" id="lang-de" title="Deutsch" role="menuitem">DE Deutsch</button>
+                    <button type="button" onclick="setLanguage('en')" class="lang-btn" id="lang-en" title="English" role="menuitem">EN English</button>
+                    <button type="button" onclick="setLanguage('ar')" class="lang-btn" id="lang-ar" title="العربية" role="menuitem">AR العربية</button>
+                    <button type="button" onclick="setLanguage('uk')" class="lang-btn" id="lang-uk" title="Українська" role="menuitem">UK Українська</button>
+                    <button type="button" onclick="setLanguage('sr')" class="lang-btn" id="lang-sr" title="Српски" role="menuitem">SR Српски</button>
+                    <button type="button" onclick="setLanguage('tr')" class="lang-btn" id="lang-tr" title="Türkçe" role="menuitem">TR Türkçe</button>
                 </div>
             </div>
-
-            <nav class="top-nav" aria-label="Hauptnavigation">
-                <button type="button" data-view="home" onclick="navigate('home')">Startseite</button>
-                <button type="button" data-view="challenge" onclick="navigate('challenge')">Herausforderung</button>
-            </nav>
-
-            <div class="shell-actions">
-                <span class="coin-chip"><span data-coin-count>0</span> +</span>
-                <div class="language-menu" id="language-menu">
-                    <button type="button" class="shell-action language-toggle" id="language-toggle" onclick="toggleLanguageMenu()" aria-label="Sprache waehlen" aria-haspopup="true" aria-expanded="false">
-                        <span class="language-glyph" aria-hidden="true">A/&#25991;</span>
-                    </button>
-                    <div class="lang-row language-dropdown" id="language-dropdown" aria-label="Sprache waehlen" hidden>
-                        <button type="button" class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
-                        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
-                        <button type="button" class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
-                        <button type="button" class="lang-btn" data-lang="uk" onclick="setLanguage('uk')">UK</button>
-                        <button type="button" class="lang-btn" data-lang="sr" onclick="setLanguage('sr')">SR</button>
-                        <button type="button" class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
-                    </div>
+            <a class="sciverse-logo-link" href="#topics/space_program.html" onclick="loadPage('topics/space_program.html', null); return false;" aria-label="SciVerse Space Program öffnen">
+                <svg class="sciverse-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(0, 3)">
+                        <path d="M 19 25 Q 34 9 56 13 Q 82 18 88 42 Q 93 63 72 78 Q 48 93 24 76 Q 4 61 10 40 Q 12 32 19 25 Z" fill="#0f172a" opacity="0.32" transform="translate(4, 5)" />
+                        <path d="M 17 23 Q 34 7 57 12 Q 83 17 90 41 Q 96 64 73 80 Q 47 94 22 76 Q 3 60 9 39 Q 11 30 17 23 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="4" />
+                        <ellipse cx="50" cy="48" rx="39" ry="13" fill="none" stroke="#ffffff" stroke-width="9" transform="rotate(-18 50 48)" />
+                        <ellipse cx="50" cy="48" rx="39" ry="13" fill="none" stroke="#06b6d4" stroke-width="5" transform="rotate(-18 50 48)" />
+                        <ellipse cx="50" cy="48" rx="39" ry="13" fill="none" stroke="#ffffff" stroke-width="9" transform="rotate(28 50 48)" />
+                        <ellipse cx="50" cy="48" rx="39" ry="13" fill="none" stroke="#ec4899" stroke-width="5" transform="rotate(28 50 48)" />
+                        <ellipse cx="50" cy="48" rx="13" ry="39" fill="none" stroke="#ffffff" stroke-width="8" transform="rotate(8 50 48)" />
+                        <ellipse cx="50" cy="48" rx="13" ry="39" fill="none" stroke="#facc15" stroke-width="5" transform="rotate(8 50 48)" />
+                        <circle cx="50" cy="48" r="12" fill="#1d4ed8" stroke="#ffffff" stroke-width="4" />
+                        <circle cx="45" cy="44" r="4" fill="#67e8f9" />
+                        <circle cx="61" cy="23" r="4" fill="#ec4899" stroke="#0f172a" stroke-width="2" />
+                        <circle cx="20" cy="57" r="4" fill="#06b6d4" stroke="#0f172a" stroke-width="2" />
+                        <circle cx="78" cy="70" r="4" fill="#facc15" stroke="#0f172a" stroke-width="2" />
+                        <path d="M 24 80 L 24 90 C 24 93 30 93 30 90 L 30 78 Z" fill="#06b6d4" stroke="#0f172a" stroke-width="2" />
+                        <path d="M 66 80 L 66 93 C 66 96 72 96 72 93 L 72 77 Z" fill="#ec4899" stroke="#0f172a" stroke-width="2" />
+                        <circle cx="15" cy="18" r="3" fill="#facc15" />
+                        <circle cx="88" cy="18" r="3" fill="#06b6d4" />
+                        <circle cx="91" cy="83" r="2.5" fill="#ec4899" />
+                    </g>
+                </svg>
+            </a>
+            <h1 class="sciverse-title" style="font-family: 'Trebuchet MS', 'Segoe UI Black', 'Arial Black', sans-serif; letter-spacing: 1px; font-weight: 900; font-style: italic; color: #fff7ed; text-shadow: 0 3px 0 #1e3a8a, 0 6px 12px rgba(15,23,42,0.45);">SciVerse</h1>
+            <p class="sciverse-subtitle">Mittelschule Wien</p>
+            <div style="margin-top: 10px; background: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid #3b82f6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);">
+                <div style="font-size: 1.2em; font-weight: bold; color: #fbbf24; margin-bottom: 10px; text-align: center;">
+                    <span id="global-score-label">🏆 <span id="global-score-val">0</span> Punkte</span>
                 </div>
-                <button type="button" class="shell-action theme-toggle" id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Waldmodus aktivieren" title="Waldmodus aktivieren"><span class="theme-glyph" aria-hidden="true">&#127794;</span></button>
-                <button type="button" class="shell-action" onclick="resetAllProgress()">Reset</button>
-            </div>
-        </header>
-
-        <main class="workspace">
-            <div id="main-view"></div>
-            <div id="frame-shell" hidden>
-                <div class="frame-toolbar">
-                    <button type="button" class="quiet-action" onclick="backToShell()">Zur&uuml;ck</button>
-                    <div class="frame-toolbar-group">
-                        <button type="button" class="quiet-action" id="frame-practice-reset" onclick="resetCurrentTopicPractice()" hidden>&Uuml;bungsfragen zur&uuml;cksetzen</button>
-                    </div>
+                <div style="display: flex; gap: 5px;">
+                    <button onclick="toggleDarkMode()" id="dark-mode-toggle" style="flex: 1; background: #475569; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Nachtmodus 🌙</button>
+                    <button onclick="resetProgress()" id="reset-progress-btn" style="flex: 1; background: #e53e3e; font-size: 0.75em; padding: 8px; border: none; color: white; border-radius: 6px; cursor: pointer;">Reset 🔄</button>
                 </div>
-                <iframe id="game-frame" name="game-frame" title="Kapitel"></iframe>
             </div>
-        </main>
+        </div>
+        
+                <div style="padding: 10px 20px;">
+            <select id="subject-select" onchange="handleSubjectChange()" style="width: 100%; padding: 8px; border-radius: 6px; background: var(--main-bg); color: var(--text-color); border: 1px solid var(--nav-btn-active-border); outline: none; margin-bottom: 10px; font-weight: bold; cursor: pointer;">
+                <option value="biologie">🧬 Biologie</option>
+                <option value="chemie">🧪 Chemie</option>
+                <option value="deutsch">📚 Deutsch</option>
+                <option value="dgb">💻 Digitale Grundbildung</option>
+                <option value="englisch">🇬🇧 Englisch</option>
+                <option value="ernaehrung">🥕 Ernährung & Haushalt</option>
+                <option value="geographie">🌍 Geographie & Umwelt</option>
+                <option value="kunst">🗿 Kunst</option>
+                <option value="mathematik">📐 Mathematik</option>
+                <option value="musik">🎵 Musik</option>
+                <option value="physik">🚀 Physik</option>
+            </select>
+            <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+                <button id="sort-grade-btn" onclick="setSortMode('grade')" style="flex: 1; padding: 6px; border-radius: 4px; border: none; background: var(--nav-btn-active-border); color: white; cursor: pointer; font-size: 0.85em;">Nach Schuljahr</button>
+                <button id="sort-topic-btn" onclick="setSortMode('topic')" style="flex: 1; padding: 6px; border-radius: 4px; border: none; background: var(--nav-btn-active-bg); color: var(--nav-btn-color); cursor: pointer; font-size: 0.85em;">Nach Thema</button>
+            </div>
+        </div>
+
+        <button class="nav-btn" data-page="topics/start.html" onclick="loadPage('topics/start.html', this)" style="font-weight: bold; color: var(--nav-btn-active-text);">🏠 Startseite</button>
+        <button class="nav-btn" data-page="topics/glossar.html" onclick="loadPage('topics/glossar.html', this)" style="margin-bottom: 10px;">📖 Glossar</button>
+        
+        <div id="dynamic-nav-container"></div>
     </div>
+    <div id="content-area"><iframe id="game-frame" name="game-frame" title="SciVerse Lernbereich"></iframe></div>
+    
+    <script src="js/learning_radio.js?v=1.4"></script>
+    <script>
+        const TOPIC_TEMPLATE_VERSION = '14.6';
 
-    <script src="js/curriculum.js?v=1.0"></script>
-    <script src="js/character_designer.js?v=1.6"></script>
-    <script src="js/app_shell.js?v=4.2"></script>
+        // Message handling for communication from iframe
+        window.addEventListener('message', (e) => {
+            if (e.data.type === 'updateScore') {
+                document.getElementById('global-score-val').innerText = e.data.score;
+            }
+            if (e.data.type === 'navigate') {
+                loadPage(e.data.page, null);
+            }
+            if (e.data.type === 'selectSubject' && isKnownSubject(e.data.subject)) {
+                setSelectedSubject(e.data.subject);
+                renderNav();
+                const sidebar = document.getElementById('sidebar');
+                const toggle = document.getElementById('menu-toggle');
+                if (sidebar.classList.contains('collapsed')) {
+                    sidebar.classList.remove('collapsed');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+                sidebar.scrollTo({ top: document.getElementById('dynamic-nav-container').offsetTop - 12, behavior: 'smooth' });
+            }
+        });
+
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menu-toggle');
+            sidebar.classList.toggle('collapsed');
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            toggle.setAttribute('aria-expanded', !isCollapsed);
+        }
+
+        function toggleLanguageMenu(forceOpen = null) {
+            const panel = document.getElementById('language-panel');
+            const toggle = document.getElementById('language-toggle');
+            if (!panel || !toggle) return;
+            const isOpen = forceOpen === null ? !panel.classList.contains('open') : Boolean(forceOpen);
+            panel.classList.toggle('open', isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        }
+
+        document.addEventListener('click', (event) => {
+            const menu = document.querySelector('.language-menu');
+            if (menu && !menu.contains(event.target)) toggleLanguageMenu(false);
+        });
+
+        const shellTranslations = {
+            de: {
+                menuToggle: 'Menü umschalten',
+                report: 'Mein Zeugnis',
+                chooseLanguage: 'Sprache wählen',
+                openSpace: 'SciVerse Space Program öffnen',
+                subtitle: 'Mittelschule Wien',
+                points: 'Punkte',
+                nightMode: 'Nachtmodus 🌙',
+                dayMode: 'Tagmodus ☀️',
+                reset: 'Reset 🔄',
+                sortGrade: 'Nach Schuljahr',
+                sortTopic: 'Nach Thema',
+                start: 'Startseite',
+                glossary: 'Glossar',
+                planned: 'geplant',
+                emptySubject: 'Inhalte für dieses Fach folgen in Kürze! 🚧',
+                currentTopic: 'Aktuelles Thema: ',
+                resetConfirm: 'Möchtest du wirklich deinen gesamten Fortschritt, alle Punkte und gelösten Aufgaben löschen?'
+            },
+            en: {
+                menuToggle: 'Toggle menu',
+                report: 'My report',
+                chooseLanguage: 'Choose language',
+                openSpace: 'Open SciVerse Space Program',
+                subtitle: 'Middle School Vienna',
+                points: 'points',
+                nightMode: 'Night mode 🌙',
+                dayMode: 'Day mode ☀️',
+                reset: 'Reset 🔄',
+                sortGrade: 'By school year',
+                sortTopic: 'By topic',
+                start: 'Start page',
+                glossary: 'Glossary',
+                planned: 'planned',
+                emptySubject: 'Content for this subject is coming soon! 🚧',
+                currentTopic: 'Current topic: ',
+                resetConfirm: 'Do you really want to delete all progress, points and solved tasks?'
+            }
+        };
+
+        function shellText(key) {
+            const lang = localStorage.getItem('physik_lang') || 'de';
+            const dict = shellTranslations[lang] || shellTranslations.en;
+            return dict[key] || shellTranslations.de[key] || key;
+        }
+
+        function applyShellLanguage() {
+            const menuToggle = document.getElementById('menu-toggle');
+            if (menuToggle) menuToggle.setAttribute('aria-label', shellText('menuToggle'));
+
+            const reportButton = document.getElementById('zeugnis-btn');
+            if (reportButton) reportButton.textContent = `🎓 ${shellText('report')}`;
+
+            const languageToggle = document.getElementById('language-toggle');
+            if (languageToggle) languageToggle.setAttribute('title', shellText('chooseLanguage'));
+            const languagePanel = document.getElementById('language-panel');
+            if (languagePanel) languagePanel.setAttribute('aria-label', shellText('chooseLanguage'));
+
+            const brand = document.querySelector('.sciverse-logo-link');
+            if (brand) brand.setAttribute('aria-label', shellText('openSpace'));
+            const subtitle = document.querySelector('.sciverse-subtitle');
+            if (subtitle) subtitle.textContent = shellText('subtitle');
+
+            const score = document.getElementById('global-score-val')?.textContent || '0';
+            const scoreLabel = document.getElementById('global-score-label');
+            if (scoreLabel) scoreLabel.innerHTML = `🏆 <span id="global-score-val">${score}</span> ${shellText('points')}`;
+
+            const resetButton = document.getElementById('reset-progress-btn');
+            if (resetButton) resetButton.textContent = shellText('reset');
+            const gradeButton = document.getElementById('sort-grade-btn');
+            if (gradeButton) gradeButton.textContent = shellText('sortGrade');
+            const topicButton = document.getElementById('sort-topic-btn');
+            if (topicButton) topicButton.textContent = shellText('sortTopic');
+
+            const startButton = document.querySelector('[data-page="topics/start.html"]');
+            if (startButton) startButton.textContent = `🏠 ${shellText('start')}`;
+            const glossaryButton = document.querySelector('[data-page="topics/glossar.html"]');
+            if (glossaryButton) glossaryButton.textContent = `📖 ${shellText('glossary')}`;
+
+            applyTheme(localStorage.getItem('physik_dark_mode') === 'true');
+            if (typeof window.SciverseLearningRadioApplyLanguage === 'function') {
+                window.SciverseLearningRadioApplyLanguage();
+            }
+        }
+
+        function setLanguage(l) {
+            localStorage.setItem('physik_lang', l);
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('lang-' + l);
+            if (btn) btn.classList.add('active');
+            const label = document.getElementById('current-lang-label');
+            if (label) label.textContent = l.toUpperCase();
+            document.documentElement.lang = l;
+            applyShellLanguage();
+            renderNav();
+            toggleLanguageMenu(false);
+            
+            // Reload current iframe if it's already loading something
+            const frame = document.getElementById('game-frame');
+            if (frame.src && frame.src !== 'about:blank') {
+                try {
+                    frame.contentWindow.postMessage({ type: 'languageChange', lang: l }, '*');
+                } catch (error) {}
+                frame.contentWindow.location.reload();
+            }
+        }
+
+        
+        const curriculum = {
+            physik: {
+                topics: [
+                    { id: "optik1", title: "🌑 1. Licht: Entstehung & Schatten", grade: "6. Schulstufe (2. Kl.)", category: "Optik" },
+                    { id: "farben", title: "🎨 2. Farben & Sehen", grade: "6. Schulstufe (2. Kl.)", category: "Optik" },
+                    { id: "waermelehre", title: "🌡️ 3. Wärmelehre", grade: "6. Schulstufe (2. Kl.)", category: "Wärmelehre" },
+                    { id: "elektrizitaet", title: "⚡ 4. Elektrizität 1", grade: "6. Schulstufe (2. Kl.)", category: "Elektrizitätslehre" },
+                    { id: "kraft_und_bewegung", title: "🚀 6. Kraft & Bewegung", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "drehundstatik", title: "🎡 7. Statik & Hebel", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "arbeit", title: "🏗 8. Mechanische Arbeit", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "energie", title: "🔋 9. Energieformen", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "akustik", title: "🎶 10. Akustik", grade: "7. Schulstufe (3. Kl.)", category: "Akustik" },
+                    { id: "elektromagnetismus", title: "🧲 11. Elektromagnetismus", grade: "8. Schulstufe (4. Kl.)", category: "Elektrizitätslehre" },
+                    { id: "linsen_spiegel", title: "🔍 12. Linsen & Spiegel", grade: "8. Schulstufe (4. Kl.)", category: "Optik" },
+                    { id: "astronomie", title: "🌌 13. Astronomie", grade: "8. Schulstufe (4. Kl.)", category: "Astronomie" },
+                    { id: "sieinheiten", title: "📏 SI-Einheiten", grade: "Grundlagen", category: "Grundlagen" },
+                    { id: "rechenbeispiele", title: "🧮 Rechenbeispiele", grade: "Grundlagen", category: "Grundlagen" },
+                    { id: "wetter", title: "🌤️ Wetter", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" },
+                    { id: "klima", title: "🌡️ Klima", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" },
+                    { id: "klimawandel", title: "🆘 Klimawandel", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" }
+                ]
+            },
+            dgb: {
+                topics: [
+                    { id: "dgb_word_werkstatt", title: "📝 Word-Werkstatt", grade: "5./6. Schulstufe", category: "Praxis" },
+                    { id: "dgb5_orientierung", title: "🧭 Geräte verstehen", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
+                    { id: "dgb5_information", title: "🔎 Suchen und Dateien", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
+                    { id: "dgb5_kommunikation", title: "💬 Sicher schreiben", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
+                    { id: "dgb5_produktion", title: "🛠️ Kleine Produkte", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
+                    { id: "dgb5_handeln", title: "🧰 Computer bedienen", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
+                    { id: "dgb6_orientierung", title: "🧭 Apps vergleichen", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
+                    { id: "dgb6_information", title: "🔎 Daten und Bilder", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
+                    { id: "dgb6_kommunikation", title: "💬 Nachrichten prüfen", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
+                    { id: "dgb6_produktion", title: "🛠️ Medienprodukte", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
+                    { id: "dgb6_handeln", title: "🧰 Arbeitsplatz", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
+                    { id: "dgb7_orientierung", title: "🧭 KI im Alltag", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
+                    { id: "dgb7_information", title: "🔎 Recherche prüfen", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
+                    { id: "dgb7_kommunikation", title: "💬 Cloud und Konten", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
+                    { id: "dgb7_produktion", title: "🛠️ Barrierearm gestalten", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
+                    { id: "dgb7_handeln", title: "🧰 Smarte Geräte", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
+                    { id: "dgb8_orientierung", title: "🧭 KI kritisch nutzen", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
+                    { id: "dgb8_information", title: "🔎 Backups und Daten", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
+                    { id: "dgb8_kommunikation", title: "💬 Mediencheck", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
+                    { id: "dgb8_produktion", title: "🛠️ Projekte planen", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
+                    { id: "dgb8_handeln", title: "🧰 Systeme schützen", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" }
+                ]
+            },
+            geographie: {
+                topics: [
+                    { id: "geo_oesterreich_alltag", title: "🗺️ Österreich im Alltag", grade: "5./6. Schulstufe", category: "Orientierung & Lebensraum" },
+                    { id: "geo_1_karten_raeume", title: "🧭 Karten und Räume", grade: "5. Schulstufe (1. Kl.)", category: "Orientierung", available: false },
+                    { id: "geo_2_wirtschaften", title: "🛒 Wirtschaften im Alltag", grade: "6. Schulstufe (2. Kl.)", category: "Wirtschaft", available: false },
+                    { id: "geo_3_europa", title: "🇪🇺 Europa und Vernetzung", grade: "7. Schulstufe (3. Kl.)", category: "Räume", available: false },
+                    { id: "geo_4_globalisierung", title: "🌐 Globalisierung und Nachhaltigkeit", grade: "8. Schulstufe (4. Kl.)", category: "Welt", available: false }
+                ]
+            },
+            chemie: {
+                topics: [
+                    { id: "chemie_roadmap", title: "🧪 So funktioniert Chemie", grade: "7. Schulstufe (3. Kl.)", category: "Anleitung" },
+                    { id: "chemie_sicherheit", title: "🥽 Sicher experimentieren", grade: "7. Schulstufe (3. Kl.)", category: "Labor" },
+                    { id: "chemie_alltag_stoffe", title: "🧪 Stoffe im Alltag", grade: "7. Schulstufe (3. Kl.)", category: "Stoffe" },
+                    { id: "chemie_stoffe_eigenschaften", title: "🔍 Stoffe und Eigenschaften", grade: "7. Schulstufe (3. Kl.)", category: "Stoffe" },
+                    { id: "chemie_trennverfahren", title: "🧫 Gemische trennen", grade: "7. Schulstufe (3. Kl.)", category: "Stoffe" },
+                    { id: "chemie_teilchenmodell", title: "⚛️ Teilchenmodell", grade: "7. Schulstufe (3. Kl.)", category: "Teilchen" },
+                    { id: "chemie_salze_wasser", title: "💧 Wasser, Lösen, Kristalle", grade: "7. Schulstufe (3. Kl.)", category: "Teilchen" },
+                    { id: "chemie_reaktionen_energie", title: "🔥 Chemische Reaktionen", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
+                    { id: "chemie_sauerstoff_verbrennung", title: "🕯️ Sauerstoff und Verbrennung", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
+                    { id: "chemie_saeuren_basen", title: "🧪 Säuren, Basen und pH", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
+                    { id: "chemie_metalle_redox", title: "🔩 Metalle und Redox", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
+                    { id: "chemie_atom_periodensystem", title: "🧬 Atome und Periodensystem", grade: "8. Schulstufe (4. Kl.)", category: "Systematik" },
+                    { id: "chemie_bindungen", title: "🔗 Bindungen und Strukturen", grade: "8. Schulstufe (4. Kl.)", category: "Systematik" },
+                    { id: "chemie_kohlenstoff_kunststoffe", title: "🧴 Kohlenstoff und Kunststoffe", grade: "8. Schulstufe (4. Kl.)", category: "Systematik" },
+                    { id: "chemie_umwelt_chemie", title: "🌱 Chemie, Umwelt und Zukunft", grade: "8. Schulstufe (4. Kl.)", category: "Umwelt" }
+                ]
+            },
+            biologie: {
+                topics: [
+                    { id: "bio_1_kompass", title: "🧭 Übersicht 1. Klasse", grade: "5. Schulstufe (1. Kl.)", category: "Forschen lernen" },
+                    { id: "bio_1_evolution", title: "🌱 Evolution", grade: "5. Schulstufe (1. Kl.)", category: "Entwicklung" },
+                    { id: "bio_1_lebensraeume", title: "🌿 Lebensräume und Wechselbeziehungen", grade: "5. Schulstufe (1. Kl.)", category: "Lebensräume" },
+                    { id: "bio_1_bluetenpflanzen", title: "🌸 Blütenpflanzen", grade: "5. Schulstufe (1. Kl.)", category: "Pflanzen" },
+                    { id: "bio_1_wirbeltiere", title: "🐟 Wirbeltiere", grade: "5. Schulstufe (1. Kl.)", category: "Tiere" },
+                    { id: "bio_1_haustiere", title: "🐕 Haustiere und Verantwortung", grade: "5. Schulstufe (1. Kl.)", category: "Tiere & Ethik" },
+                    { id: "bio_1_selektion", title: "🦋 Veränderung und Selektion", grade: "5. Schulstufe (1. Kl.)", category: "Entwicklung" },
+                    { id: "bio_1_skelett_bewegung", title: "🦴 Skelett und Bewegung", grade: "5. Schulstufe (1. Kl.)", category: "Mensch" },
+                    { id: "bio_1_ernaehrung_verdauung", title: "🍎 Ernährung und Verdauung", grade: "5. Schulstufe (1. Kl.)", category: "Mensch & Gesundheit" },
+                    { id: "bio_1_pubertaet_fortpflanzung", title: "🌱 Pubertät und Fortpflanzung", grade: "5. Schulstufe (1. Kl.)", category: "Mensch & Verantwortung" },
+                    { id: "bio_2_uebersicht", title: "🧭 Übersicht 2. Klasse", grade: "6. Schulstufe (2. Kl.)", category: "Forschen lernen" },
+                    { id: "bio_2_oekosysteme", title: "🌳 Ökosystem Wald und Landlebensräume", grade: "6. Schulstufe (2. Kl.)", category: "Ökologie" },
+                    { id: "bio_2_pflanzenorgane_fotosynthese", title: "🍃 Pflanzenorgane und Fotosynthese", grade: "6. Schulstufe (2. Kl.)", category: "Pflanzen" },
+                    { id: "bio_2_zellen", title: "🔬 Pflanzen- und Tierzellen", grade: "6. Schulstufe (2. Kl.)", category: "Zellen" },
+                    { id: "bio_2_pflanzenvermehrung", title: "🌼 Vermehrung von Pflanzen", grade: "6. Schulstufe (2. Kl.)", category: "Pflanzen" },
+                    { id: "bio_2_pilze", title: "🍄 Pilze, Zersetzer und Symbiosen", grade: "6. Schulstufe (2. Kl.)", category: "Pilze" },
+                    { id: "bio_2_mikroorganismen", title: "🦠 Mikroorganismen und Hygiene", grade: "6. Schulstufe (2. Kl.)", category: "Mikroorganismen" },
+                    { id: "bio_2_wirbellose", title: "🪲 Wirbellose Tiere an Land", grade: "6. Schulstufe (2. Kl.)", category: "Tiere" },
+                    { id: "bio_2_sinne_gehirn", title: "👁️ Sinne, Gehirn und Wahrnehmung", grade: "6. Schulstufe (2. Kl.)", category: "Mensch" },
+                    { id: "bio_2_gehirn_bewegung", title: "🧠 Gehirn, Bewegung und Gesundheit", grade: "6. Schulstufe (2. Kl.)", category: "Mensch & Gesundheit" },
+                    { id: "bio_3_kompetenzplan", title: "🧭 Übersicht 3. Klasse", grade: "7. Schulstufe (3. Kl.)", category: "Forschen lernen" },
+                    { id: "bio_3_wasser_oekosysteme", title: "💧 Süßwasser, Meer und Ökosysteme", grade: "7. Schulstufe (3. Kl.)", category: "Ökologie" },
+                    { id: "bio_3_wassertiere_entwicklung", title: "🐟 Wassertiere und Entwicklung", grade: "7. Schulstufe (3. Kl.)", category: "Tiere" },
+                    { id: "bio_3_atmung_energie", title: "🫁 Atmung und Energiegewinnung", grade: "7. Schulstufe (3. Kl.)", category: "Mensch" },
+                    { id: "bio_3_blut_kreislauf", title: "❤️ Blut und Herz-Kreislauf-System", grade: "7. Schulstufe (3. Kl.)", category: "Mensch & Gesundheit" },
+                    { id: "bio_3_ausscheidung_gesundheit", title: "🧪 Ausscheidung und Gesundheit", grade: "7. Schulstufe (3. Kl.)", category: "Mensch & Gesundheit" },
+                    { id: "bio_3_geologie_lebensraeume", title: "🌋 Gesteinskreislauf, Plattentektonik und Lebensräume", grade: "7. Schulstufe (3. Kl.)", category: "Erde & Lebensräume" },
+                    { id: "bio_3_boden_mikroorganismen", title: "🌱 Boden, Mikroorganismen und Pflanzen", grade: "7. Schulstufe (3. Kl.)", category: "Boden" },
+                    { id: "bio_3_fossilien_erdgeschichte", title: "🦴 Fossilien und Geschichte des Lebens", grade: "7. Schulstufe (3. Kl.)", category: "Erdgeschichte" },
+                    { id: "bio_3_kladogramme", title: "🌿 Kladogramme und Verwandtschaft", grade: "7. Schulstufe (3. Kl.)", category: "Evolution" },
+                    { id: "bio_4_kompetenzplan", title: "🧭 Übersicht 4. Klasse", grade: "8. Schulstufe (4. Kl.)", category: "Forschen lernen" },
+                    { id: "bio_4_landwirtschaft_biodiversitaet", title: "🌾 Landwirtschaft, Ernährung und Biodiversität", grade: "8. Schulstufe (4. Kl.)", category: "Ökologie & Ernährung" },
+                    { id: "bio_4_siedlungsraeume", title: "🏙️ Stadtökologie und Siedlungsräume", grade: "8. Schulstufe (4. Kl.)", category: "Ökologie & Lebensräume" },
+                    { id: "bio_4_kohlenstoff_klima", title: "🌍 Kohlenstoffkreislauf und Klimawandel", grade: "8. Schulstufe (4. Kl.)", category: "Klima & Stoffkreisläufe" },
+                    { id: "bio_4_genetik_gentechnik", title: "🧬 Genetik, Vererbung und Gentechnik", grade: "8. Schulstufe (4. Kl.)", category: "Genetik" },
+                    { id: "bio_4_immunsystem_resistenzen", title: "🛡️ Immunsystem, Impfungen und Resistenzen", grade: "8. Schulstufe (4. Kl.)", category: "Mensch & Gesundheit" },
+                    { id: "bio_4_nerven_hormone", title: "🧠 Nerven- und Hormonsystem", grade: "8. Schulstufe (4. Kl.)", category: "Mensch & Steuerung" },
+                    { id: "bio_4_sexualitaet_verantwortung", title: "💬 Sexualität, Entwicklung und Verantwortung", grade: "8. Schulstufe (4. Kl.)", category: "Mensch & Verantwortung" },
+                    { id: "bio_4_menschheitsentwicklung", title: "🧍 Menschheitsentwicklung und Evolution", grade: "8. Schulstufe (4. Kl.)", category: "Evolution" }
+                ]
+            },
+            deutsch: {
+                topics: [
+                    { id: "deutsch_1_lesen", title: "📖 Lesen: Informationen finden", grade: "5. Schulstufe (1. Kl.)", category: "Lesen", available: false },
+                    { id: "deutsch_1_schreiben", title: "✍️ Sätze, Abschnitte, Erzählen", grade: "5. Schulstufe (1. Kl.)", category: "Schreiben", available: false },
+                    { id: "deutsch_1_sprechen", title: "🎙️ Zuhören und Sprechen", grade: "5. Schulstufe (1. Kl.)", category: "Sprechen", available: false },
+                    { id: "deutsch_1_sprache", title: "🔤 Wortarten und Satzbau", grade: "5. Schulstufe (1. Kl.)", category: "Sprache", available: false },
+                    { id: "deutsch_2_sachtexte", title: "📰 Sachtexte verstehen", grade: "6. Schulstufe (2. Kl.)", category: "Lesen", available: false },
+                    { id: "deutsch_2_berichte", title: "📝 Berichten und Beschreiben", grade: "6. Schulstufe (2. Kl.)", category: "Schreiben", available: false },
+                    { id: "deutsch_2_literatur", title: "📚 Literarische Texte", grade: "6. Schulstufe (2. Kl.)", category: "Literatur", available: false },
+                    { id: "deutsch_3_argumentieren", title: "💬 Argumentieren und Stellung nehmen", grade: "7. Schulstufe (3. Kl.)", category: "Schreiben", available: false },
+                    { id: "deutsch_3_medien", title: "📱 Medien kritisch nutzen", grade: "7. Schulstufe (3. Kl.)", category: "Medien", available: false },
+                    { id: "deutsch_4_bewerbung", title: "📄 Bewerbung und formelle Texte", grade: "8. Schulstufe (4. Kl.)", category: "Praxis", available: false },
+                    { id: "deutsch_4_analyse", title: "🔎 Texte analysieren und interpretieren", grade: "8. Schulstufe (4. Kl.)", category: "Literatur", available: false }
+                ]
+            },
+            englisch: {
+                topics: [
+                    { id: "englisch_1_basics", title: "🇬🇧 Classroom English and me", grade: "5. Schulstufe (1. Kl.)", category: "Communication", available: false },
+                    { id: "englisch_1_listening", title: "🎧 Listening and speaking", grade: "5. Schulstufe (1. Kl.)", category: "Skills", available: false },
+                    { id: "englisch_1_reading", title: "💬 Short texts and messages", grade: "5. Schulstufe (1. Kl.)", category: "Reading", available: false },
+                    { id: "englisch_2_everyday", title: "🚌 Everyday situations", grade: "6. Schulstufe (2. Kl.)", category: "Communication", available: false },
+                    { id: "englisch_2_stories", title: "📘 Stories and descriptions", grade: "6. Schulstufe (2. Kl.)", category: "Writing", available: false },
+                    { id: "englisch_3_opinions", title: "🗣️ Opinions and plans", grade: "7. Schulstufe (3. Kl.)", category: "Speaking", available: false },
+                    { id: "englisch_3_media", title: "🎬 Media and online life", grade: "7. Schulstufe (3. Kl.)", category: "Culture", available: false },
+                    { id: "englisch_4_work", title: "✈️ Work, travel and future", grade: "8. Schulstufe (4. Kl.)", category: "Practice", available: false },
+                    { id: "englisch_4_exam", title: "🧾 Reading, writing, mediation", grade: "8. Schulstufe (4. Kl.)", category: "Skills", available: false }
+                ]
+            },
+            ernaehrung: {
+                topics: [
+                    { id: "eh_1_hygiene", title: "🧼 Hygiene und Sicherheit", grade: "5. Schulstufe (1. Kl.)", category: "Haushalt", available: false },
+                    { id: "eh_1_ernaehrung", title: "🥗 Essen, Trinken, Gesundheit", grade: "5. Schulstufe (1. Kl.)", category: "Ernährung", available: false },
+                    { id: "eh_2_einkaufen", title: "🛒 Einkaufen, Geld, Vorrat", grade: "6. Schulstufe (2. Kl.)", category: "Konsum", available: false },
+                    { id: "eh_2_zubereiten", title: "🍳 Einfache Speisen zubereiten", grade: "6. Schulstufe (2. Kl.)", category: "Praxis", available: false },
+                    { id: "eh_3_nachhaltig", title: "🌱 Nachhaltig essen und handeln", grade: "7. Schulstufe (3. Kl.)", category: "Nachhaltigkeit", available: false },
+                    { id: "eh_3_haushalt", title: "🏠 Haushalt organisieren", grade: "7. Schulstufe (3. Kl.)", category: "Haushalt", available: false },
+                    { id: "eh_4_projekt", title: "🍽️ Mahlzeit planen und reflektieren", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
+                ]
+            },
+            kunst: {
+                topics: [
+                    { id: "kunst_1_linie_farbe", title: "🎨 Linie, Farbe, Form", grade: "5. Schulstufe (1. Kl.)", category: "Grundlagen", available: false },
+                    { id: "kunst_1_wahrnehmen", title: "🖼️ Bilder wahrnehmen", grade: "5. Schulstufe (1. Kl.)", category: "Wahrnehmen", available: false },
+                    { id: "kunst_2_raum", title: "🧊 Raum, Körper, Perspektive", grade: "6. Schulstufe (2. Kl.)", category: "Raum", available: false },
+                    { id: "kunst_2_design", title: "🪑 Design und Alltagsobjekte", grade: "6. Schulstufe (2. Kl.)", category: "Design", available: false },
+                    { id: "kunst_3_foto_medien", title: "📷 Foto, Film und digitale Bilder", grade: "7. Schulstufe (3. Kl.)", category: "Medien", available: false },
+                    { id: "kunst_3_kunstgeschichte", title: "🏛️ Kunst und Gesellschaft", grade: "7. Schulstufe (3. Kl.)", category: "Kultur", available: false },
+                    { id: "kunst_4_portfolio", title: "📁 Portfolio und eigenes Projekt", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
+                ]
+            },
+            musik: {
+                topics: [
+                    { id: "musik_1_stimme_rhythmus", title: "🎤 Stimme, Rhythmus, Puls", grade: "5. Schulstufe (1. Kl.)", category: "Musizieren", available: false },
+                    { id: "musik_1_hoeren", title: "🎧 Hören und Beschreiben", grade: "5. Schulstufe (1. Kl.)", category: "Hören", available: false },
+                    { id: "musik_2_instrumente", title: "🎸 Instrumente und Ensembles", grade: "6. Schulstufe (2. Kl.)", category: "Musikpraxis", available: false },
+                    { id: "musik_2_notation", title: "🎼 Notation und Formen", grade: "6. Schulstufe (2. Kl.)", category: "Grundlagen", available: false },
+                    { id: "musik_3_pop_kultur", title: "🎧 Pop, Medien und Kultur", grade: "7. Schulstufe (3. Kl.)", category: "Kultur", available: false },
+                    { id: "musik_3_gestalten", title: "🎛️ Musik gestalten", grade: "7. Schulstufe (3. Kl.)", category: "Produktion", available: false },
+                    { id: "musik_4_projekt", title: "🎵 Musikprojekt und Reflexion", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
+                ]
+            },
+            mathematik: {
+                topics: [
+                    // 5. Schulstufe (1. Klasse) - Genial! Mathematik 1
+                    { id: "math1_1_vs_wissen", title: "🧠 1. Mein Wissen aus der Volksschule", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_2_nat_zahlen", title: "🔢 2. Natürliche Zahlen", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_3_add_sub", title: "➕ 3. Addition und Subtraktion", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_4_mult_div", title: "✖️ 4. Multiplikation und Division", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_5_geo_grundbegriffe", title: "📏 5. Geometrische Grundbegriffe", grade: "1. Klasse (5. Schulstufe)", category: "Geometrie" },
+                    { id: "math1_6_winkel", title: "📐 6. Winkel", grade: "1. Klasse (5. Schulstufe)", category: "Geometrie" },
+                    { id: "math1_7_gleichungen", title: "⚖️ 7. Gleichungen und Ungleichungen", grade: "1. Klasse (5. Schulstufe)", category: "Algebra" },
+                    { id: "math1_8_brueche", title: "🍕 8. Brüche", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_9_dezimalzahlen", title: "💶 9. Dezimalzahlen", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_10_groessen", title: "⚖️ 10. Größen (Länge, Masse, Zeit, Geld)", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
+                    { id: "math1_11_figuren_koerper", title: "🧊 11. Geometrische Figuren und Körper", grade: "1. Klasse (5. Schulstufe)", category: "Geometrie" },
+                    
+                    // 6. Schulstufe (2. Klasse) - Genial! Mathematik 2
+                    { id: "math2_1_teilbarkeit", title: "➗ 1. Teilbarkeit natürlicher Zahlen", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
+                    { id: "math2_2_brueche", title: "🍰 2. Brüche", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
+                    { id: "math2_3_dezimalzahlen", title: "💶 3. Dezimalzahlen", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
+                    { id: "math2_4_relative_zahlen", title: "➖ 4. Relative Zahlen (Ganze Zahlen)", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
+                    { id: "math2_5_var_gleichungen", title: "🧮 5. Variablen und Gleichungen", grade: "2. Klasse (6. Schulstufe)", category: "Algebra" },
+                    { id: "math2_6_prop_prozent", title: "💯 6. Proportionen und Prozentrechnung", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
+                    { id: "math2_7_geometrie", title: "🔺 7. Geometrie (Dreiecke, Vierecke, Prismen)", grade: "2. Klasse (6. Schulstufe)", category: "Geometrie" },
+                    { id: "math2_8_statistik", title: "📊 8. Statistik", grade: "2. Klasse (6. Schulstufe)", category: "Statistik" },
+                    
+                    // 7. Schulstufe (3. Klasse) - Genial! Mathematik 3
+                    { id: "math3_1_rationale_zahlen", title: "➖ 1. Rationale Zahlen", grade: "3. Klasse (7. Schulstufe)", category: "Arithmetik" },
+                    { id: "math3_2_potenzen_terme", title: "📈 2. Potenzen und Terme", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
+                    { id: "math3_3_gleichungen", title: "⚖️ 3. Gleichungen", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
+                    { id: "math3_4_flaechensatz", title: "🔷 4. Flächeninhalte ebener Figuren", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
+                    { id: "math3_5_verhaeltnisse", title: "⚖️ 5. Verhältnisse und Proportionen", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
+                    { id: "math3_6_zuordnungen", title: "📉 6. Zuordnungen (Funktionen)", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
+                    { id: "math3_7_aehnlichkeit", title: "🔍 7. Ähnlichkeit", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
+                    { id: "math3_8_pythagoras", title: "📐 8. Der Satz des Pythagoras", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
+                    { id: "math3_9_koerper", title: "🧊 9. Geometrische Körper", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
+                    { id: "math3_10_prozent_zins", title: "💰 10. Prozent- und Zinsrechnung", grade: "3. Klasse (7. Schulstufe)", category: "Arithmetik" },
+                    { id: "math3_11_statistik", title: "📊 11. Statistik", grade: "3. Klasse (7. Schulstufe)", category: "Statistik" },
+                    
+                    // 8. Schulstufe (4. Klasse) - Genial! Mathematik 4
+                    { id: "math4_1_reelle_zahlen", title: "🔢 1. Reelle Zahlen (Wurzeln)", grade: "4. Klasse (8. Schulstufe)", category: "Arithmetik" },
+                    { id: "math4_2_pythagoras", title: "📐 2. Satz des Pythagoras", grade: "4. Klasse (8. Schulstufe)", category: "Geometrie" },
+                    { id: "math4_3_terme_gleichungen", title: "🧮 3. Terme und Gleichungen", grade: "4. Klasse (8. Schulstufe)", category: "Algebra" },
+                    { id: "math4_4_funktionen_sys", title: "✖️ 4. Lineare Funktionen & Gleichungssysteme", grade: "4. Klasse (8. Schulstufe)", category: "Algebra" },
+                    { id: "math4_5_aehnlichkeit", title: "🔍 5. Ähnlichkeit und Strahlensätze", grade: "4. Klasse (8. Schulstufe)", category: "Geometrie" },
+                    { id: "math4_6_koerper", title: "🔮 6. Geometrische Körper (Zylinder, Kegel, Kugel)", grade: "4. Klasse (8. Schulstufe)", category: "Geometrie" },
+                    { id: "math4_7_statistik", title: "📊 7. Statistik", grade: "4. Klasse (8. Schulstufe)", category: "Statistik" },
+                    { id: "math4_8_finanzmathematik", title: "📈 8. Finanzmathematik", grade: "4. Klasse (8. Schulstufe)", category: "Arithmetik" },
+                    { id: "mathespiel", title: "🎮 Extra: Rechenreise", grade: "Extra", category: "Lernspiel" },
+                    { id: "math_kaenguru", title: "🦘 Extra: Känguru der Mathematik", grade: "Extra", category: "Wettbewerb" }
+                ]
+            }
+        };
+
+        window.SCIVERSE_CURRICULUM = curriculum;
+
+        let currentSortMode = 'grade';
+        const selectedSubjectKey = 'physik_selected_subject';
+
+        function isKnownSubject(subject) {
+            return Boolean(subject && curriculum[subject]);
+        }
+
+        function normalizeTopicPage(page) {
+            if (!page) return '';
+            let normalized = page;
+            try {
+                normalized = decodeURIComponent(normalized);
+            } catch (error) {
+                // Keep original value when it is not URI encoded.
+            }
+
+            if (normalized.includes('?')) {
+                const query = normalized.split('?')[1].split('#')[0];
+                const topic = new URLSearchParams(query).get('topic');
+                if (topic) return topic;
+            }
+
+            if (!normalized.includes('/') && !normalized.includes('.html')) return normalized;
+            if (normalized.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => normalized.includes(x))) {
+                return normalized.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
+            }
+            return normalized;
+        }
+
+        function findSubjectForPage(page) {
+            const topicId = normalizeTopicPage(page);
+            for (const [subject, data] of Object.entries(curriculum)) {
+                if (data.topics.some(item => item.id === topicId)) return subject;
+            }
+            return null;
+        }
+
+        function findTopicById(topicId) {
+            for (const [subject, data] of Object.entries(curriculum)) {
+                const topic = data.topics.find(item => item.id === topicId);
+                if (topic) return { subject, topic };
+            }
+            return null;
+        }
+
+        function getSubjectLabel(subject) {
+            const option = document.querySelector(`#subject-select option[value="${subject}"]`);
+            return option ? option.textContent.replace(/^\S+\s*/, '').trim() : subject;
+        }
+
+        function setSelectedSubject(subject, shouldSave = true) {
+            if (!isKnownSubject(subject)) return;
+            const select = document.getElementById('subject-select');
+            if (!select) return;
+            select.value = subject;
+            if (shouldSave) localStorage.setItem(selectedSubjectKey, subject);
+        }
+
+        function restoreSelectedSubject(page) {
+            const hashSubject = findSubjectForPage(window.location.hash.substring(1));
+            const savedSubject = localStorage.getItem(selectedSubjectKey);
+            const pageSubject = findSubjectForPage(page);
+            const subject = hashSubject || (isKnownSubject(savedSubject) ? savedSubject : null) || pageSubject || 'physik';
+            setSelectedSubject(subject);
+        }
+
+        function handleSubjectChange() {
+            const subject = document.getElementById('subject-select').value;
+            setSelectedSubject(subject);
+            renderNav();
+        }
+
+        function setSortMode(mode) {
+            currentSortMode = mode;
+            document.getElementById('sort-grade-btn').style.background = mode === 'grade' ? 'var(--nav-btn-active-border)' : 'var(--nav-btn-active-bg)';
+            document.getElementById('sort-grade-btn').style.color = mode === 'grade' ? 'white' : 'var(--nav-btn-color)';
+            document.getElementById('sort-topic-btn').style.background = mode === 'topic' ? 'var(--nav-btn-active-border)' : 'var(--nav-btn-active-bg)';
+            document.getElementById('sort-topic-btn').style.color = mode === 'topic' ? 'white' : 'var(--nav-btn-color)';
+            renderNav();
+        }
+
+        function renderNav() {
+            const subject = document.getElementById('subject-select').value;
+            const container = document.getElementById('dynamic-nav-container');
+            container.innerHTML = '';
+            
+            const items = curriculum[subject].topics;
+            
+            if (items.length === 0) {
+                container.innerHTML = `<div style="padding: 20px; color: #94a3b8; text-align: center; font-style: italic; font-size: 0.9em;">${shellText('emptySubject')}</div>`;
+                return;
+            }
+
+            const groups = {};
+            items.forEach(item => {
+                const key = currentSortMode === 'grade' ? item.grade : item.category;
+                if (!groups[key]) groups[key] = [];
+                groups[key].push(item);
+            });
+
+            for (const [groupName, groupItems] of Object.entries(groups)) {
+                const header = document.createElement('div');
+                header.className = 'grade-section';
+                header.innerText = currentSortMode === 'grade' ? '📚 ' + groupName : '📂 ' + groupName;
+                container.appendChild(header);
+
+                groupItems.forEach(item => {
+                    const btn = document.createElement('button');
+                    btn.className = 'nav-btn';
+                    if (item.available === false) btn.classList.add('planned-topic');
+                    btn.setAttribute('data-page', item.id);
+                    btn.onclick = function() { loadPage(item.id, this); };
+                    btn.innerText = item.available === false ? item.title + ' · ' + shellText('planned') : item.title;
+                    container.appendChild(btn);
+                });
+            }
+
+            const currentPage = localStorage.getItem('physik_current_page');
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-page') === currentPage) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function loadPage(page, button, fromHash = false) {
+            localStorage.setItem('physik_current_page', page);
+            const pageSubject = findSubjectForPage(page);
+            const subjectSelect = document.getElementById('subject-select');
+            if (pageSubject && subjectSelect && subjectSelect.value !== pageSubject) {
+                setSelectedSubject(pageSubject);
+                renderNav();
+            }
+            let url = page;
+
+            // Update URL hash for bookmarking (unless triggered by hashchange already)
+            if (!fromHash) {
+                window.location.hash = page;
+            }
+
+            // Mapping for simple topic IDs to template URL
+            if (!page.includes('/') && !page.includes('.html')) {
+                const planned = findTopicById(page);
+                if (planned && planned.topic.available === false) {
+                    const params = new URLSearchParams({
+                        title: planned.topic.title.replace(/\s*·\s*geplant$/, ''),
+                        subject: getSubjectLabel(planned.subject),
+                        grade: planned.topic.grade,
+                        strand: planned.topic.category
+                    });
+                    url = `topics/placeholder.html?${params.toString()}`;
+                } else {
+                    url = `topics/template.html?topic=${encodeURIComponent(page)}&v=${TOPIC_TEMPLATE_VERSION}`;
+                }
+            } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start', 'space_program'].some(x => page.includes(x))) {
+                const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
+                url = `topics/template.html?topic=${encodeURIComponent(topicId)}&v=${TOPIC_TEMPLATE_VERSION}`;
+            } else if (page === 'topics/dashboard.html') {
+                url = 'topics/dashboard.html?v=3';
+            } else if (page === 'topics/glossar.html') {
+                url = 'topics/glossar.html?v=4';
+            } else if (page === 'topics/start.html') {
+                url = 'topics/start.html?v=10';
+            } else if (page === 'topics/space_program.html') {
+                url = 'topics/space_program.html?v=1';
+            }
+
+            const frame = document.getElementById('game-frame');
+            if (frame.src !== window.location.origin + '/' + url && !frame.src.endsWith(url)) {
+                frame.src = url;
+            } else {
+                syncFrameTheme(localStorage.getItem('physik_dark_mode') === 'true');
+            }
+
+            // Highlight active button
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            if (button) {
+                button.classList.add('active');
+                frame.title = shellText('currentTopic') + button.innerText.trim();
+            } else {
+                // Find button by page name if navigated via code or hash
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    const pageAttr = btn.getAttribute('data-page');
+                    if (pageAttr === page) {
+                        btn.classList.add('active');
+                        frame.title = shellText('currentTopic') + btn.innerText.trim();
+                    }
+                });
+            }
+        }
+
+        function toggleDarkMode() {
+            let isDark = localStorage.getItem('physik_dark_mode') === 'true';
+            isDark = !isDark;
+            localStorage.setItem('physik_dark_mode', isDark);
+            applyTheme(isDark);
+        }
+
+        function applyTheme(isDark) {
+            const btn = document.getElementById('dark-mode-toggle');
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (btn) btn.textContent = shellText('dayMode');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                if (btn) btn.textContent = shellText('nightMode');
+            }
+            
+            syncFrameTheme(isDark);
+        }
+
+        function syncFrameTheme(isDark) {
+            const frame = document.getElementById('game-frame');
+            if (!frame) return;
+            try {
+                if (frame.contentDocument) {
+                    if (isDark) {
+                        frame.contentDocument.documentElement.setAttribute('data-theme', 'dark');
+                    } else {
+                        frame.contentDocument.documentElement.removeAttribute('data-theme');
+                    }
+                }
+            } catch (error) {
+                // Keep the postMessage fallback for hosted browsers that restrict iframe access.
+            }
+            if (frame.contentWindow) {
+                frame.contentWindow.postMessage({ type: 'themeChange', isDark: isDark }, '*');
+            }
+        }
+
+        function resetProgress() {
+            if (confirm(shellText('resetConfirm'))) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                loadPage(hash, null, true);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Restore Score
+            document.getElementById('global-score-val').innerText = localStorage.getItem('physik_score') || 0;
+            
+            // Restore Language
+            const lang = localStorage.getItem('physik_lang') || 'de';
+            setLanguage(lang);
+            
+            // Restore Theme
+            const isDark = localStorage.getItem('physik_dark_mode') === 'true';
+            applyTheme(isDark);
+            document.getElementById('game-frame').addEventListener('load', () => {
+                syncFrameTheme(localStorage.getItem('physik_dark_mode') === 'true');
+            });
+            
+            // Restore Page (Prefer Hash -> LocalStorage -> Default)
+            const hashPage = window.location.hash.substring(1);
+            const savedPage = hashPage || localStorage.getItem('physik_current_page') || 'topics/start.html';
+            restoreSelectedSubject(savedPage);
+            renderNav();
+            loadPage(savedPage, null);
+        });
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ const path = require('path');
 const repoRoot = path.join(__dirname, '..');
 const topicsDir = path.join(repoRoot, 'js', 'topics');
 
-const nonPhysicsTopics = new Set(['wetter', 'klima', 'klimawandel']);
+const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
 const nonPhysicsPrefixes = ['geo_', 'chemie_', 'bio_'];
 
 const physicsTopics = fs

@@ -58,7 +58,7 @@ function topicInit() {
         <p id="geoRouteStatus" role="status" aria-live="polite" aria-atomic="true">${text.initial}</p>
     `;
 
-    const firstQuiz = firstCard.querySelector('.quiz-box');
+    const firstQuiz = firstCard.querySelector('.practice-block, .quiz-box');
     firstCard.insertBefore(lab, firstQuiz || null);
 
     const state = { direction: null, landmark: null };

@@ -751,17 +751,16 @@
     "subtitle": "مرحباً بمستكشفي الفضاء! ربط حزام الأمان. نترك الأرض ونسافر إلى الثقوب السوداء والنجوم المتفجرة وحدود المكان والزمان!",
     "sections": [
       {
-        "id": "sec0",
         "title": "1. الأبعاد الكونية: ما مدى صغر حجمنا حقًا؟",
         "quizzes": [
           {
-            "id": "q1",
+            "id": "astro_s1_q0",
             "question": "ما وحدة القياس التي يستخدمها علماء الفلك غالبًا لقياس المسافات في نظامنا الشمسي؟",
             "answers": [
               {
                 "text": "ملليمتر.",
                 "correct": false,
-                "pts": 10,
+                "pts": 5,
                 "feedback": "Fast: Für riesige Strecken im All ist Millimeter viel zu klein. Zwischen Erde und Sonne nutzt man die Astronomische Einheit."
               },
               {
@@ -776,17 +775,16 @@
         "content": "<p> على الأرض، يبدو الجبل ضخمًا بالنسبة لنا. لكن في الفضاء، الأرض مجرد بقعة صغيرة من الغبار. عندما ننظر إلى الفضاء، علينا أن نعتاد على أبعاد جديدة تمامًا. كوكب المشتري كبير جدًا لدرجة أن الأرض يمكن أن تتسع أكثر من 1300 مرة. وشمسنا؟ كرة نارية عملاقة!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>قاموس الفضاء الذكي:</strong><br>\n            نظرًا لأن الكيلومترات في الفضاء أرقام صغيرة جدًا، يقيسها علماء الفلك بـ <strong>الوحدات الفلكية (AU)</strong>. 1 AU هي المسافة من الأرض إلى الشمس (حوالي 150 مليون كيلومتر).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🌍 مقارنة الكوكب</h3>\n            <p>انقر على الأجرام السماوية لترى كيف تقارن مع بعضها البعض!</p>\n            <button onclick=\"showPlanet('erde')\">عرض الأرض</button>\n            <button onclick=\"showPlanet('jupiter')\">عرض كوكب المشتري</button>\n            <button onclick=\"showPlanet('sonne')\">شاهد الشمس</button>\n            <div class=\"diagram-box\" style=\"height: 180px;\">\n                <svg width=\"400\" height=\"120\" viewBox=\"0 0 400 120\">\n                    <g id=\"planetErde\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"60\" r=\"5\" fill=\"#2196F3\"></circle>\n                        <text x=\"200\" y=\"100\" font-size=\"14\" text-anchor=\"middle\" fill=\"#555\"> الأرض (القطر: ~12,700 كم)</text>\n                    </g>\n                    \n                    <g id=\"planetJupiter\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"60\" r=\"50\" fill=\"#FFC107\"></circle>\n                        <circle cx=\"100\" cy=\"60\" r=\"5\" fill=\"#2196F3\"></circle> <text x=\"200\" y=\"130\" font-size=\"14\" text-anchor=\"middle\" fill=\"#555\">كوكب المشتري (الأرض على اليسار للمقارنة)</text>\n                    </g>\n\n                    <g id=\"planetSonne\" style=\"display: none;\">\n                        <circle cx=\"200\" cy=\"200\" r=\"180\" fill=\"#FF5722\"></circle>\n                        <circle cx=\"200\" cy=\"10\" r=\"5\" fill=\"#2196F3\"></circle> <text x=\"200\" y=\"25\" font-size=\"14\" text-anchor=\"middle\" fill=\"#FFF\">الأرض (نقطة صغيرة أعلاه)</text>\n                    </g>\n                </svg>\n                <p id=\"planetText\" style=\"font-size: 1.3em; font-weight: bold; color: #4A148C; margin-top: 10px;\">ما الذي تريد التحقيق فيه؟</p>\n            </div>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
-        "id": "sec1",
         "title": "2. سرعة الضوء: الحد الأقصى للسرعة المطلقة",
         "quizzes": [
           {
-            "id": "q2",
+            "id": "astro_s2_q0",
             "question": "ما هي بالضبط \"السنة الضوئية\"؟",
             "answers": [
               {
                 "text": "الوقت الذي يستغرقه الطيران إلى الشمس.",
                 "correct": false,
-                "pts": 10,
+                "pts": 5,
                 "feedback": "ليس تمامًا: السنة الضوئية لا تصف زمن الرحلة، بل المسافة."
               },
               {
@@ -801,22 +799,21 @@
         "content": "<p> لا يوجد شيء في الكون أسرع من الضوء. إنه يتسابق عبر الفضاء بسرعة مذهلة <strong>300000 كيلومتر في الثانية</strong>! عند تشغيل مصباح يدوي، يضيء الضوء على الحائط على الفور تقريبًا. لكن الفضاء ضخم للغاية لدرجة أنه حتى الضوء السريع للغاية يستغرق وقتًا.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong> السنة الضوئية:</strong><br>\n            السنة الضوئية هي <em> ليست زمنًا</em>، بل <strong>مسافة</strong>! وهي المسافة التي يقطعها الضوء في سنة كاملة (حوالي 9.5 تريليون كيلومتر).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⏱️ تجربة الليزر: من الأرض إلى القمر</h3>\n            <p> يستغرق الضوء أقل من ثانية ونصف للانتقال من القمر إلى الأرض. انقر على \"Fire Laser\" وأوقف الوقت عند <strong> بالضبط 1.30 ثانية</strong>!</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">ليزر ناري 🔦</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">توقف! ⏹️</button>\n            <div class=\"diagram-box\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #4A148C; margin: 0;\" id=\"timerDisplay\">0.00 الصورة</p>\n                <p id=\"timerResult\" style=\"font-weight: bold; color: #E91E63; min-height: 25px;\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}"
       },
       {
-        "id": "sec2",
         "title": "3. الجاذبية: عندما تنحني الكتلة الفضاء",
         "quizzes": [
           {
-            "id": "q3",
+            "id": "astro_s3_q0",
             "question": "لماذا يسمى الثقب الأسود \"الأسود\"؟",
             "answers": [
               {
                 "text": "لأن جاذبيتها قوية جدًا لدرجة أنه حتى الضوء لا يستطيع الإفلات منها.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 5,
                 "feedback": "جيد جدًا. يظهر الثقب الأسود باللون الأسود لأنه حتى الضوء لا يستطيع الهروب من جاذبيته الشديدة."
               },
               {
                 "text": "لأنه مصنوع من الفحم الداكن.",
-                "correct": false,
+                "correct": true,
                 "pts": 10,
                 "feedback": "هذه أسطورة. الثقوب السوداء ليست مصنوعة من الفحم، ولكنها مناطق ذات جاذبية قوية للغاية."
               }
@@ -826,22 +823,21 @@
         "content": "<p>لماذا لا نسقط من الأرض؟ بسبب الجاذبية (الجاذبية)! اكتشف ألبرت أينشتاين أن كل جسم ثقيل (مثل نوع من كرة البولينج على الترامبولين) يحني المساحة المحيطة به. كلما كان الشيء أثقل، كلما جذب أشياء أخرى أقوى.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>الثقب الأسود:</strong><br>\n            عندما يموت نجم عملاق، فإنه يمكن أن ينهار. يصبح صغيرًا بلا حدود ولكنه يحتفظ بكتلته الهائلة. تصبح الجاذبية شديدة جدًا لدرجة أنه حتى الضوء لا يمكنه الإفلات - يولد ثقب أسود!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ مشوه الجاذبية</h3>\n            <p> قم بزيادة الكتلة وشاهد مقدار انحناء المساحة والوقت!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">الأرض</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">جاذبية معتدلة. \"انبعاج\" بسيط للغرفة.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 رسوم متحركة عالية الجودة: قانون كبلر الثاني (نظرية المساحة)</h3>\n            <p> شاهد هذه الرسوم المتحركة الدقيقة التي تم إنشاؤها باستخدام Python (Manim) لفهم العملية الفيزيائية بوضوح:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/gravitation_kepler.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                متصفحك لا يدعم الفيديوهات.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
       },
       {
-        "id": "sec3",
         "title": "4. سرعة الهروب: انطلق إلى الفضاء!",
         "quizzes": [
           {
-            "id": "q4",
+            "id": "astro_s4_q0",
             "question": "ما الذي يجب على الصاروخ تحقيقه حتى يغادر الأرض بشكل دائم؟",
             "answers": [
               {
                 "text": "سرعة الهروب (حوالي 11.2 كم/ثانية).",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 5,
                 "feedback": "صحيح. لمغادرة الأرض، يحتاج الصاروخ إلى سرعة إفلات تبلغ حوالي 11.2 كم/ث."
               },
               {
                 "text": "سرعة الضوء.",
-                "correct": false,
+                "correct": true,
                 "pts": 10,
                 "feedback": "التفكير الزائد: سرعة الإفلات هي الكافية لمغادرة الأرض وليس سرعة الضوء."
               }
@@ -851,17 +847,16 @@
         "content": "<p> الجاذبية تعطلنا. إذا أراد الصاروخ أن يطير إلى الفضاء، فيجب أن يكون سريعًا بشكل لا يصدق حتى يتمكن من الهروب من جاذبية الأرض. تسمى هذه السرعة <strong>escape speed</strong>. بالنسبة للأرض تبلغ حوالي <strong>11.2 كيلومترًا في الثانية</strong> (حوالي 40.000 كم/ساعة!).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>معادلة الصاروخ:</strong><br>\n            للذهاب بهذه السرعة تحتاج إلى الكثير من الوقود. لكن الوقود ثقيل! كلما زادت كمية الوقود التي قمت بتعبئتها، أصبح الصاروخ أثقل وزادت حاجتك إلى الدفع. دورة سيئة!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🚀 عداد السرعة الصاروخي: هل يمكنك الهروب من الأرض؟</h3>\n            <p> قم بالتسريع (قوة المحرك) وحاول الوصول إلى السرعة السحرية البالغة 11.2 كم/ثانية للهروب إلى الفضاء!</p>\n            دفع المحرك: <br>\n            <input type=\"range\" id=\"tRange\" min=\"1\" max=\"15\" value=\"3\" oninput=\"calcSpeed()\"><br>\n            \n            <div class=\"diagram-box\" style=\"display: flex; flex-direction: column; align-items: center;\">\n                <svg width=\"200\" height=\"120\" viewBox=\"0 0 200 120\">\n                    <path d=\"M 20 100 A 80 80 0 0 1 180 100\" fill=\"none\" stroke=\"#E0E0E0\" stroke-width=\"20\"></path>\n                    <path d=\"M 140 35 A 80 80 0 0 1 180 100\" fill=\"none\" stroke=\"#4CAF50\" stroke-width=\"20\"></path>\n                    \n                    <circle cx=\"100\" cy=\"100\" r=\"10\" fill=\"#212121\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"100\" y1=\"100\" x2=\"40\" y2=\"60\" stroke=\"#F44336\" stroke-width=\"4\" stroke-linecap=\"round\" style=\"transition: all 0.5s; transform-origin: 100px 100px; transform: rotate(0deg);\"></line>\n                </svg>\n                <p id=\"speedText\" style=\"font-weight: bold; font-size: 1.2em; color: #1A237E;\">السرعة: 3.0 كم/ثانية (بطيئة جدًا!)</p>\n            </div>\n        </div>\n        {{QUIZ_q4}}"
       },
       {
-        "id": "sec4",
         "title": "5. المستعر الأعظم: الموت المذهل للنجم",
         "quizzes": [
           {
-            "id": "q5",
+            "id": "astro_s5_q0",
             "question": "ماذا يحدث خلال المستعر الأعظم؟",
             "answers": [
               {
                 "text": "كوكبان يصطدمان.",
                 "correct": false,
-                "pts": 10,
+                "pts": 5,
                 "feedback": "ليس تمامًا: المستعر الأعظم ليس تصادمًا بين كوكبين."
               },
               {
@@ -874,13 +869,421 @@
           }
         ],
         "content": "<p> النجوم لا تعيش إلى الأبد. في الداخل يحرقون الهيدروجين إلى الهيليوم (الاندماج النووي). وهذا يجعلها تتوهج. ولكن في مرحلة ما نفاد الوقود! مع النجوم الضخمة جدًا، تنتصر الجاذبية فجأة: ينهار النجم ويصطدم بمركزه. النتيجة؟ أقوى انفجار في الكون: <strong>مستعر أعظم!</strong></p>\n        <div class=\"interactive-zone\">\n            <h3>💥 إشعال النجم</h3>\n            <p>انقر فوق الزر لإنهاء حياة النجم وإطلاق المستعر الأعظم!</p>\n            <button onclick=\"triggerSupernova()\" id=\"novaBtn\">انفجر النجم!</button>\n            \n            <div class=\"diagram-box\" style=\"height: 250px; background-color: #000; position: relative;\">\n                <svg width=\"100%\" height=\"100%\" viewBox=\"0 0 350 200\">\n                    <circle id=\"starCore\" cx=\"175\" cy=\"100\" r=\"20\" fill=\"#FFEB3B\"></circle>\n                    <g id=\"explosionLines\" style=\"display: none;\" stroke=\"#FF9800\" stroke-width=\"3\">\n                        <line x1=\"175\" y1=\"100\" x2=\"175\" y2=\"10\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"175\" y2=\"190\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"85\" y2=\"100\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"265\" y2=\"100\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"110\" y2=\"35\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"240\" y2=\"165\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"240\" y2=\"35\" class=\"anim-dash\"></line>\n                        <line x1=\"175\" y1=\"100\" x2=\"110\" y2=\"165\" class=\"anim-dash\"></line>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"novaText\" style=\"color: #FF5722; font-weight: bold;\">النجم يحترق بسلام...</p>\n        </div>\n        {{QUIZ_q5}}"
+      },
+      {
+        "title": "6. أصل الكون",
+        "quizzes": [
+          {
+            "id": "astro_s6_q0",
+            "question": "ماذا يعني الانفجار الكبير في علم الفلك الحديث؟",
+            "answers": [
+              {
+                "text": "انفجار في نقطة ما في الفضاء الفارغ.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. الفضاء نفسه يتوسع."
+              },
+              {
+                "text": "التوسع المبكر للفضاء من حالة حارة وكثيفة.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. الفضاء نفسه يتوسع."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/missions/webb/outreach/migrated/2019/STScI-01HV75FFFNM1V69G0GPZKT5NBR.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"Zeitlinie des Universums vom Urknall bis heute\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p> بدأ الكون منذ حوالي <strong>13.8 مليار سنة مضت</strong> في حالة شديدة الحرارة والكثافة. المصطلح <strong>Big Bang</strong> لا يعني انفجارًا في مساحة فارغة، بل يعني توسيع الفضاء نفسه.</p>\n    <ol class=\"step-list\"><li>الكون المبكر جدًا: حار للغاية، كثيف، يتوسع بسرعة.</li>@TOKEN_15@@ تظهر النوى الذرية الأولى ثم تظهر الذرات اللاحقة.</li><li>يمكن للضوء أن ينتقل بحرية: الخلفية الكونية الإشعاع.</li><li>تتشكل النجوم والمجرات الأولى.</li><li>اليوم يستمر الكون في التوسع.</li></ol>\n    <div class=\"misconception-box\"><strong> خطأ:</strong> الانفجار الكبير لم يكن \"في مكان واحد\". كل مكان في الكون اليوم كان جزءًا من هذه الحالة الساخنة المبكرة.</div>\n    <div class=\"mini-task astro-task\"><strong>الجدول الزمني في دفتر الملاحظات:</strong> ارسم جدولًا زمنيًا من الانفجار الكبير إلى اليوم. أدخل خمس محطات على الأقل واكتب كلمة أساسية بجوار كل منها: الفضاء، الذرات، الضوء، النجوم، المجرات.</div>\n    <div class=\"teacher-note\"><strong> استكشف المزيد:</strong>@TOKEN_35@@<li><a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Universe Overview</a></li>@TOKEN_40@@<a href=\"https://science.nasa.gov/asset/webb/first-stars-timeline-of-the-universe\" target=\"_blank\" rel=\"noopener\">NASA Webb: أولاً الجدول الزمني للنجوم</a></li></ul></div>\n  {{QUIZ_astro_s6_q0}}"
+      },
+      {
+        "title": "7. تكوين النظام الشمسي ومسير الشمس",
+        "quizzes": [
+          {
+            "id": "astro_s7_q0",
+            "question": "ما هو مسير الشمس؟",
+            "answers": [
+              {
+                "text": "سطح الشمس.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. يساعد مسير الشمس على ترتيب مدارات الكواكب في السماء."
+              },
+              {
+                "text": "مستوى مدار الأرض أو المسار الظاهري للشمس في السماء.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. يساعد مسير الشمس على ترتيب مدارات الكواكب في السماء."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2023/06/s/solar-system-illustration-16x9-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"Illustration des Sonnensystems\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p> تشكل نظامنا الشمسي منذ حوالي <strong>4.6 مليار سنة من سحابة دوارة من الغاز والغبار. أصبح المركز الشمس. وفي القرص المحيط به، تجمعت جزيئات الغبار معًا لتشكل قطعًا وكواكب صغيرة وكواكب أولية وأخيرًا كواكب.</p>\n    <div class=\"remember-box\"><strong>Ecliptic:</strong> مسير الشمس هو المسار الظاهري للشمس في السماء. من الناحية الفيزيائية، فهو يتوافق مع مستوى مدار الأرض حول الشمس. ولأن الكواكب تكونت من نفس القرص المسطح، فإن مداراتها عادة ما تكون قريبة من هذا المستوى.</div>\n    <div class=\"diagram-box\">\n        <div class=\"interactive-zone\" style=\"background:#0f172a; border-radius:12px; padding:15px; color:white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);\">\n            <h3 style=\"color: #38bdf8; margin-top:0;\">🔭 ماسح النظام الشمسي (مسير الشمس)</h3>\n            <p style=\"font-size: 0.9em; margin-bottom: 15px;\"> حرك شريط التمرير للطيران من الشمس إلى الضواحي. لاحظ مدى تباعد الكواكب الخارجية! الخط المتقطع هو <strong>Ekliptik</strong> (مستوى مدار الأرض).</p>\n            <input type=\"range\" id=\"solarZoomRange\" min=\"0\" max=\"100\" value=\"0\" style=\"width: 100%; margin-bottom: 10px; cursor: pointer;\" aria-label=\"Zoom durch das Sonnensystem\" oninput=\"updateSolarZoom()\">\n            \n            <svg id=\"solarSystemSvg\" width=\"100%\" height=\"280\" viewBox=\"0 0 620 280\" role=\"img\" aria-label=\"Ekliptik und Planetenbahnen\">\n                <defs>\n                    <radialGradient id=\"sunGlowEcliptic\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#fef08a\"/>@TOKEN_27@@<stop offset=\"100%\" stop-color=\"#0f172a\" stop-opacity=\"0\"/></radialGradient>\n                    <filter id=\"glowFilter\"><feGaussianBlur stdDeviation=\"3\" result=\"blur\"/>@TOKEN_32@@<feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                </defs>\n                \n                <g id=\"solarSystemGroup\" transform=\"translate(50, 140)\">\n                    <!-- Ecliptic Plane Reference -->\n                    <line x1=\"-50\" y1=\"0\" x2=\"5000\" y2=\"0\" stroke=\"#334155\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/>\n                    \n                    <!-- Sun -->\n                    <circle cx=\"0\" cy=\"0\" r=\"80\" fill=\"url(#sunGlowEcliptic)\" />\n                    <circle cx=\"0\" cy=\"0\" r=\"15\" fill=\"#facc15\" filter=\"url(#glowFilter)\" />\n                    \n                    <!-- Planets (Distances loosely scaled to log or relative realistic spacing, exaggerated sizes for visibility) -->\n                    <!-- Mercury (0.39 AU), 7 deg inclination -->\n                    <g transform=\"translate(39, -5)\"><circle cx=\"0\" cy=\"0\" r=\"3\" fill=\"#94a3b8\"/>@TOKEN_48@@Merkur</text><path d=\"M -39 5 Q -20 5 0 0 T 39 -5\" fill=\"none\" stroke=\"#94a3b8\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Venus (0.72 AU), 3.4 deg -->\n                    <g transform=\"translate(72, -4)\"><circle cx=\"0\" cy=\"0\" r=\"4\" fill=\"#fde047\"/><text x=\"0\" y=\"-8\" font-size=\"10\" fill=\"#fde047\" text-anchor=\"middle\">Venus</text><path d=\"M -72 4 Q -36 4 0 0 T 72 -4\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Earth (1.0 AU), 0 deg (Ecliptic) -->\n                    <g transform=\"translate(100, 0)\"><circle cx=\"0\" cy=\"0\" r=\"4.5\" fill=\"#3b82f6\"/><text x=\"0\" y=\"15\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">Earth</text></g>\n                    \n                    <!-- Mars (1.52 AU), 1.8 deg -->\n                    <g transform=\"translate(152, 4)\"><circle cx=\"0\" cy=\"0\" r=\"3.5\" fill=\"#ef4444\"/><text x=\"0\" y=\"-8\" font-size=\"10\" fill=\"#ef4444\" text-anchor=\"middle\">Mars</text><path d=\"M -152 -4 Q -76 -4 0 0 T 152 4\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Asteroid Belt -->\n                    <g opacity=\"0.3\">\n                        <circle cx=\"250\" cy=\"0\" r=\"1\" fill=\"#64748b\"/><circle cx=\"260\" cy=\"-5\" r=\"1\" fill=\"#64748b\"/><circle cx=\"270\" cy=\"3\" r=\"1\" fill=\"#64748b\"/>\n                        <text x=\"260\" y=\"15\" font-size=\"9\" fill=\"#64748b\" text-anchor=\"middle\">حزام الكويكبات</text>\n                    </g>\n\n                    <!-- Jupiter (5.2 AU), 1.3 deg -->\n                    <g transform=\"translate(520, -12)\"><circle cx=\"0\" cy=\"0\" r=\"14\" fill=\"#fdba74\"/>@TOKEN_83@@Jupiter</text><path d=\"M -520 12 Q -260 12 0 0 T 520 -12\" fill=\"none\" stroke=\"#fdba74\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Saturn (9.5 AU), 2.5 deg -->\n                    <g transform=\"translate(950, 42)\"><ellipse cx=\"0\" cy=\"0\" rx=\"18\" ry=\"6\" fill=\"none\" stroke=\"#e2e8f0\" stroke-width=\"2\" transform=\"rotate(-15)\"/>@TOKEN_90@@<text x=\"0\" y=\"-18\" font-size=\"11\" fill=\"#fef3c7\" text-anchor=\"middle\">Saturn</text><path d=\"M -950 -42 Q -475 -42 0 0 T 950 42\" fill=\"none\" stroke=\"#fef3c7\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Uranus (19.2 AU), 0.8 deg -->\n                    <g transform=\"translate(1920, -26)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#7dd3fc\"/>@TOKEN_98@@أورانوس</text><path d=\"M -1920 26 Q -960 26 0 0 T 1920 -26\" fill=\"none\" stroke=\"#7dd3fc\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Neptune (30.1 AU), 1.8 deg --><g transform=\"translate(3010, 94)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#2563eb\"/><text x=\"0\" y=\"-15\" font-size=\"11\" fill=\"#2563eb\" text-anchor=\"middle\">نبتون</text><path d=\"M -3010 -94 Q -1505 -94 0 0 T 3010 94\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"0.5\" opacity=\"0.5\"/></g>\n                    \n                    <!-- Pluto (Dwarf, highly eccentric/inclined ~17 deg) -->\n                    <g transform=\"translate(3900, -1170)\"><circle cx=\"0\" cy=\"0\" r=\"2\" fill=\"#cbd5e1\"/><text x=\"0\" y=\"12\" font-size=\"10\" fill=\"#cbd5e1\" text-anchor=\"middle\">بلوتو (كوكب قزم)</text><path d=\"M -3900 1170 Q -1950 1170 0 0 T 3900 -1170\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"0.5\" stroke-dasharray=\"4 4\" opacity=\"0.6\"/></g>\n                </g>\n            </svg>\n        </div>\n    </div>\n    <div class=\"mini-task astro-task\"><strong> رسم في دفتر الملاحظات:</strong> ارسم قرصًا مسطحًا من الغاز والغبار حول الشمس الصغيرة. قم بتمييز دائرة البروج باللون الأحمر واكتب جملتين تحت سبب كون العديد من مدارات الكواكب تقريبًا في نفس المستوى.</div>\n    <div class=\"teacher-note\"><strong> لمزيد من البحث:</strong><ul class=\"step-list\"><li><a href=\"https://science.nasa.gov/solar-system/solar-system-facts/\" target=\"_blank\" rel=\"noopener\">NASA: النظام الشمسي حقائق</a></li><li>@TOKEN_133@@ ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s7_q0}}"
+      },
+      {
+        "title": "8. النيازك والنيازك والنيازك",
+        "quizzes": [
+          {
+            "id": "astro_s8_meteors_q0",
+            "question": "أي ترتيب هو الصحيح؟",
+            "answers": [
+              {
+                "text": "نيزك في الفضاء - نيزك كتتبع - نيزك على الأرض.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. يتغير الاسم حسب مكان وجود الجسم الصغير وما يحدث."
+              },
+              {
+                "text": "نيزك في الفضاء - نيزك كتتبع - نيزك على الأرض.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. النيزك هو القطعة التي تصل إلى الأرض."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/10/perseids-2023-preston-dyches-16x9-1.jpg\" alt=\"NASA-Bild eines Perseiden-Meteorstroms am Nachthimmel\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: ناسا، وابل نيزك البرشاويات</figcaption></figure>\n    <p> قطع صغيرة من الصخور والمعادن هي بقايا من تكوين النظام الشمسي. يعتمد الاسم على <strong>حيث </strong> القطعة: في الفضاء أو في الجو أو على الأرض.</p>\n    <div class=\"diagram-box\">\n      <svg width=\"100%\" height=\"310\" viewBox=\"0 0 760 310\" role=\"img\" aria-label=\"Unterschied zwischen Meteoroid, Meteor und Meteorit\" style=\"background:#0f172a;border-radius:12px;\">\n        <defs>\n          <linearGradient id=\"meteorAtmo\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1e3a8a\"/><stop offset=\"100%\" stop-color=\"#38bdf8\" stop-opacity=\"0.35\"/></linearGradient>\n          <marker id=\"meteorArrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#facc15\"/></marker>\n          <filter id=\"meteorGlow\"><feGaussianBlur stdDeviation=\"5\" result=\"blur\"/>@TOKEN_22@@<feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n        </defs>\n        <rect x=\"0\" y=\"0\" width=\"760\" height=\"310\" fill=\"#0f172a\"/>\n        <rect x=\"0\" y=\"110\" width=\"760\" height=\"120\" fill=\"url(#meteorAtmo)\" opacity=\"0.85\"/>\n        <path d=\"M0 238 C120 214 250 220 370 238 C500 260 628 238 760 252 L760 310 L0 310 Z\" fill=\"#14532d\"/>\n        <path d=\"M40 246 C125 220 240 230 330 244 C445 266 592 246 730 258\" fill=\"none\" stroke=\"#86efac\" stroke-width=\"3\" opacity=\"0.7\"/>\n        <g fill=\"#e0f2fe\" opacity=\"0.75\"><circle cx=\"90\" cy=\"42\" r=\"2\"/>@TOKEN_34@@<circle cx=\"600\" cy=\"50\" r=\"2\"/><circle cx=\"690\" cy=\"92\" r=\"1.5\"/><circle cx=\"500\" cy=\"35\" r=\"1\"/></g>\n        <path d=\"M130 60 C250 88 350 130 482 188\" fill=\"none\" stroke=\"#facc15\" stroke-width=\"5\" stroke-linecap=\"round\" marker-end=\"url(#meteorArrow)\"/>\n        <path d=\"M175 74 C276 100 362 137 475 186\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"13\" stroke-linecap=\"round\" opacity=\"0.22\" filter=\"url(#meteorGlow)\"/>\n        <circle cx=\"126\" cy=\"59\" r=\"10\" fill=\"#a8a29e\" stroke=\"#f8fafc\" stroke-width=\"2\"/>\n        <circle cx=\"488\" cy=\"190\" r=\"8\" fill=\"#f97316\" filter=\"url(#meteorGlow)\"/>\n        <ellipse cx=\"560\" cy=\"252\" rx=\"24\" ry=\"10\" fill=\"#111827\" opacity=\"0.35\"/>\n        <path d=\"M542 238 L573 246 L561 263 L531 255 Z\" fill=\"#78716c\" stroke=\"#d6d3d1\" stroke-width=\"2\"/>\n        <text x=\"126\" y=\"32\" text-anchor=\"middle\" fill=\"#e0f2fe\" font-size=\"18\" font-weight=\"800\">نيزك</text>\n        <text x=\"126\" y=\"104\" text-anchor=\"middle\" fill=\"#cbd5e1\" font-size=\"13\">جسم صغير في الفضاء</text>\n        <text x=\"418\" y=\"128\" text-anchor=\"middle\" fill=\"#fde68a\" font-size=\"18\" font-weight=\"800\">Meteor</text>\n        <text x=\"420\" y=\"151\" text-anchor=\"middle\" fill=\"#fef3c7\" font-size=\"13\">آثار في الغلاف الجوي</text>\n        <text x=\"565\" y=\"286\" text-anchor=\"middle\" fill=\"#f8fafc\" font-size=\"18\" font-weight=\"800\">نيزك</text>\n        <text x=\"565\" y=\"304\" text-anchor=\"middle\" fill=\"#cbd5e1\" font-size=\"13\">القطعة المتبقية على الأرض</text>\n      </svg>\n    </div>\n    <div class=\"remember-box\"><strong>Merkkette:</strong> <strong>Meteoroid</strong> = في الفضاء. <strong>Meteor</strong> = متتبع مرئي عند دخول الغلاف الجوي. <strong>نيزك</strong> = القطعة التي تصل إلى الأرض.</div>\n    <p> العديد من النيازك صغيرة الحجم وتحترق تمامًا. يُطلق على النيزك اللامع بشكل خاص اسم <strong>Fireball</strong>. <strong>يحدث تيار النيزك</strong> عندما تمر الأرض عبر العديد من جزيئات الغبار، والتي غالبًا ما يتركها مذنب في مداره.</p>\n    <div class=\"misconception-box\"><strong>الارتباك الشائع:</strong> \"الشهاب\" ليس نجمًا ساقطًا. النجوم شموس ضخمة على مسافات بعيدة. الشهاب هو جسم صغير من نظامنا الشمسي يلمع في الغلاف الجوي.</div>\n    <div class=\"mini-task astro-task\"><strong> المصطلحات الموجودة في دفتر الملاحظات:</strong> ارسم ثلاث محطات: الفضاء، الغلاف الجوي، الأرض. قم بتسمية النيزك والنيزك والنيزك. اكتب مثالاً أدناه: لماذا لا يُطلق على الشهاب اسم نجم حقًا؟</div>\n    <div class=\"teacher-note\"><strong> لمزيد من البحث:</strong>@TOKEN_86@@<li><a href=\"https://science.nasa.gov/solar-system/meteors-meteorites/facts/\" target=\"_blank\" rel=\"noopener\"> ناسا: النيازك والنيازك حقائق</a></li><li><a href=\"https://science.nasa.gov/asteroids-comets-meteors/facts/\" target=\"_blank\" rel=\"noopener\">ناسا: حقائق عن الكويكبات والمذنبات والنيازك</a></li></ul></div>\n  {{QUIZ_astro_s8_meteors_q0}}"
+      },
+      {
+        "title": "9. الكويكبات والمذنبات",
+        "quizzes": [
+          {
+            "id": "astro_s9_asteroids_comets_q0",
+            "question": "ما هو الفرق المهم بين الكويكبات والمذنبات؟",
+            "answers": [
+              {
+                "text": "الكويكبات معظمها صخرية/معدنية؛ تحتوي المذنبات على الكثير من الجليد وغالباً ما تشكل غيبوبة وذيولاً بالقرب من الشمس.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. تنشط المذنبات بالقرب من الشمس بسبب تبخر الجليد وحمل الغبار معها."
+              },
+              {
+                "text": "الكويكبات هي نجوم؛ المذنبات هي كواكب ذات حلقات.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. كلاهما أجسام صغيرة في النظام الشمسي، لكن ليسا نجوما وليسا كواكب."
+              }
+            ]
+          }
+        ],
+        "content": "<div class=\"image-grid\" style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;\"><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/b/bennu_dec10.png\" alt=\"NASA-Bild des Asteroiden Bennu\" loading=\"lazy\" style=\"width:100%;max-height:360px;object-fit:cover;border-radius:10px;\">@TOKEN_4@@الكويكب بينو، الصورة: NASA/Goddard/جامعة أريزونا</figcaption></figure><figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia13/pia13570/PIA13570.jpg\" alt=\"NASA-Bild des Kometen Hartley 2 mit Gasjets\" loading=\"lazy\" style=\"width:100%;max-height:360px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">Comet Hartley 2، الصورة: NASA/JPL-Caltech/UMD</figcaption>@TOKEN_11@@</div>\n    <p><strong>الكويكبات</strong> هي في الغالب أجسام صخرية أو معدنية صغيرة تدور حول الشمس. ويقع العديد منها في حزام الكويكبات بين المريخ والمشتري. <strong>Comets</strong> تحتوي على الكثير من الجليد والغبار والصخور. عندما يقتربون من الشمس، يسخن الجليد: يشكل الغاز والغبار قشرة متوهجة، <strong>coma</strong>، وغالبًا ما تكون <strong>tail</strong>.</p>\n    <table class=\"word-rubric\"><tr><th>Body</th>@TOKEN_27@@Material</th><th>مكان نموذجي</th><th>ما يرى يا رجل؟</th></tr><tr><td>Asteroid</td><td>صخور ومعدن وغبار داكن</td><td>غالبًا بين المريخ والمشتري، وبعضها قريب Earth</td><td>جسم غير منتظم وغني بالفوهات</td>@TOKEN_43@@<tr><td>Comet</td>@TOKEN_47@@جليد، غبار، صخرة، متجمد الغازات</td><td>غالبًا من المناطق الخارجية للنظام الشمسي</td>@TOKEN_51@@الذؤابة والذيل عندما يكون قريبًا من الشمس</td></tr></table>\n    <div class=\"remember-box\"><strong>ملاحظة:</strong> الكويكبات والمذنبات هي بقايا من الأيام الأولى للنظام الشمسي. وبالتالي فهي بمثابة أرشيفات صغيرة: فهي تحتوي على مواد كانت موجودة قبل الكواكب.</div>\n    <p> يتم توجيه بعض الكويكبات والمذنبات بواسطة جاذبية الكواكب إلى مدارات قريبة من الأرض. تسمى هذه الأجسام <strong>Near-Earth Objects</strong> (الأجسام القريبة من الأرض). وهي مهمة للبحث ولحماية الأرض: حيث يتم استخدام التلسكوبات للبحث عنها مبكراً حتى يمكن حساب مدارها.</p>\n    <div class=\"misconception-box\"><strong>هام:</strong> لا يشير ذيل المذنب دائمًا إلى \"الخلف\". وهو يشير في الغالب بعيدًا عن الشمس لأن ضوء الشمس والرياح الشمسية يدفعان الغاز والغبار بعيدًا عن المذنب.</div>\n    <p><strong> تفاصيل البحث:</strong> تقوم بعثات ناسا بدراسة الأجسام الصغيرة عن قرب. أعادت OSIRIS-REx المواد من الكويكب بينو إلى الأرض. بالنسبة للمذنبات، تُظهر عمليات الطيران القريبة مثل هارتلي 2 أن نفاثات الغاز والغبار يمكن أن تخرج من النواة.</p>\n    <div class=\"mini-task astro-task\"><strong>المقارنة في دفتر الملاحظات:</strong> قم بإنشاء جدول بعمودين: الكويكب والمذنب. أدخل المادة والمظهر والموقع النموذجي ومهمة ناسا. ابحث عن صورة لبينو وهارتلي 2 على الإنترنت ووصف كيف يمكنك معرفة الفرق.</div><div class=\"teacher-note\"><strong>مزيد من البحث:</strong>@TOKEN_78@@<li><a href=\"https://science.nasa.gov/solar-system/asteroids/facts/\" target=\"_blank\" rel=\"noopener\">NASA: حقائق الكويكب</a></li><li><a href=\"https://science.nasa.gov/solar-system/comets/\" target=\"_blank\" rel=\"noopener\">NASA: المذنبات</a></li></ul></div>\n  {{QUIZ_astro_s9_asteroids_comets_q0}}"
+      },
+      {
+        "title": "10. كوكبنا: عطارد",
+        "quizzes": [
+          {
+            "id": "astro_s8_q0",
+            "question": "ما هي الخاصية المهمة لعطارد؟",
+            "answers": [
+              {
+                "text": "إنه الكوكب الأكثر سخونة.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. عطارد ليس الكوكب الأكثر سخونة، على الرغم من أنه الأقرب إلى الشمس."
+              },
+              {
+                "text": "فترة مدارية قصيرة والعديد من الحفر.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. عطارد ليس الكوكب الأكثر سخونة، على الرغم من أنه الأقرب إلى الشمس."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/10/pia15051-mercury.jpg\" alt=\"NASA-Bild von Merkur\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>عطارد هو الكوكب الأعمق والأصغر. لا يوجد غلاف جوي تقريبًا: يصبح الجو حارًا للغاية أثناء النهار وباردًا للغاية في الليل.</p>\n    <p><strong> تفاصيل البحث:</strong> يمكن أن يكون هناك جليد مائي في الحفر العميقة في القطبين لأن ضوء الشمس لا يدخلها أبدًا. كما أن عطارد سريع للغاية ويدور ببطء شديد لدرجة أن الشمس تبدو في بعض الأماكن وكأنها تشرق لفترة وجيزة ثم تغرب مرة أخرى ثم تشرق مرة أخرى.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر بشأن عطارد: فترة مدارية قصيرة والكثير من الحفر.</div>\n    <div class=\"mini-task astro-task\"><strong>الملف الشخصي في دفتر الملاحظات:</strong> اكتب أربع نقاط عن عطارد: أصغر كوكب، وأسرع مدار، واختلافات كبيرة في درجات الحرارة، واحتمال وجود جليد في الحفر القطبية. ابحث عن صورة ناسا لعطارد ووصف الحفر في جملة واحدة.</div>\n    <div class=\"teacher-note\"><strong> لمزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/mercury/facts\" target=\"_blank\" rel=\"noopener\">NASA: حقائق Merkur</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s8_q0}}"
+      },
+      {
+        "title": "11. كواكبنا: الزهرة",
+        "quizzes": [
+          {
+            "id": "astro_s9_q0",
+            "question": "ما هي السمة المهمة لكوكب الزهرة؟",
+            "answers": [
+              {
+                "text": "لديها أكبر عدد من الأقمار.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. يظهر كوكب الزهرة بشكل واضح ما يمكن أن يفعله الغلاف الجوي الكثيف."
+              },
+              {
+                "text": "تأثير الاحتباس الحراري القوي.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. يظهر كوكب الزهرة بشكل واضح ما يمكن أن يفعله الغلاف الجوي الكثيف."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/venus-mariner-10-pia23791-fig2-16x9-1.jpg\" alt=\"NASA-Bild von Venus\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>يبلغ حجم كوكب الزهرة حجم الأرض تقريبًا، ولكن غلافه الجوي الكثيف الذي يحتوي على ثاني أكسيد الكربون يجعله السطح الأكثر سخونة على كوكب الأرض.</p>\n    <p><strong> تفاصيل البحث:</strong> كوكب الزهرة مثير بشكل خاص اليوم لأنه كبير مثل الأرض تقريبًا، ولكنه خضع لتطور مختلف تمامًا. غيومهم الكثيفة تخفي السطح. لهذا السبب يتم بحثهم باستخدام الرادار والأشعة تحت الحمراء. إنه يظهر بوضوح شديد مدى قدرة الغلاف الجوي على تغيير درجة الحرارة.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر كوكب الزهرة: تأثير الاحتباس الحراري القوي.</div>\n    <div class=\"mini-task astro-task\"><strong>المقارنة في دفتر الملاحظات:</strong> ارسم عمودين: الأرض والزهرة. أدخل الحجم والغلاف الجوي ودرجة الحرارة وطريقة الاستكشاف. ألقِ نظرة سريعة على سبب أهمية الرادار على كوكب الزهرة.</div>\n    <div class=\"teacher-note\"><strong> مزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/venus/facts/\" target=\"_blank\" rel=\"noopener\"> ناسا: حقائق كوكب الزهرة</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s9_q0}}"
+      },
+      {
+        "title": "12. كوكبنا: الأرض",
+        "quizzes": [
+          {
+            "id": "astro_s10_q0",
+            "question": "ما هي الخاصية المهمة للتربة؟",
+            "answers": [
+              {
+                "text": "إنها عملاق الغاز.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. مع الأرض يمكنك أن ترى لماذا تتطلب ظروف الحياة عدة عوامل."
+              },
+              {
+                "text": "الماء والجو والحياة.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. مع الأرض يمكنك أن ترى لماذا تتطلب ظروف الحياة عدة عوامل."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002131/GSFC_20171208_Archive_e002131~large.jpg\" alt=\"NASA-Bild von Erde\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>الأرض هي كوكب المقارنة لدينا: الماء السائل والغلاف الجوي الوقائي والمجال المغناطيسي والحياة.</p>\n    <p><strong> تفاصيل البحث:</strong> الأرض هي أيضًا كوكب نستكشفه من خلال السفر إلى الفضاء. تقوم الأقمار الصناعية مثل SWOT الآن بقياس البحار والأنهار والبحيرات ومناطق الفيضانات بدقة شديدة. وهذا يجعل علم الفلك مفيدًا بشكل مباشر في مجالات الطقس والمناخ والمياه والوقاية من الكوارث.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر عن الأرض: الماء والغلاف الجوي والحياة.</div>\n    <div class=\"mini-task astro-task\"><strong> المرجع اليومي في دفتر الملاحظات:</strong> اكتب ثلاثة أشياء يمكن للأقمار الصناعية قياسها فوق الأرض. ابحث عن مثال لمهمة مراقبة الأرض التابعة لناسا واكتب: كيف يساعد هذا القياس الأشخاص؟</div>\n    <div class=\"teacher-note\"><strong> مزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/earth/facts/\" target=\"_blank\" rel=\"noopener\">NASA: حقائق الأرض</a></li>@TOKEN_28@@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">NASA: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s10_q0}}"
+      },
+      {
+        "title": "13. كوكبنا: المريخ",
+        "quizzes": [
+          {
+            "id": "astro_s11_q0",
+            "question": "ما هي الميزة المهمة للمريخ؟",
+            "answers": [
+              {
+                "text": "إنه أكبر من كوكب المشتري.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. المريخ أصغر من الأرض، لكنه مهم جدًا من الناحية العلمية."
+              },
+              {
+                "text": "روفر والجليد ومسارات النهر القديم.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. المريخ أصغر من الأرض، لكنه مهم جدًا من الناحية العلمية."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2017/11/pia17944.jpg\" alt=\"NASA-Bild von Mars\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p> المريخ بارد وجاف وأحمر. لكن الآثار تظهر: كان هناك الكثير من المياه هناك.</p>\n    <p><strong> تفاصيل البحث:</strong> تجمع المركبة الجوالة Perseverance عينات من الصخور في Jezero Crater. قد تحتوي بعض العينات على دليل على وجود ظروف ملائمة للحياة السابقة. وهذا ليس دليلاً على وجود الحياة، ولكنه سبب مهم وراء دراسة المريخ بشكل أكبر.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر على المريخ: المركبات الجوالة والجليد وآثار الأنهار القديمة.</div>\n    <div class=\"mini-task astro-task\"><strong>مهمة المريخ:</strong> اكتب تقريرًا بحثيًا قصيرًا في دفتر الملاحظات: أين تعمل المثابرة؟ ماذا تجمع المركبة؟ لماذا تعتبر العينات مثيرة للاهتمام حتى لو لم تكن دليلاً على الحياة بعد؟</div>\n    <div class=\"teacher-note\"><strong>مواصلة البحث:</strong>@TOKEN_23@@<a href=\"https://science.nasa.gov/mars/facts/\" target=\"_blank\" rel=\"noopener\">ناسا: حقائق المريخ</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s11_q0}}"
+      },
+      {
+        "title": "14. كوكبنا: المشتري",
+        "quizzes": [
+          {
+            "id": "astro_s12_q0",
+            "question": "ما هي السمة المهمة لكوكب المشتري؟",
+            "answers": [
+              {
+                "text": "كوكب صخري صغير.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. يُظهر كوكب المشتري كيفية مقارنة عمالقة الغاز المختلفة بالكواكب الصخرية."
+              },
+              {
+                "text": "عملاق الغاز مع البقعة الحمراء العظيمة.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. يُظهر كوكب المشتري كيفية مقارنة عمالقة الغاز المختلفة بالكواكب الصخرية."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/jupiter-marble-pia22946-16x9-1.jpg\" alt=\"NASA-Bild von Jupiter\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>كوكب المشتري هو أكبر كوكب. وهو عملاق غازي وله عواصف قوية وأقمار كثيرة.</p>\n    <p><strong> تفاصيل البحث:</strong> ينظر مسبار جونو تحت سحب كوكب المشتري. ويظهر أن العواصف والأضواء الشمالية والرياح تصل إلى عمق أكبر بكثير مما كان يعتقد سابقا. بل إن التقييمات الجديدة تجعل الشكل الدقيق للكوكب أكثر دقة: كوكب المشتري مفلطح للغاية ويختلف شكله قليلًا عن النماذج القديمة المفترضة.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر كوكب المشتري: عملاق الغاز مع البقعة الحمراء العظيمة.</div>\n    <div class=\"mini-task astro-task\"><strong> سؤال الباحث في دفتر الملاحظات:</strong> أبحث عن صورة جونو الحالية لكوكب المشتري. قم بوصف بنائين مرئيين واشرح في ثلاث جمل سبب رغبتك في النظر تحت السحب مع Juno.</div>\n    <div class=\"teacher-note\"><strong> مزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/jupiter/facts/\" target=\"_blank\" rel=\"noopener\"> ناسا: حقائق المشتري</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s12_q0}}"
+      },
+      {
+        "title": "15. كواكبنا: زحل",
+        "quizzes": [
+          {
+            "id": "astro_s13_q0",
+            "question": "ما هي الميزة المهمة لزحل؟",
+            "answers": [
+              {
+                "text": "لا حلقات ولا أقمار",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. حلقات زحل ليست أجسامًا صلبة، بل هي عبارة عن العديد من الجزيئات الصغيرة."
+              },
+              {
+                "text": "حلقات لافتة للنظر.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. حلقات زحل ليست أجسامًا صلبة، بل هي عبارة عن العديد من الجزيئات الصغيرة."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/426/rings_diagram_nolables-1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"NASA-Bild von Saturn\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>يشتهر كوكب زحل بحلقاته المكونة من الجليد والصخور. وهو أيضًا عملاق الغاز.</p>\n    <p><strong> تفاصيل البحث:</strong> لا يزال زحل صاحب الرقم القياسي القمري: تم تأكيد العديد من الأقمار الصغيرة في عام 2025، ويوجد الآن 274 في المجموع. ومن المثير بشكل خاص تيتان الذي يحتوي على بحيرات من الميثان السائل وإنسيلادوس، الذي يطلق نوافير من الماء إلى الفضاء.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> ملاحظة حول كوكب زحل: حلقات واضحة.</div>\n    <div class=\"mini-task astro-task\"><strong>ملف تعريف زحل:</strong> ارسم زحل باستخدام نظام الحلقة. اكتب في الدفتر: مما تتكون الخواتم؟ قم بتسمية تيتان وإنسيلادوس واكتب ميزة مثيرة لكل قمر.</div>\n    <div class=\"teacher-note\"><strong> مزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/saturn/facts/\" target=\"_blank\" rel=\"noopener\"> ناسا: حقائق زحل</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s13_q0}}"
+      },
+      {
+        "title": "16. كواكبنا: أورانوس",
+        "quizzes": [
+          {
+            "id": "astro_s14_q0",
+            "question": "ما هي الميزة المهمة لأورانوس؟",
+            "answers": [
+              {
+                "text": "لا يتحول على الإطلاق",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. يوضح أورانوس أن محاور الكواكب يمكن أن تكون مختلفة تمامًا."
+              },
+              {
+                "text": "المحور المائل والعملاق الجليدي.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. يوضح أورانوس أن محاور الكواكب يمكن أن تكون مختلفة تمامًا."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2016/05/uranus-jpg.webp\" alt=\"NASA-Bild von Uranus\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>أورانوس عملاق جليدي. محور دورانه يكاد يكون على جانبه، لذا فإن فصوله متطرفة.</p>\n    <p><strong> تفاصيل البحث: </strong> أظهر تلسكوب جيمس ويب أورانوس بحلقات وأقمار دقيقة جدًا وقبعة قطبية لامعة. حتى حلقة زيتا الخافتة القريبة من الكوكب أصبحت مرئية. يبدو أورانوس هادئًا، لكنه عملاق جليدي نشط يتميز بطقسه ومواسمه القاسية.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر أورانوس: المحور المائل وعملاق الجليد.</div>\n    <div class=\"mini-task astro-task\"><strong>مقارنة الصور:</strong> ابحث عن صورة Webb لأورانوس. اكتب ثلاثة أشياء في دفتر الملاحظات يمكنك التعرف عليها: الحلقات أو الأقمار أو الغطاء الجليدي القطبي أو السحب. اشرح لماذا لا يعد أورانوس كوكبًا مملًا على الرغم من لونه الهادئ.</div>\n    <div class=\"teacher-note\"><strong> لمزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/uranus/facts/\" target=\"_blank\" rel=\"noopener\">ناسا: حقائق عن أورانوس</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s14_q0}}"
+      },
+      {
+        "title": "17. كوكبنا: نبتون",
+        "quizzes": [
+          {
+            "id": "astro_s15_q0",
+            "question": "ما هي الميزة المهمة لنبتون؟",
+            "answers": [
+              {
+                "text": "الكوكب الأقرب إلى الشمس",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. نبتون بعيد ويستغرق وقتًا طويلاً للدوران حول الشمس."
+              },
+              {
+                "text": "رياح قوية ومسافة طويلة.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. نبتون بعيد ويستغرق وقتًا طويلاً للدوران حول الشمس."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2024/03/pia01492-neptune-full-disk-16x9-1.jpg\" alt=\"NASA-Bild von Neptun\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>نبتون هو الكوكب الرئيسي الخارجي. إنه أزرق داكن، وعاصف جدًا، وعملاق جليدي.</p>\n    <p><strong> تفاصيل البحث:</strong> في عام 2025، تمكن ويب من اكتشاف الأضواء الشمالية لنبتون بوضوح لأول مرة. وهي ليست موجودة في المكان الذي تتوقعها من الأرض لأن المجال المغناطيسي لنبتون مائل بشدة. أظهر ويب أيضًا أن الغلاف الجوي العلوي أصبح أكثر برودة بشكل ملحوظ منذ فوييجر 2.</p>\n    <div class=\"lexikon-box\"><strong>أهم المعلومات:</strong> تذكر نبتون: رياح قوية ومسافات كبيرة.</div>\n    <div class=\"mini-task astro-task\"><strong>مهمة نبتون:</strong> ارسم نبتون باستخدام مجال مغناطيسي مائل. ألق نظرة سريعة على شفق ويب ونبتون. اكتب في دفتر ملاحظاتك لماذا لا تكون الأضواء الشمالية عند القطبين تمامًا كما هي على الأرض.</div>\n    <div class=\"teacher-note\"><strong> لمزيد من البحث:</strong>@TOKEN_23@<li><a href=\"https://science.nasa.gov/neptune/facts/\" target=\"_blank\" rel=\"noopener\">ناسا: حقائق عن نبتون</a></li>@TOKEN_28@<a href=\"https://science.nasa.gov/solar-system/planets/\" target=\"_blank\" rel=\"noopener\">ناسا: حول الكواكب</a></li></ul></div>\n  {{QUIZ_astro_s15_q0}}"
+      },
+      {
+        "title": "18. حزام كويبر",
+        "quizzes": [
+          {
+            "id": "astro_s16_q0",
+            "question": "ما هو حزام كويبر؟",
+            "answers": [
+              {
+                "text": "حلقة من الغاز حول الأرض.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. حزام كويبر هو جزء من النظام الشمسي الخارجي."
+              },
+              {
+                "text": "منطقة خارجية بها العديد من الأجسام الجليدية خلف نبتون.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. حزام كويبر هو جزء من النظام الشمسي الخارجي."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/PIA22190_1600.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg\" alt=\"NASA-Bild zu Kuipergürtel-Objekten\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>تبدأ خلف نبتون منطقة بها العديد من الأجسام الجليدية: <strong>Kuiper Belt</strong>. هناك يمكنك العثور على كواكب قزمة مثل بلوتو وهوميا وماكيماكي وإيريس بالإضافة إلى العديد من الأجسام الأصغر حجمًا.</p>\n    <div class=\"remember-box\"><strong>ملاحظة:</strong> حزام كويبر ليس كوكبًا واحدًا، ولكنه منطقة ضخمة بها العديد من الأجسام الصغيرة الباردة.</div>\n    \n    <p><strong> تفاصيل البحث:</strong> يشبه حزام كويبر حجرة التجميد في النظام الشمسي الشاب. زارت نيوهورايزنز بلوتو وأروكوث، ويقوم ويب بدراسة أسطح الأجسام الأخرى العابرة للنبتون اليوم. يوضح هذا آثارًا لكيفية تحرك أورانوس ونبتون.</p>\n    <div class=\"mini-task astro-task\"><strong> البحث في دفتر الملاحظات:</strong> ابحث عن بلوتو وأروكوث. اكتب كلمتين رئيسيتين لكل هيئة. ثم اشرح سبب أهمية حزام كويبر في تكوين النظام الشمسي.</div>\n    <div class=\"teacher-note\"><strong> تابع البحث:</strong>@TOKEN_25@@<a href=\"https://science.nasa.gov/solar-system/kuiper-belt/\" target=\"_blank\" rel=\"noopener\">ناسا: حزام كويبر</a></li>@TOKEN_30@@<a href=\"https://science.nasa.gov/mission/new-horizons/\" target=\"_blank\" rel=\"noopener\">ناسا: جديد مهمة الآفاق</a></li></ul></div>\n  {{QUIZ_astro_s16_q0}}"
+      },
+      {
+        "title": "19. الشمس",
+        "quizzes": [
+          {
+            "id": "astro_s17_q0",
+            "question": "لماذا تشرق الشمس؟",
+            "answers": [
+              {
+                "text": "لأن الخشب يحترق هناك.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. تستمد النجوم الطاقة من الاندماج النووي."
+              },
+              {
+                "text": "من خلال الاندماج النووي داخلها.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. تستمد النجوم الطاقة من الاندماج النووي."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/05/pia03149-copy.jpg\" alt=\"NASA-Bild der Sonne\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p> الشمس نجمة: كرة ساخنة من البلازما. وفي القلب، تندمج نواة الهيدروجين لتشكل الهيليوم. يطلق <strong> الاندماج النووي</strong> الطاقة التي توفر الضوء والحرارة.</p>\n    <ol class=\"step-list\"><li><strong>الأساسي:</strong> يتم إنشاء الطاقة من خلال الاندماج.</li><li><strong>الغلاف الضوئي:</strong> السطح المرئي لل الشمس.</li><li><strong> كورونا:</strong> الغلاف الجوي الخارجي، مرئي أثناء كسوف الشمس.</li><li><strong>الرياح الشمسية:</strong> تيار الجسيمات الذي يؤدي أيضًا إلى إثارة الأضواء الشمالية يمكن.</li></ol>\n    <div class=\"misconception-box\"><strong> ليس مثل النار:</strong> الشمس لا تحترق مثل الخشب. إنه يتوهج من خلال الاندماج النووي.</div>\n    \n    <p><strong> تفاصيل البحث: </strong> يطير مسبار باركر الشمسي عبر الغلاف الجوي الشمسي الخارجي. لقد اقترب من الشمس أكثر من أي مسبار سابق، ويساعد في توضيح سبب ارتفاع درجة حرارة الهالة وكيفية تشكل الرياح الشمسية. وهذا أمر مهم لأن العواصف الشمسية يمكن أن تؤثر على الأقمار الصناعية وشبكات الطاقة.</p>\n    <div class=\"mini-task astro-task\"><strong>مهمة الشمس:</strong> ارسم الشمس بالنواة والغلاف الضوئي والإكليل والرياح الشمسية. ابحث عن صورة أو مقطع فيديو لمسبار Parker Solar Probe ولاحظ السؤال الذي يهدف إلى الإجابة عليه حول الشمس.</div>\n    <div class=\"teacher-note\"><strong> مواصلة البحث:</strong>@TOKEN_43@@<li><a href=\"https://science.nasa.gov/sun/\" target=\"_blank\" rel=\"noopener\">NASA: Sun</a></li><li><a href=\"https://science.nasa.gov/heliophysics/focus-areas/solar-science\" target=\"_blank\" rel=\"noopener\">NASA: الطاقة الشمسية العلوم</a></li></ul></div>\n  {{QUIZ_astro_s17_q0}}"
+      },
+      {
+        "title": "20. المجرات",
+        "quizzes": [
+          {
+            "id": "astro_s18_q0",
+            "question": "ما هي مجرة ​​درب التبانة؟",
+            "answers": [
+              {
+                "text": "نجم واحد بجوار الأرض.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. الشمس هي مجرد واحدة من العديد من النجوم في درب التبانة."
+              },
+              {
+                "text": "مجرتنا.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. الشمس هي مجرد واحدة من العديد من النجوم في درب التبانة."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://science.nasa.gov/wp-content/uploads/2023/06/spiral-galaxy-jpg.webp\" alt=\"Spiralgalaxie\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p>A <strong>galaxy</strong> هو نظام واسع من النجوم والغاز والغبار والكواكب والمادة المظلمة وغالبًا ما يكون ثقبًا أسود ضخمًا في المركز. مجرتنا تسمى <strong>درب التبانة</strong>.</p>\n    <p> هناك مجرات حلزونية ومجرات إهليلجية ومجرات غير منتظمة. يمكن أن تتصادم المجرات وتتشوه دون أن تصطدم النجوم المنفردة بشكل مباشر.</p>\n    \n    <p><strong> تفاصيل البحث:</strong> باستخدام Webb، يراقب الباحثون المجرات القديمة والبعيدة جدًا. ولأن ضوءهم سافر لفترة طويلة، فإننا نستخدمه للنظر إلى الماضي. لذا فإن كل مجرة بعيدة هي أيضًا بمثابة كبسولة زمنية من مرحلة مبكرة من الكون.</p>\n    <div class=\"mini-task astro-task\"><strong>تخصيص الصورة:</strong> ابحث عن صورة مجرة من Hubble أو Webb. قم بلصقها أو رسمها في دفتر الملاحظات. حدد النجوم الأمامية، والمجرة، والأذرع الحلزونية/الغبارية، واكتب لماذا تعتبر المجرات البعيدة لمحة عن الماضي.</div>\n    <div class=\"teacher-note\"><strong> تابع البحث:</strong>@TOKEN_25@@<li><a href=\"https://science.nasa.gov/universe/galaxies/\" target=\"_blank\" rel=\"noopener\">NASA: المجرات</a></li>@TOKEN_30@@<a href=\"https://science.nasa.gov/universe/overview/\" target=\"_blank\" rel=\"noopener\">NASA Universe نظرة عامة</a></li></ul></div>\n  {{QUIZ_astro_s18_q0}}"
+      },
+      {
+        "title": "21. المجرات والمادة المظلمة",
+        "quizzes": [
+          {
+            "id": "astro_s19_q0",
+            "question": "لماذا نفترض المادة المظلمة؟",
+            "answers": [
+              {
+                "text": "لأنه يتوهج باللون الأسود.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. يتم الوصول إلى المادة المظلمة عن طريق الجاذبية."
+              },
+              {
+                "text": "تفسر جاذبيتها الحركات وانحراف الضوء بشكل أفضل.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. يتم الوصول إلى المادة المظلمة عن طريق الجاذبية."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/missions/hubble/releases/2020/09/keystones/STScI-01EVSQQ78108T9769ATGDY010A.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"NASA/Hubble-Karte von dunkler Materie\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p> في المجرات، غالبًا ما تتحرك النجوم كما لو أن هناك كتلة أكبر بكثير مما يمكننا رؤيته. يطلق الباحثون على هذه الكتلة غير المرئية <strong>Dark Matter</strong>. إنها لا تتوهج ولا تمتص الضوء ولا تعكس الضوء ولكنها تعمل عن طريق الجاذبية.</p>\n    <div class=\"remember-box\"><strong>ملاحظة:</strong> المادة المظلمة ليست غبارًا مظلمًا. إنه اسم لشيء غير مرئي نقيس جاذبيته.</div>\n    <p>المؤشر القوي هو <strong>عدسة الجاذبية</strong>: الكتلة تحني الفضاء وتحرف الضوء من المجرات البعيدة. ومن هذا يمكنك رسم خريطة للكتلة غير المرئية.</p>\n    \n    <p><strong> تفاصيل البحث:</strong> تم استخدام بيانات Webb في عام 2026 لرسم خريطة للمادة المظلمة في مجال يضم مئات الآلاف من المجرات. لا يمكنك رؤية المادة المظلمة نفسها. ويمكن التعرف عليها من خلال الطريقة التي تشوه بها جاذبيتها ضوء المجرات البعيدة.</p>\n    <div class=\"mini-task astro-task\"><strong> النموذج الموجود في دفتر الملاحظات:</strong> ارسم مجرة بعيدة، وكتلة غير مرئية بينهما، ومسارًا منحنيًا للضوء. اكتب: لماذا لا يمكنك رؤية المادة المظلمة بشكل مباشر، ولكن لا يزال بإمكانك قياسها؟</div>\n    <div class=\"teacher-note\"><strong> تابع البحث:</strong>@TOKEN_29@@<a href=\"https://science.nasa.gov/universe/dark-matter-dark-energy/\" target=\"_blank\" rel=\"noopener\"> ناسا: المادة المظلمة</a></li>@TOKEN_34@<a href=\"https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-dark-matter/\" target=\"_blank\" rel=\"noopener\"> ناسا هابل: داكن مسألة</a></li></ul></div>\n  {{QUIZ_astro_s19_q0}}"
+      },
+      {
+        "title": "22. الطاقة المظلمة",
+        "quizzes": [
+          {
+            "id": "astro_s20_q0",
+            "question": "ما علاقة الطاقة المظلمة؟",
+            "answers": [
+              {
+                "text": "مع حلقات زحل.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "ليس بعد. الطاقة المظلمة هي مشكلة بحث كونية."
+              },
+              {
+                "text": "مع التوسع المتسارع للكون.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "صحيح. الطاقة المظلمة هي مشكلة بحث كونية."
+              }
+            ]
+          }
+        ],
+        "content": "<figure class=\"diagram-box astro-image\" style=\"margin:1rem 0;text-align:center;\"><img src=\"https://assets.science.nasa.gov/content/dam/science/cds/general/images/2020/09/universe-history.png/jcr:content/renditions/cq5dam.web.1280.1280.png\" alt=\"NASA-Grafik zur Geschichte des Universums\" loading=\"lazy\" style=\"width:100%;max-height:420px;object-fit:cover;border-radius:10px;\"><figcaption style=\"font-size:.9rem;color:#475569;margin-top:.35rem;\">الصورة: NASA</figcaption></figure>\n    <p> تظهر القياسات: الكون لا يتوسع فحسب، بل يتسارع التوسع. لسبب غير معروف، استخدم علماء الفلك الاسم <strong>Dark Energy</strong>.</p>\n    <div class=\"misconception-box\"><strong> ليس نفس الشيء:</strong> المادة المظلمة تحمل هياكل مثل المجرات معًا من خلال الجاذبية. ترتبط الطاقة المظلمة بالتوسع المتسارع للكون.</div>\n    <div class=\"remember-box\"><strong>حالة البحث الحالية:</strong> نحن نعلم أن هناك حاجة إلى الطاقة المظلمة في النماذج. ما هو بالضبط هو أحد أكبر الأسئلة المفتوحة في الفيزياء.</div>\n    \n    <p><strong> تفاصيل البحث:</strong> ستتم دراسة الطاقة المظلمة باستخدام خرائط ضخمة للسماء في السنوات القليلة المقبلة. يهدف رومان وإقليدس ومرصد فيرا سي روبين إلى قياس العديد من المجرات. من هذا نريد أن نعرف ما إذا كان التوسع المتسارع هو نفسه دائمًا.</p>\n    <div class=\"mini-task astro-task\"><strong> البحث النهائي:</strong> ابحث لفترة وجيزة عن Roman أو Euclid أو Vera Rubin. اختر مشروعًا واكتب في دفتر الملاحظات: ما الذي سيتم قياسه؟ كيف يساعد هذا في مسألة الطاقة المظلمة؟</div>\n    <div class=\"teacher-note\"><strong> لمزيد من البحث:</strong>@TOKEN_29@<li><a href=\"https://science.nasa.gov/dark-energy/\" target=\"_blank\" rel=\"noopener\">ناسا: الطاقة المظلمة</a></li><li><a href=\"https://science.nasa.gov/universe/dark-matter-dark-energy/\" target=\"_blank\" rel=\"noopener\">ناسا: داكن مسألة</a></li></ul></div>\n  {{QUIZ_astro_s20_q0}}"
       }
     ],
     "diplom": {
       "title": "🎓 دبلومة الفيزياء الفلكية",
       "questions": [
         {
-          "id": "f1",
+          "id": "astro_d1",
           "question": "1. ما هو اختصار المسافة من الأرض إلى الشمس؟",
           "answers": [
             {
@@ -892,67 +1295,67 @@
             {
               "text": "الاتحاد الأفريقي (الوحدة الفلكية).",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "صحيح: AU يرمز إلى الوحدة الفلكية، أي الأرض-الشمس تقريبًا."
             }
           ]
         },
         {
-          "id": "f2",
+          "id": "astro_d2",
           "question": "2. أي كوكب في نظامنا الشمسي هو الأكبر؟",
           "answers": [
             {
               "text": "أرض.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "الأرض أصغر بكثير. أكبر كوكب هو كوكب المشتري."
             },
             {
               "text": "كوكب المشتري.",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "بالضبط، كوكب المشتري هو أكبر كوكب في نظامنا الشمسي."
             }
           ]
         },
         {
-          "id": "f3",
+          "id": "astro_d3",
           "question": "3. ما مدى سرعة الضوء تقريبًا؟",
           "answers": [
             {
               "text": "3000 كم/ساعة.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "هذه طريقة بطيئة جدًا. الضوء سريع للغاية."
             },
             {
               "text": "300.000 كيلومتر في الثانية.",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "هذا صحيح: الضوء ينتقل بسرعة حوالي 300 ألف كيلومتر في الثانية."
             }
           ]
         },
         {
-          "id": "f4",
+          "id": "astro_d4",
           "question": "4. ما هي السنة الضوئية؟",
           "answers": [
             {
               "text": "مؤشر الوقت (بالضبط 365 يومًا في الفضاء).",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "ليس تمامًا: السنة الضوئية ليست مؤشرًا للوقت."
             },
             {
               "text": "مسافة (مسافة كبيرة).",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "بالضبط: السنة الضوئية هي قياس المسافة لمسافات كبيرة جدًا."
             }
           ]
         },
         {
-          "id": "f5",
+          "id": "astro_d_meteors",
           "question": "5. ماذا يحدث عندما يكون لجسم كتلة أكبر؟",
           "answers": [
             {
@@ -970,43 +1373,43 @@
           ]
         },
         {
-          "id": "f6",
+          "id": "astro_d_small_bodies",
           "question": "6. لماذا لا يستطيع حتى الضوء الهروب من الثقب الأسود؟",
           "answers": [
             {
               "text": "لأن السنة الضوئية تنتهي هناك.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "السنة الضوئية ليس لها علاقة بالموضوع."
             },
             {
               "text": "لأن الجاذبية قوية للغاية هناك.",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "هذا صحيح: الجاذبية قوية جدًا لدرجة أنه حتى الضوء لا يهرب منها."
             }
           ]
         },
         {
-          "id": "f7",
+          "id": "astro_d5",
           "question": "7. ما هي السرعة التي يجب أن يصل إليها الصاروخ للهروب من جاذبية الأرض؟",
           "answers": [
             {
               "text": "100 كيلومتر في الساعة.",
-              "correct": false,
+              "correct": true,
               "pts": 5,
               "feedback": "وهذا لا يكفي لمغادرة مجال جاذبية الأرض."
             },
             {
               "text": "11.2 كيلومتر في الثانية (سرعة الإفلات).",
-              "correct": true,
+              "correct": false,
               "pts": 5,
               "feedback": "بالضبط: حوالي 11.2 كم/ثانية ضرورية كسرعة الهروب."
             }
           ]
         },
         {
-          "id": "f8",
+          "id": "astro_d6",
           "question": "8. لماذا تكون الصواريخ عادةً ضخمة وثقيلة جدًا؟",
           "answers": [
             {
@@ -1024,7 +1427,7 @@
           ]
         },
         {
-          "id": "f9",
+          "id": "astro_d7",
           "question": "9. ماذا تسمي الانفجار الهائل لنجم يحتضر؟",
           "answers": [
             {
@@ -1042,7 +1445,7 @@
           ]
         },
         {
-          "id": "f10",
+          "id": "astro_d8",
           "question": "10. من أين تحصل النجوم (مثل شمسنا) على الطاقة للتألق؟",
           "answers": [
             {
@@ -1056,6 +1459,42 @@
               "correct": false,
               "pts": 5,
               "feedback": "لا: النجوم لا تعمل مثل الحرائق الكيميائية، بل من خلال الاندماج النووي."
+            }
+          ]
+        },
+        {
+          "id": "astro_d9",
+          "question": "كيف يمكنك الكشف عن المادة المظلمة؟",
+          "answers": [
+            {
+              "text": "من خلال تأثير الجاذبية.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "صحيح. يمكن التعرف على المادة المظلمة بشكل غير مباشر من خلال جاذبيتها."
+            },
+            {
+              "text": "على الضوء الأسود.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "ليس بعد. المادة المظلمة لا تتوهج؛ يمكنك رؤية تأثير الجاذبية."
+            }
+          ]
+        },
+        {
+          "id": "astro_d10",
+          "question": "ما الذي تمثله الطاقة المظلمة؟",
+          "answers": [
+            {
+              "text": "لسبب غير معروف وهو التوسع المتسارع.",
+              "correct": true,
+              "pts": 5,
+              "feedback": "صحيح. تمثل الطاقة المظلمة السبب غير المعروف للتوسع المتسارع."
+            },
+            {
+              "text": "للحصول على طاقة البقع الشمسية.",
+              "correct": false,
+              "pts": 5,
+              "feedback": "ليس بعد. البقع الشمسية لا تفسر التوسع المتسارع للكون."
             }
           ]
         }
@@ -2214,7 +2653,7 @@
             ]
           }
         ],
-        "content": "<p> تخيل أنك مستلقي بتكاسل على الأريكة. للنهوض والركض إلى الغرفة المجاورة، تحتاج إلى شيء محدد: <strong>الطاقة!</strong> الطاقة هي القدرة على تحريك الأشياء أو تسخينها أو جعلها تتوهج. لا يمكنك لمسه أو وزنه، ولكن يمكنك رؤية ما يفعله. بدون الطاقة لن يحدث شيء على الإطلاق في الكون بأكمله - كل شيء سيتوقف!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong> القاموس الذكي: Joule</strong><br>\n            مثلما تقيس المسافة بالأمتار، فإنك تقيس الطاقة بـ <strong>Joules (J)</strong> (تُنطق مثل \"Juul\"). لرفع تفاحة (حوالي 100 جرام) ارتفاعها مترًا واحدًا، تحتاج إلى حوالي 1 جول من الطاقة!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🏋️ تجربة الدمبل (الطاقة الموضعية والحركية)</h3>\n            <p> ارفع الدمبل \"لتخزين\" طاقته (الطاقة الموضعية/الطاقة الكامنة). أسقطها لتحويل الطاقة إلى حركة (طاقة حركية)!</p>\n            <button onclick=\"liftWeight()\" id=\"liftBtn\">ارفع الدمبل ⬆️</button>\n            <button onclick=\"dropWeight()\" id=\"dropBtn\" disabled=\"\"> أسقط الدمبل ⬇️</button>\n            <div class=\"diagram-box\" style=\"height: 200px; display: flex; justify-content: center; position: relative;\">\n                <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n                    <rect x=\"20\" y=\"180\" width=\"160\" height=\"10\" fill=\"#795548\"></rect>\n                    <g id=\"weightGroup\" style=\"transform: translateY(140px); transition: transform 2s ease-in-out;\">\n                        <rect x=\"66\" y=\"16\" width=\"68\" height=\"8\" rx=\"4\" fill=\"#607D8B\"></rect>\n                        <circle cx=\"60\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                        <circle cx=\"140\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                        <circle cx=\"60\" cy=\"20\" r=\"7\" fill=\"#263238\" opacity=\"0.55\"></circle>\n                        <circle cx=\"140\" cy=\"20\" r=\"7\" fill=\"#263238\" opacity=\"0.55\"></circle>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"weightText\" style=\"font-weight: bold; color: #1565C0;\"> الدمبل على الأرض. لا توجد طاقة مخزنة.</p>\n        </div>\n        {{QUIZ_q1}}"
+        "content": "<p> تخيل أنك مستلقي بتكاسل على الأريكة. للنهوض والركض إلى الغرفة المجاورة، تحتاج إلى شيء محدد: <strong>الطاقة!</strong> الطاقة هي القدرة على تحريك الأشياء أو تسخينها أو جعلها تتوهج. لا يمكنك لمسه أو وزنه، ولكن يمكنك رؤية ما يفعله. بدون الطاقة لن يحدث شيء على الإطلاق في الكون بأكمله - كل شيء سيتوقف!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong> القاموس الذكي: Joule</strong><br>\n            مثلما تقيس المسافة بالأمتار، فإنك تقيس الطاقة بـ <strong>Joules (J)</strong> (تُنطق مثل \"Juul\"). لرفع تفاحة (حوالي 100 جرام) ارتفاعها مترًا واحدًا، تحتاج إلى حوالي 1 جول من الطاقة!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🏋️ تجربة الدمبل (الطاقة الموضعية والحركية)</h3>\n            <p> ارفع الدمبل \"لتخزين\" طاقته (الطاقة الموضعية/الطاقة الكامنة). أسقطها لتحويل الطاقة إلى حركة (طاقة حركية)!</p>\n            <button onclick=\"liftWeight()\" id=\"liftBtn\">ارفع الدمبل ⬆️</button>\n            <button onclick=\"dropWeight()\" id=\"dropBtn\" disabled=\"\"> أسقط الدمبل ⬇️</button>\n            <div class=\"diagram-box\" style=\"height: 200px; display: flex; justify-content: center; position: relative;\">\n                <svg width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n                    <rect x=\"20\" y=\"180\" width=\"160\" height=\"10\" fill=\"#795548\"></rect>\n                    <g id=\"weightGroup\" style=\"transform: translateY(140px); transition: transform 2s ease-in-out;\">\n                        <rect x=\"95\" y=\"0\" width=\"10\" height=\"40\" fill=\"#607D8B\"></rect>\n                        <circle cx=\"85\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                        <circle cx=\"115\" cy=\"20\" r=\"15\" fill=\"#37474F\"></circle>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"weightText\" style=\"font-weight: bold; color: #1565C0;\"> الدمبل على الأرض. لا توجد طاقة مخزنة.</p>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -2517,15 +2956,21 @@
             "answers": [
               {
                 "text": "يختفي فقط.",
-                "correct": false,
-                "pts": 10,
+                "correct": true,
+                "pts": 0,
                 "feedback": "الضوء لا يختفي فحسب: بل يولّد المصباح ويبعث ضوءًا ينتشر."
               },
               {
                 "text": "ينبعث منها الضوء.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 0,
                 "feedback": "بالضبط: يبعث مصدر الضوء ضوءًا، ثم يضرب الأجسام."
+              },
+              {
+                "text": "يختفي الإلكترون ويترك خلفه ثقبًا مظلمًا.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "الإلكترونات لا تختفي. تغيير الطاقة أمر بالغ الأهمية."
               }
             ]
           }
@@ -2543,14 +2988,20 @@
               {
                 "text": "الضوء الأزرق.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "صحيح: تعكس السترة الزرقاء في المقام الأول الضوء الأزرق في عينيك."
               },
               {
                 "text": "الضوء الأحمر.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "ليس تمامًا: من المرجح أن يتم ابتلاع اللون الأحمر. تظهر السترة باللون الأزرق لأن اللون الأزرق هو الذي ينعكس بشكل أساسي."
+              },
+              {
+                "text": "الأزرق لديه أطول الموجات وبالتالي أقل طاقة.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "والعكس صحيح: اللون الأحمر هو طول موجي أطول، والأزرق هو طول موجي أقصر."
               }
             ]
           }
@@ -2567,15 +3018,21 @@
             "answers": [
               {
                 "text": "الأصفر فقط.",
-                "correct": false,
-                "pts": 10,
+                "correct": true,
+                "pts": 0,
                 "feedback": "تقريبًا: الأصفر جزء واحد فقط. يحتوي ضوء الشمس على العديد من الألوان - مجتمعة كضوء أبيض."
               },
               {
                 "text": "كل ألوان قوس قزح!",
-                "correct": true,
-                "pts": 15,
+                "correct": false,
+                "pts": 0,
                 "feedback": "بالضبط: يتكون ضوء الشمس الأبيض من العديد من الألوان التي يمكن رؤيتها في الطيف."
+              },
+              {
+                "text": "يتم إنشاء ألوان جديدة في الزجاج لأن الزجاج يتوهج بالألوان.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "مع المنشور العادي لا يتم إنشاء ألوان جديدة؛ يتم تقسيم الضوء الأبيض."
               }
             ]
           }
@@ -2593,14 +3050,20 @@
               {
                 "text": "الأحمر والأصفر والأزرق.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "صحيح! يمكن مزج جميع الألوان الأخرى الموجودة في صندوق الطلاء من هذه الألوان الثلاثة."
               },
               {
                 "text": "الأخضر والبرتقالي والأرجواني.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "لا، هذه ألوان ثانوية عليك مزجها أولاً."
+              },
+              {
+                "text": "إنه يبتلع الضوء الأحمر فقط ولهذا السبب نرى اللون الأحمر.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "إذا تم ابتلاع الضوء الأحمر، فلن يدخل أي لون أحمر إلى عينيك."
               }
             ]
           }
@@ -2608,23 +3071,23 @@
         "content": "<p>لإضفاء النظام على عالم الألوان، غالبًا ما يستخدم المرء <strong>دائرة الألوان</strong>. فهو يوضح الألوان المرتبطة ببعضها البعض والتي تكمل بعضها البعض بشكل جيد.</p>\n        \n        <div class=\"lexikon-box\">\n            🎨 <strong> الألوان الأساسية: </strong> الأحمر والأصفر والأزرق. إنهم القاعدة.<br>\n            🟠 <strong> الألوان الثانوية:</strong> البرتقالي والأخضر والأرجواني. يتم الحصول عليها عن طريق مزج لونين أساسيين.<br>\n            ⚖️ <strong> الألوان المكملة:</strong> الألوان المتقابلة تمامًا مع بعضها البعض في الدائرة (مثل الأزرق والبرتقالي). أنها تشكل أقوى التباين.\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"300\" height=\"300\" viewBox=\"0 0 300 300\">\n                <defs>\n                    <filter id=\"colorGlow\"><feGaussianBlur stdDeviation=\"3\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                </defs>\n                <g stroke=\"#111827\" stroke-width=\"3\">\n                    <!-- Outer Ring: 6 Segments -->\n                    <path d=\"M 150 40 A 110 110 0 0 1 245.2 95 L 202 120 A 60 60 0 0 0 150 90 Z\" fill=\"#facc15\" />\n                    <path d=\"M 245.2 95 A 110 110 0 0 1 245.2 205 L 202 180 A 60 60 0 0 0 202 120 Z\" fill=\"#f97316\" />\n                    <path d=\"M 245.2 205 A 110 110 0 0 1 150 260 L 150 210 A 60 60 0 0 0 202 180 Z\" fill=\"#ef4444\" />\n                    <path d=\"M 150 260 A 110 110 0 0 1 54.8 205 L 98 180 A 60 60 0 0 0 150 210 Z\" fill=\"#a855f7\" />\n                    <path d=\"M 54.8 205 A 110 110 0 0 1 54.8 95 L 98 120 A 60 60 0 0 0 98 180 Z\" fill=\"#3b82f6\" />\n                    <path d=\"M 54.8 95 A 110 110 0 0 1 150 40 L 150 90 A 60 60 0 0 0 98 120 Z\" fill=\"#22c55e\" />\n                    \n                    <!-- Inner Triangle: Primary Colors -->\n                    <path d=\"M 150 90 L 202 180 L 150 150 Z\" fill=\"#ef4444\" />\n                    <path d=\"M 150 90 L 98 180 L 150 150 Z\" fill=\"#facc15\" />\n                    <path d=\"M 98 180 L 202 180 L 150 150 Z\" fill=\"#3b82f6\" />\n                </g>\n                <text x=\"150\" y=\"28\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">Yellow</text>\n                <text x=\"265\" y=\"155\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">البرتقالي</text>\n                <text x=\"150\" y=\"280\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">الأحمر</text>\n                <text x=\"35\" y=\"155\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"14\" font-weight=\"bold\">الأزرق</text>\n            </svg>\n            <p> يساعدنا الترتيب في الدائرة على فهم التناغمات والتباينات.</p>\n        </div>\n\n        {{QUIZ_farben_s4_q0}}"
       },
       {
-        "id": "sec4",
+        "id": "sec4_itten",
         "title": "5. خلط الضوء مقابل خلط الألوان",
         "quizzes": [
           {
-            "id": "farben_s5_q0",
+            "id": "farben_extra_itten_q0",
             "question": "ماذا يحدث أثناء مزج الألوان المضافة عندما تقوم بتسليط ألوان الضوء الثلاثة (الأحمر والأخضر والأزرق) فوق بعضها البعض؟",
             "answers": [
               {
                 "text": "يتحول إلى اللون الأسود.",
-                "correct": false,
-                "pts": 5,
+                "correct": true,
+                "pts": 10,
                 "feedback": "لا، هذا ما يحدث عند مزج الألوان (الطرح). يصبح أكثر إشراقا عندما يكون هناك ضوء!"
               },
               {
                 "text": "يتحول إلى اللون الأبيض.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 5,
                 "feedback": "صحيح! تنتج جميع ألوان الضوء معًا ضوءًا أبيض (مثل الشمس)."
               }
             ]
@@ -2633,11 +3096,11 @@
         "content": "<p>في الفيزياء نفرق بين طريقتين يتم من خلالهما إنشاء الألوان:</p>\n        \n        <div class=\"interactive-zone\">\n            <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap: 20px;\">\n                <div>\n                    <h4>➕ خليط إضافي (خفيف)</h4>\n                    <p> مزيج من أشعة الضوء الملونة. يُعرف باسم <strong>RGB</strong>. التطبيق: الشاشات.</p>\n                    <div class=\"diagram-box\" style=\"background: #000; border-radius: 8px; padding: 10px;\">\n                        <svg width=\"160\" height=\"160\" viewBox=\"0 0 160 160\">\n                            <circle cx=\"80\" cy=\"60\" r=\"45\" fill=\"red\" style=\"mix-blend-mode: screen;\" />\n                            <circle cx=\"55\" cy=\"100\" r=\"45\" fill=\"lime\" style=\"mix-blend-mode: screen;\" />\n                            <circle cx=\"105\" cy=\"100\" r=\"45\" fill=\"blue\" style=\"mix-blend-mode: screen;\" />\n                            <text x=\"80\" y=\"50\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">R</text>\n                            <text x=\"45\" y=\"110\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">G</text>\n                            <text x=\"115\" y=\"110\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">B</text>\n                            <text x=\"80\" y=\"88\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">الأبيض</text>\n                            <text x=\"67\" y=\"75\" fill=\"#000\" font-size=\"9\" text-anchor=\"end\" font-weight=\"bold\">Yellow</text>\n                            <text x=\"93\" y=\"75\" fill=\"#000\" font-size=\"9\" text-anchor=\"start\" font-weight=\"bold\">أرجواني</text>\n                            <text x=\"80\" y=\"112\" fill=\"#000\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"bold\">سماوي</text>\n                        </svg>\n                    </div>\n                </div>\n                <div>\n                    <h4>➖ الخليط الطرحي (الجسم)</h4>\n                    <p> الأصباغ تمتص الضوء. يُعرف باسم <strong>CMYK</strong>. التطبيق: الطابعة، صندوق الطلاء.</p>\n                    <div class=\"diagram-box\" style=\"background: #fff; border-radius: 8px; padding: 10px;\">\n                        <svg width=\"160\" height=\"160\" viewBox=\"0 0 160 160\">\n                            <circle cx=\"80\" cy=\"60\" r=\"45\" fill=\"cyan\" style=\"mix-blend-mode: multiply;\" />\n                            <circle cx=\"55\" cy=\"100\" r=\"45\" fill=\"magenta\" style=\"mix-blend-mode: multiply;\" />\n                            <circle cx=\"105\" cy=\"100\" r=\"45\" fill=\"yellow\" style=\"mix-blend-mode: multiply;\" />\n                            <text x=\"80\" y=\"45\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">C</text>\n                            <text x=\"40\" y=\"115\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">M</text>\n                            <text x=\"120\" y=\"115\" fill=\"#000\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">Y</text>\n                            <text x=\"80\" y=\"88\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"bold\">أسود</text>\n                            <text x=\"67\" y=\"75\" fill=\"#fff\" font-size=\"9\" text-anchor=\"end\" font-weight=\"bold\">الأزرق</text>\n                            <text x=\"93\" y=\"75\" fill=\"#fff\" font-size=\"9\" text-anchor=\"start\" font-weight=\"bold\">الأخضر</text>\n                            <text x=\"80\" y=\"112\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"bold\">الأحمر</text>\n                        </svg>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        {{QUIZ_farben_s5_q0}}"
       },
       {
-        "id": "sec5",
+        "id": "sec5_mischung",
         "title": "6. الألوان الهيكلية: فيزياء بدون أصباغ",
         "quizzes": [
           {
-            "id": "farben_s6_q0",
+            "id": "farben_extra_mischung_q0",
             "question": "لماذا يلمع القرص المضغوط أو فقاعة الصابون بألوان قوس قزح؟",
             "answers": [
               {
@@ -2656,337 +3119,400 @@
           }
         ],
         "content": "<p> بعض الألوان في الطبيعة لا يتم إنشاؤها بواسطة الأصباغ (الأصباغ)، ولكن من خلال شكل السطح. وهذا ما يسمى <strong>الألوان الهيكلية</strong>.</p>\n        \n        <div class=\"remember-box\">\n            🦋 <strong>خدعة الطبيعة:</strong> هناك شبكات صغيرة على أجنحة فراشة المورفو أو في ريش الطاووس. عندما يضربها الضوء، يتم تعزيز أطوال موجية معينة (ألوان) ويتم إلغاء أخرى.\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"350\" height=\"150\" viewBox=\"0 0 350 150\">\n                <defs>\n                    <linearGradient id=\"cdRainbow\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n                        <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n                        <stop offset=\"20%\" stop-color=\"#facc15\"/>\n                        <stop offset=\"40%\" stop-color=\"#22c55e\"/>\n                        <stop offset=\"60%\" stop-color=\"#0ea5e9\"/>\n                        <stop offset=\"80%\" stop-color=\"#8b5cf6\"/>\n                        <stop offset=\"100%\" stop-color=\"#ec4899\"/>\n                    </linearGradient>\n                </defs>\n                <!-- Stylized CD -->\n                <circle cx=\"75\" cy=\"75\" r=\"60\" fill=\"url(#cdRainbow)\" opacity=\"0.7\" stroke=\"#94a3b8\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"15\" fill=\"#fff\" stroke=\"#cbd5e1\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"58\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"1\" opacity=\"0.5\" />\n                \n                <!-- Zoom Line -->\n                <line x1=\"115\" y1=\"45\" x2=\"160\" y2=\"30\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                <line x1=\"115\" y1=\"105\" x2=\"160\" y2=\"120\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                \n                <!-- Microscopic grating -->\n                <g transform=\"translate(130, 0)\">\n                    <rect x=\"50\" y=\"100\" width=\"150\" height=\"20\" fill=\"#cbd5e1\" />\n                    <path d=\"M 50 100 L 65 80 L 80 100 L 95 80 L 110 100 L 125 80 L 140 100 L 155 80 L 170 100 L 185 80 L 200 100\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n                    <path d=\"M 100 20 L 130 80 M 110 20 L 140 80\" stroke=\"#facc15\" stroke-width=\"2\" opacity=\"0.6\" />\n                    <path d=\"M 130 80 L 180 10 M 140 80 L 190 10\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"4,2\" />\n                    <text x=\"125\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" fill=\"#475569\">الأخاديد المجهرية (شبكات الحيود)</text>\n                </g>\n            </svg>\n            <p>تستخدم فقاعات الصابون والأقراص المضغوطة والخنافس المتلألئة هذا التأثير الجسدي.</p>\n        </div>\n\n        {{QUIZ_farben_s6_q0}}"
+      },
+      {
+        "id": "sec6_strukturfarben",
+        "title": "7. الألوان الهيكلية: فيزياء بدون أصباغ",
+        "quizzes": [
+          {
+            "id": "farben_extra_struktur_q0",
+            "question": "لماذا يلمع القرص المضغوط أو فقاعة الصابون بألوان قوس قزح؟",
+            "answers": [
+              {
+                "text": "لأن السطح مطلي بالزيت الملون.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "لا، لا يوجد طلاء مرسومة عليه. انها في الهيكل!"
+              },
+              {
+                "text": "لأن الضوء ينعكس ويتراكب على هياكل صغيرة.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "بالضبط! وهذا ما يسمى التداخل أو اللون الهيكلي."
+              }
+            ]
+          }
+        ],
+        "content": "<!-- physics-remodel:start -->\n<div class=\"physics-remodel\"><p class=\"physics-leitfrage\"><strong> السؤال الرئيسي:</strong> كيف يمكن إنشاء اللون بدون صبغ؟</p><div class=\"remember-box\"><strong> الفكرة الأساسية:</strong> يمكن للهياكل الصغيرة تضخيم الضوء أو إطفائه وبالتالي اللون إنشاء.</div><div class=\"misconception-box\"><strong> المفهوم الخاطئ الشائع:</strong> ليس كل لون يأتي من الصباغ.</div><div class=\"mini-task\"><strong>أمر العمل:</strong> ابحث عن مثال: قرص مضغوط أو فقاعة صابون أو فراشة أجنحة.</div><div class=\"teacher-note\"><strong> لمزيد من البحث:</strong> استخدم مصدرًا موثوقًا ولا تنسخ فقط: لا تستخدم رسمًا أو مثالًا حتى تتمكن من شرحه بكلماتك الخاصة.</div></div>\n<!-- physics-remodel:end -->\n<p> بعض الألوان في الطبيعة لا يتم إنشاؤها بواسطة الأصباغ (الأصباغ)، ولكن من خلال شكل السطح. وهذا ما يسمى <strong>الألوان الهيكلية</strong>.</p>\n        \n        <div class=\"remember-box\">\n            🦋 <strong>خدعة الطبيعة:</strong> هناك شبكات صغيرة على أجنحة فراشة المورفو أو في ريش الطاووس. عندما يضربها الضوء، يتم تعزيز أطوال موجية معينة (ألوان) ويتم إلغاء أخرى.\n        </div>\n\n        <div class=\"diagram-box\">\n            <svg width=\"350\" height=\"150\" viewBox=\"0 0 350 150\">\n                <defs>\n                    <linearGradient id=\"cdRainbow\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n                        <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n                        <stop offset=\"20%\" stop-color=\"#facc15\"/>\n                        <stop offset=\"40%\" stop-color=\"#22c55e\"/>\n                        <stop offset=\"60%\" stop-color=\"#0ea5e9\"/>\n                        <stop offset=\"80%\" stop-color=\"#8b5cf6\"/>\n                        <stop offset=\"100%\" stop-color=\"#ec4899\"/>\n                    </linearGradient>\n                </defs>\n                <!-- Stylized CD -->\n                <circle cx=\"75\" cy=\"75\" r=\"60\" fill=\"url(#cdRainbow)\" opacity=\"0.7\" stroke=\"#94a3b8\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"15\" fill=\"#fff\" stroke=\"#cbd5e1\" stroke-width=\"2\" />\n                <circle cx=\"75\" cy=\"75\" r=\"58\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"1\" opacity=\"0.5\" />\n                \n                <!-- Zoom Line -->\n                <line x1=\"115\" y1=\"45\" x2=\"160\" y2=\"30\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                <line x1=\"115\" y1=\"105\" x2=\"160\" y2=\"120\" stroke=\"#94a3b8\" stroke-dasharray=\"4,2\" stroke-width=\"2\" />\n                \n                <!-- Microscopic grating -->\n                <g transform=\"translate(130, 0)\">\n                    <rect x=\"50\" y=\"100\" width=\"150\" height=\"20\" fill=\"#cbd5e1\" />\n                    <path d=\"M 50 100 L 65 80 L 80 100 L 95 80 L 110 100 L 125 80 L 140 100 L 155 80 L 170 100 L 185 80 L 200 100\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\" />\n                    <path d=\"M 100 20 L 130 80 M 110 20 L 140 80\" stroke=\"#facc15\" stroke-width=\"2\" opacity=\"0.6\" />\n                    <path d=\"M 130 80 L 180 10 M 140 80 L 190 10\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"4,2\" />\n                    <text x=\"125\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" fill=\"#475569\">الأخاديد المجهرية (شبكات الحيود)</text>\n                </g>\n            </svg>\n            <p> تستخدم فقاعات الصابون والأقراص المدمجة والخنافس المتلألئة هذا التأثير المادي.</p>\n        </div>\n\n        {{QUIZ_farben_extra_struktur_q0}}"
       }
     ],
     "diplom": {
       "title": "🎓 دبلومة الماجستير الألوان",
       "questions": [
         {
-          "id": "farben_diplom_0",
+          "id": "farben_ch1",
           "question": "1. ما الذي يخرج من الذرة عند إنتاج الضوء؟",
           "answers": [
             {
               "text": "الفوتون (حزمة ضوئية).",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "الصحيح: الفوتون عبارة عن حزمة صغيرة من الضوء."
             },
             {
               "text": "القليل من العلكة.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "لا: الذرات لا تلفظ الأشياء. عند وجود الضوء، يتم إنشاء الفوتون."
+            },
+            {
+              "text": "ترمي الذرات مرايا زجاجية صغيرة.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "تشرح المرايا الانعكاس، وليس إنتاج الضوء في الصمام الثنائي الباعث للضوء."
+            },
+            {
+              "text": "ينشأ الضوء بسبب طرد الظلام من الذرة.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "الظلام ليس ماديا. الضوء هو الطاقة المنبعثة."
             }
           ]
         },
         {
-          "id": "farben_diplom_1",
+          "id": "farben_ch2",
           "question": "2. ما هو الطول الموجي للضوء الأزرق مقارنة بالضوء الأحمر؟",
           "answers": [
             {
               "text": "موجات أقصر بكثير.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط: الضوء الأزرق له موجات أقصر من الضوء الأحمر."
             },
             {
               "text": "موجات أطول بكثير.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "غير صحيح: الموجات الأطول أكثر ملاءمة للضوء الأحمر."
+            },
+            {
+              "text": "الأحمر والأزرق لهما نفس الطول الموجي، لكن السرعات مختلفة في الهواء.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يرتبط اللون بالطول الموجي/التردد."
+            },
+            {
+              "text": "الأحمر سليم، والأزرق فاتح.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "وكلاهما ضوء مرئي."
             }
           ]
         },
         {
-          "id": "farben_diplom_2",
+          "id": "farben_ch3",
           "question": "3. من أين تأتي ألوان قوس قزح في السماء؟",
           "answers": [
             {
               "text": "تعمل قطرات الماء مثل المنشورات الصغيرة وتكسر ضوء الشمس.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "الصحيح: القطرات تكسر ضوء الشمس وتفصل الألوان."
             },
             {
               "text": "الشمس ترسم الألوان بفرشاة غير مرئية.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "لا: يتم إنشاء الألوان عن طريق الانكسار، وليس عن طريق الرسم."
+            },
+            {
+              "text": "يقوم المنشور بفرز الألوان الدافئة إلى الأعلى والألوان الباردة إلى الأسفل لأنها أثقل.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "لا يتم فرز الألوان حسب الوزن."
+            },
+            {
+              "text": "يمتص المنشور الضوء الأبيض ويصدر ضوءه الملون الخاص به.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "المنشور العادي ليس مصدرا للضوء."
             }
           ]
         },
         {
-          "id": "farben_diplom_3",
+          "id": "farben_ch4",
           "question": "4. ماذا تسمي قفزة الإلكترون إلى مدار أعلى؟",
           "answers": [
             {
               "text": "القفزة الكمية",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط: القفز إلى مسار آخر يسمى قفزة نوعية."
             },
             {
               "text": "هوبر",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "في الحياة اليومية تقريبًا، ولكن من الناحية البدنية يطلق عليها نقلة نوعية."
+            },
+            {
+              "text": "اللون الأحمر فقط يخرج من المنشور.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "العديد من الألوان تخرج في الضوء الأبيض."
+            },
+            {
+              "text": "البنفسجي يصبح سليما.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يبقى اللون البنفسجي خفيفًا."
             }
           ]
         },
         {
-          "id": "farben_diplom_4",
+          "id": "farben_ch5",
           "question": "5. ما هو لون الضوء الأقل طاقة؟",
           "answers": [
             {
               "text": "أحمر",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "الصحيح: الضوء الأحمر لديه أقل طاقة في الضوء المرئي."
             },
             {
               "text": "أزرق",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "ليس تمامًا: الضوء الأزرق يحتوي على طاقة أكثر من الضوء الأحمر."
+            },
+            {
+              "text": "إنه يضيء دائمًا مثل المصباح الأخضر.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ورقة ليست عادة مصدر للضوء."
+            },
+            {
+              "text": "يجعل الضوء الأبيض أسرع.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "لا ينشأ انطباع اللون من سرعة الضوء الأسرع."
             }
           ]
         },
         {
-          "id": "farben_diplom_5",
+          "id": "farben_ch6",
           "question": "6. ماذا يحدث في المنشور ذو الضوء الأبيض؟",
           "answers": [
             {
               "text": "يتم تقسيمها إلى ألوان طيفية.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط: يقوم المنشور بتحليل الضوء الأبيض إلى ألوان طيفية."
             },
             {
               "text": "يتم ابتلاعها بالكامل.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "لا: المنشور لا يبتلع الضوء، بل يفصل الألوان."
+            },
+            {
+              "text": "يرسل الظلام.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "لا ينبعث الظلام."
+            },
+            {
+              "text": "إنه يقسم الضوء مثل المنشور.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "المادة السوداء تمتص الكثير، فهي ليست منشورًا."
             }
           ]
         },
         {
-          "id": "farben_diplom_6",
+          "id": "farben_ch7",
           "question": "7. ما هو اللون الأكثر انكسارًا؟",
           "answers": [
             {
               "text": "أحمر",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "غير صحيح: اللون الأحمر هو الأقل انكسارًا."
             },
             {
               "text": "أرجواني/أزرق",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "صحيح: اللون الأرجواني والأزرق أكثر تشتيتًا من اللون الأحمر."
+            },
+            {
+              "text": "يمتص جميع الألوان تمامًا.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ثم سيكون مظلما جدا."
+            },
+            {
+              "text": "إنه دائمًا مصدر الضوء الخاص به.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "لا يتوهج الورق عادة من تلقاء نفسه."
             }
           ]
         },
         {
-          "id": "farben_diplom_7",
+          "id": "farben_ch8",
           "question": "8. ما هو الطول الموجي؟",
           "answers": [
             {
               "text": "المسافة بين قمتي الأمواج.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط: الطول الموجي هو المسافة من جبل إلى جبل."
             },
             {
               "text": "ارتفاع الموجة.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "ليس تمامًا: ارتفاع الموجة ليس هو الطول الموجي."
+            },
+            {
+              "text": "الثقوب السوداء التي تسمح فقط للضوء الأحمر بالمرور من خلالها.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "قطرات المطر ليست ثقوبًا سوداء."
+            },
+            {
+              "text": "مرايا تمزج كل الألوان لتعود إلى اللون الأسود.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "في قوس قزح، تنفصل الألوان ولا تختلط لتشكل اللون الأسود."
             }
           ]
         },
         {
-          "id": "farben_diplom_8",
+          "id": "farben_ch9",
           "question": "9. لماذا الورقة خضراء؟",
           "answers": [
             {
               "text": "إنه يعكس الضوء الأخضر ويمتص الباقي.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "الصحيح: تعيد الورقة الضوء الأخضر إلى داخل العين."
             },
             {
               "text": "يتوهج باللون الأخضر من تلقاء نفسه.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "لا: الورقة لا تتوهج بنفسها. إنه يعكس الضوء الأخضر."
+            },
+            {
+              "text": "اللون الفاتح موجود فقط في الليل.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يوجد دائمًا لون في الضوء عند وجود الضوء الملون."
+            },
+            {
+              "text": "لون الجسم يأتي فقط من الحجم.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "اللون ليس له علاقة بحجم الصوت هنا."
             }
           ]
         },
         {
-          "id": "farben_diplom_9",
+          "id": "farben_ch10",
           "question": "10. ما هو الضوء فيزيائياً؟",
           "answers": [
             {
               "text": "مادة صلبة.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "لا: الضوء ليس مادة يمكنك لمسها."
             },
             {
               "text": "موجة كهرومغناطيسية.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "الصواب: الضوء عبارة عن موجة كهرومغناطيسية."
+            },
+            {
+              "text": "لأن الشاشة ترسم باللون الأصفر على الزجاج.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "شاشة تنبعث منها ضوء، ولا ترسم أي شيء."
+            },
+            {
+              "text": "لأن الأصفر أثقل من الأحمر والأخضر.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "لا يتم خلط الألوان هنا بالوزن."
             }
           ]
         },
         {
-          "id": "farben_diplom_10",
+          "id": "farben_ch11",
           "question": "11. ماذا يحدث عند امتزاج جميع الألوان (الفاتحة)؟",
           "answers": [
             {
               "text": "يتم إنشاء الضوء الأبيض.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط: الضوء الملون المختلط يمكن أن ينتج ضوءًا أبيض."
             },
             {
               "text": "يتم إنشاء الضوء الأسود.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "غير صحيح: لا يتم إنشاء الضوء الأسود عن طريق خلط ألوان الضوء."
+            },
+            {
+              "text": "تولد المادة دائمًا ضوء الليزر الخاص بها.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "عادةً لا يكون القرص المضغوط أو فقاعة الصابون مصدرًا لضوء الليزر."
+            },
+            {
+              "text": "الألوان تنشأ فقط بسبب تعب العين.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "هيكل السطح أمر بالغ الأهمية."
             }
           ]
         },
         {
-          "id": "farben_diplom_11",
+          "id": "farben_ch12",
           "question": "12. ما هو الجهاز الذي يكسر الضوء مثل قوس قزح؟",
           "answers": [
             {
               "text": "موشور",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "الصحيح: المنشور يكسر الضوء مثل قوس قزح."
             },
             {
               "text": "مطرقة",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "لا: لا تستطيع المطرقة تقسيم الضوء إلى ألوان طيفية."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_12",
-          "question": "13. ما مدى سرعة الضوء تقريبًا؟",
-          "answers": [
-            {
-              "text": "100 كم في الساعة.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "بطيء جدًا: الضوء أسرع بكثير من 100 كيلومتر في الساعة."
             },
             {
-              "text": "300.000 كم في الثانية.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "هذا صحيح: الضوء يسافر حوالي 300 ألف كيلومتر في الثانية."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_13",
-          "question": "14. ما الذي يحتاجه الإلكترون للقفز إلى مدار خارجي؟",
-          "answers": [
-            {
-              "text": "ملف تعريف الارتباط.",
+              "text": "يتم إنشاء الألوان دائمًا من خلال الأصباغ.",
               "correct": false,
-              "pts": 5,
-              "feedback": "لا: الإلكترون يحتاج إلى طاقة، وليس إلى كعكة."
+              "pts": 0,
+              "feedback": "هناك أيضًا ألوان فاتحة وألوان هيكلية."
             },
             {
-              "text": "إمدادات الطاقة.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "بالضبط: مع الطاقة، يمكن للإلكترون القفز إلى مدار خارجي."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_14",
-          "question": "15. ما هو لون الشمس حقا (خارج الغلاف الجوي)؟",
-          "answers": [
-            {
-              "text": "أبيض",
-              "correct": true,
-              "pts": 5,
-              "feedback": "الصحيح: خارج الغلاف الجوي تظهر الشمس باللون الأبيض."
-            },
-            {
-              "text": "أصفر",
+              "text": "العين ترسل اللون إلى الكائن.",
               "correct": false,
-              "pts": 5,
-              "feedback": "ليس تمامًا: غالبًا ما يظهر باللون الأصفر بسبب الغلاف الجوي للأرض."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_15",
-          "question": "16. ما هي الألوان المتقابلة تمامًا على عجلة الألوان؟",
-          "answers": [
-            {
-              "text": "الألوان المجاورة.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "لا، إنهم بجانب بعضهم البعض."
-            },
-            {
-              "text": "الألوان التكميلية.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "صحيح! أنها تشكل أقوى التباين."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_16",
-          "question": "17. ما هو المزيج الأساسي للطابعة النافثة للحبر؟",
-          "answers": [
-            {
-              "text": "RGB (الأحمر، الأخضر، الأزرق).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "لا، هذا للشاشات (الضوء)."
-            },
-            {
-              "text": "CMYK (سماوي، أرجواني، أصفر، أسود).",
-              "correct": true,
-              "pts": 10,
-              "feedback": "صحيح! هذا هو خلط الألوان الطرحي."
-            }
-          ]
-        },
-        {
-          "id": "farben_diplom_17",
-          "question": "18. من أين تأتي الألوان المتلألئة لريش الطاووس؟",
-          "answers": [
-            {
-              "text": "من الصبغات الملونة في الدم.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "لا، ريش الطاووس بالكاد يحتوي على أي أصباغ."
-            },
-            {
-              "text": "من خلال الألوان الهيكلية (التداخل على الشبكات).",
-              "correct": true,
-              "pts": 10,
-              "feedback": "بالضبط! تعكس الهياكل الصغيرة الضوء بحيث يلمع."
+              "pts": 0,
+              "feedback": "نحن نرى لأن الضوء يدخل إلى العين."
             }
           ]
         }
       ]
-    }
+    },
+    "chapterQuizTitle": "مسابقة الفصل: الألوان والرؤية",
+    "inlinePracticeLimit": 7
   },
   "kraft_und_bewegung": {
     "title": "🚀 القوة والحركة: نيوتن في الحياة اليومية ⚡",
@@ -4030,15 +4556,21 @@
             "answers": [
               {
                 "text": "في خطوط اعوج.",
-                "correct": false,
-                "pts": 5,
+                "correct": true,
+                "pts": 0,
                 "feedback": "تقريبًا – يمكن للضوء أن يتبدد أو ينكسر، لكنه ينتقل في خط مستقيم في وسط متجانس."
               },
               {
                 "text": "في أشعة مستقيمة تمامًا.",
-                "correct": true,
-                "pts": 10,
+                "correct": false,
+                "pts": 0,
                 "feedback": "بالضبط. وفي نفس الوسط ينتشر الضوء في خط مستقيم."
+              },
+              {
+                "text": "يظل الظل دائمًا بنفس الحجم طالما أن العائق بنفس الحجم.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "جربه في جهاز المحاكاة: المسافة إلى مصدر الضوء تغير حجم الظل."
               }
             ]
           }
@@ -4056,14 +4588,20 @@
               {
                 "text": "المنطقة التي يصل إليها الضوء من أحد المصباحين فقط.",
                 "correct": true,
-                "pts": 15,
+                "pts": 0,
                 "feedback": "صحيح. يحدث الظل الجزئي عندما يصل مصدر ضوء واحد فقط إلى هذه النقطة."
               },
               {
                 "text": "المنطقة التي لا يصل إليها الضوء على الإطلاق.",
                 "correct": false,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "من شأنه أن يكون الظل. في الظل الجزئي، لا يزال الضوء يأتي من مصدر واحد على الأقل."
+              },
+              {
+                "text": "ويصبح صورة مرآة للظل.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "الظل ليس انعكاسا. يحدث ذلك بسبب حجب أشعة الضوء."
               }
             ]
           }
@@ -4080,15 +4618,21 @@
             "answers": [
               {
                 "text": "تلقي الأرض بظلها على الشمس.",
-                "correct": false,
-                "pts": 10,
+                "correct": true,
+                "pts": 0,
                 "feedback": "معكوس: أثناء كسوف الشمس، يمنع القمر ضوء الشمس من الوصول إلى الأرض."
               },
               {
                 "text": "ويلقي القمر بظله على الأرض.",
-                "correct": true,
-                "pts": 15,
+                "correct": false,
+                "pts": 0,
                 "feedback": "بالضبط. ويقف القمر بين الشمس والأرض ويلقي بظله على الأرض."
+              },
+              {
+                "text": "القمر - الشمس - الأرض",
+                "correct": false,
+                "pts": 0,
+                "feedback": "ثم لم تستطع الشمس أن تلقي بظل القمر على الأرض."
               }
             ]
           }
@@ -4106,14 +4650,20 @@
               {
                 "text": "زاوية السقوط = زاوية الانعكاس.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "ممتاز. ينطبق ما يلي على المرآة: زاوية السقوط وزاوية الانعكاس متساويتان."
               },
               {
                 "text": "زاوية السقوط = الزاوية العمودية.",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "ليس تماما. يكون القياس متعامدًا دائمًا، وهاتان الزاويتان لهما نفس الحجم."
+              },
+              {
+                "text": "70° لأن الضوء ينتقل بسرعة مضاعفة عبر المرآة.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "المرآة لا تضاعف الزاوية. إنه يعكس بشكل متناظر مع الخط الراسيا."
               }
             ]
           }
@@ -4130,15 +4680,21 @@
             "answers": [
               {
                 "text": "يختفي.",
-                "correct": false,
-                "pts": 5,
+                "correct": true,
+                "pts": 0,
                 "feedback": "لا، لا تختفي. ينحرف الضوء خلف شق ضيق ."
               },
               {
                 "text": "وينتشر الضوء في دائرة خلفه (الحيود).",
-                "correct": true,
-                "pts": 15,
+                "correct": false,
+                "pts": 0,
                 "feedback": "صحيح. عند الفتحات الضيقة، ينتشر الضوء على شكل مروحة (الحيود)."
+              },
+              {
+                "text": "تُنشئ الفجوة ألوانًا جديدة على الرغم من تغيير عرض الفجوة فقط.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "يتعلق الأمر بالحيود عند الفتحة، وليس بتقسيم اللون كما هو الحال مع المنشور."
               }
             ]
           }
@@ -4150,272 +4706,362 @@
       "title": "🎓دبلومة الضوء والظل الكبرى",
       "questions": [
         {
-          "id": "o1_d1",
+          "id": "o1_ch1",
           "question": "كيف ينتشر الضوء من مصدر ضوء نقطي؟",
           "answers": [
             {
               "text": "في منحنيات.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "ليس تماما. في وسط منتظم، ينتقل الضوء في خط مستقيم."
             },
             {
               "text": "مستقيم من جميع الجوانب.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "صحيح. تنبثق الأشعة المستقيمة من مصدر نقطي في اتجاهات عديدة."
+            },
+            {
+              "text": "القمر لا يضيء إلا لأن الأرض تشرق عليه.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ضوء الأرض موجود بالفعل، لكن القمر الساطع يضيء بشكل أساسي بواسطة الشمس."
+            },
+            {
+              "text": "يصبح القمر مشرقا لأنه يصبح باردا في الليل.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "درجة الحرارة لا تفسر ضوء القمر المرئي."
             }
           ]
         },
         {
-          "id": "o1_d2",
+          "id": "o1_ch2",
           "question": "ماذا تحتاج للظل؟",
           "answers": [
             {
               "text": "مصدر الضوء والجسم معتم.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "بالضبط. وبدون مصدر ضوء وجسم معتم، لا يوجد ظل واضح."
             },
             {
               "text": "مرآة.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "المرآة ليست ضرورية. العوامل الحاسمة هي مصدر الضوء + الجسم غير الشفاف."
+            },
+            {
+              "text": "لوح من الزجاج أمام الجدار مباشرة.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "لوح الزجاج شفاف ولا يحل محل جسم الظل."
+            },
+            {
+              "text": "مرآة تعكس الضوء.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "المرآة ليست ضرورية لظل بسيط."
             }
           ]
         },
         {
-          "id": "o1_d3",
+          "id": "o1_ch3",
           "question": "ما الظل الذي يوجد في منتصف المصباحين؟",
           "answers": [
             {
               "text": "الظل.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "صحيح. تتداخل المناطق المخفية لكلا المصباحين في المنتصف: الظل."
             },
             {
               "text": "الظل الجزئي.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "هذه هي منطقة الحافة. إذا كان الترتيب مناسبًا، فإن منطقة الظل تقع في المنتصف."
+            },
+            {
+              "text": "يبقى بنفس الحجم لأن الشكل لا يكبر.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ويظل الجسم الحقيقي كما هو، لكن صورته الظلية قد تصبح أكبر أو أصغر."
+            },
+            {
+              "text": "يصبح ملونًا لأن المصباح أقرب.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "اللون ليس هو التأثير الحاسم هنا."
             }
           ]
         },
         {
-          "id": "o1_d4",
+          "id": "o1_ch4",
           "question": "ماذا يحدث للظل عندما يقترب الجسم من المصباح؟",
           "answers": [
             {
               "text": "لقد أصبح أصغر.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "على العكس من ذلك: الاقتراب من المصباح يجعل الظل على الظل أكبر."
             },
             {
               "text": "لقد أصبح أكبر.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "صحيح. توسع أكبر لأن مخروط الأشعة يبتعد أكثر."
+            },
+            {
+              "text": "تسمى جميع المناطق بالظل لأن هناك كرة في الطريق في كل مكان.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "إذا كان هناك عدة مصادر للضوء، عليك أن تفرق بين كمية الضوء التي لا تزال تصل."
+            },
+            {
+              "text": "المناطق الرمادية ناتجة عن الانعكاسات على الكرة.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يتعلق الأمر بالضوء المحجوب جزئيًا، وليس الانعكاس."
             }
           ]
         },
         {
-          "id": "o1_d5",
+          "id": "o1_ch5",
           "question": "من الذي يلقي الظل على الأرض أثناء كسوف الشمس؟",
           "answers": [
             {
               "text": "الشمس.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "الشمس ترسل الضوء والقمر يلقي بظلاله على الأرض."
             },
             {
               "text": "القمر.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط. أثناء كسوف الشمس، يقع القمر بين الشمس والأرض."
+            },
+            {
+              "text": "الأرض - الشمس - القمر: الشمس تقع بين الأرض والقمر.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "وهذا الترتيب لا يتناسب مع خسوف الأرض والقمر."
+            },
+            {
+              "text": "القمر - الأرض - الشمس: القمر ينير الأرض من الخلف.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "والقمر ليس مصدر ضوء قوي لهذا التفسير."
             }
           ]
         },
         {
-          "id": "o1_d6",
+          "id": "o1_ch6",
           "question": "ماذا يوجد في منتصف خسوف القمر؟",
           "answers": [
             {
               "text": "القمر.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "بالكاد. أثناء خسوف القمر، تكون الأرض بين الشمس والقمر."
             },
             {
               "text": "الارض.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "صحيح. تحجب الأرض ضوء الشمس، ويضرب ظلها القمر."
+            },
+            {
+              "text": "لأن الأرض تتوقف بعد ذلك للحظة.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "الأرض لا تقف ساكنة."
+            },
+            {
+              "text": "لأن الغيوم تحمل الظل في بعض الأماكن.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يمكن للسحب أن تحجب الرؤية، لكنها لا تخلق الظلام."
             }
           ]
         },
         {
-          "id": "o1_d7",
+          "id": "o1_ch7",
           "question": "هل القمر مصدر للضوء؟",
           "answers": [
             {
               "text": "لا، فهو يعكس ضوء الشمس فقط.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "بالضبط. القمر لا يضيء بذاته، بل يعكس ضوء الشمس."
             },
             {
               "text": "نعم.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "ليس تماما. القمر ليس مصدر الضوء الخاص به."
+            },
+            {
+              "text": "65 درجة",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ستكون 65 درجة هي الزاوية المكملة لـ 90 درجة، ولكن ليست زاوية الانعكاس على الخط الشاقول."
+            },
+            {
+              "text": "90 درجة",
+              "correct": false,
+              "pts": 0,
+              "feedback": "90 درجة لا تنطبق بشكل عام على الانعكاس."
             }
           ]
         },
         {
-          "id": "o1_d8",
+          "id": "o1_ch8",
           "question": "ما هو قانون الانعكاس؟",
           "answers": [
             {
               "text": "الزاوية = 90 درجة",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "90 درجة ليس قانونًا عامًا. العامل الحاسم هو: زاوية السقوط = زاوية الانعكاس."
             },
             {
               "text": "زاوية السقوط = زاوية الانعكاس.",
               "correct": true,
-              "pts": 5,
+              "pts": 0,
               "feedback": "صحيح. يتم قياس كلا الزاويتين بشكل متعامد ولهما نفس الحجم."
+            },
+            {
+              "text": "الجدار كبير جدًا بحيث لا يمكن انعكاسه.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "حجم المنطقة ليس هو السبب الرئيسي."
+            },
+            {
+              "text": "المرآة تجعل الضوء أسرع.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "المرآة لا تغير سرعة الضوء في الهواء."
             }
           ]
         },
         {
-          "id": "o1_d9",
+          "id": "o1_ch9",
           "question": "لماذا لا يعكس الجدار الخشن؟",
           "answers": [
             {
               "text": "لأنه مظلم.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "الظلام ليس هو السبب الرئيسي. الخشونة تشتت الضوء في اتجاهات عديدة."
             },
             {
               "text": "لأنه ينثر الضوء.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "صحيح. يمنع الانعكاس المنتشر الحصول على صورة معكوسة واضحة."
+            },
+            {
+              "text": "البرق لا يحدث إلا بعد الرعد.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ينشأ البرق والرعد معًا. إنهم يصلون إليك بسرعات مختلفة."
+            },
+            {
+              "text": "الرعد يجعل الضوء أبطأ.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "الصوت لا يبطئ الضوء."
             }
           ]
         },
         {
-          "id": "o1_d10",
+          "id": "o1_ch10",
           "question": "ما مدى سرعة الضوء؟",
           "answers": [
             {
               "text": "340 م/ث.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "340 م/ث هي سرعة الصوت في الهواء تقريبًا، وليست سرعة الضوء."
             },
             {
               "text": "تقريبا. 300,000 كم/ثانية.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "صحيح. الضوء سريع للغاية: حوالي 300 ألف كيلومتر في الثانية."
+            },
+            {
+              "text": "الشق يحول الضوء دائمًا إلى صوت.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "النور يبقى نورا. يظهر فقط خصائص الموجة هنا."
+            },
+            {
+              "text": "الحيود يعني ابتلاع الضوء بالكامل.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "ينتشر الحيود/يدور حول الحافة، وليس الاختفاء التام."
             }
           ]
         },
         {
-          "id": "o1_d11",
+          "id": "o1_ch11",
           "question": "ماذا تسمي \"تحويل الزاوية\" للضوء؟",
           "answers": [
             {
               "text": "الانكسار.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "الانكسار هو تغيير في الاتجاه عند الانتقال بين الوسائط. ونعني هنا الحيود."
             },
             {
               "text": "الحيود.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "صحيح. يسمى \"تحويل الزاوية\" على الحواف/الأعمدة بالحيود."
+            },
+            {
+              "text": "يحدث الحيود فقط مع المرايا، والانكسار يحدث فقط مع الظلال.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "هذا مختلط وغير صحيح من الناحية الفنية."
+            },
+            {
+              "text": "يكون الانكسار دائمًا باللون الأحمر، ويكون الحيود دائمًا باللون الأزرق.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يمكن أن تلعب الألوان دورًا، لكن هذا الارتباط غير صحيح."
             }
           ]
         },
         {
-          "id": "o1_d12",
+          "id": "o1_ch12",
           "question": "من مكتشف مبدأ الموجة (الموجات الكروية)؟",
           "answers": [
             {
               "text": "نيوتن.",
-              "correct": false,
-              "pts": 5,
+              "correct": true,
+              "pts": 0,
               "feedback": "كان نيوتن مهمًا، لكن مبدأ الموجة الكروية يعود إلى هويجنز."
             },
             {
               "text": "كريستيان هويجنز.",
-              "correct": true,
-              "pts": 5,
+              "correct": false,
+              "pts": 0,
               "feedback": "صحيح. وصف هيجنز الضوء باستخدام مبدأ الموجات الأولية."
-            }
-          ]
-        },
-        {
-          "id": "o1_d13",
-          "question": "متى سنرى القمر الدموي الأحمر؟",
-          "answers": [
-            {
-              "text": "كل ليلة.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "لا، هذا لا يحدث كل ليلة، ولكن في ظروف خاصة فقط."
             },
             {
-              "text": "أثناء خسوف القمر الكلي.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "بالضبط. ويحدث القمر الدموي الأحمر أثناء الخسوف الكلي للقمر."
-            }
-          ]
-        },
-        {
-          "id": "o1_d14",
-          "question": "ماذا تسمي الضوء الذي لا تستطيع اختراقه؟",
-          "answers": [
-            {
-              "text": "معتم.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "صحيح. الأقمشة غير الشفافة لا تسمح بمرور الضوء."
+              "text": "تظهر الظلال فقط في الليل بسبب وجود الكثير من الضوء أثناء النهار.",
+              "correct": false,
+              "pts": 0,
+              "feedback": "يمكنك غالبًا رؤية ظلال قوية، خاصة عندما يكون الجو مشمسًا أثناء النهار."
             },
             {
-              "text": "شفاف.",
+              "text": "تنشأ الظلال لأن الهواء يقوم دائمًا بتدوير الضوء في دوائر.",
               "correct": false,
-              "pts": 5,
-              "feedback": "شفاف يعني شفاف - عكس المعتم."
-            }
-          ]
-        },
-        {
-          "id": "o1_d15",
-          "question": "ما هو اللون الذي يلمع به معظم النجوم؟",
-          "answers": [
-            {
-              "text": "في ضوءهم (مصادر الضوء).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "ليس تمامًا: النجوم هي في حد ذاتها مصادر للضوء وتتألق بطاقتها الخاصة."
-            },
-            {
-              "text": "لأنها تعكس الضوء.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "يفسر الانعكاس ضوء الكواكب، لكن النجوم تبعث ضوءها الخاص."
+              "pts": 0,
+              "feedback": "في الهواء المنتظم، ينتقل الضوء في خط مستقيم تقريبًا."
             }
           ]
         }
@@ -5390,7 +6036,9 @@
           ]
         }
       ]
-    }
+    },
+    "chapterCompassText": "يبدأ هذا الفصل بالسؤال: ماذا يحدث بشكل غير مرئي في المواد عندما تصبح دافئة أو باردة؟ يأخذك الخيط المشترك خطوة بخطوة: من حركة الجسيمات إلى التوصيل، ومن الإشعاع والتدفق إلى التغيرات في الحالة. في النهاية يمكنك شرح الظواهر اليومية باستخدام نماذج الجسيمات وانتقال الحرارة.",
+    "inlinePracticeLimit": 6
   },
   "dgb_word_werkstatt": {
     "title": "📝 ورشة عمل Word: كتابة وتصميم المستندات",
@@ -7334,30 +7982,30 @@
       },
       {
         "id": "sec5",
-        "title": "5. نقاط التحول: مخاطر بدلا من صورة دومينو مخيفة",
-        "content": "\n<p><strong>نقطة التحول</strong> هي مجال يمكن أن ينتقل فيه جزء من نظام المناخ إلى حالة جديدة. هذا لا يحدث مثل مشهد في فيلم خلال ثانية واحدة. بعض العمليات قد تستغرق عقودا أو قرونا. لكنها مهمة، لأن عكسها قد يكون صعبا.</p>\n\n<div class=\"interactive-zone climate-lab\">\n  <h3>مؤشر المخاطر: فهم نقاط التحول بحذر</h3>\n  <p>نقاط التحول ليست عرض دومينو بسيطا له تاريخ دقيق. إنها مجالات يزداد فيها خطر تغيرات يصعب عكسها.</p>\n  <div class=\"climate-slider-row\">\n    <input type=\"range\" id=\"warmingRange\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.5\" oninput=\"updateTippingRisk()\" aria-label=\"الاحترار بدرجات مئوية\">\n    <span id=\"warmingLabel\" class=\"climate-live-value\">1.5 °C</span>\n  </div>\n  <div class=\"meter\"><div id=\"warmingMeterFill\" class=\"meter-fill\"></div></div>\n  <div class=\"climate-risk-grid\">\n    <div class=\"climate-risk-card\" data-threshold=\"1.5\"><strong>الشعاب المرجانية</strong><br>كثير من الشعاب يتعرض لضغط قوي حتى عند مستويات احترار منخفضة.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"1.8\"><strong>الأنهار الجليدية في الألب</strong><br>فقدان المزيد من الجليد يغير توازن المياه والسياحة والأخطار الطبيعية.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.0\"><strong>التربة المتجمدة</strong><br>ذوبان التربة المتجمدة يمكن أن يطلق غازات دفيئة إضافية.</div>\n    <div class=\"climate-risk-card\" data-threshold=\"2.4\"><strong>صفائح الجليد الكبيرة</strong><br>تصبح آثار مستوى البحر البطيئة والطويلة جدا أكثر احتمالا.</div>\n  </div>\n  <p id=\"tippingNote\" class=\"lab-feedback\"></p>\n</div>\n<div class=\"remember-box\"><strong>الفكرة المهمة:</strong> 1.5 °C ليست جدارا سحريا. لكن كل عُشر درجة أقل من الاحترار يقلل المخاطر والأضرار وضغط التكيف.</div>\n{{QUIZ_kw_s5_q1}}",
+        "title": "5. أحجار الدومينو على الأرض (نقاط التحول)",
+        "content": "<p> تخيل أنك تميل أكثر فأكثر إلى الخلف على الكرسي. لا شيء يحدث لفترة طويلة، لكن فجأة تصل إلى نقطة تتراجع فيها حتماً إلى الوراء. هذه <strong>نقطة التحول</strong>.</p>\n        <p> هناك نقاط تحول كهذه في مناخنا. عندما تسقط، فإنها تؤدي إلى سلسلة من ردود الفعل (مثل الدومينو) التي لم يعد بإمكاننا نحن البشر <strong> إيقافها</strong>.</p>\n        \n        <div class=\"interactive-zone\" style=\"background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 15px;\">\n            <h3>🧨 تفاعل سلسلة نقاط التحول</h3>\n            <p> انقر على قطعة الدومينو الأولى لمعرفة ما يمكن أن يحدث إذا تجاهلنا الحد:</p>\n            <button id=\"dominoBtn\" onclick=\"startDomino()\">1. حجر التوست 👈</button>\n            <div style=\"display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; padding-bottom: 10px;\">\n                <div id=\"dom1\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>1. جليد جرينلاند يذوب 🧊</strong><span style=\"font-size:0.8em;\">تتدفق المياه العذبة إلى المحيط.</span>\n                </div>\n                <div id=\"dom2\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>2. توقف تيار الخليج 🌊</strong><br><span style=\"font-size:0.8em;\"> المياه منخفضة الملوحة خفيفة جدًا بحيث لا يمكن غرقها. يتوقف التيار.</span>\n                </div>\n                <div id=\"dom3\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>3. جفاف الأمازون 🌳</strong><br> بدون التيار يتغير المطر في أمريكا الجنوبية. الغابة المطيرة تحتضر.</span>\n                </div>\n                <div id=\"dom4\" class=\"domino-card\" style=\"min-width: 150px; background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 8px; transition: transform 0.5s;\">\n                    <strong>4. التربة الصقيعية تذوب 🌫️</strong><br><span style=\"font-size:0.8em;\"> لم تعد الطبيعة تخزن ثاني أكسيد الكربون. هروب الميثان -> ارتفاع درجة حرارة الأرض!</span>\n                </div>\n            </div>\n            <p id=\"dominoResult\" style=\"color: #991b1b; font-weight: bold; margin-top: 15px; opacity: 0; transition: opacity 1s;\">💥 عندما يسقط الحجر الأول، لا يمكننا إيقاف الباقي!</p>\n        </div>\n        {{QUIZ_kw_s5_q1}}",
         "quizzes": [
           {
             "id": "kw_s5_q1",
-            "question": "أي عبارة عن نقاط التحول هي الأفضل؟",
+            "question": "ماذا يحدث إذا ذابت التربة الصقيعية في سيبيريا؟",
             "answers": [
               {
-                "text": "كلما زاد الاحترار زاد خطر تغيرات يصعب عكسها.",
+                "text": "فهو يطلق كميات هائلة من غاز الميثان، وهو غاز الدفيئة، الذي يسخن الأرض بشكل أسرع.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "صحيح. الأمر يتعلق بمجالات خطر، وليس بساعة دومينو دقيقة."
+                "feedback": "صحيح: ذوبان التربة الصقيعية يمكن أن يؤدي إلى إطلاق غاز الميثان وزيادة الاحتباس الحراري."
               },
               {
-                "text": "عند الوصول إلى نقطة تحول تنقلب الأرض كلها فورا.",
+                "text": "تنمو أشجار النخيل هناك على الفور.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "هذا وصف مبالغ فيه وغير صحيح. قد تتغير أنظمة منفردة بقوة."
+                "feedback": "الذوبان لا يعني على الفور مناخًا استوائيًا. المهم هو إمكانية إطلاق غاز الميثان."
               },
               {
                 "text": "نقاط التحول لا علاقة لها بدرجة الحرارة.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "بل لها علاقة. مقدار الاحترار يؤثر في كثير من المخاطر."
+                "feedback": "لكن. يؤثر مستوى الاحترار على العديد من المخاطر."
               }
             ]
           }
@@ -7766,128 +8414,6 @@
       ]
     }
   },
-  "bio_koerper_gesundheit": {
-    "title": "🫀 الجسم والصحة",
-    "subtitle": "هذه هي الطريقة التي يعمل بها جسمك في الحياة اليومية: الأكل والتنفس والحركة وحماية نفسك.",
-    "sections": [
-      {
-        "id": "sec1",
-        "title": "1. جسمك يحتاج إلى الطاقة",
-        "content": "<div class=\"lesson-goals\"><strong>الهدف:</strong> أنت تشرح أهمية الأكل والشرب والنوم.</div><p> جسمك يعمل دائمًا. قلبك ينبض حتى عندما تجلس. عندما تتعلم، يحتاج عقلك إلى الطاقة. يوفر الغذاء الطاقة ومواد البناء. يساعد الماء على النقل في الجسم. يساعدك النوم على التعافي والتعلم.</p><div class=\"teacher-note\"><strong> الحياة اليومية:</strong> يمكن لأي شخص يأتي إلى المدرسة بدون وجبة الإفطار أو الشراب أن يصبح متعبًا أو مضطربًا أو غير مركّز بسرعة أكبر. يمكن أن تساعد وجبة خفيفة وماء.</div><div class=\"remember-box\">@TOKEN_12@@ملاحظة:</strong> يوفر الطعام الطاقة ومواد البناء. ينقل الماء المواد. النوم يدعم التعافي.</div><div class=\"misconception-box\"><strong> المفهوم الخاطئ الشائع:</strong> الطاقة في الجسم ليست مثل الكهرباء المنبعثة من المقبس. يحصل جسمك على الطاقة من العناصر الغذائية.</div><ul class=\"step-list\">@TOKEN_20@@<strong>المهمة الصغيرة 1:</strong> صنف: الماء، النوم، الخبز - ما الذي يساعد؟</li><li><strong>مهمة صغيرة 2:</strong> اذكر علامتين تدلان على أن جسمك يحتاج إلى استراحة أو ماء.</li>@TOKEN_28@@<strong>المهمة الصغيرة 3:</strong> قارن: المشروبات الحلوة والماء - ما هو عادة في الحياة المدرسية اليومية أكثر مفيد؟</li></ul><div class=\"mini-task\"><strong>التحويل:</strong> خطط لوجبة خفيفة بسيطة ليوم دراسي طويل. اشرح سبب دعمها للطاقة والمياه والترفيه.</div>{{QUIZ_bio_q1}}",
-        "quizzes": [
-          {
-            "id": "bio_q1",
-            "question": "لماذا يحتاج جسمك للطعام؟",
-            "answers": [
-              {
-                "text": "للطاقة ومواد البناء.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "الصحيح: الغذاء يساعد على الحركة والتفكير والنمو والإصلاح."
-              },
-              {
-                "text": "فقط لأن الطعام يبدو جيدًا.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "المظهر ليس هو السبب الرئيسي يحتاج الجسم إلى الطاقة ومواد البناء."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec2",
-        "title": "2. التنفس والدورة الدموية",
-        "content": "<p>عندما تتنفس، يدخل الأكسجين إلى الرئتين. ينقل الدم الأكسجين إلى العضلات والأعضاء. يضخ القلب الدم في جميع أنحاء الجسم. عندما تتحرك، تحتاج العضلات إلى المزيد من الأكسجين، ولهذا السبب يصبح التنفس ومعدل ضربات القلب أسرع.</p>@TOKEN_3@@<strong>الحياة اليومية:</strong> بعد صعود الدرج أو الجري أو لعب كرة القدم، تلاحظ زيادة في معدل ضربات القلب. هذا رد فعل طبيعي على عمل العضلات.</div><div class=\"remember-box\"><strong>ملاحظة:</strong> تحصل الرئتان على الأكسجين. يوزعها القلب والدم. تحتاج العضلات إلى مزيد من الأكسجين عندما تتحرك.</div><div class=\"misconception-box\">@TOKEN_12@@ المفهوم الخاطئ الشائع:</strong> الهواء لا يدخل مباشرة إلى العضلات. ينتقل الأكسجين من الرئتين إلى الدم ثم يتم توزيعه.</div><ul class=\"step-list\">@TOKEN_16@@<strong>المهمة الصغيرة 1:</strong> احسب نبضك لمدة 15 ثانية أثناء الراحة واحسبه 4.</li><li><strong>المهمة الصغيرة 2:</strong> قم بأداء 20 تمرين قرفصاء وقارن النبض.</li><li><strong>المهمة الصغيرة 3:</strong> وصف المسار: الهواء -> الرئتين -> الدم -> العضلات.</li></ul><div class=\"mini-task\"><strong> النقل:</strong> يصاب الشخص بغرز في جانبه أثناء ممارسة الرياضة ويتنفس بسرعة كبيرة. ما هي الخطوات الهادئة التي يمكن أن تساعد دون إثارة الذعر؟</div>{{QUIZ_bio_q2}}",
-        "quizzes": [
-          {
-            "id": "bio_q2",
-            "question": "لماذا ينبض القلب بشكل أسرع عندما تتحرك؟",
-            "answers": [
-              {
-                "text": "تحتاج العضلات إلى المزيد من الأكسجين.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "بالضبط: يقوم الدم بعد ذلك بتوصيل الأكسجين إلى العضلات بسرعة أكبر."
-              },
-              {
-                "text": "لأن العظام تحتاج إلى مساحة أكبر.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "العظام ليست السبب تحتاج العضلات إلى المزيد من الأكسجين عندما تتحرك."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec3",
-        "title": "3. الحماية: الجلد، النظافة، الإسعافات الأولية",
-        "content": "<p> الجلد يحمي جسمك. غسل اليدين يزيل العديد من الجراثيم. يساعد في علاج الجروح الصغيرة: التنظيف والجص والمراقبة. إذا كان هناك ألم شديد، أو الكثير من الدم، أو ضيق في التنفس، أو فقدان الوعي، فاحصل على المساعدة فورًا.</p><div class=\"teacher-note\"><strong>الحياة اليومية:</strong> في المدرسة ووسائل النقل العام والقاعة الرياضية، يلمس العديد من الأشخاص نفس الأسطح. إن غسل يديك قبل الأكل وبعد استخدام المرحاض يقلل من خطر الإصابة بالعدوى.</div><div class=\"remember-box\"><strong>Merke:</strong> الجلد هو الحماية. النظافة تقلل من الجراثيم. في حالة الطوارئ في النمسا: 144 Rescue، رقم الطوارئ 112 يورو.</div><div class=\"misconception-box\">@TOKEN_12@@ المفهوم الخاطئ الشائع:</strong> ليست كل جرثومة تجعلك مريضًا، لكن الأيدي القذرة يمكن أن تضع الجراثيم في فمك أو أنفك أو جروحك. </div><ol class=\"step-list\"><li><strong>المهمة الصغيرة 1:</strong> أعط الأمر: غسل اليدين، تنظيف الجرح، الجص، المراقبة.</li><li><strong>مهمة صغيرة 2:</strong> قم بتسمية حالتين، حيث يتعين عليك الحصول على بالغين.</li>@TOKEN_24@@<strong>المهمة الصغيرة 3:</strong> تدرب على جملة مكالمة الطوارئ: أين؟ ماذا؟ كم عدد؟ ما هي الإصابة؟</li></ol><div class=\"mini-task\"><strong>نقل:</strong> يسقط شخص ما في ساحة المدرسة وينزف من ركبته. صِف ما تفعله وما لا تفعله.</div>{{QUIZ_bio_q3}}",
-        "quizzes": [
-          {
-            "id": "bio_q3",
-            "question": "لماذا غسل اليدين مفيد؟",
-            "answers": [
-              {
-                "text": "يزيل العديد من الجراثيم من الجلد.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "هذا صحيح: وهذا يعني وصول عدد أقل من الجراثيم إلى فمك أو أنفك أو جروحك."
-              },
-              {
-                "text": "بحيث تصبح يديك أثقل.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "لا: غسل يديك يساعد في المقام الأول على مكافحة الجراثيم والأوساخ."
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "diplom": {
-      "title": "🎓فحص بيولوجي",
-      "questions": [
-        {
-          "id": "bio_d1",
-          "question": "ما الذي ينقل الأكسجين في الجسم؟",
-          "answers": [
-            {
-              "text": "الدم.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "الصحيح: ينقل الدم الأكسجين إلى أجزاء الجسم."
-            },
-            {
-              "text": "الشعر.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "الشعر لا ينقل الأكسجين. هذا ما يفعله الدم."
-            }
-          ]
-        },
-        {
-          "id": "bio_d2",
-          "question": "ما هو مفيد لجرح صغير؟",
-          "answers": [
-            {
-              "text": "تنظيف واستخدام ضمادة.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "بالضبط: النظافة تحمي الجرح."
-            },
-            {
-              "text": "اضغط بأصابع قذرة.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "هذا يمكن أن يدخل الجراثيم إلى الجرح. الأيدي النظيفة مهمة."
-            }
-          ]
-        }
-      ]
-    }
-  },
   "math1_1_vs_wissen": {
     "title": "المستوى 1: هزيمة رئيس المدرسة الابتدائية 🏆",
     "subtitle": "كل ما تعرفه بالفعل من المدرسة الابتدائية!",
@@ -8022,7 +8548,7 @@
       {
         "id": "ziffern_und_zahlen",
         "title": "الأرقام والأرقام",
-        "content": "<p> تخيل أنك تلعب لعبة. مستواك هو <b>number</b>. على سبيل المثال: المستوى 12.</p>\n<p>مما يتكون الرقم 12؟ من <b>Digits</b>! الأرقام هي اللبنات الأساسية: 0، 1، 2، 3، 4، 5، 6، 7، 8، 9.</p>\n<p> الأرقام تشبه الحروف الفردية. الأرقام تشبه الكلمات الكاملة.</p>\n<div style=\"background-color: #f0f8ff; padding: 10px; border-radius: 5px;\">\n<b>مثال:</b> لديك 250 V-Bucks.<br>\nالرقم هو 250.<br>\nالأرقام هي 2 و 5 و 0.\n</div>\n<br>\n{{QUIZ_math1_2_nat_zahlen_s1_q1}}",
+        "content": "<p> تخيل أنك تلعب لعبة. مستواك هو <b>number</b>. على سبيل المثال: المستوى 12.</p>\n<p>مما يتكون الرقم 12؟ من <b>Digits</b>! الأرقام هي اللبنات الأساسية: 0، 1، 2، 3، 4، 5، 6، 7، 8، 9.</p>\n<p> الأرقام تشبه الحروف الفردية. الأرقام تشبه الكلمات الكاملة.</p>\n<div style=\"background-color: #f0f8ff; padding: 10px; border-radius: 5px;\">\n<b>مثال:</b> لديك 250 V-Bucks.<br>\nالرقم هو 250.<br>\nالأرقام هي 2 و 5 و 0.\n</div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "هل 7 رقم أم رقم؟",
@@ -8045,8 +8571,7 @@
                 "pts": 5,
                 "feedback": "ليس تمامًا: الرقم 7 يمثل رقمًا، ولكنه أيضًا رقم واحد."
               }
-            ],
-            "id": "math1_2_nat_zahlen_s1_q1"
+            ]
           }
         ]
       },
@@ -8850,7 +9375,7 @@
       {
         "id": "intro",
         "title": "ما هو الكسر؟",
-        "content": "<p> تخيل أن لديك بيتزا لذيذة وتريد مشاركتها مع أصدقائك. إذا قمت بتقطيع البيتزا إلى قطع متساوية، فإن كل قطعة تمثل <strong>جزء</strong> (جزءًا) من البيتزا بأكملها.</p><p>يوضح لنا الكسر أن شيئًا ما ليس كاملاً، ولكنه جزء فقط من التي.</p><div id=\"pizza-container-1\" style=\"text-align: center; margin: 20px 0;\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"#f9c975\" stroke=\"#d35400\" stroke-width=\"10\"/></svg><br><input type=\"range\" id=\"pizza-slider-1\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p>القطع: <span id=\"pizza-pieces-1\">1</span></p></div>\n<br>\n{{QUIZ_math1_8_brueche_s1_q1}}\n{{QUIZ_math1_8_brueche_s1_q2}}\n{{QUIZ_math1_8_brueche_s1_q3}}",
+        "content": "<p> تخيل أن لديك بيتزا لذيذة وتريد مشاركتها مع أصدقائك. إذا قمت بتقطيع البيتزا إلى قطع متساوية، فإن كل قطعة تمثل <strong>جزء</strong> (جزءًا) من البيتزا بأكملها.</p><p>يوضح لنا الكسر أن شيئًا ما ليس كاملاً، ولكنه جزء فقط من التي.</p><div id=\"pizza-container-1\" style=\"text-align: center; margin: 20px 0;\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"#f9c975\" stroke=\"#d35400\" stroke-width=\"10\"/></svg><br><input type=\"range\" id=\"pizza-slider-1\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\"><p>القطع: <span id=\"pizza-pieces-1\">1</span></p></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "على ماذا يدل الكسر؟",
@@ -8880,8 +9405,7 @@
                 "pts": 5,
                 "feedback": "يمكن أن يكون الكسر منتهيًا أو لا نهائيًا كرقم عشري، لكن المقصود هو النسبة."
               }
-            ],
-            "id": "math1_8_brueche_s1_q1"
+            ]
           },
           {
             "question": "إذا قمت بتقطيع كعكة إلى 4 قطع متساوية، فما القطعة الواحدة؟",
@@ -8911,8 +9435,7 @@
                 "pts": 5,
                 "feedback": "الثلث يناسب 3 أجزاء. يوجد هنا 4 أجزاء، أي ربع."
               }
-            ],
-            "id": "math1_8_brueche_s1_q2"
+            ]
           },
           {
             "question": "لماذا يجب أن تكون القطع بنفس الحجم دائمًا عند الكسر؟",
@@ -8942,15 +9465,14 @@
                 "pts": 5,
                 "feedback": "القطع ذات الحجم غير المتساوي لها قيم مختلفة؛ ثم القاسم لا يتناسب بشكل جيد."
               }
-            ],
-            "id": "math1_8_brueche_s1_q3"
+            ]
           }
         ]
       },
       {
         "id": "zaehler_nenner",
         "title": "البسط والمقام",
-        "content": "<p>يتكون كل كسر من رقمين مهمين يفصل بينهما <strong>خط الكسر</strong>:</p><ul><li><strong>المقام (أسفل):</strong> هو <em>calls</em> لنا كم عدد نفس الحجم الذي تمت مشاركته بالكامل.</li><li><strong>العداد (أعلى):</strong> هو <em>يحسب</em> كم عدد هذه الأجزاء التي قمنا بها لديك.</li></ul><p><em>Mnemonic:</em> <strong>Z</strong>ähler موجود في الأعلى (مثل <strong>Z</strong>elt)، والذي <strong>N</strong>enner أدناه (مثل <strong>N</strong>est).</p><div style=\"text-align: center;\"><div id=\"fraction-builder\" style=\"display: inline-flex; flex-direction: column; align-items: center; margin: 20px 0; font-size: 24px; background: white; padding: 20px; border-radius: 12px; border: 2px solid #cbd5e1;\"><button id=\"z-down\" style=\"padding: 5px 15px; font-size: 1em;\">-</button><span id=\"zaehler-val\" style=\"font-weight: bold; min-width: 30px;\">1</span><button id=\"z-up\" style=\"padding: 5px 15px; font-size: 1em;\">+</div><hr style=\"border: 2px solid black; width: 120px; margin: 15px 0;\"><div style=\"display: flex; align-items: center; gap: 15px;\"><button id=\"n-down\" style=\"padding: 5px 15px; font-size: 1em;\">-</button><span id=\"nenner-val\" style=\"font-weight: bold; min-width: 30px;\"> 2</span><button id=\"n-up\" style=\"padding: 5px 15px; font-size: 1em;\">+</button></div></div><p style=\"margin-top: 15px; font-size: 1.1em;\">نحن لديك <span id=\"z-text\" style=\"font-weight:bold;\">1</span> من <span id=\"n-text\" style=\"font-weight:bold;\">2</span> شارك.</p></div>\n<br>\n{{QUIZ_math1_8_brueche_s2_q1}}\n{{QUIZ_math1_8_brueche_s2_q2}}\n{{QUIZ_math1_8_brueche_s2_q3}}",
+        "content": "<p>يتكون كل كسر من رقمين مهمين يفصل بينهما <strong>خط الكسر</strong>:</p><ul><li><strong>المقام (أسفل):</strong> هو <em>calls</em> لنا كم عدد نفس الحجم الذي تمت مشاركته بالكامل.</li><li><strong>العداد (أعلى):</strong> هو <em>يحسب</em> كم عدد هذه الأجزاء التي قمنا بها لديك.</li></ul><p><em>Mnemonic:</em> <strong>Z</strong>ähler موجود في الأعلى (مثل <strong>Z</strong>elt)، والذي <strong>N</strong>enner أدناه (مثل <strong>N</strong>est).</p><div style=\"text-align: center;\"><div id=\"fraction-builder\" style=\"display: inline-flex; flex-direction: column; align-items: center; margin: 20px 0; font-size: 24px; background: white; padding: 20px; border-radius: 12px; border: 2px solid #cbd5e1;\"><button id=\"z-down\" style=\"padding: 5px 15px; font-size: 1em;\">-</button><span id=\"zaehler-val\" style=\"font-weight: bold; min-width: 30px;\">1</span><button id=\"z-up\" style=\"padding: 5px 15px; font-size: 1em;\">+</div><hr style=\"border: 2px solid black; width: 120px; margin: 15px 0;\"><div style=\"display: flex; align-items: center; gap: 15px;\"><button id=\"n-down\" style=\"padding: 5px 15px; font-size: 1em;\">-</button><span id=\"nenner-val\" style=\"font-weight: bold; min-width: 30px;\"> 2</span><button id=\"n-up\" style=\"padding: 5px 15px; font-size: 1em;\">+</button></div></div><p style=\"margin-top: 15px; font-size: 1.1em;\">نحن لديك <span id=\"z-text\" style=\"font-weight:bold;\">1</span> من <span id=\"n-text\" style=\"font-weight:bold;\">2</span> شارك.</p></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "أين هو المقام في الكسر؟",
@@ -8980,8 +9502,7 @@
                 "pts": 5,
                 "feedback": "لا يوجد يمين أو يسار عندما يتعلق الأمر بالكسور؛ المقام في الأسفل."
               }
-            ],
-            "id": "math1_8_brueche_s2_q1"
+            ]
           },
           {
             "question": "ماذا يشير العداد؟",
@@ -9011,8 +9532,7 @@
                 "pts": 5,
                 "feedback": "يقوم العداد بحساب الأجزاء، وليس حجم الكائن بأكمله أو كامله."
               }
-            ],
-            "id": "math1_8_brueche_s2_q2"
+            ]
           },
           {
             "question": "للكسر 3/8: ما هو 8؟",
@@ -9042,15 +9562,14 @@
                 "pts": 5,
                 "feedback": "شريط الكسر هو الخط؛ 8 يسمى المقام."
               }
-            ],
-            "id": "math1_8_brueche_s2_q3"
+            ]
           }
         ]
       },
       {
         "id": "zeichnen_erkennen",
         "title": "رسم والتعرف على الكسور",
-        "content": "<p>يمكنك تمثيل الكسور بعدة طرق: على شكل كعكة (دائرة)، أو على شكل قطعة شوكولاتة (مستطيل) أو على خط الأعداد.</p><p>انقر على المربعات لتلوينها ورؤية اللون الكسر!</p><div id=\"grid-container\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"grid-svg\" width=\"200\" height=\"50\" viewBox=\"0 0 200 50\" style=\"cursor: pointer;\"></svg><p style=\"font-size: 20px; font-weight: bold;\">الكسر: <span id=\"grid-fraction\">0/4</span></p></div>\n<br>\n{{QUIZ_math1_8_brueche_s3_q1}}\n{{QUIZ_math1_8_brueche_s3_q2}}\n{{QUIZ_math1_8_brueche_s3_q3}}",
+        "content": "<p>يمكنك تمثيل الكسور بعدة طرق: على شكل كعكة (دائرة)، أو على شكل قطعة شوكولاتة (مستطيل) أو على خط الأعداد.</p><p>انقر على المربعات لتلوينها ورؤية اللون الكسر!</p><div id=\"grid-container\" style=\"text-align: center; margin: 20px 0;\"><svg id=\"grid-svg\" width=\"200\" height=\"50\" viewBox=\"0 0 200 50\" style=\"cursor: pointer;\"></svg><p style=\"font-size: 20px; font-weight: bold;\">الكسر: <span id=\"grid-fraction\">0/4</span></p></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "إذا تم تقسيم الدائرة إلى 6 قطع متساوية و 2 منها باللون الأحمر. أي جزء هذا؟",
@@ -9080,8 +9599,7 @@
                 "pts": 5,
                 "feedback": "4/6 يصف القطع غير الحمراء، وليس القطعتين الأحمرتين."
               }
-            ],
-            "id": "math1_8_brueche_s3_q1"
+            ]
           },
           {
             "question": "لديك قطعة حلوى بها 10 أضلاع. تأكل 3 منهم. ما الكسر المتبقي؟",
@@ -9111,8 +9629,7 @@
                 "pts": 5,
                 "feedback": "يبقى المقام 10. عد الأضلاع المتبقية: 7/10."
               }
-            ],
-            "id": "math1_8_brueche_s3_q2"
+            ]
           },
           {
             "question": "نصف المستطيل مطلي باللون الأزرق. ما عدد الأجزاء التي يمكن تقسيم المستطيل إليها إذا كانت 4 أجزاء باللون الأزرق؟",
@@ -9142,15 +9659,14 @@
                 "pts": 5,
                 "feedback": "إذا كان هناك 10 قطع، فإن 4 قطع زرقاء ستكون أقل من النصف. ابحث عن 8."
               }
-            ],
-            "id": "math1_8_brueche_s3_q3"
+            ]
           }
         ]
       },
       {
         "id": "echte_unechte",
         "title": "الكسور الصحيحة وغير الصحيحة",
-        "content": "<p> هناك أنواع مختلفة من الكسور، اعتمادًا على حجم البسط والمقام.</p><ul><li><strong>الكسر الحقيقي:</strong> البسط أصغر من المقام (على سبيل المثال 3/4). الكسر أصغر من الكل.</li><li><strong>كسر غير حقيقي:</strong> البسط أكبر من أو يساوي المقام (على سبيل المثال 5/4). الكسر أكبر من الكل أو الكل تمامًا.</li></ul><div id=\"compare-container\" style=\"text-align: center; margin: 20px 0;\"><p style=\"font-size: 24px;\"><span id=\"c-zaehler\">1</span> / <span id=\"c-nenner\">4</span></p><input type=\"range\" id=\"c-slider\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\">الكسر الحقيقي</p><div id=\"c-visual\" style=\"display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;\"></div></div>\n<br>\n{{QUIZ_math1_8_brueche_s4_q1}}\n{{QUIZ_math1_8_brueche_s4_q2}}\n{{QUIZ_math1_8_brueche_s4_q3}}",
+        "content": "<p> هناك أنواع مختلفة من الكسور، اعتمادًا على حجم البسط والمقام.</p><ul><li><strong>الكسر الحقيقي:</strong> البسط أصغر من المقام (على سبيل المثال 3/4). الكسر أصغر من الكل.</li><li><strong>كسر غير حقيقي:</strong> البسط أكبر من أو يساوي المقام (على سبيل المثال 5/4). الكسر أكبر من الكل أو الكل تمامًا.</li></ul><div id=\"compare-container\" style=\"text-align: center; margin: 20px 0;\"><p style=\"font-size: 24px;\"><span id=\"c-zaehler\">1</span> / <span id=\"c-nenner\">4</span></p><input type=\"range\" id=\"c-slider\" min=\"1\" max=\"8\" value=\"1\" style=\"width: 200px;\">الكسر الحقيقي</p><div id=\"c-visual\" style=\"display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;\"></div></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "أي من هذه الكسور هو كسر حقيقي؟",
@@ -9180,8 +9696,7 @@
                 "pts": 5,
                 "feedback": "هنا البسط أكبر من المقام؛ هذا كسر غير لائق."
               }
-            ],
-            "id": "math1_8_brueche_s4_q1"
+            ]
           },
           {
             "question": "كيف تتعرف على الكسر الكاذب؟",
@@ -9211,8 +9726,7 @@
                 "pts": 5,
                 "feedback": "بدون خط الكسر، فهو ليس كسرًا على الإطلاق في هذا الترميز."
               }
-            ],
-            "id": "math1_8_brueche_s4_q2"
+            ]
           },
           {
             "question": "هل 4/4 جزء حقيقي أم كسر غير حقيقي؟",
@@ -9242,15 +9756,14 @@
                 "pts": 5,
                 "feedback": "في المدرسة، يعتبر 4/4 كسرًا غير حقيقي لأن البسط والمقام متماثلان."
               }
-            ],
-            "id": "math1_8_brueche_s4_q3"
+            ]
           }
         ]
       },
       {
         "id": "erweitern_kuerzen",
         "title": "التوسيع والتقصير (الأساسيات)",
-        "content": "<p>في بعض الأحيان تبدو الكسور مختلفة ولكنها تعني نفس الشيء تمامًا! وهذا ما يسمى <strong>توسيع</strong> أو <strong>تقليل</strong>.</p><ul><li><strong>توسيع:</strong> يتم ضرب البسط والمقام في <em>same</em> الرقم (على سبيل المثال، 1/2 = 2/4). تصبح القطع أصغر، ولكن هناك المزيد.</li><strong>تقليل:</strong> يتم تقسيم البسط والمقام على الرقم <em>same</em> (على سبيل المثال، 2/4 = 1/2). قمت بوضع القطع معًا.</li></ul><div id=\"expand-container\" style=\"text-align: center; margin: 20px 0;\"><div style=\"display: flex; justify-content: center; align-items: center; gap: 20px;\"><div id=\"svg-half\" style=\"width: 100px; height: 100px;\"><div style=\"font-size: 24px;\">=</div><div id=\"svg-quarter\" style=\"width: 100px; height: 100px;\"></div></div><p id=\"expand-text\">نحن اجعل الكسر 1/2 موسعًا بـ 2 واحصل على <span style=\"font-weight:bold;\">2/4</span>.</p><button id=\"btn-toggle-expand\">إظهار الاختصارات</button></div>\n<br>\n{{QUIZ_math1_8_brueche_s5_q1}}\n{{QUIZ_math1_8_brueche_s5_q2}}\n{{QUIZ_math1_8_brueche_s5_q3}}",
+        "content": "<p>في بعض الأحيان تبدو الكسور مختلفة ولكنها تعني نفس الشيء تمامًا! وهذا ما يسمى <strong>توسيع</strong> أو <strong>تقليل</strong>.</p><ul><li><strong>توسيع:</strong> يتم ضرب البسط والمقام في <em>same</em> الرقم (على سبيل المثال، 1/2 = 2/4). تصبح القطع أصغر، ولكن هناك المزيد.</li><strong>تقليل:</strong> يتم تقسيم البسط والمقام على الرقم <em>same</em> (على سبيل المثال، 2/4 = 1/2). قمت بوضع القطع معًا.</li></ul><div id=\"expand-container\" style=\"text-align: center; margin: 20px 0;\"><div style=\"display: flex; justify-content: center; align-items: center; gap: 20px;\"><div id=\"svg-half\" style=\"width: 100px; height: 100px;\"><div style=\"font-size: 24px;\">=</div><div id=\"svg-quarter\" style=\"width: 100px; height: 100px;\"></div></div><p id=\"expand-text\">نحن اجعل الكسر 1/2 موسعًا بـ 2 واحصل على <span style=\"font-weight:bold;\">2/4</span>.</p><button id=\"btn-toggle-expand\">إظهار الاختصارات</button></div>\n<br>\n{{QUIZ_undefined}}",
         "quizzes": [
           {
             "question": "ماذا عليك أن تفعل عند توسيع الكسر؟",
@@ -9280,8 +9793,7 @@
                 "pts": 5,
                 "feedback": "التوسيع يتضمن الضرب وليس الإضافة."
               }
-            ],
-            "id": "math1_8_brueche_s5_q1"
+            ]
           },
           {
             "question": "إذا قمت بتوسيع 1/3 مع 2، ما الكسر الذي ستحصل عليه؟",
@@ -9311,8 +9823,7 @@
                 "pts": 5,
                 "feedback": "التوسيع يعني ضرب كلا الرقمين في 2: 1/3 يصبح 2/6."
               }
-            ],
-            "id": "math1_8_brueche_s5_q2"
+            ]
           },
           {
             "question": "لماذا لا تتغير قيمة الكسر عند تقصيره؟",
@@ -9342,8 +9853,7 @@
                 "pts": 5,
                 "feedback": "لا يتم تجاهل الرقم. يتم تقسيم البسط والمقام بالتساوي."
               }
-            ],
-            "id": "math1_8_brueche_s5_q3"
+            ]
           }
         ]
       },
