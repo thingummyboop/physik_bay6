@@ -5,12 +5,10 @@ const UI_TRANSLATIONS = {
         "Übung": "Practice",
         "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "The chapter quiz for this chapter is being prepared. The practice tasks in the text remain visible for training.",
         "Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.": "This chapter quiz unlocks after you pass the previous chapter quiz.",
-        "Ein weiterer Versuch füllt sich in": "Another attempt refills in",
-        "Versuchen verfügbar": "attempts available",
+        "Beliebig oft wiederholbar": "Unlimited retries",
         "Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.": "Only your understanding counts here. You can change all answers before submitting. More than 70% means the chapter is passed.",
         "Aufgaben": "tasks",
         "bestanden": "passed",
-        "Für 25 Punkte einen Versuch auffüllen": "Refill one attempt for 25 points",
         "Kapitelquiz öffnen": "Open chapter quiz",
         "Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.": "The learning content is hidden during the test. Read carefully, choose your answers, and submit only when you are finished.",
         "Zurück zum Kapitel": "Back to chapter",
@@ -25,13 +23,15 @@ const UI_TRANSLATIONS = {
         "Bestanden": "Passed",
         "Noch nicht bestanden": "Not passed yet",
         "Das nächste Kapitelquiz ist jetzt freigeschaltet.": "The next chapter quiz is now unlocked.",
-        "Du brauchst mehr als 70%. Übrige Versuche:": "You need more than 70%. Attempts left:",
+        "Du brauchst mehr als 70%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.": "You need more than 70%. Review the marked questions and try again.",
         "Noch einmal lernen": "Study again",
         "Neuen Versuch starten": "Start a new attempt"
     },
     ar: {
         "Kapitelquiz": "اختبار الفصل",
         "Übung": "تدريب",
+        "Beliebig oft wiederholbar": "يمكن تكراره عددًا غير محدود من المرات",
+        "Du brauchst mehr als 70%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.": "تحتاج إلى أكثر من 70٪. راجع الأسئلة المحددة وحاول مرة أخرى.",
         "Aufgaben": "مهام",
         "bestanden": "تم النجاح",
         "Kapitelquiz öffnen": "افتح اختبار الفصل",
@@ -49,6 +49,8 @@ const UI_TRANSLATIONS = {
     uk: {
         "Kapitelquiz": "Тест до розділу",
         "Übung": "Вправа",
+        "Beliebig oft wiederholbar": "Можна повторювати без обмежень",
+        "Du brauchst mehr als 70%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.": "Потрібно набрати понад 70%. Переглянь позначені запитання і спробуй ще раз.",
         "Aufgaben": "завдань",
         "bestanden": "складено",
         "Kapitelquiz öffnen": "Відкрити тест",
@@ -66,6 +68,8 @@ const UI_TRANSLATIONS = {
     sr: {
         "Kapitelquiz": "Квиз поглавља",
         "Übung": "Вежба",
+        "Beliebig oft wiederholbar": "Може се понављати неограничено",
+        "Du brauchst mehr als 70%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.": "Потребно је више од 70%. Прегледај означена питања и покушај поново.",
         "Aufgaben": "задатака",
         "bestanden": "положено",
         "Kapitelquiz öffnen": "Отвори квиз",
@@ -83,6 +87,8 @@ const UI_TRANSLATIONS = {
     tr: {
         "Kapitelquiz": "Bölüm testi",
         "Übung": "Alıştırma",
+        "Beliebig oft wiederholbar": "Sınırsız kez tekrarlanabilir",
+        "Du brauchst mehr als 70%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.": "Yüzde 70'ten fazlası gerekiyor. İşaretli soruları yeniden inceleyip tekrar dene.",
         "Aufgaben": "görev",
         "bestanden": "geçildi",
         "Kapitelquiz öffnen": "Bölüm testini aç",
@@ -1135,93 +1141,27 @@ function writeChapterQuizResults(results) {
     localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(results || {}));
 }
 
-const CHAPTER_QUIZ_MAX_ATTEMPTS = 3;
-const CHAPTER_QUIZ_REFILL_MS = 12 * 60 * 60 * 1000;
-
-function clampChapterAttempts(value) {
-    return Math.min(CHAPTER_QUIZ_MAX_ATTEMPTS, Math.max(0, Number(value) || 0));
-}
-
 function getChapterQuizResult(topicId) {
     const results = readChapterQuizResults();
     const result = results[topicId] || { attemptsUsed: 0, attempts: 0, passed: false, bestPercent: 0 };
-    const now = Date.now();
-    let attemptsUsed = clampChapterAttempts(result.attemptsUsed ?? result.attempts ?? 0);
-    let lastAttemptAt = Number(result.lastAttemptAt || 0);
-    let changed = false;
+    const attemptsUsed = Math.max(0, Number(result.attemptsUsed ?? result.attempts ?? 0));
+    const hadOldLimit = result.availableAttempts !== null
+        || Number(result.nextRefillAt || 0) !== 0
+        || Number(result.fullRefillAt || 0) !== 0
+        || Number(result.lockUntil || 0) !== 0;
 
-    if (!lastAttemptAt && attemptsUsed > 0) {
-        lastAttemptAt = now;
-        changed = true;
-    }
-
-    if (!result.passed && attemptsUsed > 0 && lastAttemptAt > 0) {
-        const restored = Math.floor(Math.max(0, now - lastAttemptAt) / CHAPTER_QUIZ_REFILL_MS);
-        if (restored > 0) {
-            attemptsUsed = Math.max(0, attemptsUsed - restored);
-            lastAttemptAt = attemptsUsed > 0 ? lastAttemptAt + restored * CHAPTER_QUIZ_REFILL_MS : 0;
-            changed = true;
-        }
-    }
-
-    const availableAttempts = Math.max(0, CHAPTER_QUIZ_MAX_ATTEMPTS - attemptsUsed);
     result.attemptsUsed = attemptsUsed;
     result.attempts = attemptsUsed;
-    result.availableAttempts = availableAttempts;
-    result.lastAttemptAt = lastAttemptAt;
-    result.nextRefillAt = attemptsUsed > 0 ? lastAttemptAt + CHAPTER_QUIZ_REFILL_MS : 0;
-    result.fullRefillAt = attemptsUsed > 0 ? lastAttemptAt + attemptsUsed * CHAPTER_QUIZ_REFILL_MS : 0;
-    if (result.lockUntil) {
-        result.lockUntil = 0;
-        changed = true;
-    }
+    result.availableAttempts = null;
+    result.nextRefillAt = 0;
+    result.fullRefillAt = 0;
+    result.lockUntil = 0;
 
-    if (changed) {
+    if (hadOldLimit) {
         results[topicId] = result;
         writeChapterQuizResults(results);
     }
     return result;
-}
-
-function formatWaitTime(timestamp) {
-    const remaining = Math.max(0, Number(timestamp || 0) - Date.now());
-    const minutes = Math.ceil(remaining / 60000);
-    if (minutes < 60) return `${minutes} min`;
-    const hours = Math.ceil(minutes / 60);
-    return `${hours} h`;
-}
-
-function unlockChapterQuizWithPlus() {
-    const quiz = window.currentChapterQuiz;
-    if (!quiz) return;
-    const result = getChapterQuizResult(quiz.topicId);
-    if (result.passed || Number(result.availableAttempts || 0) > 0) return;
-
-    const cost = 25;
-    if (globalPhysikScore < cost) {
-        alert(`Du brauchst ${cost} Punkte, um sofort einen Versuch aufzufüllen.`);
-        return;
-    }
-
-    globalPhysikScore -= cost;
-    localStorage.setItem('physik_score', globalPhysikScore);
-    if (typeof updateScoreDisplays === 'function') updateScoreDisplays();
-
-    const attemptsUsed = Math.max(0, clampChapterAttempts(result.attemptsUsed) - 1);
-    const now = Date.now();
-    const results = readChapterQuizResults();
-    results[quiz.topicId] = {
-        ...result,
-        attemptsUsed,
-        attempts: attemptsUsed,
-        availableAttempts: CHAPTER_QUIZ_MAX_ATTEMPTS - attemptsUsed,
-        lastAttemptAt: attemptsUsed > 0 ? now : 0,
-        nextRefillAt: attemptsUsed > 0 ? now + CHAPTER_QUIZ_REFILL_MS : 0,
-        fullRefillAt: attemptsUsed > 0 ? now + attemptsUsed * CHAPTER_QUIZ_REFILL_MS : 0,
-        lockUntil: 0
-    };
-    writeChapterQuizResults(results);
-    location.reload();
 }
 
 function getTopicSequence(topicId) {
@@ -1278,11 +1218,6 @@ function renderPracticeBox(q) {
 function renderChapterQuizCard(topicId, topic, questions) {
     const result = getChapterQuizResult(topicId);
     const unlocked = isChapterQuizUnlocked(topicId);
-    const attemptsAvailable = result.passed
-        ? CHAPTER_QUIZ_MAX_ATTEMPTS
-        : Math.max(0, Number(result.availableAttempts ?? (CHAPTER_QUIZ_MAX_ATTEMPTS - Number(result.attempts || 0))));
-    const attemptsUsed = clampChapterAttempts(result.attemptsUsed ?? result.attempts ?? 0);
-    const needsRefill = !result.passed && attemptsAvailable <= 0;
 
     if (!questions.length) {
         return `
@@ -1296,16 +1231,12 @@ function renderChapterQuizCard(topicId, topic, questions) {
 
     const lockText = !unlocked
         ? uiText('Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.')
-        : needsRefill
-            ? `Du hast gerade keinen Versuch frei. Ein neuer Versuch kommt in ${formatWaitTime(result.nextRefillAt)} zurück. Wenn du nicht weiter probierst, sind in ${formatWaitTime(result.fullRefillAt)} wieder alle 3 Versuche verfügbar.`
-            : (!result.passed && attemptsUsed > 0 && result.nextRefillAt)
-                ? `${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(result.nextRefillAt)}.`
-                : '';
+        : '';
 
-    const buttonDisabled = !unlocked || needsRefill;
+    const buttonDisabled = !unlocked;
     const status = result.passed
         ? `Bestanden: ${Math.round(result.bestPercent || 0)}%`
-        : `${attemptsAvailable} / ${CHAPTER_QUIZ_MAX_ATTEMPTS} ${uiText('Versuchen verfügbar')}`;
+        : uiText('Beliebig oft wiederholbar');
 
     return `
         <div class="card chapter-quiz-card" id="chapter-quiz-card">
@@ -1317,7 +1248,6 @@ function renderChapterQuizCard(topicId, topic, questions) {
                 <span>${questions.length} ${uiText('Aufgaben')}</span>
             </div>
             ${lockText ? `<p class="chapter-lock">${escapeHtml(lockText)}</p>` : ''}
-            ${needsRefill ? `<button type="button" onclick="unlockChapterQuizWithPlus()">${uiText('Für 25 Punkte einen Versuch auffüllen')}</button>` : ''}
             <button id="chapter-quiz-launch" type="button" onclick="startChapterQuiz()" ${buttonDisabled ? 'disabled' : ''}>${uiText('Kapitelquiz öffnen')}</button>
         </div>
     `;
@@ -1379,6 +1309,7 @@ async function renderTopic() {
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
+        const physicsCourse = window.PHYSICS_COURSE;
 
         if (lang !== 'de') {
             const deRes = await fetch(`../lang/de.json?v=10.8`);
@@ -1390,6 +1321,9 @@ async function renderTopic() {
         if (!topic && germanTopic) {
             topic = germanTopic;
         }
+        if (!topic && physicsCourse) {
+            topic = physicsCourse.getTopic(topicId);
+        }
 
         if (!topic) {
             showError(`Das Thema "${topicId}" wurde nicht gefunden.`);
@@ -1398,6 +1332,9 @@ async function renderTopic() {
 
         if (germanTopic) {
             topic = withCurrentInteractiveStructure(topic, germanTopic);
+        }
+        if (lang === 'de' && physicsCourse?.isPhysicsTopic(topicId)) {
+            topic = physicsCourse.enhanceTopic(topicId, topic);
         }
 
         document.title = topic.title;
@@ -1419,6 +1356,21 @@ async function renderTopic() {
             document.body.classList.remove('math-theme');
         }
 
+        if (topic.chapterCompassText) {
+            const compass = document.createElement('section');
+            compass.className = 'topic-compass-card';
+            compass.innerHTML = `<strong>Kapitelkompass:</strong> ${topic.chapterCompassText}`;
+            container.appendChild(compass);
+        }
+
+        if (lang === 'de' && physicsCourse?.isPhysicsTopic(topicId)) {
+            const supportTemplate = document.createElement('template');
+            supportTemplate.innerHTML = physicsCourse.supportHtml(topicId).trim();
+            if (supportTemplate.content.firstElementChild) {
+                container.appendChild(supportTemplate.content.firstElementChild);
+            }
+        }
+
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
         const chapterQuestions = collectChapterQuizQuestions(topic);
 
@@ -1428,6 +1380,7 @@ async function renderTopic() {
             
             let html = `<h2>${section.title}</h2>`;
             let content = section.content;
+            content = content.replace(/\s*<source\s+src=["']\.\.\/assets\/videos\/[^"']+\.webm(?:\?[^"']*)?["']\s+type=["']video\/webm["']\s*>/gi, '');
             const sectionQuizMap = new Map((section.quizzes || []).map(q => [q.id, q]));
 
             // Replace quiz placeholders from old section quizzes and newer topic-level quizzes.
@@ -1439,6 +1392,15 @@ async function renderTopic() {
 
             html += content;
             card.innerHTML = html;
+            if (lang === 'de' && physicsCourse?.isPhysicsTopic(topicId)) {
+                const guide = physicsCourse.guideHtml(topicId, sectionIndex);
+                if (guide) {
+                    const previousGuide = Array.from(card.children)
+                        .find(element => element.classList.contains('physics-remodel'));
+                    if (previousGuide) previousGuide.remove();
+                    card.querySelector('h2')?.insertAdjacentHTML('afterend', guide);
+                }
+            }
             repairGermanEncoding(card);
             if (topicId.startsWith('bio_')) {
                 enhanceBiologyCard(card, topicId, sectionIndex);
@@ -1525,9 +1487,6 @@ function startChapterQuiz() {
     if (!quiz || !quiz.questions || !quiz.questions.length) return;
     if (!isChapterQuizUnlocked(quiz.topicId)) return;
 
-    const result = getChapterQuizResult(quiz.topicId);
-    if (!result.passed && Number(result.availableAttempts || 0) <= 0) return;
-
     const panel = document.getElementById('chapter-quiz-panel');
     if (!panel) return;
 
@@ -1551,10 +1510,6 @@ function submitChapterQuiz() {
     if (!quiz || !form || !resultBox) return;
 
     const previousResult = getChapterQuizResult(quiz.topicId);
-    if (!previousResult.passed && Number(previousResult.availableAttempts || 0) <= 0) {
-        resultBox.innerHTML = `<p class="wrong">${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(previousResult.nextRefillAt)}.</p>`;
-        return;
-    }
 
     const answers = quiz.questions.map((q, index) => {
         const selected = form.querySelector(`input[name="chapter_q_${index}"]:checked`);
@@ -1577,20 +1532,15 @@ function submitChapterQuiz() {
 
     const percent = Math.round((correct / quiz.questions.length) * 100);
     const passed = percent > 70;
-    const now = Date.now();
-    const attemptsUsed = previousResult.passed
-        ? clampChapterAttempts(previousResult.attemptsUsed ?? previousResult.attempts ?? 0)
-        : clampChapterAttempts((previousResult.attemptsUsed ?? previousResult.attempts ?? 0) + 1);
-    const lastAttemptAt = previousResult.passed ? Number(previousResult.lastAttemptAt || 0) : now;
+    const attemptsUsed = Math.max(0, Number(previousResult.attemptsUsed ?? previousResult.attempts ?? 0)) + 1;
     const results = readChapterQuizResults();
     const nextResult = {
         ...previousResult,
         attemptsUsed,
         attempts: attemptsUsed,
-        availableAttempts: CHAPTER_QUIZ_MAX_ATTEMPTS - attemptsUsed,
-        lastAttemptAt,
-        nextRefillAt: attemptsUsed > 0 ? lastAttemptAt + CHAPTER_QUIZ_REFILL_MS : 0,
-        fullRefillAt: attemptsUsed > 0 ? lastAttemptAt + attemptsUsed * CHAPTER_QUIZ_REFILL_MS : 0,
+        availableAttempts: null,
+        nextRefillAt: 0,
+        fullRefillAt: 0,
         lockUntil: 0,
         passed: Boolean(previousResult.passed || passed),
         bestPercent: Math.max(Number(previousResult.bestPercent || 0), percent),
@@ -1616,7 +1566,6 @@ function submitChapterQuiz() {
     const submitButton = form.querySelector('.chapter-submit-btn');
     if (submitButton) submitButton.disabled = true;
 
-    const attemptsLeft = Math.max(0, CHAPTER_QUIZ_MAX_ATTEMPTS - nextResult.attemptsUsed);
     const detailHtml = details.slice(0, 4).map((detail, index) => `
         <li>
             <strong>${index + 1}.</strong>
@@ -1628,11 +1577,11 @@ function submitChapterQuiz() {
         <div class="${passed ? 'chapter-passed' : 'chapter-failed'}">
             <h2>${passed ? uiText('Bestanden') : uiText('Noch nicht bestanden')}</h2>
             <p>${correct} von ${quiz.questions.length} richtig: <strong>${percent}%</strong>.</p>
-            <p>${passed ? uiText('Das nächste Kapitelquiz ist jetzt freigeschaltet.') : attemptsLeft > 0 ? `${uiText('Du brauchst mehr als 70%. Übrige Versuche:')} ${attemptsLeft}.` : `${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(nextResult.nextRefillAt)}.`}</p>
+            <p>${passed ? uiText('Das nächste Kapitelquiz ist jetzt freigeschaltet.') : uiText('Du brauchst mehr als 70%. Sieh dir die markierten Fragen noch einmal an und versuche es wieder.')}</p>
             ${detailHtml ? `<ul>${detailHtml}</ul>` : ''}
             <div class="chapter-quiz-actions">
                 <button type="button" onclick="location.reload()">${passed ? uiText('Zurück zum Kapitel') : uiText('Noch einmal lernen')}</button>
-                ${!passed && attemptsLeft > 0 ? `<button type="button" onclick="location.reload();">${uiText('Neuen Versuch starten')}</button>` : ''}
+                ${!passed ? `<button type="button" onclick="location.reload();">${uiText('Neuen Versuch starten')}</button>` : ''}
             </div>
         </div>
     `;

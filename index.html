@@ -185,7 +185,7 @@
     
     <script src="js/learning_radio.js?v=1.4"></script>
     <script>
-        const TOPIC_TEMPLATE_VERSION = '14.6';
+        const TOPIC_TEMPLATE_VERSION = '14.7';
 
         // Message handling for communication from iframe
         window.addEventListener('message', (e) => {
@@ -342,23 +342,25 @@
         const curriculum = {
             physik: {
                 topics: [
-                    { id: "optik1", title: "🌑 1. Licht: Entstehung & Schatten", grade: "6. Schulstufe (2. Kl.)", category: "Optik" },
-                    { id: "farben", title: "🎨 2. Farben & Sehen", grade: "6. Schulstufe (2. Kl.)", category: "Optik" },
-                    { id: "waermelehre", title: "🌡️ 3. Wärmelehre", grade: "6. Schulstufe (2. Kl.)", category: "Wärmelehre" },
-                    { id: "elektrizitaet", title: "⚡ 4. Elektrizität 1", grade: "6. Schulstufe (2. Kl.)", category: "Elektrizitätslehre" },
-                    { id: "kraft_und_bewegung", title: "🚀 6. Kraft & Bewegung", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "drehundstatik", title: "🎡 7. Statik & Hebel", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "arbeit", title: "🏗 8. Mechanische Arbeit", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "energie", title: "🔋 9. Energieformen", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "akustik", title: "🎶 10. Akustik", grade: "7. Schulstufe (3. Kl.)", category: "Akustik" },
-                    { id: "elektromagnetismus", title: "🧲 11. Elektromagnetismus", grade: "8. Schulstufe (4. Kl.)", category: "Elektrizitätslehre" },
-                    { id: "linsen_spiegel", title: "🔍 12. Linsen & Spiegel", grade: "8. Schulstufe (4. Kl.)", category: "Optik" },
-                    { id: "astronomie", title: "🌌 13. Astronomie", grade: "8. Schulstufe (4. Kl.)", category: "Astronomie" },
                     { id: "sieinheiten", title: "📏 SI-Einheiten", grade: "Grundlagen", category: "Grundlagen" },
                     { id: "rechenbeispiele", title: "🧮 Rechenbeispiele", grade: "Grundlagen", category: "Grundlagen" },
-                    { id: "wetter", title: "🌤️ Wetter", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" },
-                    { id: "klima", title: "🌡️ Klima", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" },
-                    { id: "klimawandel", title: "🆘 Klimawandel", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" }
+                    { id: "optik1", title: "🌑 1. Licht und Schatten", grade: "6. Schulstufe (2. Kl.)", category: "Optik und Akustik" },
+                    { id: "farben", title: "🎨 2. Farben und Sehen", grade: "6. Schulstufe (2. Kl.)", category: "Optik und Akustik" },
+                    { id: "linsen_spiegel", title: "🔍 3. Spiegel und Linsen", grade: "6. Schulstufe (2. Kl.)", category: "Optik und Akustik" },
+                    { id: "akustik", title: "🎶 4. Schall und Hören", grade: "6. Schulstufe (2. Kl.)", category: "Optik und Akustik" },
+                    { id: "kraft_und_bewegung", title: "🚀 1. Kraft und Bewegung", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "drehundstatik", title: "🎡 2. Statik und Hebel", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "arbeit", title: "🏗 3. Mechanische Arbeit", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "energie", title: "🔋 4. Energieumwandlung", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
+                    { id: "elektrizitaet", title: "⚡ 5. Elektrizität", grade: "7. Schulstufe (3. Kl.)", category: "Elektrizitätslehre" },
+                    { id: "elektromagnetismus", title: "🧲 6. Elektromagnetismus", grade: "7. Schulstufe (3. Kl.)", category: "Elektrizitätslehre" },
+                    { id: "waermelehre", title: "🌡️ 1. Wärmelehre", grade: "8. Schulstufe (4. Kl.)", category: "Wärme, Klima und Energie" },
+                    { id: "wetter", title: "🌤️ 2. Wetter", grade: "8. Schulstufe (4. Kl.)", category: "Wärme, Klima und Energie" },
+                    { id: "klima", title: "🌍 3. Klima", grade: "8. Schulstufe (4. Kl.)", category: "Wärme, Klima und Energie" },
+                    { id: "klimawandel", title: "🌱 4. Klimawandel verstehen", grade: "8. Schulstufe (4. Kl.)", category: "Wärme, Klima und Energie" },
+                    { id: "strahlung_radioaktivitaet", title: "☢️ 5. Strahlung und Radioaktivität", grade: "8. Schulstufe (4. Kl.)", category: "Strahlung und Energie" },
+                    { id: "kraftwerke_energieversorgung", title: "🏭 6. Kraftwerke und Energieversorgung", grade: "8. Schulstufe (4. Kl.)", category: "Strahlung und Energie" },
+                    { id: "astronomie", title: "🌌 7. Astronomie", grade: "8. Schulstufe (4. Kl.)", category: "Astronomie" }
                 ]
             },
             dgb: {
