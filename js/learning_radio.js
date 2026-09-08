@@ -5,6 +5,14 @@
     if (window.__sciverseLearningRadio) return;
     window.__sciverseLearningRadio = true;
 
+    function readRadioSetting(key) {
+        if (typeof window.readShellSetting === 'function') return window.readShellSetting(key);
+        try { return localStorage.getItem(key); } catch { return null; }
+    }
+    function writeRadioSetting(key, value) {
+        if (typeof window.writeShellSetting === 'function') return window.writeShellSetting(key, value);
+        try { localStorage.setItem(key, value); return true; } catch { return false; }
+    }
     const STORAGE_KEY = "sciverse_learning_radio_on";
     const VOLUME_KEY = "sciverse_learning_radio_volume";
     const TRACK_SELECTION_KEY = "sciverse_learning_radio_disabled_tracks";
@@ -166,7 +174,7 @@
     let disabledTrackKeys = readDisabledTrackKeys();
 
     function radioText(key, value) {
-        const lang = localStorage.getItem("physik_lang") || "de";
+        const lang = readRadioSetting("physik_lang") || "de";
         const dict = RADIO_TEXT[lang] || RADIO_TEXT.en;
         const entry = dict[key] || RADIO_TEXT.de[key] || key;
         return typeof entry === "function" ? entry(value) : entry;
@@ -188,7 +196,7 @@
 
     function readDisabledTrackKeys() {
         try {
-            const value = JSON.parse(localStorage.getItem(TRACK_SELECTION_KEY) || "[]");
+            const value = JSON.parse(readRadioSetting(TRACK_SELECTION_KEY) || "[]");
             return new Set(Array.isArray(value) ? value : []);
         } catch (error) {
             return new Set();
@@ -197,7 +205,7 @@
 
     function saveDisabledTrackKeys() {
         const orderedKeys = TRACKS.map((_, index) => trackKey(index)).filter((key) => disabledTrackKeys.has(key));
-        localStorage.setItem(TRACK_SELECTION_KEY, JSON.stringify(orderedKeys));
+        writeRadioSetting(TRACK_SELECTION_KEY, JSON.stringify(orderedKeys));
     }
 
     function sanitizeDisabledTrackKeys() {
@@ -266,7 +274,7 @@
         if (!enabled) {
             audio.pause();
         }
-        localStorage.setItem(STORAGE_KEY, enabled ? "true" : "false");
+        writeRadioSetting(STORAGE_KEY, enabled ? "true" : "false");
     }
 
     function updateLanguageLabels() {
@@ -661,7 +669,7 @@
         injectStyles();
         audio = document.createElement("audio");
         audio.preload = "none";
-        audio.volume = Number(localStorage.getItem(VOLUME_KEY) || "0.38");
+        audio.volume = Number(readRadioSetting(VOLUME_KEY) || "0.38");
         audio.addEventListener("ended", nextTrack);
         audio.addEventListener("error", () => {
             if (enabled) window.setTimeout(nextTrack, 500);
@@ -713,7 +721,7 @@
         volumeEl.addEventListener("input", () => {
             audio.volume = Number(volumeEl.value) / 100;
             volumeEl.setAttribute("aria-valuetext", radioText("volumeValue", Math.round(audio.volume * 100)));
-            localStorage.setItem(VOLUME_KEY, String(audio.volume));
+            writeRadioSetting(VOLUME_KEY, String(audio.volume));
         });
 
         trackDialog = document.createElement("div");

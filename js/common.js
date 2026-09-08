@@ -1,9 +1,15 @@
 // Physik-Abenteuer Common Logic
-if (localStorage.getItem('physik_dark_mode') === 'true') {
+function readCommonSetting(key) {
+    try {
+        if (window.parent !== window && typeof window.parent.readShellSetting === 'function') return window.parent.readShellSetting(key);
+    } catch { /* Cross-origin hosts may deny parent access. */ }
+    try { return localStorage.getItem(key); } catch { return null; }
+}
+if (readCommonSetting('physik_dark_mode') === 'true') {
     document.documentElement.setAttribute('data-theme', 'dark');
 }
 
-let globalPhysikScore = parseInt(localStorage.getItem('physik_score')) || 0;
+let globalPhysikScore = parseInt(readCommonSetting('physik_score')) || 0;
 
 let answered = new Set();
 let failedOnce = new Set();
@@ -26,7 +32,7 @@ const COMMON_UI_TRANSLATIONS = {
 };
 
 function commonText(text) {
-    const lang = localStorage.getItem('physik_lang') || 'de';
+    const lang = readCommonSetting('physik_lang') || 'de';
     return (COMMON_UI_TRANSLATIONS[lang] && COMMON_UI_TRANSLATIONS[lang][text]) || text;
 }
 
@@ -38,7 +44,7 @@ function loadFromStorage() {
         const savedFailed = localStorage.getItem('physik_failed_once');
         if (savedFailed) failedOnce = new Set(JSON.parse(savedFailed));
     } catch (e) {
-        console.error("Fehler beim Laden der Antworten:", e);
+        // Storage may be disabled; keep this visit usable with in-memory answers.
     }
 }
 
@@ -215,41 +221,65 @@ function resetTopicProgress() {
         return;
     }
 
-    let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores')) || {};
-    let ptsToRemove = topicScores[topicId] || 0;
-    topicScores[topicId] = 0;
-    localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
-
+    const keys = ['physik_topic_scores', 'sciverse_chapter_quiz_results', 'physik_score', 'physik_answered', 'physik_failed_once'];
+    const originals = new Map();
+    const showFailure = message => {
+        let notice = document.getElementById('topic-reset-status');
+        if (!notice) {
+            notice = document.createElement('p');
+            notice.id = 'topic-reset-status';
+            notice.lang = 'de';
+            notice.setAttribute('role', 'status');
+            notice.setAttribute('aria-live', 'polite');
+            (document.getElementById('topic-reset-btn')?.parentElement || document.body).append(notice);
+        }
+        notice.textContent = message;
+    };
+    let nextAnswered, nextFailed, nextScore, updates;
     try {
-        const chapterResults = JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+        for (const key of keys) originals.set(key, localStorage.getItem(key));
+        const readObject = key => {
+            const value = JSON.parse(originals.get(key) || '{}');
+            if (!value || typeof value !== 'object' || Array.isArray(value)) throw Error('Invalid stored object');
+            return value;
+        };
+        const readIds = key => {
+            const value = JSON.parse(originals.get(key) || '[]');
+            if (!Array.isArray(value) || value.some(id => typeof id !== 'string')) throw Error('Invalid stored IDs');
+            return value;
+        };
+        const topicScores = readObject('physik_topic_scores');
+        const chapterResults = readObject('sciverse_chapter_quiz_results');
+        const score = Number(originals.get('physik_score') || 0);
+        const removed = Number(topicScores[topicId] || 0);
+        if (!Number.isFinite(score) || !Number.isFinite(removed) || score < 0 || removed < 0) throw Error('Invalid score');
+        const legacyIds = new Set([...document.querySelectorAll('.quiz-box[data-id]')].map(box => box.dataset.id));
+        const keep = id => !id.startsWith(topicId + '_') && !legacyIds.has(id);
+        nextAnswered = readIds('physik_answered').filter(keep);
+        nextFailed = readIds('physik_failed_once').filter(keep);
+        topicScores[topicId] = 0;
         delete chapterResults[topicId];
-        localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(chapterResults));
-    } catch (error) {
-        localStorage.removeItem('sciverse_chapter_quiz_results');
+        nextScore = Math.max(0, score - removed);
+        updates = [JSON.stringify(topicScores), JSON.stringify(chapterResults), String(nextScore), JSON.stringify(nextAnswered), JSON.stringify(nextFailed)];
+    } catch {
+        showFailure('Zurücksetzen nicht möglich: Die gespeicherten Daten sind nicht lesbar oder der Speicher ist gesperrt. Es wurden keine Daten verändert.');
+        return;
     }
-
-    globalPhysikScore = Math.max(0, globalPhysikScore - ptsToRemove);
-    localStorage.setItem('physik_score', globalPhysikScore);
-
-    // Filter out both prefixed and current page legacy IDs
-    let currentTopicLegacyIds = [];
-    document.querySelectorAll('.quiz-box').forEach(box => {
-        const lid = box.getAttribute('data-id');
-        if (lid) currentTopicLegacyIds.push(lid);
-    });
-
-    let updatedAnswered = Array.from(answered).filter(id => {
-        return !id.startsWith(topicId + "_") && !currentTopicLegacyIds.includes(id);
-    });
-    let updatedFailed = Array.from(failedOnce).filter(id => {
-        return !id.startsWith(topicId + "_") && !currentTopicLegacyIds.includes(id);
-    });
-
-    answered = new Set(updatedAnswered);
-    localStorage.setItem('physik_answered', JSON.stringify(updatedAnswered));
-
-    failedOnce = new Set(updatedFailed);
-    localStorage.setItem('physik_failed_once', JSON.stringify(updatedFailed));
+    const changed = [];
+    try {
+        keys.forEach((key, i) => { localStorage.setItem(key, updates[i]); changed.push(key); });
+    } catch {
+        let restored = true;
+        for (const key of changed.reverse()) {
+            try { const old = originals.get(key); if (old === null) localStorage.removeItem(key); else localStorage.setItem(key, old); }
+            catch { restored = false; }
+        }
+        showFailure(restored ? 'Zurücksetzen konnte nicht gespeichert werden. Die bisherigen Daten bleiben erhalten.' : 'Zurücksetzen konnte nicht abgeschlossen werden. Auch das Wiederherstellen war teilweise nicht möglich. Prüfe deinen Lernstand vor weiteren Änderungen.');
+        return;
+    }
+    answered = new Set(nextAnswered);
+    failedOnce = new Set(nextFailed);
+    globalPhysikScore = nextScore;
 
     updateScoreDisplays();
     location.reload();

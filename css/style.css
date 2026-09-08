@@ -22,17 +22,6 @@
     --lexikon-bg: #3e2723;
 }
 
-* {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-*::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg);
@@ -652,7 +641,11 @@ h2 { color: var(--secondary); border-bottom: 2px solid var(--box-border); paddin
 .bio-insight-choice:focus-visible {
     border-color: #0d9488;
     box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.16);
-    outline: none;
+}
+
+.bio-insight-choice:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
 }
 
 .bio-insight-choice.is-correct {
@@ -5129,4 +5122,17 @@ button.climate-impact-card:hover:not(:disabled) {
 
 [data-theme="dark"] .word-title-label {
     fill: #ffffff;
+}
+
+/* A failed learning image keeps its caption and accessible description. */
+img[data-media-failed="true"] { display: none !important; }
+.media-load-notice {
+    display: block;
+    padding: 0.8rem;
+    margin-block: 0.5rem;
+    border: 1px solid currentColor;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
 }

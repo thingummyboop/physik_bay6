@@ -127,7 +127,7 @@ function updateBalance() {
     } else {
         acrobat.style.transform = `translateX(${val * 0.06}px) rotate(${val * 0.06}deg)`;
         if (txt) {
-            txt.innerText = "Sicher: Die Lotlinie des Schwerpunkts trifft das Seil. Das Gleichgewicht hält.";
+            txt.innerText = "Die Lotlinie trifft im vereinfachten Modell das Seil. Echtes Balancieren erfordert laufende Korrekturen.";
             txt.style.color = "#00796B";
         }
         updateMeter('balanceMeter', 90);
@@ -352,7 +352,7 @@ function updateCarousel() {
         if (carouselAnim) carouselAnim.playbackRate = 0;
     } else {
         if (speedTxt) speedTxt.innerText = `Stufe ${speed}`;
-        if (forceTxt) forceTxt.innerText = "Je schneller die Kreisbewegung ist, desto stärker wollen die Sitze nach außen.";
+        if (forceTxt) forceTxt.innerText = "Bei größerer Bahngeschwindigkeit und gleichem Radius ist eine größere Kraft zur Kreismitte nötig. Die schrägen Ketten liefern mit ihrer Zugkraft einen nach innen gerichteten Anteil.";
         const swing = (speed / 100) * 55;
         const lift = (speed / 100) * 18;
         if (chainL) { chainL.setAttribute('x2', 135 - swing); chainL.setAttribute('y2', 172 - lift); }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arbeitsblatt</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; color: black; background: white; line-height: 1.6; }
@@ -13,23 +13,31 @@
         .header-info { display: flex; justify-content: space-between; margin-bottom: 40px; font-size: 1.2em; }
         .print-btn { padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         .print-btn:hover { background: #059669; }
+        #ws-art-material { overflow-wrap: anywhere; } #ws-art-material svg { max-width: 100%; height: auto; } #ws-art-material figure { break-inside: avoid; margin: 1rem 0; } #ws-art-material table { border-collapse: collapse; width: 100%; } #ws-art-material th, #ws-art-material td { border: 1px solid #888; padding: .4rem; text-align: left; }
+        .worksheet-reflection { break-inside: avoid; margin-block: 1.2rem; }
+        .ws-chapter-material { overflow-wrap: anywhere; }
+        .ws-chapter-material table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+        .ws-chapter-material th, .ws-chapter-material td { border: 1px solid #888; padding: .35rem; text-align: left; }
+        .ws-chapter-material h3, .ws-chapter-material h4 { break-after: avoid; }
+        .ws-chapter-material tr { break-inside: avoid; }
         .exercise-item { margin-bottom: 15px; font-size: 1.2em; }
-        @media print {
+        [hidden] { display: none !important; } .worksheet-options { list-style: none; padding-left: 0; } #ws-solutions { break-before: page; } button:disabled { opacity: .6; cursor: wait; } @media (max-width: 600px) { body { padding: 16px; } .header-info { display: block; } } @media print {
             body { padding: 0; }
             .no-print { display: none !important; }
         }
     </style>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../js/worksheet_generator.js?v=1.3"></script>
+    <script src="../js/curriculum.js"></script><script src="../js/worksheet_generator.js?v=1.3"></script>
 </head>
 <body>
     <div class="no-print" style="text-align: center; margin-bottom: 40px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 2px dashed #cbd5e1;">
-        <p style="font-size: 1.1em; color: #475569;">Drucke dieses Arbeitsblatt aus, um das Thema abseits des Bildschirms zu üben! Jedes Mal, wenn du diese Seite neu lädst, werden <strong>neue Übungszahlen</strong> für dich generiert.</p>
-        <button class="print-btn" onclick="window.print()">🖨️ Jetzt drucken (als PDF oder auf Papier)</button>
+        <p id="ws-description">Das Arbeitsblatt wird vorbereitet.</p><p><a id="ws-chapter-link" href="../index.html">Zur Kapitelübersicht</a></p><label id="ws-solution-control" hidden><input id="ws-include-solutions" type="checkbox"> Lösungen anzeigen und mitdrucken</label>
+        <p id="ws-material-control" hidden><label><input id="ws-include-material" type="checkbox" checked> <span id="ws-material-label">Lerntexte, Bildvorlagen und Gestaltungsauftrag mitdrucken</span></label></p>
+        <button id="ws-print" disabled class="print-btn" onclick="window.print()">🖨️ Jetzt drucken (als PDF oder auf Papier)</button>
     </div>
 
     <div class="header-info">
-        <div><strong>Fach:</strong> Mathematik</div>
+        <div><strong>Fach:</strong> <span id="ws-subject">Lernkapitel</span></div>
         <div><strong>Name:</strong> ________________________</div>
     </div>
 
@@ -37,75 +45,6 @@
     
     <div id="ws-content">Lade Fragen...</div>
 
-    <script>
-        async function loadWorksheet() {
-            const params = new URLSearchParams(window.location.search);
-            const topicId = params.get('topic');
-            if (!topicId) return;
-
-            try {
-                const res = await fetch('../lang/de.json?v=10.8');
-                const data = await res.json();
-                const topic = data[topicId];
-                
-                if (!topic) return;
-
-                const cleanTitle = topic.title.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F1E0}-\u{1F1FF}\u{1F000}-\u{1F02F}\u{1F0A0}-\u{1F0FF}\u{1F100}-\u{1F1FF}\u{1F200}-\u{1F2FF}\u{1F400}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{1FB00}-\u{1FBFF}\u{1FC00}-\u{1FCFF}\u{1FD00}-\u{1FDFF}\u{1FE00}-\u{1FEFF}\u{1FF00}-\u{1FFFF}\u{2B50}\u{2B55}\u{23F0}\u{23F3}]/ug, '').trim();
-                
-                document.getElementById('ws-title').innerText = "Arbeitsblatt: " + cleanTitle;
-                document.title = "Arbeitsblatt - " + cleanTitle;
-
-                const content = document.getElementById('ws-content');
-                content.innerHTML = '';
-                
-                // Try dynamic generation first
-                let dynamicContent = null;
-                if (typeof generateWorksheetContent === 'function') {
-                    dynamicContent = generateWorksheetContent(topicId, cleanTitle);
-                }
-
-                if (dynamicContent) {
-                    content.innerHTML = dynamicContent;
-                    if (window.MathJax) MathJax.typesetPromise();
-                } else {
-                    // Fallback to old quiz layout
-                    let qCounter = 1;
-                    topic.sections.forEach(sec => {
-                        if (sec.quizzes && sec.quizzes.length > 0) {
-                            sec.quizzes.forEach(q => {
-                                content.innerHTML += `
-                                    <div class="question-block">
-                                        <div class="question-text">${qCounter++}. ${q.question}</div>
-                                        <div class="answer-lines"></div>
-                                        <div class="answer-lines"></div>
-                                    </div>
-                                `;
-                            });
-                        }
-                    });
-
-                    if (topic.diplom && topic.diplom.questions && topic.diplom.questions.length > 0) {
-                        content.innerHTML += `<h2 style="margin-top: 50px;">Abschluss-Check</h2>`;
-                        topic.diplom.questions.forEach(q => {
-                            content.innerHTML += `
-                                <div class="question-block">
-                                    <div class="question-text">${qCounter++}. ${q.question}</div>
-                                    <div class="answer-lines"></div>
-                                </div>
-                            `;
-                        });
-                    }
-                    
-                    if (qCounter === 1) {
-                        content.innerHTML = "<p>Für dieses Thema sind noch keine Übungsfragen hinterlegt.</p>";
-                    }
-                }
-            } catch(e) {
-                console.error(e);
-                document.getElementById('ws-content').innerHTML = "<p>Fehler beim Laden des Arbeitsblattes.</p>";
-            }
-        }
-        loadWorksheet();
-    </script>
+    <script src="../js/worksheet.js"></script>
 </body>
 </html>

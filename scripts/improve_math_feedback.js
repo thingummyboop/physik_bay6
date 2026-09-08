@@ -1,0 +1,34 @@
+const fs=require('fs'),path=require('path');const file=path.join(__dirname,'../lang/de.json'),d=JSON.parse(fs.readFileSync(file,'utf8'));
+const explanations={math1_8_brueche:[
+['Der Nenner gibt die Zahl gleich großer Teile an; der Zähler sagt, wie viele davon gemeint sind.','Ein Bruch beschreibt einen Zahlenwert, zum Beispiel drei von vier gleich großen Teilen.','Ein Bruch kann kleiner, gleich oder größer als 1 sein. Drei Viertel sind kleiner als 1.'],
+['Der Nenner steht unter dem Bruchstrich. Er gibt an, in wie viele gleich große Teile geteilt wird.','Die 4 ist der Zähler. Die 9 unter dem Bruchstrich heißt Nenner.','Ein Rest kann bei einer Division auftreten. Hier benennt die 9 die Anzahl gleich großer Teile.'],
+['Bei gleichem Nenner sind die Teile gleich groß. Sieben solche Teile sind mehr als fünf.','Vergleiche die Zähler: Sieben Zwölftel enthalten zwei Zwölftel mehr als fünf Zwölftel.','Der gleiche Nenner bedeutet gleiche Teilgröße, nicht denselben gesamten Anteil.'],
+['Ein Viertel ist größer als ein Achtel desselben Ganzen: 1/4 = 2/8.','Bei mehr gleich großen Teilen wird jeder einzelne Teil kleiner. Ein Achtel ist halb so groß wie ein Viertel.','Beziehe beide Brüche auf dasselbe Ganze. Ein Viertel umfasst zwei Achtel.'],
+['Bei 9/5 ist der Zähler größer als der Nenner; der Wert ist größer als 1.','Bei 4/7 ist der Zähler kleiner als der Nenner. Dieser Bruch ist echt und kleiner als 1.','Bei 2/9 ist der Zähler kleiner als der Nenner. Dieser Bruch ist echt und kleiner als 1.'],
+['Drei Achtel plus zwei Achtel sind fünf Achtel. Die Teilgröße bleibt gleich.','Addiere gleichnamige Brüche über die Zähler. Der Nenner 8 wird nicht mitaddiert.','Hier wird addiert. Ein Achtel wäre das Ergebnis von 3/8 − 2/8.'],
+['Schreibe 1 als 5/5. Dann ergibt 5/5 − 2/5 = 3/5.','Zwei Fünftel sind der abgezogene Anteil. Gesucht ist der Rest von fünf Fünfteln.','Rechne mit den Zählern: 5 − 2 = 3. Die Teilgröße bleibt ein Fünftel.'],
+['Ein Viertel von 12 ist 3. Drei Viertel sind 3 · 3 = 9.','Teile 12 zuerst in vier gleich große Gruppen. Eine Gruppe enthält 3, drei Gruppen enthalten 9.','Drei Viertel von 12 müssen kleiner als 12 sein. Teile durch 4 und multipliziere mit 3.'],
+['11 : 4 ergibt 2 Ganze und den Rest 3. Daher 11/4 = 2 3/4.','3 2/4 entspricht 14/4. Für 11/4 reichen zwei Ganze; drei Viertel bleiben übrig.','1 3/4 entspricht 7/4. In 11/4 stecken zwei vollständige Gruppen aus je vier Vierteln.'],
+['Ein Bruchstrich steht auch für Division: Zähler geteilt durch Nenner.','Die Reihenfolge ist vertauscht. 2/5 bedeutet 2 : 5, nicht 5 : 2.','Das Produkt 2 · 5 ist 10. Der Bruch 2/5 entspricht dagegen der Division 2 : 5.'],
+['Viermal ein Sechstel sind vier Sechstel. Gekürzt ist das zwei Drittel.','Multipliziere den Zähler mit 4. Wenn du auch den Nenner vervierfachst, bleibt der Wert nur ein Sechstel.','Die ganze Zahl 4 wird nicht einfach zum Zähler addiert. Addiere viermal 1/6.'],
+['Ein Viertel von 60 Minuten ist 60 : 4 = 15 Minuten. Die Einheit gehört zum Ergebnis.','Die Zahl ist richtig, aber ohne Einheit ist nicht klar, ob Minuten oder eine andere Größe gemeint sind.','Die Einheit allein nennt keine Dauer. Ein Viertel von 60 Minuten ergibt 15 Minuten.']
+],math1_9_dezimalzahlen:[
+['Die erste Stelle rechts vom Komma bezeichnet Zehntel: 0,4 = 4/10.','Vier Hundertstel schreibt man 0,04. Die 4 in 0,4 steht an der Zehntelstelle.','Vier Ganze schreibt man 4 oder 4,0. Bei 0,4 liegt der Wert zwischen 0 und 1.'],
+['Eine angehängte Null nach der letzten Nachkommastelle verändert den Wert nicht: 3,50 = 3,5.','3,05 enthält fünf Hundertstel, 3,50 dagegen fünf Zehntel. Das sind verschiedene Werte.','35,0 ist zehnmal so groß wie 3,50. Das Komma darf nicht beliebig verschoben werden.'],
+['Schreibe 2,9 als 2,90. Dann siehst du: 90 Hundertstel sind mehr als 9 Hundertstel.','Beide haben zwei Ganze. Danach ist 9 Zehntel größer als 0 Zehntel.','2,09 und 2,90 haben unterschiedliche Nachkommastellen. 2,9 bedeutet 2,90.'],
+['Die Hundertstelziffer 8 ist mindestens 5. Deshalb wird die Zehntelziffer von 6 auf 7 erhöht.','7,6 wäre Abschneiden. Beim Runden entscheidet die nächste Ziffer; die 8 führt zum Aufrunden.','8 ist das gerundete Ergebnis auf Ganze. Gesucht ist eine Nachkommastelle: 7,7.'],
+['Zwei Nachkommastellen stehen für Hundertstel: 0,25 = 25/100.','25/10 entspricht 2,5. Für 0,25 brauchst du Hundertstel.','2/5 entspricht 0,4. Ein Viertel oder 25/100 entspricht 0,25.'],
+['Addiere stellenweise: 420 Hundertstel + 135 Hundertstel = 555 Hundertstel = 5,55.','Prüfe die Zehntel: 2 Zehntel plus 3 Zehntel ergeben 5 Zehntel. Das Ergebnis ist 5,55.','Schreibe gleiche Stellen untereinander. Das Komma trennt Stellenwerte und verbindet nicht die beiden Zahlen.'],
+['600 Hundertstel − 245 Hundertstel = 355 Hundertstel, also 3,55.','Die Gegenprobe hilft: 4,45 + 2,45 ist nicht 6,00. Mit 3,55 stimmt sie.','Prüfe die Gegenprobe: 3,65 + 2,45 = 6,10. Gesucht ist 3,55.'],
+['Dreimal 1,2 ergibt 1,2 + 1,2 + 1,2 = 3,6.','12 · 3 ist 36, aber 1,2 ist zehnmal kleiner als 12. Das Ergebnis ist daher 3,6.','Eine Multiplikation hängt keine Ziffer an. Addiere 1,2 dreimal.'],
+['4/10 · 5/10 = 20/100 = 0,20. Das ist ein Fünftel.','Das Ergebnis muss kleiner als 0,4 sein, weil du mit einer halben Einheit multiplizierst.','0,09 entspricht hier keiner passenden Stellenwertrechnung. Vier Zehntel mal fünf Zehntel sind zwanzig Hundertstel.'],
+['Die Hälfte von 8,4 ist 4,2. Die Gegenprobe 4,2 · 2 ergibt 8,4.','42 ist größer als der Ausgangswert. Beim Teilen durch 2 wird die Zahl halbiert: 4,2.','0,42 wäre die Hälfte von 0,84. Das Komma muss zur ursprünglichen Zahl 8,4 passen.'],
+['Zuerst werden Multiplikation und Division ausgeführt, danach Addition und Subtraktion. Klammern gehen davor.','Bei 2 + 3 · 4 wird zuerst 3 · 4 berechnet. Das Ergebnis ist 14, nicht 20.','Klammern haben Vorrang. Außerhalb von Klammern gilt zusätzlich Punktrechnung vor Strichrechnung.'],
+['Zahl und passende Einheit nennen das Ergebnis; ein kurzer Satz beantwortet die gestellte Frage.','Runde nur passend zur Aufgabe. Ohne Einheit und Bezug bleibt unklar, was das Ergebnis bedeutet.','Der Rechenweg erklärt die Lösung. Das Ergebnis und eine Antwort auf die Frage müssen ebenfalls erkennbar sein.']
+]};
+d.math1_8_brueche.quizzes[0].question='Wie lässt sich 3/4 als Anteil darstellen?';
+d.math1_8_brueche.quizzes[0].answers[0].text='Drei von vier gleich großen Teilen eines Ganzen.';
+d.math1_8_brueche.quizzes[8].answers[2].text='1 3/4';
+d.math1_8_brueche.quizzes[11].question='Eine Lernstunde dauert 60 Minuten. Ein Viertel davon ist Pause. Welche Angabe beschreibt die Pausendauer vollständig?';
+for(const[key,rows]of Object.entries(explanations))rows.forEach((row,i)=>row.forEach((feedback,j)=>d[key].quizzes[i].answers[j].feedback=feedback));
+fs.writeFileSync(file,JSON.stringify(d,null,2)+'\n');console.log('Updated 72 explanations; clarified two tasks and replaced an equivalent fraction distractor.');

@@ -24,6 +24,26 @@ function bindKoerperHintExercise() {
 
     const feedback = ensureKoerperFeedback(zone);
     input.setAttribute('aria-describedby', 'koerper_feedback');
+    input.setAttribute('aria-label', 'Volumen in Kubikzentimetern bei Grundfläche 20 Quadratzentimeter und Höhe 10 Zentimeter');
+    let check = zone.querySelector('[data-check-cylinder]');
+    if (!check) {
+        check = document.createElement('button');
+        check.type = 'button';
+        check.dataset.checkCylinder = 'true';
+        check.textContent = 'Ergebnis prüfen';
+        check.style.minHeight = '44px';
+        button.after(check);
+    }
+    const checkAnswer = () => {
+        if (!input.value.trim() || !Number.isFinite(Number(input.value))) {
+            feedback.textContent = 'Trage zuerst ein Volumen ein. Für diese Aufgabe gelten G = 20 cm² und h = 10 cm.';
+        } else {
+            feedback.textContent = Number(input.value) === 200
+                ? 'Richtig: V = 20 cm² · 10 cm = 200 cm³.'
+                : 'Noch nicht: Multipliziere die Grundfläche 20 cm² mit der Höhe 10 cm. Prüfe auch die Einheit cm³.';
+        }
+    };
+    check.onclick = checkAnswer;
 
     button.onclick = (event) => {
         event.preventDefault();
@@ -35,7 +55,7 @@ function bindKoerperHintExercise() {
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
                 event.preventDefault();
-                if (feedback) feedback.innerText = 'Starte mit der Kreisfläche G = π·r² und multipliziere dann mit der Höhe h.';
+                checkAnswer();
             }
         });
     }

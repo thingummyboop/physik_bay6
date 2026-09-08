@@ -1,8 +1,39 @@
 // Logic for elektrizitaet topic
 function topicInit() {
+    initSensorLamp();
     if (!document.getElementById('uRange')) return;
     ensureOhmAccessibility();
     updateOhm();
+}
+
+function initSensorLamp() {
+    const zone = document.querySelector('[data-sensor-lamp]');
+    if (!zone || zone.dataset.initialized) return;
+    zone.dataset.initialized = 'true';
+    const get = name => zone.querySelector('[data-lamp-' + name + ']');
+    const light = get('light'), mode = get('mode'), power = get('power');
+    const render = () => {
+        if (!['bright', 'dark'].includes(light.value)) light.value = 'bright';
+        if (!['auto', 'on', 'off'].includes(mode.value)) mode.value = 'auto';
+        const dark = light.value === 'dark';
+        const on = power.checked && (mode.value === 'on' || (mode.value === 'auto' && dark));
+        get('input').textContent = power.checked ? 'Sensorsignal: ' + (dark ? 'dunkel.' : 'hell.') : 'Ohne Versorgung liefert der Sensor hier kein Signal.';
+        get('rule').textContent = !power.checked ? 'Ohne Versorgung arbeitet die Steuerung nicht.' :
+            mode.value === 'off' ? 'Betriebsart Aus: LED bleibt aus.' :
+            mode.value === 'on' ? 'Dauerlicht: LED einschalten, unabhängig vom Helligkeitssignal.' :
+            'Automatik: Wenn das Signal „dunkel“ lautet, LED einschalten; sonst ausschalten.';
+        get('output').textContent = on ? 'LED leuchtet.' : 'LED leuchtet nicht.';
+        get('output').dataset.on = String(on);
+        get('status').textContent = get('input').textContent + ' ' + get('rule').textContent + ' ' + get('output').textContent;
+    };
+    [light, mode, power].forEach(control => control.addEventListener('change', render));
+    get('reset').addEventListener('click', () => {
+        light.value = 'bright';
+        mode.value = 'auto';
+        power.checked = true;
+        render();
+    });
+    render();
 }
 
 function ensureOhmAccessibility() {
@@ -73,13 +104,7 @@ function updateOhm() {
 
     const ohmFeedback = document.getElementById('ohmFeedback');
     if (ohmFeedback) {
-        if (i < 0.15) {
-            ohmFeedback.innerText = "Wenig Strom: Die Spannung ist klein oder der Widerstand bremst stark.";
-        } else if (i < 0.55) {
-            ohmFeedback.innerText = "Mittlerer Strom: Die Lampe leuchtet sichtbar, aber nicht sehr hell.";
-        } else {
-            ohmFeedback.innerText = "Viel Strom: Mehr Spannung oder weniger Widerstand macht die Lampe heller.";
-        }
+        ohmFeedback.innerText = `${u} V ÷ ${r} Ω = ${i.toFixed(2).replace(".", ",")} A. Vergleiche zwei Fälle und halte dabei U oder R gleich. Die Helligkeit ist nur eine Modellanzeige, keine Vorhersage für eine reale Lampe.`;
     }
 
     // Brightness based on current I

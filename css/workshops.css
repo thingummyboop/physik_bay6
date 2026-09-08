@@ -1,0 +1,86 @@
+.topic-body :is(h1,h2,h3),.topic-body .word-rubric :is(th,td){overflow-wrap:anywhere}
+.topic-body .word-rubric :is(th,td){vertical-align:top}
+.chem-lab label{display:block;margin:12px 0;min-height:44px;line-height:1.5}
+.chem-lab button{min-height:44px;min-width:44px;font:inherit;margin:6px 6px 6px 0}
+.chem-lab input[type=range]{display:block;width:100%;min-height:44px;box-sizing:border-box}
+.chem-lab select{display:block;max-width:100%;width:100%;min-height:44px;padding:8px;font:inherit;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px;box-sizing:border-box}
+.chem-lab :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+.chem-lab .chem-visual{min-width:0}
+[data-language-workshop] .workshop-item{padding:16px 0;border-bottom:1px solid var(--box-border)}
+[data-language-workshop] label{font-size:1rem;line-height:1.6}
+[data-language-workshop] .workshop-item label{display:block;font-weight:600;margin-bottom:8px}
+[data-language-workshop] select,[data-language-workshop] textarea,[data-core-experiment] select{box-sizing:border-box;width:100%;min-height:44px;padding:10px 12px;font:inherit;font-size:1rem;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:8px}
+[data-language-workshop] textarea{resize:vertical;min-height:180px;scrollbar-width:auto}
+[data-language-workshop] textarea::-webkit-scrollbar{display:block;width:10px;height:10px}
+[data-language-workshop] fieldset{border:1px solid var(--box-border);border-radius:8px;margin:20px 0;padding:16px}
+[data-language-workshop] fieldset label{min-height:44px;display:flex!important;align-items:center;gap:10px}
+[data-language-workshop] input[type=checkbox]{width:20px;height:20px;flex-shrink:0;accent-color:var(--primary)}
+[data-language-workshop] button,[data-core-experiment] button{min-height:44px;margin:8px 8px 8px 0;font-size:1rem}
+[data-language-workshop] details,[data-core-navigation] li{margin:12px 0}
+[data-language-workshop] summary{cursor:pointer;font-weight:600;min-height:44px}
+[data-language-workshop] :focus-visible,[data-core-experiment] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-core-experiment] label,[data-core-experiment] output{display:block;font-size:1rem;margin:12px 0}
+[data-core-experiment] progress{width:100%;height:24px;accent-color:var(--primary)}
+[data-core-experiment] input[type=range]{width:100%;min-height:44px}
+[data-geo-experiment] button{min-height:44px;min-width:44px;margin:8px 8px 8px 0;font:inherit}
+[data-geo-experiment] label{display:flex;align-items:center;gap:10px;min-height:44px;line-height:1.5}
+[data-geo-experiment] input[type=checkbox]{width:20px;height:20px;flex-shrink:0;accent-color:var(--primary)}
+[data-geo-experiment] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-geo-experiment] [data-status]{min-height:3em;line-height:1.6}
+[data-geo-experiment] [data-grid]{max-width:480px;font-size:clamp(.8rem,3vw,1rem)}
+[data-art-study] svg{display:block;width:100%;max-width:600px;height:auto;aspect-ratio:5/3;border:2px solid var(--box-border);margin:16px 0}
+[data-art-study] label{display:block;margin:12px 0;line-height:1.5}
+[data-art-study] input[type=range]{display:block;width:100%;min-height:44px;accent-color:var(--primary)}
+[data-art-study] button{min-height:44px;margin:8px 8px 8px 0;font:inherit}
+[data-art-study] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-music-lab] [data-notes]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+[data-music-lab] label{display:block;margin:12px 0;line-height:1.5}
+[data-music-lab] select{display:block;width:100%;min-height:44px;font:inherit;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px}
+[data-music-lab] button{min-height:44px;font:inherit;margin:8px 8px 8px 0}
+[data-music-lab] input[type=checkbox]{width:20px;height:20px;vertical-align:middle}
+[data-music-lab] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+@media(max-width:420px){[data-music-lab] [data-notes]{grid-template-columns:repeat(2,minmax(0,1fr))}}
+[data-meal-planner] input{min-height:44px;width:90px;font:inherit;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px}
+[data-meal-planner] .meal-table{overflow-x:auto;scrollbar-width:auto;margin:16px 0}
+[data-meal-planner] table{width:100%;border-collapse:collapse;font-size:.95rem}
+[data-meal-planner] th,[data-meal-planner] td{text-align:left;padding:10px;border-bottom:1px solid var(--box-border)}
+[data-meal-planner] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-area-lab] svg{display:block;width:100%;max-width:500px;background:#fff;border:1px solid var(--box-border)}
+[data-area-lab] label{display:block;line-height:1.5;margin:12px 0}
+[data-area-lab] label[hidden]{display:none}
+[data-area-lab] select{min-height:44px;font:inherit;background:var(--card-bg);color:var(--text)}
+[data-area-lab] input{display:block;width:100%;min-height:44px}
+[data-area-lab] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-system-lab] svg{width:100%;max-width:460px;display:block;background:white;color:#111827}
+[data-system-lab] label{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin:8px}
+[data-system-lab] input{width:75px;min-height:44px;font:inherit;background:var(--card-bg);color:var(--text)}
+[data-system-lab] button{min-height:44px;font:inherit;margin:8px}
+[data-system-lab] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-sphere-lab] svg{display:block;width:100%;max-width:300px;background:white}
+[data-sphere-lab] input{display:block;width:100%;min-height:44px}
+[data-sphere-lab] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+@media print{[data-language-workshop] button,[data-language-workshop] select{display:none}[data-language-workshop] textarea{height:auto;min-height:200px;background:white;color:black}}
+
+/* Native controls and readable comparison tables for the biology models. */
+:is([data-cell-comparison],[data-plant-balance],[data-reproduction-practice],[data-fungi-relations],[data-habitat-sampling],[data-invertebrate-key]) select{display:block;width:100%;max-width:100%;min-height:44px;margin:8px 0 16px;padding:8px;font:inherit;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px;box-sizing:border-box}
+:is([data-cell-comparison],[data-plant-balance],[data-reproduction-practice],[data-fungi-relations],[data-habitat-sampling],[data-invertebrate-key]) table{width:100%;border-collapse:collapse;table-layout:fixed}
+:is([data-cell-comparison],[data-plant-balance],[data-reproduction-practice],[data-fungi-relations],[data-habitat-sampling],[data-invertebrate-key]) :is(th,td){padding:8px;border:1px solid var(--box-border);vertical-align:top;overflow-wrap:anywhere;text-align:left}
+:is([data-cell-comparison],[data-plant-balance],[data-reproduction-practice],[data-fungi-relations],[data-habitat-sampling],[data-invertebrate-key]) caption{text-align:left;margin:8px 0;font-weight:600}
+:is([data-cell-comparison],[data-plant-balance],[data-reproduction-practice],[data-fungi-relations],[data-habitat-sampling],[data-invertebrate-key]) :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+
+[data-reproduction-practice] button{min-height:44px;min-width:44px;margin:6px;padding:8px 12px;font:inherit}
+
+[data-fungi-relations] fieldset{min-width:0;margin:12px 0;padding:12px;border:1px solid var(--box-border)}
+[data-fungi-relations] fieldset label{display:flex;align-items:center;gap:10px;min-height:44px;margin:8px 0}
+[data-fungi-relations] input[type=radio]{flex-shrink:0;width:20px;height:20px}
+[data-fungi-relations] button{min-height:44px;margin:6px 0;padding:8px 12px;font:inherit}
+
+[data-invertebrate-key] button{min-height:44px;padding:8px 12px;font:inherit}
+
+[data-contrast-lab] svg{display:block;width:100%;max-width:600px;height:auto;margin:16px auto}
+[data-contrast-lab] button{min-height:44px;padding:8px 12px;font:inherit}
+[data-contrast-lab] :focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+[data-cladogram-rotation] svg { display: block; width: 100%; max-width: 680px; height: auto; }
+[data-cladogram-rotation] .tree-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+[data-cladogram-rotation] button { min-height: 44px; max-width: 100%; white-space: normal; }
+[data-cladogram-rotation] button:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }

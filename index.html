@@ -30,17 +30,6 @@
             --header-border: #172554;
         }
 
-        * {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        *::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none;
-        }
-
         body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background-color: var(--main-bg); color: var(--text-color); overflow: hidden; transition: background-color 0.3s, color 0.3s; }
         #sidebar { width: 320px; background-color: var(--sidebar-bg); overflow-y: auto; display: flex; flex-direction: column; transition: margin-left 0.3s, background-color 0.3s; box-shadow: 4px 0 15px rgba(0,0,0,0.3); z-index: 10; }
         #sidebar.collapsed { margin-left: -320px; }
@@ -102,6 +91,7 @@
             }
         }
     </style>
+    <script src="js/curriculum.js"></script>
 </head>
 <body>
     <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menü umschalten" aria-expanded="true">☰</button>
@@ -176,7 +166,8 @@
             </div>
         </div>
 
-        <button class="nav-btn" data-page="topics/start.html" onclick="loadPage('topics/start.html', this)" style="font-weight: bold; color: var(--nav-btn-active-text);">🏠 Startseite</button>
+        <button class="nav-btn" data-page="topics/learning.html" onclick="loadPage('topics/learning.html', this)" style="font-weight: bold; color: var(--nav-btn-active-text);">📚 Lernen & Prüfungsstoff</button>
+        <button class="nav-btn" data-page="topics/start.html" onclick="loadPage('topics/start.html', this)">🏠 Fächerübersicht</button>
         <button class="nav-btn" data-page="topics/glossar.html" onclick="loadPage('topics/glossar.html', this)" style="margin-bottom: 10px;">📖 Glossar</button>
         
         <div id="dynamic-nav-container"></div>
@@ -185,6 +176,16 @@
     
     <script src="js/learning_radio.js?v=1.4"></script>
     <script>
+        // Preferences remain usable for this visit when browser storage is denied.
+        const shellSessionSettings = new Map();
+        function readShellSetting(key) {
+            if (shellSessionSettings.has(key)) return shellSessionSettings.get(key);
+            try { return localStorage.getItem(key); } catch { return null; }
+        }
+        function writeShellSetting(key, value) {
+            shellSessionSettings.set(key, String(value));
+            try { localStorage.setItem(key, value); return true; } catch { return false; }
+        }
         const TOPIC_TEMPLATE_VERSION = '14.6';
 
         // Message handling for communication from iframe
@@ -272,7 +273,7 @@
         };
 
         function shellText(key) {
-            const lang = localStorage.getItem('physik_lang') || 'de';
+            const lang = readShellSetting('physik_lang') || 'de';
             const dict = shellTranslations[lang] || shellTranslations.en;
             return dict[key] || shellTranslations.de[key] || key;
         }
@@ -310,14 +311,14 @@
             const glossaryButton = document.querySelector('[data-page="topics/glossar.html"]');
             if (glossaryButton) glossaryButton.textContent = `📖 ${shellText('glossary')}`;
 
-            applyTheme(localStorage.getItem('physik_dark_mode') === 'true');
+            applyTheme(readShellSetting('physik_dark_mode') === 'true');
             if (typeof window.SciverseLearningRadioApplyLanguage === 'function') {
                 window.SciverseLearningRadioApplyLanguage();
             }
         }
 
         function setLanguage(l) {
-            localStorage.setItem('physik_lang', l);
+            writeShellSetting('physik_lang', l);
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             const btn = document.getElementById('lang-' + l);
             if (btn) btn.classList.add('active');
@@ -339,237 +340,7 @@
         }
 
         
-        const curriculum = {
-            physik: {
-                topics: [
-                    { id: "optik1", title: "🌑 1. Licht: Entstehung & Schatten", grade: "6. Schulstufe (2. Kl.)", category: "Optik" },
-                    { id: "farben", title: "🎨 2. Farben & Sehen", grade: "6. Schulstufe (2. Kl.)", category: "Optik" },
-                    { id: "waermelehre", title: "🌡️ 3. Wärmelehre", grade: "6. Schulstufe (2. Kl.)", category: "Wärmelehre" },
-                    { id: "elektrizitaet", title: "⚡ 4. Elektrizität 1", grade: "6. Schulstufe (2. Kl.)", category: "Elektrizitätslehre" },
-                    { id: "kraft_und_bewegung", title: "🚀 6. Kraft & Bewegung", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "drehundstatik", title: "🎡 7. Statik & Hebel", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "arbeit", title: "🏗 8. Mechanische Arbeit", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "energie", title: "🔋 9. Energieformen", grade: "7. Schulstufe (3. Kl.)", category: "Mechanik" },
-                    { id: "akustik", title: "🎶 10. Akustik", grade: "7. Schulstufe (3. Kl.)", category: "Akustik" },
-                    { id: "elektromagnetismus", title: "🧲 11. Elektromagnetismus", grade: "8. Schulstufe (4. Kl.)", category: "Elektrizitätslehre" },
-                    { id: "linsen_spiegel", title: "🔍 12. Linsen & Spiegel", grade: "8. Schulstufe (4. Kl.)", category: "Optik" },
-                    { id: "astronomie", title: "🌌 13. Astronomie", grade: "8. Schulstufe (4. Kl.)", category: "Astronomie" },
-                    { id: "sieinheiten", title: "📏 SI-Einheiten", grade: "Grundlagen", category: "Grundlagen" },
-                    { id: "rechenbeispiele", title: "🧮 Rechenbeispiele", grade: "Grundlagen", category: "Grundlagen" },
-                    { id: "wetter", title: "🌤️ Wetter", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" },
-                    { id: "klima", title: "🌡️ Klima", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" },
-                    { id: "klimawandel", title: "🆘 Klimawandel", grade: "7. Schulstufe (3. Kl.)", category: "Klima & Umwelt" }
-                ]
-            },
-            dgb: {
-                topics: [
-                    { id: "dgb_word_werkstatt", title: "📝 Word-Werkstatt", grade: "5./6. Schulstufe", category: "Praxis" },
-                    { id: "dgb5_orientierung", title: "🧭 Geräte verstehen", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
-                    { id: "dgb5_information", title: "🔎 Suchen und Dateien", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
-                    { id: "dgb5_kommunikation", title: "💬 Sicher schreiben", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
-                    { id: "dgb5_produktion", title: "🛠️ Kleine Produkte", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
-                    { id: "dgb5_handeln", title: "🧰 Computer bedienen", grade: "5. Schulstufe (1. Kl.)", category: "5. Schulstufe" },
-                    { id: "dgb6_orientierung", title: "🧭 Apps vergleichen", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
-                    { id: "dgb6_information", title: "🔎 Daten und Bilder", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
-                    { id: "dgb6_kommunikation", title: "💬 Nachrichten prüfen", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
-                    { id: "dgb6_produktion", title: "🛠️ Medienprodukte", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
-                    { id: "dgb6_handeln", title: "🧰 Arbeitsplatz", grade: "6. Schulstufe (2. Kl.)", category: "6. Schulstufe" },
-                    { id: "dgb7_orientierung", title: "🧭 KI im Alltag", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
-                    { id: "dgb7_information", title: "🔎 Recherche prüfen", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
-                    { id: "dgb7_kommunikation", title: "💬 Cloud und Konten", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
-                    { id: "dgb7_produktion", title: "🛠️ Barrierearm gestalten", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
-                    { id: "dgb7_handeln", title: "🧰 Smarte Geräte", grade: "7. Schulstufe (3. Kl.)", category: "7. Schulstufe" },
-                    { id: "dgb8_orientierung", title: "🧭 KI kritisch nutzen", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
-                    { id: "dgb8_information", title: "🔎 Backups und Daten", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
-                    { id: "dgb8_kommunikation", title: "💬 Mediencheck", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
-                    { id: "dgb8_produktion", title: "🛠️ Projekte planen", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" },
-                    { id: "dgb8_handeln", title: "🧰 Systeme schützen", grade: "8. Schulstufe (4. Kl.)", category: "8. Schulstufe" }
-                ]
-            },
-            geographie: {
-                topics: [
-                    { id: "geo_oesterreich_alltag", title: "🗺️ Österreich im Alltag", grade: "5./6. Schulstufe", category: "Orientierung & Lebensraum" },
-                    { id: "geo_1_karten_raeume", title: "🧭 Karten und Räume", grade: "5. Schulstufe (1. Kl.)", category: "Orientierung", available: false },
-                    { id: "geo_2_wirtschaften", title: "🛒 Wirtschaften im Alltag", grade: "6. Schulstufe (2. Kl.)", category: "Wirtschaft", available: false },
-                    { id: "geo_3_europa", title: "🇪🇺 Europa und Vernetzung", grade: "7. Schulstufe (3. Kl.)", category: "Räume", available: false },
-                    { id: "geo_4_globalisierung", title: "🌐 Globalisierung und Nachhaltigkeit", grade: "8. Schulstufe (4. Kl.)", category: "Welt", available: false }
-                ]
-            },
-            chemie: {
-                topics: [
-                    { id: "chemie_roadmap", title: "🧪 So funktioniert Chemie", grade: "7. Schulstufe (3. Kl.)", category: "Anleitung" },
-                    { id: "chemie_sicherheit", title: "🥽 Sicher experimentieren", grade: "7. Schulstufe (3. Kl.)", category: "Labor" },
-                    { id: "chemie_alltag_stoffe", title: "🧪 Stoffe im Alltag", grade: "7. Schulstufe (3. Kl.)", category: "Stoffe" },
-                    { id: "chemie_stoffe_eigenschaften", title: "🔍 Stoffe und Eigenschaften", grade: "7. Schulstufe (3. Kl.)", category: "Stoffe" },
-                    { id: "chemie_trennverfahren", title: "🧫 Gemische trennen", grade: "7. Schulstufe (3. Kl.)", category: "Stoffe" },
-                    { id: "chemie_teilchenmodell", title: "⚛️ Teilchenmodell", grade: "7. Schulstufe (3. Kl.)", category: "Teilchen" },
-                    { id: "chemie_salze_wasser", title: "💧 Wasser, Lösen, Kristalle", grade: "7. Schulstufe (3. Kl.)", category: "Teilchen" },
-                    { id: "chemie_reaktionen_energie", title: "🔥 Chemische Reaktionen", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
-                    { id: "chemie_sauerstoff_verbrennung", title: "🕯️ Sauerstoff und Verbrennung", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
-                    { id: "chemie_saeuren_basen", title: "🧪 Säuren, Basen und pH", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
-                    { id: "chemie_metalle_redox", title: "🔩 Metalle und Redox", grade: "8. Schulstufe (4. Kl.)", category: "Reaktionen" },
-                    { id: "chemie_atom_periodensystem", title: "🧬 Atome und Periodensystem", grade: "8. Schulstufe (4. Kl.)", category: "Systematik" },
-                    { id: "chemie_bindungen", title: "🔗 Bindungen und Strukturen", grade: "8. Schulstufe (4. Kl.)", category: "Systematik" },
-                    { id: "chemie_kohlenstoff_kunststoffe", title: "🧴 Kohlenstoff und Kunststoffe", grade: "8. Schulstufe (4. Kl.)", category: "Systematik" },
-                    { id: "chemie_umwelt_chemie", title: "🌱 Chemie, Umwelt und Zukunft", grade: "8. Schulstufe (4. Kl.)", category: "Umwelt" }
-                ]
-            },
-            biologie: {
-                topics: [
-                    { id: "bio_1_kompass", title: "🧭 Übersicht 1. Klasse", grade: "5. Schulstufe (1. Kl.)", category: "Forschen lernen" },
-                    { id: "bio_1_evolution", title: "🌱 Evolution", grade: "5. Schulstufe (1. Kl.)", category: "Entwicklung" },
-                    { id: "bio_1_lebensraeume", title: "🌿 Lebensräume und Wechselbeziehungen", grade: "5. Schulstufe (1. Kl.)", category: "Lebensräume" },
-                    { id: "bio_1_bluetenpflanzen", title: "🌸 Blütenpflanzen", grade: "5. Schulstufe (1. Kl.)", category: "Pflanzen" },
-                    { id: "bio_1_wirbeltiere", title: "🐟 Wirbeltiere", grade: "5. Schulstufe (1. Kl.)", category: "Tiere" },
-                    { id: "bio_1_haustiere", title: "🐕 Haustiere und Verantwortung", grade: "5. Schulstufe (1. Kl.)", category: "Tiere & Ethik" },
-                    { id: "bio_1_selektion", title: "🦋 Veränderung und Selektion", grade: "5. Schulstufe (1. Kl.)", category: "Entwicklung" },
-                    { id: "bio_1_skelett_bewegung", title: "🦴 Skelett und Bewegung", grade: "5. Schulstufe (1. Kl.)", category: "Mensch" },
-                    { id: "bio_1_ernaehrung_verdauung", title: "🍎 Ernährung und Verdauung", grade: "5. Schulstufe (1. Kl.)", category: "Mensch & Gesundheit" },
-                    { id: "bio_1_pubertaet_fortpflanzung", title: "🌱 Pubertät und Fortpflanzung", grade: "5. Schulstufe (1. Kl.)", category: "Mensch & Verantwortung" },
-                    { id: "bio_2_uebersicht", title: "🧭 Übersicht 2. Klasse", grade: "6. Schulstufe (2. Kl.)", category: "Forschen lernen" },
-                    { id: "bio_2_oekosysteme", title: "🌳 Ökosystem Wald und Landlebensräume", grade: "6. Schulstufe (2. Kl.)", category: "Ökologie" },
-                    { id: "bio_2_pflanzenorgane_fotosynthese", title: "🍃 Pflanzenorgane und Fotosynthese", grade: "6. Schulstufe (2. Kl.)", category: "Pflanzen" },
-                    { id: "bio_2_zellen", title: "🔬 Pflanzen- und Tierzellen", grade: "6. Schulstufe (2. Kl.)", category: "Zellen" },
-                    { id: "bio_2_pflanzenvermehrung", title: "🌼 Vermehrung von Pflanzen", grade: "6. Schulstufe (2. Kl.)", category: "Pflanzen" },
-                    { id: "bio_2_pilze", title: "🍄 Pilze, Zersetzer und Symbiosen", grade: "6. Schulstufe (2. Kl.)", category: "Pilze" },
-                    { id: "bio_2_mikroorganismen", title: "🦠 Mikroorganismen und Hygiene", grade: "6. Schulstufe (2. Kl.)", category: "Mikroorganismen" },
-                    { id: "bio_2_wirbellose", title: "🪲 Wirbellose Tiere an Land", grade: "6. Schulstufe (2. Kl.)", category: "Tiere" },
-                    { id: "bio_2_sinne_gehirn", title: "👁️ Sinne, Gehirn und Wahrnehmung", grade: "6. Schulstufe (2. Kl.)", category: "Mensch" },
-                    { id: "bio_2_gehirn_bewegung", title: "🧠 Gehirn, Bewegung und Gesundheit", grade: "6. Schulstufe (2. Kl.)", category: "Mensch & Gesundheit" },
-                    { id: "bio_3_kompetenzplan", title: "🧭 Übersicht 3. Klasse", grade: "7. Schulstufe (3. Kl.)", category: "Forschen lernen" },
-                    { id: "bio_3_wasser_oekosysteme", title: "💧 Süßwasser, Meer und Ökosysteme", grade: "7. Schulstufe (3. Kl.)", category: "Ökologie" },
-                    { id: "bio_3_wassertiere_entwicklung", title: "🐟 Wassertiere und Entwicklung", grade: "7. Schulstufe (3. Kl.)", category: "Tiere" },
-                    { id: "bio_3_atmung_energie", title: "🫁 Atmung und Energiegewinnung", grade: "7. Schulstufe (3. Kl.)", category: "Mensch" },
-                    { id: "bio_3_blut_kreislauf", title: "❤️ Blut und Herz-Kreislauf-System", grade: "7. Schulstufe (3. Kl.)", category: "Mensch & Gesundheit" },
-                    { id: "bio_3_ausscheidung_gesundheit", title: "🧪 Ausscheidung und Gesundheit", grade: "7. Schulstufe (3. Kl.)", category: "Mensch & Gesundheit" },
-                    { id: "bio_3_geologie_lebensraeume", title: "🌋 Gesteinskreislauf, Plattentektonik und Lebensräume", grade: "7. Schulstufe (3. Kl.)", category: "Erde & Lebensräume" },
-                    { id: "bio_3_boden_mikroorganismen", title: "🌱 Boden, Mikroorganismen und Pflanzen", grade: "7. Schulstufe (3. Kl.)", category: "Boden" },
-                    { id: "bio_3_fossilien_erdgeschichte", title: "🦴 Fossilien und Geschichte des Lebens", grade: "7. Schulstufe (3. Kl.)", category: "Erdgeschichte" },
-                    { id: "bio_3_kladogramme", title: "🌿 Kladogramme und Verwandtschaft", grade: "7. Schulstufe (3. Kl.)", category: "Evolution" },
-                    { id: "bio_4_kompetenzplan", title: "🧭 Übersicht 4. Klasse", grade: "8. Schulstufe (4. Kl.)", category: "Forschen lernen" },
-                    { id: "bio_4_landwirtschaft_biodiversitaet", title: "🌾 Landwirtschaft, Ernährung und Biodiversität", grade: "8. Schulstufe (4. Kl.)", category: "Ökologie & Ernährung" },
-                    { id: "bio_4_siedlungsraeume", title: "🏙️ Stadtökologie und Siedlungsräume", grade: "8. Schulstufe (4. Kl.)", category: "Ökologie & Lebensräume" },
-                    { id: "bio_4_kohlenstoff_klima", title: "🌍 Kohlenstoffkreislauf und Klimawandel", grade: "8. Schulstufe (4. Kl.)", category: "Klima & Stoffkreisläufe" },
-                    { id: "bio_4_genetik_gentechnik", title: "🧬 Genetik, Vererbung und Gentechnik", grade: "8. Schulstufe (4. Kl.)", category: "Genetik" },
-                    { id: "bio_4_immunsystem_resistenzen", title: "🛡️ Immunsystem, Impfungen und Resistenzen", grade: "8. Schulstufe (4. Kl.)", category: "Mensch & Gesundheit" },
-                    { id: "bio_4_nerven_hormone", title: "🧠 Nerven- und Hormonsystem", grade: "8. Schulstufe (4. Kl.)", category: "Mensch & Steuerung" },
-                    { id: "bio_4_sexualitaet_verantwortung", title: "💬 Sexualität, Entwicklung und Verantwortung", grade: "8. Schulstufe (4. Kl.)", category: "Mensch & Verantwortung" },
-                    { id: "bio_4_menschheitsentwicklung", title: "🧍 Menschheitsentwicklung und Evolution", grade: "8. Schulstufe (4. Kl.)", category: "Evolution" }
-                ]
-            },
-            deutsch: {
-                topics: [
-                    { id: "deutsch_1_lesen", title: "📖 Lesen: Informationen finden", grade: "5. Schulstufe (1. Kl.)", category: "Lesen", available: false },
-                    { id: "deutsch_1_schreiben", title: "✍️ Sätze, Abschnitte, Erzählen", grade: "5. Schulstufe (1. Kl.)", category: "Schreiben", available: false },
-                    { id: "deutsch_1_sprechen", title: "🎙️ Zuhören und Sprechen", grade: "5. Schulstufe (1. Kl.)", category: "Sprechen", available: false },
-                    { id: "deutsch_1_sprache", title: "🔤 Wortarten und Satzbau", grade: "5. Schulstufe (1. Kl.)", category: "Sprache", available: false },
-                    { id: "deutsch_2_sachtexte", title: "📰 Sachtexte verstehen", grade: "6. Schulstufe (2. Kl.)", category: "Lesen", available: false },
-                    { id: "deutsch_2_berichte", title: "📝 Berichten und Beschreiben", grade: "6. Schulstufe (2. Kl.)", category: "Schreiben", available: false },
-                    { id: "deutsch_2_literatur", title: "📚 Literarische Texte", grade: "6. Schulstufe (2. Kl.)", category: "Literatur", available: false },
-                    { id: "deutsch_3_argumentieren", title: "💬 Argumentieren und Stellung nehmen", grade: "7. Schulstufe (3. Kl.)", category: "Schreiben", available: false },
-                    { id: "deutsch_3_medien", title: "📱 Medien kritisch nutzen", grade: "7. Schulstufe (3. Kl.)", category: "Medien", available: false },
-                    { id: "deutsch_4_bewerbung", title: "📄 Bewerbung und formelle Texte", grade: "8. Schulstufe (4. Kl.)", category: "Praxis", available: false },
-                    { id: "deutsch_4_analyse", title: "🔎 Texte analysieren und interpretieren", grade: "8. Schulstufe (4. Kl.)", category: "Literatur", available: false }
-                ]
-            },
-            englisch: {
-                topics: [
-                    { id: "englisch_1_basics", title: "🇬🇧 Classroom English and me", grade: "5. Schulstufe (1. Kl.)", category: "Communication", available: false },
-                    { id: "englisch_1_listening", title: "🎧 Listening and speaking", grade: "5. Schulstufe (1. Kl.)", category: "Skills", available: false },
-                    { id: "englisch_1_reading", title: "💬 Short texts and messages", grade: "5. Schulstufe (1. Kl.)", category: "Reading", available: false },
-                    { id: "englisch_2_everyday", title: "🚌 Everyday situations", grade: "6. Schulstufe (2. Kl.)", category: "Communication", available: false },
-                    { id: "englisch_2_stories", title: "📘 Stories and descriptions", grade: "6. Schulstufe (2. Kl.)", category: "Writing", available: false },
-                    { id: "englisch_3_opinions", title: "🗣️ Opinions and plans", grade: "7. Schulstufe (3. Kl.)", category: "Speaking", available: false },
-                    { id: "englisch_3_media", title: "🎬 Media and online life", grade: "7. Schulstufe (3. Kl.)", category: "Culture", available: false },
-                    { id: "englisch_4_work", title: "✈️ Work, travel and future", grade: "8. Schulstufe (4. Kl.)", category: "Practice", available: false },
-                    { id: "englisch_4_exam", title: "🧾 Reading, writing, mediation", grade: "8. Schulstufe (4. Kl.)", category: "Skills", available: false }
-                ]
-            },
-            ernaehrung: {
-                topics: [
-                    { id: "eh_1_hygiene", title: "🧼 Hygiene und Sicherheit", grade: "5. Schulstufe (1. Kl.)", category: "Haushalt", available: false },
-                    { id: "eh_1_ernaehrung", title: "🥗 Essen, Trinken, Gesundheit", grade: "5. Schulstufe (1. Kl.)", category: "Ernährung", available: false },
-                    { id: "eh_2_einkaufen", title: "🛒 Einkaufen, Geld, Vorrat", grade: "6. Schulstufe (2. Kl.)", category: "Konsum", available: false },
-                    { id: "eh_2_zubereiten", title: "🍳 Einfache Speisen zubereiten", grade: "6. Schulstufe (2. Kl.)", category: "Praxis", available: false },
-                    { id: "eh_3_nachhaltig", title: "🌱 Nachhaltig essen und handeln", grade: "7. Schulstufe (3. Kl.)", category: "Nachhaltigkeit", available: false },
-                    { id: "eh_3_haushalt", title: "🏠 Haushalt organisieren", grade: "7. Schulstufe (3. Kl.)", category: "Haushalt", available: false },
-                    { id: "eh_4_projekt", title: "🍽️ Mahlzeit planen und reflektieren", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
-                ]
-            },
-            kunst: {
-                topics: [
-                    { id: "kunst_1_linie_farbe", title: "🎨 Linie, Farbe, Form", grade: "5. Schulstufe (1. Kl.)", category: "Grundlagen", available: false },
-                    { id: "kunst_1_wahrnehmen", title: "🖼️ Bilder wahrnehmen", grade: "5. Schulstufe (1. Kl.)", category: "Wahrnehmen", available: false },
-                    { id: "kunst_2_raum", title: "🧊 Raum, Körper, Perspektive", grade: "6. Schulstufe (2. Kl.)", category: "Raum", available: false },
-                    { id: "kunst_2_design", title: "🪑 Design und Alltagsobjekte", grade: "6. Schulstufe (2. Kl.)", category: "Design", available: false },
-                    { id: "kunst_3_foto_medien", title: "📷 Foto, Film und digitale Bilder", grade: "7. Schulstufe (3. Kl.)", category: "Medien", available: false },
-                    { id: "kunst_3_kunstgeschichte", title: "🏛️ Kunst und Gesellschaft", grade: "7. Schulstufe (3. Kl.)", category: "Kultur", available: false },
-                    { id: "kunst_4_portfolio", title: "📁 Portfolio und eigenes Projekt", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
-                ]
-            },
-            musik: {
-                topics: [
-                    { id: "musik_1_stimme_rhythmus", title: "🎤 Stimme, Rhythmus, Puls", grade: "5. Schulstufe (1. Kl.)", category: "Musizieren", available: false },
-                    { id: "musik_1_hoeren", title: "🎧 Hören und Beschreiben", grade: "5. Schulstufe (1. Kl.)", category: "Hören", available: false },
-                    { id: "musik_2_instrumente", title: "🎸 Instrumente und Ensembles", grade: "6. Schulstufe (2. Kl.)", category: "Musikpraxis", available: false },
-                    { id: "musik_2_notation", title: "🎼 Notation und Formen", grade: "6. Schulstufe (2. Kl.)", category: "Grundlagen", available: false },
-                    { id: "musik_3_pop_kultur", title: "🎧 Pop, Medien und Kultur", grade: "7. Schulstufe (3. Kl.)", category: "Kultur", available: false },
-                    { id: "musik_3_gestalten", title: "🎛️ Musik gestalten", grade: "7. Schulstufe (3. Kl.)", category: "Produktion", available: false },
-                    { id: "musik_4_projekt", title: "🎵 Musikprojekt und Reflexion", grade: "8. Schulstufe (4. Kl.)", category: "Projekt", available: false }
-                ]
-            },
-            mathematik: {
-                topics: [
-                    // 5. Schulstufe (1. Klasse) - Genial! Mathematik 1
-                    { id: "math1_1_vs_wissen", title: "🧠 1. Mein Wissen aus der Volksschule", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_2_nat_zahlen", title: "🔢 2. Natürliche Zahlen", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_3_add_sub", title: "➕ 3. Addition und Subtraktion", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_4_mult_div", title: "✖️ 4. Multiplikation und Division", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_5_geo_grundbegriffe", title: "📏 5. Geometrische Grundbegriffe", grade: "1. Klasse (5. Schulstufe)", category: "Geometrie" },
-                    { id: "math1_6_winkel", title: "📐 6. Winkel", grade: "1. Klasse (5. Schulstufe)", category: "Geometrie" },
-                    { id: "math1_7_gleichungen", title: "⚖️ 7. Gleichungen und Ungleichungen", grade: "1. Klasse (5. Schulstufe)", category: "Algebra" },
-                    { id: "math1_8_brueche", title: "🍕 8. Brüche", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_9_dezimalzahlen", title: "💶 9. Dezimalzahlen", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_10_groessen", title: "⚖️ 10. Größen (Länge, Masse, Zeit, Geld)", grade: "1. Klasse (5. Schulstufe)", category: "Arithmetik" },
-                    { id: "math1_11_figuren_koerper", title: "🧊 11. Geometrische Figuren und Körper", grade: "1. Klasse (5. Schulstufe)", category: "Geometrie" },
-                    
-                    // 6. Schulstufe (2. Klasse) - Genial! Mathematik 2
-                    { id: "math2_1_teilbarkeit", title: "➗ 1. Teilbarkeit natürlicher Zahlen", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
-                    { id: "math2_2_brueche", title: "🍰 2. Brüche", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
-                    { id: "math2_3_dezimalzahlen", title: "💶 3. Dezimalzahlen", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
-                    { id: "math2_4_relative_zahlen", title: "➖ 4. Relative Zahlen (Ganze Zahlen)", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
-                    { id: "math2_5_var_gleichungen", title: "🧮 5. Variablen und Gleichungen", grade: "2. Klasse (6. Schulstufe)", category: "Algebra" },
-                    { id: "math2_6_prop_prozent", title: "💯 6. Proportionen und Prozentrechnung", grade: "2. Klasse (6. Schulstufe)", category: "Arithmetik" },
-                    { id: "math2_7_geometrie", title: "🔺 7. Geometrie (Dreiecke, Vierecke, Prismen)", grade: "2. Klasse (6. Schulstufe)", category: "Geometrie" },
-                    { id: "math2_8_statistik", title: "📊 8. Statistik", grade: "2. Klasse (6. Schulstufe)", category: "Statistik" },
-                    
-                    // 7. Schulstufe (3. Klasse) - Genial! Mathematik 3
-                    { id: "math3_1_rationale_zahlen", title: "➖ 1. Rationale Zahlen", grade: "3. Klasse (7. Schulstufe)", category: "Arithmetik" },
-                    { id: "math3_2_potenzen_terme", title: "📈 2. Potenzen und Terme", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
-                    { id: "math3_3_gleichungen", title: "⚖️ 3. Gleichungen", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
-                    { id: "math3_4_flaechensatz", title: "🔷 4. Flächeninhalte ebener Figuren", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
-                    { id: "math3_5_verhaeltnisse", title: "⚖️ 5. Verhältnisse und Proportionen", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
-                    { id: "math3_6_zuordnungen", title: "📉 6. Zuordnungen (Funktionen)", grade: "3. Klasse (7. Schulstufe)", category: "Algebra" },
-                    { id: "math3_7_aehnlichkeit", title: "🔍 7. Ähnlichkeit", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
-                    { id: "math3_8_pythagoras", title: "📐 8. Der Satz des Pythagoras", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
-                    { id: "math3_9_koerper", title: "🧊 9. Geometrische Körper", grade: "3. Klasse (7. Schulstufe)", category: "Geometrie" },
-                    { id: "math3_10_prozent_zins", title: "💰 10. Prozent- und Zinsrechnung", grade: "3. Klasse (7. Schulstufe)", category: "Arithmetik" },
-                    { id: "math3_11_statistik", title: "📊 11. Statistik", grade: "3. Klasse (7. Schulstufe)", category: "Statistik" },
-                    
-                    // 8. Schulstufe (4. Klasse) - Genial! Mathematik 4
-                    { id: "math4_1_reelle_zahlen", title: "🔢 1. Reelle Zahlen (Wurzeln)", grade: "4. Klasse (8. Schulstufe)", category: "Arithmetik" },
-                    { id: "math4_2_pythagoras", title: "📐 2. Satz des Pythagoras", grade: "4. Klasse (8. Schulstufe)", category: "Geometrie" },
-                    { id: "math4_3_terme_gleichungen", title: "🧮 3. Terme und Gleichungen", grade: "4. Klasse (8. Schulstufe)", category: "Algebra" },
-                    { id: "math4_4_funktionen_sys", title: "✖️ 4. Lineare Funktionen & Gleichungssysteme", grade: "4. Klasse (8. Schulstufe)", category: "Algebra" },
-                    { id: "math4_5_aehnlichkeit", title: "🔍 5. Ähnlichkeit und Strahlensätze", grade: "4. Klasse (8. Schulstufe)", category: "Geometrie" },
-                    { id: "math4_6_koerper", title: "🔮 6. Geometrische Körper (Zylinder, Kegel, Kugel)", grade: "4. Klasse (8. Schulstufe)", category: "Geometrie" },
-                    { id: "math4_7_statistik", title: "📊 7. Statistik", grade: "4. Klasse (8. Schulstufe)", category: "Statistik" },
-                    { id: "math4_8_finanzmathematik", title: "📈 8. Finanzmathematik", grade: "4. Klasse (8. Schulstufe)", category: "Arithmetik" },
-                    { id: "mathespiel", title: "🎮 Extra: Rechenreise", grade: "Extra", category: "Lernspiel" },
-                    { id: "math_kaenguru", title: "🦘 Extra: Känguru der Mathematik", grade: "Extra", category: "Wettbewerb" }
-                ]
-            }
-        };
+        const curriculum = window.SCIVERSE_CURRICULUM;
 
         window.SCIVERSE_CURRICULUM = curriculum;
 
@@ -596,7 +367,7 @@
             }
 
             if (!normalized.includes('/') && !normalized.includes('.html')) return normalized;
-            if (normalized.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start'].some(x => normalized.includes(x))) {
+            if (normalized.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start', 'learning'].some(x => normalized.includes(x))) {
                 return normalized.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
             }
             return normalized;
@@ -628,12 +399,12 @@
             const select = document.getElementById('subject-select');
             if (!select) return;
             select.value = subject;
-            if (shouldSave) localStorage.setItem(selectedSubjectKey, subject);
+            if (shouldSave) writeShellSetting(selectedSubjectKey, subject);
         }
 
         function restoreSelectedSubject(page) {
             const hashSubject = findSubjectForPage(window.location.hash.substring(1));
-            const savedSubject = localStorage.getItem(selectedSubjectKey);
+            const savedSubject = readShellSetting(selectedSubjectKey);
             const pageSubject = findSubjectForPage(page);
             const subject = hashSubject || (isKnownSubject(savedSubject) ? savedSubject : null) || pageSubject || 'physik';
             setSelectedSubject(subject);
@@ -690,7 +461,7 @@
                 });
             }
 
-            const currentPage = localStorage.getItem('physik_current_page');
+            const currentPage = readShellSetting('physik_current_page');
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 if (btn.getAttribute('data-page') === currentPage) {
                     btn.classList.add('active');
@@ -699,7 +470,11 @@
         }
 
         function loadPage(page, button, fromHash = false) {
-            localStorage.setItem('physik_current_page', page);
+            if (window.matchMedia('(max-width: 800px)').matches) {
+                document.getElementById('sidebar').classList.add('collapsed');
+                document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+            }
+            writeShellSetting('physik_current_page', page);
             const pageSubject = findSubjectForPage(page);
             const subjectSelect = document.getElementById('subject-select');
             if (pageSubject && subjectSelect && subjectSelect.value !== pageSubject) {
@@ -727,7 +502,7 @@
                 } else {
                     url = `topics/template.html?topic=${encodeURIComponent(page)}&v=${TOPIC_TEMPLATE_VERSION}`;
                 }
-            } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start', 'space_program'].some(x => page.includes(x))) {
+            } else if (page.startsWith('topics/') && !['dashboard', 'glossar', 'template', 'start', 'space_program', 'learning'].some(x => page.includes(x))) {
                 const topicId = page.replace('topics/', '').replace('.html', '').replace(/[\s,]+/g, '_');
                 url = `topics/template.html?topic=${encodeURIComponent(topicId)}&v=${TOPIC_TEMPLATE_VERSION}`;
             } else if (page === 'topics/dashboard.html') {
@@ -744,7 +519,7 @@
             if (frame.src !== window.location.origin + '/' + url && !frame.src.endsWith(url)) {
                 frame.src = url;
             } else {
-                syncFrameTheme(localStorage.getItem('physik_dark_mode') === 'true');
+                syncFrameTheme(readShellSetting('physik_dark_mode') === 'true');
             }
 
             // Highlight active button
@@ -765,9 +540,9 @@
         }
 
         function toggleDarkMode() {
-            let isDark = localStorage.getItem('physik_dark_mode') === 'true';
+            let isDark = readShellSetting('physik_dark_mode') === 'true';
             isDark = !isDark;
-            localStorage.setItem('physik_dark_mode', isDark);
+            writeShellSetting('physik_dark_mode', isDark);
             applyTheme(isDark);
         }
 
@@ -820,22 +595,22 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             // Restore Score
-            document.getElementById('global-score-val').innerText = localStorage.getItem('physik_score') || 0;
+            document.getElementById('global-score-val').innerText = readShellSetting('physik_score') || 0;
             
             // Restore Language
-            const lang = localStorage.getItem('physik_lang') || 'de';
+            const lang = readShellSetting('physik_lang') || 'de';
             setLanguage(lang);
             
             // Restore Theme
-            const isDark = localStorage.getItem('physik_dark_mode') === 'true';
+            const isDark = readShellSetting('physik_dark_mode') === 'true';
             applyTheme(isDark);
             document.getElementById('game-frame').addEventListener('load', () => {
-                syncFrameTheme(localStorage.getItem('physik_dark_mode') === 'true');
+                syncFrameTheme(readShellSetting('physik_dark_mode') === 'true');
             });
             
             // Restore Page (Prefer Hash -> LocalStorage -> Default)
             const hashPage = window.location.hash.substring(1);
-            const savedPage = hashPage || localStorage.getItem('physik_current_page') || 'topics/start.html';
+            const savedPage = hashPage || readShellSetting('physik_current_page') || 'topics/learning.html';
             restoreSelectedSubject(savedPage);
             renderNav();
             loadPage(savedPage, null);

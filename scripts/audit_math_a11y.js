@@ -13,6 +13,7 @@ const mathTopics = fs
   .sort();
 
 const findings = [];
+const germanChapters = JSON.parse(fs.readFileSync(path.join(repoRoot, 'lang', 'de.json'), 'utf8'));
 
 if (mathTopics.length === 0) {
   console.log('MATH_A11Y_ISSUES');
@@ -34,7 +35,7 @@ for (const topic of mathTopics) {
 
   const hasLive = source.includes('aria-live');
   const hasAtomic = source.includes('aria-atomic');
-  const hasStatusRole = source.includes('role="status"') || source.includes("role='status'") || source.includes("'role', 'status'") || source.includes('"role", "status"');
+  const hasStatusRole = /role\s*=\s*['"]status['"]/.test(source) || /setAttribute\(\s*['"]role['"]\s*,\s*['"]status['"]\s*\)/.test(source);
   if (hasLive && !hasAtomic) {
     findings.push({
       topic,
@@ -59,8 +60,14 @@ for (const topic of mathTopics) {
     });
   }
 
-  const interactiveMarkers = ['data-predict-', 'data-prism-view'];
+  const interactiveMarkers = ['data-predict-', 'data-prism-view', 'data-prism-part'];
   const hasInteractiveSelections = interactiveMarkers.some((marker) => source.includes(marker));
+  // Native buttons already provide focus and Enter/Space activation. Inspect the
+  // actual chapter markup as well as script templates before requiring custom handlers.
+  const chapterMarkup = (germanChapters[topic]?.sections || []).map(section => section.content || '').join('\n');
+  const selectionTags = [...(chapterMarkup + '\n' + source).matchAll(/<([a-z][\w-]*)\b[^>]*\bdata-(?:predict-[\w-]*|prism-view|prism-part)(?:\s|=|>)[^>]*>/gi)];
+  const nativeSelections = selectionTags.length > 0 && selectionTags.every(match =>
+    match[1].toLowerCase() === 'button' && !/\b(?:disabled|tabindex\s*=\s*['"]?-1)/i.test(match[0]));
   const hasKeydownSupport = source.includes('keydown');
   const hasKeyboardActivation = /addEventListener\(\s*['"]keydown['"][\s\S]{0,900}?(?:\.click\(\)|preventDefault\(\))/m.test(source);
   const enterRegexes = [
@@ -90,7 +97,7 @@ for (const topic of mathTopics) {
     source.includes('tabindex="0"') ||
     source.includes("tabindex='0'");
 
-  if (hasInteractiveSelections && (!hasKeydownSupport || !hasKeyboardActivation || !hasEnterSupport || !hasSpaceSupport || !hasPressedState)) {
+  if (hasInteractiveSelections && (!hasPressedState || (!nativeSelections && (!hasKeydownSupport || !hasKeyboardActivation || !hasEnterSupport || !hasSpaceSupport)))) {
     findings.push({
       topic,
       issue: 'interactive_controls_incomplete_a11y',
@@ -98,7 +105,7 @@ for (const topic of mathTopics) {
     });
   }
 
-  if (hasInteractiveSelections && (!hasButtonRoleSemantics || !hasTabindexSemantics)) {
+  if (hasInteractiveSelections && !nativeSelections && (!hasButtonRoleSemantics || !hasTabindexSemantics)) {
     findings.push({
       topic,
       issue: 'interactive_controls_missing_role_tabindex_semantics',

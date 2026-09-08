@@ -1,0 +1,16 @@
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
+const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8'),data=JSON.parse(read('lang/de.json'));
+(async()=>{const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math3_1_rationale_zahlen',runScripts:'outside-only'}),w=dom.window,d=w.document;
+await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','common','chapter-revisions','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();w.eval(read('js/topics/math3_1_rationale_zahlen.js'));w.topicInit();
+assert.equal(d.querySelectorAll('[data-core-intro] li').length,4);assert.equal(d.querySelectorAll('#chapter-summary li').length,4);assert.ok(!d.body.textContent.includes('{{QUIZ_'));
+const questions=data.math3_1_rationale_zahlen.sections.flatMap(s=>s.quizzes);assert.equal(questions.length,8);for(const q of questions){assert.ok(d.body.textContent.includes(q.question));assert.equal(q.answers.filter(a=>a.correct).length,1);}
+const start=d.getElementById('signed_start'),change=d.getElementById('signed_change'),operation=d.getElementById('signed_operation');
+let cases=0;
+for(const op of ['add','subtract'])for(let a=-10;a<=10;a++)for(let b=-10;b<=10;b++){
+start.value=String(a/2);change.value=String(b/2);operation.value=op;operation.dispatchEvent(new w.Event('change'));
+const expected=(op==='add'?a+b:a-b)/2,result=d.querySelector('[data-result]');assert.equal(Number(result.dataset.result),expected);assert.equal(Number(result.getAttribute('x'))+5,40+(expected+10)*26);
+assert.equal(d.querySelectorAll('[data-signed-svg] polyline').length,b===0?0:1);assert.ok(!d.querySelector('[data-signed-svg]').outerHTML.includes('NaN'));cases++;
+}
+for(const[id,value,text]of [['kontostand1','2','2 Punkte'],['mult1','12','12 ist korrekt']]){const input=d.getElementById(id);input.value=value;input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));assert.ok(input.closest('.interactive-zone').textContent.includes(text));}
+assert.equal(w.currentChapterResult('math3_1_rationale_zahlen',{passed:true,bestPercent:100}).passed,false);dom.window.close();console.log('PASS: rational-number chapter, eight questions, '+cases+' signed-line combinations, existing input/Enter and revision handling.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

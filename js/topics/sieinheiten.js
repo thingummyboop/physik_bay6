@@ -277,7 +277,7 @@ function calcSpeed() {
     if (tRange) tRange.setAttribute("aria-valuetext", `${t} Sekunden`);
 
     const v = s / t;
-    if (spTxt) spTxt.innerText = `v = ${s} m / ${t} s = ${v.toFixed(1)} m/s`;
+    if (spTxt) spTxt.innerText = `Mittlere Geschwindigkeit: v = ${s} m / ${t} s = ${v.toFixed(1)} m/s`;
     if (example) example.innerText = v < 3 ? "Das ist gemütlich." : v < 8 ? "Das ist schon schnell." : "Das ist sehr schnell.";
 
     const angle = Math.min(90, -90 + v * 8);
@@ -300,7 +300,7 @@ function drawGraph() {
     rows.forEach((row) => {
         row.style.background = "transparent";
     });
-    if (txt) txt.innerText = "Zuerst entstehen Messwerte. Dann werden daraus Punkte im Diagramm.";
+    if (txt) txt.innerText = "Die vorgegebenen Modellwerte aus der Tabelle werden als Punkte ins Diagramm übertragen.";
 
     path.style.animation = "none";
     path.style.strokeDashoffset = "400";

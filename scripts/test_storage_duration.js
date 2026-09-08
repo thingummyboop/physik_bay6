@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('fs'),path=require('path');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
+const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),topic=JSON.parse(read('lang/de.json')).kraftwerke_energieversorgung;
+const dom=new JSDOM('<div id="sections-container">'+topic.sections.map(s=>'<section class="card">'+s.content+'</section>').join('')+'</div>',{runScripts:'outside-only'}),w=dom.window,d=w.document;
+w.eval(read('js/core-learning.js'));w.enhanceCoreLearning(topic,'kraftwerke_energieversorgung','de');const zone=d.querySelector('[data-core-experiment="storage"]'),energy=zone.querySelector('[data-storage-energy]'),power=zone.querySelector('[data-storage-power]'),status=zone.querySelector('[data-storage-status]');let cases=0;
+for(let e=0;e<=20;e++)for(let half=0;half<=10;half++){
+ const p=half/2;energy.value=e;power.value=p;power.dispatchEvent(new w.Event('input'));assert.doesNotMatch(status.textContent,/Infinity|NaN/);
+ if(e===0)assert.match(status.textContent,/Keine nutzbare Energie/);else if(p===0)assert.match(status.textContent,/keine Entladezeit/);else{const h=e/p,approx=Math.abs(h-Math.round(h*100)/100)>1e-9;assert.ok(status.textContent.includes((approx?'≈':'=')+' '+h.toLocaleString('de',{maximumFractionDigits:2})+' h'));}
+ assert.equal(energy.getAttribute('aria-valuetext'),e+' Kilowattstunden');assert.equal(power.getAttribute('aria-valuetext'),p.toLocaleString('de')+' Kilowatt');cases++;
+}
+const reset=zone.querySelector('[data-storage-reset]');reset.focus();reset.click();assert.equal(d.activeElement,reset);assert.match(status.textContent,/10 kWh ÷ 2 kW = 5 h/);power.value=4;power.dispatchEvent(new w.Event('input'));assert.match(status.textContent,/= 2,5 h/);
+w.enhanceCoreLearning(topic,'kraftwerke_energieversorgung','de');assert.equal(d.querySelectorAll('[data-core-experiment="storage"]').length,1);dom.window.close();console.log('PASS: '+cases+' storage scenarios, empty/no-load cases, exact/rounded durations, doubling power, accessible values and reset.');

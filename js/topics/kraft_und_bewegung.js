@@ -1,8 +1,56 @@
 // Logic for kraft und bewegung topic
 function topicInit() {
+    initPlaneMotion();
     enhanceForceMotionAccessibility();
     updateLever();
+    updateFrictionModel();
     updateForceLab();
+    updateNetForceLab();
+}
+
+function initPlaneMotion() {
+    const zone = document.querySelector('[data-motion-plane]');
+    if (!zone || zone.dataset.initialized) return;
+    zone.dataset.initialized = 'true';
+    const positions = [[0,0],[2,0],[4,0],[4,2],[4,4],[2,4],[0,4],[0,2],[0,0]];
+    const time = zone.querySelector('[data-motion-time]');
+    const render = () => {
+        const index = Math.max(0, Math.min(8, Math.round(Number(time.value) || 0)));
+        time.value = String(index);
+        const [x,y] = positions[index];
+        const marker = zone.querySelector('[data-motion-position]');
+        marker.setAttribute('cx', 70 + 40 * x);
+        marker.setAttribute('cy', 250 - 40 * y);
+        zone.querySelector('[data-motion-trail]').setAttribute('points', positions.slice(0,index+1).map(([px,py]) => (70+40*px)+','+(250-40*py)).join(' '));
+        zone.querySelector('[data-motion-time-value]').textContent = index + ' s';
+        time.setAttribute('aria-valuetext', index + ' Sekunden; Position x ' + x + ' Meter, y ' + y + ' Meter');
+        let direction = 'Start: Noch kein Weg zurückgelegt.';
+        if (index > 0) {
+            const [previousX,previousY] = positions[index-1];
+            const word = x > previousX ? 'rechts' : x < previousX ? 'links' : y > previousY ? 'oben im Plan' : 'unten im Plan';
+            direction = 'Im letzten Zeitabschnitt: 2 m in 1 s nach ' + word + '.';
+        }
+        const text = 'Zeit: ' + index + ' s. Position: (' + x + ' m | ' + y + ' m). Bisher zurückgelegter Weg: ' + (2*index) + ' m. ' + direction + (index===8 ? ' Wieder am Start, aber 16 m Weg zurückgelegt.' : '');
+        zone.querySelector('[data-motion-status]').textContent = text;
+        zone.querySelector('[data-motion-diagram]').setAttribute('aria-label', 'Bewegung in einer Ebene. ' + text);
+    };
+    time.addEventListener('input', render);
+    zone.querySelector('[data-motion-reset]').addEventListener('click', () => { time.value='0'; render(); });
+    render();
+}
+
+function updateNetForceLab() {
+    const right = document.getElementById('net-force-right');
+    const left = document.getElementById('net-force-left');
+    const result = document.getElementById('net-force-result');
+    if (!right || !left || !result) return;
+    const r = Number(right.value), l = Number(left.value), net = r - l;
+    right.setAttribute('aria-valuetext', `${r} Newton nach rechts`);
+    left.setAttribute('aria-valuetext', `${l} Newton nach links`);
+    const acceleration = (net / 2).toLocaleString('de-AT', {maximumFractionDigits: 1});
+    result.textContent = `${r} N nach rechts − ${l} N nach links = ${net} N resultierende Kraft. Beschleunigung: ${net} N ÷ 2 kg = ${acceleration} m/s². ` +
+        (net === 0 ? 'Kräftegleichgewicht: Ein ruhendes Wagerl bleibt stehen, ein rollendes behält seine Geschwindigkeit und Richtung.' :
+            `Die Beschleunigung zeigt nach ${net > 0 ? 'rechts' : 'links'}. Das ist nicht automatisch die Bewegungsrichtung: Bei entgegengesetzter Bewegung wird das Wagerl zunächst langsamer.`);
 }
 
 function enhanceForceMotionAccessibility() {
@@ -45,7 +93,7 @@ function enhanceForceMotionAccessibility() {
     const leverRange = document.getElementById('leverRange');
     if (leverRange) {
         leverRange.setAttribute('aria-describedby', 'leverValue leverText leverRule');
-        leverRange.setAttribute('aria-valuetext', getLeverValueText(Number(leverRange.value || 50)));
+        leverRange.setAttribute('aria-valuetext', getLeverValueText(Number(leverRange.value || 1)));
     }
 
     const forceRange = document.getElementById('forceRange');
@@ -79,8 +127,8 @@ function getPredictionPrompt(group, value) {
             keep: "Vermutung gespeichert: Du achtest auf fehlende Bremskräfte. Jetzt testen!"
         },
         friction: {
-            ice: "Vermutung gespeichert: Weniger Reibung könnte weiter führen. Teste das Rennen.",
-            carpet: "Vermutung gespeichert: Teppich fühlt sich griffig an. Prüfe, ob griffig auch weiter bedeutet."
+            ice: "Vermutung gespeichert: Fläche A hat weniger Gleitreibung. Prüfe den berechneten Weg.",
+            carpet: "Vermutung gespeichert: Fläche B hat mehr Gleitreibung. Prüfe, was das für den Weg bedeutet."
         },
         drop: {
             same: "Vermutung gespeichert: Du trennst Schwerkraft von Luftwiderstand. Teste mit und ohne Luft.",
@@ -105,7 +153,7 @@ function kickBall() {
     ball.style.transition = 'transform 6s linear'; 
     ball.style.transform = 'translateX(800px)'; 
     
-    txt.innerText = "Ohne bremsende Kraft fliegt der Ball weiter. Das ist Trägheit.";
+    txt.innerText = "Bei resultierender Kraft null fliegt der Ball geradlinig mit gleichbleibender Geschwindigkeit weiter. Das ist Trägheit.";
     const insight = document.getElementById('inertiaInsight');
     if (insight) insight.innerText = "Erkenntnis: Bewegung braucht keine dauernde Kraft. Eine Kraft ist nötig, um Bewegung zu ändern.";
 }
@@ -123,31 +171,39 @@ function resetBall() {
 
 // 2. Reibung
 function pushBlocks() {
-    let ice = document.getElementById('iceBlock');
-    let sand = document.getElementById('sandBlock');
-    if (!ice || !sand) return;
-    
-    ice.style.transition = 'none';
-    sand.style.transition = 'none';
-    ice.style.transform = 'translateX(0)';
-    sand.style.transform = 'translateX(0)';
-    const iceMeter = document.getElementById('iceDistance');
-    const carpetMeter = document.getElementById('carpetDistance');
-    const result = document.getElementById('frictionRaceText');
-    if (iceMeter) iceMeter.style.width = '0%';
-    if (carpetMeter) carpetMeter.style.width = '0%';
-    if (result) result.innerText = "";
-    
-    setTimeout(() => {
-        ice.style.transition = 'transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
-        sand.style.transition = 'transform 0.5s cubic-bezier(0.1, 0.9, 0.2, 1)'; 
-        
-        ice.style.transform = 'translateX(400px)'; 
-        sand.style.transform = 'translateX(60px)';  
-        if (iceMeter) iceMeter.style.width = '92%';
-        if (carpetMeter) carpetMeter.style.width = '28%';
-        if (result) result.innerText = "Ergebnis: Auf Eis kommt der Block viel weiter. Der Teppich bremst stärker.";
-    }, 50);
+    const slider = document.getElementById('frictionTime');
+    if (!slider) return;
+    slider.value = 0;
+    updateFrictionModel();
+}
+
+function updateFrictionModel() {
+    const slider = document.getElementById('frictionTime');
+    if (!slider) return;
+    const time = Math.max(0, Math.min(4, Number(slider.value) || 0));
+    const format = n => Number(n.toFixed(3)).toLocaleString('de-DE');
+    const descriptions = [];
+    for (const [name, id, deceleration] of [['A', 'iceBlock', 0.5], ['B', 'sandBlock', 2]]) {
+        const stopTime = 2 / deceleration;
+        const movingTime = Math.min(time, stopTime);
+        const distance = 2 * movingTime - 0.5 * deceleration * movingTime * movingTime;
+        const speed = Math.max(0, 2 - deceleration * time);
+        const force = speed > 0 ? deceleration : 0;
+        const row = document.querySelector('[data-friction-row="' + name + '"]');
+        if (!row) continue;
+        row.querySelector('[data-friction-distance]').textContent = format(distance) + ' m';
+        row.querySelector('[data-friction-speed]').textContent = format(speed) + ' m/s';
+        row.querySelector('[data-friction-force]').textContent = format(force) + ' N' + (force ? ' nach links' : '');
+        const block = document.getElementById(id);
+        if (block) block.setAttribute('x', String(20 + 100 * distance));
+        const description = 'Fläche ' + name + ': Weg ' + format(distance) + ' m, Tempo ' + format(speed) + ' m/s' + (speed === 0 ? ', Stillstand.' : '.');
+        const diagram = document.querySelector('[data-friction-diagram="' + id + '"]');
+        if (diagram) diagram.setAttribute('aria-label', description);
+        descriptions.push(description);
+    }
+    slider.setAttribute('aria-valuetext', format(time) + ' Sekunden nach dem Start');
+    const status = document.getElementById('frictionRaceText');
+    if (status) status.textContent = 'Modellzeit ' + format(time) + ' s. ' + descriptions.join(' ');
 }
 
 // 3. Schwerkraft (Vakuum)
@@ -207,66 +263,39 @@ function launchRocket() {
 
 // 5. Hebelwirkung
 function updateLever() {
-    let val = document.getElementById('leverRange')?.value || 50;
-    let fulcrum = document.getElementById('fulcrum');
-    let seesaw = document.getElementById('seesawGroup');
-    let txt = document.getElementById('leverText');
-    let txtPos = document.getElementById('leverValue');
-    let forceArmText = document.getElementById('leverForceArm');
-    let loadArmText = document.getElementById('leverLoadArm');
-    let ruleText = document.getElementById('leverRule');
-    if (!fulcrum || !seesaw) return;
-    const leverRange = document.getElementById('leverRange');
-    if (leverRange) leverRange.setAttribute('aria-valuetext', getLeverValueText(Number(val)));
-    
-    let pixelX = 40 + ((val - 10) / 80) * 220;
-    fulcrum.style.transform = `translateX(${pixelX - 150}px)`; 
-    seesaw.style.transformOrigin = `${pixelX}px 90px`;
-
-    const forceArm = Math.max(1, Math.round(260 - pixelX));
-    const loadArm = Math.max(1, Math.round(pixelX - 50));
-    if (forceArmText) forceArmText.innerText = forceArm > 160 ? "lang" : forceArm > 95 ? "mittel" : "kurz";
-    if (loadArmText) loadArmText.innerText = loadArm < 55 ? "kurz" : loadArm < 125 ? "mittel" : "lang";
-    
-    if (val < 40) {
-        seesaw.style.transform = 'rotate(15deg)';
-        if (txt) {
-            txt.innerText = "Guter Hebel: Der Kraftarm beim roten Gewicht ist lang, der Lastarm bei der schweren Last ist kurz.";
-            txt.style.color = "#4CAF50";
-        }
-        if (txtPos) txtPos.innerText = "Nah an der Last (Perfekt!)";
-        if (ruleText) ruleText.innerText = "Erkenntnis: Setzt du den Drehpunkt nahe an die Last, kann eine kleine Kraft auf einem langen Weg viel bewirken.";
-        updateLeverMeter(85);
-    } else if (val > 60) {
-        seesaw.style.transform = 'rotate(-25deg)';
-        if (txt) {
-            txt.innerText = "Ungünstig: Der Kraftarm ist kurz und der Lastarm ist lang. Du brauchst sehr viel Kraft.";
-            txt.style.color = "#F44336";
-        }
-        if (txtPos) txtPos.innerText = "Nah an der Kraft (Schlecht!)";
-        if (ruleText) ruleText.innerText = "Erkenntnis: Nah an der Kraft ist für schwere Lasten ungünstig. Der Weg ist kurz, aber die nötige Kraft ist groß.";
-        updateLeverMeter(20);
-    } else {
-        seesaw.style.transform = 'rotate(-15deg)';
-        if (txt) {
-            txt.innerText = "Mittelmäßig: Beide Arme sind ähnlich lang. Die schwere Last gewinnt noch.";
-            txt.style.color = "#E91E63";
-        }
-        if (txtPos) txtPos.innerText = "Mitte";
-        if (ruleText) ruleText.innerText = "Erkenntnis: Ein Hebel hilft besonders dann, wenn der Kraftarm deutlich länger ist als der Lastarm.";
-        updateLeverMeter(45);
-    }
+    const range = document.getElementById('leverRange');
+    const fulcrum = document.getElementById('fulcrum');
+    const seesaw = document.getElementById('seesawGroup');
+    if (!range || !fulcrum || !seesaw) return;
+    const leftArm = Math.max(0.2, Math.min(1.8, Number(range.value) || 1));
+    const rightArm = 2 - leftArm;
+    const leftMoment = 40 * leftArm;
+    const rightMoment = 10 * rightArm;
+    const format = n => Number(n.toFixed(2)).toLocaleString('de-DE');
+    const text = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = value; };
+    const pivot = 50 + 105 * leftArm;
+    fulcrum.style.transform = 'translateX(' + (pivot - 150) + 'px)';
+    seesaw.style.transformOrigin = pivot + 'px 90px';
+    const balance = Math.abs(leftMoment - rightMoment) < 1e-9;
+    const lifts = rightMoment > leftMoment;
+    seesaw.style.transform = 'rotate(' + (balance ? 0 : lifts ? 12 : -12) + 'deg)';
+    const result = balance ? 'Gleichgewicht der Drehmomente: keine anfängliche Drehbeschleunigung im Modell.' : lifts ? 'Das rechte Drehmoment ist größer: Die linke Last beginnt sich zu heben.' : 'Das linke Drehmoment ist größer: Die linke Last beginnt sich zu senken.';
+    text('#leverValue', format(leftArm) + ' m von der linken Last');
+    text('#leverForceArm', format(rightArm) + ' m');
+    text('#leverLoadArm', format(leftArm) + ' m');
+    text('[data-lever-left-arm]', format(leftArm) + ' m');
+    text('[data-lever-right-arm]', format(rightArm) + ' m');
+    text('[data-lever-left-moment]', format(leftMoment) + ' N·m');
+    text('[data-lever-right-moment]', format(rightMoment) + ' N·m');
+    text('#leverText', result);
+    text('#leverRule', 'Links: 40 N × ' + format(leftArm) + ' m = ' + format(leftMoment) + ' N·m. Rechts: 10 N × ' + format(rightArm) + ' m = ' + format(rightMoment) + ' N·m. ' + result);
+    range.setAttribute('aria-valuetext', getLeverValueText(leftArm) + '. ' + result);
+    const diagram = document.querySelector('[data-lever-diagram]');
+    if (diagram) diagram.setAttribute('aria-label', getLeverValueText(leftArm) + '. Links ' + format(leftMoment) + ' Newtonmeter, rechts ' + format(rightMoment) + ' Newtonmeter. ' + result);
 }
 
 function getLeverValueText(value) {
-    if (value < 40) return "Drehpunkt nah an der Last, günstiger langer Kraftarm";
-    if (value > 60) return "Drehpunkt nah an der Kraft, ungünstiger kurzer Kraftarm";
-    return "Drehpunkt ungefähr in der Mitte";
-}
-
-function updateLeverMeter(value) {
-    const meter = document.getElementById('leverChance');
-    if (meter) meter.style.width = `${value}%`;
+    return 'Drehpunkt ' + Number(value).toLocaleString('de-DE') + ' Meter von der linken Last';
 }
 
 function updateForceLab() {
@@ -287,9 +316,7 @@ function updateForceLab() {
 
     const result = document.getElementById('forceLabText');
     if (result) {
-        result.innerText = acceleration >= 3
-            ? "Schätzung: starke Beschleunigung. Hohe Kraft und kleine Masse passen gut zusammen."
-            : "Schätzung: eher langsame Beschleunigung. Mehr Masse macht den Start träger.";
+        result.innerText = `Resultierende Kraft ${force} N ÷ Masse ${mass} kg = ${acceleration.toFixed(1)} m/s². Bei gleicher Masse erhöht mehr resultierende Kraft die Beschleunigung; bei gleicher Kraft verringert mehr Masse die Beschleunigung.`;
     }
 }
 
@@ -309,7 +336,7 @@ function runForceLab() {
     setTimeout(() => {
         cart.style.transition = `transform ${duration}s ease-in`;
         cart.style.transform = 'translateX(300px)';
-        result.innerText = `Ergebnis: ${force} N Kraft bei ${mass} kg Masse ergeben ${acceleration.toFixed(1)} m/s². Rechenweg: a = F ÷ m = ${force} ÷ ${mass}. Mehr Kraft hilft. Mehr Masse macht die Beschleunigung kleiner.`;
+        result.innerText = `Ergebnis: ${force} N resultierende Kraft bei ${mass} kg Masse ergeben ${acceleration.toFixed(1)} m/s². Rechenweg: a = F ÷ m = ${force} ÷ ${mass}. Die Animation ist ein schematischer Vergleich, keine maßstäbliche Weg-Zeit-Messung.`;
     }, 50);
 }
 

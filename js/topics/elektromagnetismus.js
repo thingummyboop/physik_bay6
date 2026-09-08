@@ -40,6 +40,7 @@ function enhanceElectromagnetismAccessibility() {
 }
 
 function topicInit() {
+    initMagnetPoles();
     if (drainInterval) {
         clearInterval(drainInterval);
         drainInterval = null;
@@ -61,6 +62,36 @@ function topicInit() {
     updateRelay(false);
 }
 
+function initMagnetPoles() {
+    const zone = document.querySelector('[data-magnet-poles]');
+    if (!zone || zone.dataset.initialized) return;
+    zone.dataset.initialized = 'true';
+    const get = name => zone.querySelector('[data-magnet-' + name + ']');
+    let reversedA = false, reversedB = false;
+    const render = () => {
+        const aLeft = reversedA ? 'N' : 'S', bLeft = reversedB ? 'N' : 'S';
+        const opposite = pole => pole === 'N' ? 'S' : 'N';
+        const aRight = opposite(aLeft), bRight = opposite(bLeft);
+        for (const [name,pole] of [['a-left',aLeft],['a-right',aRight],['b-left',bLeft],['b-right',bRight]]) {
+            get(name).setAttribute('fill',pole==='N'?'#b91c1c':'#1d4ed8');
+            get(name+'-label').textContent=pole;
+        }
+        const attract = aRight !== bLeft;
+        get('a-arrow').textContent = attract ? '→' : '←';
+        get('b-arrow').textContent = attract ? '←' : '→';
+        get('a').setAttribute('aria-pressed',String(reversedA));
+        get('b').setAttribute('aria-pressed',String(reversedB));
+        const description = 'Einander zugewandt: '+aRight+' bei Magnet A und '+bLeft+' bei Magnet B. '+
+            (attract?'Ungleichnamige Pole: Die Magnete ziehen einander an.':'Gleichnamige Pole: Die Magnete stoßen einander ab.');
+        get('status').textContent = description;
+        get('diagram').setAttribute('aria-label',description);
+    };
+    get('a').addEventListener('click',()=>{reversedA=!reversedA;render();});
+    get('b').addEventListener('click',()=>{reversedB=!reversedB;render();});
+    get('reset').addEventListener('click',()=>{reversedA=false;reversedB=false;render();});
+    render();
+}
+
 function updateMagnetField(val) {
     const lines = document.getElementById('fieldLines')?.children;
     const arrow = document.getElementById('currentArrow');
@@ -72,12 +103,12 @@ function updateMagnetField(val) {
     arrow.setAttribute('d', `M ${200 - arrowLength/2} 75 L ${200 + arrowLength/2} 75`);
     
     for(let line of lines) {
-        line.style.opacity = (numericVal / 150) + 0.1;
+        line.style.opacity = numericVal === 0 ? 0 : (numericVal / 150) + 0.1;
         line.style.strokeWidth = 1 + (numericVal / 25);
     }
 
     if (currentRange) {
-        currentRange.setAttribute('aria-valuetext', `Stromstärke ${numericVal} Prozent`);
+        currentRange.setAttribute('aria-valuetext', `Relative Stromstufe ${numericVal}; keine Ampere-Messung`);
     }
 }
 
@@ -110,14 +141,16 @@ function changeDirection() {
     const txt = document.getElementById('directionText');
     if(!arrow) return;
     isUp = !isUp;
+    const symbol = document.getElementById("currentDirectionSymbol");
+    if(symbol){symbol.setAttribute("d",isUp?"M200 90 h0":"M194 84 L206 96 M194 96 L206 84");symbol.setAttribute("stroke-width",isUp?"7":"3");}
     if(isUp) {
         arrow.setAttribute('d', 'M 200 75 L 200 20');
-        if(txt) txt.innerText = "Kraft nach OBEN";
+        if(txt) txt.textContent = "Technischer Strom aus der Ebene (Punkt); Magnetfeld nach rechts; Kraft nach oben.";
     } else {
         arrow.setAttribute('d', 'M 200 105 L 200 160');
-        if(txt) txt.innerText = "Kraft nach UNTEN";
+        if(txt) txt.textContent = "Technischer Strom in die Ebene (Kreuz); Magnetfeld nach rechts; Kraft nach unten.";
     }
-    arrow.setAttribute('aria-label', txt ? txt.innerText : (isUp ? 'Kraft nach oben' : 'Kraft nach unten'));
+    arrow.setAttribute('aria-label', txt ? txt.textContent : (isUp ? 'Kraft nach oben' : 'Kraft nach unten'));
 }
 
 function shakeFlashlight() {
@@ -182,16 +215,7 @@ function updateTransformer(val) {
         path.setAttribute("stroke-width", "6");
         coil2.appendChild(path);
         
-        // Current particle (Yellow dot moving on the wire)
-        const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        dot.setAttribute("r", "3");
-        dot.setAttribute("fill", "yellow");
-        const anim = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
-        anim.setAttribute("path", `M 285 ${y} L 315 ${y+5}`);
-        anim.setAttribute("dur", "1s");
-        anim.setAttribute("repeatCount", "indefinite");
-        dot.appendChild(anim);
-        coil2.appendChild(dot);
+
     }
     
     // Update Secondary Voltage Bar
@@ -206,8 +230,8 @@ function updateTransformer(val) {
     }
     
     // Magnetic Flux Intensity Visualization
-    if(flux) flux.style.strokeWidth = 1 + (windings2 / 3);
-    if(fluxField) fluxField.setAttribute('opacity', 0.2 + (windings2 / 20));
+    if(flux) flux.style.strokeWidth = 3;
+    if(fluxField) fluxField.setAttribute('opacity', '0.5');
 
     // Update Description Text
     if(windings2 < windings1) {
@@ -223,7 +247,7 @@ function updateTransformer(val) {
     } else {
         if(txt) {
             txt.innerText = `1:1 Übertragung (${u1}V ➔ ${u2}V)`;
-            txt.style.color = "white";
+            txt.style.color = "inherit";
         }
     }
 }

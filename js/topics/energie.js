@@ -83,7 +83,7 @@ function stopPendulum() {
     if(!pObj) return;
     pObj.classList.remove('anim-swing');
     if(pTxt) {
-        pTxt.innerText = "Pendel gestoppt: Reibung hat Bewegungsenergie langsam in Wärme der Luft umgewandelt.";
+        pTxt.innerText = "Modell angehalten. Bei einem echten Pendel wird durch Reibung Energie auf Luft und Aufhängung übertragen; hier beendet der Knopf nur die Animation.";
         pTxt.style.color = "#D32F2F";
     }
 }
@@ -110,43 +110,23 @@ function insertBattery() {
 
 // 4. Windrad (Erneuerbare Energien)
 function updateWind() {
-    let val = document.getElementById('windRange')?.value || 0;
-    let blades = document.getElementById('windBlades');
-    let text = document.getElementById('windValue');
-    if(!blades) return;
-    document.getElementById('windRange')?.setAttribute('aria-valuetext', getWindValueText(Number(val)));
-    
-    if (val == 0) {
-        blades.classList.remove('anim-spin');
-        if(text) {
-            text.innerText = "0% (Windstill - Kein Strom)";
-            text.style.color = "#0288D1";
-        }
-    } else {
-        blades.classList.add('anim-spin');
-        let duration = 3 - (val * 0.028); 
-        blades.style.animationDuration = duration + 's';
-        
-        if(text) {
-            if(val < 40) {
-                text.innerText = val + "% (leichte Brise - wenig Strom, wie bei schwachem Wind im Park)";
-                text.style.color = "#43A047";
-            } else if(val < 80) {
-                text.innerText = val + "% (starker Wind - viel Strom)";
-                text.style.color = "#F57F17";
-            } else {
-                text.innerText = val + "% (Sturm - sehr viel Energie, Anlagen müssen geschützt werden)";
-                text.style.color = "#D84315";
-            }
-        }
-    }
+    const range = document.getElementById('windRange');
+    const val = Number(range?.value || 0);
+    const blades = document.getElementById('windBlades');
+    const text = document.getElementById('windValue');
+    const description = getWindValueText(val);
+    range?.setAttribute('aria-valuetext', description);
+    if (text) text.textContent = description;
+    if (!blades) return;
+    blades.classList.toggle('anim-spin', val > 0 && val < 80);
+    if (val > 0 && val < 80) blades.style.animationDuration = (3 - val * 0.028) + 's';
 }
 
 function getWindValueText(value) {
-    if (value === 0) return "Windstill, kein Strom";
-    if (value < 40) return `${value} Prozent Wind, leichte Brise mit wenig Strom`;
-    if (value < 80) return `${value} Prozent Wind, starker Wind mit viel Strom`;
-    return `${value} Prozent Wind, Sturm mit sehr viel Energie`;
+    if (value === 0) return 'Modellstufe 0: Windstille, keine elektrische Leistung aus Wind.';
+    if (value < 40) return 'Modellstufe ' + value + ': schwacher Wind, geringe elektrische Leistung.';
+    if (value < 80) return 'Modellstufe ' + value + ': stärkerer Wind, höhere elektrische Leistung im Modell.';
+    return 'Modellstufe ' + value + ': Sturmabschaltung zum Schutz, keine elektrische Leistung im Modell.';
 }
 
 // 5. Stromkreis

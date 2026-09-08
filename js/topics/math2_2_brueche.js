@@ -19,7 +19,8 @@ function ensureFractionExerciseFeedback(input, feedbackId) {
 }
 
 function parseFractionInput(id) {
-    return Number(String(document.getElementById(id)?.value || '').trim().replace(',', '.'));
+    const raw = String(document.getElementById(id)?.value || '').trim().replace(',', '.');
+    return raw === '' ? NaN : Number(raw);
 }
 
 function bindFractionExercise({ inputIds, feedbackId, check, successText, hintText }) {
@@ -60,6 +61,16 @@ function bindFractionExercise({ inputIds, feedbackId, check, successText, hintTe
 }
 
 function topicInit() {
+    bindFractionExercise({
+        inputIds: ['bruch_common_n', 'bruch_common_d'],
+        feedbackId: 'bruch_common_feedback',
+        check: () => {
+            const n = parseFractionInput('bruch_common_n'), d = parseFractionInput('bruch_common_d');
+            return Number.isSafeInteger(n) && Number.isSafeInteger(d) && d > 0 && n > 0 && BigInt(n) * 4n === BigInt(d) * 3n;
+        },
+        successText: 'Richtig! 1/2 = 2/4. Dazu 1/4 ergibt 3/4. Gleichwertige Brüche wie 6/8 stimmen ebenfalls.',
+        hintText: 'Schreibe 1/2 als 2/4 und addiere 1/4. Gib Zähler und einen positiven Nenner als ganze Zahlen ein; der Nenner bleibt beim Addieren gleich.'
+    });
     bindFractionExercise({
         inputIds: ['bruch_z'],
         feedbackId: 'bruch_z_feedback',

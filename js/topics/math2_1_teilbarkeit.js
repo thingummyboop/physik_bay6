@@ -65,7 +65,39 @@ function bindNumericExercise(inputId, feedbackId, expected, success, hint) {
     }
 }
 
+function evaluatePrimeFactors(raw) {
+    const tokens = raw.trim().split(/\s+/);
+    if (!raw.trim() || tokens.length > 12 || tokens.some(t => !/^\d{1,2}$/.test(t))) return 'Gib die Faktoren einzeln als ganze Zahlen von 2 bis 60 ein, getrennt durch Leerzeichen.';
+    const factors = tokens.map(Number);
+    for (const n of factors) {
+        if (n < 2 || n > 60) return 'Alle Primfaktoren müssen größer als 1 sein und dürfen für diese Aufgabe höchstens 60 sein.';
+        for (let divisor = 2; divisor * divisor <= n; divisor++) {
+            if (n % divisor === 0) return n + ' ist noch keine Primzahl. Zerlege diesen Faktor weiter.';
+        }
+    }
+    const product = factors.reduce((p, n) => p * BigInt(n), 1n);
+    if (product !== 60n) return 'Deine Faktoren sind prim, aber ihr Produkt ist ' + product + '. Gesucht ist 60. Prüfe, ob ein Faktor fehlt oder zu viel vorkommt.';
+    return 'Richtig! 60 = 2 · 2 · 3 · 5. Alle Faktoren sind prim; ihre Reihenfolge verändert das Produkt nicht.';
+}
+
+function bindPrimeExercise() {
+    const input = document.getElementById('prime_factors');
+    if (!input) return;
+    const zone = input.closest('[data-prime-exercise]');
+    const feedback = ensureTeilbarkeitFeedback(zone, 'prime_feedback');
+    input.setAttribute('aria-describedby', 'prime_feedback');
+    const evaluate = () => { feedback.textContent = evaluatePrimeFactors(input.value); };
+    zone.querySelector('button').onclick = evaluate;
+    if (input.dataset.primeBound !== 'true') {
+        input.dataset.primeBound = 'true';
+        input.addEventListener('keydown', event => {
+            if (event.key === 'Enter') { event.preventDefault(); evaluate(); }
+        });
+    }
+}
+
 function topicInit() {
+    bindPrimeExercise();
     bindButtonOnlyExercise();
     bindNumericExercise(
         'ggt_input',

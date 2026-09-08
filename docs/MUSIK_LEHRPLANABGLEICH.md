@@ -1,0 +1,44 @@
+# Musik: Lehrplanabgleich am 08.09.2026
+
+Der vorherige Zielturn war Fortschritt (Tab-Synchronisierung und vollständiger Funktionstest). Jetzt wurden alle sieben deutschen Musikkapitel in ihrer aktuellen Abschnitts- und Werkstattfassung und der vollständige Musik-Fachlehrplan der gespeicherten RIS-Textfassung vom 05.09.2026 gelesen. Fundstelle: `MUSIKBildungs-` bis `KUNST UND GESTALTUNG`. Der Lehrplan verlangt einen fortschreitenden Aufbau in allen drei Kompetenzbereichen; die folgende Matrix erfasst den aktuellen Nachweis und offene Aufgaben. Kein vollständiges Musiklehrbuch oder geprüftes Repertoire behauptet.
+
+## Jahrgangskompetenzen und tatsächliche Inhalte
+
+| Klasse | Singen und Musizieren | Tanzen, Bewegen und Darstellen | Hören und Erfassen |
+|---|---|---|---|
+| 1 | musik_1_stimme_rhythmus: Sprechstimme, angenehmes Summen, Bodypercussion, Wechselspiel. musik_2_notation/section0 jetzt auch Schulstufe 5: eigenes Notenmotiv lesen, spielen, variieren und aufschreiben. Weiter offen: ausdrucksvolles Singen konkreter Lieder mit Textverständnis und systematische stimmliche Anleitung. | Kleine Pulsbewegungen und Klanggeschichte in musik_1_hoeren. Neu in musik_1_stimme_rhythmus/bewegungsfolge: festgelegte eigene Zweitaktfolge mit Raum-/Haltungsanleitung, sitzender Variante, Pulsbegleitung, A–B–A und Beobachtungsbogen. Damit liegt ein konkreter Einstieg in gebundene Bewegung vor; weitere regionale/internationale Tänze sind noch erforderlich. | Parametervergleich, selbst beobachtete Geräusche und jetzt drei lokale elektronische Freude-Lernfassungen in musik_1_hoeren. Hörprotokoll mit Tonverlauf, Rhythmus- und Tempovergleich, Nachsingen/Nachspielen und Quellenkontext. Weiter offen: vielfältiges Repertoire und reale Stimm-/Instrumentenvergleiche. |
+| 2 | musik_2_instrumente: Klangerzeugung, Rollen im Ensemble; musik_2_notation: Melodie, Notation, Form. Weiter offen: regionale/internationale und anlassbezogene Lieder, Zweistimmigkeit und notierte harmonische Begleitung. | A–B–A mit Bewegungszeichen und eigene Szenen. Weiter offen: angeleiteter gebundener Tanz und gestisch-mimischer Dialog mit konkretem Ablauf. | Beobachtung eines verfügbaren Instruments und Beschreiben eigener Muster. Weiter offen: Stimmgattungen hören, konkrete mehrkulturelle Beispiele, Gehörtes ohne vorher sichtbare Lösung notieren. |
+| 3 | musik_3_gestalten: eigene Motive, Schichten und Arrangement; musik_3_pop_kultur: Text-/Kontextfragen. Weiter offen: konkrete Liedinterpretation mit historisch-politischem Bezug sowie hör-/spielbare harmonische Strukturen. | Warten–Suchen–Finden als Szene und Übergänge. Weiter offen: komplexere Schrittfolgen, unterschiedliche Aufstellungen und ein konkret belegtes Tanzbeispiel. | Vergleichsauftrag für zwei erst auszuwählende Beispiele; Reflexion eigener Produktion vorhanden. Weiter offen: vorliegende Hörmaterialien mit Zeitmarken, Besetzung, Funktion und überprüfbaren Hörhinweisen. |
+| 4 | musik_4_projekt: freie Projektwahl, stimmlich passende Lage und Rollen. Weiter offen: konkretes ein-/mehrstimmiges Repertoire, a cappella und begleitet; tatsächliche eigene digitale Klangbearbeitung. | Eigenes Projekt und Bewegungen auch im Sitzen. Weiter offen: durchgearbeitete Choreografie mit Bewegungsqualitäten sowie Beobachtungsbogen für eine konkrete Spielszene. | Wiener Musikangebot erkunden und Selbst-/Fremdrückmeldung vergleichen. Weiter offen: bereitgestellte kulturhistorische Beispiele und Vergleich mit Innovation; begründete Auswertung eines konkreten öffentlichen Angebots. |
+
+## Weitere Anwendungsbereiche, die bei der Ergänzung mitzuprüfen sind
+
+- Notation/Form: Die neue Vorlage zeigt c′–d′–e′–g′ als vier Viertel im Violinschlüssel. Grafische Notation, Achtelraster und A–B–A sind vorhanden; ein erweitertes Notenrepertoire und konkrete Beispiele zu Variation, Rondo, Sonate, Sinfonie und Solokonzert fehlen. Begriffslisten allein genügen nicht.
+- Stimme/Instrumente: Reale Instrumentenbeobachtung wird angeleitet, aber die notwendigen Vergleichsaufnahmen und konkreten Gesangsbeispiele werden noch nicht geliefert. Elektronische Sinus-/Dreieckklänge sind ausdrücklich keine Instrumentenaufnahmen.
+- Musikgeschichte/Gesellschaft: Fragen zu Medien, Interessen, Rollenbildern und öffentlichem Musikleben sind vorhanden. Nachvollziehbare Musiker:innen-Biografien, Aufführungspraxis, Berufsfelder und historisch-politische Beispiele sind noch auszuarbeiten.
+- Aufnahme/Medien: Das Klanglabor erzeugt Töne und erlaubt Motivgestaltung. Es ist kein Aufnahme- oder Schnittwerkzeug. Aufnahmegeschichte, konkrete digitale Bearbeitung, Filmvertonung/Hörspiel und zugehörige Rechtefragen benötigen weitere Aufgaben.
+- Vielfalt: Selbst erfundene Motive und Aufforderungen, verschiedene Musik auszuwählen, belegen kein Repertoire unterschiedlicher Kulturen. Quellen, Zugänglichkeit und Nutzungsrechte geeigneter Beispiele müssen für die Webseite geklärt werden.
+
+## Umsetzung und Prüfung dieses Schritts
+
+`musik_2_notation` Revision 1: selbst erstelltes SVG-Notenbild mit vier Vierteln, Hilfslinie und Textalternative; Lesen, Aufführen, gezieltes Verändern und eigenes Notieren; drei neue Fragen mit neun Antwortbegründungen. Das Achtelraster wird als Vergleich von Einsatzzeitpunkten erklärt und nicht als Wiedergabe ausgehaltener Viertel ausgegeben. Kapitelzuordnung jetzt Schulstufen 5 und 6.
+
+Alle sieben Musik-Arbeitsblätter übernehmen Abschnittstexte, Quellen und Werkstatt. Das eigens gekennzeichnete Notenbild bleibt als statische Vorlage erhalten; uninitialisierte Audiolabore werden durch Onlinehinweise ersetzt. Material und Lösungen sind unabhängig schaltbar. Test `test_music_chapters.js` prüft 31 Kapitelaufgaben, neun neue Antwortwege, Notenkopfpositionen, Textverweise, vier bestehende Audiolabore und sieben Arbeitsblätter. Eine visuelle Prüfung insbesondere des musikalischen Schlüsselzeichens und der Druckausgabe ist weiterhin offen.
+
+Der Notensatz ist eine eigene einfache Lehrdarstellung; es wurden keine fremden Notenbilder, Musikaufnahmen oder Liedtexte übernommen. Zwei angefragte externe Theorieangebote waren technisch nicht inhaltlich lesbar und dienen daher nicht als verifizierte Fachquelle. Die elementaren Notationsregeln wurden eigenständig ausgearbeitet; vor fachlicher Gesamtfreigabe zusammen mit dem erweiterten Repertoire prüfen.
+
+## Ergänzung: angeleitete Bewegung
+
+Vorheriger Zielturn war Fortschritt; das tatsächliche Rhythmuskapitel wurde erneut gelesen. musik_1_stimme_rhythmus Revision 1 enthält eine eigene Zweitaktfolge für Stehen/Sitzen, Einzählen und Abstimmung auf die vorhandene Klanglabor-Wiedergabe, gezielte Variation, A–B–A mit sechs Takten und selbst erzeugter Begleitung sowie einen Probenbogen. Kein überlieferter Tanz und keine vollständige Abdeckung des internationalen Tanzrepertoires behauptet. Drei zusätzliche Fragen mit neun Antwortwegen. Alle sieben Musik-Arbeitsblätter erhalten die Schritt-/Beobachtungstabellen.
+
+Gezielt bestanden: Musik (jetzt 34 Fragen und insgesamt 18 Antwortwege aus Notation/Bewegung), 65 Werkstatt-Arbeitsblätter, übersetzte Titel/Suche und vollständiger Quizpool. Der Test vergleicht acht Bewegungsschläge mit der tatsächlichen Audioereignisplanung einschließlich vier Einzählschlägen. Kein neuer Gesamtlauf und keine visuelle Freigabe.
+
+## Ergänzung: erster historisch verankerter Hörvergleich
+
+musik_1_hoeren Revision 1 enthält drei lokal erzeugte WAVs zur nach C-Dur übertragenen viertaktigen Freude-Melodie, mit eigener Rhythmusänderung und Tempovariante, Hörprotokoll, Nachsingen/Nachspielen und drei Verständnisfragen. Werkhistorischer Kontext anhand des Beethoven-Hauses gelesen. Eigene Sinustonbearbeitung ausdrücklich von Orchester-/Choraufnahme abgegrenzt. Dateien und deterministischer Generator mit Noten-/Zeitmanifest unter assets/audio bzw. scripts/build_music_listening.js; keine fremde Aufnahme übernommen.
+
+Musiktest jetzt 37 Fragen, 27 Antwortwege aus den drei Ergänzungen, bestehende Labore und native Audio-Steuerung; neue Suite test_music_audio_files.js prüft alle 45 tatsächlich synthetisierten Tonhöhen über PCM-Nulldurchgänge, Dateilängen, Pausen an Tonübergängen, Signalgrenzen, Verlinkung und gezielte Änderung im letzten Takt. Keine tatsächliche Hör- oder Browserabnahme. Die Webseite besitzt damit einen konkreten Vergleich, noch kein vielfältiges historisches und internationales Hörrepertoire.
+
+## Ergänzung: Antwortalternativen
+
+Alle 37 Musikfragen gelesen; 21 falsche Alternativen in elf Fragen überarbeitet. Plausible musikalische Verwechslungen ersetzen offenkundige Unsinnsantworten. Alle sieben Kapitel erhalten eine neue Inhaltsrevision. Die automatisierte Musikprüfung deckt nun alle 111 Antwortwege ab; Klanglabore, Notenbilddaten und Arbeitsblattmaterialien bleiben geprüft. Dies verbessert die Rückmeldung, schließt jedoch nicht die offenen Repertoire-, Musikgeschichte-, Aufnahme- und Aufführungsaufgaben.

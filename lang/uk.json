@@ -26,7 +26,7 @@
             ]
           }
         ],
-        "content": "<p>Незалежно від того, чи ви говорите, плескаєте в долоні чи щипнете на гітарі – звуки завжди створюються лише одним: <strong>Рухом!</strong> Об’єкт надзвичайно швидко хитається вперед-назад. Фізики називають це <strong>осциляцією</strong>. Коли ваші голосові зв’язки вібрують у вашому горлі, створюється ваш голос. Коли говорите, покладіть руку на гортань - ви відчуєте тремтіння!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Розумний словник: джерело звуку</strong><br>\n            Те, що трясе та створює звук, називається <strong>джерелом звуку</strong>. Це може бути головка барабана, струна скрипки або металевий лист камертона.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪛 Чарівний камертон</h3>\n            <p>Натисніть на камертон, щоб ударити по ньому:</p>\n            <button onclick=\"strikeFork()\">Удари по камертону 🔔</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"tuningFork\" style=\"transform-origin: center;\">\n                        <path d=\"M 180 40 L 180 120 Q 200 140 220 120 L 220 40\" fill=\"none\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></path>\n                        <line x1=\"200\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"soundWavesGrp\" style=\"display: none;\">\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0s;\"></circle>\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.5s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.25s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.75s;\"></circle>\n                    </g>\n                </svg>\n                <p id=\"forkText\" style=\"font-weight:bold; color: #718096;\">Камертон у спокої.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: поперечна чи поздовжня хвиля</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/schallwelle.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/schallwelle.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q1}}"
+        "content": "<p>Незалежно від того, чи ви говорите, плескаєте в долоні чи щипнете на гітарі – звуки завжди створюються лише одним: <strong>Рухом!</strong> Об’єкт надзвичайно швидко хитається вперед-назад. Фізики називають це <strong>осциляцією</strong>. Коли ваші голосові зв’язки вібрують у вашому горлі, створюється ваш голос. Коли говорите, покладіть руку на гортань - ви відчуєте тремтіння!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Розумний словник: джерело звуку</strong><br>\n            Те, що трясе та створює звук, називається <strong>джерелом звуку</strong>. Це може бути головка барабана, струна скрипки або металевий лист камертона.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪛 Чарівний камертон</h3>\n            <p>Натисніть на камертон, щоб ударити по ньому:</p>\n            <button onclick=\"strikeFork()\">Удари по камертону 🔔</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"tuningFork\" style=\"transform-origin: center;\">\n                        <path d=\"M 180 40 L 180 120 Q 200 140 220 120 L 220 40\" fill=\"none\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></path>\n                        <line x1=\"200\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"soundWavesGrp\" style=\"display: none;\">\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0s;\"></circle>\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.5s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.25s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.75s;\"></circle>\n                    </g>\n                </svg>\n                <p id=\"forkText\" style=\"font-weight:bold; color: #718096;\">Камертон у спокої.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: поперечна чи поздовжня хвиля</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/schallwelle.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -820,7 +820,7 @@
             ]
           }
         ],
-        "content": "<p>Чому ми не падаємо з землі? Через гравітацію (тяжіння)! Альберт Ейнштейн виявив, що кожне важке тіло (як куля для боулінгу на батуті) згинає простір навколо себе. Чим важче щось, тим сильніше воно притягує інші речі.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Чорна діра:</strong><br>\n            Коли гігантська зірка гине, вона може зруйнуватися. Він стає нескінченно малим, але зберігає свою величезну масу. Там гравітація стає настільки сильною, що навіть світло не може вирватися – народжується чорна діра!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ The Gravity Distorter</h3>\n            <p>Збільште масу та дивіться, скільки простору та часу згинається!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">Земля</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">Помірна гравітація. Невелика \"вм'ятина\" кімнати.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: 2-й закон Кеплера (теорема про площу)</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/gravitation_kepler.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
+        "content": "<p>Чому ми не падаємо з землі? Через гравітацію (тяжіння)! Альберт Ейнштейн виявив, що кожне важке тіло (як куля для боулінгу на батуті) згинає простір навколо себе. Чим важче щось, тим сильніше воно притягує інші речі.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Чорна діра:</strong><br>\n            Коли гігантська зірка гине, вона може зруйнуватися. Він стає нескінченно малим, але зберігає свою величезну масу. Там гравітація стає настільки сильною, що навіть світло не може вирватися – народжується чорна діра!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ The Gravity Distorter</h3>\n            <p>Збільште масу та дивіться, скільки простору та часу згинається!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">Земля</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">Помірна гравітація. Невелика \"вм'ятина\" кімнати.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: 2-й закон Кеплера (теорема про площу)</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
       },
       {
         "title": "4. Escape Velocity: Off to Space!",
@@ -2297,7 +2297,7 @@
             ]
           }
         ],
-        "content": "<p>Рухомі заряди (струм) у магнітному полі відчувають силу: <strong>сила Лоренца</strong>. У двигуні ця сила використовується для обертання котушки по колу.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Тестер підштовхування</h3>\n            <button onclick=\"changeDirection()\">Змінити поточний напрямок ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\"></path>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Force UP</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: сила Лоренца (правило правої руки)</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/lorentz_kraft.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/lorentz_kraft.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_em_s3_q1}}"
+        "content": "<p>Рухомі заряди (струм) у магнітному полі відчувають силу: <strong>сила Лоренца</strong>. У двигуні ця сила використовується для обертання котушки по колу.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Тестер підштовхування</h3>\n            <button onclick=\"changeDirection()\">Змінити поточний напрямок ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\"></path>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Force UP</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: сила Лоренца (правило правої руки)</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/lorentz_kraft.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_em_s3_q1}}"
       },
       {
         "id": "sec4",
@@ -3726,7 +3726,7 @@
             ]
           }
         ],
-        "content": "<p>Порожній кошик легко штовхати. Повний кошик вимагає більше сил. Це саме те, що описує 2-й закон Ньютона.</p>\n        <p><span class=\"formula-card\">F = m a</span></p>\n        <ul class=\"step-list\">\n            <li><strong>F</strong> означає потужність. Одиниця: Ньютон (Н).</li>\n            <li><strong>m</strong> означає масу. Одиниця: кілограм (кг).</li>\n            <li><strong>a</strong> означає прискорення: прискорення, гальмування або зміна напрямку.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧪 F = m · лабораторія</h3>\n            <p>Зміна потужності та маси. Прискорення розраховується відразу.</p>\n            <div class=\"lab-controls\">\n                <label>Потужність: <span id=\"forceLabel\">6 N</span><br><input type=\"range\" id=\"forceRange\" min=\"2\" max=\"12\" value=\"6\" oninput=\"updateForceLab()\"></label>\n                <label>Маса: <span id=\"massLabel\">3 кг</span><br><input type=\"range\" id=\"massRange\" min=\"1\" max=\"8\" value=\"3\" oninput=\"updateForceLab()\"></label>\n            </div>\n            <p><strong>Прискорення:</strong> <span id=\"accelLabel\">2,0 м/с²</span></p>\n            <div class=\"meter\"><div id=\"accelMeter\" class=\"meter-fill\"></div></div>\n            <button onclick=\"runForceLab()\">Почати Wagerl</button>\n            <div class=\"diagram-box\" style=\"text-align: left; background: #333; height: 120px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <line x1=\"0\" y1=\"80\" x2=\"100%\" y2=\"80\" stroke=\"white\" stroke-width=\"2\" stroke-dasharray=\"10,10\"></line>\n                    <g id=\"forceCart\" style=\"transform: translateX(10px); transition: transform 1s ease-in;\">\n                        <text x=\"0\" y=\"70\" font-size=\"40\">🛒</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"forceLabText\" class=\"lab-feedback\">Більше потужності робить вас швидшими. Більша маса робить вас повільнішим.</p>\n        </div>\n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Анімація: додавання сил</h3>\n            <p>Якщо дві сили діють одночасно, ви можете додати їх у вигляді стрілок.</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/vektor_addition.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n        {{QUIZ_q_newton2}}"
+        "content": "<p>Порожній кошик легко штовхати. Повний кошик вимагає більше сил. Це саме те, що описує 2-й закон Ньютона.</p>\n        <p><span class=\"formula-card\">F = m a</span></p>\n        <ul class=\"step-list\">\n            <li><strong>F</strong> означає потужність. Одиниця: Ньютон (Н).</li>\n            <li><strong>m</strong> означає масу. Одиниця: кілограм (кг).</li>\n            <li><strong>a</strong> означає прискорення: прискорення, гальмування або зміна напрямку.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧪 F = m · лабораторія</h3>\n            <p>Зміна потужності та маси. Прискорення розраховується відразу.</p>\n            <div class=\"lab-controls\">\n                <label>Потужність: <span id=\"forceLabel\">6 N</span><br><input type=\"range\" id=\"forceRange\" min=\"2\" max=\"12\" value=\"6\" oninput=\"updateForceLab()\"></label>\n                <label>Маса: <span id=\"massLabel\">3 кг</span><br><input type=\"range\" id=\"massRange\" min=\"1\" max=\"8\" value=\"3\" oninput=\"updateForceLab()\"></label>\n            </div>\n            <p><strong>Прискорення:</strong> <span id=\"accelLabel\">2,0 м/с²</span></p>\n            <div class=\"meter\"><div id=\"accelMeter\" class=\"meter-fill\"></div></div>\n            <button onclick=\"runForceLab()\">Почати Wagerl</button>\n            <div class=\"diagram-box\" style=\"text-align: left; background: #333; height: 120px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <line x1=\"0\" y1=\"80\" x2=\"100%\" y2=\"80\" stroke=\"white\" stroke-width=\"2\" stroke-dasharray=\"10,10\"></line>\n                    <g id=\"forceCart\" style=\"transform: translateX(10px); transition: transform 1s ease-in;\">\n                        <text x=\"0\" y=\"70\" font-size=\"40\">🛒</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"forceLabText\" class=\"lab-feedback\">Більше потужності робить вас швидшими. Більша маса робить вас повільнішим.</p>\n        </div>\n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Анімація: додавання сил</h3>\n            <p>Якщо дві сили діють одночасно, ви можете додати їх у вигляді стрілок.</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/vektor_addition.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n        {{QUIZ_q_newton2}}"
       },
       {
         "id": "sec6",
@@ -4163,7 +4163,7 @@
             ]
           }
         ],
-        "content": "<p>Ми, люди, використовуємо трюк заломлення, шліфуючи скло до дуже специфічних круглих форм. Ми називаємо ці шматочки скла <strong>Linsen</strong>. З ними ми можемо будувати збільшувальні скла, окуляри та камери!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Дві форми, два прийоми:</strong><br>\n            - <strong>Збиральна лінза (опукла лінза):</strong> Вона гарна, товста і з цибулиною в середині. Він захоплює світлові промені та спрямовує їх усередину, доки всі вони не зустрінуться в одній надгарячій точці: <strong>фокальна точка (фокус)</strong>.<br>\n            - <strong>Розсіююча лінза (увігнута лінза):</strong> Вона тонша в середині, ніж на краю. Він виштовхує промені назовні, ніби вони розсіюються. <br><br>\n            <em>💡 Чудова мнемоніка: «Зворотній бік шестигранника опуклий (вигнутий назовні), увігнутий — глибока овеча могила (вигнута всередину, як печера).»</em>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔍 Зміна лінз</h3>\n            <p>Натисніть, щоб замінити лінзу:</p>\n            <button onclick=\"toggleLens()\">Змінити об'єктив ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <path d=\"M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    \n                    <path id=\"lensShape\" d=\"M 200 40 Q 230 120 200 200 Q 170 120 200 40\" fill=\"#bee3f8\" stroke=\"#3182ce\" stroke-width=\"2\" style=\"transition: all 0.5s;\"></path>\n                    \n                    <g id=\"lensRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"rayTopLens\" d=\"M 200 80 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayMidLens\" d=\"M 200 120 L 380 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayBotLens\" d=\"M 200 160 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualLensRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"80\"></line>\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"160\"></line>\n                    </g>\n                    \n                    <circle id=\"focalPointReal\" cx=\"320\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"focalPointVirtual\" cx=\"80\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"lensText\" style=\"font-weight:bold; color:#E91E63;\">Збиральна лінза (опукла): фокусує всі промені в точці фокусу!</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: заломлення на збиральній лінзі</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/linsen_brechung.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/linsen_brechung.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
+        "content": "<p>Ми, люди, використовуємо трюк заломлення, шліфуючи скло до дуже специфічних круглих форм. Ми називаємо ці шматочки скла <strong>Linsen</strong>. З ними ми можемо будувати збільшувальні скла, окуляри та камери!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Дві форми, два прийоми:</strong><br>\n            - <strong>Збиральна лінза (опукла лінза):</strong> Вона гарна, товста і з цибулиною в середині. Він захоплює світлові промені та спрямовує їх усередину, доки всі вони не зустрінуться в одній надгарячій точці: <strong>фокальна точка (фокус)</strong>.<br>\n            - <strong>Розсіююча лінза (увігнута лінза):</strong> Вона тонша в середині, ніж на краю. Він виштовхує промені назовні, ніби вони розсіюються. <br><br>\n            <em>💡 Чудова мнемоніка: «Зворотній бік шестигранника опуклий (вигнутий назовні), увігнутий — глибока овеча могила (вигнута всередину, як печера).»</em>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔍 Зміна лінз</h3>\n            <p>Натисніть, щоб замінити лінзу:</p>\n            <button onclick=\"toggleLens()\">Змінити об'єктив ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <path d=\"M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    \n                    <path id=\"lensShape\" d=\"M 200 40 Q 230 120 200 200 Q 170 120 200 40\" fill=\"#bee3f8\" stroke=\"#3182ce\" stroke-width=\"2\" style=\"transition: all 0.5s;\"></path>\n                    \n                    <g id=\"lensRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"rayTopLens\" d=\"M 200 80 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayMidLens\" d=\"M 200 120 L 380 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayBotLens\" d=\"M 200 160 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualLensRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"80\"></line>\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"160\"></line>\n                    </g>\n                    \n                    <circle id=\"focalPointReal\" cx=\"320\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"focalPointVirtual\" cx=\"80\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"lensText\" style=\"font-weight:bold; color:#E91E63;\">Збиральна лінза (опукла): фокусує всі промені в точці фокусу!</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: заломлення на збиральній лінзі</h3>\n            <p>Перегляньте цю точну анімацію, згенеровану за допомогою Python (Manim), щоб чітко зрозуміти фізичний процес:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/linsen_brechung.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
       },
       {
         "id": "sec5",
@@ -5634,7 +5634,7 @@
             ]
           }
         ],
-        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: температура як рух</h3>\n            <p>Cold означає повільні частинки. Гаряче означає, що вони дико бігають і потребують більше місця!</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/waermelehre_teilchen.mp4?v=3\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n\n\n        \n        <p>Незалежно від того, вода, дерево чи повітря – все навколо нас складається з маленьких будівельних блоків, <strong>частинок</strong>. І ці частинки ніколи не сидять на місці! Вони весь час трясуться і трясуться. <strong>Насправді тепло — це не що інше, як рух!</strong> Чим гарячіше щось, тим дикіше та швидше мчать частинки (це вимірюється за допомогою <strong>термометра</strong> у °C). Коли стає холодно, вони рухаються дуже повільно.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Розумний словник: абсолютний нуль</strong><br>\n            Чи існує момент, коли частинки повністю застигають і більше не рухаються взагалі? так! Це називається «точкою абсолютного нуля». Крижано <strong>-273,15 градусів Цельсія</strong>. У всьому всесвіті холодніше не стає!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔬 Мікроскоп частинок</h3>\n            <p>Підвищте температуру та спостерігайте, як частинки божеволіють!</p>\n            <input type=\"range\" id=\"tempRange\" min=\"0\" max=\"100\" value=\"10\" style=\"width: 250px;\">\n            <p>Температура: <span id=\"tempValue\" style=\"font-weight: bold; color: #1976D2;\">10°C (холодно)</span></p>\n            <div class=\"diagram-box\" style=\"background: #e3f2fd;\" id=\"particleBox\">\n                <svg width=\"300\" height=\"200\" id=\"particleSvg\">\n                    </svg>\n            </div>\n        </div>\n        {{QUIZ_q1}}"
+        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: температура як рух</h3>\n            <p>Cold означає повільні частинки. Гаряче означає, що вони дико бігають і потребують більше місця!</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/waermelehre_teilchen.mp4?v=3\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n\n\n        \n        <p>Незалежно від того, вода, дерево чи повітря – все навколо нас складається з маленьких будівельних блоків, <strong>частинок</strong>. І ці частинки ніколи не сидять на місці! Вони весь час трясуться і трясуться. <strong>Насправді тепло — це не що інше, як рух!</strong> Чим гарячіше щось, тим дикіше та швидше мчать частинки (це вимірюється за допомогою <strong>термометра</strong> у °C). Коли стає холодно, вони рухаються дуже повільно.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Розумний словник: абсолютний нуль</strong><br>\n            Чи існує момент, коли частинки повністю застигають і більше не рухаються взагалі? так! Це називається «точкою абсолютного нуля». Крижано <strong>-273,15 градусів Цельсія</strong>. У всьому всесвіті холодніше не стає!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔬 Мікроскоп частинок</h3>\n            <p>Підвищте температуру та спостерігайте, як частинки божеволіють!</p>\n            <input type=\"range\" id=\"tempRange\" min=\"0\" max=\"100\" value=\"10\" style=\"width: 250px;\">\n            <p>Температура: <span id=\"tempValue\" style=\"font-weight: bold; color: #1976D2;\">10°C (холодно)</span></p>\n            <div class=\"diagram-box\" style=\"background: #e3f2fd;\" id=\"particleBox\">\n                <svg width=\"300\" height=\"200\" id=\"particleSvg\">\n                    </svg>\n            </div>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -12035,85 +12035,6 @@
       ]
     }
   },
-  "math3_4_flaechensatz": {
-    "title": "Теорема Піфагора",
-    "subtitle": "Скорочення на трикутнику",
-    "sections": [
-      {
-        "id": "sec1",
-        "title": "Правильний трикутник",
-        "content": "<p>Це працює лише з трикутником із <b>кутом 90 градусів</b>.</p><svg width='100' height='100'><polygon points='10,90 90,90 10,10' fill='none' stroke='black' stroke-width='3'/><rect x='10' y='80' width='10' height='10' fill='red'/></svg><p>Найдовша сторона навпроти прямого кута називається <span style='color:red'>Гіпотенуза</span>. Інші два собори.</p>{{QUIZ_m34_q1}}",
-        "quizzes": [
-          {
-            "id": "m34_q1",
-            "question": "Де знаходиться гіпотенуза?",
-            "answers": [
-              {
-                "text": "Навпроти прямого кута",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно. Тут правильний кут, протилежний прямому."
-              },
-              {
-                "text": "Розташовані під прямим кутом",
-                "correct": false,
-                "pts": 5,
-                "feedback": "ще ні. Правильно: Проти прямого кута."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec2",
-        "title": "Формула: a² + b² = c²",
-        "content": "<p>Квадрат катетів дорівнює квадрату гіпотенузи. Уявіть, що на сторонах трикутника будуєте квадрати.</p><div class='interactive-zone'>Катет a=3, Катет b=4. c² = 3² + 4² = 9 + 16 = 25. Що таке c?<br><input id='pyt1' type='number'><button onclick='checkPyt()'>Check</button><p id='pytFb'></p></div>{{QUIZ_m34_q2}}",
-        "quizzes": [
-          {
-            "id": "m34_q2",
-            "question": "Якщо a² = 36 і b² = 64, чому дорівнює c²?",
-            "answers": [
-              {
-                "text": "100",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Правильно. 100 тут правильно."
-              },
-              {
-                "text": "10",
-                "correct": false,
-                "pts": 5,
-                "feedback": "ще ні. Правильно: 100."
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "diplom": {
-      "title": "🎓 Диплом: Піфагор",
-      "questions": [
-        {
-          "id": "m34_dip1",
-          "question": "Коли можна використовувати a² + b² = c²?",
-          "answers": [
-            {
-              "text": "Тільки для прямокутних трикутників",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Правильно. Це правильно лише для прямокутних трикутників."
-            },
-            {
-              "text": "На кожному трикутнику",
-              "correct": false,
-              "pts": 5,
-              "feedback": "ще ні. Правильно: тільки для прямокутних трикутників."
-            }
-          ]
-        }
-      ]
-    }
-  },
   "math3_5_verhaeltnisse": {
     "title": "Співвідношення (змішування та розділення)",
     "subtitle": "Сироп, ігри та чесний розподіл",
@@ -12358,7 +12279,7 @@
       {
         "id": "sec1",
         "title": "Формула",
-        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: візуальний доказ</h3>\n            <p>Подивіться уважно, як площі малих квадратів ($a^2$ і $b^2$) ідеально заповнюють площу великого квадрата ($c^2$).</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/pythagoras.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n\n<p>Застосовується ЛИШЕ до трикутників із <span style='color:red'>прямим кутом</span> (90 градусів).</p><p>Найдовша сторона називається <span style='color:red'>гіпотенузою (c)</span>.</p><p>Формула: <span style='color:red'>a² + b² = c²</span></p><div class='interactive-zone' style='background:#e8f5e9; padding:10px; border-radius:8px;'><svg width='150' height='150'><polygon points='10,140 130,140 10,50' fill='lightgreen' stroke='black'><text x='60' y='130'>a=4</text><text x='15' y='95'>b=3</text><text x='70' y='80'>c=?</text><rect x='10' y='130' width='10' height='10' fill='none' stroke='black'></rect></svg><br><input type='number' id='pyth_in' placeholder='Wie lang ist c?'><button onclick='checkPyth()'>Вирішити</button><p id='pyth_feedback'></p></div>{{QUIZ_m38_q1}}",
+        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: візуальний доказ</h3>\n            <p>Подивіться уважно, як площі малих квадратів ($a^2$ і $b^2$) ідеально заповнюють площу великого квадрата ($c^2$).</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/pythagoras.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n\n<p>Застосовується ЛИШЕ до трикутників із <span style='color:red'>прямим кутом</span> (90 градусів).</p><p>Найдовша сторона називається <span style='color:red'>гіпотенузою (c)</span>.</p><p>Формула: <span style='color:red'>a² + b² = c²</span></p><div class='interactive-zone' style='background:#e8f5e9; padding:10px; border-radius:8px;'><svg width='150' height='150'><polygon points='10,140 130,140 10,50' fill='lightgreen' stroke='black'><text x='60' y='130'>a=4</text><text x='15' y='95'>b=3</text><text x='70' y='80'>c=?</text><rect x='10' y='130' width='10' height='10' fill='none' stroke='black'></rect></svg><br><input type='number' id='pyth_in' placeholder='Wie lang ist c?'><button onclick='checkPyth()'>Вирішити</button><p id='pyth_feedback'></p></div>{{QUIZ_m38_q1}}",
         "quizzes": [
           {
             "id": "m38_q1",
@@ -12459,7 +12380,10 @@
           ]
         }
       ]
-    }
+    },
+    "prerequisites": [
+      "math4_1_reelle_zahlen"
+    ]
   },
   "math3_9_koerper": {
     "title": "📦 3D-тіла та просторова геометрія",
@@ -13299,7 +13223,7 @@
       {
         "id": "sec1",
         "title": "Середнє (середнє)",
-        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: дошка Галтона (звичайний розподіл)</h3>\n            <p>Якщо надзвичайно велика кількість кульок абсолютно випадково падає крізь дошку з цвяхами, завжди створюється одна і та сама ідеальна дзвоноподібна крива.</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/galton.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n\n<div class='interactive-zone'><p>Оцінки: 2, 4, 3. Середній? Все плюс, потім ділимо на число! <span style='color:red'>(2+4+3) : 3 = 3</span>.</p></div>{{QUIZ_m47_q1}}",
+        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Високоякісна анімація: дошка Галтона (звичайний розподіл)</h3>\n            <p>Якщо надзвичайно велика кількість кульок абсолютно випадково падає крізь дошку з цвяхами, завжди створюється одна і та сама ідеальна дзвоноподібна крива.</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/galton.mp4\" type=\"video/mp4\">\n                Ваш браузер не підтримує відео.\n            </video>\n        </div>\n\n<div class='interactive-zone'><p>Оцінки: 2, 4, 3. Середній? Все плюс, потім ділимо на число! <span style='color:red'>(2+4+3) : 3 = 3</span>.</p></div>{{QUIZ_m47_q1}}",
         "quizzes": [
           {
             "id": "m47_q1",
@@ -16229,5 +16153,2060 @@
         }
       ]
     }
+  },
+  "math3_4_flaechensatz": {
+    "title": "📐 Площі плоских фігур",
+    "subtitle": "Знаходь площу, розбиваючи фігури на частини, переставляючи їх і обчислюючи.",
+    "contentLanguage": "uk",
+    "script": false,
+    "learningGoals": [
+      "Розрізняй площу й периметр та використовуй відповідні одиниці.",
+      "Обчислюй площі прямокутника, трикутника, паралелограма й трапеції.",
+      "Розбивай складені фігури на частини та перевіряй результати."
+    ],
+    "prerequisites": [
+      "math1_5_geo_grundbegriffe",
+      "math1_10_groessen",
+      "math2_7_geometrie"
+    ],
+    "summary": [
+      "Прямокутник і паралелограм: A = b · h; h — перпендикулярна висота.",
+      "Трикутник: A = b · h / 2. Трапеція: A = (a + b) · h / 2, де a і b — паралельні сторони.",
+      "Додавай або віднімай площі відповідно до поділу фігури; 1 m² = 10 000 cm²."
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Площа й периметр",
+        "content": "<p>Периметр — це довжина межі фігури, яку вимірюють в одиницях довжини. Площа показує, яку частину площини займає фігура. Квадрат зі стороною 1 cm має площу 1 cm². Прямокутник зі сторонами b і h містить b · h таких одиничних квадратів, якщо довжини виражені в сантиметрах. Наприклад: 6 cm · 4 cm = 24 cm². Натомість його периметр дорівнює 2 · (6 cm + 4 cm) = 20 cm.</p>{{QUIZ_area_figure_q0}}{{QUIZ_area_figure_q1}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q0",
+            "question": "Яка одиниця підходить для вимірювання площі?",
+            "answers": [
+              {
+                "text": "cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Площі порівнюють з одиничними квадратами."
+              },
+              {
+                "text": "cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Сантиметр вимірює довжину."
+              },
+              {
+                "text": "cm³.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Кубічний сантиметр вимірює об’єм."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q1",
+            "question": "Прямокутник має довжину 6 cm і ширину 4 cm. Яка його площа?",
+            "answers": [
+              {
+                "text": "24 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "6 · 4 = 24."
+              },
+              {
+                "text": "20 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "20 cm — це периметр: 2 · (6 + 4)."
+              },
+              {
+                "text": "10 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Додавання 6 + 4 не дає площі."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Трикутник і паралелограм",
+        "content": "<p>Якщо відрізати трикутник з одного боку паралелограма й перенести його на інший бік, утвориться прямокутник такої самої площі. Тому A = b · h. Висота h — це перпендикулярна відстань між паралельними сторонами, а не довжина похилої сторони. З двох рівних трикутників можна скласти паралелограм, тому площа трикутника A = b · h / 2. Намалюй обидва перетворення на папері в клітинку.</p><div class=\"interactive-zone\" data-area-lab data-locale=\"uk\" data-base-name=\"основа\" data-height-name=\"перпендикулярна висота\" data-top-name=\"друга паралельна сторона\"><h3>Лабораторія площ</h3><p>Спочатку передбач, що зміниться, якщо подвоїти одну довжину. Потім зміни значення. Червона штрихова лінія — це перпендикулярна висота; вона може опускатися на продовження основи. Усі довжини задано в сантиметрах.</p><label>Фігура <select data-shape><option value=\"rectangle\">Прямокутник</option><option value=\"triangle\">Трикутник</option><option value=\"parallelogram\">Паралелограм</option><option value=\"trapezoid\">Трапеція</option></select></label><label>Основа b: <output data-value=\"b\">6</output> cm<input data-base data-dimension=\"b\" type=\"range\" min=\"1\" max=\"10\" value=\"6\"></label><label>Перпендикулярна висота h: <output data-value=\"h\">4</output> cm<input data-height data-dimension=\"h\" type=\"range\" min=\"1\" max=\"10\" value=\"4\"></label><label>Друга паралельна сторона a: <output data-value=\"a\">3</output> cm<input data-top data-dimension=\"a\" type=\"range\" min=\"1\" max=\"10\" value=\"3\"></label><svg viewBox=\"0 0 400 280\" role=\"img\" aria-label=\"Змінювана плоска фігура\"><line x1=\"40\" x2=\"350\" y1=\"240\" y2=\"240\" stroke=\"#64748b\" stroke-dasharray=\"3 3\"/><polygon fill=\"#bfdbfe\" stroke=\"#1e3a8a\" stroke-width=\"2\"/><line data-height-line stroke=\"#b91c1c\" stroke-width=\"2\" stroke-dasharray=\"5 3\"/><text data-height-label fill=\"#991b1b\" font-size=\"13\"/><text data-base-label y=\"264\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"13\"/><text data-top-label x=\"50\" fill=\"#111827\" font-size=\"13\"/></svg><p data-status role=\"status\" aria-live=\"polite\"></p><p>Порівняй трикутник і паралелограм з b = 6 cm та h = 4 cm. Чому площа трикутника вдвічі менша? Домалюй другий рівний трикутник.</p></div>{{QUIZ_area_figure_q2}}{{QUIZ_area_figure_q3}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q2",
+            "question": "Трикутник має b = 6 cm і h = 4 cm. Чому дорівнює A?",
+            "answers": [
+              {
+                "text": "12 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "6 · 4 / 2 = 12."
+              },
+              {
+                "text": "24 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Це площа паралелограма з такою самою основою та висотою."
+              },
+              {
+                "text": "10 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Сума цих довжин не є площею."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q3",
+            "question": "Яка довжина відповідає h у формулі A = b · h для паралелограма?",
+            "answers": [
+              {
+                "text": "Перпендикулярна відстань між паралельними основами.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Висота перпендикулярна до основи або її продовження."
+              },
+              {
+                "text": "Завжди довжина похилої сторони.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Сторона є також висотою лише в окремому випадку."
+              },
+              {
+                "text": "Увесь периметр.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Периметр — це сума довжин сторін."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Трапеції та складені фігури",
+        "content": "<p>Трапеція має пару паралельних сторін завдовжки a і b. Перпендикулярна відстань між ними дорівнює h. З двох рівних трапецій можна скласти паралелограм з основою a + b і висотою h. Тому площа трапеції A = (a + b) · h / 2. Складні фігури розбивай на знайомі частини. Додавай площі лише тих частин, які не перекриваються. Площу вирізаного кута можна відняти від площі цілої фігури.</p>{{QUIZ_area_figure_q4}}{{QUIZ_area_figure_q5}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q4",
+            "question": "Трапеція має a = 3 cm, b = 7 cm і h = 4 cm. Чому дорівнює A?",
+            "answers": [
+              {
+                "text": "20 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "(3 + 7) · 4 / 2 = 20."
+              },
+              {
+                "text": "40 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Пропущено ділення на 2."
+              },
+              {
+                "text": "84 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Добуток усіх трьох довжин не є площею трапеції."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q5",
+            "question": "Ти подвоюєш лише висоту трикутника, а основу не змінюєш. Як зміниться A?",
+            "answers": [
+              {
+                "text": "Площа подвоїться.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "У виразі b · h / 2 подвоюється один множник."
+              },
+              {
+                "text": "Площа збільшиться в чотири рази.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Площа збільшиться в чотири рази, якщо подвоїти і основу, і висоту."
+              },
+              {
+                "text": "Площа не зміниться.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Висота впливає на площу."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section3",
+        "title": "4. Перевірка одиниць і результатів",
+        "content": "<p>Перед застосуванням формули площі переведи всі довжини в однакові одиниці. Оскільки 1 m = 100 cm, то 1 m² = 100 · 100 cm² = 10 000 cm². Подвоєння обох вимірів збільшує площу в чотири рази. Перевір результат за допомогою рисунка й оцінки: за однакових основи та висоти площа трикутника вдвічі менша за площу паралелограма.</p>{{QUIZ_area_figure_q6}}{{QUIZ_area_figure_q7}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q6",
+            "question": "Скільки cm² міститься в 1 m²?",
+            "answers": [
+              {
+                "text": "10 000 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Квадрат зі стороною 1 m має розміри 100 cm · 100 cm."
+              },
+              {
+                "text": "100 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Множник 100 стосується довжин; площа має два виміри."
+              },
+              {
+                "text": "1000 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Для площі множник дорівнює 100 · 100."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q7",
+            "question": "Г-подібна фігура складається з прямокутників площею 12 m² і 8 m², які не перекриваються. Яка її площа?",
+            "answers": [
+              {
+                "text": "20 m².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Площі частин без перекриття додають."
+              },
+              {
+                "text": "96 m².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Площі частин не перемножують."
+              },
+              {
+                "text": "4 m².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Віднімання підходить для вирізаної частини."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "5. Обчисли площу підлоги",
+      "navLabel": "Майстерня площ",
+      "instruction": "Добери формули, а потім розв’яжи задачу про план кімнати.",
+      "categories": [
+        "b · h",
+        "b · h / 2",
+        "(a + b) · h / 2"
+      ],
+      "items": [
+        {
+          "text": "Паралелограм з основою b та перпендикулярною висотою h.",
+          "answer": "b · h",
+          "feedback": "Перенесення кутового трикутника утворює прямокутник такої самої площі."
+        },
+        {
+          "text": "Трикутник з основою b та відповідною висотою h.",
+          "answer": "b · h / 2",
+          "feedback": "Два рівні трикутники утворюють паралелограм."
+        },
+        {
+          "text": "Трапеція з паралельними сторонами a і b та висотою h.",
+          "answer": "(a + b) · h / 2",
+          "feedback": "Дві рівні трапеції утворюють паралелограм з основою a + b."
+        }
+      ],
+      "writing": "Уявна кімната має прямокутний план розміром 6 m × 4 m. В одному куті бракує прямокутної частини 2 m × 1 m. Намалюй рисунок із позначеними розмірами та обчисли решту площі підлоги двома способами. Поясни, чому результати однакові.",
+      "rubric": [
+        "Усі довжини виражено в однакових одиницях.",
+        "Мої частини не перекриваються.",
+        "Я записую результат у m² і перевіряю іншим способом."
+      ],
+      "model": "Спосіб 1: 6 · 4 − 2 · 1 = 24 − 2 = 22 m². Спосіб 2: розбий фігуру на прямокутники 6 m × 3 m і 4 m × 1 m: 18 + 4 = 22 m². Обидва способи охоплюють ту саму площу без вирізаного кута."
+    },
+    "sourceRevision": 1
+  },
+  "math2_9_relative_haeufigkeit": {
+    "title": "📊 Порівнюємо відносні частоти",
+    "subtitle": "Розрізняй кількість, частку та групу, якої стосуються дані.",
+    "contentLanguage": "uk",
+    "script": true,
+    "prerequisites": [
+      "math2_8_statistik",
+      "math2_2_brueche",
+      "math2_6_prop_prozent"
+    ],
+    "learningGoals": [
+      "Розрізняй абсолютну й відносну частоти та вказуй досліджувану групу.",
+      "Записуй частки звичайними дробами, десятковими дробами та відсотками.",
+      "Порівнюй групи різного розміру за частками.",
+      "Розрізняй відсоткові пункти й відносну зміну та розумій межі висновків.",
+      "Читати кругові діаграми й відсоткові смуги та перетворювати частки на кути.",
+      "Упорядковувати частоти у двоетапному дереві та пояснювати групу, відносно якої обчислюють частку."
+    ],
+    "summary": [
+      "Відносна частота = кількість у категорії / загальна кількість розглянутих спостережень. Потрібно вказати групу.",
+      "Ту саму частку можна записати дробом, десятковим числом або відсотками: 1/4 = 0,25 = 25 %.",
+      "У групах різного розміру більша кількість голосів може означати меншу частку.",
+      "Відсоткові пункти вимірюють різницю між двома відсотковими значеннями. Зміна частки не доводить причину.",
+      "У колі кут дорівнює частці · 360°. У відсотковій смузі довжина становить таку саму частку загальної довжини."
+    ],
+    "sections": [
+      {
+        "id": "relative_basics",
+        "title": "1. Від кількості до частки",
+        "content": "<p>У вигаданому опитуванні 6 із 12 осіб обирають бібліотеку. <strong>Абсолютна частота</strong> дорівнює 6. <strong>Відносна частота</strong> становить 6/12 = 1/2 = 0,5 = 50 %. Знаменник охоплює всі дійсні відповіді, на які ми спираємося.</p><p>Завжди вказуй досліджувану групу. Наприклад, із 20 осіб, яких опитували, лише 18 могли дати дійсну відповідь. Тоді «частка серед усіх опитаних» і «частка серед дійсних відповідей» мають різні знаменники. Відсутні відповіді не можна непомітно зараховувати до певної категорії. Якщо немає жодного спостереження, частку обчислити неможливо.</p>{{QUIZ_m28_relative1}}{{QUIZ_relative_total}}{{QUIZ_relative_zero}}",
+        "quizzes": [
+          {
+            "id": "m28_relative1",
+            "question": "Шестеро з дванадцяти опитаних обирають бібліотеку. Яка відносна частота?",
+            "answers": [
+              {
+                "text": "6/12 = 1/2 = 50 %.",
+                "feedback": "Кількість відповідей за бібліотеку ділимо на загальну кількість дійсних відповідей.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "6 %.",
+                "feedback": "6 — абсолютна кількість. Для відсотка потрібно співвіднести її із загальною кількістю 12.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "12/6 = 2 = 200 %.",
+                "feedback": "Чисельник і знаменник переставлено. Частка категорії серед усіх відповідей тут не може перевищувати 100 %.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_total",
+            "question": "В опитуванні 18 осіб дають дійсну відповідь, із них 6 обирають подвір’я. Ще двоє не відповідають. Яка частка подвір’я серед дійсних відповідей?",
+            "answers": [
+              {
+                "text": "6/18 = 1/3.",
+                "feedback": "Знаменник має відповідати описаній групі: 18 дійсних відповідей. Дві відсутні відповіді вказують окремо.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "6/20 = 30 %.",
+                "feedback": "Це частка серед усіх 20 осіб, яких опитували. Запитання стосується дійсних відповідей.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "18/6 = 3.",
+                "feedback": "Потрібно поділити кількість голосів за подвір’я на загальну кількість дійсних відповідей, а не навпаки.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_zero",
+            "question": "Опитування ще не отримало жодної відповіді. Яка частка голосів за подвір’я?",
+            "answers": [
+              {
+                "text": "Її ще неможливо визначити.",
+                "feedback": "І кількість голосів, і загальна кількість дорівнюють нулю. Ділення 0/0 не визначене.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "0 %.",
+                "feedback": "0 % має сенс, якщо дійсні відповіді є, але жодна не за подвір’я. Тут немає ненульової загальної кількості.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "100 %.",
+                "feedback": "Відповідей ще немає. Частку з цього визначити неможливо.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_forms",
+        "title": "2. Перетворюємо частки",
+        "content": "<p>Поділи кількість у категорії на загальну кількість і перетвори десятковий дріб у відсотки: 5/20 = 0,25 = 25 %. І навпаки, 25 % від 20 відповідей — це 0,25 · 20 = 5 відповідей.</p><p>Відсотки можуть бути округленими: одна третина — приблизно 33,3 %. Тому сума округлених часток може становити близько 99,9 %, а не рівно 100 %. Неокруглені частки всіх категорій, які охоплюють усі відповіді й не перетинаються, дають у сумі рівно 1.</p>{{QUIZ_relative_convert}}{{QUIZ_relative_reverse}}",
+        "quizzes": [
+          {
+            "id": "relative_convert",
+            "question": "Із 20 дійсних відповідей 5 стосуються ігрової кімнати. Який запис описує ту саму частку?",
+            "answers": [
+              {
+                "text": "5/20 = 0,25 = 25 %.",
+                "feedback": "Після скорочення отримуємо 1/4. Чверть дорівнює 0,25, або 25 зі 100.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "5/20 = 0,5 = 50 %.",
+                "feedback": "0,5 — половина. П’ять із двадцяти — лише чверть.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "5/20 = 0,05 = 5 %.",
+                "feedback": "5 % — це 1 із 20. Число 5 тут означає кількість відповідей, а не готовий відсоток.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_reverse",
+            "question": "40 % із 30 дійсних відповідей стосуються бібліотеки. Скільки це голосів?",
+            "answers": [
+              {
+                "text": "12 голосів.",
+                "feedback": "0,4 · 30 = 12. Зворотна перевірка: 12/30 = 0,4.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "40 голосів.",
+                "feedback": "40 % описує частку. Сорок голосів перевищували б загальну кількість 30.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "75 голосів.",
+                "feedback": "30 / 0,4 відповідає на інше запитання. Тут загальна кількість уже відома, її множать на частку.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_compare",
+        "title": "3. Порівнюємо групи різного розміру",
+        "content": "<p>У групі A бібліотеку обирають 6 із 12 осіб, а в групі B — 8 із 20. У B більше голосів, але в A більша частка: 50 % проти 40 %. Стовпчикова діаграма кількостей і діаграма відсотків відповідають на різні запитання. Перед порівнянням прочитай одиницю вимірювання та шкалу.</p><p>Для коректного порівняння мають відповідати одне одному також запитання й варіанти відповідей. Якщо одна група може назвати кілька місць, а інша — лише одне, не можна просто однаково трактувати результати.</p>{{QUIZ_m28_relative2}}",
+        "quizzes": [
+          {
+            "id": "m28_relative2",
+            "question": "У групі A бібліотеку обирають 6 із 12 осіб, а в групі B — 8 із 20. Де частка більша?",
+            "answers": [
+              {
+                "text": "У групі A: 50 % проти 40 %.",
+                "feedback": "6/12 = 1/2, а 8/20 = 2/5. Більша абсолютна кількість у B не означає більшої частки.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "У групі B, бо 8 більше за 6.",
+                "feedback": "Групи різного розміру. Порівнюй частки, а не лише кількості.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "В обох однакова, бо обидві мають більше ніж п’ять голосів.",
+                "feedback": "Межа у п’ять голосів нічого не говорить про частку від розміру групи.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_change",
+        "title": "4. Точно описуємо зміни",
+        "content": "<p>Якщо частка зростає з 20 % до 30 %, різниця становить 10 <strong>відсоткових пунктів</strong>. Відносно початкової частки це збільшення на 10/20 = 50 %. Це різні описи тієї самої зміни.</p><p>Опитування описує отримані відповіді. Без відомостей про добір учасників, розмір груп і умови опитування зростання частки не пояснює, чому вона зросла. У цих завданнях ми використовуємо вигадані дані й не робимо з них висновків про справжні вподобання учнів та учениць Відня.</p>{{QUIZ_relative_claim}}{{QUIZ_relative_points}}",
+        "quizzes": [
+          {
+            "id": "relative_claim",
+            "question": "У двох добровільних опитуваннях частка подвір’я зростає з 30 % до 45 %. Що можна встановити лише з цього?",
+            "answers": [
+              {
+                "text": "Частка зросла серед відповідей, отриманих у кожному опитуванні.",
+                "feedback": "Без інформації про учасників і умови невідомо, чи змінила думку та сама група.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Рівно 15 осіб змінили думку.",
+                "feedback": "Різниця становить 15 відсоткових пунктів. Кількість осіб та індивідуальні відповіді невідомі.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Доведено, що подвір’я стало привабливішим для всіх учнів.",
+                "feedback": "Добровільні опитування можуть охоплювати різні групи. Дані не доводять ані причини, ані висновку для всіх.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_points",
+            "question": "Частка зростає з 20 % до 30 %. На скільки відсоткових пунктів вона зросла?",
+            "answers": [
+              {
+                "text": "На 10 відсоткових пунктів.",
+                "feedback": "30 − 20 = 10 відсоткових пунктів. Відносно початкової частки це збільшення на 50 %.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "На 50 відсоткових пунктів.",
+                "feedback": "50 % — відносне збільшення порівняно з 20 %. Різниця між двома відсотковими значеннями становить 10 пунктів.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "На 30 відсоткових пунктів.",
+                "feedback": "30 % — нова частка. Щоб знайти приріст, відніми початкову частку.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_diagrams",
+        "title": "5. Кругова діаграма та відсоткова смуга",
+        "content": "<p>Ціле коло й ціла відсоткова смуга позначають 100 %. Для частки p центральний кут обчислюємо як p · 360°, а довжину частини смуги — як p · загальна довжина. Приклад: 5 із 20 = 25 %, тобто 90° і чверть смуги.</p><p>У цьому вигаданому опитуванні відповідають рівно 20 осіб. Кожна обирає або бібліотеку, або інше місце. Категорії не перетинаються й охоплюють усі відповіді. Лише тоді сума їхніх часток дорівнює 100 %.</p><p>Змінюй кількість голосів за бібліотеку. Встанови спочатку 5, потім 10 і нарешті 15 голосів. Щоразу передбач частку й кут, а потім порівняй коло та смугу. Що відбувається за 0 і 20 голосів? Далі намалюй на папері кругову діаграму для 7 із 20 голосів і перевір її тут.</p><div class=\"interactive-zone\" data-share-diagrams data-locale=\"uk\" data-chart-description=\"Два подання одного опитування з 20 відповідями. Усі значення наведено в таблиці.\"><label>Голоси за бібліотеку (із 20) <input type=\"range\" min=\"0\" max=\"20\" step=\"1\" value=\"5\" data-share-count></label><button type=\"button\" data-share-reset>Скинути</button><p data-share-status aria-live=\"polite\"></p><div data-share-picture></div><table><caption>Два подання одного опитування з 20 відповідями. Усі значення наведено в таблиці.</caption><thead><tr><th scope=\"col\">Категорія</th><th scope=\"col\">Кількість</th><th scope=\"col\">Частка</th><th scope=\"col\">Центральний кут</th></tr></thead><tbody><tr data-share-row><th scope=\"row\">A: Бібліотека</th><td></td><td></td><td></td></tr><tr data-share-row><th scope=\"row\">B: Інше місце</th><td></td><td></td><td></td></tr></tbody></table></div>{{QUIZ_relative_circle_angle}}",
+        "quizzes": [
+          {
+            "id": "relative_circle_angle",
+            "question": "25 % відповідей потрібно зобразити на круговій діаграмі. Який відповідний центральний кут?",
+            "answers": [
+              {
+                "text": "90°.",
+                "feedback": "Повне коло має 360°: його чверть дорівнює 90°.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "25°.",
+                "feedback": "25 — це відсоткове значення. Щоб знайти кут, помнож частку на 360°.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "180°.",
+                "feedback": "180° — це півколо, яке відповідає 50 %, а не 25 %.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_tree",
+        "title": "6. Упорядковуємо частоти у два етапи",
+        "content": "<p>Дерево частот послідовно розподіляє тих самих людей на групи. У нашому вигаданому прикладі 12 відповідей надходять від класу A, а 8 — від класу B. У кожному класі люди обирають бібліотеку або інше місце. На кожному розгалуженні сума кількостей у підгрупах дорівнює кількості перед розгалуженням.</p><p>Якщо за бібліотеку голосують 6 осіб з A і 2 з B, частка серед 12 осіб класу A становить 6/12 = 50 %. Серед усіх 20 осіб 6/20 = 30 % одночасно належать до A й обирають бібліотеку. Загалом бібліотеку обирають 8/20 = 40 %. Просте середнє між 50 % і 25 % тут було б хибним, бо класи мають різну кількість людей.</p><p>Змінюй голоси в обох класах. Перевіряй суми на кожному розгалуженні. Встанови частку бібліотеки 50 % в обох класах. Які кількості потрібні? Потім встанови A на 12, а B на 0: чому загальна частка дорівнює 60 %, а не 50 %?</p><div class=\"interactive-zone\" data-frequency-tree data-locale=\"uk\"><div><label style=\"display:block\">Клас A – Бібліотека <input data-tree-input type=\"range\" min=\"0\" max=\"12\" step=\"1\" value=\"6\"></label><label style=\"display:block\">Клас B – Бібліотека <input data-tree-input type=\"range\" min=\"0\" max=\"8\" step=\"1\" value=\"2\"></label><button type=\"button\" data-tree-reset>Скинути</button></div><ul><li>Усі відповіді: <bdi dir=\"ltr\">20</bdi><ul><li>Клас A: <bdi dir=\"ltr\">12</bdi><ul><li>Бібліотека: <bdi dir=\"ltr\" data-tree-leaf=\"0\"></bdi></li><li>Інше місце: <bdi dir=\"ltr\" data-tree-leaf=\"1\"></bdi></li></ul></li><li>Клас B: <bdi dir=\"ltr\">8</bdi><ul><li>Бібліотека: <bdi dir=\"ltr\" data-tree-leaf=\"2\"></bdi></li><li>Інше місце: <bdi dir=\"ltr\" data-tree-leaf=\"3\"></bdi></li></ul></li></ul></li></ul><div data-tree-status aria-live=\"polite\"><p>Клас A – Бібліотека<br>Частка всередині класу: <bdi dir=\"ltr\" data-tree-within></bdi><br>Частка серед усіх відповідей: <bdi dir=\"ltr\" data-tree-whole></bdi></p><p>Клас B – Бібліотека<br>Частка всередині класу: <bdi dir=\"ltr\" data-tree-within></bdi><br>Частка серед усіх відповідей: <bdi dir=\"ltr\" data-tree-whole></bdi></p><p><strong>Загальна частка бібліотеки: <bdi dir=\"ltr\" data-tree-total></bdi></strong></p></div></div>{{QUIZ_relative_tree_reference}}",
+        "quizzes": [
+          {
+            "id": "relative_tree_reference",
+            "question": "Із 20 опитаних 12 належать до класу A. Шестеро з A обирають бібліотеку. Яка частка всіх опитаних належить до A й обирає бібліотеку?",
+            "answers": [
+              {
+                "text": "6/20 = 30 %.",
+                "feedback": "Група порівняння — усі 20 опитаних. Шестеро, які відповідають обом умовам, утворюють чисельник.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "6/12 = 50 %.",
+                "feedback": "Це частка бібліотеки всередині A. Запитують про частку серед усіх опитаних.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "12/20 = 60 %.",
+                "feedback": "Це враховує всіх осіб з A. Лише шестеро з них обирають бібліотеку.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "7. Коректно порівнюємо дві групи",
+      "navLabel": "Майстерня порівняння",
+      "instruction": "Установи відповідності для тверджень, а потім напиши обґрунтоване тлумачення.",
+      "categories": [
+        "Абсолютна частота",
+        "Відносна частота",
+        "Різниця у відсоткових пунктах"
+      ],
+      "items": [
+        {
+          "text": "У групі A подвір’я обирають 9 осіб.",
+          "answer": "Абсолютна частота",
+          "feedback": "9 — кількість осіб; це ще не частка."
+        },
+        {
+          "text": "У групі A подвір’я обирають 9 із 15 осіб: 60 %.",
+          "answer": "Відносна частота",
+          "feedback": "9/15 співвідносить кількість голосів із розміром групи."
+        },
+        {
+          "text": "Частка подвір’я в A — 60 %, у B — 50 %: різниця 10.",
+          "answer": "Різниця у відсоткових пунктах",
+          "feedback": "60 − 50 = 10 відсоткових пунктів. Це не автоматично відносне збільшення."
+        }
+      ],
+      "writing": "Два вигадані класи відповідають на те саме запитання, по одній відповіді від кожної людини. Клас A: 9 із 15 дійсних відповідей за подвір’я; клас B: 12 із 24. Обчисли частки, порівняй кількості й частки та сформулюй два правильні твердження. Поясни також, чому результати не поширюються автоматично на всі школи Відня.",
+      "rubric": [
+        "Я вказую обидві загальні кількості та обчислюю 60 % і 50 %.",
+        "Я розрізняю більшу кількість голосів і більшу частку.",
+        "Мої висновки стосуються лише двох опитаних груп."
+      ],
+      "model": "A: 9/15 = 60 %. B: 12/24 = 50 %. У B більше голосів за подвір’я (12 проти 9), але в A більша частка (60 % проти 50 %). Різниця становить 10 відсоткових пунктів. Ці дві групи не є автоматично репрезентативною вибіркою всіх учнів та учениць Відня."
+    },
+    "sourceRevision": 1
+  },
+  "geo_1_karten_raeume": {
+    "title": "🧭 Карти та простір",
+    "subtitle": "Знаходимо місце за легендою, сторонами світу й сіткою.",
+    "contentLanguage": "uk",
+    "script": false,
+    "learningGoals": [
+      "Знаходити місце за легендою, сторонами світу й сіткою.",
+      "За масштабом визначати реальну відстань за відстанню на карті.",
+      "Розглядати простір з погляду різних потреб."
+    ],
+    "prerequisites": [
+      "Порівнювати довжини в сантиметрах і метрах."
+    ],
+    "summary": [
+      "Легенда, стрілка півночі й масштаб допомагають читати карту.",
+      "За масштабу 1:10 000 один сантиметр на плані відповідає 100 м на місцевості.",
+      "Прохідний маршрут може бути довшим за відстань по прямій; простір задовольняє різні потреби."
+    ],
+    "sources": [
+      {
+        "title": "Навчальна програма австрійської Mittelschule (німецькою)",
+        "url": "https://www.bmb.gv.at/Themen/schule/schulpraxis/lp/lp_ms.html"
+      }
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Карти — це моделі",
+        "content": "<p>Карта показує вибрані ознаки території у зменшеному вигляді. Легенда пояснює умовні позначення, а стрілка півночі допомагає орієнтуватися. Масштаб описує відношення відстані на карті до реальної відстані. За масштабу 1:10 000 один сантиметр на карті відповідає 10 000 см, тобто 100 м на місцевості. Не на кожній карті північ розташована вгорі; завжди перевіряй позначення.</p>{{QUIZ_geo_1_karten_raeume_q0}}",
+        "quizzes": [
+          {
+            "id": "geo_1_karten_raeume_q0",
+            "question": "Масштаб карти — 1:10 000. Якій реальній відстані відповідають 3 см?",
+            "answers": [
+              {
+                "text": "300 м.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "3 · 100 м = 300 м."
+              },
+              {
+                "text": "30 м.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тут уже один сантиметр відповідає 100 м."
+              },
+              {
+                "text": "3 км.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "На цій карті 3 км становили б 30 см."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Плануємо й перевіряємо маршрути",
+        "content": "<p>Описуй маршрут так, щоб інша людина могла його пройти. Назви початок, напрямки, помітні орієнтири й кінцеву точку. Пряма лінія не завжди є шляхом, яким можна пройти. Перекрита вулиця, річка або відсутність переходу можуть вимагати обходу.</p><div class=\"interactive-zone\" data-geo-experiment=\"route\" data-locale=\"uk\"><h3>Маршрут на модельному плані</h3><p>Північ угорі. Кожен крок між сусідніми клітинками відповідає 100 метрам. Початок: A5. Ціль: E1. C3 закрито. Спочатку сплануй маршрут, а потім перевір його. План не відтворює справжні вулиці Відня.</p><div data-grid></div><div><button type=\"button\" data-direction=\"n\">Північ ↑</button><button type=\"button\" data-direction=\"e\">Схід →</button><button type=\"button\" data-direction=\"s\">Південь ↓</button><button type=\"button\" data-direction=\"w\">Захід ←</button><button type=\"button\" data-reset>До початку</button></div><p data-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>{{QUIZ_geo_1_karten_raeume_q1}}",
+        "quizzes": [
+          {
+            "id": "geo_1_karten_raeume_q1",
+            "question": "Що пояснює легенда карти?",
+            "answers": [
+              {
+                "text": "Значення використаних умовних позначень.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "У ній пояснюють символи та кольори."
+              },
+              {
+                "text": "Реальну довжину кожного маршруту.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Для визначення реальних відстаней потрібні масштаб і вимірювання."
+              },
+              {
+                "text": "Напрямок півночі на кожній карті.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Для напрямку перевір стрілку півночі; легенда пояснює умовні позначення."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Чий це простір?",
+        "content": "<p>Площа може одночасно бути частиною шляху до школи, місцем відпочинку, зоною доставки й місцем для ігор. Діти, мешканці та підприємства можуть мати різні потреби. Спочатку опиши свої спостереження. Потім розглянь інтереси й можливі рішення. Карта транспортних шляхів відповідає на інші запитання, ніж карта затінених місць або безбар’єрних входів.</p>{{QUIZ_geo_1_karten_raeume_q2}}{{QUIZ_geo_1_karten_raeume_q3}}",
+        "quizzes": [
+          {
+            "id": "geo_1_karten_raeume_q2",
+            "question": "Скільки кроків потрібно для найкоротшого маршруту від A5 до E1 у моделі без руху по діагоналі?",
+            "answers": [
+              {
+                "text": "Вісім.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Достатньо чотирьох кроків на схід і чотирьох на північ, не заходячи в C3."
+              },
+              {
+                "text": "Чотири.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Чотирьох кроків вистачає лише для одного з двох напрямків."
+              },
+              {
+                "text": "Завжди потрібно десять.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Обхід можливий, але потрібен не для кожного маршруту."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_karten_raeume_q3",
+            "question": "Чому карта ніколи не відтворює всю дійсність?",
+            "answers": [
+              {
+                "text": "Вона вибирає ознаки та спрощує їх.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Вибір залежить від мети й масштабу."
+              },
+              {
+                "text": "Лише тому, що місця змінилися після друку.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Навіть щойно оновлена карта вибирає ознаки відповідно до своєї мети."
+              },
+              {
+                "text": "Лише тому, що паперові карти не містять фотографій.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Навіть карта з аерофотознімками пропускає деталі й зменшує зображення території."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Застосовуємо й обґрунтовуємо",
+      "instruction": "Установи відповідності та перевір свої пояснення.",
+      "categories": [
+        "Орієнтування",
+        "Масштаб",
+        "Використання та інтереси"
+      ],
+      "items": [
+        {
+          "text": "На цьому плані стрілка півночі спрямована вгору.",
+          "answer": "Орієнтування",
+          "feedback": "Ця інформація допомагає визначати напрямки."
+        },
+        {
+          "text": "Один сантиметр на плані відповідає 100 м на місцевості.",
+          "answer": "Масштаб",
+          "feedback": "Відношення пов’язує зображення з дійсністю."
+        },
+        {
+          "text": "Діти хочуть безпечного переходу.",
+          "answer": "Використання та інтереси",
+          "feedback": "Речення описує потребу групи користувачів."
+        }
+      ],
+      "writing": "Намалюй вигаданий план околиць школи з чотирма місцями, стрілкою півночі та легендою. Опиши безпечний маршрут. Також назви два різні інтереси щодо площі й запропонуй можливий компроміс.",
+      "rubric": [
+        "Стрілку півночі й позначення пояснено.",
+        "Мій маршрут узгоджується з планом.",
+        "Я розрізняю спостереження та пропозицію."
+      ],
+      "model": "Приклад: школа на півдні, бібліотека на півночі, парк на сході, зупинка на заході. Маршрут може йти вздовж парку до позначеного переходу. Дітям потрібні безпечні шляхи, підприємствам доставки — доступ. Обмежений час для доставки міг би врахувати обидва інтереси; реальну безпеку слід перевірити на місці."
+    },
+    "sourceRevision": 0
+  },
+  "geo_2_wirtschaften": {
+    "title": "🛒 Економічні рішення в повсякденному житті",
+    "subtitle": "Розрізняємо потреби, блага й доступні ресурси.",
+    "contentLanguage": "uk",
+    "script": false,
+    "learningGoals": [
+      "Розрізняти потреби, блага й доступні ресурси.",
+      "Розраховувати та обґрунтовувати простий бюджет.",
+      "Пов’язувати особисті рішення з працею, підприємствами й довкіллям."
+    ],
+    "prerequisites": [
+      "Додавати й віднімати грошові суми."
+    ],
+    "summary": [
+      "Бюджет пов’язує доступні кошти, витрати й резерв.",
+      "Прибуток визначають після віднімання витрат від доходу.",
+      "Кожне рішення має альтернативи; вигода найкращої втраченої альтернативи є його альтернативною вартістю."
+    ],
+    "sources": [
+      {
+        "title": "Навчальна програма австрійської Mittelschule (німецькою)",
+        "url": "https://www.bmb.gv.at/Themen/schule/schulpraxis/lp/lp_ms.html"
+      }
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Потреби й рішення",
+        "content": "<p>Людям потрібні, наприклад, їжа, житло й соціальні стосунки. Спосіб задоволення потреб залежить від доступних ресурсів та умов. Блага можуть бути товарами або послугами. Гроші, час і сировина обмежені. Вибір одного використання часто означає відмову від іншого. Вигоду найкращої втраченої альтернативи називають альтернативною вартістю.</p>{{QUIZ_geo_2_wirtschaften_q1}}{{QUIZ_geo_2_wirtschaften_q3}}",
+        "quizzes": [
+          {
+            "id": "geo_2_wirtschaften_q1",
+            "question": "Що є послугою?",
+            "answers": [
+              {
+                "text": "Ремонт велосипеда в майстерні.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Виконана робота є послугою."
+              },
+              {
+                "text": "Лише придбана запасна деталь.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Запасна деталь — це товар; послуга ремонту надається додатково."
+              },
+              {
+                "text": "Кожен предмет у вітрині.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Предмети у вітрині не стають автоматично послугами."
+              }
+            ]
+          },
+          {
+            "id": "geo_2_wirtschaften_q3",
+            "question": "Що описує альтернативна вартість?",
+            "answers": [
+              {
+                "text": "Вигоду найкращої альтернативи, від якої я відмовляюся.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Поняття стосується альтернативи, втраченої через рішення."
+              },
+              {
+                "text": "Грошову ціну обраної речі.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ціна стосується обраної речі, а альтернативна вартість — найкращої втраченої альтернативи."
+              },
+              {
+                "text": "Суму цін усіх речей, яких я не обираю.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Йдеться про найкращу втрачену альтернативу, а не про суму всіх можливих альтернатив."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Плануємо бюджет",
+        "content": "<p>Бюджет зіставляє доступні кошти із запланованими витратами. Резерв залишається для пізніших або непередбачених витрат. Люди мають різні ресурси; малий бюджет не є підставою оцінювати людину. Розглядаючи пропозицію, перевір загальну ціну, кількість, довговічність і справжню потребу.</p><div class=\"interactive-zone\" data-geo-experiment=\"budget\" data-locale=\"uk\"><h3>Плануємо використання 20 євро</h3><p>Вигаданий тижневий бюджет, а не рекомендації щодо цін: вибери витрати. Ти хочеш відкласти щонайменше 5 €. Який вибір відповідає твоїй меті?</p><label><input type=\"checkbox\" value=\"6\"> Матеріали для проєкту: 6 €</label><br><label><input type=\"checkbox\" value=\"4\"> Спільний перекус: 4 €</label><br><label><input type=\"checkbox\" value=\"8\"> Дозвілля: 8 €</label><br><label><input type=\"checkbox\" value=\"7\"> Нова гра: 7 €</label><p data-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>{{QUIZ_geo_2_wirtschaften_q0}}",
+        "quizzes": [
+          {
+            "id": "geo_2_wirtschaften_q0",
+            "question": "Скільки залишиться від 20 € після витрат 6 € і 8 €?",
+            "answers": [
+              {
+                "text": "6 €.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "20 − 6 − 8 = 6."
+              },
+              {
+                "text": "14 €.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "14 € — це витрати, а не залишок."
+              },
+              {
+                "text": "2 €.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Такий результат відповідав би іншим витратам."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Економічні взаємозв’язки",
+        "content": "<p>Коли підприємство продає товари, воно отримує дохід. Із нього потрібно оплачувати, зокрема, матеріали, заробітну плату й приміщення. Тому дохід не дорівнює прибутку. Праця може бути оплачуваною або неоплачуваною; домашня праця й догляд також важливі. Публічні послуги, наприклад шкільна освіта, фінансуються спільними коштами. Споживчі рішення також впливають на використання ресурсів і кількість відходів.</p>{{QUIZ_geo_2_wirtschaften_q2}}",
+        "quizzes": [
+          {
+            "id": "geo_2_wirtschaften_q2",
+            "question": "Чому дохід не дорівнює прибутку?",
+            "answers": [
+              {
+                "text": "Від доходу ще потрібно відняти витрати.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Матеріали, зарплати й інші витрати впливають на прибуток."
+              },
+              {
+                "text": "Тому що вся продажна ціна вже є прибутком.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Продажна ціна дає дохід; прибуток визначають після віднімання відповідних витрат."
+              },
+              {
+                "text": "Тому що витрати виникають лише через непродані товари.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Продані товари також потрібно було виготовити або придбати."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Застосовуємо й обґрунтовуємо",
+      "instruction": "Установи відповідності та перевір свої пояснення.",
+      "categories": [
+        "Надходження",
+        "Витрати",
+        "Резерв"
+      ],
+      "items": [
+        {
+          "text": "Проєктна група отримує 20 € на матеріали.",
+          "answer": "Надходження",
+          "feedback": "Гроші додаються до доступної суми."
+        },
+        {
+          "text": "Група купує картон за 6 €.",
+          "answer": "Витрати",
+          "feedback": "Доступна сума зменшується на 6 €."
+        },
+        {
+          "text": "5 € залишаються для пізнішої потреби.",
+          "answer": "Резерв",
+          "feedback": "Цю частину поки не витрачають."
+        }
+      ],
+      "writing": "Сплануй використання 20 € із моделі. Вибери дві витрати, залиш щонайменше 5 € та обґрунтуй, від чого відмовляєшся. Потім поясни, чому дохід магазину не є повністю прибутком.",
+      "rubric": [
+        "Витрати й залишок разом становлять 20 €.",
+        "Резерв становить щонайменше 5 €.",
+        "Я обґрунтовую рішення відповідно до мети.",
+        "Я розрізняю дохід і прибуток."
+      ],
+      "model": "Матеріали за 6 € і перекус за 4 € дають 10 € витрат. Залишається 10 €. Я відмовляюся від гри, бо спільна робота важливіша. Магазин має оплатити витрати зі свого доходу; лише залишок після цього є прибутком."
+    },
+    "sourceRevision": 0
+  },
+  "geo_1_lebenssituationen": {
+    "title": "🏡 Умови життя тут і в усьому світі",
+    "subtitle": "Порівнюємо повсякденне життя, перевіряємо зображення й розповіді та знаходимо спільне.",
+    "contentLanguage": "uk",
+    "script": false,
+    "learningGoals": [
+      "Порівнювати вибрані життєві ситуації за однаковими критеріями та визначати їхнє географічне розташування.",
+      "Пов’язувати житло, працю й мобільність із можливостями людей.",
+      "Обговорювати бідність і багатство за кількома критеріями, а не за стереотипами про країни.",
+      "Розрізняти спостереження, підтверджені твердження й припущення."
+    ],
+    "prerequisites": [
+      "geo_1_karten_raeume",
+      "geo_2_wirtschaften"
+    ],
+    "summary": [
+      "Люди мають спільні основні потреби, але різні можливості їх задовольняти.",
+      "Окремі випадки не є типовими портретами країн; відмінності існують і в одному місті.",
+      "Час у дорозі, витрати й публічні послуги впливають на участь у суспільному житті.",
+      "Грошових сум та окремих ознак житла недостатньо для ранжування за бідністю чи багатством.",
+      "Зображення й розповіді потребують контексту; поліпшення можуть поєднувати особисті та спільні дії."
+    ],
+    "sources": [
+      {
+        "title": "RIS: навчальна програма австрійської Mittelschule (німецькою)",
+        "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007850"
+      },
+      {
+        "title": "UNICEF Австрія: права дитини (німецькою)",
+        "url": "https://unicef.at/informieren/kinderrechte/"
+      },
+      {
+        "title": "UNData: Кенія",
+        "url": "https://data.un.org/en/iso/ke.html"
+      }
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Подібні потреби, різне життя",
+        "content": "<p>Людям потрібні, зокрема, їжа, вода, житло, захист і соціальні стосунки. Діти також мають права, наприклад на освіту, розвиток та участь. Задоволення потреб залежить від особистих можливостей і суспільних умов. Бажання мати товар певної марки — не те саме, що потреба, яка стоїть за ним.</p><p>Для порівняння використаємо <strong>чотирьох цілком вигаданих учнів</strong>. Це не інтерв’ю й не типові портрети країн. Місця справжні: Відень розташований в Австрії в Європі, Найробі — у Кенії в Африці, Ліма — у Перу в Південній Америці. Знайди їх в атласі та переходь між масштабами світу, країни й міста. Поселення поблизу міста може бути тісно пов’язане з міським центром.</p><table><caption>Вигадані приклади повсякденного життя; час у дорозі стосується лише цих історій</caption><thead><tr><th scope=\"col\">Особа й місце проживання</th><th scope=\"col\">Житло й навчання</th><th scope=\"col\">Дорога до школи в один бік</th><th scope=\"col\">Праця в оточенні</th></tr></thead><tbody><tr><th scope=\"row\">Міра, Відень</th><td>Ділить кімнату; іноді користується тихим місцем у бібліотеці.</td><td>20 хвилин пішки й трамваєм</td><td>Один із батьків працює в ремонтній майстерні.</td></tr><tr><th scope=\"row\">Амані, Найробі</th><td>Має вдома тихе місце для навчання й надійний інтернет.</td><td>15 хвилин пішки</td><td>Один із батьків працює в офісі.</td></tr><tr><th scope=\"row\">Джо, Найробі</th><td>Ділить місце для навчання; для цифрових завдань також користується навчальними можливостями школи.</td><td>45 хвилин пішки й автобусом</td><td>Один із батьків шиє та продає одяг.</td></tr><tr><th scope=\"row\">Соль, околиці Ліми</th><td>Має вдома місце для навчання; дорога до деяких міських послуг довга.</td><td>30 хвилин пішки й автобусом</td><td>Один із батьків працює в пекарні.</td></tr></tbody></table><p>Навіть дві історії з Найробі помітно відрізняються. Вони не показують, як живуть усі люди в Найробі, або хто загалом щасливіший. Для багатьох запитань бракує інформації.</p>{{QUIZ_geo_1_lebenssituationen_q0}}{{QUIZ_geo_1_lebenssituationen_q1}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q0",
+            "question": "Яке твердження про чотири історії правильне?",
+            "answers": [
+              {
+                "text": "Це вигадані приклади, а не описи цілих країн.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Приклади допомагають порівнювати однакові критерії."
+              },
+              {
+                "text": "Це справжні інтерв’ю з репрезентативно відібраними дітьми.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Прямо зазначено, що історії вигадані."
+              },
+              {
+                "text": "Одна історія пояснює життя всіх дітей тієї самої країни.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Одного випадку недостатньо для таких узагальнень."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q1",
+            "question": "Яка відповідність правильна?",
+            "answers": [
+              {
+                "text": "Найробі — Кенія — Африка.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Це місто, держава й континент у правильному порядку."
+              },
+              {
+                "text": "Найробі — Австрія — Європа.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "В Австрії розташований Відень, а не Найробі."
+              },
+              {
+                "text": "Ліма — Кенія — Африка.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ліма розташована в Перу в Південній Америці."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Порівнюємо житло, працю й мобільність",
+        "content": "<p>Порівнюй однакові критерії: можливості навчання, дороги, доступність і вільний час. Окрема кімната для навчання може допомагати; доступна бібліотека чи школа може створити інші можливості. Близькість на карті сама по собі не показує часу очікування, вартості чи доступності транспорту.</p><p>У моделі Джо витрачає на дорогу туди й назад 90 хвилин, Амані — 30, якщо обидва напрямки займають однаковий час. За п’ять навчальних днів це 450 і 150 хвилин. Різниця — 300 хвилин, тобто п’ять годин. Звідси можна зробити висновок про різні витрати часу, але не про менше бажання вчитися.</p><p>Праця пов’язує домогосподарства й підприємства. У пекарні з інгредієнтів, за допомогою праці й обладнання, виготовляють хліб; виручка покриває, зокрема, матеріали й оплату праці. Ремонтна майстерня надає послугу. Офісна робота та шиття можуть передбачати різні завдання й умови. За самою назвою професії не можна визначити ані дохід, ані стабільність зайнятості.</p><p>Вік, обов’язки з догляду, доступність або гендерні очікування також можуть впливати на можливості. Про ці умови потрібно запитувати, а не підміняти їх стереотипами про країни чи людей.</p><div class=\"interactive-zone\" data-geo-experiment=\"commute\" data-locale=\"uk\"><h3>Досліджуємо час у дорозі до школи</h3><p>Почни з Джо (A: 45 хвилин) та Амані (B: 15 хвилин). Передбач тижневу різницю, а потім зміни одне значення. Модель передбачає дві однаково тривалі поїздки на навчальний день. Змінені значення — це нові вигадані ситуації.</p><p><label>Один напрямок A (хвилини) <input type=\"range\" data-commute=\"a\" min=\"1\" max=\"60\" step=\"1\" value=\"45\"></label> <output data-value=\"a\"></output></p><p><label>Один напрямок B (хвилини) <input type=\"range\" data-commute=\"b\" min=\"1\" max=\"60\" step=\"1\" value=\"15\"></label> <output data-value=\"b\"></output></p><p><label>Кількість навчальних днів <input type=\"range\" data-commute=\"days\" min=\"1\" max=\"5\" step=\"1\" value=\"5\"></label> <output data-value=\"days\"></output></p><p data-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><button type=\"button\" data-reset>Скинути</button><p>Чи доводить коротша дорога більше бажання вчитися? Поясни, якої інформації модель не надає.</p></div>{{QUIZ_geo_1_lebenssituationen_q2}}{{QUIZ_geo_1_lebenssituationen_q3}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q2",
+            "question": "Скільки часу Джо витрачає в моделі за п’ять днів на дорогу туди й назад?",
+            "answers": [
+              {
+                "text": "450 хвилин.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "45 хвилин помножити на два напрямки й на п’ять днів — це 450."
+              },
+              {
+                "text": "225 хвилин.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "225 хвилин враховують лише один напрямок щодня."
+              },
+              {
+                "text": "90 хвилин.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "90 хвилин — це дорога туди й назад за один день."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q3",
+            "question": "Що можна обґрунтовано сказати про назву професії?",
+            "answers": [
+              {
+                "text": "Вона підказує вид діяльності, але не визначає автоматично дохід чи умови праці.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Для таких відомостей потрібна додаткова інформація."
+              },
+              {
+                "text": "Для порівняння можна вважати, що люди однієї професії мають однаковий дохід.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Навіть в одній професії різняться робочий час, договори й оплата. Самої назви недостатньо."
+              },
+              {
+                "text": "Офісна робота означає стабільну зайнятість, а самостійне шиття — нестабільну.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Історії не описують договорів чи кількості замовлень. Стабільність зайнятості з них не визначити."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Розглядаємо бідність і багатство за кількома критеріями",
+        "content": "<p>Бідність може означати неможливість достатньо задовольняти основні потреби. Її також розглядають відносно звичних умов життя в суспільстві: неможливість брати участь у важливих освітніх або соціальних заходах обмежує людину, навіть якщо частину основних потреб задоволено. Дохід важливий, але це не єдиний критерій.</p><p>Для порівняння важливі, наприклад, кількість членів домогосподарства, необхідні витрати, публічні послуги, житло й здоров’я. За різних цін однакові суми дають різні можливості. Майно, наприклад заощадження чи власність, також не є тим самим, що поточний дохід.</p><p>У багатій країні можуть жити люди з дуже обмеженими ресурсами. Люди в регіоні зі складними умовами не мають однакового досвіду. Чотири історії не містять повних даних про доходи й витрати, тому рейтинг від багатого до бідного не був би обґрунтованим. Бідність не визначає цінності людини й не доводить недостатніх зусиль.</p><p>Завдання: сформулюй три конкретні запитання про інформацію, якої бракує для справедливого порівняння можливостей навчання. Використовуй вигадані випадки; ніхто не мусить розкривати перед класом фінансові чи житлові умови своєї сім’ї.</p>{{QUIZ_geo_1_lebenssituationen_q4}}{{QUIZ_geo_1_lebenssituationen_q5}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q4",
+            "question": "Яка інформація допомагає справедливо порівняти доступні ресурси?",
+            "answers": [
+              {
+                "text": "Кількість членів домогосподарства й необхідні витрати разом із доходом.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Це допомагає зрозуміти значення суми в конкретних умовах."
+              },
+              {
+                "text": "Лише грошова сума без пояснення.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Сума без контексту може вводити в оману."
+              },
+              {
+                "text": "Лише країна проживання людини.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Умови життя різняться всередині країни."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q5",
+            "question": "Чому рейтинг бідності чотирьох осіб не обґрунтований?",
+            "answers": [
+              {
+                "text": "Бракує повних відомостей про ресурси, витрати й умови життя.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Окремих ознак недостатньо для загальної оцінки."
+              },
+              {
+                "text": "Для рейтингу залишилося дізнатися лише, кому належить житло.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Власність — додаткова інформація, але вона не замінює даних про дохід, необхідні витрати й інші умови."
+              },
+              {
+                "text": "Потрібні лише грошові суми; ціни й розмір домогосподарства неважливі.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Та сама сума покриває різні потреби залежно від цін і кількості людей. Самих сум недостатньо."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section3",
+        "title": "4. Перевіряємо описи й шукаємо можливості дій",
+        "content": "<p>Фотографія показує вибраний фрагмент у певний момент. Вона не пояснює автоматично доходів, почуттів чи майбутніх можливостей зображених людей. Запитай про місце, дату, автора й мету. Особиста історія цінна, але не є статистично репрезентативним описом країни.</p><p>Перевір твердження «Джо довше добирається до школи, бо менше старається»: таблиця вказує більшу тривалість дороги, а не особисту причину. Фактичне твердження таке: «У моделі Джо потребує більше часу на дорогу до школи; причини потрібно дослідити».</p><p>Поліпшувати можливості навчання можна на різних рівнях: людина планує час, школа надає доступні приміщення, органи влади планують транспортні й освітні послуги. Не кожну структурну перешкоду можна усунути особистою поведінкою. Пропозиції мають відповідати відомим умовам і залучати людей, яких вони стосуються.</p><p>Якість життя охоплює також стосунки, участь і довкілля. Пропозиція щодо мобільності має враховувати доступ і економію часу разом із витратами, безпекою та екологічними наслідками. Опиши можливе поліпшення та його обмеження, а не стверджуй, що одне рішення підходить усюди.</p>{{QUIZ_geo_1_lebenssituationen_q6}}{{QUIZ_geo_1_lebenssituationen_q7}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q6",
+            "question": "Що можна встановити за однією фотографією?",
+            "answers": [
+              {
+                "text": "Лише те, що можна спостерігати; інші твердження потребують додаткових доказів.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Вибраний фрагмент і момент обмежують висновки."
+              },
+              {
+                "text": "Охайне місце для навчання показує, що людина завжди може вчитися без перешкод.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Фото показує один момент. Воно не пояснює, хто ще користується місцем і як часто там тихо."
+              },
+              {
+                "text": "Вибране фото житла показує звичайні житлові умови в цьому місті.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Для висновку про місто потрібні належний добір багатьох випадків та інші дані. Одне фото не є репрезентативним."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q7",
+            "question": "Яка пропозиція враховує різні рівні дій?",
+            "answers": [
+              {
+                "text": "Школа й фахівці з транспортного планування досліджують навчальні приміщення та доступність разом із зацікавленими людьми.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Особисті можливості й суспільні умови можуть доповнювати одне одного."
+              },
+              {
+                "text": "Джо складає план навчання й визначає, які завдання виконувати першими.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Це може допомогти Джо, але залишається особистим рівнем. Шкільні чи публічні умови не змінюються."
+              },
+              {
+                "text": "Школа відкриває навчальну кімнату й визначає години її роботи.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Обидва заходи належать до шкільного рівня. Пропозиція ще не поєднує різні рівні, наприклад школу й транспортне планування."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "5. Справедливе порівняння",
+      "instruction": "Розрізняй наведені відомості, обчислені результати й непідтверджені твердження.",
+      "categories": [
+        "Наведено в прикладі",
+        "Обчислено",
+        "Не підтверджено"
+      ],
+      "items": [
+        {
+          "text": "У моделі Амані витрачає 15 хвилин на дорогу до школи в один бік.",
+          "answer": "Наведено в прикладі",
+          "feedback": "Цей час указано в таблиці."
+        },
+        {
+          "text": "Джо витрачає 450 хвилин за п’ять днів, якщо дорога туди й назад триває однаково.",
+          "answer": "Обчислено",
+          "feedback": "45 помножити на два й на п’ять — це 450."
+        },
+        {
+          "text": "Усі діти в Найробі мають таку саму дорогу до школи, як Джо.",
+          "answer": "Не підтверджено",
+          "feedback": "Один вигаданий випадок не описує всіх дітей міста."
+        }
+      ],
+      "writing": "Знайди три міста й держави в атласі. Порівняй двох учнів за житлом/навчанням, мобільністю та працею в оточенні. Назви одну спільну рису, дві відмінності й три відсутні відомості. Обчисли різницю між тижневим часом у дорозі Джо та Амані. Запропонуй поліпшення на шкільному рівні й на рівні публічних послуг; для кожного назви відкрите запитання.",
+      "rubric": [
+        "Місто, державу й континент розрізнено.",
+        "Порівняння використовує однакові критерії.",
+        "Я не узагальнюю випадки на цілі країни.",
+        "Різниця часу — 300 хвилин, або п’ять годин.",
+        "Пропозиції, рівні дій і відкриті запитання узгоджені."
+      ],
+      "model": "У моделі Амані й Джо живуть в одному місті та відвідують школу. Місця для навчання й дороги до школи відрізняються. Про витрати, розклад і доступність ми знаємо замало. Джо потрібно 450 хвилин на тиждень, Амані — 150; різниця становить 300 хвилин. Шкільна навчальна кімната могла б допомогти, якщо години роботи й умови користування підходять. Для поліпшення громадського транспорту слід дослідити сполучення, витрати й фактичну потребу. Історії не доводять, як живуть усі люди в Найробі."
+    },
+    "sourceRevision": 1
+  },
+  "erde_mond_sonne": {
+    "title": "🌍 Земля, Місяць і Сонце",
+    "subtitle": "Чому взимку у Відні раніше темніє? Чому здається, що Місяць змінює форму?",
+    "script": false,
+    "learningGoals": [
+      "Пояснювати день і ніч обертанням Землі.",
+      "Пояснювати пори року нахилом осі та висотою Сонця.",
+      "Відрізняти фази Місяця від затемнень.",
+      "Контрольовано будувати моделі з лампою, записувати спостереження й точки огляду та пояснювати обмеження."
+    ],
+    "prerequisites": [
+      "optik1"
+    ],
+    "summary": [
+      "Земля обертається: місця переходять між освітленою й темною сторонами.",
+      "Нахил земної осі під час руху навколо Сонця спричиняє різну тривалість дня й висоту Сонця.",
+      "Фази Місяця залежать від нашого погляду на його освітлену половину; тінь Землі спричиняє місячне затемнення."
+    ],
+    "sources": [
+      {
+        "title": "NASA: фази Місяця (англійською)",
+        "url": "https://science.nasa.gov/moon/moon-phases/"
+      },
+      {
+        "title": "NASA: пори року (англійською)",
+        "url": "https://spaceplace.nasa.gov/seasons/en/"
+      }
+    ],
+    "sections": [
+      {
+        "id": "day",
+        "title": "1. День і ніч",
+        "content": "<p>Сонце випромінює світло. Освітлена одна половина Землі. Земля обертається навколо своєї осі приблизно за 24 години, тому Відень переходить в освітлену область і знову виходить із неї. Нам здається, що Сонце рухається небом.</p><p class=\"highlight-box\"><strong>Запам’ятай:</strong> Добове обертання Землі спричиняє день і ніч. Один оберт навколо Сонця триває приблизно рік.</p><p><strong>Твоє завдання:</strong> Використай м’яч і лампу як модель. Познач Відень на м’ячі. Обертай м’яч, залишаючи лампу нерухомою. Коли твоя позначка освітлена?</p><details><summary>Спочатку спробуй, потім порівняй</summary><p>Позначка освітлена на стороні, повернутій до лампи. Лампі не потрібно рухатися навколо м’яча. Розміри й відстані в моделі не відповідають масштабу.</p></details>{{QUIZ_ems_day1}}{{QUIZ_ems_day2}}",
+        "quizzes": [
+          {
+            "id": "ems_day1",
+            "question": "Який рух пояснює щоденну зміну дня й ночі?",
+            "answers": [
+              {
+                "text": "Земля обертається навколо своєї осі.",
+                "correct": true,
+                "feedback": "Так місце переходить між освітленою й темною сторонами Землі.",
+                "pts": 0
+              },
+              {
+                "text": "Земля обертається навколо Сонця раз на добу.",
+                "correct": false,
+                "feedback": "Оберт навколо Сонця триває близько року. День і ніч спричиняє обертання Землі навколо осі.",
+                "pts": 0
+              },
+              {
+                "text": "Місяць щоночі закриває Сонце.",
+                "correct": false,
+                "feedback": "Місяць закриває Сонце під час сонячного затемнення, а не щоночі.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_day2",
+            "question": "Відень у моделі на темній стороні Землі. Що змінює обертання м’яча?",
+            "answers": [
+              {
+                "text": "Відень знову переходить на освітлену сторону.",
+                "correct": true,
+                "feedback": "Обертання змінює положення місця відносно джерела світла.",
+                "pts": 0
+              },
+              {
+                "text": "Для настання ранку лампа має світити яскравіше.",
+                "correct": false,
+                "feedback": "Зміна виникає через обертання, а не через зміну лампи.",
+                "pts": 0
+              },
+              {
+                "text": "М’яч спочатку має зробити повний оберт навколо лампи.",
+                "correct": false,
+                "feedback": "Достатньо обертання навколо власної осі. Рух навколо лампи відповідає року.",
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seasons",
+        "title": "2. Чому змінюються пори року?",
+        "content": "<p>Вісь Землі нахилена приблизно на 23,4° від перпендикуляра до площини її орбіти. Її напрямок протягом року майже не змінюється. Коли Північна півкуля нахилена до Сонця, Сонце у Відні стоїть вище й дні довші. За більшої висоти Сонця та сама сонячна енергія розподіляється на меншу площу земної поверхні. Узимку — навпаки.</p><p class=\"highlight-box\"><strong>Запам’ятай:</strong> Пори року виникають насамперед через нахил осі, а не через значну зміну відстані до Сонця.</p><p><strong>Твоє завдання:</strong> Поясни, чому в Австралії може бути літо, коли у Відні зима. Намалюй нахилену вісь Землі.</p><details><summary>Спочатку спробуй, потім порівняй</summary><p>Коли Північна півкуля нахилена від Сонця, Південна нахилена до нього. Тому півкулі мають протилежні пори року.</p></details>{{QUIZ_ems_season1}}{{QUIZ_ems_season2}}<h3>Майстерня моделей: зберігайте напрям осі</h3><p>Потрібні глобус або м’яч із позначеними екватором, віссю й Віднем у Північній півкулі, світлодіодна лампа, що не нагрівається, та чотири картки положень. Нерухома лампа має здалеку освітлювати весь м’яч. Дивіться на м’яч, а не в лампу. Намалюйте на стіні нахилену стрілку напряму.</p><ol data-season-investigation><li>Розташуйте A, B, C і D рівномірно навколо лампи на однаковій відстані; A і C — навпроти. Нахиліть вісь приблизно на 23° від вертикалі. У положенні A північний кінець нахилений до лампи.</li><li>У кожному положенні тримайте вісь паралельно стрілці на стіні. Перевіряйте одне одного: не повертайте північний кінець щоразу до лампи. Стрілка позначає сталий напрям у просторі.</li><li>Перед переходом до C передбачте: Відень буде освітлений протягом довшої чи коротшої частини оберту, ніж у A? Перевірте, повільно обертаючи глобус навколо нахиленої осі. Положення глобуса й лампа нерухомі.</li><li>Порівняйте освітлену й темну частини оберту. Повторіть у B і D, а потім із точкою в Південній півкулі.</li><li>Намалюйте A і C зі шляхами світла й паралельними осями. Поясніть, чому за однакової відстані можливі різні пори року.</li></ol><table data-season-protocol><caption>Ваші спостереження — не розраховані тривалості дня</caption><thead><tr><th scope=\"col\">Положення</th><th scope=\"col\">Північний кінець відносно лампи</th><th scope=\"col\">Відень: освітлена частина оберту</th><th scope=\"col\">Південна півкуля й порівняння</th></tr></thead><tbody><tr><th scope=\"row\">A</th><td>до лампи</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">B</th><td>убік</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">C</th><td>від лампи</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">D</th><td>убік</td><td>…</td><td>…</td></tr></tbody></table><p>Порівнюйте довше й коротше освітлення, а не точний час сходу Сонця. Близька лампа не дає паралельних сонячних променів; нахил і відбиття світла в кімнаті неточні. Кругова орбіта навмисно зберігає відстань; справжня орбіта трохи еліптична. Записуйте нечіткі межі світла й зайві тіні, не вигадуйте результати. Без обладнання намалюйте чотири Землі з паралельними нахиленими осями та освітленими половинами. Позначте це як роботу з малюнком, а не проведений дослід.</p>{{QUIZ_ems_axis_control}}{{QUIZ_ems_model_precision}}",
+        "quizzes": [
+          {
+            "id": "ems_season1",
+            "question": "Чому Сонце може сильніше нагрівати землю у Відні влітку?",
+            "answers": [
+              {
+                "text": "Сонце стоїть вище й світить довше протягом дня.",
+                "correct": true,
+                "feedback": "Вище Сонце й довший день збільшують надходження сонячної енергії.",
+                "pts": 0
+              },
+              {
+                "text": "Сонце виробляє більше світла лише для Європи.",
+                "correct": false,
+                "feedback": "Сонце не змінює потужність відповідно до пір року окремих регіонів.",
+                "pts": 0
+              },
+              {
+                "text": "У віденське літо Земля завжди найближча до Сонця.",
+                "correct": false,
+                "feedback": "Відстань не пояснює протилежних пір року у двох півкулях.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_season2",
+            "question": "Яке порівняння суперечить поясненню «Улітку вся Земля ближча до Сонця»?",
+            "answers": [
+              {
+                "text": "У Відні та Сіднеї одночасно протилежні пори року.",
+                "correct": true,
+                "feedback": "Обидва міста майже однаково віддалені від Сонця, але лежать у різних півкулях.",
+                "pts": 0
+              },
+              {
+                "text": "Деякі літні дні у Відні хмарні.",
+                "correct": false,
+                "feedback": "Хмари впливають на погоду. Порівняння півкуль перевіряє пояснення пір року.",
+                "pts": 0
+              },
+              {
+                "text": "Сонце сходить щодня.",
+                "correct": false,
+                "feedback": "Щоденний схід пояснює обертання Землі. Для пір року потрібно порівнювати освітлення протягом року.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_axis_control",
+            "question": "Що слід зберегти під час переходу від A до C?",
+            "answers": [
+              {
+                "text": "Вісь залишається спрямованою приблизно в той самий бік у просторі.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Тому в A північний кінець нахилений до лампи, а в C — від неї."
+              },
+              {
+                "text": "Північний кінець у кожному положенні спрямований прямо до лампи.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тоді Північна півкуля весь час була б нахилена до світла, що неправильно зображує пори року."
+              },
+              {
+                "text": "Позначка Відня під час кожного оберту завжди звернена до лампи.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Обертання переносить Відень на світлий і темний боки. Нерухоме спрямування до лампи не показало б добову зміну."
+              }
+            ]
+          },
+          {
+            "id": "ems_model_precision",
+            "question": "Що доцільно порівнювати за допомогою лампової моделі?",
+            "answers": [
+              {
+                "text": "Чи Відень у A освітлений протягом довшої частини оберту, ніж у C.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Мета — якісне порівняння. Близьке світло й приблизне вирівнювання обмежують точність часу."
+              },
+              {
+                "text": "Точний час сходу Сонця у Відні для кожного дня календаря.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Чотирьох положень і такої геометрії недостатньо; потрібні дати й додаткові астрономічні дані."
+              },
+              {
+                "text": "Виміряну температуру повітря у Відні в певний літній день.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Модель досліджує освітлення. Температура повітря залежить також від погоди й обміну енергією."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phases",
+        "title": "3. Освітлена половина Місяця",
+        "content": "<p>Місяць не випромінює власного видимого світла. Він розсіює сонячне світло. За винятком місячного затемнення, приблизно половина його поверхні освітлена. Під час руху Місяця навколо Землі ми бачимо різну частину цієї половини: молодик, зростаючий Місяць, повню та спадний Місяць.</p><div class=\"interactive-zone\" data-core-experiment=\"moon\" data-locale=\"uk\"><h3>Досліджуємо фази Місяця</h3><p>Спочатку передбач: коли ми бачимо всю освітлену половину? Потім зміни положення.</p><label for=\"moon-angle\">Положення у спрощеному циклі фаз (0° молодик, 180° повня)</label><input id=\"moon-angle\" type=\"range\" min=\"0\" max=\"360\" step=\"45\" value=\"0\" aria-describedby=\"moon-explanation\"><output id=\"moon-explanation\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></output><svg id=\"moon-disc\" viewBox=\"0 0 200 200\" width=\"200\" height=\"200\" style=\"max-width:100%;height:auto;display:block;margin:1rem auto\" role=\"img\" aria-label=\"Схематичний диск Місяця\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"#172033\" stroke=\"#8797ad\" stroke-width=\"2\"/><path id=\"moon-disc-light\" fill=\"#fff1b8\" d=\"M 100 20 Z\"/></svg><progress id=\"moon-lit\" max=\"100\" value=\"0\" aria-label=\"Освітлена частка видимого диска Місяця\"></progress><p>Диск схематично показує освітлену площу: справа під час зростання, зліва під час спадання, як у спрощеному вигляді для Північної півкулі. Фактична орієнтація на небі залежить також від місця й часу спостереження. Смуга показує ту саму частку у відсотках. Шкала відстежує повний цикл фаз від 0° до 360°; це не менший кут між двома напрямками погляду. При 360° починається наступний цикл. Нахил орбіти, змінні відстані й тінь Землі тут не обчислюються. Тому модель не показує затемнень.</p></div><p><strong>Твоє завдання:</strong> Запиши видимі освітлені частки при 0°, 90°, 180° і 270°. Поясни різницю між «видно половину освітленого диска» та «половина Місяця освітлена».</p><details><summary>Спочатку спробуй, потім порівняй</summary><p>Освітленими виглядають приблизно 0%, 50%, 100% і 50% диска, видимого із Землі. Одна половина Місяця майже завжди освітлена; у першій або останній чверті ми бачимо світлою лише половину повернутого до нас диска.</p></details>{{QUIZ_ems_phase1}}{{QUIZ_ems_phase2}}<h3>Фази Місяця з двох точок спостереження</h3><p>Одна людина тримає невеликий світлий м’яч, інша спостерігає з нерухомого місця Землі. Віддалена світлодіодна лампа збоку зображує Сонце. Люди й предмети не повинні затуляти світло. Спостерігач залишається на місці Землі та лише повертає погляд до м’яча.</p><ol data-moon-investigation><li>Перемістіть м’яч на бік Землі, звернений до лампи, потім убік і на протилежний бік. За потреби тримайте його трохи поза прямою лінією тіні. Дивіться на м’яч, не в лампу.</li><li>З місця Землі замалюйте світлу частину видимого диска. Другий спостерігач дивиться на весь прилад збоку й позначає, яка половина м’яча отримує світло.</li><li>Порівняйте малюнки з чотирма положеннями екранної моделі та поміняйтеся ролями. Поясніть зміну вигляду, хоча лампа світить незмінно.</li></ol><p>Якщо м’яч у положенні повні раптом темніє, перевірте, чи голова або предмет не затуляє лампу. Це дія тіні, а не причина звичайних фаз; затемнення розглядаються далі. Розміри, відстані й нахил орбіти не масштабні. Молодик поблизу напряму лампи та повня поблизу лінії тіні показані приблизно. Без обладнання використайте екранну модель і позначте її як симуляцію.</p>{{QUIZ_ems_viewpoint}}",
+        "quizzes": [
+          {
+            "id": "ems_phase1",
+            "question": "У якому положенні моделі ми бачимо повню?",
+            "answers": [
+              {
+                "text": "При 180°: напрямок на Місяць протилежний напрямку на Сонце.",
+                "correct": true,
+                "feedback": "Освітлена половина повернута до нас. Нахил орбіти зазвичай запобігає затемненню.",
+                "pts": 0
+              },
+              {
+                "text": "При 0°: Місяць і Сонце в одному напрямку.",
+                "correct": false,
+                "feedback": "Освітлена сторона переважно відвернута від нас: молодик.",
+                "pts": 0
+              },
+              {
+                "text": "При 90°: Місяць збоку від напрямку на Сонце.",
+                "correct": false,
+                "feedback": "Тоді ми бачимо освітленою приблизно половину диска.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_phase2",
+            "question": "Що спричиняє звичайні фази Місяця?",
+            "answers": [
+              {
+                "text": "Ми бачимо різну частку освітленої половини Місяця.",
+                "correct": true,
+                "feedback": "Освітлення й наш кут огляду визначають вигляд.",
+                "pts": 0
+              },
+              {
+                "text": "Тінь Землі щомісяця закриває більшу або меншу частину Місяця.",
+                "correct": false,
+                "feedback": "Тінь Землі спричиняє місячні затемнення. Фази залежать від кута огляду.",
+                "pts": 0
+              },
+              {
+                "text": "Місяць випромінює різну кількість власного світла.",
+                "correct": false,
+                "feedback": "Ми бачимо сонячне світло, розсіяне поверхнею Місяця.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_viewpoint",
+            "question": "Із Землі видно половину світлого місячного диска, а збоку — приблизно половину всієї поверхні м’яча освітленою. Чи є суперечність?",
+            "answers": [
+              {
+                "text": "Ні: видимий диск і вся поверхня — різні об’єкти порівняння.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Із Землі видно тільки повернений до нас бік. Кут огляду визначає, скільки освітленої половини ми бачимо."
+              },
+              {
+                "text": "Так: у цій фазі лише чверть усієї поверхні повинна отримувати світло.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Приблизно половина поверхні залишається освітленою. Фаза описує вигляд із Землі."
+              },
+              {
+                "text": "Так: половина диска може бути світлою лише через тінь спостерігача.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Тінь людини — додаткове затуляння. Для звичайних фаз достатньо зміни кута огляду."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eclipses",
+        "title": "4. Коли відбуваються затемнення?",
+        "content": "<p>Під час сонячного затемнення Місяць перебуває між Сонцем і Землею, а його тінь падає на Землю. Під час місячного затемнення Земля перебуває між Сонцем і Місяцем, а Місяць входить у тінь Землі. Орбіта Місяця нахилена до площини земної орбіти. Тому затемнення не відбувається при кожному молодику чи повні.</p><p><strong>Захист очей:</strong> Ніколи не дивись прямо на Сонце, зокрема через бінокль. Для цього розділу достатньо моделей із лампою та симуляцій.</p><p><strong>Твоє завдання:</strong> Намалюй обидві послідовності й познач, чия тінь падає на яке тіло.</p><details><summary>Спочатку спробуй, потім порівняй</summary><p>Сонячне затемнення: Сонце–Місяць–Земля, тінь Місяця на Землі. Місячне затемнення: Сонце–Земля–Місяць, тінь Землі на Місяці.</p></details>{{QUIZ_ems_eclipse1}}{{QUIZ_ems_eclipse2}}",
+        "quizzes": [
+          {
+            "id": "ems_eclipse1",
+            "question": "Чому місячне затемнення не відбувається при кожній повні?",
+            "answers": [
+              {
+                "text": "Через нахил орбіти Місяць зазвичай проходить вище або нижче тіні Землі.",
+                "correct": true,
+                "feedback": "Для затемнення повний Місяць має бути поблизу лінії перетину площин орбіт.",
+                "pts": 0
+              },
+              {
+                "text": "При повні тінь Землі ніколи не сягає відстані до Місяця.",
+                "correct": false,
+                "feedback": "Тінь Землі може досягати Місяця, інакше місячних затемнень не було б. Через нахил орбіти Місяць зазвичай оминає тінь.",
+                "pts": 0
+              },
+              {
+                "text": "Лише молодик може ввійти в тінь Землі, бо його неосвітлена сторона повернута до неї.",
+                "correct": false,
+                "feedback": "При молодику Місяць на сонячній стороні Землі. Земна тінь на протилежній стороні; місячне затемнення можливе лише при повні.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_eclipse2",
+            "question": "Яка послідовність відповідає сонячному затемненню?",
+            "answers": [
+              {
+                "text": "Сонце–Місяць–Земля.",
+                "correct": true,
+                "feedback": "Між Сонцем і Землею Місяць може відкидати тінь на земну поверхню.",
+                "pts": 0
+              },
+              {
+                "text": "Сонце–Земля–Місяць.",
+                "correct": false,
+                "feedback": "Така послідовність можлива при місячному затемненні.",
+                "pts": 0
+              },
+              {
+                "text": "Земля–Сонце–Місяць.",
+                "correct": false,
+                "feedback": "Тут Місяць за Сонцем, якщо дивитися із Землі, і не може його закрити.",
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "contentLanguage": "uk",
+    "sourceRevision": 2
+  },
+  "kunst_1_museum": {
+    "title": "🏛️ Зустріч із мистецтвом: музей і виставка",
+    "subtitle": "Уважно розглядай, читай відомості про твір і представляй власні роботи.",
+    "contentLanguage": "uk",
+    "script": false,
+    "prerequisites": [
+      "kunst_1_wahrnehmen"
+    ],
+    "learningGoals": [
+      "Дослідити конкретне музейне зображення й відрізнити відомості з джерела від спостережень.",
+      "Порівняти можливості та обмеження оригіналу й цифрової репродукції.",
+      "Відібрати власні роботи для невеликої виставки, підписати їх і пояснити свій вибір."
+    ],
+    "summary": [
+      "Відомості про твір доповнюють власні спостереження; непевні деталі позначай як непевні.",
+      "Цифрове зображення є репродукцією й не змінює оригінал.",
+      "Вибір, розташування та підписи впливають на сприйняття виставки."
+    ],
+    "sources": [
+      {
+        "title": "Музей історії мистецтв у Відні: Дитячі ігри — опис твору та зображення на Google Arts & Culture",
+        "url": "https://artsandculture.google.com/asset/children%E2%80%99s-games/CQEeZWQPOI2Yjg?hl=de"
+      }
+    ],
+    "sections": [
+      {
+        "id": "werk",
+        "title": "1. Картина з віденської колекції",
+        "content": "<p>Ми досліджуємо «Дитячі ігри» Пітера Брейгеля Старшого. В описі Музею історії мистецтв у Відні зазначено рік створення — 1560, а техніку — олія на дереві. Картина належить до колекції музею. Ці відомості допомагають зрозуміти контекст, але не замінюють твого уважного розглядання.</p><table><caption>Картка твору за музейним описом</caption><tbody><tr><th scope=\"row\">Назва</th><td>Дитячі ігри</td></tr><tr><th scope=\"row\">Художник</th><td>Пітер Брейгель Старший</td></tr><tr><th scope=\"row\">Рік створення</th><td>1560</td></tr><tr><th scope=\"row\">Техніка</th><td>Олія на дереві</td></tr></tbody></table><p><a href=\"https://artsandculture.google.com/asset/children%E2%80%99s-games/CQEeZWQPOI2Yjg?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">Відкрити музейне зображення (зовнішня сторінка, нова вкладка)</a>. Супровідний текст частково англійською; для спостереження достатньо зображення. Це саме музейне посилання використовується у 3-му класі Mittelschule для докладнішого дослідження.</p><p><strong>Завдання для спостереження:</strong> Спочатку розглянь усю картину. Потім вибери дві невеликі ділянки з фігурами. Для кожної опиши розташування на картині та дві видимі форми, кольори або пози тіла. Дуже просто замалюй одну ділянку кількома лініями. Не потрібно перемальовувати всю картину.</p><details><summary>Перевір свої нотатки</summary><p>Вказівка на зразок «унизу ліворуч» допомагає іншим знайти твою ділянку. Видимий колір або положення належить до опису. Припущення про те, що роблять фігури, — це тлумачення. Якщо чогось не можеш розгледіти, зазнач це. Рік створення належить до відомостей із джерела.</p></details>{{QUIZ_kunst_1_museum_werkangabe}}{{QUIZ_kunst_1_museum_suchen}}",
+        "quizzes": [
+          {
+            "id": "kunst_1_museum_werkangabe",
+            "question": "Звідки походить відомість «1560» у нашій картці твору?",
+            "answers": [
+              {
+                "text": "Із музейного опису твору, на який подано посилання.",
+                "feedback": "Картка твору вказує джерело. Рік не є спостереженням, виведеним із кольорів.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Із дати, коли я відкриваю вебсторінку.",
+                "feedback": "Дата твого відвідування та рік створення картини — різні відомості.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Із мого припущення про вік зображених дітей.",
+                "feedback": "Вік зображеної фігури не визначає року створення твору.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_1_museum_suchen",
+            "question": "На маленькій ділянці картини ти не можеш точно розгледіти, що тримає фігура. Яка нотатка доречна?",
+            "answers": [
+              {
+                "text": "«Я не можу впевнено визначити предмет; спочатку описую його видиму форму».",
+                "feedback": "Ти фіксуєш спостереження та позначаєш його межу.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "«Це м’яч, бо сцену підписано як дитячу гру».",
+                "feedback": "Підпис дає контекст. Він ще не доводить, який предмет зображено на цій маленькій ділянці.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "«Розмита ділянка доводить, що й на оригіналі предмет намальовано нечітко».",
+                "feedback": "Розмитість може бути пов’язана з екранним зображенням або його збільшенням. Вона не доводить властивостей оригіналу.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "original",
+        "title": "2. Оригінал і зображення на екрані",
+        "content": "<p>На екрані ти розглядаєш репродукцію — відтворення твору. Її можна збільшувати або зменшувати. Справжній розмір картини від цього не змінюється. Кольори також залежать від відтворення; матеріал, поверхню та враження від твору в просторі можна відчути лише обмежено.</p><p><strong>Власне порівняння без відвідування музею:</strong> Поклади свій малюнок поряд із його фотографією, якщо можеш її зробити. Інакше розглянь малюнок спочатку зблизька, а потім із більшої відстані. Занотуй, які деталі впадають в око та як змінюється загальне враження. Порівняння відстаней не є дослідженням цифрової репродукції, але теж стосується умов споглядання.</p><p><strong>Під час зустрічі з мистецтвом:</strong> Твір у школі, громадському просторі або музеї можна розглядати з дозволених місць. Занотуй, як він виглядає у просторі. Торкайся виставлених творів лише тоді, коли це прямо передбачено. Відвідування не є умовою опрацювання цього розділу.</p><details><summary>Допомога для порівняння</summary><p>У власному малюнку можна дослідити справжній розмір аркуша та з дозволеної відстані — його поверхню. Фотографія може показувати інший розмір або яскравість. Обидва способи корисні, але дають не зовсім однаковий досвід. Саме лише розглядання зблизька не перетворює фотографію на оригінал.</p></details>{{QUIZ_kunst_1_museum_reproduktion}}{{QUIZ_kunst_1_museum_begegnung}}",
+        "quizzes": [
+          {
+            "id": "kunst_1_museum_reproduktion",
+            "question": "Ти збільшуєш музейне зображення на екрані. Що відбувається?",
+            "answers": [
+              {
+                "text": "Зображення на твоєму екрані стає більшим; оригінал у музеї залишається незмінним.",
+                "feedback": "Потрібно розрізняти цифрове зображення та намальований предмет.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Збільшений вигляд без жодних вимірів показує мені справжній розмір оригіналу.",
+                "feedback": "Розмір на екрані ти задаєш самостійно. Для розмірів оригіналу потрібні надійні дані або порівняння на місці.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Збільшення показує навіть ті деталі, яких у файлі зображення взагалі немає.",
+                "feedback": "Більший показ не створює відсутньої інформації. За сильного збільшення можуть стати помітними пікселі або розмитість.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_1_museum_begegnung",
+            "question": "Яке додаткове питання можна дослідити, розглядаючи оригінал?",
+            "answers": [
+              {
+                "text": "Наскільки великим він здається порівняно зі мною і як виглядає у виставковому просторі.",
+                "feedback": "Масштаб, відстань і простір біля оригіналу сприймаються інакше, ніж на маленькому екрані.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Чи можу я лише поглядом, без джерела, точно визначити рік створення.",
+                "feedback": "Розглядання може викликати питання про створення. Проте точний рік не можна встановити лише поглядом.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Чи має враження від нього у просторі бути для всіх цілком однаковим.",
+                "feedback": "Твоє спостереження не доводить досвіду всіх людей. Опиши свою позицію, освітлення та враження, а не припускай, що всі відчувають однаковий ефект.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ausstellung",
+        "title": "3. Створи невелику виставку",
+        "content": "<p>Вибери зі своєї папки три власні малюнки або роботи з випробування матеріалів. Дай невеликій виставці тему, наприклад «Рух», «Мої вигадані місця» або «Від лінії до фігури». Якщо робіт менше, додай невеликі нові ескізи. Поясни, чому твій вибір відповідає темі.</p><p><strong>Два розташування:</strong> Спочатку поклади роботи близько одна до одної, а потім залиш між ними різні проміжки. Можеш також змінити послідовність. Намалюй план кожного розташування. Який зв’язок стає помітним? Куди спочатку спрямовується твій погляд? Може бути кілька обґрунтованих рішень.</p><p><strong>Підписи й обговорення:</strong> Додай назву й матеріал, а також погоджене ім’я або ініціали. Попроси когось описати побачене, перш ніж пояснювати тему, або самостійно запиши два можливі тлумачення. Зміни один проміжок або підпис. Задокументуй одне рішення у своїй папці.</p><details><summary>Приклад обґрунтування</summary><p>Я кладу два схожі лінійні малюнки поряд, а об’ємну паперову роботу — трохи далі. Так можна порівняти перехід від площини до простору. Інша послідовність могла б спочатку показати паперову роботу, а потім її мальовані ідеї. Я вирішую відповідно до своєї теми й перевіряю, чи можна прочитати підписи.</p></details>{{QUIZ_kunst_1_museum_auswahl}}{{QUIZ_kunst_1_museum_beschriftung}}",
+        "quizzes": [
+          {
+            "id": "kunst_1_museum_auswahl",
+            "question": "Ти можеш показати лише три з п’яти власних робіт. Як пояснити свій вибір?",
+            "answers": [
+              {
+                "text": "Я називаю тему й пояснюю, як вибрані роботи з нею пов’язані.",
+                "feedback": "Вибір отримує обґрунтування. Можливі й інші зрозумілі добірки.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Я стверджую, що дві інші роботи через це взагалі не є мистецтвом.",
+                "feedback": "Обмежений вибір для виставки не визначає загалом, що може бути мистецтвом.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Я показую три випадкові роботи й пояснюю лише тим, що вони були під рукою.",
+                "feedback": "У цьому завданні твій вибір має показувати зрозумілий зв’язок.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_1_museum_beschriftung",
+            "question": "Який підпис допомагає на невеликій класній виставці?",
+            "answers": [
+              {
+                "text": "Назва, погоджене ім’я та матеріал; невідомі відомості залишаються відкритими.",
+                "feedback": "Так глядачі отримують орієнтири без вигадування відсутньої інформації.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Лише «гарно», без назви або інших відомостей.",
+                "feedback": "Це оцінка, яка дає мало інформації про твір.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Вигадане ім’я відомого автора, щоб робота здавалася важливішою.",
+                "feedback": "Неправдиве приписування авторства вводить в оману щодо походження роботи.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Створюй і осмислюй",
+      "navLabel": "Мистецька майстерня",
+      "instruction": "Співвіднеси твердження з категоріями. Потім створи свою невелику виставку. Текст фіксує твої рішення й не замінює художньої роботи.",
+      "categories": [
+        "Відомість із джерела",
+        "Спостереження",
+        "Рішення щодо представлення"
+      ],
+      "items": [
+        {
+          "text": "Музейний опис указує рік 1560.",
+          "answer": "Відомість із джерела",
+          "feedback": "Походження цієї відомості прямо зазначено."
+        },
+        {
+          "text": "У вибраному мною малюнку є три темні лінії.",
+          "answer": "Спостереження",
+          "feedback": "Це можна перевірити на вибраному малюнку."
+        },
+        {
+          "text": "Між двома роботами я залишаю більший проміжок.",
+          "answer": "Рішення щодо представлення",
+          "feedback": "Ти визначаєш, як роботи показують разом."
+        }
+      ],
+      "writing": "Створи два плани виставки з розділу 3 і підпиши три власні роботи. Занотуй тему, вибір, розташування та одну зміну. Додай спостереження з розглядання музейного зображення; якщо зовнішнє зображення недоступне, виконай цю частину пізніше.",
+      "rubric": [
+        "Я розрізняю відомості про твір і власне спостереження.",
+        "Мій вибір і розташування відповідають названій темі.",
+        "Після відгуку я змінюю підпис або розташування."
+      ],
+      "model": "Моя тема — рух. Два малюнки показують похилі лінії, третій — вигнутий слід. Я починаю з найпростішого малюнка. Спочатку підписи були замалими; тепер вони більші. Рік створення музейного твору я беру з джерела, а не з власного враження від картини."
+    },
+    "sourceRevision": 1
+  },
+  "kunst_4_gebaeude_umnutzen": {
+    "title": "🏗️ Старі будівлі, нове використання",
+    "subtitle": "Від віденських Газометрів до власного задуму: що залишається, що змінюється і для кого?",
+    "script": false,
+    "contentLanguage": "uk",
+    "prerequisites": [
+      "kunst_2_raum",
+      "kunst_2_design"
+    ],
+    "learningGoals": [
+      "За історичним джерелом із Відня пояснювати зміну призначення будівель і тодішні цілі планування.",
+      "Досліджувати потреби користувачів, доступ і можливі суперечності в проєкті.",
+      "Намалювати два варіанти перетворення та обґрунтувати збереження, зміни й наслідки."
+    ],
+    "summary": [
+      "Зміна призначення поєднує наявну будівлю з новими завданнями.",
+      "Доступність залежить також від шляхів, правил, годин роботи та вартості.",
+      "Ескіз показує рішення, але не замінює технічної перевірки чи участі людей, яких стосуються зміни."
+    ],
+    "sources": [
+      {
+        "title": "Місто Відень: історичне повідомлення про проєкт Gasometer City, 5 липня 2001 року",
+        "url": "https://presse.wien.gv.at/2001/07/05/faymann-besiedlung-ist-wichtigster-pruefstand-der-gasometer-city"
+      }
+    ],
+    "sections": [
+      {
+        "id": "wien",
+        "title": "1. Приклад із Відня: Газометри",
+        "content": "<p>Старі будівлі можуть втрачати початкову функцію та отримувати нове призначення. Йдеться не лише про інший фасад: приміщення, входи та зв’язки з оточенням мають відповідати новим завданням.</p><p>Архівне повідомлення міста Відня від 5 липня 2001 року описує проєкт Газометрів як повторне використання історичних споруд, що перебувають під охороною. Серед запланованих функцій названо житло, роботу й дозвілля; також повідомлено про заселення перших мешканців. Приклад показує, що наявні частини будівель і нові завдання розглядали разом.</p><p><a href=\"https://presse.wien.gv.at/2001/07/05/faymann-besiedlung-ist-wichtigster-pruefstand-der-gasometer-city\" target=\"_blank\" rel=\"noopener noreferrer\">Прочитати історичне повідомлення міста Відня (німецькою, нова вкладка)</a>. Воно відображає позицію міста на тодішньому етапі проєкту. Це не доказ сучасного використання чи задоволеності людей сьогодні. Відрізняй відомості, які можна перевірити, від схвальних оцінок.</p><p><strong>Завдання з джерелом:</strong> Запиши дату та установу, яка опублікувала повідомлення. Обери одну описану функцію й сформулюй запитання до людини, яка там живе або працює. Яке додаткове джерело потрібне, щоб оцінити сучасний стан?</p><details><summary>Допомога для порівняння</summary><p>Наприклад, житло назване однією з функцій. Можна запитати, як поєднуються спокійне проживання та проведення заходів. Для оцінки сьогодення потрібні актуальні відомості та різні досвіди людей на місці. Тодішній намір ще не доводить тривалого успіху реалізації.</p></details>{{QUIZ_kunst_4_gebaeude_umnutzen_quelle}}{{QUIZ_kunst_4_gebaeude_umnutzen_umnutzung}}",
+        "quizzes": [
+          {
+            "id": "kunst_4_gebaeude_umnutzen_quelle",
+            "question": "Що підтверджує використане тут повідомлення міста Відня від 2001 року?",
+            "answers": [
+              {
+                "text": "Які функції та цілі місто тоді описувало для Газометрів.",
+                "feedback": "Датоване джерело документує тодішній опис проєкту.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Що сьогодні всі мешканці задоволені кожною функцією.",
+                "feedback": "Для цього потрібні сучасні свідчення відповідних людей. Історичне повідомлення не доводить сьогоднішню задоволеність.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Що будь-яку іншу стару будівлю можна перебудувати так само.",
+                "feedback": "Один проєкт не доводить придатність інших будівель. Стан і вимоги потрібно досліджувати окремо.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_4_gebaeude_umnutzen_umnutzung",
+            "question": "Який опис пояснює зміну призначення будівлі?",
+            "answers": [
+              {
+                "text": "Наявна будівля отримує інше завдання; її стан і нові вимоги узгоджують.",
+                "feedback": "Збереження та зміни планують разом. Нова функція може потребувати пристосувань.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Будівля отримує лише нову назву, а завдання й використання завжди залишаються тими самими.",
+                "feedback": "Сама зміна назви ще не є новим використанням.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Стара будівля має повністю зникнути, щоб у ній стало можливим щось нове.",
+                "feedback": "Зміна призначення якраз досліджує, як далі використовувати наявні частини та за потреби доповнити їх.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "interessen",
+        "title": "2. Хто може користуватися новим місцем?",
+        "content": "<p><strong>Вигадане проєктне завдання:</strong> Колишню невелику майстерню мають перетворити на громадський центр для сусідів. Це не план для Газометрів. У твоєму задумі зберігаються зовнішні стіни та два великі вікна. Усередині потрібні тиха читальна кімната, музична кімната та місце для зустрічей із вільним доступом. Кафе можна додати за бажанням.</p><table><caption>Потреби для твого проєкту</caption><thead><tr><th scope=\"col\">Група</th><th scope=\"col\">Потреба</th></tr></thead><tbody><tr><th scope=\"row\">Люди, які читають</th><td>Денне світло та якомога менше перешкод</td></tr><tr><th scope=\"row\">Люди, які грають музику</th><td>Місце та узгоджений час для спільних занять</td></tr><tr><th scope=\"row\">Люди на кріслах колісних, із дитячими візочками або багажем</th><td>Зручний вхід і вільні проходи</td></tr><tr><th scope=\"row\">Люди, які не хочуть нічого купувати</th><td>Місце для зустрічей без обов’язкової покупки</td></tr><tr><th scope=\"row\">Мешканці поруч</th><td>Інформація про час використання та можливість висловити свої потреби</td></tr></tbody></table><p><strong>Перевір варіант:</strong> Уяви, що вхід спочатку веде через кафе, а потім до місця зустрічей. Читальна та музична кімнати розташовані поруч. Опиши дві можливі суперечності та по одній зміні для кожної. Враховуй не лише вигляд, а й шляхи та правила. Нове використання може сприяти участі одних людей або створювати перешкоди для інших; це також питання проєктування.</p><details><summary>Можливі зміни</summary><p>Окремий вхід до місця зустрічей міг би допомогти людям, які не відвідують кафе. Умови доступу все одно мають бути зрозумілими. Інше розташування музичної кімнати, розділення приміщень або узгоджений розклад можуть зменшити конфлікт із тихим читанням. Чи цього достатньо, потрібно перевірити з людьми, яких це стосується, і з урахуванням умов будівлі.</p></details>{{QUIZ_kunst_4_gebaeude_umnutzen_zugang}}{{QUIZ_kunst_4_gebaeude_umnutzen_konflikt}}",
+        "quizzes": [
+          {
+            "id": "kunst_4_gebaeude_umnutzen_zugang",
+            "question": "У вигаданому плані до місця зустрічей можна дістатися лише через кафе з платними послугами. Яке запитання доречне?",
+            "answers": [
+              {
+                "text": "Як потраплять до місця зустрічей люди без наміру купувати і які правила діють для проходу?",
+                "feedback": "Намальований шлях сам по собі ще не показує, кому насправді дозволено ним користуватися.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Який колір автоматично робить усі правила доступу зайвими?",
+                "feedback": "Колір може допомагати орієнтуванню, але не замінює доступних шляхів і зрозумілих правил.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Чому людей без наміру купувати не слід враховувати під час планування?",
+                "feedback": "У завданні місце зустрічей призначене також для людей без наміру купувати. Їхні потреби належать до завдання.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_4_gebaeude_umnutzen_konflikt",
+            "question": "Читальна та музична кімнати в ескізі розташовані безпосередньо поруч. Який наступний крок обґрунтований?",
+            "answers": [
+              {
+                "text": "Перевірити інше розташування та запитати про час занять, поширення звуку й потреби обох груп.",
+                "feedback": "Різні заняття можуть впливати одне на одне. Проєкт має дослідити можливу суперечність.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Написати в читальній кімнаті «тихо»; це розв’яже суперечність.",
+                "feedback": "Напис не змінює поширення звуку чи використання кімнати.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Прибрати читальну кімнату без розмови з майбутніми користувачами.",
+                "feedback": "Це проігнорувало б одну з потреб. Спочатку потрібно порівняти варіанти та наслідки.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "entwerfen",
+        "title": "3. Покажи збережене та зміни",
+        "content": "<p><strong>Твій план приміщень:</strong> Намалюй прямокутник як спрощену будівлю та познач по одному великому вікну на двох зовнішніх стінах. Створи два різні розташування кімнат. Наявні стіни познач суцільними лініями, запропоновані нові перегородки — штриховими. Підпиши вхід, вікна й функції. Намалюй шляхи до місця зустрічей і читальної кімнати. Додай невеликий зовнішній вигляд, який показує, як розрізнити старе й нове.</p><p><strong>Обґрунтуй рішення:</strong> Порівняй варіанти за трьома обраними критеріями, наприклад денним світлом, вільними проходами та розділенням гучних і тихих занять. Назви одну перевагу й один недолік обраного рішення. Запиши, чию думку ще потрібно почути. Також опиши, як має змінитися ділянка перед входом і для кого там буде місце.</p><p><strong>Межі моделі:</strong> Твої малюнки досліджують форму й використання. Певного масштабу не задано; це не готові будівельні плани. Несучі конструкції, точні розміри та технічні вимоги потрібно перевіряти окремо. Збереження зовнішньої стіни саме по собі не відповідає на всі запитання про збереження будівлі.</p><details><summary>Перевір власну роботу</summary><p>Чи можна розрізнити наявні частини та зміни? Чи справді варіанти різні? Чи можна простежити кожен шлях, не перестрибуючи через намальовану кімнату? Чи відповідає пояснення плану? Чи видно недоліки та відкриті запитання, а не лише гарний зовнішній вигляд?</p></details>{{QUIZ_kunst_4_gebaeude_umnutzen_entwurf}}{{QUIZ_kunst_4_gebaeude_umnutzen_grenzen}}",
+        "quizzes": [
+          {
+            "id": "kunst_4_gebaeude_umnutzen_entwurf",
+            "question": "Що потрібно для зрозумілого порівняння твоїх варіантів?",
+            "answers": [
+              {
+                "text": "Показати, які частини залишаються, що змінюється та кому рішення допомагає або створює труднощі.",
+                "feedback": "Так можна разом оцінити форму, використання й наслідки.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Показати лише гарний зовнішній вигляд, оминувши шляхи та функції.",
+                "feedback": "Тоді бракуватиме важливої інформації для цього завдання зі зміни призначення.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Оголосити всі наявні стіни такими, що не мають цінності, не оглянувши будівлю.",
+                "feedback": "Чи можна і чи варто зберігати частини, потрібно обґрунтовано дослідити.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_4_gebaeude_umnutzen_grenzen",
+            "question": "Що ще не можна впевнено встановити з твоєї намальованої навчальної моделі?",
+            "answers": [
+              {
+                "text": "Чи справді перебудову можна технічно здійснити.",
+                "feedback": "Ескіз досліджує ідеї. Несучі конструкції, точні розміри та інші технічні умови ще не перевірені.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Яку функцію ти пропонуєш для підписаної кімнати.",
+                "feedback": "Цей намір можна прочитати з твого підпису в ескізі.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Які два розташування ти хочеш порівняти.",
+                "feedback": "Якщо обидва варіанти показані, це порівняння задокументоване.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Проєктуй та осмислюй",
+      "navLabel": "Творча майстерня",
+      "instruction": "Установи відповідності. Потім намалюй варіанти на папері. Текст документує твої рішення і не замінює образотворчої роботи.",
+      "categories": [
+        "Відомість із джерела",
+        "Проєктне рішення",
+        "Потрібна перевірка"
+      ],
+      "items": [
+        {
+          "text": "Повідомлення міста Відня від 5 липня 2001 року називає житло запланованою функцією.",
+          "answer": "Відомість із джерела",
+          "feedback": "Дата й пов’язане з джерелом твердження дають змогу простежити походження інформації."
+        },
+        {
+          "text": "Я малюю окремий вхід до місця зустрічей.",
+          "answer": "Проєктне рішення",
+          "feedback": "Ти визначаєш зміну у своєму вигаданому плані."
+        },
+        {
+          "text": "Чи можна прибрати стіну, ще не з’ясовано.",
+          "answer": "Потрібна перевірка",
+          "feedback": "Твоя модель не містить технічного доказу цього."
+        }
+      ],
+      "writing": "Створи обидва плани приміщень із розділу 3 та зовнішній вигляд. Задокументуй наявні частини, зміни, три критерії, один недолік і думку, якої ще бракує. Малюнки залишаються у твоїй папці.",
+      "rubric": [
+        "Наявні частини, нові частини та функції зрозуміло позначені.",
+        "Моє пояснення відповідає намальованим шляхам і кімнатам.",
+        "Я враховую різні потреби та одне відкрите запитання."
+      ],
+      "model": "У варіанті A місце зустрічей розташоване за кафе. У B воно має окремий вхід. Обираю B, бо доступ без наміру купувати зрозуміліший. Натомість для кафе залишається менше площі. Використання ділянки перед входом ще не визначене; про це хочу запитати сусідів."
+    },
+    "sourceRevision": 0
   }
 }

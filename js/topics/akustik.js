@@ -1,8 +1,8 @@
 // Logic for akustik topic
-let glassBroken = false;
+
 
 function topicInit() {
-    glassBroken = false;
+
     enhanceAccessibility();
 
     // 2. Vakuum: Init air particles inside the existing <g id="airParticles">
@@ -249,69 +249,23 @@ function sendEcho() {
 
 // 6. Resonanz
 function checkResonance() {
-    if (glassBroken) return;
-
-    const resRange = document.getElementById('resRange');
-    const val = parseFloat(resRange?.value || 1);
-    const disp = document.getElementById('resValue');
+    const range = document.getElementById('resRange');
+    const value = Number(range?.value || 1);
+    const intensity = Math.max(0, 1 - Math.abs(value - 4) / 1.5);
+    const display = document.getElementById('resValue');
     const glass = document.getElementById('glass');
-    const membrane = document.getElementById('speakerMembrane');
     const waves = document.getElementById('resWaves');
-    const intact = document.getElementById('intactGlass');
-    const broken = document.getElementById('brokenGlass');
     const status = document.getElementById('resText');
-    const crack = document.getElementById('crack');
-    
-    if (disp) disp.innerText = val.toFixed(1);
-    if (resRange) resRange.setAttribute('aria-valuetext', `${val.toFixed(1)} Hertz`);
-    if (!glass) return;
-
-    const diff = Math.abs(val - 4.0);
-    
-    // Speaker membrane vibration
-    if (membrane) {
-        membrane.style.animation = `shake ${0.1 / (val/4)}s infinite`;
-    }
-
-    if (diff < 1.5) {
-        // Approaching resonance: Start vibrating
-        const intensity = (1.5 - diff) / 1.5; // 0 to 1
-        glass.style.animation = `shake ${0.2 / (intensity + 0.1)}s infinite`;
-        if (waves) {
-            waves.style.opacity = intensity;
-            waves.style.transform = `scale(${0.8 + intensity*0.4})`;
-        }
-        
-        if (diff < 0.1) {
-            // PERFECT RESONANCE: BREAK!
-            glassBroken = true;
-            glass.style.animation = "none";
-            if (intact) intact.style.display = "none";
-            if (broken) broken.style.display = "block";
-            if (crack) crack.style.display = "none";
-            if (status) {
-                status.innerText = "💥 KLIRR! Das Glas ist bei 4.0 Hz zersprungen!";
-                status.style.color = "#E91E63";
-            }
-            // Add a reset button effect
-            setTimeout(() => {
-                if (status) status.innerHTML += '<br><button onclick="topicInit()" style="margin-top:10px; background:#9C27B0;">Neues Glas hinstellen 🍷</button>';
-            }, 500);
-        } else if (diff < 0.4) {
-            if (crack) crack.style.display = "block";
-            if (status) status.innerText = "⚠️ GEFÄHRLICH! Das Glas bekommt Risse!";
-        } else {
-            if (crack) crack.style.display = "none";
-            if (status) status.innerText = "⚡ RESONANZ! Das Schwingen wird stärker...";
-        }
-    } else {
-        // Far from resonance
-        glass.style.animation = "none";
-        if (waves) waves.style.opacity = "0.1";
-        if (crack) crack.style.display = "none";
-        if (status) {
-            status.innerText = val < 4.0 ? "Zu tief... erhöhe die Frequenz." : "Zu hoch... senke die Frequenz.";
-            status.style.color = "#718096";
-        }
+    if (display) display.innerText = value.toFixed(1);
+    range?.setAttribute('aria-valuetext', 'Relative Frequenzstufe ' + value.toFixed(1));
+    if (glass) glass.style.animation = intensity > 0 ? 'shake ' + (0.2 / (intensity + 0.1)) + 's infinite' : 'none';
+    if (waves) { waves.style.opacity = String(0.1 + intensity * 0.9); waves.style.transform = 'scale(' + (0.8 + intensity * 0.4) + ')'; }
+    const intact = document.getElementById('intactGlass'), broken = document.getElementById('brokenGlass'), crack = document.getElementById('crack');
+    if (intact) intact.style.display = 'block';
+    if (broken) broken.style.display = 'none';
+    if (crack) crack.style.display = 'none';
+    if (status) {
+        status.innerText = intensity === 1 ? 'Resonanzmaximum im Modell: starkes Mitschwingen. Ein Bruch folgt daraus nicht automatisch.' : intensity > 0 ? 'Nahe der Resonanz: Das Glas schwingt stärker mit.' : 'Weit von der Resonanz: schwaches Mitschwingen. Vergleiche mit Stufe 4.';
+        status.style.color = 'inherit';
     }
 }

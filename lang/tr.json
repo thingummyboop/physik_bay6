@@ -26,7 +26,7 @@
             ]
           }
         ],
-        "content": "<p>Konuşmanız, el çırpmanız veya gitarı çalmanız fark etmeksizin - sesler her zaman tek bir şey tarafından oluşturulur: <strong>Hareket!</strong> Bir nesne son derece hızlı bir şekilde ileri geri sallanır. Fizikçiler buna <strong>oscillation</strong> adını veriyor. Ses telleriniz boğazınızda titreştiğinde sesiniz yaratılır. Konuşurken elinizi gırtlağınıza koyun; titremeyi hissedebilirsiniz!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Akıllı Sözlük: Ses Kaynağı</strong><br>\n            Sallayarak ses çıkaran şeye <strong>ses kaynağı</strong> denir. Bu bir davulun başı, bir kemanın teli veya bir diyapazonun metal levhası olabilir.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪛 Sihirli Diyapazon</h3>\n            <p>Vurmak için diyapazona tıklayın:</p>\n            <button onclick=\"strikeFork()\">Diyapazona basın 🔔</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"tuningFork\" style=\"transform-origin: center;\">\n                        <path d=\"M 180 40 L 180 120 Q 200 140 220 120 L 220 40\" fill=\"none\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></path>\n                        <line x1=\"200\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"soundWavesGrp\" style=\"display: none;\">\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0s;\"></circle>\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.5s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.25s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.75s;\"></circle>\n                    </g>\n                </svg>\n                <p id=\"forkText\" style=\"font-weight:bold; color: #718096;\">Diyapazon hareketsiz durumda.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Enine ve Boyuna Dalga</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/schallwelle.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/schallwelle.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_q1}}"
+        "content": "<p>Konuşmanız, el çırpmanız veya gitarı çalmanız fark etmeksizin - sesler her zaman tek bir şey tarafından oluşturulur: <strong>Hareket!</strong> Bir nesne son derece hızlı bir şekilde ileri geri sallanır. Fizikçiler buna <strong>oscillation</strong> adını veriyor. Ses telleriniz boğazınızda titreştiğinde sesiniz yaratılır. Konuşurken elinizi gırtlağınıza koyun; titremeyi hissedebilirsiniz!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Akıllı Sözlük: Ses Kaynağı</strong><br>\n            Sallayarak ses çıkaran şeye <strong>ses kaynağı</strong> denir. Bu bir davulun başı, bir kemanın teli veya bir diyapazonun metal levhası olabilir.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪛 Sihirli Diyapazon</h3>\n            <p>Vurmak için diyapazona tıklayın:</p>\n            <button onclick=\"strikeFork()\">Diyapazona basın 🔔</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"tuningFork\" style=\"transform-origin: center;\">\n                        <path d=\"M 180 40 L 180 120 Q 200 140 220 120 L 220 40\" fill=\"none\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></path>\n                        <line x1=\"200\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"soundWavesGrp\" style=\"display: none;\">\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0s;\"></circle>\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.5s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.25s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.75s;\"></circle>\n                    </g>\n                </svg>\n                <p id=\"forkText\" style=\"font-weight:bold; color: #718096;\">Diyapazon hareketsiz durumda.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Enine ve Boyuna Dalga</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/schallwelle.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -820,7 +820,7 @@
             ]
           }
         ],
-        "content": "<p>Neden dünyadan düşmüyoruz? Yerçekimi nedeniyle (yerçekimi)! Albert Einstein, her ağır cismin (trambolin üzerindeki bir tür bowling topu gibi) etrafındaki alanı büktüğünü keşfetti. Bir şey ne kadar ağırsa diğer şeyleri de o kadar güçlü çeker.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Kara Delik:</strong><br>\n            Dev bir yıldız öldüğünde çökebilir. Sonsuz derecede küçülür ama muazzam kütlesini korur. Orada yerçekimi o kadar aşırı hale geliyor ki ışık bile kaçamıyor; bir kara delik doğuyor!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ Yerçekimi Bozucu</h3>\n            <p>Kütleyi artırın ve uzay ve zamanın ne kadar büküldüğünü izleyin!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">Dünya</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">Orta dereceli yer çekimi. Odada hafif bir \"çökme\".</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Kepler'in 2. Yasası (Alan Teoremi)</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/gravitation_kepler.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
+        "content": "<p>Neden dünyadan düşmüyoruz? Yerçekimi nedeniyle (yerçekimi)! Albert Einstein, her ağır cismin (trambolin üzerindeki bir tür bowling topu gibi) etrafındaki alanı büktüğünü keşfetti. Bir şey ne kadar ağırsa diğer şeyleri de o kadar güçlü çeker.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Kara Delik:</strong><br>\n            Dev bir yıldız öldüğünde çökebilir. Sonsuz derecede küçülür ama muazzam kütlesini korur. Orada yerçekimi o kadar aşırı hale geliyor ki ışık bile kaçamıyor; bir kara delik doğuyor!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🕳️ Yerçekimi Bozucu</h3>\n            <p>Kütleyi artırın ve uzay ve zamanın ne kadar büküldüğünü izleyin!</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"3\" value=\"1\" oninput=\"updateGravity()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"gravTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #4A148C;\">Dünya</p>\n                <svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n                    <path id=\"gravGrid\" d=\"M 10 50 Q 100 50 190 50\" fill=\"none\" stroke=\"#B39DDB\" stroke-width=\"2\"></path>\n                    <circle id=\"gravObject\" cx=\"100\" cy=\"50\" r=\"10\" fill=\"#2196F3\"></circle>\n                </svg>\n                <p id=\"gravDesc\" style=\"color: #757575;\">Orta dereceli yer çekimi. Odada hafif bir \"çökme\".</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Kepler'in 2. Yasası (Alan Teoremi)</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/gravitation_kepler.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
       },
       {
         "title": "4. Kaçış Hızı: Uzaya Çıkın!",
@@ -2297,7 +2297,7 @@
             ]
           }
         ],
-        "content": "<p>Manyetik alandaki hareketli yükler (akım) bir kuvveti algılar: <strong>Lorentz kuvveti</strong>. Bir motorda bu kuvvet, bobini daire şeklinde döndürmek için kullanılır.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Dürtü test cihazı</h3>\n            <button onclick=\"changeDirection()\">Mevcut yönü değiştir ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\"></path>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Yukarı Zorla</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Lorentz Kuvveti (Sağ El Kuralı)</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/lorentz_kraft.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/lorentz_kraft.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_em_s3_q1}}"
+        "content": "<p>Manyetik alandaki hareketli yükler (akım) bir kuvveti algılar: <strong>Lorentz kuvveti</strong>. Bir motorda bu kuvvet, bobini daire şeklinde döndürmek için kullanılır.</p>\n        <div class=\"interactive-zone\">\n            <h3>🚀 Dürtü test cihazı</h3>\n            <button onclick=\"changeDirection()\">Mevcut yönü değiştir ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"180\" viewBox=\"0 0 400 180\">\n                    <rect x=\"50\" y=\"40\" width=\"60\" height=\"100\" fill=\"#f44336\" rx=\"5\"></rect>\n                    <text x=\"80\" y=\"95\" fill=\"white\" text-anchor=\"middle\">N</text>\n                    <rect x=\"290\" y=\"40\" width=\"60\" height=\"100\" fill=\"#2196F3\" rx=\"5\"></rect>\n                    <text x=\"320\" y=\"95\" fill=\"white\" text-anchor=\"middle\">S</text>\n                    <circle cx=\"200\" cy=\"90\" r=\"15\" fill=\"#ED8936\"></circle>\n                    <path id=\"forceArrow\" d=\"M 200 75 L 200 20\" stroke=\"#4CAF50\" stroke-width=\"6\"></path>\n                </svg>\n                <p id=\"directionText\" style=\"font-weight:bold; color:#4CAF50;\">Yukarı Zorla</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Lorentz Kuvveti (Sağ El Kuralı)</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/lorentz_kraft.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_em_s3_q1}}"
       },
       {
         "id": "sec4",
@@ -3726,7 +3726,7 @@
             ]
           }
         ],
-        "content": "<p>Boş bir alışveriş sepetini itmek kolaydır. Dolu bir alışveriş sepeti daha fazla güç gerektirir. Bu tam olarak Newton'un 2. yasasının tanımladığı şeydir.</p>\n        <p><span class=\"formula-card\">F = m a</span></p>\n        <ul class=\"step-list\">\n            <li><strong>F</strong> güç anlamına gelir. Birim: Newton (N).</li>\n            <li><strong>m</strong> kütle anlamına gelir. Birim: Kilogram (kg).</li>\n            <li><strong>a</strong> hızlanma anlamına gelir: hızlanmak, fren yapmak veya yön değiştirmek.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧪 F = m · bir laboratuvar</h3>\n            <p>Gücü ve kütleyi değiştirin. Hızlanma anında hesaplanır.</p>\n            <div class=\"lab-controls\">\n                <label>Güç: <span id=\"forceLabel\">6 N</span><br><input type=\"range\" id=\"forceRange\" min=\"2\" max=\"12\" value=\"6\" oninput=\"updateForceLab()\"></label>\n                <label>Kütle: <span id=\"massLabel\">3 kg</span><br><input type=\"range\" id=\"massRange\" min=\"1\" max=\"8\" value=\"3\" oninput=\"updateForceLab()\"></label>\n            </div>\n            <p><strong>Hızlanma:</strong> <span id=\"accelLabel\">2,0 m/s²</span></p>\n            <div class=\"meter\"><div id=\"accelMeter\" class=\"meter-fill\"></div></div>\n            <button onclick=\"runForceLab()\">Bahise Başla</button>\n            <div class=\"diagram-box\" style=\"text-align: left; background: #333; height: 120px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <line x1=\"0\" y1=\"80\" x2=\"100%\" y2=\"80\" stroke=\"white\" stroke-width=\"2\" stroke-dasharray=\"10,10\"></line>\n                    <g id=\"forceCart\" style=\"transform: translateX(10px); transition: transform 1s ease-in;\">\n                        <text x=\"0\" y=\"70\" font-size=\"40\">🛒</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"forceLabText\" class=\"lab-feedback\">Daha fazla güç sizi daha hızlı yapar. Daha fazla kütle sizi yavaşlatır.</p>\n        </div>\n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Animasyon: Kuvvetlerin eklenmesi</h3>\n            <p>İki kuvvet aynı anda etki ediyorsa bunları ok şeklinde toplayabilirsiniz.</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/vektor_addition.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n        {{QUIZ_q_newton2}}"
+        "content": "<p>Boş bir alışveriş sepetini itmek kolaydır. Dolu bir alışveriş sepeti daha fazla güç gerektirir. Bu tam olarak Newton'un 2. yasasının tanımladığı şeydir.</p>\n        <p><span class=\"formula-card\">F = m a</span></p>\n        <ul class=\"step-list\">\n            <li><strong>F</strong> güç anlamına gelir. Birim: Newton (N).</li>\n            <li><strong>m</strong> kütle anlamına gelir. Birim: Kilogram (kg).</li>\n            <li><strong>a</strong> hızlanma anlamına gelir: hızlanmak, fren yapmak veya yön değiştirmek.</li>\n        </ul>\n        <div class=\"interactive-zone\">\n            <h3>🧪 F = m · bir laboratuvar</h3>\n            <p>Gücü ve kütleyi değiştirin. Hızlanma anında hesaplanır.</p>\n            <div class=\"lab-controls\">\n                <label>Güç: <span id=\"forceLabel\">6 N</span><br><input type=\"range\" id=\"forceRange\" min=\"2\" max=\"12\" value=\"6\" oninput=\"updateForceLab()\"></label>\n                <label>Kütle: <span id=\"massLabel\">3 kg</span><br><input type=\"range\" id=\"massRange\" min=\"1\" max=\"8\" value=\"3\" oninput=\"updateForceLab()\"></label>\n            </div>\n            <p><strong>Hızlanma:</strong> <span id=\"accelLabel\">2,0 m/s²</span></p>\n            <div class=\"meter\"><div id=\"accelMeter\" class=\"meter-fill\"></div></div>\n            <button onclick=\"runForceLab()\">Bahise Başla</button>\n            <div class=\"diagram-box\" style=\"text-align: left; background: #333; height: 120px;\">\n                <svg width=\"100%\" height=\"100\">\n                    <line x1=\"0\" y1=\"80\" x2=\"100%\" y2=\"80\" stroke=\"white\" stroke-width=\"2\" stroke-dasharray=\"10,10\"></line>\n                    <g id=\"forceCart\" style=\"transform: translateX(10px); transition: transform 1s ease-in;\">\n                        <text x=\"0\" y=\"70\" font-size=\"40\">🛒</text>\n                    </g>\n                </svg>\n            </div>\n            <p id=\"forceLabText\" class=\"lab-feedback\">Daha fazla güç sizi daha hızlı yapar. Daha fazla kütle sizi yavaşlatır.</p>\n        </div>\n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Animasyon: Kuvvetlerin eklenmesi</h3>\n            <p>İki kuvvet aynı anda etki ediyorsa bunları ok şeklinde toplayabilirsiniz.</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/vektor_addition.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n        {{QUIZ_q_newton2}}"
       },
       {
         "id": "sec6",
@@ -4163,7 +4163,7 @@
             ]
           }
         ],
-        "content": "<p>Biz insanlar, camı çok özel, yuvarlak şekillere taşlayarak kırılma hilesini kullanırız. Bu cam parçalarına <strong>Linsen</strong> diyoruz. Onlarla büyüteçler, gözlükler ve kameralar yapabiliriz!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>İki şekil, iki numara:</strong><br>\n            - <strong>Toplayıcı mercek (dışbükey mercek):</strong> Güzel ve ortası kalın ve soğanlıdır. Işık ışınlarını yakalar ve hepsi tek bir süper sıcak noktada buluşana kadar onları içeriye doğru yönlendirir: <strong>odak noktası (odak)</strong>.<br>\n            - <strong>Dağıtıcı mercek (içbükey mercek):</strong> Ortası kenardan daha incedir. Işınları sanki dağılıyormuş gibi dışarı doğru iter. <br><br>\n            <em>💡 Harika bir anımsatma: \"Altıgen'in arkası dışbükeydir (dışarı doğru kavislidir), içbükey ise derin bir koyun mezarıdır (mağara gibi içe doğru kavislidir).\"</em>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔍 Mercek değiştirici</h3>\n            <p>Lerceği değiştirmek için tıklayın:</p>\n            <button onclick=\"toggleLens()\">Lerceği değiştir ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <path d=\"M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    \n                    <path id=\"lensShape\" d=\"M 200 40 Q 230 120 200 200 Q 170 120 200 40\" fill=\"#bee3f8\" stroke=\"#3182ce\" stroke-width=\"2\" style=\"transition: all 0.5s;\"></path>\n                    \n                    <g id=\"lensRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"rayTopLens\" d=\"M 200 80 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayMidLens\" d=\"M 200 120 L 380 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayBotLens\" d=\"M 200 160 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualLensRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"80\"></line>\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"160\"></line>\n                    </g>\n                    \n                    <circle id=\"focalPointReal\" cx=\"320\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"focalPointVirtual\" cx=\"80\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"lensText\" style=\"font-weight:bold; color:#E91E63;\">Yakınsak mercek (dışbükey): Tüm ışınları odak noktasına odaklar!</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Yakınsak mercekte kırılma</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/linsen_brechung.webm\" type=\"video/webm\">\n                <source src=\"../assets/videos/linsen_brechung.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
+        "content": "<p>Biz insanlar, camı çok özel, yuvarlak şekillere taşlayarak kırılma hilesini kullanırız. Bu cam parçalarına <strong>Linsen</strong> diyoruz. Onlarla büyüteçler, gözlükler ve kameralar yapabiliriz!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>İki şekil, iki numara:</strong><br>\n            - <strong>Toplayıcı mercek (dışbükey mercek):</strong> Güzel ve ortası kalın ve soğanlıdır. Işık ışınlarını yakalar ve hepsi tek bir süper sıcak noktada buluşana kadar onları içeriye doğru yönlendirir: <strong>odak noktası (odak)</strong>.<br>\n            - <strong>Dağıtıcı mercek (içbükey mercek):</strong> Ortası kenardan daha incedir. Işınları sanki dağılıyormuş gibi dışarı doğru iter. <br><br>\n            <em>💡 Harika bir anımsatma: \"Altıgen'in arkası dışbükeydir (dışarı doğru kavislidir), içbükey ise derin bir koyun mezarıdır (mağara gibi içe doğru kavislidir).\"</em>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔍 Mercek değiştirici</h3>\n            <p>Lerceği değiştirmek için tıklayın:</p>\n            <button onclick=\"toggleLens()\">Lerceği değiştir ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\">\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <path d=\"M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    \n                    <path id=\"lensShape\" d=\"M 200 40 Q 230 120 200 200 Q 170 120 200 40\" fill=\"#bee3f8\" stroke=\"#3182ce\" stroke-width=\"2\" style=\"transition: all 0.5s;\"></path>\n                    \n                    <g id=\"lensRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"rayTopLens\" d=\"M 200 80 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayMidLens\" d=\"M 200 120 L 380 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayBotLens\" d=\"M 200 160 L 320 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualLensRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"80\"></line>\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"160\"></line>\n                    </g>\n                    \n                    <circle id=\"focalPointReal\" cx=\"320\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"focalPointVirtual\" cx=\"80\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"lensText\" style=\"font-weight:bold; color:#E91E63;\">Yakınsak mercek (dışbükey): Tüm ışınları odak noktasına odaklar!</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Yakınsak mercekte kırılma</h3>\n            <p>Fiziksel süreci net bir şekilde anlamak için Python (Manim) ile oluşturulan bu hassas animasyonu izleyin:</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/linsen_brechung.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n    \n        {{QUIZ_q3}}"
       },
       {
         "id": "sec5",
@@ -5634,7 +5634,7 @@
             ]
           }
         ],
-        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Hareket Olarak Sıcaklık</h3>\n            <p>Soğuk, yavaş parçacıklar anlamına gelir. Sıcak, çılgınca koştukları ve daha fazla alana ihtiyaç duydukları anlamına gelir!</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/waermelehre_teilchen.mp4?v=3\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n\n\n        \n        <p>İster su, ister tahta veya hava olsun - etrafımızdaki her şey minik yapı taşlarından, <strong>particles</strong>'den oluşur. Ve bu parçacıklar asla yerinde durmaz! Sürekli sallanıyorlar ve sallanıyorlar. <strong>Isı aslında hareketten başka bir şey değildir!</strong> Bir şey ne kadar sıcaksa, parçacıklar da o kadar vahşi ve hızlı hareket eder (bu, <strong>thermometer</strong> ile °C cinsinden ölçülür). Hava soğuduğunda çok yavaş hareket ederler.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Akıllı sözlük: Mutlak sıfır noktası</strong><br>\n            Parçacıkların tamamen donduğu ve artık hiç hareket etmediği bir nokta var mı? Evet! Buna “mutlak sıfır noktası” denir. Hava buz gibi <strong>-273,15 santigrat derece</strong>. Tüm evrende hava soğumuyor!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔬 Parçacık mikroskobu</h3>\n            <p>Sıcaklığı artırın ve parçacıkların çıldırmasını izleyin!</p>\n            <input type=\"range\" id=\"tempRange\" min=\"0\" max=\"100\" value=\"10\" style=\"width: 250px;\">\n            <p>Sıcaklık: <span id=\"tempValue\" style=\"font-weight: bold; color: #1976D2;\">10°C (Soğuk)</span></p>\n            <div class=\"diagram-box\" style=\"background: #e3f2fd;\" id=\"particleBox\">\n                <svg width=\"300\" height=\"200\" id=\"particleSvg\">\n                    </svg>\n            </div>\n        </div>\n        {{QUIZ_q1}}"
+        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Hareket Olarak Sıcaklık</h3>\n            <p>Soğuk, yavaş parçacıklar anlamına gelir. Sıcak, çılgınca koştukları ve daha fazla alana ihtiyaç duydukları anlamına gelir!</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/waermelehre_teilchen.mp4?v=3\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n\n\n        \n        <p>İster su, ister tahta veya hava olsun - etrafımızdaki her şey minik yapı taşlarından, <strong>particles</strong>'den oluşur. Ve bu parçacıklar asla yerinde durmaz! Sürekli sallanıyorlar ve sallanıyorlar. <strong>Isı aslında hareketten başka bir şey değildir!</strong> Bir şey ne kadar sıcaksa, parçacıklar da o kadar vahşi ve hızlı hareket eder (bu, <strong>thermometer</strong> ile °C cinsinden ölçülür). Hava soğuduğunda çok yavaş hareket ederler.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Akıllı sözlük: Mutlak sıfır noktası</strong><br>\n            Parçacıkların tamamen donduğu ve artık hiç hareket etmediği bir nokta var mı? Evet! Buna “mutlak sıfır noktası” denir. Hava buz gibi <strong>-273,15 santigrat derece</strong>. Tüm evrende hava soğumuyor!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔬 Parçacık mikroskobu</h3>\n            <p>Sıcaklığı artırın ve parçacıkların çıldırmasını izleyin!</p>\n            <input type=\"range\" id=\"tempRange\" min=\"0\" max=\"100\" value=\"10\" style=\"width: 250px;\">\n            <p>Sıcaklık: <span id=\"tempValue\" style=\"font-weight: bold; color: #1976D2;\">10°C (Soğuk)</span></p>\n            <div class=\"diagram-box\" style=\"background: #e3f2fd;\" id=\"particleBox\">\n                <svg width=\"300\" height=\"200\" id=\"particleSvg\">\n                    </svg>\n            </div>\n        </div>\n        {{QUIZ_q1}}"
       },
       {
         "id": "sec1",
@@ -7155,61 +7155,194 @@
     ]
   },
   "dgb8_information": {
-    "title": "🔎 Bilgi: 8. sınıf",
-    "subtitle": "Veriyi, aramayı ve bilgiyi güvenle kullanın - 8. sınıf (4. sınıf)",
+    "title": "Yedekler, dijital izler ve anlaşılır açıklamalar",
+    "subtitle": "Yedekleme, dijital izler ve hedef kitleye uygun bilgiler – 8. sınıf düzeyi (Mittelschule 4. sınıf)",
     "script": false,
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Neyle ilgili?",
+        "title": "1. Anla ve dene",
         "quizzes": [
           {
             "id": "dgb8_information_q1",
-            "question": "Yedekleme ne içindir?",
+            "question": "Yedek nedir?",
+            "practiceOnly": false,
             "answers": [
               {
-                "text": "verileri geri yükleyebilmek için",
+                "text": "Önemli verilerin ayrı bir kopyasıdır.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Doğru. Bu, bu müfredat alanının özüdür."
+                "feedback": "Yedek, kaybolan verileri kurtarmaya yardımcı olabilir. İçeriğini ve geri yüklemeyi kontrol etmek gerekir."
               },
               {
-                "text": "kasıtlı olarak dosyaları kaybetmek",
+                "text": "Yalnızca asıl dosyaya yönlendiren bir kısayoldur.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Henüz değil. Anımsatıcıyı okuyun ve tekrar deneyin."
+                "pts": 0,
+                "feedback": "Kısayol, dosyanın yedeklenmiş içeriğini taşımaz. Asıl dosyaya erişilemiyorsa kısayol onu geri yükleyemez."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_information_p1",
+            "question": "Geri yükleme ne demektir?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Verileri bir yedekten geri almak.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Geri yükleme, kaydedilmiş verileri geri getirir. Geri alınan dosyayı açıp içeriğini kontrol et."
+              },
+              {
+                "text": "Yalnızca dosya listesinde yedeğin adını görmek.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dosyayı bulmak yalnızca ilk adımdır. Yedeği hedef konuma kopyala, oradan aç ve içeriğini kontrol et."
               }
             ]
           }
         ],
-        "content": "<div class=\"lesson-goals\">\n            <strong>Bunu bu bölümden sonra yapabilirsiniz:</strong>\n            <ul class=\"step-list\">\n                <li>Yedekleme ve geri yükleme gerçekleştirin</li><li>Veri toplamayı, bağlamayı ve izlemeyi açıklayın</li><li>Bilgileri hedef gruplara ve medyaya uyacak şekilde hazırlayın</li>\n            </ul>\n        </div>\n        <p>Burada bilgiyi nasıl bulacağınızı, organize edeceğinizi ve değerlendireceğinizi ve verileri nasıl sorumlu bir şekilde ele alacağınızı öğreneceksiniz.</p>\n        <p>Yedek, yedek kopyadır. Kusur, hırsızlık veya kazara silinme nedeniyle kayba karşı koruma sağlar. Aynı zamanda çok sayıda kullanım verisi toplanıyor ve dijital sistemlere bağlanıyor. Bu pratik olabilir ancak kötüye de kullanılabilir.</p>\n        <div class=\"remember-box\"><strong>Not:</strong> Verileri korumak şu anlama gelir: verilerin güvenliğini sağlamak, tasarruflu bir şekilde paylaşmak ve bunları kimin değerlendirebileceğini anlamak.</div>\n        {{QUIZ_dgb8_information_q1}}"
+        "content": "<p>Cihaz arızası, hırsızlık, hata veya zararlı yazılım veri kaybına yol açabilir. Yedek almak yardımcı olur; fakat verileri nasıl geri yükleyeceğini de bilmelisin. İnsanlar, birleştirilip analiz edilebilen dijital izler bırakır. Bilgileri koru ve farklı hedef kitlelere uygun biçimde açıkla.</p><dl><dt>Yedek</dt><dd>Önemli verilerin ayrı bir kopyası.</dd><dt>Geri yükleme</dt><dd>Verileri yedekten geri alma.</dd><dt>Dijital iz</dt><dd>Dijital hizmetlerin kullanılmasıyla geride kalan bilgi.</dd><dt>Hedef kitle</dt><dd>Açıklamanın yönelik olduğu kişiler.</dd></dl><p><strong>Unutma:</strong> Verileri korumak; yedeklemek, gereğinden fazlasını paylaşmamak, izleri anlamak ve açık anlatmak demektir.</p><h3>Küçük görev: Okul dosyaları için yedekleme planı</h3><ol><li>Notlar, sunumlar ve projeler gibi üç önemli dosya grubu belirle.</li><li>Öğretmeninle izin verilen bir yedekleme konumu seç: örneğin okul depolama alanı veya haricî sürücü.</li><li>Ne zaman yedek alınacağını belirle.</li><li>Bir dosyayı nasıl geri alacağını anlat.</li><li>Deneme yedeğini bulabildiğini kontrol et. Ardından aşağıdaki geri yükleme çalışmasını yap.</li></ol><p>Planında veriler, konum, zamanlama ve geri yükleme işlemi bulunmalıdır.</p>{{QUIZ_dgb8_information_q1}}{{QUIZ_dgb8_information_p1}}<h3>Atölye: Bir deneme dosyasını gerçekten geri yükle</h3><p>Bir kelime işlemciye ve okul cihazının dosya yöneticisine ihtiyacın var. Öğretmenin izin verilen yedekleme yerini belirler. Yalnızca bu çalışma için oluşturacağın yeni dosyayı kullan; mevcut çalışmaları silme veya üzerlerine yazma. Aynı cihazdaki ikinci bir klasör işlemi öğrenmeye yeterlidir, fakat cihazın bozulmasına karşı koruma sağlamaz. Bağımsız yedek için uygun, ayrı bir depolama ortamı gerekir.</p><ol data-restore-steps><li>Çalışma alanında <code>Calisma</code> ve <code>GeriYuklenen</code> klasörlerini oluştur. İzin verilen yedekleme konumunda ayrı bir <code>Yedek_V1</code> klasörü oluştur. Üç konumu özel hesap bilgileri olmadan not et.</li><li><code>Calisma</code> klasöründe kelime işlemcinin biçiminde <code>DenemeNotu</code> adlı bir dosya oluştur. İki satır yaz: <code>Sürüm 1</code> ve <code>Sergimiz saat 14:00'te başlıyor.</code> Kaydet, kapat ve yeniden aç. İki satırı da kontrol et.</li><li>Dosyayı <code>Yedek_V1</code> klasörüne kopyala. Kopyayı özellikle bu klasörden aç. İçeriği ve konumu kontrol et; aynı dosya adı yeterli değildir. Kopyayı kapat.</li><li>Yalnızca çalışma dosyasını aç. Satırları <code>Sürüm 2</code> ve <code>Sergimiz saat 15:00'te başlıyor.</code> olarak değiştir. Kaydet ve kapat. Yedeği aç: hâlâ Sürüm 1 ve 14:00 yazmalıdır. O da kendiliğinden değişmişse eşitleme veya bir bağlantı söz konusu olabilir. Ayrı yedekleme konumunu öğretmeninle netleştir.</li><li>Sürüm 1'i geri yükle: Dosyayı <code>Yedek_V1</code> klasöründen boş <code>GeriYuklenen</code> klasörüne kopyala. Üzerine yazma sorusu çıkarsa iptal et ve yeni, boş bir hedef klasör seç. Geri alınan dosyayı hedef konumdan aç.</li><li>Üç dosyayı tabloyla karşılaştır. Geri yüklenen dosyada Sürüm 1 ve 14:00; çalışma dosyasında Sürüm 2 ve 15:00 bulunmalıdır. Gerçekte gördüğün sonucu ve beklentiden farklılıkları kaydet.</li><li>Gelecekteki yedekler için bir kural yaz: Hangi veriler, hangi sıklıkta, hangi bağımsız ortama? Kim erişebilir ve geri yükleme ne zaman denenir? Bu çalışma tek bir dosyayı geri yükler; bütün cihazın kurtarılmasını veya olası her arızayı test etmez.</li></ol><table data-restore-protocol><caption>Geri yüklemeden sonra beklenen ve gerçek içerik</caption><thead><tr><th scope=\"col\">Dosya konumu</th><th scope=\"col\">Beklenen içerik</th><th scope=\"col\">Gerçekte açılan / sonuç</th></tr></thead><tbody><tr><th scope=\"row\">Calisma</th><td>Sürüm 2; 15:00</td><td>…</td></tr><tr><th scope=\"row\">Yedek_V1</th><td>Sürüm 1; 14:00</td><td>…</td></tr><tr><th scope=\"row\">GeriYuklenen</th><td>Sürüm 1; 14:00</td><td>…</td></tr></tbody></table><p><strong>Değerlendir:</strong> Çalışma dosyası kaybolsaydı bu yedekten ne geri alınabilirdi? Hangi değişiklik eksik kalırdı? Saatin 15:00 olarak değiştirilmesi yedeklemeden sonra yapıldı. Bu nedenle yeni bir yedeğin ne zaman yararlı olacağını düşün. Otomatik eşitleme değişiklikleri ve silmeleri de aktarabilir. Ona güvenmeden önce eski sürümleri ve geri yükleme olanaklarını kontrol et.</p><p>Cihazın yoksa üç dosyanın durumunu çiz ve kopyalama yönünü göster. Bunu plan olarak işaretle; gerçek geri yükleme daha sonra yapılmalıdır.</p>"
       },
       {
         "id": "sec2",
-        "title": "2. Öğretim atölyesi",
+        "title": "2. Kavramlar ve örnekler",
         "quizzes": [
           {
             "id": "dgb8_information_q2",
-            "question": "Bağlantılı kullanım verilerinin riskli tarafı nedir?",
+            "question": "İzleme (tracking) nedir?",
+            "practiceOnly": false,
             "answers": [
               {
-                "text": "kişiler hakkında kesin profiller oluşturulabilir",
+                "text": "Kullanım davranışını takip etmek ve analiz etmek.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Doğru. Bu pratik uygulamaya çok iyi uyuyor."
+                "feedback": "Tıklamalar veya ziyaretler gibi davranışlar takip edilir; bunlar dijital izler bırakabilir."
               },
               {
-                "text": "Sonuç olarak dosyalar giderek küçülür",
+                "text": "Dosyaları adlarına göre alfabetik sıralamak.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Bu iyi veya güvenli bir dijital eylem olmaz. Tekrar deneyin."
+                "pts": 0,
+                "feedback": "Sıralama dosyaları düzenler. İzleme ise kullanım davranışını takip eder ve analiz eder."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_information_p2",
+            "question": "Aynı bilginin neden farklı anlatımları gerekebilir?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Hedef kitleler farklı dil ve örneklere ihtiyaç duyar.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Ön bilgiler farklı olabilir. Açıklamayı uyarlarken bilgilerin doğruluğunu koru."
+              },
+              {
+                "text": "Çünkü temel bilgiler her kitle için keyfî olarak değiştirilebilir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dil ve örnekler uyarlanabilir; verilen bilgi doğru kalmalıdır."
               }
             ]
           }
         ],
-        "content": "<p><strong>Müfredat görünümü:</strong> Sadece bir şey bulmak değil, aynı zamanda bunun anlamlı, güncel ve güvenilir olup olmadığını kontrol etmek de önemlidir.</p>\n        <ol class=\"step-list\">\n            <li>Okul dosyaları için bir yedekleme politikası planlayın.</li><li>Hangi verilerin zararsız, hangisinin hassas olduğunu ayırt edin?</li><li>Aynı bilgileri çocuklar için bir kez, yetişkinler için bir kez hazırlayın.</li>\n        </ol>\n        <div class=\"mini-task\"><strong>Mini görev:</strong> Bir ortağa 30 saniye içinde bu konunun günlük yaşamda neden önemli olduğunu açıklayın.</div>\n        {{QUIZ_dgb8_information_q2}}"
+        "content": "<p>Tanımları yalnızca ezberlemek yerine kavramları kendi örneklerinde kullan.</p><dl><dt>Yedek</dt><dd>Önemli verilerin güvenli ikinci bir yerdeki kopyası.</dd><dt>Geri yükleme</dt><dd>Verileri bir yedekten geri alma.</dd><dt>İzleme (tracking)</dt><dd>Kullanım davranışını takip etme ve analiz etme.</dd><dt>Profilleme</dt><dd>Verilerden ilgi alanları veya davranışlar hakkında bir profil oluşturma.</dd></dl><table><caption>Kendi sözlerinle açıklayacağın örnekler</caption><thead><tr><th scope=\"col\">Örnek</th><th scope=\"col\">Nasıl düşünmelisin?</th></tr></thead><tbody><tr><th scope=\"row\">Yedekleme kuralı</th><td>Örneğin okul dosyalarını her hafta ayrı bir ortama yedekle; sıklığı dosyalardaki değişikliklere göre belirle.</td></tr><tr><th scope=\"row\">Dijital izler</th><td>Aramalar, konum, tıklamalar, beğeniler ve alışverişler bilgi bırakabilir.</td></tr><tr><th scope=\"row\">Hedef kitle</th><td>Çocuklara yönelik bir açıklama, yetişkinlere yönelik rapordan farklı bir dil gerektirebilir.</td></tr></tbody></table><h3>Küçük görev: Kavramları kullan</h3><ol><li>Yukarıdan iki kavram seç.</li><li>Her birini basit bir cümleyle açıkla.</li><li>Okuldan veya günlük yaşamdan bir örnek ekle.</li><li>Bir arkadaşınla değiş tokuş yapıp örneklerin gerçekten uyup uymadığını kontrol edin.</li></ol><p>Kontrol: Her kavramın anlaşılır açıklaması ve uygun bir özgün örneği var mı?</p>{{QUIZ_dgb8_information_q2}}{{QUIZ_dgb8_information_p2}}"
+      },
+      {
+        "id": "sec3",
+        "title": "3. Atölye görevi",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q3",
+            "question": "Hangi dosyanın yedeklenmesi özellikle önemlidir?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Teslim tarihi yaklaşan önemli bir sunumun.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Önemli çalışmalar, asıl dosya kaybolursa geri alınabilmeleri için yedeklenmelidir."
+              },
+              {
+                "text": "Yalnızca bilerek boş bırakılmış bir deneme dosyasının.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Deneme dosyası işlemi kontrol etmeye yarar, fakat önemli çalışmaların yedeğinin yerini tutmaz."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_information_p3",
+            "question": "Profilleme nedir?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Verilerden ilgi alanları veya davranışlar hakkında bir profil oluşturmak.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Profillemede veriler kullanılarak kişiler veya gruplar hakkında çıkarımlar yapılır."
+              },
+              {
+                "text": "Bir dosyayı yalnızca adına göre bir klasöre yerleştirmek.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Profilleme kişiler veya gruplarla ilgili çıkarımları içerir. Dosyaları sıralamak bunu açıklamaz."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Kelime işlemci atölyesinde olduğu gibi görevi oku, malzemeyi hazırla, adımları uygula ve sonucu kontrol et.</p><h3>İki hedef kitle için aynı konu</h3><ol><li>Yedekleme veya izleme gibi dijital güvenlikle ilgili bir konu seç.</li><li>Mittelschule birinci sınıf öğrencileri için basit bir açıklama yaz.</li><li>Ebeveynler veya diğer yetişkinler için ikinci bir metin yaz; eklediğin teknik terimleri açıkla.</li><li>Metinleri karşılaştır: Ne aynı kaldı, ne değişti?</li><li>Dili veya örnekleri hedef kitleye uyarladığın üç yeri işaretle.</li></ol><p>İki metin de aynı konuyu doğru açıklamalıdır. Dil, örnekler ve ayrıntı düzeyi okuyucuya uygun olmalıdır.</p><table><caption>Çalışmanı kontrol et</caption><thead><tr><th scope=\"col\">Alan</th><th scope=\"col\">Görülebilir kanıt</th><th scope=\"col\">Kontrol</th></tr></thead><tbody><tr><th scope=\"row\">Yedekleme</th><td>Konum ve zamanlama açık.</td><td>Geri yükleme de düşünülmüş.</td></tr><tr><th scope=\"row\">Dijital izler</th><td>Örnekler izlemeyi veya profillemeyi açıklıyor.</td><td>Riskler küçümsenmiyor.</td></tr><tr><th scope=\"row\">Hedef kitle</th><td>Dil ve örnekler uygun.</td><td>Uyarlamalar işaretlenmiş.</td></tr></tbody></table>{{QUIZ_dgb8_information_q3}}{{QUIZ_dgb8_information_p3}}"
+      },
+      {
+        "id": "sec4",
+        "title": "4. Uygula ve kendini kontrol et",
+        "quizzes": [
+          {
+            "id": "dgb8_information_q4",
+            "question": "İyi bir yedekleme planında neler bulunur?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Neyin, nereye, ne zaman yedekleneceği ve nasıl geri yükleneceği.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Somut bir plan verileri, konumu, zamanı ve geri yükleme kontrolünü içerir."
+              },
+              {
+                "text": "Yalnızca yedeğin konumu; tarih ve geri yükleme kontrol edilmez.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Konum tek başına yedeğin güncelliğini veya verilerin kullanılabilirliğini göstermez."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Konuyu yeni bir duruma uygula. Bu, ezberlenmiş bir cümleyi tekrar etmekten daha önemlidir.</p><ul><li>Bir yedekleme planlayıp kontrol edebiliyor muyum?</li><li>Dijital izleri ve izlemeyi açıklayabiliyor muyum?</li><li>Bilgileri farklı hedef kitlelere uyarlayabiliyor muyum?</li></ul><p><strong>Defterin için:</strong> Kendi örneğimi açıklayıp uygun bir karar verdiğimde ve kararımı bir kavramla gerekçelendirdiğimde bu konuyu uygulayabilirim.</p><p><strong>Son görev:</strong> Üç cümle yaz: Ne öğrendim? Bunu günlük yaşamda nerede kullanabilirim? Hangi sorum hâlâ açık?</p>{{QUIZ_dgb8_information_q4}}"
       }
-    ]
+    ],
+    "chapterQuizTitle": "Anlama kontrolü: yedekler ve dijital izler",
+    "learningGoals": [
+      "Kendi deneme dosyanı yedekle, ayrı bir konuma geri yükle ve dosya sürümlerini karşılaştır.",
+      "Veri toplama ve gözetimin risklerini açıkla.",
+      "Bilgileri farklı hedef kitlelere uygun biçimde hazırla."
+    ],
+    "summary": [
+      "Yedek, verilerin ayrı bir kopyasıdır; plan, geri yüklemeyi de içermelidir.",
+      "Dijital izler birleştirilebilir ve analiz edilebilir.",
+      "Bilgileri hedef kitle için anlaşılır biçimde açıkla ve yalnızca gereken verileri paylaş."
+    ],
+    "prerequisites": [
+      "dgb7_information"
+    ],
+    "sources": [
+      {
+        "title": "BSI: Adım adım veri yedekleme (Almanca)",
+        "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Broschueren/Wegweiser_Checklisten_Flyer/SfS-Anleitung_Datensicherung.html"
+      }
+    ],
+    "contentLanguage": "tr",
+    "sourceRevision": 1
   },
   "dgb8_kommunikation": {
     "title": "💬 İletişim: 8. sınıf",
@@ -12035,85 +12168,6 @@
       ]
     }
   },
-  "math3_4_flaechensatz": {
-    "title": "Pisagor teoremi",
-    "subtitle": "Üçgen ile ilgili kısaltmalar",
-    "sections": [
-      {
-        "id": "sec1",
-        "title": "Sağ üçgen",
-        "content": "<p>Bu yalnızca <b>90 derece açılı bir üçgenle çalışır</b>.</p><svg width='100' height='100'><polygon points='10,90 90,90 10,10' fill='none' stroke='black' stroke-width='3'/><rect x='10' y='80' width='10' height='10' fill='red'/></svg><p>Dik açının karşısındaki en uzun kenar denir. <span style='color:red'>Hypotenuse</span>. Diğer ikisi katedraldir.</p>{{QUIZ_m34_q1}}",
-        "quizzes": [
-          {
-            "id": "m34_q1",
-            "question": "Hipotenüs nerede?",
-            "answers": [
-              {
-                "text": "Doğru açının karşısında",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru. Burada dik açının tersi doğrudur."
-              },
-              {
-                "text": "Dik açılarda bulunur",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Henüz değil. Doğru: Dik açının karşısında."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sec2",
-        "title": "Formül: a² + b² = c²",
-        "content": "<p>Bacakların karesi hipotenüsün karesine eşittir. Üçgenin kenarlarına kareler oluşturduğunuzu hayal edin.</p><div class='interactive-zone'>Katete a=3, Katete b=4. c² = 3² + 4² = 9 + 16 = 25. c nedir?<br><input id='pyt1' type='number'><button onclick='checkPyt()'>Check</button><p id='pytFb'></p></div>{{QUIZ_m34_q2}}",
-        "quizzes": [
-          {
-            "id": "m34_q2",
-            "question": "a² = 36 ve b² = 64 ise c² nedir?",
-            "answers": [
-              {
-                "text": "100",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Doğru. Burada 100 doğru."
-              },
-              {
-                "text": "10",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Henüz değil. Doğru: 100."
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "diplom": {
-      "title": "🎓 Diploma: Pisagor",
-      "questions": [
-        {
-          "id": "m34_dip1",
-          "question": "a² + b² = c²'yi ne zaman kullanabilirsiniz?",
-          "answers": [
-            {
-              "text": "Sadece dik üçgenler için",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Doğru. Bu yalnızca dik açılı üçgenler için doğrudur."
-            },
-            {
-              "text": "Her üçgende",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Henüz değil. Doğru olan şudur: yalnızca dik açılı üçgenler için."
-            }
-          ]
-        }
-      ]
-    }
-  },
   "math3_5_verhaeltnisse": {
     "title": "Oranlar (Karıştır ve Böl)",
     "subtitle": "Şurup, oyun ve adil dağıtım",
@@ -12358,7 +12412,7 @@
       {
         "id": "sec1",
         "title": "Formül",
-        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Görsel Kanıt</h3>\n            <p>Küçük karelerin alanlarının ($a^2$ ve $b^2$) büyük karenin ($c^2$) alanını nasıl mükemmel bir şekilde doldurduğuna yakından bakın.</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/pythagoras.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n\n<p>YALNIZCA <span style='color:red'>dik açılı</span> (90 derece) olan üçgenler için geçerlidir.</p><p>@En uzun kenara <span style='color:red'>Hipotenuse adı verilir. (c)</span>.</p><p>Formül: <span style='color:red'>a² + b² = c²</span></p><div class='interactive-zone' style='background:#e8f5e9; padding:10px; border-radius:8px;'><svg width='150' height='150'><polygon points='10,140 130,140 10,50' fill='lightgreen' stroke='black'><text x='60' y='130'>a=4</text><text x='15' y='95'>b=3</text><text x='70' y='80'>c=?</text><rect x='10' y='130' width='10' height='10' fill='none' stroke='black'></rect></svg><br><input type='number' id='pyth_in' placeholder='Wie lang ist c?'><button onclick='checkPyth()'>Solve</button><p id='pyth_feedback'></p></div>{{QUIZ_m38_q1}}",
+        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Görsel Kanıt</h3>\n            <p>Küçük karelerin alanlarının ($a^2$ ve $b^2$) büyük karenin ($c^2$) alanını nasıl mükemmel bir şekilde doldurduğuna yakından bakın.</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/pythagoras.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n\n<p>YALNIZCA <span style='color:red'>dik açılı</span> (90 derece) olan üçgenler için geçerlidir.</p><p>@En uzun kenara <span style='color:red'>Hipotenuse adı verilir. (c)</span>.</p><p>Formül: <span style='color:red'>a² + b² = c²</span></p><div class='interactive-zone' style='background:#e8f5e9; padding:10px; border-radius:8px;'><svg width='150' height='150'><polygon points='10,140 130,140 10,50' fill='lightgreen' stroke='black'><text x='60' y='130'>a=4</text><text x='15' y='95'>b=3</text><text x='70' y='80'>c=?</text><rect x='10' y='130' width='10' height='10' fill='none' stroke='black'></rect></svg><br><input type='number' id='pyth_in' placeholder='Wie lang ist c?'><button onclick='checkPyth()'>Solve</button><p id='pyth_feedback'></p></div>{{QUIZ_m38_q1}}",
         "quizzes": [
           {
             "id": "m38_q1",
@@ -12459,7 +12513,10 @@
           ]
         }
       ]
-    }
+    },
+    "prerequisites": [
+      "math4_1_reelle_zahlen"
+    ]
   },
   "math3_9_koerper": {
     "title": "📦 3 boyutlu katılar ve uzaysal geometri",
@@ -13299,7 +13356,7 @@
       {
         "id": "sec1",
         "title": "Ortalama (ortalama)",
-        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Galton Board (Normal Dağıtım)</h3>\n            <p>Son derece fazla sayıda top çivi tahtasının içinden tamamen rastgele düşerse, her zaman aynı, mükemmel çan eğrisi yaratılır.</p>\n            <video autoplay loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\">\n                <source src=\"../assets/videos/galton.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n\n<div class='interactive-zone'><p>Notlar: 2, 4, 3. Ortalama? Hepsi artı, sonra sayıya bölün! <span style='color:red'>@(2+4+3) : 3 = 3</span>.</p></div>{{QUIZ_m47_q1}}",
+        "content": "<div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 Yüksek Kaliteli Animasyon: Galton Board (Normal Dağıtım)</h3>\n            <p>Son derece fazla sayıda top çivi tahtasının içinden tamamen rastgele düşerse, her zaman aynı, mükemmel çan eğrisi yaratılır.</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/galton.mp4\" type=\"video/mp4\">\n                Tarayıcınız videoları desteklemiyor.\n            </video>\n        </div>\n\n<div class='interactive-zone'><p>Notlar: 2, 4, 3. Ortalama? Hepsi artı, sonra sayıya bölün! <span style='color:red'>@(2+4+3) : 3 = 3</span>.</p></div>{{QUIZ_m47_q1}}",
         "quizzes": [
           {
             "id": "m47_q1",
@@ -16229,5 +16286,2060 @@
         }
       ]
     }
+  },
+  "math3_4_flaechensatz": {
+    "title": "📐 Düzlemsel şekillerin alanları",
+    "subtitle": "Parçalara ayırarak, yeniden düzenleyerek ve hesaplayarak alan bulma.",
+    "contentLanguage": "tr",
+    "script": false,
+    "learningGoals": [
+      "Alan ile çevreyi ayırt et ve uygun birimleri kullan.",
+      "Dikdörtgen, üçgen, paralelkenar ve yamuğun alanını hesapla.",
+      "Bileşik şekilleri parçalara ayır ve sonuçlarını kontrol et."
+    ],
+    "prerequisites": [
+      "math1_5_geo_grundbegriffe",
+      "math1_10_groessen",
+      "math2_7_geometrie"
+    ],
+    "summary": [
+      "Dikdörtgen ve paralelkenar: A = b · h; h dik yüksekliktir.",
+      "Üçgen: A = b · h / 2. Yamuk: A = (a + b) · h / 2; a ve b paralel kenarlardır.",
+      "Alanları uygun bir parçalama kullanarak topla veya çıkar; 1 m² = 10 000 cm²."
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Alan ve çevreyi ayırt etme",
+        "content": "<p>Çevre, şeklin sınırının uzunluğunu belirtir ve uzunluk birimleriyle ölçülür. Alan, şeklin düzlemde kapladığı yeri belirtir. Kenarı 1 cm olan karenin alanı 1 cm² olur. Kenar uzunlukları b ve h olan bir dikdörtgen, uzunluklar santimetre cinsindeyse b · h tane böyle birim kare içerir. Örnek: 6 cm · 4 cm = 24 cm². Çevresi ise 2 · (6 cm + 4 cm) = 20 cm olur.</p>{{QUIZ_area_figure_q0}}{{QUIZ_area_figure_q1}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q0",
+            "question": "Alan için hangi birim uygundur?",
+            "answers": [
+              {
+                "text": "cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Alanı birim karelerle karşılaştırırız."
+              },
+              {
+                "text": "cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Santimetre uzunluğu ölçer."
+              },
+              {
+                "text": "cm³.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Santimetreküp hacmi ölçer."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q1",
+            "question": "Bir dikdörtgenin uzunluğu 6 cm, genişliği 4 cm. Alanı kaçtır?",
+            "answers": [
+              {
+                "text": "24 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "6 · 4 = 24."
+              },
+              {
+                "text": "20 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "20 cm burada çevredir: 2 · (6 + 4)."
+              },
+              {
+                "text": "10 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "6 + 4 işlemi uzunlukları toplar, alanı hesaplamaz."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Üçgen ve paralelkenarı anlama",
+        "content": "<p>Paralelkenarın bir kenarından bir üçgen kesip diğer tarafa taşıdığında aynı alana sahip bir dikdörtgen elde edersin. Bu nedenle A = b · h olur. Burada h, paralel kenarlar arasındaki dik uzaklıktır; eğik kenarın uzunluğu değildir. İki eş üçgen bir paralelkenar oluşturabilir. Bu yüzden üçgenin alanı A = b · h / 2 olur. İki düzenlemeyi de kareli kâğıda çiz.</p><div class=\"interactive-zone\" data-area-lab data-locale=\"tr\" data-base-name=\"taban\" data-height-name=\"dik yükseklik\" data-top-name=\"ikinci paralel kenar\"><h3>Alan laboratuvarı</h3><p>Önce bir uzunluğu iki katına çıkardığında neyin değişeceğini tahmin et. Sonra değerleri değiştir. Kırmızı kesikli çizgi dik yüksekliği gösterir; tabanın uzantısına da inebilir. Bütün uzunluklar santimetre cinsindendir.</p><label>Şekil <select data-shape><option value=\"rectangle\">Dikdörtgen</option><option value=\"triangle\">Üçgen</option><option value=\"parallelogram\">Paralelkenar</option><option value=\"trapezoid\">Yamuk</option></select></label><label>Taban b: <output data-value=\"b\">6</output> cm<input data-base data-dimension=\"b\" type=\"range\" min=\"1\" max=\"10\" value=\"6\"></label><label>Dik yükseklik h: <output data-value=\"h\">4</output> cm<input data-height data-dimension=\"h\" type=\"range\" min=\"1\" max=\"10\" value=\"4\"></label><label>İkinci paralel kenar a: <output data-value=\"a\">3</output> cm<input data-top data-dimension=\"a\" type=\"range\" min=\"1\" max=\"10\" value=\"3\"></label><svg viewBox=\"0 0 400 280\" role=\"img\" aria-label=\"Değiştirilebilir düzlemsel şekil\"><line x1=\"40\" x2=\"350\" y1=\"240\" y2=\"240\" stroke=\"#64748b\" stroke-dasharray=\"3 3\"/><polygon fill=\"#bfdbfe\" stroke=\"#1e3a8a\" stroke-width=\"2\"/><line data-height-line stroke=\"#b91c1c\" stroke-width=\"2\" stroke-dasharray=\"5 3\"/><text data-height-label fill=\"#991b1b\" font-size=\"13\"/><text data-base-label y=\"264\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"13\"/><text data-top-label x=\"50\" fill=\"#111827\" font-size=\"13\"/></svg><p data-status role=\"status\" aria-live=\"polite\"></p><p>b = 6 cm ve h = 4 cm için üçgen ile paralelkenarı karşılaştır. Üçgenin alanı neden yarısı kadardır? Açıklamak için eş bir ikinci üçgen çiz.</p></div>{{QUIZ_area_figure_q2}}{{QUIZ_area_figure_q3}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q2",
+            "question": "Bir üçgende b = 6 cm ve h = 4 cm. A kaçtır?",
+            "answers": [
+              {
+                "text": "12 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "6 · 4 / 2 = 12."
+              },
+              {
+                "text": "24 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bu, aynı taban ve yüksekliğe sahip paralelkenarın alanıdır."
+              },
+              {
+                "text": "10 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Uzunlukları toplamak burada alanı vermez."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q3",
+            "question": "Paralelkenarın A = b · h formülünde h hangi uzunluktur?",
+            "answers": [
+              {
+                "text": "Paralel tabanlar arasındaki dik uzaklık.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Yükseklik, tabana veya tabanın uzantısına diktir."
+              },
+              {
+                "text": "Her zaman eğik kenarın uzunluğu.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Kenar yalnızca özel bir durumda aynı zamanda yüksekliktir."
+              },
+              {
+                "text": "Çevrenin tamamı.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Çevre, sınır uzunluklarının toplamıdır."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Yamuklar ve bileşik şekiller",
+        "content": "<p>Yamuğun a ve b uzunluğunda iki paralel kenarı vardır. Aralarındaki dik uzaklık h olur. İki eş yamuk, tabanı a + b ve yüksekliği h olan bir paralelkenar oluşturabilir. Bu nedenle yamuğun alanı A = (a + b) · h / 2 olur. Karmaşık şekilleri bildiğin parçalara ayır. Yalnızca üst üste gelmeyen parçaların alanlarını topla. Kesilmiş bir köşenin alanını bütün şeklin alanından çıkarabilirsin.</p>{{QUIZ_area_figure_q4}}{{QUIZ_area_figure_q5}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q4",
+            "question": "Bir yamukta a = 3 cm, b = 7 cm ve h = 4 cm. A kaçtır?",
+            "answers": [
+              {
+                "text": "20 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "(3 + 7) · 4 / 2 = 20."
+              },
+              {
+                "text": "40 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2 ile bölme işlemi eksik."
+              },
+              {
+                "text": "84 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Üç uzunluğu birbiriyle çarpmak yamuğun alanını vermez."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q5",
+            "question": "Üçgenin yalnızca yüksekliğini iki katına çıkarıyorsun; taban değişmiyor. A nasıl değişir?",
+            "answers": [
+              {
+                "text": "Alan iki katına çıkar.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "b · h / 2 ifadesindeki bir çarpan iki katına çıkar."
+              },
+              {
+                "text": "Alan dört katına çıkar.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hem taban hem yükseklik iki katına çıkarsa alan dört katına çıkar."
+              },
+              {
+                "text": "Alan değişmez.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Yükseklik alanı etkiler."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section3",
+        "title": "4. Birimleri ve sonuçları kontrol etme",
+        "content": "<p>Alan formülünü kullanmadan önce bütün uzunlukları aynı birime çevir. 1 m = 100 cm olduğundan 1 m² = 100 · 100 cm² = 10 000 cm² olur. Her iki boyutu iki katına çıkarmak alanı dört katına çıkarır. Sonucu çizim ve tahminle kontrol et: Aynı taban ve yüksekliğe sahip üçgenin alanı, paralelkenarın alanının yarısıdır.</p>{{QUIZ_area_figure_q6}}{{QUIZ_area_figure_q7}}",
+        "quizzes": [
+          {
+            "id": "area_figure_q6",
+            "question": "1 m² kaç cm² eder?",
+            "answers": [
+              {
+                "text": "10 000 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Kenarı 1 m olan kare 100 cm · 100 cm boyutlarındadır."
+              },
+              {
+                "text": "100 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "100 katsayısı uzunluklar içindir; alanda iki boyut vardır."
+              },
+              {
+                "text": "1000 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Alan dönüşüm katsayısı 100 · 100 olur."
+              }
+            ]
+          },
+          {
+            "id": "area_figure_q7",
+            "question": "L biçimindeki bir alan, üst üste gelmeyen 12 m² ve 8 m² alanlı dikdörtgenlerden oluşuyor. Toplam alan kaçtır?",
+            "answers": [
+              {
+                "text": "20 m².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Üst üste gelmeyen parçaların alanları toplanır."
+              },
+              {
+                "text": "96 m².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Parçaların alanları birbiriyle çarpılmaz."
+              },
+              {
+                "text": "4 m².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Çıkarma, kesilip çıkarılan bir parça için uygundur."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "5. Bir kat planının alanını hesaplama",
+      "navLabel": "Alan atölyesi",
+      "instruction": "Formülleri eşleştir, sonra kat planı sorusunu çöz.",
+      "categories": [
+        "b · h",
+        "b · h / 2",
+        "(a + b) · h / 2"
+      ],
+      "items": [
+        {
+          "text": "Tabanı b ve dik yüksekliği h olan paralelkenar.",
+          "answer": "b · h",
+          "feedback": "Köşedeki üçgen taşınırsa aynı alanlı bir dikdörtgen oluşur."
+        },
+        {
+          "text": "Tabanı b ve bu tabana ait yüksekliği h olan üçgen.",
+          "answer": "b · h / 2",
+          "feedback": "İki eş üçgen bir paralelkenar oluşturur."
+        },
+        {
+          "text": "Paralel kenarları a ve b, yüksekliği h olan yamuk.",
+          "answer": "(a + b) · h / 2",
+          "feedback": "İki eş yamuk, tabanı a + b olan bir paralelkenar oluşturur."
+        }
+      ],
+      "writing": "Hayalî bir odanın dikdörtgen planı 6 m × 4 m boyutundadır. Bir köşesinde 2 m × 1 m boyutunda dikdörtgen bir parça eksiktir. Ölçüleri belirtilmiş bir çizim yap ve kalan döşeme alanını iki yolla hesapla. İki yolun neden aynı sonucu verdiğini açıkla.",
+      "rubric": [
+        "Bütün uzunluklar aynı birimdedir.",
+        "Parçalarım üst üste gelmez.",
+        "Sonucu m² olarak yazar ve ikinci bir yolla kontrol ederim."
+      ],
+      "model": "1. yol: 6 · 4 − 2 · 1 = 24 − 2 = 22 m². 2. yol: Şekli 6 m × 3 m ve 4 m × 1 m dikdörtgenlerine ayır: 18 + 4 = 22 m². İki yol da eksik köşe dışındaki aynı alanı kapsar."
+    },
+    "sourceRevision": 1
+  },
+  "math2_9_relative_haeufigkeit": {
+    "title": "📊 Göreli sıklıkları karşılaştırma",
+    "subtitle": "Sayıları, oranları ve temel alınan grupları birbirinden ayır.",
+    "contentLanguage": "tr",
+    "script": true,
+    "prerequisites": [
+      "math2_8_statistik",
+      "math2_2_brueche",
+      "math2_6_prop_prozent"
+    ],
+    "learningGoals": [
+      "Mutlak ve göreli sıklığı ayırt et ve temel alınan grubu belirt.",
+      "Oranları kesir, ondalık sayı ve yüzde olarak göster.",
+      "Farklı büyüklükteki grupları oranlarla karşılaştır.",
+      "Yüzde puanı ile göreli değişimi ayırt et ve sonuçların sınırlarını fark et.",
+      "Daire grafiklerini ve yüzde şeritlerini okumak, oranları açılara dönüştürmek.",
+      "Sıklıkları iki aşamalı bir ağaçta düzenlemek ve bir oranın referans grubunu açıklamak."
+    ],
+    "summary": [
+      "Göreli sıklık = bir kategorideki sayı / incelenen gözlemlerin toplam sayısı. Temel alınan grubu belirt.",
+      "Aynı oran kesir, ondalık sayı veya yüzde olarak yazılabilir: 1/4 = 0,25 = %25.",
+      "Farklı büyüklükteki gruplarda daha çok oy, daha küçük bir oran anlamına gelebilir.",
+      "Yüzde puanı iki yüzde arasındaki farkı ölçer. Oranın değişmesi bir nedeni kanıtlamaz.",
+      "Dairede açı, oran · 360° değeridir. Yüzde şeridinde uzunluk, toplam uzunluğun aynı oranına karşılık gelir."
+    ],
+    "sections": [
+      {
+        "id": "relative_basics",
+        "title": "1. Sayıdan orana",
+        "content": "<p>Kurgusal bir ankette 12 kişiden 6 kişi kütüphaneyi seçiyor. <strong>Mutlak sıklık</strong> 6’dır. <strong>Göreli sıklık</strong> ise 6/12 = 1/2 = 0,5 = %50’dir. Payda, temel aldığımız tüm geçerli yanıtları gösterir.</p><p>Temel alınan grubu her zaman belirt. Örneğin ankete davet edilen 20 kişiden yalnızca 18’i geçerli yanıt vermiş olabilir. Bu durumda “ankete davet edilen herkes içindeki oran” ile “geçerli yanıtlar içindeki oran” farklı paydalar kullanır. Eksik yanıtlar sessizce bir kategoriye eklenmemelidir. Hiç gözlem yoksa oran hesaplanamaz.</p>{{QUIZ_m28_relative1}}{{QUIZ_relative_total}}{{QUIZ_relative_zero}}",
+        "quizzes": [
+          {
+            "id": "m28_relative1",
+            "question": "On iki katılımcıdan altısı kütüphaneyi seçiyor. Göreli sıklık nedir?",
+            "answers": [
+              {
+                "text": "6/12 = 1/2 = %50.",
+                "feedback": "Kütüphaneyi seçen yanıtların sayısı, tüm geçerli yanıtların sayısına bölünür.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "%6.",
+                "feedback": "6 mutlak sayıdır. Yüzdeyi hesaplamak için bu sayıyı toplam 12 yanıta oranlamalısın.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "12/6 = 2 = %200.",
+                "feedback": "Pay ve payda yer değiştirmiş. Burada bir kategorinin tüm yanıtlar içindeki oranı %100’ü aşamaz.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_total",
+            "question": "Bir ankette 18 kişi geçerli yanıt veriyor; bunlardan 6’sı avluyu seçiyor. İki kişi daha yanıt vermiyor. Geçerli yanıtlar içinde avlunun oranı nedir?",
+            "answers": [
+              {
+                "text": "6/18 = 1/3.",
+                "feedback": "Payda belirtilen gruba uymalıdır: 18 geçerli yanıt. Eksik iki yanıt ayrıca belirtilir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "6/20 = %30.",
+                "feedback": "Bu, ankete davet edilen 20 kişinin tümü içindeki orandır. Soru geçerli yanıtları temel alıyor.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "18/6 = 3.",
+                "feedback": "Avlu oylarının sayısı, geçerli yanıtların toplam sayısına bölünmelidir; tersi değil.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_zero",
+            "question": "Bir ankete henüz hiç yanıt gelmedi. Avlu oylarının oranı nedir?",
+            "answers": [
+              {
+                "text": "Henüz belirlenemez.",
+                "feedback": "Hem kategori sayısı hem toplam sayı sıfırdır. 0/0 bölmesi tanımsızdır.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "%0.",
+                "feedback": "Geçerli yanıtlar varsa ve hiçbiri avlu için değilse %0 anlamlıdır. Burada bölünecek bir toplam yoktur.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "%100.",
+                "feedback": "Henüz yanıt bulunmuyor. Bundan bir oran hesaplanamaz.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_forms",
+        "title": "2. Oranları dönüştürme",
+        "content": "<p>Kategorideki sayıyı toplam sayıya böl ve ondalık sayıyı yüzdeye dönüştür: 5/20 = 0,25 = %25. Tersine, 20 yanıtın %25’i tam olarak 0,25 · 20 = 5 yanıttır.</p><p>Yüzdeler yuvarlanmış olabilir: üçte bir yaklaşık %33,3’tür. Bu nedenle yuvarlanmış oranların toplamı tam %100 yerine yaklaşık %99,9 olabilir. Birbiriyle örtüşmeyen ve tüm yanıtları kapsayan kategorilerin yuvarlanmamış oranlarının toplamı tam 1’dir.</p>{{QUIZ_relative_convert}}{{QUIZ_relative_reverse}}",
+        "quizzes": [
+          {
+            "id": "relative_convert",
+            "question": "20 geçerli yanıtın 5’i oyun odası içindir. Hangi gösterim aynı oranı ifade eder?",
+            "answers": [
+              {
+                "text": "5/20 = 0,25 = %25.",
+                "feedback": "Sadeleştirince 1/4 elde edilir. Dörtte bir, 0,25 veya 100’de 25’tir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "5/20 = 0,5 = %50.",
+                "feedback": "0,5 yarımdır. Yirmide beş yalnızca dörtte birdir.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "5/20 = 0,05 = %5.",
+                "feedback": "%5, 20’de 1 olurdu. Buradaki 5 bir yanıtlama sayısıdır, henüz yüzde değildir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_reverse",
+            "question": "30 geçerli yanıtın %40’ı kütüphane içindir. Bu kaç oydur?",
+            "answers": [
+              {
+                "text": "12 oy.",
+                "feedback": "0,4 · 30 = 12. Tersinden kontrol et: 12/30 = 0,4.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "40 oy.",
+                "feedback": "%40 bir oranı belirtir. 40 oy, toplam 30 oydan fazla olurdu.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "75 oy.",
+                "feedback": "30 / 0,4 başka bir soruyu yanıtlar. Burada toplam biliniyor ve oranla çarpılmalıdır.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_compare",
+        "title": "3. Farklı büyüklükteki grupları karşılaştırma",
+        "content": "<p>A grubunda 12 kişiden 6’sı, B grubunda ise 20 kişiden 8’i kütüphaneyi seçiyor. B’de daha fazla oy vardır, ancak A’nın oranı daha büyüktür: %50’ye karşı %40. Sayıları gösteren bir sütun grafiği ile yüzdeleri gösteren bir grafik farklı soruları yanıtlar. Karşılaştırmadan önce birimi ve ölçeği oku.</p><p>Anlamlı bir karşılaştırma için soru ve yanıt seçenekleri de uygun olmalıdır. Bir grup birden fazla yer belirtebiliyor, diğer grup ise tam bir yer seçiyorsa sonuçlar doğrudan aynı biçimde ele alınamaz.</p>{{QUIZ_m28_relative2}}",
+        "quizzes": [
+          {
+            "id": "m28_relative2",
+            "question": "A grubunda 12 kişiden 6’sı, B grubunda 20 kişiden 8’i kütüphaneyi seçiyor. Hangi grupta oran daha büyüktür?",
+            "answers": [
+              {
+                "text": "A grubunda: %50’ye karşı %40.",
+                "feedback": "6/12 = 1/2 ve 8/20 = 2/5. B’deki daha büyük mutlak sayı, daha büyük oran anlamına gelmez.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "B grubunda, çünkü 8 sayısı 6’dan büyüktür.",
+                "feedback": "Gruplar farklı büyüklüktedir. Yalnızca sayıları değil, oranları karşılaştır.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "İki grupta da eşittir, çünkü ikisinde de beşten fazla oy vardır.",
+                "feedback": "Beş oy sınırı, grup büyüklüğüne göre oran hakkında bilgi vermez.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_change",
+        "title": "4. Değişimleri doğru açıklama",
+        "content": "<p>Bir oran %20’den %30’a yükselirse fark 10 <strong>yüzde puanıdır</strong>. Başlangıç oranına göre bu, 10/20 = %50 artış demektir. Bunlar aynı değişimin farklı açıklamalarıdır.</p><p>Bir anket, alınan yanıtları betimler. Katılımcıların seçimi, grup büyüklüğü ve anket koşulları bilinmeden oranın neden yükseldiği anlaşılamaz. Bu görevlerde kurgusal veriler kullanıyoruz; bunlardan Viyana’daki öğrencilerin gerçek tercihleri hakkında sonuç çıkarmıyoruz.</p>{{QUIZ_relative_claim}}{{QUIZ_relative_points}}",
+        "quizzes": [
+          {
+            "id": "relative_claim",
+            "question": "İki gönüllü ankette avlu oranı %30’dan %45’e yükseliyor. Yalnızca bu bilgiden hangi sonuç çıkarılabilir?",
+            "answers": [
+              {
+                "text": "Her ankette alınan yanıtlar içindeki oran yükselmiştir.",
+                "feedback": "Katılımcılar ve koşullar bilinmeden aynı grubun fikrini değiştirip değiştirmediğini bilemeyiz.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Tam 15 kişi fikrini değiştirmiştir.",
+                "feedback": "Fark 15 yüzde puanıdır. Kişi sayıları ve bireysel yanıtlar bilinmiyor.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Avlunun tüm öğrenciler için daha çekici olduğu kanıtlanmıştır.",
+                "feedback": "Gönüllü anketler farklı grupları kapsayabilir. Veriler ne bir nedeni ne de herkes için geçerli bir sonucu kanıtlar.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "relative_points",
+            "question": "Bir oran %20’den %30’a yükseliyor. Artış kaç yüzde puanıdır?",
+            "answers": [
+              {
+                "text": "10 yüzde puanı.",
+                "feedback": "30 − 20 = 10 yüzde puanı. Başlangıç oranına göre bu %50 artıştır.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "50 yüzde puanı.",
+                "feedback": "%50, %20’ye göre göreli artıştır. İki yüzde arasındaki fark 10 yüzde puanıdır.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "30 yüzde puanı.",
+                "feedback": "%30 yeni orandır. Artışı bulmak için eski oranı çıkarmalısın.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_diagrams",
+        "title": "5. Daire grafiği ve yüzde şeridi",
+        "content": "<p>Bir tam daire ve bir tam yüzde şeridi %100’ü gösterir. p oranı için merkez açıyı p · 360°, şerit parçasının uzunluğunu p · toplam uzunluk ile hesaplarsın. Örnek: 20 kişiden 5’i = %25, yani 90° ve şeridin dörtte biri.</p><p>Bu kurgusal ankete tam 20 kişi yanıt verir. Her kişi ya kütüphaneyi ya da başka bir yeri seçer. Kategoriler birbiriyle örtüşmez ve tüm yanıtları kapsar. Ancak bu durumda oranların toplamı %100 olur.</p><p>Kütüphane oylarını değiştir. Önce 5, sonra 10, son olarak 15 oy seç. Her seferinde oranı ve açıyı tahmin et, sonra daireyi ve şeridi karşılaştır. 0 ve 20 oyda ne olur? Ardından 20 oydan 7’si için kâğıda bir daire grafiği çiz ve burada kontrol et.</p><div class=\"interactive-zone\" data-share-diagrams data-locale=\"tr\" data-chart-description=\"20 yanıtlı aynı anketin iki gösterimi. Tüm değerler tabloda verilmiştir.\"><label>Kütüphane oyları (20 üzerinden) <input type=\"range\" min=\"0\" max=\"20\" step=\"1\" value=\"5\" data-share-count></label><button type=\"button\" data-share-reset>Sıfırla</button><p data-share-status aria-live=\"polite\"></p><div data-share-picture></div><table><caption>20 yanıtlı aynı anketin iki gösterimi. Tüm değerler tabloda verilmiştir.</caption><thead><tr><th scope=\"col\">Kategori</th><th scope=\"col\">Sayı</th><th scope=\"col\">Oran</th><th scope=\"col\">Merkez açı</th></tr></thead><tbody><tr data-share-row><th scope=\"row\">A: Kütüphane</th><td></td><td></td><td></td></tr><tr data-share-row><th scope=\"row\">B: Başka bir yer</th><td></td><td></td><td></td></tr></tbody></table></div>{{QUIZ_relative_circle_angle}}",
+        "quizzes": [
+          {
+            "id": "relative_circle_angle",
+            "question": "Yanıtların %25’i daire grafiğinde gösterilecek. Buna karşılık gelen merkez açı kaç derecedir?",
+            "answers": [
+              {
+                "text": "90°.",
+                "feedback": "Tam daire 360°’dir: dörtte biri 90° olur.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "25°.",
+                "feedback": "25 yüzde değeridir. Açıyı bulmak için oranı 360° ile çarp.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "180°.",
+                "feedback": "180° yarım dairedir; %25’i değil, %50’yi gösterir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relative_tree",
+        "title": "6. Sıklıkları iki aşamada düzenleme",
+        "content": "<p>Bir sıklık ağacı aynı kişileri adım adım gruplara ayırır. Kurgusal örneğimizde A sınıfından 12, B sınıfından 8 yanıt vardır. Her sınıfta kişiler kütüphaneyi veya başka bir yeri seçer. Her dallanmada alt gruplardaki sayıların toplamı, dallanmadan önceki sayıya eşittir.</p><p>A’da 6 ve B’de 2 kütüphane oyu varsa A’daki 12 kişi içinde kütüphanenin oranı 6/12 = %50’dir. Toplam 20 kişinin 6/20 = %30’u hem A sınıfındadır hem de kütüphaneyi seçmiştir. Genel olarak 8/20 = %40 kütüphaneyi seçer. Sınıflar farklı büyüklükte olduğundan %50 ile %25’in basit ortalamasını almak burada yanlış olur.</p><p>Her iki sınıftaki oyları değiştir. Her dallanmadaki toplamları kontrol et. İki sınıfta da kütüphane oranını %50 yap. Hangi sayılar gerekir? Sonra A’yı 12, B’yi 0 yap: toplam oran neden %50 değil de %60 olur?</p><div class=\"interactive-zone\" data-frequency-tree data-locale=\"tr\"><div><label style=\"display:block\">A sınıfı – Kütüphane <input data-tree-input type=\"range\" min=\"0\" max=\"12\" step=\"1\" value=\"6\"></label><label style=\"display:block\">B sınıfı – Kütüphane <input data-tree-input type=\"range\" min=\"0\" max=\"8\" step=\"1\" value=\"2\"></label><button type=\"button\" data-tree-reset>Sıfırla</button></div><ul><li>Tüm yanıtlar: <bdi dir=\"ltr\">20</bdi><ul><li>A sınıfı: <bdi dir=\"ltr\">12</bdi><ul><li>Kütüphane: <bdi dir=\"ltr\" data-tree-leaf=\"0\"></bdi></li><li>Başka bir yer: <bdi dir=\"ltr\" data-tree-leaf=\"1\"></bdi></li></ul></li><li>B sınıfı: <bdi dir=\"ltr\">8</bdi><ul><li>Kütüphane: <bdi dir=\"ltr\" data-tree-leaf=\"2\"></bdi></li><li>Başka bir yer: <bdi dir=\"ltr\" data-tree-leaf=\"3\"></bdi></li></ul></li></ul></li></ul><div data-tree-status aria-live=\"polite\"><p>A sınıfı – Kütüphane<br>Sınıf içindeki oran: <bdi dir=\"ltr\" data-tree-within></bdi><br>Tüm yanıtlar içindeki oran: <bdi dir=\"ltr\" data-tree-whole></bdi></p><p>B sınıfı – Kütüphane<br>Sınıf içindeki oran: <bdi dir=\"ltr\" data-tree-within></bdi><br>Tüm yanıtlar içindeki oran: <bdi dir=\"ltr\" data-tree-whole></bdi></p><p><strong>Genel kütüphane oranı: <bdi dir=\"ltr\" data-tree-total></bdi></strong></p></div></div>{{QUIZ_relative_tree_reference}}",
+        "quizzes": [
+          {
+            "id": "relative_tree_reference",
+            "question": "20 katılımcının 12’si A sınıfındadır. A’dan altı kişi kütüphaneyi seçer. Tüm katılımcıların hangi oranı hem A sınıfındadır hem de kütüphaneyi seçmiştir?",
+            "answers": [
+              {
+                "text": "6/20 = %30.",
+                "feedback": "Referans grubu 20 katılımcının tümüdür. Her iki koşulu sağlayan altı kişi paya yazılır.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "6/12 = %50.",
+                "feedback": "Bu, A içindeki kütüphane oranıdır. Soruda tüm katılımcılar içindeki oran isteniyor.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "12/20 = %60.",
+                "feedback": "Bu, A’daki herkesi sayar. Bunların yalnızca altısı kütüphaneyi seçmiştir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "7. İki grubu anlamlı biçimde karşılaştırma",
+      "navLabel": "Karşılaştırma atölyesi",
+      "instruction": "İfadeleri eşleştir, ardından gerekçeli bir değerlendirme yaz.",
+      "categories": [
+        "Mutlak sıklık",
+        "Göreli sıklık",
+        "Yüzde puanı farkı"
+      ],
+      "items": [
+        {
+          "text": "A grubunda avluyu 9 kişi seçiyor.",
+          "answer": "Mutlak sıklık",
+          "feedback": "9 kişi sayısını belirtir; henüz bir oran değildir."
+        },
+        {
+          "text": "A grubunda 15 kişiden 9’u avluyu seçiyor: %60.",
+          "answer": "Göreli sıklık",
+          "feedback": "9/15, oy sayısını grubun büyüklüğüne oranlar."
+        },
+        {
+          "text": "Avlu oranı A’da %60, B’de %50: fark 10.",
+          "answer": "Yüzde puanı farkı",
+          "feedback": "60 − 50 = 10 yüzde puanı. Bu doğrudan göreli artış değildir."
+        }
+      ],
+      "writing": "İki kurgusal sınıf aynı soruyu, kişi başına tam bir yanıtla cevaplıyor. A sınıfı: 15 geçerli yanıtın 9’u avlu için; B sınıfı: 24 yanıtın 12’si. Oranları hesapla, sayıları ve oranları karşılaştır ve iki doğru ifade yaz. Sonuçların neden Viyana’daki tüm okullar için otomatik olarak geçerli olmadığını da açıkla.",
+      "rubric": [
+        "İki toplam sayıyı da belirtiyor, %60 ve %50’yi hesaplıyorum.",
+        "Daha çok oy ile daha büyük oranı ayırt ediyorum.",
+        "Sonuçlarım yalnızca ankete katılan iki grupla sınırlı."
+      ],
+      "model": "A: 9/15 = %60. B: 12/24 = %50. B’de daha çok avlu oyu vardır (9’a karşı 12), ancak A’nın oranı daha büyüktür (%50’ye karşı %60). Fark 10 yüzde puanıdır. Bu iki grup, Viyana’daki tüm öğrencilerin otomatik olarak temsili bir örneklemi değildir."
+    },
+    "sourceRevision": 1
+  },
+  "geo_1_karten_raeume": {
+    "title": "🧭 Haritalar ve mekânlar",
+    "subtitle": "Lejant, yönler ve kareli bir planla bir yer bulma.",
+    "contentLanguage": "tr",
+    "script": false,
+    "learningGoals": [
+      "Lejant, yönler ve kareli bir plan kullanarak bir yer bulmak.",
+      "Ölçek yardımıyla haritadaki uzaklığı gerçek uzaklığa dönüştürmek.",
+      "Bir mekânı farklı ihtiyaçlar açısından değerlendirmek."
+    ],
+    "prerequisites": [
+      "Santimetre ve metre cinsinden uzunlukları karşılaştırmak."
+    ],
+    "summary": [
+      "Lejant, kuzey oku ve ölçek haritayı anlamaya yardımcı olur.",
+      "1:10.000 ölçekte plandaki 1 cm, gerçekte 100 m’ye karşılık gelir.",
+      "Yürünebilen bir yol, kuş uçuşu uzaklıktan uzun olabilir; mekânlar farklı ihtiyaçlara hizmet eder."
+    ],
+    "sources": [
+      {
+        "title": "Avusturya Mittelschule öğretim programı (Almanca)",
+        "url": "https://www.bmb.gv.at/Themen/schule/schulpraxis/lp/lp_ms.html"
+      }
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Haritalar birer modeldir",
+        "content": "<p>Harita, bir alanın seçilmiş özelliklerini küçülterek gösterir. Lejant işaretleri, kuzey oku ise yönü açıklar. Ölçek, haritadaki uzaklık ile gerçek uzaklık arasındaki oranı belirtir. 1:10.000 ölçekte haritadaki 1 cm, gerçekte 10.000 cm yani 100 m’dir. Her haritada kuzey üstte değildir; bilgileri mutlaka kontrol et.</p>{{QUIZ_geo_1_karten_raeume_q0}}",
+        "quizzes": [
+          {
+            "id": "geo_1_karten_raeume_q0",
+            "question": "Bir haritanın ölçeği 1:10.000’dir. Haritadaki 3 cm gerçekte ne kadar uzaklığı gösterir?",
+            "answers": [
+              {
+                "text": "300 m.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "3 · 100 m = 300 m."
+              },
+              {
+                "text": "30 m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Burada bir santimetre bile 100 m’yi temsil eder."
+              },
+              {
+                "text": "3 km.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bu haritada 3 km, 30 cm olurdu."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Yolları planlama ve kontrol etme",
+        "content": "<p>Bir yolu başka bir kişinin izleyebileceği şekilde tarif et. Başlangıcı, yönleri, belirgin noktaları ve hedefi belirt. Kuş uçuşu en kısa çizgi, her zaman gerçekten yürünebilen yol değildir. Kapalı bir yol, nehir veya geçit eksikliği dolanmayı gerektirebilir.</p><div class=\"interactive-zone\" data-geo-experiment=\"route\" data-locale=\"tr\"><h3>Model planda bir rota</h3><p>Kuzey üsttedir. Komşu kareler arasındaki her adım 100 metreyi temsil eder. Başlangıç: A5. Hedef: E1. C3 kapalıdır. Önce bir rota planla, sonra dene. Plan, Viyana’daki gerçek sokakları göstermiyor.</p><div data-grid></div><div><button type=\"button\" data-direction=\"n\">Kuzey ↑</button><button type=\"button\" data-direction=\"e\">Doğu →</button><button type=\"button\" data-direction=\"s\">Güney ↓</button><button type=\"button\" data-direction=\"w\">Batı ←</button><button type=\"button\" data-reset>Başlangıca dön</button></div><p data-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>{{QUIZ_geo_1_karten_raeume_q1}}",
+        "quizzes": [
+          {
+            "id": "geo_1_karten_raeume_q1",
+            "question": "Lejant neyi açıklar?",
+            "answers": [
+              {
+                "text": "Kullanılan işaretlerin anlamını.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Semboller ve renkler burada açıklanır."
+              },
+              {
+                "text": "Her yolun gerçek uzunluğunu.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gerçek uzaklığı bulmak için ölçeğe ve ölçüme ihtiyaç vardır."
+              },
+              {
+                "text": "Her haritada kuzeyin yönünü.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Yön için kuzey okunu kontrol et; lejant işaretleri açıklar."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Bu mekân kimin?",
+        "content": "<p>Bir meydan aynı anda okul yolunun bir parçası, vakit geçirilen bir yer, teslimat alanı ve oyun alanı olabilir. Çocukların, çevrede yaşayanların ve işletmelerin ihtiyaçları farklı olabilir. Önce gözlemlediklerini anlat. Ardından çıkarları ve olası çözümleri düşün. Ulaşım yollarını gösteren bir harita, gölgelik yerleri veya engelsiz girişleri gösteren bir haritadan farklı soruları yanıtlar.</p>{{QUIZ_geo_1_karten_raeume_q2}}{{QUIZ_geo_1_karten_raeume_q3}}",
+        "quizzes": [
+          {
+            "id": "geo_1_karten_raeume_q2",
+            "question": "Modelde çapraz hareket etmeden A5’ten E1’e giden en kısa yollardan biri kaç adım sürer?",
+            "answers": [
+              {
+                "text": "Sekiz.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "C3’e girmeden doğuya dört, kuzeye dört adım yeterlidir."
+              },
+              {
+                "text": "Dört.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dört adım yalnızca iki yönden birini karşılar."
+              },
+              {
+                "text": "Her zaman on adım gerekir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dolanmak mümkündür, ancak her rota için gerekli değildir."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_karten_raeume_q3",
+            "question": "Bir harita neden gerçekliğin tamamı olamaz?",
+            "answers": [
+              {
+                "text": "Özellikleri seçer ve basitleştirir.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Seçim, amaca ve ölçeğe bağlıdır."
+              },
+              {
+                "text": "Yalnızca yerler baskıdan sonra değiştiği için.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Yeni güncellenmiş bir harita bile amacına göre özellik seçer."
+              },
+              {
+                "text": "Yalnızca kâğıt haritalarda fotoğraf olmadığı için.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hava fotoğrafları içeren bir harita da ayrıntıları dışarıda bırakır ve alanı küçültür."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Uygulama ve gerekçelendirme",
+      "instruction": "Örnekleri eşleştir ve gerekçelerini kontrol et.",
+      "categories": [
+        "Yön bulma",
+        "Ölçek",
+        "Kullanım ve çıkarlar"
+      ],
+      "items": [
+        {
+          "text": "Bu planda kuzey oku yukarıyı gösteriyor.",
+          "answer": "Yön bulma",
+          "feedback": "Bu bilgi yönleri belirlemeye yardımcı olur."
+        },
+        {
+          "text": "Plandaki 1 cm, alanda 100 m’ye karşılık geliyor.",
+          "answer": "Ölçek",
+          "feedback": "Oran, gösterim ile gerçeklik arasında bağlantı kurar."
+        },
+        {
+          "text": "Çocuklar güvenli bir geçit istiyor.",
+          "answer": "Kullanım ve çıkarlar",
+          "feedback": "Cümle, bir kullanıcı grubunun ihtiyacını anlatır."
+        }
+      ],
+      "writing": "Dört yer, kuzey oku ve lejant içeren kurgusal bir okul çevresi planı çiz. Güvenli bir yol tarif et. Ayrıca bir meydanla ilgili iki farklı çıkarı ve olası bir uzlaşmayı belirt.",
+      "rubric": [
+        "Kuzey oku ve işaretler açıklanmış.",
+        "Rotam planla uyumlu.",
+        "Gözlem ile öneriyi birbirinden ayırıyorum."
+      ],
+      "model": "Örnek: okul güneyde, kütüphane kuzeyde, park doğuda, durak batıda. Bir rota park boyunca işaretli bir geçide uzanabilir. Çocukların güvenli yollara, teslimat işletmelerinin erişime ihtiyacı vardır. Teslimat saatlerinin sınırlandırılması iki çıkarı da gözetebilir; gerçek güvenlik yerinde kontrol edilmelidir."
+    },
+    "sourceRevision": 0
+  },
+  "geo_2_wirtschaften": {
+    "title": "🛒 Günlük yaşamda ekonomik kararlar",
+    "subtitle": "İhtiyaçları, mal ve hizmetleri ve mevcut kaynakları ayırt etme.",
+    "contentLanguage": "tr",
+    "script": false,
+    "learningGoals": [
+      "İhtiyaçları, mal ve hizmetleri ve mevcut kaynakları ayırt etmek.",
+      "Basit bir bütçe planını hesaplamak ve gerekçelendirmek.",
+      "Kişisel kararları iş, işletmeler ve çevreyle ilişkilendirmek."
+    ],
+    "prerequisites": [
+      "Para tutarlarını toplamak ve çıkarmak."
+    ],
+    "summary": [
+      "Bütçe, mevcut parayı, harcamaları ve ayrılan payı ilişkilendirir.",
+      "Kâr, gelirden maliyetler çıkarıldıktan sonra belirlenir.",
+      "Bir kararın alternatifleri vardır; vazgeçilen en iyi alternatifin faydası fırsat maliyetidir."
+    ],
+    "sources": [
+      {
+        "title": "Avusturya Mittelschule öğretim programı (Almanca)",
+        "url": "https://www.bmb.gv.at/Themen/schule/schulpraxis/lp/lp_ms.html"
+      }
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. İhtiyaçlar ve kararlar",
+        "content": "<p>İnsanların örneğin beslenmeye, barınmaya ve sosyal ilişkilere ihtiyacı vardır. Bu ihtiyaçları nasıl karşıladıkları, mevcut kaynaklara ve koşullara bağlıdır. İhtiyaçlar mal veya hizmetlerle karşılanabilir. Para, zaman ve ham maddeler sınırlıdır. Bir kullanım biçimini seçmek çoğu zaman başka birinden vazgeçmek demektir. Vazgeçilen en iyi alternatifin faydasına fırsat maliyeti denir.</p>{{QUIZ_geo_2_wirtschaften_q1}}{{QUIZ_geo_2_wirtschaften_q3}}",
+        "quizzes": [
+          {
+            "id": "geo_2_wirtschaften_q1",
+            "question": "Hangisi bir hizmettir?",
+            "answers": [
+              {
+                "text": "Bir atölyenin bisikleti onarması.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Yapılan iş bir hizmettir."
+              },
+              {
+                "text": "Yalnızca satın alınan yedek parça.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Yedek parça bir maldır; onarım hizmeti buna eklenir."
+              },
+              {
+                "text": "Vitrindeki her nesne.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Sergilenen nesneler kendiliğinden hizmet sayılmaz."
+              }
+            ]
+          },
+          {
+            "id": "geo_2_wirtschaften_q3",
+            "question": "Fırsat maliyeti neyi anlatır?",
+            "answers": [
+              {
+                "text": "Vazgeçtiğim en iyi alternatifin faydasını.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Kavram, bir karar nedeniyle vazgeçilen alternatifle ilgilidir."
+              },
+              {
+                "text": "Seçtiğim şeyin para cinsinden fiyatını.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Fiyat seçilen şeye aittir; fırsat maliyeti vazgeçilen en iyi alternatifle ilgilidir."
+              },
+              {
+                "text": "Seçmediğim tüm şeylerin fiyatları toplamını.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Kastedilen tüm olası alternatiflerin toplamı değil, vazgeçilen en iyi alternatiftir."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Bütçeyle planlama",
+        "content": "<p>Bütçe, mevcut parayla planlanan harcamaları karşılaştırır. Ayrılan bir pay, daha sonraki veya beklenmedik giderler için kalır. İnsanların kaynakları farklıdır; küçük bir bütçe, bir kişiyi yargılamak için gerekçe değildir. Bir teklifi değerlendirirken toplam fiyatı, miktarı, dayanıklılığı ve gerçek ihtiyacı kontrol et.</p><div class=\"interactive-zone\" data-geo-experiment=\"budget\" data-locale=\"tr\"><h3>20 avroyu planlı kullanma</h3><p>Kurgusal haftalık bütçe; fiyat önerisi değildir: Harcamaları seç. En az 5 € ayırmak istiyorsun. Hangi seçim hedefine uyuyor?</p><label><input type=\"checkbox\" value=\"6\"> Proje malzemesi: 6 €</label><br><label><input type=\"checkbox\" value=\"4\"> Ortak atıştırmalık: 4 €</label><br><label><input type=\"checkbox\" value=\"8\"> Boş zaman etkinliği: 8 €</label><br><label><input type=\"checkbox\" value=\"7\"> Yeni oyun: 7 €</label><p data-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>{{QUIZ_geo_2_wirtschaften_q0}}",
+        "quizzes": [
+          {
+            "id": "geo_2_wirtschaften_q0",
+            "question": "20 €’dan 6 € ve 8 € harcandıktan sonra ne kadar kalır?",
+            "answers": [
+              {
+                "text": "6 €.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "20 − 6 − 8 = 6."
+              },
+              {
+                "text": "14 €.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "14 €, kalan değil harcanan tutardır."
+              },
+              {
+                "text": "2 €.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bu sonuç farklı harcamalarla elde edilirdi."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Ekonomi ilişkilerden oluşur",
+        "content": "<p>Bir işletme mal sattığında gelir elde eder. Bu gelirden malzeme, ücret ve iş yeri giderleri gibi maliyetler ödenir. Bu yüzden gelir ile kâr aynı değildir. Emek ücretli veya ücretsiz olabilir; ev işleri ve bakım emeği de önemlidir. Okullar gibi kamu hizmetleri ortak kaynaklarla finanse edilir. Tüketim kararları ayrıca kaynakları ve atıkları etkiler.</p>{{QUIZ_geo_2_wirtschaften_q2}}",
+        "quizzes": [
+          {
+            "id": "geo_2_wirtschaften_q2",
+            "question": "Gelir neden kârla aynı değildir?",
+            "answers": [
+              {
+                "text": "Gelirden maliyetlerin de çıkarılması gerekir.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Malzeme, ücret ve diğer maliyetler kârı etkiler."
+              },
+              {
+                "text": "Çünkü satış fiyatının tamamı zaten kârdır.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Satış fiyatı gelir sağlar; kâr, ilgili maliyetler çıkarıldıktan sonra belirlenir."
+              },
+              {
+                "text": "Çünkü yalnızca satılmayan mallar maliyet oluşturur.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Satılan malların da üretilmesi veya satın alınması gerekmiştir."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Uygulama ve gerekçelendirme",
+      "instruction": "Örnekleri eşleştir ve gerekçelerini kontrol et.",
+      "categories": [
+        "Gelen para",
+        "Harcama",
+        "Ayrılan pay"
+      ],
+      "items": [
+        {
+          "text": "Proje grubu malzeme için 20 € alır.",
+          "answer": "Gelen para",
+          "feedback": "Mevcut tutara para eklenir."
+        },
+        {
+          "text": "Grup 6 €’ya karton alır.",
+          "answer": "Harcama",
+          "feedback": "Mevcut tutar 6 € azalır."
+        },
+        {
+          "text": "Daha sonraki bir ihtiyaç için 5 € kalır.",
+          "answer": "Ayrılan pay",
+          "feedback": "Bu kısım şimdilik harcanmaz."
+        }
+      ],
+      "writing": "Modeldeki 20 € ile plan yap. İki harcama seç, en az 5 € ayır ve nelerden vazgeçtiğini gerekçelendir. Ardından bir mağazanın gelirinin neden tamamen kâr olmadığını açıkla.",
+      "rubric": [
+        "Harcamalar ile kalan tutarın toplamı 20 € ediyor.",
+        "Ayrılan pay en az 5 €.",
+        "Bir kararı hedefimle ilişkilendirerek gerekçelendiriyorum.",
+        "Gelir ile kârı ayırt ediyorum."
+      ],
+      "model": "6 € malzeme ve 4 € atıştırmalık, toplam 10 € harcama eder. 10 € kalır. Ortak çalışma öncelikli olduğu için oyundan vazgeçiyorum. Bir mağaza gelirinden maliyetlerini de ödemelidir; ancak kalan fazlalık kârdır."
+    },
+    "sourceRevision": 0
+  },
+  "geo_1_lebenssituationen": {
+    "title": "🏡 Burada ve dünyada yaşam koşulları",
+    "subtitle": "Gündelik yaşamı karşılaştır, sunumları sorgula ve ortak noktaları fark et.",
+    "contentLanguage": "tr",
+    "script": false,
+    "learningGoals": [
+      "Seçilmiş yaşam koşullarını aynı ölçütlerle karşılaştırmak ve yerlerini belirlemek.",
+      "Barınma, çalışma ve ulaşımı insanların olanaklarıyla ilişkilendirmek.",
+      "Yoksulluk ve zenginliği ülke kalıpları yerine birden çok ölçütle tartışmak.",
+      "Gözlem, kanıtlanmış ifade ve varsayımı ayırt etmek."
+    ],
+    "prerequisites": [
+      "geo_1_karten_raeume",
+      "geo_2_wirtschaften"
+    ],
+    "summary": [
+      "İnsanların temel ihtiyaçları ortaktır; bunları karşılama olanakları farklıdır.",
+      "Tekil örnekler bir ülkenin tipik profili değildir; aynı şehirde de farklılıklar vardır.",
+      "Yolculuk süreleri, maliyetler ve kamu hizmetleri katılımı etkiler.",
+      "Para miktarları ve tek tek konut özellikleri yoksulluk veya zenginlik sıralaması için yeterli değildir.",
+      "Sunumlar bağlam gerektirir; iyileştirmeler bireysel ve ortak önlemleri birleştirebilir."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Avusturya Mittelschule öğretim programı (Almanca)",
+        "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007850"
+      },
+      {
+        "title": "UNICEF Avusturya: çocuk hakları (Almanca)",
+        "url": "https://unicef.at/informieren/kinderrechte/"
+      },
+      {
+        "title": "UNData: Kenya",
+        "url": "https://data.un.org/en/iso/ke.html"
+      }
+    ],
+    "sections": [
+      {
+        "id": "section0",
+        "title": "1. Benzer ihtiyaçlar, farklı yaşamlar",
+        "content": "<p>İnsanların beslenme, su, barınma, korunma ve sosyal ilişkiler gibi ihtiyaçları vardır. Çocukların ayrıca eğitim, gelişim ve katılım gibi hakları bulunur. İhtiyaçların karşılanması kişisel olanaklara ve toplumsal koşullara bağlıdır. Belirli bir markanın ürününü istemek, bu isteğin arkasındaki ihtiyaçla aynı şey değildir.</p><p>Karşılaştırma için <strong>tamamen kurgusal dört öğrenci</strong> kullanıyoruz. Bilgiler gerçek görüşmeler veya tipik ülke profilleri değildir. Yerler gerçektir: Viyana Avrupa’da Avusturya’da, Nairobi Afrika’da Kenya’da, Lima ise Güney Amerika’da Peru’dadır. Bunları atlasta bul ve dünya, ülke ve şehir ölçekleri arasında geçiş yap. Bir şehrin çevresindeki yerleşim, şehir merkeziyle güçlü bağlara sahip olabilir.</p><table><caption>Kurgusal günlük yaşam örnekleri; yolculuk süreleri yalnızca bu hikâyeler için geçerlidir</caption><thead><tr><th scope=\"col\">Kişi ve yaşadığı yer</th><th scope=\"col\">Barınma ve öğrenme</th><th scope=\"col\">Okula tek yön yolculuk</th><th scope=\"col\">Çevresindeki çalışma yaşamı</th></tr></thead><tbody><tr><th scope=\"row\">Mira, Viyana</th><td>Bir odayı paylaşır; bazen kütüphanede sessiz bir yer kullanır.</td><td>Yürüyerek ve tramvayla 20 dakika</td><td>Ebeveynlerinden biri tamir atölyesinde çalışır.</td></tr><tr><th scope=\"row\">Amani, Nairobi</th><td>Evde sessiz bir çalışma yeri ve güvenilir internet bağlantısı vardır.</td><td>Yürüyerek 15 dakika</td><td>Ebeveynlerinden biri bir ofiste çalışır.</td></tr><tr><th scope=\"row\">Jo, Nairobi</th><td>Bir çalışma yerini paylaşır; dijital ödevler için okulun öğrenme olanaklarını da kullanır.</td><td>Yürüyerek ve otobüsle 45 dakika</td><td>Ebeveynlerinden biri giysi diker ve satar.</td></tr><tr><th scope=\"row\">Sol, Lima çevresi</th><td>Evde çalışacak yeri vardır; şehirdeki bazı olanaklara ulaşmak uzun sürer.</td><td>Yürüyerek ve otobüsle 30 dakika</td><td>Ebeveynlerinden biri fırında çalışır.</td></tr></tbody></table><p>Nairobi’deki iki hikâye bile belirgin biçimde farklıdır. Bunlardan Nairobi’deki herkesin nasıl yaşadığı veya kimin genel olarak daha mutlu olduğu çıkarılamaz. Pek çok soruyu yanıtlamak için bilgi eksiktir.</p>{{QUIZ_geo_1_lebenssituationen_q0}}{{QUIZ_geo_1_lebenssituationen_q1}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q0",
+            "question": "Dört hikâye hakkında hangi ifade doğrudur?",
+            "answers": [
+              {
+                "text": "Kurgusal örneklerdir; ülkelerin tamamını anlatmazlar.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Örnekler aynı ölçütleri karşılaştırmaya yarar."
+              },
+              {
+                "text": "Temsili biçimde seçilen çocuklarla yapılmış gerçek görüşmelerdir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hikâyelerin kurgusal olduğu açıkça belirtilmiştir."
+              },
+              {
+                "text": "Bir hikâye aynı ülkedeki bütün çocukların yaşamını açıklar.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Tek bir örnek böyle bir genelleme için yeterli değildir."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q1",
+            "question": "Hangi eşleştirme doğrudur?",
+            "answers": [
+              {
+                "text": "Nairobi – Kenya – Afrika.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Şehir, ülke ve kıta doğru sıradadır."
+              },
+              {
+                "text": "Nairobi – Avusturya – Avrupa.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Viyana Avusturya’dadır; Nairobi değildir."
+              },
+              {
+                "text": "Lima – Kenya – Afrika.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Lima, Güney Amerika’daki Peru’dadır."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section1",
+        "title": "2. Barınma, çalışma ve ulaşımı karşılaştırma",
+        "content": "<p>Aynı ölçütleri karşılaştır: öğrenme olanakları, yollar, erişilebilirlik ve kullanılabilir zaman. Ayrı bir çalışma odası yardımcı olabilir; erişilebilir bir kütüphane veya okul başka olanaklar sunabilir. Haritada yakın olmak, bekleme sürelerini, ücretleri veya ulaşım aracının erişilebilirliğini tek başına göstermez.</p><p>Modelde gidiş ve dönüş aynı süredeyse Jo toplam 90, Amani 30 dakika harcar. Beş okul gününde bu süreler 450 ve 150 dakikadır. Fark 300 dakika, yani beş saattir. Buradan farklı zaman gereksinimleri çıkarılabilir; daha az öğrenme isteği çıkarılamaz.</p><p>Çalışma, hanelerle işletmeleri birbirine bağlar. Fırında malzemeler, emek ve araçlarla ekmek üretilir; satış geliri malzeme ve ücret gibi giderleri karşılar. Tamir atölyesinde hizmet sunulur. Ofis işi ve dikiş farklı görevler ve çalışma koşulları içerebilir. Yalnızca meslek adından geliri veya iş güvencesini bilemeyiz.</p><p>Yaş, bakım sorumlulukları, erişilebilirlik ve toplumsal cinsiyet beklentileri de olanakları etkileyebilir. Bu koşullar sorularak öğrenilmelidir; ülkeler veya kişiler hakkındaki kalıp yargılar bunların yerini almamalıdır.</p><div class=\"interactive-zone\" data-geo-experiment=\"commute\" data-locale=\"tr\"><h3>Okul yolu sürelerini incele</h3><p>Jo (A: 45 dakika) ve Amani (B: 15 dakika) ile başla. Haftalık farkı tahmin et, sonra bir değeri değiştir. Model her okul gününde eşit süreli iki yolculuk varsayar. Değiştirilen değerler yeni kurgusal senaryolardır.</p><p><label>A tek yön (dakika) <input type=\"range\" data-commute=\"a\" min=\"1\" max=\"60\" step=\"1\" value=\"45\"></label> <output data-value=\"a\"></output></p><p><label>B tek yön (dakika) <input type=\"range\" data-commute=\"b\" min=\"1\" max=\"60\" step=\"1\" value=\"15\"></label> <output data-value=\"b\"></output></p><p><label>Okul günü sayısı <input type=\"range\" data-commute=\"days\" min=\"1\" max=\"5\" step=\"1\" value=\"5\"></label> <output data-value=\"days\"></output></p><p data-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><button type=\"button\" data-reset>Sıfırla</button><p>Daha kısa yolculuk daha fazla öğrenme isteğini kanıtlar mı? Modelin hangi bilgileri vermediğini açıkla.</p></div>{{QUIZ_geo_1_lebenssituationen_q2}}{{QUIZ_geo_1_lebenssituationen_q3}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q2",
+            "question": "Modelde Jo beş günde gidiş ve dönüşler için kaç dakika harcar?",
+            "answers": [
+              {
+                "text": "450 dakika.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "45 dakika çarpı iki yolculuk çarpı beş gün 450 eder."
+              },
+              {
+                "text": "225 dakika.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "225 dakika günde yalnızca tek yönü sayar."
+              },
+              {
+                "text": "90 dakika.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "90 dakika bir günün gidiş ve dönüşüdür."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q3",
+            "question": "Bir meslek adı hakkında hangi ifade uygundur?",
+            "answers": [
+              {
+                "text": "Yapılan işe ilişkin ipucu verir; geliri veya çalışma koşullarını kendiliğinden göstermez.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Bu ayrıntılar için ek bilgi gerekir."
+              },
+              {
+                "text": "Karşılaştırmada aynı meslekteki kişilerin gelirlerinin aynı olduğu varsayılabilir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Aynı meslekte bile çalışma süresi, sözleşme ve ücret farklı olabilir. Meslek adı yeterli değildir."
+              },
+              {
+                "text": "Ofis işi güvenceli, bağımsız dikiş işi güvencesiz çalışma demektir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hikâyeler sözleşmeleri veya sipariş durumunu belirtmez. İş güvencesi bunlardan belirlenemez."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section2",
+        "title": "3. Yoksulluk ve zenginliğe farklı ölçütlerle bakma",
+        "content": "<p>Yoksulluk, temel ihtiyaçların yeterince karşılanamaması anlamına gelebilir. Bir toplumdaki yaygın yaşam koşullarına göre de ele alınabilir: Önemli eğitim veya sosyal etkinliklere katılamayan kişi, bazı temel ihtiyaçları karşılansa bile kısıtlamalar yaşar. Gelir önemlidir ama tek ölçüt değildir.</p><p>Karşılaştırmada hane büyüklüğü, zorunlu giderler, kamu hizmetleri, barınma ve sağlık gibi bilgiler önemlidir. Fiyatlar farklıysa aynı para aynı şeyleri sağlamaz. Birikim veya mülk gibi servet unsurları da düzenli gelirle aynı değildir.</p><p>Zengin bir ülkede kısıtlı kaynaklara sahip insanlar yaşayabilir. Zorluklar yaşayan bir bölgedeki herkes aynı deneyimlere sahip değildir. Dört hikâye gelir ve giderleri eksiksiz vermiyor; bu nedenle zenginden yoksula bir sıralama kanıtlanamaz. Yoksulluk insanın değerini göstermez ve yeterince çabalamadığını kanıtlamaz.</p><p>Görev: Öğrenme olanaklarını adil karşılaştırmak için eksik olan bilgiler hakkında üç somut soru yaz. Kurgusal örnekler kullan; kimse kendi ailesinin maddi durumunu veya konut koşullarını sınıfta açıklamak zorunda değildir.</p>{{QUIZ_geo_1_lebenssituationen_q4}}{{QUIZ_geo_1_lebenssituationen_q5}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q4",
+            "question": "Kaynakları adil karşılaştırmaya hangi bilgi yardımcı olur?",
+            "answers": [
+              {
+                "text": "Gelirin yanında hane büyüklüğü ve zorunlu giderler.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Bu bilgiler bir tutarın anlamını değerlendirmeyi kolaylaştırır."
+              },
+              {
+                "text": "Yalnızca açıklamasız bir para miktarı.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bağlamsız bir tutar yanıltabilir."
+              },
+              {
+                "text": "Yalnızca kişinin yaşadığı ülke.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bir ülkenin içinde yaşam koşulları farklıdır."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q5",
+            "question": "Dört kişinin yoksulluk sıralaması neden kanıtlanamaz?",
+            "answers": [
+              {
+                "text": "Kaynaklar, giderler ve yaşam koşulları hakkında eksiksiz bilgi yoktur.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Tek tek özellikler genel değerlendirme için yeterli değildir."
+              },
+              {
+                "text": "Sıralama için yalnızca evlerin kime ait olduğunu öğrenmek yeterlidir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mülkiyet ek bilgi sağlar ama gelir, zorunlu giderler ve diğer yaşam koşullarının yerini tutmaz."
+              },
+              {
+                "text": "Yalnızca para miktarları bilinmelidir; fiyatlar ve hane büyüklüğü önemsizdir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Aynı tutar, hane büyüklüğüne ve fiyatlara göre farklı ihtiyaçları karşılamak zorundadır. Para miktarı tek başına yetmez."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section3",
+        "title": "4. Sunumları sorgulama ve çözüm olanakları bulma",
+        "content": "<p>Bir fotoğraf belirli bir anda seçilmiş bir kesiti gösterir. İnsanların gelirini, duygularını veya gelecekteki fırsatlarını kendiliğinden açıklamaz. Yerini, tarihini, kimin çektiğini ve amacını sor. Kişisel bir hikâye değerlidir ama bir ülkenin istatistiksel olarak temsili bir betimlemesi değildir.</p><p>“Jo daha az çabaladığı için okula daha uzun sürede varıyor” ifadesini incele: Tablo daha uzun bir süre verir, kişiden kaynaklanan bir neden vermez. Nesnel ifade şöyledir: “Modelde Jo okul yolu için daha fazla zamana ihtiyaç duyuyor; nedenler ayrıca araştırılmalıdır.”</p><p>Öğrenme olanaklarını iyileştirmek için farklı düzeylerde adım atılabilir: Kişi çalışma zamanını planlar, okul kullanılabilir mekânlar sunar, kamu kurumları ulaşım ve eğitim hizmetlerini planlar. Her yapısal engel bireysel davranışla çözülemez. Öneriler bilinen koşullara uymalı ve etkilenen kişileri sürece katmalıdır.</p><p>Yaşam kalitesi ilişkileri, katılımı ve çevreyi de içerir. Ulaşım önerileri erişim ve zaman kazancıyla birlikte maliyetleri, güvenliği ve çevresel etkileri değerlendirmelidir. Bir çözümün her yerde uygun olduğunu söylemek yerine olası bir iyileştirmeyi ve sınırını açıkla.</p>{{QUIZ_geo_1_lebenssituationen_q6}}{{QUIZ_geo_1_lebenssituationen_q7}}",
+        "quizzes": [
+          {
+            "id": "geo_1_lebenssituationen_q6",
+            "question": "Tek bir fotoğraftan ne çıkarılabilir?",
+            "answers": [
+              {
+                "text": "Yalnızca gözlemlenebilenler; daha ileri iddialar ek kanıt gerektirir.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Seçilen kesit ve an, fotoğrafın anlatabileceklerini sınırlar."
+              },
+              {
+                "text": "Düzenli bir çalışma yeri, kişinin her zaman rahatsız edilmeden çalışabildiğini gösterir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Fotoğraf tek bir anı gösterir. Mekânı başka kimlerin kullandığını veya ne sıklıkla sessiz olduğunu açıklamaz."
+              },
+              {
+                "text": "Seçilmiş bir ev fotoğrafı şehirdeki olağan konut koşullarını gösterir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Şehir hakkında konuşmak için birçok örneğin uygun biçimde seçilmesi ve ek veriler gerekir. Tek fotoğraf temsili değildir."
+              }
+            ]
+          },
+          {
+            "id": "geo_1_lebenssituationen_q7",
+            "question": "Hangi öneri farklı eylem düzeylerini dikkate alır?",
+            "answers": [
+              {
+                "text": "Okul ve ulaşım planlamacıları çalışma mekânlarını ve erişimi etkilenen kişilerle birlikte inceler.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Kişisel olanaklar ve kamusal koşullar birbirini tamamlayabilir."
+              },
+              {
+                "text": "Jo bir çalışma planı yapar ve hangi ödevleri önce yapacağına karar verir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bu Jo’ya yardımcı olabilir ama kişisel düzeyde kalır. Okul veya kamu koşulları değişmez."
+              },
+              {
+                "text": "Okul bir çalışma odası açar ve açık olacağı saatleri belirler.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "İki önlem de okul düzeyindedir. Öneri henüz okul ve ulaşım planlaması gibi farklı düzeyleri birleştirmez."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "5. Adil karşılaştırma",
+      "instruction": "Verilen bilgileri, hesaplanan sonuçları ve kanıtlanmamış iddiaları ayırt et.",
+      "categories": [
+        "Örnekte verilen bilgi",
+        "Hesaplanan",
+        "Kanıtlanmamış"
+      ],
+      "items": [
+        {
+          "text": "Modelde Amani okula tek yönde 15 dakikada gider.",
+          "answer": "Örnekte verilen bilgi",
+          "feedback": "Bu süre tabloda verilmiştir."
+        },
+        {
+          "text": "Gidiş ve dönüş eşit süredeyse Jo beş günde 450 dakika harcar.",
+          "answer": "Hesaplanan",
+          "feedback": "45 çarpı iki çarpı beş 450 eder."
+        },
+        {
+          "text": "Nairobi’deki bütün çocukların okul yolu Jo’nunkiyle aynıdır.",
+          "answer": "Kanıtlanmamış",
+          "feedback": "Tek bir kurgusal örnek bir şehirdeki bütün çocukları anlatmaz."
+        }
+      ],
+      "writing": "Üç şehri ve ülkeyi atlasta bul. İki öğrenciyi barınma/öğrenme, ulaşım ve çevrelerindeki çalışma yaşamı açısından karşılaştır. Bir ortak nokta, iki fark ve üç eksik bilgi belirt. Jo ile Amani’nin haftalık okul yolu süreleri arasındaki farkı hesapla. Ardından okul düzeyinde ve kamu hizmetleri düzeyinde birer iyileştirme öner; her biri için açık kalan bir soru belirt.",
+      "rubric": [
+        "Şehir, ülke ve kıta ayırt edilmiştir.",
+        "Karşılaştırma aynı ölçütleri kullanır.",
+        "Örnekleri ülkelere genellemem.",
+        "Zaman farkı 300 dakika, yani beş saattir.",
+        "Öneriler, eylem düzeyleri ve açık sorular birbiriyle uyumludur."
+      ],
+      "model": "Modelde Amani ve Jo aynı şehirde yaşar ve okula gider. Çalışma yerleri ve okul yolları farklıdır. Maliyetler, ders programı ve erişilebilirlik hakkında yeterli bilgimiz yoktur. Jo haftada 450, Amani 150 dakika harcar; fark 300 dakikadır. Açılış saatleri ve kullanım koşulları uygunsa okulda bir çalışma odası yardımcı olabilir. Toplu ulaşımı iyileştirmek için bağlantılar, maliyetler ve gerçek ihtiyaç incelenmelidir. Hikâyeler Nairobi’deki herkesin nasıl yaşadığını kanıtlamaz."
+    },
+    "sourceRevision": 1
+  },
+  "erde_mond_sonne": {
+    "title": "🌍 Dünya, Ay ve Güneş",
+    "subtitle": "Viyana’da kışın hava neden daha erken kararır? Ay neden şekil değiştiriyormuş gibi görünür?",
+    "script": false,
+    "learningGoals": [
+      "Gece ve gündüzü Dünya’nın dönüşüyle açıklamak.",
+      "Mevsimleri eksen eğikliği ve Güneş’in gökyüzündeki yüksekliğiyle açıklamak.",
+      "Ay’ın evrelerini tutulmalardan ayırt etmek.",
+      "Lamba modellerini kontrollü kurmak, gözlemleri ve bakış açılarını kaydetmek ve modelin sınırlarını açıklamak."
+    ],
+    "prerequisites": [
+      "optik1"
+    ],
+    "summary": [
+      "Dünya döner: Yerler aydınlık ve karanlık taraflar arasında geçiş yapar.",
+      "Dünya’nın eğik ekseni, Güneş çevresindeki dolanımı sırasında farklı gün uzunluklarına ve Güneş yüksekliklerine yol açar.",
+      "Ay’ın evreleri, aydınlık yarısına bakışımızdan kaynaklanır; Dünya’nın gölgesi Ay tutulmasına neden olur."
+    ],
+    "sources": [
+      {
+        "title": "NASA: Ay’ın evreleri (İngilizce)",
+        "url": "https://science.nasa.gov/moon/moon-phases/"
+      },
+      {
+        "title": "NASA: Mevsimler (İngilizce)",
+        "url": "https://spaceplace.nasa.gov/seasons/en/"
+      }
+    ],
+    "sections": [
+      {
+        "id": "day",
+        "title": "1. Gece ve gündüz",
+        "content": "<p>Güneş ışık yayar. Dünya’nın bir yarısı aydınlanır. Dünya yaklaşık 24 saatte kendi ekseni çevresinde bir kez dönerken Viyana aydınlık bölgeye girer ve yeniden çıkar. Bize Güneş gökyüzünde hareket ediyormuş gibi görünür.</p><p class=\"highlight-box\"><strong>Hatırla:</strong> Dünya’nın günlük dönüşü gece ve gündüzü oluşturur. Güneş çevresinde bir dolanım yaklaşık bir yıl sürer.</p><p><strong>Görevin:</strong> Bir top ve lambayı model olarak kullan. Top üzerinde Viyana’yı işaretle. Lamba sabit dururken topu döndür. İşaretin ne zaman aydınlanır?</p><details><summary>Önce kendin dene, sonra karşılaştır</summary><p>İşaret lambaya bakan taraftayken aydınlanır. Lambanın topun çevresinde dolanması gerekmez. Modelde büyüklükler ve uzaklıklar ölçekli değildir.</p></details>{{QUIZ_ems_day1}}{{QUIZ_ems_day2}}",
+        "quizzes": [
+          {
+            "id": "ems_day1",
+            "question": "Gece ve gündüzün günlük değişimini hangi hareket açıklar?",
+            "answers": [
+              {
+                "text": "Dünya kendi ekseni çevresinde döner.",
+                "correct": true,
+                "feedback": "Böylece bir yer Dünya’nın aydınlık ve karanlık tarafları arasında geçiş yapar.",
+                "pts": 0
+              },
+              {
+                "text": "Dünya Güneş’in çevresinde günde bir kez dolanır.",
+                "correct": false,
+                "feedback": "Güneş çevresindeki dolanım yaklaşık bir yıl sürer. Gece ve gündüz için Dünya’nın dönüşü belirleyicidir.",
+                "pts": 0
+              },
+              {
+                "text": "Ay her gece Güneş’i örter.",
+                "correct": false,
+                "feedback": "Ay Güneş’i yalnızca Güneş tutulmasında örter; her gece değil.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_day2",
+            "question": "Modelde Viyana karanlık tarafta. Topun dönmesi neyi değiştirir?",
+            "answers": [
+              {
+                "text": "Viyana yeniden aydınlık tarafa geçer.",
+                "correct": true,
+                "feedback": "Dönüş, yerin ışık kaynağına göre konumunu değiştirir.",
+                "pts": 0
+              },
+              {
+                "text": "Sabah olması için lamba daha parlak olmalıdır.",
+                "correct": false,
+                "feedback": "Değişim lambanın değişmesinden değil, dönüşten kaynaklanır.",
+                "pts": 0
+              },
+              {
+                "text": "Top önce lambanın çevresinde tam tur atmalıdır.",
+                "correct": false,
+                "feedback": "Kendi ekseni çevresinde dönmesi yeterlidir. Dolanım bir yılı temsil eder.",
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seasons",
+        "title": "2. Mevsimler neden oluşur?",
+        "content": "<p>Dünya’nın ekseni, yörünge düzlemine dik doğrultudan yaklaşık 23,4° eğiktir. Eksenin yönü yıl boyunca yaklaşık aynı kalır. Kuzey Yarımküre Güneş’e doğru eğildiğinde Güneş Viyana’da daha yüksekte görünür ve gündüzler uzar. Güneş daha yüksekteyken aynı güneş enerjisi daha küçük bir zemin alanına yayılır. Kışın durum tersidir.</p><p class=\"highlight-box\"><strong>Hatırla:</strong> Mevsimler esas olarak eksen eğikliğinden kaynaklanır; Güneş’e uzaklığın büyük ölçüde değişmesinden değil.</p><p><strong>Görevin:</strong> Viyana’da kışken Avustralya’da neden yaz olabildiğini açıkla. Dünya’nın eğik eksenini çiz.</p><details><summary>Önce kendin dene, sonra karşılaştır</summary><p>Kuzey Yarımküre Güneş’ten uzağa eğildiğinde Güney Yarımküre Güneş’e doğru eğilir. Bu nedenle yarımküreler zıt mevsimler yaşar.</p></details>{{QUIZ_ems_season1}}{{QUIZ_ems_season2}}<h3>Model çalışması: eksenin yönünü koruyun</h3><p>Ekvatoru, ekseni ve kuzey yarımkürede Viyana noktası işaretli bir küre veya top, ısınmayan bir LED lamba ve dört konum kartı kullanın. Sabit lamba, uzaktan topun tamamını aydınlatsın. Lambaya değil topa bakın. Duvara eğik bir yön oku çizin.</p><ol data-season-investigation><li>A, B, C ve D konumlarını lambanın çevresine eşit aralıklarla ve aynı uzaklıkta yerleştirin; A ile C karşı karşıyadır. Ekseni düşeye göre yaklaşık 23° eğin. A konumunda kuzey ucu lambaya doğru eğilsin.</li><li>Her konumda ekseni duvardaki oka paralel tutun. Birbirinizi kontrol edin: kuzey ucunu her defasında lambaya çevirmeyin. Ok, uzayda sabit bir yönü temsil eder.</li><li>C konumuna geçmeden önce tahmin edin: Viyana, bir tam dönüşün daha uzun mu, daha kısa mı bölümünde aydınlıkta kalacak? Küreyi eğik ekseni çevresinde yavaşça döndürerek deneyin; kürenin konumu ve lamba sabit kalsın.</li><li>Dönüşün aydınlık ve karanlık bölümlerini karşılaştırın. B ve D konumlarında, ardından güney yarımküredeki bir noktayla tekrarlayın.</li><li>A ve C konumlarını ışık yolları ve paralel eksenlerle çizin. Aynı uzaklıkta farklı mevsimlerin neden mümkün olduğunu açıklayın.</li></ol><table data-season-protocol><caption>Kendi gözlemleriniz: hesaplanmış gündüz süreleri değil</caption><thead><tr><th scope=\"col\">Konum</th><th scope=\"col\">Kuzey ucunun lambaya göre yönü</th><th scope=\"col\">Viyana: dönüşün aydınlık bölümü</th><th scope=\"col\">Güney yarımküre ve karşılaştırma</th></tr></thead><tbody><tr><th scope=\"row\">A</th><td>lambaya doğru</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">B</th><td>yana</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">C</th><td>lambadan uzağa</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">D</th><td>yana</td><td>…</td><td>…</td></tr></tbody></table><p>Daha uzun ve kısa aydınlanmayı karşılaştırın; kesin gün doğumu saati çıkarmayın. Yakındaki lamba paralel güneş ışınları vermez; eksen ayarı ve odadaki yansımalar modeli sınırlar. Dairesel yörünge uzaklığı bilerek sabit tutar; gerçek yörünge hafif eliptiktir. Sonuç uydurmak yerine belirsiz ışık sınırlarını ve istenmeyen gölgeleri kaydedin. Malzeme yoksa paralel eğik eksenli dört Dünya çizin ve aydınlık yarıları işaretleyin. Bunu yapılmış deney değil, çizim çalışması olarak belirtin.</p>{{QUIZ_ems_axis_control}}{{QUIZ_ems_model_precision}}",
+        "quizzes": [
+          {
+            "id": "ems_season1",
+            "question": "Güneş yazın Viyana’da zemini neden daha güçlü ısıtabilir?",
+            "answers": [
+              {
+                "text": "Güneş daha yüksektedir ve gün içinde daha uzun süre parlar.",
+                "correct": true,
+                "feedback": "Daha yüksek Güneş ve daha uzun gündüz, alınan güneş enerjisini artırır.",
+                "pts": 0
+              },
+              {
+                "text": "Güneş yalnızca Avrupa için daha fazla ışık üretir.",
+                "correct": false,
+                "feedback": "Güneş gücünü tek tek bölgelerin mevsimlerine göre ayarlamaz.",
+                "pts": 0
+              },
+              {
+                "text": "Viyana’da yazken Dünya her zaman Güneş’e en yakın konumdadır.",
+                "correct": false,
+                "feedback": "Uzaklık, iki yarımküredeki zıt mevsimleri açıklamaz.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_season2",
+            "question": "Hangi karşılaştırma “Yazın bütün Dünya Güneş’e daha yakındır” açıklamasıyla çelişir?",
+            "answers": [
+              {
+                "text": "Viyana ve Sidney aynı anda zıt mevsimler yaşar.",
+                "correct": true,
+                "feedback": "İki yer Güneş’ten neredeyse aynı uzaklıkta, fakat farklı yarımkürelerdedir.",
+                "pts": 0
+              },
+              {
+                "text": "Viyana’da bazı yaz günleri bulutludur.",
+                "correct": false,
+                "feedback": "Bulutlar hava durumunu etkiler. Yarımkürelerin karşılaştırılması mevsim açıklamasını sınar.",
+                "pts": 0
+              },
+              {
+                "text": "Güneş her gün doğar.",
+                "correct": false,
+                "feedback": "Günlük doğuş Dünya’nın dönüşüyle açıklanır. Mevsimler için yıl içindeki aydınlanmayı karşılaştırmalısın.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_axis_control",
+            "question": "A’dan C’ye geçerken ne korunmalıdır?",
+            "answers": [
+              {
+                "text": "Eksen uzayda yaklaşık aynı yöne bakmayı sürdürmelidir.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Böylece kuzey ucu A’da lambaya doğru, C’de lambadan uzağa eğilir."
+              },
+              {
+                "text": "Kuzey ucu her konumda doğrudan lambaya bakmalıdır.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bu durumda kuzey yarımküre bütün yörünge boyunca ışığa eğik kalır; mevsimler yanlış temsil edilir."
+              },
+              {
+                "text": "Viyana noktası her dönüş boyunca hep lambaya bakmalıdır.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dönüş Viyana’yı aydınlık ve karanlık bölümlere taşır. Noktayı ışığa sabitlemek günlük değişimi engeller."
+              }
+            ]
+          },
+          {
+            "id": "ems_model_precision",
+            "question": "Lamba modeliyle neyi anlamlı biçimde karşılaştırabiliriz?",
+            "answers": [
+              {
+                "text": "Viyana’nın A’da C’ye göre dönüşün daha uzun bölümünde aydınlıkta kalıp kalmadığını.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Amaç nitel karşılaştırmadır; yakın ışık kaynağı ve yaklaşık ayar kesin zamanları sınırlar."
+              },
+              {
+                "text": "Her takvim günü için Viyana’daki kesin gün doğumu saatini.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dört konum ve bu düzenek kesin saatleri vermez; tarih ve başka astronomik bilgiler gerekir."
+              },
+              {
+                "text": "Belirli bir yaz gününde Viyana’da ölçülen hava sıcaklığını.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Model aydınlanmayı inceler. Hava sıcaklığı ayrıca hava durumuna ve enerji alışverişine bağlıdır."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phases",
+        "title": "3. Ay’ın aydınlık yarısı",
+        "content": "<p>Ay kendi görünür ışığını üretmez; Güneş ışığını saçar. Ay tutulması dışında yüzeyinin yaklaşık yarısı aydınlıktır. Ay Dünya’nın çevresinde dolanırken bu yarının farklı miktarlarını görürüz: yeni ay, büyüyen ay, dolunay ve küçülen ay.</p><div class=\"interactive-zone\" data-core-experiment=\"moon\" data-locale=\"tr\"><h3>Ay’ın evrelerini incele</h3><p>Önce tahmin et: Aydınlık yarının tamamını ne zaman görürüz? Sonra konumu değiştir.</p><label for=\"moon-angle\">Basitleştirilmiş evre döngüsündeki konum (0° yeni ay, 180° dolunay)</label><input id=\"moon-angle\" type=\"range\" min=\"0\" max=\"360\" step=\"45\" value=\"0\" aria-describedby=\"moon-explanation\"><output id=\"moon-explanation\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></output><svg id=\"moon-disc\" viewBox=\"0 0 200 200\" width=\"200\" height=\"200\" style=\"max-width:100%;height:auto;display:block;margin:1rem auto\" role=\"img\" aria-label=\"Şematik Ay diski\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"#172033\" stroke=\"#8797ad\" stroke-width=\"2\"/><path id=\"moon-disc-light\" fill=\"#fff1b8\" d=\"M 100 20 Z\"/></svg><progress id=\"moon-lit\" max=\"100\" value=\"0\" aria-label=\"Görünen Ay diskinin aydınlık oranı\"></progress><p>Disk aydınlık alanı şematik gösterir: Kuzey Yarımküre için basitleştirilmiş görünümde büyürken sağ taraf, küçülürken sol taraf aydınlıktır. Gökyüzündeki gerçek yönelim gözlem yeri ve zamanına da bağlıdır. Çubuk aynı oranı yüzde olarak gösterir. Ölçek 0° ile 360° arasında tam bir evre döngüsünü izler; iki bakış doğrultusu arasındaki küçük açı değildir. 360° konumunda yeni döngü başlar. Yörünge eğikliği, değişen uzaklıklar ve Dünya’nın gölgesi burada hesaplanmaz. Bu yüzden model tutulmaları göstermez.</p></div><p><strong>Görevin:</strong> 0°, 90°, 180° ve 270° konumlarında görünen aydınlık oranları kaydet. “Yarım ay” ile “Ay’ın yarısı aydınlık” ifadelerinin farkını açıkla.</p><details><summary>Önce kendin dene, sonra karşılaştır</summary><p>Dünya’dan görünen diskin yaklaşık %0, %50, %100 ve %50’si aydınlık görünür. Ay’ın bir yarısı neredeyse her zaman aydınlıktır; yarım ayda bize bakan diskin yalnızca yarısını aydınlık görürüz.</p></details>{{QUIZ_ems_phase1}}{{QUIZ_ems_phase2}}<h3>Ay evrelerine iki bakış açısından bakmak</h3><p>Bir kişi küçük, açık renkli topu tutar; başka biri sabit Dünya konumundan gözler. Yanda, uzaktaki LED lamba Güneş’i temsil eder. İnsanlar ve nesneler ışığı kesmesin. Gözlemci Dünya konumunda kalır, yalnızca bakışını topa çevirir.</p><ol data-moon-investigation><li>Topu Dünya’nın lamba tarafına, yanına ve karşı tarafına taşıyın. Gerekirse doğrudan gölge çizgisinin biraz dışında tutun. Lambaya değil topa bakın.</li><li>Dünya konumundan görünen diskin aydınlık bölümünü çizin. İkinci gözlemci düzeneğe yandan bakıp topun hangi yarısının ışık aldığını işaretlesin.</li><li>Çizimleri ekrandaki dört konumla karşılaştırın ve rolleri değiştirin. Lamba aynı şekilde yanarken görünümün neden değiştiğini açıklayın.</li></ol><p>Dolunay konumunda top kararıyorsa bir başın veya nesnenin ışığı kesip kesmediğini kontrol edin. Bu, sıradan Ay evrelerinin nedeni olmayan bir gölge etkisidir; tutulmalar sonraki bölümde ele alınır. Boyutlar, uzaklıklar ve yörünge eğimi ölçekli değildir. Lamba yönündeki yeniay ve gölge çizgisi yakınındaki dolunay yalnızca yaklaşık gösterilir. Malzeme yoksa ekran modelini kullanıp simülasyon olduğunu belirtin.</p>{{QUIZ_ems_viewpoint}}",
+        "quizzes": [
+          {
+            "id": "ems_phase1",
+            "question": "Hangi model konumunda dolunay görürüz?",
+            "answers": [
+              {
+                "text": "180°: Ay’ın doğrultusu Güneş’in doğrultusunun karşısındadır.",
+                "correct": true,
+                "feedback": "Aydınlık yarı bize dönüktür. Yörünge eğikliği çoğu zaman tutulmayı önler.",
+                "pts": 0
+              },
+              {
+                "text": "0°: Ay ve Güneş aynı doğrultudadır.",
+                "correct": false,
+                "feedback": "Aydınlık taraf büyük ölçüde bizden uzağa bakar: yeni ay.",
+                "pts": 0
+              },
+              {
+                "text": "90°: Ay Güneş doğrultusunun yan tarafındadır.",
+                "correct": false,
+                "feedback": "Diskin yaklaşık yarısını aydınlık görürüz.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_phase2",
+            "question": "Olağan Ay evreleri nasıl oluşur?",
+            "answers": [
+              {
+                "text": "Aydınlık Ay yarısının farklı miktarlarını görürüz.",
+                "correct": true,
+                "feedback": "Aydınlanma ve bakış açımız görünümü belirler.",
+                "pts": 0
+              },
+              {
+                "text": "Dünya’nın gölgesi her ay Ay’ın daha büyük veya küçük bir bölümünü örter.",
+                "correct": false,
+                "feedback": "Dünya’nın gölgesi Ay tutulmasını oluşturur. Evreler bakış açısından kaynaklanır.",
+                "pts": 0
+              },
+              {
+                "text": "Ay farklı miktarlarda kendi ışığını üretir.",
+                "correct": false,
+                "feedback": "Ay yüzeyinden saçılan Güneş ışığını görürüz.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_viewpoint",
+            "question": "Dünya’daki gözlemci yarımay görüyor; yandan bakan kişi topun bütün yüzeyinin yaklaşık yarısının aydınlık olduğunu görüyor. Çelişki var mı?",
+            "answers": [
+              {
+                "text": "Hayır; görünen disk ile bütün yüzey farklı bakışlardır.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Dünya’dan yalnızca bize dönük taraf görünür. Bakış açısı aydınlık yarının ne kadarının göründüğünü belirler."
+              },
+              {
+                "text": "Evet; yarımayda bütün yüzeyin yalnızca dörtte biri ışık almalıdır.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Yüzeyin yaklaşık yarısı aydınlık kalır. Yarımay, Dünya’dan görünüşü anlatır."
+              },
+              {
+                "text": "Evet; yarımay ancak gözlemcinin gölgesiyle oluşabilir.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "İnsan gölgesi ek bir engellemedir. Sıradan evreler için değişen bakış açısı yeterlidir."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eclipses",
+        "title": "4. Tutulmalar ne zaman oluşur?",
+        "content": "<p>Güneş tutulmasında Ay, Güneş ile Dünya arasındadır ve gölgesi Dünya’ya düşer. Ay tutulmasında Dünya, Güneş ile Ay arasındadır; Ay Dünya’nın gölgesine girer. Ay’ın yörüngesi Dünya’nın yörünge düzlemine göre eğiktir. Bu nedenle her yeni ayda veya dolunayda tutulma olmaz.</p><p><strong>Gözlerini koru:</strong> Güneş’e doğrudan bakma; dürbünle de bakma. Bu bölüm için lamba modelleri ve simülasyonlar yeterlidir.</p><p><strong>Görevin:</strong> İki dizilişi de çiz ve hangi cismin gölgesinin hangisine düştüğünü belirt.</p><details><summary>Önce kendin dene, sonra karşılaştır</summary><p>Güneş tutulması: Güneş–Ay–Dünya; Ay’ın gölgesi Dünya’ya düşer. Ay tutulması: Güneş–Dünya–Ay; Dünya’nın gölgesi Ay’a düşer.</p></details>{{QUIZ_ems_eclipse1}}{{QUIZ_ems_eclipse2}}",
+        "quizzes": [
+          {
+            "id": "ems_eclipse1",
+            "question": "Neden her dolunayda Ay tutulması olmaz?",
+            "answers": [
+              {
+                "text": "Eğik yörüngesi nedeniyle Ay çoğunlukla Dünya’nın gölgesinin üstünden veya altından geçer.",
+                "correct": true,
+                "feedback": "Tutulma için dolunay, yörünge düzlemlerinin kesişim çizgisine yakın olmalıdır.",
+                "pts": 0
+              },
+              {
+                "text": "Dolunayda Dünya’nın gölgesi Ay’ın uzaklığına hiçbir zaman ulaşamaz.",
+                "correct": false,
+                "feedback": "Dünya’nın gölgesi Ay’a ulaşabilir; aksi halde Ay tutulması olmazdı. Yörünge eğikliği nedeniyle Ay çoğunlukla gölgeyi ıskalar.",
+                "pts": 0
+              },
+              {
+                "text": "Karanlık tarafı Dünya’ya baktığından yalnızca yeni ay Dünya’nın gölgesine girebilir.",
+                "correct": false,
+                "feedback": "Yeni ayda Ay, Dünya’nın Güneş’e bakan tarafındadır. Dünya’nın gölgesi karşı taraftadır; Ay tutulması ancak dolunayda olabilir.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "ems_eclipse2",
+            "question": "Hangi sıralama Güneş tutulmasına uygundur?",
+            "answers": [
+              {
+                "text": "Güneş–Ay–Dünya.",
+                "correct": true,
+                "feedback": "Ay, Güneş ile Dünya arasındayken Dünya’nın yüzeyine gölge düşürebilir.",
+                "pts": 0
+              },
+              {
+                "text": "Güneş–Dünya–Ay.",
+                "correct": false,
+                "feedback": "Bu sıralama Ay tutulmasında görülebilir.",
+                "pts": 0
+              },
+              {
+                "text": "Dünya–Güneş–Ay.",
+                "correct": false,
+                "feedback": "Burada Ay, Dünya’dan bakıldığında Güneş’in arkasındadır ve onu örtemez.",
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "contentLanguage": "tr",
+    "sourceRevision": 2
+  },
+  "kunst_1_museum": {
+    "title": "🏛️ Sanatla karşılaşmak: müze ve sergi",
+    "subtitle": "Dikkatle bak, eser bilgilerini oku ve kendi çalışmalarını sergile.",
+    "contentLanguage": "tr",
+    "script": false,
+    "prerequisites": [
+      "kunst_1_wahrnehmen"
+    ],
+    "learningGoals": [
+      "Bir müze görselini incelemek ve kaynak bilgilerini gözlemlerden ayırmak.",
+      "Özgün eser ile dijital kopyanın sunduğu olanakları ve sınırları karşılaştırmak.",
+      "Kendi çalışmalarından küçük bir sergi oluşturmak, etiketler hazırlamak ve seçimlerini gerekçelendirmek."
+    ],
+    "summary": [
+      "Eser bilgileri gözlemlerini tamamlar; emin olmadığın ayrıntıları belirsiz olarak belirt.",
+      "Dijital görsel, eserin bir kopyasıdır ve özgün eseri değiştirmez.",
+      "Seçim, yerleştirme ve etiketler serginin nasıl algılandığını etkiler."
+    ],
+    "sources": [
+      {
+        "title": "Viyana Sanat Tarihi Müzesi: Çocuk Oyunları — Google Arts & Culture üzerindeki eser kaydı ve görsel",
+        "url": "https://artsandculture.google.com/asset/children%E2%80%99s-games/CQEeZWQPOI2Yjg?hl=de"
+      }
+    ],
+    "sections": [
+      {
+        "id": "werk",
+        "title": "1. Viyana’daki bir koleksiyondan bir resim",
+        "content": "<p>Yaşlı Pieter Bruegel’in “Çocuk Oyunları” adlı eserini inceliyoruz. Viyana Sanat Tarihi Müzesi’nin eser kaydı, yapım yılını 1560, tekniğini ise ahşap üzerine yağlıboya olarak belirtir. Resim müzenin koleksiyonundadır. Bu bilgiler eseri bağlamına yerleştirmene yardımcı olur, ancak kendi gözleminin yerini tutmaz.</p><table><caption>Müze kaydına dayanan eser kartı</caption><tbody><tr><th scope=\"row\">Eser adı</th><td>Çocuk Oyunları</td></tr><tr><th scope=\"row\">Sanatçı</th><td>Yaşlı Pieter Bruegel</td></tr><tr><th scope=\"row\">Yapım yılı</th><td>1560</td></tr><tr><th scope=\"row\">Teknik</th><td>Ahşap üzerine yağlıboya</td></tr></tbody></table><p><a href=\"https://artsandculture.google.com/asset/children%E2%80%99s-games/CQEeZWQPOI2Yjg?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">Müze görselini aç (harici sayfa, yeni sekme)</a>. Açıklama metninin bir bölümü İngilizcedir; gözlem görevi için görsel yeterlidir. Aynı müze bağlantısı Mittelschule’nin 3. sınıfında daha ayrıntılı bir inceleme için de kullanılır.</p><p><strong>Gözlem görevi:</strong> Önce resmin tamamına bak. Sonra içinde figürler bulunan iki küçük alan seç. Her biri için resimdeki konumunu ve görünen iki şekli, rengi veya beden duruşunu betimle. Bir alanı birkaç çizgiyle çok basit biçimde çiz. Resmin tamamını kopyalaman gerekmiyor.</p><details><summary>Notlarını kontrol et</summary><p>“Sol altta” gibi bir konum bilgisi, başkalarının seçtiğin alanı bulmasını kolaylaştırır. Görünen bir renk veya duruş betimlemedir. Figürlerin ne yapıyor olabileceği ise bir yorumdur. Bir ayrıntıyı seçemiyorsan bunu belirt. Yapım yılı kaynak bilgilerine aittir.</p></details>{{QUIZ_kunst_1_museum_werkangabe}}{{QUIZ_kunst_1_museum_suchen}}",
+        "quizzes": [
+          {
+            "id": "kunst_1_museum_werkangabe",
+            "question": "Eser kartımızdaki “1560” bilgisi nereden geliyor?",
+            "answers": [
+              {
+                "text": "Bağlantısı verilen müze eser kaydından.",
+                "feedback": "Eser kartı kaynağı belirtir. Yıl, renklerden çıkarılan bir gözlem değildir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Web sitesini açtığım tarihten.",
+                "feedback": "Senin ziyaret tarihin ile tablonun yapım yılı farklı bilgilerdir.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Resimdeki çocukların yaşlarına ilişkin tahminimden.",
+                "feedback": "Bir figürün yaşı eserin yapım yılını belirlemez.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_1_museum_suchen",
+            "question": "Resmin küçük bir alanında bir figürün ne tuttuğunu tam seçemiyorsun. Hangi not uygundur?",
+            "answers": [
+              {
+                "text": "“Nesneyi kesin olarak tanıyamıyorum; önce görünen şeklini betimliyorum.”",
+                "feedback": "Gözlemini kaydediyor ve sınırını belirtiyorsun.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "“Sahnenin adı çocuk oyunu olduğuna göre bu bir toptur.”",
+                "feedback": "Etiket bağlam sağlar. Ancak bu küçük alanda hangi nesnenin gösterildiğini kanıtlamaz.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "“Bulanık alan, nesnenin özgün eserde de belirsiz çizildiğini kanıtlar.”",
+                "feedback": "Bulanıklık ekran görselinden veya büyütmeden kaynaklanabilir. Özgün eserin nasıl olduğunu kanıtlamaz.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "original",
+        "title": "2. Özgün eser ve ekrandaki görseli",
+        "content": "<p>Ekranda bir röprodüksiyona, yani eserin bir görsel kopyasına bakarsın. Bu görseli büyütebilir veya küçültebilirsin. Bu işlem tablonun gerçek boyutunu değiştirmez. Renkler de görselin nasıl gösterildiğine bağlıdır; malzeme, yüzey ve eserin mekândaki etkisi ancak sınırlı biçimde deneyimlenebilir.</p><p><strong>Müzeye gitmeden kendi karşılaştırman:</strong> Fotoğrafını çekebiliyorsan kendi çizimini fotoğrafının yanına koy. Yoksa çizime önce yakından, sonra daha uzaktan bak. Hangi ayrıntıların öne çıktığını ve genel izlenimin nasıl değiştiğini not et. Bakış mesafelerini karşılaştırmak dijital bir kopyayı incelemekle aynı şey değildir; ancak o da bakma koşullarını araştırır.</p><p><strong>Bir sanat eseriyle karşılaştığında:</strong> Okulda, kamusal alanda veya müzede bulunan bir esere izin verilen yönlerden bakabilirsin. Mekân içinde nasıl göründüğünü not et. Sergilenen eserlere yalnızca dokunmaya açıkça izin veriliyorsa dokun. Bu bölümü çalışmak için bir ziyaret yapman şart değildir.</p><details><summary>Karşılaştırma yardımı</summary><p>Kendi çiziminde kâğıdın gerçek boyutunu ve izin verilen mesafeden yüzeyini inceleyebilirsin. Bir fotoğraf farklı bir boyut veya parlaklık gösterebilir. İkisi de yararlı olabilir, ancak tam olarak aynı deneyimi sunmaz. Bir fotoğrafa yakından bakmak onu özgün esere dönüştürmez.</p></details>{{QUIZ_kunst_1_museum_reproduktion}}{{QUIZ_kunst_1_museum_begegnung}}",
+        "quizzes": [
+          {
+            "id": "kunst_1_museum_reproduktion",
+            "question": "Müze görselini ekranda büyütüyorsun. Ne olur?",
+            "answers": [
+              {
+                "text": "Ekranındaki görüntü büyür; müzedeki özgün eser değişmez.",
+                "feedback": "Dijital görsel ile boyanmış nesneyi birbirinden ayırmalısın.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Büyütülmüş görüntü, ölçü bilgisi olmadan özgün eserin gerçek boyutunu gösterir.",
+                "feedback": "Ekrandaki boyutu sen belirlersin. Özgün boyutlar için güvenilir ölçü bilgisine veya yerinde karşılaştırmaya ihtiyacın vardır.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Büyütme, görsel dosyasında hiç bulunmayan ayrıntıları da görünür yapar.",
+                "feedback": "Daha büyük gösterim eksik görsel bilgiyi oluşturmaz. Çok büyütünce pikseller veya bulanıklık fark edilebilir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_1_museum_begegnung",
+            "question": "Özgün esere bakarken ayrıca hangi soruyu araştırabilirsin?",
+            "answers": [
+              {
+                "text": "Bana göre ne kadar büyük göründüğünü ve sergi mekânında nasıl durduğunu.",
+                "feedback": "Ölçek, mesafe ve mekân özgün eserde küçük bir ekrandakinden farklı deneyimlenebilir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Kaynak olmadan, yalnızca bakarak tam yapım yılını kesin belirleyip belirleyemeyeceğimi.",
+                "feedback": "Bakmak, eserin yapıldığı zamana ilişkin sorular uyandırabilir. Ancak yalnızca bakarak kesin bir yıl saptanamaz.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Mekândaki etkisinin her insan için tamamen aynı olması gerekip gerekmediğini.",
+                "feedback": "Kendi gözlemin herkesin deneyimini kanıtlamaz. Genel bir etki varsaymak yerine konumunu, ışığı ve izlenimini betimle.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ausstellung",
+        "title": "3. Küçük bir sergi tasarla",
+        "content": "<p>Dosyandan kendi yaptığın üç çizimi veya malzeme denemesini seç. Küçük sergine “Hareket”, “Hayal ettiğim yerler” veya “Çizgiden figüre” gibi bir tema ver. Daha az çalışman varsa küçük yeni eskizler ekle. Seçiminin temaya neden uyduğunu açıkla.</p><p><strong>İki yerleştirme:</strong> Çalışmaları önce birbirine yakın, sonra aralarında farklı boşluklar bırakarak yerleştir. Sıralarını da değiştirebilirsin. Her iki yerleştirmenin planını çiz. Böylece hangi bağlantı dikkat çekiyor? İlk önce nereye bakıyorsun? Birden fazla gerekçeli çözüm olabilir.</p><p><strong>Etiketle ve konuş:</strong> Eser adını, malzemesini ve kullanılması kararlaştırılmış bir adı veya baş harfleri ekle. Temayı açıklamadan önce birinden gördüklerini betimlemesini iste veya kendin iki olası yorum yaz. Bir aralığı ya da etiketi değiştir. Bir kararını dosyanda belgele.</p><details><summary>Gerekçe örneği</summary><p>İki benzer çizgi çizimini yan yana, üç boyutlu kâğıt çalışmasını ise biraz uzağa koyuyorum. Böylece düz yüzeyden mekâna geçiş karşılaştırılabiliyor. Başka bir sıralamada önce kâğıt çalışması, ardından onun çizim fikirleri gösterilebilir. Temama göre karar veriyor ve etiketlerin okunabilirliğini kontrol ediyorum.</p></details>{{QUIZ_kunst_1_museum_auswahl}}{{QUIZ_kunst_1_museum_beschriftung}}",
+        "quizzes": [
+          {
+            "id": "kunst_1_museum_auswahl",
+            "question": "Kendi beş çalışmandan yalnızca üçünü gösterebiliyorsun. Seçimini nasıl anlaşılır kılarsın?",
+            "answers": [
+              {
+                "text": "Bir tema belirleyip seçtiğim çalışmaların ona nasıl uyduğunu açıklarım.",
+                "feedback": "Böylece seçim gerekçelendirilir. Başka anlaşılır düzenlemeler de mümkün olabilir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Bu yüzden diğer iki çalışmanın hiçbir şekilde sanat olmadığını iddia ederim.",
+                "feedback": "Sınırlı bir sergi seçimi, genel olarak nelerin sanat olabileceğine karar vermez.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Rastgele üç çalışma gösterip tek gerekçe olarak orada olduklarını söylerim.",
+                "feedback": "Bu görevde seçimin anlaşılır bir bağlantı göstermelidir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_1_museum_beschriftung",
+            "question": "Küçük sınıf sergisinde hangi etiket yardımcı olur?",
+            "answers": [
+              {
+                "text": "Eser adı, kararlaştırılmış ad ve malzeme; bilinmeyen bilgiler açık bırakılır.",
+                "feedback": "Böylece eksik bilgiler uydurulmadan izleyiciye yön gösterilir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Eser adı veya başka bilgi olmadan yalnızca “güzel”.",
+                "feedback": "Bu bir değerlendirmedir ve eser hakkında çok az bilgi verir.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Çalışma daha önemli görünsün diye uydurulmuş ünlü bir sanatçı adı.",
+                "feedback": "Yanlış bir sanatçı atfı, çalışmanın kime ait olduğu konusunda yanıltır.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Tasarla ve değerlendir",
+      "navLabel": "Sanat atölyesi",
+      "instruction": "İfadeleri eşleştir. Ardından küçük sergini oluştur. Metin kararlarını kaydeder; sanatsal çalışmanın yerini tutmaz.",
+      "categories": [
+        "Kaynak bilgisi",
+        "Gözlem",
+        "Sunum kararı"
+      ],
+      "items": [
+        {
+          "text": "Müze kaydı yılı 1560 olarak belirtir.",
+          "answer": "Kaynak bilgisi",
+          "feedback": "Bu bilginin kaynağı açıkça belirtilmiştir."
+        },
+        {
+          "text": "Seçtiğim çizimde üç koyu çizgi var.",
+          "answer": "Gözlem",
+          "feedback": "Bu, seçilen çizimde kontrol edilebilir."
+        },
+        {
+          "text": "İki çalışma arasında daha büyük bir boşluk bırakıyorum.",
+          "answer": "Sunum kararı",
+          "feedback": "Çalışmaların birlikte nasıl gösterileceğini tasarlıyorsun."
+        }
+      ],
+      "writing": "3. bölümdeki iki sergi planını oluştur ve kendi üç çalışmanı etiketle. Tema, seçim, yerleştirme ve bir değişikliği not et. Müze görselini incelerken yaptığın bir gözlemi ekle; harici görsele ulaşılamıyorsa bu kısmı daha sonra tamamla.",
+      "rubric": [
+        "Eser bilgileri ile kendi gözlemimi ayırıyorum.",
+        "Seçimim ve yerleştirmem belirttiğim temaya uyuyor.",
+        "Bir geri bildirimden sonra etiketi veya yerleştirmeyi değiştirdim."
+      ],
+      "model": "Temam hareket. İki çizim eğik çizgiler, üçüncüsü kıvrımlı bir iz gösteriyor. En basit çizimle başlıyorum. Etiketler önce çok küçüktü; onları büyüttüm. Müze eserinin yapım yılını görsel izlenimimden değil, kaynaktan alıyorum."
+    },
+    "sourceRevision": 1
+  },
+  "kunst_4_gebaeude_umnutzen": {
+    "title": "🏗️ Eski binalar, yeni kullanımlar",
+    "subtitle": "Viyana Gasometrelerinden kendi tasarımına: Neler korunur, neler değişir ve kimler için?",
+    "script": false,
+    "contentLanguage": "tr",
+    "prerequisites": [
+      "kunst_2_raum",
+      "kunst_2_design"
+    ],
+    "learningGoals": [
+      "Viyana ile ilgili tarihî bir kaynak üzerinden yeniden işlevlendirmeyi ve o dönemdeki planlama hedeflerini açıklamak.",
+      "Bir tasarımda farklı kullanım ihtiyaçlarını, erişimi ve olası çatışmaları incelemek.",
+      "İki dönüşüm fikri çizmek; korunan ve değiştirilen bölümleri ve bunların sonuçlarını gerekçelendirmek."
+    ],
+    "summary": [
+      "Bir binayı yeniden işlevlendirmek, mevcut yapıyı yeni amaçlarla birleştirir.",
+      "Erişilebilirlik; yollara, kurallara, açılış saatlerine ve ücretlere de bağlıdır.",
+      "Bir tasarım kararları görünür kılar; teknik incelemenin veya etkilenen kişilerin katılımının yerini tutmaz."
+    ],
+    "sources": [
+      {
+        "title": "Viyana Belediyesi: Gasometer City projesine ilişkin tarihî açıklama, 5 Temmuz 2001",
+        "url": "https://presse.wien.gv.at/2001/07/05/faymann-besiedlung-ist-wichtigster-pruefstand-der-gasometer-city"
+      }
+    ],
+    "sections": [
+      {
+        "id": "wien",
+        "title": "1. Viyana’dan bir örnek: Gasometreler",
+        "content": "<p>Eski binalar ilk işlevlerini kaybedip yeni amaçlarla kullanılabilir. Bu, yalnızca dış görünüşü değiştirmek değildir. Odaların, girişlerin ve çevreyle bağlantıların yeni kullanıma uygun olması gerekir.</p><p>Viyana Belediyesinin 5 Temmuz 2001 tarihli arşiv açıklaması, Gasometreler projesini koruma altındaki tarihî yapıların yeniden kullanılması olarak anlatır. Konut, çalışma ve boş zaman etkinliklerini planlanan kullanımlar arasında sayar ve ilk kiracıların taşınmaya başladığını bildirir. Bu örnek, mevcut yapı bölümleriyle yeni amaçların birlikte ele alındığını gösterir.</p><p><a href=\"https://presse.wien.gv.at/2001/07/05/faymann-besiedlung-ist-wichtigster-pruefstand-der-gasometer-city\" target=\"_blank\" rel=\"noopener noreferrer\">Viyana Belediyesinin tarihî proje açıklamasını oku (Almanca, yeni sekme)</a>. Açıklama, projenin o aşamasındaki belediye görüşünü yansıtır. Bugünkü kullanımların veya bugünkü memnuniyetin kanıtı değildir. Doğrulanabilir bilgileri övgü içeren değerlendirmelerden ayır.</p><p><strong>Kaynak görevi:</strong> Tarihi ve açıklamayı yayımlayan kurumu not et. Belirtilen kullanımlardan birini seç. Orada yaşayan veya çalışan birine soracağın bir soru yaz. Bugünkü durumu değerlendirmek için hangi ek kaynağa ihtiyacın olurdu?</p><details><summary>Karşılaştırma yardımı</summary><p>Örneğin konut, belirtilen kullanımlardan biridir. Sessiz bir yaşamla etkinliklerin nasıl bir arada yürüdüğünü sorabilirsin. Bugünkü durum için güncel bilgiler ve oradaki insanların farklı deneyimleri gerekir. Geçmişte belirtilen bir amaç, uygulamanın kalıcı olarak başarılı olduğunun kanıtı değildir.</p></details>{{QUIZ_kunst_4_gebaeude_umnutzen_quelle}}{{QUIZ_kunst_4_gebaeude_umnutzen_umnutzung}}",
+        "quizzes": [
+          {
+            "id": "kunst_4_gebaeude_umnutzen_quelle",
+            "question": "Burada kullanılan 2001 tarihli Viyana Belediyesi açıklaması neyi belgeler?",
+            "answers": [
+              {
+                "text": "Belediyenin o dönemde Gasometreler için hangi kullanımları ve hedefleri açıkladığını.",
+                "feedback": "Tarihli kaynak, projenin o dönemde nasıl sunulduğunu belgeler.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Bugün bütün sakinlerin her kullanımdan memnun olduğunu.",
+                "feedback": "Bunun için etkilenen kişilerin güncel görüşleri gerekir. Tarihî bir proje açıklaması bugünkü memnuniyeti kanıtlamaz.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Diğer bütün eski binaların aynı şekilde dönüştürülebileceğini.",
+                "feedback": "Tek bir proje, diğer binaların uygunluğunu kanıtlamaz. Her yapının durumu ve gereksinimleri ayrı incelenmelidir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_4_gebaeude_umnutzen_umnutzung",
+            "question": "Hangi açıklama bir binanın yeniden işlevlendirilmesini anlatır?",
+            "answers": [
+              {
+                "text": "Mevcut bir bina farklı bir amaç kazanır; yapı ve yeni gereksinimler birlikte ele alınır.",
+                "feedback": "Koruma ve değiştirme birlikte planlanır. Yeni kullanım uyarlamalar gerektirebilir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Binanın yalnızca adı değişir; amacı ve kullanımı her zaman aynı kalır.",
+                "feedback": "Yalnızca ad değişikliği, yeni bir kullanım değildir.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "İçinde yeni bir şey yapılabilmesi için eski bina tamamen ortadan kalkmalıdır.",
+                "feedback": "Yeniden işlevlendirme, mevcut bölümlerin nasıl kullanılabileceğini ve gerekirse tamamlanabileceğini araştırır.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "interessen",
+        "title": "2. Yeni yeri kimler kullanabilir?",
+        "content": "<p><strong>Kurgusal tasarım görevi:</strong> Eskiden atölye olarak kullanılan küçük bir yapı, mahalle merkezine dönüştürülecek. Bu, Gasometreler için hazırlanmış bir plan değildir. Tasarımında dış duvarlar ve iki büyük pencere korunacak. İçeride sessiz bir okuma odası, müzik odası ve serbestçe erişilebilen bir buluşma alanı bulunmalı. Kafe eklemek isteğe bağlıdır.</p><table><caption>Tasarımında dikkate alınacak ihtiyaçlar</caption><thead><tr><th scope=\"col\">Grup</th><th scope=\"col\">İhtiyaç</th></tr></thead><tbody><tr><th scope=\"row\">Okuyanlar</th><td>Gün ışığı ve mümkün olduğunca az rahatsızlık</td></tr><tr><th scope=\"row\">Müzik yapanlar</th><td>Birlikte çalışmak için alan ve kararlaştırılmış saatler</td></tr><tr><th scope=\"row\">Tekerlekli sandalye veya bebek arabası kullanan ya da bagaj taşıyan kişiler</th><td>Kullanışlı bir giriş ve açık geçiş yolları</td></tr><tr><th scope=\"row\">Bir şey satın almak istemeyenler</th><td>Alışveriş zorunluluğu olmayan bir buluşma yeri</td></tr><tr><th scope=\"row\">Çevrede yaşayanlar</th><td>Kullanım saatleri hakkında bilgi ve görüşlerini iletme olanağı</td></tr></tbody></table><p><strong>Bir düzenlemeyi incele:</strong> Girişten buluşma alanına ulaşmak için önce kafeden geçildiğini düşün. Okuma ve müzik odaları da yan yana. İki olası çatışma ve her biri için bir değişiklik öner. Yalnız görünüşü değil, geçiş yollarını ve kuralları da düşün. Yeni bir kullanım, insanların katılımını kolaylaştırabilir veya onları dışarıda bırakabilir. Bu da tasarımın bir parçasıdır.</p><details><summary>Olası değişiklikler</summary><p>Buluşma alanına ayrı bir giriş, kafeye gitmeyenlere yardımcı olabilir. Yine de giriş koşulları açık olmalıdır. Müzik odasını başka yere almak, odaları ayırmak veya saatleri düzenlemek, sessiz okuma ile çatışmayı azaltabilir. Bunun yeterli olup olmadığı, etkilenen kişilerle ve yapının koşulları dikkate alınarak incelenmelidir.</p></details>{{QUIZ_kunst_4_gebaeude_umnutzen_zugang}}{{QUIZ_kunst_4_gebaeude_umnutzen_konflikt}}",
+        "quizzes": [
+          {
+            "id": "kunst_4_gebaeude_umnutzen_zugang",
+            "question": "Kurgusal planda buluşma alanına yalnızca ücretli bir kafeden geçilerek ulaşılabiliyor. Hangi soru anlamlıdır?",
+            "answers": [
+              {
+                "text": "Bir şey satın almak istemeyenler buluşma alanına nasıl ulaşır ve geçiş için hangi kurallar geçerlidir?",
+                "feedback": "Çizilmiş bir yol, onu gerçekte kimlerin kullanabileceğini tek başına göstermez.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Hangi renk bütün erişim kurallarını otomatik olarak gereksiz kılar?",
+                "feedback": "Renk yön bulmaya yardımcı olabilir; erişilebilir yolların ve açık kullanım kurallarının yerini tutmaz.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Satın alma niyeti olmayan kişiler planlamada neden dikkate alınmamalı?",
+                "feedback": "Bu görevde buluşma alanı, satın alma niyeti olmayanlara da yöneliktir. Onların ihtiyaçları da görevin parçasıdır.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_4_gebaeude_umnutzen_konflikt",
+            "question": "Tasarımda okuma ve müzik odaları doğrudan yan yana. Gerekçeli bir sonraki adım hangisidir?",
+            "answers": [
+              {
+                "text": "Başka bir düzenlemeyi inceler; saatleri, ses geçişini ve iki grubun ihtiyaçlarını sorarım.",
+                "feedback": "Farklı kullanımlar birbirini etkileyebilir. Tasarım olası çatışmayı incelemelidir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Okuma odasına “sessiz” yazarım; böylece çatışma çözülür.",
+                "feedback": "Etiket, ses geçişini veya kullanımı değiştirmez.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Okuma odasını kullanacak grupla konuşmadan bu odayı kaldırırım.",
+                "feedback": "Bu, bir ihtiyacı göz ardı eder. Önce seçenekler ve sonuçları karşılaştırılmalıdır.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "entwerfen",
+        "title": "3. Korunanları ve değişiklikleri göster",
+        "content": "<p><strong>Kat planın:</strong> Yapıyı basitleştirilmiş bir dikdörtgen olarak çiz ve iki dış duvarın her birinde büyük bir pencere işaretle. İki farklı oda düzeni tasarla. Mevcut duvarları kesintisiz, önerdiğin yeni bölmeleri kesik çizgilerle göster. Girişi, pencereleri ve kullanım amaçlarını etiketle. Buluşma alanına ve okuma odasına giden yolları çiz. Eski ve yeni bölümlerin nasıl ayırt edileceğini gösteren küçük bir dış görünüş ekle.</p><p><strong>Kararını gerekçelendir:</strong> İki seçeneği kendi seçtiğin üç ölçüte göre karşılaştır. Örneğin gün ışığı, açık geçiş yolları veya gürültülü ve sessiz kullanımların ayrılması. Tercih ettiğin çözümün bir avantajını ve bir dezavantajını belirt. Henüz kimin görüşünü alman gerektiğini yaz. Girişin önündeki alanın nasıl değişeceğini ve orada kimlere yer olacağını da açıkla.</p><p><strong>Modelin sınırları:</strong> Çizimlerin tasarım ve kullanımı araştırır. Belirli bir ölçek verilmemiştir; bunlar uygulamaya hazır inşaat planları değildir. Taşıyıcı sistem, kesin ölçüler ve teknik gereklilikler ayrıca incelenmelidir. Bir dış duvarın korunması, binanın korunmasıyla ilgili bütün soruları yanıtlamaz.</p><details><summary>Kendi çalışmanı kontrol et</summary><p>Mevcut bölümler ve değişiklikler ayırt edilebiliyor mu? İki seçenek gerçekten farklı mı? Çizilmiş bir odanın üzerinden atlamadan her yolu takip edebiliyor musun? Gerekçen kat planına uyuyor mu? Güzel bir dış görünüşün arkasında gizlenmek yerine, dezavantajlar ve açık sorular görünür mü?</p></details>{{QUIZ_kunst_4_gebaeude_umnutzen_entwurf}}{{QUIZ_kunst_4_gebaeude_umnutzen_grenzen}}",
+        "quizzes": [
+          {
+            "id": "kunst_4_gebaeude_umnutzen_entwurf",
+            "question": "İki tasarım seçeneğini anlaşılır biçimde karşılaştırmak için ne gerekir?",
+            "answers": [
+              {
+                "text": "Hangi yapı bölümlerinin kaldığını, nelerin değiştiğini ve her çözümün kime yardımcı olup kime zorluk çıkardığını gösteririm.",
+                "feedback": "Böylece tasarım, kullanım ve sonuçlar birlikte değerlendirilebilir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Yalnızca güzel bir dış görünüş gösterir, yolları ve kullanımları dışarıda bırakırım.",
+                "feedback": "Bu durumda yeniden işlevlendirme görevi için gerekli bilgiler eksik kalır.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Mevcut yapıya bakmadan bütün duvarları değersiz ilan ederim.",
+                "feedback": "Bölümlerin korunup korunamayacağı ve korunmasının uygunluğu gerekçeli olarak incelenmelidir.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "kunst_4_gebaeude_umnutzen_grenzen",
+            "question": "Çizdiğin okul çalışmasından henüz hangi sonuç kesin olarak çıkarılamaz?",
+            "answers": [
+              {
+                "text": "Dönüşümün teknik olarak gerçekten uygulanıp uygulanamayacağı.",
+                "feedback": "Tasarım fikirleri araştırır. Taşıyıcı sistem, kesin ölçüler ve diğer teknik koşullar henüz incelenmiş değildir.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Etiketlediğin bir oda için hangi kullanımı önerdiğin.",
+                "feedback": "Tasarımındaki etiket bu amacı gösterir.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Hangi iki düzenlemeyi karşılaştırmak istediğin.",
+                "feedback": "İki seçenek de gösterildiğinde bu karşılaştırma belgelenmiş olur.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "workshop": {
+      "title": "4. Tasarla ve değerlendir",
+      "navLabel": "Tasarım atölyesi",
+      "instruction": "İfadeleri eşleştir. Ardından seçeneklerini kâğıda çiz. Metin, kararlarını belgeler; görsel çalışmanın yerini tutmaz.",
+      "categories": [
+        "Kaynak bilgisi",
+        "Tasarım kararı",
+        "İncelenmesi gereken konu"
+      ],
+      "items": [
+        {
+          "text": "Viyana Belediyesinin 5 Temmuz 2001 tarihli açıklaması, konutu planlanan kullanımlar arasında sayar.",
+          "answer": "Kaynak bilgisi",
+          "feedback": "Tarih ve kaynağa bağlanan ifade, bilginin nereden geldiğini gösterir."
+        },
+        {
+          "text": "Buluşma alanına ayrı bir giriş çiziyorum.",
+          "answer": "Tasarım kararı",
+          "feedback": "Kurgusal planında bir değişikliğe karar veriyorsun."
+        },
+        {
+          "text": "Bir duvarın kaldırılıp kaldırılamayacağı henüz belirsiz.",
+          "answer": "İncelenmesi gereken konu",
+          "feedback": "Modelin bunun için teknik bir kanıt içermiyor."
+        }
+      ],
+      "writing": "3. bölümdeki iki kat planını ve bir dış görünüşü çiz. Mevcut bölümleri, değişiklikleri, üç ölçütü, bir dezavantajı ve henüz alınmamış bir görüşü belgele. Çizimler dosyanda kalır.",
+      "rubric": [
+        "Mevcut bölümler, yeni bölümler ve kullanımlar okunaklı biçimde işaretlenmiş.",
+        "Gerekçem, çizdiğim yollara ve odalara uyuyor.",
+        "Farklı ihtiyaçları ve açık kalan bir soruyu dikkate alıyorum."
+      ],
+      "model": "A seçeneğinde buluşma alanı kafenin arkasında. B seçeneğinde ayrı bir girişi var. Satın alma niyeti olmadan erişim daha açık olduğu için B’yi seçiyorum. Ancak kafeye daha az alan kalıyor. Girişin önündeki alanın nasıl kullanılacağı açık; bu konuda mahallede yaşayanların görüşlerini almak istiyorum."
+    },
+    "sourceRevision": 0
   }
 }

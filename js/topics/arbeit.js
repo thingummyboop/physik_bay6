@@ -261,13 +261,15 @@ function calcWork() {
     const workVal = document.getElementById("workValue");
     const fill = document.getElementById("workMeter");
     const equation = document.getElementById("workEquation");
-    const work = force * distance;
+    const direction = document.getElementById('workDirection')?.value || 'along';
+    const factor = direction === 'against' ? -1 : direction === 'perpendicular' ? 0 : 1;
+    const work = factor * force * distance;
 
     if (forceVal) forceVal.innerText = force;
     if (distanceVal) distanceVal.innerText = distance;
     if (workVal) workVal.innerText = `${work} J`;
-    if (equation) equation.innerText = `W = ${force} N · ${distance} m = ${work} J`;
-    if (fill) fill.style.width = `${Math.min(100, work / 6)}%`;
+    if (equation) equation.innerText = factor === 0 ? 'Kraft senkrecht zum Weg: W = 0 J.' : `W = ${factor < 0 ? '−' : ''}${force} N · ${distance} m = ${work} J`;
+    if (fill) fill.style.width = `${Math.min(100, Math.abs(work) / 6)}%`;
     document.getElementById("forceRange")?.setAttribute("aria-valuetext", `${force} Newton`);
     document.getElementById("distanceRange")?.setAttribute("aria-valuetext", `${distance} Meter`);
 }
@@ -336,8 +338,8 @@ function setSurface(surface) {
     if (floor) floor.setAttribute("fill", surface === "sand" ? "#fbbf24" : "#bae6fd");
     if (text) {
         text.innerText = surface === "sand"
-            ? `Sand: große Reibung. F = ${force} N, s = 4 m, W = ${work} J. Mehr Arbeit wird in Wärme umgewandelt.`
-            : `Eis: kleine Reibung. F = ${force} N, s = 4 m, W = ${work} J.`;
+            ? `Sand: große Reibung. Zugarbeit: ${force} N · 4 m = ${work} J. Reibungsarbeit am Schlitten: −${work} J. Die innere Energie von Schlitten und Untergrund nimmt zu.`
+            : `Eis: kleine Reibung. Zugarbeit: ${force} N · 4 m = ${work} J. Reibungsarbeit am Schlitten: −${work} J.`;
         text.style.color = surface === "sand" ? "#b45309" : "#0369a1";
     }
     updateFrictionMeter(work);

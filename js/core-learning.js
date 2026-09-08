@@ -1,0 +1,133 @@
+'use strict';
+function enhanceCoreLearning(topic,topicId,language,resolveChapter){
+ const uiLanguage=topic.languageFallback||['de','de-en'].includes(topic.contentLanguage)?'de':(topic.contentLanguage||language||'de');
+ const coreLabels={"en":{"Dein Wiederholungsweg":"Your review path","Dein Lernweg":"Your learning path","Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte.":"Test your knowledge first or review selected sections.","Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.":"Work through the sections in order. Try the activities and check your understanding at the end.","Selbsttest starten":"Start self-test","Zum Kapitelcheck":"Go to chapter check","Zur Stoffliste":"Back to study list","Beim letzten Versuch noch unsicher":"Topics to revisit from your last attempt","Abschnitt wiederholen: ":"Review section: ","Zusammenfassung wiederholen":"Review the summary","Lernziele und Vorwissen":"Learning goals and prior knowledge","Das kannst du danach":"What you will be able to do","Hilfreiches Vorwissen: ":"Useful prior knowledge: ","Kurz wiederholen":"Quick review","Zur Zusammenfassung":"Go to summary","Quellen und weiterführende Informationen":"Sources and further information","Weiter in deiner Stoffliste":"Continue through your study list","Weitere Kapitel dieses Fachs":"More chapters in this subject","Dein nächster Lernschritt":"Your next learning step","Vorheriges Kapitel":"Previous chapter","Nächstes Kapitel":"Next chapter","Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest.":"You have reached the end of your study list. Check the overview for topics you want to revisit.","Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.":"You have reached the end of this subject’s chapter list. Use your study list for further practice."},"tr":{"Dein Wiederholungsweg":"Tekrar yolun","Dein Lernweg":"Öğrenme yolun","Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte.":"Önce bilgini sına veya seçtiğin bölümleri tekrar et.","Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.":"Bölümleri sırayla çalış. Etkinlikleri yap ve sonunda anladıklarını kontrol et.","Selbsttest starten":"Öz değerlendirmeyi başlat","Zum Kapitelcheck":"Bölüm kontrolüne git","Zur Stoffliste":"Konu listesine dön","Beim letzten Versuch noch unsicher":"Son denemede tekrar gerektiren konular","Abschnitt wiederholen: ":"Bölümü tekrar et: ","Zusammenfassung wiederholen":"Özeti tekrar et","Lernziele und Vorwissen":"Öğrenme hedefleri ve ön bilgiler","Das kannst du danach":"Bölüm sonunda yapabileceklerin","Hilfreiches Vorwissen: ":"Yararlı ön bilgiler: ","Kurz wiederholen":"Kısa tekrar","Zur Zusammenfassung":"Özete git","Quellen und weiterführende Informationen":"Kaynaklar ve ek bilgiler","Weiter in deiner Stoffliste":"Konu listende devam et","Weitere Kapitel dieses Fachs":"Bu dersin diğer bölümleri","Dein nächster Lernschritt":"Sonraki öğrenme adımın","Vorheriges Kapitel":"Önceki bölüm","Nächstes Kapitel":"Sonraki bölüm","Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest.":"Konu listenin sonuna geldin. Hangi konuları tekrar etmek istediğine genel bakışta bak.","Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.":"Bu dersin bölüm listesinin sonuna geldin. Konu listeni kullanarak çalışmaya devam edebilirsin."},"uk":{"Dein Wiederholungsweg":"Твій шлях повторення","Dein Lernweg":"Твій шлях навчання","Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte.":"Спочатку перевір знання або повтори вибрані розділи.","Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.":"Опрацьовуй розділи послідовно. Виконуй вправи й наприкінці перевір розуміння.","Selbsttest starten":"Почати самоперевірку","Zum Kapitelcheck":"Перейти до перевірки теми","Zur Stoffliste":"До списку тем","Beim letzten Versuch noch unsicher":"Що варто повторити після останньої спроби","Abschnitt wiederholen: ":"Повторити розділ: ","Zusammenfassung wiederholen":"Повторити підсумок","Lernziele und Vorwissen":"Навчальні цілі й попередні знання","Das kannst du danach":"Що ти зможеш після навчання","Hilfreiches Vorwissen: ":"Корисні попередні знання: ","Kurz wiederholen":"Коротке повторення","Zur Zusammenfassung":"До підсумку","Quellen und weiterführende Informationen":"Джерела й додаткова інформація","Weiter in deiner Stoffliste":"Продовжити за списком тем","Weitere Kapitel dieses Fachs":"Інші теми цього предмета","Dein nächster Lernschritt":"Твій наступний крок у навчанні","Vorheriges Kapitel":"Попередня тема","Nächstes Kapitel":"Наступна тема","Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest.":"Ти дійшов або дійшла до кінця списку тем. Перевір в огляді, що ще хочеш повторити.","Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.":"Це кінець переліку тем цього предмета. Продовжуй практику за своїм списком тем."},"sr":{"Dein Wiederholungsweg":"Tvoj put ponavljanja","Dein Lernweg":"Tvoj put učenja","Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte.":"Prvo proveri znanje ili ponovi odabrane odeljke.","Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.":"Obradi odeljke redom. Uradi vežbe i na kraju proveri razumevanje.","Selbsttest starten":"Započni samoproveru","Zum Kapitelcheck":"Idi na proveru poglavlja","Zur Stoffliste":"Nazad na spisak gradiva","Beim letzten Versuch noch unsicher":"Šta treba ponoviti posle poslednjeg pokušaja","Abschnitt wiederholen: ":"Ponovi odeljak: ","Zusammenfassung wiederholen":"Ponovi sažetak","Lernziele und Vorwissen":"Ciljevi učenja i predznanje","Das kannst du danach":"Šta ćeš moći nakon učenja","Hilfreiches Vorwissen: ":"Korisno predznanje: ","Kurz wiederholen":"Kratko ponavljanje","Zur Zusammenfassung":"Idi na sažetak","Quellen und weiterführende Informationen":"Izvori i dodatne informacije","Weiter in deiner Stoffliste":"Nastavi kroz spisak gradiva","Weitere Kapitel dieses Fachs":"Druga poglavlja ovog predmeta","Dein nächster Lernschritt":"Tvoj sledeći korak u učenju","Vorheriges Kapitel":"Prethodno poglavlje","Nächstes Kapitel":"Sledeće poglavlje","Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest.":"Ovo je kraj tvog spiska gradiva. U pregledu proveri šta još želiš da ponoviš.","Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.":"Ovo je kraj spiska poglavlja ovog predmeta. Nastavi da vežbaš pomoću svog spiska gradiva."},"ar":{"Dein Wiederholungsweg":"مسار المراجعة","Dein Lernweg":"مسار التعلم","Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte.":"اختبر معرفتك أولًا أو راجع أقسامًا مختارة.","Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.":"ادرس الأقسام بالترتيب. نفّذ الأنشطة وتحقق من فهمك في النهاية.","Selbsttest starten":"بدء الاختبار الذاتي","Zum Kapitelcheck":"الانتقال إلى اختبار الفصل","Zur Stoffliste":"العودة إلى قائمة الدراسة","Beim letzten Versuch noch unsicher":"موضوعات للمراجعة بعد المحاولة الأخيرة","Abschnitt wiederholen: ":"مراجعة القسم: ","Zusammenfassung wiederholen":"مراجعة الملخص","Lernziele und Vorwissen":"أهداف التعلم والمعرفة السابقة","Das kannst du danach":"ما ستتمكن من فعله بعد التعلم","Hilfreiches Vorwissen: ":"معرفة سابقة مفيدة: ","Kurz wiederholen":"مراجعة سريعة","Zur Zusammenfassung":"الانتقال إلى الملخص","Quellen und weiterführende Informationen":"المصادر والمعلومات الإضافية","Weiter in deiner Stoffliste":"المتابعة في قائمة الدراسة","Weitere Kapitel dieses Fachs":"فصول أخرى في هذه المادة","Dein nächster Lernschritt":"خطوتك التعليمية التالية","Vorheriges Kapitel":"الفصل السابق","Nächstes Kapitel":"الفصل التالي","Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest.":"وصلت إلى نهاية قائمة الدراسة. راجع النظرة العامة لتحديد الموضوعات التي تريد مراجعتها.","Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.":"وصلت إلى نهاية فصول هذه المادة. استخدم قائمة الدراسة لمواصلة التدريب."}};
+ const ui=label=>coreLabels[uiLanguage]?.[label]||label;
+ const container=document.getElementById('sections-container');
+ if(container.querySelector('[data-core-navigation]'))return;
+ const make=(tag,text)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;return el;};
+ const chapterTitle=chapter=>{
+  const resolved=typeof resolveChapter==='function'?resolveChapter(chapter.id):null;
+  const template=document.createElement('template');template.innerHTML=String(resolved?.title||chapter.title||chapter.id);
+  return template.content.textContent||chapter.id;
+ };
+ const navigation=make('section');navigation.className='card';navigation.dataset.coreNavigation='true';
+ const routeParams=new URLSearchParams(location.search);
+ const review=routeParams.get('mode')==='review';
+ const explicitPlan=routeParams.has('plan')?[...new Set(routeParams.get('plan').split(',').filter(Boolean))]:null;
+ const routeMode=review?'review':routeParams.get('mode')==='teach'?'teach':'learn';
+ const overviewQuery=new URLSearchParams({mode:routeMode});
+ const chapterAddress=id=>'../index.html#'+(explicitPlan?'topics/template.html?'+new URLSearchParams({topic:id,mode:routeMode,plan:explicitPlan.join(',')}):encodeURIComponent(id));
+ if(explicitPlan)overviewQuery.set('plan',[...new Set(explicitPlan)].join(','));
+ navigation.append(make('h2',review?ui("Dein Wiederholungsweg"):ui("Dein Lernweg")));
+ navigation.append(make('p',review?ui("Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte."):ui("Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.")));
+ const sections=[...container.children].filter(el=>el.classList.contains('card'));
+ const links=make('ol');sections.forEach((card,index)=>{card.id='learning-section-'+index;const heading=card.querySelector('h2');if(!heading)return;const li=make('li'),link=make('a',heading.textContent);link.href='#'+card.id;li.append(link);links.append(li);});navigation.append(links);
+ if(window.currentChapterQuiz?.questions.length){const start=make('button',review?ui("Selbsttest starten"):ui("Zum Kapitelcheck"));start.type='button';start.addEventListener('click',()=>startChapterQuiz());navigation.append(start);}
+ const back=make('a',ui("Zur Stoffliste"));back.href='../index.html#topics/learning.html?'+overviewQuery;back.target='_top';back.style.marginLeft='1rem';navigation.append(back);
+ const reviewBox=make('div');reviewBox.dataset.chapterReview='true';navigation.append(reviewBox);
+ const renderReview=()=>{reviewBox.replaceChildren();
+ try{const stored=JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')||'{}')[topicId];const result=window.currentChapterResult?window.currentChapterResult(topicId,stored):stored;if(result?.reviewQuestionIds?.length){const unknown=new Set(result.reviewQuestionIds),list=make('ul');reviewBox.append(make('h3',ui("Beim letzten Versuch noch unsicher")));
+  for(const question of window.currentChapterQuiz?.questions||[]){if(!unknown.has(question.id))continue;const li=make('li',question.question);
+   const section=Number.isInteger(question.sectionIndex)?container.querySelector(`[data-chapter-section="${question.sectionIndex}"]`):null;
+   if(section){const link=make('a',ui("Abschnitt wiederholen: ")+(section.querySelector('h2')?.textContent||''));link.href='#'+section.id;li.append(make('br'),link);}
+   else if(topic.summary?.length){const link=make('a',ui("Zusammenfassung wiederholen"));link.href='#chapter-summary';li.append(make('br'),link);}
+   list.append(li);}reviewBox.append(list);}}
+ catch{/* No usable local result yet. */}
+ };
+ renderReview();
+ window.addEventListener('sciverse:chapter-result',event=>{if(event.detail?.topicId===topicId)renderReview();});
+ container.prepend(navigation);
+ if(topic.learningGoals?.length){
+  const intro=make('section');intro.className='card';intro.dataset.coreIntro='true';intro.setAttribute('aria-label',ui("Lernziele und Vorwissen"));intro.append(make('h2',ui("Das kannst du danach")));
+  const goals=make('ul');topic.learningGoals.forEach(goal=>goals.append(make('li',goal)));intro.append(goals);
+  if(topic.prerequisites?.length){
+   const p=make('p',ui("Hilfreiches Vorwissen: "));let catalog=window.SCIVERSE_CURRICULUM||{};
+   try{catalog=window.parent?.SCIVERSE_CURRICULUM||catalog;}catch{/* Standalone embedding may have a different origin. */}
+   const entries=Object.values(catalog).flatMap(subject=>subject.topics||[]);
+   topic.prerequisites.forEach((item,i)=>{if(i)p.append(document.createTextNode(' · '));const chapter=entries.find(t=>t.id===item);
+    if(chapter){const a=make('a',chapterTitle(chapter));a.href=chapterAddress(chapter.id);a.target='_top';p.append(a);}
+    else p.append(document.createTextNode(item));
+   });intro.append(p);
+  }
+  if(language!=='de'&&topic.contentLanguage==='de-en'){intro.append(make('p','In diesem Englischkapitel sind die Übungstexte auf Englisch und die Lernhilfen auf Deutsch.'));}
+  container.prepend(intro);
+ }
+ if(topic.summary?.length){const summary=make('section');summary.className='card';summary.id='chapter-summary';summary.append(make('h2',ui("Kurz wiederholen")));const ul=make('ul');topic.summary.forEach(item=>ul.append(make('li',item)));summary.append(ul);container.insertBefore(summary,container.querySelector('#chapter-quiz-card')?.parentElement||null);const jump=make('a',ui("Zur Zusammenfassung"));jump.href='#chapter-summary';jump.style.marginLeft='1rem';navigation.append(jump);}
+ if(topic.sources?.length){const card=make('section');card.className='card';const details=make('details');details.append(make('summary',ui("Quellen und weiterführende Informationen")));const ul=make('ul');topic.sources.forEach(source=>{const li=make('li'),a=make('a',source.title);a.href=source.url;a.target='_blank';a.rel='noopener';li.append(a);ul.append(li);});details.append(ul);card.append(details);container.append(card);}
+ const subjects=Object.values(window.SCIVERSE_CURRICULUM||{});
+ const subject=subjects.find(s=>s.topics?.some(t=>t.id===topicId));
+ let route=(subject?.topics||[]).filter(t=>t.available!==false);
+ if(review){
+  try{
+   const saved=explicitPlan??JSON.parse(localStorage.getItem('sciverse_study_plan')||'[]');
+   const all=new Map(subjects.flatMap(s=>s.topics||[]).filter(t=>t.available!==false).map(t=>[t.id,t]));
+   route=Array.isArray(saved)&&saved.includes(topicId)?[...new Set(saved)].map(id=>all.get(id)).filter(Boolean):[];
+  }catch{route=[];}
+ }
+ const position=route.findIndex(t=>t.id===topicId);
+ if(position>=0){
+  const continuation=make('nav');continuation.className='card';continuation.dataset.chapterContinuation='true';continuation.setAttribute('aria-label',review?ui("Weiter in deiner Stoffliste"):ui("Weitere Kapitel dieses Fachs"));
+  continuation.append(make('h2',review?ui("Weiter in deiner Stoffliste"):ui("Dein nächster Lernschritt")));
+  const links=make('ul');
+  for(const [offset,label]of [[-1,ui("Vorheriges Kapitel")],[1,ui("Nächstes Kapitel")]]){
+   const next=route[position+offset];if(!next)continue;
+   const li=make('li'),link=make('a',label+': '+chapterTitle(next));
+   link.href=review?'../index.html#topics/template.html?'+new URLSearchParams({topic:next.id,mode:'review',plan:(explicitPlan??route.map(t=>t.id)).join(',')}):chapterAddress(next.id);link.target='_top';li.append(link,make('p',next.grade||''));links.append(li);
+  }
+  if(position===route.length-1)continuation.append(make('p',review?ui("Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest."):ui("Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.")));
+  continuation.append(links);const overview=make('a',ui("Zur Stoffliste"));overview.href='../index.html#topics/learning.html?'+overviewQuery;overview.target='_top';continuation.append(overview);container.append(continuation);
+ }
+ document.querySelectorAll('[data-core-experiment]').forEach(zone=>{
+  if(zone.dataset.initialized)return;zone.dataset.initialized='true';
+  const type=zone.dataset.coreExperiment;
+  if(type==='moon'){
+   const slider=zone.querySelector('#moon-angle'),out=zone.querySelector('#moon-explanation'),bar=zone.querySelector('#moon-lit');
+   const update=()=>{const angle=Number(slider.value),lit=Math.round(50*(1-Math.cos(angle*Math.PI/180)));const english=zone.dataset.locale==='en',turkish=zone.dataset.locale==='tr',ukrainian=zone.dataset.locale==='uk',serbian=zone.dataset.locale==='sr',arabic=zone.dataset.locale==='ar';const isolate=value=>'⁦'+value+'⁩';const germanPhase=angle===0||angle===360?'Neumond':angle===180?'Vollmond':angle===90?'Zunehmender Halbmond':angle===270?'Abnehmender Halbmond':angle<180?'Zunehmender Mond':'Abnehmender Mond';const phase=arabic?({'Neumond':'المحاق','Vollmond':'البدر','Zunehmender Halbmond':'التربيع الأول','Abnehmender Halbmond':'التربيع الأخير','Zunehmender Mond':'القمر المتزايد','Abnehmender Mond':'القمر المتناقص'}[germanPhase]):serbian?({'Neumond':'Mlad Mesec','Vollmond':'Pun Mesec','Zunehmender Halbmond':'Prva četvrt','Abnehmender Halbmond':'Poslednja četvrt','Zunehmender Mond':'Mesec raste','Abnehmender Mond':'Mesec opada'}[germanPhase]):ukrainian?({'Neumond':'Молодик','Vollmond':'Повня','Zunehmender Halbmond':'Перша чверть','Abnehmender Halbmond':'Остання чверть','Zunehmender Mond':'Зростаючий Місяць','Abnehmender Mond':'Спадний Місяць'}[germanPhase]):turkish?({'Neumond':'Yeni ay','Vollmond':'Dolunay','Zunehmender Halbmond':'İlk dördün','Abnehmender Halbmond':'Son dördün','Zunehmender Mond':'Büyüyen ay','Abnehmender Mond':'Küçülen ay'}[germanPhase]):english?({'Neumond':'New Moon','Vollmond':'Full Moon','Zunehmender Halbmond':'First quarter','Abnehmender Halbmond':'Last quarter','Zunehmender Mond':'Waxing Moon','Abnehmender Mond':'Waning Moon'}[germanPhase]):germanPhase;out.textContent=arabic?`${isolate(angle+"°")} · ${phase}: النسبة المضاءة من قرص القمر المرئي هي ${isolate(lit+"%")}.`:serbian?`${angle}° · ${phase}: osvetljeno je ${lit}% vidljivog Mesečevog diska.`:ukrainian?`${angle}° · ${phase}: освітлено ${lit}% видимого диска Місяця.`:turkish?`${angle}° · ${phase}: Görünen Ay diskinin %${lit} kadarı aydınlık.`:english?`${angle}° · ${phase}: ${lit}% of the visible Moon disc is illuminated.`:`${angle}° · ${phase}: ${lit} % der sichtbaren Mondscheibe sind beleuchtet.`;slider.setAttribute('aria-valuetext',arabic?`${isolate(angle)} درجة، ${phase}، النسبة المضاءة ${isolate(lit)} بالمئة`:serbian?`${angle} stepeni, ${phase}, osvetljeno ${lit} procenata`:ukrainian?`Положення: ${angle}°. ${phase}. Освітлено: ${lit}%.`:turkish?`${angle} derece, ${phase}, yüzde ${lit} aydınlık`:english?`${angle} degrees, ${phase}, ${lit} percent illuminated`:`${angle} Grad, ${phase}, ${lit} Prozent beleuchtet`);bar.value=lit;
+    const disc=zone.querySelector('#moon-disc'),light=zone.querySelector('#moon-disc-light');
+    if(disc&&light){
+     const side=angle<=180?1:-1,cos=Math.cos(angle*Math.PI/180),points=[];
+     for(let i=0;i<=128;i++){const a=-Math.PI/2+i*Math.PI/128;points.push([100+side*80*Math.cos(a),100+80*Math.sin(a)]);}
+     for(let i=128;i>=0;i--){const a=-Math.PI/2+i*Math.PI/128;points.push([100+side*cos*80*Math.cos(a),100+80*Math.sin(a)]);}
+     light.setAttribute('d',points.map((p,i)=>(i?'L':'M')+' '+p.map(n=>n.toFixed(4)).join(' ')).join(' ')+' Z');
+     disc.setAttribute('aria-label',arabic?phase+': النسبة المضاءة من القرص المرئي '+isolate(lit)+' بالمئة. رسم تخطيطي من دون ظل الأرض.':serbian?phase+': osvetljeno '+lit+' procenata vidljivog diska. Šematski prikaz bez Zemljine senke.':ukrainian?phase+': освітлено '+lit+'% видимого диска. Схематичний вигляд без тіні Землі.':turkish?phase+': Görünen diskin yüzde '+lit+' kadarı aydınlık. Dünya gölgesi olmadan şematik görünüm.':english?phase+': '+lit+' percent of the visible disc illuminated. Schematic view without Earth’s shadow.':phase+': '+lit+' Prozent der sichtbaren Scheibe beleuchtet. Schematische Darstellung ohne Erdschatten.');
+    }
+   };slider.addEventListener('input',update);update();
+  }
+  if(type==='decay'){
+   let remaining=200,step=0,comparisonNumber=0;const history=zone.querySelector('#decay-history'),out=zone.querySelector('#decay-status');
+   const record=()=>{const expected=200/2**step;out.textContent=`Nach ${step} Halbwertszeiten: ${remaining} Modellkerne übrig. Erwartungswert: ${Number(expected.toFixed(2)).toLocaleString('de')}.`+(remaining===0?' In diesem Versuch sind alle Ausgangskerne zerfallen. Der Erwartungswert beschreibt den Mittelwert vieler solcher Versuche, keine Bruchteile eines einzelnen Kerns.':'')+(step>=10?' Die zehn Schritte dieses Modellversuchs sind abgeschlossen. Starte mit „Neuer Versuch mit 200 Kernen“ einen Vergleichsversuch.':'');zone.querySelector('#decay-bar').value=remaining;const row=make('tr');[step,remaining,Number(expected.toFixed(2))].forEach(value=>row.append(make('td',value.toLocaleString('de'))));history.append(row);zone.querySelector('#decay-step').disabled=step>=10;};
+   const comparisons=zone.querySelector('#decay-comparisons'),comparisonStatus=zone.querySelector('#decay-comparison-status');
+   const compare=()=>{
+    if(step!==2||!comparisons)return;
+    comparisonNumber++;const row=make('tr');[comparisonNumber,remaining,50].forEach(value=>row.append(make('td',String(value))));comparisons.append(row);
+    while(comparisons.rows.length>10)comparisons.firstElementChild.remove();
+    const values=Array.from(comparisons.rows,row=>Number(row.cells[1].textContent)),mean=values.reduce((sum,n)=>sum+n,0)/values.length;
+    comparisonStatus.textContent='Versuch '+comparisonNumber+' erfasst: '+remaining+' Modellkerne nach zwei Halbwertszeiten. Erwartungswert je Versuch: 50. Sichtbare Vergleichsversuche: '+values.length+'. Mittelwert dieser Versuche: '+mean.toLocaleString('de',{maximumFractionDigits:2})+' (auf höchstens zwei Dezimalstellen gerundet). Kleinste Restzahl: '+Math.min(...values)+', größte Restzahl: '+Math.max(...values)+'. Auch dieser beobachtete Mittelwert muss nicht genau 50 betragen.';
+   };
+   zone.querySelector('#decay-clear-comparisons')?.addEventListener('click',()=>{comparisons.replaceChildren();comparisonNumber=0;comparisonStatus.textContent='Vergleich geleert. Ein neuer Versuch wird nach seinem zweiten Schritt erfasst.';});
+   zone.querySelector('#decay-step').addEventListener('click',()=>{if(step>=10)return;let next=0;for(let i=0;i<remaining;i++)if(Math.random()<.5)next++;remaining=next;step++;record();compare();});
+   zone.querySelector('#decay-reset').addEventListener('click',()=>{remaining=200;step=0;history.replaceChildren();record();});record();
+  }
+  if(type==='storage'){
+   const energy=zone.querySelector('[data-storage-energy]'),power=zone.querySelector('[data-storage-power]'),status=zone.querySelector('[data-storage-status]');
+   const number=n=>n.toLocaleString('de',{maximumFractionDigits:2});
+   const update=()=>{
+    const e=Number(energy.value),p=Number(power.value);
+    zone.querySelector('[data-storage-energy-value]').textContent=number(e)+' kWh';zone.querySelector('[data-storage-power-value]').textContent=number(p)+' kW';
+    energy.setAttribute('aria-valuetext',number(e)+' Kilowattstunden');power.setAttribute('aria-valuetext',number(p)+' Kilowatt');
+    if(e===0){status.textContent='Keine nutzbare Energie vorhanden. Der Speicher kann keine Energie für den Verbrauch bereitstellen.';return;}
+    if(p===0){status.textContent='Keine Leistungsentnahme: Die '+number(e)+' kWh bleiben im Modell gespeichert. Ohne Entnahme wird keine Entladezeit berechnet; Selbstentladung und Eigenverbrauch sind hier nicht berücksichtigt.';return;}
+    const hours=e/p,rounded=Math.round(hours*100)/100;
+    status.textContent=number(e)+' kWh ÷ '+number(p)+' kW '+(Math.abs(hours-rounded)>1e-9?'≈':'=')+' '+number(hours)+' h. Bei dieser konstanten Entnahme reicht die nutzbare Energie entsprechend lange.';
+   };
+   [energy,power].forEach(field=>field.addEventListener('input',update));zone.querySelector('[data-storage-reset]').addEventListener('click',()=>{energy.value=10;power.value=2;update();});update();
+  }
+  if(type==='power'){
+
+   const select=zone.querySelector('#power-mode'),table=zone.querySelector('#power-table');
+   const update=()=>{const combined=select.value==='chp';const values=[['Elektrische Energie',40],['Genutzte Wärme',combined?45:0],['Andere Energieabgaben',combined?15:60]];table.replaceChildren();values.forEach(([name,value])=>{const row=make('tr');row.append(make('th',name),make('td',String(value)));table.append(row);});zone.querySelector('#power-status').textContent=combined?'85 von 100 Einheiten genutzt: 40 als Strom und 45 als Fernwärme.':'40 von 100 Einheiten als Strom genutzt. 60 Einheiten werden anders abgegeben.';};select.addEventListener('change',update);update();
+  }
+ });
+}
+window.enhanceCoreLearning=enhanceCoreLearning;

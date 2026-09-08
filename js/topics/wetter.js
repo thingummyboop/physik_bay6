@@ -165,7 +165,7 @@ function showInstrumentDetailed(type) {
                 <strong>💧 Das Hygrometer</strong><br>
                 <strong>Misst:</strong> Luftfeuchtigkeit<br>
                 <strong>Einheit:</strong> Prozent (%)<br>
-                <strong>Definition:</strong> 100% bedeutet, die Luft ist komplett mit Wasserdampf gesättigt und kann nichts mehr aufnehmen. 0% wäre knochentrockene Luft.
+                <strong>Definition:</strong> Die relative Luftfeuchtigkeit vergleicht den Wasserdampfdruck mit dem Sättigungswert bei derselben Temperatur. 50 % bedeutet die Hälfte dieses Werts, nicht 50 % Wasseranteil. Beim Abkühlen kann der Prozentwert steigen, ohne dass Wasserdampf hinzukommt.
             `;
             break;
     }
@@ -284,7 +284,7 @@ function showPrecipitation(type) {
             }, 30);
         }, 100);
     } else if (type === 'snow') {
-        infoHtml = `<strong>❄️ Schnee:</strong> Die Wassertropfen gefrieren schon weit oben zu Eiskristallen. Weil die gesamte Luftschicht bis zum Boden unter 0°C kalt ist, fallen wunderschöne Schneeflocken vom Himmel.`;
+        infoHtml = `<strong>❄️ Schnee:</strong> Eiskristalle wachsen in Wolken unter anderem durch Anlagerung von Wasserdampf und können sich zu Flocken verbinden. Schnee erreicht den Boden, wenn er auf dem Weg nicht vollständig schmilzt. Dazu muss nicht jede Luftschicht unter 0 °C liegen.`;
         precipInterval = setInterval(() => {
             const flake = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             const x = 100 + Math.random() * 150;
@@ -299,7 +299,7 @@ function showPrecipitation(type) {
             }, 50);
         }, 150);
     } else if (type === 'sleet') {
-        infoHtml = `<strong>🌨️ Graupel:</strong> Schneeflocken fallen durch eine wärmere Schicht, schmelzen leicht an, und fallen dann wieder durch eine eiskalte Schicht nahe am Boden. Sie gefrieren zu kleinen, undurchsichtigen Eisklümpchen.`;
+        infoHtml = `<strong>🌨️ Graupel:</strong> Unterkühlte Wassertröpfchen sind trotz Temperaturen unter 0 °C noch flüssig. Treffen sie auf Schnee- oder Eisteilchen, können sie daran gefrieren. So wachsen kleine, meist weißliche Graupelkörner.`;
         precipInterval = setInterval(() => {
             const pellet = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             const x = 100 + Math.random() * 150;
@@ -313,7 +313,7 @@ function showPrecipitation(type) {
             }, 30);
         }, 120);
     } else if (type === 'hail') {
-        infoHtml = `<strong>🧊 Hagel:</strong> Tritt nur bei heftigen Gewittern (im Sommer) auf! Starke Aufwinde in der Wolke schleudern Regentropfen immer wieder nach oben in eisige Höhen. Sie gefrieren schichtweise zu dicken Eiskugeln, bis sie zu schwer werden und fallen.`;
+        infoHtml = `<strong>🧊 Hagel:</strong> Hagelkörner wachsen in Gewitterwolken durch an ihnen gefrierendes Wasser. Starke Aufwinde können die Körner tragen, bis sie groß genug sind, um zu fallen. Hagel tritt häufig im wärmeren Halbjahr auf, ist aber nicht auf den Sommer beschränkt.`;
         precipInterval = setInterval(() => {
             const hail = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             const x = 120 + Math.random() * 110;
@@ -379,8 +379,60 @@ function topicInit() {
     clearInterval(gulfInterval);
     clearWindSimulation();
     ensureWeatherAccessibility();
+    initCoastModel();
     updateWeatherSim();
     setTimeout(() => {
         if(document.getElementById('instrumentAnimation')) showInstrumentDetailed('thermometer');
     }, 200);
+}
+
+function initCoastModel() {
+    const host = document.querySelector('[data-coast-model]');
+    if (!host || host.dataset.initialized) return;
+    host.dataset.initialized = 'true';
+    const select = host.querySelector('select');
+    const result = host.querySelector('[data-coast-result]');
+    const status = host.querySelector('[data-coast-status]');
+    const cases = {
+        day: [
+            'Tag-Fall: wärmeres Land. Das Modell zeigt eine Seebrise.',
+            'Aufsteigen: über dem Land.',
+            'Rückweg in der Höhe: vom Land zum Wasser.',
+            'Absinken: über dem Wasser.',
+            'Bodennaher Wind: vom Wasser zum Land.'
+        ],
+        night: [
+            'Nacht-Fall: kühleres Land. Das Modell zeigt eine Landbrise.',
+            'Aufsteigen: über dem Wasser.',
+            'Rückweg in der Höhe: vom Wasser zum Land.',
+            'Absinken: über dem Land.',
+            'Bodennaher Wind: vom Land zum Wasser.'
+        ],
+        equal: [
+            'Vergleichsfall: gleiche Oberflächentemperatur. Dieser örtliche Temperaturgegensatz fehlt; andere Windantriebe bleiben möglich.',
+            'Aufsteigen: keine Seite durch diesen Temperaturgegensatz bevorzugt.',
+            'Rückweg in der Höhe: keine Richtung aus diesem Vergleich ableitbar.',
+            'Absinken: keine Seite durch diesen Temperaturgegensatz bevorzugt.',
+            'Bodennaher Wind: keine Richtung aus diesem Vergleich ableitbar; keine allgemeine Windstille vorhergesagt.'
+        ]
+    };
+    const hide = () => {
+        result.hidden = true;
+        status.textContent = 'Notiere deine Vermutung für die gewählte Bedingung und prüfe dann das Modell.';
+    };
+    select.addEventListener('change', hide);
+    host.querySelector('[data-coast-check]').addEventListener('click', () => {
+        const values = cases[select.value];
+        if (!values) return;
+        ['explanation', 'rise', 'upper', 'sink', 'ground'].forEach((key, i) => {
+            host.querySelector('[data-coast-' + key + ']').textContent = values[i];
+        });
+        result.hidden = false;
+        status.textContent = values[0] + ' ' + values[4];
+    });
+    host.querySelector('[data-coast-reset]').addEventListener('click', () => {
+        select.value = 'day';
+        hide();
+        select.focus();
+    });
 }

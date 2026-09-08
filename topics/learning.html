@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lernen und Prüfungsstoff · SciVerse</title>
+<link rel="stylesheet" href="../css/learning.css"><script src="../js/curriculum.js"></script><script src="../js/chapter-revisions.js"></script><script src="../js/chapter-title-index.js"></script><script src="../js/learning.js" defer></script></head>
+<body><main>
+<header><p class="eyebrow">SciVerse · Mittelschule Wien</p><h1>Was möchtest du lernen?</h1>
+<nav aria-label="Lernweg" class="modes"><button data-mode="learn" aria-pressed="true">Neues lernen</button><button data-mode="review" aria-pressed="false">Prüfung vorbereiten</button><button data-mode="teach" aria-pressed="false">Unterricht planen</button></nav>
+<p id="mode-help">Wähle dein Fach und deine Klasse. Öffne ein Kapitel und arbeite in deinem Tempo.</p></header>
+<section class="filters" aria-label="Kapitel finden"><label><span id="subject-label">Fach</span><select id="subject"><option value="">Alle Fächer</option></select></label><label><span id="grade-label">Klasse</span><select id="grade"><option value="">Alle Klassen</option><option value="5">1. Klasse · 5. Schulstufe</option><option value="6">2. Klasse · 6. Schulstufe</option><option value="7">3. Klasse · 7. Schulstufe</option><option value="8">4. Klasse · 8. Schulstufe</option></select></label><label><span id="search-label">Kapitel suchen</span><input id="search" type="search" placeholder="z. B. Licht, Brüche, Wald"></label></section>
+<div class="layout"><section aria-label="Kapitel"><p id="count" role="status" aria-live="polite">Kapitel werden geladen …</p><div id="chapters"></div></section>
+<aside id="plan"><h2>Mein Prüfungsstoff</h2><p id="plan-help">Füge Kapitel hinzu und ordne sie mit „Nach oben“ und „Nach unten“. Diese Reihenfolge gilt auch im geteilten Link und beim Wiederholen.</p><p id="plan-link-warning" role="status" hidden></p><ul id="unavailable-chapters" hidden></ul><ol id="selected"></ol><p id="plan-progress" role="status"></p>
+<div class="actions"><button id="share">Link zur Stoffliste erstellen</button><button id="print">Stoffliste drucken</button></div>
+<p id="content-status" role="status" aria-live="polite"></p><button id="retry-content" type="button" hidden>Lernziele erneut laden</button>
+<label id="share-wrap" hidden><span id="share-label">Link zum Kopieren</span><input id="share-url" readonly></label><p id="notice" role="status" aria-live="polite"></p>
+<details><summary id="storage-heading">Wie wird mein Fortschritt gespeichert?</summary><p id="storage-explanation">Ergebnisse und deine Stoffliste bleiben in diesem Browser auf diesem Gerät. Sie werden nicht an deine Lehrkraft gesendet. Ein geteilter Link enthält nur die ausgewählten Kapitel, keine Ergebnisse. Ein Quiz ist eine Lernhilfe und keine Schulnote.</p></details></aside></div>
+<footer><p id="curriculum-note">Orientierung am österreichischen Mittelschullehrplan. Welche Kapitel und Vertiefungen zu deiner Prüfung gehören, legt deine Lehrkraft fest.</p><a id="curriculum-link" href="https://www.bmb.gv.at/Themen/schule/schulpraxis/lp/lp_ms.html" target="_blank" rel="noopener">Lehrplan der Mittelschule</a></footer>
+</main></body></html>

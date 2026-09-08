@@ -1,6 +1,8 @@
 // Logic for Optik 1: Licht & Schatten overhaul
 
 function topicInit() {
+    initSeeingPath();
+    initPinholeCamera();
     updateShadow1();
     updateShadow2();
     updateEclipse1();
@@ -518,4 +520,64 @@ function predictSlit(choice) {
     } else {
         feedback.innerText = "Das klingt zuerst logisch. Teste den Regler: Bei engem Spalt zeigt Licht seine Wellennatur.";
     }
+}
+
+function initSeeingPath(){
+ const zone=document.querySelector('[data-seeing-path]');if(!zone||zone.dataset.initialized)return;zone.dataset.initialized='true';
+ const lamp=zone.querySelector('[data-seeing-lamp]'),block=zone.querySelector('[data-seeing-block]'),status=zone.querySelector('[data-seeing-status]');let on=true,blocked=false;
+ const show=(selector,visible)=>zone.querySelector(selector).style.display=visible?'':'none';
+ const render=()=>{
+  lamp.setAttribute('aria-pressed',String(on));block.setAttribute('aria-pressed',String(blocked));
+  show('[data-seeing-incoming]',on);show('[data-seeing-scattered]',on);show('[data-seeing-arrival]',on&&!blocked);show('[data-seeing-barrier]',blocked);
+  zone.querySelector('[data-seeing-source]').setAttribute('fill',on?'#fbbf24':'#94a3b8');zone.querySelector('[data-seeing-card]').setAttribute('fill',on?'#fbbf24':'#94a3b8');
+  const explanation=!on?'Die Lampe ist aus. Ohne andere Lichtquelle ist die Karte nicht beleuchtet; von ihr gelangt kein Licht ins Auge.':blocked?'Die Karte ist beleuchtet. Sie streut Licht, aber die Blende unterbricht den betrachteten Weg zum Auge. Das Auge sieht die Karte im Modell nicht.':'Die Karte ist beleuchtet. Licht gelangt von der Lampe zur Karte und von dort ins Auge. Das Auge sieht die Karte.';
+  status.textContent=explanation;zone.querySelector('[data-seeing-diagram]').setAttribute('aria-label','Lichtweg-Modell. '+explanation);
+ };
+ lamp.addEventListener('click',()=>{on=!on;render();});block.addEventListener('click',()=>{blocked=!blocked;render();});zone.querySelector('[data-seeing-reset]').addEventListener('click',()=>{on=true;blocked=false;render();});render();
+}
+
+function initPinholeCamera() {
+    const zone = document.querySelector('[data-pinhole]');
+    if (!zone || zone.dataset.initialized) return;
+    zone.dataset.initialized = 'true';
+    const get = name => zone.querySelector('[data-pinhole-' + name + ']');
+    const objectControl = get('object'), screenControl = get('screen');
+    const attrs = (name, values) => Object.entries(values).forEach(([key, value]) => get(name).setAttribute(key, value));
+    const format = value => value.toLocaleString('de-DE', { maximumFractionDigits: 1 });
+    const render = () => {
+        const g = Number(objectControl.value), b = Number(screenControl.value);
+        const objectX = 260 - 4 * g, screenX = 260 + 4 * b;
+        const imageA = 140 + 40 * b / g, imageB = 140 - 40 * b / g;
+        attrs('object-line', { x1: objectX, x2: objectX, y1: 100, y2: 180 });
+        attrs('screen-line', { x1: screenX, x2: screenX, y1: 30, y2: 250 });
+        attrs('ray-a', { x1: objectX, y1: 100, x2: screenX, y2: imageA });
+        attrs('ray-b', { x1: objectX, y1: 180, x2: screenX, y2: imageB });
+        attrs('a', { cx: objectX, cy: 100 });
+        attrs('b', { cx: objectX, cy: 180 });
+        attrs('image-a', { cx: screenX, cy: imageA });
+        attrs('image-b', { cx: screenX, cy: imageB });
+        attrs('label-a', { x: objectX - 22, y: 105 });
+        attrs('label-b', { x: objectX - 22, y: 185 });
+        attrs('label-image-a', { x: screenX + 12, y: imageA + 5 });
+        attrs('label-image-b', { x: screenX + 12, y: imageB + 5 });
+        attrs('label-object', { x: objectX - 40 });
+        attrs('label-screen', { x: screenX - 25 });
+        for (const [name, control, value] of [['object', objectControl, g], ['screen', screenControl, b]]) {
+            get(name + '-value').textContent = format(value) + ' cm';
+            control.setAttribute('aria-valuetext', format(value) + ' Zentimeter');
+        }
+        const explanation = 'Gegenstand–Loch: ' + format(g) + ' cm; Loch–Schirm: ' + format(b) +
+            ' cm. Der Abstand A–B am Gegenstand beträgt 20 cm, der Abstand A′–B′ im Bild ' + format(20 * b / g) +
+            ' cm. A oben wird unten abgebildet, B unten wird oben abgebildet. Die Lichtwege verlaufen gerade durch das Loch.';
+        get('status').textContent = explanation;
+        get('diagram').setAttribute('aria-label', 'Lochkamera, Seitenansicht. ' + explanation);
+    };
+    objectControl.addEventListener('input', render);
+    screenControl.addEventListener('input', render);
+    get('reset').addEventListener('click', () => {
+        objectControl.value = '40';
+        screenControl.value = '20';
+        render();
+    });
+    render();
 }

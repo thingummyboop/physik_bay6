@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Rasterwerkstatt – Schleifen und Bedingungen</title>
+<style>body{font:1rem/1.6 system-ui,sans-serif;max-width:54rem;margin:auto;padding:1.2rem;color:#172554;background:#f8fafc}form{display:flex;gap:1rem;flex-wrap:wrap;align-items:end}label{display:grid}input,button{font:inherit;padding:.5rem}input{width:7rem}button{background:#172554;color:white;border:2px solid #172554;border-radius:.3rem;cursor:pointer}a{color:#1d4ed8}:focus-visible{outline:3px solid #b45309;outline-offset:3px}table{border-collapse:collapse;background:white}td,th{border:1px solid #64748b;text-align:center;padding:.4rem;min-width:2rem}td[data-marked="true"]{background:#dbeafe}#grid{overflow:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:1rem}#status{min-height:3rem}</style>
+<main><h1>Rasterwerkstatt</h1><p>Die äußere Schleife besucht jede Zeile, die innere jede Spalte. Ein Feld erhält ein ●, wenn <strong>Zeile + Spalte ≤ Grenze UND Zeile ≠ Spalte</strong>. Sonst erscheint ·. Zeilen und Spalten beginnen bei 1.</p>
+<form id="controls"><label>Zeilen (1–6)<input id="rows" type="number" min="1" max="6" step="1" value="3" required></label><label>Spalten (1–6)<input id="cols" type="number" min="1" max="6" step="1" value="3" required></label><label>Grenze (0–12)<input id="limit" type="number" min="0" max="12" step="1" value="4" required></label><button type="submit">Raster berechnen</button><button id="reset" type="button">Ausgangswerte</button></form>
+<p id="status" role="status" aria-live="polite"></p><div id="grid" tabindex="0" role="region" aria-label="Berechnetes Raster"></div>
+<h2>Vorhersagen, ändern, prüfen</h2><ol><li>Sage für 3 Zeilen, 3 Spalten und Grenze 4 voraus, welche Felder markiert werden. Berechne dann.</li><li>Teste Grenze 0 und Grenze 12. Warum bleiben die Diagonalfelder trotzdem leer?</li><li>Lade die Datei über das Kapitel herunter. Öffne eine Kopie in einem reinen Texteditor, suche <code>function markiert</code> und ändere <code>zeile !== spalte</code> zu <code>zeile === spalte</code>. Speichere als HTML und öffne sie im Browser. Notiere vor dem Neuladen dein erwartetes Ergebnis.</li><li>Vergleiche beide Versionen mit denselben Eingaben. Dokumentiere eine Abweichung und ihre Ursache. Stelle danach die ursprüngliche Bedingung wieder her.</li></ol>
+<p>Die gesamte Anwendung läuft in dieser Datei. Sie benötigt kein Konto und sendet keine Eingaben. Eine Papierberechnung erklärt die Logik; zum Programmieren gehören zusätzlich das Ändern und Ausführen einer eigenen Dateikopie.</p>
+<h2>Aktuell ausgeführte Bedingung</h2><pre id="source"></pre><p>● = beide Bedingungen erfüllt; · = mindestens eine Bedingung nicht erfüllt. Die Zahlen in den Überschriften gehören nicht zum Raster.</p></main>
+<script>
+'use strict';
+function markiert(zeile, spalte, grenze) {
+  return zeile + spalte <= grenze && zeile !== spalte;
+}
+function raster(zeilen, spalten, grenze) {
+  const ergebnis = [];
+  for (let zeile = 1; zeile <= zeilen; zeile++) {
+    const felder = [];
+    for (let spalte = 1; spalte <= spalten; spalte++) {
+      felder.push(markiert(zeile, spalte, grenze));
+    }
+    ergebnis.push(felder);
+  }
+  return ergebnis;
+}
+function anzeigen(event) {
+  if (event) event.preventDefault();
+  const inputs = ['rows', 'cols', 'limit'].map(id => document.getElementById(id));
+  const values = inputs.map(input => input.value.trim() === '' ? NaN : Number(input.value));
+  const valid = values.every((n, i) => Number.isInteger(n) && n >= (i === 2 ? 0 : 1) && n <= (i === 2 ? 12 : 6));
+  const grid = document.getElementById('grid'), status = document.getElementById('status');
+  grid.replaceChildren();
+  if (!valid) { status.textContent = 'Gib ganze Zahlen ein: Zeilen und Spalten 1–6, Grenze 0–12.'; return; }
+  const [rows, cols, limit] = values, result = raster(rows, cols, limit);
+  const table = document.createElement('table'), caption = table.createCaption();
+  caption.textContent = `${rows} Zeilen, ${cols} Spalten, Grenze ${limit}`;
+  const head = table.createTHead().insertRow();
+  for (let col = 0; col <= cols; col++) { const th = document.createElement('th'); th.scope = 'col'; th.textContent = col === 0 ? 'Zeile / Spalte' : String(col); head.append(th); }
+  const body = table.createTBody(); let count = 0;
+  result.forEach((row, r) => { const tr = body.insertRow(), th = document.createElement('th'); th.scope = 'row'; th.textContent = String(r + 1); tr.append(th); row.forEach((marked, c) => { const td = tr.insertCell(); td.dataset.marked = String(marked); td.textContent = marked ? '●' : '·'; td.setAttribute('aria-label', `Zeile ${r + 1}, Spalte ${c + 1}: ${marked ? 'markiert' : 'nicht markiert'}`); if (marked) count++; }); });
+  grid.append(table); status.textContent = `${count} von ${rows * cols} Feldern markiert. Die innere Schleife prüft insgesamt ${rows * cols} Felder.`;
+}
+document.getElementById('controls').addEventListener('submit', anzeigen);
+document.getElementById('controls').addEventListener('input', () => { document.getElementById('grid').replaceChildren(); document.getElementById('status').textContent = 'Eingaben geändert. Berechne das Raster neu.'; });
+document.getElementById('reset').addEventListener('click', () => { document.getElementById('controls').reset(); anzeigen(); });
+document.getElementById('source').textContent = markiert.toString();
+anzeigen();
+</script></html>

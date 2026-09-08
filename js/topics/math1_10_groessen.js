@@ -1,6 +1,4 @@
-function checkLen(){var val = document.getElementById("len_input").value; if(val == 200){document.getElementById("len_feedback").innerText = "Perfekt! ⚽";} else {document.getElementById("len_feedback").innerText = "Leider falsch.";}}
-
-function checkTime(){var val = document.getElementById("time_input").value.toLowerCase().replace(/\s/g,''); if(val === "1h30min" || val === "1stunde30minuten"){document.getElementById("time_feedback").innerText = "Krass gut! 🕒";} else {document.getElementById("time_feedback").innerText = "Versuch's nochmal. 90 = 60 + 30.";}}
-
-
-function topicInit() {}
+function readWholeSize(id){const raw=document.getElementById(id).value.trim();return /^\d+$/.test(raw)&&Number.isSafeInteger(Number(raw))?Number(raw):null;}
+function checkLen(){const value=readWholeSize('len_input'),out=document.getElementById('len_feedback');out.textContent=value===null?'Gib eine ganze Anzahl Zentimeter ein.':value===200?'Richtig: 2 · 100 cm = 200 cm. Die Länge bleibt gleich.':'1 m = 100 cm. Rechne für 2 m zweimal 100 cm, nicht zweimal 10 cm.';}
+function checkTime(){const h=readWholeSize('time_input'),m=readWholeSize('time_minutes'),out=document.getElementById('time_feedback');if(h===null||m===null){out.textContent='Fülle beide Felder mit ganzen Zahlen ab 0 aus.';return;}if(m>59){out.textContent='Bündle jeweils 60 Minuten zu einer vollen Stunde. Im Minutenfeld bleiben 0 bis 59 Minuten.';return;}out.textContent=h===1&&m===30?'Richtig: 1 · 60 + 30 = 90 Minuten.':h>1000000?'Prüfe die Stunden: Schon 2 Stunden sind mehr als 90 Minuten.':h+' · 60 + '+m+' = '+(h*60+m)+' Minuten. Gesucht sind 90 Minuten. Zerlege 90 in volle 60 Minuten und den Rest.';}
+function topicInit(){for(const [id,check,output]of [['len_input',checkLen,'len_feedback'],['time_input',checkTime,'time_feedback'],['time_minutes',checkTime,'time_feedback']]){const input=document.getElementById(id);if(!input||input.dataset.sizeBound)continue;input.dataset.sizeBound='true';input.addEventListener('input',()=>document.getElementById(output).textContent='');input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check();}});}}

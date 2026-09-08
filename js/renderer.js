@@ -1,6 +1,19 @@
 // Physik-Abenteuer Topic Renderer
 const UI_TRANSLATIONS = {
-    en: {
+    "en": {
+        "Verständnischeck": "Understanding check",
+        "Verständnischeck zum Kapitel": "Chapter understanding check",
+        "Kapitel überarbeitet · Prüfe dein Wissen zur aktuellen Fassung.": "Chapter updated · Check your understanding of the current version.",
+        "Bester Versuch: ": "Best attempt: ",
+        "Unbegrenzt üben": "Unlimited practice",
+        "Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.": "The check includes all planned assessment questions for this chapter. Complete the practical learning tasks as well.",
+        "Passenden Abschnitt wiederholen": "Review the relevant section",
+        "{correct} von {total} richtig:": "{correct} of {total} correct:",
+        "Dein Ergebnis konnte in diesem Browser nicht gespeichert werden. Die Auswertung bleibt hier sichtbar. Notiere dein Ergebnis und die Hinweise vor dem Schließen; beim nächsten Öffnen fehlt dieser Versuch im Lernfortschritt.": "Your result could not be saved in this browser. The feedback remains visible here. Note your result and the advice before closing; this attempt will be missing from your progress next time.",
+        "Dein Kapiteltestergebnis wurde gespeichert. Die zusätzlichen Spielpunkte konnten nicht vollständig aktualisiert werden.": "Your chapter test result was saved. The additional game points could not be fully updated.",
+        "Dein Ergebnis wurde in diesem Browser gespeichert.": "Your result was saved in this browser.",
+        "Gut gemacht. Wiederhole später, um dein Wissen zu festigen.": "Well done. Review later to strengthen your learning.",
+        "Schau dir die Rückmeldungen an und übe die unsicheren Inhalte. Du kannst jederzeit erneut versuchen.": "Read the feedback and practise the topics you are unsure about. You can try again at any time.",
         "Kapitelquiz": "Chapter quiz",
         "Übung": "Practice",
         "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "The chapter quiz for this chapter is being prepared. The practice tasks in the text remain visible for training.",
@@ -29,7 +42,7 @@ const UI_TRANSLATIONS = {
         "Noch einmal lernen": "Study again",
         "Neuen Versuch starten": "Start a new attempt"
     },
-    ar: {
+    "ar": {
         "Kapitelquiz": "اختبار الفصل",
         "Übung": "تدريب",
         "Aufgaben": "مهام",
@@ -44,9 +57,27 @@ const UI_TRANSLATIONS = {
         "Bestanden": "تم النجاح",
         "Noch nicht bestanden": "لم يتم النجاح بعد",
         "Noch einmal lernen": "تعلّم مرة أخرى",
-        "Neuen Versuch starten": "بدء محاولة جديدة"
+        "Neuen Versuch starten": "بدء محاولة جديدة",
+        "Verständnischeck": "اختبار الفهم",
+        "Verständnischeck zum Kapitel": "اختبار فهم الفصل",
+        "Kapitel überarbeitet · Prüfe dein Wissen zur aktuellen Fassung.": "تم تحديث الفصل · اختبر فهمك للنسخة الحالية.",
+        "Bester Versuch: ": "أفضل محاولة: ",
+        "Unbegrenzt üben": "تدرّب بلا حدود",
+        "Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.": "يتضمن الاختبار جميع أسئلة التقييم المقررة لهذا الفصل. أنجز مهام التعلم العملية أيضًا.",
+        "Passenden Abschnitt wiederholen": "راجع القسم المناسب",
+        "{correct} von {total} richtig:": "إجابات صحيحة: {correct} من {total}:",
+        "Dein Ergebnis konnte in diesem Browser nicht gespeichert werden. Die Auswertung bleibt hier sichtbar. Notiere dein Ergebnis und die Hinweise vor dem Schließen; beim nächsten Öffnen fehlt dieser Versuch im Lernfortschritt.": "تعذّر حفظ نتيجتك في هذا المتصفح. يبقى التقييم ظاهرًا هنا. دوّن نتيجتك والملاحظات قبل الإغلاق؛ لن تظهر هذه المحاولة في تقدمك عند الفتح مجددًا.",
+        "Dein Kapiteltestergebnis wurde gespeichert. Die zusätzlichen Spielpunkte konnten nicht vollständig aktualisiert werden.": "تم حفظ نتيجة اختبار الفصل، لكن تعذّر تحديث نقاط اللعبة الإضافية بالكامل.",
+        "Dein Ergebnis wurde in diesem Browser gespeichert.": "تم حفظ نتيجتك في هذا المتصفح.",
+        "Gut gemacht. Wiederhole später, um dein Wissen zu festigen.": "أحسنت. راجع لاحقًا لتثبيت ما تعلمته.",
+        "Schau dir die Rückmeldungen an und übe die unsicheren Inhalte. Du kannst jederzeit erneut versuchen.": "اقرأ الملاحظات وتدرّب على ما لم تتقنه بعد. يمكنك المحاولة مجددًا في أي وقت.",
+        "Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.": "المهم هنا هو فهمك. يمكنك تغيير جميع الإجابات قبل التسليم. تنجح في الفصل إذا تجاوزت نتيجتك 70%.",
+        "Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.": "تُخفى مواد التعلم أثناء الاختبار. اقرأ بعناية واختر إجاباتك، ثم سلّم عندما تنتهي.",
+        "Bitte beantworte zuerst Aufgabe": "أجب أولًا عن السؤال",
+        "Du kannst deine Antworten vor der Abgabe noch ändern.": "يمكنك تغيير إجاباتك قبل التسليم.",
+        "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "اختبار هذا الفصل قيد الإعداد. تبقى التدريبات داخل النص متاحة للتدرّب."
     },
-    uk: {
+    "uk": {
         "Kapitelquiz": "Тест до розділу",
         "Übung": "Вправа",
         "Aufgaben": "завдань",
@@ -61,26 +92,62 @@ const UI_TRANSLATIONS = {
         "Bestanden": "Складено",
         "Noch nicht bestanden": "Ще не складено",
         "Noch einmal lernen": "Повчитися ще",
-        "Neuen Versuch starten": "Почати нову спробу"
+        "Neuen Versuch starten": "Почати нову спробу",
+        "Verständnischeck": "Перевірка розуміння",
+        "Verständnischeck zum Kapitel": "Перевірка розуміння розділу",
+        "Kapitel überarbeitet · Prüfe dein Wissen zur aktuellen Fassung.": "Розділ оновлено · Перевір знання актуальної версії.",
+        "Bester Versuch: ": "Найкраща спроба: ",
+        "Unbegrenzt üben": "Тренуйся без обмежень",
+        "Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.": "Перевірка містить усі заплановані підсумкові запитання цього розділу. Виконай також практичні навчальні завдання.",
+        "Passenden Abschnitt wiederholen": "Повтори відповідну частину",
+        "{correct} von {total} richtig:": "Правильно: {correct} із {total}:",
+        "Dein Ergebnis konnte in diesem Browser nicht gespeichert werden. Die Auswertung bleibt hier sichtbar. Notiere dein Ergebnis und die Hinweise vor dem Schließen; beim nächsten Öffnen fehlt dieser Versuch im Lernfortschritt.": "Не вдалося зберегти результат у цьому браузері. Оцінювання залишається видимим тут. Запиши результат і поради перед закриттям; під час наступного відкриття цієї спроби не буде в навчальному прогресі.",
+        "Dein Kapiteltestergebnis wurde gespeichert. Die zusätzlichen Spielpunkte konnten nicht vollständig aktualisiert werden.": "Результат перевірки розділу збережено. Додаткові ігрові бали не вдалося повністю оновити.",
+        "Dein Ergebnis wurde in diesem Browser gespeichert.": "Твій результат збережено в цьому браузері.",
+        "Gut gemacht. Wiederhole später, um dein Wissen zu festigen.": "Добре виконано. Повтори пізніше, щоб закріпити знання.",
+        "Schau dir die Rückmeldungen an und übe die unsicheren Inhalte. Du kannst jederzeit erneut versuchen.": "Прочитай пояснення й потренуй те, у чому ще не впевнений або не впевнена. Можна спробувати знову будь-коли.",
+        "Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.": "Тут важливе розуміння. Можна змінити всі відповіді перед надсиланням. Для успішного проходження потрібно понад 70%.",
+        "Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.": "Під час тесту навчальні матеріали приховані. Уважно читай, вибирай відповіді й надсилай лише після завершення.",
+        "Bitte beantworte zuerst Aufgabe": "Спочатку дай відповідь на завдання",
+        "Du kannst deine Antworten vor der Abgabe noch ändern.": "Перед надсиланням можна змінити відповіді.",
+        "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "Тест до цього розділу готується. Вправи в тексті залишаються доступними для тренування."
     },
-    sr: {
-        "Kapitelquiz": "Квиз поглавља",
-        "Übung": "Вежба",
-        "Aufgaben": "задатака",
-        "bestanden": "положено",
-        "Kapitelquiz öffnen": "Отвори квиз",
-        "Zurück zum Kapitel": "Назад на поглавље",
-        "Abgeben": "Предај",
-        "Kein Thema ausgewählt.": "Није изабрана тема.",
-        "Arbeitsblätter zum Üben drucken": "Одштампај вежбе",
-        "Richtig": "Тачно",
-        "Noch nicht": "Још не",
-        "Bestanden": "Положено",
-        "Noch nicht bestanden": "Још није положено",
-        "Noch einmal lernen": "Поново учи",
-        "Neuen Versuch starten": "Покрени нови покушај"
+    "sr": {
+        "Kapitelquiz": "Provera poglavlja",
+        "Übung": "Vežba",
+        "Aufgaben": "zadataka",
+        "bestanden": "položeno",
+        "Kapitelquiz öffnen": "Otvori proveru",
+        "Zurück zum Kapitel": "Nazad na poglavlje",
+        "Abgeben": "Predaj",
+        "Kein Thema ausgewählt.": "Nije izabrana tema.",
+        "Arbeitsblätter zum Üben drucken": "Odštampaj vežbe",
+        "Richtig": "Tačno",
+        "Noch nicht": "Još ne",
+        "Bestanden": "Položeno",
+        "Noch nicht bestanden": "Još nije položeno",
+        "Noch einmal lernen": "Ponovo uči",
+        "Neuen Versuch starten": "Pokreni novi pokušaj",
+        "Verständnischeck": "Provera razumevanja",
+        "Verständnischeck zum Kapitel": "Provera razumevanja poglavlja",
+        "Kapitel überarbeitet · Prüfe dein Wissen zur aktuellen Fassung.": "Poglavlje je ažurirano · Proveri znanje o trenutnoj verziji.",
+        "Bester Versuch: ": "Najbolji pokušaj: ",
+        "Unbegrenzt üben": "Vežbaj bez ograničenja",
+        "Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.": "Provera obuhvata sva predviđena završna pitanja ovog poglavlja. Uradi i praktične zadatke za učenje.",
+        "Passenden Abschnitt wiederholen": "Ponovi odgovarajući odeljak",
+        "{correct} von {total} richtig:": "Tačno: {correct} od {total}:",
+        "Dein Ergebnis konnte in diesem Browser nicht gespeichert werden. Die Auswertung bleibt hier sichtbar. Notiere dein Ergebnis und die Hinweise vor dem Schließen; beim nächsten Öffnen fehlt dieser Versuch im Lernfortschritt.": "Rezultat nije mogao da se sačuva u ovom pregledaču. Objašnjenja ostaju vidljiva ovde. Zapiši rezultat i savete pre zatvaranja; pri sledećem otvaranju ovaj pokušaj neće biti prikazan u napretku.",
+        "Dein Kapiteltestergebnis wurde gespeichert. Die zusätzlichen Spielpunkte konnten nicht vollständig aktualisiert werden.": "Rezultat provere je sačuvan. Dodatni poeni u igri nisu mogli potpuno da se ažuriraju.",
+        "Dein Ergebnis wurde in diesem Browser gespeichert.": "Rezultat je sačuvan u ovom pregledaču.",
+        "Gut gemacht. Wiederhole später, um dein Wissen zu festigen.": "Dobro urađeno. Ponovi kasnije da utvrdiš znanje.",
+        "Schau dir die Rückmeldungen an und übe die unsicheren Inhalte. Du kannst jederzeit erneut versuchen.": "Pročitaj objašnjenja i vežbaj ono u šta još nisi siguran ili sigurna. Možeš ponovo pokušati u bilo kom trenutku.",
+        "Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.": "Ovde je važno razumevanje. Sve odgovore možeš menjati pre predaje. Za uspešno završeno poglavlje potrebno je više od 70%.",
+        "Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.": "Sadržaj za učenje je skriven tokom provere. Pažljivo čitaj, izaberi odgovore i predaj tek kada završiš.",
+        "Bitte beantworte zuerst Aufgabe": "Prvo odgovori na zadatak",
+        "Du kannst deine Antworten vor der Abgabe noch ändern.": "Odgovore možeš promeniti pre predaje.",
+        "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "Provera za ovo poglavlje se priprema. Zadaci u tekstu ostaju dostupni za vežbanje."
     },
-    tr: {
+    "tr": {
         "Kapitelquiz": "Bölüm testi",
         "Übung": "Alıştırma",
         "Aufgaben": "görev",
@@ -95,12 +162,37 @@ const UI_TRANSLATIONS = {
         "Bestanden": "Geçildi",
         "Noch nicht bestanden": "Henüz geçilmedi",
         "Noch einmal lernen": "Tekrar çalış",
-        "Neuen Versuch starten": "Yeni deneme başlat"
+        "Neuen Versuch starten": "Yeni deneme başlat",
+        "Verständnischeck": "Anlama kontrolü",
+        "Verständnischeck zum Kapitel": "Bölüm anlama kontrolü",
+        "Kapitel überarbeitet · Prüfe dein Wissen zur aktuellen Fassung.": "Bölüm güncellendi · Güncel sürümdeki bilgini kontrol et.",
+        "Bester Versuch: ": "En iyi deneme: ",
+        "Unbegrenzt üben": "Sınırsız alıştırma",
+        "Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.": "Kontrol, bu bölüm için planlanan tüm değerlendirme sorularını içerir. Uygulamalı öğrenme görevlerini de tamamla.",
+        "Passenden Abschnitt wiederholen": "İlgili kısmı tekrar et",
+        "{correct} von {total} richtig:": "Doğru yanıt: {correct} / {total}:",
+        "Dein Ergebnis konnte in diesem Browser nicht gespeichert werden. Die Auswertung bleibt hier sichtbar. Notiere dein Ergebnis und die Hinweise vor dem Schließen; beim nächsten Öffnen fehlt dieser Versuch im Lernfortschritt.": "Sonucun bu tarayıcıya kaydedilemedi. Değerlendirme burada görünür kalır. Kapatmadan önce sonucunu ve önerileri not al; yeniden açtığında bu deneme ilerlemende görünmeyecek.",
+        "Dein Kapiteltestergebnis wurde gespeichert. Die zusätzlichen Spielpunkte konnten nicht vollständig aktualisiert werden.": "Bölüm testi sonucun kaydedildi. Ek oyun puanları tamamen güncellenemedi.",
+        "Dein Ergebnis wurde in diesem Browser gespeichert.": "Sonucun bu tarayıcıya kaydedildi.",
+        "Gut gemacht. Wiederhole später, um dein Wissen zu festigen.": "İyi iş çıkardın. Öğrendiklerini pekiştirmek için daha sonra tekrar et.",
+        "Schau dir die Rückmeldungen an und übe die unsicheren Inhalte. Du kannst jederzeit erneut versuchen.": "Geri bildirimleri oku ve emin olmadığın konuları çalış. İstediğin zaman yeniden deneyebilirsin.",
+        "Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.": "Burada önemli olan anlamandır. Teslim etmeden önce tüm yanıtlarını değiştirebilirsin. Bölümü geçmek için %70’ten fazlası gerekir.",
+        "Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.": "Test sırasında öğrenme içeriği gizlenir. Dikkatle oku, yanıtlarını seç ve bitirince teslim et.",
+        "Bitte beantworte zuerst Aufgabe": "Önce şu soruyu yanıtla:",
+        "Du kannst deine Antworten vor der Abgabe noch ändern.": "Teslim etmeden önce yanıtlarını değiştirebilirsin.",
+        "Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.": "Bu bölümün testi hazırlanıyor. Metindeki alıştırmalar çalışmak için kullanılabilir."
     }
 };
 
+function readRendererSetting(key) {
+    try {
+        if (window.parent !== window && typeof window.parent.readShellSetting === 'function') return window.parent.readShellSetting(key);
+    } catch { /* Cross-origin hosts may deny parent access. */ }
+    try { return localStorage.getItem(key); } catch { return null; }
+}
+
 function uiText(text) {
-    const lang = localStorage.getItem('physik_lang') || 'de';
+    const lang = readRendererSetting('physik_lang') || 'de';
     return (UI_TRANSLATIONS[lang] && UI_TRANSLATIONS[lang][text]) || text;
 }
 
@@ -855,15 +947,15 @@ function getBioScenario(prompt, type) {
     }
     if (type === 'data') {
         if (/puls|atmung|sauerstoff|kreislauf/.test(lower)) {
-            return { labels: ['Ruhe', 'Stiegen', 'Laufen'], values: [72, 98, 132], unit: 'Puls', conclusion: 'Mit Bewegung steigt der Puls, weil Muskeln mehr Sauerstoff brauchen.' };
+            return { labels: ['Ruhe', 'Stiegen', 'Laufen'], values: [72, 98, 132], unit: 'Schläge/min', conclusion: 'Im Beispiel liegt der Puls beim Laufen um 60 Schläge pro Minute über dem Ruhewert.', limitation: 'Fiktive Werte einer Übungsaufgabe, keine Normalwerte oder Gesundheitsbewertung. Die Tabelle allein erklärt keine Ursache.' };
         }
         if (/zeitlinie|erdgeschichte|fossil|millionen|milliarden/.test(lower)) {
-            return { labels: ['kurz', 'Mio.', 'Mrd.'], values: [8, 32, 116], unit: 'Zeit', conclusion: 'Milliarden Jahre brauchen im Modell sichtbar viel mehr Platz.' };
+            return { labels: ['1 Mio.', '100 Mio.', '1 Mrd.'], values: [1, 100, 1000], unit: 'Millionen Jahre', conclusion: 'Eine Milliarde Jahre entspricht 1000 Millionen Jahren und ist zehnmal so lang wie 100 Millionen Jahre.', limitation: 'Verglichen werden Zeitspannen, keine Fundalter. Der kleinste Balken ist maßstabsgetreu sehr niedrig; die Zahlen bleiben lesbar.' };
         }
         if (/kartiere|versickerung|boden|standort|lebensraum|feuchtigkeit/.test(lower)) {
-            return { labels: ['Asphalt', 'Beet', 'Laub'], values: [1, 8, 6], unit: 'Funde', conclusion: 'Feuchte, lockere und bewachsene Stellen zeigen mehr Lebensraum-Hinweise.' };
+            return { labels: ['Asphalt', 'Beet', 'Laub'], values: [1, 8, 6], unit: 'gezählte Tiere', conclusion: 'Im Beispiel wurden im Beet acht Tiere gefunden, zwei mehr als unter Laub.', limitation: 'Fiktive Zählung mit gleicher Suchzeit und Fläche. Tierzahlen sind keine Artenzahlen; mögliche Ursachen benötigen weitere Untersuchungen.' };
         }
-        return { labels: ['A', 'B', 'C'], values: [3, 9, 5], unit: 'Daten', conclusion: 'Das Muster wird erst klar, wenn alle Werte verglichen werden.' };
+        return { labels: ['A', 'B', 'C'], values: [3, 9, 5], unit: 'gezählte Pflanzen', conclusion: 'In Probe B wurden neun Pflanzen gezählt, dreimal so viele wie in Probe A.', limitation: 'Fiktive gleich große Probeflächen mit derselben Zählregel. Die Werte zeigen Pflanzenzahlen, keine Artenvielfalt und keine gesicherte Ursache.' };
     }
     if (type === 'experiment') {
         return {
@@ -901,9 +993,9 @@ function getBioInsightActions(setup, scenario, topicId, sectionIndex, gameIndex)
             { text: 'Beide ohne Prüfung gleich behandeln', correct: false, state: 'middle', note: 'Quellen sind nicht automatisch gleich stark.' }
         ],
         data: [
-            { text: 'Alle Werte vergleichen und mit einer Zahl begründen', correct: true, state: 'right', note: scenario.conclusion },
-            { text: 'Nur den ersten Wert anschauen', correct: false, state: 'left', note: 'Ein einzelner Wert zeigt noch kein Muster.' },
-            { text: 'Die Werte passend zur Meinung drehen', correct: false, state: 'middle', note: 'Daten müssen ehrlich gelesen werden.' }
+            { text: scenario.conclusion, correct: true, state: 'right', note: scenario.limitation },
+            { text: `${scenario.labels?.[0]} hat den größten dargestellten Wert.`, correct: false, state: 'left', note: 'Vergleiche die Zahlen über allen drei Balken. Der erste Wert ist hier kleiner als die beiden anderen.' },
+            { text: 'Die drei dargestellten Werte sind gleich groß.', correct: false, state: 'middle', note: 'Die Zahlen und die Balkenhöhen unterscheiden sich. Vergleiche die Werte in derselben Einheit.' }
         ],
         model: [
             { text: 'Modell nutzen und seine Grenze nennen', correct: true, state: 'right', note: scenario.note },
@@ -943,13 +1035,14 @@ function buildBioInsightVisual(setup, scenario) {
     if (setup.type === 'data') {
         const max = Math.max(...scenario.values, 1);
         const bars = scenario.values.map((value, index) => {
-            const h = 24 + (value / max) * 118;
+            const h = Math.round((value / max) * 1420) / 10;
             const x = 158 + index * 152;
             const y = 188 - h;
             const target = value === max ? 'right' : index === 0 ? 'left' : 'middle';
             return `<g data-stage-target="${target}" class="bio-stage-target"><rect x="${x}" y="${y.toFixed(1)}" width="74" height="${h.toFixed(1)}" rx="10" class="bio-data-bar"/><text x="${x + 37}" y="${y - 10}" text-anchor="middle" class="bio-svg-title">${escapeHtml(value)}</text><text x="${x + 37}" y="220" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.labels[index])}</text></g>`;
         }).join('');
-        return `<svg viewBox="0 0 760 260" role="img" aria-label="Ein kleines Balkendiagramm zum Auftrag"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><line x1="110" y1="188" x2="650" y2="188" class="bio-chart-axis"/><line x1="110" y1="54" x2="110" y2="188" class="bio-chart-axis"/><text x="116" y="44" class="bio-svg-title">${escapeHtml(scenario.unit)}</text>${bars}<text x="380" y="244" text-anchor="middle" class="bio-insight-graphic-label">Welche Aussage passt zu den Daten?</text></svg>`;
+        const description = `Fiktive Beispieldaten (${scenario.unit}): ${scenario.labels.map((label, index) => `${label}: ${scenario.values[index]}`).join('; ')}. Balkenhöhen beginnen bei null.`;
+        return `<svg viewBox="0 0 760 260" role="img" aria-label="${escapeHtmlAttr(description)}"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><line x1="110" y1="188" x2="650" y2="188" class="bio-chart-axis"/><line x1="110" y1="46" x2="110" y2="188" class="bio-chart-axis"/><text x="98" y="193" text-anchor="end" class="bio-svg-muted">0</text><text x="116" y="44" class="bio-svg-title">${escapeHtml(scenario.unit)}</text>${bars}<text x="380" y="244" text-anchor="middle" class="bio-insight-graphic-label">Fiktive Beispieldaten: Welche Aussage passt?</text></svg>`;
     }
     if (setup.type === 'experiment') {
         return `<svg viewBox="0 0 760 260" role="img" aria-label="Versuchsaufbau mit einer veränderten Variable"><rect x="18" y="18" width="724" height="224" rx="18" class="bio-stage-bg"/><rect x="86" y="146" width="588" height="38" rx="12" class="bio-lab-table"/><g data-stage-target="right" class="bio-stage-target"><rect x="118" y="70" width="130" height="76" rx="12" class="bio-experiment-pot"/><circle cx="183" cy="96" r="20" class="bio-factor-dot active"/><text x="183" y="134" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.variable)}</text></g><g data-stage-target="middle" class="bio-stage-target"><rect x="314" y="70" width="130" height="76" rx="12" class="bio-experiment-pot"/><circle cx="379" cy="96" r="20" class="bio-factor-dot"/><text x="379" y="134" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.constantA)}</text></g><g data-stage-target="left" class="bio-stage-target"><rect x="510" y="70" width="130" height="76" rx="12" class="bio-experiment-pot"/><circle cx="575" cy="96" r="20" class="bio-factor-dot"/><text x="575" y="134" text-anchor="middle" class="bio-svg-muted">${escapeHtml(scenario.constantB)}</text></g><text x="380" y="216" text-anchor="middle" class="bio-insight-graphic-label">${escapeHtml(scenario.question)}</text></svg>`;
@@ -975,6 +1068,7 @@ function buildBioInsightGame(prompt, topicId, sectionIndex, gameIndex) {
         <div class="bio-insight-game-head"><span class="bio-insight-game-kicker">Anwendungsspiel</span><h3>${escapeHtml(setup.title)}</h3></div>
         <p class="bio-insight-mission"><strong>Auftrag:</strong> ${escapeHtml(prompt)}</p>
         <div class="bio-insight-stage" data-bio-insight-stage data-state="idle">${buildBioInsightVisual(setup, scenario)}</div>
+        ${setup.type === 'data' ? `<p class="bio-data-context">${escapeHtml(scenario.limitation)} Welche Aussage wird durch die Zahlen gestützt?</p>` : ''}
         <div class="bio-graphic-actions" role="group" aria-label="Interaktive Entscheidung zum Auftrag">
             ${actions.map(action => `<button type="button" class="bio-insight-choice" data-bio-insight-action data-correct="${action.correct ? 'true' : 'false'}" data-visual-state="${escapeHtmlAttr(action.state)}" data-note="${escapeHtmlAttr(action.note)}">${escapeHtml(action.text)}</button>`).join('')}
         </div>
@@ -1008,7 +1102,7 @@ function handleBioInsightChoice(button) {
             target.classList.toggle('is-active', target.dataset.stageTarget === state);
         });
         const label = stage.querySelector('.bio-insight-graphic-label');
-        if (label && note) label.textContent = note;
+        if (label && note && !game.querySelector('.bio-data-context')) label.textContent = note;
     }
     if (isCorrect) {
         button.classList.add('is-correct');
@@ -1064,7 +1158,43 @@ function isCorrectAnswer(answer) {
 }
 
 function cleanQuestionText(question) {
-    return stripQuestionNumber(String(question || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim());
+    // Tags begin with a tag name immediately after '<'. Mathematical comparisons
+    // such as '1,41² < 2 und 1,42² > 2' must remain intact.
+    return stripQuestionNumber(String(question || '').replace(/<\/?[a-z][a-z0-9-]*(?:\s[^<>]*|\s*\/?)>/gi, ' ').replace(/\s+/g, ' ').trim());
+}
+
+function selectCurrentTopic(topicId, translatedTopic, germanTopic, language) {
+    if (language === 'de' || !germanTopic) return translatedTopic;
+    const revision = typeof window.chapterRevision === 'function' ? window.chapterRevision(topicId) : 0;
+    const translatedRevision = Number(translatedTopic?.sourceRevision ?? 0);
+    const outdated = revision > 0 && translatedRevision !== revision;
+    if (!translatedTopic || outdated || topicNeedsGermanInteractiveStructure(translatedTopic, germanTopic)) {
+        return { ...germanTopic, contentLanguage: germanTopic.contentLanguage || 'de', languageFallback: true };
+    }
+    return withCurrentInteractiveStructure(translatedTopic, germanTopic);
+}
+
+function addContentLanguageNotice(topic, language, container) {
+    const fallback = language !== 'de' && (topic.languageFallback || topic.contentLanguage === 'de');
+    container.lang = fallback ? 'de' : language;
+    container.dir = fallback || language !== 'ar' ? 'ltr' : 'rtl';
+    for (const id of ['topic-title', 'topic-subtitle']) {
+        const heading = document.getElementById(id);
+        if (heading) { heading.lang = container.lang; heading.dir = container.dir; }
+    }
+    if (!fallback) return;
+    const messages = {
+        en: 'This chapter is currently available in its updated German version. The translation is being updated. You can use all exercises and the chapter test.',
+        ar: 'هذا الفصل متاح حاليًا بنسخته الألمانية المحدّثة. الترجمة قيد التحديث. يمكنك استخدام جميع التمارين واختبار الفصل.',
+        uk: 'Зараз цей розділ доступний в оновленій німецькій версії. Переклад оновлюється. Усі вправи та тест розділу доступні.',
+        sr: 'Ово поглавље је тренутно доступно у ажурираној немачкој верзији. Превод се ажурира. Можеш да користиш све вежбе и тест поглавља.',
+        tr: 'Bu bölüm şu anda güncel Almanca sürümüyle sunulmaktadır. Çeviri güncelleniyor. Tüm alıştırmaları ve bölüm testini kullanabilirsin.'
+    };
+    const notice = document.createElement('p');
+    notice.className = 'card'; notice.dataset.contentLanguageNotice = 'true';
+    notice.lang = language; notice.dir = language === 'ar' ? 'rtl' : 'ltr';
+    notice.textContent = messages[language] || 'Dieses Kapitel ist derzeit in der aktuellen deutschen Fassung verfügbar. Die Übersetzung wird überarbeitet.';
+    container.prepend(notice);
 }
 
 function normalizeQuizQuestion(q, source, index) {
@@ -1085,6 +1215,7 @@ function normalizeQuizQuestion(q, source, index) {
     return {
         id: String(q.id || `${source}_${index}`),
         source,
+        sectionIndex: /^section_\d+$/.test(source) ? Number(source.slice(8)) : null,
         question,
         answers
     };
@@ -1111,7 +1242,12 @@ function collectChapterQuizQuestions(topic) {
     const topicQuestions = [];
     (topic.quizzes || []).forEach((q, quizIndex) => {
         if (q && q.practiceOnly) return;
-        addUnique(topicQuestions, normalizeQuizQuestion(q, 'topic', quizIndex));
+        const normalized = normalizeQuizQuestion(q, 'topic', quizIndex);
+        if (normalized) {
+            const sectionIndex = (topic.sections || []).findIndex(section => String(section.content || '').includes('{{QUIZ_' + q.id + '}}'));
+            normalized.sectionIndex = sectionIndex >= 0 ? sectionIndex : null;
+        }
+        addUnique(topicQuestions, normalized);
     });
 
     const diplomQuestions = [];
@@ -1120,19 +1256,23 @@ function collectChapterQuizQuestions(topic) {
     });
 
     const combined = [...diplomQuestions, ...sectionQuestions, ...topicQuestions];
-    return combined.slice(0, 12);
+    return combined;
 }
 
 function readChapterQuizResults() {
     try {
-        return JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+        const results = JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results') || '{}');
+        return results && typeof results === 'object' && !Array.isArray(results) ? results : {};
     } catch (error) {
         return {};
     }
 }
 
 function writeChapterQuizResults(results) {
-    localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(results || {}));
+    try {
+        localStorage.setItem('sciverse_chapter_quiz_results', JSON.stringify(results || {}));
+        return true;
+    } catch { return false; }
 }
 
 const CHAPTER_QUIZ_MAX_ATTEMPTS = 3;
@@ -1143,44 +1283,12 @@ function clampChapterAttempts(value) {
 }
 
 function getChapterQuizResult(topicId) {
-    const results = readChapterQuizResults();
-    const result = results[topicId] || { attemptsUsed: 0, attempts: 0, passed: false, bestPercent: 0 };
-    const now = Date.now();
-    let attemptsUsed = clampChapterAttempts(result.attemptsUsed ?? result.attempts ?? 0);
-    let lastAttemptAt = Number(result.lastAttemptAt || 0);
-    let changed = false;
-
-    if (!lastAttemptAt && attemptsUsed > 0) {
-        lastAttemptAt = now;
-        changed = true;
-    }
-
-    if (!result.passed && attemptsUsed > 0 && lastAttemptAt > 0) {
-        const restored = Math.floor(Math.max(0, now - lastAttemptAt) / CHAPTER_QUIZ_REFILL_MS);
-        if (restored > 0) {
-            attemptsUsed = Math.max(0, attemptsUsed - restored);
-            lastAttemptAt = attemptsUsed > 0 ? lastAttemptAt + restored * CHAPTER_QUIZ_REFILL_MS : 0;
-            changed = true;
-        }
-    }
-
-    const availableAttempts = Math.max(0, CHAPTER_QUIZ_MAX_ATTEMPTS - attemptsUsed);
-    result.attemptsUsed = attemptsUsed;
-    result.attempts = attemptsUsed;
-    result.availableAttempts = availableAttempts;
-    result.lastAttemptAt = lastAttemptAt;
-    result.nextRefillAt = attemptsUsed > 0 ? lastAttemptAt + CHAPTER_QUIZ_REFILL_MS : 0;
-    result.fullRefillAt = attemptsUsed > 0 ? lastAttemptAt + attemptsUsed * CHAPTER_QUIZ_REFILL_MS : 0;
-    if (result.lockUntil) {
-        result.lockUntil = 0;
-        changed = true;
-    }
-
-    if (changed) {
-        results[topicId] = result;
-        writeChapterQuizResults(results);
-    }
-    return result;
+    const stored = readChapterQuizResults()[topicId];
+    const result = (window.currentChapterResult ? window.currentChapterResult(topicId, stored) : stored) || {};
+    // Preserve earned results, but never gate practice behind time or points.
+    return { ...result, passed: Boolean(result.passed), bestPercent: Number(result.bestPercent || 0),
+        attemptsUsed: 0, attempts: 0, availableAttempts: CHAPTER_QUIZ_MAX_ATTEMPTS,
+        nextRefillAt: 0, fullRefillAt: 0, lockUntil: 0 };
 }
 
 function formatWaitTime(timestamp) {
@@ -1192,36 +1300,8 @@ function formatWaitTime(timestamp) {
 }
 
 function unlockChapterQuizWithPlus() {
-    const quiz = window.currentChapterQuiz;
-    if (!quiz) return;
-    const result = getChapterQuizResult(quiz.topicId);
-    if (result.passed || Number(result.availableAttempts || 0) > 0) return;
-
-    const cost = 25;
-    if (globalPhysikScore < cost) {
-        alert(`Du brauchst ${cost} Punkte, um sofort einen Versuch aufzufüllen.`);
-        return;
-    }
-
-    globalPhysikScore -= cost;
-    localStorage.setItem('physik_score', globalPhysikScore);
-    if (typeof updateScoreDisplays === 'function') updateScoreDisplays();
-
-    const attemptsUsed = Math.max(0, clampChapterAttempts(result.attemptsUsed) - 1);
-    const now = Date.now();
-    const results = readChapterQuizResults();
-    results[quiz.topicId] = {
-        ...result,
-        attemptsUsed,
-        attempts: attemptsUsed,
-        availableAttempts: CHAPTER_QUIZ_MAX_ATTEMPTS - attemptsUsed,
-        lastAttemptAt: attemptsUsed > 0 ? now : 0,
-        nextRefillAt: attemptsUsed > 0 ? now + CHAPTER_QUIZ_REFILL_MS : 0,
-        fullRefillAt: attemptsUsed > 0 ? now + attemptsUsed * CHAPTER_QUIZ_REFILL_MS : 0,
-        lockUntil: 0
-    };
-    writeChapterQuizResults(results);
-    location.reload();
+    // Compatibility with old cached markup: practice is now always free.
+    startChapterQuiz();
 }
 
 function getTopicSequence(topicId) {
@@ -1237,19 +1317,8 @@ function getTopicSequence(topicId) {
 }
 
 function isChapterQuizUnlocked(topicId) {
-    const sequence = getTopicSequence(topicId);
-    if (!sequence || sequence.index <= 0) return true;
-
-    const previous = sequence.topics[sequence.index - 1];
-    if (!previous) return true;
-
-    if (getChapterQuizResult(previous.id).passed) return true;
-    try {
-        const topicScores = JSON.parse(localStorage.getItem('physik_topic_scores') || '{}');
-        return Number(topicScores[previous.id] || 0) > 70;
-    } catch (error) {
-        return false;
-    }
+    // A teacher may assign any chapter; prerequisites are guidance, never locks.
+    return true;
 }
 
 function renderPracticeBox(q) {
@@ -1275,50 +1344,33 @@ function renderPracticeBox(q) {
     `;
 }
 
+function chapterQuizStatus(result) { return result.outdated ? uiText('Kapitel überarbeitet · Prüfe dein Wissen zur aktuellen Fassung.') : result.passed ? uiText('Bester Versuch: ') + Math.round(result.bestPercent || 0) + '% · ' + uiText('Unbegrenzt üben') : uiText('Unbegrenzt üben'); }
+
 function renderChapterQuizCard(topicId, topic, questions) {
     const result = getChapterQuizResult(topicId);
-    const unlocked = isChapterQuizUnlocked(topicId);
-    const attemptsAvailable = result.passed
-        ? CHAPTER_QUIZ_MAX_ATTEMPTS
-        : Math.max(0, Number(result.availableAttempts ?? (CHAPTER_QUIZ_MAX_ATTEMPTS - Number(result.attempts || 0))));
-    const attemptsUsed = clampChapterAttempts(result.attemptsUsed ?? result.attempts ?? 0);
-    const needsRefill = !result.passed && attemptsAvailable <= 0;
-
     if (!questions.length) {
         return `
             <div class="card chapter-quiz-card">
                 <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
-                <h2>Verständnischeck</h2>
+                <h2>${uiText('Verständnischeck')}</h2>
                 <p>${uiText('Für dieses Kapitel wird das Kapitelquiz gerade vorbereitet. Die Übungen im Text bleiben zum Trainieren sichtbar.')}</p>
             </div>
         `;
     }
 
-    const lockText = !unlocked
-        ? uiText('Dieses Kapitelquiz wird freigeschaltet, sobald du das vorherige Kapitelquiz bestanden hast.')
-        : needsRefill
-            ? `Du hast gerade keinen Versuch frei. Ein neuer Versuch kommt in ${formatWaitTime(result.nextRefillAt)} zurück. Wenn du nicht weiter probierst, sind in ${formatWaitTime(result.fullRefillAt)} wieder alle 3 Versuche verfügbar.`
-            : (!result.passed && attemptsUsed > 0 && result.nextRefillAt)
-                ? `${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(result.nextRefillAt)}.`
-                : '';
-
-    const buttonDisabled = !unlocked || needsRefill;
-    const status = result.passed
-        ? `Bestanden: ${Math.round(result.bestPercent || 0)}%`
-        : `${attemptsAvailable} / ${CHAPTER_QUIZ_MAX_ATTEMPTS} ${uiText('Versuchen verfügbar')}`;
+    const status = chapterQuizStatus(result);
 
     return `
         <div class="card chapter-quiz-card" id="chapter-quiz-card">
             <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
-            <h2>${escapeHtml(topic.chapterQuizTitle || 'Verständnischeck zum Kapitel')}</h2>
+            <h2>${escapeHtml(topic.chapterQuizTitle || uiText('Verständnischeck zum Kapitel'))}</h2>
             <p>${uiText('Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.')}</p>
+            <p>${uiText('Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.')}</p>
             <div class="chapter-quiz-meta">
-                <span>${escapeHtml(status)}</span>
+                <span data-chapter-quiz-status>${escapeHtml(status)}</span>
                 <span>${questions.length} ${uiText('Aufgaben')}</span>
             </div>
-            ${lockText ? `<p class="chapter-lock">${escapeHtml(lockText)}</p>` : ''}
-            ${needsRefill ? `<button type="button" onclick="unlockChapterQuizWithPlus()">${uiText('Für 25 Punkte einen Versuch auffüllen')}</button>` : ''}
-            <button id="chapter-quiz-launch" type="button" onclick="startChapterQuiz()" ${buttonDisabled ? 'disabled' : ''}>${uiText('Kapitelquiz öffnen')}</button>
+            <button id="chapter-quiz-launch" type="button" onclick="startChapterQuiz()">${uiText('Kapitelquiz öffnen')}</button>
         </div>
     `;
 }
@@ -1363,7 +1415,7 @@ function renderChapterQuizPanel(topicId, topic, questions) {
 async function renderTopic() {
     const params = new URLSearchParams(window.location.search);
     const topicId = params.get('topic');
-    const lang = localStorage.getItem('physik_lang') || 'de';
+    const lang = readRendererSetting('physik_lang') || 'de';
     document.documentElement.lang = lang;
 
     const container = document.getElementById('sections-container');
@@ -1379,26 +1431,22 @@ async function renderTopic() {
         let langData = await response.json();
         let topic = langData[topicId];
         let germanTopic = null;
+        let germanTopics = lang === 'de' ? langData : {};
 
         if (lang !== 'de') {
             const deRes = await fetch(`../lang/de.json?v=10.8`);
             const deData = await deRes.json();
             germanTopic = deData[topicId];
+            germanTopics = deData;
         }
 
-        // Fallback to German
-        if (!topic && germanTopic) {
-            topic = germanTopic;
-        }
+        topic = selectCurrentTopic(topicId, topic, germanTopic, lang);
 
         if (!topic) {
             showError(`Das Thema "${topicId}" wurde nicht gefunden.`);
             return;
         }
 
-        if (germanTopic) {
-            topic = withCurrentInteractiveStructure(topic, germanTopic);
-        }
 
         document.title = topic.title;
         document.getElementById('topic-title').innerHTML = topic.title;
@@ -1417,6 +1465,14 @@ async function renderTopic() {
             }
         } else {
             document.body.classList.remove('math-theme');
+            if (window.SCIVERSE_CURRICULUM?.physik?.topics.some(t => t.id === topicId)) {
+                const wsLink = document.createElement('a');
+                wsLink.className = 'worksheet-btn';
+                wsLink.textContent = '🖨️ ' + uiText('Arbeitsblätter zum Üben drucken');
+                wsLink.href = 'worksheet.html?topic=' + encodeURIComponent(topicId);
+                wsLink.target = '_blank'; wsLink.rel = 'noopener';
+                container.appendChild(wsLink);
+            }
         }
 
         const topicQuizMap = new Map((topic.quizzes || []).map(q => [q.id, q]));
@@ -1425,6 +1481,7 @@ async function renderTopic() {
         topic.sections.forEach((section, sectionIndex) => {
             const card = document.createElement('div');
             card.className = "card";
+            card.dataset.chapterSection = String(sectionIndex);
             
             let html = `<h2>${section.title}</h2>`;
             let content = section.content;
@@ -1479,6 +1536,16 @@ async function renderTopic() {
         repairGermanEncoding(quizWrapper);
         container.appendChild(quizWrapper);
         window.currentChapterQuiz = { topicId, topicTitle: topic.title, questions: chapterQuestions };
+        if (typeof enhanceCoreLearning === 'function') enhanceCoreLearning(topic, topicId, lang, id => selectCurrentTopic(id, langData[id], germanTopics[id], lang));
+        addContentLanguageNotice(topic, lang, container);
+        if (typeof buildLanguageWorkshop === 'function') buildLanguageWorkshop(topic, topicId);
+        if (typeof initGeoExperiments === 'function') initGeoExperiments();
+        if (typeof initArtWorkshops === 'function') initArtWorkshops();
+        if (typeof initMusicLabs === 'function') initMusicLabs();
+        if (typeof initMealPlanners === 'function') initMealPlanners();
+        if (typeof initAreaLabs === 'function') initAreaLabs();
+        if (typeof initSystemLabs === 'function') initSystemLabs();
+        if (typeof initSphereLabs === 'function') initSphereLabs();
 
         // Check which questions are already solved
         if (typeof checkAnsweredStatus === 'function') {
@@ -1520,6 +1587,13 @@ function setLearningContentVisible(isVisible) {
         });
 }
 
+let chapterQuizOpener = null;
+function focusChapterElement(element) {
+    if (!element) return;
+    element.focus({ preventScroll: true });
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    element.scrollIntoView?.({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+}
 function startChapterQuiz() {
     const quiz = window.currentChapterQuiz;
     if (!quiz || !quiz.questions || !quiz.questions.length) return;
@@ -1531,9 +1605,35 @@ function startChapterQuiz() {
     const panel = document.getElementById('chapter-quiz-panel');
     if (!panel) return;
 
+    chapterQuizOpener = document.activeElement;
     setLearningContentVisible(false);
     panel.hidden = false;
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const heading = panel.querySelector('h1');
+    if (heading) heading.tabIndex = -1;
+    focusChapterElement(heading);
+}
+
+function restartChapterQuiz() {
+    const quiz = window.currentChapterQuiz;
+    const panel = document.getElementById('chapter-quiz-panel');
+    const form = document.getElementById('chapter-quiz-form');
+    if (!quiz || !panel || !form || !isChapterQuizUnlocked(quiz.topicId)) return;
+    form.querySelectorAll('.chapter-options').forEach(options => {
+        shuffleArray([...options.children]).forEach(label => options.append(label));
+    });
+    form.querySelectorAll('input').forEach(input => { input.checked = false; input.disabled = false; });
+    form.querySelectorAll('.chapter-question').forEach(fieldset => {
+        fieldset.removeAttribute('aria-invalid');
+        fieldset.removeAttribute('aria-describedby');
+    });
+    const submit = form.querySelector('.chapter-submit-btn');
+    if (submit) submit.disabled = false;
+    document.getElementById('chapter-quiz-result')?.replaceChildren();
+    setLearningContentVisible(false);
+    panel.hidden = false;
+    const heading = panel.querySelector('h1');
+    if (heading) heading.tabIndex = -1;
+    focusChapterElement(heading);
 }
 
 function closeChapterQuiz() {
@@ -1541,7 +1641,17 @@ function closeChapterQuiz() {
     if (panel) panel.hidden = true;
     setLearningContentVisible(true);
     const card = document.getElementById('chapter-quiz-card');
-    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const opener = chapterQuizOpener?.isConnected && !chapterQuizOpener.closest('[hidden]') && chapterQuizOpener !== document.body ? chapterQuizOpener : card?.querySelector('button');
+    focusChapterElement(opener);
+}
+
+function reviewChapterSection(sectionIndex) {
+    const section = document.querySelector(`[data-chapter-section="${Number(sectionIndex)}"]`);
+    if (!section) return;
+    closeChapterQuiz();
+    const heading = section.querySelector('h2');
+    if (heading) heading.tabIndex = -1;
+    focusChapterElement(heading);
 }
 
 function submitChapterQuiz() {
@@ -1562,8 +1672,16 @@ function submitChapterQuiz() {
     });
 
     const firstMissing = answers.findIndex(value => value === null);
+    form.querySelectorAll('.chapter-question[aria-invalid]').forEach(fieldset => {
+        fieldset.removeAttribute('aria-invalid');
+        fieldset.removeAttribute('aria-describedby');
+    });
     if (firstMissing >= 0) {
-        resultBox.innerHTML = `<p class="wrong">${uiText('Bitte beantworte zuerst Aufgabe')} ${firstMissing + 1}. ${uiText('Du kannst deine Antworten vor der Abgabe noch ändern.')}</p>`;
+        resultBox.innerHTML = `<p id="chapter-quiz-error" class="wrong">${uiText('Bitte beantworte zuerst Aufgabe')} ${firstMissing + 1}. ${uiText('Du kannst deine Antworten vor der Abgabe noch ändern.')}</p>`;
+        const missing = form.querySelector(`fieldset[data-question-index="${firstMissing}"]`);
+        missing?.setAttribute('aria-invalid', 'true');
+        missing?.setAttribute('aria-describedby', 'chapter-quiz-error');
+        focusChapterElement(missing?.querySelector('input'));
         return;
     }
 
@@ -1578,38 +1696,56 @@ function submitChapterQuiz() {
     const percent = Math.round((correct / quiz.questions.length) * 100);
     const passed = percent > 70;
     const now = Date.now();
-    const attemptsUsed = previousResult.passed
-        ? clampChapterAttempts(previousResult.attemptsUsed ?? previousResult.attempts ?? 0)
-        : clampChapterAttempts((previousResult.attemptsUsed ?? previousResult.attempts ?? 0) + 1);
-    const lastAttemptAt = previousResult.passed ? Number(previousResult.lastAttemptAt || 0) : now;
     const results = readChapterQuizResults();
     const nextResult = {
         ...previousResult,
-        attemptsUsed,
-        attempts: attemptsUsed,
-        availableAttempts: CHAPTER_QUIZ_MAX_ATTEMPTS - attemptsUsed,
-        lastAttemptAt,
-        nextRefillAt: attemptsUsed > 0 ? lastAttemptAt + CHAPTER_QUIZ_REFILL_MS : 0,
-        fullRefillAt: attemptsUsed > 0 ? lastAttemptAt + attemptsUsed * CHAPTER_QUIZ_REFILL_MS : 0,
+        contentRevision: window.chapterRevision ? window.chapterRevision(quiz.topicId) : 0,
+        outdated: false,
+        attemptsUsed: 0,
+        attempts: 0,
+        totalAttempts: Number(previousResult.totalAttempts || 0) + 1,
+        availableAttempts: CHAPTER_QUIZ_MAX_ATTEMPTS,
+        lastAttemptAt: now,
+        nextRefillAt: 0,
+        fullRefillAt: 0,
         lockUntil: 0,
+        reviewQuestionIds: details.filter(detail => !detail.isCorrect).map(detail => detail.question.id),
         passed: Boolean(previousResult.passed || passed),
         bestPercent: Math.max(Number(previousResult.bestPercent || 0), percent),
         lastPercent: percent,
         lastCorrect: correct,
         total: quiz.questions.length
     };
+    if (previousResult.outdated && results[quiz.topicId]) {
+        const old = results[quiz.topicId];
+        nextResult.previousVersions = [...(Array.isArray(old.previousVersions) ? old.previousVersions : []), {
+            contentRevision: Number(old.contentRevision || 0), bestPercent: old.bestPercent,
+            lastPercent: old.lastPercent, lastAttemptAt: old.lastAttemptAt
+        }];
+    }
     results[quiz.topicId] = nextResult;
-    writeChapterQuizResults(results);
-
-    let topicScores = JSON.parse(localStorage.getItem('physik_topic_scores') || '{}');
-    const oldTopicScore = Number(topicScores[quiz.topicId] || 0);
-    const newTopicScore = Math.max(oldTopicScore, nextResult.passed ? nextResult.bestPercent : 0);
-    if (newTopicScore > oldTopicScore) {
-        topicScores[quiz.topicId] = newTopicScore;
-        localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
-        globalPhysikScore += Math.round(newTopicScore - oldTopicScore);
-        localStorage.setItem('physik_score', globalPhysikScore);
-        if (typeof updateScoreDisplays === 'function') updateScoreDisplays();
+    const resultSaved = writeChapterQuizResults(results);
+    if (resultSaved) {
+        const status = document.querySelector('[data-chapter-quiz-status]');
+        if (status) status.textContent = chapterQuizStatus(nextResult);
+        window.dispatchEvent(new CustomEvent('sciverse:chapter-result', { detail: { topicId: quiz.topicId, result: nextResult } }));
+    }
+    let pointsSaved = resultSaved;
+    if (resultSaved) {
+        try {
+            const storedScores = JSON.parse(localStorage.getItem('physik_topic_scores') || '{}');
+            const topicScores = storedScores && typeof storedScores === 'object' && !Array.isArray(storedScores) ? storedScores : {};
+            const oldTopicScore = Number(topicScores[quiz.topicId] || 0);
+            const newTopicScore = Math.max(oldTopicScore, nextResult.passed ? nextResult.bestPercent : 0);
+            if (newTopicScore > oldTopicScore) {
+                topicScores[quiz.topicId] = newTopicScore;
+                localStorage.setItem('physik_topic_scores', JSON.stringify(topicScores));
+                const nextScore = globalPhysikScore + Math.round(newTopicScore - oldTopicScore);
+                localStorage.setItem('physik_score', nextScore);
+                globalPhysikScore = nextScore;
+                if (typeof updateScoreDisplays === 'function') updateScoreDisplays();
+            }
+        } catch { pointsSaved = false; }
     }
 
     form.querySelectorAll('input').forEach(input => input.disabled = true);
@@ -1617,25 +1753,33 @@ function submitChapterQuiz() {
     if (submitButton) submitButton.disabled = true;
 
     const attemptsLeft = Math.max(0, CHAPTER_QUIZ_MAX_ATTEMPTS - nextResult.attemptsUsed);
-    const detailHtml = details.slice(0, 4).map((detail, index) => `
+    const detailHtml = details.map((detail, index) => `
         <li>
-            <strong>${index + 1}.</strong>
+            <strong>${index + 1}. ${escapeHtml(detail.question.question)}</strong>
             ${detail.isCorrect ? uiText('Richtig') : uiText('Noch nicht')}${detail.selectedAnswer && detail.selectedAnswer.feedback ? `: ${escapeHtml(detail.selectedAnswer.feedback)}` : ''}
+            ${!detail.isCorrect && Number.isInteger(detail.question.sectionIndex) ? `<button type="button" onclick="reviewChapterSection(${detail.question.sectionIndex})">${uiText('Passenden Abschnitt wiederholen')}</button>` : ''}
         </li>
     `).join('');
 
     resultBox.innerHTML = `
         <div class="${passed ? 'chapter-passed' : 'chapter-failed'}">
             <h2>${passed ? uiText('Bestanden') : uiText('Noch nicht bestanden')}</h2>
-            <p>${correct} von ${quiz.questions.length} richtig: <strong>${percent}%</strong>.</p>
-            <p>${passed ? uiText('Das nächste Kapitelquiz ist jetzt freigeschaltet.') : attemptsLeft > 0 ? `${uiText('Du brauchst mehr als 70%. Übrige Versuche:')} ${attemptsLeft}.` : `${uiText('Ein weiterer Versuch füllt sich in')} ${formatWaitTime(nextResult.nextRefillAt)}.`}</p>
+            <p>${uiText('{correct} von {total} richtig:').replace('{correct}', correct).replace('{total}', quiz.questions.length)} <strong>${percent}%</strong>.</p>
+            <p class="chapter-save-status">${!resultSaved ? uiText('Dein Ergebnis konnte in diesem Browser nicht gespeichert werden. Die Auswertung bleibt hier sichtbar. Notiere dein Ergebnis und die Hinweise vor dem Schließen; beim nächsten Öffnen fehlt dieser Versuch im Lernfortschritt.') : !pointsSaved ? uiText('Dein Kapiteltestergebnis wurde gespeichert. Die zusätzlichen Spielpunkte konnten nicht vollständig aktualisiert werden.') : uiText('Dein Ergebnis wurde in diesem Browser gespeichert.')}</p>
+            <p>${passed ? uiText('Gut gemacht. Wiederhole später, um dein Wissen zu festigen.') : uiText('Schau dir die Rückmeldungen an und übe die unsicheren Inhalte. Du kannst jederzeit erneut versuchen.')}</p>
             ${detailHtml ? `<ul>${detailHtml}</ul>` : ''}
             <div class="chapter-quiz-actions">
-                <button type="button" onclick="location.reload()">${passed ? uiText('Zurück zum Kapitel') : uiText('Noch einmal lernen')}</button>
-                ${!passed && attemptsLeft > 0 ? `<button type="button" onclick="location.reload();">${uiText('Neuen Versuch starten')}</button>` : ''}
+                <button type="button" onclick="closeChapterQuiz()">${passed ? uiText('Zurück zum Kapitel') : uiText('Noch einmal lernen')}</button>
+                <button type="button" onclick="restartChapterQuiz()">${uiText('Neuen Versuch starten')}</button>
             </div>
         </div>
     `;
+    const resultHeading = resultBox.querySelector('h2');
+    if (resultHeading) {
+        resultHeading.tabIndex = -1;
+        resultHeading.setAttribute('aria-label', resultHeading.textContent + ': ' + percent + ' %');
+        focusChapterElement(resultHeading);
+    }
 }
 
 function showError(msg) {
@@ -1713,7 +1857,7 @@ window.addEventListener('message', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Sync initial theme
-    if (localStorage.getItem('physik_dark_mode') === 'true') {
+    if (readRendererSetting('physik_dark_mode') === 'true') {
         document.documentElement.setAttribute('data-theme', 'dark');
     }
     renderTopic();

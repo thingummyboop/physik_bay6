@@ -6,10 +6,13 @@ let isRefractor = true;
 
 function topicInit() {
     ensureLinsenSpiegelAccessibility();
+    const reflectionInput = document.getElementById("angleRange");
+    if (reflectionInput) updateReflection(reflectionInput.value);
     updateVerticalMicroscope();
     if (document.getElementById('fiberAngle')) updateFiber(20);
     if (document.getElementById('eyeLens')) focusEye('far');
     initSlitMachine();
+    updateCurvedMirror();
 }
 
 function ensureLinsenSpiegelAccessibility() {
@@ -72,34 +75,27 @@ function ensureLinsenSpiegelAccessibility() {
 
 // 1. Reflexion
 function updateReflection(val) {
-    const rayIn = document.getElementById('rayIn');
-    const rayOut = document.getElementById('rayOut');
-    if(!rayIn || !rayOut) return;
-    const dx = parseInt(val); 
-    rayIn.setAttribute('d', `M ${200 - dx} 40 L 200 160`);
-    rayOut.setAttribute('d', `M 200 160 L ${200 + dx} 40`);
+    const rayIn=document.getElementById('rayIn'),rayOut=document.getElementById('rayOut');
+    const angle=Number(val);
+    if(!rayIn||!rayOut||!Number.isFinite(angle)||angle<0||angle>70)return;
+    const dx=120*Math.sin(angle*Math.PI/180),dy=120*Math.cos(angle*Math.PI/180);
+    rayIn.setAttribute('d','M '+(200-dx)+' '+(160-dy)+' L 200 160');
+    rayOut.setAttribute('d','M 200 160 L '+(200+dx)+' '+(160-dy));
+    const status=document.getElementById('reflectionStatus'),input=document.getElementById('angleRange');
+    if(status)status.textContent='Einfallswinkel '+angle+'°; Reflexionswinkel '+angle+'°. '+(angle===0?'Senkrechter Einfall: Das Licht läuft auf demselben Weg zurück.':'Beide Winkel werden zum Lot gemessen.');
+    if(input)input.setAttribute('aria-valuetext',angle+' Grad zum Lot');
 }
 
 // 2. Brechung
 function setMedium(type) {
-    const box = document.getElementById('mediumBox');
-    const ray = document.getElementById('refractedRay');
-    const txt = document.getElementById('mediumText');
-    if(!box || !ray) return;
-    
-    if(type === 'air') {
-        box.setAttribute('fill', 'transparent');
-        ray.setAttribute('d', 'M 200 100 L 280 180'); 
-        if(txt) txt.innerText = "Aktuell: Luft (Gleiche Dichte, Strahl geht einfach geradeaus)";
-    } else if(type === 'water') {
-        box.setAttribute('fill', '#ebf8ff'); 
-        ray.setAttribute('d', 'M 200 100 L 250 180'); 
-        if(txt) txt.innerText = "Aktuell: Wasser (Strahl knickt zum Lot hin ab)";
-    } else if(type === 'glass') {
-        box.setAttribute('fill', '#e2e8f0'); 
-        ray.setAttribute('d', 'M 200 100 L 230 180'); 
-        if(txt) txt.innerText = "Aktuell: Glas (Höhere Dichte, starker Knick zum Lot!)";
-    }
+    const media={air:{name:'Luft',n:1,fill:'transparent'},water:{name:'Wasser',n:1.33,fill:'#ebf8ff'},glass:{name:'Beispielglas',n:1.5,fill:'#e2e8f0'}};
+    const medium=media[type],box=document.getElementById('mediumBox'),ray=document.getElementById('refractedRay'),txt=document.getElementById('mediumText');
+    if(!medium||!box||!ray)return;
+    const beta=Math.asin(Math.sin(Math.PI/4)/medium.n);
+    box.setAttribute('fill',medium.fill);
+    ray.setAttribute('d','M 200 100 L '+(200+80*Math.tan(beta))+' 180');
+    if(txt)txt.textContent=medium.name+': Brechzahl '+medium.n.toLocaleString('de-AT',{minimumFractionDigits:2})+'; Einfallswinkel 45° und Brechungswinkel '+(beta*180/Math.PI).toLocaleString('de-AT',{maximumFractionDigits:1})+'° zum Lot. '+(type==='air'?'Keine Richtungsänderung.':'Der Strahl wird zum Lot hin gebrochen.');
+    document.querySelectorAll('[data-medium]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.medium===type)));
 }
 
 // 3. Linsen
@@ -117,24 +113,24 @@ function toggleLens() {
     isConvex = !isConvex;
     if(isConvex) {
         shape.setAttribute('d', 'M 200 40 Q 230 120 200 200 Q 170 120 200 40');
-        rayTop.setAttribute('d', 'M 200 80 L 320 120');
-        rayBot.setAttribute('d', 'M 200 160 L 320 120');
+        rayTop.setAttribute('d', 'M 200 80 L 380 140');
+        rayBot.setAttribute('d', 'M 200 160 L 380 100');
         if(fReal) fReal.style.opacity = "1";
         if(fVirtual) fVirtual.style.opacity = "0";
         if(vRays) vRays.style.opacity = "0";
         if(txt) {
-            txt.innerText = "Sammellinse (Konvex): Bündelt alle Strahlen im Brennpunkt!";
+            txt.textContent = "Sammellinse: Achsennahe parallele Strahlen treffen sich näherungsweise im rechten Brennpunkt. Danach laufen sie weiter auseinander.";
             txt.style.color = "#E91E63";
         }
     } else {
         shape.setAttribute('d', 'M 180 40 L 220 40 Q 200 120 220 200 L 180 200 Q 200 120 180 40 Z'); 
-        rayTop.setAttribute('d', 'M 200 80 L 320 40');  
-        rayBot.setAttribute('d', 'M 200 160 L 320 200'); 
+        rayTop.setAttribute('d', 'M 200 80 L 380 20');
+        rayBot.setAttribute('d', 'M 200 160 L 380 220');
         if(fReal) fReal.style.opacity = "0";
         if(fVirtual) fVirtual.style.opacity = "1";
         if(vRays) vRays.style.opacity = "1";
         if(txt) {
-            txt.innerText = "Zerstreuungslinse (Konkav): Streut das Licht weg!";
+            txt.textContent = "Zerstreuungslinse: Die Strahlen laufen auseinander. Nur ihre gestrichelten rückwärtigen Verlängerungen treffen sich im linken, virtuellen Brennpunkt.";
             txt.style.color = "#3182ce";
         }
     }
@@ -373,77 +369,28 @@ function predictSlit(choice) {
 
 // 5. Gekrümmte Spiegel
 function toggleMirror() {
-    const shape = document.getElementById('mirrorShape');
-    const inRayTop = document.getElementById('inRayTop');
-    const inRayMid = document.getElementById('inRayMid');
-    const inRayBot = document.getElementById('inRayBot');
-    const rayTop = document.getElementById('mirrorRayTop');
-    const rayMid = document.getElementById('mirrorRayMid');
-    const rayBot = document.getElementById('mirrorRayBot');
-    const fReal = document.getElementById('mirrorFocusReal');
-    const fVirtual = document.getElementById('mirrorFocusVirtual');
-    const vRays = document.getElementById('virtualMirrorRays');
-    const txt = document.getElementById('mirrorText');
-    if(!shape || !inRayTop || !rayTop) return;
+    isConcave=!isConcave;
+    updateCurvedMirror();
+}
 
-    isConcave = !isConcave;
-    if(isConcave) {
-        shape.setAttribute('d', 'M 270 40 Q 320 120 270 200');
-        inRayTop.setAttribute('d', 'M 40 80 L 280 80');
-        if(inRayMid) inRayMid.setAttribute('d', 'M 40 120 L 295 120');
-        if(inRayBot) inRayBot.setAttribute('d', 'M 40 160 L 280 160');
-
-        rayTop.setAttribute('d', 'M 280 80 L 40 160');
-        if(rayMid) rayMid.setAttribute('d', 'M 295 120 L 40 120');
-        if(rayBot) rayBot.setAttribute('d', 'M 280 160 L 40 80');
-
-        if(fReal) {
-            fReal.setAttribute('cx', '160');
-            fReal.style.opacity = "1";
-        }
-        if(fVirtual) fVirtual.style.opacity = "0";
-        if(vRays) vRays.style.opacity = "0";
-        if(txt) {
-            txt.innerText = "Hohlspiegel (Konkav): Bündelt das Licht wie eine Sammellinse.";
-            txt.style.color = "#E91E63";
-        }
-    } else {
-        shape.setAttribute('d', 'M 310 40 Q 260 120 310 200'); 
-        inRayTop.setAttribute('d', 'M 40 80 L 300 80');
-        if(inRayMid) inRayMid.setAttribute('d', 'M 40 120 L 285 120');
-        if(inRayBot) inRayBot.setAttribute('d', 'M 40 160 L 300 160');
-
-        rayTop.setAttribute('d', 'M 300 80 L 30 -40'); 
-        if(rayMid) rayMid.setAttribute('d', 'M 285 120 L 40 120'); 
-        if(rayBot) rayBot.setAttribute('d', 'M 300 160 L 30 280'); 
-        
-        if(fReal) fReal.style.opacity = "0";
-        if(fVirtual) {
-            fVirtual.setAttribute('cx', '390');
-            fVirtual.style.opacity = "1";
-        }
-        if(vRays) vRays.style.opacity = "1";
-        
-        const vrT = document.getElementById('vRayTop');
-        const vrB = document.getElementById('vRayBot');
-        if(vrT) {
-            vrT.setAttribute('x1', '300');
-            vrT.setAttribute('y1', '80');
-            vrT.setAttribute('x2', '390');
-            vrT.setAttribute('y2', '120');
-        }
-        if(vrB) {
-            vrB.setAttribute('x1', '300');
-            vrB.setAttribute('y1', '160');
-            vrB.setAttribute('x2', '390');
-            vrB.setAttribute('y2', '120');
-        }
-
-        if(txt) {
-            txt.innerText = "Wölbspiegel (Konvex): Streut Licht, virtueller Fokus hinten.";
-            txt.style.color = "#3182ce";
-        }
-    }
+function updateCurvedMirror() {
+    const shape=document.getElementById('mirrorShape');if(!shape)return;
+    const sign=isConcave?-1:1,focus=260+sign*80;
+    shape.setAttribute('d',isConcave?'M 240 40 Q 280 120 240 200':'M 280 40 Q 240 120 280 200');
+    ['Top','Mid','Bot'].forEach((name,i)=>{
+        const y=[80,120,160][i],x=260+sign*(y-120)*(y-120)/320;
+        document.getElementById('inRay'+name).setAttribute('d','M 40 '+y+' L '+x+' '+y);
+        const slope=(120-y)/(focus-x);
+        const distance=Math.min(x-30,slope===0?Infinity:(slope>0?y-10:230-y)/Math.abs(slope));
+        const endX=x-distance,endY=y-distance*slope;
+        document.getElementById('mirrorRay'+name).setAttribute('d','M '+x+' '+y+' L '+endX+' '+endY);
+        const extension=document.getElementById(name==='Top'?'vRayTop':name==='Bot'?'vRayBot':'unused');
+        if(extension){extension.setAttribute('x1',x);extension.setAttribute('y1',y);extension.setAttribute('x2',focus);extension.setAttribute('y2',120);}
+    });
+    const real=document.getElementById('mirrorFocusReal'),virtual=document.getElementById('mirrorFocusVirtual');
+    real.setAttribute('cx','180');virtual.setAttribute('cx','340');real.style.opacity=isConcave?'1':'0';virtual.style.opacity=isConcave?'0':'1';
+    document.getElementById('virtualMirrorRays').style.opacity=isConcave?'0':'1';
+    document.getElementById('mirrorText').textContent=isConcave?'Hohlspiegel: Die parallelen Strahlen treffen nach der Reflexion im realen Brennpunkt vor dem Spiegel zusammen und laufen weiter.':'Wölbspiegel: Die reflektierten Strahlen laufen auseinander. Nur ihre rückwärtigen Verlängerungen treffen sich im virtuellen Brennpunkt hinter dem Spiegel.';
 }
 
 // 6. MIKROSKOP VERTIKAL
@@ -461,7 +408,7 @@ function updateVerticalMicroscope() {
     let f_oc = 30;  
     
     let y_obj_base = 270;
-    let y_obj_tip = 260;
+    let y_obj_tip = 270;
     let x_obj_tip = 115;
     let x_center = 125;
     
@@ -473,7 +420,7 @@ function updateVerticalMicroscope() {
     if(vOL) vOL.setAttribute('transform', `translate(0, ${y_obj_lens})`);
     if(vOC) vOC.setAttribute('transform', `translate(0, ${y_oc_lens})`);
     
-    let b = 1 / ((1/f_obj) - (1/g));
+    let b = f_obj * g / (g - f_obj);
     let y_int = y_obj_lens - b;
     let M1 = b / g; 
     let x_int = x_center + (x_center - x_obj_tip) * M1; 
@@ -482,6 +429,7 @@ function updateVerticalMicroscope() {
     const vIL = document.getElementById('vertIntLine');
     const vIA = document.getElementById('vertIntArrow');
     if(vIL) {
+        vIL.setAttribute('x1', x_center);
         vIL.setAttribute('y1', y_int);
         vIL.setAttribute('y2', y_int);
         vIL.setAttribute('x2', x_int);
@@ -499,9 +447,23 @@ function updateVerticalMicroscope() {
     
     const vR1 = document.getElementById('vertRay1');
     const vR2 = document.getElementById('vertRay2');
-    if(vR1) vR1.setAttribute('d', `M ${x_obj_tip} ${y_obj_tip} L ${x_obj_tip} ${y_obj_lens} L ${x_int} ${y_int} L ${x_oc_hit1} ${y_oc_lens}`);
-    if(vR2) vR2.setAttribute('d', `M ${x_obj_tip} ${y_obj_tip} L ${x_center} ${y_obj_lens} L ${x_int} ${y_int} L ${x_oc_hit2} ${y_oc_lens}`);
-    
+    const hitXs=[x_oc_hit1,x_oc_hit2],lensXs=[x_obj_tip,x_center];
+    [vR1,vR2].forEach((ray,i)=>{
+        if(!ray)return;
+        const slopeIn=(hitXs[i]-lensXs[i])/d;
+        const slopeOut=slopeIn-(hitXs[i]-x_center)/f_oc;
+        ray.setAttribute('d','M '+x_obj_tip+' '+y_obj_tip+' L '+lensXs[i]+' '+y_obj_lens+' L '+hitXs[i]+' '+y_oc_lens+' L '+(hitXs[i]+25*slopeOut)+' '+(y_oc_lens-25));
+        ray.dataset.outputSlope=String(slopeOut);
+    });
+    const between=b<d;
+    if(vIL)vIL.style.display=between?'':'none';if(vIA)vIA.style.display=between?'':'none';
+    const drawing=vOL?.ownerSVGElement;
+    if(drawing){
+        const values=[x_int,...hitXs,...hitXs.map((x,i)=>x+25*((x-lensXs[i])/d-(x-x_center)/f_oc))];
+        const left=Math.min(0,...values)-10,right=Math.max(250,...values)+10,top=Math.min(0,y_oc_lens-55);
+        drawing.setAttribute('viewBox',left+' '+top+' '+(right-left)+' '+(320-top));
+    }
+
     let error = Math.abs(y_int - y_oc_focus);
     let blur = Math.min(15, error * 0.4);
     let scale = Math.max(0.4, M1 * 0.55); 
@@ -513,17 +475,11 @@ function updateVerticalMicroscope() {
     }
     
     let status = document.getElementById('microViewStatus');
-    if(status) {
-        if (error < 1.5) {
-            status.innerHTML = "✅ Gestochen scharf!";
-            status.style.color = "#4CAF50";
-        } else if (y_int > y_oc_focus) {
-            status.innerHTML = "❌ Unscharf: Okular zu nah am Bild.";
-            status.style.color = "#E91E63";
-        } else {
-            status.innerHTML = "❌ Unscharf: Okular zu weit weg.";
-            status.style.color = "#E91E63";
-        }
+    if(status){
+        status.dataset.intermediateDistance=String(b);status.dataset.ocularObjectDistance=String(d-b);
+        if(!between)status.textContent='Das Objektiv würde allein erst auf Höhe des Okulars oder dahinter ein Zwischenbild erzeugen. Im gewählten Aufbau entsteht daher kein reales Zwischenbild zwischen den Linsen. Vergrößere den Linsenabstand oder ändere den Objektabstand.';
+        else if(error<1.5)status.textContent='Nahe der Einstellung für entspanntes Sehen: Das Zwischenbild liegt in der Nähe der vorderen Brennebene des Okulars. Die austretenden Strahlen sind annähernd parallel.';
+        else status.textContent='Noch nicht für entspanntes Sehen eingestellt: Der Abstand Zwischenbild–Okular ist '+(d-b).toLocaleString('de-AT',{maximumFractionDigits:1})+' mm; angestrebt sind 30 mm. Verändere die Einstellung.';
     }
 }
 
@@ -534,6 +490,10 @@ function toggleTelescope() {
     if(!refractor || !reflector) return;
 
     isRefractor = !isRefractor;
+    refractor.setAttribute("aria-hidden",String(!isRefractor));
+    reflector.setAttribute("aria-hidden",String(isRefractor));
+    const status=document.getElementById("telescopeStatus");
+    if(status)status.textContent=isRefractor?"Refraktor: Objektivlinsen bündeln das Licht; das Okular dient zur Betrachtung des Zwischenbilds.":"Newton-Reflektor: Der Hauptspiegel bündelt, der Fangspiegel lenkt zum seitlichen Okular. Das Licht durchquert keinen der Spiegel.";
     if(isRefractor) {
         refractor.style.display = "block";
         reflector.style.display = "none";
@@ -545,116 +505,45 @@ function toggleTelescope() {
 
 // 8. Totalreflexion (Updated)
 function updateFiber(angle) {
-    const laser = document.getElementById('laserSource');
-    const group = document.getElementById('raysGroup');
-    const status = document.getElementById('fiberStatus');
-    const fiberAngle = document.getElementById('fiberAngle');
-    if(!laser || !group || !status) return;
-
-    const a = parseInt(angle);
-    if (fiberAngle) fiberAngle.setAttribute('aria-valuetext', `${a}° Einfallswinkel`);
-    laser.style.transform = `rotate(${a}deg)`;
-
-    const rad = (a * Math.PI) / 180;
-    const critAngle = 42; // Critical angle for glass ~42°
-    
-    // Angle inside the glass relative to the wall normal is 90 - a
-    const angleAtWall = 90 - Math.abs(a);
-    const isTotal = angleAtWall > critAngle;
-
-    let html = "";
-    let currX = 80;
-    let currY = 100;
-    let slope = Math.tan(rad);
-    
-    const rodTop = 70;
-    const rodBottom = 130;
-    const rodEnd = 380;
-
-    // Draw up to 6 reflections
-    for(let i=0; i<6; i++) {
-        let nextX, nextY;
-        if (slope > 0) { // moving down
-            nextY = rodBottom;
-            nextX = currX + (nextY - currY) / slope;
-        } else { // moving up
-            nextY = rodTop;
-            nextX = currX + (nextY - currY) / slope;
+    const group=document.getElementById('raysGroup'),status=document.getElementById('fiberStatus'),input=document.getElementById('fiberAngle');
+    const a=Number(angle);if(!group||!status||!Number.isFinite(a)||Math.abs(a)>60)return;
+    const incidence=90-Math.abs(a),critical=Math.asin(1/1.5)*180/Math.PI,total=incidence>critical;
+    if(input)input.setAttribute('aria-valuetext',a+' Grad zur Stabachse');
+    let x=80,y=100,slope=Math.tan(a*Math.PI/180),html='',hits=0,escaped=false;
+    const line=(x1,y1,x2,y2,kind)=>'<line data-fiber-ray="'+kind+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(kind==='transmitted'?'#fbbf24':'#f87171')+'" stroke-width="3"'+(kind==='partial'?' stroke-dasharray="5 3"':'')+' />';
+    for(let i=0;i<20;i++){
+        const wall=slope>0?130:70;
+        const hitX=slope===0?Infinity:x+(wall-y)/slope;
+        if(hitX>=380){html+=line(x,y,380,y+(380-x)*slope,'inside');break;}
+        html+=line(x,y,hitX,wall,'inside');hits++;
+        if(!total){
+            const beta=Math.asin(Math.min(1,1.5*Math.sin(incidence*Math.PI/180)));
+            const dx=Math.sin(beta),dy=Math.sign(slope)*Math.cos(beta);
+            const length=Math.min(65,(380-hitX)/dx,60/Math.abs(dy));
+            html+=line(hitX,wall,hitX+length*dx,wall+length*dy,'transmitted');
+            html+=line(hitX,wall,hitX+20,wall-20*slope,'partial');escaped=true;break;
         }
-
-        if (nextX > rodEnd) {
-            // Hits the end of the rod
-            nextX = rodEnd;
-            nextY = currY + (nextX - currX) * slope;
-            html += `<line x1="${currX}" y1="${currY}" x2="${nextX}" y2="${nextY}" stroke="#ef4444" stroke-width="3" />`;
-            break;
-        }
-
-        html += `<line x1="${currX}" y1="${currY}" x2="${nextX}" y2="${nextY}" stroke="#ef4444" stroke-width="3" />`;
-        
-        if (!isTotal) {
-            // Light escapes!
-            const escapeSlope = slope * 2; // simplified refraction
-            const escapeX = nextX + 20;
-            const escapeY = nextY + (escapeX - nextX) * escapeSlope;
-            html += `<line x1="${nextX}" y1="${nextY}" x2="${escapeX}" y2="${escapeY}" stroke="#ef4444" stroke-width="2" opacity="0.5" stroke-dasharray="4,2" />`;
-            status.innerText = "Teilreflexion: Licht bricht nach außen!";
-            status.style.color = "#fbbf24";
-            break; // Stop after escape for clarity
-        }
-
-        currX = nextX;
-        currY = nextY;
-        slope *= -1; // Reflect
+        x=hitX;y=wall;slope=-slope;
     }
-
-    if (isTotal) {
-        status.innerText = "Totalreflexion: Licht bleibt im Stab!";
-        status.style.color = "#4ade80";
-    }
-
-    group.innerHTML = html;
+    const prefix='Winkel zur Stabachse: '+a+'°. ';
+    status.textContent=prefix+(hits===0?'Im gezeigten Abschnitt trifft der Strahl keine Seitenwand. Hier findet keine Reflexion statt.':
+      'Einfallswinkel zum Wandlot: '+incidence+'°; Grenzwinkel etwa 41,8°. '+(escaped?'Ein Teil tritt gebrochen aus, ein Teil wird reflektiert.':'Totalreflexion an den Seitenwänden.'));
+    group.innerHTML=html;group.dataset.wallHits=String(hits);group.dataset.total=String(hits>0&&!escaped);
 }
 
 // 9. Das Auge (Vollständige Strahlengang-Simulation)
 function focusEye(mode) {
-    const lens = document.getElementById('eyeLens');
-    const obj = document.getElementById('eyeObject');
-    const img = document.getElementById('eyeImage');
-    const rayTop = document.getElementById('rayPathTop');
-    const rayBot = document.getElementById('rayPathBottom');
-    const txt = document.getElementById('eyeText');
-    
-    if(!lens || !obj || !img || !rayTop || !rayBot) return;
-
-    let objX, objY_tip, lensRX, imgY_tip, statusTxt;
-
-    if(mode === 'near') {
-        objX = 100;
-        objY_tip = 70;
-        lensRX = 18; // Dicke Linse
-        imgY_tip = 120; // Größeres Bild (invertiert)
-        statusTxt = "Nahfokus: Der Gegenstand ist nah. Die Augenmuskeln lassen die Linse dick werden, um das Licht stärker zu brechen.";
-    } else {
-        objX = 30;
-        objY_tip = 80;
-        lensRX = 10; // Flache Linse
-        imgY_tip = 110; // Kleineres Bild (invertiert)
-        statusTxt = "Fernfokus: Der Gegenstand ist weit weg. Die Linse kann flach und entspannt bleiben.";
-    }
-
-    // Update Graphics
-    obj.style.transform = `translateX(${objX}px)`;
-    lens.setAttribute('rx', lensRX);
-    img.querySelector('line').setAttribute('y2', imgY_tip);
-    if(txt) txt.innerText = statusTxt;
-
-    // Draw Rays
-    // Top Ray: from object tip (objX, objY_tip) to lens, then to retina tip (355, imgY_tip)
-    const dTop = `M ${objX} ${objY_tip} L 260 85 L 355 ${imgY_tip}`;
-    // Bottom Ray: from object base (objX, 100) to lens, then to retina base (355, 100)
-    const dBot = `M ${objX} 100 L 260 115 L 355 100`;
-    
-    rayTop.setAttribute('d', dTop);
-    rayBot.setAttribute('d', dBot);
+    if(mode!=='near'&&mode!=='far')return;
+    const lens=document.getElementById('eyeLens'),obj=document.getElementById('eyeObject'),img=document.getElementById('eyeImage'),top=document.getElementById('rayPathTop'),bottom=document.getElementById('rayPathBottom'),text=document.getElementById('eyeText');
+    if(!lens||!obj||!img||!top||!bottom)return;
+    const objectX=mode==='near'?140:30,g=260-objectX,b=95,height=30,imageY=100+height*b/g;
+    obj.style.transform='translateX('+objectX+'px)';
+    obj.querySelector('line').setAttribute('y2','70');
+    lens.setAttribute('rx',mode==='near'?'18':'10');
+    lens.dataset.focalLength=String(g*b/(g+b));
+    img.querySelector('line').setAttribute('y2',imageY);
+    top.setAttribute('d','M '+objectX+' 70 L 260 70 L 355 '+imageY);
+    bottom.setAttribute('d','M '+objectX+' 70 L 260 100 L 355 '+imageY);
+    if(text)text.textContent=mode==='near'?'Nahsehen: Die Augenlinse ist stärker gekrümmt und brechkräftiger. Das umgekehrte Bild desselben Gegenstands ist größer und liegt scharf auf der Netzhaut.':'Fernsehen: Die Augenlinse ist flacher und weniger brechkräftig. Das umgekehrte Bild desselben Gegenstands ist kleiner und liegt scharf auf der Netzhaut.';
+    document.querySelectorAll('[data-eye-focus]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.eyeFocus===mode)));
 }

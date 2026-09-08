@@ -180,7 +180,7 @@ function animateParticles() {
     if (hint && particleHintState !== nextHintState) {
         particleHintState = nextHintState;
         hint.innerText = nextHintState === 'cold'
-            ? "Kalt: Die Teilchen bewegen sich wenig. Der Stoff braucht weniger Platz."
+            ? "Niedrigere Temperatur: Die Teilchen bewegen sich im Modell langsamer. Die Abstände sind nur schematisch dargestellt."
             : nextHintState === 'warm'
                 ? "Warm: Die Teilchen bewegen sich stärker und stoßen öfter zusammen."
                 : "Heiß: Die Teilchen bewegen sich schnell. Viele Stoffe dehnen sich aus.";
@@ -382,7 +382,7 @@ function heatSoup() {
         if (mSpoonBowl) mSpoonBowl.setAttribute('fill', '#ef5350');
         mSpoon.setAttribute('fill', '#ef5350');
         if (diagram) diagram.classList.add('is-hot');
-        txt.innerText = "Aua! Der Metalllöffel ist oben heiß! Das Holz bleibt kalt.";
+        txt.innerText = "Der Metallgriff erwärmt sich im Modell schneller. Holz leitet Wärme schlechter, kann aber ebenfalls heiß werden.";
         
         soupHeatTimers.push(setTimeout(() => {
             resetSoupConductionModel();
@@ -426,12 +426,10 @@ function sunShine() {
         tempW += 0.5;
         if (tBlack) tBlack.innerText = Math.floor(tempB) + "°C";
         if (tWhite) tWhite.innerText = Math.floor(tempW) + "°C";
-        if (parkingSvg && tempB >= 44) parkingSvg.classList.add('is-cooking');
         
         if(tempB >= 60) {
             clearInterval(sunTimer);
-            if (parkingSvg) parkingSvg.classList.add('is-cooking');
-            if (txt) txt.innerText = "Ergebnis: Auf dem schwarzen Auto brät das Spiegelei. Auf dem weißen bleibt es roh, weil viel Sonnenstrahlung reflektiert wird.";
+            if (txt) txt.innerText = "Modellergebnis: Die schwarze Oberfläche nimmt mehr Sonnenstrahlung auf. Die Temperaturen sind keine Messwerte; reale Autos können unabhängig von ihrer Farbe gefährlich heiß werden.";
             setTimeout(() => {
                 if(rB) rB.style.display = 'none';
                 if(rW) rW.style.display = 'none';

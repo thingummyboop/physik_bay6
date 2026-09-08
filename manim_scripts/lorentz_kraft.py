@@ -1,70 +1,55 @@
 from manim import *
+from manim_scripts.lorentz_model import electron_state
+
 
 class LorentzKraft(Scene):
     def construct(self):
-        self.camera.frame_width = 26
-        self.camera.frame_height = 26 * 9 / 16
-        title = Text("Die Lorentzkraft (Rechte-Hand-Regel)").to_edge(UP)
-        self.play(Write(title))
-
-        b_field = VGroup(*[
-            VGroup(Line(UP+LEFT, DOWN+RIGHT), Line(UP+RIGHT, DOWN+LEFT)).set_color(BLUE).scale(0.15).move_to(x * RIGHT + y * UP)
-            for x in range(-6, 7, 2) for y in range(-3, 4, 2)
+        title = Text("Elektron im Magnetfeld", font_size=36).move_to(UP * 3.35)
+        field_label = Text("Kreuze: Magnetfeld in die Bildebene", font_size=23,
+                           color=BLUE).move_to(UP * 2.7)
+        legend_v = Text("v: Geschwindigkeit", font_size=22, color=GREEN).move_to(LEFT * 3 + UP * 2.15)
+        legend_f = Text("F: magnetische Kraft", font_size=22, color=RED).move_to(RIGHT * 2 + UP * 2.15)
+        note = Text("Negative Ladung: Kraft entgegen der Regel fuer positive Ladungen.",
+                    font_size=20).move_to(DOWN * 3.15)
+        note2 = Text("Modell: gleichfoermiges Feld; Tempo bleibt gleich, Richtung aendert sich.",
+                     font_size=18).move_to(DOWN * 3.6)
+        for text, height, max_width in [(title,.42,13),(field_label,.32,13),
+                (legend_v,.3,5.2),(legend_f,.3,5.2),(note,.24,13),(note2,.23,13)]:
+            text.set_height(height)
+            if text.width > max_width: text.set_width(max_width)
+        crosses = VGroup(*[
+            VGroup(Line(LEFT * .08 + UP * .08, RIGHT * .08 + DOWN * .08),
+                   Line(LEFT * .08 + DOWN * .08, RIGHT * .08 + UP * .08))
+            .set_color(BLUE).set_opacity(.4).move_to([x, y, 0])
+            for x in range(-5, 5) for y in range(-2, 2)
         ])
-        
-        b_label = Text("B-Feld (in den Bildschirm)", color=BLUE, font_size=28).move_to(UP * 4.5)
-        self.play(FadeIn(b_field), Write(b_label))
+        path = ParametricFunction(lambda t: np.array(electron_state(t)[0]),
+                                  t_range=[0, 1], color=GRAY).set_stroke(width=2)
+        tracker = ValueTracker(0)
+        particle = Dot(radius=.13, color=YELLOW)
+        label = Text("e-", font_size=23, color=YELLOW)
+        velocity = Arrow(ORIGIN, RIGHT, color=GREEN, buff=0)
+        force = Arrow(ORIGIN, DOWN, color=RED, buff=0)
+        v_label = Text("v", font_size=22, color=GREEN)
+        f_label = Text("F", font_size=22, color=RED)
 
-        electron = Dot(color=YELLOW, radius=0.15).move_to(LEFT * 7)
-        e_label = Text("e-", color=BLACK, font_size=24).move_to(electron.get_center())
-        e_group = VGroup(electron, e_label)
+        def update_model(_=None):
+            p, v, f = [np.array(value) for value in electron_state(tracker.get_value())]
+            particle.move_to(p)
+            label.move_to(p + LEFT * .45 + UP * .25)
+            velocity.put_start_and_end_on(p, p + v * 1.4)
+            force.put_start_and_end_on(p, p + f)
+            v_label.move_to(p + v * 1.65)
+            f_label.move_to(p + f * 1.25)
 
-        v_arrow = Arrow(start=LEFT * 7, end=LEFT * 4, color=GREEN, buff=0)
-        v_label = Text("v (Geschwindigkeit)", color=GREEN, font_size=28).next_to(v_arrow, UP, buff=0.5)
-
-        self.play(FadeIn(e_group), GrowArrow(v_arrow), Write(v_label))
-
-        path = ArcBetweenPoints(start=LEFT * 7, end=RIGHT * 3 + DOWN * 4, angle=-PI/2, color=YELLOW)
-        
-        f_arrow = Arrow(start=ORIGIN, end=DOWN*2, color=RED, buff=0)
-        f_label = Text("F (Lorentzkraft)", color=RED, font_size=28)
-        
-        alpha_tracker = ValueTracker(0)
-
-        def update_electron(mob):
-            mob.move_to(path.point_from_proportion(alpha_tracker.get_value()))
-            
-        e_group.add_updater(update_electron)
-
-        def update_force_arrow(arr):
-            alpha = alpha_tracker.get_value()
-            current_pos = path.point_from_proportion(alpha)
-            next_pos = path.point_from_proportion(min(1.0, alpha + 0.01))
-            if alpha == 1.0:
-                next_pos = current_pos + (current_pos - path.point_from_proportion(0.99))
-            
-            tangent = next_pos - current_pos
-            if np.linalg.norm(tangent) > 0:
-                tangent = tangent / np.linalg.norm(tangent)
-            else:
-                tangent = RIGHT
-            
-            normal = np.array([tangent[1], -tangent[0], 0])
-            arr.put_start_and_end_on(current_pos, current_pos + normal * 2)
-            f_label.next_to(arr, DOWN if normal[1] < 0 else UP, buff=0.3)
-
-        f_arrow.add_updater(update_force_arrow)
-        
-        self.play(FadeIn(f_arrow), FadeIn(f_label))
-        
-        self.play(
-            alpha_tracker.animate.set_value(1.0),
-            v_arrow.animate.set_opacity(0),
-            v_label.animate.set_opacity(0),
-            run_time=5,
-            rate_func=linear
-        )
-        
-        f_arrow.clear_updaters()
-        e_group.clear_updaters()
+        for text in [label, v_label, f_label]: text.set_height(.28)
+        update_model()
+        moving = VGroup(velocity, force, particle, label, v_label, f_label)
+        moving.add_updater(update_model)
+        self.add(title, field_label, legend_v, legend_f, note, note2,
+                 crosses, path, moving)
+        self.wait(1)
+        self.play(tracker.animate.set_value(1), run_time=8, rate_func=linear)
+        moving.clear_updaters()
+        update_model()
         self.wait(2)

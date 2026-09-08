@@ -21,24 +21,33 @@ function ensureDecimalExerciseFeedback(input, button, feedbackId) {
 
 function parseCommaNumber(raw) {
     if (typeof raw !== 'string') return NaN;
-    const normalized = raw.trim().replace(',', '.');
-    if (!normalized) return NaN;
+    const normalized = raw.trim().replace(/−/g, '-').replace(',', '.');
+    if (!/^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(normalized)) return NaN;
     return Number(normalized);
 }
 
 function bindDecimalExercise({ inputId, feedbackId, expected, successText, hintText }) {
     const input = document.getElementById(inputId);
     if (!input) return;
+    input.type = 'text';
+    input.inputMode = 'decimal';
+    input.setAttribute('aria-label', {
+        geld_input: 'Restbetrag in Euro',
+        rund_input: '12,3 auf ganze Zahlen gerundet',
+        komma_input: 'Ergebnis von 5,2 mal 100'
+    }[inputId] || 'Dein Ergebnis');
 
     const button = input.parentElement?.querySelector('button') || null;
     const feedback = ensureDecimalExerciseFeedback(input, button, feedbackId);
 
     const evaluate = () => {
         const value = parseCommaNumber(input.value);
-        if (Number.isFinite(value) && Math.abs(value - expected) < 1e-9) {
-            if (feedback) feedback.innerText = successText;
+        if (!Number.isFinite(value)) {
+            if (feedback) feedback.textContent = 'Gib eine Zahl ein, zum Beispiel 2,5. Komma oder Punkt sind als Dezimalzeichen erlaubt.';
+        } else if (value === expected) {
+            if (feedback) feedback.textContent = successText;
         } else {
-            if (feedback) feedback.innerText = hintText;
+            if (feedback) feedback.textContent = hintText;
         }
     };
 
@@ -51,6 +60,7 @@ function bindDecimalExercise({ inputId, feedbackId, expected, successText, hintT
 
     if (input.dataset.enterBound !== 'true') {
         input.dataset.enterBound = 'true';
+        input.addEventListener('input', () => { if(feedback) feedback.textContent = ''; });
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
                 event.preventDefault();

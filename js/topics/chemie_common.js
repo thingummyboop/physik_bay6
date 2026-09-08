@@ -62,12 +62,12 @@ window.ChemieLabs = (() => {
         if (!lab.querySelector('.chem-visual')) {
             const visual = document.createElement('div');
             visual.className = 'chem-visual diagram-box';
-            visual.setAttribute('aria-hidden', 'true');
             visual.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
             const status = lab.querySelector('.chem-status');
             lab.insertBefore(visual, status || null);
         } else {
             const visual = lab.querySelector('.chem-visual');
+            visual.removeAttribute('aria-hidden');
             visual.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
         }
 
@@ -79,7 +79,7 @@ window.ChemieLabs = (() => {
                 <button type="button" data-chem-ph="5">Mineralwasser</button>
                 <button type="button" data-chem-ph="7">reines Wasser</button>
                 <button type="button" data-chem-ph="10">Seifenlösung</button>
-                <button type="button" data-chem-ph="12">Natronlösung</button>
+                <button type="button" data-chem-ph="8">Natronlösung</button>
             `;
             const visual = lab.querySelector('.chem-visual');
             lab.insertBefore(samples, visual);
@@ -106,6 +106,7 @@ window.ChemieLabs = (() => {
         lab.querySelectorAll('input[type="range"]').forEach((range) => {
             range.addEventListener('input', () => {
                 if (lab.dataset.chemLab === 'ph-scale') {
+                    lab.querySelectorAll('button[data-chem-ph]').forEach(button => button.setAttribute('aria-pressed', 'false'));
                     lab.dataset.chemSample = 'Modellprobe';
                     lab.dataset.chemChoice = 'Modellprobe';
                 }
@@ -158,14 +159,14 @@ window.ChemieLabs = (() => {
                 experiment: 'Empfehlung: Sicherheit -> Stoffeigenschaften -> Trennverfahren -> Reaktionen. Dort arbeitest du besonders praktisch.',
                 model: 'Empfehlung: Teilchenmodell -> Atome -> Bindungen -> Reaktionen. Dort baust du Erklärungen auf Teilchenebene.',
                 alltag: 'Empfehlung: Stoffe im Alltag -> Säuren/Basen -> Kunststoffe -> Umweltchemie. Dort prüfst du Nutzen und Risiko.',
-                grade3: '3. Klasse: Starte mit Sicherheit, Stoffen im Alltag, Eigenschaften, Trennverfahren, Teilchenmodell und Wasser/Lösungen.',
-                grade4: '4. Klasse: Starte mit chemischen Reaktionen, Verbrennung, Säuren/Basen, Redox und arbeite dann mit Atomen, Bindungen und Anwendungen weiter.',
+                grade3: 'Grundlagenblock: Sicherheit, Stoffe im Alltag, Eigenschaften, Teilchenmodell und Trennverfahren. Danach folgen Atome, Bindungen und Lösungen.',
+                grade4: 'Vor Reaktionen und Anwendungen: Atome, Bindungen und Lösungen wiederholen. Danach folgen Reaktionen, Verbrennung, Säuren/Basen, Redox, Kohlenstoff- und Umweltchemie.',
                 review: 'Wiederholung: Prüfe zuerst Stoffeigenschaften, Trennverfahren und Teilchenmodell. Diese Grundlagen brauchst du für Reaktionen und Bindungen.'
             },
             'safety-sort': {
-                eyes: 'Sofort melden, Auge offen halten und Augendusche nutzen. Nicht reiben. Lehrkraft holt Hilfe.',
-                smell: 'Nie direkt riechen. Wenn die Lehrkraft es erlaubt: mit der Hand vorsichtig zufächeln.',
-                spill: 'Abstand halten, melden, Gefäß sichern. Erst nach Anweisung aufnehmen und entsorgen.'
+                eyes: 'Sofort mit viel fließendem Wasser an der Augendusche spülen und gleichzeitig Hilfe rufen. Nicht abwarten, nicht reiben. Die Lehrkraft organisiert weitere Hilfe.',
+                smell: 'Unerwarteter Geruch: Arbeit unterbrechen, Abstand halten und die Lehrkraft sofort informieren. Nicht näher herangehen und nicht durch Zufächeln nachforschen.',
+                spill: 'Abstand halten, andere warnen und die Lehrkraft informieren. Nicht selbst wegwischen oder andere Stoffe zugeben. Die Lehrkraft legt das weitere Vorgehen fest.'
             },
             properties: {
                 salt: 'Salz: fest, weiß, spröde, wasserlöslich, nicht magnetisch. Eine Salzlösung kann Strom leiten.',
@@ -179,15 +180,15 @@ window.ChemieLabs = (() => {
                 chromato: 'Chromatografie trennt Farbstoffgemische, zum Beispiel Filzstiftfarben.'
             },
             bonding: {
-                salt: 'Salz: Ionen bilden ein regelmäßiges Gitter. Deshalb ist Salz spröde und löst sich in Wasser.',
-                water: 'Wasser: Atome teilen Elektronen. Die Moleküle ziehen einander zusätzlich leicht an.',
+                salt: 'Kochsalz: Entgegengesetzt geladene Ionen bilden ein Gitter. Verschobene Ebenen können gleichnamige Ladungen nebeneinander bringen: Abstoßung begünstigt den Bruch. Nicht alle Salze lösen sich gut in Wasser.',
+                water: 'Wasser: Gemeinsame Elektronenpaare verbinden die Atome im Molekül. Teilladungen bewirken zusätzlich Anziehung zwischen Molekülen. Beim gewöhnlichen Verdampfen bleiben die H₂O-Moleküle erhalten.',
                 metal: 'Metall: Atomrümpfe und bewegliche Elektronen. Deshalb leiten Metalle Strom und Wärme.'
             },
             redox: {
-                dry: 'Trocken: Rost entsteht langsam, weil Wasser fehlt.',
+                dry: 'Kontrolliert trockene Luft: Im vereinfachten Modell kein sichtbarer Rost. Ein leeres Glas allein garantiert keine trockene Luft.',
                 water: 'Wasser: Rost kann entstehen, wenn auch Sauerstoff dazukommt.',
-                salt: 'Salzwasser: Rost geht schneller, weil Ionen den Vorgang fördern.',
-                oil: 'Ölschicht: schützt, weil Wasser und Sauerstoff schwerer an Eisen kommen.'
+                salt: 'Salzwasser: Bei vergleichbaren Bedingungen können gelöste Ionen die Korrosion beschleunigen. Die Punkte sind keine gemessene Rostmenge.',
+                oil: 'Zuvor abgekochtes Wasser unter Öl: vermindertes Sauerstoffangebot. Öl bremst erneuten Zutritt; Öl allein entfernt keinen bereits gelösten Sauerstoff.'
             },
             lifecycle: {
                 single: 'Einweg kann praktisch sein, erzeugt aber oft mehr Abfall.',
@@ -211,6 +212,7 @@ window.ChemieLabs = (() => {
 
     function updateChemLab(lab) {
         const type = lab.dataset.chemLab;
+        if (type === 'reuse-balance') updateReuseBalance(lab);
         if (type === 'roadmap') renderRoadmap(lab);
         if (type === 'safety-sort') renderSafety(lab);
         if (type === 'properties') renderProperties(lab);
@@ -284,11 +286,11 @@ window.ChemieLabs = (() => {
     }
 
     function renderProperties(lab) {
-        const selected = lab.dataset.chemChoice || 'salt';
+        const selected = lab.dataset.chemChoice || '';
         const rows = [
             { id: 'salt', name: 'Salz', fill: '#f8fafc', stroke: '#64748b', note: 'löst sich in Wasser', test: 'Löseprobe + Leitfähigkeit' },
-            { id: 'iron', name: 'Eisen', fill: '#cbd5e1', stroke: '#334155', note: 'magnetisch und leitfähig', test: 'Magnet + Stromkreis' },
-            { id: 'oil', name: 'Öl', fill: '#fde68a', stroke: '#b45309', note: 'schwimmt auf Wasser', test: 'Dichteprobe + Brennbarkeit nur als Lehrkraftversuch' }
+            { id: 'iron', name: 'Eisen', fill: '#cbd5e1', stroke: '#334155', note: 'magnetisch und leitfähig', test: 'Magnetprobe; Leitfähigkeit mit geeignetem Schulgerät' },
+            { id: 'oil', name: 'Öl', fill: '#fde68a', stroke: '#b45309', note: 'schwimmt auf Wasser', test: 'Schichtenbildung und Dichte vergleichen' }
         ];
         visual(lab, `
             <svg width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="img" aria-label="Eigenschaftslabor mit Stoffproben">
@@ -297,7 +299,7 @@ window.ChemieLabs = (() => {
                 <path d="M55 112 C82 124 116 96 150 112 C168 120 184 116 192 110 L192 154 L55 154 Z" fill="#93c5fd" opacity="0.9"></path>
                 <text x="123" y="52" text-anchor="middle" font-size="15" font-weight="900" fill="#0f172a">Wasserprobe</text>
                 <g transform="translate(62 92)">
-                    ${selected === 'salt' ? '<g><circle cx="38" cy="44" r="4" fill="#64748b"></circle><circle cx="62" cy="34" r="4" fill="#64748b"></circle><circle cx="88" cy="48" r="4" fill="#64748b"></circle><text x="76" y="82" text-anchor="middle" font-size="12" font-weight="800">Salz gelöst</text></g>' : ''}
+                    ${selected === 'salt' ? '<g><text x="76" y="82" text-anchor="middle" font-size="12" font-weight="800">Salz gelöst</text></g>' : ''}
                     ${selected === 'iron' ? '<g><rect x="36" y="34" width="58" height="16" rx="4" fill="#94a3b8" stroke="#334155" stroke-width="2"></rect><text x="66" y="82" text-anchor="middle" font-size="12" font-weight="800">bleibt fest</text></g>' : ''}
                     ${selected === 'oil' ? '<g><path d="M15 20 C42 8 75 32 111 18 L111 34 C75 48 42 24 15 36 Z" fill="#facc15" stroke="#b45309" stroke-width="2"></path><text x="66" y="82" text-anchor="middle" font-size="12" font-weight="800">schwimmt oben</text></g>' : ''}
                 </g>
@@ -312,16 +314,17 @@ window.ChemieLabs = (() => {
                             <text x="82" y="2" font-size="11" fill="#334155">${row.note}</text>
                         </g>`;
                     }).join('')}
-                    <text x="113" y="116" text-anchor="middle" font-size="12" font-weight="800" fill="#0f172a">passende Prüfung: ${rows.find((row) => row.id === selected)?.test || 'Eigenschaft prüfen'}</text>
                 </g>
             </svg>
+            <p class="property-test">Passende Prüfung: ${rows.find(row => row.id === selected)?.test || 'Wähle eine Vergleichsprobe.'}</p>
+            <p>Die Grafik ist schematisch. Gelöste Salzteilchen sind nicht als Körnchen sichtbar. Eine passende Prüfung grenzt Kandidaten ein; sie bestimmt nicht automatisch jede unbekannte Probe.</p>
         `);
     }
 
     function updateParticleLab(lab) {
         const range = lab.querySelector('input[type="range"]');
         const value = Number(range.value);
-        range.setAttribute('aria-valuetext', value + ' Prozent Temperaturmodell');
+        range.setAttribute('aria-valuetext', 'Relative Modellstufe ' + value);
         const gas = value > 70;
         const liquid = value > 35 && value <= 70;
         const stateLabel = gas ? 'Gas' : liquid ? 'Flüssigkeit' : 'Feststoff';
@@ -347,7 +350,7 @@ window.ChemieLabs = (() => {
         if (readout.state) readout.state.textContent = stateLabel;
         if (readout.distance) readout.distance.textContent = gas ? 'große Abstände' : liquid ? 'nahe zusammen' : 'feste Plätze';
         if (readout.speed) readout.speed.textContent = gas ? 'frei und schnell' : liquid ? 'gleiten aneinander vorbei' : 'zittern um feste Orte';
-        if (readout.temp) readout.temp.textContent = `${value}% Temperatur`;
+        if (readout.temp) readout.temp.textContent = `Modellstufe ${value}`;
         updateParticleCanvas(lab, value);
         chemStatus(lab, gas ? 'Gasmodell: schnelle, freie Teilchen mit großen Abständen.' : liquid ? 'Flüssigkeitsmodell: Teilchen bewegen sich, bleiben aber nahe zusammen.' : 'Feststoffmodell: feste Plätze, nur Zittern.');
     }
@@ -359,7 +362,7 @@ window.ChemieLabs = (() => {
     }
 
     function makeParticles(mode) {
-        const count = mode === 'gas' ? 16 : 22;
+        const count = 22;
         return Array.from({ length: count }, (_, i) => {
             const row = Math.floor(i / 6);
             const col = i % 6;
@@ -391,7 +394,7 @@ window.ChemieLabs = (() => {
                 mode,
                 value,
                 particles: makeParticles(mode),
-                running: false,
+                running: Boolean(state?.running && state.canvas === canvas),
                 startedAt: performance.now()
             };
             particleCanvasStates.set(lab, state);
@@ -516,19 +519,19 @@ window.ChemieLabs = (() => {
                 name: 'Sand + Salz',
                 material: '<circle cx="56" cy="74" r="4" fill="#92400e"></circle><circle cx="74" cy="92" r="4" fill="#92400e"></circle><circle cx="96" cy="76" r="3" fill="#f8fafc" stroke="#64748b"></circle><circle cx="116" cy="94" r="3" fill="#f8fafc" stroke="#64748b"></circle>',
                 steps: ['lösen', 'filtern', 'eindampfen'],
-                result: 'Sand bleibt, Salz kristallisiert'
+                result: 'Sand im Filter, Salz nach Eindampfen', explanation: 'Salz wird in ausreichend Wasser gelöst. Sand bleibt beim Filtern zurück; gelöstes Salz passiert den Filter und wird anschließend durch Entfernen des Wassers zurückgewonnen.'
             },
             ink: {
                 name: 'Filzstiftfarbe',
                 material: '<path d="M48 95 C70 50 94 122 122 58" fill="none" stroke="#7c3aed" stroke-width="5"></path><path d="M50 100 C74 80 90 128 124 84" fill="none" stroke="#ef4444" stroke-width="4"></path>',
                 steps: ['Papier', 'Wasser steigt', 'Farben wandern'],
-                result: 'Farbstoffe trennen sich'
+                result: 'Geeignete Farbstoffe trennen sich', explanation: 'Das Laufmittel und die Wechselwirkung mit dem Papier müssen zu den Farbstoffen passen. Wasser eignet sich nicht für jede Filzstiftfarbe.'
             },
             ironSand: {
                 name: 'Eisen + Sand',
                 material: '<circle cx="58" cy="84" r="4" fill="#92400e"></circle><rect x="78" y="72" width="30" height="8" rx="3" fill="#64748b"></rect><rect x="102" y="94" width="24" height="8" rx="3" fill="#64748b"></rect>',
                 steps: ['Magnet', 'Eisen haftet', 'Sand bleibt'],
-                result: 'Magnetismus trennt'
+                result: 'Magnetismus trennt', explanation: 'In diesem Modell wird Eisen vom Magneten angezogen, der verwendete Sand nicht. Nicht jedes Metall ist magnetisch.'
             }
         }[mixture];
         const stepIcons = data.steps.map((step, i) => `<g transform="translate(${205 + i * 92} 46)">
@@ -551,23 +554,27 @@ window.ChemieLabs = (() => {
                 <text x="260" y="210" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">${data.result}</text>
             </svg>
         `);
-        chemStatus(lab, `${data.name}: Passend ist die Reihenfolge ${data.steps.join(' -> ')}. Begründe mit der Stoffeigenschaft.`);
+        chemStatus(lab, `${data.name}: Passend ist die Reihenfolge ${data.steps.join(' -> ')}. ${data.explanation}`);
     }
 
     function updateAtomLab(lab) {
         const ranges = lab.querySelectorAll('input[type="range"]');
         const p = Number(ranges[0].value);
         const e = Number(ranges[1].value);
+        const n = ranges[2] ? Number(ranges[2].value) : null;
         ranges[0].setAttribute('aria-valuetext', p + ' Protonen');
         ranges[1].setAttribute('aria-valuetext', e + ' Elektronen');
+        if (ranges[2]) ranges[2].setAttribute('aria-valuetext', n + ' Neutronen');
         const element = ELEMENTS[p] || { symbol: '?', name: 'unbekannt' };
         const charge = p === e ? 'neutral' : p > e ? 'positives Ion' : 'negatives Ion';
+        const chargeNumber = p - e;
+        const chargeText = chargeNumber > 0 ? '+' + chargeNumber : String(chargeNumber).replace('-', '−');
         const electrons = Array.from({ length: e }, (_, i) => {
             const shell = i < 2 ? 42 : 70;
             const countOnShell = i < 2 ? Math.min(e, 2) : Math.max(e - 2, 1);
             const indexOnShell = i < 2 ? i : i - 2;
             const angle = (Math.PI * 2 * indexOnShell / countOnShell) - Math.PI / 2;
-            return `<circle cx="${260 + Math.cos(angle) * shell}" cy="${92 + Math.sin(angle) * shell}" r="6" fill="#2563eb"></circle>`;
+            return `<circle data-atom-electron="true" cx="${260 + Math.cos(angle) * shell}" cy="${92 + Math.sin(angle) * shell}" r="6" fill="#2563eb"></circle>`;
         }).join('');
         visual(lab, `
             <svg width="100%" height="190" viewBox="0 0 520 190" style="max-width:520px;height:auto;" role="img" aria-label="Atommodell">
@@ -579,16 +586,20 @@ window.ChemieLabs = (() => {
                 <text x="42" y="58" font-size="15" font-weight="800">${element.name}</text>
                 <text x="42" y="86" font-size="13">${p} Protonen</text>
                 <text x="42" y="110" font-size="13">${e} Elektronen</text>
-                <text x="390" y="86" font-size="15" font-weight="800">${charge}</text>
+                ${n === null ? '' : `<text x="42" y="134" font-size="13">${n} Neutronen</text>`}
+                <text x="366" y="64" font-size="14" font-weight="800">${charge}</text>
+                <text x="366" y="88" font-size="13">Ladungszahl: ${chargeText}</text>
+                ${n === null ? '' : `<text x="366" y="112" font-size="13">Massenzahl: ${p + n}</text>`}
             </svg>
         `);
-        chemStatus(lab, `${p} Protonen und ${e} Elektronen: ${charge}. Die Protonenzahl bestimmt das Element: ${element.name}.`);
+        chemStatus(lab, `${element.name}: ${p} Protonen, ${e} Elektronen${n === null ? '' : `, ${n} Neutronen`}. ${charge}; Ladungszahl ${chargeText}.${n === null ? '' : ` Massenzahl ${p + n}.`} Rechenmodell: keine Aussage über Existenz oder Stabilität dieser Kombination. Die Protonenzahl bestimmt das Element.`);
     }
 
     function renderBonding(lab) {
-        const selected = lab.dataset.chemChoice || 'salt';
+        const selected = lab.dataset.chemChoice || '';
+        const focusedAction = lab.contains(document.activeElement) ? document.activeElement.dataset.chemSvgAction : null;
         const panel = (id, x, title, subtitle, body) => `
-            <g transform="translate(${x} 26)" data-chem-svg-action="${id}" role="button" tabindex="0" style="cursor:pointer;">
+            <g transform="translate(${x} 26)" data-chem-svg-action="${id}" role="button" aria-label="${title}" aria-pressed="${selected === id}" tabindex="0" style="cursor:pointer;">
                 <rect width="148" height="142" rx="14" fill="${selected === id ? '#ecfdf5' : '#f8fafc'}" stroke="${selected === id ? '#16a34a' : '#cbd5e1'}" stroke-width="3"></rect>
                 <text x="74" y="23" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">${title}</text>
                 ${body}
@@ -596,7 +607,7 @@ window.ChemieLabs = (() => {
             </g>
         `;
         visual(lab, `
-            <svg width="100%" height="220" viewBox="0 0 520 220" style="max-width:520px;height:auto;" role="img" aria-label="Bindungsmodelle">
+            <svg width="100%" height="220" viewBox="0 0 520 220" style="max-width:520px;height:auto;" role="group" aria-label="Bindungsmodelle">
                 <defs>
                     <radialGradient id="posIon" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#fecaca"/><stop offset="100%" stop-color="#ef4444"/></radialGradient>
                     <radialGradient id="negIon" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="100%" stop-color="#3b82f6"/></radialGradient>
@@ -634,6 +645,9 @@ window.ChemieLabs = (() => {
                 <text x="260" y="202" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">Klicke ein Modell: Das grün markierte Bild gehört zur Rückmeldung.</text>
             </svg>
         `);
+        if (focusedAction) {
+            Array.from(lab.querySelectorAll('[data-chem-svg-action]')).find(node => node.dataset.chemSvgAction === focusedAction)?.focus();
+        }
     }
 
     function updateEvidenceLab(lab) {
@@ -664,7 +678,7 @@ window.ChemieLabs = (() => {
                 </g>
             </svg>
         `);
-        chemStatus(lab, count === 0 ? 'Noch keine Beobachtung gewählt.' : count === 1 ? 'Ein Zeichen allein kann ein Hinweis sein. Suche weitere Beobachtungen.' : 'Mehrere Zeichen: Eine chemische Reaktion ist wahrscheinlich. Prüfe, ob neue Stoffe entstanden sind.');
+        chemStatus(lab, count === 0 ? 'Noch keine Beobachtung gewählt.' : count === 1 ? 'Ein Zeichen allein kann ein Hinweis sein. Suche weitere Beobachtungen.' : 'Mehrere Beobachtungen sind gesammelt. Ihre Anzahl beweist keine Reaktion: Prüfe gezielt, ob neue Stoffe entstanden sind.');
     }
 
     function setReactionBuilderPreset(lab, action) {
@@ -830,7 +844,9 @@ window.ChemieLabs = (() => {
     function updateCombustionLab(lab) {
         const values = Array.from(lab.querySelectorAll('input[type="checkbox"]:checked')).map((x) => x.value);
         const has = (value) => values.includes(value);
-        const all = values.length === 3;
+        const conditions = [['fuel', 'Brennstoff'], ['oxygen', 'genügend Sauerstoff'], ['heat', 'ausreichend hohe Temperatur']];
+        const missing = conditions.filter(([key]) => !has(key)).map(([,label]) => label);
+        const all = missing.length === 0;
         visual(lab, `
             <svg width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="img" aria-label="Branddreieck">
                 <defs>
@@ -840,7 +856,7 @@ window.ChemieLabs = (() => {
                 </defs>
                 <polygon points="260,30 118,174 402,174" fill="${all ? '#fef2f2' : '#f8fafc'}" stroke="${all ? '#ef4444' : '#94a3b8'}" stroke-width="6" stroke-linejoin="round"></polygon>
                 ${[
-                    ['heat', 260, 54, 'Zündtemperatur'],
+                    ['heat', 260, 54, 'Temperatur'],
                     ['fuel', 166, 162, 'Brennstoff'],
                     ['oxygen', 354, 162, 'Sauerstoff']
                 ].map(([key, x, y, label]) => `<g>
@@ -856,10 +872,10 @@ window.ChemieLabs = (() => {
                     <path d="M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z" fill="#facc15">
                         <animate attributeName="d" values="M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z; M266 138 C240 120 280 100 260 80 C300 110 300 140 280 150 C280 160 240 160 240 150 C230 140 250 130 250 120 Z; M266 142 C250 122 274 110 270 92 C294 112 304 134 286 154 C278 162 254 162 246 150 C240 138 250 134 254 124 Z" dur="0.7s" repeatCount="indefinite"/>
                     </path>
-                </g>` : '<text x="260" y="210" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">Zum Löschen genügt es, eine Ecke wegzunehmen.</text>'}
+                </g>` : '<text x="260" y="210" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">Mindestens eine Modellbedingung fehlt.</text>'}
             </svg>
         `);
-        chemStatus(lab, all ? 'Alle drei Bedingungen sind da: Verbrennung ist möglich.' : 'Es fehlt noch mindestens eine Bedingung. Zum Löschen nimmt man eine weg.');
+        chemStatus(lab, all ? 'Alle drei Modellbedingungen sind erfüllt: Verbrennung ist möglich. Reale Stoffmengen, Mischung und Wärmeverluste werden nicht berechnet.' : 'Im Modell fehlt: ' + missing.join(', ') + '. Ohne diese Bedingung(en) ist hier keine Verbrennung möglich.');
     }
 
     function updatePhLab(lab) {
@@ -901,122 +917,136 @@ window.ChemieLabs = (() => {
                 </g>
             </svg>
         `);
-        chemStatus(lab, `${sample}: pH ${value}, also ${label}. Neutralisation heißt: vorsichtig Richtung pH 7 bringen.`);
+        chemStatus(lab, `${sample}: pH ${value}, also ${label}. Gerundeter Modellwert bei etwa 25 °C; schematische Indikatorfarbe.`);
     }
 
     function updateCrystalLab(lab) {
         const range = lab.querySelector('input[type="range"]');
-        const days = Number(range.value);
-        range.setAttribute('aria-valuetext', days + ' Tage');
-        const waterHeight = Math.max(12, 88 - days * 9);
-        const crystals = Array.from({ length: days + 2 }, (_, i) => {
-            const size = 7 + days * 1.7 + (i % 3);
-            return `<rect x="${116 + (i % 5) * 22}" y="${148 - (i % 3) * 9 - days * 2}" width="${size}" height="${size}" transform="rotate(45 ${122 + (i % 5) * 22} ${154 - (i % 3) * 9 - days * 2})" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"></rect>`;
-        }).join('');
-        const lattice = [0,1,2].map(r => [0,1,2,3].map(c => `<circle cx="${358 + c * 24}" cy="${78 + r * 24}" r="7" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"></circle>`).join('')).join('');
-        visual(lab, `
-            <svg width="100%" height="240" viewBox="0 0 520 240" style="max-width:520px;height:auto;" role="img" aria-label="Kristallbildung">
-                <rect x="24" y="28" width="472" height="174" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
-                <g transform="translate(54 36)">
-                    <path d="M56 20 H204 L176 156 H84 Z" fill="#e0f2fe" stroke="#0f172a" stroke-width="3"></path>
-                    <path d="M84 ${156 - waterHeight} C114 ${146 - waterHeight} 146 ${166 - waterHeight} 176 ${156 - waterHeight} L168 154 H92 Z" fill="#bfdbfe" opacity="0.75"></path>
-                    ${crystals}
-                    <path d="M72 14 C56 4 70 -10 92 0 M104 10 C88 -4 108 -20 130 -6 M144 10 C130 -4 148 -20 170 -6" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" opacity="${days > 1 ? 0.9 : 0.2}"></path>
-                    <text x="130" y="180" text-anchor="middle" font-size="13" font-weight="900">Tag ${days}: Wasser verdunstet</text>
-                </g>
-                <g transform="translate(318 44)">
-                    <circle cx="72" cy="70" r="58" fill="#ffffff" stroke="#2563eb" stroke-width="4"></circle>
-                    ${lattice}
-                    <text x="72" y="154" text-anchor="middle" font-size="12" font-weight="900">Lupe: Ordnung im Kristall</text>
-                </g>
-            </svg>
-        `);
-        chemStatus(lab, `Tag ${days}: Je langsamer Wasser verdunstet, desto geordneter können Kristalle wachsen.`);
+        const evaporated = Number(range.value);
+        const water = 100 - evaporated;
+        const dissolved = Math.min(18, water * 0.36);
+        const crystalMass = 18 - dissolved;
+        const fmt = value => value.toLocaleString('de-AT', { maximumFractionDigits: 1 });
+        range.setAttribute('aria-valuetext', fmt(evaporated) + ' g Wasser verdunstet');
+        const waterHeight = water * 0.9;
+        const count = Math.ceil(crystalMass / 2);
+        const crystals = Array.from({ length: count }, (_, i) =>
+            '<rect data-crystal="true" x="' + (79 + i % 4 * 25) + '" y="' + (157 - Math.floor(i / 4) * 15) + '" width="12" height="12" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"></rect>'
+        ).join('');
+        const lattice = [0,1,2].map(r => [0,1,2,3].map(c => {
+            const positive = (r + c) % 2 === 0;
+            return '<circle cx="' + (37 + c * 23) + '" cy="' + (45 + r * 23) + '" r="9" fill="' + (positive ? '#dbeafe' : '#ffedd5') + '" stroke="#334155"></circle><text x="' + (37 + c * 23) + '" y="' + (49 + r * 23) + '" text-anchor="middle" font-size="13" fill="#0f172a">' + (positive ? '+' : '−') + '</text>';
+        }).join('')).join('');
+        visual(lab, '<svg width="100%" height="250" viewBox="0 0 520 250" style="max-width:520px;height:auto;" role="img" aria-label="Restwasser und Kristalle; daneben ein schematisches Ionengitter">' +
+            '<g transform="translate(20 20)"><path d="M50 30 H220 L200 180 H70 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="3"></path>' +
+            '<rect x="76" y="' + (175 - waterHeight) + '" width="118" height="' + waterHeight + '" fill="#bfdbfe"></rect>' + crystals +
+            '<text x="135" y="205" text-anchor="middle" font-size="14" fill="#0f172a">' + fmt(water) + ' g Wasser verbleiben</text></g>' +
+            '<g transform="translate(310 45)"><rect x="15" y="20" width="116" height="98" rx="10" fill="#fff" stroke="#64748b"></rect>' + lattice +
+            '<text x="73" y="143" text-anchor="middle" font-size="13" fill="#0f172a">Ionengitter (Schema)</text>' +
+            '<text x="73" y="162" text-anchor="middle" font-size="12" fill="#334155">Kein Teilchenfoto</text></g></svg>' +
+            '<table class="word-rubric"><caption>Salzbilanz im Modell</caption><thead><tr><th scope="col">Gelöstes Salz</th><th scope="col">Salz als Kristall</th><th scope="col">Salz insgesamt</th></tr></thead><tbody><tr><td data-salt-dissolved="' + dissolved.toFixed(1) + '">' + fmt(dissolved) + ' g</td><td data-salt-crystal="' + crystalMass.toFixed(1) + '">' + fmt(crystalMass) + ' g</td><td>18 g</td></tr></tbody></table>');
+        const state = crystalMass > 0 ? 'Gesättigte Lösung mit Kristallen.' : water * 0.36 === 18 ? 'Sättigungsgrenze erreicht; noch kein überschüssiges Salz.' : 'Ungesättigt: Das gesamte Salz bleibt gelöst.';
+        chemStatus(lab, fmt(evaporated) + ' g Wasser verdunstet, ' + fmt(water) + ' g bleiben. ' + state + ' Gelöst: ' + fmt(dissolved) + ' g; kristallisiert: ' + fmt(crystalMass) + ' g. Zusammen weiterhin 18 g Salz. Kristallgrößen und Anzahl sind schematisch.');
     }
 
     function renderRedox(lab) {
-        const selected = lab.dataset.chemChoice || 'salt';
+        const selected = lab.dataset.chemChoice || '';
+        const focusedAction = lab.contains(document.activeElement) ? document.activeElement.dataset.chemSvgAction : null;
         const tubes = [
-            { id: 'dry', label: 'trocken', rust: 1, water: 0, note: 'kaum Wasser' },
-            { id: 'water', label: 'Wasser', rust: 2, water: 48, note: 'Wasser + Luft' },
-            { id: 'salt', label: 'Salzwasser', rust: 4, water: 58, note: 'Ionen beschleunigen' },
-            { id: 'oil', label: 'Ölschicht', rust: 1, water: 44, note: 'Schutzschicht' }
+            { id: 'dry', label: 'trocken', rust: 0, water: 0, note: 'kaum Wasser' },
+            { id: 'water', label: 'Wasser', rust: 2, water: 70, note: 'Wasser + Luft' },
+            { id: 'salt', label: 'Salzwasser', rust: 4, water: 70, note: 'Ionen beschleunigen' },
+            { id: 'oil', label: 'sauerstoffarm', rust: 0, water: 70, note: 'abgekocht + Öl' }
         ];
         visual(lab, `
-            <svg width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="img" aria-label="Rostversuch">
-                ${tubes.map((tube, i) => `<g transform="translate(${38 + i * 122} 28)" data-chem-svg-action="${tube.id}" role="button" tabindex="0" style="cursor:pointer;">
+            <svg width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="group" aria-label="Qualitativer Rostvergleich, keine Messwerte">
+                ${tubes.map((tube, i) => `<g transform="translate(${38 + i * 122} 28)" data-chem-svg-action="${tube.id}" role="button" aria-label="${tube.label}" aria-pressed="${selected === tube.id}" tabindex="0" style="cursor:pointer;">
                     <rect x="-8" y="-8" width="96" height="166" rx="12" fill="${selected === tube.id ? '#ecfdf5' : '#ffffff'}" stroke="${selected === tube.id ? '#16a34a' : '#cbd5e1'}" stroke-width="3"></rect>
                     <path d="M12 14 H68 L58 124 H22 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="3"></path>
                     ${tube.water ? `<path d="M23 ${130 - tube.water} C36 ${122 - tube.water} 47 ${137 - tube.water} 57 ${129 - tube.water} L54 120 H26 Z" fill="#bfdbfe" opacity="0.8"></path>` : ''}
-                    ${tube.id === 'oil' ? '<path d="M24 70 C36 63 48 78 58 70 L56 83 H26 Z" fill="#fde68a" stroke="#b45309" stroke-width="2"></path>' : ''}
-                    <line x1="40" y1="28" x2="40" y2="112" stroke="#78716c" stroke-width="9" stroke-linecap="round"></line>
-                    ${Array.from({ length: tube.rust }, (_, r) => `<circle cx="${34 + (r % 2) * 14}" cy="${58 + r * 15}" r="${5 + r}" fill="#b45309" opacity="0.86"></circle>`).join('')}
+                    ${tube.id === 'oil' ? '<path d="M24 48 H57 L56 59 H25 Z" fill="#fde68a" stroke="#b45309" stroke-width="2"></path>' : ''}
+                    <line x1="40" y1="72" x2="40" y2="112" stroke="#78716c" stroke-width="9" stroke-linecap="round"></line>
+                    ${Array.from({ length: tube.rust }, (_, r) => `<circle cx="${34 + (r % 2) * 14}" cy="${78 + r * 9}" r="${5 + r}" fill="#b45309" opacity="0.86"></circle>`).join('')}
                     <text x="40" y="146" text-anchor="middle" font-size="12" font-weight="900">${tube.label}</text>
                     <text x="40" y="162" text-anchor="middle" font-size="10" fill="#334155">${tube.note}</text>
                 </g>`).join('')}
             </svg>
         `);
+        if (focusedAction) Array.from(lab.querySelectorAll('[data-chem-svg-action]')).find(node => node.dataset.chemSvgAction === focusedAction)?.focus();
     }
 
     function updateCarbonLab(lab) {
         const range = lab.querySelector('input[type="range"]');
         const count = Number(range.value);
-        range.setAttribute('aria-valuetext', count + ' Kohlenstoffatome');
-        const chain = Array.from({ length: count }, (_, i) => {
-            const x = 58 + i * 48;
-            const y = 96 + (i % 2) * 18;
-            const branch = count >= 6 && i === 3;
-            return `<g>
-                ${i < count - 1 ? `<line x1="${x + 18}" y1="${y}" x2="${x + 30}" y2="${96 + ((i + 1) % 2) * 18}" stroke="#111827" stroke-width="5"></line>` : ''}
-                <circle cx="${x}" cy="${y}" r="18" fill="#111827"></circle><text x="${x}" y="${y + 6}" text-anchor="middle" fill="white" font-weight="900">C</text>
-                ${branch ? `<line x1="${x}" y1="${y - 18}" x2="${x}" y2="${y - 44}" stroke="#111827" stroke-width="4"></line><circle cx="${x}" cy="${y - 62}" r="16" fill="#111827"></circle><text x="${x}" y="${y - 56}" text-anchor="middle" fill="white" font-weight="900">C</text>` : ''}
-            </g>`;
-        }).join('');
-        visual(lab, `
-            <svg width="100%" height="220" viewBox="0 0 520 220" style="max-width:520px;height:auto;" role="img" aria-label="Kohlenstoffkette">
-                <rect x="22" y="24" width="476" height="164" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
-                ${chain}
-                <g transform="translate(330 54)">
-                    <rect x="0" y="0" width="138" height="88" rx="12" fill="#ecfeff" stroke="#0891b2" stroke-width="3"></rect>
-                    <text x="69" y="27" text-anchor="middle" font-size="13" font-weight="900">Je länger die Kette,</text>
-                    <text x="69" y="50" text-anchor="middle" font-size="12">desto andere Eigenschaften:</text>
-                    <text x="69" y="72" text-anchor="middle" font-size="12" font-weight="800">${count >= 6 ? 'zäher / höherer Siedepunkt' : 'leichter beweglich'}</text>
-                </g>
-            </svg>
-        `);
-        chemStatus(lab, `${count} C-Atome: Kohlenstoffketten können kurz, lang oder verzweigt sein.`);
+        const select = lab.querySelector('[data-carbon-shape]');
+        if (select) {
+            select.querySelector('[value="branched"]').disabled = count < 4;
+            if (count < 4) select.value = 'straight';
+        }
+        const branched = count >= 4 && select?.value === 'branched';
+        const mainCount = count - (branched ? 1 : 0);
+        const points = Array.from({ length: mainCount }, (_, i) => [58 + i * 52, 110 + i % 2 * 18]);
+        const links = points.slice(1).map((point,i) => [points[i],point]);
+        if (branched) { const branch = [points[1][0],58]; links.push([points[1],branch]); points.push(branch); }
+        const formula = 'C' + count + 'H' + (2 * count + 2);
+        range.setAttribute('aria-valuetext', count + ' Kohlenstoffatome insgesamt');
+        const lines = links.map(([from,to]) => '<line data-carbon-bond="true" x1="'+from[0]+'" y1="'+from[1]+'" x2="'+to[0]+'" y2="'+to[1]+'" stroke="#334155" stroke-width="4"></line>').join('');
+        const atoms = points.map(([x,y]) => '<g><circle data-carbon-atom="true" cx="'+x+'" cy="'+y+'" r="18" fill="#111827"></circle><text x="'+x+'" y="'+(y+6)+'" text-anchor="middle" fill="white" font-weight="900">C</text></g>').join('');
+        visual(lab, '<svg width="100%" height="230" viewBox="0 0 520 230" style="max-width:520px;height:auto;" role="img" aria-label="'+count+' C-Atome, '+(branched?'verzweigte':'unverzweigte')+' Struktur, Wasserstoff nicht gezeichnet">'+
+            '<rect x="22" y="24" width="476" height="188" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>'+lines+atoms+
+            '<text x="260" y="176" text-anchor="middle" font-size="15" font-weight="800" fill="#0f172a">Summenformel: '+formula+'</text>'+
+            '<text x="260" y="198" text-anchor="middle" font-size="12" fill="#334155">Wasserstoffatome weggelassen · keine Siedepunktmessung</text></svg>');
+        chemStatus(lab, count+' C-Atome und '+(2*count+2)+' H-Atome: '+formula+'. '+(branched?'Verzweigte':'Unverzweigte')+' Struktur. '+(count<4?'Eine verzweigte offenkettige Alkanstruktur braucht mindestens vier C-Atome.':'Vergleiche beide Verknüpfungen bei gleicher Gesamtzahl; die Summenformel bleibt gleich.'));
+    }
+
+    function updateReuseBalance(lab) {
+        const input = lab.querySelector('input[type="range"]');
+        const uses = Number(input.value);
+        const single = uses * 15;
+        const reuse = 120;
+        input.setAttribute('aria-valuetext', uses + ' Einsätze');
+        visual(lab, `<table class="word-rubric"><caption>Fiktive Masse neu hergestellter Behälter</caption><thead><tr><th scope="col">Variante</th><th scope="col">Anzahl Behälter</th><th scope="col">Masse insgesamt</th></tr></thead><tbody><tr><th scope="row">Einweg</th><td>${uses}</td><td data-single-mass="${single}">${single} g</td></tr><tr><th scope="row">Mehrweg</th><td>1</td><td data-reuse-mass="120">120 g</td></tr></tbody></table>`);
+        const comparison = single === reuse ? 'Gleiche Behältermasse in beiden Varianten.' : single > reuse ? `Mehrweg benötigt hier ${single - reuse} g weniger Behältermasse.` : `Mehrweg benötigt hier ${reuse - single} g mehr Behältermasse.`;
+        chemStatus(lab, `${uses} Einsätze: Einweg ${single} g, Mehrweg ${reuse} g. ${comparison} Keine vollständige Umweltbilanz: Reinigung, Transport und weitere Wirkungen fehlen.`);
     }
 
     function renderLifecycle(lab) {
-        const selected = lab.dataset.chemChoice || 'reuse';
+        const selected = lab.dataset.chemChoice || '';
+        const focusedAction = lab.contains(document.activeElement) ? document.activeElement.dataset.chemSvgAction : null;
         const decisions = {
-            single: 'Einweg: schnell, aber meist mehr Abfall.',
-            reuse: 'Mehrweg: stark, wenn oft verwendet.',
-            repair: 'Reparieren: spart Rohstoffe am deutlichsten.',
-            recycle: 'Recycling: hilfreich, aber nicht verlustfrei.'
+            single: 'Einweg: Für weitere Nutzungen wird ein neues Produkt gebraucht. Auch Einwegmaterial kann je nach Stoff und Sammlung recycelt werden.',
+            reuse: 'Mehrweg: Dasselbe Produkt wird mehrfach genutzt. Reinigung, Rücktransport und tatsächliche Nutzungszahl zählen mit.',
+            repair: 'Reparatur: Das Produkt bleibt länger nutzbar. Ersatzteile, Aufwand und weiterer Betriebsverbrauch beeinflussen die Bilanz.',
+            recycle: 'Recycling: Material wird aufbereitet und teilweise zurückgewonnen. Nicht jeder Stoffstrom gelangt vollständig in ein gleichwertiges neues Produkt.'
         };
         visual(lab, `
-            <svg width="100%" height="240" viewBox="0 0 520 240" style="max-width:520px;height:auto;" role="img" aria-label="Produktkreislauf">
+            <svg width="100%" height="240" viewBox="0 0 520 240" style="max-width:520px;height:auto;" role="group" aria-label="Produkt-Lebensweg mit teilweiser Rückgewinnung und Reststoffen">
                 <defs><marker id="chemLoopArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#16a34a"></path></marker></defs>
-                <path d="M130 112 C138 34 375 34 390 112 C375 190 138 190 130 112" fill="none" stroke="#16a34a" stroke-width="6" stroke-linecap="round" stroke-dasharray="13 8" marker-end="url(#chemLoopArrow)"></path>
-                ${['Rohstoff', 'Herstellung', 'Nutzung', 'Abfall?'].map((label, i) => {
-                    const pts = [[130,112], [250,48], [390,112], [250,178]][i];
-                    return `<g><circle cx="${pts[0]}" cy="${pts[1]}" r="34" fill="#dcfce7" stroke="#16a34a" stroke-width="3"></circle><text x="${pts[0]}" y="${pts[1]+5}" text-anchor="middle" font-size="12" font-weight="900">${label}</text></g>`;
+                ${['Rohstoff', 'Herstellung', 'Nutzung', 'Sammlung'].map((label, i) => {
+                    const x = 158 + i * 88;
+                    return `<g><rect x="${x}" y="42" width="76" height="56" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="2"></rect><text x="${x+38}" y="75" text-anchor="middle" font-size="11" fill="#0f172a">${label}</text></g>`;
                 }).join('')}
-                <g transform="translate(34 34)">
+                ${[0,1,2].map(i => `<path d="M${235+i*88} 70 H${243+i*88}" stroke="#16a34a" stroke-width="2" marker-end="url(#chemLoopArrow)"></path>`).join('')}
+                <path d="M460 100 V150 H196 V103" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#chemLoopArrow)"></path>
+                <text x="324" y="137" text-anchor="middle" font-size="11" fill="#0f172a">Aufbereitung: teilweise Rückgewinnung</text>
+                <path d="M460 150 V188" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#chemLoopArrow)"></path>
+                <text x="378" y="211" text-anchor="middle" font-size="12" fill="#0f172a">Reststoffe und Materialverluste</text>
+                <g transform="translate(8 34)">
                     ${[
                         ['single', 'Einweg'],
                         ['reuse', 'Mehrweg'],
                         ['repair', 'Reparatur'],
                         ['recycle', 'Recycling']
-                    ].map(([id, label], i) => `<g transform="translate(0 ${i * 35})" data-chem-svg-action="${id}" role="button" tabindex="0" style="cursor:pointer;">
+                    ].map(([id, label], i) => `<g transform="translate(0 ${i * 35})" data-chem-svg-action="${id}" role="button" aria-label="${label}" aria-pressed="${selected === id}" tabindex="0" style="cursor:pointer;">
                         <rect width="102" height="26" rx="8" fill="${selected === id ? '#fef3c7' : '#f8fafc'}" stroke="${selected === id ? '#d97706' : '#cbd5e1'}" stroke-width="2"></rect>
                         <text x="51" y="18" text-anchor="middle" font-size="11" font-weight="900">${label}</text>
                     </g>`).join('')}
                 </g>
-                <text x="260" y="222" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">${decisions[selected] || decisions.reuse}</text>
             </svg>
+            <p class="lifecycle-explanation">${decisions[selected] || 'Wähle einen Weg und vergleiche seine Voraussetzungen. Die Grafik zeigt keine Mengenbilanz.'}</p>
         `);
+        if (selected) chemStatus(lab, decisions[selected]);
+        if (focusedAction) Array.from(lab.querySelectorAll('[data-chem-svg-action]')).find(node => node.dataset.chemSvgAction === focusedAction)?.focus();
     }
 
     return { topicInit };
