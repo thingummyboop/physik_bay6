@@ -4,20 +4,20 @@ Grundlage: gespeicherter RIS-Lehrplantext vom 05.09.2026, Kompetenzbeschreibunge
 
 | Lehrplanbereich | Aktuelle Kapitel | Direkt geprüfter Befund | Restarbeit |
 |---|---|---|---|
-| Zahlen darstellen und vergleichen | Natürliche Zahlen, Brüche, Dezimalzahlen | Natürliche Zahlen vollständig erneut gelesen: Ziffer/Zahl und H/Z/E vorhanden. Brüche und Dezimalzahlen wurden in früheren Durchgängen erweitert, hier nicht erneut vollständig gelesen. | Natürliche Zahlen: größere Stellenwerte, Zahlenstrahl, Vergleich und Überschlag am vollständigen Präzisierungstext prüfen. Bruch-/Dezimalabdeckung konsolidieren. |
+| Zahlen darstellen und vergleichen | Natürliche Zahlen, Brüche, Dezimalzahlen | Größere Stellenwerte, Zahlenstrahl und Überschlag ergänzt; Bruchgleichwertigkeit und verschiedene Bezugsgrößen sowie Einkaufsentscheidungen ausgearbeitet. | Vollständige fachliche Prüfung aller bestehenden Antwortalternativen und schriftlichen Verfahren noch nicht belegt. |
 | Rechenoperationen mit natürlichen Zahlen | Volksschulwissen, Addition/Subtraktion, Multiplikation/Division | Strenge Ganzzahleingaben, Gegenproben und Entbündeln ergänzt; Stellenwertprodukt und Division mit Rest samt Sachdeutung vorhanden. | Schriftliche Verfahren, Überschlag und Übertragung auf größere Zahlen vollständig gegen die Präzisierungen prüfen. |
-| Größen ein-/mehrnamig und umrechnen | Größen, Dezimalzahlen | Länge/Masse/Zeit, gemischte Maße, eigene Messungen und Zeitspannen ergänzt. | Die Navigation nennt auch Geld; das Größenkapitel selbst enthält noch keinen Geldabschnitt. Geldaufgaben in Dezimalzahlen prüfen und konsistent zuordnen. |
-| Terme, Formeln, Gleichungen aufstellen/deuten | Gleichungen und Ungleichungen | Vollständig erneut gelesen: Gleichheitsvorstellung, Umkehroperation, Einsetzprobe und Ungleichungs-Sachaufgabe vorhanden. | Eigene Terme/Formeln aus Sachtexten und Geometrie sowie Berechnen einer fehlenden Größe breiter abdecken. |
-| Grundobjekte, Abstände, Konstruktionen | Geometrische Grundbegriffe | Parallel-/Normalenkonstruktion, Kreislinie/-fläche/-teile, Tangente, Punkt-/Geradenlage vorhanden; aktuelle Tests prüfen die Ergänzungen. | Abstand Punkt–Gerade ausdrücklich als kürzeste senkrechte Strecke erklären und konstruieren; aktuelle Zeichnungen visuell prüfen. |
-| Winkel | Winkel | Vollständig erneut gelesen: Größenklassen, eigener Regler, optionales GeoGebra-Werkzeug. | Eigenständige Schrittfolge zum Messen und Zeichnen mit Geodreieck ohne externes Werkzeug ergänzen; Skalenwahl erläutern. |
-| Rechtecke, zusammengesetzte Figuren, Maßstab, Umfang/Fläche | Figuren und Körper; Flächeninhalte ebener Figuren in späteren Klassen | Erstklasskapitel vollständig gelesen: bisher vor allem Ecken und einfache Eigenschaften. Das ausführlichere Flächenkapitel ist der 6.–7. Schulstufe zugeordnet. | Konkrete Lücke im Erstklassweg: Rechteck konstruieren, Einheitsquadrate, begründete Umfang-/Flächenformeln, Umkehraufgaben, zusammengesetzte Rechtecke und Maßstab. Nicht durch späteres Kapitel als erledigt behandeln. |
-| Quader: Netz, Ansichten, Oberfläche/Volumen | Figuren und Körper; Prismen und Pyramiden in Klasse 3 | Erstklasskapitel nennt Flächen/Kanten/Ecken und Körperformen, aber keine entsprechende Herleitung oder Konstruktion. | Konkrete Lücke: Quadernetz, Ansichten, Einheitswürfel, begründete Formeln und Anwendungen in Klasse 1. |
+| Größen ein-/mehrnamig und umrechnen | Größen, Dezimalzahlen und Geldrechnen | Länge/Masse/Zeit, gemischte Maße, eigene Messungen und Zeitspannen vorhanden; Geldrechnen mit Budget und Stückpreisen im Dezimalkapitel. Navigation entsprechend berichtigt. | Praktische Messungen und visuelle Bedienung prüfen. |
+| Terme, Formeln, Gleichungen aufstellen/deuten | Gleichungen und Ungleichungen | Gleichheitsvorstellung, Umkehroperation, Einsetzprobe, Ungleichung sowie Sachtextformel mit Wertetabelle und zulässigen Eingabewerten ergänzt. | Gesamte Aufgabenfolge und Transferbreite abschließend gegen die Präzisierungen prüfen. |
+| Grundobjekte, Abstände, Konstruktionen | Geometrische Grundbegriffe | Parallel-/Normalenkonstruktion, Kreisteile, Tangente und Abstand Punkt–Gerade mit Modell und eigener Konstruktion vorhanden. | Zeichnungen visuell und Handhabung praktisch prüfen. |
+| Winkel | Winkel | Schrittfolge zum Messen/Zeichnen mit Geodreieck, Skalenwahl, Drehung und erhabene Winkel ergänzt. | Praktische Mess-/Zeichenprobe und visuelle Darstellung prüfen. |
+| Rechtecke, zusammengesetzte Figuren, Maßstab, Umfang/Fläche | Figuren und Körper | Erstklassweg enthält Konstruktion, Einheitsquadrate, Umfang-/Flächenmodell, Umkehraufgaben, zusammengesetztes Rechteck und Maßstab. | Tatsächliche Zeichnungen und Drucklayout prüfen. |
+| Quader: Netz, Ansichten, Oberfläche/Volumen | Figuren und Körper | Quadernetz und Einheitswürfelmodell, Stufenkörper mit drei Ansichten, Flächen-/Volumenaufträge und gültige/ungültige Würfelnetze ergänzt. | Praktisches Falten/Bauen und visuelle Prüfung offen; vollständige Kompetenzabnahme nicht behauptet. |
 | Daten und Kennzahlen | math2_8_statistik, der ersten Klasse zugeordnet | Listen/Tabelle/Säulen, Minimum/Maximum/Spannweite, Mittelwert/Median mit interaktiven Vergleichen vorhanden. | Eigenständige Datenerhebung und Übertragung verschiedener Darstellungen abschließend prüfen. |
 | Abzählaufgaben/Baumdiagramm | math2_8_statistik/sec_abzaehlen | Sechs Kombinationen in Tabelle und Text-Baumstruktur, eigener Zeichenauftrag, Einschränkungen und zwei geprüfte Fragen ergänzt. | Visuelle und Unterrichtserprobung offen. |
 
-## Nächste inhaltliche Priorität
+## Nächste Prüfung
 
-Der Rechteckteil im bestehenden Erstklasskapitel „Figuren und Körper“ ist inzwischen ergänzt (siehe Nachtrag). Auch der Quaderteil ist inzwischen ergänzt (siehe Nachtrag). Es bleibt insbesondere die Übertragung auf zusammengesetzte Körper sowie die praktische/visuelle Prüfung. Diese fehlenden Kompetenzbereiche sind gewichtiger als weitere Einzelvarianten bereits behandelter Rechnungen. Bestehende Kapitel und Klassenpfade bleiben erhalten.
+Die zuvor konkret benannten Inhaltslücken zu Rechtecken, Quadern, zusammengesetzten Körpern, Würfelnetzen, Winkeln und Punkt–Gerade sind bearbeitet. Die eigenständige Datenerhebung ist nun angeleitet (siehe Nachtrag). Als nächste inhaltliche Prüfung bleiben die vollständigen schriftlichen Rechenverfahren; hinzu kommen die praktische und visuelle Abnahme. Diese Zusammenfassung ersetzt die überholten ursprünglichen Tabellenbefunde, ohne aus Ergänzungen eine vollständige Lehrplanabdeckung abzuleiten.
 
 ## Grenzen dieses Prüfstands
 
@@ -42,3 +42,37 @@ math1_2_nat_zahlen Revision 2: dritter Abschnitt mit größeren Stellenwerten un
 ## Vom Sachtext zur Formel ergänzt
 
 math1_7_gleichungen Revision 2: eigener vierter Abschnitt mit ausdrücklich erfundenem Kostenmodell, Definition von Variable und Einheit, festen/variablen Anteilen, Wertetabelle, Gleichung, Einsetzprobe und erlaubtem ganzzahligem Wertebereich. Fünf Arbeitsaufträge schließen eigenes Formulieren eines Sachtexts ein; drei neue Fragen. Multiplikation/Division als zusätzlicher Vorwissenslink. Bestehende Ungleichungs-Suite prüft alle 30 Antwortwege und 55 Modellvergleiche, neue Abschnittszuordnung, Tabellenrechnung und vorherige Revision. Erstklass-Suite und 95 STEM-Arbeitsblätter ebenfalls bestanden. Keine praktische/visuelle Gesamtprüfung.
+
+### Ergänzung: Dezimalzahlen und Einkaufsentscheidungen
+
+Abschnitt 9 verbindet nun fiktive Preise mit fünf begründeten Einkaufsaufgaben: Stückpreis, exakter Bedarf, Gesamtpreis, Rückgeld und Budgetgrenze. Ein günstigerer Stückpreis kann bei überflüssiger Menge zu höheren Gesamtkosten führen. Die bisherige starre Signalworttabelle ist ersetzt; „insgesamt“ wird in einem Divisions- und einem Multiplikationskontext gegenübergestellt. Drei bewertete Fragen prüfen diese Unterscheidungen. Die übrigen Bruch-/Dezimalabschnitte sind damit noch nicht vollständig fachlich oder praktisch abgenommen.
+
+### Ergänzung: gleichwertige Brüche und Bezugsgrößen
+
+Die sieben Bruchabschnitte und neun Dezimalabschnitte wurden als Erklärungstexte gelesen. Ergänzt sind Unterteilen/Erweitern/Kürzen mit drei Streifenbildern, fünf eigenständigen Zeichen- und Begründungsaufgaben, verschiedenen Ganzen und drei bewerteten Fragen. Das ist keine vollständige Prüfung sämtlicher vorhandener Übungsantworten oder ihrer praktischen Bedienung. Größere Anwendungszusammenhänge, schriftliche Verfahren und tatsächliche Darstellung bleiben gesondert zu prüfen.
+
+### Abstand Punkt–Gerade ergänzt
+
+Abschnitt 2 der geometrischen Grundbegriffe erklärt den senkrechten Abstand, den Lotfußpunkt und den Sonderfall Abstand 0. Ein Modell mit festem P und neun Stellungen von Q vergleicht die schräge Verbindung mit der Normalstrecke. Die Bildschirmgröße ist ausdrücklich kein Zentimetermaßstab. Vier Konstruktions-/Messaufträge verlangen eigene Zeichnung, Längenvergleich und gedrehtes Blatt. Die vorher dokumentierte inhaltliche Lücke zu Punkt–Gerade ist damit bearbeitet; praktische Konstruktion und visuelle Ansicht bleiben ungeprüft.
+
+### Zusammengesetzte Quader ergänzt
+
+Der Quaderabschnitt ergänzt einen Stufenkörper aus 4 × 3 × 2 cm und 2 × 3 × 1 cm großen Quadern, drei maßhaltig unterteilte Ansichten, fünf Bau-/Zeichen-/Rechenaufträge und zwei bewertete Fragen. Volumenaddition und Ergänzungsverfahren liefern 30 cm³; die äußere Oberfläche berücksichtigt beide innenliegenden Kontaktflächen und beträgt 62 cm². Eine unabhängige Einheitswürfelzählung prüft Volumen, exponierte Flächen und alle drei Projektionen. Weitere verschiedene gültige/ungültige Netze sowie praktische/visuelle Erprobung bleiben offen.
+
+### Würfelnetze vergleichen
+
+Der Quaderabschnitt enthält zwei gültige und ein ungültiges Netz mit nummerierten Quadraten, gleichwertigen Koordinatentabellen zum Nachzeichnen und vier Falt-/Begründungsaufträgen. Die Auflösung nennt gegenüberliegende Flächen und erklärt die unzulässigen Vierer-Treffpunkte der Rechteckanordnung. Eine unabhängige Orientierungsausbreitung mit 90-Grad-Faltungen prüft die drei Fälle und sämtliche genannten Gegenüber-Paare. Rechteck-/Quaderprüfungen und 95 STEM-Arbeitsblattmaterialien bestanden. Die Tabellen bleiben auch im Arbeitsblatt erhalten. Tatsächliches Ausschneiden/Falten und visuelle Prüfung bleiben offen; keine neue Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Eigene Daten erheben und auswerten
+
+Im Erstklass-Statistikkapitel ist jetzt eine durchgehende Untersuchung von acht Stift- oder Papierstreifenlängen angeleitet: Auswahl und Messdefinition, Nullmarke/Einheit, Wiederholungsmessung, Rohdatenprotokoll, geordnete Liste, Kennzahlen, Häufigkeitstabelle, Diagramm und begrenzte Schlussfolgerung. Eine fiktive Alternative wird ausdrücklich von selbst erhobenen Daten getrennt. Ihre Summe 120 cm, Mittelwert/Median 15 cm, Spannweite 6 cm und Häufigkeiten 1/2/3/1/1 sind geprüft. Fehlende Werte sind keine Nullen; gleiche Beobachtungswerte bleiben mehrfach in der Liste.
+
+Statistikprüfung und 95 STEM-Arbeitsblattmaterialien bestanden. Die Anleitung ist ausgearbeitet, die tatsächliche Erhebung und die Qualität von Schülerprodukten sind damit nicht nachgewiesen. Keine neue Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Schriftliche Division ergänzt
+
+math1_4_mult_div enthält nun eine Stellenwerttabelle für 816 : 4 = 204 und drei erklärte Schritte für 7344 : 24 = 306. Die Null als notwendige Ergebnisstelle, Umtausch des Restes beim Herunterholen sowie Endrest/Gegenprobe werden getrennt erklärt. Fünf Aufgaben mit Vergleichslösungen behandeln außerdem 936 : 4 = 234, 7350 : 24 = 306 Rest 6 und 864 : 4 = 216. Elf math1-Kapitel und 95 STEM-Arbeitsblattmaterialien bestanden. Reine Ergänzung von Erklärung und Papieraufträgen; kein neuer bewerteter Quizstoff und keine Revisionsanhebung. Praktische Durchführung/visuelle Darstellung nicht geprüft.
+
+### Schriftliche Multiplikation ergänzt
+
+286 · 34 ist mit Überträgen, Teilprodukt 286 · 30, Stellenwerttabelle und Übertrag bei der Addition erklärt. Vier Aufgaben prüfen 203 · 14, den Fehler 1144 + 858, 407 · 26 und alternative Zerlegung/Überschlag. Beispielrechnungen numerisch kontrolliert; elf math1-Kapitel und 95 STEM-Arbeitsblattmaterialien bestanden. Die zuvor benannten schriftlichen Verfahren sind damit konkret ausgearbeitet; das ist noch keine vollständige Lehrplan- oder Unterrichtsabnahme. Keine neue Quizrevision oder Veröffentlichung.

@@ -1038,13 +1038,13 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math1_9_dezimalzahlen",
-        "title": "💶 Dezimalzahlen",
+        "title": "💶 Dezimalzahlen und Geldrechnen",
         "grade": "1. Klasse (5. Schulstufe)",
         "category": "Arithmetik"
       },
       {
         "id": "math1_10_groessen",
-        "title": "⚖️ Größen (Länge, Masse, Zeit, Geld)",
+        "title": "⚖️ Größen: Länge, Masse und Zeit",
         "grade": "1. Klasse (5. Schulstufe)",
         "category": "Arithmetik"
       },

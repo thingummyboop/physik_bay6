@@ -1,4 +1,8 @@
-function checkTerm1(){ let v = document.getElementById('term1').value; if(v==6){ document.getElementById('fb_term1').innerHTML="<span style='color:green'>Richtig! 2 * 3 = 6</span>"; } else { document.getElementById('fb_term1').innerHTML="<span style='color:red'>Falsch. 2 mal 3 ist...</span>"; } }
+function checkTerm1(){
+ const raw=document.getElementById('term1').value.trim().replace(/−/g,'-'),out=document.getElementById('fb_term1');
+ const value=/^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)$/.test(raw)?Number(raw.replace(',','.')):NaN;
+ out.textContent=!Number.isFinite(value)?'Gib eine ganze Zahl oder Dezimalzahl ein, zum Beispiel 1,5.':value===6?"Richtig! 2 · 3 = 6.":"Setze für die Variable 3 ein und multipliziere mit 2: 3 + 3 = 6.";
+}
 
 
 const equationPracticeTasks = [
@@ -36,8 +40,10 @@ function bindEquationPractice() {
  select.onchange=reset;host.querySelector('[data-equation-reset]').onclick=reset;reset();
 }
 
-function topicInit() {
+function topicInit() { bindQuickDecimalAnswer();
  bindEquationPractice();
  const input=document.getElementById('term1'),feedback=document.getElementById('fb_term1');
  if(input&&feedback){input.setAttribute('aria-label','Wert von 2 mal 3 in Euro');feedback.setAttribute('role','status');input.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();checkTerm1();}};}
 }
+
+function bindQuickDecimalAnswer(){const input=document.getElementById('term1'),out=document.getElementById('fb_term1');if(!input||!out)return;input.type='text';input.setAttribute('inputmode','decimal');input.setAttribute('aria-label',"Wert von 2 mal 3 in Euro");input.setAttribute('aria-describedby','fb_term1');out.setAttribute('role','status');out.setAttribute('aria-live','polite');out.setAttribute('aria-atomic','true');input.oninput=()=>out.textContent='';input.onkeydown=event=>{if(event.key==='Enter'){event.preventDefault();checkTerm1();}};}

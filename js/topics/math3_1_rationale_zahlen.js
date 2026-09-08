@@ -1,7 +1,11 @@
-function checkKonto(){let v=document.getElementById('kontostand1').value; document.getElementById('kontoFb').innerHTML=(v==2)?"<span style='color:green'>Richtig! 2 Punkte</span>":"<span style='color:red'>Falsch. Denk nach: -3 + 5 = ?</span>";}
-
-function checkMult(){let v=document.getElementById('mult1').value; document.getElementById('multFb').innerHTML=(v==12)?"<span style='color:green'>Stark! 12 ist korrekt.</span>":"<span style='color:red'>Nein. Minus mal Minus ist Plus!</span>";}
-
+function rationalAnswer(id) {
+ const raw=document.getElementById(id).value.trim().replace(/−/g,'-');
+ if(!/^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)$/.test(raw))return null;
+ const value=Number(raw.replace(',','.'));
+ return Number.isFinite(value)?value:null;
+}
+function checkKonto(){const value=rationalAnswer('kontostand1'),out=document.getElementById('kontoFb');out.textContent=value===null?'Gib den Punktestand als ganze Zahl oder Dezimalzahl ein, zum Beispiel 1,5.':value===2?'Richtig! 2 Punkte: Von −3 aus gehst du 5 Schritte nach rechts. Nach 3 Schritten erreichst du 0, danach bleiben 2 Schritte.':'Starte bei −3. Die ersten 3 der 5 Schritte nach rechts führen zu 0; danach gehst du noch 2 Schritte weiter.';}
+function checkMult(){const value=rationalAnswer('mult1'),out=document.getElementById('multFb');out.textContent=value===null?'Gib das Ergebnis als ganze Zahl oder Dezimalzahl ein, zum Beispiel 1,5.':value===12?'Richtig! 12 ist korrekt: 4 · 3 = 12, und zwei negative Faktoren ergeben ein positives Produkt.':value<0?'Prüfe das Vorzeichen: Zwei negative Faktoren ergeben ein positives Produkt. Rechne danach 4 · 3.':'Das gesuchte Produkt ist positiv. Für den Betrag rechnest du 4 · 3 = 12.';}
 
 function updateSignedLine() {
  const host=document.querySelector('[data-signed-line]');if(!host)return;
@@ -20,6 +24,6 @@ function topicInit() {
  const host=document.querySelector('[data-signed-line]');if(host){host.querySelectorAll('input,select').forEach(el=>{el.oninput=updateSignedLine;el.onchange=updateSignedLine;});updateSignedLine();}
  for(const [id,feedbackId,check]of [['kontostand1','kontoFb',checkKonto],['mult1','multFb',checkMult]]){
   const input=document.getElementById(id),fb=document.getElementById(feedbackId);if(!input||!fb)continue;
-  fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');fb.setAttribute('aria-atomic','true');input.setAttribute('aria-describedby',feedbackId);input.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();check();}};
+  fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');fb.setAttribute('aria-atomic','true');input.setAttribute('aria-describedby',feedbackId);input.oninput=()=>{fb.textContent='';};input.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();check();}};
  }
 }

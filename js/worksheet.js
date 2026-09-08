@@ -26,6 +26,26 @@ function renderWorksheetQuestions(topic,content) {
  const control=document.getElementById('ws-solution-control');control.hidden=false;
  const checkbox=document.getElementById('ws-include-solutions');checkbox.checked=false;checkbox.onchange=()=>{answers.hidden=!checkbox.checked;};
 }
+
+function appendPaperSolutions(topic, content) {
+ const entries=[];
+ for(const section of topic.sections||[]){
+  const source=document.createElement('div');source.innerHTML=section.content||'';
+  for(const details of source.querySelectorAll('details[data-worksheet-solution="true"]')){
+   const block=document.createElement('section');block.className='ws-paper-solution';
+   const heading=document.createElement('h3'),summary=details.querySelector(':scope > summary');heading.textContent=worksheetText(section.title)+' – '+(summary?.textContent||'Vergleichslösung');block.append(heading);
+   const body=document.createElement('div');for(const node of [...details.childNodes])if(node!==summary)body.append(node.cloneNode(true));
+   body.querySelectorAll('script,style,details,svg,canvas,img,iframe,object,embed,audio,video,input,button,select,textarea,[hidden]').forEach(el=>el.remove());
+   for(const el of body.querySelectorAll('*'))for(const attr of [...el.attributes])if(/^on/i.test(attr.name)||['style','id'].includes(attr.name))el.removeAttribute(attr.name);
+   block.append(body);entries.push(block);
+  }
+ }
+ if(!entries.length)return;
+ let answers=document.getElementById('ws-solutions');
+ if(!answers){answers=document.createElement('section');answers.id='ws-solutions';answers.hidden=true;const title=document.createElement('h2');title.textContent='Lösungen und Hinweise';answers.append(title);content.append(answers);}
+ const heading=document.createElement('h2');heading.textContent='Vergleichslösungen zu den Papieraufgaben';answers.append(heading,...entries);
+ const checkbox=document.getElementById('ws-include-solutions');document.getElementById('ws-solution-control').hidden=false;checkbox.checked=false;checkbox.onchange=()=>{answers.hidden=!checkbox.checked;};
+}
 function appendWorksheetWorkshop(topic,material) {
  const spec=topic.workshop;if(!spec)return;
  const make=(tag,text)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=worksheetText(text);return el;};
@@ -89,6 +109,13 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
   const link=make('a','Zum Abschnitt im Onlinekapitel');link.href='template.html?topic='+encodeURIComponent(topicId)+'#learning-section-'+sectionIndex;article.append(link,make('p',link.href));
   const body=make('div');body.innerHTML=(section.content||'').replace(/\{\{QUIZ_[^}]+\}\}/g,'');
   // Never print an uninitialized simulation or an answer disclosure as a static result.
+  // Vocabulary disclosures contain lesson material, not answers. Print them as plain text.
+  for(const item of body.querySelectorAll('details.bio-vocab-item')){
+   const summary=item.querySelector(':scope > summary'),entry=make('div');entry.className='ws-glossary-entry';
+   entry.append(make('strong',summary?.textContent||'Fachwort'));
+   for(const node of [...item.childNodes])if(node!==summary)entry.append(node.cloneNode(true));
+   item.replaceWith(entry);
+  }
   body.querySelectorAll('details,script,style,[hidden]').forEach(el=>el.remove());
   const dynamic='.interactive-zone,.diagram-box';
   for(const zone of [...body.querySelectorAll(dynamic)]){
@@ -98,6 +125,7 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
   }
   for(const media of [...body.querySelectorAll('svg,canvas,img,iframe,video,audio,object,embed')]){
    if(!body.contains(media))continue;
+   if(media.tagName.toLowerCase()==='svg'&&media.getAttribute('data-worksheet-static')==='true')continue;
    if(subject==='musik'&&media.tagName.toLowerCase()==='svg'&&media.closest('[data-music-score]'))continue;
    media.replaceWith(make('p','Abbildung oder Medium im Onlinekapitel: '+(media.getAttribute('alt')||media.getAttribute('aria-label')||media.getAttribute('title')||'siehe Abschnittslink.')));
   }
@@ -134,6 +162,7 @@ async function loadWorksheet() {
   const note=document.getElementById('ws-description');
   if(dynamic){content.insertAdjacentHTML('beforeend',dynamic);if(worksheetQuestions(topic).length){const heading=document.createElement('h2');heading.textContent='Verständnisfragen zum Kapitel';content.append(heading);renderWorksheetQuestions(topic,content);}note.textContent='Dieses Arbeitsblatt enthält zusätzliche Rechenübungen. Beim Neuladen können sich die Übungszahlen ändern. Es ersetzt nicht alle Lernaufgaben des Kapitels.';}
   else{renderWorksheetQuestions(topic,content);note.textContent=worksheetQuestions(topic).length?'Dieses Arbeitsblatt verwendet die aktuellen Kapitelaufgaben auf Deutsch. Die Aufgaben bleiben beim Neuladen gleich. Lösungen kannst du vor dem Drucken einblenden.':'Dieses Arbeitsblatt enthält Kapitelmaterial und Arbeitsaufträge. Für dieses Kapitel sind keine gesonderten druckbaren Quizfragen hinterlegt.';}
+  appendPaperSolutions(topic,content);
   if(window.MathJax?.startup?.promise)await window.MathJax.startup.promise;
   if(window.MathJax?.typesetPromise)await window.MathJax.typesetPromise([content]);
   print.disabled=false;

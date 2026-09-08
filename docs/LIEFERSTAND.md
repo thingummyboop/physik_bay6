@@ -1,12 +1,12 @@
 # Lieferstand und nächste Prioritäten
 
-Stand: 08.09.2026. Zwischenstand d732283 ist auf ausdrücklichen Nutzerwunsch nach origin/main gepusht. Die öffentliche Pages-Fassung wurde dadurch nach aktuellem HTTP-Abgleich noch nicht aktualisiert. Der Gesamtauftrag bleibt unverändert: vollständiges interaktives Lehrbuch für die Mittelschule Wien einschließlich angebotener Sprachen und geprüfter Veröffentlichung. Die deutsche Fassung ist ein Zwischenmeilenstein, keine neue Definition von fertig.
+Stand: 09.09.2026. Zuletzt wurde Zwischenstand 8276883 auf ausdrücklichen Nutzerwunsch nach origin/main gepusht. Weitere Ergänzungen sind lokal. Die Veröffentlichung dieses Commits auf Pages ist nicht bestätigt. Der Gesamtauftrag bleibt unverändert: vollständiges interaktives Lehrbuch für die Mittelschule Wien einschließlich angebotener Sprachen und geprüfter Veröffentlichung. Die deutsche Fassung ist ein Zwischenmeilenstein, keine neue Definition von fertig.
 
 ## Aktuell belegter Stand
 
 - 197 verfügbare Kapitel in elf Fächern; alle haben deutsche Lernziele und Zusammenfassungen. Das belegt Struktur, nicht fachliche Vollständigkeit.
 - Aktueller revisionsgeprüfter Metadatenindex: 28 englische, je 26 türkische und serbische sowie je 25 arabische und ukrainische Kapitelübersetzungen. Fehlende oder veraltete Übersetzungen verwenden einen gekennzeichneten deutschen Fallback. Fremdsprachenunterricht enthält außerdem bewusst englische Zielsprachentexte; diese Zählung bewertet nicht deren Unterrichtssprache.
-- Vollständiger Funktionstest 2026-09-08T21:10:37.165Z: 169/169 Suiten bestanden, Gesamtdauer rund 277 Sekunden. Bericht: ../functional-test-report.json. Der gemeinsame Lauf umfasst alle aktuellen Mathematik-Ergänzungen zu Ganzzahleingaben, Rechenverfahren, Größen/Zeit, Geometrie/Kreisen und Abzählaufgaben sowie den Linsenversuch und die übrigen vorhandenen Tests. Das belegt die programmierten Prüfabläufe, keine vollständige Lehrplan-, Medien-, Geräte- oder Unterrichtsabnahme.
+- Vollständiger Funktionstest 2026-09-08T22:15:46.351Z: 171/171 Suiten bestanden, Gesamtdauer rund 284 Sekunden. Bericht: ../functional-test-report.json. Dieser gemeinsame Lauf enthält die aktuellen Mathematik-/Biologie-/DGB-Ergänzungen, Dezimaleingaben und die Änderungen an Glossaren und statischen Zeichnungen in Arbeitsblättern. Das belegt die implementierten Prüfabläufe, keine vollständige fachliche, visuelle oder schulpraktische Abnahme.
 - Lehrplanlücken sind unter anderem in KUNST_LEHRPLANABGLEICH.md konkret dokumentiert. Das neue Register FACHUEBERGREIFENDER_ABGLEICH.md erfasst alle elf Fächer und den detaillierten Haushaltsabgleich; CHAPTER_INVENTORY.json verknüpft alle 197 Einträge mit tatsächlichen Quellen, Abschnitten und Lernzielen. Eine konsolidierte abschließende Abdeckung sämtlicher Fächer ist nicht nachgewiesen.
 - Alle 20 Physik-Arbeitsblätter enthalten nun zuschaltbare Texte, Daten und Papieraufträge mit Abschnittslinks; interaktive Modelle bleiben online. Browser-/Geräte-/Druckprüfung, Gesamtmedienprüfung und Veröffentlichung fehlen. Kein aktueller Vorschauprozess wurde in dieser Bestandsaufnahme bestätigt.
 
@@ -641,3 +641,105 @@ Lokal nach d732283, kein erneuter Push. Weiterhin 170 Testsuiten, letzter gemein
 ### Antwortformate: Ziffer und Eckenanzahl
 
 Zehnerziffer in math1_2_nat_zahlen akzeptiert genau eine Dezimalziffer; Eckenanzahl in math1_11_figuren_koerper akzeptiert eine sichere nichtnegative ganze Zahl ohne Exponent-/Hexadezimalschreibweise. Beide Übungen unterstützen Enter und löschen alte Rückmeldung beim Bearbeiten. Körperauswahl unterscheidet leere Auswahl von einer fachlich falschen Antwort und begründet Kugel/Zylinder anhand der Flächen. Ergänzte bestehende Erstklass-/Rechtecktests bestanden, einschließlich Eingabeformaten und den vorhandenen 100 Rechteck-/216 Quadereinstellungen. Keine neue Suite und keine neue Inhaltsrevision für diese Bedienkorrekturen. Weitere schwache Vergleiche in späteren Mathematikübungen sind noch kontextabhängig zu prüfen; nicht jeder numerisch gleichwertige Dezimaleintrag ist ein Fehler. Lokal, kein Push, Übersetzungen weiter ausgesetzt.
+
+### Dezimalzahlen: Einkauf begründen (nach Zwischenstand 8276883)
+
+Die starre Signalworttabelle in math1_9_dezimalzahlen wurde durch zwei gegensätzliche Situationen mit „insgesamt“ ersetzt. Eine fiktive Preisliste führt durch fünf Aufgaben zu Stückpreis, Gesamtpreis, genau benötigter Menge, Rückgeld und Grenzen eines Überschlags am Budget. Aufklappbare Rechenwege und drei bewertete Fragen mit differenziertem Feedback ergänzen Abschnitt 9; Kapitelrevision 3 macht ältere Quizresultate als veraltet erkennbar. Keine Übersetzungen ergänzt.
+
+Gezielt geprüft: alle elf math1-Kapitel im tatsächlichen Renderer, neun neue Antwortpfade einschließlich Abschnittszuordnung, Centrechnung mit vollständiger Enumeration der passenden Einzel-/Paketkäufe und Revisionserkennung. Alle 95 STEM-Arbeitsblattmaterialien bestanden ebenfalls. Strukturaudit: 1514 gespeicherte Quizinstanzen, keine Befunde; dies ist kein Beleg vollständiger Fachabdeckung. Browser- und Drucklayout nicht geprüft. Änderungen nach dem genannten Push sind lokal.
+
+### Brüche: Gleichwertigkeit und Bezugsgröße
+
+math1_8_brueche, Abschnitt 2, erklärt nun Erweitern und Kürzen an gleich langen Streifen mit 1/2 = 2/4 = 4/8. Fünf Zeichen-/Begründungsaufgaben mit aufklappbaren Lösungen behandeln Unterteilung, gemeinsamen Zahlenstrahlpunkt, verschiedene Bezugsgrößen und das Gegenbeispiel zum Addieren in Zähler und Nenner. Drei bewertete Fragen prüfen diese Zusammenhänge; Revision 3.
+
+Gezielt bestanden: elf math1-Kapitel, neun zusätzliche Antwortpfade und Revisionserkennung, Streifenlängen/Unterteilungen ohne Lücken mit gleich großer markierter Hälfte sowie 95 STEM-Arbeitsblattmaterialien. Kein visueller Browser-/Drucknachweis. Strukturaudit jetzt 1517 gespeicherte Quizinstanzen ohne Strukturprobleme. Übersetzungen nicht ergänzt; Änderungen weiterhin lokal.
+
+### DGB: Häufigkeiten selbst prüfen
+
+Die vorhandene Umfragewerkstatt der ersten Klasse hat eine interaktive Auszählung erhalten. Rückmeldungen erklären pro Kategorie anhand der Antwortzettel, wo erneut gezählt werden muss. Eine passende Gesamtsumme allein wird ausdrücklich nicht als Erfolg bewertet. Die anschließende digitale Tabelle und Diagrammerstellung bleiben als eigener Werkstattauftrag erhalten.
+
+Gezielt bestanden: 729 Kombinationen, ungültige Eingaben, Enter/Reset/Fokus, doppelte Initialisierung und unveränderter Quizspeicher, bestehende Schleifenmodelle sowie 21 DGB-Arbeitsblattmaterialien. Bewerteter Kapitelstoff bleibt unverändert; keine Revisionsanhebung und keine Übersetzungen. Keine visuelle Browserprüfung.
+
+### Gesamtprüfung nach Mathematik- und DGB-Ergänzungen
+
+Der Gesamtlauf prüfte alle 170 Suiten. Einzige Abweichung: test_fraction_decimal_assessment erwartete noch je zwölf Fragen. Die Prüfung berücksichtigt nun die drei zusätzlichen Abschnittsfragen je Kapitel, prüft weiterhin alle Antwortmöglichkeiten, genaue Wiederholungs-IDs, Revisionserkennung und die fünfzehn Fragen samt Lösungen beider Arbeitsblätter. Nachprüfung bestanden, Originalbericht mit 169/170 bleibt unverändert erhalten. Kein erneuter Push oder Veröffentlichung.
+
+### Nach Gesamtprüfung: Abstand Punkt–Gerade
+
+math1_5_geo_grundbegriffe enthält nun ein interaktives Streckenvergleichsmodell sowie vier Konstruktions-/Messaufträge zu Lotfußpunkt, senkrechtem Abstand und Abstand 0. Geprüft: neun Reglerstellungen, Koordinaten und Längenbeziehung, gerundete Rückmeldungen, unveränderter nativer Fokus, doppelte Initialisierung und sämtliche elf math1-Kapitel. Die 95 STEM-Arbeitsblattmaterialien bestanden. Diese Änderung liegt nach dem vollständigen 170-Suiten-Lauf und ist durch gezielte Nachprüfungen abgedeckt. Keine neue bewertete Frage, keine Übersetzung, keine visuelle Abnahme oder Veröffentlichung.
+
+### Zusammengesetzte Quader: Oberfläche und Ansichten
+
+math1_11_figuren_koerper Revision 4 ergänzt einen vollständig beschriebenen Stufenkörper, drei Ansichten, fünf eigenständige Aufgaben und zwei bewertete Fragen. Kontaktflächen werden zweimal von der Summe der Einzeloberflächen abgezogen. Unabhängig über diskrete Einheitswürfel geprüft: 30 Würfel, 62 freie Flächen und sämtliche Rasterpositionen der drei Projektionen. Die erweiterten Rechteck-/Quaderprüfungen, elf math1-Kapitel und 95 STEM-Arbeitsblattmaterialien bestanden. Kein tatsächlicher Modellbau, keine Browser-/Druckprüfung oder Veröffentlichung.
+
+### Würfelnetze vergleichen
+
+Der Quaderabschnitt enthält zwei gültige und ein ungültiges Netz mit nummerierten Quadraten, gleichwertigen Koordinatentabellen zum Nachzeichnen und vier Falt-/Begründungsaufträgen. Die Auflösung nennt gegenüberliegende Flächen und erklärt die unzulässigen Vierer-Treffpunkte der Rechteckanordnung. Eine unabhängige Orientierungsausbreitung mit 90-Grad-Faltungen prüft die drei Fälle und sämtliche genannten Gegenüber-Paare. Rechteck-/Quaderprüfungen und 95 STEM-Arbeitsblattmaterialien bestanden. Die Tabellen bleiben auch im Arbeitsblatt erhalten. Tatsächliches Ausschneiden/Falten und visuelle Prüfung bleiben offen; keine neue Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Lernpfad und Themenbezeichnungen konsolidiert
+
+Geldrechnen ist jetzt im Katalog beim Dezimalkapitel benannt; das Größenkapitel nennt seine tatsächlichen Schwerpunkte Länge/Masse/Zeit. Untertitel beschreiben die ergänzten Inhalte. Figuren/Körper verweist auf Multiplikation und Größen als zusätzliches Vorwissen. Alle mathematischen Kapitelverweise führen im Katalog auf frühere Kapitel. Kapitel-, Such- und Stofflistentests bestanden; Inhaltsmatrix der ersten Klasse auf den aktuellen Stand gebracht. Keine Übersetzungen ergänzt.
+
+### Eigene Daten erheben und auswerten
+
+Im Erstklass-Statistikkapitel ist jetzt eine durchgehende Untersuchung von acht Stift- oder Papierstreifenlängen angeleitet: Auswahl und Messdefinition, Nullmarke/Einheit, Wiederholungsmessung, Rohdatenprotokoll, geordnete Liste, Kennzahlen, Häufigkeitstabelle, Diagramm und begrenzte Schlussfolgerung. Eine fiktive Alternative wird ausdrücklich von selbst erhobenen Daten getrennt. Ihre Summe 120 cm, Mittelwert/Median 15 cm, Spannweite 6 cm und Häufigkeiten 1/2/3/1/1 sind geprüft. Fehlende Werte sind keine Nullen; gleiche Beobachtungswerte bleiben mehrfach in der Liste.
+
+Statistikprüfung und 95 STEM-Arbeitsblattmaterialien bestanden. Die Anleitung ist ausgearbeitet, die tatsächliche Erhebung und die Qualität von Schülerprodukten sind damit nicht nachgewiesen. Keine neue Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Biologie: Merkmalsvergleich und Abgleich begonnen
+
+Im Pflanzenkapitel Artbegriff nach OpenStax präzisiert und einen konkreten Vergleich zweier Pflanzen mit Beobachtungstabelle, fünf Aufträgen und Unsicherheitsdokumentation ergänzt. Die 95 STEM-Arbeitsblattmaterialien bestanden. Neue BIOLOGIE_LEHRPLANABGLEICH.md trennt Katalogzuordnung von tatsächlich gelesenen Abschnitten und offenen jahrgangsweisen W/E/S-Nachweisen. Keine vollständige Biologieabnahme, Übersetzung oder Veröffentlichung.
+
+### Pflanzenkapitel: konkrete Übungsaufträge
+
+Fünfzehn allgemeine Trainingskarten in bio_1_bluetenpflanzen durch abschnittsbezogene Aufgaben ersetzt. Ganze Pflanze und vergrößerte Blüte werden getrennt gezeichnet; beobachtete und aus Vorlagen ergänzte Strukturen gekennzeichnet. Aufgaben nutzen das vorhandene Vergleichsprotokoll, den Pollenweg und den Feucht-/Trockenvergleich, statt austauschbarer Aufforderungen zu beliebigen Alltagssituationen. Fragepool und Lernstandlogik unverändert; gemeinsame Quizpool-Prüfung bestanden und Diff sauber. Kein neuer Laufzeittest für reine Auftragstexte.
+
+### Rationale Zahlen: Eingaben und erklärtes Feedback
+
+Die beiden bestehenden Zahlenaufgaben akzeptieren Dezimalkomma und Dezimalpunkt sowie führendes Plus und das typografische Minus. Leere/ungültige Formate werden ausdrücklich von mathematisch falschen Antworten unterschieden; Rückmeldungen erklären die Schritte über 0 bzw. unterscheiden Vorzeichen und Betrag. Alte Rückmeldungen verschwinden bei neuer Eingabe. Geprüft: gültige gleichwertige Schreibweisen, ungültige Formate, Enter, erneute Initialisierung, Feedbackentfernung und vorhandene 882 Zahlenstrahlkombinationen. Quizinhalt und Revision bleiben unverändert.
+
+### Vier weitere kurze Dezimalantworten vereinheitlicht
+
+Prozentrechnung, reelle Zahlen, Terme/Gleichungen und Funktionen unterstützen jetzt Textfelder mit Dezimalkomma/-punkt, Enter, Formatfehlern und Entfernen veralteter Rückmeldungen. Rabattfeedback trennt Ersparnis vom Endpreis. Neue gezielte Integrationstest-Suite test_quick_decimal_answers prüft die vier tatsächlichen Kapitel, gleichwertige Eingaben, Fehlerformate, Beschriftungen und unveränderten Quizspeicher. Vorhandene Prüfungen für reelle Zahlen (1001 Näherungen), Gleichungsumformungen und lineare Systeme (625 Koeffizientenkombinationen) bestanden ebenfalls. Jetzt 171 Testsuiten im Bestand; kein neuer vollständiger Gesamtlauf. Keine Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Arbeitsblätter: Fachwort-Erklärungen erhalten
+
+Fehler in der gemeinsamen Materialerzeugung behoben: Pauschales Entfernen aller details-Elemente entfernte auch 440 biologische Glossareinträge. details.bio-vocab-item wird jetzt vor der Bereinigung in normalen Text mit hervorgehobenem Begriff umgewandelt. Die übrigen Details/Musterlösungen bleiben entfernt.
+
+Die 95 STEM-Materialprüfungen vergleichen nun für jedes Kapitel und jeden Abschnitt Anzahl, Begriff sowie sämtliche Definitionen und Beispiele des Glossars mit dem Quelltext. Alle bestanden; außerdem 21 DGB- und 20 Physik-Arbeitsblattprüfungen mit weiterhin entfernten Lösungen/Interaktionen und getrennten Druckschaltern. Tatsächliches Seitenlayout bleibt ungeprüft. Keine Inhaltsrevision, Übersetzung oder Veröffentlichung.
+
+### Statische Mathematikzeichnungen im Arbeitsblatt
+
+Sieben ausdrücklich markierte statische SVGs (Bruchstreifen, Stufenkörperansichten und Würfelnetze) werden jetzt im Arbeitsblatt erhalten. Die übrigen Modell-/Medienregeln bleiben bestehen; Inline-Handler und dynamische Elemente werden weiterhin bereinigt. Druck-CSS begrenzt die Breite und vermeidet Umbrüche innerhalb einer Figur.
+
+Die 95 STEM-Arbeitsblattprüfungen vergleichen Anzahl, ViewBox, zugängliche Beschriftung und Rechteckgeometrie jeder übernommenen Zeichnung mit dem Kapitel. Kapitelprüfungen für Rechtecke/Quader und alle elf math1-Kapitel bestanden. Das ist ein Nachweis des DOM-Inhalts, keine tatsächliche Drucklayoutkontrolle. Keine Veröffentlichung oder Übersetzung.
+
+### Künstliche Selektion: Ziele und Belege
+
+Vier neue Aufgaben im Selektionskapitel verbinden fiktive Erntewerte mit einer begründeten Elternauswahl. Anzahl und Erntemasse sind getrennt; aus zwei Beobachtungen wird keine Vererbbarkeit abgeleitet. Die Tabelle enthält zwei einzelne Pflanzen, damit das Produkt aus Fruchtzahl und mittlerer Fruchtmasse denselben Bezugsbereich hat. 95 STEM-Arbeitsblattprüfungen bestanden; Quiz und Laufzeit unverändert. Keine neue Übersetzung oder Veröffentlichung.
+
+### Art, Population und Evolution konsistent erklärt
+
+Wiederkehrende Glossareinträge zu Art, Population, Evolution und Angepasstheit im Biologiebestand direkt verglichen. Zwei Schneckenbeispiele korrigiert: Eine Population umfasst Tiere derselben Art, nicht alle Schneckenarten eines Ortes. Der Artbegriff im Evolutionskapitel nennt nun fortpflanzungsfähige Nachkommen und den begrenzten Geltungsbereich des Kriteriums, entsprechend der bereits geprüften OpenStax-Grundlage. Evolution im Viertklasskapitel nennt ausdrücklich vererbbare Merkmale; im Selektionsbeispiel ist Artentstehung nicht als notwendige Folge jeder Veränderung formuliert. Glossarübernahme in allen 95 STEM-Arbeitsblättern bestanden. Bestehende Quizantworten unverändert, keine neue Übersetzung oder Veröffentlichung.
+
+### Erneute Gesamtprüfung bestanden
+
+Alle 171 Funktionstests im selben Lauf erfolgreich. Zusätzlich Syntaxprüfung aller 87 Kapitel-Skripte und Strukturaudit der 1519 priorisierten Quizinstanzen ohne Befund. Es wurden während des Laufs keine Laufzeit- oder Kapiteldateien verändert. Die anschließende Aktualisierung betrifft nur diese Dokumentation. Veröffentlichung und vollständige Abnahme bleiben offen.
+
+### Evolution: aussagekräftigere Verständnisprüfung
+
+Fünf bestehende Kapitelquizfragen und eine Übungsfrage überarbeitet: plausible Verwechslungen zwischen individuellem Wachstum und vererbbarer Veränderung, Möglichkeit im Labor und historischer Schrittfolge, mehrfach kopierter Aussage und unabhängigen Belegen sowie Lebensraum und systematischer Gruppe. Revisionsstand bio_1_evolution 2. Alle 15 Antwortpfade der fünf bewerteten Fragen einschließlich gezielter Wiederholungs-IDs, Abschnittszuordnung und veralteter Revision 1 geprüft. Übungsfrage bleibt aus dem bewerteten Pool ausgeschlossen. Neue Suite test_biology_evolution_assessment; jetzt 172 Suiten, letzter gemeinsamer Gesamtlauf war vor dieser Änderung mit 171/171 erfolgreich. Keine Übersetzung oder Veröffentlichung.
+
+### Schriftliche Division ergänzt
+
+math1_4_mult_div enthält nun eine Stellenwerttabelle für 816 : 4 = 204 und drei erklärte Schritte für 7344 : 24 = 306. Die Null als notwendige Ergebnisstelle, Umtausch des Restes beim Herunterholen sowie Endrest/Gegenprobe werden getrennt erklärt. Fünf Aufgaben mit Vergleichslösungen behandeln außerdem 936 : 4 = 234, 7350 : 24 = 306 Rest 6 und 864 : 4 = 216. Elf math1-Kapitel und 95 STEM-Arbeitsblattmaterialien bestanden. Reine Ergänzung von Erklärung und Papieraufträgen; kein neuer bewerteter Quizstoff und keine Revisionsanhebung. Praktische Durchführung/visuelle Darstellung nicht geprüft.
+
+### Schriftliche Multiplikation ergänzt
+
+286 · 34 ist mit Überträgen, Teilprodukt 286 · 30, Stellenwerttabelle und Übertrag bei der Addition erklärt. Vier Aufgaben prüfen 203 · 14, den Fehler 1144 + 858, 407 · 26 und alternative Zerlegung/Überschlag. Beispielrechnungen numerisch kontrolliert; elf math1-Kapitel und 95 STEM-Arbeitsblattmaterialien bestanden. Die zuvor benannten schriftlichen Verfahren sind damit konkret ausgearbeitet; das ist noch keine vollständige Lehrplan- oder Unterrichtsabnahme. Keine neue Quizrevision oder Veröffentlichung.
+
+### Papieraufgaben: Vergleichslösungen zuschaltbar
+
+Sieben ausdrücklich markierte Vergleichslösungen (schriftliche Multiplikation/Division, Würfelnetze, Stufenkörper, Einkaufsbudget, Bruchgleichwertigkeit und eigene Statistikdaten) erscheinen nun im verborgenen Lösungsteil des Arbeitsblatts. Der vorhandene Lösungsschalter blendet sie gemeinsam mit Quizlösungen ein; die Materialauswahl bleibt unabhängig. Es werden nur markierte Blöcke übernommen, keine automatischen Rückschlüsse aus beliebigen aufklappbaren Texten gezogen.
+
+Die STEM-Materialprüfung vergleicht jetzt jeden Absatz dieser Lösungen mit dem Kapitel und prüft die Trennung vom Schülerteil. Bestehende Bruch-/Dezimal- sowie allgemeine Arbeitsblattprüfungen wurden ebenfalls ausgeführt. Keine neue Bewertung oder Übersetzung; tatsächliches Drucklayout und Veröffentlichung offen.

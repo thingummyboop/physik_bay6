@@ -6,6 +6,18 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));
  await w.renderTopic();assert.equal(w.currentChapterQuiz.questions.length,5);assert.equal(data[id].script,true);const tally={};for(const row of d.querySelectorAll("[data-survey-records] tbody tr")){const key=row.cells[1].textContent;tally[key]=(tally[key]||0)+1;}assert.deepEqual(tally,{Lesen:3,Radfahren:4,Ballspiel:1});assert.equal(d.querySelectorAll("[data-survey-tasks] li").length,6);
  w.eval(read('js/topics/'+id+'.js'));w.topicInit();w.topicInit();
+ const survey=d.querySelector('[data-survey-check]'),surveyInputs=[...survey.querySelectorAll('input')],surveyStatus=survey.querySelector('[data-survey-status]'),surveyCheck=survey.querySelector('[data-survey-submit]');
+ const storageBefore=w.localStorage.getItem('sciverse_chapter_quiz_results');
+ for(let a=0;a<=8;a++)for(let b=0;b<=8;b++)for(let c=0;c<=8;c++){
+  [a,b,c].forEach((n,i)=>surveyInputs[i].value=String(n));surveyCheck.click();
+  const correct=a===3&&b===4&&c===1,sum=a+b+c;
+  assert.equal(surveyStatus.textContent.startsWith('Richtig:'),correct);
+  if(!correct)assert.ok(surveyStatus.textContent.includes(sum===8?'Zuordnung stimmt noch nicht':'Deine Summe ist '+sum));
+  const expected=[3,4,1];[...survey.querySelectorAll('[data-survey-feedback]')].forEach((out,i)=>assert.equal(out.textContent==='Richtig zugeordnet.',[a,b,c][i]===expected[i]));
+ }
+ assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),storageBefore);
+ for(const invalid of ['', '-1','1.5','1e0','0x1','9','10']){surveyInputs[0].value=invalid;surveyCheck.click();assert.equal(surveyInputs[0].getAttribute('aria-invalid'),'true');assert.match(surveyStatus.textContent,/Fülle jede Kategorie/);}
+ [3,4,1].forEach((n,i)=>surveyInputs[i].value=String(n));surveyInputs[0].dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));assert.match(surveyStatus.textContent,/^Richtig:/);surveyInputs[0].dispatchEvent(new w.Event('input'));assert.match(surveyStatus.textContent,/erneut/);assert.equal(survey.querySelector('[data-survey-feedback]').textContent,'');survey.querySelector('[data-survey-reset]').click();assert.ok(surveyInputs.every(input=>input.value===''));assert.equal(d.activeElement,surveyInputs[0]);assert.equal(surveyStatus.textContent,'Noch nicht geprüft.');
  const count=d.getElementById('loop-count'),step=d.querySelector('[data-loop-step]'),reset=d.querySelector('[data-loop-reset]'),dots=d.querySelector('[data-loop-dots]'),status=d.querySelector('[data-loop-status]');
  for(let n=0;n<=6;n++){
   count.value=String(n);count.dispatchEvent(new w.Event('change'));assert.equal(dots.textContent,'');assert.equal(step.disabled,false);
@@ -20,5 +32,5 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
   w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[choice].correct?100:80);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
  }
  assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);dom.window.close();
- console.log('PASS: every intermediate and final state for 0–6 loop repetitions, reset, changed input, repeated initialization and all three new answer paths.');
+ console.log('PASS: 729 survey tallies, invalid inputs, category/sum distinction, Enter/reset/focus and unchanged quiz storage; every state for 0–6 loop repetitions and three answer paths.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

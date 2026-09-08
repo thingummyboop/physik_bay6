@@ -1,7 +1,11 @@
-function checkFunc1(){ let v = document.getElementById('func1').value; if(v==5){ document.getElementById('fb_func1').innerHTML="<span style='color:green'>Korrekt! 2 + 3 = 5</span>"; } else { document.getElementById('fb_func1').innerHTML="<span style='color:red'>Falsch. Setze 2 für x ein!</span>"; } }
+function checkFunc1(){
+ const raw=document.getElementById('func1').value.trim().replace(/−/g,'-'),out=document.getElementById('fb_func1');
+ const value=/^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)$/.test(raw)?Number(raw.replace(',','.')):NaN;
+ out.textContent=!Number.isFinite(value)?'Gib eine ganze Zahl oder Dezimalzahl ein, zum Beispiel 1,5.':value===5?"Korrekt! Für x = 2 gilt y = 2 + 3 = 5.":"Ersetze x in y = x + 3 durch 2. Addiere anschließend 3.";
+}
 
 
-function topicInit() {
+function topicInit() { bindQuickDecimalAnswer();
 
         if (document.getElementById('ggb-funktionen')) {
             if (typeof GGBApplet !== 'undefined') {
@@ -20,3 +24,5 @@ function topicInit() {
             }
         }
 }
+
+function bindQuickDecimalAnswer(){const input=document.getElementById('func1'),out=document.getElementById('fb_func1');if(!input||!out)return;input.type='text';input.setAttribute('inputmode','decimal');input.setAttribute('aria-label',"Funktionswert y für x gleich 2");input.setAttribute('aria-describedby','fb_func1');out.setAttribute('role','status');out.setAttribute('aria-live','polite');out.setAttribute('aria-atomic','true');input.oninput=()=>out.textContent='';input.onkeydown=event=>{if(event.key==='Enter'){event.preventDefault();checkFunc1();}};}

@@ -75,3 +75,9 @@ dgb5_handeln Revision 1 ergänzt das Zusammenspiel von Eingabe, Prozessor, RAM, 
 ## Nachtrag: Medienvergleich und historische Einordnung
 
 dgb5_orientierung Revision 1 verbindet Brief, gemeinsames Festnetztelefon und Chat durch dasselbe Anliegen. Drei fiktive Fälle und vier Aufträge erlauben den Vergleich von Nutzung, Speicherung, Zugang und sozialen Regeln; ein zusätzlicher Quellenauftrag verlangt ein konkretes historisches Beispiel. Die Museumsdarstellung medien.welten ist verlinkt. Damit ist eine vergleichende Lerngelegenheit vorhanden. Der historische Objektbeleg wird von Lernenden recherchiert; eine vollständige ausgearbeitete Zeitlinie oder historische Quellenanalyse ist damit nicht behauptet. Die missverständliche Papierbuch-Aussage über fehlende Datenverarbeitung wurde korrigiert.
+
+### Praktische Auszählung direkt im Kapitel
+
+Die bereits vorhandene Rohdaten-/Tabellenwerkstatt in dgb5_produktion bietet jetzt zusätzlich drei Eingabefelder zur eigenen Auszählung. Die Prüfung unterscheidet falsche Gesamtsumme von falscher Zuordnung trotz richtiger Summe und verweist je Kategorie auf die zu prüfenden Antwortzettel. Sie vergibt keine Quizpunkte und ersetzt den anschließenden Auftrag in einer Tabellenanwendung nicht. Eingabetaste, Rücksetzen und veraltete Rückmeldungen sind behandelt.
+
+Geprüft: sämtliche 729 Eingabekombinationen mit Anzahlen 0 bis 8, ungültige Formate, richtige/falsche Kategorie bei richtiger Summe, Enter, Reset/Fokus und unveränderter Quizspeicher; vorhandene Schleifenprüfung und 21 DGB-Arbeitsblattmaterialien bestanden. Tatsächliche Browseransicht und externe Tabellenanwendung weiter ungeprüft.
