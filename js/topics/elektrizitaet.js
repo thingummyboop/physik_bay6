@@ -1,5 +1,6 @@
 // Logic for elektrizitaet topic
 function topicInit() {
+    initCircuitPaths();
     initSensorLamp();
     if (!document.getElementById('uRange')) return;
     ensureOhmAccessibility();
@@ -114,4 +115,42 @@ function updateOhm() {
     bulb.setAttribute('fill', brightness > 0.1 ? '#FFF176' : '#e0e0e0');
     const brightnessLabel = brightness < 0.25 ? 'Lampe dunkel' : (brightness < 0.7 ? 'Lampe mittelhell' : 'Lampe sehr hell');
     bulb.setAttribute('aria-label', `${brightnessLabel}, Stromstärke ${i.toFixed(2)} Ampere`);
+}
+
+function initCircuitPaths() {
+    const zone = document.querySelector('[data-circuit-model]');
+    if (!zone || zone.dataset.initialized) return;
+    zone.dataset.initialized = 'true';
+    const kind = zone.querySelector('[data-circuit-kind]');
+    const switches = [zone.querySelector('[data-circuit-s1]'), zone.querySelector('[data-circuit-s2]')];
+    const status = zone.querySelector('[data-circuit-status]');
+    const render = () => {
+        if (!['series', 'parallel'].includes(kind.value)) kind.value = 'series';
+        const series = kind.value === 'series';
+        const on = switches.map(control => series ? switches.every(s => s.checked) : control.checked);
+        ['series', 'parallel'].forEach(type => {
+            const group = zone.querySelector('[data-circuit-' + type + ']');
+            group.style.display = type === kind.value ? '' : 'none';
+            switches.forEach((control, index) => {
+                const wire = group.querySelector('[data-wire-s' + (index + 1) + ']');
+                wire.setAttribute('y2', Number(wire.getAttribute('y1')) - (control.checked ? 0 : 18));
+                const bulb = group.querySelector('[data-bulb="' + (index + 1) + '"]');
+                bulb.setAttribute('fill', on[index] ? '#facc15' : 'none');
+                bulb.dataset.on = String(on[index]);
+            });
+        });
+        const states = on.map((value, index) => 'L' + (index + 1) + (value ? ' leuchtet.' : ' ist aus.')).join(' ');
+        const explanation = series
+            ? (on[0] ? 'Der gemeinsame Weg durch beide Lampen ist geschlossen.' : 'Mindestens ein Schalter unterbricht den gemeinsamen Weg durch beide Lampen.')
+            : switches.map((control, index) => 'Zweig ' + (index + 1) + ' ist ' + (control.checked ? 'geschlossen.' : 'unterbrochen.')).join(' ');
+        status.textContent = (series ? 'Reihenschaltung: ' : 'Parallelschaltung: ') + states + ' ' + explanation;
+        zone.querySelector('[data-circuit-diagram]').setAttribute('aria-label', status.textContent);
+    };
+    [kind, ...switches].forEach(control => control.addEventListener('change', render));
+    zone.querySelector('[data-circuit-reset]').addEventListener('click', () => {
+        kind.value = 'series';
+        switches.forEach(control => { control.checked = true; });
+        render();
+    });
+    render();
 }

@@ -4,6 +4,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
 await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','common','core-learning','language-workshop','area-lab','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();
 assert.match(d.getElementById('topic-title').textContent,/Flächeninhalte/);assert.equal(d.querySelectorAll('.practice-box').length,8);assert.equal(d.querySelectorAll('.chapter-question').length,8);assert.equal(data.math3_4_flaechensatz.script,false);
 const zone=d.querySelector('[data-area-lab]'),shape=zone.querySelector('select'),base=zone.querySelector('[data-base]'),height=zone.querySelector('[data-height]'),top=zone.querySelector('[data-top]');
+for(const input of [base,height,top])assert.ok([...input.labels].some(label=>label.htmlFor===input.id));
 for(const type of ['rectangle','triangle','parallelogram','trapezoid'])for(const b of [1,6,10])for(const h of [1,4,10])for(const a of [1,3,10]){
  shape.value=type;base.value=b;height.value=h;top.value=a;shape.dispatchEvent(new w.Event('input'));
  const pts=zone.querySelector('polygon').getAttribute('points').split(' ').map(p=>p.split(',').map(Number));let sum=0;for(let i=0;i<pts.length;i++){const n=(i+1)%pts.length;sum+=pts[i][0]*pts[n][1]-pts[n][0]*pts[i][1];}

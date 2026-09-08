@@ -2,15 +2,19 @@
 
 const fs = require('fs');
 const path = require('path');
+const { JSDOM } = require('jsdom');
 
 const repoRoot = path.join(__dirname, '..');
 const topicsDir = path.join(repoRoot, 'js', 'topics');
 
-const mathTopics = fs
-  .readdirSync(topicsDir)
-  .filter((name) => /^math\d+_.+\.js$/.test(name))
-  .map((name) => name.replace(/\.js$/, ''))
-  .sort();
+const vm = require('node:vm');
+const context = { window: {} };
+vm.runInNewContext(fs.readFileSync(path.join(repoRoot, 'js', 'curriculum.js'), 'utf8'), context, { timeout: 1000 });
+const entries = context.window.SCIVERSE_CURRICULUM?.mathematik?.topics;
+if (!Array.isArray(entries) || entries.some(entry => !/^[a-z0-9_]+$/.test(entry.id)) || new Set(entries.map(entry => entry.id)).size !== entries.length) {
+  console.error('MATH_A11Y_ISSUES: missing or invalid mathematics catalog');process.exit(1);
+}
+const mathTopics = entries.map(entry => entry.id).sort();
 
 const findings = [];
 const germanChapters = JSON.parse(fs.readFileSync(path.join(repoRoot, 'lang', 'de.json'), 'utf8'));
@@ -23,6 +27,7 @@ if (mathTopics.length === 0) {
 
 for (const topic of mathTopics) {
   const file = path.join(topicsDir, `${topic}.js`);
+  if (!fs.existsSync(file) || !germanChapters[topic]?.sections?.length) { findings.push({ topic, issue: 'missing_source', detail: 'Missing script or German chapter content' }); continue; }
   const source = fs.readFileSync(file, 'utf8');
 
   if (source.includes('alert(')) {
@@ -113,37 +118,23 @@ for (const topic of mathTopics) {
     });
   }
 
-  const hasRange = source.includes('Range') || source.includes('type="range"') || source.includes("type='range'");
-  const hasValueText = source.includes('aria-valuetext');
-  const hasDescribedBy = source.includes('aria-describedby');
-  const hasValueTextAssignment = /setAttribute\(\s*['"]aria-valuetext['"]/.test(source);
-  if (hasRange && !hasValueText) {
-    findings.push({
-      topic,
-      issue: 'slider_without_aria_valuetext',
-      detail: 'Potential range interaction without aria-valuetext annotation.'
-    });
+  // Native ranges expose numeric values; extra value text is conditional.
+  const dom = new JSDOM(germanChapters[topic].sections.map(section => section.content || '').join('\n'), { runScripts: 'outside-only' });
+  const doc = dom.window.document;
+  if (doc.querySelector('[data-area-lab]')) { dom.window.eval(fs.readFileSync(path.join(repoRoot, 'js', 'area-lab.js'), 'utf8'));dom.window.initAreaLabs(); }
+  for (const input of doc.querySelectorAll('input[type="range"]')) {
+    const ids = (input.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean);
+    const named = input.getAttribute('aria-label')?.trim() ||
+      (ids.length && ids.every(id => doc.getElementById(id)?.textContent.trim())) ||
+      [...(input.labels || [])].some(label => label.textContent.trim());
+    if (!named) findings.push({ topic, issue: 'range_without_authored_label', detail: input.id || input.outerHTML.slice(0,100) });
   }
+  dom.window.close();
 
-  if (hasRange && !hasDescribedBy) {
-    findings.push({
-      topic,
-      issue: 'slider_without_aria_describedby',
-      detail: 'Potential range interaction without aria-describedby annotation.'
-    });
-  }
-
-  if (hasRange && !hasValueTextAssignment) {
-    findings.push({
-      topic,
-      issue: 'slider_missing_aria_valuetext_assignment',
-      detail: 'Potential range interaction found, but no setAttribute("aria-valuetext", ...) assignment detected in topic script.'
-    });
-  }
 }
 
 if (findings.length === 0) {
-  console.log(`MATH_A11Y_CLEAR (${mathTopics.length} topics)`);
+  console.log(`MATH_A11Y_CLEAR (${mathTopics.length} curriculum topics; source checks and initialized area labels only)`);
   process.exit(0);
 }
 

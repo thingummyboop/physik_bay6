@@ -221,7 +221,7 @@ function renderKangarooTest() {
         <div class="kangaroo-question-list">
             ${KANGAROO_STATE.test.map(renderKangarooQuestion).join("")}
         </div>
-        <div id="kangarooResult" class="kangaroo-result" role="status" aria-live="polite"></div>
+        <div id="kangarooResult" class="kangaroo-result" role="status" aria-live="polite" aria-atomic="true"></div>
     `;
 
     document.getElementById("kangarooSubmit").addEventListener("click", submitKangarooTest);

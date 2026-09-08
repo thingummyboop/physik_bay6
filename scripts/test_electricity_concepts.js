@@ -32,5 +32,21 @@ w.initSensorLamp();assert.equal(power.checked,false);get('reset').focus();get('r
 light.value='dark';light.dispatchEvent(new w.Event('change'));assert.equal(get('output').dataset.on,'true');power.click();assert.equal(get('output').dataset.on,'false');
 light.value='invalid';mode.value='invalid';light.dispatchEvent(new w.Event('change'));assert.equal(light.value,'bright');assert.equal(mode.value,'auto');
 assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),before,'Exploration does not change quiz results');
+
+const circuit=d.querySelector('[data-circuit-model]'),kind=circuit.querySelector('[data-circuit-kind]'),switches=[circuit.querySelector('[data-circuit-s1]'),circuit.querySelector('[data-circuit-s2]')],circuitStatus=circuit.querySelector('[data-circuit-status]');
+for(const control of [kind,...switches])assert.ok(control.closest('label'));
+assert.equal(circuitStatus.getAttribute('aria-live'),'polite');assert.equal(circuitStatus.getAttribute('aria-atomic'),'true');
+for(const type of ['series','parallel'])for(const a of [false,true])for(const b of [false,true]){
+ kind.value=type;switches[0].checked=a;switches[1].checked=b;switches[1].focus();switches[1].dispatchEvent(new w.Event('change'));assert.equal(d.activeElement,switches[1]);
+ // Independently find source-to-return paths through each lamp in the ideal circuit graph.
+ const edges=type==='series'?[['plus','a',a],['a','b',true,1],['b','c',b],['c','minus',true,2]]:[['plus','a',a],['a','minus',true,1],['plus','b',b],['b','minus',true,2]];
+ const lit=new Set();function walk(node,seen,lamps){if(node==='minus'){lamps.forEach(l=>lit.add(l));return;}for(const [from,to,closed,lamp]of edges){if(!closed)continue;const next=from===node?to:to===node?from:null;if(next&&!seen.has(next))walk(next,new Set([...seen,next]),lamp?[...lamps,lamp]:lamps);}}walk('plus',new Set(['plus']),[]);
+ const group=circuit.querySelector('[data-circuit-'+type+']');assert.equal(group.style.display,'');assert.equal(circuit.querySelector('[data-circuit-'+(type==='series'?'parallel':'series')+']').style.display,'none');
+ for(let i=1;i<=2;i++){const bulb=group.querySelector('[data-bulb="'+i+'"]');assert.equal(bulb.dataset.on,String(lit.has(i)));assert.equal(bulb.getAttribute('fill'),lit.has(i)?'#facc15':'none');assert.ok(circuitStatus.textContent.includes('L'+i+(lit.has(i)?' leuchtet.':' ist aus.')));const wire=group.querySelector('[data-wire-s'+i+']');assert.equal(Number(wire.getAttribute('y2')),Number(wire.getAttribute('y1'))-(switches[i-1].checked?0:18));}
+ assert.equal(circuit.querySelector('svg').getAttribute('aria-label'),circuitStatus.textContent);
+}
+kind.value='parallel';switches[0].checked=false;kind.dispatchEvent(new w.Event('change'));w.topicInit();assert.equal(kind.value,'parallel');assert.equal(switches[0].checked,false);
+const reset=circuit.querySelector('[data-circuit-reset]');reset.focus();reset.click();assert.equal(d.activeElement,reset);assert.equal(kind.value,'series');assert.ok(switches.every(s=>s.checked));assert.match(circuitStatus.textContent,/L1 leuchtet.*L2 leuchtet/);
+kind.value='invalid';kind.dispatchEvent(new w.Event('change'));assert.equal(kind.value,'series');assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),before);
 for(const [u,r,expected]of [[6,50,'0.12'],[12,50,'0.24'],[6,100,'0.06'],[12,10,'1.20'],[12,100,'0.12']]){d.querySelector('#uRange').value=u;d.querySelector('#rRange').value=r;w.updateOhm();assert.ok(d.querySelector('#iValText').innerText.includes(expected));assert.equal(d.querySelector('#uRange').getAttribute('aria-valuetext'),u+' Volt');}
-assert.match(d.querySelector('#ohmFeedback').innerText,/keine Vorhersage/);dom.window.close();console.log('PASS: corrected electricity concepts, 20 assessed questions including 21 protection/device answer paths and twelve sensor-lamp states, obsolete inline final removed, revision migration, five Ohm scenarios and accessible values.');})().catch(e=>{console.error(e);process.exitCode=1;});
+assert.match(d.querySelector('#ohmFeedback').innerText,/keine Vorhersage/);dom.window.close();console.log('PASS: corrected electricity concepts, 20 assessed questions including 21 protection/device answer paths and twelve sensor-lamp states, eight circuit topologies/switch states verified with independent path traversal, obsolete inline final removed, revision migration, five Ohm scenarios and accessible values.');})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -13,6 +13,17 @@ window.ChemieLabs = (() => {
     };
     const particleCanvasStates = new WeakMap();
     const REACTIONS = {
+        peroxide: {
+            title: 'Wasserstoffperoxid zerlegen',
+            left: [{ key: 'a', formula: 'H<sub>2</sub>O<sub>2</sub>', plain: 'H2O2', atoms: { H: 2, O: 2 }, color: '#60a5fa' }],
+            right: [
+                { key: 'b', formula: 'H<sub>2</sub>O', plain: 'H2O', atoms: { H: 2, O: 1 }, color: '#2563eb' },
+                { key: 'c', formula: 'O<sub>2</sub>', plain: 'O2', atoms: { O: 2 }, color: '#38bdf8' }
+            ],
+            start: { a: 1, b: 1, c: 1, d: 0 },
+            target: { a: 2, b: 2, c: 1, d: 0 },
+            hint: 'Zähle H und O getrennt. Der Katalysator beschleunigt die Reaktion und wird hier nicht als Produkt gezählt.'
+        },
         methane: {
             title: 'Methan verbrennen',
             left: [
@@ -682,7 +693,7 @@ window.ChemieLabs = (() => {
     }
 
     function setReactionBuilderPreset(lab, action) {
-        const reactionKey = action === 'hydrogen' ? 'hydrogen' : action === 'reset' ? (lab.dataset.chemReaction || 'methane') : 'methane';
+        const reactionKey = Object.hasOwn(REACTIONS, action) ? action : action === 'reset' ? (lab.dataset.chemReaction || 'methane') : 'methane';
         lab.dataset.chemReaction = reactionKey;
         const start = REACTIONS[reactionKey].start;
         lab.querySelectorAll('[data-chem-coeff]').forEach((input) => {
@@ -693,8 +704,9 @@ window.ChemieLabs = (() => {
 
     function reactionCoeff(lab, key) {
         const input = lab.querySelector(`[data-chem-coeff="${key}"]`);
-        const value = Number(input?.value ?? 0);
-        return Number.isFinite(value) ? Math.max(0, Math.min(9, Math.round(value))) : 0;
+        const raw = input?.value?.trim() ?? '';
+        const value = Number(raw);
+        return raw !== '' && Number.isInteger(value) && value >= 0 && value <= 9 ? value : null;
     }
 
     function reactionTotals(terms, coeffs) {
@@ -744,6 +756,11 @@ window.ChemieLabs = (() => {
                 ${atomSvg('C', 48, 58, 14, '#111827', '#ffffff')}
                 ${atomSvg('O', 78, 58, 14, '#ef4444', '#ffffff')}
             `;
+        }
+        if (plain === 'H2O2') {
+            return bond(20, 32, 40, 52) + bond(40, 52, 66, 52) + bond(66, 52, 84, 76)
+                + atomSvg('H', 18, 30, 10, '#f8fafc') + atomSvg('O', 40, 52, 13, '#ef4444', '#ffffff')
+                + atomSvg('O', 66, 52, 13, '#ef4444', '#ffffff') + atomSvg('H', 86, 78, 10, '#f8fafc');
         }
         if (plain === 'H2O') {
             return `
@@ -795,12 +812,26 @@ window.ChemieLabs = (() => {
             input.disabled = !term;
             input.closest('label')?.toggleAttribute('hidden', !term);
         });
+        const status = lab.querySelector('.chem-status');
+        if (!status.id) status.id = 'reaction-builder-status-' + [...document.querySelectorAll('.chem-lab')].indexOf(lab);
+        lab.querySelectorAll('[data-chem-coeff]').forEach(input => {
+            const invalid = !input.disabled && coeffs[input.dataset.chemCoeff] === null;
+            input.setAttribute('aria-invalid', String(invalid));
+            const descriptions = new Set((input.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+            descriptions.add(status.id);
+            input.setAttribute('aria-describedby', [...descriptions].join(' '));
+        });
+        if (allTerms.some(term => coeffs[term.key] === null)) {
+            visual(lab, '<p>Die Atombilanz erscheint nach gültigen Eingaben.</p>');
+            chemStatus(lab, 'Trage in jedes aktive Feld eine ganze Zahl von 0 bis 9 ein. Leere Felder sind keine Null; Bruchzahlen und Werte außerhalb des Bereichs werden nicht gerundet.');
+            return;
+        }
         const leftTotals = reactionTotals(reaction.left, coeffs);
         const rightTotals = reactionTotals(reaction.right, coeffs);
         const atoms = Array.from(new Set([...Object.keys(leftTotals), ...Object.keys(rightTotals)])).sort();
         const balanced = atoms.length > 0 && atoms.every((atom) => leftTotals[atom] === rightTotals[atom]) && allTerms.every((term) => coeffs[term.key] > 0);
-        const equationLeft = reaction.left.map((term) => `${coeffs[term.key] || ''} ${term.formula}`).join(' + ');
-        const equationRight = reaction.right.map((term) => `${coeffs[term.key] || ''} ${term.formula}`).join(' + ');
+        const equationLeft = reaction.left.map((term) => `${coeffs[term.key]} ${term.formula}`).join(' + ');
+        const equationRight = reaction.right.map((term) => `${coeffs[term.key]} ${term.formula}`).join(' + ');
         const moleculeCards = (side, terms) => terms.map((term) => {
             const coeff = coeffs[term.key] || 0;
             const x = side === 'left' ? 36 + terms.indexOf(term) * 116 : 354 + terms.indexOf(term) * 116;

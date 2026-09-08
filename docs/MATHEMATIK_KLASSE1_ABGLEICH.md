@@ -76,3 +76,9 @@ math1_4_mult_div enthält nun eine Stellenwerttabelle für 816 : 4 = 204 und dre
 ### Schriftliche Multiplikation ergänzt
 
 286 · 34 ist mit Überträgen, Teilprodukt 286 · 30, Stellenwerttabelle und Übertrag bei der Addition erklärt. Vier Aufgaben prüfen 203 · 14, den Fehler 1144 + 858, 407 · 26 und alternative Zerlegung/Überschlag. Beispielrechnungen numerisch kontrolliert; elf math1-Kapitel und 95 STEM-Arbeitsblattmaterialien bestanden. Die zuvor benannten schriftlichen Verfahren sind damit konkret ausgearbeitet; das ist noch keine vollständige Lehrplan- oder Unterrichtsabnahme. Keine neue Quizrevision oder Veröffentlichung.
+
+### Schriftliche Rechenverfahren im Kapiteltest
+
+math1_4_mult_div Revision 2 enthält zwei zusätzliche Verständnisfragen: Teilprodukt für drei Zehner bei 286 · 34 und notwendige Nullstelle bei 816 : 4. Die Rückmeldungen unterscheiden einen richtigen Zwischenschritt mit falschem Stellenwert sowie Ergebnisziffer und Endrest. Alte Ergebnisse aus Revision 1 gelten nicht als aktueller Nachweis.
+
+Bestehende Erstklassprüfung um beide Fragen erweitert: 18 ausgewählte Antwortwege im Kapitel einschließlich aller sechs neuen Pfade, richtige Abschnittszuordnung, Rückmeldungen und Revisionswechsel bestanden. Alle elf math1-Kapitel und 95 STEM-Arbeitsblätter geprüft. Quizstruktur nun 1521 Frageninstanzen. Keine Übersetzung oder Veröffentlichung; praktische/visuelle Prüfung bleibt offen.

@@ -81,3 +81,27 @@ dgb5_orientierung Revision 1 verbindet Brief, gemeinsames Festnetztelefon und Ch
 Die bereits vorhandene Rohdaten-/Tabellenwerkstatt in dgb5_produktion bietet jetzt zusätzlich drei Eingabefelder zur eigenen Auszählung. Die Prüfung unterscheidet falsche Gesamtsumme von falscher Zuordnung trotz richtiger Summe und verweist je Kategorie auf die zu prüfenden Antwortzettel. Sie vergibt keine Quizpunkte und ersetzt den anschließenden Auftrag in einer Tabellenanwendung nicht. Eingabetaste, Rücksetzen und veraltete Rückmeldungen sind behandelt.
 
 Geprüft: sämtliche 729 Eingabekombinationen mit Anzahlen 0 bis 8, ungültige Formate, richtige/falsche Kategorie bei richtiger Summe, Enter, Reset/Fokus und unveränderter Quizspeicher; vorhandene Schleifenprüfung und 21 DGB-Arbeitsblattmaterialien bestanden. Tatsächliche Browseransicht und externe Tabellenanwendung weiter ungeprüft.
+
+### DGB 2. Klasse: konkrete Sortier-/Filterwerkstatt
+
+dgb6_information/sec1 ergänzt acht fiktive Lernmaterialien mit ID, Titel, Fach und numerischer Dauer. Sechs Arbeitsaufträge führen vom vollständigen Übertragen über mehrstufiges Sortieren, UND-Filter, Wiederanzeigen aller Zeilen und ODER-Vergleich bis zur Häufigkeitstabelle/Diagramm. Papieralternative und optionale Vergleichslösung vorhanden. Die bisherige reine Definitionsfrage zum Filtern prüft nun beide Bedingungen anhand der Liste; Revision 2.
+
+Ein gezielter Lauf im tatsächlichen Renderer prüfte acht Datensätze, numerische Sortierung mit ID bei Gleichstand, die zwei UND-Treffer und sieben ODER-Treffer, alle drei Antwortwege samt Rückmeldung, Wiederholungs-ID und alte Revision. Die vorhandenen 21 DGB-Arbeitsblätter sowie Inventar und Quizstruktur bestanden. Keine tatsächliche Bedienung einer Tabellenanwendung oder visuelle Abnahme nachgewiesen. Keine Übersetzungen oder Veröffentlichung.
+
+### DGB: Lizenzvergleich statt bloßer Quellenzeile
+
+dgb6_information Revision 3 enthält drei fiktive Bildangebote und vier Bearbeitungs-/Rechercheaufträge; drei bisher triviale Prüfungsfragen wurden durch konkrete Entscheidungen ersetzt. Die Open-Source-Erklärung ist präzisiert. Geprüfte und verlinkte Primärquellen (09.09.2026): https://creativecommons.org/licenses/by/4.0/deed.de , https://creativecommons.org/licenses/by-nd/4.0/deed.de und https://opensource.org/osd . Die Aufgabe beurteilt die genannten Lizenzen, keine konkrete umfassende Rechtefreigabe.
+
+Gezielter tatsächlicher Renderer-Lauf: alle zwölf Antwortwege der vier Kapitelprüfungsfragen, passende Rückmeldungen, Wiederholungs-IDs, Angebotstabelle und alte Revision bestanden. Alle 21 DGB-Arbeitsblätter und Struktur-/Inventarprüfungen ebenfalls bestanden. Keine tatsächliche Bildveröffentlichung, Übersetzung oder Veröffentlichung der Website.
+
+### DGB-Filter direkt bedienbar
+
+Die fiktive Ressourcenliste lässt sich jetzt nach Fach, maximaler Dauer und UND/ODER-Verknüpfung filtern. Der Filter startet ausgeschaltet; das Deaktivieren zeigt alle acht Einträge wieder. Ausgewählte Datensätze werden vollständig übernommen, die Ausgangstabelle bleibt erhalten. Rückmeldungen nennen Bedingung, Trefferzahl und leere Auswahl. Die anschließende Tabellenanwendungsaufgabe bleibt bestehen.
+
+Neue Suite test_dgb_resource_filter.js: 110 Kombinationen mit unabhängiger Mengenprüfung, unveränderte Quelldaten, Filteraufhebung, zugängliche Beschriftungen/Fokus, Wiederinitialisierung, unveränderter Lernstand sowie zwölf Antwortwege der vier Kapitelprüfungsfragen. 21 DGB-Arbeitsblätter ebenfalls bestanden. Jetzt 173 Suiten vorhanden; letzter vollständiger Bericht ist weiterhin 172/172 vor den nachfolgenden Änderungen. Keine Browserprüfung, Übersetzung oder Veröffentlichung.
+
+### DGB: Sortieren und Filtern gemeinsam erkunden
+
+Das Ressourcenmodell bietet nun ursprüngliche Reihenfolge sowie numerische Sortierung nach Dauer auf-/absteigend, bei gleichen Werten jeweils nach ID aufsteigend. Vollständige Datensätze bleiben zusammen und die Ausgangstabelle bleibt unverändert. Rückmeldungen nennen auch die gewählte Reihenfolge.
+
+Die bestehende Suite prüft jetzt 330 Filter-/Sortierkombinationen gegen unabhängig festgelegte ID-Reihenfolgen, vollständige Zeilen, Fokus, Ergebnisverknüpfungen, Filteraufhebung und zwölf Quizantwortwege. 21 DGB-Arbeitsblätter bestanden. Keine neue Quizrevision, Übersetzung oder Veröffentlichung; Browserprüfung weiter offen.

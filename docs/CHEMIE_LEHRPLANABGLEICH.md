@@ -81,3 +81,15 @@ Zehn bewertete Fragen; die neue Frage wurde über alle drei Antwortpfade mit pas
 Als mögliche Primärvorlagen recherchiert: RSC „Thermal decomposition of metal carbonates“ (https://edu.rsc.org/experiments/thermal-decomposition-of-metal-carbonates/450.article) und AACT „Decomposition of Copper (II) Carbonate“ (https://teachchemistry.org/classroom-resources/decomposition-of-copper-ii-carbonate). Der RSC-Volltextabruf lieferte HTTP 405; Suchauszüge sind kein geprüfter Versuchsablauf. Die AACT-Seite wurde gelesen: Sie ist als High School eingeordnet und nennt basisches Kupfercarbonat als Material, beschreibt es in den Lehrerhinweisen aber absichtlich als Monohydrat und verwendet dafür eine abweichende Formel. Diese ausgewiesene Vereinfachung ist für eine ungeprüfte Übernahme ungeeignet. Die Vorlage wird nicht in den Schülerstoff eingebaut.
 
 Nächster konkreter Schritt: eine zugängliche und chemisch konsistente Versuchsvorlage mit eindeutigem Ausgangsstoff, passenden Nachweisen und schulischen Durchführungsbedingungen prüfen. Das offene Synthese-/Analyse-Kriterium bleibt unbewiesen; kein Ersatz durch die vorhandene Kristallisation oder ein bloßes Modell.
+
+### Chemische Zerlegung als Schulversuch angeleitet
+
+chemie_reaktionen_energie/Abschnitt 3 enthält nun einen abgegrenzten Zerlegungsversuch mit Hefe nach ACS Middle School Chemistry 6.5, Explore (https://www.acs.org/middleschoolchemistry/lessonplans/chapter6/lesson5.html, Volltext am 09.09.2026 gelesen). Beobachtungsprotokoll, Atombilanz, Grenzen der Produktidentifikation und Planung eines Kontrollvergleichs sind ausgearbeitet. Die Papieralternative erfindet keine Versuchsdaten.
+
+Die frühere Feststellung „kein ausdrücklich angeleiteter Zerlegungsversuch“ ist damit überholt. Ein tatsächlich durchgeführter Produktnachweis, eine praktische Erprobung am konkreten Schulmaterial und die Synthese-Anforderung bleiben gesondert offen. Reaktionskapiteltest und 95 STEM-Arbeitsblätter bestanden; keine neuen bewerteten Quizfragen, Übersetzungen oder Veröffentlichung.
+
+### Zerlegung im interaktiven Reaktionsbaukasten
+
+Der vorhandene Chemie-Baukasten ergänzt Wasserstoffperoxid als dritte Reaktion. Formel, Koeffizienten, schematische H–O–O–H-Teilchen und Atombilanzen verwenden dieselbe Reaktion wie der Schulversuch. Vorhandene Methan-/Wasserfälle bleiben verfügbar. Eingestellte Nullkoeffizienten werden jetzt ausdrücklich angezeigt statt vor der Formel ausgeblendet. Modellgrenzen der Teilchenbilder stehen im Kapitel.
+
+Bestanden: 125 Kombinationen der drei Koeffizienten 0–4, unabhängig berechnete Atombilanz und H/O-Symbolzählung in den Diagrammen, sichtbare Nullkoeffizienten, Rücksetzen und Rückwechsel zu vier Eingabefeldern. Bestehende Reaktionstests und 95 STEM-Arbeitsblätter ebenfalls bestanden; nach der abschließenden Nullanzeige-Korrektur den Reaktionstest erneut bestanden. Keine neue Quizrevision, Übersetzung oder Veröffentlichung; visuelle Prüfung bleibt offen.

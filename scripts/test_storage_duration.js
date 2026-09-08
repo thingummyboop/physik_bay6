@@ -2,6 +2,7 @@ const assert=require('node:assert/strict'),fs=require('fs'),path=require('path')
 const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),topic=JSON.parse(read('lang/de.json')).kraftwerke_energieversorgung;
 const dom=new JSDOM('<div id="sections-container">'+topic.sections.map(s=>'<section class="card">'+s.content+'</section>').join('')+'</div>',{runScripts:'outside-only'}),w=dom.window,d=w.document;
 w.eval(read('js/core-learning.js'));w.enhanceCoreLearning(topic,'kraftwerke_energieversorgung','de');const zone=d.querySelector('[data-core-experiment="storage"]'),energy=zone.querySelector('[data-storage-energy]'),power=zone.querySelector('[data-storage-power]'),status=zone.querySelector('[data-storage-status]');let cases=0;
+assert.ok(status.id);for(const field of [energy,power]){const ids=field.getAttribute('aria-describedby').split(/\s+/);assert.ok(ids.includes(status.id));for(const id of ids)assert.ok(d.getElementById(id));}assert.equal(status.getAttribute('role'),'status');assert.equal(status.getAttribute('aria-live'),'polite');
 for(let e=0;e<=20;e++)for(let half=0;half<=10;half++){
  const p=half/2;energy.value=e;power.value=p;power.dispatchEvent(new w.Event('input'));assert.doesNotMatch(status.textContent,/Infinity|NaN/);
  if(e===0)assert.match(status.textContent,/Keine nutzbare Energie/);else if(p===0)assert.match(status.textContent,/keine Entladezeit/);else{const h=e/p,approx=Math.abs(h-Math.round(h*100)/100)>1e-9;assert.ok(status.textContent.includes((approx?'≈':'=')+' '+h.toLocaleString('de',{maximumFractionDigits:2})+' h'));}

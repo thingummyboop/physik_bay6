@@ -37,11 +37,20 @@ function bindNumericExercise(inputId, feedbackId, expected, success, hint) {
     const button = zone?.querySelector('button') || null;
     const feedback = ensureTeilbarkeitFeedback(zone, feedbackId);
     input.setAttribute('aria-describedby', feedbackId);
+    input.min = '1';
+    input.step = '1';
 
     const evaluate = () => {
-        const value = Number(String(input.value).trim().replace(',', '.'));
-        if (Number.isFinite(value) && value === expected) {
+        const raw = String(input.value).trim();
+        const value = Number(raw.replace(',', '.'));
+        if (!raw || !Number.isSafeInteger(value) || value <= 0) {
+            if (feedback) feedback.innerText = 'Gib eine positive ganze Zahl ein. Eine leere Eingabe ist keine Lösung.';
+        } else if (value === expected) {
             if (feedback) feedback.innerText = success;
+        } else if (inputId === 'ggt_input' && 8 % value === 0 && 12 % value === 0) {
+            if (feedback) feedback.innerText = value + ' ist ein gemeinsamer Teiler von 8 und 12, aber noch nicht der größte. Prüfe, ob 4 beide Zahlen teilt.';
+        } else if (inputId === 'kgv_input' && value % 2 === 0 && value % 5 === 0) {
+            if (feedback) feedback.innerText = value + ' ist ein gemeinsames Vielfaches von 2 und 5, aber noch nicht das kleinste positive. Prüfe, ob schon 10 durch beide Zahlen teilbar ist.';
         } else {
             if (feedback) feedback.innerText = hint;
         }
@@ -56,6 +65,7 @@ function bindNumericExercise(inputId, feedbackId, expected, success, hint) {
 
     if (input.dataset.enterBound !== 'true') {
         input.dataset.enterBound = 'true';
+        input.addEventListener('input', () => { if (feedback) feedback.innerText = ''; });
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
                 event.preventDefault();
@@ -90,6 +100,7 @@ function bindPrimeExercise() {
     zone.querySelector('button').onclick = evaluate;
     if (input.dataset.primeBound !== 'true') {
         input.dataset.primeBound = 'true';
+        input.addEventListener('input', () => { feedback.textContent = ''; });
         input.addEventListener('keydown', event => {
             if (event.key === 'Enter') { event.preventDefault(); evaluate(); }
         });

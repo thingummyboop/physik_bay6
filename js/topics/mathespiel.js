@@ -10,6 +10,7 @@ const rechenreise = {
     assessmentIndex: 0,
     current: null,
     mode: "rechnen",
+    timed: false,
     timerId: null
 };
 
@@ -119,12 +120,14 @@ function renderRechenreiseShell() {
                 </div>
                 <button class="math-game-reset" id="mathGameReset" type="button">Neu starten</button>
             </div>
+            <label><input id="mathTimedMode" type="checkbox" ${rechenreise.timed ? "checked" : ""}> Neue Aufgaben mit Zeitlimit</label>
+            <p>Standardmäßig übst du ohne Zeitdruck. Abschalten entfernt ein laufendes Limit sofort.</p>
             <div class="math-game-hud" aria-label="Fortschritt">
                 <div><span id="mathLevel">${rechenreise.profile.level}</span><small>Niveau</small></div>
                 <div><span id="mathXp">${rechenreise.profile.xp}</span><small>Punkte</small></div>
                 <div><span id="mathStreak">${rechenreise.profile.streak}</span><small>Serie</small></div>
             </div>
-            <div id="mathGameStage" class="math-game-stage" aria-live="polite"></div>
+            <div id="mathGameStage" class="math-game-stage" aria-live="polite" aria-atomic="false"></div>
         </div>
     `;
 
@@ -136,6 +139,10 @@ function renderRechenreiseShell() {
         startRechenreiseAssessment();
     });
 
+    document.getElementById('mathTimedMode').addEventListener('change', event => {
+        rechenreise.timed = event.target.checked;
+        if (!rechenreise.timed) { clearQuestionTimer(); const timer=document.getElementById('mathTimer');if(timer)timer.textContent='Ohne Zeitlimit'; }
+    });
     updateRechenreiseHud();
 }
 
@@ -183,8 +190,9 @@ function timeLimitForLevel(level) {
 }
 
 function timerMarkup(seconds) {
+    if (!rechenreise.timed) return '<p id="mathTimer">Ohne Zeitlimit</p>';
     return `
-        <div class="math-timer" id="mathTimer" aria-live="polite">
+        <div class="math-timer" id="mathTimer" aria-live="off">
             <span>Zeit: <strong id="mathTimerText">${seconds}s</strong></span>
             <span class="math-timer-track" aria-hidden="true"><span id="mathTimerBar" style="width:100%"></span></span>
         </div>
@@ -193,6 +201,7 @@ function timerMarkup(seconds) {
 
 function startQuestionTimer(question, onTimeout) {
     clearQuestionTimer();
+    if (!rechenreise.timed) return;
     const total = Math.max(1, question.timeLimit || timeLimitForLevel(question.level || rechenreise.profile.level));
     let remaining = total;
     updateTimerDisplay(remaining, total);
@@ -255,7 +264,7 @@ function renderAssessmentQuestion() {
                 </div>
             `}
             <p class="math-game-note">Es geht nicht um Stress. Rechenreise sucht nur passende Aufgaben für dich.</p>
-            <p class="math-feedback" id="mathFeedback"></p>
+            <p class="math-feedback" id="mathFeedback" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
     `;
     if (question.choiceMode === "rotatingPieces") {
@@ -560,7 +569,7 @@ function renderMiniGame() {
                     ${challenge.options.map(option => answerButton(option, challenge.optionLabels)).join("")}
                 </div>
             `}
-            <p class="math-feedback" id="mathFeedback"></p>
+            <p class="math-feedback" id="mathFeedback" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
     `;
 

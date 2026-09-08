@@ -6,35 +6,43 @@ const path = require('path');
 const repoRoot = path.join(__dirname, '..');
 const topicsDir = path.join(repoRoot, 'js', 'topics');
 
-const nonPhysicsTopics = new Set(['dgb5', 'wetter', 'klima', 'klimawandel']);
-const nonPhysicsPrefixes = ['geo_', 'chemie_', 'bio_'];
+// Use the same subject membership as navigation; filenames do not define subjects.
+const vm = require('node:vm');
+const catalogContext = { window: {} };
+vm.runInNewContext(fs.readFileSync(path.join(repoRoot, 'js', 'curriculum.js'), 'utf8'), catalogContext, { timeout: 1000 });
+const entries = catalogContext.window.SCIVERSE_CURRICULUM?.physik?.topics;
+if (!Array.isArray(entries) || entries.some(entry => !/^[a-z0-9_]+$/.test(entry.id)) || new Set(entries.map(entry => entry.id)).size !== entries.length) {
+  console.error('PHYSICS_A11Y_ISSUES: missing or invalid physics chapter catalog');
+  process.exit(1);
+}
+const physicsTopics = entries.map(entry => entry.id).sort();
 
-const physicsTopics = fs
-  .readdirSync(topicsDir)
-  .filter((entry) => entry.endsWith('.js'))
-  .map((entry) => entry.replace(/\.js$/, ''))
-  .filter((topic) => !topic.startsWith('math'))
-  .filter((topic) => !nonPhysicsPrefixes.some((prefix) => topic.startsWith(prefix)))
-  .filter((topic) => !nonPhysicsTopics.has(topic))
-  .sort();
-
+const chapterData = JSON.parse(fs.readFileSync(path.join(repoRoot, 'lang', 'de.json'), 'utf8'));
 const findings = [];
+let sharedChapters = 0;
 
 if (physicsTopics.length === 0) {
   console.log('PHYSICS_A11Y_ISSUES');
-  console.log('- _global: no_physics_topics_detected (No physics topic scripts found for audit)');
+  console.log('- _global: no_physics_topics_detected (No physics chapters found in curriculum)');
   process.exit(1);
 }
 
 for (const topic of physicsTopics) {
-  const file = path.join(topicsDir, `${topic}.js`);
-
+  const chapter = chapterData[topic];
+  if (!chapter || !Array.isArray(chapter.sections) || !chapter.sections.length) {
+    findings.push({ topic, issue: 'missing_content', detail: 'No German chapter sections' });
+    continue;
+  }
+  const shared = chapter.script === false;
+  const file = shared ? path.join(repoRoot, 'js', 'core-learning.js') : path.join(topicsDir, topic + '.js');
   if (!fs.existsSync(file)) {
     findings.push({ topic, issue: 'missing_file', detail: file });
     continue;
   }
-
-  const source = fs.readFileSync(file, 'utf8');
+  if (shared) sharedChapters++;
+  // The renderer uses core-learning for chapters with script:false. Their
+  // control semantics also live in the chapter HTML, not a per-topic script.
+  const source = fs.readFileSync(file, 'utf8') + (shared ? '\n' + chapter.sections.map(section => section.content || '').join('\n') : '');
 
   if (source.includes('alert(')) {
     findings.push({
@@ -167,7 +175,7 @@ for (const topic of physicsTopics) {
 }
 
 if (findings.length === 0) {
-  console.log(`PHYSICS_A11Y_CLEAR (${physicsTopics.length} topics)`);
+  console.log(`PHYSICS_A11Y_CLEAR (${physicsTopics.length} curriculum topics, ${sharedChapters} shared-runtime chapters; static source checks only)`);
   process.exit(0);
 }
 

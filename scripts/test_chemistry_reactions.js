@@ -17,5 +17,32 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  assert.equal(d.querySelectorAll('[data-reaction-levels] tbody tr').length,4);assert.equal(d.querySelectorAll('[data-reaction-level-task] li').length,6);
  builder.querySelector('[data-chem-action="hydrogen"]').click();
  for(const coeffs of [[2,1,2],[4,2,4]]){for(const [i,key]of ['a','b','c'].entries()){const input=builder.querySelector('[data-chem-coeff="'+key+'"]');input.value=coeffs[i];input.dispatchEvent(new w.Event('input'));}assert.ok(builder.querySelector('.chem-status').textContent.startsWith('Richtig ausgeglichen'));assert.equal(coeffs[0]*2,coeffs[2]*2);assert.equal(coeffs[1]*2,coeffs[2]);}
- dom.window.close();console.log('PASS: 9 reaction questions, energy and mass examples, evidence-count caveat, balanced/unbalanced methane and rejection of an empty equation.');
+ builder.querySelector('[data-chem-action="peroxide"]').click();
+ assert.equal(builder.dataset.chemReaction,'peroxide');assert.equal(builder.querySelector('[data-chem-coeff="d"]').disabled,true);
+ const inputs=['a','b','c'].map(key=>builder.querySelector('[data-chem-coeff="'+key+'"]'));let peroxideCases=0;
+ for(let a=0;a<=4;a++)for(let b=0;b<=4;b++)for(let c=0;c<=4;c++){
+  [a,b,c].forEach((value,i)=>{inputs[i].value=value;});inputs[2].dispatchEvent(new w.Event('input'));
+  if(a===0)assert.ok(builder.textContent.includes('0 H2O2'));if(b===0)assert.ok(builder.textContent.includes('0 H2O'));if(c===0)assert.ok(builder.textContent.includes('0 O2'));
+  const expected=a>0&&b>0&&c>0&&2*a===2*b&&2*a===b+2*c;
+  assert.equal(builder.querySelector('.chem-status').textContent.startsWith('Richtig ausgeglichen'),expected,[a,b,c].join(','));
+  const atoms=[...builder.querySelectorAll('svg text')].map(t=>t.textContent);
+  assert.equal(atoms.filter(t=>t==='H').length,2*a+2*b);assert.equal(atoms.filter(t=>t==='O').length,2*a+b+2*c);peroxideCases++;
+ }
+ const reset=builder.querySelector('[data-chem-action="reset"]');reset.focus();reset.click();assert.equal(d.activeElement,reset);assert.equal(builder.dataset.chemReaction,'peroxide');assert.deepEqual(inputs.map(i=>Number(i.value)),[1,1,1]);
+ builder.querySelector('[data-chem-action="methane"]').click();assert.equal(builder.querySelector('[data-chem-coeff="d"]').disabled,false);
+ assert.equal(peroxideCases,125);
+ const priorStorage=w.localStorage.getItem('sciverse_chapter_quiz_results');
+ for(const reaction of ['methane','hydrogen','peroxide']){
+  builder.querySelector('[data-chem-action="'+reaction+'"]').click();
+  const active=[...builder.querySelectorAll('[data-chem-coeff]')].filter(input=>!input.disabled);
+  for(const field of active)for(const value of ['', '-1', '10', '1.5', '99']){
+   field.value=value;field.focus();field.dispatchEvent(new w.Event('input'));
+   assert.equal(d.activeElement,field);assert.equal(field.value,value);assert.equal(field.getAttribute('aria-invalid'),'true');
+   assert.ok(field.getAttribute('aria-describedby').split(/\s+/).includes(builder.querySelector('.chem-status').id));
+   assert.match(builder.querySelector('.chem-status').textContent,/ganze Zahl von 0 bis 9/);assert.equal(builder.querySelectorAll('svg').length,0);
+   field.value='1';field.dispatchEvent(new w.Event('input'));assert.equal(field.getAttribute('aria-invalid'),'false');assert.ok(builder.querySelector('svg'));
+  }
+ }
+ assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),priorStorage);
+ dom.window.close();console.log('PASS: 9 reaction questions, energy and mass examples, evidence-count caveat, balanced/unbalanced methane rejection of an empty equation, 125 peroxide balances with independently counted diagram atoms, reset and reaction switching.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

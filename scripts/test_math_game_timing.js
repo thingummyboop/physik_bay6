@@ -1,0 +1,15 @@
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8');
+const dom=new JSDOM('<div data-math-game></div>',{url:'https://example.test/topics/template.html?topic=mathespiel',runScripts:'outside-only'}),w=dom.window,d=w.document;
+const timers=new Map();let nextId=1;w.setInterval=fn=>{const id=nextId++;timers.set(id,fn);return id;};w.clearInterval=id=>timers.delete(id);
+w.eval(read('js/common.js'));w.eval(read('js/renderer.js'));w.eval(read('js/topics/mathespiel.js'));w.topicInit();
+assert.equal(d.getElementById('mathTimedMode').checked,false);assert.equal(timers.size,0);assert.match(d.getElementById('mathTimer').textContent,/Ohne Zeitlimit/);
+assert.equal(d.getElementById('mathFeedback').getAttribute('role'),'status');assert.equal(d.getElementById('mathFeedback').getAttribute('aria-atomic'),'true');
+const setting=d.getElementById('mathTimedMode');assert.ok(setting.closest('label'));setting.focus();setting.click();assert.equal(d.activeElement,setting);assert.equal(timers.size,0,'enabling applies to new questions');
+w.renderAssessmentQuestion();assert.equal(timers.size,1);assert.equal(d.getElementById('mathTimer').getAttribute('aria-live'),'off');const timerText=d.getElementById('mathTimerText').textContent;[...timers.values()][0]();assert.notEqual(d.getElementById('mathTimerText').textContent,timerText);
+setting.click();assert.equal(timers.size,0);assert.match(d.getElementById('mathTimer').textContent,/Ohne Zeitlimit/);w.renderAssessmentQuestion();assert.equal(timers.size,0);
+setting.click();w.renderAssessmentQuestion();for(let i=0;i<30&&timers.size;i++)[...timers.values()].forEach(fn=>fn());assert.equal(timers.size,0);assert.match(d.getElementById('mathFeedback').textContent,/Zeit vorbei/);assert.ok(d.getElementById('mathFeedback').querySelector('button'));
+setting.click();w.renderAssessmentQuestion();assert.equal(timers.size,0);assert.match(d.getElementById('mathTimer').textContent,/Ohne Zeitlimit/);dom.window.close();
+const kangaroo=new JSDOM('<div data-kangaroo-root></div>',{url:'https://example.test/topics/template.html?topic=math_kaenguru',runScripts:'outside-only'}),kw=kangaroo.window;
+kw.setInterval=()=>{throw Error('Default training must not start a timer');};for(const file of ['common','renderer','topics/math_kaenguru'])kw.eval(read('js/'+file+'.js'));kw.topicInit();kw.startKangarooTest();assert.equal(kw.document.querySelectorAll('.kangaroo-training-badge').length,1);const result=kw.document.getElementById('kangarooResult');assert.equal(result.getAttribute('aria-live'),'polite');assert.equal(result.getAttribute('aria-atomic'),'true');kangaroo.window.close();
+console.log('PASS: actual Rechenreise initialization defaults untimed; opt-in applies to new questions, ticks remain quiet, disabling cancels immediately, timed expiry and subsequent untimed questions work.');

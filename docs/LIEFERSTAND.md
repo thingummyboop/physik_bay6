@@ -743,3 +743,128 @@ math1_4_mult_div enthält nun eine Stellenwerttabelle für 816 : 4 = 204 und dre
 Sieben ausdrücklich markierte Vergleichslösungen (schriftliche Multiplikation/Division, Würfelnetze, Stufenkörper, Einkaufsbudget, Bruchgleichwertigkeit und eigene Statistikdaten) erscheinen nun im verborgenen Lösungsteil des Arbeitsblatts. Der vorhandene Lösungsschalter blendet sie gemeinsam mit Quizlösungen ein; die Materialauswahl bleibt unabhängig. Es werden nur markierte Blöcke übernommen, keine automatischen Rückschlüsse aus beliebigen aufklappbaren Texten gezogen.
 
 Die STEM-Materialprüfung vergleicht jetzt jeden Absatz dieser Lösungen mit dem Kapitel und prüft die Trennung vom Schülerteil. Bestehende Bruch-/Dezimal- sowie allgemeine Arbeitsblattprüfungen wurden ebenfalls ausgeführt. Keine neue Bewertung oder Übersetzung; tatsächliches Drucklayout und Veröffentlichung offen.
+
+### 09.09.2026 – Elektrizität: Reihen-/Parallelversuch
+
+Sechs angeleitete Arbeitsaufträge mit Lampenvergleich, fünf leeren Protokollfällen, unabhängigen Schaltern, Fehlerprüfung und Papieralternative ergänzt. Vergleichslösungen auf Wunsch im Arbeitsblatt verfügbar. 20 Physik-Arbeitsblätter und Kapitelinventar geprüft; praktische und visuelle Abnahme offen. Neue lokale Arbeit nach Zwischenstand 8313ae7; keine Übersetzungen oder Veröffentlichung.
+
+### Interaktiver Stromkreisvergleich (09.09.2026)
+
+Elektrizität/sec2 ergänzt die praktische Anleitung um eine direkt bedienbare Reihen-/Parallelschaltung mit zwei unabhängigen Schaltern. SVG-Stromwege und Schalterstellungen, ausgeschriebene Lampenzustände, begründete Rückmeldungen sowie Rücksetzen sind verbunden. Das Modell setzt intakte Bauteile voraus und berechnet keine Helligkeit oder Stromstärke. In der Reihe liegen beide Schalter im gemeinsamen Weg; parallel steuert jeder einen Zweig.
+
+Alle acht Zustandskombinationen durch unabhängige Graph-Wegsuche geprüft; sichtbare Modellgruppe, Schaltergeometrie, Lampenstatus, zugängliche Beschriftung, Fokus, wiederholte Initialisierung, Reset und unveränderter Quizspeicher ebenfalls geprüft. Bestehende Elektrizitätsprüfung, 20 Physik-Arbeitsblätter, Inventar und Diff-Prüfung bestanden. Keine Browser-/Unterrichtsabnahme, keine neue Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Papieralternativen für interaktive Modelle (09.09.2026)
+
+Der gemeinsame Arbeitsblatt-Export übernimmt nun ausdrücklich verfasste Papieralternativen aus einem direkten template[data-worksheet-alternative] des Modells. Ohne Alternative bleibt der bisherige Onlinehinweis bestehen. Die Alternative wird in den normalen Bereinigungspfad übernommen; Bedienelemente und dynamische Medien werden nicht als Ergebnisse gedruckt. Der Stromkreisvergleich liefert als erster Anwendungsfall die vollständige Verbindungsbeschreibung und acht unausgefüllte Schalterfälle. Die Vergleichslösung berücksichtigt beide Schalter und bleibt separat zuschaltbar.
+
+Geprüft: acht verschiedene vollständige Fälle, leere Antwortspalten, keine Bedienelemente oder versteckten Templates in der Papieralternative; alle 20 Physik-, 95 Mathematik/Chemie/Biologie- und 21 DGB-Arbeitsblätter bestanden. Tatsächliches Drucklayout bleibt ungeprüft.
+
+### Gesamtprüfung nach Stromkreis- und Arbeitsblatterweiterung
+
+Bericht 2026-09-08T22:41:09.522Z: **172 von 172 Funktionstestsuiten bestanden**, Exit 0. Der Lauf umfasst auch die Evolutionsfragen, schriftlichen Rechenaufträge, optionalen Papierlösungen, den interaktiven Stromkreisvergleich und die neue Papieralternative. Zusätzliche Prüfung: Syntax aller 87 Kapitelskripte gültig; priorisierte Quizstruktur mit 1519 Frageninstanzen ohne strukturelle Befunde. Der Physik-Zugänglichkeitsaudit meldet 17 erfasste Kapitel ohne Befund und ist damit kein vollständiger 20-Kapitel-Nachweis.
+
+Der vollständige Lauf prüft bestehende Übersetzungen mit, ohne neue zu erstellen. Bericht außerhalb des Repositorys: ../functional-test-report.json. Fachliche Lehrplanvollständigkeit, konkrete Unterrichtsversuche, Browser-/Druckdarstellung und veröffentlichter Endstand bleiben gesondert zu prüfen. Die neuen Änderungen nach 8313ae7 sind weiterhin lokal.
+
+### Physik-Prüfumfang und Speicherregler (09.09.2026)
+
+Der Zugänglichkeitsaudit bestimmt seine Kapitel jetzt aus SCIVERSE_CURRICULUM.physik statt durch Dateinamen-Ausschlüsse. Die bisherige Zahl 17 war eine Skriptauswahl und kein verlässlicher Nachweis der Physik-Kapitelabdeckung. Alle 20 Katalogkapitel werden jetzt erfasst; für drei Kapitel mit script:false wird die gemeinsame core-learning-Logik zusammen mit dem deutschen Kapitel-HTML geprüft. Fehlende Inhalte, ungültige/duplizierte IDs und fehlende benötigte Skripte führen zu einem Befund. Die Ausgabe kennzeichnet ausdrücklich die Grenze statischer Quelltextprüfungen.
+
+Die erweiterte Prüfung zeigte fehlende aria-describedby-Verknüpfungen bei den Speicherreglern im Kraftwerkskapitel. Beide Regler verweisen jetzt auf den vorhandenen Ergebnistext; vorhandene Beschreibungen bleiben erhalten. Bestanden: statischer Audit für 20 Kapitel, 231 Speicherfälle samt verknüpften Textzielen sowie bestehende Kernkapiteltests und 102 Antwortpfade im tatsächlichen Renderer. Der letzte vollständige Lauf 172/172 liegt vor dieser gezielt geprüften Änderung. Keine visuelle oder vollständige Barrierefreiheitsabnahme.
+
+### Selektion: anwendungsbezogene Kapitelprüfung (09.09.2026)
+
+Fünf bewertete Fragen in bio_1_selektion überarbeitet: Variation versus erbliche Ursache, Elternwahl versus Vererbungsnachweis in der vorhandenen Fruchtaufgabe, aufeinanderfolgende Modellgenerationen versus unabhängige Neustarts, umweltabhängiger Fortpflanzungserfolg und absolute Anzahl versus Anteil (8/20 = 40 %, 18/60 = 30 %). Offensichtlich sachfremde Antworten sind durch plausible Fehlvorstellungen mit eigener Erklärung ersetzt. Revision 2 verhindert, dass alte Ergebnisse als aktueller Nachweis gelten.
+
+Die bestehende Evolutionsprüfung erfasst jetzt beide Kapitel: 30 Antwortwege, konkrete Wiederholungs-IDs, Abschnittszuordnung, Ausschluss von Übungsfragen und alte Revisionen geprüft. 95 STEM-Arbeitsblätter sowie Inventar/Quizstruktur bestanden. Ein beim Umbau der Tests entstandener Syntaxfehler ist korrigiert; der abschließende gezielte Lauf bestand. Der Gesamtbericht 172/172 liegt vor dieser Änderung. Keine Übersetzungen oder Veröffentlichung.
+
+### Selektion: Rechenhilfe zur ersten Modellrunde
+
+Die erste Papier-Suchrunde (Start zehn helle/zehn dunkle Punkte) kann jetzt mit eigenen oder ausdrücklich erfundenen Restzahlen ausgewertet werden. Die Rechenhilfe verdoppelt beide Überlebendenzahlen nach der bestehenden Modellregel und unterscheidet Gesamtzahl, dunklen Anteil und Vergleich mit anfänglich 50 %. Keine Überlebenden ergibt keinen definierten Anteil; leere oder ungültige Eingaben werden nicht als null behandelt. Änderungen löschen die überholte Rückmeldung. Papieralternative mit 6/9 Überlebenden und separat zuschaltbarer Lösung ergänzt.
+
+Geprüft: alle 121 zulässigen Eingabepaare, ungültige Formate, 6/9-Beispiel, Eingabetaste, Rücksetzen/Fokus, erneute Initialisierung, zugeordnete Ergebnisbeschreibung und unveränderter Quizspeicher. Die 30 Evolutions-/Selektionsantwortwege, 95 STEM-Arbeitsblätter und gemeinsamen Physik-Kernmodelle bestanden ebenfalls. Kein realer Suchversuch oder Browserlayout geprüft; keine zusätzliche Quizrevision, Übersetzung oder Veröffentlichung.
+
+### Selektionsprotokoll: Generationen und Neustarts trennen
+
+Das vorherige Drei-Zeilen-Protokoll ist durch sieben eindeutig bezeichnete Zeitpunkte ersetzt: Start und jeweils nach Suche/nach Vermehrung für drei Runden. Eigene Farbzahlen, Gesamtzahl und Anteile bleiben nachvollziehbar. Nullbestand und nicht durchgeführte Runden werden unterschiedlich gekennzeichnet. Vier zusätzliche Neustarts vergleichen immer den Stand nach der ersten Suche bei zwei Untergründen; Reihenfolge, konstante Bedingungen, Übung/Ermüdung und unsichere Befunde sind ausdrücklich behandelt. Eine kurze Erprobung der Suchzeit soll verhindern, dass jede Runde zwangsläufig vollständig abgeerntet wird.
+
+Die Evolutions-/Selektionsprüfung mit 30 Antwortpfaden und 121 Rechenfällen sowie 95 STEM-Arbeitsblätter bestanden vor der abschließenden sprachlichen Präzisierung zur Suchzeit; kein neues Laufzeitverhalten. Praktische Erprobung und Drucklayout weiterhin offen. Keine Quizrevision, Übersetzung oder Veröffentlichung.
+
+### DGB 2. Klasse: konkrete Sortier-/Filterwerkstatt
+
+dgb6_information/sec1 ergänzt acht fiktive Lernmaterialien mit ID, Titel, Fach und numerischer Dauer. Sechs Arbeitsaufträge führen vom vollständigen Übertragen über mehrstufiges Sortieren, UND-Filter, Wiederanzeigen aller Zeilen und ODER-Vergleich bis zur Häufigkeitstabelle/Diagramm. Papieralternative und optionale Vergleichslösung vorhanden. Die bisherige reine Definitionsfrage zum Filtern prüft nun beide Bedingungen anhand der Liste; Revision 2.
+
+Ein gezielter Lauf im tatsächlichen Renderer prüfte acht Datensätze, numerische Sortierung mit ID bei Gleichstand, die zwei UND-Treffer und sieben ODER-Treffer, alle drei Antwortwege samt Rückmeldung, Wiederholungs-ID und alte Revision. Die vorhandenen 21 DGB-Arbeitsblätter sowie Inventar und Quizstruktur bestanden. Keine tatsächliche Bedienung einer Tabellenanwendung oder visuelle Abnahme nachgewiesen. Keine Übersetzungen oder Veröffentlichung.
+
+### DGB: Lizenzvergleich statt bloßer Quellenzeile
+
+dgb6_information Revision 3 enthält drei fiktive Bildangebote und vier Bearbeitungs-/Rechercheaufträge; drei bisher triviale Prüfungsfragen wurden durch konkrete Entscheidungen ersetzt. Die Open-Source-Erklärung ist präzisiert. Geprüfte und verlinkte Primärquellen (09.09.2026): https://creativecommons.org/licenses/by/4.0/deed.de , https://creativecommons.org/licenses/by-nd/4.0/deed.de und https://opensource.org/osd . Die Aufgabe beurteilt die genannten Lizenzen, keine konkrete umfassende Rechtefreigabe.
+
+Gezielter tatsächlicher Renderer-Lauf: alle zwölf Antwortwege der vier Kapitelprüfungsfragen, passende Rückmeldungen, Wiederholungs-IDs, Angebotstabelle und alte Revision bestanden. Alle 21 DGB-Arbeitsblätter und Struktur-/Inventarprüfungen ebenfalls bestanden. Keine tatsächliche Bildveröffentlichung, Übersetzung oder Veröffentlichung der Website.
+
+### Chemische Zerlegung als Schulversuch angeleitet
+
+chemie_reaktionen_energie/Abschnitt 3 enthält nun einen abgegrenzten Zerlegungsversuch mit Hefe nach ACS Middle School Chemistry 6.5, Explore (https://www.acs.org/middleschoolchemistry/lessonplans/chapter6/lesson5.html, Volltext am 09.09.2026 gelesen). Beobachtungsprotokoll, Atombilanz, Grenzen der Produktidentifikation und Planung eines Kontrollvergleichs sind ausgearbeitet. Die Papieralternative erfindet keine Versuchsdaten.
+
+Die frühere Feststellung „kein ausdrücklich angeleiteter Zerlegungsversuch“ ist damit überholt. Ein tatsächlich durchgeführter Produktnachweis, eine praktische Erprobung am konkreten Schulmaterial und die Synthese-Anforderung bleiben gesondert offen. Reaktionskapiteltest und 95 STEM-Arbeitsblätter bestanden; keine neuen bewerteten Quizfragen, Übersetzungen oder Veröffentlichung.
+
+### Zerlegung im interaktiven Reaktionsbaukasten
+
+Der vorhandene Chemie-Baukasten ergänzt Wasserstoffperoxid als dritte Reaktion. Formel, Koeffizienten, schematische H–O–O–H-Teilchen und Atombilanzen verwenden dieselbe Reaktion wie der Schulversuch. Vorhandene Methan-/Wasserfälle bleiben verfügbar. Eingestellte Nullkoeffizienten werden jetzt ausdrücklich angezeigt statt vor der Formel ausgeblendet. Modellgrenzen der Teilchenbilder stehen im Kapitel.
+
+Bestanden: 125 Kombinationen der drei Koeffizienten 0–4, unabhängig berechnete Atombilanz und H/O-Symbolzählung in den Diagrammen, sichtbare Nullkoeffizienten, Rücksetzen und Rückwechsel zu vier Eingabefeldern. Bestehende Reaktionstests und 95 STEM-Arbeitsblätter ebenfalls bestanden; nach der abschließenden Nullanzeige-Korrektur den Reaktionstest erneut bestanden. Keine neue Quizrevision, Übersetzung oder Veröffentlichung; visuelle Prüfung bleibt offen.
+
+### Reaktionsbaukasten: ungültige Koeffizienten
+
+Die Eingabeprüfung rundet Bruchzahlen nicht mehr und begrenzt zu große Werte nicht still auf 9. Leere, negative, nicht ganzzahlige und außerhalb von 0–9 liegende Werte erhalten eine zugeordnete Rückmeldung und aria-invalid; die alte Bilanzgrafik wird entfernt, bis alle aktiven Eingaben gültig sind. Null bleibt eine zulässige Eingabe zum Erkunden fehlender Stoffmengen, aber keine gültige vollständige Reaktionsgleichung.
+
+Geprüft: 50 ungültige Eingabefälle über alle aktiven Felder der drei Reaktionen, unveränderte Eingabetexte/Fokus, Fehlerzuordnung, Rückkehr zur Grafik nach Korrektur und unveränderter Quizspeicher. Vorhandene Reaktionsfälle einschließlich 125 Zerlegungsbilanzen und Zugänglichkeitsprüfung aller 15 Chemiekapitel bestanden. Kein Browser- oder Screenreader-Praxistest.
+
+### Schriftliche Rechenverfahren im Kapiteltest
+
+math1_4_mult_div Revision 2 enthält zwei zusätzliche Verständnisfragen: Teilprodukt für drei Zehner bei 286 · 34 und notwendige Nullstelle bei 816 : 4. Die Rückmeldungen unterscheiden einen richtigen Zwischenschritt mit falschem Stellenwert sowie Ergebnisziffer und Endrest. Alte Ergebnisse aus Revision 1 gelten nicht als aktueller Nachweis.
+
+Bestehende Erstklassprüfung um beide Fragen erweitert: 18 ausgewählte Antwortwege im Kapitel einschließlich aller sechs neuen Pfade, richtige Abschnittszuordnung, Rückmeldungen und Revisionswechsel bestanden. Alle elf math1-Kapitel und 95 STEM-Arbeitsblätter geprüft. Quizstruktur nun 1521 Frageninstanzen. Keine Übersetzung oder Veröffentlichung; praktische/visuelle Prüfung bleibt offen.
+
+### DGB-Filter direkt bedienbar
+
+Die fiktive Ressourcenliste lässt sich jetzt nach Fach, maximaler Dauer und UND/ODER-Verknüpfung filtern. Der Filter startet ausgeschaltet; das Deaktivieren zeigt alle acht Einträge wieder. Ausgewählte Datensätze werden vollständig übernommen, die Ausgangstabelle bleibt erhalten. Rückmeldungen nennen Bedingung, Trefferzahl und leere Auswahl. Die anschließende Tabellenanwendungsaufgabe bleibt bestehen.
+
+Neue Suite test_dgb_resource_filter.js: 110 Kombinationen mit unabhängiger Mengenprüfung, unveränderte Quelldaten, Filteraufhebung, zugängliche Beschriftungen/Fokus, Wiederinitialisierung, unveränderter Lernstand sowie zwölf Antwortwege der vier Kapitelprüfungsfragen. 21 DGB-Arbeitsblätter ebenfalls bestanden. Jetzt 173 Suiten vorhanden; letzter vollständiger Bericht ist weiterhin 172/172 vor den nachfolgenden Änderungen. Keine Browserprüfung, Übersetzung oder Veröffentlichung.
+
+### DGB: Sortieren und Filtern gemeinsam erkunden
+
+Das Ressourcenmodell bietet nun ursprüngliche Reihenfolge sowie numerische Sortierung nach Dauer auf-/absteigend, bei gleichen Werten jeweils nach ID aufsteigend. Vollständige Datensätze bleiben zusammen und die Ausgangstabelle bleibt unverändert. Rückmeldungen nennen auch die gewählte Reihenfolge.
+
+Die bestehende Suite prüft jetzt 330 Filter-/Sortierkombinationen gegen unabhängig festgelegte ID-Reihenfolgen, vollständige Zeilen, Fokus, Ergebnisverknüpfungen, Filteraufhebung und zwölf Quizantwortwege. 21 DGB-Arbeitsblätter bestanden. Keine neue Quizrevision, Übersetzung oder Veröffentlichung; Browserprüfung weiter offen.
+
+### Mathematik 2. Klasse: Primzahlen begründet finden
+
+Teilbarkeit/m21_prim ergänzt ein sechsstufiges Sieb bis 50: 1 ausschließen, Primzahlen einkreisen, größere Vielfache streichen und Ergebnisse kontrollieren. 29/49 und die Grenze nach dem Schritt 7 werden begründet. Die Vergleichsliste und die verkürzte Suche ab dem Quadrat sind optional als Papierlösung verfügbar. Die 15 Primzahlen wurden unabhängig durch Teilersuche ermittelt; Zweitklasskapitelprüfung und 95 STEM-Arbeitsblätter bestanden. Kein neuer bewerteter Quizstoff, keine Übersetzung oder Veröffentlichung; tatsächliche Zeichnung und Darstellung nicht geprüft.
+
+### Teilbarkeit: Rückmeldungen differenziert
+
+Die ggT-/kgV-Eingaben unterscheiden nun passende gemeinsame Teiler/Vielfache von der geforderten größten/kleinsten Lösung. Leere, nichtpositive und nichtganzzahlige Werte erhalten eine eigene Erklärung. Eingabeänderungen entfernen überholte Rückmeldungen auch bei Primfaktoren. Bestehende Erstinitialisierung/Enter-Bindung bleibt mehrfach aufrufbar.
+
+Zweitklassprüfung bestanden, erweitert um sechs Zwischenlösungs-/Fehlerfälle und acht ungültige Eingaben sowie Rückmeldungslöschung und Fokus. Vorhandene Primfaktorprüfung kontrolliert außerdem sämtliche Kandidaten 2–60 über unabhängig ermittelte Teiler. Keine neue Quizrevision oder Veröffentlichung.
+
+### Vollständiger Funktionstest nach den Fachergänzungen
+
+2026-09-08T23:15:23.531Z: **173/173 Funktionstestsuiten bestanden**, Exit 0. Enthalten sind alle Änderungen bis zum erweiterten ggT/kgV-Feedback, der DGB-Sortier-/Filterwerkstatt und der Chemie-Eingabeprüfung. Zusätzlich: Syntax aller 87 Kapitelskripte und statischer Physik-Audit über 20 Katalogkapitel bestanden.
+
+Der ergänzende Mathematik-Audit fand eine fehlende aria-atomic-Angabe bei der Stellenwert-Rückmeldung. Nach dem Gesamtlauf wurde ausschließlich diese Angabe ergänzt; Mathematik-Audit (39 erfasste Skripte) und alle elf Erstklasskapitel danach erneut bestanden. Der 39-Skript-Audit ist kein Nachweis vollständiger Barrierefreiheit sämtlicher Mathematikkapitel. Fachliche Vollständigkeit, reale Versuche, Browser-/Druckprüfung und Endveröffentlichung bleiben offen. Keine automatische GitHub-Veröffentlichung.
+
+### Mathematik-Audit: vollständiger Katalog und tatsächliche Reglerlabels
+
+Der Audit verwendet jetzt alle 41 Mathematik-Katalogeinträge einschließlich beider Spielkapitel. Die bisherige Range-Namensheuristik ist durch Prüfung der nativen Reglerbeschriftungen ersetzt. Zusätzliche Werttexte sind nach W3C APG Slider Pattern situationsabhängig; eine pauschale Pflicht zu aria-valuetext/aria-describedby war zu weitgehend (https://www.w3.org/WAI/ARIA/apg/patterns/slider/, 09.09.2026 gelesen).
+
+Gefundene reale Lücken korrigiert: sichtbares Label für den Winkelregler; explizite Verknüpfung der Flächenregler mit ihren vorhandenen Labels, deren vorher stehendes output-Element sonst das Label erhielt. Diese Verknüpfung erfolgt in area-lab.js zur Laufzeit. Ein erster Versuch mit neuen IDs direkt im deutschen Quelltext störte die bestehende englische Modellübernahme; die Laufzeitlösung beseitigt diese Regression, ohne Übersetzungen zu ergänzen.
+
+Die Spielrückmeldungen haben explizite Live-/Atomic-Angaben; der Sekunden-Timer ist keine automatische Live-Meldung mehr. Bestanden: Audit über 41 Kapitel (Quellprüfung plus initialisierte Flächenlabels), Erstklasskapitel, 108 Flächengeometriefälle mit vorhandenen Sprachfassungen sowie Syntax aller 87 Kapitelskripte. Kein praktischer Screenreader- oder Browsernachweis. Der vollständige 173/173-Bericht liegt vor diesen gezielt geprüften Änderungen.
+
+
+### Rechenreise: freiwilliges Zeitlimit
+
+Neue Aufgaben beginnen standardmäßig ohne Countdown. Das Zeitlimit lässt sich für folgende Aufgaben einschalten; Abschalten beendet einen laufenden Countdown sofort. Die Einstellung gilt für die laufende Sitzung.
+
+Die neue 174. Testsuite prüft tatsächliche Initialisierung, freiwilligen Timer, Ablauf und sofortiges Abschalten sowie Känguru-Training ohne Timer und dessen Rückmeldungsattribute. Diese Suite, Mathematik-Audit über 41 Kapitel, Flächenprüfung und Erstklassprüfung bestanden vor dem Zwischenstand-Push erneut. Der letzte Gesamtlauf umfasst weiterhin 173 Suiten; kein vollständiger 174er-Lauf oder praktischer Browser-/Screenreader-Nachweis.

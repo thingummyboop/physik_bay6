@@ -78,9 +78,40 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
   if(position===route.length-1)continuation.append(make('p',review?ui("Du bist am Ende deiner Stoffliste. Prüfe in der Übersicht, welche Inhalte du noch wiederholen möchtest."):ui("Du bist am Ende der Kapitelübersicht dieses Fachs. In deiner Stoffliste kannst du gezielt weiterüben.")));
   continuation.append(links);const overview=make('a',ui("Zur Stoffliste"));overview.href='../index.html#topics/learning.html?'+overviewQuery;overview.target='_top';continuation.append(overview);container.append(continuation);
  }
- document.querySelectorAll('[data-core-experiment]').forEach(zone=>{
+ document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='resource-filter'){
+   const active=zone.querySelector('[data-filter-active]'),subject=zone.querySelector('[data-filter-subject]'),logic=zone.querySelector('[data-filter-logic]'),duration=zone.querySelector('[data-filter-duration]'),out=zone.querySelector('[data-filter-result]'),body=zone.querySelector('[data-filter-rows]');
+   const order=zone.querySelector('[data-filter-sort]');
+   const records=[...document.querySelectorAll('[data-resource-records] tbody tr')].map(row=>[...row.children].map(cell=>cell.textContent));
+   if(!out.id)out.id='resource-filter-result-'+experimentIndex;
+   [active,subject,logic,duration,order].forEach(control=>control.setAttribute('aria-describedby',out.id));
+   const update=()=>{
+    const limit=Number(duration.value);
+    const selected=records.filter(row=>!active.checked||(logic.value==='and'?(row[2]===subject.value&&Number(row[3])<=limit):(row[2]===subject.value||Number(row[3])<=limit)));
+    if(order.value!=='original')selected.sort((a,b)=>(order.value==='ascending'?1:-1)*(Number(a[3])-Number(b[3]))||a[0].localeCompare(b[0]));
+    body.replaceChildren();selected.forEach(record=>{const row=make('tr');record.forEach((value,i)=>{const cell=make(i===0?'th':'td',value);if(i===0)cell.scope='row';row.append(cell);});body.append(row);});
+    out.textContent=selected.length+' von '+records.length+' Einträgen. '+(!active.checked?'Filter aus: Alle Einträge werden angezeigt.':(logic.value==='and'?'Beide Bedingungen müssen erfüllt sein: ':'Mindestens eine Bedingung muss erfüllt sein: ')+'Fach '+subject.value+', Dauer höchstens '+limit+' Minuten.')+(selected.length===0?' Keine passenden Einträge.':'')+' Reihenfolge: '+order.selectedOptions[0].textContent+'.';
+   };
+   [active,subject,logic,duration,order].forEach(control=>control.addEventListener('change',update));update();
+  }
+  if(type==='selection-counts'){
+   const fields=[zone.querySelector('[data-selection-light]'),zone.querySelector('[data-selection-dark]')],out=zone.querySelector('[data-selection-result]');
+   if(!out.id)out.id='selection-result-'+experimentIndex;
+   fields.forEach(field=>field.setAttribute('aria-describedby',out.id));
+   const calculate=()=>{
+    const values=fields.map(field=>/^(?:[0-9]|10)$/.test(field.value.trim())?Number(field.value.trim()):null);
+    if(values.includes(null)){out.textContent='Bitte trage für beide Farben eine ganze Anzahl von 0 bis 10 ein. Leer bedeutet nicht null.';return;}
+    const [light,dark]=values,total=light+dark;
+    if(total===0){out.textContent='Keine Überlebenden: Dieser Durchgang endet. Es gibt keine Nachkommen; bei insgesamt null Punkten ist kein Farbanteil definiert.';return;}
+    const share=100*dark/total,number=share.toLocaleString('de',{maximumFractionDigits:1});
+    out.textContent='Aus deinen Eingaben berechnet: Nach der Suche '+total+' Punkte. Nach der Vermehrung '+2*light+' helle und '+2*dark+' dunkle, insgesamt '+2*total+'. Dunkler Anteil vor und nach der Vermehrung: '+(Math.abs(share-Math.round(share*10)/10)>1e-9?'ungefähr ':'')+number+' %. '+(share===50?'Der Anteil entspricht den anfänglichen 50 %.':share>50?'Der Anteil ist gegenüber den anfänglichen 50 % gestiegen.':'Der Anteil ist gegenüber den anfänglichen 50 % gesunken.');
+   };
+   fields.forEach(field=>{field.addEventListener('input',()=>{out.textContent='Eingaben geändert. Berechne die Modellwerte erneut.';});field.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();calculate();}});});
+   zone.querySelector('[data-selection-calculate]').addEventListener('click',calculate);
+   zone.querySelector('[data-selection-reset]').addEventListener('click',()=>{fields.forEach(field=>{field.value='';});out.textContent='Trage beide Anzahlen ein.';fields[0].focus();});
+  }
   if(type==='moon'){
    const slider=zone.querySelector('#moon-angle'),out=zone.querySelector('#moon-explanation'),bar=zone.querySelector('#moon-lit');
    const update=()=>{const angle=Number(slider.value),lit=Math.round(50*(1-Math.cos(angle*Math.PI/180)));const english=zone.dataset.locale==='en',turkish=zone.dataset.locale==='tr',ukrainian=zone.dataset.locale==='uk',serbian=zone.dataset.locale==='sr',arabic=zone.dataset.locale==='ar';const isolate=value=>'⁦'+value+'⁩';const germanPhase=angle===0||angle===360?'Neumond':angle===180?'Vollmond':angle===90?'Zunehmender Halbmond':angle===270?'Abnehmender Halbmond':angle<180?'Zunehmender Mond':'Abnehmender Mond';const phase=arabic?({'Neumond':'المحاق','Vollmond':'البدر','Zunehmender Halbmond':'التربيع الأول','Abnehmender Halbmond':'التربيع الأخير','Zunehmender Mond':'القمر المتزايد','Abnehmender Mond':'القمر المتناقص'}[germanPhase]):serbian?({'Neumond':'Mlad Mesec','Vollmond':'Pun Mesec','Zunehmender Halbmond':'Prva četvrt','Abnehmender Halbmond':'Poslednja četvrt','Zunehmender Mond':'Mesec raste','Abnehmender Mond':'Mesec opada'}[germanPhase]):ukrainian?({'Neumond':'Молодик','Vollmond':'Повня','Zunehmender Halbmond':'Перша чверть','Abnehmender Halbmond':'Остання чверть','Zunehmender Mond':'Зростаючий Місяць','Abnehmender Mond':'Спадний Місяць'}[germanPhase]):turkish?({'Neumond':'Yeni ay','Vollmond':'Dolunay','Zunehmender Halbmond':'İlk dördün','Abnehmender Halbmond':'Son dördün','Zunehmender Mond':'Büyüyen ay','Abnehmender Mond':'Küçülen ay'}[germanPhase]):english?({'Neumond':'New Moon','Vollmond':'Full Moon','Zunehmender Halbmond':'First quarter','Abnehmender Halbmond':'Last quarter','Zunehmender Mond':'Waxing Moon','Abnehmender Mond':'Waning Moon'}[germanPhase]):germanPhase;out.textContent=arabic?`${isolate(angle+"°")} · ${phase}: النسبة المضاءة من قرص القمر المرئي هي ${isolate(lit+"%")}.`:serbian?`${angle}° · ${phase}: osvetljeno je ${lit}% vidljivog Mesečevog diska.`:ukrainian?`${angle}° · ${phase}: освітлено ${lit}% видимого диска Місяця.`:turkish?`${angle}° · ${phase}: Görünen Ay diskinin %${lit} kadarı aydınlık.`:english?`${angle}° · ${phase}: ${lit}% of the visible Moon disc is illuminated.`:`${angle}° · ${phase}: ${lit} % der sichtbaren Mondscheibe sind beleuchtet.`;slider.setAttribute('aria-valuetext',arabic?`${isolate(angle)} درجة، ${phase}، النسبة المضاءة ${isolate(lit)} بالمئة`:serbian?`${angle} stepeni, ${phase}, osvetljeno ${lit} procenata`:ukrainian?`Положення: ${angle}°. ${phase}. Освітлено: ${lit}%.`:turkish?`${angle} derece, ${phase}, yüzde ${lit} aydınlık`:english?`${angle} degrees, ${phase}, ${lit} percent illuminated`:`${angle} Grad, ${phase}, ${lit} Prozent beleuchtet`);bar.value=lit;
@@ -111,6 +142,8 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
   }
   if(type==='storage'){
    const energy=zone.querySelector('[data-storage-energy]'),power=zone.querySelector('[data-storage-power]'),status=zone.querySelector('[data-storage-status]');
+   if(!status.id)status.id='core-storage-status-'+experimentIndex;
+   [energy,power].forEach(field=>{const descriptions=new Set((field.getAttribute('aria-describedby')||'').split(/\s+/).filter(Boolean));descriptions.add(status.id);field.setAttribute('aria-describedby',[...descriptions].join(' '));});
    const number=n=>n.toLocaleString('de',{maximumFractionDigits:2});
    const update=()=>{
     const e=Number(energy.value),p=Number(power.value);

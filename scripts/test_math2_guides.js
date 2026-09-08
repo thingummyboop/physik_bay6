@@ -103,6 +103,14 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
    for(const[raw,pattern]of [['',/Gib die Faktoren/],['1 60',/größer als 1/],['4 3 5',/4 ist noch keine Primzahl/],['2 3 5',/Produkt ist 30/],['2.5 24',/ganze Zahlen/],['2 2 3 5',/^Richtig/],['5 2 3 2',/^Richtig/]]){input.value=raw;button.click();assert.match(feed.textContent,pattern);}
    input.value='3 5 2 2';input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));assert.match(feed.textContent,/Richtig/);
    assert.equal(d.querySelectorAll('#prime_feedback').length,1);
+   input.value='2 3';input.dispatchEvent(new w.Event('input'));assert.equal(feed.textContent,'');
+   for(const [fieldId,value,pattern] of [['ggt_input','1',/gemeinsamer Teiler.*nicht der größte/],['ggt_input','2',/gemeinsamer Teiler.*nicht der größte/],['ggt_input','3',/Vergleiche die Teiler/],['kgv_input','20',/gemeinsames Vielfaches.*nicht das kleinste/],['kgv_input','30',/gemeinsames Vielfaches.*nicht das kleinste/],['kgv_input','5',/Liste Vielfache/]]){
+    const field=d.getElementById(fieldId),feedback=d.getElementById(fieldId==='ggt_input'?'ggt_feedback':'kgv_feedback');field.value=value;field.focus();field.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert.match(feedback.innerText,pattern);assert.equal(d.activeElement,field);field.dispatchEvent(new w.Event('input'));assert.equal(feedback.innerText,'');
+   }
+   for(const fieldId of ['ggt_input','kgv_input'])for(const value of ['', '0', '-2', '1.5']){
+    const field=d.getElementById(fieldId);field.value=value;field.closest('.interactive-zone').querySelector('button').click();assert.match(d.getElementById(fieldId==='ggt_input'?'ggt_feedback':'kgv_feedback').innerText,/positive ganze Zahl/);
+   }
+
    // Independently enumerate divisors to check every candidate factor from 2 to 60.
    for(let n=2;n<=60;n++){
     const divisors=Array.from({length:n},(_,i)=>i+1).filter(v=>n%v===0);

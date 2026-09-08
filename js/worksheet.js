@@ -121,7 +121,14 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
   for(const zone of [...body.querySelectorAll(dynamic)]){
    if(!body.contains(zone)||zone.parentElement?.closest(dynamic))continue;
    const title=zone.querySelector('h3,h4')?.textContent?.trim();
-   zone.replaceWith(make('p',(title?title+': ':'')+'Modell oder Abbildung im Onlinekapitel bearbeiten. Übertrage Beobachtungen und Skizzen auf dein Arbeitsblatt.'));
+   const alternative=zone.querySelector(':scope > template[data-worksheet-alternative]');
+   if(alternative){
+    const paper=make('div');paper.className='ws-model-alternative';
+    if(title)paper.append(make('h4',title+' – Papieraufgabe'));
+    paper.append(alternative.content.cloneNode(true));
+    paper.querySelectorAll('details,script,style,template,[hidden]').forEach(el=>el.remove());
+    zone.replaceWith(paper);
+   }else zone.replaceWith(make('p',(title?title+': ':'')+'Modell oder Abbildung im Onlinekapitel bearbeiten. Übertrage Beobachtungen und Skizzen auf dein Arbeitsblatt.'));
   }
   for(const media of [...body.querySelectorAll('svg,canvas,img,iframe,video,audio,object,embed')]){
    if(!body.contains(media))continue;

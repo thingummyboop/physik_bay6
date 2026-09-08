@@ -1,8 +1,9 @@
 'use strict';
 function areaValue(shape,b,h,a){return shape==='triangle'?b*h/2:shape==='trapezoid'?(a+b)*h/2:b*h;}
-function initAreaLabs(){document.querySelectorAll('[data-area-lab]').forEach(zone=>{
+function initAreaLabs(){document.querySelectorAll('[data-area-lab]').forEach((zone,zoneIndex)=>{
  if(zone.dataset.initialized)return;zone.dataset.initialized='true';
  const shape=zone.querySelector('[data-shape]'),b=zone.querySelector('[data-base]'),h=zone.querySelector('[data-height]'),a=zone.querySelector('[data-top]'),svg=zone.querySelector('svg'),poly=svg.querySelector('polygon'),heightLine=svg.querySelector('[data-height-line]'),status=zone.querySelector('[data-status]');
+ [b,h,a].forEach(input=>{if(!input.id)input.id='area-lab-'+zoneIndex+'-'+input.dataset.dimension;const label=input.closest('label');if(label)label.htmlFor = input.id;});
  const render=()=>{const B=Number(b.value),H=Number(h.value),A=Number(a.value),kind=shape.value,scale=20,x=50,y=240;
   a.closest('label').hidden=kind!=='trapezoid';a.disabled=kind!=='trapezoid';
   const shift=kind==='parallelogram'?40:0,top=kind==='trapezoid'?A*scale:B*scale;
