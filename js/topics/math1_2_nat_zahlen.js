@@ -1,13 +1,2 @@
-
-    function checkZ() {
-      let val = document.getElementById('inputZehner').value;
-      if(val == 8) {
-        document.getElementById('feedZ').textContent = '✅ Richtig! Die Ziffer 8 steht an der Zehnerstelle. Ihr Wert ist 80.';
-      } else {
-        document.getElementById('feedZ').textContent = 'Schau auf die mittlere Ziffer in 182: Links stehen Hunderter, in der Mitte Zehner und rechts Einer.';
-      }
-    }
-  
-
-
-function topicInit() {}
+function checkZ(){const raw=document.getElementById('inputZehner').value.trim(),out=document.getElementById('feedZ');if(!/^[0-9]$/.test(raw)){out.textContent='Gib genau eine Ziffer von 0 bis 9 ein. Gesucht ist die mittlere Ziffer in 182.';return;}out.textContent=raw==='8'?'Richtig! Die Ziffer 8 steht an der Zehnerstelle. Ihr Wert ist 80.':'Schau auf die mittlere Ziffer in 182: Links stehen Hunderter, in der Mitte Zehner und rechts Einer.';}
+function topicInit(){const input=document.getElementById('inputZehner'),out=document.getElementById('feedZ');if(!input||input.dataset.digitBound)return;input.dataset.digitBound='true';out.setAttribute('role','status');out.setAttribute('aria-live','polite');input.addEventListener('input',()=>out.textContent='');input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkZ();}});}

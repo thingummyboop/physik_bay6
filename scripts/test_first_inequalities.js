@@ -4,7 +4,7 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/site/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,9);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,12);
  w.eval(read('js/topics/'+id+'.js'));w.topicInit();w.topicInit();
  const scale=d.getElementById('waage-input'),inverse=d.getElementById('umkehr-input');
  for(const [input,result,cases]of [
@@ -30,13 +30,14 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
    assert.equal(d.activeElement,value);
   }
  }
+ assert.equal(d.querySelectorAll('[data-formula-task] li').length,5);for(const row of d.querySelectorAll('[data-formula-values] tbody tr')){const [n,variable,fixed,total]=[...row.cells].map(c=>Number(c.textContent));assert.equal(variable,3*n);assert.equal(fixed,2);assert.equal(total,3*n+2);}
  let paths=0;for(const [i,q]of w.currentChapterQuiz.questions.entries())for(let a=0;a<q.answers.length;a++){
-  w.currentChapterQuiz.questions.forEach((item,j)=>d.querySelector(`input[name="chapter_q_${j}"][value="${i===j?a:item.answers.findIndex(a=>a.correct)}"]`).checked=true);
-  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[a].correct?100:89);
+  if(q.id.startsWith('formula_'))assert.equal(q.sectionIndex,3);w.currentChapterQuiz.questions.forEach((item,j)=>d.querySelector(`input[name="chapter_q_${j}"][value="${i===j?a:item.answers.findIndex(a=>a.correct)}"]`).checked=true);
+  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[a].correct?100:92);
   assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
  }
- assert.equal(paths,21);assert.equal(w.currentChapterResult(id,{contentRevision:0,passed:true,bestPercent:100}).passed,false);
+ assert.equal(paths,30);assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);
  assert.equal(d.querySelectorAll('[data-inequality-task] li').length,3);
  assert.equal(status.getAttribute('role'),'status');
- dom.window.close();console.log('PASS: 55 inequality comparisons with boundary and complete solution sets, 21 quiz answer paths, content revision and persistent native focus.');
+ dom.window.close();console.log('PASS: 55 inequality comparisons with boundary and complete solution sets, 30 quiz answer paths including word problems, content revision and persistent native focus.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

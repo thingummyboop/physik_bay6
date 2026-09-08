@@ -14685,8 +14685,87 @@
       {
         "id": "stellenwert",
         "title": "Die Stellenwerttafel (H, Z, E)",
-        "content": "<p>Große Zahlen lesen ist easy. Wir teilen sie auf in:</p>\n<ul>\n<li><span style=\"color:green; font-weight:bold;\">Hunderter (H)</span>: Wie 100€-Scheine</li>\n<li><span style=\"color:red; font-weight:bold;\">Zehner (Z)</span>: Wie 10€-Scheine</li>\n<li><span style=\"color:blue; font-weight:bold;\">Einer (E)</span>: Wie 1€-Münzen</li>\n</ul>\n<p>Beispiel für die Zahl <span style=\"color:green\">3</span><span style=\"color:red\">4</span><span style=\"color:blue\">7</span>:</p>\n<table border=\"1\" cellpadding=\"5\" style=\"border-collapse:collapse; text-align:center; margin-bottom:10px;\">\n<tr><th><span style=\"color:green\">H</span></th><th><span style=\"color:red\">Z</span></th><th><span style=\"color:blue\">E</span></th></tr>\n<tr><td><span style=\"color:green\">3</span></td><td><span style=\"color:red\">4</span></td><td><span style=\"color:blue\">7</span></td></tr>\n</table>\n<p>Das heißt: 3 Hunderter, 4 Zehner, 7 Einer. Zusammen: dreihundertsiebenundvierzig.</p>\n<div style=\"background:#fff3cd; padding:10px; border-radius:8px; margin-top:10px;\">\n  <h4>Übung: Finde den Zehner!</h4>\n  <p>Welche Ziffer steht an der <span style=\"color:red\">Zehnerstelle</span> der Zahl <span style=\"color:green\">1</span><span style=\"color:red\">8</span><span style=\"color:blue\">2</span>?</p>\n  <input type=\"number\" id=\"inputZehner\" aria-label=\"Ziffer an der Zehnerstelle von 182\" style=\"width: 60px; padding: 5px; font-size: 16px;\">\n  <button onclick=\"checkZ()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Prüfen</button>\n  <p id=\"feedZ\" style=\"font-weight: bold; margin-top: 10px;\"></p>\n  \n</div>",
+        "content": "<p>Große Zahlen lesen ist easy. Wir teilen sie auf in:</p>\n<ul>\n<li><span style=\"color:green; font-weight:bold;\">Hunderter (H)</span>: Wie 100€-Scheine</li>\n<li><span style=\"color:red; font-weight:bold;\">Zehner (Z)</span>: Wie 10€-Scheine</li>\n<li><span style=\"color:blue; font-weight:bold;\">Einer (E)</span>: Wie 1€-Münzen</li>\n</ul>\n<p>Beispiel für die Zahl <span style=\"color:green\">3</span><span style=\"color:red\">4</span><span style=\"color:blue\">7</span>:</p>\n<table border=\"1\" cellpadding=\"5\" style=\"border-collapse:collapse; text-align:center; margin-bottom:10px;\">\n<tr><th><span style=\"color:green\">H</span></th><th><span style=\"color:red\">Z</span></th><th><span style=\"color:blue\">E</span></th></tr>\n<tr><td><span style=\"color:green\">3</span></td><td><span style=\"color:red\">4</span></td><td><span style=\"color:blue\">7</span></td></tr>\n</table>\n<p>Das heißt: 3 Hunderter, 4 Zehner, 7 Einer. Zusammen: dreihundertsiebenundvierzig.</p>\n<div style=\"background:#fff3cd; padding:10px; border-radius:8px; margin-top:10px;\">\n  <h4>Übung: Finde den Zehner!</h4>\n  <p>Welche Ziffer steht an der <span style=\"color:red\">Zehnerstelle</span> der Zahl <span style=\"color:green\">1</span><span style=\"color:red\">8</span><span style=\"color:blue\">2</span>?</p>\n  <input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" id=\"inputZehner\" aria-label=\"Ziffer an der Zehnerstelle von 182\" style=\"width: 60px; padding: 5px; font-size: 16px;\">\n  <button onclick=\"checkZ()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Prüfen</button>\n  <p id=\"feedZ\" style=\"font-weight: bold; margin-top: 10px;\"></p>\n  \n</div>",
         "quizzes": []
+      },
+      {
+        "id": "grosse_zahlen_vergleichen",
+        "title": "Große Zahlen darstellen, vergleichen und überschlagen",
+        "content": "<p>Die Stellenwerte setzen sich nach links fort: Einer, Zehner, Hunderter, Tausender, Zehntausender, Hunderttausender, Millionen. Jeder Stellenwert ist zehnmal so groß wie der rechts daneben. Bei <strong>405 072</strong> steht die 4 für 400 000, die 5 für 5000, die 7 für 70 und die 2 für 2. Die Nullen halten die Stellen für Zehntausender und Hunderter frei. Wir verwenden hier Leerzeichen zur Gruppierung der Ziffern.</p><table data-large-place-value><caption>405 072 nach Stellenwerten</caption><thead><tr><th>Hunderttausender</th><th>Zehntausender</th><th>Tausender</th><th>Hunderter</th><th>Zehner</th><th>Einer</th></tr></thead><tbody><tr><td>4</td><td>0</td><td>5</td><td>0</td><td>7</td><td>2</td></tr></tbody></table><p>Zum Vergleichen prüfst du zuerst die Anzahl der Ziffern ohne führende Nullen. Bei gleich vielen Ziffern gehst du von links nach rechts bis zur ersten unterschiedlichen Stelle: 405 072 &lt; 450 027, weil die Zehntausenderstelle 0 kleiner als 5 ist. Spätere Ziffern ändern das nicht mehr.</p><h3>Abstände am Zahlenstrahl</h3><p>Gleiche Zahlenunterschiede brauchen gleiche Abstände. Zwischen 4000 und 5000 liegen 1000. Unterteilst du diesen Abschnitt in zehn gleich große Schritte, bedeutet jeder Schritt 100. Die Marke 4300 liegt drei Schritte rechts von 4000. Rechts stehen größere Zahlen. Nenne immer die Schrittweite, bevor du eine Marke abliest.</p><ol data-natural-number-task><li>Zeichne die Stellenwerttafel für 405 072 und 450 027. Schreibe beide als Summe ihrer Stellenwerte und erkläre die Bedeutung der Nullen.</li><li>Ordne 39 950, 40 005, 39 995 und 40 050 von klein nach groß. Begründe einen Vergleich an der ersten unterschiedlichen Stelle.</li><li>Zeichne einen Zahlenstrahl von 4000 bis 5000 mit zehn gleich großen Schritten. Markiere 4300, 4700 und ungefähr 4550. Begründe, warum 4550 zwischen zwei Hundertermarken liegt.</li><li>Zeichne einen zweiten Zahlenstrahl von 4000 bis 5000 mit nur fünf gleich großen Schritten. Erkläre, warum ein Schritt jetzt eine andere Zahl bedeutet, obwohl Anfang und Ende gleich bleiben.</li></ol><h3>Überschlagen ist bewusstes Näherungsrechnen</h3><p>Beim Runden auf Hunderter suchst du den näheren Hunderter. 347 liegt zwischen 300 und 400 und wird zu 300 gerundet. Bei 350 sind die Abstände gleich; nach unserer Rundungsregel wird auf 400 aufgerundet. Schreibe für Näherungen ≈ statt =.</p><p>Eine fiktive Materialbestellung enthält 398 und 207 Teile. Auf Hunderter gerundet ergibt die Überschlagsrechnung 400 + 200 = 600. Genau sind es 398 + 207 = 605. Der Überschlag hilft, einen groben Fehler wie 6005 zu entdecken; er beweist aber nicht, dass ein nahe gelegenes Ergebnis richtig ist.</p><ol data-estimation-task><li>Runde 449, 450 und 451 jeweils direkt auf Hunderter. Zeichne die benachbarten Hunderter und vergleiche die Abstände.</li><li>Überschlage 602 − 198 durch Runden auf Hunderter. Rechne danach genau und vergleiche. Verwende ≈ und = passend.</li><li>Für 398 + 207 schlägt jemand 606 vor. Erkläre, warum der Überschlag 600 diesen kleinen Fehler nicht sicher aufdeckt und welche genaue Kontrolle du brauchst.</li></ol><details data-natural-number-solution><summary>Ergebnisse vergleichen</summary><p>Reihenfolge: 39 950 &lt; 39 995 &lt; 40 005 &lt; 40 050. Bei zehn Schritten beträgt die Schrittweite 100, bei fünf Schritten 200. 4550 liegt mittig zwischen 4500 und 4600. Gerundet auf Hunderter: 449 ≈ 400, 450 ≈ 500, 451 ≈ 500. 602 − 198 ≈ 600 − 200 = 400; genau 404. Für 398 + 207 ist die genaue Summe 605. 606 ist ebenfalls nahe bei 600, aber falsch.</p></details>{{QUIZ_natural_place_zero}}{{QUIZ_natural_numberline}}{{QUIZ_natural_estimate}}",
+        "quizzes": [
+          {
+            "id": "natural_place_zero",
+            "question": "Welchen Wert hat die Ziffer 5 in 405 072?",
+            "answers": [
+              {
+                "text": "5000",
+                "correct": true,
+                "feedback": "Die 5 steht an der Tausenderstelle. Die Nullen erhalten die anderen Stellenwerte.",
+                "pts": 10
+              },
+              {
+                "text": "50 000",
+                "correct": false,
+                "feedback": "Das wäre die Zehntausenderstelle. Dort steht bei 405 072 eine 0.",
+                "pts": 0
+              },
+              {
+                "text": "5",
+                "correct": false,
+                "feedback": "Die Ziffer ist 5, ihr Stellenwert in dieser Zahl aber 5000.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "natural_numberline",
+            "question": "Zwischen 4000 und 5000 liegen fünf gleich große Schritte. Wie groß ist ein Schritt?",
+            "answers": [
+              {
+                "text": "200",
+                "correct": true,
+                "feedback": "Die Differenz beträgt 1000. 1000 : 5 = 200 pro Schritt.",
+                "pts": 10
+              },
+              {
+                "text": "100",
+                "correct": false,
+                "feedback": "100 würde zu zehn gleich großen Schritten passen, nicht zu fünf.",
+                "pts": 0
+              },
+              {
+                "text": "1000",
+                "correct": false,
+                "feedback": "1000 ist die gesamte Differenz, die auf fünf Schritte verteilt wird.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "natural_estimate",
+            "question": "Der Überschlag für 398 + 207 ist 600. Beweist das, dass das vorgeschlagene Ergebnis 606 richtig ist?",
+            "answers": [
+              {
+                "text": "Nein. Eine genaue Rechnung oder Gegenprobe ist weiterhin nötig.",
+                "correct": true,
+                "feedback": "Sowohl 605 als auch 606 liegen nahe bei 600. Der Überschlag erkennt diesen kleinen Unterschied nicht sicher.",
+                "pts": 10
+              },
+              {
+                "text": "Ja. Jedes Ergebnis nahe bei 600 ist richtig.",
+                "correct": false,
+                "feedback": "Die genaue Rechnung hat ein bestimmtes Ergebnis: 605. Nähe zum Überschlag genügt nicht.",
+                "pts": 0
+              },
+              {
+                "text": "Nein. Das genaue Ergebnis muss immer 600 sein.",
+                "correct": false,
+                "feedback": "Beim Überschlag wurden die Ausgangszahlen gerundet. Deshalb ist 600 nur ein Näherungswert.",
+                "pts": 0
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
@@ -14749,12 +14828,15 @@
     "learningGoals": [
       "Ziffern als Zeichen und Zahlen als dargestellte Werte unterscheiden.",
       "Dreistellige Zahlen in Hunderter, Zehner und Einer zerlegen.",
-      "Den Wert einer Ziffer aus ihrer Stelle bestimmen."
+      "Den Wert einer Ziffer aus ihrer Stelle bestimmen.",
+      "Größere natürliche Zahlen mit Stellenwerten und Zahlenstrahl darstellen und vergleichen.",
+      "Auf Hunderter runden, überschlagen und die Grenzen einer Näherung erklären."
     ],
     "summary": [
       "Mit den zehn Ziffern 0 bis 9 schreiben wir Zahlen im Dezimalsystem.",
       "347 = 3 · 100 + 4 · 10 + 7.",
-      "In 182 steht die 8 an der Zehnerstelle und hat den Wert 80."
+      "In 182 steht die 8 an der Zehnerstelle und hat den Wert 80.",
+      "Gleiche Zahlenunterschiede benötigen am Zahlenstrahl gleiche Abstände. Ein Überschlag prüft die Größenordnung, ersetzt aber keine genaue Rechnung."
     ]
   },
   "math1_3_add_sub": {
@@ -15511,7 +15593,7 @@
       {
         "id": "sec_w1",
         "title": "Was ist ein Winkel?",
-        "content": "\n        <div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px;\">\n            <h3 style=\"color: #2563eb;\">📐 Interaktives Labor: Winkel selbst zeichnen</h3>\n            <p>Nutze das GeoGebra Werkzeug, um eigene Punkte zu setzen und den Winkel dazwischen messen zu lassen! Wähle das Winkel-Werkzeug aus der Leiste.</p>\n            <div id=\"ggb-winkel\" style=\"width: 100%; height: 500px; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 8px;\"></div>\n        </div>\n\n<p>Ein Winkel ist wie eine <span style='color:red; font-weight:bold;'>Drehung</span>. Stell dir vor, du machst einen Trick auf dem Skateboard. Du drehst dich. Das ist ein Winkel!</p><p>Oder denk an eine Pizza. Die Spitze von einem Stück Pizza ist auch ein Winkel.</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><p><strong>Probier es aus!</strong> Mach das Pizzastück größer oder kleiner.</p><input type='range' id='pizza-slider' min='10' max='180' value='45'> <strong id='pizza-angle-text'>45°</strong><br><svg width='150' height='150' viewBox='0 0 100 100'><path id='pizza-path' d='M 50 50 L 100 50 A 50 50 0 0 0 85.355 14.644 Z' fill='#ffcc00' stroke='#cc6600' stroke-width='2'/></svg></div><p>Cool, oder? Jetzt gibt es ein kleines Quiz!</p>{{QUIZ_m16_q1}}{{QUIZ_m16_q1b}}",
+        "content": "\n        <div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px;\">\n            <h3 style=\"color: #2563eb;\">📐 Interaktives Labor: Winkel selbst zeichnen</h3>\n            <p>Nutze das GeoGebra Werkzeug, um eigene Punkte zu setzen und den Winkel dazwischen messen zu lassen! Wähle das Winkel-Werkzeug aus der Leiste.</p>\n            <div id=\"ggb-winkel\" style=\"width: 100%; height: 500px; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 8px;\"></div>\n        </div>\n\n<p>Ein Winkel ist wie eine <span style='color:red; font-weight:bold;'>Drehung</span>. Stell dir vor, du machst einen Trick auf dem Skateboard. Du drehst dich. Das ist ein Winkel!</p><p>Oder denk an eine Pizza. Die Spitze von einem Stück Pizza ist auch ein Winkel.</p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><p><strong>Probier es aus!</strong> Mach das Pizzastück größer oder kleiner.</p><input type='range' id='pizza-slider' min='10' max='180' value='45'> <strong id='pizza-angle-text'>45°</strong><br><svg width='150' height='150' viewBox='0 0 100 100'><path id='pizza-path' d='M 50 50 L 100 50 A 50 50 0 0 0 85.355 14.644 Z' fill='#ffcc00' stroke='#cc6600' stroke-width='2'/></svg></div><p>Cool, oder? Jetzt gibt es ein kleines Quiz!</p>{{QUIZ_m16_q1}}{{QUIZ_m16_q1b}}<h3>Winkel mit dem Geodreieck messen und zeichnen</h3><p>Der gemeinsame Anfangspunkt der beiden Schenkel heißt <strong>Scheitelpunkt S</strong>. Markiere mit einem Bogen, welchen Winkel du meinst: Zwei Schenkel begrenzen meist einen kleineren und einen größeren Winkel. Die Länge der gezeichneten Schenkel bestimmt nicht das Winkelmaß.</p><ol data-angle-construction><li>Schätze vor dem Messen: Ist der markierte Winkel kleiner, gleich oder größer als 90°? Notiere deine Schätzung.</li><li>Lege den Mittelpunkt der Winkelskala des Geodreiecks genau auf S. Richte die Nulllinie an einem Schenkel aus. Falls ein Schenkel zu kurz ist, verlängere ihn mit dem Lineal.</li><li>Benutze die Skala, die auf diesem Schenkel bei 0° beginnt. Lies dort ab, wo der andere Schenkel die Skala trifft. Kontrolliere mit der Schätzung. Bei zwei angezeigten Werten wie 40° und 140° entscheidet die passende Nulllinie.</li><li>Zeichne einen Winkel von 65°: zuerst S und einen Schenkel, dann das Geodreieck wie beim Messen anlegen, bei 65° einen Hilfspunkt markieren und von S aus den zweiten Schenkel durch diesen Punkt zeichnen. Markiere den gemeinten Winkelbogen.</li><li>Zeichne ebenso 120°. Tausche mit einem Partnerkind und messt nach. Dreht das Blatt und messt erneut: Das Winkelmaß bleibt gleich. Notiert kleine Zeichen- oder Ableseabweichungen.</li><li>Zeichne einen erhabenen Winkel von 240°: Zeichne zunächst den anderen Winkel von 360° − 240° = 120° zwischen den Schenkeln. Markiere ausdrücklich den größeren Winkelbogen als 240°.</li></ol><p><strong>Fehler untersuchen:</strong> Ein Kind liest bei einem sichtbar spitzen Winkel 140° ab. Nenne eine mögliche Ursache und beschreibe die Kontrolle. Schneide die Schenkel in Gedanken kürzer: Warum verändert das den Winkel nicht?</p><details data-angle-construction-solution><summary>Kontrolle vergleichen</summary><p>140° ist stumpf und passt nicht zur Schätzung „spitz“. Möglicherweise wurde die falsche Skala verwendet. Mittelpunkt, Nulllinie und Beginn bei 0° prüfen; nicht allein aus dem Aussehen eine genaue Gradzahl behaupten. Der Winkel hängt von den Richtungen der Schenkel ab, nicht von ihrer gezeichneten Länge. Die beiden Winkel 120° und 240° ergänzen sich zu 360°.</p></details>{{QUIZ_angle_scale_choice}}{{QUIZ_angle_ray_length}}",
         "quizzes": [
           {
             "id": "m16_q1",
@@ -15546,6 +15628,54 @@
                 "correct": false,
                 "pts": 5,
                 "feedback": "Nicht ganz: Der Scheitelpunkt liegt dort, wo die zwei Schenkel starten, also an der Spitze."
+              }
+            ]
+          },
+          {
+            "id": "angle_scale_choice",
+            "question": "Die Skalen zeigen am zweiten Schenkel 40° und 140°. Welche Skala verwendest du?",
+            "answers": [
+              {
+                "text": "Diejenige, die am ausgerichteten ersten Schenkel mit 0° beginnt.",
+                "correct": true,
+                "feedback": "Die Nullrichtung legt fest, welche Skala zum markierten Winkel gehört. Die Schätzung hilft bei der Kontrolle.",
+                "pts": 10
+              },
+              {
+                "text": "Immer die Skala mit der kleineren Zahl.",
+                "correct": false,
+                "feedback": "Auch stumpfe Winkel sind möglich. Entscheidend ist der Beginn bei 0° am ersten Schenkel.",
+                "pts": 0
+              },
+              {
+                "text": "Immer die äußere Skala.",
+                "correct": false,
+                "feedback": "Je nach Ausrichtung passt die innere oder äußere Skala. Eine feste Auswahl unabhängig vom Schenkel wäre falsch.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "angle_ray_length",
+            "question": "Du verlängerst beide gezeichneten Schenkel eines Winkels geradlinig. Was passiert mit dem Winkelmaß?",
+            "answers": [
+              {
+                "text": "Es bleibt gleich.",
+                "correct": true,
+                "feedback": "Die Richtungen und der Scheitelpunkt bleiben gleich. Die Länge der gezeichneten Stücke ändert das Winkelmaß nicht.",
+                "pts": 10
+              },
+              {
+                "text": "Es wird größer.",
+                "correct": false,
+                "feedback": "Längere Schenkel sehen ausgedehnter aus, aber ihre Richtungen ändern sich nicht.",
+                "pts": 0
+              },
+              {
+                "text": "Es wird kleiner.",
+                "correct": false,
+                "feedback": "Verlängern verändert keine Richtung. Deshalb bleibt der Winkel derselbe.",
+                "pts": 0
               }
             ]
           }
@@ -15842,6 +15972,85 @@
             ]
           }
         ]
+      },
+      {
+        "id": "sachtext_formel",
+        "title": "Vom Sachtext zum Term und zur Gleichung",
+        "content": "<p>Für ein <strong>erfundenes Bastelprojekt</strong> kostet jede Materialpackung 3 €. Pro Bestellung kommen einmal 2 € Verpackungskosten dazu. Es werden 1 bis 8 ganze Packungen bestellt. Weitere Kosten oder Rabatte gibt es in diesem Modell nicht.</p><p>Wir legen fest: <strong>n</strong> ist die Anzahl der Packungen und <strong>K</strong> ist die Zahl der gesamten Kosten in Euro. Der Term <strong>3 · n + 2</strong> beschreibt die Kostenrechnung. Die Formel <strong>K = 3 · n + 2</strong> verbindet Anzahl und Kosten. Der Faktor 3 gehört zu jeder Packung, die 2 wird nur einmal addiert.</p><table data-formula-values><caption>Erfundene Bestellung: vom Sachtext zur Wertetabelle</caption><thead><tr><th>Packungen n</th><th>Packungskosten in €</th><th>Einmalige Kosten in €</th><th>Gesamtkosten K in €</th></tr></thead><tbody><tr><td>1</td><td>3</td><td>2</td><td>5</td></tr><tr><td>2</td><td>6</td><td>2</td><td>8</td></tr><tr><td>4</td><td>12</td><td>2</td><td>14</td></tr></tbody></table><p>Ist die Gesamtsumme 20 €, suchst du n in der Gleichung <strong>3 · n + 2 = 20</strong>. Zuerst die einmaligen 2 € abziehen: 3 · n = 18. Dann durch 3 teilen: n = 6. Probe: 3 · 6 + 2 = 20. Sechs ganze Packungen liegen im erlaubten Bereich.</p><p>Eine Formel gilt für die beschriebene Situation. Werden die 2 € stattdessen <em>pro Packung</em> verlangt, lautet die Kostenformel K = (3 + 2) · n. Das ist eine andere Bedingung. Ein Ergebnis muss deshalb sowohl rechnerisch als auch zum Sachtext passen.</p><ol data-formula-task><li>Beschreibe die Bedeutung von n, 3 und 2 in eigenen Worten. Ergänze die Tabelle für 3, 5 und 8 Packungen.</li><li>Erkläre, warum 3 · (n + 2) nicht zur ursprünglichen Bestellung passt. Prüfe beide Terme für n = 2.</li><li>Eine Bestellung kostet 17 €. Stelle eine Gleichung auf und bestimme n. Prüfe Rechnung und erlaubte Packungsanzahl.</li><li>Kann eine Bestellung nach diesen Regeln genau 18 € kosten? Untersuche benachbarte ganze Packungsanzahlen und begründe. Es werden keine Bruchteile von Packungen verkauft.</li><li>Erfinde einen eigenen Sachtext mit einer festen Anfangsmenge und einer gleich großen zusätzlichen Menge je Stück. Definiere deine Variable, schreibe den Term auf und lass ein Partnerkind prüfen, ob Text und Term übereinstimmen.</li></ol><details data-formula-solution><summary>Ergebnisse vergleichen</summary><p>Für n = 3, 5 und 8 ergeben sich 11 €, 17 € und 26 €. Bei n = 2 liefert 3 · n + 2 den Wert 8, dagegen 3 · (n + 2) den Wert 12. Für 17 € gilt 3 · n + 2 = 17, also n = 5. Genau 18 € sind mit ganzen Packungen nicht möglich: 5 Packungen kosten 17 €, 6 Packungen 20 €. Bei eigenen Texten müssen feste und je Stück anfallende Mengen klar getrennt sein.</p></details>{{QUIZ_formula_context}}{{QUIZ_formula_interpret}}{{QUIZ_formula_domain}}",
+        "quizzes": [
+          {
+            "id": "formula_context",
+            "question": "Jede Packung kostet 3 €, dazu kommen einmalig 2 €. Welcher Term passt für n Packungen?",
+            "answers": [
+              {
+                "text": "3 · n + 2",
+                "correct": true,
+                "feedback": "Die Packungskosten werden n-mal gerechnet; die einmaligen Kosten werden einmal addiert.",
+                "pts": 10
+              },
+              {
+                "text": "(3 + 2) · n",
+                "correct": false,
+                "feedback": "Dieser Term berechnet auch die 2 € für jede Packung. Laut Text fallen sie nur einmal an.",
+                "pts": 0
+              },
+              {
+                "text": "3 + n + 2",
+                "correct": false,
+                "feedback": "Die Anzahl n muss mit dem Preis pro Packung multipliziert werden, nicht zum Preis addiert.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "formula_interpret",
+            "question": "Die Bestellung kostet 20 €. Was bedeutet die Lösung n = 6?",
+            "answers": [
+              {
+                "text": "Es wurden sechs Packungen bestellt.",
+                "correct": true,
+                "feedback": "n wurde als Packungsanzahl definiert. Die Probe 3 · 6 + 2 = 20 bestätigt die Kosten.",
+                "pts": 10
+              },
+              {
+                "text": "Jede Packung kostet sechs Euro.",
+                "correct": false,
+                "feedback": "Der Stückpreis steht bereits fest: 3 €. n beschreibt die Anzahl, nicht den Preis.",
+                "pts": 0
+              },
+              {
+                "text": "Die einmaligen Kosten betragen sechs Euro.",
+                "correct": false,
+                "feedback": "Die einmaligen Kosten sind 2 €. Die Variable n steht für Packungen.",
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "formula_domain",
+            "question": "Warum ist eine Gesamtsumme von genau 18 € in diesem Bestellmodell nicht möglich?",
+            "answers": [
+              {
+                "text": "Es werden nur ganze Packungen verkauft; fünf kosten 17 €, sechs kosten 20 €.",
+                "correct": true,
+                "feedback": "Zwischen fünf und sechs Packungen liegt keine weitere erlaubte ganze Anzahl.",
+                "pts": 10
+              },
+              {
+                "text": "Weil 18 eine gerade Zahl ist.",
+                "correct": false,
+                "feedback": "Auch gerade Summen sind möglich, zum Beispiel 8 € bei zwei Packungen. Entscheidend ist die Formel mit ganzen Anzahlen.",
+                "pts": 0
+              },
+              {
+                "text": "Weil man Gleichungen mit einem Rest nie lösen kann.",
+                "correct": false,
+                "feedback": "Der Sachzusammenhang begrenzt die Lösungen. Hier passt keine ganze Packungsanzahl; das ist keine allgemeine Aussage über Gleichungen.",
+                "pts": 0
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
@@ -15886,21 +16095,24 @@
       ]
     },
     "prerequisites": [
-      "math1_3_add_sub"
+      "math1_3_add_sub",
+      "math1_4_mult_div"
     ],
     "learningGoals": [
       "Das Gleichheitszeichen als Gleichheit zweier Werte erklären.",
       "Einfache Gleichungen mit Addition oder Subtraktion lösen.",
       "Eine Lösung durch Einsetzen überprüfen.",
       "Einfache Ungleichungen durch Einsetzen prüfen und alle Lösungen im vorgegebenen Zahlenbereich nennen.",
-      "„Höchstens“ als Ungleichung mit eingeschlossener Grenze beschreiben."
+      "„Höchstens“ als Ungleichung mit eingeschlossener Grenze beschreiben.",
+      "Aus einem Sachtext einen Term oder eine Gleichung aufstellen, Variablen erklären und die Lösung im Zusammenhang prüfen."
     ],
     "summary": [
       "Bei einer Gleichung haben linke und rechte Seite denselben Wert.",
       "Dieselbe Zahl auf beiden Seiten zu addieren oder zu subtrahieren erhält die Gleichheit.",
       "x − 4 = 10 ergibt x = 14. Einsetzen bestätigt: 14 − 4 = 10.",
       "Ungleichungen vergleichen Werte mit <, >, ≤ oder ≥. Bei ≤ und ≥ ist Gleichheit erlaubt.",
-      "Eine Ungleichung kann mehrere Lösungen haben; der erlaubte Zahlenbereich und der Sachzusammenhang zählen mit."
+      "Eine Ungleichung kann mehrere Lösungen haben; der erlaubte Zahlenbereich und der Sachzusammenhang zählen mit.",
+      "Definiere zuerst die Variable. Unterscheide feste Mengen von Mengen je Stück und prüfe, welche Lösungen im Sachzusammenhang erlaubt sind."
     ]
   },
   "math1_8_brueche": {
@@ -19293,7 +19505,7 @@
       {
         "id": "m111_sec1",
         "title": "Flache Figuren (2D)",
-        "content": "<p>Ein <span style='color:red;'>Rechteck</span> hat 4 Ecken. Gegenüberliegende Seiten sind gleich lang. Ein Rechteck hat vier rechte Winkel. Die Vorderseite eines Handys kann näherungsweise als Rechteck modelliert werden. Ein Quadrat ist ein besonderes Rechteck mit vier gleich langen Seiten. Ein Dreieck hat drei Ecken.</p><div class='interactive-zone'><svg width='100' height='60'><rect width='80' height='40' style='fill:blue;stroke:black;stroke-width:2' /></svg><p>Wie viele Ecken hat ein Rechteck?</p><input type='number' id='rect_input'><button onclick='checkRect()'>Check</button><p id='rect_feedback'></p></div>{{QUIZ_m111_q1}}\n<br>\n{{QUIZ_m111_q2}}",
+        "content": "<p>Ein <span style='color:red;'>Rechteck</span> hat 4 Ecken. Gegenüberliegende Seiten sind gleich lang. Ein Rechteck hat vier rechte Winkel. Die Vorderseite eines Handys kann näherungsweise als Rechteck modelliert werden. Ein Quadrat ist ein besonderes Rechteck mit vier gleich langen Seiten. Ein Dreieck hat drei Ecken.</p><div class='interactive-zone'><svg width='100' height='60'><rect width='80' height='40' style='fill:blue;stroke:black;stroke-width:2' /></svg><p>Wie viele Ecken hat ein Rechteck?</p><label for='rect_input'>Anzahl der Ecken:</label><input type='text' inputmode='numeric' id='rect_input'><button onclick='checkRect()'>Check</button><p role='status' aria-live='polite' id='rect_feedback'></p></div>{{QUIZ_m111_q1}}\n<br>\n{{QUIZ_m111_q2}}",
         "quizzes": [
           {
             "id": "m111_q1",
@@ -19415,7 +19627,7 @@
       {
         "id": "m111_sec2",
         "title": "Körper (3D)",
-        "content": "<p>Ein <span style='color:red;'>Würfel</span> ist 3D. Wie ein Spielwürfel. Er hat 6 quadratische Flächen, 12 Kanten und 8 Ecken. Ein Quader hat sechs rechteckige Flächen. Eine Getränkedose lässt sich näherungsweise als Zylinder modellieren, ein Ball als Kugel.</p><div class='interactive-zone'><div style='width:50px;height:50px;background-color:red;border:2px solid black;transform:skew(20deg);'></div><p>Was ist eine Getränkedose für ein Körper?</p><select id='k_select'><option value=''>Bitte auswählen</option><option value='kugel'>Kugel</option><option value='zylinder'>Zylinder</option></select><button onclick='checkK()'>Check</button><p id='k_feedback'></p></div>{{QUIZ_m111_q3}}\n<br>\n{{QUIZ_m111_q4}}",
+        "content": "<p>Ein <span style='color:red;'>Würfel</span> ist 3D. Wie ein Spielwürfel. Er hat 6 quadratische Flächen, 12 Kanten und 8 Ecken. Ein Quader hat sechs rechteckige Flächen. Eine Getränkedose lässt sich näherungsweise als Zylinder modellieren, ein Ball als Kugel.</p><div class='interactive-zone'><div style='width:50px;height:50px;background-color:red;border:2px solid black;transform:skew(20deg);'></div><p>Was ist eine Getränkedose für ein Körper?</p><label for='k_select'>Körpermodell auswählen:</label><select id='k_select'><option value=''>Bitte auswählen</option><option value='kugel'>Kugel</option><option value='zylinder'>Zylinder</option></select><button onclick='checkK()'>Check</button><p role='status' aria-live='polite' id='k_feedback'></p></div>{{QUIZ_m111_q3}}\n<br>\n{{QUIZ_m111_q4}}",
         "quizzes": [
           {
             "id": "m111_q3",

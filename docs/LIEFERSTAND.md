@@ -1,6 +1,6 @@
 # Lieferstand und nächste Prioritäten
 
-Stand: 08.09.2026. Der Gesamtauftrag bleibt unverändert: vollständiges interaktives Lehrbuch für die Mittelschule Wien einschließlich angebotener Sprachen und geprüfter Veröffentlichung. Die deutsche Fassung ist ein Zwischenmeilenstein, keine neue Definition von fertig.
+Stand: 08.09.2026. Zwischenstand d732283 ist auf ausdrücklichen Nutzerwunsch nach origin/main gepusht. Die öffentliche Pages-Fassung wurde dadurch nach aktuellem HTTP-Abgleich noch nicht aktualisiert. Der Gesamtauftrag bleibt unverändert: vollständiges interaktives Lehrbuch für die Mittelschule Wien einschließlich angebotener Sprachen und geprüfter Veröffentlichung. Die deutsche Fassung ist ein Zwischenmeilenstein, keine neue Definition von fertig.
 
 ## Aktuell belegter Stand
 
@@ -611,3 +611,33 @@ Figuren und Körper Revision 2: zweiter Abschnitt zu Rechtecken mit Einheitsquad
 ### Erstklassgeometrie: Quadernetz, Oberfläche und Volumen
 
 Figuren und Körper Revision 3: Netz mit sechs Flächen, getrennte Einheitswürfelschichten, O-/V-Herleitung, sieben Konstruktion-/Rechenaufträge und drei neue Fragen. Alle 216 Modelleinstellungen, Netzmaße ohne Überlappung, Flächensumme und Würfelzählung geprüft. Vorhandener Rechtecktest umfasst nun zusätzlich alle neun Quaderantwortwege, Rücksetzen und alte Revision; alle elf math1_-Kapitel sowie 95 STEM-Arbeitsblätter bestanden. Weiterhin 170 Suiten, letzter vollständiger Lauf 169/169 vor den Geometrie-Ergänzungen. Quiz-Strukturaudit 1503 Fragen ohne Befund. Keine tatsächliche Faltprobe, visuelle Abnahme, Übersetzung oder Veröffentlichung.
+
+### GitHub-Zwischenstand und Pages-Abgleich
+
+Auf ausdrücklichen Nutzerwunsch wurden sämtliche 343 geänderten/neuen Projektdateien im Commit d732283ca330fdc9545b07b882d4cf10345ae6fa als Zwischenstand gesichert und nach origin/main gepusht. Remote-Referenz und lokale HEAD waren danach identisch; Arbeitskopie war sauber. Erneuter Fetch bestätigt main ohne Abweichung.
+
+Read-only-Veröffentlichungsprüfung: Die GitHub-API meldet main=d732283 und master=7ea675daf762d6c672f638ab35dc7352f1beb052. Der jüngste von der API gelistete erfolgreiche Pages-Lauf (29084441710) bezieht sich auf master/7ea675d; für den Zwischenstandscommit gibt es keine gemeldeten Commit-Statuskontexte. Der öffentliche Pfad topics/learning.html liefert HTTP 404, während lang/de.json und das Skript math1_11_figuren_koerper.js HTTP 200 liefern, aber nicht den lokalen Inhalt enthalten. Es ist deshalb keine aktuelle Veröffentlichung des Zwischenstands nachgewiesen. Der öffentliche /pages-API-Endpunkt war ohne Authentifizierung nicht lesbar (404); die tatsächliche Pages-Quellkonfiguration wurde damit nicht bestätigt. Kein aktiver Deployment-Lauf für d732283 nachgewiesen, daher keine Warteschleife begonnen.
+
+Für die spätere Veröffentlichung: authentifiziert die Pages-Quelle prüfen und den beabsichtigten Veröffentlichungsbranch festlegen. master wurde nicht verändert oder überschrieben. Browser-/Darstellungsprüfung bleibt offen. Seit dem Zwischenstandscommit wurden zunächst nur diese Befunde lokal dokumentiert.
+
+## Winkelkonstruktion ergänzt
+
+math1_6_winkel Revision 2: sechs Schritte zum Schätzen, Anlegen, Ablesen mit richtiger Nullskala, Konstruieren von 65°/120° und Darstellen des erhabenen 240°-Winkels. Zeichengenauigkeit und unveränderte Winkel beim Verlängern/Drehen ausdrücklich behandelt. Zwei neue Fragen mit sechs Antwortwegen in bestehender Erstklass-Suite bestanden; 95 STEM-Arbeitsblätter geprüft. Damit ist die dokumentierte fehlende eigenständige Geodreieck-Anleitung ergänzt. Praktische Zeichenerprobung bleibt offen.
+
+Diese Änderungen liegen lokal nach Zwischenstandscommit d732283. Weiterhin 170 Testsuiten; letzter vollständiger Lauf 169/169 vor den jüngsten Geometrie-Ergänzungen. Quiz-Strukturaudit 1505 Fragen ohne Befund. Keine Übersetzungen oder erneuter Push.
+
+## Größere natürliche Zahlen und Überschlag ergänzt
+
+math1_2_nat_zahlen Revision 2: dritter Abschnitt mit größeren Stellenwerten und Nullstellen, Vergleich anhand erster unterschiedlicher Stelle, Zahlenstrahl mit Schrittweiten 100/200, Rundung auf Hunderter und Grenzen des Überschlags. Vier Darstellungs-/Vergleichsaufträge und drei Näherungsaufträge; drei neue Fragen mit neun Antwortwegen im tatsächlichen Renderer geprüft. Alle elf math1_-Kapitel und 95 STEM-Arbeitsblätter bestanden. Die zuvor dokumentierten Lücken sind für diese Inhalte ergänzt; eine vollständige Prüfung aller Präzisierungen und praktische Erprobung bleiben gesondert offen.
+
+Lokal nach Zwischenstandscommit d732283, kein erneuter Push. Weiterhin 170 Suiten; letzter vollständiger Lauf 169/169 vor den jüngsten Ergänzungen. Quiz-Strukturaudit 1508 Fragen ohne Befund. Übersetzungen weiterhin ausgesetzt.
+
+## Vom Sachtext zur Formel ergänzt
+
+math1_7_gleichungen Revision 2: eigener vierter Abschnitt mit ausdrücklich erfundenem Kostenmodell, Definition von Variable und Einheit, festen/variablen Anteilen, Wertetabelle, Gleichung, Einsetzprobe und erlaubtem ganzzahligem Wertebereich. Fünf Arbeitsaufträge schließen eigenes Formulieren eines Sachtexts ein; drei neue Fragen. Multiplikation/Division als zusätzlicher Vorwissenslink. Bestehende Ungleichungs-Suite prüft alle 30 Antwortwege und 55 Modellvergleiche, neue Abschnittszuordnung, Tabellenrechnung und vorherige Revision. Erstklass-Suite und 95 STEM-Arbeitsblätter ebenfalls bestanden. Keine praktische/visuelle Gesamtprüfung.
+
+Lokal nach d732283, kein erneuter Push. Weiterhin 170 Testsuiten, letzter gemeinsamer Lauf 169/169 vor den jüngsten Ergänzungen. Quiz-Strukturaudit 1511 Fragen ohne Befund. Übersetzungen ausgesetzt.
+
+### Antwortformate: Ziffer und Eckenanzahl
+
+Zehnerziffer in math1_2_nat_zahlen akzeptiert genau eine Dezimalziffer; Eckenanzahl in math1_11_figuren_koerper akzeptiert eine sichere nichtnegative ganze Zahl ohne Exponent-/Hexadezimalschreibweise. Beide Übungen unterstützen Enter und löschen alte Rückmeldung beim Bearbeiten. Körperauswahl unterscheidet leere Auswahl von einer fachlich falschen Antwort und begründet Kugel/Zylinder anhand der Flächen. Ergänzte bestehende Erstklass-/Rechtecktests bestanden, einschließlich Eingabeformaten und den vorhandenen 100 Rechteck-/216 Quadereinstellungen. Keine neue Suite und keine neue Inhaltsrevision für diese Bedienkorrekturen. Weitere schwache Vergleiche in späteren Mathematikübungen sind noch kontextabhängig zu prüfen; nicht jeder numerisch gleichwertige Dezimaleintrag ist ein Fehler. Lokal, kein Push, Übersetzungen weiter ausgesetzt.

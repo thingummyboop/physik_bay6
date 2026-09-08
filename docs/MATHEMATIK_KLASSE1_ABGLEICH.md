@@ -30,3 +30,15 @@ math1_11_figuren_koerper/rechteck_messen (Revision 2) enthält jetzt Herleitunge
 ## Nachtrag: Quadergrundlagen umgesetzt
 
 Figuren und Körper Revision 3: vierter Abschnitt mit zusammenhängendem Netz, sechs beschrifteten Flächen und Einheitswürfeln in getrennten Schichten. Für alle 216 Kombinationen ganzzahliger Kanten 1–6 cm wurden Netzmaße, fehlende Überlappung, Flächensumme, Würfelzahlen und Schichten geprüft. Sieben Aufgaben betreffen eigenes Netz/Falten, Würfelschichten, drei Ansichten, Schrägriss, veränderte Höhe und eine fehlende Höhe. Drei neue Fragen mit neun Antwortwegen bestanden. Die frühere Quader-Lückenbeschreibung ist für den einfachen Quader damit überholt. Ansichten zusammengesetzter Quaderkörper und das Beurteilen verschiedener gültiger/ungültiger Netze sind noch auszubauen; tatsächliches Falten/Zeichnen und visuelle Abnahme bleiben offen.
+
+## Winkelkonstruktion ergänzt
+
+math1_6_winkel Revision 2: sechs Schritte zum Schätzen, Anlegen, Ablesen mit richtiger Nullskala, Konstruieren von 65°/120° und Darstellen des erhabenen 240°-Winkels. Zeichengenauigkeit und unveränderte Winkel beim Verlängern/Drehen ausdrücklich behandelt. Zwei neue Fragen mit sechs Antwortwegen in bestehender Erstklass-Suite bestanden; 95 STEM-Arbeitsblätter geprüft. Damit ist die dokumentierte fehlende eigenständige Geodreieck-Anleitung ergänzt. Praktische Zeichenerprobung bleibt offen.
+
+## Größere natürliche Zahlen und Überschlag ergänzt
+
+math1_2_nat_zahlen Revision 2: dritter Abschnitt mit größeren Stellenwerten und Nullstellen, Vergleich anhand erster unterschiedlicher Stelle, Zahlenstrahl mit Schrittweiten 100/200, Rundung auf Hunderter und Grenzen des Überschlags. Vier Darstellungs-/Vergleichsaufträge und drei Näherungsaufträge; drei neue Fragen mit neun Antwortwegen im tatsächlichen Renderer geprüft. Alle elf math1_-Kapitel und 95 STEM-Arbeitsblätter bestanden. Die zuvor dokumentierten Lücken sind für diese Inhalte ergänzt; eine vollständige Prüfung aller Präzisierungen und praktische Erprobung bleiben gesondert offen.
+
+## Vom Sachtext zur Formel ergänzt
+
+math1_7_gleichungen Revision 2: eigener vierter Abschnitt mit ausdrücklich erfundenem Kostenmodell, Definition von Variable und Einheit, festen/variablen Anteilen, Wertetabelle, Gleichung, Einsetzprobe und erlaubtem ganzzahligem Wertebereich. Fünf Arbeitsaufträge schließen eigenes Formulieren eines Sachtexts ein; drei neue Fragen. Multiplikation/Division als zusätzlicher Vorwissenslink. Bestehende Ungleichungs-Suite prüft alle 30 Antwortwege und 55 Modellvergleiche, neue Abschnittszuordnung, Tabellenrechnung und vorherige Revision. Erstklass-Suite und 95 STEM-Arbeitsblätter ebenfalls bestanden. Keine praktische/visuelle Gesamtprüfung.

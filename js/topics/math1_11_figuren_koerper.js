@@ -1,9 +1,9 @@
-function checkRect(){var val = document.getElementById("rect_input").value; if(val == 4){document.getElementById("rect_feedback").innerText = "Richtig! 📱";} else {document.getElementById("rect_feedback").innerText = "Zähl die Ecken!";}}
+function checkRect(){const raw=document.getElementById('rect_input').value.trim(),out=document.getElementById('rect_feedback');out.textContent=!/^\d+$/.test(raw)||!Number.isSafeInteger(Number(raw))?'Gib eine ganze Anzahl Ecken ein.':Number(raw)===4?'Richtig: Ein Rechteck hat vier Ecken.':'Verfolge den Rand und zähle jeden Treffpunkt zweier Seiten genau einmal.';}
 
-function checkK(){var val = document.getElementById("k_select").value; if(val === "zylinder"){document.getElementById("k_feedback").innerText = "Top! 🥤";} else {document.getElementById("k_feedback").innerText = "Fast, denk an eine Röhre.";}}
+function checkK(){const value=document.getElementById('k_select').value,out=document.getElementById('k_feedback');out.textContent=value==='zylinder'?'Richtig: Zwei kreisförmige Grundflächen und eine gekrümmte Mantelfläche passen näherungsweise zur Dose.':value==='kugel'?'Eine Kugel besitzt keine ebenen Kreisflächen. Vergleiche Boden und Deckel der Dose.':'Wähle zuerst ein Körpermodell aus.';}
 
 
-function topicInit() { initRectangleModel(); initCuboidModel(); }
+function topicInit() { initRectangleModel(); initCuboidModel(); initShapeAnswers(); }
 
 function initRectangleModel(){
  document.querySelectorAll('[data-rectangle-lab]').forEach(zone=>{
@@ -32,3 +32,5 @@ function initCuboidModel(){document.querySelectorAll('[data-cuboid-lab]').forEac
  status.dataset.surface=2*(a*b+a*c+b*c);status.dataset.volume=a*b*c;status.textContent='Oberfläche: 2 · ('+a*b+' + '+a*c+' + '+b*c+') = '+2*(a*b+a*c+b*c)+' cm². Volumen: '+c+' Schichten mit je '+a*b+' Würfeln, V = '+a+' · '+b+' · '+c+' = '+a*b*c+' cm³.';
  };inputs.forEach(input=>input.addEventListener('input',update));zone.querySelector('[data-cuboid-reset]').addEventListener('click',()=>{inputs.forEach((input,i)=>input.value=[4,3,2][i]);update();});update();
 });}
+
+function initShapeAnswers(){for(const [id,output,check]of [['rect_input','rect_feedback',checkRect],['k_select','k_feedback',checkK]]){const input=document.getElementById(id);if(!input||input.dataset.answerBound)continue;input.dataset.answerBound='true';input.addEventListener('input',()=>document.getElementById(output).textContent='');if(input.tagName==='INPUT')input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check();}});}}
