@@ -1,5 +1,7 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Browser-Teilprüfung vom 14.09.2026: zentrale Lern-/Unterrichtswege in einem separaten Chromium-Browser geprüft; Menüfokus und mobile Layoutfehler behoben. Umfang und offene Grenzen: [BROWSER_PRUEFUNG.md](BROWSER_PRUEFUNG.md). Die vollständigen Abnahmepunkte unten bleiben offen.
+
 Aktueller Quellenstand vom 14.09.2026: Die fünf priorisierten Fachlehrpläne wurden erneut direkt aus dem RIS abgerufen und vollständig mit der bisherigen Textgrundlage verglichen. Sie sind unverändert. Nachweis und Grenzen: [LEHRPLAN_QUELLENSTAND.md](LEHRPLAN_QUELLENSTAND.md). Dies erledigt den Quellenvergleich, nicht die noch offenen Inhalts- und Produktabnahmen.
 
 ## Verbindliches Produktziel

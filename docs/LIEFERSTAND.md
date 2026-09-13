@@ -955,3 +955,38 @@ Zusätzlich zum zuletzt vollständig geprüften Stand enthält DGB, dritte Klass
 Gezielte Prüfung vor diesem Zwischenstand bestanden: neue test_dgb_chart_baseline-Suite (beide Skalen, Rückwechsel, unveränderte Daten, Beschriftungen/Fokus, wiederholte Initialisierung, alle elf Antwortwege der vier bewerteten Fragen, Revisionen und getrennte Arbeitsblattlösungen), 21 DGB-Arbeitsblätter, Paketwerkstatt, übersetzter Titelindex und JavaScript-Syntax von core-learning.js. Der Quiz-Audit meldet weiterhin 1523 Frageninstanzen ohne Strukturfehler. Eine anfänglich falsch geschriebene Lösungszeichenfolge im neuen Test wurde an die vorhandene Schreibweise angepasst; der abschließende Testlauf bestand.
 
 Es gibt jetzt 177 Testsuiten. Der letzte vollständige Lauf war 176/176 erfolgreich vor der Diagrammwerkstatt; danach erfolgten die genannten gezielten Prüfungen. Keine neuen Übersetzungen. Fachliche Gesamtprüfung, Browser-/Drucklayoutabnahme und Prüfung des veröffentlichten GitHub-Pages-Stands bleiben offen. Dieser Stand ist eine Zwischensicherung, keine abschließende Produktabnahme.
+
+
+### Materialplaner für DGB Klasse 3 und präzisierte Programmierfragen (14.09.2026)
+
+Nach dem auf GitHub gesicherten Zwischenstand d7f0c57 wurde lokal weitergearbeitet. Neue ausführbare HTML-Werkstatt: Mengenplanung für einen fiktiven Klassenworkshop, drei Materialarten, null bis acht Gruppen, Datenliste und for…of-Schleife. Der Kapitelauftrag führt von Zerlegen/Muster/Abstraktion zu einer gespeicherten und ausgeführten eigenen JavaScript-Änderung sowie Testprotokoll und Materialerweiterung. Eingabefehler entfernen die alte Ergebnistabelle. Originaldaten und tatsächlich ausgeführter Code sind in der eigenen Dateiversion sichtbar. Keine Eingabenspeicherung, kein Konto und keine externen Laufzeitabhängigkeiten.
+
+DGB3 Produktion: sechs bewertete Fragen, Revision 1. DGB4 Produktion: alle sechs bewerteten Fragen geprüft; vier generische Fragen ersetzt, insbesondere Bedingung und Wenn-dann-Anweisung sauber getrennt, Revision 3. Lernziele, Papiermaterial und aktueller Titelindex angepasst. Quiz-Audit: 1525 gespeicherte Frageninstanzen in den fünf Prioritätsfächern, keine Strukturfehler; Inventar weiterhin 197 Kapitel.
+
+Neue test_material_programming-Suite und erweiterte test_raster_programming bestanden: 27 Materialplan-Konfigurationen, 936 Rasterkonfigurationen und jeweils alle 18 bewerteten Antwortwege; Änderungen, Grenzfälle, Revisionen und Wiederholungs-IDs. Zusätzlich bestanden: 21 DGB-Arbeitsblätter, 95 STEM-Arbeitsblätter, Titel-/Sprachauswahl und DGB-Ressourcenfilter. Jetzt 178 Testsuiten; kein erneuter Gesamtlauf. Diese Prüfungen sind DOM-/Laufzeitprüfungen, keine tatsächliche Browser-, Screenreader- oder Drucklayoutabnahme. Neue Arbeiten noch lokal, kein weiterer Push oder Übersetzungsauftrag.
+
+
+### Erste tatsächliche Browserabläufe und mobile Korrekturen (14.09.2026)
+
+Der vorherige Zielturn war Umsetzungsfortschritt; dessen Materialplaner und Prüfungsfragen bleiben im lokalen Arbeitsstand erhalten. In diesem Schritt wurde erstmals in dieser Prüfserie ein separater Chromium-Browser mit isolierten Kontexten eingesetzt. Die integrierte Browsersteuerung fiel nach lesendem Zugriff aus; dies war kein fachlicher Blocker, die Tests wurden im separaten Browser ausgeführt. Die laufende lokale Vorschau war erreichbar.
+
+Behoben: unsichtbare Menüpunkte in der Tab-Reihenfolge bei eingeklapptem Menü, fehlende Fokusübergabe beim Schließen, Überbreite der Punkteanzeige und deren Überlagerung der Hauptnavigation auf schmalen Bildschirmen. Zusätzlich Pseudocode-Umbruch und beschriftete, per Tab/Pfeiltaste bedienbare Scrollbereiche für die beiden breiten Protokolltabellen in DGB3 Produktion. Layoutänderungen verändern keine bewerteten Antworten; keine zusätzliche Kapitelrevision erforderlich.
+
+Browsertest vom 2026-09-13T23:18:14.511Z: sechs zentrale Abläufe bestanden, keine JavaScript-Seitenfehler. 390 × 844 und 1280 × 900: Menü/Sprachauswahl/Escape, Kapiteleinstieg, echtes Quiz mit 83-Prozent-Auswertung, sichtbarer und fokussierter Wiederholungsabschnitt, Stoffauswahl sowie Öffnen des Links in einem frischen Empfängerkontext ohne Ergebnisse des anderen Kontexts. Screenshots tatsächlich gelesen; separate Breitenmessung für das DGB-Kapitel auch bei 320 Pixeln. Einzelheiten und Reproduktion: BROWSER_PRUEFUNG.md.
+
+Gesamtlauf 2026-09-13T23:17:55.688Z: 178/178 Funktionstestsuiten bestanden, Exit 0. Die abschließende Umstellung der beiden Protokolltabellen auf Scrollbereiche erfolgte während dieses Laufs; DGB-Arbeitsblätter und Materialplaner wurden deshalb danach zusätzlich gezielt erfolgreich geprüft. Der zuletzt ausgeführte Browsertest umfasst den fertigen Scrollbereich samt nativer Tab- und Pfeiltastenbedienung. Kein Anspruch einer unverändert eingefrorenen Quellversion während des gesamten Node-Laufs. Syntaxprüfung und git diff --check ohne Fehler.
+
+Das ist ein Teilnachweis für Bedienbarkeit und Lernwege, keine vollständige visuelle Abnahme aller Kapitel. Systematische Kontrastprüfung, weitere Kapitel/Browser/Geräte, Screenreader, Druckausgaben und veröffentlichte Fassung bleiben offen. Neue Arbeiten lokal; kein weiterer Push und keine neuen Übersetzungen.
+
+
+### Gemeinsame Tabellenansicht und lesbarere Farben (14.09.2026)
+
+Der vorherige Zielturn brachte überprüfbare Browser- und Umsetzungsergebnisse. Der aktuelle Arbeitsstand wurde erneut geprüft; die lokale Vorschau ist erreichbar. Neuer Browser-Breitentest über sämtliche 136 Prioritätskapitel: zunächst 42 Seitenüberläufe, nach gemeinsamer Tabellenaufbereitung 2, nach SVG-/Dateinamenkorrektur 0. Der abschließende Bericht stammt von 2026-09-13T23:31:16.999Z. Alle 136 Kapitel erreichten den erwarteten Kapitelprüfungszustand; kein nicht abgefangener Seitenfehler. Das prüft anfängliche Darstellung bei 390 × 844 Pixeln, nicht alle Interaktionszustände.
+
+Neue gemeinsame responsive-content.js für vorhandene und dynamische Tabellen; begrenzte Scrollbereiche, Beschriftung, Tab-Stopp nur bei Bedarf, Größenwechsel und unveränderte Tabelleninhalte. Tatsächlicher Browser-Regressionstest für Wirbeltier-Merkmalsauswahl/Reset und späte Tabellenänderungen bestanden. Sechs zentrale Lern-/Unterrichtsabläufe erneut erfolgreich im Browser geprüft.
+
+Gemeinsame Überschriften-, Link-, Schaltflächen- und Fokusfarben getrennt und lesbarer gestaltet; Mathematik-Grün/Violett bleibt erkennbar. 55 gemessene Text-/Hintergrundpaare aus fünf Kapiteln in beiden Farbschemata erreichen mindestens 4,5:1 (Minimum 5.48:1). Screenshots gelesen. Einzelheiten und Grenzen in BROWSER_PRUEFUNG.md.
+
+Gezielte Node-Prüfungen nach den Änderungen bestanden: vollständige Renderer-/Kernkapitelintegration, Wirbeltierkarten, Messgrundlagen, 21 DGB-Arbeitsblätter, Quizfokus und Betrieb bei verweigertem Speicherzugriff. Neue Skripte syntaktisch geprüft. Kein erneuter 178-Suiten-Gesamtlauf; dessen vorheriger Bericht bleibt zeitlich getrennt. Die neuen Browserprüfungen stehen außerhalb des DOM-Funktionstestrunners und benötigen Playwright sowie eine laufende Vorschau.
+
+Keine bewertete Frage und keine Übersetzung verändert. Aktuelle Ergänzungen noch lokal. Weitere Farbpaare und Interaktionszustände, die nachrangigen Fächer, andere Browser/Geräte, Screenreader und Druckausgaben sowie fachliche Gesamtabnahme und veröffentlichte Fassung bleiben offen.

@@ -11748,20 +11748,26 @@
         "quizzes": [
           {
             "id": "dgb7_produktion_q1",
-            "question": "Was bedeutet ein Problem zerlegen?",
+            "question": "Welche Zerlegung hilft beim Materialplaner, die Berechnung und ihre Fehler gezielt zu prüfen?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "es in kleinere Aufgaben aufteilen",
+                "text": "Vorgaben erfassen, Gruppenanzahl prüfen, Mengen berechnen, beschriftet ausgeben und testen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Kleine Aufgaben sind leichter lösbar."
+                "feedback": "Richtig: Diese Teilaufgaben haben klare Ergebnisse und können einzeln geprüft werden."
               },
               {
-                "text": "es absichtlich komplizierter machen",
+                "text": "Zuerst jede Tabellenzeile anders gestalten; die Berechnung ergibt sich dann aus dem Aussehen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Zerlegen soll vereinfachen."
+                "feedback": "Gestaltung berechnet keine Mengen. Vorgaben, Eingabeprüfung und Rechenweg fehlen."
+              },
+              {
+                "text": "Für jede mögliche Gruppenanzahl eine eigene vollständige Webseite schreiben.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die gemeinsame Rechenregel lässt sich für verschiedene Gruppenanzahlen wiederverwenden. Acht einzelne Seiten würden dieselbe Arbeit wiederholen."
               }
             ]
           },
@@ -11777,10 +11783,10 @@
                 "feedback": "Genau: Abstraktion macht ein Problem handhabbar."
               },
               {
-                "text": "alle Details ungeordnet sammeln",
+                "text": "alle Angaben weglassen, bis nur eine Zahl bleibt",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Alle Details können überfordern."
+                "feedback": "Abstraktion behält die für den Auftrag wichtigen Angaben. Eine Zahl ohne Materialbezug und Einheit genügt nicht."
               }
             ]
           }
@@ -11793,20 +11799,26 @@
         "quizzes": [
           {
             "id": "dgb7_produktion_q2",
-            "question": "Warum prüft man Kontrast und Schriftgröße?",
+            "question": "Eine digitale Infokarte hat große Schrift und guten Kontrast. Ist damit ihre vollständige Barrierefreiheit bewiesen?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "damit mehr Menschen das Produkt gut lesen können",
+                "text": "Nein. Auch verständliche Angaben, Bildalternativen und die Bedienung müssen passend zum Produkt geprüft werden.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Das hilft der Zugänglichkeit."
+                "feedback": "Richtig: Lesbarkeit ist ein Teil der Zugänglichkeit. Ein kurzer Test deckt nicht automatisch alle Barrieren ab."
               },
               {
-                "text": "damit die Datei geheim bleibt",
+                "text": "Ja. Sobald Text groß genug ist, sind auch alle Bilder und Links zugänglich.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Geheimhaltung ist hier nicht der Punkt."
+                "feedback": "Große Schrift erklärt kein wichtiges Bild und beweist keine Tastaturbedienung."
+              },
+              {
+                "text": "Ja, wenn die Person, die die Karte erstellt hat, alle Angaben sofort findet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die erstellende Person kennt den Inhalt bereits. Suchaufgaben anderer Personen können zusätzliche Probleme zeigen; auch das ist noch keine vollständige Abnahme."
               }
             ]
           },
@@ -11822,15 +11834,65 @@
                 "feedback": "Genau: Das sind wichtige Bestandteile."
               },
               {
-                "text": "nur schneller klicken",
+                "text": "das fertige Aussehen kopieren, ohne den Lösungsweg zu prüfen",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Schnelles Klicken löst keine Denkaufgabe."
+                "feedback": "Ein ähnliches Aussehen erklärt nicht die Berechnung. Zerlegung, gemeinsame Regeln und Tests helfen beim Lösen."
+              }
+            ]
+          },
+          {
+            "id": "dgb7_production_abstraction",
+            "question": "Welche Angaben kannst du für die reine Mengenplanung weglassen, ohne die Aufgabe zu verändern?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Gruppennamen und Lieblingsfarben; Materialname, Einheit und Bedarf pro Gruppe bleiben erhalten.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die weggelassenen Angaben beeinflussen in diesem Modell keine Materialmenge."
+              },
+              {
+                "text": "Die Einheit, weil eine Zahl allein jede Materialmenge eindeutig beschreibt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zwei Blatt und zwei Stück sind nur mit Bezug auf das Material verständlich. Die Ausgabe braucht die Einheit."
+              },
+              {
+                "text": "Den Bedarf pro Gruppe, weil die Gruppenanzahl für jede Materialart genügt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Gruppenanzahl sagt nicht, wie viel Papier oder wie viele Stifte jede Gruppe erhält."
+              }
+            ]
+          },
+          {
+            "id": "dgb7_production_code_change",
+            "question": "Nur beim Papier ändert sich „proGruppe: 2“ auf „proGruppe: 3“. Was erwartest du bei vier Gruppen?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "12 Blatt Papier, 4 Bleistifte und 12 Büroklammern.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 4 mal 3 ergibt 12 Blatt. Die beiden anderen Vorgaben und damit ihre Mengen bleiben gleich."
+              },
+              {
+                "text": "9 Blatt Papier, 4 Bleistifte und 12 Büroklammern.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Von zwei auf drei Blatt bedeutet ein zusätzliches Blatt je Gruppe. Bei vier Gruppen steigt der Papierbedarf von acht auf zwölf, nicht nur auf neun."
+              },
+              {
+                "text": "12 Blatt Papier, 12 Bleistifte und 12 Büroklammern.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Änderung betrifft nur den Papier-Eintrag. Der Bleistiftbedarf bleibt bei einem Stück pro Gruppe."
               }
             ]
           }
         ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Computational Thinking</strong><br>Probleme mit Zerlegen, Mustererkennen, Abstraktion und Algorithmus l&ouml;sen.</div><div class=\"word-ui-card\"><strong>Abstraktion</strong><br>Vereinfachen, ohne das Wichtigste zu verlieren.</div><div class=\"word-ui-card\"><strong>Barrierearmut</strong><br>Ein Produkt ist f&uuml;r viele Menschen gut zug&auml;nglich.</div><div class=\"word-ui-card\"><strong>Konfiguration</strong><br>Einstellungen eines Programms oder Systems anpassen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Problem</td><td>Klassenquiz planen: Fragen, Antworten, Punkte, Test.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Muster</td><td>Alle Fragen brauchen Antwortm&ouml;glichkeiten und Feedback.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Barriere</td><td>Video ohne Untertitel ist f&uuml;r manche schwer nutzbar.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_produktion_q2}}\n{{QUIZ_dgb7_produktion_p2}}"
+        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Computational Thinking</strong><br>Probleme mit Zerlegen, Mustererkennen, Abstraktion und Algorithmus l&ouml;sen.</div><div class=\"word-ui-card\"><strong>Abstraktion</strong><br>Vereinfachen, ohne das Wichtigste zu verlieren.</div><div class=\"word-ui-card\"><strong>Barrierearmut</strong><br>Ein Produkt ist f&uuml;r viele Menschen gut zug&auml;nglich.</div><div class=\"word-ui-card\"><strong>Konfiguration</strong><br>Einstellungen eines Programms oder Systems anpassen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Problem</td><td>Klassenquiz planen: Fragen, Antworten, Punkte, Test.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Muster</td><td>Alle Fragen brauchen Antwortm&ouml;glichkeiten und Feedback.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Barriere</td><td>Video ohne Untertitel ist f&uuml;r manche schwer nutzbar.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_produktion_q2}}\n{{QUIZ_dgb7_produktion_p2}}<div data-material-planner><h3>Vom Klassenauftrag zum ausführbaren Materialplaner</h3>\n<p><strong>Fiktiver Auftrag:</strong> Für einen Klassenworkshop bekommt jede Gruppe 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Wir planen den Bedarf für 0 bis 8 ganze Gruppen. Alle Gruppen erhalten dasselbe Paket. Lagerbestand, Reservematerial und Kosten gehören noch nicht zu diesem Modell.</p>\n<table data-material-requirements><caption>Festgelegter Bedarf pro Gruppe</caption><thead><tr><th scope=\"col\">Material</th><th scope=\"col\">Pro Gruppe</th><th scope=\"col\">Einheit</th></tr></thead><tbody><tr><th scope=\"row\">Papier</th><td>2</td><td>Blatt</td></tr><tr><th scope=\"row\">Bleistifte</th><td>1</td><td>Stück</td></tr><tr><th scope=\"row\">Büroklammern</th><td>3</td><td>Stück</td></tr></tbody></table>\n<p><strong>Zerlegen:</strong> Vorgaben sammeln → Gruppenanzahl prüfen → jede Materialmenge berechnen → Tabelle beschriften → Ergebnisse testen. Die Berechnung braucht die Vorgaben und eine gültige Eingabe; eine schön gestaltete Tabelle allein löst den Auftrag noch nicht.</p>\n<p><strong>Muster:</strong> Für jede Materialart gilt „Gruppenanzahl mal Bedarf pro Gruppe“. <strong>Abstraktion:</strong> Gruppennamen und Lieblingsfarben sind für diese reine Mengenrechnung unwichtig. Materialname, Einheit und Bedarf dürfen wir nicht weglassen. Was wichtig ist, hängt vom Auftrag ab.</p>\n<pre>Prüfe: Ist die Gruppenanzahl ganzzahlig und zwischen 0 und 8?\nWenn nein: Erkläre den Eingabefehler.\nSonst:\n  Für jeden Eintrag der Materialliste:\n    Gesamtbedarf = Gruppenanzahl mal Bedarf pro Gruppe\n    Merke Materialname, Gesamtbedarf und Einheit.\n  Zeige die fertige Liste.</pre>\n<p><a href=\"../examples/materialplaner.html\" data-material-open>Materialplaner öffnen</a> · <a href=\"../examples/materialplaner.html\" download=\"materialplaner.html\">HTML-Datei zum Bearbeiten herunterladen</a>. Die Datei enthält das Programm und benötigt kein Konto. Verwende für deine Kopie einen reinen Texteditor und speichere sie mit der Endung <code>.html</code>.</p>\n<p><strong>Im JavaScript-Code:</strong> <code>materialien</code> ist die Liste der Vorgaben. <code>for (const material of liste)</code> besucht jeden Eintrag; <code>gruppen * material.proGruppe</code> berechnet dessen Menge. <code>push</code> hängt einen Ergebnis-Eintrag an. Die Funktion <code>materialbedarf</code> gibt die fertige Liste mit <code>return</code> zurück. Die Eingabeprüfung und die Bildschirmdarstellung sind getrennte Teilaufgaben.</p>\n<ol data-material-tasks><li><strong>Vorhersagen:</strong> Berechne für 0, 1 und 4 Gruppen den Bedarf jeder Materialart auf Papier. Trage erst die erwarteten Mengen in dein Protokoll ein und vergleiche dann mit dem geöffneten Programm.</li>\n<li><strong>Nachvollziehen:</strong> Öffne die heruntergeladene Kopie im Texteditor. Suche nach <code>&lt;script&gt;</code> die Liste <code>const materialien</code> und <code>function materialbedarf</code>. Verfolge bei vier Gruppen den Papier-Eintrag vom Wert 2 bis zur ausgegebenen Menge. Wie oft wird der Schleifenblock für die drei Materialarten ausgeführt? Wie oft bei null Gruppen?</li>\n<li><strong>Gezielt ändern:</strong> Kopiere die Datei unter einem neuen Namen. Ändere nur beim Papier <code>proGruppe: 2</code> zu <code>proGruppe: 3</code>. Sage die Ergebnisse für dieselben drei Testfälle voraus. Speichere, öffne die geänderte Datei im Browser und prüfe den angezeigten Code sowie die Ergebnisse.</li>\n<li><strong>Grenzen prüfen:</strong> Teste zusätzlich 8 Gruppen, eine leere Eingabe, −1, 9 und 1,5 Gruppen. Die gültige Zahl 8 soll berechnet werden; für die anderen Eingaben soll eine Fehlermeldung erscheinen und keine alte Ergebnisliste stehen bleiben. Ein Test mit nur vier Gruppen prüft diese Fälle noch nicht.</li>\n<li><strong>Erweitern:</strong> Füge in einer weiteren Kopie ein viertes Material mit Name, Einheit und Bedarf pro Gruppe hinzu. Übernimm die Struktur eines vorhandenen Listeneintrags und setze das Komma zwischen Einträgen. Warum muss die Schleife dafür nicht viermal neu geschrieben werden? Prüfe die zusätzliche Zeile mit zwei vorher berechneten Fällen.</li>\n<li><strong>Dokumentieren:</strong> Bewahre Original und Änderungen auf. Notiere bei Abweichungen Erwartung, Beobachtung, geänderte Stelle und erneuten Test. Zu zweit wechseln die Rollen Programmieren und Prüfen; allein dokumentierst du deine Selbstprüfung. Abgabe: eigene HTML-Kopie, Testprotokoll und kurze Erklärung von Zerlegen, Muster und Abstraktion am eigenen Programm.</li></ol>\n<p class=\"small\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Testprotokoll zum Materialplaner\" tabindex=\"0\"><table data-material-test-cases><caption>Testprotokoll – alle Mengen jeweils mit Einheit notieren</caption><thead><tr><th scope=\"col\">Gruppen</th><th scope=\"col\">Original erwartet</th><th scope=\"col\">Papieränderung erwartet</th><th scope=\"col\">Tatsächlich / Dateiversion</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">1</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">4</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Eigener Grenzfall</th><td>…</td><td>…</td><td>…</td></tr></tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Führe die Liste von Hand aus und markiere die geplante Änderung im Pseudocode. Das übt die Logik; das Verändern und Ausführen der eigenen Programmdatei bleibt dann noch zu erledigen.</p>\n<details data-worksheet-solution=\"true\"><summary>Erwartungswerte und Denkwege vergleichen</summary><p>Original in der Reihenfolge Papier/Bleistifte/Büroklammern: 0 Gruppen → 0/0/0; 1 Gruppe → 2/1/3; 4 Gruppen → 8/4/12; 8 Gruppen → 16/8/24. Die Einheiten sind Blatt/Stück/Stück. Nach der Papieränderung ergeben sich 0/0/0, 3/1/3, 12/4/12 und 24/8/24. Nur der Papierbedarf ändert sich.</p><p>Der Schleifenblock verarbeitet immer die drei Materialeinträge, auch bei null Gruppen. Dann sind die berechneten Mengen null. Mit einem vierten Material gibt es vier Durchläufe; eine Änderung der Gruppenanzahl verändert die Multiplikation, nicht die Länge dieser Liste. Gruppennamen wegzulassen ist hier sinnvoll; Einheiten wegzulassen macht den Plan unklar.</p><p>Eine falsche Menge kann an einer falschen Vorgabe, einer falschen Rechnung oder der geöffneten Dateiversion liegen. Ein bloßes „funktioniert“ nennt weder die Eingabe noch die erwartete Ausgabe und ist kein nachvollziehbares Testprotokoll.</p></details>\n<p class=\"small\">Zum Nachlesen der verwendeten Schleife: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement\" target=\"_blank\" rel=\"noopener\">MDN: JavaScript-Schleifen (Englisch)</a>.</p>\n{{QUIZ_dgb7_production_abstraction}}{{QUIZ_dgb7_production_code_change}}</div>"
       },
       {
         "id": "sec3",
@@ -11838,20 +11900,26 @@
         "quizzes": [
           {
             "id": "dgb7_produktion_q3",
-            "question": "Was ist ein Muster in einem Quiz?",
+            "question": "Die Materialliste enthält drei Einträge. Wie oft führt „für jeden Eintrag der Materialliste“ den Schleifenblock bei null Gruppen aus?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "jede Frage braucht Antwortmöglichkeiten und Feedback",
+                "text": "Dreimal; jede berechnete Materialmenge ist null.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Wiederholte Struktur ist ein Muster."
+                "feedback": "Richtig: Die Schleife durchläuft Materialarten. Die Gruppenanzahl wird erst in der Multiplikation verwendet."
               },
               {
-                "text": "jede Frage muss gleich falsch sein",
+                "text": "Keinmal, weil null Gruppen die Materialliste automatisch leeren.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Falschheit ist kein gutes Ziel."
+                "feedback": "Die Liste enthält weiterhin Papier, Bleistifte und Büroklammern. Null Gruppen ergeben in jedem dieser drei Durchläufe die Menge null."
+              },
+              {
+                "text": "Einmal, weil alle drei Nullmengen zu einem Eintrag zusammengefasst werden.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Programm fasst die Materialeinträge nicht zusammen. Namen und Einheiten bleiben zu jeder Menge erhalten."
               }
             ]
           },
@@ -11867,15 +11935,15 @@
                 "feedback": "Genau: Solche Hilfen verbessern Nutzung."
               },
               {
-                "text": "winziger Text ohne Erklärung",
+                "text": "nur eine grüne Farbe für die zuständige Gruppe verwenden",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Winziger Text ist eine Barriere."
+                "feedback": "Farbe allein kann eine Information unzugänglich machen. Benenne die Gruppe zusätzlich mit einem verständlichen Text."
               }
             ]
           }
         ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>"
+        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>"
       },
       {
         "id": "sec4",
@@ -11883,20 +11951,26 @@
         "quizzes": [
           {
             "id": "dgb7_produktion_q4",
-            "question": "Warum dokumentierst du Verbesserungen?",
+            "question": "Welcher Eintrag dokumentiert eine Überarbeitung der Infokarte nachvollziehbar?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "damit der Arbeitsweg sichtbar wird",
+                "text": "„Raum war nur auf dem Foto erkennbar. Raum 12 als Text ergänzt; eine andere Person fand den Raum danach ohne Erklärung.“",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Dokumentation zeigt Lernen."
+                "feedback": "Richtig: Problem, Änderung und beobachtetes Ergebnis der erneuten Prüfung sind erkennbar."
               },
               {
-                "text": "damit niemand den Text lesen darf",
+                "text": "„Die neue Karte sieht besser aus; weitere Prüfschritte sind deshalb unnötig.“",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Dokumentation soll verständlich sein."
+                "feedback": "Ein besserer Eindruck zeigt noch nicht, ob das ursprüngliche Problem behoben wurde."
+              },
+              {
+                "text": "„Drei Farben geändert und gespeichert.“",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Eintrag nennt Änderungen, aber weder das zu lösende Problem noch einen erneuten Test."
               }
             ]
           }
@@ -11908,12 +11982,14 @@
     "learningGoals": [
       "Du zerlegst Probleme in kleinere Schritte.",
       "Du erkennst Muster und vereinfachst sinnvoll.",
-      "Du prüfst Medienprodukte auf Barrierefreiheit."
+      "Du prüfst Medienprodukte auf Barrierefreiheit.",
+      "Du setzt einen Mengenplan in JavaScript um, veränderst ihn und prüfst Original und Änderung mit vorher berechneten Testfällen."
     ],
     "summary": [
       "Zerlege ein Problem in kleinere Teilaufgaben und suche nach wiederkehrenden Mustern.",
       "Abstraktion lässt für die Aufgabe unwichtige Einzelheiten weg.",
-      "Teste Inhalt, Funktion und Zugänglichkeit deines Medienprodukts und verbessere es anhand der Ergebnisse."
+      "Teste Inhalt, Funktion und Zugänglichkeit deines Medienprodukts und verbessere es anhand der Ergebnisse.",
+      "Ein Test vergleicht eine vorher begründete Erwartung mit dem tatsächlichen Ergebnis. Eine eigene Codeänderung muss erneut ausgeführt und geprüft werden."
     ],
     "prerequisites": [
       "dgb6_produktion"
@@ -12664,20 +12740,26 @@
         "quizzes": [
           {
             "id": "dgb8_produktion_q1",
-            "question": "Was ist Pseudocode?",
+            "question": "Welche Fassung ist ein ausreichend genauer Pseudocode für ein Raster, das jedes Feld prüfen soll?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Programmlogik in klarer Alltagssprache",
+                "text": "Für jede Zeile: Gehe alle Spalten durch und prüfe für jedes Feld die Markierungsbedingung.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Pseudocode plant vor dem Programmieren."
+                "feedback": "Richtig: Die wiederholten Schritte und die Stelle der Prüfung sind nachvollziehbar, ohne dass eine bestimmte Programmiersprache nötig ist."
               },
               {
-                "text": "ein kaputter Drucker",
+                "text": "Zeichne ein schönes Raster mit passenden Punkten.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ein Drucker ist kein Pseudocode."
+                "feedback": "Das nennt ein gewünschtes Ergebnis, aber keinen klaren Ablauf zum Prüfen der Felder."
+              },
+              {
+                "text": "Pseudocode muss bereits alle Klammern und Schlüsselwörter von JavaScript fehlerfrei enthalten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Pseudocode beschreibt die Logik unabhängig von einer bestimmten Programmiersprache. Für ausführbaren JavaScript-Code müssen anschließend dessen Regeln eingehalten werden."
               }
             ]
           },
@@ -12709,20 +12791,26 @@
         "quizzes": [
           {
             "id": "dgb8_produktion_q2",
-            "question": "Was macht eine Schleife?",
+            "question": "Die innere Schleife hat in Zeile 1 alle Spalten geprüft. Was muss bei der nächsten Zeile passieren?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "sie wiederholt Schritte",
+                "text": "Die innere Schleife beginnt wieder bei Spalte 1 und prüft auch in dieser Zeile alle Spalten.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Schleifen sparen Wiederholung im Code."
+                "feedback": "Richtig: So wird jede Kombination aus Zeile und Spalte besucht."
               },
               {
-                "text": "sie löscht immer alle Dateien",
+                "text": "Die Spaltenschleife bleibt beendet; in allen weiteren Zeilen wird kein Feld mehr geprüft.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Löschen ist nicht der Zweck einer Schleife."
+                "feedback": "Dann würden nur Felder der ersten Zeile bearbeitet. Die innere Schleife muss für jede neue Zeile erneut beginnen."
+              },
+              {
+                "text": "Die neue Zeile prüft nur die letzte Spalte der vorherigen Zeile.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Damit würden die übrigen Felder der neuen Zeile fehlen. Die vollständige Spaltenfolge wird pro Zeile wiederholt."
               }
             ]
           },
@@ -12738,10 +12826,10 @@
                 "feedback": "Genau: Aufgabenverteilung hilft dem Team."
               },
               {
-                "text": "damit niemand Verantwortung hat",
+                "text": "damit niemand die Arbeit der anderen kennen oder prüfen muss",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Verantwortung wird dadurch klarer, nicht weniger."
+                "feedback": "Aufgaben können aufgeteilt werden. Die Teile müssen aber zusammenpassen und gemeinsam geprüft werden."
               }
             ]
           }
@@ -12754,20 +12842,26 @@
         "quizzes": [
           {
             "id": "dgb8_produktion_q3",
-            "question": "Was ist Iteration?",
+            "question": "Ein Rasterprogramm markiert ein falsches Feld. Welche nächste Runde ist eine nachvollziehbare Verbesserung?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "eine Verbesserungsrunde",
+                "text": "Erwartetes und tatsächliches Ergebnis vergleichen, die Ursache eingrenzen, gezielt ändern und dieselben Testfälle erneut prüfen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Projekte werden in Runden besser."
+                "feedback": "Richtig: Die erneuten Tests zeigen, ob die Änderung das Problem löst und bisher passende Fälle weiterhin stimmen."
               },
               {
-                "text": "ein neuer Bildschirmrand",
+                "text": "So viele Stellen gleichzeitig ändern, bis der Bildschirm anders aussieht; die bisherigen Testfälle danach weglassen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Bildschirmrand ist nicht gemeint."
+                "feedback": "Viele gleichzeitige Änderungen erschweren die Ursachenprüfung. Ein anderes Aussehen beweist keine richtige Logik."
+              },
+              {
+                "text": "Nur das unerwartete Ergebnis im Testprotokoll als neue Erwartung übernehmen, ohne die Aufgabenregel zu prüfen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Damit würde der Test den möglichen Fehler nur bestätigen. Die Erwartung muss aus der Aufgabenregel begründet werden."
               }
             ]
           },
@@ -12783,10 +12877,10 @@
                 "feedback": "Genau: Dokumentation macht Arbeit nachvollziehbar."
               },
               {
-                "text": "nur ein leerer Titel",
+                "text": "nur ein Bildschirmfoto des letzten Ergebnisses ohne Eingaben und erwartete Werte",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ein leerer Titel erklärt nichts."
+                "feedback": "Ein Foto allein zeigt nicht, welche Testfälle geprüft wurden und warum das Ergebnis stimmen soll."
               }
             ]
           },
@@ -12847,20 +12941,26 @@
         "quizzes": [
           {
             "id": "dgb8_produktion_q4",
-            "question": "Welche Programmidee enthält eine Bedingung?",
+            "question": "Im Ablauf „Wenn Punkte > 10, zeige einen Stern“: Was ist die Bedingung?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Wenn Passwort lang genug ist, zeige OK.",
+                "text": "„Punkte > 10“; dieser Vergleich wird als wahr oder falsch ausgewertet.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Wenn-dann ist eine Bedingung."
+                "feedback": "Richtig: „Zeige einen Stern“ ist die Aktion. Die gesamte Wenn-dann-Anweisung entscheidet mithilfe der Bedingung, ob sie ausgeführt wird."
               },
               {
-                "text": "Schreibe nur einen Namen auf.",
+                "text": "„Zeige einen Stern“; die sichtbare Ausgabe ist die Bedingung.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Nur ein Name enthält keine Entscheidung."
+                "feedback": "Das ist eine auszuführende Aktion. Die Bedingung ist der Vergleich, der über diese Aktion entscheidet."
+              },
+              {
+                "text": "„Punkte = 10“; der Stern erscheint auch bei genau zehn Punkten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Größer als zehn schließt den Wert zehn aus. Für „mindestens zehn“ müsste die Bedingung anders lauten."
               }
             ]
           }

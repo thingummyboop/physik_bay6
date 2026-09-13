@@ -94,7 +94,7 @@
     <script src="js/curriculum.js"></script>
 </head>
 <body>
-    <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menü umschalten" aria-expanded="true">☰</button>
+    <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menü umschalten" aria-expanded="true" aria-controls="sidebar">☰</button>
     <button id="zeugnis-btn" onclick="loadPage('topics/dashboard.html', null)">🎓 Mein Zeugnis</button>
     <div id="sidebar">
         <div class="sidebar-header">
@@ -200,21 +200,27 @@
                 setSelectedSubject(e.data.subject);
                 renderNav();
                 const sidebar = document.getElementById('sidebar');
-                const toggle = document.getElementById('menu-toggle');
                 if (sidebar.classList.contains('collapsed')) {
-                    sidebar.classList.remove('collapsed');
-                    toggle.setAttribute('aria-expanded', 'true');
+                    setSidebarCollapsed(false);
                 }
                 sidebar.scrollTo({ top: document.getElementById('dynamic-nav-container').offsetTop - 12, behavior: 'smooth' });
             }
         });
 
-        function toggleMenu() {
+        function setSidebarCollapsed(isCollapsed) {
             const sidebar = document.getElementById('sidebar');
             const toggle = document.getElementById('menu-toggle');
-            sidebar.classList.toggle('collapsed');
-            const isCollapsed = sidebar.classList.contains('collapsed');
-            toggle.setAttribute('aria-expanded', !isCollapsed);
+            // Move focus before hiding the focused subtree from keyboard and assistive technology.
+            if (isCollapsed && sidebar.contains(document.activeElement)) toggle.focus();
+            sidebar.classList.toggle('collapsed', isCollapsed);
+            sidebar.toggleAttribute('inert', isCollapsed);
+            sidebar.setAttribute('aria-hidden', String(isCollapsed));
+            toggle.setAttribute('aria-expanded', String(!isCollapsed));
+            if (isCollapsed) toggleLanguageMenu(false);
+        }
+
+        function toggleMenu() {
+            setSidebarCollapsed(!document.getElementById('sidebar').classList.contains('collapsed'));
         }
 
         function toggleLanguageMenu(forceOpen = null) {
@@ -229,6 +235,20 @@
         document.addEventListener('click', (event) => {
             const menu = document.querySelector('.language-menu');
             if (menu && !menu.contains(event.target)) toggleLanguageMenu(false);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape' || event.defaultPrevented) return;
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('collapsed')) return;
+            if (!sidebar.contains(document.activeElement) && document.activeElement !== document.getElementById('menu-toggle')) return;
+            event.preventDefault();
+            if (document.getElementById('language-panel').classList.contains('open')) {
+                toggleLanguageMenu(false);
+                document.getElementById('language-toggle').focus();
+            } else {
+                setSidebarCollapsed(true);
+            }
         });
 
         const shellTranslations = {
@@ -471,8 +491,7 @@
 
         function loadPage(page, button, fromHash = false) {
             if (window.matchMedia('(max-width: 800px)').matches) {
-                document.getElementById('sidebar').classList.add('collapsed');
-                document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+                setSidebarCollapsed(true);
             }
             writeShellSetting('physik_current_page', page);
             const pageSubject = findSubjectForPage(page);

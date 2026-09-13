@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materialplaner – vom Auftrag zum Programm</title>
+<style>
+body{font:1rem/1.6 system-ui,sans-serif;max-width:55rem;margin:auto;padding:1.2rem;color:#172033;background:#f8fafc}
+h1,h2{line-height:1.25}form{display:flex;flex-wrap:wrap;gap:1rem;align-items:end;background:#e8f1fa;padding:1rem;border-radius:.5rem}
+label{display:grid}input,button{font:inherit;padding:.6rem;min-height:2.75rem;box-sizing:border-box}input{width:9rem}button{background:#17456d;color:white;border:2px solid #17456d;border-radius:.3rem;cursor:pointer}
+:focus-visible{outline:3px solid #a04b00;outline-offset:3px}table{border-collapse:collapse;width:100%;background:white}td,th{border:1px solid #64748b;text-align:left;padding:.5rem;overflow-wrap:anywhere}caption{text-align:left;font-weight:bold;padding:.5rem 0}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;border:1px solid #94a3b8;padding:1rem}code{overflow-wrap:anywhere}#status{min-height:3rem}.hint{border-left:4px solid #176c90;padding-left:1rem}
+@media print{form,button{display:none}body{background:white;color:black;max-width:none}pre{break-inside:avoid}}
+</style>
+</head>
+<body><main>
+<p>Digitale Grundbildung · 3. Klasse</p><h1>Materialplaner</h1>
+<p>Für einen <strong>fiktiven Klassenworkshop</strong> erhält jede Gruppe dasselbe Materialpaket. Bestimme zuerst auf Papier den Bedarf für vier Gruppen. Vergleiche danach mit dem Programm und ändere eine eigene Dateikopie.</p>
+<div id="requirements"></div>
+<form id="controls" novalidate>
+<label for="groups">Gruppenanzahl (0–8)<input id="groups" type="number" min="0" max="8" step="1" value="4" required aria-describedby="input-help status"></label>
+<button type="submit">Bedarf berechnen</button><button type="button" id="reset">Ausgangswert 4</button>
+</form>
+<p id="input-help">Nur ganze Gruppen. Null ist ein Testfall: Für keine Gruppe wird kein Material benötigt.</p>
+<p id="status" role="status" aria-live="polite" aria-atomic="true"></p><div id="result"></div>
+<h2>So wird aus dem Auftrag ein Programm</h2>
+<ol>
+<li><strong>Zerlegen:</strong> Bedarf pro Gruppe festlegen, Eingabe prüfen, jede Materialmenge berechnen, Ergebnis beschriften und testen.</li>
+<li><strong>Muster erkennen:</strong> Für jede Materialart gilt dieselbe Rechnung: Gruppenanzahl mal Bedarf pro Gruppe.</li>
+<li><strong>Abstrahieren:</strong> Für diese Mengenplanung brauchen wir Materialname, Einheit und Stückzahl pro Gruppe. Gruppennamen und Lieblingsfarben ändern die Rechnung nicht. Für eine andere Aufgabe könnten Farben wichtig sein.</li>
+<li><strong>Algorithmus:</strong> Gehe die Materialliste durch. Berechne für jeden Eintrag den Gesamtbedarf. Gib Name, Menge und Einheit gemeinsam aus.</li>
+</ol>
+<h2>JavaScript lesen und verändern</h2>
+<p>Die eckigen Klammern in <code>materialien</code> begrenzen eine Liste. Jeder Eintrag in geschweiften Klammern enthält zusammengehörige Angaben. <code>for…of</code> besucht jeden Eintrag. <code>*</code> bedeutet Multiplikation; <code>push</code> hängt einen Eintrag an die Ergebnisliste an. <code>return</code> gibt das Ergebnis der Funktion zurück.</p>
+<p>Der folgende Text zeigt die Materialdaten und die tatsächlich verwendete Rechenfunktion dieser Dateiversion:</p><pre id="source"></pre>
+<ol>
+<li>Lade die Datei über das Kapitel herunter. Öffne eine Kopie in einem reinen Texteditor. Suche <code>const materialien</code> im Abschnitt nach <code>&lt;script&gt;</code>.</li>
+<li>Ändere nur beim Eintrag <code>Papier</code> den Wert <code>proGruppe: 2</code> auf <code>proGruppe: 3</code>. Speichere unter einem neuen Namen mit der Endung <code>.html</code> und öffne diese Datei im Browser.</li>
+<li>Prüfe beide Versionen mit 0, 1 und 4 Gruppen. Notiere vorher die erwarteten Werte. Welche zwei Materialmengen bleiben unverändert?</li>
+<li>Ergänze in einer weiteren Kopie einen Eintrag für ein weiteres Material. Übernimm die Struktur eines vorhandenen Eintrags und achte auf das Komma zwischen Einträgen. Berechne vor dem Ausführen eine erwartete neue Tabellenzeile.</li>
+</ol>
+<p class="hint">Die Menge pro Gruppe ist eine Vorgabe dieses Modells. Die Anwendung prüft keinen Lagerbestand und bestellt nichts. Sie arbeitet vollständig in dieser Datei, speichert keine Eingaben und benötigt kein Konto. Eine Papierlösung übt die Planung; zur Programmieraufgabe gehört auch das Ändern und Ausführen der Kopie.</p>
+<noscript><p>JavaScript ist ausgeschaltet. Nutze die Materialtabelle im Kapitel für die Papierberechnung. Für die ausführbare Programmieraufgabe muss JavaScript in der eigenen Dateikopie verfügbar sein.</p></noscript>
+</main>
+<script>
+'use strict';
+// Lernbereich: Diese Daten und diese Funktion kannst du gezielt verändern.
+const materialien = [
+  { name: 'Papier', einheit: 'Blatt', proGruppe: 2 },
+  { name: 'Bleistifte', einheit: 'Stück', proGruppe: 1 },
+  { name: 'Büroklammern', einheit: 'Stück', proGruppe: 3 }
+];
+function materialbedarf(gruppen, liste) {
+  const ergebnis = [];
+  for (const material of liste) {
+    ergebnis.push({
+      name: material.name,
+      einheit: material.einheit,
+      menge: gruppen * material.proGruppe
+    });
+  }
+  return ergebnis;
+}
+// Darstellung und Eingabeprüfung: Für die erste Änderung ist hier nichts zu tun.
+function tabelle(titel, daten, mengenfeld, mengenname) {
+  const table = document.createElement('table');
+  table.createCaption().textContent = titel;
+  const head = table.createTHead().insertRow();
+  for (const name of ['Material', mengenname, 'Einheit']) {
+    const th = document.createElement('th'); th.scope = 'col'; th.textContent = name; head.append(th);
+  }
+  const body = table.createTBody();
+  for (const material of daten) {
+    const row = body.insertRow(), name = document.createElement('th');
+    name.scope = 'row'; name.textContent = material.name; row.append(name);
+    row.insertCell().textContent = String(material[mengenfeld]);
+    row.insertCell().textContent = material.einheit;
+  }
+  return table;
+}
+function anzeigen(event) {
+  if (event) event.preventDefault();
+  const input = document.getElementById('groups'), result = document.getElementById('result'), status = document.getElementById('status');
+  const gruppen = input.value.trim() === '' ? NaN : Number(input.value);
+  result.replaceChildren();
+  if (!Number.isInteger(gruppen) || gruppen < 0 || gruppen > 8) {
+    input.setAttribute('aria-invalid', 'true');
+    status.textContent = 'Gib eine ganze Gruppenanzahl von 0 bis 8 ein. Es wurde keine Materialliste berechnet.';
+    return;
+  }
+  input.removeAttribute('aria-invalid');
+  const daten = materialbedarf(gruppen, materialien);
+  result.append(tabelle('Gesamtbedarf für '+gruppen+' Gruppen', daten, 'menge', 'Gesamtbedarf'));
+  status.textContent = 'Für '+gruppen+' Gruppen: '+daten.map(m=>m.name+' '+m.menge+' '+m.einheit).join('; ')+'.';
+}
+document.getElementById('controls').addEventListener('submit', anzeigen);
+document.getElementById('groups').addEventListener('input', () => {
+  document.getElementById('result').replaceChildren();
+  document.getElementById('groups').removeAttribute('aria-invalid');
+  document.getElementById('status').textContent = 'Gruppenanzahl geändert. Berechne den Bedarf neu.';
+});
+document.getElementById('reset').addEventListener('click', () => { document.getElementById('controls').reset(); anzeigen(); });
+document.getElementById('requirements').append(tabelle('Bedarf pro Gruppe – aktuelle Dateiversion', materialien, 'proGruppe', 'Pro Gruppe'));
+document.getElementById('source').textContent = 'const materialien = '+JSON.stringify(materialien, null, 2)+';\n\n'+materialbedarf.toString();
+anzeigen();
+</script>
+</body></html>

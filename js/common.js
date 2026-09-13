@@ -1,4 +1,5 @@
 // Physik-Abenteuer Common Logic
+document.documentElement.classList.toggle('embedded-topic', window.parent !== window);
 function readCommonSetting(key) {
     try {
         if (window.parent !== window && typeof window.parent.readShellSetting === 'function') return window.parent.readShellSetting(key);
