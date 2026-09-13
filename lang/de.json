@@ -7841,112 +7841,12 @@
             ]
           }
         ],
-        "content": "\n        <div class=\"lesson-goals\">\n            <strong>Das lernst du in diesem Thema:</strong>\n            <ul class=\"step-list\">\n                <li>Messangaben mit Zahlenwert und Einheit lesen.</li>\n                <li>passende Einheiten f&uuml;r Alltagssituationen ausw&auml;hlen.</li>\n                <li>Meter, Zentimeter, Kilometer, Gramm, Kilogramm, Sekunden und Minuten umrechnen.</li>\n                <li>einfache Formeln und Diagramme in der Physik verstehen.</li>\n            </ul>\n        </div>\n        <p>Beim Messen brauchst du immer zwei Teile: einen <strong>Zahlenwert</strong> und eine <strong>Einheit</strong>. Nur <q>20</q> ist nicht eindeutig. <strong>20 cm</strong>, <strong>20 s</strong> und <strong>20 kg</strong> bedeuten v&ouml;llig verschiedene Dinge.</p>\n        <div class=\"remember-box\"><strong>Merksatz:</strong> Ein Größenwert wird als Zahlenwert mal Einheit angegeben: 2,1 m bedeutet 2,1 · m. Beispiel: L&auml;nge = 2,1 m.</div>\n        <div class=\"interactive-zone\">\n            <h3>Das Ma&szlig;band-Chaos</h3>\n            <p>Miss das blaue Rechteck. Vergleiche eine feste Einheit mit K&ouml;rperma&szlig;en, die bei jedem Menschen anders sind.</p>\n            <button onclick=\"measure('cm')\">Mit Zentimetern messen</button>\n            <button onclick=\"measure('feet')\">Mit F&uuml;&szlig;en messen</button>\n            <button onclick=\"measure('hands')\">Mit H&auml;nden messen</button>\n            <div class=\"diagram-box\" style=\"height: 190px;\">\n                <svg width=\"400\" height=\"90\" viewBox=\"0 0 400 90\" aria-label=\"Rechteck mit verschiedenen Messeinteilungen\">\n                    <rect x=\"50\" y=\"10\" width=\"200\" height=\"30\" fill=\"#2563eb\" rx=\"5\"></rect>\n                    <text x=\"150\" y=\"31\" text-anchor=\"middle\" fill=\"white\" font-size=\"13\">blaues Rechteck</text>\n                    <line x1=\"20\" y1=\"65\" x2=\"380\" y2=\"65\" stroke=\"#94a3b8\" stroke-width=\"2\"></line>\n                    <g id=\"ticksCm\" style=\"display: none;\">\n                        <line x1=\"50\" y1=\"48\" x2=\"50\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"70\" y1=\"55\" x2=\"70\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"90\" y1=\"55\" x2=\"90\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"110\" y1=\"55\" x2=\"110\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"130\" y1=\"55\" x2=\"130\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"150\" y1=\"48\" x2=\"150\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"170\" y1=\"55\" x2=\"170\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"190\" y1=\"55\" x2=\"190\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"210\" y1=\"55\" x2=\"210\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"230\" y1=\"55\" x2=\"230\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"250\" y1=\"48\" x2=\"250\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line>\n                    </g>\n                    <g id=\"ticksFeet\" style=\"display: none;\"><line x1=\"50\" y1=\"43\" x2=\"50\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"200\" y1=\"43\" x2=\"200\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"350\" y1=\"43\" x2=\"350\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line></g>\n                    <g id=\"ticksHands\" style=\"display: none;\"><circle cx=\"50\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"65\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"80\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"95\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"110\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"125\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"140\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"155\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"170\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"185\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"200\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"215\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"230\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"245\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle></g>\n                </svg>\n                <p id=\"measureText\" class=\"lab-feedback\">L&auml;nge = ?</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Einheiten-Labor</h3>\n            <p>W&auml;hle eine Sache und dann die Einheit, die am besten passt.</p>\n            <div class=\"lab-controls\">\n                <button onclick=\"checkUnitObject('door','m')\">T&uuml;rh&ouml;he -> m</button>\n                <button onclick=\"checkUnitObject('door','kg')\">T&uuml;rh&ouml;he -> kg</button>\n                <button onclick=\"checkUnitObject('bottle','g')\">Trinkflasche -> g</button>\n                <button onclick=\"checkUnitObject('school','km')\">Schulweg -> km</button>\n                <button onclick=\"checkUnitObject('sprint','s')\">Sprintzeit -> s</button>\n                <button onclick=\"checkUnitObject('room','m')\">Raumtemperatur -> m</button>\n                <button onclick=\"checkUnitObject('room','Grad Celsius')\">Raumtemperatur -> Grad Celsius</button>\n            </div>\n            <p id=\"unitMatchText\" class=\"lab-feedback\">Tipp: Frage zuerst: Was wird gemessen?</p>\n        </div>\n        {{QUIZ_q1}}\n    "
-      },
-      {
-        "id": "sec1",
-        "title": "2. Die 7 Basisgr&ouml;&szlig;en: Das Fundament",
-        "quizzes": [
-          {
-            "id": "q2",
-            "question": "Welche Einheit gehört zur Basisgröße \"Masse\"?",
-            "answers": [
-              {
-                "text": "Kilogramm (kg).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Die SI-Grundeinheit der Länge ist der Meter (m)."
-              },
-              {
-                "text": "Sekunde (s).",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Fuß ist eine ältere/angloamerikanische Einheit, aber keine SI-Basiseinheit."
-              }
-            ]
-          }
-        ],
-        "content": "\n        <p>Eine <strong>Gr&ouml;&szlig;e</strong> sagt, was gemessen wird. Eine <strong>Einheit</strong> ist eine vereinbarte Vergleichsgröße. Das Messgerät ist beispielsweise ein Lineal oder eine Stoppuhr. In der Physik gibt es sieben SI-Basisgr&ouml;&szlig;en. F&uuml;r deinen Alltag sind besonders L&auml;nge, Masse und Zeit wichtig.</p>\n        <div class=\"interactive-zone\">\n            <h3>Das 7er-Team</h3>\n            <p>Klicke auf eine Karte und lies Gr&ouml;&szlig;e, Einheit und Einheitenzeichen.</p>\n            <div class=\"prediction-grid\">\n                <button onclick=\"showBaseUnit('length')\">L&auml;nge<br><strong>m</strong></button>\n                <button onclick=\"showBaseUnit('mass')\">Masse<br><strong>kg</strong></button>\n                <button onclick=\"showBaseUnit('time')\">Zeit<br><strong>s</strong></button>\n                <button onclick=\"showBaseUnit('current')\">Stromst&auml;rke<br><strong>A</strong></button>\n                <button onclick=\"showBaseUnit('temperature')\">Temperatur<br><strong>K</strong></button>\n                <button onclick=\"showBaseUnit('amount')\">Stoffmenge<br><strong>mol</strong></button>\n                <button onclick=\"showBaseUnit('light')\">Lichtst&auml;rke<br><strong>cd</strong></button>\n            </div>\n            <p id=\"baseUnitText\" class=\"lab-feedback\">W&auml;hle eine Karte.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Zeit messen</h3>\n            <p>Klicke auf Start und stoppe m&ouml;glichst nahe bei <strong>2,00 s</strong>. Achte auf Zahlenwert und Einheit.</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">Start</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">Stop</button>\n            <div class=\"diagram-box\" style=\"height: 140px; display:flex; flex-direction:column; align-items:center; justify-content:center;\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #1d4ed8; margin: 0;\" id=\"timerDisplay\">0.00 s</p>\n                <p id=\"timerResult\" class=\"lab-feedback\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
-      },
-      {
-        "id": "sec2",
-        "title": "3. Pr&auml;fixe und Umrechnen",
-        "quizzes": [
-          {
-            "id": "q3",
-            "question": "Wie viele Gramm sind in einem Kilogramm (kg)?",
-            "answers": [
-              {
-                "text": "100 Gramm.",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Minute ist praktisch im Alltag, aber in der Physik rechnet man in Sekunden."
-              },
-              {
-                "text": "1.000 Gramm.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau. Sekunde (s) ist die SI-Grundeinheit der Zeit."
-              }
-            ]
-          }
-        ],
-        "content": "\n        <p>Pr&auml;fixe sind Vorsilben vor einer Einheit. Sie helfen, sehr gro&szlig;e oder sehr kleine Werte kurz zu schreiben. Wichtig ist: Du rechnest immer innerhalb derselben Art von Gr&ouml;&szlig;e um. L&auml;nge bleibt L&auml;nge, Masse bleibt Masse, Zeit bleibt Zeit.</p>\n        <div class=\"remember-box\"><strong>Wichtige Umrechnungen:</strong><br>\n            <table style=\"width:100%; border-collapse:collapse; margin-top:8px;\">\n                <tr><th style=\"text-align:left; padding:4px;\">L&auml;nge</th><td style=\"padding:4px;\">1 km = 1000 m<br>1 m = 100 cm<br>1 cm = 10 mm</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Masse</th><td style=\"padding:4px;\">1 kg = 1000 g</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Zeit</th><td style=\"padding:4px;\">1 min = 60 s</td></tr>\n            </table>\n            <p style=\"margin:8px 0 0;\"><strong>Regel:</strong> Wird die Einheit kleiner, wird die Zahl gr&ouml;&szlig;er. Wird die Einheit gr&ouml;&szlig;er, wird die Zahl kleiner.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Einheiten-Zoom</h3>\n            <p>Schiebe von sehr klein bis sehr gro&szlig;.</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"4\" value=\"3\" oninput=\"updateZoom()\" style=\"width: 260px;\">\n            <div class=\"diagram-box\" style=\"height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"zoomTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #1d4ed8;\">1 Meter (m)</p>\n                <svg width=\"240\" height=\"105\" viewBox=\"0 0 240 105\" aria-label=\"Gr&ouml;&szlig;envergleich von Millimeter bis Kilometer\">\n                    <g id=\"zoomMilli\" style=\"display: none;\"><circle cx=\"118\" cy=\"52\" r=\"3\" fill=\"#111827\"></circle><line x1=\"112\" y1=\"62\" x2=\"124\" y2=\"62\" stroke=\"#111827\" stroke-width=\"2\"></line><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Bleistiftspitze</text></g>\n                    <g id=\"zoomCenti\" style=\"display: none;\"><rect x=\"92\" y=\"42\" width=\"56\" height=\"20\" rx=\"4\" fill=\"#22c55e\"></rect><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Radiergummi</text></g>\n                    <g id=\"zoomMeter\" style=\"display: block;\"><circle cx=\"120\" cy=\"25\" r=\"14\" fill=\"#60a5fa\"></circle><line x1=\"120\" y1=\"39\" x2=\"120\" y2=\"84\" stroke=\"#2563eb\" stroke-width=\"6\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"92\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"148\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line></g>\n                    <g id=\"zoomKilo\" style=\"display: none;\"><path d=\"M20 88 L62 36 L104 88 Z\" fill=\"#93c5fd\"></path><path d=\"M78 88 L145 20 L214 88 Z\" fill=\"#60a5fa\"></path><rect x=\"110\" y=\"55\" width=\"18\" height=\"33\" fill=\"#64748b\"></rect><rect x=\"133\" y=\"46\" width=\"24\" height=\"42\" fill=\"#475569\"></rect><text x=\"120\" y=\"101\" text-anchor=\"middle\" font-size=\"12\">Strecke durch den Bezirk</text></g>\n                </svg>\n                <p id=\"zoomDesc\" style=\"color: #475569; margin: 4px 0 0;\">Basis: gro&szlig;er Schritt, Tischh&ouml;he, K&ouml;rpergr&ouml;&szlig;e.</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Umrechnungs-Training</h3>\n            <p>Rechne aus und pr&uuml;fe sofort. Du kannst Komma oder Punkt verwenden.</p>\n            <div class=\"lab-controls\">\n                <label>2 m = <input id=\"convInput0\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> cm <button onclick=\"checkConversion(0)\">Pr&uuml;fen</button></label>\n                <label>3 km = <input id=\"convInput1\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> m <button onclick=\"checkConversion(1)\">Pr&uuml;fen</button></label>\n                <label>1500 g = <input id=\"convInput2\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> kg <button onclick=\"checkConversion(2)\">Pr&uuml;fen</button></label>\n                <label>4 min = <input id=\"convInput3\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> s <button onclick=\"checkConversion(3)\">Pr&uuml;fen</button></label>\n            </div>\n            <p id=\"conversionText\" class=\"lab-feedback\">W&auml;hle eine Aufgabe und pr&uuml;fe deine Antwort.</p>\n        </div>\n        {{QUIZ_q3}}\n    "
-      },
-      {
-        "id": "sec3",
-        "title": "4. Formeln: Weg, Zeit, Geschwindigkeit",
-        "quizzes": [
-          {
-            "id": "q4",
-            "question": "Was passiert mit deiner Geschwindigkeit, wenn du für denselben Weg plötzlich VIEL MEHR Zeit brauchst?",
-            "answers": [
-              {
-                "text": "Die Geschwindigkeit wird kleiner (ich bin langsamer).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Das wäre milli (1/1000)."
-              },
-              {
-                "text": "Die Geschwindigkeit wird größer (ich bin schneller).",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Perfekt. Kilo bedeutet tausendfach, also ×1000."
-              }
-            ]
-          }
-        ],
-        "content": "<p data-average-speed>Hier berechnen wir die <strong>mittlere Geschwindigkeit</strong>: gesamte zurückgelegte Strecke geteilt durch benötigte Zeit. Der Wert sagt nicht, dass du während der ganzen Bewegung gleich schnell warst. Bei einer Pause zählt auch die Pausenzeit zur betrachteten Gesamtzeit.</p>\n        <p>Formeln zeigen kurz, wie Gr&ouml;&szlig;en zusammenh&auml;ngen. Bei Geschwindigkeit geht es um drei Gr&ouml;&szlig;en: <strong>Weg s</strong>, <strong>Zeit t</strong> und <strong>Geschwindigkeit v</strong>.</p>\n        <p><span class=\"formula-card\">v = s / t</span></p>\n        <div class=\"interactive-zone\">\n            <h3>Formel-Dreieck</h3>\n            <p>W&auml;hle, was du suchst. Das Dreieck hilft dir beim Umstellen.</p>\n            <div class=\"diagram-box\" style=\"height: 190px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;\">\n                <svg width=\"180\" height=\"150\" viewBox=\"0 0 180 150\" aria-label=\"Formeldreieck s &uuml;ber v und t\">\n                    <polygon points=\"90,14 18,136 162,136\" fill=\"#eff6ff\" stroke=\"#2563eb\" stroke-width=\"4\"></polygon>\n                    <line x1=\"48\" y1=\"86\" x2=\"132\" y2=\"86\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <line x1=\"90\" y1=\"86\" x2=\"90\" y2=\"136\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <text x=\"90\" y=\"67\" text-anchor=\"middle\" font-size=\"32\" font-weight=\"700\" fill=\"#1d4ed8\">s</text>\n                    <text x=\"63\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">v</text>\n                    <text x=\"117\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">t</text>\n                </svg>\n                <div class=\"prediction-grid\">\n                    <button class=\"prediction-btn\" data-formula-target=\"v\" onclick=\"setFormulaTarget('v')\">Ich suche v</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"s\" onclick=\"setFormulaTarget('s')\">Ich suche s</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"t\" onclick=\"setFormulaTarget('t')\">Ich suche t</button>\n                </div>\n            </div>\n            <p id=\"formulaRule\" class=\"lab-feedback\">Ich suche v: Weg durch Zeit teilen. v = s / t</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Formel-Flitzer</h3>\n            <p>Ver&auml;ndere Weg und Zeit. Beobachte, wie sich die Geschwindigkeit &auml;ndert.</p>\n            <label>Weg s: <span id=\"sVal\">100</span> m<br><input type=\"range\" id=\"sRange\" min=\"10\" max=\"200\" value=\"100\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label><br>\n            <label>Zeit t: <span id=\"tVal\">10</span> s<br><input type=\"range\" id=\"tRange\" min=\"2\" max=\"30\" value=\"10\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; height:145px;\">\n                <svg width=\"220\" height=\"130\" viewBox=\"0 0 220 130\" aria-label=\"Tacho f&uuml;r Geschwindigkeit\">\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#e5e7eb\" stroke-width=\"20\"></path>\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"20\" stroke-dasharray=\"265\" stroke-dashoffset=\"110\"></path>\n                    <text x=\"42\" y=\"105\" font-size=\"11\" fill=\"#475569\">langsam</text><text x=\"145\" y=\"105\" font-size=\"11\" fill=\"#475569\">schnell</text>\n                    <circle cx=\"110\" cy=\"108\" r=\"10\" fill=\"#111827\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"110\" y1=\"108\" x2=\"72\" y2=\"45\" stroke=\"#dc2626\" stroke-width=\"5\" stroke-linecap=\"round\" style=\"transition: all 0.4s; transform-origin: 110px 108px;\"></line>\n                </svg>\n            </div>\n            <p id=\"speedText\" class=\"lab-feedback\">v = 100 m / 10 s = 10,0 m/s</p>\n            <p id=\"speedExample\" class=\"remember-box\">Das ist sehr schnell.</p>\n        </div>\n        {{QUIZ_q4}}\n    "
-      },
-      {
-        "id": "sec4",
-        "title": "5. Diagramme: Aus Tabellen werden Kurven",
-        "quizzes": [
-          {
-            "id": "q5",
-            "question": "Welche Achse in einem Diagramm liegt in der Regel waagerecht am Boden?",
-            "answers": [
-              {
-                "text": "Die y-Achse.",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Fast: Das wäre 0,1 km."
-              },
-              {
-                "text": "Die x-Achse.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau. 1 km entspricht 1000 m."
-              }
-            ]
-          }
-        ],
-        "content": "<p data-measurement-model>Die folgende Tabelle enthält vorgegebene Modellwerte, keine echten Messdaten. Die Animation überträgt diese Werte ins Diagramm. Bei eigenen Messungen protokollierst du zusätzlich Gerät und Bedingungen.</p>\n        <p>Ein Diagramm macht Zahlen sichtbar. Unten liegt meistens die <strong>x-Achse</strong>, zum Beispiel die Zeit. Nach oben geht die <strong>y-Achse</strong>, zum Beispiel die H&ouml;he.</p>\n        <div class=\"interactive-zone\">\n            <h3>Tabelle -> Punkte -> Kurve</h3>\n            <p>Starte die Messreihe. Jede Tabellenzeile erscheint als Punkt im Diagramm.</p>\n            <button onclick=\"drawGraph()\" id=\"graphBtn\">Messreihe starten</button>\n            <div style=\"display:grid; grid-template-columns: minmax(170px, 1fr) minmax(260px, 1.4fr); gap:16px; align-items:center;\">\n                <table style=\"width:100%; border-collapse:collapse; text-align:center;\">\n                    <thead><tr><th>Zeit t</th><th>H&ouml;he h</th></tr></thead>\n                    <tbody>\n                        <tr class=\"graphRow\"><td>0 s</td><td>0 m</td></tr>\n                        <tr class=\"graphRow\"><td>1 s</td><td>5 m</td></tr>\n                        <tr class=\"graphRow\"><td>2 s</td><td>20 m</td></tr>\n                        <tr class=\"graphRow\"><td>3 s</td><td>45 m</td></tr>\n                        <tr class=\"graphRow\"><td>4 s</td><td>80 m</td></tr>\n                    </tbody>\n                </table>\n                <div class=\"diagram-box\" style=\"height: 250px; position: relative; margin:0;\">\n                    <svg width=\"350\" height=\"215\" viewBox=\"0 0 350 215\" aria-label=\"H&ouml;he-Zeit-Diagramm\">\n                        <line x1=\"42\" y1=\"20\" x2=\"42\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <text x=\"8\" y=\"96\" font-size=\"12\" fill=\"#475569\" transform=\"rotate(-90 12,96)\">H&ouml;he h (m)</text>\n                        <text x=\"162\" y=\"205\" font-size=\"12\" fill=\"#475569\">Zeit t (s)</text>\n                        <text x=\"30\" y=\"174\" font-size=\"10\" fill=\"#64748b\">0</text><text x=\"24\" y=\"94\" font-size=\"10\" fill=\"#64748b\">40</text><text x=\"24\" y=\"24\" font-size=\"10\" fill=\"#64748b\">80</text>\n                        <path id=\"rocketPath\" d=\"M 42 170 Q 145 157 210 95 Q 254 56 306 25\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"4\" style=\"stroke-dasharray: 400; stroke-dashoffset: 400;\"></path>\n                        <circle cx=\"42\" cy=\"170\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"108\" cy=\"160\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"174\" cy=\"132\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"240\" cy=\"86\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"306\" cy=\"25\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"graphText\" class=\"lab-feedback\">Noch ist nichts eingezeichnet.</p>\n        </div>\n        <div class=\"mini-task\"><strong>Kann ich das?</strong> Suche in deinem Heft drei Messwerte. Markiere Zahlenwert und Einheit mit zwei Farben.</div>\n        {{QUIZ_q5}}\n    "
+        "content": "<p><strong>Dein Lernweg:</strong> Erst misst du selbst und prüfst deine Messwerte. Danach lernst du Einheiten und Umrechnungen, liest Daten im Diagramm und berechnest zum Schluss eine mittlere Geschwindigkeit. Das Kapitel kannst du später als Werkzeugkasten wieder aufrufen.</p>\n        <div class=\"lesson-goals\">\n            <strong>Das lernst du in diesem Thema:</strong>\n            <ul class=\"step-list\">\n                <li>Messangaben mit Zahlenwert und Einheit lesen.</li>\n                <li>passende Einheiten f&uuml;r Alltagssituationen ausw&auml;hlen.</li>\n                <li>Meter, Zentimeter, Kilometer, Gramm, Kilogramm, Sekunden und Minuten umrechnen.</li>\n                <li>einfache Formeln und Diagramme in der Physik verstehen.</li>\n            </ul>\n        </div>\n        <p>Beim Messen brauchst du immer zwei Teile: einen <strong>Zahlenwert</strong> und eine <strong>Einheit</strong>. Nur <q>20</q> ist nicht eindeutig. <strong>20 cm</strong>, <strong>20 s</strong> und <strong>20 kg</strong> bedeuten v&ouml;llig verschiedene Dinge.</p>\n        <div class=\"remember-box\"><strong>Merksatz:</strong> Ein Größenwert wird als Zahlenwert mal Einheit angegeben: 2,1 m bedeutet 2,1 · m. Beispiel: L&auml;nge = 2,1 m.</div>\n        <div class=\"interactive-zone\">\n            <h3>Das Ma&szlig;band-Chaos</h3>\n            <p>Miss das blaue Rechteck. Vergleiche eine feste Einheit mit K&ouml;rperma&szlig;en, die bei jedem Menschen anders sind.</p>\n            <button onclick=\"measure('cm')\">Mit Zentimetern messen</button>\n            <button onclick=\"measure('feet')\">Mit F&uuml;&szlig;en messen</button>\n            <button onclick=\"measure('hands')\">Mit H&auml;nden messen</button>\n            <div class=\"diagram-box\" style=\"height: 190px;\">\n                <svg width=\"400\" height=\"90\" viewBox=\"0 0 400 90\" aria-label=\"Rechteck mit verschiedenen Messeinteilungen\">\n                    <rect x=\"50\" y=\"10\" width=\"200\" height=\"30\" fill=\"#2563eb\" rx=\"5\"></rect>\n                    <text x=\"150\" y=\"31\" text-anchor=\"middle\" fill=\"white\" font-size=\"13\">blaues Rechteck</text>\n                    <line x1=\"20\" y1=\"65\" x2=\"380\" y2=\"65\" stroke=\"#94a3b8\" stroke-width=\"2\"></line>\n                    <g id=\"ticksCm\" style=\"display: none;\">\n                        <line x1=\"50\" y1=\"48\" x2=\"50\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"70\" y1=\"55\" x2=\"70\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"90\" y1=\"55\" x2=\"90\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"110\" y1=\"55\" x2=\"110\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"130\" y1=\"55\" x2=\"130\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"150\" y1=\"48\" x2=\"150\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"170\" y1=\"55\" x2=\"170\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"190\" y1=\"55\" x2=\"190\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"210\" y1=\"55\" x2=\"210\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"230\" y1=\"55\" x2=\"230\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"250\" y1=\"48\" x2=\"250\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line>\n                    </g>\n                    <g id=\"ticksFeet\" style=\"display: none;\"><line x1=\"50\" y1=\"43\" x2=\"50\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"200\" y1=\"43\" x2=\"200\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"350\" y1=\"43\" x2=\"350\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line></g>\n                    <g id=\"ticksHands\" style=\"display: none;\"><circle cx=\"50\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"65\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"80\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"95\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"110\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"125\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"140\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"155\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"170\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"185\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"200\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"215\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"230\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"245\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle></g>\n                </svg>\n                <p id=\"measureText\" class=\"lab-feedback\">L&auml;nge = ?</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Einheiten-Labor</h3>\n            <p>W&auml;hle eine Sache und dann die Einheit, die am besten passt.</p>\n            <div class=\"lab-controls\">\n                <button onclick=\"checkUnitObject('door','m')\">T&uuml;rh&ouml;he -> m</button>\n                <button onclick=\"checkUnitObject('door','kg')\">T&uuml;rh&ouml;he -> kg</button>\n                <button onclick=\"checkUnitObject('bottle','g')\">Trinkflasche -> g</button>\n                <button onclick=\"checkUnitObject('school','km')\">Schulweg -> km</button>\n                <button onclick=\"checkUnitObject('sprint','s')\">Sprintzeit -> s</button>\n                <button onclick=\"checkUnitObject('room','m')\">Raumtemperatur -> m</button>\n                <button onclick=\"checkUnitObject('room','Grad Celsius')\">Raumtemperatur -> Grad Celsius</button>\n            </div>\n            <p id=\"unitMatchText\" class=\"lab-feedback\">Tipp: Frage zuerst: Was wird gemessen?</p>\n        </div>\n        {{QUIZ_q1}}\n    "
       },
       {
         "id": "measurement_quality",
-        "title": "6. Wie verlässlich ist ein Messwert?",
-        "content": "<p>Messwerte sind nicht beliebig genau. Die Skalenteilung eines Lineals, dein Blickwinkel und das Anlegen beeinflussen eine Längenmessung. Auch viele Ziffern auf einer digitalen Anzeige garantieren keine entsprechende Genauigkeit. Notiere nur Ziffern, die dein Messverfahren sinnvoll hergibt.</p><p><strong>Messauftrag:</strong> Miss mit einem Lineal dreimal dieselbe Kante eines Hefts. Lege das Lineal jedes Mal neu an. Notiere Gerät, kleinste Skalenteilung, Einheit und alle drei Werte. Vergleiche den kleinsten und größten Wert und erkläre mögliche Unterschiede. Stimmen die Werte überein, prüfe trotzdem, ob der Nullpunkt richtig angelegt war. Verändere anschließend den Blickwinkel und beschreibe, warum schräges Ablesen ungünstig sein kann.</p><p><strong>Erfundenes Beispiel:</strong> Drei Messungen ergeben 12,3 cm, 12,4 cm und 12,3 cm. Die Werte liegen zwischen 12,3 cm und 12,4 cm; die Spannweite beträgt 0,1 cm beziehungsweise 1 mm. Diese Spannweite beschreibt die beobachtete Streuung, ist aber nicht automatisch die gesamte Messunsicherheit. Ein verschobener Nullpunkt kann alle Werte ähnlich verfälschen.</p>{{QUIZ_measurement_quality_0}}{{QUIZ_measurement_quality_1}}",
+        "title": "2. Wie verlässlich ist ein Messwert?",
+        "content": "<p>Messwerte sind nicht beliebig genau. Die Skalenteilung eines Lineals, dein Blickwinkel und das Anlegen beeinflussen eine Längenmessung. Auch viele Ziffern auf einer digitalen Anzeige garantieren keine entsprechende Genauigkeit. Notiere nur Ziffern, die dein Messverfahren sinnvoll hergibt.</p><p><strong>Messauftrag:</strong> Miss mit einem Lineal dreimal dieselbe Kante eines Hefts. Lege das Lineal jedes Mal neu an. Notiere Gerät, kleinste Skalenteilung, Einheit und alle drei Werte. Vergleiche den kleinsten und größten Wert und erkläre mögliche Unterschiede. Stimmen die Werte überein, prüfe trotzdem, ob der Nullpunkt richtig angelegt war. Verändere anschließend den Blickwinkel und beschreibe, warum schräges Ablesen ungünstig sein kann.</p><div data-measurement-workshop><h3>Dein Messprotokoll</h3><p>Bezeichne die untersuchte Kante eindeutig, etwa „lange Seite des geschlossenen Hefts“. Wähle für alle drei Messungen dieselbe Einheit. Trage deine eigenen Beobachtungen ein; die Beispielzahlen unten sind keine Messungen an deinem Heft.</p><p>Gegenstand und Kante: ____________________<br>Gerät: ____________________<br>Kleinste Skalenteilung mit Einheit: ____________________</p><table data-measurement-protocol><caption>Dreimal neu anlegen – dieselbe Kante messen</caption><thead><tr><th scope=\"col\">Messung</th><th scope=\"col\">Zahlenwert</th><th scope=\"col\">Einheit</th><th scope=\"col\">Anlegen und Blickrichtung / Auffälligkeiten</th></tr></thead><tbody><tr><th scope=\"row\">1</th><td>____________</td><td>____________</td><td>____________________</td></tr><tr><th scope=\"row\">2</th><td>____________</td><td>____________</td><td>____________________</td></tr><tr><th scope=\"row\">3</th><td>____________</td><td>____________</td><td>____________________</td></tr></tbody></table><ol data-measurement-analysis><li>Ordne deine drei Werte vom kleinsten zum größten. Gib die gemeinsame Einheit an. Wie groß ist ihr Unterschied?</li><li>Prüfe: Lag die Nullmarke an der Kante oder nur der Rand des Lineals? Kann dieselbe Anlegeweise alle drei Werte ähnlich verändern?</li><li>Vergleiche erst danach gerades und schräges Ablesen. Lass Gegenstand und Lineal dabei unverändert. Notiere, was du beobachtest, auch wenn du keinen Unterschied erkennst.</li><li>Formuliere einen Ergebnissatz mit Messwerten und einer Grenze deiner Untersuchung. Gleiche Werte sind kein Beweis für eine fehlerfreie Messung.</li></ol><p><strong>Ohne Lineal:</strong> Werte das ausdrücklich erfundene Beispiel aus. Kennzeichne dein Ergebnis als Auswertung vorgegebener Daten und lasse das eigene Messprotokoll leer.</p></div><p><strong>Erfundenes Beispiel:</strong> Drei Messungen ergeben 12,3 cm, 12,4 cm und 12,3 cm. Die Werte liegen zwischen 12,3 cm und 12,4 cm; die Spannweite beträgt 0,1 cm beziehungsweise 1 mm. Diese Spannweite beschreibt die beobachtete Streuung, ist aber nicht automatisch die gesamte Messunsicherheit. Ein verschobener Nullpunkt kann alle Werte ähnlich verfälschen.</p>{{QUIZ_measurement_quality_0}}{{QUIZ_measurement_quality_1}}",
         "quizzes": [
           {
             "id": "measurement_quality_0",
@@ -7997,6 +7897,106 @@
             ]
           }
         ]
+      },
+      {
+        "id": "sec1",
+        "title": "3. Die 7 Basisgr&ouml;&szlig;en: Das Fundament",
+        "quizzes": [
+          {
+            "id": "q2",
+            "question": "Welche Einheit gehört zur Basisgröße \"Masse\"?",
+            "answers": [
+              {
+                "text": "Kilogramm (kg).",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig. Die SI-Grundeinheit der Länge ist der Meter (m)."
+              },
+              {
+                "text": "Sekunde (s).",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Fuß ist eine ältere/angloamerikanische Einheit, aber keine SI-Basiseinheit."
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Eine <strong>Gr&ouml;&szlig;e</strong> sagt, was gemessen wird. Eine <strong>Einheit</strong> ist eine vereinbarte Vergleichsgröße. Das Messgerät ist beispielsweise ein Lineal oder eine Stoppuhr. In der Physik gibt es sieben SI-Basisgr&ouml;&szlig;en. F&uuml;r deinen Alltag sind besonders L&auml;nge, Masse und Zeit wichtig.</p>\n        <div class=\"interactive-zone\">\n            <h3>Das 7er-Team</h3>\n            <p>Klicke auf eine Karte und lies Gr&ouml;&szlig;e, Einheit und Einheitenzeichen.</p>\n            <div class=\"prediction-grid\">\n                <button onclick=\"showBaseUnit('length')\">L&auml;nge<br><strong>m</strong></button>\n                <button onclick=\"showBaseUnit('mass')\">Masse<br><strong>kg</strong></button>\n                <button onclick=\"showBaseUnit('time')\">Zeit<br><strong>s</strong></button>\n                <button onclick=\"showBaseUnit('current')\">Stromst&auml;rke<br><strong>A</strong></button>\n                <button onclick=\"showBaseUnit('temperature')\">Temperatur<br><strong>K</strong></button>\n                <button onclick=\"showBaseUnit('amount')\">Stoffmenge<br><strong>mol</strong></button>\n                <button onclick=\"showBaseUnit('light')\">Lichtst&auml;rke<br><strong>cd</strong></button>\n            </div>\n            <p id=\"baseUnitText\" class=\"lab-feedback\">W&auml;hle eine Karte.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Zeit messen</h3>\n            <p>Klicke auf Start und stoppe m&ouml;glichst nahe bei <strong>2,00 s</strong>. Achte auf Zahlenwert und Einheit.</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">Start</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">Stop</button>\n            <div class=\"diagram-box\" style=\"height: 140px; display:flex; flex-direction:column; align-items:center; justify-content:center;\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #1d4ed8; margin: 0;\" id=\"timerDisplay\">0.00 s</p>\n                <p id=\"timerResult\" class=\"lab-feedback\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
+      },
+      {
+        "id": "sec2",
+        "title": "4. Pr&auml;fixe und Umrechnen",
+        "quizzes": [
+          {
+            "id": "q3",
+            "question": "Wie viele Gramm sind in einem Kilogramm (kg)?",
+            "answers": [
+              {
+                "text": "100 Gramm.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Minute ist praktisch im Alltag, aber in der Physik rechnet man in Sekunden."
+              },
+              {
+                "text": "1.000 Gramm.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Genau. Sekunde (s) ist die SI-Grundeinheit der Zeit."
+              }
+            ]
+          }
+        ],
+        "content": "\n        <p>Pr&auml;fixe sind Vorsilben vor einer Einheit. Sie helfen, sehr gro&szlig;e oder sehr kleine Werte kurz zu schreiben. Wichtig ist: Du rechnest immer innerhalb derselben Art von Gr&ouml;&szlig;e um. L&auml;nge bleibt L&auml;nge, Masse bleibt Masse, Zeit bleibt Zeit.</p>\n        <div class=\"remember-box\"><strong>Wichtige Umrechnungen:</strong><br>\n            <table style=\"width:100%; border-collapse:collapse; margin-top:8px;\">\n                <tr><th style=\"text-align:left; padding:4px;\">L&auml;nge</th><td style=\"padding:4px;\">1 km = 1000 m<br>1 m = 100 cm<br>1 cm = 10 mm</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Masse</th><td style=\"padding:4px;\">1 kg = 1000 g</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Zeit</th><td style=\"padding:4px;\">1 min = 60 s</td></tr>\n            </table>\n            <p style=\"margin:8px 0 0;\"><strong>Regel:</strong> Wird die Einheit kleiner, wird die Zahl gr&ouml;&szlig;er. Wird die Einheit gr&ouml;&szlig;er, wird die Zahl kleiner.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Einheiten-Zoom</h3>\n            <p>Schiebe von sehr klein bis sehr gro&szlig;.</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"4\" value=\"3\" oninput=\"updateZoom()\" style=\"width: 260px;\">\n            <div class=\"diagram-box\" style=\"height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"zoomTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #1d4ed8;\">1 Meter (m)</p>\n                <svg width=\"240\" height=\"105\" viewBox=\"0 0 240 105\" aria-label=\"Gr&ouml;&szlig;envergleich von Millimeter bis Kilometer\">\n                    <g id=\"zoomMilli\" style=\"display: none;\"><circle cx=\"118\" cy=\"52\" r=\"3\" fill=\"#111827\"></circle><line x1=\"112\" y1=\"62\" x2=\"124\" y2=\"62\" stroke=\"#111827\" stroke-width=\"2\"></line><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Bleistiftspitze</text></g>\n                    <g id=\"zoomCenti\" style=\"display: none;\"><rect x=\"92\" y=\"42\" width=\"56\" height=\"20\" rx=\"4\" fill=\"#22c55e\"></rect><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Radiergummi</text></g>\n                    <g id=\"zoomMeter\" style=\"display: block;\"><circle cx=\"120\" cy=\"25\" r=\"14\" fill=\"#60a5fa\"></circle><line x1=\"120\" y1=\"39\" x2=\"120\" y2=\"84\" stroke=\"#2563eb\" stroke-width=\"6\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"92\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"148\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line></g>\n                    <g id=\"zoomKilo\" style=\"display: none;\"><path d=\"M20 88 L62 36 L104 88 Z\" fill=\"#93c5fd\"></path><path d=\"M78 88 L145 20 L214 88 Z\" fill=\"#60a5fa\"></path><rect x=\"110\" y=\"55\" width=\"18\" height=\"33\" fill=\"#64748b\"></rect><rect x=\"133\" y=\"46\" width=\"24\" height=\"42\" fill=\"#475569\"></rect><text x=\"120\" y=\"101\" text-anchor=\"middle\" font-size=\"12\">Strecke durch den Bezirk</text></g>\n                </svg>\n                <p id=\"zoomDesc\" style=\"color: #475569; margin: 4px 0 0;\">Basis: gro&szlig;er Schritt, Tischh&ouml;he, K&ouml;rpergr&ouml;&szlig;e.</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Umrechnungs-Training</h3>\n            <p>Rechne aus und pr&uuml;fe sofort. Du kannst Komma oder Punkt verwenden.</p>\n            <div class=\"lab-controls\">\n                <label>2 m = <input id=\"convInput0\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> cm <button onclick=\"checkConversion(0)\">Pr&uuml;fen</button></label>\n                <label>3 km = <input id=\"convInput1\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> m <button onclick=\"checkConversion(1)\">Pr&uuml;fen</button></label>\n                <label>1500 g = <input id=\"convInput2\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> kg <button onclick=\"checkConversion(2)\">Pr&uuml;fen</button></label>\n                <label>4 min = <input id=\"convInput3\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> s <button onclick=\"checkConversion(3)\">Pr&uuml;fen</button></label>\n            </div>\n            <p id=\"conversionText\" class=\"lab-feedback\">W&auml;hle eine Aufgabe und pr&uuml;fe deine Antwort.</p>\n        </div>\n        {{QUIZ_q3}}\n    "
+      },
+      {
+        "id": "sec4",
+        "title": "5. Diagramme: Aus Tabellen werden Kurven",
+        "quizzes": [
+          {
+            "id": "q5",
+            "question": "Welche Achse in einem Diagramm liegt in der Regel waagerecht am Boden?",
+            "answers": [
+              {
+                "text": "Die y-Achse.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Fast: Das wäre 0,1 km."
+              },
+              {
+                "text": "Die x-Achse.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Genau. 1 km entspricht 1000 m."
+              }
+            ]
+          }
+        ],
+        "content": "<p data-measurement-model>Die folgende Tabelle enthält vorgegebene Modellwerte, keine echten Messdaten. Die Animation überträgt diese Werte ins Diagramm. Bei eigenen Messungen protokollierst du zusätzlich Gerät und Bedingungen.</p>\n        <p>Ein Diagramm macht Zahlen sichtbar. Unten liegt meistens die <strong>x-Achse</strong>, zum Beispiel die Zeit. Nach oben geht die <strong>y-Achse</strong>, zum Beispiel die H&ouml;he.</p>\n        <div class=\"interactive-zone\">\n            <h3>Tabelle -> Punkte -> Kurve</h3>\n            <p>Starte die Messreihe. Jede Tabellenzeile erscheint als Punkt im Diagramm.</p>\n            <button onclick=\"drawGraph()\" id=\"graphBtn\">Messreihe starten</button>\n            <div style=\"display:grid; grid-template-columns: minmax(170px, 1fr) minmax(260px, 1.4fr); gap:16px; align-items:center;\">\n                <table style=\"width:100%; border-collapse:collapse; text-align:center;\">\n                    <thead><tr><th>Zeit t</th><th>H&ouml;he h</th></tr></thead>\n                    <tbody>\n                        <tr class=\"graphRow\"><td>0 s</td><td>0 m</td></tr>\n                        <tr class=\"graphRow\"><td>1 s</td><td>5 m</td></tr>\n                        <tr class=\"graphRow\"><td>2 s</td><td>20 m</td></tr>\n                        <tr class=\"graphRow\"><td>3 s</td><td>45 m</td></tr>\n                        <tr class=\"graphRow\"><td>4 s</td><td>80 m</td></tr>\n                    </tbody>\n                </table>\n                <div class=\"diagram-box\" style=\"height: 250px; position: relative; margin:0;\">\n                    <svg width=\"350\" height=\"215\" viewBox=\"0 0 350 215\" aria-label=\"H&ouml;he-Zeit-Diagramm\">\n                        <line x1=\"42\" y1=\"20\" x2=\"42\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <text x=\"8\" y=\"96\" font-size=\"12\" fill=\"#475569\" transform=\"rotate(-90 12,96)\">H&ouml;he h (m)</text>\n                        <text x=\"162\" y=\"205\" font-size=\"12\" fill=\"#475569\">Zeit t (s)</text>\n                        <text x=\"30\" y=\"174\" font-size=\"10\" fill=\"#64748b\">0</text><text x=\"24\" y=\"94\" font-size=\"10\" fill=\"#64748b\">40</text><text x=\"24\" y=\"24\" font-size=\"10\" fill=\"#64748b\">80</text>\n                        <path id=\"rocketPath\" d=\"M 42 170 Q 145 157 210 95 Q 254 56 306 25\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"4\" style=\"stroke-dasharray: 400; stroke-dashoffset: 400;\"></path>\n                        <circle cx=\"42\" cy=\"170\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"108\" cy=\"160\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"174\" cy=\"132\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"240\" cy=\"86\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"306\" cy=\"25\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"graphText\" class=\"lab-feedback\">Noch ist nichts eingezeichnet.</p>\n        </div>\n        <div class=\"mini-task\"><strong>Kann ich das?</strong> Suche in deinem Heft drei Messwerte. Markiere Zahlenwert und Einheit mit zwei Farben.</div>\n        {{QUIZ_q5}}\n    "
+      },
+      {
+        "id": "sec3",
+        "title": "6. Formeln: Weg, Zeit, Geschwindigkeit",
+        "quizzes": [
+          {
+            "id": "q4",
+            "question": "Was passiert mit deiner Geschwindigkeit, wenn du für denselben Weg plötzlich VIEL MEHR Zeit brauchst?",
+            "answers": [
+              {
+                "text": "Die Geschwindigkeit wird kleiner (ich bin langsamer).",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Das wäre milli (1/1000)."
+              },
+              {
+                "text": "Die Geschwindigkeit wird größer (ich bin schneller).",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Perfekt. Kilo bedeutet tausendfach, also ×1000."
+              }
+            ]
+          }
+        ],
+        "content": "<p data-average-speed>Hier berechnen wir die <strong>mittlere Geschwindigkeit</strong>: gesamte zurückgelegte Strecke geteilt durch benötigte Zeit. Der Wert sagt nicht, dass du während der ganzen Bewegung gleich schnell warst. Bei einer Pause zählt auch die Pausenzeit zur betrachteten Gesamtzeit.</p>\n        <p>Formeln zeigen kurz, wie Gr&ouml;&szlig;en zusammenh&auml;ngen. Bei Geschwindigkeit geht es um drei Gr&ouml;&szlig;en: <strong>Weg s</strong>, <strong>Zeit t</strong> und <strong>Geschwindigkeit v</strong>.</p>\n        <p><span class=\"formula-card\">v = s / t</span></p>\n        <div class=\"interactive-zone\">\n            <h3>Formel-Dreieck</h3>\n            <p>W&auml;hle, was du suchst. Das Dreieck hilft dir beim Umstellen.</p>\n            <div class=\"diagram-box\" style=\"height: 190px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;\">\n                <svg width=\"180\" height=\"150\" viewBox=\"0 0 180 150\" aria-label=\"Formeldreieck s &uuml;ber v und t\">\n                    <polygon points=\"90,14 18,136 162,136\" fill=\"#eff6ff\" stroke=\"#2563eb\" stroke-width=\"4\"></polygon>\n                    <line x1=\"48\" y1=\"86\" x2=\"132\" y2=\"86\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <line x1=\"90\" y1=\"86\" x2=\"90\" y2=\"136\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <text x=\"90\" y=\"67\" text-anchor=\"middle\" font-size=\"32\" font-weight=\"700\" fill=\"#1d4ed8\">s</text>\n                    <text x=\"63\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">v</text>\n                    <text x=\"117\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">t</text>\n                </svg>\n                <div class=\"prediction-grid\">\n                    <button class=\"prediction-btn\" data-formula-target=\"v\" onclick=\"setFormulaTarget('v')\">Ich suche v</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"s\" onclick=\"setFormulaTarget('s')\">Ich suche s</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"t\" onclick=\"setFormulaTarget('t')\">Ich suche t</button>\n                </div>\n            </div>\n            <p id=\"formulaRule\" class=\"lab-feedback\">Ich suche v: Weg durch Zeit teilen. v = s / t</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Formel-Flitzer</h3>\n            <p>Ver&auml;ndere Weg und Zeit. Beobachte, wie sich die Geschwindigkeit &auml;ndert.</p>\n            <label>Weg s: <span id=\"sVal\">100</span> m<br><input type=\"range\" id=\"sRange\" min=\"10\" max=\"200\" value=\"100\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label><br>\n            <label>Zeit t: <span id=\"tVal\">10</span> s<br><input type=\"range\" id=\"tRange\" min=\"2\" max=\"30\" value=\"10\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; height:145px;\">\n                <svg width=\"220\" height=\"130\" viewBox=\"0 0 220 130\" aria-label=\"Tacho f&uuml;r Geschwindigkeit\">\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#e5e7eb\" stroke-width=\"20\"></path>\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"20\" stroke-dasharray=\"265\" stroke-dashoffset=\"110\"></path>\n                    <text x=\"42\" y=\"105\" font-size=\"11\" fill=\"#475569\">langsam</text><text x=\"145\" y=\"105\" font-size=\"11\" fill=\"#475569\">schnell</text>\n                    <circle cx=\"110\" cy=\"108\" r=\"10\" fill=\"#111827\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"110\" y1=\"108\" x2=\"72\" y2=\"45\" stroke=\"#dc2626\" stroke-width=\"5\" stroke-linecap=\"round\" style=\"transition: all 0.4s; transform-origin: 110px 108px;\"></line>\n                </svg>\n            </div>\n            <p id=\"speedText\" class=\"lab-feedback\">v = 100 m / 10 s = 10,0 m/s</p>\n            <p id=\"speedExample\" class=\"remember-box\">Das ist sehr schnell.</p>\n        </div>\n        {{QUIZ_q4}}\n    "
       }
     ],
     "diplom": {
@@ -8186,12 +8186,12 @@
     },
     "learningGoals": [
       "Messgrößen mit Zahlenwert und Einheit angeben.",
+      "Messwerte mit Gerät, Einheit und Bedingungen dokumentieren und Grenzen der Genauigkeit erklären.",
       "Längen, Massen und Zeiten in passende Einheiten umrechnen.",
-      "Geschwindigkeit berechnen und Messwerte aus Diagrammen lesen.",
-      "Messwerte mit Gerät, Einheit und Bedingungen dokumentieren und Grenzen der Genauigkeit erklären."
+      "Geschwindigkeit berechnen und Messwerte aus Diagrammen lesen."
     ],
     "prerequisites": [
-      "Dezimalzahlen lesen und einfache Divisionen ausführen."
+      "Zahlenwerte mit Komma lesen. Für den letzten Abschnitt sind einfache Divisionen hilfreich; zuerst übst du das Messen und Ablesen."
     ],
     "summary": [
       "Eine Messangabe verbindet Zahlenwert und Einheit; Größe und Einheit sind verschieden.",
@@ -10546,20 +10546,26 @@
         "quizzes": [
           {
             "id": "dgb6_kommunikation_q1",
-            "question": "Was passiert mit Daten im Netzwerk vereinfacht gesagt?",
+            "question": "Welche Beschreibung passt zur vereinfachten Übertragung einer längeren Nachricht in Datenpaketen?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Sie werden in kleine Pakete geteilt und übertragen.",
+                "text": "Die Nachricht wird in Teile übertragen; Steuerinformationen helfen beim Zuordnen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Datenpakete helfen bei der Übertragung."
+                "feedback": "Richtig: Nutzdaten und Steuerinformationen erfüllen unterschiedliche Aufgaben."
               },
               {
-                "text": "Sie verwandeln sich in Papierbriefe.",
+                "text": "Jedes Paket enthält grundsätzlich noch einmal die gesamte Nachricht.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Papierbriefe sind hier nur ein Vergleich, nicht der echte Ablauf."
+                "feedback": "Pakete transportieren normalerweise Teile der Daten. Eine vollständige Kopie in jedem Paket ist nicht das Prinzip der Aufteilung."
+              },
+              {
+                "text": "Die Ankunftsreihenfolge allein legt fest, wie die Nachricht ursprünglich lautete.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Reihenfolge kann sich bei der Übertragung ändern. Darum reicht die Ankunftsfolge zum Rekonstruieren nicht aus."
               }
             ]
           },
@@ -10583,7 +10589,7 @@
             ]
           }
         ],
-        "content": "\n<div class=\"word-workshop dgb-workshop\">\n  <div class=\"lesson-goals\"><strong>Das kannst du nach dieser Werkstatt:</strong><ul class=\"step-list\"><li>du erkl&auml;rst Datenpakete vereinfacht</li><li>du erkennst Interessen von Social-Media-Angeboten</li><li>du pr&uuml;fst Nachrichten auf Manipulation und Betrug</li></ul></div>\n  <p>Wenn du online eine Nachricht sendest, wandert nicht ein ganzer Brief durch ein Kabel. Daten werden in kleine Teile zerlegt, &uuml;ber Netzwerke &uuml;bertragen und am Ziel wieder zusammengesetzt.</p>\n  <p>Bei Social Media geht es nicht nur um Austausch. Anbieter sammeln Aufmerksamkeit und Daten. Manche Nachrichten wollen informieren, andere &uuml;bertreiben, manipulieren oder betr&uuml;gen.</p>\n  <div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Datenpaket</strong><br>Ein kleiner Teil einer Nachricht auf dem Weg durchs Netzwerk.</div><div class=\"word-ui-card\"><strong>Social Media</strong><br>Plattformen zum Teilen, Kommentieren und Vernetzen.</div><div class=\"word-ui-card\"><strong>Fake News</strong><br>Falsche oder stark verdrehte Information, oft mit Absicht.</div><div class=\"word-ui-card\"><strong>Phishing</strong><br>Betrug, bei dem Daten oder Passw&ouml;rter gestohlen werden sollen.</div></div>\n  <div class=\"remember-box\"><strong>Merksatz:</strong> Schnelle digitale Kommunikation braucht langsames Pr&uuml;fen: Wer sendet? Warum? Was soll ich tun?</div>\n  <div class=\"word-task-card\"><h3>Mini-Aufgabe 1: Phishing-Warnzeichen markieren</h3><ol class=\"word-mini-steps\"><li>Lies eine Beispielnachricht der Lehrperson.</li><li>Markiere W&ouml;rter, die Druck machen: sofort, Konto gesperrt, letzter Termin.</li><li>Pr&uuml;fe den Link: Passt die Adresse wirklich zur angeblichen Firma?</li><li>Schreibe eine sichere Reaktion: nicht klicken, erwachsene Hilfe holen, Nachricht melden.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du findest mindestens drei Warnzeichen und klickst nicht auf den verd&auml;chtigen Link.</div></div>\n  <div class=\"word-path\"><span>lesen</span><b class=\"arrow\">&gt;</b><span>ausprobieren</span><b class=\"arrow\">&gt;</b><span>kontrollieren</span><b class=\"arrow\">&gt;</b><span>verbessern</span></div>\n</div>\n{{QUIZ_dgb6_kommunikation_q1}}\n{{QUIZ_dgb6_kommunikation_p1}}"
+        "content": "\n<div class=\"word-workshop dgb-workshop\">\n  <div class=\"lesson-goals\"><strong>Das kannst du nach dieser Werkstatt:</strong><ul class=\"step-list\"><li>du erkl&auml;rst Datenpakete vereinfacht</li><li>du erkennst Interessen von Social-Media-Angeboten</li><li>du pr&uuml;fst Nachrichten auf Manipulation und Betrug</li></ul></div>\n  <p>Wenn du online eine Nachricht sendest, wandert nicht ein ganzer Brief durch ein Kabel. Daten werden in kleine Teile zerlegt, &uuml;ber Netzwerke &uuml;bertragen und am Ziel wieder zusammengesetzt.</p>\n  <p>Bei Social Media geht es nicht nur um Austausch. Anbieter sammeln Aufmerksamkeit und Daten. Manche Nachrichten wollen informieren, andere &uuml;bertreiben, manipulieren oder betr&uuml;gen.</p>\n  <div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Datenpaket</strong><br>Ein kleiner Teil einer Nachricht auf dem Weg durchs Netzwerk.</div><div class=\"word-ui-card\"><strong>Social Media</strong><br>Plattformen zum Teilen, Kommentieren und Vernetzen.</div><div class=\"word-ui-card\"><strong>Fake News</strong><br>Falsche oder stark verdrehte Information, oft mit Absicht.</div><div class=\"word-ui-card\"><strong>Phishing</strong><br>Betrug, bei dem Daten oder Passw&ouml;rter gestohlen werden sollen.</div></div>\n  <div class=\"remember-box\"><strong>Merksatz:</strong> Schnelle digitale Kommunikation braucht langsames Pr&uuml;fen: Wer sendet? Warum? Was soll ich tun?</div>\n  <div class=\"word-task-card\"><h3>Mini-Aufgabe 1: Phishing-Warnzeichen markieren</h3><ol class=\"word-mini-steps\"><li>Lies die erfundene Nachricht A unten oder eine Beispielnachricht der Lehrperson.</li><li>Markiere W&ouml;rter, die Druck machen: sofort, Konto gesperrt, letzter Termin.</li><li>Pr&uuml;fe den Link: Passt die Adresse wirklich zur angeblichen Firma?</li><li>Schreibe eine sichere Reaktion: nicht klicken, erwachsene Hilfe holen, Nachricht melden.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du findest mindestens drei Warnzeichen und klickst nicht auf den verd&auml;chtigen Link.</div></div>\n  <div class=\"word-path\"><span>lesen</span><b class=\"arrow\">&gt;</b><span>ausprobieren</span><b class=\"arrow\">&gt;</b><span>kontrollieren</span><b class=\"arrow\">&gt;</b><span>verbessern</span></div>\n</div>\n{{QUIZ_dgb6_kommunikation_q1}}\n{{QUIZ_dgb6_kommunikation_p1}}<div class=\"workshop\" data-message-case=\"A\"><h3>Nachricht A: angeblich vom Lernportal</h3><p><strong>Erfundene Übungsnachricht.</strong> Namen und Adressen sind Beispiele. Öffne keine der Beispieladressen und gib keine Zugangsdaten ein.</p><blockquote><p>Von: „Dein Lernportal-Team“<br>Betreff: Dein Zugang endet in 15 Minuten</p><p>Hallo! Bestätige sofort dein Passwort über unseren Prüfknopf. Sonst gehen deine Lernpunkte verloren. Antworte nicht auf diese Nachricht.</p><p>Beschriftung des Prüfknopfs: „Lernportal öffnen“<br>Angegebenes Linkziel: <code>https://lernportal-pruefung.invalid/anmelden</code></p></blockquote><p>In der Übung ist deine bisher bekannte Portaladresse <code>https://lernportal.invalid</code>. Die Endung <code>.invalid</code> kennzeichnet hier absichtlich nicht nutzbare Beispieladressen.</p><ol data-phishing-tasks><li>Markiere drei konkrete Warnzeichen in der Nachricht. Trenne den sichtbaren Knopftext von der angegebenen Zieladresse.</li><li>Vergleiche beide vollständigen Adressen. Das Wort „Lernportal“ allein beweist nicht, dass es derselbe Anbieter ist.</li><li>Notiere einen Prüfweg ohne den Nachrichtenlink: Öffne den Dienst über die bereits bekannte App oder Adresse und frage die Lehrperson über einen bekannten Kontakt.</li><li>Schreibe eine kurze Meldung an die Lehrperson: Was kam an, was wird verlangt, was ist auffällig? Notiere niemals dein Passwort oder einen Bestätigungscode.</li></ol><p><strong>Prüfregel:</strong> Zeitdruck, Absendername und Aussehen sind Hinweise. Auch eine freundlich formulierte Nachricht ohne Schreibfehler kann täuschen. Vertrauliche Daten gehören nicht in eine verdächtige Anfrage. Eine Prüfung über einen unabhängig bekannten Kontakt ist verlässlicher als eine Rückfrage an die verdächtige Nachricht.</p><details data-worksheet-solution=\"true\"><summary>Vergleich zu Nachricht A</summary><p>Warnzeichen sind die kurze Frist, der angedrohte Verlust und die Aufforderung zur Passworteingabe über eine abweichende Adresse. Der Knopftext belegt das Ziel nicht. Die bekannte App selbst zu öffnen oder die Lehrperson persönlich zu fragen vermeidet den angebotenen Link. Nur den Namen des Absenders zu prüfen reicht nicht.</p></details><p>Zum Nachlesen: <a href=\"https://www.onlinesicherheit.gv.at/Services/Technologie-Schwerpunkte/Phishing-und-Cybercrime/Praeventionsmassnahmen-gegen-Phishing.html\" target=\"_blank\" rel=\"noopener\">A-SIT: Phishing vorbeugen und verdächtige Nachrichten prüfen</a>.</p></div>"
       },
       {
         "id": "sec2",
@@ -10591,20 +10597,26 @@
         "quizzes": [
           {
             "id": "dgb6_kommunikation_q2",
-            "question": "Welches Warnzeichen passt zu Fake News?",
+            "question": "B3 nennt ein Datum, klingt ruhig und verweist auf B2. B2 hat die Meldung nur aus dem unbelegten B1 übernommen. Was folgt daraus?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "keine Quelle und sehr dramatische Sprache",
+                "text": "Die Behauptung bleibt unbestätigt; ich prüfe den Ursprung und suche einen passenden weiteren Beleg.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: starke Gefühle ohne Quelle sind verdächtig."
+                "feedback": "Richtig: Datum und sachlicher Stil ersetzen keinen Beleg. Die drei Texte haben hier denselben Ursprung."
               },
               {
-                "text": "ruhige Quellenangabe und Datum",
+                "text": "Die Behauptung ist bestätigt, weil B3 sachlich schreibt und eine Quelle nennt.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Quelle und Datum helfen eher beim Prüfen."
+                "feedback": "Eine Quellenangabe muss geprüft werden. B3 führt über B2 nur zur unbelegten Ausgangsmeldung."
+              },
+              {
+                "text": "Die Behauptung ist sicher falsch, weil B1 keinen Beleg angibt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein fehlender Beleg begründet Zweifel, beweist aber für sich allein noch nicht das Gegenteil."
               }
             ]
           },
@@ -10628,7 +10640,7 @@
             ]
           }
         ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Netzwerk</strong><br>Verbundene Ger&auml;te, die Daten austauschen.</div><div class=\"word-ui-card\"><strong>Datenpaket</strong><br>Kleiner Teil einer &Uuml;bertragung.</div><div class=\"word-ui-card\"><strong>Manipulation</strong><br>Jemand beeinflusst andere absichtlich, oft ohne es offen zu sagen.</div><div class=\"word-ui-card\"><strong>Phishing</strong><br>Betrugsversuch, der zum Klicken oder Eingeben von Daten verleiten will.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Paketvergleich</td><td>Eine lange Nachricht wird wie ein Puzzle in Teile zerlegt.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Fake-News-Hinweis</td><td>sehr starke Gef&uuml;hle, keine Quelle, &bdquo;teile sofort&ldquo;.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Phishing-Hinweis</td><td>Druck, falscher Link, Passwort wird verlangt.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb6_kommunikation_q2}}\n{{QUIZ_dgb6_kommunikation_p2}}"
+        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Netzwerk</strong><br>Verbundene Ger&auml;te, die Daten austauschen.</div><div class=\"word-ui-card\"><strong>Datenpaket</strong><br>Kleiner Teil einer &Uuml;bertragung.</div><div class=\"word-ui-card\"><strong>Manipulation</strong><br>Jemand beeinflusst andere absichtlich, oft ohne es offen zu sagen.</div><div class=\"word-ui-card\"><strong>Phishing</strong><br>Betrugsversuch, der zum Klicken oder Eingeben von Daten verleiten will.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Paketvergleich</td><td>Eine lange Nachricht wird wie ein Puzzle in Teile zerlegt.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Fake-News-Hinweis</td><td>sehr starke Gef&uuml;hle, keine Quelle, &bdquo;teile sofort&ldquo;.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Phishing-Hinweis</td><td>Druck, falscher Link, Passwort wird verlangt.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb6_kommunikation_q2}}\n{{QUIZ_dgb6_kommunikation_p2}}<div class=\"workshop\" data-packet-workshop><h3>Nachrichtenstücke richtig zusammensetzen</h3><p>Unsere erfundene Nachricht besteht aus vier Karten. Auf jeder stehen die Nachrichtenkennung A, die Position und der Inhalt. Alle Karten gehören zum selben Empfänger. Die Ankunftsreihenfolge darf von der ursprünglichen Reihenfolge abweichen.</p><table data-packet-source><caption>Karten der Modellnachricht A</caption><thead><tr><th scope=\"col\">Position</th><th scope=\"col\">Inhalt</th></tr></thead><tbody><tr><th scope=\"row\">1</th><td>Wir</td></tr><tr><th scope=\"row\">2</th><td>lernen</td></tr><tr><th scope=\"row\">3</th><td>heute</td></tr><tr><th scope=\"row\">4</th><td>gemeinsam.</td></tr></tbody></table><div class=\"interactive-zone\" data-core-experiment=\"packet-order\"><h4>Empfang ausprobieren</h4><p>Ein Tastendruck lässt die gewählte Karte ankommen. Drücke dieselbe Taste erneut, um eine doppelte Ankunft zu untersuchen. Es werden keine Nachrichten über ein Netzwerk gesendet.</p><div><button type=\"button\" data-packet-receive=\"1\">Karte 1 empfangen</button> <button type=\"button\" data-packet-receive=\"2\">Karte 2 empfangen</button> <button type=\"button\" data-packet-receive=\"3\">Karte 3 empfangen</button> <button type=\"button\" data-packet-receive=\"4\">Karte 4 empfangen</button> <button type=\"button\" data-packet-reset>Neu beginnen</button></div><p><strong>Angekommen:</strong> <span data-packet-arrivals>noch keine Karte</span></p><p><strong>Nach Position geordnet:</strong> <span data-packet-message>… | … | … | …</span></p><p data-packet-result role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><template data-worksheet-alternative><p>Zeichne vier nummerierte Karten nach der Tabelle. Führe die Empfangsfolgen 3–1–4–2, 1–2–2–4 und anschließend zusätzlich 3 aus. Notiere nach jeder Karte die geordnete Nachricht mit Lücken.</p></template></div><ol data-packet-tasks><li>Sage das Ergebnis der Empfangsfolge 3–1–4–2 voraus. Führe sie dann aus. Vergleiche Ankunftsfolge und zusammengesetzte Nachricht.</li><li>Beginne neu. Empfange 1–2–2–4. Es gab vier Ankünfte: Ist die Nachricht vollständig? Begründe anhand der Positionen.</li><li>Welche Karte fehlt? Empfange nur diese Karte zusätzlich. Prüfe, ob der Inhalt der doppelten Karte zweimal in der Nachricht steht.</li><li>Führt dieselben Folgen mit Papierkarten zu zweit aus. Eine Person übergibt, die andere protokolliert Ankunft, vorhandene Positionen und fehlende Positionen. Tauscht die Rollen.</li><li>Erkläre, warum die Zahl der Ankünfte allein nicht genügt. Nenne außerdem zwei Unterschiede zwischen unseren Karten und echten Netzdaten.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichsauswertung</summary><p>3–1–4–2 ergibt „Wir lernen heute gemeinsam.“ Nach 1–2–2–4 fehlt Position 3: „Wir lernen … gemeinsam.“ Die zweite Ankunft von Karte 2 ergänzt keinen neuen Inhalt. Mit Karte 3 wird die Nachricht vollständig. Nummern helfen, Lücken und Wiederholungen zu erkennen; bloß vier Ankünfte beweisen keine Vollständigkeit.</p></details><p><strong>Modellgrenze:</strong> Wir kennen hier vorab vier Wortkarten. Echte Übertragungen arbeiten mit codierten Daten und zusätzlichen Steuerinformationen. TCP ordnet einen Datenstrom mithilfe von Sequenznummern und behandelt Verluste durch erneutes Senden; seine Nummern beziehen sich auf Bytes, nicht auf unsere vier Wortkarten. Nicht jede Internetübertragung verwendet TCP. Unser Modell zeigt weder Wege durch Router noch Bestätigungen oder automatische Wiederholungen. Aus einer Lücke allein wissen wir hier nicht, ob eine Karte noch unterwegs ist oder verloren ging.</p><p>Fachlicher Hintergrund für Lehrpersonen: <a href=\"https://www.rfc-editor.org/rfc/rfc9293.html#section-2.2\" target=\"_blank\" rel=\"noopener\">TCP-Spezifikation, Abschnitt 2.2</a>.</p></div><div class=\"workshop\" data-message-case=\"B\"><h3>Nachrichten B: drei Beiträge, wie viele Belege?</h3><p><strong>Alle folgenden Meldungen und das Datum sind erfunden.</strong> Du prüfst die Behauptung, dass an einer Beispielschule morgen der Unterricht ausfällt. Sie betrifft keine echte Schule.</p><table data-source-chain><caption>Material für den Quellenvergleich</caption><thead><tr><th scope=\"col\">Beitrag</th><th scope=\"col\">Inhalt und Herkunft</th></tr></thead><tbody><tr><th scope=\"row\">B1</th><td>Gruppenchat, 14. Oktober, 18 Uhr: „Morgen entfällt der Unterricht.“ Keine Begründung, keine Schulmitteilung verlinkt.</td></tr><tr><th scope=\"row\">B2</th><td>Blog, 14. Oktober, 18:10 Uhr: „Unterricht entfällt morgen.“ Als Quelle ist B1 angegeben.</td></tr><tr><th scope=\"row\">B3</th><td>Beitrag mit ruhiger Sprache, 14. Oktober, 18:20 Uhr: dieselbe Aussage; als Quelle ist B2 angegeben.</td></tr></tbody></table><ol data-source-tasks><li>Zeichne Pfeile von jedem Beitrag zu seiner angegebenen Quelle. Wo endet die Kette?</li><li>Unterscheide die Anzahl der Beiträge von der Anzahl unabhängiger Bestätigungen. Warum ist B3 trotz Datum und ruhiger Sprache noch kein Beweis?</li><li>Formuliere dein derzeitiges Urteil mit dem Wort „unbestätigt“. Aus den vorliegenden Angaben folgt weder, dass der Unterricht sicher entfällt, noch, dass die Meldung sicher erfunden ist.</li><li>Plane den nächsten Prüfschritt: eine aktuelle Mitteilung der betreffenden Schule über deren bekannten Kanal suchen oder dort nachfragen. Prüfe Datum und betroffene Schule; eine alte Meldung einer anderen Schule beantwortet die Frage nicht.</li><li>Schreibe eine Antwort an den Gruppenchat, die die Unsicherheit benennt und einen Prüfweg vorschlägt. Teile die Behauptung nicht als bestätigte Tatsache weiter.</li></ol><table data-source-protocol><caption>Dein Belegprotokoll</caption><thead><tr><th scope=\"col\">Geprüfte Aussage</th><th scope=\"col\">Ursprung / Fundstelle</th><th scope=\"col\">Datum und passende Schule</th><th scope=\"col\">Bestätigt, widerspricht oder offen?</th></tr></thead><tbody><tr><td>B1–B3</td><td>________________</td><td>________________</td><td>________________</td></tr><tr><td>Zusätzlicher Beleg, falls vorhanden</td><td>________________</td><td>________________</td><td>________________</td></tr></tbody></table><p>Ohne zusätzlichen Beleg bleibt die zweite Zeile offen. Erfinde keine Bestätigung. Bei einem anschließenden echten Rechercheauftrag notierst du Originalfundstelle und Abrufdatum.</p><details data-worksheet-solution=\"true\"><summary>Vergleich zu den Nachrichten B</summary><p>Die Kette lautet B3 → B2 → B1. Drei Beiträge liefern hier keine drei unabhängigen Bestätigungen. Alle führen auf dieselbe unbelegte Ausgangsmeldung zurück. Das angemessene Zwischenurteil lautet „unbestätigt“. Erst ein passender zusätzlicher Beleg kann die Aussage stützen oder widerlegen; eine Mehrheitszählung der Beiträge genügt nicht.</p></details><p>Zum Nachlesen: <a href=\"https://www.saferinternet.at/wie-ueberprueft-man-onlineinhalte\" target=\"_blank\" rel=\"noopener\">Saferinternet.at: Onlineinhalte überprüfen</a>.</p></div>"
       },
       {
         "id": "sec3",
@@ -10636,20 +10648,26 @@
         "quizzes": [
           {
             "id": "dgb6_kommunikation_q3",
-            "question": "Was ist eine sichere Reaktion auf eine verdächtige Passwort-Mail?",
+            "question": "Eine Nachricht droht mit dem Verlust deiner Lernpunkte und verlangt dein Passwort über einen neuen Link. Wie prüfst du sie?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "nicht klicken und Hilfe holen",
+                "text": "Ich benutze den Link nicht, öffne die bekannte App selbst und frage die Lehrperson über einen bekannten Kontakt.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Erst prüfen, dann handeln."
+                "feedback": "Richtig: Du prüfst die Anfrage unabhängig von der verdächtigen Nachricht und gibst ihr keine Zugangsdaten."
               },
               {
-                "text": "Passwort sofort eingeben",
+                "text": "Ich antworte auf die Nachricht und vertraue ihr, wenn der Absender bestätigt, dass alles echt ist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Passwörter gibt man nicht in verdächtige Links ein."
+                "feedback": "Wer die verdächtige Nachricht sendet, kann auch die Rückfrage beantworten. Das ist keine unabhängige Bestätigung."
+              },
+              {
+                "text": "Ich öffne den neuen Link und prüfe nur, ob das vertraute Logo angezeigt wird.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Logo lässt sich kopieren. Es belegt nicht, dass das Linkziel zum echten Dienst gehört."
               }
             ]
           },
@@ -10681,20 +10699,26 @@
         "quizzes": [
           {
             "id": "dgb6_kommunikation_q4",
-            "question": "Warum ist eine zweite Quelle sinnvoll?",
+            "question": "Du willst die Meldung „Morgen entfällt der Unterricht an unserer Schule“ prüfen. Welcher zusätzliche Fund hilft am meisten?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "weil eine einzelne Nachricht falsch oder unvollständig sein kann",
+                "text": "Eine aktuelle Mitteilung der betreffenden Schule im bereits bekannten Schulkanal.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Vergleichen macht sicherer."
+                "feedback": "Richtig: Herkunft, betroffene Schule und Datum passen zur konkreten Behauptung."
               },
               {
-                "text": "weil zwei Quellen automatisch immer falsch sind",
+                "text": "Zehn weitere Beiträge, die alle dieselbe ursprüngliche Chatnachricht kopieren.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Zwei gute Quellen können helfen."
+                "feedback": "Die Anzahl der Kopien schafft keinen neuen unabhängigen Beleg."
+              },
+              {
+                "text": "Eine echte Mitteilung aus dem Vorjahr über Unterrichtsausfall an einer anderen Schule.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Quelle kann echt sein, aber Zeit und Schule passen nicht zu der aktuellen Behauptung."
               }
             ]
           }
@@ -11387,20 +11411,26 @@
         "quizzes": [
           {
             "id": "dgb7_information_q2",
-            "question": "Was soll zuerst bei einem Diagramm beschrieben werden?",
+            "question": "Die fiktive Tabelle nennt 40 Ja-Antworten in Gruppe A und 44 in Gruppe B, jeweils bei 50 Befragten. Welche Beschreibung ist richtig?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "was man wirklich sieht",
+                "text": "B hat vier Ja-Antworten mehr als A.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Beobachtung kommt vor Deutung."
+                "feedback": "Richtig: 44 minus 40 ergibt vier. Die Stichprobengrößen sind hier gleich."
               },
               {
-                "text": "welche Meinung man sofort hat",
+                "text": "B hat doppelt so viele Ja-Antworten wie A.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Eine Meinung ohne Beobachtung ist schwach begründet."
+                "feedback": "Das Doppelte von 40 wäre 80. Die sichtbaren Höhen im abgeschnittenen Diagramm dürfen nicht mit den vollständigen Zahlenwerten verwechselt werden."
+              },
+              {
+                "text": "B hat viermal so viele Befragte wie A.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Beide Gruppen umfassen 50 Personen. Die Differenz betrifft die Ja-Antworten, nicht die Größe der Gruppen."
               }
             ]
           },
@@ -11424,7 +11454,7 @@
             ]
           }
         ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Recherche</strong><br>Gezieltes Suchen, Pr&uuml;fen und Ordnen von Informationen.</div><div class=\"word-ui-card\"><strong>Manipulation</strong><br>Darstellung wird so gew&auml;hlt, dass ein bestimmter Eindruck entsteht.</div><div class=\"word-ui-card\"><strong>Achse</strong><br>Linie im Diagramm, auf der Werte oder Zeiten eingetragen sind.</div><div class=\"word-ui-card\"><strong>Ursache-Wirkung</strong><br>Eine Sache beeinflusst eine andere. Das muss mit Daten vorsichtig begr&uuml;ndet werden.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Schlechte Frage</td><td>&bdquo;Klima&ldquo; ist zu allgemein.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Bessere Frage</td><td>&bdquo;Wie hat sich die Durchschnittstemperatur in &Ouml;sterreich seit 1980 ver&auml;ndert?&ldquo;</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Diagrammtrick</td><td>Y-Achse beginnt nicht bei 0 und ein kleiner Unterschied wirkt riesig.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_information_q2}}\n{{QUIZ_dgb7_information_p2}}"
+        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Recherche</strong><br>Gezieltes Suchen, Pr&uuml;fen und Ordnen von Informationen.</div><div class=\"word-ui-card\"><strong>Manipulation</strong><br>Darstellung wird so gew&auml;hlt, dass ein bestimmter Eindruck entsteht.</div><div class=\"word-ui-card\"><strong>Achse</strong><br>Linie im Diagramm, auf der Werte oder Zeiten eingetragen sind.</div><div class=\"word-ui-card\"><strong>Ursache-Wirkung</strong><br>Eine Sache beeinflusst eine andere. Das muss mit Daten vorsichtig begr&uuml;ndet werden.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Schlechte Frage</td><td>&bdquo;Klima&ldquo; ist zu allgemein.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Bessere Frage</td><td>&bdquo;Wie hat sich die Durchschnittstemperatur in &Ouml;sterreich seit 1980 ver&auml;ndert?&ldquo;</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Diagrammtrick</td><td>Bei Säulen kann eine abgeschnittene Werteachse Unterschiede übertreiben. Daraus allein ist eine absichtliche Täuschung noch nicht bewiesen.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_information_q2}}\n{{QUIZ_dgb7_information_p2}}"
       },
       {
         "id": "sec3",
@@ -11432,20 +11462,26 @@
         "quizzes": [
           {
             "id": "dgb7_information_q3",
-            "question": "Was ist Manipulation in einer Darstellung?",
+            "question": "Die Werteachse der Säulen beginnt bei 36. Die Werte sind 40 und 44. Warum wirkt die zweite Säule doppelt so hoch?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "eine Darstellung erzeugt absichtlich einen bestimmten Eindruck",
+                "text": "Die sichtbaren Höhen stehen nur für die Abstände 4 und 8 zum Achsenbeginn; die Datenwerte wurden nicht verdoppelt.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Manipulation beeinflusst Wahrnehmung."
+                "feedback": "Richtig: Die abgeschnittene Basis verändert den Längenvergleich. Bei Beginn null passen die Säulenlängen zu den vollständigen Werten."
               },
               {
-                "text": "ein Diagramm hat überhaupt Farben",
+                "text": "Das Umschalten der Achse erhöht den gespeicherten Wert der Gruppe B von 44 auf 80.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Farben allein sind nicht automatisch Manipulation."
+                "feedback": "Eine andere Skalierung ändert die Zeichnung, nicht die zugrunde liegenden Daten."
+              },
+              {
+                "text": "Eine doppelte sichtbare Höhe beweist auch bei abgeschnittener Achse doppelt so viele Ja-Antworten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier ist 8 doppelt so groß wie 4, aber 44 nicht doppelt so groß wie 40. Du musst den Achsenbeginn mitlesen."
               }
             ]
           },
@@ -11469,7 +11505,7 @@
             ]
           }
         ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Diagramm kritisch lesen</h3><ol class=\"word-mini-steps\"><li>Nimm ein Diagramm aus Schulbuch, Zeitung oder vorbereitetem Material.</li><li>Pr&uuml;fe Titel, Achsen, Einheiten, Zeitraum und Quelle.</li><li>Beschreibe zuerst nur, was du wirklich siehst.</li><li>Schreibe dann vorsichtig, welche Aussage das Diagramm st&uuml;tzt.</li><li>Notiere eine Frage, die das Diagramm nicht beantwortet.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du unterscheidest Beobachtung, Deutung und offene Frage.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Recherche</td><td>Frage, Suchbegriffe und Quellen sind geplant</td><td>Antwort passt zur Frage</td></tr><tr><td>Quellen</td><td>mindestens zwei Quellen werden verglichen</td><td>Datum oder Herkunft ist notiert</td></tr><tr><td>Daten</td><td>Diagramm wird mit Achsen und Quelle gelesen</td><td>Manipulation wird m&ouml;glichst erkannt</td></tr></table>\n{{QUIZ_dgb7_information_q3}}\n{{QUIZ_dgb7_information_p3}}"
+        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Diagramm kritisch lesen</h3><ol class=\"word-mini-steps\"><li>Nimm ein Diagramm aus Schulbuch, Zeitung oder vorbereitetem Material.</li><li>Pr&uuml;fe Titel, Achsen, Einheiten, Zeitraum und Quelle.</li><li>Beschreibe zuerst nur, was du wirklich siehst.</li><li>Schreibe dann vorsichtig, welche Aussage das Diagramm st&uuml;tzt.</li><li>Notiere eine Frage, die das Diagramm nicht beantwortet.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du unterscheidest Beobachtung, Deutung und offene Frage.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Recherche</td><td>Frage, Suchbegriffe und Quellen sind geplant</td><td>Antwort passt zur Frage</td></tr><tr><td>Quellen</td><td>mindestens zwei Quellen werden verglichen</td><td>Datum oder Herkunft ist notiert</td></tr><tr><td>Daten</td><td>Diagramm wird mit Achsen und Quelle gelesen</td><td>Manipulation wird m&ouml;glichst erkannt</td></tr></table>\n{{QUIZ_dgb7_information_q3}}\n{{QUIZ_dgb7_information_p3}}<div data-chart-check><h3>Gleiche Zahlen, anderer Eindruck</h3><p><strong>Erfundene Übungsdaten, keine echte Untersuchung:</strong> Zwei verschiedene Gruppen mit jeweils 50 Personen probieren unterschiedliches Lernmaterial. Danach wird gefragt: „Fandest du das Material hilfreich?“ Es gibt hier weder einen Wissenstest noch Angaben zu Vorkenntnissen oder zur Einteilung der Gruppen.</p><table data-chart-check-data><caption>Fiktive Antworten auf dieselbe Frage</caption><thead><tr><th scope=\"col\">Gruppe und Material</th><th scope=\"col\">Befragte Personen</th><th scope=\"col\">Antworten „ja“</th></tr></thead><tbody><tr><th scope=\"row\">A: Papiermaterial</th><td>50</td><td>40</td></tr><tr><th scope=\"row\">B: App</th><td>50</td><td>44</td></tr></tbody></table><div class=\"interactive-zone\" data-core-experiment=\"chart-baseline\"><h4>Zwei Darstellungen vergleichen</h4><p><label>Beginn der Werteachse <select data-chart-baseline><option value=\"0\">0: vollständige Säulen</option><option value=\"36\">36: abgeschnittene Säulen als Gegenbeispiel</option></select></label></p><div data-chart-baseline-plot></div><p data-chart-baseline-result role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><template data-worksheet-alternative><p>Zeichne die beiden Werte 40 und 44 auf gleich hohen Diagrammflächen. Darstellung 1: Achse von 0 bis 50. Gegenbeispiel 2: Achse von 36 bis 50. Beschrifte den Achsenbeginn deutlich und vergleiche sichtbare Säulenhöhen mit den Zahlenwerten.</p></template></div><ol data-chart-check-tasks><li>Lies die Zahlen aus der Tabelle: Wie viele Ja-Antworten unterscheiden A und B? Sind es doppelt so viele?</li><li>Wechsle den Achsenbeginn. Welche Angaben bleiben gleich? Warum kann die sichtbare Säule B im Gegenbeispiel doppelt so hoch wie A sein, obwohl 44 nicht das Doppelte von 40 ist?</li><li>Beurteile die erfundene Überschrift „Die App verdoppelt den Lernerfolg“. Prüfe getrennt: Verdopplung, gemessene Größe und behauptete Ursache.</li><li>Schreibe einen zutreffenden Titel und zwei Ergebnissätze. Benenne zusätzlich eine offene Frage, für die die vorhandenen Daten nicht ausreichen.</li><li>Plane einen besseren Vergleich des Lernens: Welche Vorkenntnisse, Aufgaben und Lernzeiten müssten berücksichtigt werden? Wie würde ein Wissenstest eine andere Frage beantworten als die Befragung zur Hilfreichkeit?</li><li>Erstelle in einem schulisch freigegebenen Tabellenprogramm die Darstellung ab null. Notiere Datenquelle als „erfundene Übungsdaten“, Einheiten, Gruppen und Stichprobengröße. Prüfe deine gespeicherte Grafik gegen die Tabelle.</li></ol><p><strong>Prüfregel:</strong> Bei Säulen stellt die Länge den Wert dar; beginne die Werteachse deshalb bei null. Das Gegenbeispiel zeigt bewusst, wie eine Kürzung den Eindruck verändert. Nicht jedes Diagramm ohne Nullbeginn ist automatisch falsch: Bei einem Liniendiagramm kann ein klar beschrifteter Ausschnitt sinnvoll sein. Beurteile Diagrammtyp, Zweck und Aussage gemeinsam. Aus der Darstellung allein kennst du die Absicht der Person nicht.</p><details data-worksheet-solution=\"true\"><summary>Auswertung vergleichen</summary><p>B hat vier Ja-Antworten mehr. 44 : 40 = 1,1, also 10 % mehr Ja-Antworten, nicht doppelt so viele. Bezogen auf die jeweilige Gruppe sind es 80 % und 88 %, ein Unterschied von acht Prozentpunkten. Bei Achsenbeginn 36 zeigen die Säulen nur die Abstände 4 und 8 zur unteren Grenze; deshalb ist die zweite sichtbare Säule doppelt so hoch. Die Befragung erfasst eine Einschätzung der Hilfreichkeit, keinen Lernerfolg. Unterschiedliche Gruppen und unbekannte Vorkenntnisse erlauben keinen gesicherten Ursachenschluss. Ein passender Titel lautet: „Fiktive Befragung: 40 bzw. 44 von je 50 Personen finden ihr Material hilfreich.“</p></details><p>Zur Diagrammgestaltung: <a href=\"https://service-manual.ons.gov.uk/data-visualisation/guidance/axes-and-gridlines\" target=\"_blank\" rel=\"noopener\">Office for National Statistics: Achsen und Gitternetzlinien</a>.</p></div>"
       },
       {
         "id": "sec4",
@@ -11477,20 +11513,26 @@
         "quizzes": [
           {
             "id": "dgb7_information_q4",
-            "question": "Was bedeutet Ursache-Wirkung?",
+            "question": "Beweist die fiktive Befragung mit 40 bzw. 44 Ja-Antworten, dass die App einen höheren Lernerfolg verursacht?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "eine Sache beeinflusst eine andere",
+                "text": "Nein. Erfragt wurde Hilfreichkeit, nicht Lernerfolg; außerdem fehlen Angaben zum Vergleich der beiden Gruppen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Ursache-Wirkung braucht gute Begründung."
+                "feedback": "Richtig: Die gemessene Größe und mögliche andere Einflüsse müssen zur behaupteten Ursache passen."
               },
               {
-                "text": "zwei Dinge stehen zufällig nebeneinander",
+                "text": "Ja. Jede größere Zahl in der App-Gruppe beweist eine Wirkung der App auf das Lernen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Nebeneinander reicht nicht als Beweis."
+                "feedback": "Eine größere Zahl allein beweist keinen Ursache-Wirkung-Zusammenhang. Gruppenunterschiede und die Art der Messung bleiben zu prüfen."
+              },
+              {
+                "text": "Ja, sobald die Säulenachse bei null beginnt, ist auch die Ursache bewiesen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine passende Darstellung verbessert das Lesen der Daten, ersetzt aber keinen geeigneten Untersuchungsaufbau."
               }
             ]
           }
@@ -23440,7 +23482,7 @@
       {
         "id": "m36_representations",
         "title": "Tabelle, Rechenvorschrift und Graph verbinden",
-        "content": "<p>Eine Zuordnung verbindet einen Eingabewert x mit einem Ausgabewert y. Die Rechenvorschrift beschreibt, wie du y berechnest. In einer Tabelle stehen passende Wertepaare. Im Koordinatensystem liegt x auf der waagrechten und y auf der senkrechten Achse; ein Punkt (x | y) zeigt ein solches Paar.</p><table class=\"word-rubric\" data-assignment-table><caption>Drei erfundene Modelle</caption><thead><tr><th>x</th><th>A: y = 3x</th><th>B: y = 12 : x</th><th>C: y = 5 + 3x</th></tr></thead><tbody><tr><td>1</td><td>3</td><td>12</td><td>8</td></tr><tr><td>2</td><td>6</td><td>6</td><td>11</td></tr><tr><td>3</td><td>9</td><td>4</td><td>14</td></tr><tr><td>4</td><td>12</td><td>3</td><td>17</td></tr><tr><td>6</td><td>18</td><td>2</td><td>23</td></tr></tbody></table><p>A beschreibt den Preis in Euro für x Hefte zu je 3 € ohne Gebühr. B beschreibt Stunden für x gleich starke Pumpen bei der zuvor genannten Modellarbeit. C beschreibt einen Bestellpreis in Euro mit 5 € fester Gebühr und 3 € je Heft; die Rechnung gilt für eine Bestellung.</p><ol class=\"step-list\" data-assignment-task><li>Berechne alle Tabellenwerte selbst und kontrolliere anschließend. Erweitere die Tabelle um x = 5.</li><li>Berechne für A und C jeweils y : x und für B jeweils x × y. Begründe, welche Zuordnung direkt, welche indirekt proportional und welche keines von beiden ist.</li><li>Zeichne A und C in dasselbe Koordinatensystem: x von 0 bis 6 Hefte, y von 0 bis 25 €. Beschrifte beide Achsen mit Einheiten und markiere die Punkte mit A und C. Prüfe, welche Gerade durch den Ursprung geht. Ganze Hefte werden als einzelne Punkte dargestellt; Verbindungslinien zeigen nur die mathematische Fortsetzung zwischen diesen Punkten.</li><li>Zeichne B in ein eigenes Koordinatensystem mit x von 0 bis 6 Pumpen und y von 0 bis 12 Stunden. Trage nur die gegebenen positiven ganzen Pumpenzahlen ein. Die Punkte liegen auf einer gekrümmten Kurve, nicht auf einer Geraden. Erfinde keinen Wert bei x = 0.</li><li>Erkläre einer anderen Person: Warum ist C trotz steigender Werte nicht direkt proportional? Wie erkennt man die feste Gebühr in der Rechenvorschrift und im mathematisch fortgesetzten Graphen?</li></ol><details data-assignment-solution><summary>Vergleichsauswertung</summary><p>Bei x = 5 erhältst du A: 15, B: 2,4 und C: 20. Für A ist y : x immer 3. Für B ist x × y immer 12. Für C ist y : x nicht konstant: zum Beispiel 8 bei x = 1 und 5,5 bei x = 2; auch x × y ist nicht konstant. A liegt auf einer Geraden durch (0 | 0). Die mathematische Fortsetzung von C schneidet die y-Achse bei 5. Das ist die feste Gebühr; es bedeutet nicht, dass ohne Bestellung bezahlt werden muss. Die Zuordnung B ist für x = 0 nicht definiert.</p></details>{{QUIZ_m36_graph}}{{QUIZ_m36_zero}}",
+        "content": "<p>Eine Zuordnung verbindet einen Eingabewert x mit einem Ausgabewert y. Die Rechenvorschrift beschreibt, wie du y berechnest. In einer Tabelle stehen passende Wertepaare. Im Koordinatensystem liegt x auf der waagrechten und y auf der senkrechten Achse; ein Punkt (x | y) zeigt ein solches Paar.</p><table class=\"word-rubric\" data-assignment-table><caption>Drei erfundene Modelle</caption><thead><tr><th>x</th><th>A: y = 3x</th><th>B: y = 12 : x</th><th>C: y = 5 + 3x</th></tr></thead><tbody><tr><td>1</td><td>3</td><td>12</td><td>8</td></tr><tr><td>2</td><td>6</td><td>6</td><td>11</td></tr><tr><td>3</td><td>9</td><td>4</td><td>14</td></tr><tr><td>4</td><td>12</td><td>3</td><td>17</td></tr><tr><td>6</td><td>18</td><td>2</td><td>23</td></tr></tbody></table><p>A beschreibt den Preis in Euro für x Hefte zu je 3 € ohne Gebühr. B beschreibt Stunden für x gleich leistungsfähige Personen bei der zuvor genannten Modellarbeit. C beschreibt einen Bestellpreis in Euro mit 5 € fester Gebühr und 3 € je Heft; die Rechnung gilt für eine Bestellung.</p><ol class=\"step-list\" data-assignment-task><li>Berechne alle Tabellenwerte selbst und kontrolliere anschließend. Erweitere die Tabelle um x = 5.</li><li>Berechne für A und C jeweils y : x und für B jeweils x × y. Begründe, welche Zuordnung direkt, welche indirekt proportional und welche keines von beiden ist.</li><li>Zeichne A und C in dasselbe Koordinatensystem: x von 0 bis 6 Hefte, y von 0 bis 25 €. Beschrifte beide Achsen mit Einheiten und markiere die Punkte mit A und C. Prüfe, welche Gerade durch den Ursprung geht. Ganze Hefte werden als einzelne Punkte dargestellt; Verbindungslinien zeigen nur die mathematische Fortsetzung zwischen diesen Punkten.</li><li>Zeichne B in ein eigenes Koordinatensystem mit x von 0 bis 6 Personen und y von 0 bis 12 Stunden. Trage nur die gegebenen positiven ganzen Personenzahlen ein. Die Punkte liegen auf einer gekrümmten Kurve, nicht auf einer Geraden. Erfinde keinen Wert bei x = 0.</li><li>Erkläre einer anderen Person: Warum ist C trotz steigender Werte nicht direkt proportional? Wie erkennt man die feste Gebühr in der Rechenvorschrift und im mathematisch fortgesetzten Graphen?</li></ol><details data-assignment-solution><summary>Vergleichsauswertung</summary><p>Bei x = 5 erhältst du A: 15, B: 2,4 und C: 20. Für A ist y : x immer 3. Für B ist x × y immer 12. Für C ist y : x nicht konstant: zum Beispiel 8 bei x = 1 und 5,5 bei x = 2; auch x × y ist nicht konstant. A liegt auf einer Geraden durch (0 | 0). Die mathematische Fortsetzung von C schneidet die y-Achse bei 5. Das ist die feste Gebühr; es bedeutet nicht, dass ohne Bestellung bezahlt werden muss. Die Zuordnung B ist für x = 0 nicht definiert.</p></details>{{QUIZ_m36_graph}}{{QUIZ_m36_zero}}<div class=\"interactive-zone\" data-assignment-graph><h3>Wertepaar und Graph gemeinsam prüfen</h3><p>Wähle ein Modell und sage den Wert für x voraus. Vergleiche dann Formel, markierten Punkt und die anderen Punkte. Die Darstellung verwendet dieselben erfundenen Modelle wie die Tabelle.</p><p><label for=\"assignment-model\">Modell <select id=\"assignment-model\"><option value=\"a\">A: 3 € pro Heft</option><option value=\"b\">B: feste Arbeit auf Personen verteilen</option><option value=\"c\">C: 5 € Gebühr plus 3 € pro Heft</option></select></label></p><p><label for=\"assignment-x\">Eingabewert x</label> <input id=\"assignment-x\" type=\"range\" min=\"0\" max=\"6\" step=\"1\" value=\"2\"> <output for=\"assignment-x\" id=\"assignment-x-value\">2</output></p><button type=\"button\" data-assignment-reset>Zurück zu A und x = 2</button><p id=\"assignment-result\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><div data-assignment-plot></div><p>Gezeigt werden einzelne Wertepaare für ganze Anzahlen. Der hervorgehobene Punkt ist zusätzlich durch einen Ring markiert. A und C verwenden dieselbe Euro-Skala; B hat eine eigene Stunden-Skala. Bei C beschreibt x = 0 nur die mathematische Fortsetzung, keine Rechnung ohne Bestellung.</p><template data-worksheet-alternative><p>Nutze die Tabelle und zeichne die Punkte auf Papier. Vergleiche A und C bei x = 0, 2 und 5. Prüfe für B, warum x = 0 keinen berechneten Wert besitzt. Kennzeichne die mathematische Fortsetzung bei C.</p></template></div>",
         "quizzes": [
           {
             "id": "m36_graph",
@@ -28870,7 +28912,57 @@
       },
       {
         "title": "3. Selbst experimentieren",
-        "content": "<p><strong>Optionaler Schulversuch mit der Lehrkraft:</strong> Vier möglichst gleiche, saubere, unbeschichtete Eisennägel vergleichen. Verzinkte oder bereits stark verrostete Nägel würden den Vergleich verfälschen.</p><table class=\"word-rubric\"><tr><th>Ansatz</th><th>Vorbereitung durch die Lehrkraft</th><th>Untersuchungsfrage</th></tr><tr><td>A: trockene Luft</td><td>Trockenes geschlossenes Gefäß mit geeignetem Trockenmittel, getrennt vom Nagel.</td><td>Was geschieht bei stark verminderter Feuchtigkeit?</td></tr><tr><td>B: Wasser</td><td>Nagel vollständig in lufthaltigem Wasser, Luft über dem Wasser.</td><td>Vergleich bei Wasser und verfügbarem Sauerstoff.</td></tr><tr><td>C: Salzwasser</td><td>Gleiche Flüssigkeitsmenge wie B, mit von der Lehrkraft festgelegter und notierter Salzkonzentration.</td><td>Wie verändert gelöstes Salz den Verlauf?</td></tr><tr><td>D: sauerstoffarm</td><td>Nagel vollständig in zuvor abgekochtem Wasser unter geeigneter Ölschicht. Die Lehrkraft übernimmt heiße Flüssigkeiten und die Vorbereitung.</td><td>Was geschieht bei vermindertem Sauerstoffangebot?</td></tr></table><p><strong>Vergleichbar halten:</strong> Nagelart, Oberfläche, Flüssigkeitsmengen in B–D, Temperatur und Beobachtungsdauer. Beschrifte die Gefäße. Dokumentiere mehrere Tage zur gleichen Zeit Farbe, Beläge und Trübung, möglichst mit Fotos bei gleicher Beleuchtung. Berühre keine spitzen Nägel oder heißen Gefäße; Schutzbrille und Anweisungen der Lehrkraft beachten. Reste nach deren Anweisung entsorgen.</p><p><strong>Auswertung:</strong> Vergleiche B mit C für den Salzeinfluss. A und D helfen, die Rolle von Wasser und Sauerstoff zu untersuchen. Ein ausbleibender sichtbarer Belag nach einem Tag beweist nicht, dass nie eine Reaktion stattfindet. Rostfarbe ist keine genaue Messung der umgesetzten Eisenmasse. Abweichungen können etwa von Beschichtungen, Restfeuchte oder eingedrungenem Sauerstoff stammen.</p>{{QUIZ_ch_chemie_metalle_redox_q3}}<h3>Vorhersage und Beobachtung getrennt festhalten</h3><p>Schreibe vor Beginn für A–D eine begründete Vermutung auf. Notiere daneben die tatsächlich von der Lehrkraft gewählten Bedingungen: Nagelart, Flüssigkeitsmengen, Salzkonzentration in C, Temperatur und Beginn. Nutze für jeden Beobachtungszeitpunkt eine Zeile; ergänze bei Bedarf weitere. Trage echte Beobachtungen ein, auch wenn sie von deiner Vermutung oder der Bildschirmdarstellung abweichen.</p><table data-rust-protocol><caption>Beobachtungsprotokoll für die vier Ansätze</caption><thead><tr><th scope=\"col\">Datum / Uhrzeit</th><th scope=\"col\">A: trocken</th><th scope=\"col\">B: Wasser</th><th scope=\"col\">C: Salzwasser</th><th scope=\"col\">D: sauerstoffarm</th></tr></thead><tbody><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr></tbody></table><ol data-rust-report><li>Beschreibe Farbe, Ort sichtbarer Beläge und Trübung. Schreibe beispielsweise „brauner Belag am Nagel“ statt sofort „viel Eisen wurde umgesetzt“. Fotos erhalten Datum und Ansatz; verändere für den Vergleich möglichst nicht Blickwinkel und Beleuchtung.</li><li>Vergleiche B und C am gleichen Beobachtungszeitpunkt. Welche Beobachtung spricht im Versuch für einen Einfluss des Salzes? Nenne auch Abweichungen und mögliche andere Einflüsse.</li><li>Stelle deine Vorhersagen den tatsächlichen Ergebnissen gegenüber. „Noch kein sichtbarer Belag“ ist eine Beobachtung zu diesem Zeitpunkt, keine Aussage für unbegrenzte Zeit.</li><li>Formuliere eine begründete Schlussfolgerung und eine Grenze: Die sichtbare Fläche oder Farbe ist keine genaue Messung der umgesetzten Eisenmasse. Nenne eine Bedingung, die ihr bei einer Wiederholung besser kontrollieren würdet.</li></ol>"
+        "content": "<p><strong>Optionaler Schulversuch mit der Lehrkraft:</strong> Vier möglichst gleiche, saubere, unbeschichtete Eisennägel vergleichen. Verzinkte oder bereits stark verrostete Nägel würden den Vergleich verfälschen.</p><table class=\"word-rubric\"><tr><th>Ansatz</th><th>Vorbereitung durch die Lehrkraft</th><th>Untersuchungsfrage</th></tr><tr><td>A: trockene Luft</td><td>Trockenes geschlossenes Gefäß mit geeignetem Trockenmittel, getrennt vom Nagel.</td><td>Was geschieht bei stark verminderter Feuchtigkeit?</td></tr><tr><td>B: Wasser</td><td>Nagel vollständig in lufthaltigem Wasser, Luft über dem Wasser.</td><td>Vergleich bei Wasser und verfügbarem Sauerstoff.</td></tr><tr><td>C: Salzwasser</td><td>Gleiche Flüssigkeitsmenge wie B, mit von der Lehrkraft festgelegter und notierter Salzkonzentration.</td><td>Wie verändert gelöstes Salz den Verlauf?</td></tr><tr><td>D: sauerstoffarm</td><td>Nagel vollständig in zuvor abgekochtem Wasser unter geeigneter Ölschicht. Die Lehrkraft übernimmt heiße Flüssigkeiten und die Vorbereitung.</td><td>Was geschieht bei vermindertem Sauerstoffangebot?</td></tr></table><p><strong>Vergleichbar halten:</strong> Nagelart, Oberfläche, Flüssigkeitsmengen in B–D, Temperatur und Beobachtungsdauer. Beschrifte die Gefäße. Dokumentiere mehrere Tage zur gleichen Zeit Farbe, Beläge und Trübung, möglichst mit Fotos bei gleicher Beleuchtung. Berühre keine spitzen Nägel oder heißen Gefäße; Schutzbrille und Anweisungen der Lehrkraft beachten. Reste nach deren Anweisung entsorgen.</p><p><strong>Auswertung:</strong> Vergleiche B mit C für den Salzeinfluss. A und D helfen, die Rolle von Wasser und Sauerstoff zu untersuchen. Ein ausbleibender sichtbarer Belag nach einem Tag beweist nicht, dass nie eine Reaktion stattfindet. Rostfarbe ist keine genaue Messung der umgesetzten Eisenmasse. Abweichungen können etwa von Beschichtungen, Restfeuchte oder eingedrungenem Sauerstoff stammen.</p>{{QUIZ_ch_chemie_metalle_redox_q3}}<h3>Vorhersage und Beobachtung getrennt festhalten</h3><p>Schreibe vor Beginn für A–D eine begründete Vermutung auf. Notiere daneben die tatsächlich von der Lehrkraft gewählten Bedingungen: Nagelart, Flüssigkeitsmengen, Salzkonzentration in C, Temperatur und Beginn. Nutze für jeden Beobachtungszeitpunkt eine Zeile; ergänze bei Bedarf weitere. Trage echte Beobachtungen ein, auch wenn sie von deiner Vermutung oder der Bildschirmdarstellung abweichen.</p><table data-rust-protocol><caption>Beobachtungsprotokoll für die vier Ansätze</caption><thead><tr><th scope=\"col\">Datum / Uhrzeit</th><th scope=\"col\">A: trocken</th><th scope=\"col\">B: Wasser</th><th scope=\"col\">C: Salzwasser</th><th scope=\"col\">D: sauerstoffarm</th></tr></thead><tbody><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>________</td><td>________</td></tr></tbody></table><ol data-rust-report><li>Beschreibe Farbe, Ort sichtbarer Beläge und Trübung. Schreibe beispielsweise „brauner Belag am Nagel“ statt sofort „viel Eisen wurde umgesetzt“. Fotos erhalten Datum und Ansatz; verändere für den Vergleich möglichst nicht Blickwinkel und Beleuchtung.</li><li>Vergleiche B und C am gleichen Beobachtungszeitpunkt. Welche Beobachtung spricht im Versuch für einen Einfluss des Salzes? Nenne auch Abweichungen und mögliche andere Einflüsse.</li><li>Stelle deine Vorhersagen den tatsächlichen Ergebnissen gegenüber. „Noch kein sichtbarer Belag“ ist eine Beobachtung zu diesem Zeitpunkt, keine Aussage für unbegrenzte Zeit.</li><li>Formuliere eine begründete Schlussfolgerung und eine Grenze: Die sichtbare Fläche oder Farbe ist keine genaue Messung der umgesetzten Eisenmasse. Nenne eine Bedingung, die ihr bei einer Wiederholung besser kontrollieren würdet.</li></ol><div data-synthesis-comparison><h3>Rosten: neue Verbindungen entstehen</h3><p>Beim Rosten wird Eisen chemisch umgesetzt. Unter Beteiligung von Sauerstoff und Wasser entstehen neue Eisenverbindungen. Der Metallgegenstand wird dabei beschädigt; chemisch werden aber Verbindungen aufgebaut. In diesem Sinn untersuchen wir am vorhandenen Nagelversuch einen <strong>Synthesevorgang</strong>. „Das Fahrrad geht kaputt“ bedeutet also nicht automatisch „eine Verbindung wird in einfachere Stoffe zerlegt“.</p><p><strong>Vereinfachtes Wortschema:</strong> Eisen + Sauerstoff + Wasser → Rostprodukte. Das ist keine ausgeglichene Formelgleichung für einen einzigen Reinstoff. Rost kann verschiedene Eisenoxide und Eisenverbindungen mit Wasserbestandteilen enthalten. Die genaue Zusammensetzung lässt sich aus Farbe und Aussehen nicht ablesen.</p><table data-synthesis-analysis-table><caption>Aufbau, Zerlegung und Gemischtrennung vergleichen</caption><thead><tr><th scope=\"col\">Vorgang</th><th scope=\"col\">Was verändert sich?</th><th scope=\"col\">Was darfst du daraus schließen?</th></tr></thead><tbody><tr><th scope=\"row\">Rosten im Nagelversuch</th><td>Ausgangsstoffe reagieren; neue Eisenverbindungen entstehen.</td><td>Aufbau von Verbindungen; der braune Belag ist nicht bloß kleiner gewordenes Eisen.</td></tr><tr><th scope=\"row\">Zerlegung von Wasserstoffperoxid</th><td>Wasserstoffperoxid wird zu Wasser und Sauerstoff umgesetzt.</td><td>Chemische Zerlegung einer Verbindung; Gasblasen allein identifizieren das Gas noch nicht.</td></tr><tr><th scope=\"row\">Sand aus Wasser filtrieren</th><td>Bestandteile des Gemisches werden getrennt.</td><td>Keine chemische Zerlegung des Wassers; Sand und Wasser waren bereits vorhanden.</td></tr></tbody></table><ol data-synthesis-analysis-tasks><li>Nutze deine Protokolle der Ansätze A–D. Schreibe links nur Beobachtungen auf und rechts die dazu passende chemische Deutung. Kennzeichne, welche Aussagen aus dem Fachtext stammen und welche du selbst beobachtet hast.</li><li>Erkläre den scheinbaren Widerspruch: Der Nagel wird beschädigt, während neue Verbindungen aufgebaut werden. Verwende „Ausgangsstoff“ und „Produkt“.</li><li>Vergleiche Aufbau und Zerlegung anhand der Tabelle. Skizziere für Wasserstoffperoxid das bekannte Teilchenmodell mit 2 H₂O₂ → 2 H₂O + O₂. Zähle H- und O-Atome vor und nach der Reaktion.</li><li>Prüfe die Aussage „Filtrieren zerlegt Wasser in seine Elemente“. Erkläre, was der Filter tatsächlich trennt.</li><li>Formuliere die Grenze deines Rostversuchs: Welche Beobachtung stützt eine Veränderung? Welche zusätzliche Untersuchung wäre nötig, um einzelne Rostbestandteile sicher zu bestimmen? Benenne den Erkenntnisbedarf, ohne einen unbekannten Nachweis selbst auszuprobieren.</li></ol><p>Ohne durchgeführten Nagelversuch bearbeitest du den Vergleich als Text- und Modellaufgabe. Deine eigene Beobachtungsspalte bleibt leer. Der vorhandene Versuch untersucht die Bildung von Rostprodukten, nicht die gezielte Herstellung eines einzigen reinen Stoffes. Die Bezeichnungen Synthese und Redox betrachten unterschiedliche Aspekte und schließen einander nicht aus: Aufbau von Verbindungen beziehungsweise Elektronenübertragung.</p><details data-worksheet-solution=\"true\"><summary>Vergleichsauswertung: Aufbau und Zerlegung</summary><p>Ein brauner Belag ist eine Beobachtung; „neue Eisenverbindungen sind entstanden“ ist die chemische Deutung mit Fachwissen. Die mechanische Schädigung des Nagels macht den Vorgang nicht zur chemischen Zerlegung einer Verbindung. Beim Wasserstoffperoxid stehen auf beiden Seiten 4 H- und 4 O-Atome. Die Atome bleiben erhalten, ihre Zuordnung zu Teilchen ändert sich. Filtration trennt Sandteilchen vom Wasser und erzeugt weder Wasserstoff noch Sauerstoff. Die Farbe allein weist keinen bestimmten reinen Rostbestandteil nach.</p></details><p>Verknüpfung: <a href=\"../index.html#chemie_reaktionen_energie\" target=\"_top\">Reaktionen und Energie: angeleitete Zerlegung und Teilchenmodell</a>. Fachlicher Hintergrund: <a href=\"https://edu.rsc.org/experiments/how-much-oxygen-is-used-when-iron-wool-rusts/453.article\" target=\"_blank\" rel=\"noopener\">RSC/Nuffield: Eisen reagiert beim Rosten mit Sauerstoff</a>. Der dort beschriebene zusätzliche Aufbau mit Eisenwolle ist nicht Teil unseres Nagelversuchs.</p>{{QUIZ_rust_synthesis}}{{QUIZ_separation_analysis}}</div>",
+        "quizzes": [
+          {
+            "id": "rust_synthesis",
+            "question": "Ein Eisennagel wird beim Rosten beschädigt. Warum kann dabei trotzdem von einem Synthesevorgang gesprochen werden?",
+            "answers": [
+              {
+                "text": "Es entstehen neue Eisenverbindungen aus reagierenden Ausgangsstoffen; chemischer Aufbau und Beschädigung des Gegenstands sind verschiedene Aussagen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Synthese beschreibt hier die Bildung von Verbindungen. Der Alltagsausdruck „geht kaputt“ entscheidet nicht den chemischen Reaktionstyp."
+              },
+              {
+                "text": "Synthese bedeutet jede sichtbare Beschädigung, auch das Zerbrechen eines trockenen Nagels.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bloßes Zerbrechen erzeugt nicht notwendigerweise neue Stoffe. Beim Rosten ist die chemische Umsetzung entscheidend."
+              },
+              {
+                "text": "Der braune Belag besteht nur aus unveränderten, kleineren Eisenstücken.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Rost enthält neue Eisenverbindungen. Er ist nicht bloß fein zerteiltes metallisches Eisen."
+              }
+            ]
+          },
+          {
+            "id": "separation_analysis",
+            "question": "Welche Aussage unterscheidet Filtration von der chemischen Zerlegung von Wasserstoffperoxid?",
+            "answers": [
+              {
+                "text": "Filtration trennt vorhandene Gemischbestandteile; bei der Zerlegung entstehen aus der Verbindung andere Stoffe.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Sand und Wasser bleiben bei der Filtration als Stoffe erhalten. Wasserstoffperoxid wird chemisch zu Wasser und Sauerstoff umgesetzt."
+              },
+              {
+                "text": "Bei der Filtration entstehen Wasserstoff und Sauerstoff aus dem Wasser.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Filter zerlegt die Wassermoleküle nicht. Er hält in diesem Beispiel die Sandteilchen zurück."
+              },
+              {
+                "text": "In beiden Fällen werden nur vorhandene Stoffportionen sortiert; Teilchen verändern sich nie.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei der chemischen Reaktion ändert sich die Zusammensetzung der Moleküle. Die Atome bleiben dabei erhalten."
+              }
+            ]
+          }
+        ]
       },
       {
         "title": "4. Anwenden und weiterdenken",
@@ -29112,7 +29204,8 @@
       "Du planst einen vergleichbaren Rostversuch und benennst seine Aussagegrenzen.",
       "Du erklärst Schutzschichten und ihre Grenzen.",
       "Du unterscheidest Oxidation und Reduktion anhand der Elektronenübertragung.",
-      "Du protokollierst einen kontrollierten Rostvergleich und trennst sichtbare Beobachtungen von Schlussfolgerungen."
+      "Du protokollierst einen kontrollierten Rostvergleich und trennst sichtbare Beobachtungen von Schlussfolgerungen.",
+      "Die Bildung neuer Verbindungen beim Rosten von chemischer Zerlegung und Gemischtrennung unterscheiden."
     ],
     "summary": [
       "Beim Rosten reagiert Eisen unter Beteiligung von Wasser und Sauerstoff. Salz kann den Vorgang beschleunigen, ist aber keine notwendige Voraussetzung.",
@@ -31280,25 +31373,25 @@
         "quizzes": [
           {
             "id": "bio_wirbel_s1",
-            "question": "Woran erkennt man Wirbeltiere grundsätzlich?",
+            "question": "Du vergleichst den Körperbau von Hund und Amsel. Welcher Befund begründet, dass beide Wirbeltiere sind?",
             "answers": [
               {
-                "text": "Sie besitzen eine Wirbelsäule bzw. ein inneres Skelett mit Wirbeln.",
+                "text": "Beide besitzen eine Wirbelsäule als Teil ihres inneren Skeletts.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Die Wirbelsäule ist das zentrale gemeinsame Merkmal."
+                "feedback": "Richtig: Der gemeinsame innere Grundbauplan ist entscheidend, auch wenn die Tiere verschieden aussehen."
               },
               {
-                "text": "Sie haben immer Federn.",
+                "text": "Beide bewegen sich aktiv mit Gliedmaßen fort.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Federn kennzeichnen die heutigen Vögel. Auch ein Hund ohne Federn ist ein Wirbeltier, weil er eine Wirbelsäule besitzt."
+                "feedback": "Auch viele wirbellose Tiere bewegen sich mit Gliedmaßen. Das ist kein eindeutiger Nachweis einer Wirbelsäule."
               },
               {
-                "text": "Sie leben alle an Land.",
+                "text": "Beide haben eine feste äußere Körperbedeckung.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Fische und Wale leben im Wasser und besitzen dennoch eine Wirbelsäule. Der Lebensraum ist kein gemeinsames Merkmal aller Wirbeltiere."
+                "feedback": "Fell oder Federn sind nicht die Wirbelsäule. Eine feste Außenhülle kommt außerdem bei wirbellosen Tieren vor."
               }
             ]
           }
@@ -31310,25 +31403,25 @@
         "quizzes": [
           {
             "id": "bio_wirbel_s2",
-            "question": "Welche Gruppe hat Federn?",
+            "question": "Ein Tier kann fliegen, trägt Fell und seine Jungen werden mit Milch versorgt. Welche Einordnung ist begründet?",
             "answers": [
               {
-                "text": "Vögel.",
+                "text": "Säugetier: Fell und Milchversorgung sind hier die entscheidenden Merkmale.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Federn sind ein Merkmal der Vögel."
+                "feedback": "Richtig: Die Beschreibung passt beispielsweise zu einer Fledermaus. Fliegen allein macht ein Tier nicht zum Vogel."
               },
               {
-                "text": "Amphibien.",
+                "text": "Vogel: Die Fähigkeit zu fliegen ist wichtiger als Fell und Milchversorgung.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Amphibien wie Frösche besitzen eine drüsenreiche Haut, aber keine Federn. Die Haut kann auch an der Atmung beteiligt sein."
+                "feedback": "Fortbewegung allein entscheidet die Gruppe nicht. Fledermäuse fliegen und gehören dennoch zu den Säugetieren."
               },
               {
-                "text": "Fische.",
+                "text": "Keine Zuordnung ist möglich, weil ein Säugetier nicht fliegen kann.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Fische haben keine Federn. Viele besitzen Schuppen; ihre Flossen sind keine Federflügel."
+                "feedback": "Auch fliegende Säugetiere gibt es. Die vorliegenden Merkmale widersprechen sich nicht."
               }
             ]
           },
@@ -31350,40 +31443,40 @@
                 "feedback": "Noch nicht. Der Lebensraum allein entscheidet die Tiergruppe nicht."
               },
               {
-                "text": "Er ist groß, deshalb ist er kein Fisch.",
+                "text": "Weil Lungenatmung allein jedes Tier eindeutig als Säugetier kennzeichnet.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Noch nicht. Größe ist kein geeignetes Merkmal für die Einordnung."
+                "feedback": "Auch Vögel und Reptilien atmen mit Lungen. Beim Delfin stützt insbesondere die Milchversorgung der Jungen die Einordnung als Säugetier."
               }
             ]
           }
         ],
-        "content": "<table class=\"bio-data-table\"><tr><th>Gruppe</th><th>Typische Merkmale</th><th>Beispiel</th></tr><tr><td>Fische</td><td>Kiemen, Flossen, meist Schuppen</td><td>Karpfen</td></tr><tr><td>Amphibien</td><td>feuchte Haut, Entwicklung oft im Wasser</td><td>Frosch</td></tr><tr><td>Reptilien</td><td>trockene Schuppenhaut, meist Eier an Land</td><td>Eidechse</td></tr><tr><td>Vögel</td><td>Federn, Schnabel, Eier</td><td>Amsel</td></tr><tr><td>Säugetiere</td><td>Haare/Fell, Milch für Junge</td><td>Mensch, Hund</td></tr></table><p>Diese Tabelle ist eine Vereinfachung. In Biologie gibt es auch Sonderfälle, etwa Wale als Säugetiere im Wasser oder Pinguine als Vögel, die nicht fliegen.</p><div class=\"misconception-box\"><strong>Häufige Fehlvorstellung:</strong> „Lebt im Wasser“ bedeutet nicht automatisch Fisch. Wale sind Säugetiere, weil sie Lungen, Haare in der Entwicklung und Milchdrüsen haben.</div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Erkläre, warum ein Delfin kein Fisch ist. Verwende mindestens zwei Fachmerkmale.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Fisch</summary><p>Fische leben meist im Wasser, atmen mit Kiemen und haben Flossen.</p><p><em>Beispiel:</em> Viele Fische haben Schuppen.</p></details><details class=\"bio-vocab-item\"><summary>Amphibie</summary><p>Amphibien leben oft als Larven im Wasser und als erwachsene Tiere auch an Land.</p><p><em>Beispiel:</em> Frosch und Molch gehören dazu.</p></details><details class=\"bio-vocab-item\"><summary>Reptil</summary><p>Reptilien haben trockene, schuppige Haut und legen meist Eier an Land.</p><p><em>Beispiel:</em> Eidechsen, Schlangen und Schildkröten sind Reptilien.</p></details><details class=\"bio-vocab-item\"><summary>Vogel</summary><p>Vögel haben Federn, Schnabel und legen Eier mit harter Schale.</p><p><em>Beispiel:</em> Nicht alle Vögel können fliegen, aber alle haben Federn.</p></details><details class=\"bio-vocab-item\"><summary>Säugetier</summary><p>Säugetiere haben Haare oder Fell und säugen ihre Jungen mit Milch.</p><p><em>Beispiel:</em> Mensch, Hund, Fledermaus und Wal sind Säugetiere.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Nenne die fünf Wirbeltiergruppen und je zwei typische Merkmale. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Ordne Tierbeispiele begründet einer Gruppe zu. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Achte auf Sonderfälle wie Wal, Fledermaus oder Pinguin und begründe mit Merkmalen statt Bauchgefühl. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne die fünf Wirbeltiergruppen und je zwei typische Merkmale.</li><li><strong>Erkenntnis:</strong> Ordne Tierbeispiele begründet einer Gruppe zu.</li><li><strong>Handeln:</strong> Achte auf Sonderfälle wie Wal, Fledermaus oder Pinguin und begründe mit Merkmalen statt Bauchgefühl.</li></ul></div>{{QUIZ_bio_wirbel_s2}}\n{{QUIZ_bio_1_wirbeltiere_extra_delfin}}"
+        "content": "<table class=\"bio-data-table\"><tr><th>Gruppe</th><th>Typische Merkmale</th><th>Beispiel</th></tr><tr><td>Fische</td><td>Kiemen, Flossen, meist Schuppen</td><td>Karpfen</td></tr><tr><td>Amphibien</td><td>feuchte Haut, Entwicklung oft im Wasser</td><td>Frosch</td></tr><tr><td>Reptilien</td><td>trockene Schuppenhaut, meist Eier an Land</td><td>Eidechse</td></tr><tr><td>Vögel</td><td>Federn, Schnabel, Eier</td><td>Amsel</td></tr><tr><td>Säugetiere</td><td>Haare/Fell, Milch für Junge</td><td>Mensch, Hund</td></tr></table><p>Diese Tabelle ist eine Vereinfachung für den Vergleich. Die fünf hier getrennt behandelten Gruppen bilden nicht fünf gleichrangige Äste eines vollständigen Stammbaums: Vögel gehören stammesgeschichtlich zu den Reptilien. In Biologie gibt es auch Sonderfälle, etwa Wale als Säugetiere im Wasser oder Pinguine als Vögel, die nicht fliegen.</p><div class=\"misconception-box\"><strong>Häufige Fehlvorstellung:</strong> „Lebt im Wasser“ bedeutet nicht automatisch Fisch. Wale sind Säugetiere, weil sie Lungen, Haare in der Entwicklung und Milchdrüsen haben.</div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Erkläre, warum ein Delfin kein Fisch ist. Verwende mindestens zwei Fachmerkmale.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Fisch</summary><p>Fische leben meist im Wasser, atmen mit Kiemen und haben Flossen.</p><p><em>Beispiel:</em> Viele Fische haben Schuppen.</p></details><details class=\"bio-vocab-item\"><summary>Amphibie</summary><p>Amphibien leben oft als Larven im Wasser und als erwachsene Tiere auch an Land.</p><p><em>Beispiel:</em> Frosch und Molch gehören dazu.</p></details><details class=\"bio-vocab-item\"><summary>Reptil</summary><p>Reptilien haben trockene, schuppige Haut und legen meist Eier an Land.</p><p><em>Beispiel:</em> Eidechsen, Schlangen und Schildkröten sind Reptilien.</p></details><details class=\"bio-vocab-item\"><summary>Vogel</summary><p>Vögel haben Federn, Schnabel und legen Eier mit harter Schale.</p><p><em>Beispiel:</em> Nicht alle Vögel können fliegen, aber alle haben Federn.</p></details><details class=\"bio-vocab-item\"><summary>Säugetier</summary><p>Säugetiere haben Haare oder Fell und säugen ihre Jungen mit Milch.</p><p><em>Beispiel:</em> Mensch, Hund, Fledermaus und Wal sind Säugetiere.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Nenne die fünf Wirbeltiergruppen und je zwei typische Merkmale. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Ordne Tierbeispiele begründet einer Gruppe zu. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Achte auf Sonderfälle wie Wal, Fledermaus oder Pinguin und begründe mit Merkmalen statt Bauchgefühl. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne die fünf Wirbeltiergruppen und je zwei typische Merkmale.</li><li><strong>Erkenntnis:</strong> Ordne Tierbeispiele begründet einer Gruppe zu.</li><li><strong>Handeln:</strong> Achte auf Sonderfälle wie Wal, Fledermaus oder Pinguin und begründe mit Merkmalen statt Bauchgefühl.</li></ul></div>{{QUIZ_bio_wirbel_s2}}\n{{QUIZ_bio_1_wirbeltiere_extra_delfin}}"
       },
       {
         "title": "3. Angepasstheit an Lebensweise",
         "quizzes": [
           {
             "id": "bio_wirbel_s3",
-            "question": "Welche Aussage beschreibt Angepasstheit?",
+            "question": "Du siehst bei einem schwimmenden Vogel Häute zwischen den Zehen. Welche Erklärung trennt Merkmal und mögliche Funktion sinnvoll?",
             "answers": [
               {
-                "text": "Die Form eines Körperteils passt zu einer Funktion im Lebensraum.",
+                "text": "Die Schwimmhäute vergrößern die Fläche beim Beinschlag und können den Vortrieb unterstützen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Angepasstheit entsteht über viele Generationen."
+                "feedback": "Richtig: Du verbindest den beobachteten Bau mit einer möglichen Funktion. Das Bild allein zeigt noch nicht die ganze Entstehungsgeschichte des Merkmals."
               },
               {
-                "text": "Ein Tier entscheidet täglich, welche Körperteile es morgen braucht.",
+                "text": "Die Schwimmhäute beweisen, dass der Vogel innerhalb seines Lebens durch Schwimmtraining solche Häute ausgebildet hat.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ein Tier plant keine erblichen Körperveränderungen. Merkmale können über Generationen häufiger werden, wenn sie unter den jeweiligen Bedingungen die Fortpflanzung begünstigen."
+                "feedback": "Aus der heutigen Form folgt keine solche Entstehung im einzelnen Tier. Angepasstheit und individuelles Üben sind verschiedene Dinge."
               },
               {
-                "text": "Alle Tiere haben die gleichen Körperteile.",
+                "text": "Die Schwimmhäute zeigen, dass der Vogel enger mit jedem schwimmenden Tier als mit Vögeln ohne Schwimmhäute verwandt ist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Verwandte Tiere können gemeinsame Grundbaupläne besitzen, ihre Körperteile unterscheiden sich aber. Eine Flosse und ein Laufbein erfüllen beispielsweise unterschiedliche Bewegungsaufgaben."
+                "feedback": "Eine ähnliche Funktion kann bei verschiedenen Gruppen vorkommen. Sie belegt für sich allein keine engere Verwandtschaft."
               }
             ]
           }
@@ -31395,55 +31488,55 @@
         "quizzes": [
           {
             "id": "bio_wirbel_s4",
-            "question": "Warum ist ein Pinguin trotz Schwimmen und Nicht-Fliegen ein Vogel?",
+            "question": "Im Schlüssel für unsere fünf Karten wirst du nach Milch für Junge gefragt. Zu diesem Merkmal fehlt dir die Angabe. Wie gehst du vor?",
             "answers": [
               {
-                "text": "Er hat Federn, Schnabel und legt Eier.",
+                "text": "Ich halte an dieser Frage an und suche die fehlende Information; unbekannt bedeutet nicht nein.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Bestimmung nutzt Merkmale, nicht nur den Lebensort."
+                "feedback": "Richtig: Du darfst einen unbekannten Zustand nicht als festgestelltes Fehlen behandeln. In der Merkmalsauswahl bleiben die passenden Möglichkeiten offen."
               },
               {
-                "text": "Er lebt im Wasser und ist daher ein Fisch.",
+                "text": "Ich wähle nein, weil ich keine Milchversorgung beobachtet habe.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Der Pinguin schwimmt, besitzt aber Federn und atmet mit Lungen. Schwimmen allein macht ein Tier nicht zum Fisch."
+                "feedback": "Nicht beobachtet ist nicht dasselbe wie ausgeschlossen. Die Angabe fehlt; der Nein-Weg wäre geraten."
               },
               {
-                "text": "Er sieht schwarz-weiß aus.",
+                "text": "Ich wähle den Weg, der am schnellsten zu einem Tiernamen führt.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Schwarz-weiße Färbung kommt auch bei anderen Tiergruppen vor. Federn sind für die Zuordnung zu heutigen Vögeln wesentlich aussagekräftiger."
+                "feedback": "Ein schneller Name ist keine begründete Zuordnung. Der Weg muss zu den bekannten Merkmalen passen."
               }
             ]
           }
         ],
-        "content": "<p>Beim Bestimmen von Wirbeltieren reicht ein einzelnes Merkmal oft nicht. Du brauchst mehrere Hinweise. Ein Tier kann im Wasser leben und trotzdem kein Fisch sein. Ein Tier kann nicht fliegen und trotzdem ein Vogel sein. Biologisch sinnvoll ist eine <strong>Merkmalskette</strong>.</p><table class=\"bio-data-table\"><tr><th>Frage</th><th>Hilft bei</th><th>Achtung Sonderfall</th></tr><tr><td>Womit atmet das Tier?</td><td>Kiemen oder Lungen unterscheiden Gruppen.</td><td>Kaulquappen haben Kiemen, erwachsene Frösche Lungen/Hautatmung.</td></tr><tr><td>Welche Körperbedeckung hat es?</td><td>Schuppen, feuchte Haut, Federn, Fell/Haare.</td><td>Wale haben kaum sichtbare Haare, sind aber Säugetiere.</td></tr><tr><td>Wie pflanzt es sich fort?</td><td>Eier, Geburt, Milch für Junge.</td><td>Nicht jedes eierlegende Tier ist ein Vogel.</td></tr></table><p>Ein einfacher Bestimmungsschlüssel ist ein Entscheidungsweg mit Ja/Nein-Fragen: Hat das Tier Federn? Hat es Haare oder säugt Junge? Hat es trockene Schuppenhaut? Du musst nicht raten, sondern gehst Frage für Frage weiter. So kommst du Schritt für Schritt zu einer begründeten Einordnung.</p><div class=\"remember-box\"><strong>Kernregel:</strong> Ordnen heißt begründen: „Ich ordne es zu ..., weil ich folgende Merkmale sehe ...“</div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Erstelle einen Ja/Nein-Bestimmungsschlüssel für fünf Tiere: Fisch, Frosch, Eidechse, Amsel, Hund. Jede Frage soll nur zwei Wege haben.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Bestimmungsschlüssel</summary><p>Ein Bestimmungsschlüssel führt dich mit Ja-Nein-Fragen oder Merkmalen zur richtigen Gruppe.</p><p><em>Beispiel:</em> Hat das Tier Federn? Ja → Vogel.</p></details><details class=\"bio-vocab-item\"><summary>Sonderfall</summary><p>Ein Sonderfall passt nicht zu einem schnellen Alltagsurteil und muss genauer geprüft werden.</p><p><em>Beispiel:</em> Ein Wal lebt im Wasser, ist aber ein Säugetier.</p></details><details class=\"bio-vocab-item\"><summary>Kieme</summary><p>Kiemen nehmen Sauerstoff aus dem Wasser auf.</p><p><em>Beispiel:</em> Fische atmen mit Kiemen.</p></details><details class=\"bio-vocab-item\"><summary>Lunge</summary><p>Lungen nehmen Sauerstoff aus der Luft auf.</p><p><em>Beispiel:</em> Säugetiere, Vögel, Reptilien und erwachsene Amphibien atmen mit Lungen.</p></details><details class=\"bio-vocab-item\"><summary>Körperbedeckung</summary><p>Die Körperbedeckung ist das, was die Haut außen trägt.</p><p><em>Beispiel:</em> Schuppen, Federn, Fell oder nackte feuchte Haut.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Nutze Merkmale wie Atmung, Haut, Fortpflanzung und Körperbedeckung korrekt. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Arbeite mit einem Bestimmungsschlüssel und begründe jeden Schritt. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Korrigiere vorschnelle Aussagen freundlich mit einem Fachmerkmal. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nutze Merkmale wie Atmung, Haut, Fortpflanzung und Körperbedeckung korrekt.</li><li><strong>Erkenntnis:</strong> Arbeite mit einem Bestimmungsschlüssel und begründe jeden Schritt.</li><li><strong>Handeln:</strong> Korrigiere vorschnelle Aussagen freundlich mit einem Fachmerkmal.</li></ul></div>{{QUIZ_bio_wirbel_s4}}"
+        "content": "<p>Beim Bestimmen von Wirbeltieren reicht ein einzelnes Merkmal oft nicht. Du brauchst mehrere Hinweise. Ein Tier kann im Wasser leben und trotzdem kein Fisch sein. Ein Tier kann nicht fliegen und trotzdem ein Vogel sein. Biologisch sinnvoll ist eine <strong>Merkmalskette</strong>.</p><table class=\"bio-data-table\"><tr><th>Frage</th><th>Hilft bei</th><th>Achtung Sonderfall</th></tr><tr><td>Womit atmet das Tier?</td><td>Kiemen oder Lungen unterscheiden Gruppen.</td><td>Kaulquappen haben Kiemen, erwachsene Frösche Lungen/Hautatmung.</td></tr><tr><td>Welche Körperbedeckung hat es?</td><td>Schuppen, feuchte Haut, Federn, Fell/Haare.</td><td>Wale haben kaum sichtbare Haare, sind aber Säugetiere.</td></tr><tr><td>Wie pflanzt es sich fort?</td><td>Eier, Geburt, Milch für Junge.</td><td>Nicht jedes eierlegende Tier ist ein Vogel.</td></tr></table><p>Ein einfacher Bestimmungsschlüssel ist ein Entscheidungsweg mit Ja/Nein-Fragen: Hat das Tier Federn? Hat es Haare oder säugt Junge? Hat es trockene Schuppenhaut? Du musst nicht raten, sondern gehst Frage für Frage weiter. So kommst du Schritt für Schritt zu einer begründeten Einordnung.</p><div class=\"remember-box\"><strong>Kernregel:</strong> Ordnen heißt begründen: „Ich ordne es zu ..., weil ich folgende Merkmale sehe ...“</div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Erstelle einen Ja/Nein-Bestimmungsschlüssel für fünf Tiere: Fisch, Frosch, Eidechse, Amsel, Hund. Jede Frage soll nur zwei Wege haben.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Bestimmungsschlüssel</summary><p>Ein Bestimmungsschlüssel führt dich mit Ja-Nein-Fragen oder Merkmalen zur richtigen Gruppe.</p><p><em>Beispiel:</em> Hat das Tier Federn? Ja → Vogel.</p></details><details class=\"bio-vocab-item\"><summary>Sonderfall</summary><p>Ein Sonderfall passt nicht zu einem schnellen Alltagsurteil und muss genauer geprüft werden.</p><p><em>Beispiel:</em> Ein Wal lebt im Wasser, ist aber ein Säugetier.</p></details><details class=\"bio-vocab-item\"><summary>Kieme</summary><p>Kiemen nehmen Sauerstoff aus dem Wasser auf.</p><p><em>Beispiel:</em> Fische atmen mit Kiemen.</p></details><details class=\"bio-vocab-item\"><summary>Lunge</summary><p>Lungen nehmen Sauerstoff aus der Luft auf.</p><p><em>Beispiel:</em> Säugetiere, Vögel und Reptilien atmen mit Lungen. Viele erwachsene Amphibien ebenfalls; es gibt aber auch lungenlose Salamander.</p></details><details class=\"bio-vocab-item\"><summary>Körperbedeckung</summary><p>Die Körperbedeckung ist das, was die Haut außen trägt.</p><p><em>Beispiel:</em> Schuppen, Federn, Fell oder nackte feuchte Haut.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Nutze Merkmale wie Atmung, Haut, Fortpflanzung und Körperbedeckung korrekt. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Arbeite mit einem Bestimmungsschlüssel und begründe jeden Schritt. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Korrigiere vorschnelle Aussagen freundlich mit einem Fachmerkmal. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nutze Merkmale wie Atmung, Haut, Fortpflanzung und Körperbedeckung korrekt.</li><li><strong>Erkenntnis:</strong> Arbeite mit einem Bestimmungsschlüssel und begründe jeden Schritt.</li><li><strong>Handeln:</strong> Korrigiere vorschnelle Aussagen freundlich mit einem Fachmerkmal.</li></ul></div>{{QUIZ_bio_wirbel_s4}}<div data-vertebrate-workshop><h3>Fünf Karten mit denselben Merkmalen vergleichen</h3><p>Diese vereinfachten Karten beschreiben erwachsene Beispieltiere. „Milch“ meint ein Merkmal der Gruppe, nicht, dass jedes einzelne Tier gerade Junge säugt. „Schuppenhaut“ bezeichnet hier die Rumpfbedeckung der Eidechse, nicht Fischschuppen oder die unbefiederten Beine eines Vogels. Verwende die Angaben der Karten; sie sind keine eigene Beobachtung an einem Tier.</p><table class=\"bio-data-table\" data-vertebrate-cards><caption>Merkmalskarten für diese Übung</caption><thead><tr><th scope=\"col\">Beispiel</th><th scope=\"col\">Federn</th><th scope=\"col\">Junge mit Milch versorgen</th><th scope=\"col\">Kiemenatmung als erwachsenes Tier</th><th scope=\"col\">Trockene Schuppenhaut am Rumpf</th></tr></thead><tbody><tr data-vertebrate-card=\"forelle\"><th scope=\"row\">Forelle</th><td>nein</td><td>nein</td><td>ja</td><td>nein</td></tr><tr data-vertebrate-card=\"frosch\"><th scope=\"row\">Frosch</th><td>nein</td><td>nein</td><td>nein</td><td>nein</td></tr><tr data-vertebrate-card=\"eidechse\"><th scope=\"row\">Eidechse</th><td>nein</td><td>nein</td><td>nein</td><td>ja</td></tr><tr data-vertebrate-card=\"amsel\"><th scope=\"row\">Amsel</th><td>ja</td><td>nein</td><td>nein</td><td>nein</td></tr><tr data-vertebrate-card=\"hund\"><th scope=\"row\">Hund</th><td>nein</td><td>ja</td><td>nein</td><td>nein</td></tr></tbody></table><div class=\"interactive-zone\" data-core-experiment=\"vertebrate-cards\"><h4>Welche Karten passen noch?</h4><p>Wähle nur bekannte Merkmale. „Unbekannt“ schließt keine Karte aus. Sage zuerst voraus, welche Beispiele übrig bleiben.</p><p><label>Federn <select data-vertebrate-feature=\"feathers\"><option value=\"\">unbekannt</option><option value=\"ja\">ja</option><option value=\"nein\">nein</option></select></label></p><p><label>Junge mit Milch versorgen <select data-vertebrate-feature=\"milk\"><option value=\"\">unbekannt</option><option value=\"ja\">ja</option><option value=\"nein\">nein</option></select></label></p><p><label>Kiemenatmung als erwachsenes Tier <select data-vertebrate-feature=\"gills\"><option value=\"\">unbekannt</option><option value=\"ja\">ja</option><option value=\"nein\">nein</option></select></label></p><p><label>Trockene Schuppenhaut am Rumpf <select data-vertebrate-feature=\"scales\"><option value=\"\">unbekannt</option><option value=\"ja\">ja</option><option value=\"nein\">nein</option></select></label></p><button type=\"button\" data-vertebrate-reset>Alle Merkmale zurücksetzen</button><p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" data-vertebrate-result></p><ul data-vertebrate-matches></ul><template data-worksheet-alternative><p>Nutze die fünf Karten oben: Streiche bei „keine Federn“ und „keine Milch“ unpassende Karten. Wähle ein weiteres Merkmal und notiere, welche Beispiele dadurch ausscheiden. Behandle unbekannte Angaben nicht als „nein“.</p></template></div><ol data-vertebrate-tasks><li>Starte mit allen Merkmalen unbekannt. Welche Karten bleiben bei „keine Federn“ und „keine Milch“? Notiere ihre Namen, bevor du die Auswahl prüfst.</li><li>Untersuche die drei verbliebenen Karten mit einer weiteren Frage. Gib für beide Antworten an, welche Karten noch passen.</li><li>Führe den unten angegebenen Entscheidungsweg für jede der fünf Karten aus. Notiere die Antworten auf deinem Weg.</li><li>Über ein Tier ist nur bekannt, dass es schwimmt. Erkläre, warum du daraus keine dieser vier Merkmalsangaben sicher ableiten darfst.</li><li>Probiere „Federn: ja“ und „Milch: ja“. Was bedeutet ein leeres Ergebnis für unsere fünf Karten? Warum beweist es nicht allein eine allgemeine Regel über alle denkbaren Tiere?</li></ol><table data-vertebrate-key><caption>Ein Entscheidungsweg ausschließlich für diese fünf Karten</caption><thead><tr><th scope=\"col\">Frage</th><th scope=\"col\">Ja</th><th scope=\"col\">Nein</th></tr></thead><tbody><tr><th scope=\"row\">1. Federn?</th><td>Amsel</td><td>weiter zu 2</td></tr><tr><th scope=\"row\">2. Milch für Junge?</th><td>Hund</td><td>weiter zu 3</td></tr><tr><th scope=\"row\">3. Kiemenatmung als erwachsenes Tier?</th><td>Forelle</td><td>weiter zu 4</td></tr><tr><th scope=\"row\">4. Trockene Schuppenhaut am Rumpf?</th><td>Eidechse</td><td>Frosch</td></tr></tbody></table><p><strong>Grenze:</strong> Dieser Schlüssel unterscheidet die fünf vorgegebenen Karten, nicht alle Wirbeltierarten. Fehlt eine Angabe, hältst du an und suchst weitere Informationen. Eine Kaulquappe passt nicht zur Festlegung auf erwachsene Tiere. Für eine echte Artbestimmung brauchst du einen geeigneten Schlüssel und mehr Merkmale; Tiere werden für diese Papieraufgabe nicht gefangen.</p><details data-worksheet-solution=\"true\"><summary>Kartenauswahl vergleichen</summary><p>Ohne Federn und ohne Milch bleiben Forelle, Frosch und Eidechse. „Kiemen: ja“ lässt nur die Forelle übrig; „Kiemen: nein“ lässt Frosch und Eidechse übrig. Ihre Rumpfbedeckung trennt die letzten beiden Karten. Amsel: ja bei 1. Hund: nein–ja. Forelle: nein–nein–ja. Eidechse: nein–nein–nein–ja. Frosch: viermal nein. Federn zusammen mit Milch findet keine passende Karte in dieser Sammlung. Schwimmen allein lässt keine begründete Zuordnung zu einer der fünf Gruppen zu.</p></details><p>Fachlicher Hintergrund zu Gruppen und Ausnahmen: <a href=\"https://openstax.org/books/concepts-biology/pages/15-6-vertebrates\" target=\"_blank\" rel=\"noopener\">OpenStax: Vertebrates</a>.</p></div>"
       },
       {
         "title": "5. Lernstation: Wirbeltiere wie Detektive vergleichen",
         "quizzes": [
           {
             "id": "bio_wirbel_s5",
-            "question": "Welche Begründung ist beim Zuordnen eines Wirbeltiers stark?",
+            "question": "Über ein unbekanntes Wirbeltier weißt du nur: Es legt Eier und atmet mit Lungen. Was ist damit begründet?",
             "answers": [
               {
-                "text": "Ich nenne mehrere Merkmale, die zu einer Gruppe passen.",
+                "text": "Die Gruppe ist noch offen; beispielsweise passen Vögel und viele Reptilien. Ich suche weitere Merkmale.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Mehrere Merkmale machen die Einordnung sicherer."
+                "feedback": "Richtig: Beide Angaben sind nützlich, unterscheiden hier aber noch nicht eindeutig. Auch mehrere Merkmale können zu mehreren Gruppen passen."
               },
               {
-                "text": "Ich entscheide nach einem Gefühl.",
+                "text": "Es ist eindeutig ein Vogel, denn zwei passende Merkmale reichen immer aus.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ein Gefühl lässt sich nicht anhand von Merkmalen überprüfen. Nenne beobachtbare Eigenschaften und erkläre, warum sie zur Gruppe passen."
+                "feedback": "Nicht die Anzahl der Angaben allein entscheidet. Eier und Lungen kommen auch bei anderen Wirbeltieren vor."
               },
               {
-                "text": "Ich nehme immer den Lebensraum als einziges Merkmal.",
+                "text": "Es ist eindeutig ein Reptil, weil in der Beschreibung keine Federn genannt werden.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Im selben Lebensraum leben verschiedene Tiergruppen. Vergleiche zusätzlich etwa Körperbedeckung und Fortpflanzung."
+                "feedback": "Eine fehlende Angabe zu Federn beweist nicht deren Fehlen. Du brauchst eine zusätzliche Beobachtung oder verlässliche Information."
               }
             ]
           }
@@ -31456,145 +31549,145 @@
       "questions": [
         {
           "id": "bio_wirbel_d1",
-          "question": "Warum ist ein Wal ein Säugetier?",
+          "question": "Welche Begründung ordnet einen Wal zuverlässig den Säugetieren zu?",
           "answers": [
             {
-              "text": "Er atmet mit Lungen und säugt seine Jungen.",
+              "text": "Er besitzt die Merkmale dieser Gruppe, insbesondere die Versorgung der Jungen mit Milch.",
               "correct": true,
               "pts": 10,
-              "feedback": "Wale holen Luft an der Oberfläche und versorgen ihre Jungen mit Milch. Besonders das Säugen ist ein kennzeichnendes Säugetiermerkmal; Lungen allein haben auch andere Wirbeltiere."
+              "feedback": "Richtig: Das Säugen ist ein kennzeichnendes Säugetiermerkmal. Wasserleben und Körperform allein würden die Gruppe nicht bestimmen."
             },
             {
-              "text": "Er hat Flossen und lebt im Wasser.",
+              "text": "Er atmet mit Lungen; deshalb gehört jedes Tier mit Lungen zu den Säugetieren.",
               "correct": false,
               "pts": 0,
-              "feedback": "Flossen und Wasserleben passen auch zu Fischen. Sie erklären deshalb nicht, warum ein Wal zu den Säugetieren gehört."
+              "feedback": "Auch Vögel und Reptilien haben Lungen. Die Lungenatmung allein grenzt Säugetiere nicht von diesen Gruppen ab."
             },
             {
-              "text": "Er legt Eier mit harter Schale.",
+              "text": "Seine Körperform ähnelt einem Fisch; solche Ähnlichkeit ist immer wichtiger als die Fortpflanzung.",
               "correct": false,
               "pts": 0,
-              "feedback": "Wale gebären lebende Junge und säugen sie. Eier mit harter Schale beschreiben ihre Fortpflanzung nicht."
+              "feedback": "Eine ähnliche Form kann mit derselben Fortbewegung zusammenhängen. Mehrere Fachmerkmale sind für die Einordnung wichtiger als dieser einzelne Eindruck."
             }
           ]
         },
         {
           "id": "bio_wirbel_d2",
-          "question": "Welche Fragen helfen beim begründeten Vergleich von Wirbeltiergruppen?",
+          "question": "Du willst zwei Wirbeltiere anhand einer Tabelle vergleichen. Wie erhältst du eine nachvollziehbare Begründung?",
           "answers": [
             {
-              "text": "Welche Körperbedeckung, Atmung und Fortpflanzung hat das Tier?",
+              "text": "Ich prüfe bei beiden dieselben Merkmale und unterscheide belegte, fehlende und unbekannte Angaben.",
               "correct": true,
               "pts": 10,
-              "feedback": "Diese Merkmale lassen sich fachlich vergleichen. Berücksichtige mehrere passende Hinweise und bei der Atmung auch das Entwicklungsstadium."
+              "feedback": "Richtig: Vergleichbare Angaben lassen sich prüfen. Unbekannte Merkmale bleiben offen und werden nicht als fehlend eingetragen."
             },
             {
-              "text": "Welche Farbe gefällt mir am besten?",
+              "text": "Ich suche für jedes Tier ein anderes auffälliges Merkmal und vergleiche dann nur diese beiden.",
               "correct": false,
               "pts": 0,
-              "feedback": "Deine Lieblingsfarbe beschreibt deinen Geschmack. Für die Tiergruppe sind Merkmale des Tieres entscheidend, etwa Federn oder das Säugen der Jungen."
+              "feedback": "Unterschiedliche Merkmale ergeben noch keinen systematischen Vergleich. Prüfe beispielsweise die Körperbedeckung bei beiden Tieren."
             },
             {
-              "text": "Wie berühmt ist das Tier?",
+              "text": "Ich trage bei jedem nicht sichtbaren Merkmal automatisch nein ein.",
               "correct": false,
               "pts": 0,
-              "feedback": "Bekanntheit hängt davon ab, wie Menschen über ein Tier berichten. Sie beschreibt keine biologische Verwandtschaft."
+              "feedback": "Ein Merkmal kann auf einem Bild verdeckt sein oder sich dort gar nicht beobachten lassen. Nicht sichtbar bedeutet nicht sicher fehlend."
             }
           ]
         },
         {
           "id": "bio_wirbel_d3",
-          "question": "Welche Aussage zu Amphibien passt?",
+          "question": "Eine Kaulquappe besitzt Kiemen. Später entwickelt sich daraus ein Frosch mit Lungen und Hautatmung. Welche Schlussfolgerung passt?",
           "answers": [
             {
-              "text": "Viele entwickeln sich zuerst im Wasser und haben als Erwachsene Lungen und Hautatmung.",
+              "text": "Das Entwicklungsstadium muss beim Merkmalsvergleich berücksichtigt werden; beide Stadien gehören zum selben Tier.",
               "correct": true,
               "pts": 10,
-              "feedback": "Beim Frosch verändert sich die Atmung während der Entwicklung: Die Kaulquappe besitzt Kiemen, später tragen Lungen und Haut zum Gasaustausch bei. „Viele“ lässt Raum für andere Entwicklungsweisen."
+              "feedback": "Richtig: Merkmale können sich während der Entwicklung verändern. Eine erwachsene Vergleichskarte darf nicht ungeprüft auf eine Larve angewendet werden."
             },
             {
-              "text": "Sie haben immer Federn.",
+              "text": "Das Tier war zuerst ein Fisch und wird später zu einem Amphibium.",
               "correct": false,
               "pts": 0,
-              "feedback": "Federn gehören zu heutigen Vögeln, nicht zu Amphibien. Viele Amphibien besitzen eine feuchte Haut, über die Gase ausgetauscht werden können."
+              "feedback": "Eine Kaulquappe ist ein Entwicklungsstadium eines Amphibiums, kein Fisch. Kiemen allein reichen zur Gruppenzuordnung nicht aus."
             },
             {
-              "text": "Sie säugen ihre Jungen.",
+              "text": "Die Gruppenmerkmale sind unbrauchbar, weil jedes Tier in jedem Alter dieselbe Atmung haben müsste.",
               "correct": false,
               "pts": 0,
-              "feedback": "Das Säugen mit Milch ist ein Merkmal der Säugetiere. Amphibien haben keine Milchdrüsen."
+              "feedback": "Ein sinnvoller Vergleich berücksichtigt Ausnahmen und Entwicklungsstadien. Veränderliche Atmung macht nicht alle Merkmale unbrauchbar."
             }
           ]
         },
         {
           "id": "bio_wirbel_d4",
-          "question": "Was ist ein Beispiel für Angepasstheit?",
+          "question": "Ein Vogel hat einen kräftigen Schnabel und wird beim Knacken harter Samen beobachtet. Was ist eine passende Deutung?",
           "answers": [
             {
-              "text": "Der Schnabel eines Vogels passt oft zur Nahrung.",
+              "text": "Die Beobachtung stützt die Vermutung, dass dieser Schnabel beim Knacken hilft.",
               "correct": true,
               "pts": 10,
-              "feedback": "Ein kräftiger kurzer Schnabel kann beispielsweise beim Knacken harter Samen helfen. Die Form liefert einen Hinweis auf die Funktion, den du mit Beobachtungen zur Nahrung prüfen kannst."
+              "feedback": "Richtig: Körperform und beobachtete Tätigkeit passen zusammen. Weitere Beobachtungen können die Deutung ergänzen."
             },
             {
-              "text": "Ein Tier trägt eine Jacke.",
+              "text": "Ein einziger beobachteter Samen beweist, dass der Vogel ausschließlich diese Samenart frisst.",
               "correct": false,
               "pts": 0,
-              "feedback": "Eine angezogene Jacke ist kein erbliches Körpermerkmal. Fell oder eine isolierende Fettschicht wären körperliche Merkmale, deren Funktion du untersuchen kannst."
+              "feedback": "Eine Beobachtung zeigt nicht die gesamte Nahrung über längere Zeit. Die Ausschließlichkeitsbehauptung geht zu weit."
             },
             {
-              "text": "Alle Tiere laufen gleich.",
+              "text": "Die Schnabelform beweist, dass der Vogel sich den Schnabel wegen dieser Nahrung bewusst so wachsen ließ.",
               "correct": false,
               "pts": 0,
-              "feedback": "Tiere bewegen sich unterschiedlich. Schwimmhäute, Flossen oder Laufbeine ermöglichen unterschiedliche Fortbewegungsweisen."
+              "feedback": "Eine mögliche Funktion erklärt keinen bewussten Umbau durch das Tier. Angepasstheit wird nicht vom Individuum vorausgeplant."
             }
           ]
         },
         {
           "id": "bio_wirbel_d5",
-          "question": "Was ist bei der Bestimmung wichtiger als der Lebensort?",
+          "question": "Auf einem unscharfen Foto erkennst du bei einem schwimmenden Tier keine Körperbedeckung. Wie dokumentierst du diese Angabe?",
           "answers": [
             {
-              "text": "Mehrere Körper- und Fortpflanzungsmerkmale zusammen.",
+              "text": "Körperbedeckung: auf diesem Foto nicht erkennbar. Ich suche eine bessere Aufnahme oder eine verlässliche Beschreibung.",
               "correct": true,
               "pts": 10,
-              "feedback": "Körperbau und Fortpflanzung liefern Hinweise auf Verwandtschaft. Ein Wal säugt seine Jungen, obwohl seine Körperform an das Schwimmen angepasst ist."
+              "feedback": "Richtig: Du trennst eine Grenze deiner Beobachtung von einer Aussage über das Tier."
             },
             {
-              "text": "Ob das Tier beliebt ist.",
+              "text": "Körperbedeckung: keine, weil das Foto weder Federn noch Fell zeigt.",
               "correct": false,
               "pts": 0,
-              "feedback": "Beliebtheit ist eine menschliche Bewertung. Sie liefert keine Information über den Körperbau oder die Verwandtschaft des Tieres."
+              "feedback": "Die Aufnahme ist unscharf. Daraus kannst du das Fehlen dieser Merkmale nicht ableiten."
             },
             {
-              "text": "Ob es auf einem Foto groß wirkt.",
+              "text": "Körperbedeckung: Schuppen, weil das Tier schwimmt.",
               "correct": false,
               "pts": 0,
-              "feedback": "Die scheinbare Größe hängt auch vom Abstand und Bildausschnitt ab. Außerdem kommen große und kleine Tiere in vielen Gruppen vor."
+              "feedback": "Auch Tiere mit Fell oder Federn schwimmen. Die Fortbewegung ersetzt keine Beobachtung der Körperbedeckung."
             }
           ]
         },
         {
           "id": "bio_wirbel_d6",
-          "question": "Warum ist „lebt im Wasser“ kein ausreichender Beweis für Fisch?",
+          "question": "Unsere Auswahl zeigt nach mehreren Merkmalsangaben nur die Karte „Hund“. Was bedeutet dieses Ergebnis?",
           "answers": [
             {
-              "text": "Auch Säugetiere, Reptilien oder Amphibien können im Wasser leben.",
+              "text": "Unter den fünf angebotenen Karten passt nur Hund; für ein unbekanntes echtes Tier ist das noch keine vollständige Artbestimmung.",
               "correct": true,
               "pts": 10,
-              "feedback": "Genau. Lebensraum allein kann täuschen."
+              "feedback": "Richtig: Das Ergebnis gilt für den angegebenen Vergleichskreis. Andere Tiere können ebenfalls passende Merkmale besitzen."
             },
             {
-              "text": "Weil Fische nie im Wasser leben.",
+              "text": "Damit ist jedes echte Tier mit diesen Angaben sicher ein Hund.",
               "correct": false,
               "pts": 0,
-              "feedback": "Fische leben im Wasser; diese Eigenschaft trifft aber auch auf andere Tiere zu. Ein gemeinsamer Lebensraum reicht daher nicht zur eindeutigen Zuordnung."
+              "feedback": "Die Sammlung enthält nur fünf Beispiele. Sie erfasst nicht alle Tiere, die diese Merkmale haben können."
             },
             {
-              "text": "Weil der Lebensraum alle anderen Merkmale ersetzt.",
+              "text": "Ein einzelner Treffer beweist, dass sämtliche eingegebenen Angaben richtig beobachtet wurden.",
               "correct": false,
               "pts": 0,
-              "feedback": "Der Lebensraum ergänzt andere Hinweise, ersetzt sie aber nicht. Ein Delfin bleibt wegen seiner Merkmale ein Säugetier, auch wenn er ständig im Wasser lebt."
+              "feedback": "Auch mit unzutreffenden Eingaben kann ein Treffer entstehen. Das Modell prüft Übereinstimmung mit Karten, nicht die Zuverlässigkeit deiner Beobachtung."
             }
           ]
         }
@@ -31606,14 +31699,16 @@
     "summary": [
       "Wirbeltiere besitzen eine Wirbelsäule und ein inneres Skelett.",
       "Merkmale von Körperbau, Fortpflanzung und Lebensweise helfen beim Vergleichen und Einordnen.",
-      "Eine ähnliche Lebensweise allein beweist keine enge Verwandtschaft: Wale sind beispielsweise Säugetiere."
+      "Eine ähnliche Lebensweise allein beweist keine enge Verwandtschaft: Wale sind beispielsweise Säugetiere.",
+      "Ein Bestimmungsschlüssel gilt für seinen angegebenen Tierkreis. Unbekannte Merkmale werden nicht als „nein“ behandelt."
     ],
     "learningGoals": [
       "Gemeinsame Grundmerkmale von Wirbeltieren beschreiben.",
       "Die hier verglichenen Wirbeltiergruppen anhand typischer Merkmale unterscheiden.",
       "Delfin, Fledermaus und Pinguin begründet zuordnen.",
       "Körpermerkmale mit möglichen Funktionen verbinden und Vermutungen als solche kennzeichnen.",
-      "Erkennen, wann die vorhandenen Merkmale für eine eindeutige Zuordnung nicht ausreichen."
+      "Erkennen, wann die vorhandenen Merkmale für eine eindeutige Zuordnung nicht ausreichen.",
+      "Einen vorgegebenen Bestimmungsschlüssel anwenden und unbekannte Merkmale von fehlenden Merkmalen unterscheiden."
     ]
   },
   "bio_1_haustiere": {

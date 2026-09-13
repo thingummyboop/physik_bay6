@@ -1,5 +1,7 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Aktueller Quellenstand vom 14.09.2026: Die fünf priorisierten Fachlehrpläne wurden erneut direkt aus dem RIS abgerufen und vollständig mit der bisherigen Textgrundlage verglichen. Sie sind unverändert. Nachweis und Grenzen: [LEHRPLAN_QUELLENSTAND.md](LEHRPLAN_QUELLENSTAND.md). Dies erledigt den Quellenvergleich, nicht die noch offenen Inhalts- und Produktabnahmen.
+
 ## Verbindliches Produktziel
 
 Die bestehende Webseite wird zu einem interaktiven, gamifizierten Lehrbuch für die 5.–8. Schulstufe. Schüler:innen lernen neue Inhalte selbstständig und bereiten sich gezielt auf Tests und Schularbeiten vor. Lehrkräfte nutzen abgegrenzte Kapitel als Unterrichtsgrundlage und zuweisbaren Prüfungsstoff. Physik dient als fachlich und didaktisch ausgearbeitetes Vorbild, die übrigen bestehenden Fächer werden ebenfalls vervollständigt.

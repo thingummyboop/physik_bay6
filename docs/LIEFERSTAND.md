@@ -868,3 +868,90 @@ Die Spielrückmeldungen haben explizite Live-/Atomic-Angaben; der Sekunden-Timer
 Neue Aufgaben beginnen standardmäßig ohne Countdown. Das Zeitlimit lässt sich für folgende Aufgaben einschalten; Abschalten beendet einen laufenden Countdown sofort. Die Einstellung gilt für die laufende Sitzung.
 
 Die neue 174. Testsuite prüft tatsächliche Initialisierung, freiwilligen Timer, Ablauf und sofortiges Abschalten sowie Känguru-Training ohne Timer und dessen Rückmeldungsattribute. Diese Suite, Mathematik-Audit über 41 Kapitel, Flächenprüfung und Erstklassprüfung bestanden vor dem Zwischenstand-Push erneut. Der letzte Gesamtlauf umfasst weiterhin 173 Suiten; kein vollständiger 174er-Lauf oder praktischer Browser-/Screenreader-Nachweis.
+
+
+### DGB 2. Klasse: Datenpakete handelnd untersuchen (13.09.2026)
+
+Die fünf dgb6-Kapitel wurden im aktuellen Bestand textlich gelesen. Im Kommunikationskapitel blieb die Netzwerkidee bisher bei einem Puzzlevergleich ohne konkretes Material. Ergänzt sind vier nummerierte Nachrichtenkarten, ein interaktiver Empfang in frei wählbarer Reihenfolge, Erkennung fehlender/doppelter Karten und fünf Vorhersage-, Vergleichs- und Transferaufträge. Die Papierfassung enthält Karten und Ablaufaufgabe; die Vergleichsauswertung bleibt im getrennten, zunächst ausgeblendeten Lösungsteil.
+
+Das Modell ist ausdrücklich keine Netzwerkübertragung: keine Routerwege, Bestätigungen oder automatischen Wiederholungen. Byte-Sequenznummern bei TCP sind von den Wortkarten abgegrenzt; eine Lücke beweist keinen Verlust. Primärgrundlage: RFC 9293, Abschnitte 2.2 und 3.8 (https://www.rfc-editor.org/rfc/rfc9293.html, am 13.09.2026 gelesen). Kein neuer bewerteter Quizstoff und daher keine Revisionsänderung.
+
+Neue Suite test_dgb_packet_order.js bestanden: 341 Empfangsfolgen bis Länge vier einschließlich aller Reihenfolgen und Doppelungen, gezieltes Ergänzen fehlender Karten, Rücksetzen, Fokus/Statusverknüpfung, wiederholte Initialisierung, unveränderter Quizspeicher und tatsächliche Arbeitsblattgenerierung mit separater Lösung. Bestehende 21 DGB-Arbeitsblätter, 330 Sortier-/Filterfälle und Erstklass-Transferprüfung ebenfalls bestanden. Jetzt 175 Testdateien vorhanden; kein neuer Gesamtlauf, keine praktische Browser-/Druckprüfung, keine Übersetzungen und kein weiterer Push. Vollständige Lehrplan- und Produktabnahme weiterhin offen.
+
+
+### DGB: Phishing- und Quellenfälle selbstständig bearbeiten (14.09.2026)
+
+Dgb6_kommunikation ergänzt zwei ausdrücklich erfundene Materialfälle: eine angebliche Lernportal-Nachricht mit Zeitdruck, Passwortforderung und abweichender Beispieladresse sowie eine Kette aus drei voneinander abgeschriebenen Unterrichtsausfall-Meldungen. Vier Phishing- und fünf Quellenaufträge verlangen konkrete Belege, einen unabhängigen Prüfweg und ein begründetes Zwischenurteil. Ein zweizeiliges Belegprotokoll und getrennte optionale Vergleichslösungen sind enthalten. Die .invalid-Adressen sind nicht verlinkt; es werden keine Daten erfragt oder versendet.
+
+Alle vier bewerteten Kapitelprüfungsfragen besitzen jetzt drei fachlich plausible Antwortmöglichkeiten mit eigener Rückmeldung. Sie prüfen Paketübertragung, die Grenzen von Stil/Quellenzeile, eine unabhängige Reaktion auf verdächtige Nachrichten und die Passung von Datum/Schule eines Belegs. Revision 1 macht alte Ergebnisse veraltet. Primärquellen, am 13.09.2026 gelesen: A-SIT Präventionsmaßnahmen gegen Phishing (https://www.onlinesicherheit.gv.at/Services/Technologie-Schwerpunkte/Phishing-und-Cybercrime/Praeventionsmassnahmen-gegen-Phishing.html) und Saferinternet.at Onlineinhalte überprüfen (https://www.saferinternet.at/wie-ueberprueft-man-onlineinhalte). Die Fallgeschichten sind eigene Übungsdaten, keine echten Meldungen.
+
+Gezielt bestanden: zwölf Antwortwege der vier bewerteten Fragen mit Rückmeldungen und Wiederholungs-IDs, alte/aktuelle Revision, Material und separate Papierlösungen, 341 Paketfolgen, 21 DGB-Arbeitsblätter sowie bestehende Revisionsprüfungen.
+
+Der Gesamtlauf vom 2026-09-13T21:28:34.703Z endete mit 174/175 bestandenen Suiten. Einziger Fehler: der erzeugte Titelindex enthielt noch Überschriften der veralteten Sprachfassungen dieses Kapitels. Index neu erzeugt; anschließend die fehlgeschlagene Suite test_translated_title_search.js erfolgreich ausgeführt. Alle Katalogkapitel und fünf Fremdsprachen werden darin gegen die tatsächliche Inhaltsauswahl geprüft. Keine Übersetzung ergänzt. Das ist ein Gesamtlauf mit anschließend behobenem und gezielt nachgeprüftem Fehler, kein neuer 175/175-Gesamtlauf. Browser-/Drucklayout, vollständige fachliche Abnahme und Veröffentlichung bleiben offen.
+
+
+### Physik-Einstieg: Messpraxis vor Formeln (14.09.2026)
+
+Die 20 Physikkapitel und ihre hinterlegten Vorwissensbezüge wurden im aktuellen Katalog gelesen. Kein späteres Kapitel wird als gleichfachliches Vorwissen vorausgesetzt; die vorhandene Navigationsprüfung bestätigt dies. Daraus folgt keine vollständige fachliche oder amtliche Abnahme. Erneuter Abruf der dokumentierten RIS-Anlage lieferte HTTP 503; der abschließende Abgleich bleibt offen.
+
+In sieinheiten stand die Messpraxis bisher nach Einheiten, Umrechnungen, Geschwindigkeitsformeln und Diagrammen. Neue Reihenfolge: Zahlenwert/Einheit → eigenes Messen und Messgrenzen → SI-Größen → Umrechnungen → Diagramme → mittlere Geschwindigkeit. Die Lernweg-Erklärung und Vorwissensangabe verdeutlichen diesen Aufbau. Ein dreizeiliges Messprotokoll und vier Auswertungsaufträge ergänzen den vorhandenen Heftkantenversuch. Gegenstand, Einheit, Skalenteilung und Beobachtungsbedingungen werden festgehalten; Wiederholmessung und geänderte Blickrichtung getrennt untersucht. Die Papieralternative verwendet ausdrücklich vorgegebene Zahlen und erfindet keine eigenen Messungen.
+
+Alle 17 Prüfungsfragen und ihre IDs bleiben erhalten, keine inhaltliche Quizrevision. Gezielte Messprüfung bestanden: Zuordnung aller sieben Abschnittsfragen in der neuen Reihenfolge, sechs Antwortwege zur Messqualität inklusive Wiederholungs-IDs und Rückmeldungen sowie bisherige Geschwindigkeits-/Diagrammfunktionen. Alle 20 Physik-Arbeitsblätter bestanden; das Messprotokoll erscheint im zweiten Abschnitt. Katalognavigation, Inventar und struktureller Quiz-Audit ebenfalls bestanden. Keine Übersetzung, Browser-/Drucklayoutprüfung, praktische Versuchserprobung oder weiterer Push.
+
+
+### Wirbeltiere: ausgearbeitete Merkmalswerkstatt (14.09.2026)
+
+Alle fünf Abschnitte von bio_1_wirbeltiere einschließlich Glossaren, Trainingsaufträgen und sechs Quizfragen wurden im aktuellen Bestand vollständig textlich gelesen. Vorhanden waren Gruppenvergleich, Angepasstheit, Sonderfälle und der Auftrag, selbst einen Schlüssel zu erstellen; ein vollständig ausgearbeiteter Entscheidungsweg fehlte.
+
+Abschnitt 4 ergänzt fünf Merkmalskarten für erwachsene Beispieltiere, vier bekannte/unbekannte Merkmalsentscheidungen, fünf Arbeitsaufträge und einen vierstufigen Ja/Nein-Schlüssel. Der interaktive Vergleich erhält bei unbekannten Angaben alle passenden Kandidaten. Kein Treffer bedeutet nur, dass keine der fünf Karten passt; ein einzelner Treffer ist keine echte Artbestimmung. Der Schlüssel und die Merkmalsbegriffe sind ausdrücklich auf diese Sammlung begrenzt. Papieraufgabe und optionale Vergleichslösung vorhanden.
+
+Zwei fachliche Präzisierungen nach OpenStax Concepts of Biology 15.6 (https://openstax.org/books/concepts-biology/pages/15-6-vertebrates, am 14.09.2026 geöffnet): Vögel gehören stammesgeschichtlich zu den Reptilien; die fünf schulischen Vergleichsgruppen sind keine vollständige Stammbaumdarstellung. Die pauschale Lungenangabe für alle erwachsenen Amphibien nennt nun viele erwachsene Amphibien und lungenlose Salamander als Ausnahme. Keine Änderung bewerteter Quizfragen oder Revision.
+
+Neue Suite test_vertebrate_cards.js bestanden: 81 Kombinationen gegen unabhängig festgelegte Merkmalsmengen, unbekannte/fehlende Treffer, alle fünf Entscheidungswege, Beschriftungen/Status/Fokus, Reset, Wiederinitialisierung, unveränderte Quelldaten und Lernstand sowie tatsächliche Arbeitsblattgenerierung mit getrennten Lösungen. Ein zunächst falsch benannter Arbeitsblatt-Testselektor wurde auf ws-biology-material korrigiert; abschließender Lauf bestanden. 95 STEM-Arbeitsblätter, bestehende Physik-Kernmodelle, DGB-Paketwerkstatt und Syntax aller 87 Kapitelskripte ebenfalls bestanden. Jetzt 176 Testsuiten vorhanden; kein neuer Gesamtlauf, keine Browser-/Drucklayoutprüfung, keine Übersetzung oder Veröffentlichung. Vollständige W/E/S-Matrix und fachliche Produktabnahme bleiben offen.
+
+
+### Wirbeltiere: vollständiger Prüfungspool überarbeitet (14.09.2026)
+
+Die fünf Abschnittsfragen prüfen jetzt Körperbau, fliegende Säugetiere, funktionale Deutung, unbekannte Schlüsselmerkmale und eine noch nicht eindeutige Zuordnung. Lernziel und Zusammenfassung nennen ausdrücklich die Grenzen des Schlüssels. Beim tatsächlichen Renderer-Test wurde sichtbar, dass der bewertete Pool zusätzlich sechs Fragen aus diplom.questions enthält. Damit war die vorherige Lektüre von sechs Abschnittsfragen kein vollständiger Quizabgleich des Kapitels. Diese sechs Abschlussfragen wurden ebenfalls vollständig gelesen und überarbeitet; der bewertete Pool umfasst elf Fragen, dazu bleibt eine unbewertete Delfinübung.
+
+Die Abschlussfragen behandeln Milchversorgung statt bloßer Körperform, vergleichbare Merkmale, Entwicklungsstadium der Kaulquappe, Beobachtung versus weitgehende Deutung, unscharfe Fotos und die begrenzte Reichweite eines Kartentreffers. Sachfremde Antwortalternativen wurden durch plausible Verwechslungen ersetzt. Auch die Größenalternative der Delfinübung ist durch die Verwechslung Lungenatmung = Säugetier ersetzt. Revision 2 kennzeichnet alte Ergebnisse als veraltet.
+
+Erweiterte test_vertebrate_cards-Suite bestanden: alle 33 Antwortwege der elf bewerteten Fragen, 100/91-Prozent-Ergebnis, passende Rückmeldung, Wiederholungs-IDs, fünf Abschnittszuordnungen, sechs unverändert kapitelweite Zuordnungen und alte/aktuelle Revision. Der zunächst zu klein angenommene Fünf-Fragen-Test wurde auf den tatsächlich vorhandenen Pool erweitert. Bestehende 81 Merkmalskombinationen, fünf Schlüsselwege und Papiermaterial ebenfalls bestanden. 95 STEM-Arbeitsblätter, Revisionsprüfung und Quizstruktur ohne Befund. Keine neue Übersetzung oder Veröffentlichung, kein neuer Gesamtlauf und keine praktische Browser-/Drucklayoutabnahme.
+
+
+### Mathematik: Zuordnungen im Graphen erkunden (14.09.2026)
+
+Die vorhandenen Abschnitte von math2_6_prop_prozent und math3_6_zuordnungen wurden vollständig textlich gelesen. Im Drittklasskapitel waren Tabelle, Modellvorschriften und Papierzeichnungen vorhanden, aber keine interaktive Verknüpfung mit dem Graphen. Ergänzt in m36_representations: Auswahl der drei vorhandenen Modelle, ganze Eingabewerte 0–6, markiertes Wertepaar, Formel und erklärende Rückmeldung. A/C verwenden dieselbe Euro-Achse, B eine eigene Stunden-Achse. Die Auswahlmarkierung verwendet zusätzlich zur Farbe einen Ring.
+
+B hat bei x = 0 keinen Punkt und keine Division; C erklärt (0 | 5) als mathematische Fortsetzung, nicht als Zahlung ohne Bestellung. Gezeigt werden Punkte für ganze Anzahlen, keine behaupteten Zwischenkäufe. Der versehentliche Wechsel von Personen zu Pumpen in der Beschreibung der festen Modellarbeit ist durchgehend auf Personen korrigiert. Papieralternative greift die Sonderfälle und den Modellvergleich auf. Kein neuer bewerteter Stoff und keine Quizrevision.
+
+Erweiterte test_assignment_representations bestanden: 21 Modell-/Eingabefälle, unabhängig festgelegte Wertepaare, sämtliche Punktkoordinaten und Achsengrenzen, beide Null-Sonderfälle, Beschriftungen und Werttext, Fokus, Reset, wiederholte Initialisierung und unveränderter Lernstand; außerdem tatsächliche Papieralternative ohne aktive Steuerelemente. Bestehende 15 Quizantwortwege und Preiseingaben ebenfalls bestanden. 95 STEM-Arbeitsblätter und Mathematik-Audit über 41 Kapitel bestanden. Kein neuer Gesamtlauf, keine Übersetzung, kein Browser-/Drucklayoutnachweis und kein weiterer Push.
+
+
+### Synthese und Analyse am vorhandenen Versuch unterscheiden (14.09.2026)
+
+Die vollständigen Kerntexte von Metalle/Redox und Sauerstoff/Verbrennung wurden erneut gelesen. Der vierteilige Nagelversuch untersucht bereits die Bildung neuer Eisenverbindungen. Die bisher offene pauschale Feststellung einer fehlenden Synthese-Lerngelegenheit wird präzisiert: Ein vorhandener Reaktionsversuch war angeleitet, seine Einordnung als Aufbau von Verbindungen und Abgrenzung von chemischer Zerlegung war jedoch nicht ausgearbeitet.
+
+RSC/Nuffield, How much oxygen is used when iron wool rusts? (https://edu.rsc.org/experiments/how-much-oxygen-is-used-when-iron-wool-rusts/453.article), am 14.09.2026 direkt per HTTPS vollständig abgerufen: erläutert Eisenoxidbildung und begrenzt die einfache Wortgleichung wegen des komplexen Rostprozesses. Der dortige zusätzliche Eisenwolle-Aufbau wird nicht übernommen. ACS Coastal Chemistry ebenfalls geprüft, dessen beschleunigte Peroxid-/Salzuntersuchung jedoch nicht eingebaut.
+
+Metalle/Redox Abschnitt 3 verknüpft nun den bestehenden Nagelversuch mit der Bildung von Verbindungen (Synthese), der angeleiteten Peroxidzerlegung und der physikalischen Filtration. Dreizeilige Vergleichstabelle, fünf Aufgaben, getrennte Beobachtung/Deutung, begrenztes Wortschema und optionale Papierlösung. Rost wird ausdrücklich nicht als einheitlicher Reinstoff ausgegeben; sichtbare Veränderung bestimmt keine genaue Zusammensetzung. Mechanische Beschädigung und chemischer Aufbau werden getrennt. Keine neuen Chemikalien oder Durchführungsbedingungen. Ohne Versuch bleiben eigene Beobachtungen leer.
+
+Zwei neue bewertete Fragen, Revision 3. Alle 33 Antwortwege der elf tatsächlichen Kapitelprüfungsfragen bestanden, einschließlich 100/91-Prozent-Ergebnis, Rückmeldungen, Wiederholungs-IDs, Abschnittszuordnung der Ergänzungen und alter Revision 2. Vier Rostmodellzustände mit Tastaturbedienung, Peroxidbaukasten und 95 STEM-Arbeitsblätter ebenfalls bestanden. Inventar und Quizstruktur aktualisiert: 1523 gespeicherte Frageninstanzen in den fünf priorisierten Fächern. Kein neuer Gesamtlauf, keine Übersetzung und keine Veröffentlichung.
+
+Die didaktische Verbindung zu einer vorhandenen Syntheseuntersuchung ist damit hergestellt. Praktische Erprobung im Schulraum und Produktanalytik bleiben unbewiesen. Eine gezielte Herstellung eines einzelnen reinen Stoffes ist nicht Gegenstand dieses Rostversuchs; die gesamte Chemieabnahme bleibt offen.
+
+
+### Vollständiger Funktionstest nach den Fachergänzungen
+
+2026-09-13T22:39:31.383Z: **176/176 Funktionstestsuiten bestanden**, Exit 0. Dieser Gesamtlauf umfasst die DGB-Paket- und Quellenwerkstatt, den korrigierten Titelindex, den neu geordneten Physik-Messeinstieg, die Wirbeltier-Merkmalsauswahl samt elf überarbeiteten Prüfungsfragen, den Zuordnungsgraphen in Mathematik und den Synthese-/Analysevergleich in Chemie. Es war kein gezielter Nachlauf zur Behebung eines Fehlers erforderlich.
+
+Zusätzlich bestanden: Syntax aller 87 Kapitelskripte, Mathematik-Audit über 41 Katalogkapitel (Quellprüfung plus initialisierte Flächenlabels) und Physik-Audit über 20 Katalogkapitel (davon drei mit gemeinsamer Laufzeit; statische Quellprüfung). Diese Prüfungen ersetzen keine tatsächliche Browser-, Screenreader- oder Drucklayoutprüfung und keine vollständige fachliche Lehrplanabnahme. Der aktuelle Lehrplan-Quellenstand ist getrennt in LEHRPLAN_QUELLENSTAND.md dokumentiert. Keine Übersetzung ergänzt und kein weiterer GitHub-Push.
+
+
+### GitHub-Zwischenstand: Fachergänzungen und Diagrammprüfung (14.09.2026)
+
+Zusätzlich zum zuletzt vollständig geprüften Stand enthält DGB, dritte Klasse (dgb7_information), eine Diagrammwerkstatt mit ausdrücklich fiktiven Gruppen: 40 bzw. 44 Ja-Antworten bei jeweils 50 Befragten. Dieselben Daten lassen sich mit Achsenbeginn 0 oder 36 darstellen. Sechs Arbeitsaufträge unterscheiden Zahlenvergleich, Darstellungswirkung und unzulässigen Ursachenschluss aus einer Befragung zur Hilfreichkeit. Papieralternative und getrennte Vergleichslösung sind vorhanden. Drei bewertete Fragen wurden angepasst; Kapitelrevision 1 kennzeichnet ältere Ergebnisse.
+
+Gezielte Prüfung vor diesem Zwischenstand bestanden: neue test_dgb_chart_baseline-Suite (beide Skalen, Rückwechsel, unveränderte Daten, Beschriftungen/Fokus, wiederholte Initialisierung, alle elf Antwortwege der vier bewerteten Fragen, Revisionen und getrennte Arbeitsblattlösungen), 21 DGB-Arbeitsblätter, Paketwerkstatt, übersetzter Titelindex und JavaScript-Syntax von core-learning.js. Der Quiz-Audit meldet weiterhin 1523 Frageninstanzen ohne Strukturfehler. Eine anfänglich falsch geschriebene Lösungszeichenfolge im neuen Test wurde an die vorhandene Schreibweise angepasst; der abschließende Testlauf bestand.
+
+Es gibt jetzt 177 Testsuiten. Der letzte vollständige Lauf war 176/176 erfolgreich vor der Diagrammwerkstatt; danach erfolgten die genannten gezielten Prüfungen. Keine neuen Übersetzungen. Fachliche Gesamtprüfung, Browser-/Drucklayoutabnahme und Prüfung des veröffentlichten GitHub-Pages-Stands bleiben offen. Dieser Stand ist eine Zwischensicherung, keine abschließende Produktabnahme.

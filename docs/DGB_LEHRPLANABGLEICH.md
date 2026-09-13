@@ -105,3 +105,23 @@ Neue Suite test_dgb_resource_filter.js: 110 Kombinationen mit unabhängiger Meng
 Das Ressourcenmodell bietet nun ursprüngliche Reihenfolge sowie numerische Sortierung nach Dauer auf-/absteigend, bei gleichen Werten jeweils nach ID aufsteigend. Vollständige Datensätze bleiben zusammen und die Ausgangstabelle bleibt unverändert. Rückmeldungen nennen auch die gewählte Reihenfolge.
 
 Die bestehende Suite prüft jetzt 330 Filter-/Sortierkombinationen gegen unabhängig festgelegte ID-Reihenfolgen, vollständige Zeilen, Fokus, Ergebnisverknüpfungen, Filteraufhebung und zwölf Quizantwortwege. 21 DGB-Arbeitsblätter bestanden. Keine neue Quizrevision, Übersetzung oder Veröffentlichung; Browserprüfung weiter offen.
+
+
+### DGB 2. Klasse: Datenpakete handelnd untersuchen (13.09.2026)
+
+Die fünf dgb6-Kapitel wurden im aktuellen Bestand textlich gelesen. Im Kommunikationskapitel blieb die Netzwerkidee bisher bei einem Puzzlevergleich ohne konkretes Material. Ergänzt sind vier nummerierte Nachrichtenkarten, ein interaktiver Empfang in frei wählbarer Reihenfolge, Erkennung fehlender/doppelter Karten und fünf Vorhersage-, Vergleichs- und Transferaufträge. Die Papierfassung enthält Karten und Ablaufaufgabe; die Vergleichsauswertung bleibt im getrennten, zunächst ausgeblendeten Lösungsteil.
+
+Das Modell ist ausdrücklich keine Netzwerkübertragung: keine Routerwege, Bestätigungen oder automatischen Wiederholungen. Byte-Sequenznummern bei TCP sind von den Wortkarten abgegrenzt; eine Lücke beweist keinen Verlust. Primärgrundlage: RFC 9293, Abschnitte 2.2 und 3.8 (https://www.rfc-editor.org/rfc/rfc9293.html, am 13.09.2026 gelesen). Kein neuer bewerteter Quizstoff und daher keine Revisionsänderung.
+
+Neue Suite test_dgb_packet_order.js bestanden: 341 Empfangsfolgen bis Länge vier einschließlich aller Reihenfolgen und Doppelungen, gezieltes Ergänzen fehlender Karten, Rücksetzen, Fokus/Statusverknüpfung, wiederholte Initialisierung, unveränderter Quizspeicher und tatsächliche Arbeitsblattgenerierung mit separater Lösung. Bestehende 21 DGB-Arbeitsblätter, 330 Sortier-/Filterfälle und Erstklass-Transferprüfung ebenfalls bestanden. Jetzt 175 Testdateien vorhanden; kein neuer Gesamtlauf, keine praktische Browser-/Druckprüfung, keine Übersetzungen und kein weiterer Push. Vollständige Lehrplan- und Produktabnahme weiterhin offen.
+
+
+### DGB: Phishing- und Quellenfälle selbstständig bearbeiten (14.09.2026)
+
+Dgb6_kommunikation ergänzt zwei ausdrücklich erfundene Materialfälle: eine angebliche Lernportal-Nachricht mit Zeitdruck, Passwortforderung und abweichender Beispieladresse sowie eine Kette aus drei voneinander abgeschriebenen Unterrichtsausfall-Meldungen. Vier Phishing- und fünf Quellenaufträge verlangen konkrete Belege, einen unabhängigen Prüfweg und ein begründetes Zwischenurteil. Ein zweizeiliges Belegprotokoll und getrennte optionale Vergleichslösungen sind enthalten. Die .invalid-Adressen sind nicht verlinkt; es werden keine Daten erfragt oder versendet.
+
+Alle vier bewerteten Kapitelprüfungsfragen besitzen jetzt drei fachlich plausible Antwortmöglichkeiten mit eigener Rückmeldung. Sie prüfen Paketübertragung, die Grenzen von Stil/Quellenzeile, eine unabhängige Reaktion auf verdächtige Nachrichten und die Passung von Datum/Schule eines Belegs. Revision 1 macht alte Ergebnisse veraltet. Primärquellen, am 13.09.2026 gelesen: A-SIT Präventionsmaßnahmen gegen Phishing (https://www.onlinesicherheit.gv.at/Services/Technologie-Schwerpunkte/Phishing-und-Cybercrime/Praeventionsmassnahmen-gegen-Phishing.html) und Saferinternet.at Onlineinhalte überprüfen (https://www.saferinternet.at/wie-ueberprueft-man-onlineinhalte). Die Fallgeschichten sind eigene Übungsdaten, keine echten Meldungen.
+
+Gezielt bestanden: zwölf Antwortwege der vier bewerteten Fragen mit Rückmeldungen und Wiederholungs-IDs, alte/aktuelle Revision, Material und separate Papierlösungen, 341 Paketfolgen, 21 DGB-Arbeitsblätter sowie bestehende Revisionsprüfungen.
+
+Der Gesamtlauf vom 2026-09-13T21:28:34.703Z endete mit 174/175 bestandenen Suiten. Einziger Fehler: der erzeugte Titelindex enthielt noch Überschriften der veralteten Sprachfassungen dieses Kapitels. Index neu erzeugt; anschließend die fehlgeschlagene Suite test_translated_title_search.js erfolgreich ausgeführt. Alle Katalogkapitel und fünf Fremdsprachen werden darin gegen die tatsächliche Inhaltsauswahl geprüft. Keine Übersetzung ergänzt. Das ist ein Gesamtlauf mit anschließend behobenem und gezielt nachgeprüftem Fehler, kein neuer 175/175-Gesamtlauf. Browser-/Drucklayout, vollständige fachliche Abnahme und Veröffentlichung bleiben offen.

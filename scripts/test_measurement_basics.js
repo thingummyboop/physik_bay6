@@ -12,6 +12,18 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  assert.match(d.body.textContent,/nicht automatisch die gesamte Messunsicherheit/);
  assert.match(d.body.textContent,/Pausenzeit/);
  assert.equal(w.currentChapterResult('sieinheiten',{contentRevision:1,passed:true,bestPercent:100}).passed,false);
+ assert.deepEqual(data.sieinheiten.sections.map(s=>s.id),['sec0','measurement_quality','sec1','sec2','sec4','sec3']);
+ const positions={q1:0,measurement_quality_0:1,measurement_quality_1:1,q2:2,q3:3,q5:4,q4:5};
+ for(const [id,index]of Object.entries(positions))assert.equal(w.currentChapterQuiz.questions.find(q=>q.id===id).sectionIndex,index,id);
+ assert.equal(d.querySelectorAll('[data-measurement-protocol] tbody tr').length,3);
+ assert.equal(d.querySelectorAll('[data-measurement-analysis] > li').length,4);
+ for(const [i,q]of w.currentChapterQuiz.questions.entries())if(q.id.startsWith('measurement_quality_'))for(let answer=0;answer<q.answers.length;answer++){
+  w.currentChapterQuiz.questions.forEach((item,j)=>{d.querySelector('input[name="chapter_q_'+j+'"][value="'+(i===j?answer:item.answers.findIndex(a=>a.correct))+'"]').checked=true;});
+  w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).sieinheiten;
+  assert.equal(result.lastPercent,q.answers[answer].correct?100:94);
+  if(!q.answers[answer].correct)assert.deepEqual(result.reviewQuestionIds,[q.id]);
+  assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[answer].feedback));
+ }
  const callbacks=[];w.setTimeout=fn=>(callbacks.push(fn),callbacks.length);
  w.eval(read('js/topics/sieinheiten.js'));w.topicInit();
  for(const [distance,time,expected] of [[100,10,'10.0'],[100,20,'5.0'],[200,20,'10.0']]){

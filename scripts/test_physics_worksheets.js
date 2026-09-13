@@ -9,6 +9,11 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
   w.fetch=async()=>({ok:true,json:async()=>data});for(const file of ['curriculum','worksheet_generator','worksheet'])w.eval(read('js/'+file+'.js'));
   await new Promise(resolve=>setImmediate(resolve));
   const material=d.getElementById('ws-physics-material');assert.ok(material,id);assert.equal(d.getElementById('ws-print').disabled,false,id);
+  if(id==='sieinheiten'){
+   assert.equal(material.querySelectorAll('[data-measurement-protocol] tbody tr').length,3);
+   assert.equal(material.querySelectorAll('[data-measurement-analysis] > li').length,4);
+   assert.ok(material.querySelectorAll('article')[1].querySelector('[data-measurement-protocol]'));
+  }
   const articles=[...material.querySelectorAll('article')];assert.equal(articles.length,data[id].sections.length,id);
   articles.forEach((article,index)=>{
    assert.equal(article.dataset.sourceSection,data[id].sections[index].id||'learning-section-'+index);

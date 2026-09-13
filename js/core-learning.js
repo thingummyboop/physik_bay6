@@ -81,6 +81,56 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='chart-baseline'){
+   const control=zone.querySelector('[data-chart-baseline]'),plot=zone.querySelector('[data-chart-baseline-plot]'),out=zone.querySelector('[data-chart-baseline-result]');
+   const records=[...zone.closest('[data-chart-check]').querySelectorAll('[data-chart-check-data] tbody tr')].map(row=>({name:row.cells[0].textContent,total:Number(row.cells[1].textContent),yes:Number(row.cells[2].textContent)}));
+   out.id=out.id||'chart-baseline-result-'+experimentIndex;control.setAttribute('aria-describedby',out.id);
+   const svgEl=(name,attrs={},text)=>{const el=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(text!==undefined)el.textContent=text;return el;};
+   const update=()=>{
+    const start=Number(control.value),height=value=>180*(value-start)/(50-start);
+    const description='Fiktive Befragung. '+records.map(r=>r.name+': '+r.yes+' von '+r.total+' Antworten ja').join('; ')+'. Werteachse von '+start+' bis 50.';
+    const svg=svgEl('svg',{viewBox:'0 0 460 280',role:'img','aria-label':description,style:'display:block;width:100%;max-width:600px;height:auto;background:white'});
+    svg.append(svgEl('text',{x:55,y:20,fill:'#172033','font-size':14},'Ja-Antworten / Personen'));
+    const ticks=start===0?[0,10,20,30,40,50]:[36,40,44,48,50];
+    ticks.forEach(n=>{const y=220-height(n);svg.append(svgEl('line',{x1:55,x2:430,y1:y,y2:y,stroke:'#d1d5db'}),svgEl('text',{x:45,y:y+4,'text-anchor':'end',fill:'#172033','font-size':13},n));});
+    svg.append(svgEl('path',{d:'M55 35 V220 H430',stroke:'#172033',fill:'none','stroke-width':2}));
+    records.forEach((r,i)=>{const h=height(r.yes),x=110+i*180;svg.append(svgEl('rect',{x,y:220-h,width:75,height:h,fill:'#176c90','data-baseline-bar':i}),svgEl('text',{x:x+37.5,y:212-h,'text-anchor':'middle',fill:'#172033','font-size':14},r.yes),svgEl('text',{x:x+37.5,y:245,'text-anchor':'middle',fill:'#172033','font-size':13},i===0?'A: Papier':'B: App'));});
+    svg.append(svgEl('text',{x:55,y:270,fill:'#172033','font-size':13},start===0?'Achse beginnt bei 0.':'Gegenbeispiel: Achse beginnt bei 36, nicht bei 0.'));
+    plot.replaceChildren(svg);out.textContent=description+' '+(start===0?'Die Säulen zeigen die vollständigen Werte.':'Die sichtbaren Säulen zeigen nur den Abstand zu 36. B erscheint deshalb doppelt so hoch wie A; die Werte bleiben 40 und 44.');
+   };
+   control.addEventListener('change',update);update();
+  }
+  if(type==='vertebrate-cards'){
+   const rows=[...zone.closest('[data-vertebrate-workshop]').querySelectorAll('[data-vertebrate-card]')];
+   const records=rows.map(row=>({id:row.dataset.vertebrateCard,name:row.cells[0].textContent,traits:[...row.cells].slice(1).map(cell=>cell.textContent)}));
+   const fields=[...zone.querySelectorAll('[data-vertebrate-feature]')],out=zone.querySelector('[data-vertebrate-result]'),list=zone.querySelector('[data-vertebrate-matches]');
+   out.id=out.id||'vertebrate-result-'+experimentIndex;fields.forEach(field=>field.setAttribute('aria-describedby',out.id));
+   const update=()=>{
+    const matches=records.filter(record=>fields.every((field,i)=>!field.value||record.traits[i]===field.value));
+    list.replaceChildren();matches.forEach(record=>{const li=make('li',record.name);li.dataset.vertebrateMatch=record.id;list.append(li);});
+    out.textContent=matches.length+' von '+records.length+' Karten passen. '+(matches.length===0?'Keine der fünf Karten erfüllt alle Angaben. Das ist keine allgemeine Aussage über sämtliche Tiere.':matches.length===1?'Ein Beispiel bleibt in dieser Sammlung übrig. Eine echte Art ist damit noch nicht bestimmt.':'Mehrere Beispiele passen. Nutze ein weiteres bekanntes Merkmal; unbekannt bedeutet nicht nein.');
+   };
+   fields.forEach(field=>field.addEventListener('change',update));
+   zone.querySelector('[data-vertebrate-reset]').addEventListener('click',()=>{fields.forEach(field=>{field.value='';});update();fields[0].focus();});update();
+  }
+  if(type==='packet-order'){
+   const source=zone.closest('[data-packet-workshop]').querySelector('[data-packet-source]');
+   const cards=[...source.querySelectorAll('tbody tr')].map(row=>row.cells[1].textContent);
+   const arrivals=zone.querySelector('[data-packet-arrivals]'),message=zone.querySelector('[data-packet-message]'),out=zone.querySelector('[data-packet-result]');
+   const received=new Set();let history=[];
+   out.id=out.id||'packet-result-'+experimentIndex;
+   const render=(prefix='')=>{
+    const missing=cards.map((_,i)=>i+1).filter(n=>!received.has(n));
+    arrivals.textContent=history.length?history.join(' – '):'noch keine Karte';
+    message.textContent=cards.map((word,i)=>received.has(i+1)?word:'…').join(' | ');
+    out.textContent=prefix+received.size+' von '+cards.length+' verschiedenen Karten vorhanden. '+(missing.length?'Fehlende Positionen: '+missing.join(', ')+'.':'Vollständig: '+cards.join(' '));
+   };
+   zone.querySelectorAll('[data-packet-receive]').forEach(button=>{
+    button.setAttribute('aria-describedby',out.id);
+    button.addEventListener('click',()=>{const n=Number(button.dataset.packetReceive),duplicate=received.has(n);history.push(n);received.add(n);render(duplicate?'Karte '+n+' ist doppelt angekommen; ihr Inhalt wird nicht erneut eingefügt. ':'Karte '+n+' ist angekommen. ');});
+   });
+   zone.querySelector('[data-packet-reset]').addEventListener('click',()=>{received.clear();history=[];render('Neu begonnen. ');});render();
+  }
   if(type==='resource-filter'){
    const active=zone.querySelector('[data-filter-active]'),subject=zone.querySelector('[data-filter-subject]'),logic=zone.querySelector('[data-filter-logic]'),duration=zone.querySelector('[data-filter-duration]'),out=zone.querySelector('[data-filter-result]'),body=zone.querySelector('[data-filter-rows]');
    const order=zone.querySelector('[data-filter-sort]');
