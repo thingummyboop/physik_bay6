@@ -22,7 +22,7 @@ assert.equal(states,9);assert.equal(w.localStorage.getItem(key),'PRIVATE RESULT'
 for(const id of ['headline','introduction','format'])assert.equal(d.getElementById(id).labels.length,1);
 assert.equal(d.querySelectorAll('script[src],iframe,img,link[rel="stylesheet"]').length,0);dom.window.close();
 (async()=>{
- const data=JSON.parse(read('lang/de.json')),id='dgb7_produktion',chapter=data[id],section=chapter.sections.find(s=>s.id==='sec-media');assert.ok(section);assert.equal(chapter.sections.indexOf(section),3);assert.equal(chapter.sections[4].id,'sec4');
+ const data=JSON.parse(read('lang/de.json')),id='dgb7_produktion',chapter=data[id],section=chapter.sections.find(s=>s.id==='sec-media');assert.ok(section);assert.equal(chapter.sections.indexOf(section),3);assert.equal(chapter.sections[5].id,'sec4');
  const source=new JSDOM(section.content,{url:'https://example.test/site/topics/template.html'}),sd=source.window.document;
  assert.deepEqual([...sd.querySelectorAll('[data-media-source] tbody td')].map(e=>Number(e.textContent)),[16,12,8,4]);assert.equal(sd.querySelector('[data-media-open]').href,'https://example.test/site/examples/medienvergleich.html');assert.equal(sd.querySelectorAll('[data-media-comparison-tasks]>li').length,6);source.window.close();
  const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/site/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),pw=paper.window,pd=pw.document;

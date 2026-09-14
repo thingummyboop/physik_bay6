@@ -1073,3 +1073,24 @@ Alle 182 vorhandenen Funktionstestsuiten bestanden im vollständigen Lauf; 197 d
 ## 14.09.2026 – DGB3: Leseeinstellungen ausführen und prüfen
 
 Neue eigenständige Leseanwendung mit 18 tatsächlichen Schrift-/Abstands-/Farbkombinationen, ausdrücklichem Speichern/Laden/Löschen und bedienbarer Ansicht bei gesperrtem Speicher. Kapitel- und Downloadintegration, sechs begründete Arbeitsaufträge, vier Protokollzeilen mit eigenem Schreibraum im Druck und separate Vergleichslösung. Zwei neue Prüfungsfragen, acht bewertete Fragen insgesamt, Revision 2. DOM-Prüfung der Einstellungsmöglichkeiten sowie 24 Kapitelantwortwege bestanden; 54 tatsächlich gemessene Browserzustände, Download und lokale Dateiausführung, Tastatur und Speicherzyklus geprüft. Gemeinsamer Browser-Lernweg mit aktuellem Quizpool erneut bestanden. Quellen, ausgewählte Druckseiten und genaue Grenzen: [DGB_LESEANSICHT.md](DGB_LESEANSICHT.md). Betriebssystem-/Kommunikationskonfiguration und mediale Darstellungsvergleiche bleiben eigene offene Teile. Keine Übersetzungen, kein Push und kein neuer Gesamtlauf aller jetzt 183 Suiten.
+
+
+## 14.09.2026 – DGB3: System und Kommunikation gezielt einstellen
+
+Nach dem bestätigten Push von 8415e67 zwei praktische Konfigurationsaufgaben mit acht Protokollzeilen und getrennten Lösungen ergänzt. Systemschrift und Chat-Benachrichtigungen werden mit Ziel, Ausgangswert, passendem Vorher-Nachher-Test, Ausnahmen und kontrollierter Rückkehr bearbeitet. Drei neue Transferfragen; 13 bewertete Fragen, Revision 4. Alle 39 bewerteten Antwortwege und die neuen neun nativen Tastaturantwortwege bestanden; sechs Breiten-/Designzustände ohne Seitenüberlauf, gezielte Wiederholung und gemeinsamer Browser-Lernweg geprüft. Protokollbreiten und Druckumbrüche nach Sichtprüfung verbessert. Nachweise, Quellen und Grenzen: [DGB_SYSTEM_KOMMUNIKATION.md](DGB_SYSTEM_KOMMUNIKATION.md).
+
+Die konkrete Unterrichtserprobung mit Schulgeräten und Kommunikationskonten sowie vollständige Lehrplan-/Produktabnahmen bleiben offen. Keine Übersetzungen und kein weiterer Push. 184 Funktionstestsuiten, kein neuer Gesamtlauf. Inventar 197 Kapitel; Prioritätsaudit 1539 Frageninstanzen ohne Strukturfehler. Der Gesamtauftrag ist weiterhin aktiv.
+
+
+## 14.09.2026 – Biologie-Modelle im Browser und Selektionsfragen vollständig prüfen
+
+Vollständiger Funktionstest vor den neuen Biologie-Änderungen: 184/184 Suiten bestanden (2026-09-14T03:21:02.945Z). Danach die sechs bisher getrennten Selektions-Abschlussfragen überarbeitet und passenden Abschnitten zugeordnet. Weiterhin elf bewertete Fragen, Revision 3; 33 Antwortwege unabhängig geprüft. Die erfundene Faltertabelle ist ausdrücklich vom Papiermodell mit Verdopplungsregel getrennt. Zahleneingaben, Protokollgestaltung und Schreibraum verbessert.
+
+Abschließender tatsächlicher Browserlauf 2026-09-14T03:28:17.244Z: 81 Merkmalskombinationen, 121 eingegebene Rechenfälle, 33 Selektionsantwortwege per Tastatur, zwei Kapitelchecks mit gezielter Wiederholung, zwölf Breiten-/Designzustände und Tabellen bis zum rechten Rand per Pfeiltasten. Mobile Ansichten sowie ausgewählte A4-Seiten tatsächlich gelesen. Gezielte Funktionstests nach den Änderungen bestanden. Umfang, Quellen, zeitliche Trennung der Tests und offene Grenzen: [BIOLOGIE_MODELLE_PRUEFUNG.md](BIOLOGIE_MODELLE_PRUEFUNG.md). Praktische Natur-/Unterrichtserprobung und vollständige fachliche Abnahme bleiben offen. Keine Übersetzungen oder Veröffentlichung; Gesamtauftrag weiterhin aktiv.
+
+
+## 14.09.2026 – Evolution vollständig prüfen und eigene Aufgaben erhalten
+
+Alle 13 bewerteten Evolutionsfragen einschließlich der acht vorher getrennten Abschlussfragen gelesen und geprüft. Sieben Abschlussfragen überarbeitet, eine passende beibehalten; alle acht passenden Abschnitten zugeordnet. Revision 3. 15 allgemeine Trainingskarten durch konkrete Aufgaben ersetzt. Der tatsächliche Renderer verdrängte diese Karten zunächst durch generierte Standardtexte; der vorhandene direkte Aufgabenmodus erhält sie jetzt. Derselbe nachgewiesene Fehler wurde für die 15 bereits ausgearbeiteten Blütenpflanzen-Aufgaben behoben.
+
+Gezielte Tests: 72 Evolutions-/Selektionsantwortwege, genaue Übungs-/Wiederholungszuordnung, Erhaltung sämtlicher 30 Kartentexte, 121 Selektionsrechnungen und 95 STEM-Arbeitsblätter bestanden. Nativer Browserbericht 2026-09-14T03:42:33.782Z: 42 Evolutionsoptionen per Tastatur, zwei Kapitelversuche mit gezielter Wiederholung, zwölf Breiten-/Designzustände für beide Kapitel, Papierausgabe mit 13 Fragen und 20 Glossareinträgen. Ausgewählte mobile Ansichten und A4-Seiten gelesen. Details und Grenzen: [BIOLOGIE_EVOLUTION_AUFGABEN.md](BIOLOGIE_EVOLUTION_AUFGABEN.md). Kein neuer Gesamtlauf nach den Biologie-Änderungen; der letzte vollständige Lauf davor bestand mit 184/184. Keine Übersetzungen und kein Push. Vollständige Fach-/Lehrplanabnahme und Unterrichtserprobung bleiben offen.

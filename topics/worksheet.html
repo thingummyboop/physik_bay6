@@ -23,11 +23,17 @@
         .ws-chapter-material .teacher-note > strong:first-child { display: block; break-after: avoid; }
         .ws-chapter-material .teacher-note li { break-inside: avoid; }
         .ws-chapter-material [data-separation-experiment] { break-inside: avoid; }
-        .ws-chapter-material :is([data-reading-settings-protocol],[data-media-comparison-protocol]) tbody th,
-        .ws-chapter-material :is([data-reading-settings-protocol],[data-media-comparison-protocol]) tbody td { height: 18mm; }
+        .ws-chapter-material :is([data-reading-settings-protocol],[data-media-comparison-protocol],[data-configuration-protocol]) tbody th,
+        .ws-chapter-material :is([data-reading-settings-protocol],[data-media-comparison-protocol],[data-configuration-protocol]) tbody td { height: 18mm; }
         #ws-content table, #ws-content tr { break-inside: avoid; }
         .ws-section-header { break-inside: avoid; break-after: avoid; }
         .ws-writing-prompt { break-after: avoid; }
+        .ws-writing-prompt ~ .answer-lines { break-inside: avoid; }
+        .ws-writing-prompt + .answer-lines, .ws-writing-prompt + .answer-lines + .answer-lines { break-after: avoid; }
+        #ws-content [data-configuration-protocol] { table-layout: fixed; }
+        #ws-content [data-configuration-protocol] tr > :first-child { width: 40%; }
+        [data-configuration-workshop] li { break-inside: avoid; }
+        #ws-content :is([data-selection-generations],[data-selection-repeats]) tbody td { height: 12mm; }
         .ws-section-link { font-size: .85rem; margin-block: .4rem 1rem; }
         .ws-section-link a { display: block; }
         #ws-content p { orphans: 3; widows: 3; }

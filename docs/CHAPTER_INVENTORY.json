@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "418956eb18b2618718209a3be4cca92ac2697a4cd82e0d6888dd656cede174e0",
-    "lang/de.json": "2d6adaa3563991f1ace514d6bd6b70458790ff146e38591fc71ae3a125b50bc5"
+    "lang/de.json": "7e6c83493dd70608d27cbe6da8297cef5ab67f52b34ce67264240f047743bfcf"
   },
   "subjects": {
     "physik": {
@@ -2687,9 +2687,10 @@
             "Du prüfst Medienprodukte auf Barrierefreiheit.",
             "Du setzt einen Mengenplan in JavaScript um, veränderst ihn und prüfst Original und Änderung mit vorher berechneten Testfällen.",
             "Du passt Softwareeinstellungen an ein begründetes Leseziel an und prüfst ihre Wirkung, Speicherung und Reichweite.",
-            "Du benennst Beispiele populärer Medienkulturen und gestaltest dieselben Daten als Kurzbeitrag und Infografik mit nachvollziehbarer Quelle und Aussagegrenze."
+            "Du benennst Beispiele populärer Medienkulturen und gestaltest dieselben Daten als Kurzbeitrag und Infografik mit nachvollziehbarer Quelle und Aussagegrenze.",
+            "Du passt eine System- und eine Kommunikationseinstellung an ein Arbeitsziel an, prüfst Wirkung und Ausnahmen und stellst den Ausgangszustand wieder her."
           ],
-          "summaryCount": 6,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
@@ -2732,16 +2733,26 @@
               ]
             },
             {
-              "id": "sec4",
+              "id": "sec-config",
               "index": 4,
-              "title": "5. Anwenden und selbst prüfen",
+              "title": "5. System und Kommunikation gezielt einstellen",
+              "questions": [
+                "dgb7_config_scope",
+                "dgb7_config_mute",
+                "dgb7_config_evidence"
+              ]
+            },
+            {
+              "id": "sec4",
+              "index": 5,
+              "title": "6. Anwenden und selbst prüfen",
               "questions": [
                 "dgb7_produktion_q4"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 13,
+          "questionCount": 16,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -5022,7 +5033,8 @@
               "index": 0,
               "title": "1. Was ist ein Lebewesen?",
               "questions": [
-                "bio_evolution_s1"
+                "bio_evolution_s1",
+                "bio_evolution_d1"
               ]
             },
             {
@@ -5030,7 +5042,8 @@
               "index": 1,
               "title": "2. Wie könnte Leben entstanden sein?",
               "questions": [
-                "bio_evolution_s2"
+                "bio_evolution_s2",
+                "bio_evolution_d2"
               ]
             },
             {
@@ -5038,7 +5051,8 @@
               "index": 2,
               "title": "3. Was ist die Evolutionstheorie?",
               "questions": [
-                "bio_evolution_s3"
+                "bio_evolution_s3",
+                "bio_evolution_d3"
               ]
             },
             {
@@ -5047,7 +5061,8 @@
               "title": "4. Warum halten wir Evolution für eine gute Erklärung?",
               "questions": [
                 "bio_evolution_s4",
-                "bio_1_evolution_extra_belege"
+                "bio_1_evolution_extra_belege",
+                "bio_evolution_d4"
               ]
             },
             {
@@ -5055,12 +5070,16 @@
               "index": 4,
               "title": "5. Tierstämme: Wie die Vielfalt der Tiere entstand",
               "questions": [
-                "bio_evolution_s5"
+                "bio_evolution_s5",
+                "bio_evolution_d5",
+                "bio_evolution_d6",
+                "bio_evolution_d7",
+                "bio_evolution_d8"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 6,
+          "questionCount": 14,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -5338,16 +5357,18 @@
             "Natürliche und künstliche Selektion anhand des Fortpflanzungserfolgs erklären.",
             "Eine Selektionssimulation mit festgelegten Regeln durchführen und ihre Grenzen benennen.",
             "Anzahlen und Anteile aus Tabellen berechnen und unterscheiden.",
-            "Beobachtete Veränderungen von Ursachenvermutungen trennen und Selektion ohne Absicht oder Werturteil erklären."
+            "Beobachtete Veränderungen von Ursachenvermutungen trennen und Selektion ohne Absicht oder Werturteil erklären.",
+            "Du unterscheidest Modellprotokolle und erfundene Vergleichsdaten und begründest, welche Schlussfolgerungen sie erlauben."
           ],
-          "summaryCount": 3,
+          "summaryCount": 4,
           "sections": [
             {
               "id": null,
               "index": 0,
               "title": "1. Variation: Nicht alle sind gleich",
               "questions": [
-                "bio_selektion_s1"
+                "bio_selektion_s1",
+                "bio_selektion_d3"
               ]
             },
             {
@@ -5356,7 +5377,8 @@
               "title": "2. Natürliche und künstliche Selektion",
               "questions": [
                 "bio_selektion_s2",
-                "bio_1_selektion_extra_absicht"
+                "bio_1_selektion_extra_absicht",
+                "bio_selektion_d1"
               ]
             },
             {
@@ -5364,7 +5386,9 @@
               "index": 2,
               "title": "3. Kleine Simulation",
               "questions": [
-                "bio_selektion_s3"
+                "bio_selektion_s3",
+                "bio_selektion_d2",
+                "bio_selektion_d4"
               ]
             },
             {
@@ -5372,7 +5396,8 @@
               "index": 3,
               "title": "4. Generationen, Umweltwechsel und keine Absicht",
               "questions": [
-                "bio_selektion_s4"
+                "bio_selektion_s4",
+                "bio_selektion_d5"
               ]
             },
             {
@@ -5380,12 +5405,13 @@
               "index": 4,
               "title": "5. Lernstation: Daten zu Selektion lesen",
               "questions": [
-                "bio_selektion_s5"
+                "bio_selektion_s5",
+                "bio_selektion_d6"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 6,
+          "questionCount": 12,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

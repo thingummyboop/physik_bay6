@@ -23,3 +23,6 @@ Grundlage für Diagrammbeschriftung und Textalternative: [W3C WAI – Complex Im
 Die Anwendung bietet zwei Medienformen; sie produziert keine Audio- oder Videobeiträge. Betriebssystem- und Kommunikationskonfiguration, Unterrichtserprobung und der vollständige Lehrplanabgleich bleiben offen. Übersetzungen sind entsprechend der Nutzerpriorität zurückgestellt.
 
 Dieser auf Nutzerwunsch für GitHub vorbereitete Zwischenstand bündelt die Änderungen nach b154b4e: Stofflisten-Kapitelverweise, Saturn-Antwortkorrektur, DGB-Leseansicht und Medienvergleich. Frühere Aussagen „lokal“ und „kein Push“ beschreiben den damaligen Stand. Der Gesamtauftrag ist weiterhin offen.
+
+
+Fortschreibung: Der isolierte Schreibhinweis wurde im nachfolgenden Konfigurationsschritt im aktuellen PDF behoben. Aktuell 13 bewertete Fragen und Revision 4; siehe [DGB_SYSTEM_KOMMUNIKATION.md](DGB_SYSTEM_KOMMUNIKATION.md). Die oben genannten zehn Fragen und Druckgrenzen beschreiben den früheren Stand.

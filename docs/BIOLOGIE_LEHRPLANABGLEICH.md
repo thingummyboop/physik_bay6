@@ -1,5 +1,7 @@
 # Biologie – konsolidierter Arbeitsabgleich
 
+Aktualisierung: Der vollständige Quellenvergleich mit der aktuellen RIS-Fassung ist am 14.09.2026 erfolgt; siehe [LEHRPLAN_QUELLENSTAND.md](LEHRPLAN_QUELLENSTAND.md). Die folgende ursprüngliche Quellenangabe beschreibt den damaligen Arbeitsstand. Die vollständige Inhalts- und Kompetenzabnahme bleibt offen.
+
 Grundlage: gespeicherter RIS-Lehrplantext in ../lehrplan.txt, Abschnitt BIOLOGIE UND UMWELTBILDUNG. Keine erneute Bestätigung der rechtlichen Aktualität. Die Kompetenzbeschreibungen zu Wissen (W), Erkenntnisgewinn (E) und Standpunkten/Handeln (S) wurden erneut gelesen. Eine bloße Themenzuordnung belegt diese Kompetenzen nicht.
 
 ## Aktuelle Zuordnung
@@ -83,3 +85,17 @@ Die fünf Abschnittsfragen prüfen jetzt Körperbau, fliegende Säugetiere, funk
 Die Abschlussfragen behandeln Milchversorgung statt bloßer Körperform, vergleichbare Merkmale, Entwicklungsstadium der Kaulquappe, Beobachtung versus weitgehende Deutung, unscharfe Fotos und die begrenzte Reichweite eines Kartentreffers. Sachfremde Antwortalternativen wurden durch plausible Verwechslungen ersetzt. Auch die Größenalternative der Delfinübung ist durch die Verwechslung Lungenatmung = Säugetier ersetzt. Revision 2 kennzeichnet alte Ergebnisse als veraltet.
 
 Erweiterte test_vertebrate_cards-Suite bestanden: alle 33 Antwortwege der elf bewerteten Fragen, 100/91-Prozent-Ergebnis, passende Rückmeldung, Wiederholungs-IDs, fünf Abschnittszuordnungen, sechs unverändert kapitelweite Zuordnungen und alte/aktuelle Revision. Der zunächst zu klein angenommene Fünf-Fragen-Test wurde auf den tatsächlich vorhandenen Pool erweitert. Bestehende 81 Merkmalskombinationen, fünf Schlüsselwege und Papiermaterial ebenfalls bestanden. 95 STEM-Arbeitsblätter, Revisionsprüfung und Quizstruktur ohne Befund. Keine neue Übersetzung oder Veröffentlichung, kein neuer Gesamtlauf und keine praktische Browser-/Drucklayoutabnahme.
+
+
+## 14.09.2026 – Biologie-Modelle im Browser und Selektionsfragen vollständig prüfen
+
+Vollständiger Funktionstest vor den neuen Biologie-Änderungen: 184/184 Suiten bestanden (2026-09-14T03:21:02.945Z). Danach die sechs bisher getrennten Selektions-Abschlussfragen überarbeitet und passenden Abschnitten zugeordnet. Weiterhin elf bewertete Fragen, Revision 3; 33 Antwortwege unabhängig geprüft. Die erfundene Faltertabelle ist ausdrücklich vom Papiermodell mit Verdopplungsregel getrennt. Zahleneingaben, Protokollgestaltung und Schreibraum verbessert.
+
+Abschließender tatsächlicher Browserlauf 2026-09-14T03:28:17.244Z: 81 Merkmalskombinationen, 121 eingegebene Rechenfälle, 33 Selektionsantwortwege per Tastatur, zwei Kapitelchecks mit gezielter Wiederholung, zwölf Breiten-/Designzustände und Tabellen bis zum rechten Rand per Pfeiltasten. Mobile Ansichten sowie ausgewählte A4-Seiten tatsächlich gelesen. Gezielte Funktionstests nach den Änderungen bestanden. Umfang, Quellen, zeitliche Trennung der Tests und offene Grenzen: [BIOLOGIE_MODELLE_PRUEFUNG.md](BIOLOGIE_MODELLE_PRUEFUNG.md). Praktische Natur-/Unterrichtserprobung und vollständige fachliche Abnahme bleiben offen. Keine Übersetzungen oder Veröffentlichung; Gesamtauftrag weiterhin aktiv.
+
+
+## 14.09.2026 – Evolution vollständig prüfen und eigene Aufgaben erhalten
+
+Alle 13 bewerteten Evolutionsfragen einschließlich der acht vorher getrennten Abschlussfragen gelesen und geprüft. Sieben Abschlussfragen überarbeitet, eine passende beibehalten; alle acht passenden Abschnitten zugeordnet. Revision 3. 15 allgemeine Trainingskarten durch konkrete Aufgaben ersetzt. Der tatsächliche Renderer verdrängte diese Karten zunächst durch generierte Standardtexte; der vorhandene direkte Aufgabenmodus erhält sie jetzt. Derselbe nachgewiesene Fehler wurde für die 15 bereits ausgearbeiteten Blütenpflanzen-Aufgaben behoben.
+
+Gezielte Tests: 72 Evolutions-/Selektionsantwortwege, genaue Übungs-/Wiederholungszuordnung, Erhaltung sämtlicher 30 Kartentexte, 121 Selektionsrechnungen und 95 STEM-Arbeitsblätter bestanden. Nativer Browserbericht 2026-09-14T03:42:33.782Z: 42 Evolutionsoptionen per Tastatur, zwei Kapitelversuche mit gezielter Wiederholung, zwölf Breiten-/Designzustände für beide Kapitel, Papierausgabe mit 13 Fragen und 20 Glossareinträgen. Ausgewählte mobile Ansichten und A4-Seiten gelesen. Details und Grenzen: [BIOLOGIE_EVOLUTION_AUFGABEN.md](BIOLOGIE_EVOLUTION_AUFGABEN.md). Kein neuer Gesamtlauf nach den Biologie-Änderungen; der letzte vollständige Lauf davor bestand mit 184/184. Keine Übersetzungen und kein Push. Vollständige Fach-/Lehrplanabnahme und Unterrichtserprobung bleiben offen.
