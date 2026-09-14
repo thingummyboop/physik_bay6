@@ -1,8 +1,19 @@
 const assert=require('node:assert/strict'),fs=require('fs'),path=require('path');
 let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8'),data=JSON.parse(read('lang/de.json'));
-async function page(query,fail=false){const dom=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/physik_bay6/topics/worksheet.html'+query,runScripts:'outside-only'}),w=dom.window;w.fetch=async()=>({ok:!fail,status:503,json:async()=>data});w.eval(read('js/curriculum.js'));w.eval(read('js/worksheet_generator.js'));w.eval(read('js/worksheet.js')+';window.worksheetText=worksheetText;window.worksheetQuestions=worksheetQuestions;window.renderWorksheetQuestions=renderWorksheetQuestions;');await new Promise(resolve=>setImmediate(resolve));return dom;}
+async function page(query,fail=false,math={typesetPromise:async()=>{}}){const dom=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/physik_bay6/topics/worksheet.html'+query,runScripts:'outside-only'}),w=dom.window;w.MathJax=math;w.fetch=async()=>({ok:!fail,status:503,json:async()=>data});w.eval(read('js/curriculum.js'));w.eval(read('js/worksheet_generator.js'));w.eval(read('js/worksheet.js')+';window.worksheetText=worksheetText;window.worksheetQuestions=worksheetQuestions;window.renderWorksheetQuestions=renderWorksheetQuestions;');await new Promise(resolve=>setImmediate(resolve));return dom;}
 (async()=>{
+ // Content-only DOM tests stub the external renderer; native formula output is checked in browser_print_math.js.
+ let releaseMath;const pendingMath=new Promise(resolve=>{releaseMath=resolve;});
+ const delayed=await page('?topic=math1_8_brueche',false,{typesetPromise:()=>pendingMath});
+ assert.equal(delayed.window.document.querySelector('#ws-print').disabled,true);
+ releaseMath();await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(delayed.window.document.querySelector('#ws-print').disabled,false);delayed.window.close();
+ for(const math of [null,{typesetPromise:async()=>{throw Error('unavailable');}}]){
+  const failedMath=await page('?topic=math1_8_brueche',false,math),fd=failedMath.window.document;
+  assert.equal(fd.querySelector('#ws-print').disabled,true);assert.match(fd.querySelector('#ws-math-status').textContent,/Formeln konnten nicht/);
+  assert.ok(fd.querySelectorAll('.exercise-item').length>0);failedMath.window.close();
+ }
  const dom=await page('?topic=waermelehre'),w=dom.window,d=w.document;
  assert.equal(w.worksheetText('Fachw&ouml;rter &amp; Gr&#246;&#xDF;en'),'Fachwörter & Größen');
  assert.equal(w.worksheetText('x < 3 und x > 1'),'x < 3 und x > 1');

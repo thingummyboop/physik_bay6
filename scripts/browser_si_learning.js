@@ -1,0 +1,43 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{chromium}=require('playwright');
+const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',output=path.resolve(process.env.SCIVERSE_BROWSER_REPORT_DIR||path.join(__dirname,'../../browser-qa'));
+(async()=>{
+ fs.mkdirSync(output,{recursive:true});const browser=await chromium.launch({headless:true});
+ try{
+  const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(base+'/topics/template.html?topic=sieinheiten',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>window.currentChapterQuiz?.topicId==='sieinheiten'&&typeof window.drawGraph==='function');
+  await page.getByRole('button',{name:'Punkte einzeichnen',exact:true}).click();
+  const selection=page.getByLabel('Zeitpunkt auswählen');await selection.focus();
+  for(let i=0;i<3;i++)await page.keyboard.press('ArrowDown');
+  assert.equal(await selection.inputValue(),'3');
+  assert.match(await page.locator('#graphText').innerText(),/t = 3 s ist h = 45 m/);
+  assert.equal(await page.locator('.graphRow[aria-current=true] th').textContent(),'3');
+  assert.equal(await selection.evaluate(el=>el===document.activeElement),true);
+  await page.locator('[data-si-graph]').screenshot({path:path.join(output,'si-mobile-graph.png')});
+  const widths=await page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
+  assert.ok(widths.scroll<=widths.width+1);
+  await page.getByRole('button',{name:'Diagramm zurücksetzen',exact:true}).click();assert.equal(await selection.isDisabled(),true);
+  await page.getByRole('button',{name:'Punkte einzeichnen',exact:true}).click();assert.equal(await selection.inputValue(),'0');
+  assert.equal(await page.evaluate(()=>localStorage.getItem('sciverse_chapter_quiz_results')),null);
+  await page.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();
+  const correct={q1:1,f1:1,measurement_quality_0:0,measurement_quality_1:0,q2:1,q3:2,f2:0,f3:2,f4:1,f5:2,f6:0,q5:0,f9:2,q4:2,f7:1,f8:1,f10:0};
+  const ids=await page.evaluate(()=>currentChapterQuiz.questions.map(q=>q.id));assert.equal(ids.length,17);
+  for(const [i,id]of ids.entries())await page.locator(`input[name="chapter_q_${i}"][value="${id==='q1'?0:correct[id]}"]`).check();
+  await page.locator('.chapter-submit-btn').click();
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).sieinheiten);
+  assert.equal(saved.lastPercent,94);assert.equal(saved.contentRevision,3);assert.deepEqual(saved.reviewQuestionIds,['q1']);
+  assert.match(await page.locator('#chapter-quiz-result').innerText(),/Eine gemeinsame Einheit macht Geräte nicht fehlerfrei/);
+  await page.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();
+  assert.equal(await page.locator('#learning-section-0').evaluate(el=>el.contains(document.activeElement)),true);
+  const worksheet=await context.newPage();await worksheet.goto(base+'/topics/worksheet.html?topic=sieinheiten',{waitUntil:'domcontentloaded'});
+  await worksheet.waitForFunction(()=>!document.getElementById('ws-print').disabled);
+  const paper=worksheet.locator('[data-source-section="sec4"]');assert.equal(await paper.locator('svg[data-worksheet-static=true]').count(),1);
+  assert.equal(await paper.locator('[data-si-graph-table] tbody tr').count(),5);assert.equal(await paper.locator('[data-si-graph-tasks] li').count(),4);
+  assert.equal(await worksheet.locator('#ws-solutions').isVisible(),false);
+  await worksheet.locator('#ws-include-solutions').check();assert.match(await worksheet.locator('#ws-solutions').innerText(),/32,5 m/);
+  assert.deepEqual(errors,[]);
+  fs.writeFileSync(path.join(output,'si-learning-report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),viewport:{width:390,height:844},widths,result:saved,pageErrors:errors,scope:'Native keyboard graph selection/reset, one complete 17-question attempt and section return, paper graph and separate answers. Screenshot needs visual review.'},null,2)+'\n');
+  console.log('PASS: mobile SI graph with native arrow keys and reset, no page overflow or prior score mutation, 94% full chapter check with revision 3 and exact review target, paper axes/table/tasks and separate solutions.');
+ }finally{await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

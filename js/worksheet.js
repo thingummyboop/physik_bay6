@@ -105,8 +105,9 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
  material.append(make('h2','Texte, Daten und Arbeitsaufträge'),make('p',languageSubject?'Diese Blätter enthalten die Texte, Erklärungen und Schreibaufträge zum Kapitel. Bei Hörübungen liest eine zweite Person den Hörtext vor; verdecke dabei alle gedruckten Fassungen dieses Textes. Allein kannst du ihn als Lesetext bearbeiten und diese Änderung notieren.':'Dieses Material ergänzt die Übungsfragen. Modelle, Animationen und Abbildungen sind im verlinkten Onlinekapitel zugänglich. Aufgaben mit Reglern benötigen das Onlinekapitel; reale Versuche erfolgen nach Anleitung der Lehrperson.'));
  for(const [sectionIndex,section] of (topic.sections||[]).entries()){
   const article=make('article');article.dataset.sourceSection=section.id||'learning-section-'+sectionIndex;
-  article.append(make('h3',section.title));
-  const link=make('a','Zum Abschnitt im Onlinekapitel');link.href='template.html?topic='+encodeURIComponent(topicId)+'#learning-section-'+sectionIndex;article.append(link,make('p',link.href));
+  const header=make('header');header.className='ws-section-header';header.append(make('h3',section.title));
+  const link=make('a','Zum Abschnitt im Onlinekapitel');link.href='template.html?topic='+encodeURIComponent(topicId)+'#learning-section-'+sectionIndex;
+  const reference=make('p');reference.className='ws-section-link';reference.append(link,document.createTextNode(link.href));header.append(reference);article.append(header);
   const body=make('div');body.innerHTML=(section.content||'').replace(/\{\{QUIZ_[^}]+\}\}/g,'');
   // Never print an uninitialized simulation or an answer disclosure as a static result.
   // Vocabulary disclosures contain lesson material, not answers. Print them as plain text.
@@ -116,7 +117,7 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
    for(const node of [...item.childNodes])if(node!==summary)entry.append(node.cloneNode(true));
    item.replaceWith(entry);
   }
-  body.querySelectorAll('details,script,style,[hidden]').forEach(el=>el.remove());
+  body.querySelectorAll('details,script,style,[hidden],[data-worksheet-omit]').forEach(el=>el.remove());
   const dynamic='.interactive-zone,.diagram-box';
   for(const zone of [...body.querySelectorAll(dynamic)]){
    if(!body.contains(zone)||zone.parentElement?.closest(dynamic))continue;
@@ -170,8 +171,17 @@ async function loadWorksheet() {
   if(dynamic){content.insertAdjacentHTML('beforeend',dynamic);if(worksheetQuestions(topic).length){const heading=document.createElement('h2');heading.textContent='Verständnisfragen zum Kapitel';content.append(heading);renderWorksheetQuestions(topic,content);}note.textContent='Dieses Arbeitsblatt enthält zusätzliche Rechenübungen. Beim Neuladen können sich die Übungszahlen ändern. Es ersetzt nicht alle Lernaufgaben des Kapitels.';}
   else{renderWorksheetQuestions(topic,content);note.textContent=worksheetQuestions(topic).length?'Dieses Arbeitsblatt verwendet die aktuellen Kapitelaufgaben auf Deutsch. Die Aufgaben bleiben beim Neuladen gleich. Lösungen kannst du vor dem Drucken einblenden.':'Dieses Arbeitsblatt enthält Kapitelmaterial und Arbeitsaufträge. Für dieses Kapitel sind keine gesonderten druckbaren Quizfragen hinterlegt.';}
   appendPaperSolutions(topic,content);
-  if(window.MathJax?.startup?.promise)await window.MathJax.startup.promise;
-  if(window.MathJax?.typesetPromise)await window.MathJax.typesetPromise([content]);
+  const needsMath=/\\\(|\\\[|\$\$/.test(content.textContent);
+  if(needsMath){
+   const status=document.getElementById('ws-math-status');status.hidden=false;status.textContent='Die Formeln werden für den Druck vorbereitet.';
+   try{
+    if(window.MathJax?.startup?.promise)await window.MathJax.startup.promise;
+    if(!window.MathJax?.typesetPromise)throw Error('Formula renderer unavailable');
+    await window.MathJax.typesetPromise([content]);
+    if(document.fonts?.ready)await document.fonts.ready;
+    status.hidden=true;
+   }catch(error){status.textContent='Die Formeln konnten nicht vollständig dargestellt werden. Prüfe deine Verbindung und lade die Seite erneut, bevor du druckst. Die Übungszahlen können sich beim Neuladen ändern.';return;}
+  }
   print.disabled=false;
  }catch(error){content.textContent='Das Arbeitsblatt konnte nicht geladen werden. Prüfe deine Verbindung und lade die Seite erneut.';}
 }

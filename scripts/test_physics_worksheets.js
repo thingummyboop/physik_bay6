@@ -6,6 +6,8 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  const topics=catalog.window.SCIVERSE_CURRICULUM.physik.topics;
  for(const {id} of topics){
   const dom=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/site/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
+  // Content-only DOM check; the external formula renderer is exercised by browser_print_math.js.
+  w.MathJax={typesetPromise:async()=>{}};
   w.fetch=async()=>({ok:true,json:async()=>data});for(const file of ['curriculum','worksheet_generator','worksheet'])w.eval(read('js/'+file+'.js'));
   await new Promise(resolve=>setImmediate(resolve));
   const material=d.getElementById('ws-physics-material');assert.ok(material,id);assert.equal(d.getElementById('ws-print').disabled,false,id);
@@ -13,6 +15,12 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
    assert.equal(material.querySelectorAll('[data-measurement-protocol] tbody tr').length,3);
    assert.equal(material.querySelectorAll('[data-measurement-analysis] > li').length,4);
    assert.ok(material.querySelectorAll('article')[1].querySelector('[data-measurement-protocol]'));
+   const graph=material.querySelector('[data-source-section="sec4"]');
+   assert.deepEqual([...graph.querySelectorAll('[data-si-graph-table] tbody tr')].map(row=>[...row.cells].map(c=>Number(c.textContent))),[[0,0],[1,5],[2,20],[3,45],[4,80]]);
+   const axes=graph.querySelector('svg[data-worksheet-static="true"]');assert.ok(axes);assert.equal(axes.getAttribute('viewBox'),'0 0 350 225');assert.equal(axes.querySelectorAll('.graphPoint').length,0);
+   assert.equal(graph.querySelectorAll('[data-si-graph-tasks] > li').length,4);
+   assert.ok(!graph.textContent.includes('Die fünf Punkte sind'));
+   assert.match(d.getElementById('ws-solutions').textContent,/32,5 m/);
   }
   const articles=[...material.querySelectorAll('article')];assert.equal(articles.length,data[id].sections.length,id);
   articles.forEach((article,index)=>{
@@ -20,7 +28,7 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
    const link=article.querySelector('a');assert.equal(link.hash,'#learning-section-'+index);assert.equal(new URL(link.href).searchParams.get('topic'),id);
    assert.ok(article.textContent.includes(link.href),'URL remains usable on paper');assert.equal(article.querySelectorAll(':scope > .answer-lines').length,3);
   });
-  assert.equal(material.querySelectorAll('details,script,style,[style],svg,canvas,img,iframe,video,audio,object,embed,button,input,select,textarea,output,progress,[role="status"],[hidden]').length,0,id);
+  assert.equal(material.querySelectorAll('details,script,style,[style],svg:not([data-worksheet-static="true"]),canvas,img,iframe,video,audio,object,embed,button,input,select,textarea,output,progress,[role="status"],[hidden]').length,0,id);
   assert.doesNotMatch(material.innerHTML,/\{\{QUIZ_/);for(const el of material.querySelectorAll('*'))for(const attr of el.attributes)assert.ok(!/^on/i.test(attr.name));
   const toggle=d.getElementById('ws-include-material');assert.equal(toggle.checked,true);toggle.checked=false;toggle.dispatchEvent(new w.Event('change'));assert.equal(material.hidden,true);toggle.checked=true;toggle.dispatchEvent(new w.Event('change'));assert.equal(material.hidden,false);
   const solutions=d.getElementById('ws-solutions');if(solutions){assert.equal(solutions.hidden,true);const choice=d.getElementById('ws-include-solutions');choice.checked=true;choice.dispatchEvent(new w.Event('change'));assert.equal(solutions.hidden,false);assert.equal(material.hidden,false);toggle.checked=false;toggle.dispatchEvent(new w.Event('change'));assert.equal(solutions.hidden,false);}

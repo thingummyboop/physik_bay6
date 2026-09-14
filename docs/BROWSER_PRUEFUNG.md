@@ -1,5 +1,7 @@
 # Browserprüfung des Lernwegs – 14.09.2026
 
+Die anschließende Prüfung von PDF-Druckseiten, Tabellenumbrüchen und Formel-Ladezuständen ist separat in [DRUCK_PRUEFUNG.md](DRUCK_PRUEFUNG.md) dokumentiert.
+
 Geprüft wurde die aktuelle lokale Vorschau unter `http://127.0.0.1:4173`, ausgehend von GitHub-Zwischenstand `d7f0c57` einschließlich der danach vorgenommenen lokalen Änderungen. Dies ist keine Prüfung des veröffentlichten GitHub-Pages-Stands.
 
 ## Umgebung und Umfang

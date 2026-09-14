@@ -7579,239 +7579,361 @@
     ]
   },
   "rechenbeispiele": {
-    "title": "🧮 Das große Physik-Rechen-Abenteuer 🚀",
-    "subtitle": "Zahlen-Jongleur, die Aufwärmphase ist vorbei! Hol deinen Taschenrechner raus. Jetzt wird gerechnet, umgewandelt und die Physik auf die Probe gestellt!",
+    "title": "Rechnen in der Physik: Einheiten, Wege und Zeiten",
+    "subtitle": "Rechne mit passenden Einheiten, prüfe deinen Rechenweg und erkläre, was dein Ergebnis bedeutet.",
     "sections": [
       {
         "id": "sec0",
-        "title": "1. SI-Einheiten: Die Zeit-Maschine",
-        "quizzes": [],
-        "content": "\n        \n        <p>In der Physik rechnen wir bei der Zeit fast immer in der Basisgröße <strong>Sekunden (s)</strong>. Wenn du eine Aufgabe bekommst, in der Minuten oder Stunden stehen, musst du sie zuerst umrechnen!</p>\n        <div class=\"lexikon-box\">\n            💡 <strong>Umrechnungs-Tipp:</strong><br>\n            1 Minute = 60 Sekunden<br>\n            1 Stunde = 60 Minuten = 3.600 Sekunden (60 * 60)\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>⏱️ Film-Zeit umrechnen</h3>\n            <p>Du schaust einen spannenden Science-Fiction-Film, der genau <strong>2,5 Stunden</strong> dauert. Wie viele <strong>Sekunden</strong> hast du vor dem Fernseher verbracht?</p>\n            <input type=\"number\" id=\"inputSec\" placeholder=\"Sekunden...\">\n            <button data-check-input=\"inputSec\" data-expected=\"9000\" data-points=\"10\">Prüfen</button>\n            <p class=\"feedback\"></p>\n        </div>\n    "
+        "title": "1. Zeitangaben passend umrechnen",
+        "quizzes": [
+          {
+            "id": "q2",
+            "question": "Welche Zeitangabe entspricht 2 h?",
+            "answers": [
+              {
+                "text": "120 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "120 ist der Zahlenwert in Minuten. Für Sekunden musst du nochmals mit 60 multiplizieren."
+              },
+              {
+                "text": "7200 s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 2 × 60 × 60 s = 7200 s."
+              },
+              {
+                "text": "200 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Eine Stunde hat 3600 Sekunden, nicht 100. Stunden sind keine dezimalen Hunderterschritte."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Die Größe heißt Zeit, ihre SI-Basiseinheit ist die Sekunde (s). Minuten und Stunden sind ebenfalls gebräuchliche Zeiteinheiten. Welche Einheit du verwendest, hängt von der Aufgabe ab. Für ein Ergebnis in m/s setzt du Meter und Sekunden ein; km und Stunden ergeben km/h.</p><p>1 min = 60 s; 1 h = 60 min = 3600 s. Beispiel: 1,5 h = 1,5 × 3600 s = 5400 s. Die Dezimalstelle bezeichnet einen Teil einer Stunde: 0,5 h sind 30 min, nicht 50 min.</p><p>Diese Vertiefung ergänzt das Kapitel „Messen und Einheiten“. Alle Angaben sind fiktive Übungsdaten. </p><p data-worksheet-omit=\"true\">Die Felder bleiben wiederholbar; „Andere Zahlen“ wechselt zur nächsten Variante. Der Kapitelcheck aktualisiert deinen gespeicherten Lernstand.</p><div class=\"calculation-progress\" data-worksheet-omit=\"true\" role=\"status\" aria-live=\"polite\"><p data-calculation-progress>Dein Übungsstand wird vorbereitet.</p><progress max=\"6\" value=\"0\" aria-label=\"Aktuell richtig geprüfte Rechenaufgaben\"></progress></div><div class=\"interactive-zone calculation-zone\" data-calculation=\"inputSec\"><h3>Zeitangaben umrechnen</h3><p data-calculation-question>Ein fiktiver Film dauert 2,5 h. Wie viele Sekunden sind das?</p><p data-calculation-case>Aufgabe 1 von 3</p><label for=\"inputSec\">Dein Ergebnis in <span data-calculation-unit>s</span></label><div class=\"calculation-controls\"><input type=\"text\" inputmode=\"decimal\" id=\"inputSec\" autocomplete=\"off\"><button type=\"button\" data-check-input=\"inputSec\">Prüfen</button><button type=\"button\" data-calculation-next>Andere Zahlen</button></div><p id=\"inputSecFeedback\" class=\"feedback\" role=\"status\" aria-live=\"polite\"></p><details data-calculation-help><summary>Rechenhinweis</summary><p>1 h = 60 min = 3600 s. Multipliziere die Stunden mit 3600.</p></details><template data-calculation-cases>[{\"question\":\"Ein fiktiver Film dauert 2,5 h. Wie viele Sekunden sind das?\",\"answer\":9000,\"unit\":\"s\",\"hint\":\"1 h = 60 min = 3600 s. Multipliziere die Stunden mit 3600.\",\"solution\":\"2,5 × 3600 s = 9000 s. Kontrolle: 2 h sind 7200 s, eine halbe Stunde sind weitere 1800 s.\",\"graph\":null},{\"question\":\"Eine Unterrichtsaktivität dauert 1 h 15 min. Gib die gesamte Zeit in Sekunden an.\",\"answer\":4500,\"unit\":\"s\",\"hint\":\"Rechne Stunden und Minuten getrennt in Sekunden um und addiere dann.\",\"solution\":\"3600 s + 15 × 60 s = 4500 s. Die 15 Minuten sind eine Viertelstunde.\",\"graph\":null},{\"question\":\"Eine Modellaufnahme dauert 3 min 20 s. Wie viele Sekunden sind das insgesamt?\",\"answer\":200,\"unit\":\"s\",\"hint\":\"Eine Minute hat 60 Sekunden. Die zusätzlichen Sekunden musst du danach addieren.\",\"solution\":\"3 × 60 s + 20 s = 200 s. 320 s wäre kein korrektes Zusammensetzen dieser Zeitangaben.\",\"graph\":null}]</template><template data-worksheet-alternative><p>Ein fiktiver Film dauert 2,5 h. Wie viele Sekunden sind das?</p><ol><li>Notiere die gegebenen und gesuchten Größen mit ihren Einheiten.</li><li>Vereinheitliche nötigenfalls die Einheiten und schreibe deinen Rechenweg auf.</li><li>Prüfe das Ergebnis durch Rückrechnung oder Abschätzung.</li></ol><p>Ergebnis in s: ____________________</p></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zur Grundaufgabe: Zeitangaben umrechnen</summary><p>2,5 × 3600 s = 9000 s. Kontrolle: 2 h sind 7200 s, eine halbe Stunde sind weitere 1800 s.</p></details>{{QUIZ_q2}}"
       },
       {
         "id": "sec1",
-        "title": "2. Basisgrößen: Die Gepäck-Kontrolle (Masse)",
-        "quizzes": [],
-        "content": "\n        \n        <p>Massen werden am liebsten in <strong>Kilogramm (kg)</strong> angegeben. Oft sind Dinge aber in Gramm (g) beschriftet. Um zu wissen, wie schwer alles zusammen ist, musst du alles auf dieselbe Einheit bringen!</p>\n        <div class=\"lexikon-box\">\n            💡 <strong>Umrechnungs-Tipp:</strong><br>\n            1.000 Gramm (g) = 1 Kilogramm (kg)<br>\n            Beispiel: 500 g = 0,5 kg\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🧳 Pack den Koffer</h3>\n            <p>Für deinen Urlaub packst du deinen Koffer. Du hast Kleidung (12,5 kg), Schuhe (800 g), Bücher (1.200 g) und einen Kulturbeutel (0,5 kg). <br><strong>Wie viel Kilogramm (kg) wiegt dein Koffer insgesamt?</strong></p>\n            <input type=\"number\" id=\"inputKg\" step=\"0.1\" placeholder=\"Gewicht in kg...\">\n            <button data-check-input=\"inputKg\" data-expected=\"15\" data-points=\"10\">Prüfen</button>\n            <p class=\"feedback\"></p>\n        </div>\n    "
-      },
-      {
-        "id": "sec2",
-        "title": "3. Präfixe: Das Laser-Messgerät",
-        "quizzes": [],
-        "content": "\n        \n        <p>Kilo bedeutet Tausend (1.000), Milli bedeutet ein Tausendstel (0,001). Wenn du Längen addierst, müssen sie dieselbe Vorsilbe haben, sonst gibt es Chaos!</p>\n        <div class=\"interactive-zone\">\n            <h3>📏 Die Brücken-Reparatur</h3>\n            <p>Eine Brücke ist eigentlich 2,4 Kilometer (km) lang. Ein Stück von 350 Metern (m) muss repariert werden. <br><strong>Wie viele Meter (m) der Brücke sind noch völlig in Ordnung?</strong></p>\n            <input type=\"number\" id=\"inputMeter\" placeholder=\"Meter...\">\n            <button data-check-input=\"inputMeter\" data-expected=\"2050\" data-points=\"10\">Prüfen</button>\n            <p class=\"feedback\"></p>\n        </div>\n    "
-      },
-      {
-        "id": "sec3",
-        "title": "4. Formeln: Der Geschwindigkeits-Blitzer (v = s / t)",
-        "quizzes": [],
-        "content": "\n        \n        <p>Jetzt wird es ernst! Die Formel für Geschwindigkeit lautet <strong>v = s / t</strong> (Geschwindigkeit = Weg / Zeit). Manchmal musst du die Formel auch umstellen: <br>Weg berechnen: <strong>s = v * t</strong> <br>Zeit berechnen: <strong>t = s / v</strong></p>\n        \n        <div class=\"interactive-zone\">\n            <h3>🏎️ Blitzer-Aufgabe 1: Wie schnell?</h3>\n            <p>Ein Gepard sprintet eine Strecke von <strong>s = 120 Metern</strong> in genau <strong>t = 4 Sekunden</strong>. <br>Berechne seine Geschwindigkeit (v) in m/s!</p>\n            v = <input type=\"number\" id=\"inputV\" placeholder=\"m/s\"> m/s\n            <button data-check-input=\"inputV\" data-expected=\"30\" data-points=\"10\">Prüfen</button>\n            <p class=\"feedback\"></p>\n        </div>\n\n        <div class=\"interactive-zone\">\n            <h3>🚀 Blitzer-Aufgabe 2: Wie weit?</h3>\n            <p>Ein Fahrradfahrer fährt konstant mit <strong>v = 5 m/s</strong>. Er fährt für <strong>t = 12 Sekunden</strong>. <br>Welche Strecke (s) legt er zurück? (Tipp: s = v * t)</p>\n            s = <input type=\"number\" id=\"inputS\" placeholder=\"Meter\"> m\n            <button data-check-input=\"inputS\" data-expected=\"60\" data-points=\"10\">Prüfen</button>\n            <p class=\"feedback\"></p>\n        </div>\n    "
-      },
-      {
-        "id": "sec4",
-        "title": "5. Diagramme auswerten: Mathe mit Bildern",
-        "quizzes": [],
-        "content": "\n        \n        <p>Ein Weg-Zeit-Diagramm (s-t-Diagramm) zeigt dir, wie weit ein Objekt zu einer bestimmten Zeit gekommen ist. Aus diesen Linien kannst du Zahlen ablesen und damit rechnen!</p>\n        <div class=\"interactive-zone\">\n            <h3>📈 Den Graphen lesen</h3>\n            <div class=\"diagram-box\" style=\"height: 250px;\">\n                <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\">\n                    <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#000\" stroke-width=\"2\"></line>\n                    <line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#000\" stroke-width=\"2\"></line>\n                    <text x=\"5\" y=\"90\" font-size=\"12\" fill=\"#000\" transform=\"rotate(-90 15,90)\">Weg s (Meter)</text>\n                    <text x=\"140\" y=\"195\" font-size=\"12\" fill=\"#000\">Zeit t (Sekunden)</text>\n                    \n                    <line x1=\"40\" y1=\"100\" x2=\"280\" y2=\"100\" stroke=\"#ccc\" stroke-dasharray=\"4\"></line>\n                    <text x=\"15\" y=\"105\" font-size=\"12\">50m</text>\n                    \n                    <line x1=\"160\" y1=\"160\" x2=\"160\" y2=\"20\" stroke=\"#ccc\" stroke-dasharray=\"4\"></line>\n                    <text x=\"150\" y=\"175\" font-size=\"12\">10s</text>\n\n                    <line x1=\"40\" y1=\"160\" x2=\"160\" y2=\"100\" stroke=\"#D84315\" stroke-width=\"4\"></line>\n                    <circle cx=\"160\" cy=\"100\" r=\"5\" fill=\"#00838F\"></circle>\n                </svg>\n            </div>\n            <p>Lies aus dem Diagramm oben ab: Wie groß ist der Weg s nach 10 Sekunden? <br><strong>Berechne nun die Geschwindigkeit v in m/s!</strong></p>\n            v = <input type=\"number\" id=\"inputGraph\" placeholder=\"m/s\"> m/s\n            <button data-check-input=\"inputGraph\" data-expected=\"5\" data-points=\"15\">Prüfen</button>\n            <p class=\"feedback\"></p>\n        </div>\n    "
-      },
-      {
-        "id": "sec5",
-        "title": "🎓 Die Meister-Prüfung der Berechnungen",
+        "title": "2. Massen addieren und subtrahieren",
         "quizzes": [
           {
-            "id": "q1",
-            "question": "1. Wie viele Meter sind 3,5 Kilometer?",
-            "answers": [
-              {
-                "text": "3.500 m",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Richtig: 3,5 km × 1000 = 3500 m."
-              },
-              {
-                "text": "350 m",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Achte auf den Faktor 1000 bei km → m: 3,5 km sind 3500 m, nicht 350 m."
-              }
-            ]
-          },
-          {
-            "id": "q2",
-            "question": "2. Rechne 2 Stunden in Sekunden um.",
-            "answers": [
-              {
-                "text": "120 s",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Hier wurde zu wenig umgerechnet: 2 Stunden sind 2 × 3600 = 7200 s."
-              },
-              {
-                "text": "7.200 s",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Genau: 1 h = 3600 s, also 2 h = 7200 s."
-              }
-            ]
-          },
-          {
-            "id": "q3",
-            "question": "3. v = 20 m/s, t = 5 s. Wie groß ist der Weg s? (s = v * t)",
-            "answers": [
-              {
-                "text": "4 m",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Das ist die gegebene Strecke pro Schritt. Für 25 Schritte gilt: 25 × 4 m = 100 m."
-              },
-              {
-                "text": "100 m",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Richtig gerechnet: 25 · 4 m = 100 m."
-              }
-            ]
-          },
-          {
-            "id": "q4",
-            "question": "4. s = 200 m, v = 10 m/s. Wie lange brauchst du? (t = s / v)",
-            "answers": [
-              {
-                "text": "2.000 s",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Du musst durch die Geschwindigkeit teilen: t = s / v = 100 m / 5 m/s = 20 s."
-              },
-              {
-                "text": "20 s",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Genau: Mit t = s/v erhältst du 100/5 = 20 s."
-              }
-            ]
-          },
-          {
             "id": "q5",
-            "question": "5. Wie viel kg sind 250 g?",
+            "question": "Welche Masse entspricht 250 g?",
             "answers": [
               {
-                "text": "0,25 kg",
+                "text": "0,25 kg.",
                 "correct": true,
                 "pts": 5,
-                "feedback": "Richtig: 250 g sind ein Viertel von 1000 g, also 0,25 kg."
+                "feedback": "Richtig: 250 / 1000 kg = 0,25 kg, also ein Viertel Kilogramm."
               },
               {
-                "text": "2,5 kg",
+                "text": "2,5 kg.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Komma verrutscht: 250 g entsprechen 0,25 kg, nicht 2,5 kg."
-              }
-            ]
-          },
-          {
-            "id": "q6",
-            "question": "6. Du hast 1,5 Meter Schnur. Wie viele Millimeter (mm) sind das?",
-            "answers": [
-              {
-                "text": "150 mm",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Achte auf den Faktor 1000 bei m → mm: 1,5 m sind 1500 mm."
-              },
-              {
-                "text": "1.500 mm",
-                "correct": true,
                 "pts": 5,
-                "feedback": "Richtig: 1,5 m × 1000 = 1500 mm."
-              }
-            ]
-          },
-          {
-            "id": "q7",
-            "question": "7. Ein Auto fährt 150 km in 3 Stunden. Berechne v in km/h!",
-            "answers": [
+                "feedback": "2,5 kg sind 2500 g. Du musst durch 1000 teilen, nicht durch 100."
+              },
               {
-                "text": "50 km/h",
-                "correct": true,
+                "text": "0,025 kg.",
+                "correct": false,
                 "pts": 5,
-                "feedback": "Genau: 450 km in 9 h ergibt v = 450/9 = 50 km/h."
-              },
-              {
-                "text": "450 km/h",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Du hast wohl nicht durch die Zeit geteilt. Durchschnittsgeschwindigkeit ist 450/9 = 50 km/h."
-              }
-            ]
-          },
-          {
-            "id": "q8",
-            "question": "8. 💡 Profi-Frage: Um von km/h in m/s umzurechnen, teilt man durch 3,6. Wie viele m/s sind 36 km/h?",
-            "answers": [
-              {
-                "text": "3,6 m/s",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Das ist ein häufiger Vertauschfehler. 36 km/h teilst du durch 3,6 und erhältst 10 m/s."
-              },
-              {
-                "text": "10 m/s",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: km/h → m/s bedeutet durch 3,6 teilen: 36/3,6 = 10 m/s."
-              }
-            ]
-          },
-          {
-            "id": "q9",
-            "question": "9. s = 50 m, t = 10 s. Welche Geschwindigkeit ist das?",
-            "answers": [
-              {
-                "text": "500 m/s",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Hier fehlt die Division durch die Zeit: v = 500 m / 100 s = 5 m/s."
-              },
-              {
-                "text": "5 m/s",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Genau: Strecke durch Zeit ergibt 500/100 = 5 m/s."
+                "feedback": "0,025 kg sind 25 g. Hier wurde durch 10 000 statt durch 1000 geteilt."
               }
             ]
           },
           {
             "id": "q10",
-            "question": "10. Ein Gepäckstück wiegt 4 kg. Du nimmst 500 g heraus. Was wiegt es jetzt?",
+            "question": "Ein Gepäckstück hat 4 kg Masse. Du nimmst 500 g heraus. Welche Masse bleibt?",
             "answers": [
               {
-                "text": "3,95 kg",
+                "text": "3,95 kg.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Subtrahiere korrekt: 5,2 kg - 1,7 kg = 3,5 kg."
+                "pts": 5,
+                "feedback": "500 g sind 0,5 kg, nicht 0,05 kg. Ziehe nach dem Umrechnen ab."
               },
               {
-                "text": "3,5 kg",
+                "text": "4,5 kg.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde die entnommene Masse addiert. Herausnehmen verringert die Gesamtmasse."
+              },
+              {
+                "text": "3,5 kg.",
                 "correct": true,
                 "pts": 5,
-                "feedback": "Richtig: Nach dem Trinken bleiben 3,5 kg im Kanister."
+                "feedback": "Richtig: 4 kg − 0,5 kg = 3,5 kg."
               }
             ]
           }
         ],
-        "content": "\n        \n        <p style=\"text-align: center;\">Hier gibt es nichts mehr zu raten, hier wird knallhart gerechnet!</p>\n        \n        {{QUIZ_q1}}\n        {{QUIZ_q2}}\n        {{QUIZ_q3}}\n        {{QUIZ_q4}}\n        {{QUIZ_q5}}\n        {{QUIZ_q6}}\n        {{QUIZ_q7}}\n        {{QUIZ_q8}}\n        {{QUIZ_q9}}\n        {{QUIZ_q10}}\n\n        <p style=\"text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 20px;\">🚀 Genial kalkuliert! Scroll nach oben und bewundere deinen Punkte-Highscore!</p>\n    "
+        "content": "<p>Für eine gemeinsame Summe brauchst du eine gemeinsame Einheit. 1000 g = 1 kg; deshalb sind 500 g = 0,5 kg. Beispiel: 2 kg + 300 g = 2 kg + 0,3 kg = 2,3 kg. Die Einheit bezeichnet hier die Masse; Gewichtskraft wäre eine andere Größe.</p><p>Achte darauf, welche Teile zur gesuchten Gesamtmasse gehören. Ohne Angabe zur Verpackung kannst du deren Masse nicht dazuerfinden.</p><div class=\"interactive-zone calculation-zone\" data-calculation=\"inputKg\"><h3>Massen zusammenfassen</h3><p data-calculation-question>Der Inhalt eines Koffers besteht aus Kleidung (12,5 kg), Schuhen (800 g), Büchern (1200 g) und einem Beutel (0,5 kg). Welche Masse hat nur der Inhalt, ohne den leeren Koffer?</p><p data-calculation-case>Aufgabe 1 von 3</p><label for=\"inputKg\">Dein Ergebnis in <span data-calculation-unit>kg</span></label><div class=\"calculation-controls\"><input type=\"text\" inputmode=\"decimal\" id=\"inputKg\" autocomplete=\"off\"><button type=\"button\" data-check-input=\"inputKg\">Prüfen</button><button type=\"button\" data-calculation-next>Andere Zahlen</button></div><p id=\"inputKgFeedback\" class=\"feedback\" role=\"status\" aria-live=\"polite\"></p><details data-calculation-help><summary>Rechenhinweis</summary><p>800 g = 0,8 kg und 1200 g = 1,2 kg. Addiere erst nach dem Umrechnen.</p></details><template data-calculation-cases>[{\"question\":\"Der Inhalt eines Koffers besteht aus Kleidung (12,5 kg), Schuhen (800 g), Büchern (1200 g) und einem Beutel (0,5 kg). Welche Masse hat nur der Inhalt, ohne den leeren Koffer?\",\"answer\":15,\"unit\":\"kg\",\"hint\":\"800 g = 0,8 kg und 1200 g = 1,2 kg. Addiere erst nach dem Umrechnen.\",\"solution\":\"12,5 kg + 0,8 kg + 1,2 kg + 0,5 kg = 15 kg. Die Masse des leeren Koffers ist nicht angegeben und wird hier nicht mitgerechnet.\",\"graph\":null},{\"question\":\"Für ein Modell brauchst du Teile mit 1,2 kg, 350 g und 450 g. Gib die Gesamtmasse in Kilogramm an.\",\"answer\":2,\"unit\":\"kg\",\"hint\":\"Rechne die beiden Grammangaben in Kilogramm um.\",\"solution\":\"1,2 kg + 0,35 kg + 0,45 kg = 2 kg. Auch 350 g + 450 g = 800 g ist ein sinnvoller Zwischenschritt.\",\"graph\":null},{\"question\":\"Ein Paket hat eine Masse von 3 kg. Ein Teil mit 250 g wird herausgenommen. Welche Masse bleibt?\",\"answer\":2.75,\"unit\":\"kg\",\"hint\":\"250 g entspricht 0,25 kg. Diese Masse ziehst du ab.\",\"solution\":\"3 kg − 0,25 kg = 2,75 kg. 250 g sind ein Viertel Kilogramm, nicht 2,5 kg.\",\"graph\":null}]</template><template data-worksheet-alternative><p>Der Inhalt eines Koffers besteht aus Kleidung (12,5 kg), Schuhen (800 g), Büchern (1200 g) und einem Beutel (0,5 kg). Welche Masse hat nur der Inhalt, ohne den leeren Koffer?</p><ol><li>Notiere die gegebenen und gesuchten Größen mit ihren Einheiten.</li><li>Vereinheitliche nötigenfalls die Einheiten und schreibe deinen Rechenweg auf.</li><li>Prüfe das Ergebnis durch Rückrechnung oder Abschätzung.</li></ol><p>Ergebnis in kg: ____________________</p></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zur Grundaufgabe: Massen zusammenfassen</summary><p>12,5 kg + 0,8 kg + 1,2 kg + 0,5 kg = 15 kg. Die Masse des leeren Koffers ist nicht angegeben und wird hier nicht mitgerechnet.</p></details>{{QUIZ_q5}}{{QUIZ_q10}}"
+      },
+      {
+        "id": "sec2",
+        "title": "3. Strecken und Vorsilben",
+        "quizzes": [
+          {
+            "id": "q1",
+            "question": "Wie viele Meter sind 3,5 km?",
+            "answers": [
+              {
+                "text": "3500 m.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 3,5 × 1000 m = 3500 m. Die Strecke bleibt gleich, nur die Einheit ändert sich."
+              },
+              {
+                "text": "350 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Von km zu m brauchst du den Faktor 1000, nicht 100. 350 m sind nur 0,35 km."
+              },
+              {
+                "text": "35 000 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde mit 10 000 multipliziert. 35 000 m sind 35 km, nicht 3,5 km."
+              }
+            ]
+          },
+          {
+            "id": "q6",
+            "question": "Eine Schnur ist 1,5 m lang. Wie viele Millimeter sind das?",
+            "answers": [
+              {
+                "text": "150 mm.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "150 wäre die Angabe in Zentimetern. Ein Meter hat 1000 Millimeter."
+              },
+              {
+                "text": "1500 mm.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 1,5 × 1000 mm = 1500 mm."
+              },
+              {
+                "text": "0,0015 mm.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Millimeter ist die kleinere Einheit. Der Zahlenwert muss größer werden, nicht kleiner."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Rechne Längen vor dem Addieren oder Subtrahieren in dieselbe Einheit um: 1 km = 1000 m und 1 m = 1000 mm. Dabei ändert sich die Länge nicht. Beispiel: 1,2 km − 200 m = 1200 m − 200 m = 1000 m.</p><p>Eine größere Einheit benötigt für dieselbe Länge einen kleineren Zahlenwert. Eine Rechenaufgabe zu einer Strecke sagt allein nichts über deren Zustand aus.</p><div class=\"interactive-zone calculation-zone\" data-calculation=\"inputMeter\"><h3>Strecken mit verschiedenen Einheiten</h3><p data-calculation-question>Auf einer erfundenen Route von 2,4 km sind 350 m als Baustellenabschnitt markiert. Wie viele Meter liegen außerhalb dieses Abschnitts?</p><p data-calculation-case>Aufgabe 1 von 3</p><label for=\"inputMeter\">Dein Ergebnis in <span data-calculation-unit>m</span></label><div class=\"calculation-controls\"><input type=\"text\" inputmode=\"decimal\" id=\"inputMeter\" autocomplete=\"off\"><button type=\"button\" data-check-input=\"inputMeter\">Prüfen</button><button type=\"button\" data-calculation-next>Andere Zahlen</button></div><p id=\"inputMeterFeedback\" class=\"feedback\" role=\"status\" aria-live=\"polite\"></p><details data-calculation-help><summary>Rechenhinweis</summary><p>Rechne 2,4 km zuerst in Meter um. Ziehe dann 350 m ab.</p></details><template data-calculation-cases>[{\"question\":\"Auf einer erfundenen Route von 2,4 km sind 350 m als Baustellenabschnitt markiert. Wie viele Meter liegen außerhalb dieses Abschnitts?\",\"answer\":2050,\"unit\":\"m\",\"hint\":\"Rechne 2,4 km zuerst in Meter um. Ziehe dann 350 m ab.\",\"solution\":\"2400 m − 350 m = 2050 m. Die Rechnung bestimmt eine Länge; sie sagt nichts über Zustand oder Sicherheit der übrigen Route aus.\",\"graph\":null},{\"question\":\"Ein fiktiver Schulweg durch Wien besteht aus 1,2 km und weiteren 750 m. Wie viele Meter sind es insgesamt?\",\"answer\":1950,\"unit\":\"m\",\"hint\":\"Beide Zahlenwerte müssen sich auf Meter beziehen, bevor du addierst.\",\"solution\":\"1200 m + 750 m = 1950 m. 1,95 km beschreibt dieselbe Gesamtstrecke; gefragt war die Angabe in Metern.\",\"graph\":null},{\"question\":\"Von einer Modellstrecke mit 3,6 km sind 0,8 km bereits zurückgelegt. Wie viele Meter fehlen noch?\",\"answer\":2800,\"unit\":\"m\",\"hint\":\"Du kannst zuerst die Kilometerangaben subtrahieren und das Ergebnis dann in Meter umrechnen.\",\"solution\":\"3,6 km − 0,8 km = 2,8 km = 2800 m. Kontrolle: 800 m + 2800 m = 3600 m.\",\"graph\":null}]</template><template data-worksheet-alternative><p>Auf einer erfundenen Route von 2,4 km sind 350 m als Baustellenabschnitt markiert. Wie viele Meter liegen außerhalb dieses Abschnitts?</p><ol><li>Notiere die gegebenen und gesuchten Größen mit ihren Einheiten.</li><li>Vereinheitliche nötigenfalls die Einheiten und schreibe deinen Rechenweg auf.</li><li>Prüfe das Ergebnis durch Rückrechnung oder Abschätzung.</li></ol><p>Ergebnis in m: ____________________</p></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zur Grundaufgabe: Strecken mit verschiedenen Einheiten</summary><p>2400 m − 350 m = 2050 m. Die Rechnung bestimmt eine Länge; sie sagt nichts über Zustand oder Sicherheit der übrigen Route aus.</p></details>{{QUIZ_q1}}{{QUIZ_q6}}"
+      },
+      {
+        "id": "sec3",
+        "title": "4. Strecke, Zeit und mittlere Geschwindigkeit",
+        "quizzes": [
+          {
+            "id": "q3",
+            "question": "Ein Modell bewegt sich gleichmäßig mit 20 m/s für 5 s. Welche Strecke ergibt sich?",
+            "answers": [
+              {
+                "text": "4 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Du hast durch die Zeit geteilt. Für die Strecke multiplizierst du Meter pro Sekunde mit Sekunden."
+              },
+              {
+                "text": "25 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Geschwindigkeit und Zeit kannst du nicht addieren. Nutze s = v × t."
+              },
+              {
+                "text": "100 m.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 20 m/s × 5 s = 100 m. Kontrolle: 100 m / 5 s = 20 m/s."
+              }
+            ]
+          },
+          {
+            "id": "q4",
+            "question": "Eine Strecke von 200 m wird mit einer mittleren Geschwindigkeit von 10 m/s zurückgelegt. Wie lange dauert das?",
+            "answers": [
+              {
+                "text": "2000 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Multiplizieren bestimmt hier nicht die Zeit. Nutze t = s / v."
+              },
+              {
+                "text": "20 s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 200 m / (10 m/s) = 20 s. Kontrolle: 10 m/s × 20 s = 200 m."
+              },
+              {
+                "text": "0,05 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde die Division umgedreht. Strecke geteilt durch Geschwindigkeit ergibt die gesuchte Zeit."
+              }
+            ]
+          },
+          {
+            "id": "q7",
+            "question": "Ein fiktiver Reiseabschnitt umfasst 150 km in insgesamt 3 h einschließlich Pausen. Welche mittlere Geschwindigkeit ergibt sich?",
+            "answers": [
+              {
+                "text": "450 km/h.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Strecke mal Zeit ist nicht die mittlere Geschwindigkeit. Teile 150 km durch 3 h."
+              },
+              {
+                "text": "0,02 km/h.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde Zeit durch Strecke geteilt. Gesucht ist Strecke pro Zeit."
+              },
+              {
+                "text": "50 km/h.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 150 km / 3 h = 50 km/h. Die Gesamtzeit enthält die Pausen."
+              }
+            ]
+          },
+          {
+            "id": "q8",
+            "question": "Welche Angabe in m/s entspricht 36 km/h?",
+            "answers": [
+              {
+                "text": "10 m/s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 36 / 3,6 = 10. Auch 36 000 m / 3600 s ergibt 10 m/s."
+              },
+              {
+                "text": "3,6 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "3,6 ist der Umrechnungsfaktor, nicht das Ergebnis. Teile 36 durch 3,6."
+              },
+              {
+                "text": "129,6 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Du hast mit 3,6 multipliziert. Das ist die Richtung von m/s zu km/h; hier musst du teilen."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Die mittlere Geschwindigkeit ist die insgesamt zurückgelegte Strecke geteilt durch die dafür benötigte Zeit: <strong>v = s / t</strong>. Pausen gehören zur Gesamtzeit, wenn der gesamte Vorgang gefragt ist. Der Mittelwert legt nicht fest, wie schnell die Bewegung in jedem einzelnen Moment war.</p><p>Umgestellt: <strong>s = v × t</strong> und <strong>t = s / v</strong>. Für die Division muss t beziehungsweise v größer als null sein. Beispiel: 60 m in 20 s ergeben 3 m/s; umgekehrt sind 3 m/s × 20 s = 60 m.</p><p>Umrechnung: 1 km/h = 1000 m / 3600 s. Von km/h zu m/s teilst du deshalb durch 3,6, in die Gegenrichtung multiplizierst du mit 3,6. Beispiel: 18 km/h = 5 m/s.</p><div class=\"interactive-zone calculation-zone\" data-calculation=\"inputV\"><h3>Mittlere Geschwindigkeit berechnen</h3><p data-calculation-question>Fiktive Bewegungsdaten: Ein Modellfahrzeug legt insgesamt 120 m in 4 s zurück. Berechne die mittlere Geschwindigkeit.</p><p data-calculation-case>Aufgabe 1 von 3</p><label for=\"inputV\">Dein Ergebnis in <span data-calculation-unit>m/s</span></label><div class=\"calculation-controls\"><input type=\"text\" inputmode=\"decimal\" id=\"inputV\" autocomplete=\"off\"><button type=\"button\" data-check-input=\"inputV\">Prüfen</button><button type=\"button\" data-calculation-next>Andere Zahlen</button></div><p id=\"inputVFeedback\" class=\"feedback\" role=\"status\" aria-live=\"polite\"></p><details data-calculation-help><summary>Rechenhinweis</summary><p>Nutze gesamte Strecke geteilt durch benötigte Zeit: v = s / t.</p></details><template data-calculation-cases>[{\"question\":\"Fiktive Bewegungsdaten: Ein Modellfahrzeug legt insgesamt 120 m in 4 s zurück. Berechne die mittlere Geschwindigkeit.\",\"answer\":30,\"unit\":\"m/s\",\"hint\":\"Nutze gesamte Strecke geteilt durch benötigte Zeit: v = s / t.\",\"solution\":\"120 m / 4 s = 30 m/s. Das ist ein Mittelwert; die Angabe allein beschreibt nicht jede einzelne Sekunde.\",\"graph\":null},{\"question\":\"Ein fiktiver Weg ist 300 m lang. Du gehst 100 s und machst zusätzlich 50 s Pause. Welche mittlere Geschwindigkeit ergibt sich für den gesamten Vorgang?\",\"answer\":2,\"unit\":\"m/s\",\"hint\":\"Zur Gesamtzeit gehören Gehzeit und Pause.\",\"solution\":\"300 m / (100 s + 50 s) = 300 m / 150 s = 2 m/s. Ohne Pause würdest du eine andere Frage beantworten.\",\"graph\":null},{\"question\":\"Ein Modellfahrzeug legt 1,8 km in 180 s zurück. Gib seine mittlere Geschwindigkeit in Metern pro Sekunde an.\",\"answer\":10,\"unit\":\"m/s\",\"hint\":\"Für m/s muss die Strecke in Metern und die Zeit in Sekunden eingesetzt werden.\",\"solution\":\"1,8 km = 1800 m; 1800 m / 180 s = 10 m/s. Kontrolle: 10 m/s × 180 s = 1800 m.\",\"graph\":null}]</template><template data-worksheet-alternative><p>Fiktive Bewegungsdaten: Ein Modellfahrzeug legt insgesamt 120 m in 4 s zurück. Berechne die mittlere Geschwindigkeit.</p><ol><li>Notiere die gegebenen und gesuchten Größen mit ihren Einheiten.</li><li>Vereinheitliche nötigenfalls die Einheiten und schreibe deinen Rechenweg auf.</li><li>Prüfe das Ergebnis durch Rückrechnung oder Abschätzung.</li></ol><p>Ergebnis in m/s: ____________________</p></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zur Grundaufgabe: Mittlere Geschwindigkeit berechnen</summary><p>120 m / 4 s = 30 m/s. Das ist ein Mittelwert; die Angabe allein beschreibt nicht jede einzelne Sekunde.</p></details><div class=\"interactive-zone calculation-zone\" data-calculation=\"inputS\"><h3>Eine Strecke berechnen</h3><p data-calculation-question>Ein Modell bewegt sich gleichmäßig mit 5 m/s für 12 s. Welche Strecke legt es zurück?</p><p data-calculation-case>Aufgabe 1 von 3</p><label for=\"inputS\">Dein Ergebnis in <span data-calculation-unit>m</span></label><div class=\"calculation-controls\"><input type=\"text\" inputmode=\"decimal\" id=\"inputS\" autocomplete=\"off\"><button type=\"button\" data-check-input=\"inputS\">Prüfen</button><button type=\"button\" data-calculation-next>Andere Zahlen</button></div><p id=\"inputSFeedback\" class=\"feedback\" role=\"status\" aria-live=\"polite\"></p><details data-calculation-help><summary>Rechenhinweis</summary><p>Bei gleichmäßiger Bewegung gilt s = v × t.</p></details><template data-calculation-cases>[{\"question\":\"Ein Modell bewegt sich gleichmäßig mit 5 m/s für 12 s. Welche Strecke legt es zurück?\",\"answer\":60,\"unit\":\"m\",\"hint\":\"Bei gleichmäßiger Bewegung gilt s = v × t.\",\"solution\":\"5 m/s × 12 s = 60 m. Pro Sekunde kommen 5 m dazu, zwölfmal hintereinander.\",\"graph\":null},{\"question\":\"Eine Modellbewegung dauert 45 s bei gleichbleibenden 2 m/s. Berechne die Strecke.\",\"answer\":90,\"unit\":\"m\",\"hint\":\"Multipliziere die Strecke pro Sekunde mit der Anzahl der Sekunden.\",\"solution\":\"2 m/s × 45 s = 90 m. Kontrolle: 90 m / 45 s = 2 m/s.\",\"graph\":null},{\"question\":\"Ein Modellfahrzeug fährt gleichmäßig mit 36 km/h für 20 s. Wie viele Meter sind das?\",\"answer\":200,\"unit\":\"m\",\"hint\":\"Rechne zuerst 36 km/h in m/s um: Teile durch 3,6.\",\"solution\":\"36 km/h = 10 m/s; 10 m/s × 20 s = 200 m. Ohne Umrechnung passen km/h und Sekunden nicht unmittelbar zusammen.\",\"graph\":null}]</template><template data-worksheet-alternative><p>Ein Modell bewegt sich gleichmäßig mit 5 m/s für 12 s. Welche Strecke legt es zurück?</p><ol><li>Notiere die gegebenen und gesuchten Größen mit ihren Einheiten.</li><li>Vereinheitliche nötigenfalls die Einheiten und schreibe deinen Rechenweg auf.</li><li>Prüfe das Ergebnis durch Rückrechnung oder Abschätzung.</li></ol><p>Ergebnis in m: ____________________</p></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zur Grundaufgabe: Eine Strecke berechnen</summary><p>5 m/s × 12 s = 60 m. Pro Sekunde kommen 5 m dazu, zwölfmal hintereinander.</p></details>{{QUIZ_q3}}{{QUIZ_q4}}{{QUIZ_q7}}{{QUIZ_q8}}"
+      },
+      {
+        "id": "sec4",
+        "title": "5. Diagramme und Zeitintervalle",
+        "quizzes": [
+          {
+            "id": "q9",
+            "question": "Ein Diagramm zeigt insgesamt 50 m bei 10 s und den Start bei 0 m / 0 s. Welche mittlere Geschwindigkeit gilt für dieses Intervall?",
+            "answers": [
+              {
+                "text": "500 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Du hast Strecke und Zeit multipliziert. Gesucht ist zusätzliche Strecke geteilt durch vergangene Zeit."
+              },
+              {
+                "text": "5 m/s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: (50 m − 0 m) / (10 s − 0 s) = 5 m/s."
+              },
+              {
+                "text": "0,2 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde Zeit durch Strecke geteilt. Die Einheit m/s verlangt Meter geteilt durch Sekunden."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Das Diagramm zeigt die seit Beginn insgesamt zurückgelegte, also <strong>kumulierte Strecke</strong>. Die waagerechte Achse gibt die Zeit an. Für ein Zeitintervall berechnest du die zusätzliche Strecke und die vergangene Zeit: Endwert minus Anfangswert.</p><p>Beispiel: Von 20 m bei 4 s zu 32 m bei 8 s kommen 12 m in 4 s dazu. Die mittlere Geschwindigkeit in diesem Intervall ist 12 m / 4 s = 3 m/s. Die Daten und geraden Verbindungen sind Modellvorgaben, keine realen Messungen.</p><div class=\"interactive-zone calculation-zone\" data-calculation=\"inputGraph\"><h3>Ein Zeitintervall im Diagramm auswerten</h3><p data-calculation-question>Lies die kumulierte Strecke nach 10 s ab. Berechne die mittlere Geschwindigkeit von 0 s bis 10 s.</p><div data-calculation-graph></div><div data-calculation-data><table data-calculation-table><caption>Vorgegebene Modelldaten</caption><thead><tr><th scope=\"col\">Zeit in s</th><th scope=\"col\">Kumulierte Strecke in m</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>0</td></tr><tr><th scope=\"row\">5</th><td>25</td></tr><tr><th scope=\"row\">10</th><td>50</td></tr></tbody></table></div><p data-calculation-case>Aufgabe 1 von 3</p><label for=\"inputGraph\">Dein Ergebnis in <span data-calculation-unit>m/s</span></label><div class=\"calculation-controls\"><input type=\"text\" inputmode=\"decimal\" id=\"inputGraph\" autocomplete=\"off\"><button type=\"button\" data-check-input=\"inputGraph\">Prüfen</button><button type=\"button\" data-calculation-next>Andere Zahlen</button></div><p id=\"inputGraphFeedback\" class=\"feedback\" role=\"status\" aria-live=\"polite\"></p><details data-calculation-help><summary>Rechenhinweis</summary><p>Lies beide Endpunkte des Intervalls. Teile die zusätzliche Strecke durch die vergangene Zeit.</p></details><template data-calculation-cases>[{\"question\":\"Lies die kumulierte Strecke nach 10 s ab. Berechne die mittlere Geschwindigkeit von 0 s bis 10 s.\",\"answer\":5,\"unit\":\"m/s\",\"hint\":\"Lies beide Endpunkte des Intervalls. Teile die zusätzliche Strecke durch die vergangene Zeit.\",\"solution\":\"(50 m − 0 m) / (10 s − 0 s) = 5 m/s.\",\"graph\":[[0,0],[5,25],[10,50]]},{\"question\":\"Berechne die mittlere Geschwindigkeit nur zwischen 5 s und 10 s.\",\"answer\":0,\"unit\":\"m/s\",\"hint\":\"Die kumulierte Strecke bleibt in diesem Intervall gleich. Wie viel zusätzliche Strecke kommt dazu?\",\"solution\":\"(30 m − 30 m) / (10 s − 5 s) = 0 m/s. Die waagerechte Linie beschreibt hier eine Pause, nicht eine Bewegung zurück.\",\"graph\":[[0,0],[5,30],[10,30],[15,60]]},{\"question\":\"Berechne die mittlere Geschwindigkeit nur von 4 s bis 12 s.\",\"answer\":3,\"unit\":\"m/s\",\"hint\":\"Ziehe sowohl die Anfangsstrecke als auch die Anfangszeit ab.\",\"solution\":\"(44 m − 20 m) / (12 s − 4 s) = 24 m / 8 s = 3 m/s. 44 m / 12 s wäre der Mittelwert über ein anderes Intervall.\",\"graph\":[[0,0],[4,20],[12,44]]}]</template><template data-worksheet-alternative><p>Lies die kumulierte Strecke nach 10 s ab. Berechne die mittlere Geschwindigkeit von 0 s bis 10 s.</p><table data-calculation-table><caption>Vorgegebene Modelldaten</caption><thead><tr><th scope=\"col\">Zeit in s</th><th scope=\"col\">Kumulierte Strecke in m</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>0</td></tr><tr><th scope=\"row\">5</th><td>25</td></tr><tr><th scope=\"row\">10</th><td>50</td></tr></tbody></table><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 250\" role=\"img\" aria-label=\"Kumulierte Strecke: 0 m bei 0 s, 25 m bei 5 s und 50 m bei 10 s\"><rect width=\"360\" height=\"250\" fill=\"white\"/><g fill=\"#172033\" stroke=\"#172033\"><path d=\"M44 30 V190 H320\" fill=\"none\"/><path d=\"M44 190 L294 40\" fill=\"none\" stroke=\"#1765a8\" stroke-width=\"3\"/></g><g fill=\"#172033\" font-size=\"14\"><text x=\"44\" y=\"213\" text-anchor=\"middle\">0</text><text x=\"169\" y=\"213\" text-anchor=\"middle\">5</text><text x=\"294\" y=\"213\" text-anchor=\"middle\">10</text><text x=\"35\" y=\"195\" text-anchor=\"end\">0</text><text x=\"35\" y=\"120\" text-anchor=\"end\">25</text><text x=\"35\" y=\"45\" text-anchor=\"end\">50</text><text x=\"180\" y=\"239\" text-anchor=\"middle\">Zeit in s</text><text x=\"14\" y=\"117\" transform=\"rotate(-90 14 117)\" text-anchor=\"middle\">Strecke in m</text></g></svg><ol><li>Notiere die gegebenen und gesuchten Größen mit ihren Einheiten.</li><li>Vereinheitliche nötigenfalls die Einheiten und schreibe deinen Rechenweg auf.</li><li>Prüfe das Ergebnis durch Rückrechnung oder Abschätzung.</li></ol><p>Ergebnis in m/s: ____________________</p></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zur Grundaufgabe: Ein Zeitintervall im Diagramm auswerten</summary><p>(50 m − 0 m) / (10 s − 0 s) = 5 m/s.</p></details>{{QUIZ_q9}}"
+      },
+      {
+        "id": "sec5",
+        "title": "6. Einen Schulweg auswerten und Aussagen prüfen",
+        "quizzes": [
+          {
+            "id": "q11",
+            "question": "Der fiktive Schulweg umfasst 400 m Gehen in 200 s, 100 s Warten und weitere 200 m in 100 s. Welche mittlere Geschwindigkeit gilt insgesamt?",
+            "answers": [
+              {
+                "text": "1,5 m/s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 600 m / (200 s + 100 s + 100 s) = 600 m / 400 s = 1,5 m/s."
+              },
+              {
+                "text": "2 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "2 m/s ergibt sich nur aus den Gehzeiten. Die Frage schließt den Warteabschnitt ein."
+              },
+              {
+                "text": "6 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "6 m/s entsteht beim Teilen durch nur 100 s. Berücksichtige alle drei Zeitabschnitte."
+              }
+            ]
+          },
+          {
+            "id": "q12",
+            "question": "Was folgt aus der mittleren Geschwindigkeit von 1,5 m/s für diesen Schulweg mit Warteabschnitt?",
+            "answers": [
+              {
+                "text": "Die Person bewegte sich in jeder Sekunde genau 1,5 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Ein Mittelwert legt die Geschwindigkeit jeder Sekunde nicht fest. Die Tabelle enthält ausdrücklich einen Warteabschnitt."
+              },
+              {
+                "text": "Eine Pause ist bei diesem Mittelwert ausgeschlossen.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Eine Pause kann in der Gesamtzeit enthalten sein. Sie senkt hier den Mittelwert über den gesamten Vorgang."
+              },
+              {
+                "text": "Für den gesamten Vorgang kommen im Mittel 1,5 m auf eine Sekunde; die einzelnen Abschnitte können davon abweichen.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: Während des Wartens kommt keine Strecke hinzu. Der Mittelwert beschreibt den Gesamtvorgang und nicht jeden Moment."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Die folgenden Daten beschreiben einen erfundenen Schulweg in Wien. Start und Ziel, Ampeln und Wege sind frei gewählt; es sind keine Angaben zu einem echten Kind oder einer konkreten Route.</p><table data-calculation-route><caption>Drei aufeinanderfolgende Abschnitte</caption><thead><tr><th scope=\"col\">Abschnitt</th><th scope=\"col\">Zusätzliche Strecke</th><th scope=\"col\">Dauer</th></tr></thead><tbody><tr><th scope=\"row\">Gehen</th><td>400 m</td><td>200 s</td></tr><tr><th scope=\"row\">Warten</th><td>0 m</td><td>100 s</td></tr><tr><th scope=\"row\">Weitergehen</th><td>200 m</td><td>100 s</td></tr></tbody></table><ol data-calculation-transfer><li>Bestimme Gesamtstrecke und Gesamtzeit einschließlich Warten. Berechne die mittlere Geschwindigkeit des ganzen Vorgangs.</li><li>Berechne zum Vergleich den Mittelwert nur für die Gehzeiten. Erkläre, warum beide Ergebnisse verschiedene Fragen beantworten.</li><li>Prüfe die Aussage: „Der Mittelwert zeigt, dass die Person ständig gleich schnell war.“ Nutze die Tabelle als Beleg.</li><li>Im Protokoll steht als Ergebnis nur „1,5“. Ergänze Größe und Einheit. Nenne außerdem, welche Angaben bei einer echten Messung zusätzlich wichtig wären.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zum Schulweg</summary><p>Gesamtstrecke: 600 m. Gesamtzeit: 400 s. Mittlere Geschwindigkeit insgesamt: 600 m / 400 s = 1,5 m/s. Nur für die Gehzeiten: 600 m / 300 s = 2 m/s.</p><p>Die Behauptung über ständig gleiche Geschwindigkeit ist falsch: Der Warteabschnitt hat 0 m zusätzliche Strecke. Korrekt ist „mittlere Geschwindigkeit über den gesamten Vorgang: 1,5 m/s“. Bei einer echten Messung gehören zum Beispiel Strecken- und Zeitmessgerät, Start-/Endpunkt, Messbedingungen und mögliche Unsicherheiten dazu.</p></details>{{QUIZ_q11}}{{QUIZ_q12}}"
       }
     ],
     "learningGoals": [
-      "Einheiten vor einer Rechnung vereinheitlichen.",
-      "Gesuchte Größen mit v = s/t, s = v · t und t = s/v berechnen.",
-      "Rechenergebnisse an Einheiten und Diagrammen prüfen."
+      "Einheiten vor dem Addieren, Subtrahieren und Einsetzen passend umrechnen.",
+      "Strecken, Zeiten und mittlere Geschwindigkeiten einschließlich Pausen berechnen.",
+      "Zeitintervalle aus einer Tabelle und einem Diagramm auswerten.",
+      "Ergebnisse durch Rückrechnung, Einheiten und Modellgrenzen prüfen."
     ],
     "prerequisites": [
       "sieinheiten"
     ],
     "summary": [
-      "Vor dem Addieren und Einsetzen müssen Einheiten zusammenpassen.",
-      "1 h = 3600 s; mittlere Geschwindigkeit ist zurückgelegter Weg geteilt durch benötigte Zeit.",
-      "Ein vollständiges Ergebnis enthält Zahlenwert und Einheit. Eine Abschätzung hilft, Rechenfehler zu erkennen."
+      "Eine Größe bleibt beim Umrechnen gleich; Zahlenwert und Einheit ändern sich gemeinsam.",
+      "Addieren und Subtrahieren erfordert dieselbe Einheit. 1 h = 3600 s und 1 kg = 1000 g.",
+      "Mittlere Geschwindigkeit ist zusätzliche Strecke geteilt durch benötigte Zeit. Für ein Teilintervall ziehst du die jeweiligen Anfangswerte ab.",
+      "Pausen zählen zur Gesamtzeit, wenn der gesamte Vorgang untersucht wird. Der Mittelwert beschreibt nicht jeden einzelnen Moment.",
+      "Ein vollständiges Ergebnis benennt die gesuchte Größe, Zahlenwert und Einheit. Eine Rückrechnung hilft beim Prüfen."
+    ],
+    "sources": [
+      {
+        "title": "BIPM: Internationales Einheitensystem und Umrechnungen (Englisch/Französisch)",
+        "url": "https://www.bipm.org/en/publications/si-brochure"
+      }
     ]
   },
   "sieinheiten": {
@@ -7824,24 +7946,54 @@
         "quizzes": [
           {
             "id": "q1",
-            "question": "Warum nutzen Wissenschaftler auf der ganzen Welt die SI-Einheiten?",
+            "question": "Was leisten gemeinsam vereinbarte SI-Einheiten beim Vergleichen von Messwerten?",
             "answers": [
               {
-                "text": "Weil sie schöner klingen.",
+                "text": "Sie sorgen dafür, dass zwei Messgeräte immer genau denselben Wert anzeigen.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Genau. Das SI ist das weltweit vereinbarte Einheitensystem der Physik."
+                "feedback": "Eine gemeinsame Einheit macht Geräte nicht fehlerfrei. Auch zwei Messungen in Zentimetern können durch Anlegen und Ablesen voneinander abweichen."
               },
               {
-                "text": "Damit jeder exakt dieselbe Länge, Zeit oder Masse meint und es keine Fehler gibt.",
+                "text": "Sie legen gemeinsame Einheiten fest; Unterschiede durch Gerät und Messverfahren können trotzdem bleiben.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Nicht ganz. SI steht nicht für Intelligenz, sondern für das internationale Einheitensystem."
+                "feedback": "Richtig: Gemeinsame Einheiten machen Angaben vergleichbar. Ob und wie genau gemessen wurde, musst du zusätzlich prüfen."
+              },
+              {
+                "text": "Sie legen fest, dass alle Messungen mit demselben Gerät durchgeführt werden müssen.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Für eine Länge kannst du zum Beispiel Lineal oder Maßband verwenden. Gemeinsam ist die festgelegte Einheit, nicht zwingend das Gerät."
+              }
+            ]
+          },
+          {
+            "id": "f1",
+            "question": "Im Messprotokoll steht: Türhöhe = 2,1 m. Welche Zuordnung stimmt?",
+            "answers": [
+              {
+                "text": "Größe: Meter; Zahlenwert: 2,1; Einheit: Türhöhe.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Türhöhe bezeichnet die gemessene Länge. Meter ist die vereinbarte Einheit, nicht der untersuchte Gegenstand."
+              },
+              {
+                "text": "Größe: Türhöhe; Zahlenwert: 2,1; Einheit: Meter.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: Türhöhe benennt die Größe, 2,1 ist der Zahlenwert und Meter mit dem Zeichen m die Einheit."
+              },
+              {
+                "text": "Größe: Türhöhe; Zahlenwert: 21; Einheit: Meter.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Das Dezimalkomma gehört zum Zahlenwert: 2,1 m ist nicht 21 m. Mit unveränderter Einheit wäre 21 m zehnmal so viel."
               }
             ]
           }
         ],
-        "content": "<p><strong>Dein Lernweg:</strong> Erst misst du selbst und prüfst deine Messwerte. Danach lernst du Einheiten und Umrechnungen, liest Daten im Diagramm und berechnest zum Schluss eine mittlere Geschwindigkeit. Das Kapitel kannst du später als Werkzeugkasten wieder aufrufen.</p>\n        <div class=\"lesson-goals\">\n            <strong>Das lernst du in diesem Thema:</strong>\n            <ul class=\"step-list\">\n                <li>Messangaben mit Zahlenwert und Einheit lesen.</li>\n                <li>passende Einheiten f&uuml;r Alltagssituationen ausw&auml;hlen.</li>\n                <li>Meter, Zentimeter, Kilometer, Gramm, Kilogramm, Sekunden und Minuten umrechnen.</li>\n                <li>einfache Formeln und Diagramme in der Physik verstehen.</li>\n            </ul>\n        </div>\n        <p>Beim Messen brauchst du immer zwei Teile: einen <strong>Zahlenwert</strong> und eine <strong>Einheit</strong>. Nur <q>20</q> ist nicht eindeutig. <strong>20 cm</strong>, <strong>20 s</strong> und <strong>20 kg</strong> bedeuten v&ouml;llig verschiedene Dinge.</p>\n        <div class=\"remember-box\"><strong>Merksatz:</strong> Ein Größenwert wird als Zahlenwert mal Einheit angegeben: 2,1 m bedeutet 2,1 · m. Beispiel: L&auml;nge = 2,1 m.</div>\n        <div class=\"interactive-zone\">\n            <h3>Das Ma&szlig;band-Chaos</h3>\n            <p>Miss das blaue Rechteck. Vergleiche eine feste Einheit mit K&ouml;rperma&szlig;en, die bei jedem Menschen anders sind.</p>\n            <button onclick=\"measure('cm')\">Mit Zentimetern messen</button>\n            <button onclick=\"measure('feet')\">Mit F&uuml;&szlig;en messen</button>\n            <button onclick=\"measure('hands')\">Mit H&auml;nden messen</button>\n            <div class=\"diagram-box\" style=\"height: 190px;\">\n                <svg width=\"400\" height=\"90\" viewBox=\"0 0 400 90\" aria-label=\"Rechteck mit verschiedenen Messeinteilungen\">\n                    <rect x=\"50\" y=\"10\" width=\"200\" height=\"30\" fill=\"#2563eb\" rx=\"5\"></rect>\n                    <text x=\"150\" y=\"31\" text-anchor=\"middle\" fill=\"white\" font-size=\"13\">blaues Rechteck</text>\n                    <line x1=\"20\" y1=\"65\" x2=\"380\" y2=\"65\" stroke=\"#94a3b8\" stroke-width=\"2\"></line>\n                    <g id=\"ticksCm\" style=\"display: none;\">\n                        <line x1=\"50\" y1=\"48\" x2=\"50\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"70\" y1=\"55\" x2=\"70\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"90\" y1=\"55\" x2=\"90\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"110\" y1=\"55\" x2=\"110\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"130\" y1=\"55\" x2=\"130\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"150\" y1=\"48\" x2=\"150\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"170\" y1=\"55\" x2=\"170\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"190\" y1=\"55\" x2=\"190\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"210\" y1=\"55\" x2=\"210\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"230\" y1=\"55\" x2=\"230\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"250\" y1=\"48\" x2=\"250\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line>\n                    </g>\n                    <g id=\"ticksFeet\" style=\"display: none;\"><line x1=\"50\" y1=\"43\" x2=\"50\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"200\" y1=\"43\" x2=\"200\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"350\" y1=\"43\" x2=\"350\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line></g>\n                    <g id=\"ticksHands\" style=\"display: none;\"><circle cx=\"50\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"65\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"80\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"95\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"110\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"125\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"140\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"155\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"170\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"185\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"200\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"215\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"230\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"245\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle></g>\n                </svg>\n                <p id=\"measureText\" class=\"lab-feedback\">L&auml;nge = ?</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Einheiten-Labor</h3>\n            <p>W&auml;hle eine Sache und dann die Einheit, die am besten passt.</p>\n            <div class=\"lab-controls\">\n                <button onclick=\"checkUnitObject('door','m')\">T&uuml;rh&ouml;he -> m</button>\n                <button onclick=\"checkUnitObject('door','kg')\">T&uuml;rh&ouml;he -> kg</button>\n                <button onclick=\"checkUnitObject('bottle','g')\">Trinkflasche -> g</button>\n                <button onclick=\"checkUnitObject('school','km')\">Schulweg -> km</button>\n                <button onclick=\"checkUnitObject('sprint','s')\">Sprintzeit -> s</button>\n                <button onclick=\"checkUnitObject('room','m')\">Raumtemperatur -> m</button>\n                <button onclick=\"checkUnitObject('room','Grad Celsius')\">Raumtemperatur -> Grad Celsius</button>\n            </div>\n            <p id=\"unitMatchText\" class=\"lab-feedback\">Tipp: Frage zuerst: Was wird gemessen?</p>\n        </div>\n        {{QUIZ_q1}}\n    "
+        "content": "<p><strong>Dein Lernweg:</strong> Erst misst du selbst und prüfst deine Messwerte. Danach lernst du Einheiten und Umrechnungen, liest Daten im Diagramm und berechnest zum Schluss eine mittlere Geschwindigkeit. Das Kapitel kannst du später als Werkzeugkasten wieder aufrufen.</p>\n        <div class=\"lesson-goals\">\n            <strong>Das lernst du in diesem Thema:</strong>\n            <ul class=\"step-list\">\n                <li>Messangaben mit Zahlenwert und Einheit lesen.</li>\n                <li>passende Einheiten f&uuml;r Alltagssituationen ausw&auml;hlen.</li>\n                <li>Meter, Zentimeter, Kilometer, Gramm, Kilogramm, Sekunden und Minuten umrechnen.</li>\n                <li>einfache Formeln und Diagramme in der Physik verstehen.</li>\n            </ul>\n        </div>\n        <p>Beim Messen brauchst du immer zwei Teile: einen <strong>Zahlenwert</strong> und eine <strong>Einheit</strong>. Nur <q>20</q> ist nicht eindeutig. <strong>20 cm</strong>, <strong>20 s</strong> und <strong>20 kg</strong> bedeuten v&ouml;llig verschiedene Dinge.</p>\n        <p>SI steht für das Internationale Einheitensystem. Gemeinsame Einheiten helfen beim Vergleichen. Sie ersetzen weder ein geeignetes Messgerät noch sorgfältiges Messen.</p><div class=\"remember-box\"><strong>Merksatz:</strong> Ein Größenwert wird als Zahlenwert mal Einheit angegeben: 2,1 m bedeutet 2,1 · m. Beispiel: L&auml;nge = 2,1 m.</div>\n        <div class=\"interactive-zone\">\n            <h3>Das Ma&szlig;band-Chaos</h3>\n            <p>Vergleiche die Einteilungen im Modell. Die blaue Strecke steht für 20 cm; ihre Größe auf deinem Bildschirm hängt vom Gerät und vom Zoom ab. Miss sie deshalb nicht mit einem echten Lineal am Bildschirm. Mit Füßen und Händen sind hier eigene Körpermaße gemeint, nicht die festgelegte Einheit Fuß (ft).</p>\n            <button onclick=\"measure('cm')\">Mit Zentimetern messen</button>\n            <button onclick=\"measure('feet')\">Mit F&uuml;&szlig;en messen</button>\n            <button onclick=\"measure('hands')\">Mit H&auml;nden messen</button>\n            <div class=\"diagram-box\" style=\"height: 190px;\">\n                <svg width=\"400\" height=\"90\" viewBox=\"0 0 400 90\" aria-label=\"Rechteck mit verschiedenen Messeinteilungen\">\n                    <rect x=\"50\" y=\"10\" width=\"200\" height=\"30\" fill=\"#2563eb\" rx=\"5\"></rect>\n                    <text x=\"150\" y=\"31\" text-anchor=\"middle\" fill=\"white\" font-size=\"13\">blaues Rechteck</text>\n                    <line x1=\"20\" y1=\"65\" x2=\"380\" y2=\"65\" stroke=\"#94a3b8\" stroke-width=\"2\"></line>\n                    <g id=\"ticksCm\" style=\"display: none;\">\n                        <line x1=\"50\" y1=\"48\" x2=\"50\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"70\" y1=\"55\" x2=\"70\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"90\" y1=\"55\" x2=\"90\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"110\" y1=\"55\" x2=\"110\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"130\" y1=\"55\" x2=\"130\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"150\" y1=\"48\" x2=\"150\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"170\" y1=\"55\" x2=\"170\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"190\" y1=\"55\" x2=\"190\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"210\" y1=\"55\" x2=\"210\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"230\" y1=\"55\" x2=\"230\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line><line x1=\"250\" y1=\"48\" x2=\"250\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"></line>\n                    </g>\n                    <g id=\"ticksFeet\" style=\"display: none;\"><line x1=\"50\" y1=\"43\" x2=\"50\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"200\" y1=\"43\" x2=\"200\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line><line x1=\"350\" y1=\"43\" x2=\"350\" y2=\"65\" stroke=\"#f97316\" stroke-width=\"4\"></line></g>\n                    <g id=\"ticksHands\" style=\"display: none;\"><circle cx=\"50\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"65\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"80\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"95\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"110\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"125\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"140\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"155\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"170\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"185\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"200\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"215\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"230\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle><circle cx=\"245\" cy=\"65\" r=\"3\" fill=\"#db2777\"></circle></g>\n                </svg>\n                <p id=\"measureText\" class=\"lab-feedback\">L&auml;nge = ?</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Einheiten-Labor</h3>\n            <p>Wähle eine Messgröße und eine passende Einheit. Die angezeigten Werte sind erfundene Beispiele, keine Messungen in deinem Klassenraum.</p>\n            <div class=\"lab-controls\">\n                <button onclick=\"checkUnitObject('door','m')\">T&uuml;rh&ouml;he -> m</button>\n                <button onclick=\"checkUnitObject('door','kg')\">T&uuml;rh&ouml;he -> kg</button>\n                <button onclick=\"checkUnitObject('bottle','g')\">Masse der Trinkflasche -> g</button>\n                <button onclick=\"checkUnitObject('school','km')\">Schulweg -> km</button>\n                <button onclick=\"checkUnitObject('sprint','s')\">Sprintzeit -> s</button>\n                <button onclick=\"checkUnitObject('room','m')\">Raumtemperatur -> m</button>\n                <button onclick=\"checkUnitObject('room','Grad Celsius')\">Raumtemperatur -> Grad Celsius</button>\n            </div>\n            <p id=\"unitMatchText\" class=\"lab-feedback\">Tipp: Frage zuerst: Was wird gemessen?</p>\n        </div>\n        {{QUIZ_q1}}\n    "
       },
       {
         "id": "measurement_quality",
@@ -7904,24 +8056,30 @@
         "quizzes": [
           {
             "id": "q2",
-            "question": "Welche Einheit gehört zur Basisgröße \"Masse\"?",
+            "question": "Welche SI-Basiseinheit gehört zur Größe Masse?",
             "answers": [
+              {
+                "text": "Gramm (g).",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Mit Gramm kannst du eine Masse angeben. Die SI-Basiseinheit der Masse ist jedoch das Kilogramm; 1000 g = 1 kg."
+              },
               {
                 "text": "Kilogramm (kg).",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig. Die SI-Grundeinheit der Länge ist der Meter (m)."
+                "feedback": "Richtig: Die SI-Basiseinheit der Masse ist das Kilogramm. Gramm ist ein Tausendstel davon."
               },
               {
-                "text": "Sekunde (s).",
+                "text": "Newton (N).",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Fuß ist eine ältere/angloamerikanische Einheit, aber keine SI-Basiseinheit."
+                "feedback": "Newton ist eine Einheit der Kraft. Masse und Gewichtskraft sind unterschiedliche Größen; die Masse wird zum Beispiel in Kilogramm angegeben."
               }
             ]
           }
         ],
-        "content": "\n        <p>Eine <strong>Gr&ouml;&szlig;e</strong> sagt, was gemessen wird. Eine <strong>Einheit</strong> ist eine vereinbarte Vergleichsgröße. Das Messgerät ist beispielsweise ein Lineal oder eine Stoppuhr. In der Physik gibt es sieben SI-Basisgr&ouml;&szlig;en. F&uuml;r deinen Alltag sind besonders L&auml;nge, Masse und Zeit wichtig.</p>\n        <div class=\"interactive-zone\">\n            <h3>Das 7er-Team</h3>\n            <p>Klicke auf eine Karte und lies Gr&ouml;&szlig;e, Einheit und Einheitenzeichen.</p>\n            <div class=\"prediction-grid\">\n                <button onclick=\"showBaseUnit('length')\">L&auml;nge<br><strong>m</strong></button>\n                <button onclick=\"showBaseUnit('mass')\">Masse<br><strong>kg</strong></button>\n                <button onclick=\"showBaseUnit('time')\">Zeit<br><strong>s</strong></button>\n                <button onclick=\"showBaseUnit('current')\">Stromst&auml;rke<br><strong>A</strong></button>\n                <button onclick=\"showBaseUnit('temperature')\">Temperatur<br><strong>K</strong></button>\n                <button onclick=\"showBaseUnit('amount')\">Stoffmenge<br><strong>mol</strong></button>\n                <button onclick=\"showBaseUnit('light')\">Lichtst&auml;rke<br><strong>cd</strong></button>\n            </div>\n            <p id=\"baseUnitText\" class=\"lab-feedback\">W&auml;hle eine Karte.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Zeit messen</h3>\n            <p>Klicke auf Start und stoppe m&ouml;glichst nahe bei <strong>2,00 s</strong>. Achte auf Zahlenwert und Einheit.</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">Start</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">Stop</button>\n            <div class=\"diagram-box\" style=\"height: 140px; display:flex; flex-direction:column; align-items:center; justify-content:center;\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #1d4ed8; margin: 0;\" id=\"timerDisplay\">0.00 s</p>\n                <p id=\"timerResult\" class=\"lab-feedback\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
+        "content": "\n        <p>Eine <strong>Gr&ouml;&szlig;e</strong> sagt, was gemessen wird. Eine <strong>Einheit</strong> ist eine vereinbarte Vergleichsgröße. Das Messgerät ist beispielsweise ein Lineal oder eine Stoppuhr. In der Physik gibt es sieben SI-Basisgr&ouml;&szlig;en. F&uuml;r deinen Alltag sind besonders L&auml;nge, Masse und Zeit wichtig.</p>\n        <p>Die SI-Basiseinheit der Masse ist das Kilogramm, obwohl ihr Name die Vorsilbe kilo enthält. 1 kg = 1000 g. Verwechsle Masse nicht mit Gewichtskraft: Kräfte werden in Newton (N) angegeben.</p><div class=\"interactive-zone\">\n            <h3>Das 7er-Team</h3>\n            <p>Klicke auf eine Karte und lies Gr&ouml;&szlig;e, Einheit und Einheitenzeichen.</p>\n            <div class=\"prediction-grid\">\n                <button onclick=\"showBaseUnit('length')\">L&auml;nge<br><strong>m</strong></button>\n                <button onclick=\"showBaseUnit('mass')\">Masse<br><strong>kg</strong></button>\n                <button onclick=\"showBaseUnit('time')\">Zeit<br><strong>s</strong></button>\n                <button onclick=\"showBaseUnit('current')\">Stromst&auml;rke<br><strong>A</strong></button>\n                <button onclick=\"showBaseUnit('temperature')\">Temperatur<br><strong>K</strong></button>\n                <button onclick=\"showBaseUnit('amount')\">Stoffmenge<br><strong>mol</strong></button>\n                <button onclick=\"showBaseUnit('light')\">Lichtst&auml;rke<br><strong>cd</strong></button>\n            </div>\n            <p id=\"baseUnitText\" class=\"lab-feedback\">W&auml;hle eine Karte.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Zeit messen</h3>\n            <p>Klicke auf Start und stoppe m&ouml;glichst nahe bei <strong>2,00 s</strong>. Achte auf Zahlenwert und Einheit. Das ist eine Schätzübung: Die Anzeige misst die Zeit zwischen deinen Klicks. Sie misst nicht deine Reaktionszeit auf ein Signal und beweist keine Genauigkeit von einer Hundertstelsekunde.</p>\n            <button onclick=\"startTimer()\" id=\"startBtn\">Start</button>\n            <button onclick=\"stopTimer()\" id=\"stopBtn\" disabled=\"\">Stop</button>\n            <div class=\"diagram-box\" style=\"height: 140px; display:flex; flex-direction:column; align-items:center; justify-content:center;\">\n                <p style=\"font-size: 3em; font-family: monospace; color: #1d4ed8; margin: 0;\" id=\"timerDisplay\">0.00 s</p>\n                <p id=\"timerResult\" class=\"lab-feedback\"></p>\n            </div>\n        </div>\n        {{QUIZ_q2}}\n    "
       },
       {
         "id": "sec2",
@@ -7929,49 +8087,205 @@
         "quizzes": [
           {
             "id": "q3",
-            "question": "Wie viele Gramm sind in einem Kilogramm (kg)?",
+            "question": "Ein Sackerl hat eine Masse von 1,5 kg. Welche Angabe beschreibt dieselbe Masse?",
             "answers": [
               {
-                "text": "100 Gramm.",
+                "text": "150 g.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Minute ist praktisch im Alltag, aber in der Physik rechnet man in Sekunden."
+                "feedback": "Von Kilogramm zu Gramm rechnest du mit 1000, nicht mit 100: 1,5 × 1000 = 1500."
               },
               {
-                "text": "1.000 Gramm.",
+                "text": "0,0015 g.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Gramm ist die kleinere Einheit. Deshalb muss der Zahlenwert größer werden, nicht kleiner."
+              },
+              {
+                "text": "1500 g.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. Sekunde (s) ist die SI-Grundeinheit der Zeit."
+                "feedback": "Richtig: 1 kg = 1000 g. Deshalb sind 1,5 kg = 1500 g; die Masse des Sackerls verändert sich beim Umrechnen nicht."
+              }
+            ]
+          },
+          {
+            "id": "f2",
+            "question": "Eine Kante wird mit 1,25 m angegeben. Welche Umrechnung verändert den Größenwert nicht?",
+            "answers": [
+              {
+                "text": "125 cm.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 1 m = 100 cm, also 1,25 × 100 = 125. Die Umrechnung macht die ursprüngliche Messung nicht genauer."
+              },
+              {
+                "text": "12,5 cm.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde nur mit 10 multipliziert. Von Metern zu Zentimetern brauchst du den Faktor 100."
+              },
+              {
+                "text": "1250 cm.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde mit 1000 multipliziert. Das wäre die Umrechnung in Millimeter: 1,25 m = 1250 mm, nicht 1250 cm."
+              }
+            ]
+          },
+          {
+            "id": "f3",
+            "question": "Ein Versuch dauert 2 min 30 s. Welche Zeit gibst du in Sekunden an?",
+            "answers": [
+              {
+                "text": "230 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Minuten sind keine Hunderterschritte: 1 min = 60 s. Die Ziffern 2 und 30 dürfen nicht einfach aneinandergehängt werden."
+              },
+              {
+                "text": "120 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "120 s entspricht nur den zwei Minuten. Die zusätzlichen 30 s gehören noch dazu."
+              },
+              {
+                "text": "150 s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 2 × 60 s + 30 s = 150 s. Zeitangaben mit Minuten rechnest du mit 60 um, nicht mit 100."
+              }
+            ]
+          },
+          {
+            "id": "f4",
+            "question": "Ein fiktiver Schulweg durch Wien ist 1,4 km lang. Wie viele Meter sind das?",
+            "answers": [
+              {
+                "text": "140 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Kilo bedeutet tausendfach. 140 m wären 0,14 km und damit nur ein Zehntel der angegebenen Strecke."
+              },
+              {
+                "text": "1400 m.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 1,4 × 1000 m = 1400 m. Der kleinere Meter braucht für dieselbe Strecke einen größeren Zahlenwert."
+              },
+              {
+                "text": "14 000 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Hier wurde eine Null zu viel ergänzt. 14 000 m sind 14 km, nicht 1,4 km."
+              }
+            ]
+          },
+          {
+            "id": "f5",
+            "question": "Für einen Versuch liegen 2,5 kg Material und weitere 500 g bereit. Welche Gesamtmasse stimmt?",
+            "answers": [
+              {
+                "text": "502,5 kg.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Du kannst Zahlenwerte mit verschiedenen Einheiten nicht direkt addieren. Rechne zuerst 500 g = 0,5 kg um."
+              },
+              {
+                "text": "2,55 kg.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "500 g sind 0,5 kg und nicht 0,05 kg. Deshalb ergibt die Summe 2,5 kg + 0,5 kg = 3 kg."
+              },
+              {
+                "text": "3 kg.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: Nach der Umrechnung stehen beide Angaben in Kilogramm: 2,5 kg + 0,5 kg = 3 kg."
+              }
+            ]
+          },
+          {
+            "id": "f6",
+            "question": "Ein Streifen ist 7 mm breit. Wie lautet dieselbe Breite in Metern?",
+            "answers": [
+              {
+                "text": "0,007 m.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: Milli bedeutet ein Tausendstel. 7 mm = 7 / 1000 m = 0,007 m."
+              },
+              {
+                "text": "0,07 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "0,07 m sind 7 cm beziehungsweise 70 mm. Von Millimetern zu Metern teilst du durch 1000."
+              },
+              {
+                "text": "7000 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Meter ist die größere Einheit. Daher wird der Zahlenwert kleiner: 7 geteilt durch 1000 statt mal 1000."
               }
             ]
           }
         ],
-        "content": "\n        <p>Pr&auml;fixe sind Vorsilben vor einer Einheit. Sie helfen, sehr gro&szlig;e oder sehr kleine Werte kurz zu schreiben. Wichtig ist: Du rechnest immer innerhalb derselben Art von Gr&ouml;&szlig;e um. L&auml;nge bleibt L&auml;nge, Masse bleibt Masse, Zeit bleibt Zeit.</p>\n        <div class=\"remember-box\"><strong>Wichtige Umrechnungen:</strong><br>\n            <table style=\"width:100%; border-collapse:collapse; margin-top:8px;\">\n                <tr><th style=\"text-align:left; padding:4px;\">L&auml;nge</th><td style=\"padding:4px;\">1 km = 1000 m<br>1 m = 100 cm<br>1 cm = 10 mm</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Masse</th><td style=\"padding:4px;\">1 kg = 1000 g</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Zeit</th><td style=\"padding:4px;\">1 min = 60 s</td></tr>\n            </table>\n            <p style=\"margin:8px 0 0;\"><strong>Regel:</strong> Wird die Einheit kleiner, wird die Zahl gr&ouml;&szlig;er. Wird die Einheit gr&ouml;&szlig;er, wird die Zahl kleiner.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Einheiten-Zoom</h3>\n            <p>Schiebe von sehr klein bis sehr gro&szlig;.</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"4\" value=\"3\" oninput=\"updateZoom()\" style=\"width: 260px;\">\n            <div class=\"diagram-box\" style=\"height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"zoomTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #1d4ed8;\">1 Meter (m)</p>\n                <svg width=\"240\" height=\"105\" viewBox=\"0 0 240 105\" aria-label=\"Gr&ouml;&szlig;envergleich von Millimeter bis Kilometer\">\n                    <g id=\"zoomMilli\" style=\"display: none;\"><circle cx=\"118\" cy=\"52\" r=\"3\" fill=\"#111827\"></circle><line x1=\"112\" y1=\"62\" x2=\"124\" y2=\"62\" stroke=\"#111827\" stroke-width=\"2\"></line><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Bleistiftspitze</text></g>\n                    <g id=\"zoomCenti\" style=\"display: none;\"><rect x=\"92\" y=\"42\" width=\"56\" height=\"20\" rx=\"4\" fill=\"#22c55e\"></rect><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Radiergummi</text></g>\n                    <g id=\"zoomMeter\" style=\"display: block;\"><circle cx=\"120\" cy=\"25\" r=\"14\" fill=\"#60a5fa\"></circle><line x1=\"120\" y1=\"39\" x2=\"120\" y2=\"84\" stroke=\"#2563eb\" stroke-width=\"6\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"92\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"148\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line></g>\n                    <g id=\"zoomKilo\" style=\"display: none;\"><path d=\"M20 88 L62 36 L104 88 Z\" fill=\"#93c5fd\"></path><path d=\"M78 88 L145 20 L214 88 Z\" fill=\"#60a5fa\"></path><rect x=\"110\" y=\"55\" width=\"18\" height=\"33\" fill=\"#64748b\"></rect><rect x=\"133\" y=\"46\" width=\"24\" height=\"42\" fill=\"#475569\"></rect><text x=\"120\" y=\"101\" text-anchor=\"middle\" font-size=\"12\">Strecke durch den Bezirk</text></g>\n                </svg>\n                <p id=\"zoomDesc\" style=\"color: #475569; margin: 4px 0 0;\">Basis: gro&szlig;er Schritt, Tischh&ouml;he, K&ouml;rpergr&ouml;&szlig;e.</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Umrechnungs-Training</h3>\n            <p>Rechne aus und pr&uuml;fe sofort. Du kannst Komma oder Punkt verwenden.</p>\n            <div class=\"lab-controls\">\n                <label>2 m = <input id=\"convInput0\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> cm <button onclick=\"checkConversion(0)\">Pr&uuml;fen</button></label>\n                <label>3 km = <input id=\"convInput1\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> m <button onclick=\"checkConversion(1)\">Pr&uuml;fen</button></label>\n                <label>1500 g = <input id=\"convInput2\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> kg <button onclick=\"checkConversion(2)\">Pr&uuml;fen</button></label>\n                <label>4 min = <input id=\"convInput3\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> s <button onclick=\"checkConversion(3)\">Pr&uuml;fen</button></label>\n            </div>\n            <p id=\"conversionText\" class=\"lab-feedback\">W&auml;hle eine Aufgabe und pr&uuml;fe deine Antwort.</p>\n        </div>\n        {{QUIZ_q3}}\n    "
+        "content": "<p>Vorsilben: kilo (k) = 1000, zenti (c) = 1/100, milli (m) = 1/1000. Beispiel: 1 mm = 0,001 m. Die Minute ist keine SI-Basiseinheit; sie ist eine gebräuchliche, für die Verwendung mit dem SI zugelassene Zeiteinheit.</p>\n        <p>Pr&auml;fixe sind Vorsilben vor einer Einheit. Sie helfen, sehr gro&szlig;e oder sehr kleine Werte kurz zu schreiben. Wichtig ist: Du rechnest immer innerhalb derselben Art von Gr&ouml;&szlig;e um. L&auml;nge bleibt L&auml;nge, Masse bleibt Masse, Zeit bleibt Zeit.</p>\n        <div class=\"remember-box\"><strong>Wichtige Umrechnungen:</strong><br>\n            <table style=\"width:100%; border-collapse:collapse; margin-top:8px;\">\n                <tr><th style=\"text-align:left; padding:4px;\">L&auml;nge</th><td style=\"padding:4px;\">1 km = 1000 m<br>1 m = 100 cm<br>1 cm = 10 mm</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Masse</th><td style=\"padding:4px;\">1 kg = 1000 g</td></tr>\n                <tr><th style=\"text-align:left; padding:4px;\">Zeit</th><td style=\"padding:4px;\">1 min = 60 s</td></tr>\n            </table>\n            <p style=\"margin:8px 0 0;\"><strong>Regel:</strong> Wird die Einheit kleiner, wird die Zahl gr&ouml;&szlig;er. Wird die Einheit gr&ouml;&szlig;er, wird die Zahl kleiner.</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Einheiten-Zoom</h3>\n            <p>Schiebe von sehr klein bis sehr gro&szlig;.</p>\n            <input type=\"range\" id=\"zoomRange\" min=\"1\" max=\"4\" value=\"3\" oninput=\"updateZoom()\" style=\"width: 260px;\">\n            <div class=\"diagram-box\" style=\"height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                <p id=\"zoomTitle\" style=\"font-size: 1.5em; font-weight: bold; margin: 0; color: #1d4ed8;\">1 Meter (m)</p>\n                <svg width=\"240\" height=\"105\" viewBox=\"0 0 240 105\" aria-label=\"Gr&ouml;&szlig;envergleich von Millimeter bis Kilometer\">\n                    <g id=\"zoomMilli\" style=\"display: none;\"><circle cx=\"118\" cy=\"52\" r=\"3\" fill=\"#111827\"></circle><line x1=\"112\" y1=\"62\" x2=\"124\" y2=\"62\" stroke=\"#111827\" stroke-width=\"2\"></line><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Bleistiftspitze</text></g>\n                    <g id=\"zoomCenti\" style=\"display: none;\"><rect x=\"92\" y=\"42\" width=\"56\" height=\"20\" rx=\"4\" fill=\"#22c55e\"></rect><text x=\"120\" y=\"88\" text-anchor=\"middle\" font-size=\"12\">Radiergummi</text></g>\n                    <g id=\"zoomMeter\" style=\"display: block;\"><circle cx=\"120\" cy=\"25\" r=\"14\" fill=\"#60a5fa\"></circle><line x1=\"120\" y1=\"39\" x2=\"120\" y2=\"84\" stroke=\"#2563eb\" stroke-width=\"6\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"92\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line><line x1=\"120\" y1=\"49\" x2=\"148\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"></line></g>\n                    <g id=\"zoomKilo\" style=\"display: none;\"><path d=\"M20 88 L62 36 L104 88 Z\" fill=\"#93c5fd\"></path><path d=\"M78 88 L145 20 L214 88 Z\" fill=\"#60a5fa\"></path><rect x=\"110\" y=\"55\" width=\"18\" height=\"33\" fill=\"#64748b\"></rect><rect x=\"133\" y=\"46\" width=\"24\" height=\"42\" fill=\"#475569\"></rect><text x=\"120\" y=\"101\" text-anchor=\"middle\" font-size=\"12\">Strecke durch den Bezirk</text></g>\n                </svg>\n                <p id=\"zoomDesc\" style=\"color: #475569; margin: 4px 0 0;\">Basis: gro&szlig;er Schritt, Tischh&ouml;he, K&ouml;rpergr&ouml;&szlig;e.</p>\n            </div>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Umrechnungs-Training</h3>\n            <p>Rechne aus und pr&uuml;fe sofort. Du kannst Komma oder Punkt verwenden.</p>\n            <div class=\"lab-controls\">\n                <label>2 m = <input id=\"convInput0\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> cm <button onclick=\"checkConversion(0)\">Pr&uuml;fen</button></label>\n                <label>3 km = <input id=\"convInput1\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> m <button onclick=\"checkConversion(1)\">Pr&uuml;fen</button></label>\n                <label>1500 g = <input id=\"convInput2\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> kg <button onclick=\"checkConversion(2)\">Pr&uuml;fen</button></label>\n                <label>4 min = <input id=\"convInput3\" type=\"text\" inputmode=\"decimal\" style=\"width:70px;\"> s <button onclick=\"checkConversion(3)\">Pr&uuml;fen</button></label>\n            </div>\n            <p id=\"conversionText\" class=\"lab-feedback\">W&auml;hle eine Aufgabe und pr&uuml;fe deine Antwort.</p>\n        </div>\n        {{QUIZ_q3}}\n    "
       },
       {
         "id": "sec4",
-        "title": "5. Diagramme: Aus Tabellen werden Kurven",
+        "title": "5. Diagramme: Wertepaare und Änderungen",
         "quizzes": [
           {
             "id": "q5",
-            "question": "Welche Achse in einem Diagramm liegt in der Regel waagerecht am Boden?",
+            "question": "Die Modelltabelle zeigt bei t = 3 s die Höhe h = 45 m. Welcher Punkt gehört dazu?",
             "answers": [
               {
-                "text": "Die y-Achse.",
-                "correct": false,
-                "pts": 10,
-                "feedback": "Fast: Das wäre 0,1 km."
-              },
-              {
-                "text": "Die x-Achse.",
+                "text": "Waagerecht 3 s, senkrecht 45 m.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Genau. 1 km entspricht 1000 m."
+                "feedback": "Richtig: Die Zeit steht auf der waagerechten Achse, die Höhe auf der senkrechten. Der Punkt verbindet beide Angaben derselben Tabellenzeile."
+              },
+              {
+                "text": "Waagerecht 45 s, senkrecht 3 m.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Hier wurden die Zahlen und ihre Größen vertauscht. Lies erst die Achsenbeschriftung: t in Sekunden, h in Metern."
+              },
+              {
+                "text": "Waagerecht 3 s, senkrecht 80 m.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "80 m gehört zur Zeile mit 4 s. Bei 3 s steht in der Tabelle 45 m."
+              }
+            ]
+          },
+          {
+            "id": "f9",
+            "question": "Die Modelltabelle zeigt 45 m bei 3 s und 80 m bei 4 s. Um wie viel nimmt die Höhe in diesem Intervall zu?",
+            "answers": [
+              {
+                "text": "80 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "80 m ist die Höhe am Ende. Für die Zunahme musst du die Anfangshöhe 45 m abziehen."
+              },
+              {
+                "text": "125 m.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Die Summe der beiden Höhen ist nicht ihre Änderung. Gesucht ist Endhöhe minus Anfangshöhe."
+              },
+              {
+                "text": "35 m.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: 80 m − 45 m = 35 m. Das ist die Höhenänderung in diesem Zeitintervall, nicht die Endhöhe."
               }
             ]
           }
         ],
-        "content": "<p data-measurement-model>Die folgende Tabelle enthält vorgegebene Modellwerte, keine echten Messdaten. Die Animation überträgt diese Werte ins Diagramm. Bei eigenen Messungen protokollierst du zusätzlich Gerät und Bedingungen.</p>\n        <p>Ein Diagramm macht Zahlen sichtbar. Unten liegt meistens die <strong>x-Achse</strong>, zum Beispiel die Zeit. Nach oben geht die <strong>y-Achse</strong>, zum Beispiel die H&ouml;he.</p>\n        <div class=\"interactive-zone\">\n            <h3>Tabelle -> Punkte -> Kurve</h3>\n            <p>Starte die Messreihe. Jede Tabellenzeile erscheint als Punkt im Diagramm.</p>\n            <button onclick=\"drawGraph()\" id=\"graphBtn\">Messreihe starten</button>\n            <div style=\"display:grid; grid-template-columns: minmax(170px, 1fr) minmax(260px, 1.4fr); gap:16px; align-items:center;\">\n                <table style=\"width:100%; border-collapse:collapse; text-align:center;\">\n                    <thead><tr><th>Zeit t</th><th>H&ouml;he h</th></tr></thead>\n                    <tbody>\n                        <tr class=\"graphRow\"><td>0 s</td><td>0 m</td></tr>\n                        <tr class=\"graphRow\"><td>1 s</td><td>5 m</td></tr>\n                        <tr class=\"graphRow\"><td>2 s</td><td>20 m</td></tr>\n                        <tr class=\"graphRow\"><td>3 s</td><td>45 m</td></tr>\n                        <tr class=\"graphRow\"><td>4 s</td><td>80 m</td></tr>\n                    </tbody>\n                </table>\n                <div class=\"diagram-box\" style=\"height: 250px; position: relative; margin:0;\">\n                    <svg width=\"350\" height=\"215\" viewBox=\"0 0 350 215\" aria-label=\"H&ouml;he-Zeit-Diagramm\">\n                        <line x1=\"42\" y1=\"20\" x2=\"42\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"#111827\" stroke-width=\"2\"></line>\n                        <text x=\"8\" y=\"96\" font-size=\"12\" fill=\"#475569\" transform=\"rotate(-90 12,96)\">H&ouml;he h (m)</text>\n                        <text x=\"162\" y=\"205\" font-size=\"12\" fill=\"#475569\">Zeit t (s)</text>\n                        <text x=\"30\" y=\"174\" font-size=\"10\" fill=\"#64748b\">0</text><text x=\"24\" y=\"94\" font-size=\"10\" fill=\"#64748b\">40</text><text x=\"24\" y=\"24\" font-size=\"10\" fill=\"#64748b\">80</text>\n                        <path id=\"rocketPath\" d=\"M 42 170 Q 145 157 210 95 Q 254 56 306 25\" fill=\"none\" stroke=\"#db2777\" stroke-width=\"4\" style=\"stroke-dasharray: 400; stroke-dashoffset: 400;\"></path>\n                        <circle cx=\"42\" cy=\"170\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"108\" cy=\"160\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"174\" cy=\"132\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"240\" cy=\"86\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                        <circle cx=\"306\" cy=\"25\" r=\"5\" fill=\"#2563eb\" class=\"graphPoint\" style=\"opacity: 0;\"></circle>\n                    </svg>\n                </div>\n            </div>\n            <p id=\"graphText\" class=\"lab-feedback\">Noch ist nichts eingezeichnet.</p>\n        </div>\n        <div class=\"mini-task\"><strong>Kann ich das?</strong> Suche in deinem Heft drei Messwerte. Markiere Zahlenwert und Einheit mit zwei Farben.</div>\n        {{QUIZ_q5}}\n    "
+        "content": "<p data-measurement-model>Die Tabelle enthält erfundene Modellwerte, keine echten Messdaten. Sie beschreibt eine Höhe zu fünf Zeitpunkten, ohne einen bestimmten realen Vorgang zu behaupten.</p><p>Lies zuerst die Achsen und ihre Einheiten: Hier steht die Zeit t waagerecht und die Höhe h senkrecht. Ein Punkt gehört zu beiden Angaben derselben Zeile. Die Höhe von 45 m bei 3 s wird deshalb als Punkt über 3 s und auf der Höhe von 45 m eingezeichnet.</p><p><strong>Änderung berechnen:</strong> Von 1 s bis 2 s steigt h von 5 m auf 20 m. Die Zunahme ist 20 m − 5 m = 15 m. Die Endhöhe und die Zunahme sind verschiedene Angaben.</p><div class=\"interactive-zone\" data-si-graph><h3>Tabelle und Diagramm vergleichen</h3><p>Sage vor dem Einzeichnen voraus, wo der Punkt bei 3 s liegt. Zeichne dann die Punkte ein und wähle eine Tabellenzeile. Der passende Punkt und die Zeile werden hervorgehoben.</p><button id=\"graphBtn\" onclick=\"drawGraph()\">Punkte einzeichnen</button><button onclick=\"resetMeasurementGraph()\">Diagramm zurücksetzen</button><label>Zeitpunkt auswählen <select id=\"graphTime\" onchange=\"selectMeasurementPoint()\" disabled><option value=\"0\">0 s</option><option value=\"1\">1 s</option><option value=\"2\">2 s</option><option value=\"3\">3 s</option><option value=\"4\">4 s</option></select></label><div class=\"si-graph-layout\"><table data-si-graph-table><caption>Vorgegebene Modellwerte</caption><thead><tr><th scope=\"col\">Zeit t in s</th><th scope=\"col\">Höhe h in m</th></tr></thead><tbody><tr class=\"graphRow\"><th scope=\"row\">0</th><td>0</td></tr><tr class=\"graphRow\"><th scope=\"row\">1</th><td>5</td></tr><tr class=\"graphRow\"><th scope=\"row\">2</th><td>20</td></tr><tr class=\"graphRow\"><th scope=\"row\">3</th><td>45</td></tr><tr class=\"graphRow\"><th scope=\"row\">4</th><td>80</td></tr></tbody></table><svg viewBox=\"0 0 350 225\" role=\"img\" aria-label=\"Höhe-Zeit-Diagramm der fünf Modellwerte\"  style=\"font-size:16px;color:#172033;background:white\"><line x1=\"42\" y1=\"15\" x2=\"42\" y2=\"170\" stroke=\"currentColor\"/><line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"currentColor\"/><line x1=\"42\" y1=\"170\" x2=\"42\" y2=\"174\" stroke=\"currentColor\"/><text x=\"42\" y=\"189\" text-anchor=\"middle\">0</text><line x1=\"108\" y1=\"170\" x2=\"108\" y2=\"174\" stroke=\"currentColor\"/><text x=\"108\" y=\"189\" text-anchor=\"middle\">1</text><line x1=\"174\" y1=\"170\" x2=\"174\" y2=\"174\" stroke=\"currentColor\"/><text x=\"174\" y=\"189\" text-anchor=\"middle\">2</text><line x1=\"240\" y1=\"170\" x2=\"240\" y2=\"174\" stroke=\"currentColor\"/><text x=\"240\" y=\"189\" text-anchor=\"middle\">3</text><line x1=\"306\" y1=\"170\" x2=\"306\" y2=\"174\" stroke=\"currentColor\"/><text x=\"306\" y=\"189\" text-anchor=\"middle\">4</text><line x1=\"38\" y1=\"170\" x2=\"306\" y2=\"170\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"174\" text-anchor=\"end\">0</text><line x1=\"38\" y1=\"132.5\" x2=\"306\" y2=\"132.5\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"136.5\" text-anchor=\"end\">20</text><line x1=\"38\" y1=\"95\" x2=\"306\" y2=\"95\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"99\" text-anchor=\"end\">40</text><line x1=\"38\" y1=\"57.5\" x2=\"306\" y2=\"57.5\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"61.5\" text-anchor=\"end\">60</text><line x1=\"38\" y1=\"20\" x2=\"306\" y2=\"20\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"24\" text-anchor=\"end\">80</text><text x=\"178\" y=\"212\" text-anchor=\"middle\">Zeit t in s</text><text x=\"11\" y=\"97\" transform=\"rotate(-90 11 97)\" text-anchor=\"middle\">Höhe h in m</text><path id=\"rocketPath\" d=\"M 42 170 L 108 160.625 L 174 132.5 L 240 85.625 L 306 20\" fill=\"none\" stroke=\"#995000\" stroke-width=\"2\" style=\"opacity:0\"/><circle class=\"graphPoint\" cx=\"42\" cy=\"170\" r=\"4\" fill=\"#1765a8\" style=\"opacity:0\"/><circle class=\"graphPoint\" cx=\"108\" cy=\"160.625\" r=\"4\" fill=\"#1765a8\" style=\"opacity:0\"/><circle class=\"graphPoint\" cx=\"174\" cy=\"132.5\" r=\"4\" fill=\"#1765a8\" style=\"opacity:0\"/><circle class=\"graphPoint\" cx=\"240\" cy=\"85.625\" r=\"4\" fill=\"#1765a8\" style=\"opacity:0\"/><circle class=\"graphPoint\" cx=\"306\" cy=\"20\" r=\"4\" fill=\"#1765a8\" style=\"opacity:0\"/></svg></div><p id=\"graphText\" class=\"lab-feedback\">Die Achsen sind vorbereitet. Zeichne die Punkte ein.</p><p>Die geraden Verbindungen helfen beim Verfolgen der Reihenfolge. Sie sind keine zusätzlichen Messwerte. Zwischen den fünf Zeitpunkten ist der tatsächliche Verlauf durch diese Tabelle allein nicht festgelegt.</p><ol data-si-graph-tasks><li>Suche das Wertepaar bei 3 s. Nenne beide Größen mit ihren Einheiten und beschreibe die Lage des Punktes.</li><li>Berechne die Höhenzunahme von 1 s bis 2 s und von 3 s bis 4 s. Vergleiche die beiden Ergebnisse.</li><li>Steigt die Höhe in gleich langen Zeitabschnitten immer um denselben Betrag? Begründe mit den Tabellenwerten.</li><li>Bei 2,5 s gibt es keinen Tabellenwert. Erkläre den Unterschied zwischen einem vorgegebenen Wert und einer Schätzung mithilfe der Verbindungslinie.</li></ol><template data-worksheet-alternative><p>Trage die fünf Wertepaare in das vorbereitete Koordinatensystem ein. Prüfe zuerst die Achsenbeschriftungen mit Größe und Einheit. Verbinde benachbarte Punkte mit geraden Hilfslinien. Diese sind kein Nachweis für den Verlauf zwischen den Punkten.</p><table data-si-graph-table><caption>Vorgegebene Modellwerte</caption><thead><tr><th scope=\"col\">Zeit t in s</th><th scope=\"col\">Höhe h in m</th></tr></thead><tbody><tr class=\"graphRow\"><th scope=\"row\">0</th><td>0</td></tr><tr class=\"graphRow\"><th scope=\"row\">1</th><td>5</td></tr><tr class=\"graphRow\"><th scope=\"row\">2</th><td>20</td></tr><tr class=\"graphRow\"><th scope=\"row\">3</th><td>45</td></tr><tr class=\"graphRow\"><th scope=\"row\">4</th><td>80</td></tr></tbody></table><svg viewBox=\"0 0 350 225\" role=\"img\" aria-label=\"Leeres Koordinatensystem: Zeit von 0 bis 4 Sekunden und Höhe von 0 bis 80 Metern\" data-worksheet-static=\"true\" style=\"font-size:16px;color:#172033;background:white\"><line x1=\"42\" y1=\"15\" x2=\"42\" y2=\"170\" stroke=\"currentColor\"/><line x1=\"42\" y1=\"170\" x2=\"322\" y2=\"170\" stroke=\"currentColor\"/><line x1=\"42\" y1=\"170\" x2=\"42\" y2=\"174\" stroke=\"currentColor\"/><text x=\"42\" y=\"189\" text-anchor=\"middle\">0</text><line x1=\"108\" y1=\"170\" x2=\"108\" y2=\"174\" stroke=\"currentColor\"/><text x=\"108\" y=\"189\" text-anchor=\"middle\">1</text><line x1=\"174\" y1=\"170\" x2=\"174\" y2=\"174\" stroke=\"currentColor\"/><text x=\"174\" y=\"189\" text-anchor=\"middle\">2</text><line x1=\"240\" y1=\"170\" x2=\"240\" y2=\"174\" stroke=\"currentColor\"/><text x=\"240\" y=\"189\" text-anchor=\"middle\">3</text><line x1=\"306\" y1=\"170\" x2=\"306\" y2=\"174\" stroke=\"currentColor\"/><text x=\"306\" y=\"189\" text-anchor=\"middle\">4</text><line x1=\"38\" y1=\"170\" x2=\"306\" y2=\"170\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"174\" text-anchor=\"end\">0</text><line x1=\"38\" y1=\"132.5\" x2=\"306\" y2=\"132.5\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"136.5\" text-anchor=\"end\">20</text><line x1=\"38\" y1=\"95\" x2=\"306\" y2=\"95\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"99\" text-anchor=\"end\">40</text><line x1=\"38\" y1=\"57.5\" x2=\"306\" y2=\"57.5\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"61.5\" text-anchor=\"end\">60</text><line x1=\"38\" y1=\"20\" x2=\"306\" y2=\"20\" stroke=\"#cbd5e1\"/><text x=\"34\" y=\"24\" text-anchor=\"end\">80</text><text x=\"178\" y=\"212\" text-anchor=\"middle\">Zeit t in s</text><text x=\"11\" y=\"97\" transform=\"rotate(-90 11 97)\" text-anchor=\"middle\">Höhe h in m</text></svg><ol data-si-graph-tasks><li>Suche das Wertepaar bei 3 s. Nenne beide Größen mit ihren Einheiten und beschreibe die Lage des Punktes.</li><li>Berechne die Höhenzunahme von 1 s bis 2 s und von 3 s bis 4 s. Vergleiche die beiden Ergebnisse.</li><li>Steigt die Höhe in gleich langen Zeitabschnitten immer um denselben Betrag? Begründe mit den Tabellenwerten.</li><li>Bei 2,5 s gibt es keinen Tabellenwert. Erkläre den Unterschied zwischen einem vorgegebenen Wert und einer Schätzung mithilfe der Verbindungslinie.</li></ol></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung zum Diagramm</summary><p>Die fünf Punkte sind (0 s; 0 m), (1 s; 5 m), (2 s; 20 m), (3 s; 45 m) und (4 s; 80 m). Bei 3 s liegt der Punkt über der 3 der Zeitachse und zwischen 40 und 60 m, näher an 40 m.</p><p>Von 1 s bis 2 s beträgt die Zunahme 15 m, von 3 s bis 4 s beträgt sie 35 m. In den vier gleich langen Intervallen sind die Zunahmen 5 m, 15 m, 25 m und 35 m; sie sind also nicht gleich.</p><p>Bei 2,5 s enthält die Tabelle keinen Wert. Eine Schätzung entlang der geraden Verbindung zwischen 20 m und 45 m ergibt 32,5 m. Das setzt geradlinigen Verlauf zwischen diesen Punkten voraus; die Tabelle belegt diese Annahme nicht.</p></details>{{QUIZ_q5}}"
       },
       {
         "id": "sec3",
@@ -7979,216 +8293,109 @@
         "quizzes": [
           {
             "id": "q4",
-            "question": "Was passiert mit deiner Geschwindigkeit, wenn du für denselben Weg plötzlich VIEL MEHR Zeit brauchst?",
+            "question": "Du brauchst für denselben Weg statt 10 s nun 20 s. Wie verändert sich deine mittlere Geschwindigkeit?",
             "answers": [
               {
-                "text": "Die Geschwindigkeit wird kleiner (ich bin langsamer).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Das wäre milli (1/1000)."
-              },
-              {
-                "text": "Die Geschwindigkeit wird größer (ich bin schneller).",
+                "text": "Sie verdoppelt sich.",
                 "correct": false,
                 "pts": 10,
-                "feedback": "Perfekt. Kilo bedeutet tausendfach, also ×1000."
+                "feedback": "Die Strecke bleibt gleich, der Zeitwert im Nenner wird doppelt so groß. Strecke durch mehr Zeit ergibt eine kleinere mittlere Geschwindigkeit."
+              },
+              {
+                "text": "Sie bleibt gleich.",
+                "correct": false,
+                "pts": 10,
+                "feedback": "Zur mittleren Geschwindigkeit gehören Strecke und Zeit. Derselbe Weg allein bedeutet deshalb nicht dieselbe Geschwindigkeit."
+              },
+              {
+                "text": "Sie halbiert sich.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Zum Beispiel sind 100 m / 10 s = 10 m/s und 100 m / 20 s = 5 m/s. Doppelte Zeit für dieselbe Strecke ergibt den halben Wert."
+              }
+            ]
+          },
+          {
+            "id": "f7",
+            "question": "Eine Bewegung hat eine mittlere Geschwindigkeit von 2 m/s. Was beschreibt dieser Wert?",
+            "answers": [
+              {
+                "text": "Die gesamte Bewegung hat genau 2 s gedauert.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Die Einheit m/s verbindet Strecke und Zeit. Aus der mittleren Geschwindigkeit allein kannst du die gesamte Dauer nicht bestimmen."
+              },
+              {
+                "text": "Pro Sekunde wurden im Mittel 2 m zurückgelegt.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: m/s bedeutet Meter pro Sekunde. Der Mittelwert kann auch zu einer Bewegung mit langsameren Teilen oder Pausen gehören."
+              },
+              {
+                "text": "In jeder einzelnen Sekunde wurden sicher genau 2 m zurückgelegt.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Der Mittelwert legt die einzelnen Abschnitte nicht fest. Gleichbleibende Geschwindigkeit wäre eine zusätzliche Information."
+              }
+            ]
+          },
+          {
+            "id": "f8",
+            "question": "Ein Modellfahrzeug legt 150 m mit einer mittleren Geschwindigkeit von 5 m/s zurück. Welche Zeit passt?",
+            "answers": [
+              {
+                "text": "750 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Zum Finden der Zeit teilst du die Strecke durch die mittlere Geschwindigkeit. Multiplizieren liefert hier nicht die gesuchte Dauer."
+              },
+              {
+                "text": "30 s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: t = s / v = 150 m / (5 m/s) = 30 s. Kontrolle: 5 m/s × 30 s = 150 m."
+              },
+              {
+                "text": "145 s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Strecke und Geschwindigkeit haben unterschiedliche Einheiten; ihre Zahlenwerte zu subtrahieren ergibt keine Zeit. Nutze t = s / v."
+              }
+            ]
+          },
+          {
+            "id": "f10",
+            "question": "Für einen fiktiven Weg von 300 m brauchst du 100 s Gehzeit und zusätzlich 50 s Pause. Wie groß ist die mittlere Geschwindigkeit über den gesamten Vorgang?",
+            "answers": [
+              {
+                "text": "2 m/s.",
+                "correct": true,
+                "pts": 5,
+                "feedback": "Richtig: Die Gesamtzeit beträgt 100 s + 50 s = 150 s. 300 m / 150 s = 2 m/s; die Pause zählt mit."
+              },
+              {
+                "text": "3 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "3 m/s ergibt sich nur, wenn du die Pause weglässt. Gefragt ist hier ausdrücklich der gesamte Vorgang."
+              },
+              {
+                "text": "6 m/s.",
+                "correct": false,
+                "pts": 5,
+                "feedback": "Du hast nur durch die Pausenzeit geteilt. Zur Gesamtzeit gehören Gehzeit und Pause zusammen."
               }
             ]
           }
         ],
-        "content": "<p data-average-speed>Hier berechnen wir die <strong>mittlere Geschwindigkeit</strong>: gesamte zurückgelegte Strecke geteilt durch benötigte Zeit. Der Wert sagt nicht, dass du während der ganzen Bewegung gleich schnell warst. Bei einer Pause zählt auch die Pausenzeit zur betrachteten Gesamtzeit.</p>\n        <p>Formeln zeigen kurz, wie Gr&ouml;&szlig;en zusammenh&auml;ngen. Bei Geschwindigkeit geht es um drei Gr&ouml;&szlig;en: <strong>Weg s</strong>, <strong>Zeit t</strong> und <strong>Geschwindigkeit v</strong>.</p>\n        <p><span class=\"formula-card\">v = s / t</span></p>\n        <div class=\"interactive-zone\">\n            <h3>Formel-Dreieck</h3>\n            <p>W&auml;hle, was du suchst. Das Dreieck hilft dir beim Umstellen.</p>\n            <div class=\"diagram-box\" style=\"height: 190px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;\">\n                <svg width=\"180\" height=\"150\" viewBox=\"0 0 180 150\" aria-label=\"Formeldreieck s &uuml;ber v und t\">\n                    <polygon points=\"90,14 18,136 162,136\" fill=\"#eff6ff\" stroke=\"#2563eb\" stroke-width=\"4\"></polygon>\n                    <line x1=\"48\" y1=\"86\" x2=\"132\" y2=\"86\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <line x1=\"90\" y1=\"86\" x2=\"90\" y2=\"136\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <text x=\"90\" y=\"67\" text-anchor=\"middle\" font-size=\"32\" font-weight=\"700\" fill=\"#1d4ed8\">s</text>\n                    <text x=\"63\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">v</text>\n                    <text x=\"117\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">t</text>\n                </svg>\n                <div class=\"prediction-grid\">\n                    <button class=\"prediction-btn\" data-formula-target=\"v\" onclick=\"setFormulaTarget('v')\">Ich suche v</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"s\" onclick=\"setFormulaTarget('s')\">Ich suche s</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"t\" onclick=\"setFormulaTarget('t')\">Ich suche t</button>\n                </div>\n            </div>\n            <p id=\"formulaRule\" class=\"lab-feedback\">Ich suche v: Weg durch Zeit teilen. v = s / t</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Formel-Flitzer</h3>\n            <p>Ver&auml;ndere Weg und Zeit. Beobachte, wie sich die Geschwindigkeit &auml;ndert.</p>\n            <label>Weg s: <span id=\"sVal\">100</span> m<br><input type=\"range\" id=\"sRange\" min=\"10\" max=\"200\" value=\"100\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label><br>\n            <label>Zeit t: <span id=\"tVal\">10</span> s<br><input type=\"range\" id=\"tRange\" min=\"2\" max=\"30\" value=\"10\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; height:145px;\">\n                <svg width=\"220\" height=\"130\" viewBox=\"0 0 220 130\" aria-label=\"Tacho f&uuml;r Geschwindigkeit\">\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#e5e7eb\" stroke-width=\"20\"></path>\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"20\" stroke-dasharray=\"265\" stroke-dashoffset=\"110\"></path>\n                    <text x=\"42\" y=\"105\" font-size=\"11\" fill=\"#475569\">langsam</text><text x=\"145\" y=\"105\" font-size=\"11\" fill=\"#475569\">schnell</text>\n                    <circle cx=\"110\" cy=\"108\" r=\"10\" fill=\"#111827\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"110\" y1=\"108\" x2=\"72\" y2=\"45\" stroke=\"#dc2626\" stroke-width=\"5\" stroke-linecap=\"round\" style=\"transition: all 0.4s; transform-origin: 110px 108px;\"></line>\n                </svg>\n            </div>\n            <p id=\"speedText\" class=\"lab-feedback\">v = 100 m / 10 s = 10,0 m/s</p>\n            <p id=\"speedExample\" class=\"remember-box\">Das ist sehr schnell.</p>\n        </div>\n        {{QUIZ_q4}}\n    "
+        "content": "<p data-average-speed>Hier berechnen wir die <strong>mittlere Geschwindigkeit</strong>: gesamte zurückgelegte Strecke geteilt durch benötigte Zeit. Der Wert sagt nicht, dass du während der ganzen Bewegung gleich schnell warst. Bei einer Pause zählt auch die Pausenzeit zur betrachteten Gesamtzeit.</p>\n        <p>Formeln zeigen kurz, wie Gr&ouml;&szlig;en zusammenh&auml;ngen. Bei Geschwindigkeit geht es um drei Gr&ouml;&szlig;en: <strong>Weg s</strong>, <strong>Zeit t</strong> und <strong>Geschwindigkeit v</strong>.</p>\n        <p><span class=\"formula-card\">v = s / t</span></p>\n        <p><strong>Beispiel:</strong> Eine Gesamtstrecke von 120 m in 60 s ergibt 120 m / 60 s = 2 m/s. Das bedeutet im Mittel 2 m pro Sekunde. Suchst du die Zeit, gilt t = s / v: 120 m / (2 m/s) = 60 s. Für diese Umstellung muss v größer als null sein.</p><div class=\"interactive-zone\">\n            <h3>Formel-Dreieck</h3>\n            <p>W&auml;hle, was du suchst. Das Dreieck hilft dir beim Umstellen.</p>\n            <div class=\"diagram-box\" style=\"height: 190px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;\">\n                <svg width=\"180\" height=\"150\" viewBox=\"0 0 180 150\" aria-label=\"Formeldreieck s &uuml;ber v und t\">\n                    <polygon points=\"90,14 18,136 162,136\" fill=\"#eff6ff\" stroke=\"#2563eb\" stroke-width=\"4\"></polygon>\n                    <line x1=\"48\" y1=\"86\" x2=\"132\" y2=\"86\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <line x1=\"90\" y1=\"86\" x2=\"90\" y2=\"136\" stroke=\"#2563eb\" stroke-width=\"3\"></line>\n                    <text x=\"90\" y=\"67\" text-anchor=\"middle\" font-size=\"32\" font-weight=\"700\" fill=\"#1d4ed8\">s</text>\n                    <text x=\"63\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">v</text>\n                    <text x=\"117\" y=\"121\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"700\" fill=\"#1d4ed8\">t</text>\n                </svg>\n                <div class=\"prediction-grid\">\n                    <button class=\"prediction-btn\" data-formula-target=\"v\" onclick=\"setFormulaTarget('v')\">Ich suche v</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"s\" onclick=\"setFormulaTarget('s')\">Ich suche s</button>\n                    <button class=\"prediction-btn\" data-formula-target=\"t\" onclick=\"setFormulaTarget('t')\">Ich suche t</button>\n                </div>\n            </div>\n            <p id=\"formulaRule\" class=\"lab-feedback\">Ich suche v: Weg durch Zeit teilen. v = s / t</p>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>Der Formel-Flitzer</h3>\n            <p>Ver&auml;ndere Weg und Zeit. Beobachte, wie sich die Geschwindigkeit &auml;ndert.</p>\n            <label>Weg s: <span id=\"sVal\">100</span> m<br><input type=\"range\" id=\"sRange\" min=\"10\" max=\"200\" value=\"100\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label><br>\n            <label>Zeit t: <span id=\"tVal\">10</span> s<br><input type=\"range\" id=\"tRange\" min=\"2\" max=\"30\" value=\"10\" oninput=\"calcSpeed()\" style=\"width:260px;\"></label>\n            <div class=\"diagram-box\" style=\"display: flex; justify-content: center; height:145px;\">\n                <svg width=\"220\" height=\"130\" viewBox=\"0 0 220 130\" aria-label=\"Tacho f&uuml;r Geschwindigkeit\">\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#e5e7eb\" stroke-width=\"20\"></path>\n                    <path d=\"M 25 108 A 85 85 0 0 1 195 108\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"20\" stroke-dasharray=\"265\" stroke-dashoffset=\"110\"></path>\n                    <text x=\"42\" y=\"105\" font-size=\"11\" fill=\"#475569\">langsam</text><text x=\"145\" y=\"105\" font-size=\"11\" fill=\"#475569\">schnell</text>\n                    <circle cx=\"110\" cy=\"108\" r=\"10\" fill=\"#111827\"></circle>\n                    <line id=\"tachoNeedle\" x1=\"110\" y1=\"108\" x2=\"72\" y2=\"45\" stroke=\"#dc2626\" stroke-width=\"5\" stroke-linecap=\"round\" style=\"transition: all 0.4s; transform-origin: 110px 108px;\"></line>\n                </svg>\n            </div>\n            <p id=\"speedText\" class=\"lab-feedback\">v = 100 m / 10 s = 10,0 m/s</p>\n            <p id=\"speedExample\" class=\"remember-box\">Das ist sehr schnell.</p>\n        </div>\n        {{QUIZ_q4}}\n    "
       }
     ],
-    "diplom": {
-      "title": "🎓 Das exakte Maß- und Mathe-Diplom",
-      "questions": [
-        {
-          "id": "f1",
-          "question": "1. Was bedeutet die Abkürzung \"SI\" beim Einheitensystem?",
-          "answers": [
-            {
-              "text": "Internationales Einheitensystem (Système international).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig. SI kommt aus dem Französischen: Système international d’unités."
-            },
-            {
-              "text": "Super Intelligentes System.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Klingt witzig, ist aber falsch: SI ist das internationale Einheitensystem."
-            }
-          ]
-        },
-        {
-          "id": "f2",
-          "question": "2. In welcher SI-Einheit misst man die Länge?",
-          "answers": [
-            {
-              "text": "Meter (m).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Genau. Länge misst man in Meter (m)."
-            },
-            {
-              "text": "Fuß (ft).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Fuß (ft) wird teils genutzt, gehört aber nicht zu den SI-Grundeinheiten."
-            }
-          ]
-        },
-        {
-          "id": "f3",
-          "question": "3. Was ist die Grundeinheit für die Zeit in der Physik?",
-          "answers": [
-            {
-              "text": "Stunde (h).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Eine Stunde sind 3600 Sekunden. Die Stunde ist eine gebräuchliche Nicht-SI-Einheit; die SI-Basiseinheit ist die Sekunde."
-            },
-            {
-              "text": "Sekunde (s).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig. Die physikalische Grundeinheit ist die Sekunde (s)."
-            }
-          ]
-        },
-        {
-          "id": "f4",
-          "question": "4. Was bedeutet das Präfix (die Vorsilbe) \"Kilo\"?",
-          "answers": [
-            {
-              "text": "Ein Tausendstel (1/1.000).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Das ist milli, nicht kilo."
-            },
-            {
-              "text": "Tausend (1.000) mal so viel.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Genau. Kilo bedeutet 1000-mal so viel."
-            }
-          ]
-        },
-        {
-          "id": "f5",
-          "question": "5. Wie viele Meter sind ein Kilometer?",
-          "answers": [
-            {
-              "text": "100 Meter.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Fast. 100 Meter sind 0,1 Kilometer, nicht 1 Kilometer."
-            },
-            {
-              "text": "1.000 Meter.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig. Ein Kilometer hat 1000 Meter."
-            }
-          ]
-        },
-        {
-          "id": "f6",
-          "question": "6. Was bedeutet das Präfix \"Milli\" (z.B. in Millimeter)?",
-          "answers": [
-            {
-              "text": "Ein Tausendstel (sehr winzig).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Genau. Milli bedeutet ein Tausendstel (0,001)."
-            },
-            {
-              "text": "Eine Million mal so groß.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Nein. Milli macht eine Einheit kleiner, nicht größer."
-            }
-          ]
-        },
-        {
-          "id": "f7",
-          "question": "7. Wofür steht der Buchstabe \"v\" in physikalischen Formeln oft?",
-          "answers": [
-            {
-              "text": "Für Volumen.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "v wird meist für Geschwindigkeit genutzt; Volumen ist oft V."
-            },
-            {
-              "text": "Für Geschwindigkeit (velocitas).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig. v steht für Geschwindigkeit (von velocitas)."
-            }
-          ]
-        },
-        {
-          "id": "f8",
-          "question": "8. Wie lautet die Formel für die Geschwindigkeit?",
-          "answers": [
-            {
-              "text": "v = s + t (Weg plus Zeit)",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Plus wäre dimensionsmäßig falsch."
-            },
-            {
-              "text": "v = s / t (Weg geteilt durch Zeit)",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Genau. Geschwindigkeit ist Weg durch Zeit: v = s / t."
-            }
-          ]
-        },
-        {
-          "id": "f9",
-          "question": "9. In einem Diagramm gibt es die x-Achse und die y-Achse. Wo befindet sich die y-Achse?",
-          "answers": [
-            {
-              "text": "Sie ist die senkrechte Linie (geht von unten nach oben).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig. Die y-Achse ist die vertikale Achse."
-            },
-            {
-              "text": "Sie ist die waagerechte Linie am Boden.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Das ist die x-Achse. y verläuft senkrecht."
-            }
-          ]
-        },
-        {
-          "id": "f10",
-          "question": "Du legst in 2 Sekunden insgesamt 10 Meter zurück. Wie groß ist deine mittlere Geschwindigkeit?",
-          "answers": [
-            {
-              "text": "5 m/s (10 geteilt durch 2).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Perfekt gerechnet: 10 m / 2 s = 5 m/s."
-            },
-            {
-              "text": "20 m/s (10 mal 2).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Du hast multipliziert statt geteilt. Bei v = s/t teilst du den Weg durch die Zeit."
-            }
-          ]
-        }
-      ]
-    },
     "learningGoals": [
       "Messgrößen mit Zahlenwert und Einheit angeben.",
       "Messwerte mit Gerät, Einheit und Bedingungen dokumentieren und Grenzen der Genauigkeit erklären.",
       "Längen, Massen und Zeiten in passende Einheiten umrechnen.",
-      "Geschwindigkeit berechnen und Messwerte aus Diagrammen lesen."
+      "Mittlere Geschwindigkeiten einschließlich Pausen berechnen und Datenpaare sowie Änderungen aus Diagrammen lesen."
     ],
     "prerequisites": [
       "Zahlenwerte mit Komma lesen. Für den letzten Abschnitt sind einfache Divisionen hilfreich; zuerst übst du das Messen und Ablesen."
@@ -8196,9 +8403,9 @@
     "summary": [
       "Eine Messangabe verbindet Zahlenwert und Einheit; Größe und Einheit sind verschieden.",
       "1 km = 1000 m, 1 m = 100 cm, 1 kg = 1000 g und 1 min = 60 s.",
-      "Für eine zurückgelegte Strecke gilt die mittlere Geschwindigkeit v = s/t; Achsen und Einheiten gehören zur Diagrammauswertung.",
       "Wiederholte Messungen zeigen Streuung; ein gleichbleibender Geräte- oder Anlegefehler kann trotzdem bleiben.",
-      "Strecke geteilt durch Gesamtzeit ergibt die mittlere Geschwindigkeit über diesen Vorgang."
+      "Strecke geteilt durch Gesamtzeit ergibt die mittlere Geschwindigkeit über diesen Vorgang.",
+      "Ein Diagrammpunkt gehört zu einem Wertepaar. Lies beide Achsen mit ihren Einheiten; für eine Änderung bildest du die Differenz."
     ],
     "sources": [
       {
@@ -11892,7 +12099,7 @@
             ]
           }
         ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Computational Thinking</strong><br>Probleme mit Zerlegen, Mustererkennen, Abstraktion und Algorithmus l&ouml;sen.</div><div class=\"word-ui-card\"><strong>Abstraktion</strong><br>Vereinfachen, ohne das Wichtigste zu verlieren.</div><div class=\"word-ui-card\"><strong>Barrierearmut</strong><br>Ein Produkt ist f&uuml;r viele Menschen gut zug&auml;nglich.</div><div class=\"word-ui-card\"><strong>Konfiguration</strong><br>Einstellungen eines Programms oder Systems anpassen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Problem</td><td>Klassenquiz planen: Fragen, Antworten, Punkte, Test.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Muster</td><td>Alle Fragen brauchen Antwortm&ouml;glichkeiten und Feedback.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Barriere</td><td>Video ohne Untertitel ist f&uuml;r manche schwer nutzbar.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_produktion_q2}}\n{{QUIZ_dgb7_produktion_p2}}<div data-material-planner><h3>Vom Klassenauftrag zum ausführbaren Materialplaner</h3>\n<p><strong>Fiktiver Auftrag:</strong> Für einen Klassenworkshop bekommt jede Gruppe 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Wir planen den Bedarf für 0 bis 8 ganze Gruppen. Alle Gruppen erhalten dasselbe Paket. Lagerbestand, Reservematerial und Kosten gehören noch nicht zu diesem Modell.</p>\n<table data-material-requirements><caption>Festgelegter Bedarf pro Gruppe</caption><thead><tr><th scope=\"col\">Material</th><th scope=\"col\">Pro Gruppe</th><th scope=\"col\">Einheit</th></tr></thead><tbody><tr><th scope=\"row\">Papier</th><td>2</td><td>Blatt</td></tr><tr><th scope=\"row\">Bleistifte</th><td>1</td><td>Stück</td></tr><tr><th scope=\"row\">Büroklammern</th><td>3</td><td>Stück</td></tr></tbody></table>\n<p><strong>Zerlegen:</strong> Vorgaben sammeln → Gruppenanzahl prüfen → jede Materialmenge berechnen → Tabelle beschriften → Ergebnisse testen. Die Berechnung braucht die Vorgaben und eine gültige Eingabe; eine schön gestaltete Tabelle allein löst den Auftrag noch nicht.</p>\n<p><strong>Muster:</strong> Für jede Materialart gilt „Gruppenanzahl mal Bedarf pro Gruppe“. <strong>Abstraktion:</strong> Gruppennamen und Lieblingsfarben sind für diese reine Mengenrechnung unwichtig. Materialname, Einheit und Bedarf dürfen wir nicht weglassen. Was wichtig ist, hängt vom Auftrag ab.</p>\n<pre>Prüfe: Ist die Gruppenanzahl ganzzahlig und zwischen 0 und 8?\nWenn nein: Erkläre den Eingabefehler.\nSonst:\n  Für jeden Eintrag der Materialliste:\n    Gesamtbedarf = Gruppenanzahl mal Bedarf pro Gruppe\n    Merke Materialname, Gesamtbedarf und Einheit.\n  Zeige die fertige Liste.</pre>\n<p><a href=\"../examples/materialplaner.html\" data-material-open>Materialplaner öffnen</a> · <a href=\"../examples/materialplaner.html\" download=\"materialplaner.html\">HTML-Datei zum Bearbeiten herunterladen</a>. Die Datei enthält das Programm und benötigt kein Konto. Verwende für deine Kopie einen reinen Texteditor und speichere sie mit der Endung <code>.html</code>.</p>\n<p><strong>Im JavaScript-Code:</strong> <code>materialien</code> ist die Liste der Vorgaben. <code>for (const material of liste)</code> besucht jeden Eintrag; <code>gruppen * material.proGruppe</code> berechnet dessen Menge. <code>push</code> hängt einen Ergebnis-Eintrag an. Die Funktion <code>materialbedarf</code> gibt die fertige Liste mit <code>return</code> zurück. Die Eingabeprüfung und die Bildschirmdarstellung sind getrennte Teilaufgaben.</p>\n<ol data-material-tasks><li><strong>Vorhersagen:</strong> Berechne für 0, 1 und 4 Gruppen den Bedarf jeder Materialart auf Papier. Trage erst die erwarteten Mengen in dein Protokoll ein und vergleiche dann mit dem geöffneten Programm.</li>\n<li><strong>Nachvollziehen:</strong> Öffne die heruntergeladene Kopie im Texteditor. Suche nach <code>&lt;script&gt;</code> die Liste <code>const materialien</code> und <code>function materialbedarf</code>. Verfolge bei vier Gruppen den Papier-Eintrag vom Wert 2 bis zur ausgegebenen Menge. Wie oft wird der Schleifenblock für die drei Materialarten ausgeführt? Wie oft bei null Gruppen?</li>\n<li><strong>Gezielt ändern:</strong> Kopiere die Datei unter einem neuen Namen. Ändere nur beim Papier <code>proGruppe: 2</code> zu <code>proGruppe: 3</code>. Sage die Ergebnisse für dieselben drei Testfälle voraus. Speichere, öffne die geänderte Datei im Browser und prüfe den angezeigten Code sowie die Ergebnisse.</li>\n<li><strong>Grenzen prüfen:</strong> Teste zusätzlich 8 Gruppen, eine leere Eingabe, −1, 9 und 1,5 Gruppen. Die gültige Zahl 8 soll berechnet werden; für die anderen Eingaben soll eine Fehlermeldung erscheinen und keine alte Ergebnisliste stehen bleiben. Ein Test mit nur vier Gruppen prüft diese Fälle noch nicht.</li>\n<li><strong>Erweitern:</strong> Füge in einer weiteren Kopie ein viertes Material mit Name, Einheit und Bedarf pro Gruppe hinzu. Übernimm die Struktur eines vorhandenen Listeneintrags und setze das Komma zwischen Einträgen. Warum muss die Schleife dafür nicht viermal neu geschrieben werden? Prüfe die zusätzliche Zeile mit zwei vorher berechneten Fällen.</li>\n<li><strong>Dokumentieren:</strong> Bewahre Original und Änderungen auf. Notiere bei Abweichungen Erwartung, Beobachtung, geänderte Stelle und erneuten Test. Zu zweit wechseln die Rollen Programmieren und Prüfen; allein dokumentierst du deine Selbstprüfung. Abgabe: eigene HTML-Kopie, Testprotokoll und kurze Erklärung von Zerlegen, Muster und Abstraktion am eigenen Programm.</li></ol>\n<p class=\"small\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Testprotokoll zum Materialplaner\" tabindex=\"0\"><table data-material-test-cases><caption>Testprotokoll – alle Mengen jeweils mit Einheit notieren</caption><thead><tr><th scope=\"col\">Gruppen</th><th scope=\"col\">Original erwartet</th><th scope=\"col\">Papieränderung erwartet</th><th scope=\"col\">Tatsächlich / Dateiversion</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">1</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">4</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Eigener Grenzfall</th><td>…</td><td>…</td><td>…</td></tr></tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Führe die Liste von Hand aus und markiere die geplante Änderung im Pseudocode. Das übt die Logik; das Verändern und Ausführen der eigenen Programmdatei bleibt dann noch zu erledigen.</p>\n<details data-worksheet-solution=\"true\"><summary>Erwartungswerte und Denkwege vergleichen</summary><p>Original in der Reihenfolge Papier/Bleistifte/Büroklammern: 0 Gruppen → 0/0/0; 1 Gruppe → 2/1/3; 4 Gruppen → 8/4/12; 8 Gruppen → 16/8/24. Die Einheiten sind Blatt/Stück/Stück. Nach der Papieränderung ergeben sich 0/0/0, 3/1/3, 12/4/12 und 24/8/24. Nur der Papierbedarf ändert sich.</p><p>Der Schleifenblock verarbeitet immer die drei Materialeinträge, auch bei null Gruppen. Dann sind die berechneten Mengen null. Mit einem vierten Material gibt es vier Durchläufe; eine Änderung der Gruppenanzahl verändert die Multiplikation, nicht die Länge dieser Liste. Gruppennamen wegzulassen ist hier sinnvoll; Einheiten wegzulassen macht den Plan unklar.</p><p>Eine falsche Menge kann an einer falschen Vorgabe, einer falschen Rechnung oder der geöffneten Dateiversion liegen. Ein bloßes „funktioniert“ nennt weder die Eingabe noch die erwartete Ausgabe und ist kein nachvollziehbares Testprotokoll.</p></details>\n<p class=\"small\">Zum Nachlesen der verwendeten Schleife: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement\" target=\"_blank\" rel=\"noopener\">MDN: JavaScript-Schleifen (Englisch)</a>.</p>\n{{QUIZ_dgb7_production_abstraction}}{{QUIZ_dgb7_production_code_change}}</div>"
+        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Computational Thinking</strong><br>Probleme mit Zerlegen, Mustererkennen, Abstraktion und Algorithmus l&ouml;sen.</div><div class=\"word-ui-card\"><strong>Abstraktion</strong><br>Vereinfachen, ohne das Wichtigste zu verlieren.</div><div class=\"word-ui-card\"><strong>Barrierearmut</strong><br>Ein Produkt ist f&uuml;r viele Menschen gut zug&auml;nglich.</div><div class=\"word-ui-card\"><strong>Konfiguration</strong><br>Einstellungen eines Programms oder Systems anpassen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Problem</td><td>Klassenquiz planen: Fragen, Antworten, Punkte, Test.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Muster</td><td>Alle Fragen brauchen Antwortm&ouml;glichkeiten und Feedback.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Barriere</td><td>Video ohne Untertitel ist f&uuml;r manche schwer nutzbar.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_produktion_q2}}\n{{QUIZ_dgb7_produktion_p2}}<div data-material-planner><h3>Vom Klassenauftrag zum ausführbaren Materialplaner</h3>\n<p><strong>Fiktiver Auftrag:</strong> Für einen Klassenworkshop bekommt jede Gruppe 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Wir planen den Bedarf für 0 bis 8 ganze Gruppen. Alle Gruppen erhalten dasselbe Paket. Lagerbestand, Reservematerial und Kosten gehören noch nicht zu diesem Modell.</p>\n<table data-material-requirements><caption>Festgelegter Bedarf pro Gruppe</caption><thead><tr><th scope=\"col\">Material</th><th scope=\"col\">Pro Gruppe</th><th scope=\"col\">Einheit</th></tr></thead><tbody><tr><th scope=\"row\">Papier</th><td>2</td><td>Blatt</td></tr><tr><th scope=\"row\">Bleistifte</th><td>1</td><td>Stück</td></tr><tr><th scope=\"row\">Büroklammern</th><td>3</td><td>Stück</td></tr></tbody></table>\n<p><strong>Zerlegen:</strong> Vorgaben sammeln → Gruppenanzahl prüfen → jede Materialmenge berechnen → Tabelle beschriften → Ergebnisse testen. Die Berechnung braucht die Vorgaben und eine gültige Eingabe; eine schön gestaltete Tabelle allein löst den Auftrag noch nicht.</p>\n<p><strong>Muster:</strong> Für jede Materialart gilt „Gruppenanzahl mal Bedarf pro Gruppe“. <strong>Abstraktion:</strong> Gruppennamen und Lieblingsfarben sind für diese reine Mengenrechnung unwichtig. Materialname, Einheit und Bedarf dürfen wir nicht weglassen. Was wichtig ist, hängt vom Auftrag ab.</p>\n<pre>Prüfe: Ist die Gruppenanzahl ganzzahlig und zwischen 0 und 8?\nWenn nein: Erkläre den Eingabefehler.\nSonst:\n  Für jeden Eintrag der Materialliste:\n    Gesamtbedarf = Gruppenanzahl mal Bedarf pro Gruppe\n    Merke Materialname, Gesamtbedarf und Einheit.\n  Zeige die fertige Liste.</pre>\n<p><a href=\"../examples/materialplaner.html\" data-material-open>Materialplaner öffnen</a> · <a href=\"../examples/materialplaner.html\" download=\"materialplaner.html\">HTML-Datei zum Bearbeiten herunterladen</a>. Die Datei enthält das Programm und benötigt kein Konto. Verwende für deine Kopie einen reinen Texteditor und speichere sie mit der Endung <code>.html</code>.</p>\n<p><strong>Im JavaScript-Code:</strong> <code>materialien</code> ist die Liste der Vorgaben. <code>for (const material of liste)</code> besucht jeden Eintrag; <code>gruppen * material.proGruppe</code> berechnet dessen Menge. <code>push</code> hängt einen Ergebnis-Eintrag an. Die Funktion <code>materialbedarf</code> gibt die fertige Liste mit <code>return</code> zurück. Die Eingabeprüfung und die Bildschirmdarstellung sind getrennte Teilaufgaben.</p>\n<ol data-material-tasks><li><strong>Vorhersagen:</strong> Berechne für 0, 1 und 4 Gruppen den Bedarf jeder Materialart auf Papier. Trage erst die erwarteten Mengen in dein Protokoll ein und vergleiche dann mit dem geöffneten Programm.</li>\n<li><strong>Nachvollziehen:</strong> Öffne die heruntergeladene Kopie im Texteditor. Suche nach <code>&lt;script&gt;</code> die Liste <code>const materialien</code> und <code>function materialbedarf</code>. Verfolge bei vier Gruppen den Papier-Eintrag vom Wert 2 bis zur ausgegebenen Menge. Wie oft wird der Schleifenblock für die drei Materialarten ausgeführt? Wie oft bei null Gruppen?</li>\n<li><strong>Gezielt ändern:</strong> Kopiere die Datei unter einem neuen Namen. Ändere nur beim Papier <code>proGruppe: 2</code> zu <code>proGruppe: 3</code>. Sage die Ergebnisse für dieselben drei Testfälle voraus. Speichere, öffne die geänderte Datei im Browser und prüfe den angezeigten Code sowie die Ergebnisse.</li>\n<li><strong>Grenzen prüfen:</strong> Teste zusätzlich 8 Gruppen, eine leere Eingabe, −1, 9 und 1,5 Gruppen. Die gültige Zahl 8 soll berechnet werden; für die anderen Eingaben soll eine Fehlermeldung erscheinen und keine alte Ergebnisliste stehen bleiben. Ein Test mit nur vier Gruppen prüft diese Fälle noch nicht.</li>\n<li><strong>Erweitern:</strong> Füge in einer weiteren Kopie ein viertes Material mit Name, Einheit und Bedarf pro Gruppe hinzu. Übernimm die Struktur eines vorhandenen Listeneintrags und setze das Komma zwischen Einträgen. Warum muss die Schleife dafür nicht viermal neu geschrieben werden? Prüfe die zusätzliche Zeile mit zwei vorher berechneten Fällen.</li>\n<li><strong>Dokumentieren:</strong> Bewahre Original und Änderungen auf. Notiere bei Abweichungen Erwartung, Beobachtung, geänderte Stelle und erneuten Test. Zu zweit wechseln die Rollen Programmieren und Prüfen; allein dokumentierst du deine Selbstprüfung. Abgabe: eigene HTML-Kopie, Testprotokoll und kurze Erklärung von Zerlegen, Muster und Abstraktion am eigenen Programm.</li></ol>\n<p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Testprotokoll zum Materialplaner\" tabindex=\"0\"><table data-material-test-cases><caption>Testprotokoll – alle Mengen jeweils mit Einheit notieren</caption><thead><tr><th scope=\"col\">Gruppen</th><th scope=\"col\">Original erwartet</th><th scope=\"col\">Papieränderung erwartet</th><th scope=\"col\">Tatsächlich / Dateiversion</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">1</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">4</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Eigener Grenzfall</th><td>…</td><td>…</td><td>…</td></tr></tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Führe die Liste von Hand aus und markiere die geplante Änderung im Pseudocode. Das übt die Logik; das Verändern und Ausführen der eigenen Programmdatei bleibt dann noch zu erledigen.</p>\n<details data-worksheet-solution=\"true\"><summary>Erwartungswerte und Denkwege vergleichen</summary><p>Original in der Reihenfolge Papier/Bleistifte/Büroklammern: 0 Gruppen → 0/0/0; 1 Gruppe → 2/1/3; 4 Gruppen → 8/4/12; 8 Gruppen → 16/8/24. Die Einheiten sind Blatt/Stück/Stück. Nach der Papieränderung ergeben sich 0/0/0, 3/1/3, 12/4/12 und 24/8/24. Nur der Papierbedarf ändert sich.</p><p>Der Schleifenblock verarbeitet immer die drei Materialeinträge, auch bei null Gruppen. Dann sind die berechneten Mengen null. Mit einem vierten Material gibt es vier Durchläufe; eine Änderung der Gruppenanzahl verändert die Multiplikation, nicht die Länge dieser Liste. Gruppennamen wegzulassen ist hier sinnvoll; Einheiten wegzulassen macht den Plan unklar.</p><p>Eine falsche Menge kann an einer falschen Vorgabe, einer falschen Rechnung oder der geöffneten Dateiversion liegen. Ein bloßes „funktioniert“ nennt weder die Eingabe noch die erwartete Ausgabe und ist kein nachvollziehbares Testprotokoll.</p></details>\n<p class=\"small\">Zum Nachlesen der verwendeten Schleife: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement\" target=\"_blank\" rel=\"noopener\">MDN: JavaScript-Schleifen (Englisch)</a>.</p>\n{{QUIZ_dgb7_production_abstraction}}{{QUIZ_dgb7_production_code_change}}</div>"
       },
       {
         "id": "sec3",
@@ -11943,7 +12150,7 @@
             ]
           }
         ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>"
+        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>"
       },
       {
         "id": "sec4",

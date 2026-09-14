@@ -1,114 +1,108 @@
-// Logic for rechenbeispiele topic
+// Practice state stays on the page. The separate chapter check owns saved mastery.
+const calculationStates = new WeakMap();
+
 function topicInit() {
-    enhanceCalculationAccessibility();
-}
-
-function enhanceCalculationAccessibility() {
-    const exerciseIds = ['inputSec', 'inputKg', 'inputMeter', 'inputV', 'inputS', 'inputGraph'];
-
-    exerciseIds.forEach((id) => {
-        const input = document.getElementById(id);
-        if (!input) return;
-        const zone = input.closest('.interactive-zone');
-        const feedback = zone ? zone.querySelector('.feedback') : null;
-
-        if (feedback && !feedback.id) {
-            feedback.id = `${id}Feedback`;
-        }
-        if (feedback) {
-            feedback.setAttribute('role', 'status');
-            feedback.setAttribute('aria-live', 'polite');
-            feedback.setAttribute('aria-atomic', 'true');
-            input.setAttribute('aria-describedby', feedback.id);
-        }
-
-        input.setAttribute('inputmode', 'decimal');
-        input.addEventListener('keydown', (event) => {
-            if (event.key !== 'Enter') return;
-            const btn = zone ? zone.querySelector('button[data-check-input]') : null;
-            if (btn) btn.click();
+    document.querySelectorAll('[data-calculation]').forEach(zone => {
+        if (calculationStates.has(zone)) return;
+        const input = zone.querySelector('input');
+        const config = zone.querySelector('template[data-calculation-cases]');
+        if (!input || !config) return;
+        const cases = JSON.parse(config.content.textContent);
+        const state = { cases, index: 0, correct: false };
+        calculationStates.set(zone, state);
+        const feedback = zone.querySelector('.feedback');
+        input.setAttribute('aria-describedby', feedback.id);
+        feedback.setAttribute('aria-atomic', 'true');
+        input.addEventListener('input', () => {
+            state.correct = false;
+            input.removeAttribute('aria-invalid');
+            zone.removeAttribute('data-result');
+            feedback.textContent = 'Eingabe geändert. Prüfe dein neues Ergebnis.';
+            updateCalculationProgress();
         });
-
-        const btn = zone ? zone.querySelector('button[data-check-input]') : null;
-        if (!btn || btn.dataset.boundCheckInput === 'true') return;
-        btn.dataset.boundCheckInput = 'true';
-        btn.addEventListener('click', () => {
-            const targetId = btn.dataset.checkInput;
-            const expectedValue = Number(btn.dataset.expected);
-            const points = Number(btn.dataset.points || '0');
-            checkInput(targetId, expectedValue, points, btn);
+        input.addEventListener('keydown', event => {
+            if (event.key === 'Enter') { event.preventDefault(); checkInput(input.id); }
         });
+        zone.querySelector('[data-check-input]').addEventListener('click', () => checkInput(input.id));
+        zone.querySelector('[data-calculation-next]').addEventListener('click', () => {
+            state.index = (state.index + 1) % cases.length;
+            renderCalculationCase(zone);
+            input.focus();
+        });
+        renderCalculationCase(zone);
     });
+    updateCalculationProgress();
 }
 
-function checkInput(inputId, expectedValue, points, btn) {
-    const input = document.getElementById(inputId);
-    if (!input || !btn) return;
-
-    const val = parseFloat(input.value.replace(',', '.'));
-    const feedback = btn.nextElementSibling;
-
-    if (btn.disabled || Number.isNaN(val)) {
-        if (feedback && Number.isNaN(val)) {
-            feedback.innerText = "Bitte zuerst eine Zahl eingeben (Dezimalzahl mit Punkt oder Komma).";
-            feedback.style.color = 'var(--wrong)';
-        }
-        return;
-    }
-
-    if (isCloseEnough(val, expectedValue)) {
-        handleAnswer(btn, true, points, "Exakt richtig!");
-        input.disabled = true;
-        return;
-    }
-
-    btn.style.background = 'var(--wrong)';
-    if (feedback) {
-        feedback.innerText = getHintForInput(inputId, val, expectedValue);
-        feedback.style.color = 'var(--wrong)';
-    }
-
-    setTimeout(() => {
-        btn.style.background = '#0097A7';
-    }, 1500);
+function renderCalculationCase(zone) {
+    const state = calculationStates.get(zone), current = state.cases[state.index];
+    const input = zone.querySelector('input');
+    state.correct = false;
+    zone.removeAttribute('data-result');
+    zone.querySelector('[data-calculation-question]').textContent = current.question;
+    zone.querySelector('[data-calculation-unit]').textContent = current.unit;
+    zone.querySelector('[data-calculation-case]').textContent = `Aufgabe ${state.index + 1} von ${state.cases.length}`;
+    zone.querySelector('.feedback').textContent = '';
+    zone.querySelector('[data-calculation-help]').open = false;
+    zone.querySelector('[data-calculation-help] p').textContent = current.hint;
+    input.value = '';
+    input.removeAttribute('aria-invalid');
+    if (current.graph) renderCalculationGraph(zone, current.graph);
+    updateCalculationProgress();
 }
 
-function isCloseEnough(val, expectedValue) {
-    return Math.abs(val - expectedValue) < 0.01;
+function checkInput(inputId) {
+    const input = document.getElementById(inputId), zone = input?.closest('[data-calculation]');
+    const state = zone && calculationStates.get(zone);
+    if (!state) return;
+    const feedback = zone.querySelector('.feedback'), current = state.cases[state.index];
+    const raw = input.value.trim(), value = Number(raw.replace(',', '.'));
+    state.correct = false;
+    if (!/^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)$/.test(raw) || !Number.isFinite(value)) {
+        input.setAttribute('aria-invalid', 'true');
+        zone.dataset.result = 'invalid';
+        feedback.textContent = 'Gib einen Zahlenwert mit Komma oder Punkt ein. Die Einheit steht am Feld; weitere Zeichen gehören nicht in die Eingabe.';
+    } else {
+        input.removeAttribute('aria-invalid');
+        state.correct = value === current.answer;
+        zone.dataset.result = state.correct ? 'correct' : 'incorrect';
+        feedback.textContent = state.correct ? 'Richtig. ' + current.solution : 'Noch nicht. ' + current.hint;
+    }
+    updateCalculationProgress();
 }
 
-function getHintForInput(inputId, val, expectedValue) {
-    const common = "❌ Das stimmt noch nicht ganz. Rechne den Umrechnungsfaktor und den Rechenweg Schritt für Schritt.";
+function updateCalculationProgress() {
+    const zones = [...document.querySelectorAll('[data-calculation]')];
+    const correct = zones.filter(zone => calculationStates.get(zone)?.correct).length;
+    const message = document.querySelector('[data-calculation-progress]');
+    const bar = document.querySelector('.calculation-progress progress');
+    if (message) message.textContent = `${correct} von ${zones.length} aktuellen Aufgaben richtig geprüft. Andere Zahlen beginnen für diese Aufgabe einen neuen Versuch.`;
+    if (bar) { bar.max = zones.length; bar.value = correct; }
+}
 
-    if (inputId === 'inputSec') {
-        return val < expectedValue
-            ? "❌ Zu klein. Denk an: 1 h = 3600 s. Erst 2,5 h × 60 (Minuten), dann × 60 (Sekunden)."
-            : "❌ Zu groß. Prüfe, ob du beim Umrechnen Stunden → Sekunden nicht doppelt multipliziert hast.";
-    }
-
-    if (inputId === 'inputKg') {
-        return "❌ Tipp: Erst alles in kg umrechnen (800 g = 0,8 kg, 1200 g = 1,2 kg), dann addieren.";
-    }
-
-    if (inputId === 'inputMeter') {
-        return "❌ Tipp: 2,4 km zuerst in Meter umrechnen (2400 m), danach 350 m abziehen.";
-    }
-
-    if (inputId === 'inputV') {
-        return val > expectedValue
-            ? "❌ Prüfe die Formel: v = s ÷ t. Du hast wahrscheinlich multipliziert statt dividiert."
-            : "❌ Prüfe die Division: 120 ÷ 4 ergibt 30.";
-    }
-
-    if (inputId === 'inputS') {
-        return val < expectedValue
-            ? "❌ Zu klein. Für die Strecke gilt s = v · t, also 5 · 12."
-            : "❌ Zu groß. Für die Strecke gilt s = v · t, nicht s = v ÷ t.";
-    }
-
-    if (inputId === 'inputGraph') {
-        return "❌ Lies zuerst den Punkt aus dem Diagramm (bei 10 s sind es 50 m) und nutze dann v = s ÷ t.";
-    }
-
-    return common;
+function renderCalculationGraph(zone, points) {
+    const maxTime = Math.max(...points.map(point => point[0]));
+    const maxDistance = Math.ceil(Math.max(...points.map(point => point[1])) / 10) * 10;
+    const x = time => 44 + time / maxTime * 250;
+    const y = distance => 190 - distance / maxDistance * 150;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 360 250');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'Kumulierte Strecke im Modell: ' + points.map(([time, distance]) => `${distance} m bei ${time} s`).join('; '));
+    // All interpolated values come from numeric exercise data, never from user input.
+    svg.innerHTML = '<rect width="360" height="250" fill="white"/>' +
+        '<path d="M44 30 V190 H320" fill="none" stroke="#172033" stroke-width="2"/>' +
+        `<polyline data-calculation-line points="${points.map(([time,distance]) => `${x(time)},${y(distance)}`).join(' ')}" fill="none" stroke="#1765a8" stroke-width="3"/>` +
+        points.map(([time,distance]) => `<circle cx="${x(time)}" cy="${y(distance)}" r="4" fill="#995000"/><text x="${x(time)}" y="213" text-anchor="middle">${time}</text>`).join('') +
+        Array.from({length: maxDistance / (maxDistance > 50 ? 20 : 10) + 1}, (_, index) => {
+            const distance = index * (maxDistance > 50 ? 20 : 10);
+            return `<line x1="40" y1="${y(distance)}" x2="44" y2="${y(distance)}" stroke="#172033"/><text x="35" y="${y(distance)+5}" text-anchor="end">${String(distance).replace('.',',')}</text>`;
+        }).join('') +
+        '<text x="180" y="239" text-anchor="middle">Zeit in s</text><text x="14" y="117" transform="rotate(-90 14 117)" text-anchor="middle">Strecke in m</text>';
+    zone.querySelector('[data-calculation-graph]').replaceChildren(svg);
+    const table = document.createElement('table');
+    table.dataset.calculationTable = '';
+    table.innerHTML = '<caption>Vorgegebene Modelldaten</caption><thead><tr><th scope="col">Zeit in s</th><th scope="col">Kumulierte Strecke in m</th></tr></thead><tbody>' +
+        points.map(([time,distance]) => `<tr><th scope="row">${time}</th><td>${distance}</td></tr>`).join('') + '</tbody>';
+    zone.querySelector('[data-calculation-data]').replaceChildren(table);
 }

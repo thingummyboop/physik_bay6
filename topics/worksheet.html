@@ -16,10 +16,15 @@
         #ws-art-material { overflow-wrap: anywhere; } #ws-art-material svg { max-width: 100%; height: auto; } #ws-art-material figure { break-inside: avoid; margin: 1rem 0; } #ws-art-material table { border-collapse: collapse; width: 100%; } #ws-art-material th, #ws-art-material td { border: 1px solid #888; padding: .4rem; text-align: left; }
         .worksheet-reflection { break-inside: avoid; margin-block: 1.2rem; }
         .ws-chapter-material { overflow-wrap: anywhere; }
-        .ws-chapter-material table { border-collapse: collapse; width: 100%; font-size: .9rem; }
-        .ws-chapter-material th, .ws-chapter-material td { border: 1px solid #888; padding: .35rem; text-align: left; }
-        .ws-chapter-material h3, .ws-chapter-material h4 { break-after: avoid; }
-        .ws-chapter-material tr { break-inside: avoid; }
+        #ws-content table { border-collapse: collapse; width: 100%; font-size: .9rem; overflow-wrap: normal; word-break: normal; }
+        #ws-content th, #ws-content td { border: 1px solid #888; padding: .35rem; text-align: left; vertical-align: top; }
+        #ws-content th a, #ws-content td a { overflow-wrap: anywhere; }
+        #ws-content :is(h2,h3,h4,h5,caption,thead) { break-after: avoid; }
+        #ws-content table, #ws-content tr { break-inside: avoid; }
+        .ws-section-header { break-inside: avoid; break-after: avoid; }
+        .ws-section-link { font-size: .85rem; margin-block: .4rem 1rem; }
+        .ws-section-link a { display: block; }
+        #ws-content p { orphans: 3; widows: 3; }
         .ws-chapter-material svg[data-worksheet-static] { display: block; width: 100%; max-width: 24rem; height: auto; break-inside: avoid; }
         .ws-chapter-material figure { margin: 1rem 0; break-inside: avoid; }
         .exercise-item { margin-bottom: 15px; font-size: 1.2em; }
@@ -28,12 +33,12 @@
             .no-print { display: none !important; }
         }
     </style>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../js/curriculum.js"></script><script src="../js/worksheet_generator.js?v=1.3"></script>
 </head>
 <body>
     <div class="no-print" style="text-align: center; margin-bottom: 40px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 2px dashed #cbd5e1;">
-        <p id="ws-description">Das Arbeitsblatt wird vorbereitet.</p><p><a id="ws-chapter-link" href="../index.html">Zur Kapitelübersicht</a></p><label id="ws-solution-control" hidden><input id="ws-include-solutions" type="checkbox"> Lösungen anzeigen und mitdrucken</label>
+        <p id="ws-description">Das Arbeitsblatt wird vorbereitet.</p><p id="ws-math-status" role="status" hidden></p><p><a id="ws-chapter-link" href="../index.html">Zur Kapitelübersicht</a></p><label id="ws-solution-control" hidden><input id="ws-include-solutions" type="checkbox"> Lösungen anzeigen und mitdrucken</label>
         <p id="ws-material-control" hidden><label><input id="ws-include-material" type="checkbox" checked> <span id="ws-material-label">Lerntexte, Bildvorlagen und Gestaltungsauftrag mitdrucken</span></label></p>
         <button id="ws-print" disabled class="print-btn" onclick="window.print()">🖨️ Jetzt drucken (als PDF oder auf Papier)</button>
     </div>
@@ -47,6 +52,6 @@
     
     <div id="ws-content">Lade Fragen...</div>
 
-    <script src="../js/worksheet.js"></script>
+    <script src="../js/worksheet.js" defer></script>
 </body>
 </html>

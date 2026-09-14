@@ -6,13 +6,14 @@ const samples=[
  {id:'dgb7_produktion',material:false,solutions:true},
  {id:'sieinheiten',material:false,solutions:false},
  {id:'math1_5_geo_grundbegriffe',material:false,solutions:true},
+ {id:'math1_8_brueche',material:false,solutions:false},
  {id:'chemie_metalle_redox',material:false,solutions:true},
  {id:'bio_1_wirbeltiere',material:true,solutions:false}
 ];
 (async()=>{
  fs.mkdirSync(output,{recursive:true});const browser=await chromium.launch({headless:true}),rows=[];
  try{
-  const context=await browser.newContext({viewport:{width:1000,height:900}});
+  const context=await browser.newContext({viewport:{width:Math.round(180*96/25.4),height:900}});
   for(const sample of samples){
    const page=await context.newPage();page.setDefaultTimeout(15000);
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -34,7 +35,7 @@ const samples=[
   await page.emulateMedia({media:'print'});await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('.filters').isVisible(),false);assert.equal(await page.locator('#selected > li').count(),3);
   await page.pdf({path:path.join(output,'teacher-study-plan.pdf'),format:'A4',printBackground:true,margin:{top:'15mm',right:'15mm',bottom:'15mm',left:'15mm'}});
-  fs.writeFileSync(path.join(output,'print-smoke-report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),scope:'A4 exports of six worksheet variants and one three-chapter teaching list; PDFs still require pagination and visual inspection.',rows},null,2)+'\n');
+  fs.writeFileSync(path.join(output,'print-smoke-report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),scope:'A4 exports of seven worksheet variants and one three-chapter teaching list; PDFs still require pagination and visual inspection.',rows},null,2)+'\n');
   console.log(JSON.stringify(rows,null,2));console.log('Exported teacher-study-plan.pdf.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

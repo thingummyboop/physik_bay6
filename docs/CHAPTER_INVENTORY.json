@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "418956eb18b2618718209a3be4cca92ac2697a4cd82e0d6888dd656cede174e0",
-    "lang/de.json": "b759d6b1dbdb25628b67606782f6eed8cdedde0bd2c175bea96cd7f5109b1547"
+    "lang/de.json": "3088e724f45597e83a0ab8e8fd51628bc3061103100216dc93c91a0e079328ea"
   },
   "subjects": {
     "physik": {
@@ -26,7 +26,7 @@
             "Messgrößen mit Zahlenwert und Einheit angeben.",
             "Messwerte mit Gerät, Einheit und Bedingungen dokumentieren und Grenzen der Genauigkeit erklären.",
             "Längen, Massen und Zeiten in passende Einheiten umrechnen.",
-            "Geschwindigkeit berechnen und Messwerte aus Diagrammen lesen."
+            "Mittlere Geschwindigkeiten einschließlich Pausen berechnen und Datenpaare sowie Änderungen aus Diagrammen lesen."
           ],
           "summaryCount": 5,
           "sections": [
@@ -35,7 +35,8 @@
               "index": 0,
               "title": "1. Messen: Zahlenwert und Einheit",
               "questions": [
-                "q1"
+                "q1",
+                "f1"
               ]
             },
             {
@@ -60,15 +61,21 @@
               "index": 3,
               "title": "4. Pr&auml;fixe und Umrechnen",
               "questions": [
-                "q3"
+                "q3",
+                "f2",
+                "f3",
+                "f4",
+                "f5",
+                "f6"
               ]
             },
             {
               "id": "sec4",
               "index": 4,
-              "title": "5. Diagramme: Aus Tabellen werden Kurven",
+              "title": "5. Diagramme: Wertepaare und Änderungen",
               "questions": [
-                "q5"
+                "q5",
+                "f9"
               ]
             },
             {
@@ -76,12 +83,15 @@
               "index": 5,
               "title": "6. Formeln: Weg, Zeit, Geschwindigkeit",
               "questions": [
-                "q4"
+                "q4",
+                "f7",
+                "f8",
+                "f10"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 7,
+          "questionCount": 17,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -1678,62 +1688,70 @@
           "sourcePresent": true,
           "source": "lang/de.json#/rechenbeispiele",
           "goals": [
-            "Einheiten vor einer Rechnung vereinheitlichen.",
-            "Gesuchte Größen mit v = s/t, s = v · t und t = s/v berechnen.",
-            "Rechenergebnisse an Einheiten und Diagrammen prüfen."
+            "Einheiten vor dem Addieren, Subtrahieren und Einsetzen passend umrechnen.",
+            "Strecken, Zeiten und mittlere Geschwindigkeiten einschließlich Pausen berechnen.",
+            "Zeitintervalle aus einer Tabelle und einem Diagramm auswerten.",
+            "Ergebnisse durch Rückrechnung, Einheiten und Modellgrenzen prüfen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "sec0",
               "index": 0,
-              "title": "1. SI-Einheiten: Die Zeit-Maschine",
-              "questions": []
+              "title": "1. Zeitangaben passend umrechnen",
+              "questions": [
+                "q2"
+              ]
             },
             {
               "id": "sec1",
               "index": 1,
-              "title": "2. Basisgrößen: Die Gepäck-Kontrolle (Masse)",
-              "questions": []
+              "title": "2. Massen addieren und subtrahieren",
+              "questions": [
+                "q5",
+                "q10"
+              ]
             },
             {
               "id": "sec2",
               "index": 2,
-              "title": "3. Präfixe: Das Laser-Messgerät",
-              "questions": []
+              "title": "3. Strecken und Vorsilben",
+              "questions": [
+                "q1",
+                "q6"
+              ]
             },
             {
               "id": "sec3",
               "index": 3,
-              "title": "4. Formeln: Der Geschwindigkeits-Blitzer (v = s / t)",
-              "questions": []
+              "title": "4. Strecke, Zeit und mittlere Geschwindigkeit",
+              "questions": [
+                "q3",
+                "q4",
+                "q7",
+                "q8"
+              ]
             },
             {
               "id": "sec4",
               "index": 4,
-              "title": "5. Diagramme auswerten: Mathe mit Bildern",
-              "questions": []
+              "title": "5. Diagramme und Zeitintervalle",
+              "questions": [
+                "q9"
+              ]
             },
             {
               "id": "sec5",
               "index": 5,
-              "title": "🎓 Die Meister-Prüfung der Berechnungen",
+              "title": "6. Einen Schulweg auswerten und Aussagen prüfen",
               "questions": [
-                "q1",
-                "q2",
-                "q3",
-                "q4",
-                "q5",
-                "q6",
-                "q7",
-                "q8",
-                "q9",
-                "q10"
+                "q11",
+                "q12"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 10,
+          "questionCount": 12,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         }
