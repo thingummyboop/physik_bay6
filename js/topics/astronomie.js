@@ -14,6 +14,7 @@ function topicInit() {
     updateGravity();
     calcSpeed();
     if (typeof updateCannonball === 'function') updateCannonball();
+    initAstronomyOrbitWorkshops();
 }
 
 function enhanceAstronomieAccessibility() {
@@ -352,4 +353,112 @@ function updateCannonball() {
             // Some browsers do not allow restarting SMIL animations programmatically.
         }
     }
+}
+
+// Dimensionless two-body models. Distances in the launch model use r_start = 1,
+// body radius = 0.5, gravitational parameter = 1; speed is relative to circular speed.
+// Old functions above remain available for existing translated chapter structures.
+function astronomyKeplerPoint(meanAnomaly) {
+    const e = 0.6, b = 0.8;
+    let E = meanAnomaly;
+    for (let i = 0; i < 15; i++) E -= (E - e * Math.sin(E) - meanAnomaly) / (1 - e * Math.cos(E));
+    const x = Math.cos(E) - e, y = b * Math.sin(E), radius = 1 - e * Math.cos(E);
+    return { x, y, radius, speed: Math.sqrt(2 / radius - 1), E };
+}
+function astronomyOrbitCase(ratio) {
+    const p = ratio * ratio, k = p - 1, e = Math.abs(k), surface = 0.5;
+    const escaping = p >= 2 - 1e-12;
+    const circular = Math.abs(k) < 1e-12;
+    const periapsis = p / (1 + e);
+    const impact = !escaping && periapsis <= surface;
+    let end = 2 * Math.PI;
+    if (impact) end = Math.acos((p / surface - 1) / k);
+    // An escaping path is drawn only until r = 4. It does not end there physically.
+    if (escaping) end = Math.acos((p / 4 - 1) / k);
+    const points = Array.from({ length: 361 }, (_, i) => {
+        const theta = end * i / 360, radius = p / (1 + k * Math.cos(theta));
+        return { x: radius * Math.sin(theta), y: -radius * Math.cos(theta), radius };
+    });
+    const kind = impact ? 'impact' : circular ? 'circle' : escaping ? 'escape' : 'ellipse';
+    return { ratio, p, k, e, kind, points, periapsis, apoapsis: escaping ? null : p / (1 - e) };
+}
+function initAstronomyOrbitWorkshops() {
+    const kepler = document.querySelector('[data-kepler-workshop]');
+    const orbit = document.querySelector('[data-orbit-workshop]');
+    if (kepler && !kepler.dataset.initialized) {
+        kepler.dataset.initialized = 'true';
+        kepler.querySelector('select').addEventListener('change', updateKeplerWorkshop);
+        kepler.querySelector('button').addEventListener('click', () => {
+            kepler.querySelector('select').value = '0'; updateKeplerWorkshop(); kepler.querySelector('select').focus();
+        });
+        updateKeplerWorkshop();
+    }
+    if (orbit && !orbit.dataset.initialized) {
+        orbit.dataset.initialized = 'true';
+        orbit.querySelector('select').addEventListener('change', updateOrbitWorkshop);
+        orbit.querySelector('button').addEventListener('click', () => {
+            orbit.querySelector('select').value = '2'; updateOrbitWorkshop(); orbit.querySelector('select').focus();
+        });
+        updateOrbitWorkshop();
+    }
+}
+function updateKeplerWorkshop() {
+    const zone = document.querySelector('[data-kepler-workshop]');
+    if (!zone) return;
+    const step = Number(zone.querySelector('select').value), tau = 2 * Math.PI;
+    const point = astronomyKeplerPoint(tau * step / 8), project = q => `${230 + 125 * q.x},${125 - 125 * q.y}`;
+    const arc = Array.from({ length: 81 }, (_, i) => astronomyKeplerPoint(tau * (Math.max(0, step - 1) + i / 80) / 8));
+    zone.querySelector('[data-kepler-area]').setAttribute('d', step ? 'M 230,125 L ' + arc.map(project).join(' L ') + ' Z' : '');
+    const marker = zone.querySelector('[data-kepler-point]');
+    marker.setAttribute('cx', 230 + 125 * point.x); marker.setAttribute('cy', 125 - 125 * point.y);
+    const radiusLine = zone.querySelector('[data-kepler-radius]');
+    radiusLine.setAttribute('x2', 230 + 125 * point.x); radiusLine.setAttribute('y2', 125 - 125 * point.y);
+    const fmt = value => value.toFixed(2).replace('.', ',');
+    zone.querySelector('[data-kepler-status]').textContent = `Zeit: ${step}/8 einer Umlaufzeit. Abstand zur Sonne: ${fmt(point.radius)} Längeneinheiten. Tempo: ${fmt(point.speed)} Tempoeinheiten. ` + (step ? 'Die markierte Fläche gehört zum letzten Zeitschritt: 1/8 der gesamten Ellipsenfläche.' : 'Start in Sonnennähe; noch kein Zeitschritt und keine überstrichene Fläche.');
+    const rows = zone.querySelectorAll('tbody tr');
+    rows.forEach((row, index) => {
+        const q = astronomyKeplerPoint(tau * index / 8);
+        row.cells[1].textContent = fmt(q.radius); row.cells[2].textContent = fmt(q.speed);
+        row.cells[3].textContent = index === step ? 'ausgewählt' : '–';
+        if (index === step) row.setAttribute('aria-current', 'true'); else row.removeAttribute('aria-current');
+    });
+    zone.querySelector('svg').setAttribute('aria-label', `Ellipsenbahn mit Sonne im Brennpunkt. Markierter Planet bei ${step}/8 der Umlaufzeit. ` + (step ? 'Fläche des letzten gleich langen Zeitabschnitts hervorgehoben.' : 'Start am sonnennächsten Punkt.'));
+}
+function updateOrbitWorkshop() {
+    const zone = document.querySelector('[data-orbit-workshop]');
+    if (!zone) return;
+    const ratios = [0.5, 0.9, 1, 1.2, Math.SQRT2, 1.6];
+    const index = Number(zone.querySelector('select').value), model = astronomyOrbitCase(ratios[index]);
+    zone.dataset.orbitKind = model.kind;
+    const pts = model.points;
+    // Fit the path and body together with identical x/y scale; the scale label
+    // explicitly changes with the selected case. Marker sizes are symbolic.
+    const minX = Math.min(-0.5, ...pts.map(q => q.x)), maxX = Math.max(0.5, ...pts.map(q => q.x));
+    const minY = Math.min(-1.35, ...pts.map(q => q.y)), maxY = Math.max(0.5, ...pts.map(q => q.y));
+    const scale = Math.min(290 / (maxX - minX), 230 / (maxY - minY));
+    const ox = 180 - scale * (minX + maxX) / 2, oy = 150 - scale * (minY + maxY) / 2;
+    const svg = zone.querySelector('svg'), line = zone.querySelector('[data-orbit-path]');
+    line.setAttribute('d', 'M ' + pts.map(q => `${ox + scale * q.x},${oy + scale * q.y}`).join(' L '));
+    const body = zone.querySelector('[data-orbit-body]');
+    body.setAttribute('cx', ox); body.setAttribute('cy', oy); body.setAttribute('r', scale / 2);
+    const start = zone.querySelector('[data-orbit-start]');
+    start.setAttribute('cx', ox); start.setAttribute('cy', oy - scale);
+    const end = zone.querySelector('[data-orbit-end]');
+    end.setAttribute('cx', ox + scale * pts.at(-1).x); end.setAttribute('cy', oy + scale * pts.at(-1).y);
+    end.setAttribute('visibility', model.kind === 'impact' || model.kind === 'escape' ? 'visible' : 'hidden');
+    const velocity = zone.querySelector('[data-orbit-velocity]'), gravity = zone.querySelector('[data-orbit-gravity]');
+    for (const arrow of [velocity, gravity]) { arrow.setAttribute('x1', ox); arrow.setAttribute('y1', oy - scale); }
+    velocity.setAttribute('x2', ox + scale * 0.3 * model.ratio); velocity.setAttribute('y2', oy - scale);
+    gravity.setAttribute('x2', ox); gravity.setAttribute('y2', oy - scale * 0.7);
+    zone.querySelector('[data-orbit-scale]').textContent = 'Beim Fallwechsel wird die Ansicht angepasst. Vergleiche Abstände mit dem Körperradius, nicht mit Zentimetern auf deinem Bildschirm.';
+    const explanations = [
+        'Aufprall: Die Bahn trifft die Oberfläche. Die halbe Kreisbahngeschwindigkeit reicht bei dieser Starthöhe nicht für eine freie Umlaufbahn.',
+        'Ellipse: Die Bahn bleibt frei über der Oberfläche. Ihr tiefster Punkt liegt näher am Körper als der Start. Auch etwas langsamer als die Kreisbahngeschwindigkeit ist hier eine Umlaufbahn möglich.',
+        'Kreisbahn: Der Abstand zum Mittelpunkt bleibt gleich. Die Gravitation ändert fortlaufend die Bewegungsrichtung; sie ist nicht verschwunden.',
+        'Ellipse: Der Start ist der nächste Bahnpunkt am Körper. Die Bahn führt weiter hinaus und wieder zurück. 20 % mehr Anfangstempo bedeutet noch keine Flucht.',
+        'Fluchtgrenze (etwa 1,41-faches Kreisbahntempo): Die Bahn ist offen (eine Parabel). Ohne weitere Einflüsse kehrt der Körper nicht zurück; sein Tempo nimmt beim Entfernen immer weiter ab. Gravitation wirkt weiterhin.',
+        'Über der Fluchtgrenze: Die Bahn ist offen (eine Hyperbel). Der Körper kehrt ohne weitere Einflüsse nicht zurück und behält auch in sehr großer Entfernung ein Resttempo.'
+    ];
+    zone.querySelector('[data-orbit-status]').textContent = explanations[index] + (model.kind === 'escape' ? ' Der markierte Endpunkt ist nur die Zeichnungsgrenze bei acht Körperradien, kein Ende der Bewegung.' : '');
+    svg.setAttribute('aria-label', 'Modellbahn nach waagrechtem Start. ' + explanations[index]);
 }

@@ -10,6 +10,10 @@
     --text: #2d3748;
     --correct: #4CAF50; 
     --wrong: #E91E63; 
+    --answer-correct-bg: #166534;
+    --answer-wrong-bg: #9f1239;
+    --feedback-correct: #166534;
+    --feedback-wrong: #9f1239;
     --card-bg: #ffffff;
     --box-border: #e2e8f0;
     --interactive-bg: #e3f2fd;
@@ -17,6 +21,8 @@
 }
 
 [data-theme="dark"] {
+    --feedback-correct: #86efac;
+    --feedback-wrong: #fda4af;
     --primary: #64b5f6; 
     --secondary: #ffb74d;
     --heading: #ffb74d;
@@ -1758,6 +1764,11 @@ h2 { color: var(--heading); border-bottom: 2px solid var(--box-border); padding-
     padding: 10px 12px;
     text-align: left;
     width: 100%;
+}
+
+/* Keep answer text and background legible during state changes as well. */
+.practice-box button {
+    transition: transform .2s, box-shadow .2s, border-color .2s;
 }
 
 .practice-box button:hover:not(:disabled),

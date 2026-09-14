@@ -194,18 +194,18 @@ function handlePracticeAnswer(btn, isCorrect, customMsg = null) {
     if (isCorrect) {
         playSuccessSound();
         btn.classList.add('is-correct');
-        btn.style.background = "var(--correct)";
+        btn.style.background = "var(--answer-correct-bg, #166534)";
         if (fb) {
             fb.innerText = customMsg ? "✅ " + customMsg : "✅ " + commonText("Richtig. Genau diese Idee ist wichtig.");
-            fb.style.color = "var(--correct)";
+            fb.style.color = "var(--feedback-correct, #166534)";
         }
     } else {
         btn.classList.add('is-wrong');
-        btn.style.background = "var(--wrong)";
-        btn.style.opacity = "0.72";
+        btn.style.background = "var(--answer-wrong-bg, #9f1239)";
+        btn.style.opacity = "1";
         if (fb) {
             fb.innerText = customMsg ? "❌ " + customMsg : "❌ " + commonText("Noch nicht. Lies den Abschnitt noch einmal und probiere es neu.");
-            fb.style.color = "var(--wrong)";
+            fb.style.color = "var(--feedback-wrong, #9f1239)";
         }
     }
 }
