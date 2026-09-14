@@ -86,3 +86,7 @@ Zwei fehleranfällige Bahngrafiken durch berechnete Modelle ersetzt: gleiche Zei
 ### Astronomie: Quellenkritik und sämtliche Fragen (14.09.2026)
 
 Alle 85 Frageformulierungen und Antwortoptionen im Astronomie-Kapitel sind nun überarbeitet: neun aus der Bahnmodellrunde, weitere 76 in diesem Schritt. Anwendung und Aussagegrenzen von Beobachtungen, Quellen und Bildern ergänzen die Sachfragen. Zehn Abschlussfragen stehen bei ihren passenden Abschnitten, Revision 3. Die datierte Saturn-Quellenaufgabe und das fiktive Wiener Hochwasser-Bildbeispiel stärken das Unterscheiden von Befund und Schlussfolgerung. DOM- und echte Browserprüfungen aller Antwortoptionen ersetzen keine Gesamtprüfung des Kapitels. Der Sonnensystem-Scanner, weitere Modelle und Forschungsangaben bleiben offen. Nachweise: ASTRONOMIE_FRAGENPRUEFUNG.md.
+
+### Astronomie: Maßstab und Modellkritik (14.09.2026)
+
+Der bisher offene Sonnensystem-Scanner ist durch einen bedienbaren Datenvergleich ersetzt. Vermuten, mit Zahlen prüfen, proportional umrechnen und die Aussagegrenzen einer Darstellung begründen stehen im Mittelpunkt. Die fiktive 200-m-Planung für eine Wiener Schulklasse verknüpft Physik und Mathematik, ohne einen realen Ort vorzugeben. Zwei neue Transferfragen, Revision 4, Papieralternative und Lösung. Modell- und Browserprüfung sowie ausgewählte Druckseiten bestanden; Gesamtprüfung der Vertiefung und der Lehrplanabdeckung bleiben offen. Nachweise: ASTRONOMIE_SONNENSYSTEM_MODELL.md.

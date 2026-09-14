@@ -63,21 +63,21 @@ const close=(a,b,tolerance=1e-9)=>assert.ok(Math.abs(a-b)<tolerance,`${a} differ
    w.currentChapterQuiz.questions.forEach((question,i)=>{const answer=i===index?choice:question.answers.findIndex(a=>a.correct);d.querySelector(`input[name="chapter_q_${i}"][value="${answer}"]`).checked=true;});
    w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).astronomie;
    assert.equal(result.lastPercent,choice===correct?100:Math.round((w.currentChapterQuiz.questions.length-1)/w.currentChapterQuiz.questions.length*100));
-   if(choice!==correct)assert.deepEqual(result.reviewQuestionIds,[id]);assert.equal(result.contentRevision,3);
+   if(choice!==correct)assert.deepEqual(result.reviewQuestionIds,[id]);assert.equal(result.contentRevision,4);
    assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
   }
  }
- assert.equal(w.currentChapterResult('astronomie',{contentRevision:2,passed:true,bestPercent:100}).passed,false);
+ assert.equal(w.currentChapterResult('astronomie',{contentRevision:3,passed:true,bestPercent:100}).passed,false);
  const assessed=w.currentChapterQuiz.questions.length;dom.window.close();
  const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/topics/worksheet.html?topic=astronomie',runScripts:'outside-only'}),pw=paper.window,pd=pw.document;
  pw.MathJax={typesetPromise:async()=>{}};pw.fetch=async()=>({ok:true,json:async()=>data});for(const file of ['curriculum','worksheet_generator','worksheet'])pw.eval(read('js/'+file+'.js'));await new Promise(resolve=>setImmediate(resolve));
- const material=pd.getElementById('ws-physics-material');assert.equal(material.querySelectorAll('.ws-model-alternative').length,2);assert.equal(material.querySelectorAll('[data-kepler-table] tbody tr').length,9);
+ const material=pd.getElementById('ws-physics-material');assert.equal(material.querySelectorAll('.ws-model-alternative').length,3);assert.equal(material.querySelectorAll('[data-kepler-table] tbody tr').length,9);
  assert.equal(material.querySelectorAll('[data-orbit-paper] tbody tr').length,6);
  for(const row of material.querySelectorAll('[data-orbit-paper] tbody tr'))assert.equal(row.cells.length,3);
  assert.match(material.textContent,/Deine Zuordnung: A: __________ B: __________ C: __________/);
  assert.equal(material.querySelectorAll('[data-kepler-tasks] > li').length,4);assert.equal(material.querySelectorAll('[data-orbit-tasks] > li').length,4);
  assert.equal(material.querySelectorAll('svg[data-worksheet-static=true]').length,1);assert.equal(material.querySelectorAll('select,button,template,[role=status]').length,0);
- assert.equal(pd.querySelectorAll('.ws-paper-solution').length,3);assert.equal(pd.getElementById('ws-solutions').hidden,true);
+ assert.equal(pd.querySelectorAll('.ws-paper-solution').length,4);assert.equal(pd.getElementById('ws-solutions').hidden,true);
  assert.match(pd.getElementById('ws-solutions').textContent,/viermal so groß/);assert.match(pd.getElementById('ws-solutions').textContent,/A trifft die Oberfläche/);
- paper.window.close();console.log(`PASS: nine Kepler states, equal areas, six conics with focus/energy invariants, native change/reset/focus and storage stability, all 27 revised answer paths in ${assessed}-question check, two paper alternatives and separate solutions.`);
+ paper.window.close();console.log(`PASS: nine Kepler states, equal areas, six conics with focus/energy invariants, native change/reset/focus and storage stability, all 27 revised answer paths in ${assessed}-question check, three paper alternatives and separate solutions.`);
 })().catch(error=>{console.error(error);process.exitCode=1;});

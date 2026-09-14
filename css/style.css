@@ -149,15 +149,24 @@ h2 { color: var(--heading); border-bottom: 2px solid var(--box-border); padding-
 
 .astro-image img {
     display: block;
-    width: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    margin-inline: auto;
+    border-radius: 10px;
 }
 
 .astro-image figcaption {
-    color: var(--muted-text, #475569);
+    color: var(--text);
     font-size: 0.9rem;
     line-height: 1.35;
     margin-top: 0.35rem;
 }
+
+.astro-image .astro-image-full { display: block; width: fit-content; max-width: 100%; margin: .35rem auto 0; padding: .35rem; }
+.astro-image .astro-image-full:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 .astro-task {
     border-left: 8px solid #38bdf8;

@@ -15,6 +15,7 @@ function topicInit() {
     calcSpeed();
     if (typeof updateCannonball === 'function') updateCannonball();
     initAstronomyOrbitWorkshops();
+    initSolarWorkshop();
 }
 
 function enhanceAstronomieAccessibility() {
@@ -461,4 +462,48 @@ function updateOrbitWorkshop() {
     ];
     zone.querySelector('[data-orbit-status]').textContent = explanations[index] + (model.kind === 'escape' ? ' Der markierte Endpunkt ist nur die Zeichnungsgrenze bei acht Körperradien, kein Ende der Bewegung.' : '');
     svg.setAttribute('aria-label', 'Modellbahn nach waagrechtem Start. ' + explanations[index]);
+}
+
+function initSolarWorkshop() {
+    const zone = document.querySelector('[data-solar-workshop]');
+    if (!zone || zone.dataset.initialized) return;
+    zone.dataset.initialized = 'true';
+    for (const control of zone.querySelectorAll('select')) control.addEventListener('change', updateSolarWorkshop);
+    zone.querySelector('[data-solar-reset]').addEventListener('click', () => {
+        zone.querySelector('[data-solar-body]').value = '2';
+        zone.querySelector('[data-solar-view]').value = 'orbit';
+        zone.querySelector('[data-solar-scale]').value = '10';
+        updateSolarWorkshop();
+        zone.querySelector('[data-solar-body]').focus();
+    });
+    updateSolarWorkshop();
+}
+function updateSolarWorkshop() {
+    const zone = document.querySelector('[data-solar-workshop]');
+    if (!zone) return;
+    const index = Number(zone.querySelector('[data-solar-body]').value);
+    const orbit = zone.querySelector('[data-solar-view]').value === 'orbit';
+    const earthMm = Number(zone.querySelector('[data-solar-scale]').value);
+    const bodies = [...zone.querySelectorAll('[data-solar-source] tbody tr')].map(row => ({
+        name: row.cells[0].textContent, axis: Number(row.dataset.axisAu), diameter: Number(row.dataset.diameterKm)
+    }));
+    const earthKm = bodies[2].diameter;
+    const fmt = (number, digits) => number.toLocaleString('de-AT', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+    const modelRows = zone.querySelectorAll('[data-solar-model] tbody tr');
+    const bars = zone.querySelectorAll('[data-solar-bars] > li');
+    bodies.forEach((body, i) => {
+        const value = orbit ? body.axis : body.diameter / earthKm;
+        const lengthM = body.axis * 149597870.7 / earthKm * earthMm / 1000;
+        const diameterMm = body.diameter / earthKm * earthMm;
+        bars[i].querySelector('[data-solar-value]').textContent = fmt(value, 2) + (orbit ? ' AE' : ' Erddurchmesser');
+        bars[i].querySelector('[data-solar-bar]').style.width = (value / (orbit ? 40 : 12) * 100) + '%';
+        modelRows[i].cells[1].textContent = fmt(lengthM, 1);
+        modelRows[i].cells[2].textContent = fmt(diameterMm, 2);
+        for (const row of [bars[i], modelRows[i]]) {
+            if (i === index) row.setAttribute('aria-current', 'true'); else row.removeAttribute('aria-current');
+        }
+        if (i === index) zone.querySelector('[data-solar-status]').textContent = `${body.name}: Bei ${fmt(earthMm, 0)} mm Erddurchmesser beträgt der Körperdurchmesser im Modell ${fmt(diameterMm, 2)} mm und die große Halbachse ${fmt(lengthM, 1)} m. Alle Angaben sind gerundete Modellwerte.`;
+    });
+    zone.querySelector('[data-solar-chart-label]').textContent = orbit ? 'Große Halbachse: Balkenskala von 0 bis 40 AE.' : 'Körperdurchmesser: Balkenskala von 0 bis 12 Erddurchmessern.';
+    zone.querySelector('[data-solar-model] caption').textContent = `Verkleinerte Werte: Erde mit ${fmt(earthMm, 0)} mm Durchmesser`;
 }

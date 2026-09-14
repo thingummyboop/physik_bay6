@@ -61,3 +61,15 @@ Fachliche Grundlage der Kontrastberechnung: [W3C WAI, Understanding SC 1.4.3](ht
 ## Übungsantworten und Quellenaufgabe, 14.09.2026
 
 Astronomie: 255 native Antwortauswahlen mit eigenen wiederholbaren Rückmeldungen und unveränderter Übungsspeicherung geprüft, vollständiger 39-Fragen-Kapitelcheck mit gezielter Wiederholung einer verschobenen Abschlussfrage. Bericht vom 2026-09-14T01:15:02.860Z. Separater Test browser_practice_feedback_contrast.js prüft richtige und falsche Schaltflächen samt Rückmeldung im hellen/dunklen CSS-Themenzustand für je ein Kapitel aller fünf Prioritätsfächer. Abschließend 40 Paare mit mindestens 7,01:1, Bericht vom 2026-09-14T01:15:43.205Z. Die vorher entdeckten transparenten Antwortflächen und vorübergehend schlecht lesbaren Farbüberblendungen wurden korrigiert. Ausgewählte Screenshots gelesen; keine globale Kontrastabnahme. Details in ASTRONOMIE_FRAGENPRUEFUNG.md.
+
+### 14.09.2026 – Sonnensystem im Maßstab
+
+Chromium 151.0.7922.34, Bericht 2026-09-14T01:35:56.838Z: 48 Modellzustände, proportionale tatsächlich gerenderte Balken, Tastaturauswahl und Reset/Fokus, sechs neue Übungsantworten, Papierdaten und getrennte Lösungen. Breiten 320/390/1280 ohne Seitenüberlauf. Die Modellwerttabelle passt bei 390 px und benötigt keinen Scrollfokus. Mobile Ansichten und ausgewählte Druckseiten visuell geprüft; Quellenlisten bleiben beim Seitenwechsel zusammen. Keine vollständige erneute Browserprüfung aller Astronomiefragen oder aller Fächer. Details: ASTRONOMIE_SONNENSYSTEM_MODELL.md.
+
+### 14.09.2026 – Astronomie-Abbildungen
+
+Alle 22 externen Bilder dekodiert; 132 Zustände über drei Bildschirmbreiten und zwei Designs auf natürliche Seitenverhältnisse und Einpassen geprüft. Bildunterschrift-/Linkkontrast mindestens 6,06:1. Nativer Tastaturlink zur Quelldatei und Rückkehrfokus erfolgreich. Konkrete vorherige Beschnittfehler an Merkur und kosmischer Zeitleiste behoben; ausgewählte Screenshots visuell verglichen. Browserbericht 2026-09-14T01:48:23.494Z, Chromium 151.0.7922.34. Umfang und Grenzen: ASTRONOMIE_ABBILDUNGEN.md.
+
+### 14.09.2026 – Chemie-Trennplanung
+
+Chromium 151.0.7922.34, Bericht 2026-09-14T02:04:37.667Z: 140 native Kombinationen, vollständige Vorschau gewählter Optionen, bearbeitbare Rückmeldung, Reset/Fokus und unveränderte Modellspeicherung. Neun-Fragen-Check mit 89 % und gezieltem Wiederholungsabschnitt bestanden; 320/390/1280 ohne Seitenüberlauf. Ausgewählte mobile/dunkle Screenshots und Seiten des zehnseitigen A4-Exports gelesen. Kurze Auswahlbezeichnungen mit vollständigem Erklärungstext beheben vorherige mobile Kürzungen; Papieraufträge erscheinen einmal, Versuchsüberschrift bleibt bei der Tabelle. Umfang und Grenzen: CHEMIE_TRENNPLANUNG.md.

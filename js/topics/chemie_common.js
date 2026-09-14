@@ -57,6 +57,10 @@ window.ChemieLabs = (() => {
         document.querySelectorAll('.chem-lab.interactive-zone, .chem-lab').forEach((lab) => {
             if (lab.dataset.chemReady === 'true') return;
             lab.dataset.chemReady = 'true';
+            if (lab.dataset.chemLab === 'separation-planner') {
+                initSeparationPlanner(lab);
+                return;
+            }
             prepareLab(lab);
             bindLab(lab);
             updateChemLab(lab);
@@ -1078,6 +1082,58 @@ window.ChemieLabs = (() => {
         `);
         if (selected) chemStatus(lab, decisions[selected]);
         if (focusedAction) Array.from(lab.querySelectorAll('[data-chem-svg-action]')).find(node => node.dataset.chemSvgAction === focusedAction)?.focus();
+    }
+
+    function initSeparationPlanner(lab) {
+        const config = JSON.parse(lab.querySelector('[data-separation-config]').content.textContent);
+        const scenario = lab.querySelector('[data-separation-case]');
+        const plan = lab.querySelector('[data-separation-plan]');
+        const reason = lab.querySelector('[data-separation-reason]');
+        const result = lab.querySelector('[data-separation-result]');
+        const task = lab.querySelector('[data-separation-task]');
+        task.id = 'separationTask'; scenario.setAttribute('aria-describedby', task.id);
+        const clear = () => {
+            result.hidden = true;
+            lab.querySelector('[data-separation-plan-preview]').textContent = plan.value ? config.plans.find(p => p.id === plan.value).name : 'Die vollständige Beschreibung erscheint nach deiner Auswahl.';
+            lab.querySelector('[data-separation-reason-preview]').textContent = reason.value ? config.reasons[reason.value] : 'Wähle eine Eigenschaft; die vollständige Begründung erscheint hier.';
+            delete lab.dataset.planMatches; delete lab.dataset.reasonMatches;
+            lab.querySelector('[data-separation-flow]').replaceChildren();
+            lab.querySelector('[data-separation-goal-feedback]').textContent = '';
+            lab.querySelector('[data-separation-reason-feedback]').textContent = '';
+            chemStatus(lab, 'Wähle deinen Plan und die Begründung und prüfe sie gemeinsam.');
+        };
+        const reset = () => {
+            const selected = config.cases.find(c => c.id === scenario.value);
+            task.textContent = selected.name + '. ' + selected.task;
+            plan.value = ''; reason.value = ''; clear();
+        };
+        scenario.addEventListener('change', reset);
+        plan.addEventListener('change', clear); reason.addEventListener('change', clear);
+        lab.querySelector('[data-separation-reset]').addEventListener('click', () => { reset(); plan.focus(); });
+        lab.querySelector('[data-separation-check]').addEventListener('click', () => {
+            if (!plan.value || !reason.value) {
+                chemStatus(lab, 'Deine Auswahl ist noch unvollständig. Wähle einen Plan und eine Begründung.');
+                (!plan.value ? plan : reason).focus(); return;
+            }
+            const selectedCase = config.cases.find(c => c.id === scenario.value);
+            const selectedPlan = config.plans.find(p => p.id === plan.value);
+            const planMatches = selectedCase.accepted.includes(plan.value);
+            const reasonMatches = selectedPlan.reason === reason.value;
+            lab.dataset.planMatches = String(planMatches); lab.dataset.reasonMatches = String(reasonMatches);
+            const flow = lab.querySelector('[data-separation-flow]'); flow.replaceChildren();
+            for (const step of selectedPlan.steps) {
+                const item = document.createElement('li'); item.textContent = step; flow.append(item);
+            }
+            const goalFeedback = (planMatches ? 'Trennziel berücksichtigt: ' : 'Trennziel noch nicht erfüllt: ') + selectedCase.outcomes[plan.value];
+            const reasonFeedback = reasonMatches
+                ? 'Begründung zum Verfahrensprinzip passend: ' + config.reasons[reason.value] + (planMatches ? '' : ' Eine passende Verfahrensbeschreibung allein macht den Plan noch nicht passend zu dieser Ausgangslage und diesem Ziel.')
+                : 'Begründung überarbeiten: Du hast gewählt: ' + config.reasons[reason.value] + ' Zum gewählten Ablauf gehört: ' + config.reasons[selectedPlan.reason];
+            lab.querySelector('[data-separation-goal-feedback]').textContent = goalFeedback;
+            lab.querySelector('[data-separation-reason-feedback]').textContent = reasonFeedback;
+            result.hidden = false;
+            chemStatus(lab, (planMatches && reasonMatches ? 'Plan und Begründung passen. ' : 'Prüfe deinen Plan noch einmal. ') + 'Trennziel: ' + (planMatches ? 'berücksichtigt.' : 'noch nicht erfüllt.') + ' Begründung zum Ablauf: ' + (reasonMatches ? 'passend.' : 'überarbeiten.') + ' Die Erklärung steht unter deinem Ablauf.');
+        });
+        reset();
     }
 
     return { topicInit };

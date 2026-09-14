@@ -35,19 +35,19 @@ const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',output=path
   await page.setViewportSize({width:390,height:844});
   await page.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();
   const questions=await page.evaluate(()=>currentChapterQuiz.questions.map(q=>({id:q.id,correct:q.answers.findIndex(a=>a.correct)})));
-  assert.equal(questions.length,39);
+  assert.equal(questions.length,41);
   for(const [i,q]of questions.entries())await page.locator(`input[name="chapter_q_${i}"][value="${q.id==='astro_s4_p1'?1:q.correct}"]`).check();
   await page.locator('.chapter-submit-btn').click();
   const result=await page.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).astronomie);
-  assert.equal(result.lastPercent,97);assert.equal(result.contentRevision,3);assert.deepEqual(result.reviewQuestionIds,['astro_s4_p1']);
+  assert.equal(result.lastPercent,98);assert.equal(result.contentRevision,4);assert.deepEqual(result.reviewQuestionIds,['astro_s4_p1']);
   await page.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();
   assert.ok(await page.locator('#learning-section-3').evaluate(el=>el.contains(document.activeElement)));
   const paper=await context.newPage();await paper.goto(base+'/topics/worksheet.html?topic=astronomie',{waitUntil:'domcontentloaded'});
   await paper.waitForFunction(()=>!document.getElementById('ws-print').disabled);
-  assert.equal(await paper.locator('.ws-model-alternative').count(),2);await paper.locator('#ws-include-solutions').check();assert.equal(await paper.locator('.ws-paper-solution').count(),3);
+  assert.equal(await paper.locator('.ws-model-alternative').count(),3);await paper.locator('#ws-include-solutions').check();assert.equal(await paper.locator('.ws-paper-solution').count(),4);
   if(process.env.SCIVERSE_ORBIT_PDF){await paper.evaluate(()=>document.fonts.ready);await paper.pdf({path:process.env.SCIVERSE_ORBIT_PDF,format:'A4',printBackground:true,preferCSSPageSize:true});}
   assert.deepEqual(errors,[]);
-  fs.writeFileSync(path.join(output,'astronomy-orbits-report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),scope:'Native keyboard selection of nine Kepler times and six launch cases, resets/focus, no practice storage writes, 39-question check and exact review section, paper alternatives. Screenshots/PDF require visual inspection.',widths,result,pageErrors:errors},null,2)+'\n');
-  console.log('PASS: nine Kepler times and six orbit cases via keyboard, reset/focus, widths 320/390/1280, 97% chapter check and section 3 review, two paper alternatives and separate solutions.');
+  fs.writeFileSync(path.join(output,'astronomy-orbits-report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),scope:'Native keyboard selection of nine Kepler times and six launch cases, resets/focus, no practice storage writes, 41-question check and exact review section, paper alternatives. Screenshots/PDF require visual inspection.',widths,result,pageErrors:errors},null,2)+'\n');
+  console.log('PASS: nine Kepler times and six orbit cases via keyboard, reset/focus, widths 320/390/1280, 98% chapter check and section 3 review, three paper alternatives and separate solutions.');
  }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

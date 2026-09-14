@@ -1,0 +1,31 @@
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict'),{chromium}=require('playwright');
+const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',output=path.resolve(process.env.SCIVERSE_BROWSER_REPORT_DIR||path.join(__dirname,'../../browser-qa'));
+(async()=>{
+ fs.mkdirSync(output,{recursive:true});const browser=await chromium.launch({headless:true});
+ try{
+  const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(base+'/topics/template.html?topic=chemie_trennverfahren',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.querySelector('[data-chem-lab="separation-planner"]')?.dataset.chemReady==='true');
+  const lab=page.locator('[data-chem-lab="separation-planner"]'),scenario=page.locator('#separationCase'),plan=page.locator('#separationPlan'),reason=page.locator('#separationReason'),check=page.locator('[data-separation-check]'),result=page.locator('[data-separation-result]');
+  const initialStorage=await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.keys(localStorage).map(k=>[k,localStorage.getItem(k)]))));
+  await check.click();assert.ok(await plan.evaluate(e=>e===document.activeElement));
+  const accepted={sandSalt:['waterFilterEvap','waterFilterDistill'],sandSaltWater:['waterFilterDistill'],ironSand:['magnet'],ink:['chromato']},principles={waterFilterEvap:'combined',waterFilterDistill:'combined',filter:'size',evap:'volatile',distill:'volatile',magnet:'magnetic',chromato:'distribution'};let states=0;
+  for(const c of Object.keys(accepted))for(const p of Object.keys(principles))for(const r of ['combined','size','volatile','magnetic','distribution']){
+   await scenario.selectOption(c);await plan.selectOption(p);await reason.selectOption(r);assert.equal(await result.isVisible(),false);
+   assert.ok((await page.locator('[data-separation-plan-preview]').innerText()).length>10);assert.ok((await page.locator('[data-separation-reason-preview]').innerText()).length>20);await check.click();
+   assert.equal(await lab.getAttribute('data-plan-matches'),String(accepted[c].includes(p)));assert.equal(await lab.getAttribute('data-reason-matches'),String(principles[p]===r));assert.equal(await result.isVisible(),true);states++;
+  }
+  await scenario.selectOption('sandSaltWater');await plan.selectOption('waterFilterEvap');await reason.selectOption('combined');await check.click();await lab.screenshot({path:path.join(output,'separation-plan-mobile-wrong.png')});
+  await plan.focus();await plan.press('ArrowDown');assert.equal(await plan.inputValue(),'waterFilterDistill');assert.equal(await result.isVisible(),false);await check.click();await lab.screenshot({path:path.join(output,'separation-plan-mobile-correct.png')});
+  const widths=[];for(const width of [320,390,1280]){await page.setViewportSize({width,height:844});const size=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert.ok(size.scroll<=size.client+1);widths.push(size);}
+  await page.setViewportSize({width:1280,height:2400});await lab.screenshot({path:path.join(output,'separation-plan-desktop.png')});
+  await page.locator('[data-separation-reset]').click();assert.equal(await plan.inputValue(),'');assert.equal(await reason.inputValue(),'');assert.equal(await scenario.inputValue(),'sandSaltWater');assert.ok(await plan.evaluate(e=>e===document.activeElement));assert.equal(await result.isVisible(),false);
+  assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.keys(localStorage).map(k=>[k,localStorage.getItem(k)])))),initialStorage);
+  await page.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();const qs=await page.evaluate(()=>currentChapterQuiz.questions.map(q=>({id:q.id,correct:q.answers.findIndex(a=>a.correct)})));assert.equal(qs.length,9);
+  for(const [i,q]of qs.entries())await page.locator(`input[name="chapter_q_${i}"][value="${q.id==='separation_purity'?(q.correct+1)%3:q.correct}"]`).check();await page.locator('.chapter-submit-btn').click();
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).chemie_trennverfahren);assert.equal(saved.lastPercent,89);assert.equal(saved.contentRevision,2);assert.deepEqual(saved.reviewQuestionIds,['separation_purity']);await page.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();assert.ok(await page.locator('#learning-section-3').evaluate(e=>e.contains(document.activeElement)));
+  const paper=await context.newPage();paper.on('pageerror',e=>errors.push(e.message));await paper.goto(base+'/topics/worksheet.html?topic=chemie_trennverfahren',{waitUntil:'domcontentloaded'});await paper.waitForFunction(()=>!document.getElementById('ws-print').disabled);
+  assert.equal(await paper.locator('[data-separation-cases] tbody tr').count(),4);assert.equal(await paper.locator('[data-separation-protocol] tbody tr').count(),4);assert.equal(await paper.locator('[data-separation-observation] tbody tr').count(),4);assert.equal(await paper.locator('#ws-solutions').isVisible(),false);await paper.locator('#ws-include-solutions').check();assert.equal(await paper.locator('.ws-paper-solution').count(),1);
+  if(process.env.SCIVERSE_SEPARATION_PDF){await paper.evaluate(()=>document.fonts.ready);await paper.pdf({path:process.env.SCIVERSE_SEPARATION_PDF,format:'A4',printBackground:true,preferCSSPageSize:true});}
+  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'chemistry-separation-report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),states,widths,saved,pageErrors:errors,scope:'140 native case/plan/reason choices, blank/edit/reset/focus, unchanged model storage, all-nine-question check with exact review target, printable cases and protocols. Visual screenshot/PDF inspection is separate.'},null,2)+'\n');console.log('PASS: 140 native planner combinations, editable feedback and reset/focus, no model storage writes, 89% chapter check with exact review target, widths 320/390/1280, paper protocols and solution.');
+ }finally{await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

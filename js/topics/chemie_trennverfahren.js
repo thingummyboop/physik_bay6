@@ -9,7 +9,7 @@ function topicInit() {
         return;
     }
     const script = document.createElement('script');
-    script.src = '../js/topics/chemie_common.js?v=1.5';
+    script.src = '../js/topics/chemie_common.js?v=1.6';
     script.async = false;
     script.dataset.chemieCommon = 'true';
     script.onload = () => window.ChemieLabs?.topicInit();
