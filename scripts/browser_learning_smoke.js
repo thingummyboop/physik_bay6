@@ -45,11 +45,12 @@ const output=path.resolve(process.env.SCIVERSE_BROWSER_REPORT_DIR||path.join(__d
   await page.screenshot({path:path.join(output,'mobile-table-keyboard.png')});
   await frame.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();
   assert.equal(await frame.locator('#score-board').isVisible(),false);
-  for(let i=0;i<6;i++)await frame.locator('input[name="chapter_q_'+i+'"][value="'+(i===0?1:0)+'"]').check();
+  const quizIds=await frame.locator('#sections-container').evaluate(()=>currentChapterQuiz.questions.map(q=>q.id));assert.equal(quizIds.length,10);
+  for(const [i,id]of quizIds.entries())await frame.locator('input[name="chapter_q_'+i+'"][value="'+(['dgb7_produktion_q1','dgb7_settings_scope','dgb7_media_scope'].includes(id)?1:['dgb7_settings_evidence','dgb7_media_framing'].includes(id)?2:0)+'"]').check();
   await frame.locator('.chapter-submit-btn').click();
-  await frame.locator('#chapter-quiz-result').getByText(/83\s*%/).first().waitFor();
+  await frame.locator('#chapter-quiz-result').getByText(/90\s*%/).first().waitFor();
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).dgb7_produktion);
-  assert.equal(saved.lastPercent,83);assert.deepEqual(saved.reviewQuestionIds,['dgb7_produktion_q1']);
+  assert.equal(saved.lastPercent,90);assert.deepEqual(saved.reviewQuestionIds,['dgb7_produktion_q1']);
   assert.equal(await frame.locator('[data-chapter-review] a').count(),1);
   await frame.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();await frame.locator('#learning-section-0').waitFor();
   await page.waitForFunction(()=>{const d=document.getElementById('game-frame').contentDocument,h=d.querySelector('#learning-section-0 h2'),r=h.getBoundingClientRect();return d.activeElement===h&&r.top>=64&&r.top<160;});
@@ -63,7 +64,7 @@ const output=path.resolve(process.env.SCIVERSE_BROWSER_REPORT_DIR||path.join(__d
   await frame.locator('[data-focus-key="catalog-toggle-optik1"]').click();
   assert.equal(await frame.locator('#selected > li').count(),2);
   await frame.locator('#share').click();const share=await frame.locator('#share-url').inputValue();
-  assert.ok(share.includes('plan='));assert.ok(!share.includes('83'));assert.ok(!share.includes('reviewQuestionIds'));
+  assert.ok(share.includes('plan='));assert.ok(!share.includes('90'));assert.ok(!share.includes('reviewQuestionIds'));
   checks.push('Teacher flow: two physics chapters selected and a share link without quiz results created.');
 
   const recipient=await browser.newContext({viewport:{width:1280,height:900}}),rp=await recipient.newPage();

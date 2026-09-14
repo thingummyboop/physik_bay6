@@ -61,7 +61,12 @@ function gradeLevels(t){
  return [...String(t.grade||'').matchAll(/([5-8])\./g)].map(m=>m[1]);
 }
 function topicsToLearn(t){const translated=translatedMetadata(t.id);if(translated?.learningGoals?.length)return translated.learningGoals;const topic=content[t.id];if(Array.isArray(topic?.learningGoals))return topic.learningGoals.map(text);return (topic?.sections||[]).map(s=>text(s.title)).filter(Boolean);}
-function openChapter(id){if(!byId.has(id))return;const page=mode==='review'||chosen.size||unknownLinkedChapters.length||params.has('plan')?'topics/template.html?'+new URLSearchParams({topic:id,mode,plan:[...chosen,...unknownLinkedChapters].join(',')}):id;if(window.parent!==window){window.parent.location.hash=page;}else{location.href='../index.html#'+page;}}
+function chapterRoute(id){
+ return mode!=='learn'||chosen.size||unknownLinkedChapters.length||params.has('plan')
+  ?'topics/template.html?'+new URLSearchParams({topic:id,mode,plan:[...chosen,...unknownLinkedChapters].join(',')})
+  :id;
+}
+function openChapter(id){if(!byId.has(id))return;const page=chapterRoute(id);if(window.parent!==window){window.parent.location.hash=page;}else{location.href='../index.html#'+page;}}
 function planControlText(label){return preferredLanguage==='en'?({'Kapitel öffnen':'Open chapter','Aus Liste entfernen':'Remove from list','Nach oben':'Move up','Nach unten':'Move down','Vorwissen öffnen':'Open prerequisite','Vorwissen davor einfügen':'Insert prerequisite before this chapter','Vorwissen davor verschieben':'Move prerequisite before this chapter'}[label]||label):label;}
 function button(label,action,cls){const b=element('button',planControlText(label),cls);b.lang=preferredLanguage==='en'?'en':'de';b.type='button';b.addEventListener('click',action);return b;}
 function focusKey(button,key){button.dataset.focusKey=key;return button;}
@@ -99,7 +104,7 @@ function renderPlan(){
  $('selected').replaceChildren();let checked=0;
  for(const id of chosen){const t=byId.get(id);const li=element('li');li.append(chapterTitleElement('strong',t),chapterMetadata(t));
  const goals=topicsToLearn(t),ul=element('ul');setMetadataLanguage(ul,!!translatedMetadata(t.id)?.learningGoals?.length);ul.dataset.planGoals='true';goals.forEach(goal=>ul.append(element('li',goal)));li.append(ul);
- const address=new URL('../index.html',location.href);address.hash=id;
+ const address=new URL('../index.html',location.href);address.hash=chapterRoute(id);
  const resource=element('p',undefined,'plan-chapter-link'),link=element('a');link.append(entryElement('span','Online-Kapitel: ','Online chapter: '),chapterTitleElement('bdi',t));link.href=address.href;link.target='_top';resource.append(link);li.append(resource);
 
  if(!goals.length)li.append(entryElement('p',contentState==='loading'?'Lernziele werden geladen …':'Lernziele sind derzeit nicht verfügbar.',contentState==='loading'?'Loading learning goals…':'Learning goals are currently unavailable.','meta'));

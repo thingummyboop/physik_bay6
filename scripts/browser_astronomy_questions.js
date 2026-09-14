@@ -19,6 +19,19 @@ const chapter=JSON.parse(fs.readFileSync(path.join(__dirname,'../lang/de.json'),
    }
   }
   assert.equal(paths,261);assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.keys(localStorage).map(k=>[k,localStorage.getItem(k)])))),storage);
+  // These expected meanings are independent of the answer flags in de.json.
+  const sourceQuestion=page.locator('.practice-box[data-id="astro_s15_saturn_p1"]');
+  for(const [text,correct,reason]of [
+   ['Ich vergleiche Bezugsdaten, Definitionen und bestätigte Entdeckungen.',true,/Bezugsdatum.*bestätigt/],
+   ['Ich streiche die ältere Angabe ohne weiteren Vergleich als falsch.',false,/März 2025.*richtig/],
+   ['Ich folgere, dass alle zusätzlichen Monde erst zwischen den beiden Daten entstanden sind.',false,/entdeckt.*nicht.*entstanden/]
+  ]){
+   const button=sourceQuestion.getByRole('button',{name:text,exact:true});await button.click();
+   assert.equal(await button.evaluate(b=>b.classList.contains('is-correct')),correct);
+   assert.equal(await button.evaluate(b=>b.classList.contains('is-wrong')),!correct);
+   assert.match(await sourceQuestion.locator('.feedback').innerText(),reason);
+   if(correct)await sourceQuestion.screenshot({path:path.join(output,'astronomy-source-correct-mobile.png')});
+  }
   await page.locator('[data-astronomy-source-comparison]').screenshot({path:path.join(output,'astronomy-source-comparison-mobile.png')});
   await page.locator('.practice-box[data-id="astro_s15_saturn_p1"]').screenshot({path:path.join(output,'astronomy-source-question-mobile.png')});
   const widths=[];for(const width of [320,390,1280]){await page.setViewportSize({width,height:844});const size=await page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert.ok(size.scroll<=size.width+1);widths.push(size);}

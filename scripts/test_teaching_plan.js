@@ -10,7 +10,11 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  assert.equal(d.querySelectorAll('.personal-result').length,0);
  assert.doesNotMatch(d.getElementById('plan').textContent,/87 %|letzten Kapitelcheck/);
  assert.match(d.querySelector('#selected>li .meta').textContent,/Physik/);
- const resource=d.querySelector('#selected>li .plan-chapter-link a');assert.equal(resource.href,'https://example.test/index.html#energie');assert.equal(resource.target,'_top');assert.ok(!resource.href.includes('87'));
+ const resource=d.querySelector('#selected>li .plan-chapter-link a');
+ const destination=new URL(new URL(resource.href).hash.slice(1),'https://example.test/');
+ assert.equal(destination.pathname,'/topics/template.html');
+ assert.deepEqual(Object.fromEntries(destination.searchParams),{topic:'energie',mode:'teach',plan:'energie,arbeit'});
+ assert.equal(resource.target,'_top');assert.ok(!resource.href.includes('87'));
 
  assert.match(d.querySelector('#selected>li .plan-prerequisites').textContent,/Mechanische Arbeit.*erst später eingeplant/);assert.match(d.querySelectorAll('#selected>li')[1].querySelector('.plan-prerequisites').textContent,/Kraft & Bewegung.*nicht in dieser Stoffliste/);assert.deepEqual(JSON.parse(w.localStorage.getItem('sciverse_study_plan')),['energie','arbeit']);
  assert.ok(d.querySelector('#selected>li ul li'));assert.match(d.querySelector('.chapter .primary').textContent,/ansehen/);

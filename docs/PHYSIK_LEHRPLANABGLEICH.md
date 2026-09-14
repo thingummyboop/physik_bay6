@@ -90,3 +90,8 @@ Alle 85 Frageformulierungen und Antwortoptionen im Astronomie-Kapitel sind nun �
 ### Astronomie: Maßstab und Modellkritik (14.09.2026)
 
 Der bisher offene Sonnensystem-Scanner ist durch einen bedienbaren Datenvergleich ersetzt. Vermuten, mit Zahlen prüfen, proportional umrechnen und die Aussagegrenzen einer Darstellung begründen stehen im Mittelpunkt. Die fiktive 200-m-Planung für eine Wiener Schulklasse verknüpft Physik und Mathematik, ohne einen realen Ort vorzugeben. Zwei neue Transferfragen, Revision 4, Papieralternative und Lösung. Modell- und Browserprüfung sowie ausgewählte Druckseiten bestanden; Gesamtprüfung der Vertiefung und der Lehrplanabdeckung bleiben offen. Nachweise: ASTRONOMIE_SONNENSYSTEM_MODELL.md.
+
+
+## 14.09.2026 – Gesamtlauf und unabhängige Saturnkorrektur
+
+Alle 182 vorhandenen Funktionstestsuiten bestanden im vollständigen Lauf; 197 deutsche Kapitel im gemeinsamen Renderer ohne Strukturfehler. Der anschließende Live-Screenshot-Abgleich zeigte dennoch eine falsche Zuordnung von Antwortmarkierung und Rückmeldung bei der Saturn-Quellenübung. Drei Optionen lokal korrigiert; neue, von den gespeicherten Flags unabhängige Erwartungen scheiterten davor und bestanden danach. Vollständige Astronomie-Integrationsprüfung und tatsächlicher Browserlauf erneut erfolgreich. Sieben zentrale Dateien des gepushten Zwischenstands b154b4e auf GitHub Pages verglichen; fünf Browserprüfungen dort ausgeführt. Dies ist keine fachliche Gesamtfreigabe. Details, zeitliche Trennung der Prüfläufe und verbleibender Live-Fehler: [FUNKTIONS_PRUEFUNG_2026-09-14.md](FUNKTIONS_PRUEFUNG_2026-09-14.md). Kein weiterer Push, Übersetzungen weiterhin zurückgestellt.

@@ -33,21 +33,22 @@ for(const scenario of scenarios){
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();
  assert.equal(d.querySelector('[data-material-open]').href,'https://example.test/site/examples/materialplaner.html');assert.equal(d.querySelector('a[download="materialplaner.html"]').href,'https://example.test/site/examples/materialplaner.html');
  assert.equal(d.querySelectorAll('[data-material-tasks] > li').length,6);assert.equal(d.querySelectorAll('[data-material-requirements] tbody tr').length,3);assert.equal(d.querySelectorAll('[data-material-test-cases] tbody tr').length,4);
- const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,6);const sections={dgb7_produktion_q1:0,dgb7_produktion_q2:1,dgb7_production_abstraction:1,dgb7_production_code_change:1,dgb7_produktion_q3:2,dgb7_produktion_q4:3};
+ const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,10);const sections={dgb7_produktion_q1:0,dgb7_produktion_q2:1,dgb7_production_abstraction:1,dgb7_production_code_change:1,dgb7_produktion_q3:2,dgb7_produktion_q4:4,dgb7_settings_scope:2,dgb7_settings_evidence:2,dgb7_media_framing:3,dgb7_media_scope:3};
+ const correctIndex=id=>['dgb7_settings_scope','dgb7_media_scope'].includes(id)?1:['dgb7_settings_evidence','dgb7_media_framing'].includes(id)?2:0;
  for(const [i,q] of questions.entries()){
   assert.equal(q.sectionIndex,sections[q.id]);assert.equal(q.answers.length,3);
   for(let choice=0;choice<q.answers.length;choice++){
-   questions.forEach((item,j)=>d.querySelector('input[name="chapter_q_'+j+'"][value="'+(j===i?choice:0)+'"]').checked=true);w.submitChapterQuiz();
-   const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id];assert.equal(result.lastPercent,choice===0?100:83);assert.equal(result.contentRevision,1);
-   if(choice!==0)assert.deepEqual(result.reviewQuestionIds,[q.id]);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
+   questions.forEach((item,j)=>d.querySelector('input[name="chapter_q_'+j+'"][value="'+(j===i?choice:correctIndex(item.id))+'"]').checked=true);w.submitChapterQuiz();
+   const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id];assert.equal(result.lastPercent,choice===correctIndex(q.id)?100:90);assert.equal(result.contentRevision,3);
+   assert.deepEqual(result.reviewQuestionIds,choice===correctIndex(q.id)?[]:[q.id]);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
   }
  }
- assert.equal(w.currentChapterResult(id,{contentRevision:0,passed:true,bestPercent:100}).passed,false);assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,true);dom.window.close();
+ assert.equal(w.currentChapterResult(id,{contentRevision:2,passed:true,bestPercent:100}).passed,false);assert.equal(w.currentChapterResult(id,{contentRevision:3,passed:true,bestPercent:100}).passed,true);dom.window.close();
  const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/site/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),pw=paper.window;
  pw.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','worksheet_generator','worksheet'])pw.eval(read('js/'+f+'.js'));await new Promise(r=>setImmediate(r));
  const material=pw.document.getElementById('ws-dgb-material'),solutions=pw.document.getElementById('ws-solutions');
  assert.equal(material.querySelectorAll('[data-material-tasks] > li').length,6);assert.equal(material.querySelectorAll('[data-material-test-cases] tbody tr').length,4);
  assert.ok(material.textContent.includes('Ohne Gerät'));assert.ok(!material.textContent.includes('8/4/12'));assert.ok(solutions.textContent.includes('8/4/12'));assert.equal(solutions.hidden,true);
  assert.equal(material.querySelectorAll('input,button,select,details,template').length,0);paper.window.close();
- console.log('PASS: 27 original/edited/extended material plans, zero and invalid input, stale results, labels/focus/reset, executed source, chapter downloads, all 18 assessed answer paths, revision and separate paper solutions.');
+ console.log('PASS: 27 original/edited/extended material plans, zero and invalid input, stale results, labels/focus/reset, executed source, chapter downloads, all 30 assessed answer paths, revision and separate paper solutions.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

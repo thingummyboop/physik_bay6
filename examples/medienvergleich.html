@@ -1,0 +1,70 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eine Quelle, zwei Medienformen – DGB</title>
+<style>
+:root{font:1rem/1.6 system-ui,sans-serif;color:#182b46;background:#eff7ff}*{box-sizing:border-box}body{max-width:72rem;margin:auto;padding:1.25rem}h1,h2,h3{line-height:1.3;overflow-wrap:anywhere}a{color:#185db5}
+fieldset{min-width:0;padding:1rem;border:1px solid #64748b;border-radius:.5rem;background:white}legend{font-weight:700}label{display:block;font-weight:600;margin-top:.7rem}input,textarea,select,button{font:inherit;color:inherit;background:white;border:1px solid #64748b;border-radius:.35rem;padding:.6rem;min-height:2.75rem}input,textarea,select{width:100%}textarea{resize:vertical}button{cursor:pointer;margin-top:.8rem}button:hover{background:#e5f0fc}:focus-visible{outline:3px solid #a04b00;outline-offset:3px}
+.preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:1.2rem;margin-block:1.5rem}.media-card{background:white;border:1px solid #64748b;border-radius:.6rem;padding:1.2rem;min-width:0;overflow-wrap:anywhere}.kind{color:#435a75;font-weight:700}.source{font-size:.9rem;border-top:1px solid #64748b;padding-top:.8rem}.bars{padding:0;list-style:none}.bars li{display:grid;grid-template-columns:4.5rem minmax(0,1fr) 1.6rem;align-items:center;gap:.5rem;margin-block:.8rem}.track{height:1.2rem;border:1px solid #64748b;background:repeating-linear-gradient(to right,#f1f5f9 0%,#f1f5f9 calc(25% - 1px),#94a3b8 calc(25% - 1px),#94a3b8 25%)}.bar{display:block;height:100%;background:#185db5}.scale{display:flex;justify-content:space-between;margin-left:5rem;margin-right:2.1rem;font-size:.85rem}figure{margin:1rem 0}figcaption{font-weight:600}table{border-collapse:collapse;width:100%}th,td{border:1px solid #64748b;padding:.4rem;text-align:left}caption{text-align:left;font-weight:600}.claim{white-space:pre-wrap}.hint{border-left:4px solid #185db5;padding-left:1rem}#status{min-height:2em}[hidden]{display:none!important}
+@media(max-width:400px){body{padding:1rem}.media-card{padding:.8rem}}
+@media print{fieldset,#status,.back,.tasks{display:none}body{max-width:none;background:white}.preview{display:block}.media-card{break-inside:avoid;margin-bottom:1rem}}
+</style></head><body><main>
+<p class="back"><a id="chapter-link" href="../index.html#dgb7_produktion">Zum Kapitel „Probleme zerlegen und barrierearm gestalten“</a></p>
+<p>Digitale Grundbildung · 3. Klasse</p><h1>Eine Quelle, zwei Medienformen</h1>
+<p>Erstelle einen Kurzbeitrag und eine Infografik aus denselben <strong>erfundenen Übungsdaten</strong>. Die Zahlen bleiben fest. Untersuche, wie Überschrift, Einleitung und Darstellungsform den Eindruck verändern.</p>
+<fieldset><legend>Dein Medienentwurf</legend>
+<label for="headline">Eigene Überschrift (höchstens 90 Zeichen)<input id="headline" maxlength="90" value="So kommen 40 Kinder zur Schule"></label>
+<label for="introduction">Eigene Einleitung (höchstens 280 Zeichen)<textarea id="introduction" maxlength="280" rows="3">In unserer erfundenen Gruppe werden vier Hauptwege zur Schule verglichen. Welche Unterschiede fallen dir auf?</textarea></label>
+<label for="format">Darstellung<select id="format"><option value="both">Beide vergleichen</option><option value="text">Kurzbeitrag</option><option value="chart">Infografik</option></select></label>
+<button id="download" type="button">Gewählte Darstellung herunterladen</button>
+<p>Du erhältst eine HTML-Datei mit deinem Text und den festen Daten. Prüfe deinen Text vor dem Weitergeben. Es wird nichts automatisch veröffentlicht oder dauerhaft in dieser Anwendung gespeichert.</p>
+</fieldset><p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+<div id="preview" class="preview">
+<article class="media-card" id="text-card"><p class="kind">Kurzbeitrag</p><h2 data-headline>So kommen 40 Kinder zur Schule</h2><p class="claim" data-introduction>In unserer erfundenen Gruppe werden vier Hauptwege zur Schule verglichen. Welche Unterschiede fallen dir auf?</p>
+<p>Von den 40 Kindern kommen 16 zu Fuß, 12 mit dem Fahrrad, 8 mit öffentlichen Verkehrsmitteln und 4 mit dem Auto. Jedes Kind hat genau einen Hauptweg gewählt. Mehrfachnennungen sind nicht enthalten.</p>
+<p class="source">Quelle: erfundene Übungsdaten einer Wiener Schulgruppe, keine echte Befragung. Die Angaben beschreiben nur diese 40 Beispielfälle und belegen keine Verteilung für ganz Wien.</p></article>
+<article class="media-card" id="chart-card"><p class="kind">Infografik</p><h2 data-headline>So kommen 40 Kinder zur Schule</h2><p class="claim" data-introduction>In unserer erfundenen Gruppe werden vier Hauptwege zur Schule verglichen. Welche Unterschiede fallen dir auf?</p>
+<figure aria-labelledby="chart-caption"><figcaption id="chart-caption">Gewählter Hauptweg zur Schule – Anzahl der Kinder</figcaption>
+<ol class="bars">
+<li><span>Zu Fuß</span><span class="track"><span class="bar" style="width:80%"></span></span><strong>16</strong></li>
+<li><span>Fahrrad</span><span class="track"><span class="bar" style="width:60%"></span></span><strong>12</strong></li>
+<li><span>Öffis</span><span class="track"><span class="bar" style="width:40%"></span></span><strong>8</strong></li>
+<li><span>Auto</span><span class="track"><span class="bar" style="width:20%"></span></span><strong>4</strong></li>
+</ol><div class="scale" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span></div>
+<p>Die Balken beginnen bei null; die Skala reicht bis 20 Kinder. „Öffis“ bedeutet öffentliche Verkehrsmittel.</p></figure>
+<table><caption>Alle Daten: 40 Kinder, genau ein Hauptweg pro Kind</caption><thead><tr><th scope="col">Hauptweg</th><th scope="col">Kinder</th></tr></thead><tbody><tr><th scope="row">Zu Fuß</th><td>16</td></tr><tr><th scope="row">Fahrrad</th><td>12</td></tr><tr><th scope="row">Öffis</th><td>8</td></tr><tr><th scope="row">Auto</th><td>4</td></tr></tbody></table>
+<p class="source">Quelle: erfundene Übungsdaten einer Wiener Schulgruppe, keine echte Befragung. Die Angaben beschreiben nur diese 40 Beispielfälle und belegen keine Verteilung für ganz Wien.</p></article>
+</div>
+<section class="tasks"><h2>Form, Aussage und Beleg vergleichen</h2><ol>
+<li>Finde in beiden Formen die häufigste Kategorie und die Zahl der Kinder, die zu Fuß oder mit dem Fahrrad kommen. Welche Darstellung half dir bei welcher Frage?</li>
+<li>Vergleiche die Überschriften „28 von 40 kommen zu Fuß oder mit dem Rad“ und „12 von 40 nutzen Öffis oder Auto“. Setze sie nacheinander ein. Beide stimmen mit den Daten überein: Was wird jeweils hervorgehoben?</li>
+<li>Schreibe eine eigene sachliche Überschrift und Einleitung. Prüfe jede Tatsachenbehauptung mit der Tabelle. Eine auffällige Gestaltung macht einen selbst geschriebenen Satz nicht automatisch richtig.</li>
+<li>Lade beide Formen einzeln herunter und öffne die Dateien. Kontrolliere Zahlen, Gesamtheit, Kategorien, Quelle und die Grenze der Aussage. Die Tabelle ist die Textalternative zum Diagramm.</li>
+<li>Überarbeite einen Entwurf nach Rückmeldung. Notiere, welche konkrete Änderung die Darstellung verständlicher macht. Eine kleine erfundene Gruppe belegt weder die Wege aller Wiener Kinder noch einen Zusammenhang mit Gesundheit oder Lernerfolg.</li>
+</ol><p class="hint">Ein Kurzbeitrag kann in einem Feed erscheinen, eine Infografik Daten räumlich ordnen. Ein Podcast nutzt gesprochene Sprache, ein Kurzvideo bewegte Bilder und häufig Ton. Diese Werkstatt erzeugt einen Textbeitrag und eine Infografik; sie spielt keinen Podcast ab und erstellt kein Video.</p></section>
+<noscript><p>Die beiden Ausgangsfassungen sind lesbar. Zum Bearbeiten und Herunterladen muss JavaScript verfügbar sein.</p></noscript>
+</main><script>
+'use strict';
+if(location.protocol==='file:')document.getElementById('chapter-link').href='https://thingummyboop.github.io/physik_bay6/index.html#dgb7_produktion';
+const headline=document.getElementById('headline'),introduction=document.getElementById('introduction'),format=document.getElementById('format'),status=document.getElementById('status');
+function render(){
+ document.querySelectorAll('[data-headline]').forEach(el=>el.textContent=headline.value.trim()||'Schulwege der Beispielgruppe');
+ document.querySelectorAll('[data-introduction]').forEach(el=>el.textContent=introduction.value);
+ document.getElementById('text-card').hidden=format.value==='chart';document.getElementById('chart-card').hidden=format.value==='text';
+}
+headline.addEventListener('input',render);introduction.addEventListener('input',render);
+format.addEventListener('change',()=>{render();status.textContent='Ansicht: '+format.selectedOptions[0].textContent+'. Die Daten bleiben gleich.';});
+function exportDocument(){
+ const doc=document.implementation.createHTMLDocument(headline.value.trim()||'Schulwege der Beispielgruppe');doc.documentElement.lang='de';
+ const charset=doc.createElement('meta');charset.setAttribute('charset','utf-8');doc.head.prepend(charset);
+ const viewport=doc.createElement('meta');viewport.name='viewport';viewport.content='width=device-width, initial-scale=1';doc.head.append(viewport,document.querySelector('style').cloneNode(true));
+ const main=doc.createElement('main');main.className='preview';
+ for(const card of document.querySelectorAll('.media-card'))if(!card.hidden)main.append(card.cloneNode(true));
+ doc.body.append(main);return '<!doctype html>\n'+doc.documentElement.outerHTML;
+}
+document.getElementById('download').addEventListener('click',()=>{
+ try{
+  render();const blob=new Blob([exportDocument()],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='mein-medienvergleich-'+format.value+'.html';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  status.textContent='Download angefordert. Öffne die Datei und prüfe, ob deine gewählte Darstellung vollständig enthalten ist.';
+ }catch{status.textContent='Download nicht möglich. Die Entwürfe bleiben sichtbar; du kannst den Text kopieren oder die Browser-Druckfunktion verwenden.';}
+});
+render();
+</script></body></html>

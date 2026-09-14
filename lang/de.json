@@ -2351,13 +2351,13 @@
             "answers": [
               {
                 "text": "Ich vergleiche Bezugsdaten, Definitionen und bestätigte Entdeckungen.",
-                "correct": false,
+                "correct": true,
                 "pts": 5,
-                "feedback": "Neu entdeckt oder bestätigt bedeutet nicht neu entstanden."
+                "feedback": "Das Bezugsdatum gehört zur Aussage. Eine höhere Zahl kann auf weiteren bestätigten Entdeckungen beruhen; prüfe, was und für welchen Zeitpunkt gezählt wurde."
               },
               {
                 "text": "Ich streiche die ältere Angabe ohne weiteren Vergleich als falsch.",
-                "correct": true,
+                "correct": false,
                 "pts": 5,
                 "feedback": "Eine Aussage über März 2025 kann für diesen Bezugszeitpunkt richtig sein. Prüfe die Daten, bevor du einen Widerspruch behauptest."
               },
@@ -2365,7 +2365,7 @@
                 "text": "Ich folgere, dass alle zusätzlichen Monde erst zwischen den beiden Daten entstanden sind.",
                 "correct": false,
                 "pts": 5,
-                "feedback": "Schriftgröße sagt nichts über Quelle, Definition oder Aktualität aus."
+                "feedback": "Neu entdeckt oder bestätigt bedeutet nicht neu entstanden. Die Zunahme der bekannten Zahl sagt allein nichts über den Entstehungszeitpunkt dieser Monde aus."
               }
             ]
           },
@@ -12568,13 +12568,116 @@
                 "feedback": "Farbe allein kann eine Information unzugänglich machen. Benenne die Gruppe zusätzlich mit einem verständlichen Text."
               }
             ]
+          },
+          {
+            "id": "dgb7_settings_scope",
+            "question": "Du stellst in der Leseanwendung 150 % Schriftgröße ein. Was hast du damit verändert?",
+            "answers": [
+              {
+                "text": "Die Schriftgröße sämtlicher Programme auf dem Gerät.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Auswahl gilt nur für die Leseprobe dieser Anwendung. Für andere Programme oder das Gerät brauchst du deren eigene Einstellungen."
+              },
+              {
+                "text": "Die Darstellung der Leseprobe; die Angaben im Text bleiben gleich.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Du konfigurierst eine Darstellungsoption. Beginn, Raum und Material bleiben unverändert; die Buchstaben werden größer und Zeilen können anders umbrechen."
+              },
+              {
+                "text": "Den Quellcode des Programms, sodass alle Texte neu geschrieben werden.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Du benutzt eine vorhandene Einstellung. Dafür musst du keinen Quellcode bearbeiten und keine Textangaben ändern."
+              }
+            ]
+          },
+          {
+            "id": "dgb7_settings_evidence",
+            "question": "Welche Beobachtung belegt am besten, dass deine Leseeinstellungen im verwendeten Browser gespeichert wurden?",
+            "answers": [
+              {
+                "text": "Die Ansicht sieht direkt nach dem Verstellen anders aus.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das zeigt die aktuelle Wirkung. Ohne Speichern kann sie beim erneuten Öffnen verschwinden."
+              },
+              {
+                "text": "Eine andere Person findet dieselben Farben schön.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Vorliebe sagt nichts darüber aus, ob der Browser die Einstellwerte aufbewahrt."
+              },
+              {
+                "text": "Nach Speichern und erneutem Öffnen stimmen alle drei Werte mit meinem Protokoll überein.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Du vergleichst das tatsächliche Ergebnis nach erneutem Öffnen mit vorher notierten Werten. So prüfst du die Speicherung in dieser Umgebung."
+              }
+            ]
           }
         ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>"
+        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>\n<div class=\"teacher-note\" data-reading-settings-lesson>\n<h3>Einstellungen selbst anpassen und ihre Wirkung prüfen</h3>\n<p><strong>Konfiguration</strong> bedeutet, vorhandene Einstellmöglichkeiten eines Programms zu verändern. Du schreibst dabei nicht den Programmcode um. In der folgenden Leseanwendung kannst du Schriftgröße, Zeilenabstand und Farben einer festen Leseprobe einstellen. Das ändert ihre Darstellung, nicht die Angaben im Text.</p>\n<p><a href=\"../examples/leseansicht.html\" target=\"_blank\" rel=\"noopener\" data-reading-open>Leseansicht öffnen (neuer Tab)</a> · <a href=\"../examples/leseansicht.html\" download=\"leseansicht.html\">Leseansicht als HTML-Datei herunterladen</a>. Die Anwendung funktioniert auch als eigene Dateikopie ohne Konto; dauerhafte Speicherung kann je nach Browser oder Dateiumgebung eingeschränkt sein.</p>\n<ol data-reading-settings-tasks>\n<li><strong>Ziel und Ausgangslage:</strong> Notiere die drei angezeigten Einstellwerte und wähle ein Ziel, etwa größere Buchstaben oder mehr Abstand zwischen Zeilen. Du kannst deine Vorliebe oder einen erfundenen Fall verwenden. Finde in der unveränderten Leseprobe Beginn, Raum und das Material von Team Wasser.</li>\n<li><strong>Gezielt vergleichen:</strong> Sage die Wirkung einer Änderung voraus. Ändere zuerst nur die Schriftgröße und bearbeite dieselben Suchaufgaben. Lasse sie dann stehen und ändere nur den Zeilenabstand. Vergleiche zuletzt die Farbdarstellungen. Beschreibe Beobachtungen und deine Vorliebe getrennt. Schnelleres Finden kann auch daran liegen, dass du den Text schon kennst; dies ist keine Messstudie zur Lesegeschwindigkeit.</li>\n<li><strong>Nutzbarkeit prüfen:</strong> Kontrolliere, ob alle Wörter sichtbar und alle Angaben erreichbar bleiben. Erreiche den Link zur Suchaufgabe mit Tab und öffne ihn mit Enter. Prüfe auch eine schmale Fensteransicht. Größere Schrift darf mehr Platz brauchen; abgeschnittene Inhalte wären dagegen ein Problem.</li>\n<li><strong>Speichern überprüfen:</strong> Speichere deine gewählte Kombination und notiere die Rückmeldung. Stelle die Ausgangsansicht her, lade die gespeicherten Werte und vergleiche mit dem Protokoll. Lade die Seite neu und prüfe erneut. Falls der Browser das Speichern verweigert, notiere genau das; die aktuelle Darstellung kann trotzdem verändert werden. Löschen entfernt nur die gespeicherten Werte dieser Leseanwendung und lässt ihre aktuelle Ansicht stehen.</li>\n<li><strong>Übertragen:</strong> Suche in einem schulisch freigegebenen Programm eine passende Darstellungsoption, etwa Ansichtszoom oder Untertitel. Notiere Programm, Einstellungsweg und Ausgangswert, ändere eine Option und führe eine dazu passende Lese- oder Hörprobe aus. Stelle anschließend den Ausgangswert wieder her. Wenn du dort nichts ändern kannst, dokumentiere die Grenze; die Übertragung bleibt dann noch offen. Die Leseanwendung verändert keine Geräte- oder Kommunikationseinstellungen.</li>\n<li><strong>Begründen:</strong> Wähle eine für dein Ziel hilfreiche Kombination und begründe sie mit einer beobachteten Wirkung. Eine andere Person darf anders wählen. Gib das Protokoll mit Einstellung, Vorhersage, Beobachtung und begründeter Entscheidung ab; private Angaben zu Gesundheit oder Geräten sind nicht erforderlich.</li>\n</ol>\n<div class=\"workshop-table-scroll\"><table class=\"worksheet-table\" data-reading-settings-protocol><caption>Konfigurationsprotokoll – tatsächliche Beobachtungen eintragen</caption><thead><tr><th scope=\"col\">Schritt / Ausgangswert</th><th scope=\"col\">Änderung / Vorhersage</th><th scope=\"col\">Beobachtung / Entscheidung</th></tr></thead><tbody>\n<tr><th scope=\"row\">Schriftgröße</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Zeilenabstand / Farben</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Speichern / erneut öffnen</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Anderes Programm</th><td>……………………</td><td>……………………</td></tr>\n</tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Plane die Einstellschritte und begründe eine erwartete Wirkung. Lass Beobachtungsfelder leer. Das tatsächliche Konfigurieren, Prüfen und Übertragen ist damit noch nicht ausgeführt.</p>\n<details data-worksheet-solution=\"true\" data-reading-settings-solution><summary>Vergleichshinweise zur Auswertung</summary>\n<p>Die Suchangaben bleiben bei jeder Einstellung gleich: Beginn 14:00 Uhr, Werkraum Raum 12, drei leere Becher für Team Wasser. Eine Schriftvergrößerung verändert die Darstellung und kann zusätzliche Zeilen erzeugen; sie ändert den Inhalt nicht. Mehr Zeilenabstand vergrößert den Abstand zwischen Textzeilen. Welche Kombination dir hilft, muss deine eigene Prüfung zeigen.</p>\n<p>Ein nachvollziehbares Protokoll nennt konkrete Werte, z. B. 100 % auf 125 %, und ein tatsächlich beobachtetes Ergebnis. Eine beliebte Farbkombination ist nicht automatisch für alle besser. Speicherung ist erst belegt, wenn die notierten Werte nach dem Laden oder erneuten Öffnen wieder erscheinen; eine Fehlermeldung ist als Fehlermeldung festzuhalten. Eine leere Beobachtung wird nicht durch eine erfundene Messung ersetzt.</p>\n</details>\n<p>Hintergrund für Lehrkräfte: <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html\" target=\"_blank\" rel=\"noopener\">W3C WAI: veränderbare Textabstände</a> und <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/reflow.html\" target=\"_blank\" rel=\"noopener\">Inhalte bei veränderter Ansicht nutzbar halten</a>. Die Werkstatt ist keine vollständige Barrierefreiheitsprüfung.</p>\n</div>\n{{QUIZ_dgb7_settings_scope}}{{QUIZ_dgb7_settings_evidence}}"
+      },
+      {
+        "id": "sec-media",
+        "title": "4. Medienformen vergleichen und selbst gestalten",
+        "content": "<div class=\"teacher-note\">\n<h3>Medienformen und ihre Nutzung</h3>\n<p>Ein Kurzbeitrag in einem Feed, eine Infografik, ein Podcast und ein Kurzvideo vermitteln Inhalte auf unterschiedliche Weise. Medienkulturen entstehen auch daraus, wie Menschen Medien gemeinsam gestalten, kommentieren und weiterverbreiten: etwa in Gaming-Livestreams, Podcast-Communitys oder beim Austausch von Memes. Eine Form ist nicht automatisch glaubwürdiger als eine andere.</p>\n<p>Nenne zwei solcher Beispiele, die du kennst, und beschreibe: Wer gestaltet Inhalte? Wie können andere reagieren? Welche Rolle spielen Text, Bild oder Ton? Du brauchst keine privaten Konten zu zeigen.</p>\n<h3>Eine Datenquelle – zwei Medienentwürfe</h3>\n<p><strong>Alle folgenden Daten sind erfunden.</strong> In einer fiktiven Wiener Schulgruppe wählen 40 Kinder jeweils genau einen Hauptweg zur Schule. Die Zahlen sind keine echte Befragung und beschreiben nicht alle Wiener Kinder.</p>\n<table class=\"worksheet-table\" data-media-source><caption>Erfundene Übungsdaten – ein Hauptweg pro Kind</caption><thead><tr><th scope=\"col\">Hauptweg</th><th scope=\"col\">Kinder</th></tr></thead><tbody><tr><th scope=\"row\">Zu Fuß</th><td>16</td></tr><tr><th scope=\"row\">Fahrrad</th><td>12</td></tr><tr><th scope=\"row\">Öffentliche Verkehrsmittel</th><td>8</td></tr><tr><th scope=\"row\">Auto</th><td>4</td></tr></tbody></table>\n<p><a href=\"../examples/medienvergleich.html\" target=\"_blank\" rel=\"noopener\" data-media-open>Medienwerkstatt öffnen (neuer Tab)</a> · <a href=\"../examples/medienvergleich.html\" download=\"medienvergleich.html\">Werkstatt als HTML-Datei herunterladen</a>. Dort kannst du Überschrift und Einleitung bearbeiten, beide Formen vergleichen und deine gewählte Fassung als eigene HTML-Datei herunterladen. Die Dateien werden nicht automatisch veröffentlicht.</p>\n<ol data-media-comparison-tasks>\n<li><strong>Quelle prüfen:</strong> Addiere die vier Anzahlen. Was bedeutet „ein Hauptweg pro Kind“? Nenne zwei Aussagen, die die Daten erlauben, und eine, die sie nicht belegen.</li>\n<li><strong>Formen erproben:</strong> Öffne den Kurzbeitrag und danach die Infografik. Finde jeweils die häufigste Kategorie und die Zahl der Kinder, die zu Fuß oder mit dem Fahrrad kommen. Welche Form half dir bei welcher Aufgabe? Benenne ein konkretes Gestaltungselement statt nur „gefällt mir“.</li>\n<li><strong>Überschriften vergleichen:</strong> Setze nacheinander „28 von 40 kommen zu Fuß oder mit dem Rad“ und „12 von 40 nutzen Öffis oder Auto“ ein. Prüfe beide mit der Tabelle. Beschreibe, welche Teilgruppe jeweils hervorgehoben wird. Prüfe auch, weshalb „So kommen alle Wiener Kinder zur Schule“ zu weit geht.</li>\n<li><strong>Eigene Fassungen erstellen:</strong> Schreibe eine eigene sachliche Überschrift und eine kurze Einleitung. Jede Tatsachenbehauptung muss zur Tabelle passen. Lade einen Kurzbeitrag und eine Infografik herunter. Öffne beide Dateien und vergleiche Zahlen, Kategorien, Gesamtzahl, Herkunft und Aussagegrenzen mit deiner Quelle.</li>\n<li><strong>Zugänglichkeit prüfen:</strong> Kontrolliere, ob die Infografik Werte auch als Text oder Tabelle enthält. Sind Beschriftung und Skala lesbar, bleibt der Kurzbeitrag verständlich und der Quellenhinweis erkennbar? Prüfe auch eine schmale Ansicht. Ein Bild allein ist noch keine zugängliche Erklärung aller Diagrammdaten.</li>\n<li><strong>Rückmeldung nutzen:</strong> Bitte eine andere Person, eine der Suchaufgaben mit deinen Entwürfen zu lösen, oder kennzeichne deine eigene erneute Prüfung als Selbstprüfung. Verbessere eine konkrete Stelle, exportiere erneut und halte alte und neue Fassung auseinander. Begründe abschließend deine Wahl einer Form für eine bestimmte Zielgruppe und Aufgabe.</li>\n</ol>\n<table class=\"worksheet-table\" data-media-comparison-protocol><caption>Vergleich und Überarbeitung – Beobachtungen dokumentieren</caption><thead><tr><th scope=\"col\">Fassung</th><th scope=\"col\">Aufgabe / beobachtete Wirkung</th><th scope=\"col\">Änderung / erneute Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Kurzbeitrag</th><td>……………………</td><td>……………………</td></tr><tr><th scope=\"row\">Infografik</th><td>……………………</td><td>……………………</td></tr><tr><th scope=\"row\">Überarbeitete Fassung</th><td>……………………</td><td>……………………</td></tr></tbody></table>\n<p><strong>Ohne Gerät:</strong> Schreibe einen Kurzbeitrag und skizziere ein Balkendiagramm mit einer gemeinsamen Skala ab null. Kennzeichne Quelle, Gesamtzahl und Aussagegrenze. Damit planst du die Formen; das tatsächliche Bearbeiten, Exportieren und Prüfen der digitalen Dateien bleibt offen.</p>\n<details data-worksheet-solution=\"true\" data-media-comparison-solution><summary>Vergleichslösung: Aussagen und Darstellungen</summary><p>16 + 12 + 8 + 4 = 40. Zu Fuß ist mit 16 Kindern die häufigste einzelne Kategorie. Zu Fuß und Fahrrad ergeben zusammen 28 von 40, also 70 %. Öffis und Auto ergeben 12 von 40, also 30 %. Beide vorgeschlagenen Überschriften sind richtig, rücken aber unterschiedliche Gruppen in den Vordergrund. Keine beschreibt eine tatsächliche Befragung oder eine repräsentative Verteilung in ganz Wien.</p><p>Der Text nennt die Werte in einer sprachlichen Folge. Das Diagramm macht Größenverhältnisse räumlich vergleichbar; es braucht eine klare Skala, Beschriftungen und eine Textalternative. Die Farben oder eine selbst geschriebene Überschrift können keine fehlenden Belege ersetzen. Die Übungsdaten sagen nichts über Gesundheit, Lernerfolg oder Ursachen der Schulwegwahl aus.</p><p>Die Abgabe umfasst zwei tatsächlich geöffnete digitale Fassungen und eine begründete Überarbeitung. Ein Screenshot allein zeigt nicht, ob die heruntergeladenen Dateien vollständig sind. Ein Podcast- oder Videobeispiel zu benennen ist nicht dasselbe, wie ein eigenes Audio oder Video zu produzieren.</p></details>\n<p>Hinweise für Lehrkräfte: <a href=\"https://www.w3.org/WAI/tutorials/images/complex/\" target=\"_blank\" rel=\"noopener\">W3C WAI: komplexe Diagramme und Textalternativen</a>.</p>\n</div>{{QUIZ_dgb7_media_framing}}{{QUIZ_dgb7_media_scope}}",
+        "quizzes": [
+          {
+            "id": "dgb7_media_framing",
+            "question": "„28 von 40 kommen zu Fuß oder mit dem Rad“ und „12 von 40 nutzen Öffis oder Auto“: Was zeigt der Vergleich mit den Übungsdaten?",
+            "answers": [
+              {
+                "text": "Die zweite Überschrift widerspricht der ersten, weil 28 und 12 verschieden sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Zahlen beschreiben unterschiedliche Teilgruppen. 16 + 12 ergibt 28; 8 + 4 ergibt 12. Zusammen sind es die 40 Beispielfälle."
+              },
+              {
+                "text": "Die erste Überschrift beweist, dass Gehen und Radfahren die Ursache besserer Noten sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Tabelle enthält Hauptwege, aber keine Noten und keinen Nachweis eines Ursache-Wirkungs-Zusammenhangs."
+              },
+              {
+                "text": "Beide sind rechnerisch richtig, heben aber unterschiedliche Teilgruppen hervor.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "28 und 12 ergänzen sich zu 40. Die Auswahl der hervorgehobenen Gruppe kann den Eindruck verändern, obwohl die Daten gleich bleiben."
+              }
+            ]
+          },
+          {
+            "id": "dgb7_media_scope",
+            "question": "Welche Angabe muss auch in deiner exportierten Infografik erkennbar bleiben?",
+            "answers": [
+              {
+                "text": "Nur die auffälligste Zahl; Herkunft und Gesamtzahl lenken vom Bild ab.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ohne Grundgesamtheit und Herkunft lässt sich eine Zahl leicht falsch einordnen. Die Grafik braucht außerdem verständliche Kategorien und Werte."
+              },
+              {
+                "text": "Dass es erfundene Übungsdaten zu 40 Beispielfällen sind, keine Aussage über alle Wiener Kinder.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Reichweite der Daten gehört zur Aussage. Die neue Darstellungsform macht eine erfundene Gruppe nicht zu einer echten oder repräsentativen Befragung."
+              },
+              {
+                "text": "Dass eine professionelle Gestaltung automatisch die Richtigkeit aller selbst geschriebenen Sätze garantiert.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine eigene Überschrift kann trotz guter Gestaltung falsch sein. Prüfe ihre Behauptungen mit der Quelle und den dort erkennbaren Grenzen."
+              }
+            ]
+          }
+        ]
       },
       {
         "id": "sec4",
-        "title": "4. Anwenden und selbst pr&uuml;fen",
+        "title": "5. Anwenden und selbst prüfen",
         "quizzes": [
           {
             "id": "dgb7_produktion_q4",
@@ -12610,13 +12713,17 @@
       "Du zerlegst Probleme in kleinere Schritte.",
       "Du erkennst Muster und vereinfachst sinnvoll.",
       "Du prüfst Medienprodukte auf Barrierefreiheit.",
-      "Du setzt einen Mengenplan in JavaScript um, veränderst ihn und prüfst Original und Änderung mit vorher berechneten Testfällen."
+      "Du setzt einen Mengenplan in JavaScript um, veränderst ihn und prüfst Original und Änderung mit vorher berechneten Testfällen.",
+      "Du passt Softwareeinstellungen an ein begründetes Leseziel an und prüfst ihre Wirkung, Speicherung und Reichweite.",
+      "Du benennst Beispiele populärer Medienkulturen und gestaltest dieselben Daten als Kurzbeitrag und Infografik mit nachvollziehbarer Quelle und Aussagegrenze."
     ],
     "summary": [
       "Zerlege ein Problem in kleinere Teilaufgaben und suche nach wiederkehrenden Mustern.",
       "Abstraktion lässt für die Aufgabe unwichtige Einzelheiten weg.",
       "Teste Inhalt, Funktion und Zugänglichkeit deines Medienprodukts und verbessere es anhand der Ergebnisse.",
-      "Ein Test vergleicht eine vorher begründete Erwartung mit dem tatsächlichen Ergebnis. Eine eigene Codeänderung muss erneut ausgeführt und geprüft werden."
+      "Ein Test vergleicht eine vorher begründete Erwartung mit dem tatsächlichen Ergebnis. Eine eigene Codeänderung muss erneut ausgeführt und geprüft werden.",
+      "Konfiguration nutzt vorhandene Einstellmöglichkeiten. Prüfe ihre tatsächliche Wirkung und den Geltungsbereich; Speichern und erneutes Öffnen sind eigene Prüfschritte.",
+      "Darstellungsformen heben Informationen unterschiedlich hervor. Prüfe eigene Aussagen an der Quelle und erhalte Grundgesamtheit, Daten und Grenzen auch in exportierten Medien."
     ],
     "prerequisites": [
       "dgb6_produktion"

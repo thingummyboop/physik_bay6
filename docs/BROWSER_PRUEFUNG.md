@@ -73,3 +73,18 @@ Alle 22 externen Bilder dekodiert; 132 Zustände über drei Bildschirmbreiten un
 ### 14.09.2026 – Chemie-Trennplanung
 
 Chromium 151.0.7922.34, Bericht 2026-09-14T02:04:37.667Z: 140 native Kombinationen, vollständige Vorschau gewählter Optionen, bearbeitbare Rückmeldung, Reset/Fokus und unveränderte Modellspeicherung. Neun-Fragen-Check mit 89 % und gezieltem Wiederholungsabschnitt bestanden; 320/390/1280 ohne Seitenüberlauf. Ausgewählte mobile/dunkle Screenshots und Seiten des zehnseitigen A4-Exports gelesen. Kurze Auswahlbezeichnungen mit vollständigem Erklärungstext beheben vorherige mobile Kürzungen; Papieraufträge erscheinen einmal, Versuchsüberschrift bleibt bei der Tabelle. Umfang und Grenzen: CHEMIE_TRENNPLANUNG.md.
+
+
+## 14.09.2026 – Stoffliste über kopierte und gedruckte Kapitelverweise erhalten
+
+Native Online-Kapitel-Links verwenden jetzt dieselbe Route wie die Öffnen-Knöpfe: Modus, aktuelle Kapitelreihenfolge und unbekannte Einträge bleiben auch auf einem anderen Gerät erhalten. Unterrichtsvorschau ohne Auswahl behält ihren Modus. 19 zugehörige Funktionstests bestanden; separater Chromium-Test mit sechs Kapiteln aus allen fünf priorisierten Fächern, drei Modi, neuer Empfängerumgebung, Tastaturnavigation und 320/390/1280 Breite. Vierseitiges A4-PDF vollständig visuell gelesen, alle sechs Kapitelziele in den PDF-Annotationen geprüft. Umfang, Berichte und Grenzen: [STOFFLISTEN_KAPITELLINKS.md](STOFFLISTEN_KAPITELLINKS.md). Keine Gesamtfreigabe oder neue Veröffentlichung.
+
+
+## 14.09.2026 – Gesamtlauf und unabhängige Saturnkorrektur
+
+Alle 182 vorhandenen Funktionstestsuiten bestanden im vollständigen Lauf; 197 deutsche Kapitel im gemeinsamen Renderer ohne Strukturfehler. Der anschließende Live-Screenshot-Abgleich zeigte dennoch eine falsche Zuordnung von Antwortmarkierung und Rückmeldung bei der Saturn-Quellenübung. Drei Optionen lokal korrigiert; neue, von den gespeicherten Flags unabhängige Erwartungen scheiterten davor und bestanden danach. Vollständige Astronomie-Integrationsprüfung und tatsächlicher Browserlauf erneut erfolgreich. Sieben zentrale Dateien des gepushten Zwischenstands b154b4e auf GitHub Pages verglichen; fünf Browserprüfungen dort ausgeführt. Dies ist keine fachliche Gesamtfreigabe. Details, zeitliche Trennung der Prüfläufe und verbleibender Live-Fehler: [FUNKTIONS_PRUEFUNG_2026-09-14.md](FUNKTIONS_PRUEFUNG_2026-09-14.md). Kein weiterer Push, Übersetzungen weiterhin zurückgestellt.
+
+
+## 14.09.2026 – DGB3: Leseeinstellungen ausführen und prüfen
+
+Neue eigenständige Leseanwendung mit 18 tatsächlichen Schrift-/Abstands-/Farbkombinationen, ausdrücklichem Speichern/Laden/Löschen und bedienbarer Ansicht bei gesperrtem Speicher. Kapitel- und Downloadintegration, sechs begründete Arbeitsaufträge, vier Protokollzeilen mit eigenem Schreibraum im Druck und separate Vergleichslösung. Zwei neue Prüfungsfragen, acht bewertete Fragen insgesamt, Revision 2. DOM-Prüfung der Einstellungsmöglichkeiten sowie 24 Kapitelantwortwege bestanden; 54 tatsächlich gemessene Browserzustände, Download und lokale Dateiausführung, Tastatur und Speicherzyklus geprüft. Gemeinsamer Browser-Lernweg mit aktuellem Quizpool erneut bestanden. Quellen, ausgewählte Druckseiten und genaue Grenzen: [DGB_LESEANSICHT.md](DGB_LESEANSICHT.md). Betriebssystem-/Kommunikationskonfiguration und mediale Darstellungsvergleiche bleiben eigene offene Teile. Keine Übersetzungen, kein Push und kein neuer Gesamtlauf aller jetzt 183 Suiten.

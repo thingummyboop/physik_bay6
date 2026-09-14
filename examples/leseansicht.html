@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leseansicht einstellen – Digitale Grundbildung</title>
+<style>
+:root{font:1rem/1.6 system-ui,sans-serif;color:#182b46;background:#eff7ff}*{box-sizing:border-box}
+body{max-width:64rem;margin:auto;padding:1.25rem}h1,h2{line-height:1.3}a{color:#185db5}
+fieldset{margin:1.5rem 0;padding:1rem;border:1px solid #64748b;border-radius:.6rem;min-width:0;background:white}legend{font-weight:700}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:1rem}label{display:block;font-weight:600}select,button{font:inherit;min-height:2.75rem;padding:.6rem;border:1px solid #64748b;border-radius:.35rem;background:white;color:#182b46}select{display:block;width:100%;margin-top:.25rem}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}button{cursor:pointer}button:hover{background:#e5f0fc}:focus-visible{outline:3px solid #a04b00;outline-offset:3px}
+#reading{font-size:1rem;line-height:1.5;background:#fff;color:#182b46;padding:1.1em;border:2px solid currentColor;border-radius:.5rem;overflow-wrap:anywhere}#reading p{max-width:60ch}#reading h2{font-size:1.35em;line-height:inherit}#reading a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+#reading[data-colours="dark"]{background:#192940;color:#e7eef9}#view-state{font-weight:600}#save-state{min-height:3.2em}.hint{border-left:4px solid #185db5;padding-left:1rem}table{width:100%;border-collapse:collapse}th,td{border:1px solid #64748b;padding:.6rem;text-align:left;vertical-align:top;overflow-wrap:anywhere}caption{text-align:left;font-weight:700;margin-bottom:.5rem}
+@media(max-width:400px){body{padding:1rem}fieldset{padding:.75rem}}
+@media print{fieldset,.actions,.back{display:none}body{max-width:none;background:white;color:black}#reading,#reading[data-colours="dark"]{background:white;color:black}h2,caption{break-after:avoid}tr{break-inside:avoid}}
+</style>
+</head>
+<body><main>
+<p class="back"><a id="chapter-link" href="../index.html#dgb7_produktion">Zum Kapitel „Probleme zerlegen und barrierearm gestalten“</a></p>
+<p>Digitale Grundbildung · 3. Klasse</p><h1>Meine Leseansicht</h1>
+<p>Verändere die Darstellung derselben Leseprobe. Wähle zuerst eine Einstellung, sage ihre Wirkung voraus und prüfe sie anschließend am Text. Es gibt keine für alle Menschen beste Kombination.</p>
+<fieldset><legend>Einstellungen der Leseprobe</legend>
+<div class="controls">
+<label for="text-size">Schriftgröße<select id="text-size"><option value="1">Normal (100 %)</option><option value="1.25">Größer (125 %)</option><option value="1.5">Groß (150 %)</option></select></label>
+<label for="line-space">Zeilenabstand<select id="line-space"><option value="1.5">1,5-fach</option><option value="1.8">1,8-fach</option><option value="2.2">2,2-fach</option></select></label>
+<label for="colours">Farben<select id="colours"><option value="light">Dunkler Text auf Hell</option><option value="dark">Heller Text auf Dunkel</option></select></label>
+</div>
+<div class="actions"><button id="defaults" type="button">Ausgangsansicht</button><button id="save" type="button">Einstellungen speichern</button><button id="load" type="button">Gespeicherte laden</button><button id="forget" type="button">Gespeicherte löschen</button></div>
+</fieldset>
+<p id="view-state" role="status" aria-live="polite" aria-atomic="true"></p>
+<p id="save-state" role="status" aria-live="polite" aria-atomic="true"></p>
+<article id="reading" aria-labelledby="reading-title" data-colours="light">
+<h2 id="reading-title">Ein Projektnachmittag im Werkraum</h2>
+<p>Diese Ankündigung ist ein erfundener Übungstext. Es gibt keinen echten Termin und keine Anmeldung.</p>
+<p>Am 12. Juni 2030 beginnt der Projektnachmittag um 14:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Team Wasser bereitet drei leere Becher vor.</p>
+<p>Die Gruppen vergleichen ihre Entwürfe und sammeln Verbesserungsvorschläge. Um 15:30 Uhr räumen alle gemeinsam auf. Der Projektnachmittag endet um 16:00 Uhr.</p>
+<p>Die <a href="#check-questions">Suchaufgaben zur Leseprobe</a> helfen dir, die Darstellung mit demselben Inhalt zu vergleichen.</p>
+</article>
+<section aria-labelledby="check-questions"><h2 id="check-questions" tabindex="-1">Mit derselben Aufgabe vergleichen</h2>
+<ol><li>Finde Beginn, Raum und das Material von Team Wasser. Notiere die Angaben in deinem Heft.</li><li>Ändere nur die Schriftgröße. Lies erneut: Kannst du die Angaben leichter finden? Was geschieht mit Zeilenumbrüchen und Textlänge auf dem Bildschirm?</li><li>Lasse die gewählte Größe stehen und ändere nur den Zeilenabstand. Vergleiche anschließend die beiden Farbdarstellungen. Beschreibe die Wirkung jeweils für dich, ohne sie für alle zu verallgemeinern.</li><li>Prüfe bei deiner Kombination, ob alle Wörter und der Link zur Suchaufgabe erreichbar bleiben. Nutze auch Tab und Enter. Ändere bei Bedarf die Ansicht erneut.</li><li>Speichere eine Kombination und notiere die drei Werte. Stelle die Ausgangsansicht her, lade die gespeicherten Werte und vergleiche. Lade danach die Seite neu. Prüfe die tatsächliche Meldung, statt Speicherung nur anzunehmen.</li></ol>
+</section>
+<p class="hint">Diese Auswahl verändert nur die Leseprobe in dieser Anwendung. Browserzoom, andere Webseiten und Geräteeinstellungen werden damit nicht geändert. Beim Speichern bleiben nur die drei Einstellungswerte in diesem Browser; es werden keine Namen oder Testergebnisse gespeichert. Ohne verfügbaren Browserspeicher kannst du weiterhin alle Darstellungen ausprobieren und die Werte im Heft festhalten.</p>
+<p>„Ausgangsansicht“ setzt die sichtbare Auswahl zurück und behält gespeicherte Werte. „Gespeicherte löschen“ entfernt diese Werte und lässt die derzeitige Ansicht stehen. Beim nächsten Öffnen wird eine gespeicherte Kombination geladen, sonst die Ausgangsansicht.</p>
+<noscript><p>Die Leseprobe und Suchaufgaben bleiben lesbar. Zum Verändern und Speichern der Einstellungen muss JavaScript verfügbar sein.</p></noscript>
+</main>
+<script>
+'use strict';
+// A downloaded copy may be opened outside the website's directory structure.
+if(location.protocol==='file:')document.getElementById('chapter-link').href='https://thingummyboop.github.io/physik_bay6/index.html#dgb7_produktion';
+const key='sciverse_reading_preferences';
+const defaults={size:'1',spacing:'1.5',colours:'light'};
+const allowed={size:['1','1.25','1.5'],spacing:['1.5','1.8','2.2'],colours:['light','dark']};
+const controls={size:document.getElementById('text-size'),spacing:document.getElementById('line-space'),colours:document.getElementById('colours')};
+const sample=document.getElementById('reading'),notice=document.getElementById('save-state');
+function selection(){return Object.fromEntries(Object.entries(controls).map(([name,el])=>[name,el.value]));}
+function valid(value){return value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(allowed).every(name=>allowed[name].includes(value[name]));}
+function apply(value){
+ if(!valid(value))return;
+ for(const name of Object.keys(controls))controls[name].value=value[name];
+ sample.style.fontSize=value.size+'rem';sample.style.lineHeight=value.spacing;sample.dataset.colours=value.colours;
+ document.getElementById('view-state').textContent='Leseprobe: '+Math.round(Number(value.size)*100)+' % Schriftgröße · '+value.spacing.replace('.',',')+'-facher Zeilenabstand · '+(value.colours==='dark'?'heller Text auf Dunkel.':'dunkler Text auf Hell.');
+}
+function load(){
+ try{
+  const raw=localStorage.getItem(key);
+  if(raw===null){notice.textContent='Keine gespeicherten Einstellungen vorhanden. Die aktuelle Ansicht bleibt erhalten.';return;}
+  const saved=JSON.parse(raw);if(!valid(saved))throw new Error('invalid settings');
+  apply(saved);notice.textContent='Gespeicherte Einstellungen geladen.';
+ }catch{notice.textContent='Einstellungen konnten nicht geladen werden. Die aktuelle Ansicht bleibt nutzbar; notiere deine Werte im Heft.';}
+}
+for(const control of Object.values(controls))control.addEventListener('change',()=>{apply(selection());notice.textContent='Ansicht geändert. Zum Behalten „Einstellungen speichern“ wählen.';});
+document.getElementById('defaults').addEventListener('click',()=>{apply(defaults);notice.textContent='Ausgangsansicht eingestellt. Gespeicherte Werte bleiben erhalten.';});
+document.getElementById('save').addEventListener('click',()=>{
+ try{localStorage.setItem(key,JSON.stringify(selection()));notice.textContent='Die drei Einstellungen sind in diesem Browser gespeichert.';}
+ catch{notice.textContent='Speichern nicht möglich. Die Ansicht bleibt nutzbar; notiere deine Werte im Heft.';}
+});
+document.getElementById('load').addEventListener('click',load);
+document.getElementById('forget').addEventListener('click',()=>{
+ try{localStorage.removeItem(key);notice.textContent='Gespeicherte Einstellungen gelöscht. Die aktuelle Ansicht bleibt erhalten.';}
+ catch{notice.textContent='Löschen nicht möglich. Die aktuelle Ansicht bleibt erhalten.';}
+});
+apply(defaults);load();
+</script></body></html>

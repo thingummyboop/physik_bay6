@@ -140,7 +140,8 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
   body.querySelectorAll('label,button,input,select,textarea,output,progress,[role="status"]').forEach(el=>el.remove());
   body.querySelectorAll('*').forEach(el=>{for(const attr of [...el.attributes])if(/^on/i.test(attr.name)||attr.name==='style')el.removeAttribute(attr.name);});
   body.querySelectorAll('a[href]').forEach(a=>{if(/^https?:/i.test(a.getAttribute('href')))a.after(make('span',' ('+a.href+')'));});
-  article.append(body,make('p','Eigene Beobachtung, Skizze oder Begründung:'));
+  const writingPrompt=make('p','Eigene Beobachtung, Skizze oder Begründung:');writingPrompt.className='ws-writing-prompt';
+  article.append(body,writingPrompt);
   for(let i=0;i<3;i++){const line=make('div');line.className='answer-lines';article.append(line);}
   material.append(article);
  }

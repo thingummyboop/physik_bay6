@@ -1,5 +1,7 @@
 # Astronomie: Fragen- und Quellenprüfung, 14.09.2026
 
+**Spätere Korrektur:** Bei einer erneuten Sichtprüfung wurde eine falsche Antwort-/Feedbackzuordnung in der Saturn-Quellenübung gefunden, die die unten dokumentierten technischen Tests nicht erkannt hatten. Lokal korrigiert und mit unabhängigen fachlichen Erwartungen sowie nativen Browserklicks nachgeprüft. Der folgende historische Bericht ist keine fehlerfreie Inhaltsfreigabe. Nachweis: [FUNKTIONS_PRUEFUNG_2026-09-14.md](FUNKTIONS_PRUEFUNG_2026-09-14.md).
+
 ## Inhaltliche Überarbeitung
 
 Der vorherige Zielturn war Fortschritt: Zwei berechnete Bahnmodelle, neun überarbeitete Fragen und zugehörige Prüfungen wurden umgesetzt. Dieser Schritt baut darauf auf. Alle übrigen 76 Frageformulierungen und Antwortoptionen des deutschen Astronomie-Kapitels wurden gelesen und neu ausgearbeitet. Die neun Bahnfragen bleiben erhalten. Insgesamt gibt es jetzt 85 Fragen mit jeweils drei begründeten Antwortmöglichkeiten; 39 gehören zum Kapitelcheck, 46 bleiben reine Übungen. Die Zahl der bewerteten Fragen wurde nicht auf 85 erhöht.

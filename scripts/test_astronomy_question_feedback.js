@@ -1,6 +1,17 @@
 const assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),{JSDOM}=require('jsdom');
 const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.parse(read('lang/de.json')),chapter=data.astronomie;
 (async()=>{
+ // Independent content expectations: a copied wrong answer flag must not become the oracle.
+ const saturn=chapter.sections.flatMap(s=>s.quizzes).find(q=>q.id==='astro_s15_saturn_p1');
+ for(const [text,correct,reason]of [
+  ['Ich vergleiche Bezugsdaten, Definitionen und bestätigte Entdeckungen.',true,/Bezugsdatum.*bestätigt/],
+  ['Ich streiche die ältere Angabe ohne weiteren Vergleich als falsch.',false,/März 2025.*richtig/],
+  ['Ich folgere, dass alle zusätzlichen Monde erst zwischen den beiden Daten entstanden sind.',false,/entdeckt.*nicht.*entstanden/]
+ ]){
+  const answer=saturn.answers.find(a=>a.text===text);assert.ok(answer);
+  assert.equal(answer.correct,correct,'Source comparison: '+text);assert.match(answer.feedback,reason);
+ }
+ assert.equal(saturn.practiceOnly,true,'This source exercise does not alter the assessed pool');
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=astronomie',runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
