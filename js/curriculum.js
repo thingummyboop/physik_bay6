@@ -532,16 +532,16 @@ window.SCIVERSE_CURRICULUM = {
         "category": "Ökologie"
       },
       {
-        "id": "bio_2_pflanzenorgane_fotosynthese",
-        "title": "🍃 Pflanzenorgane und Fotosynthese",
-        "grade": "6. Schulstufe (2. Kl.)",
-        "category": "Pflanzen"
-      },
-      {
         "id": "bio_2_zellen",
         "title": "🔬 Pflanzen- und Tierzellen",
         "grade": "6. Schulstufe (2. Kl.)",
         "category": "Zellen"
+      },
+      {
+        "id": "bio_2_pflanzenorgane_fotosynthese",
+        "title": "🍃 Pflanzenorgane und Fotosynthese",
+        "grade": "6. Schulstufe (2. Kl.)",
+        "category": "Pflanzen"
       },
       {
         "id": "bio_2_pflanzenvermehrung",

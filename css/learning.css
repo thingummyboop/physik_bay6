@@ -16,3 +16,8 @@ button[aria-disabled="true"]{opacity:.6;cursor:default}
 #unavailable-chapters { overflow-wrap: anywhere; }
 #unavailable-chapters li { margin-block: .6rem; }
 #unavailable-chapters button { margin-inline-start: .5rem; }
+
+.page-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.page-shortcuts a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-weight:600}
+#chapter-filters,#plan-heading{scroll-margin-top:80px}
+@media print{.page-shortcuts{display:none!important}}

@@ -1,6 +1,6 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
-Browser-Teilprüfung vom 14.09.2026: zentrale Lern-/Unterrichtswege in einem separaten Chromium-Browser geprüft; Menüfokus und mobile Layoutfehler behoben. Umfang und offene Grenzen: [BROWSER_PRUEFUNG.md](BROWSER_PRUEFUNG.md). Die vollständigen Abnahmepunkte unten bleiben offen.
+Browserprüfung vom 16.09.2026: gemeinsame Lern-/Unterrichtswege einschließlich mobiler Sprunglinks, Teilen und Stofflistendruck erneut geprüft. Zwei Funktionspunkte sind unten mit ihrem Nachweis abgehakt; die vollständige Produktabnahme bleibt offen. Umfang und Grenzen: [LERN_UND_UNTERRICHTSWEGE.md](LERN_UND_UNTERRICHTSWEGE.md), weitere Kapitelprüfungen: [BROWSER_PRUEFUNG.md](BROWSER_PRUEFUNG.md).
 
 Aktueller Quellenstand vom 14.09.2026: Die fünf priorisierten Fachlehrpläne wurden erneut direkt aus dem RIS abgerufen und vollständig mit der bisherigen Textgrundlage verglichen. Sie sind unverändert. Nachweis und Grenzen: [LEHRPLAN_QUELLENSTAND.md](LEHRPLAN_QUELLENSTAND.md). Dies erledigt den Quellenvergleich, nicht die noch offenen Inhalts- und Produktabnahmen.
 
@@ -12,13 +12,15 @@ Die bestehende Webseite wird zu einem interaktiven, gamifizierten Lehrbuch für 
 
 Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und Digitale Grundbildung. Bestehende andere Fächer bleiben erhalten, werden derzeit aber nachrangig bearbeitet. Die Priorisierung ist keine Behauptung einer vollständigen fachlichen Abnahme.
 
-## Abnahme – noch offen, bis nachgewiesen
+## Abnahme – aktueller Nachweisstand
+
+Die gemeinsamen Lern- und Unterrichtswege wurden am 16.09.2026 erneut geprüft. Umfang, aktuelle Browser-/Drucknachweise und Grenzen: [LERN_UND_UNTERRICHTSWEGE.md](LERN_UND_UNTERRICHTSWEGE.md). Abgehakte Funktionspunkte bestätigen nicht die fachliche Vollständigkeit jedes Kapitels. Nicht abgehakte Punkte bleiben offen; Übersetzungen sind gemäß Nutzerpriorität zurückgestellt.
 
 - [ ] Österreichischer Mittelschullehrplan: alle vorhandenen Fächer und Klassen zuordnen, Lücken dokumentieren und schließen; österreichische Fachbezeichnungen verwenden.
 - [ ] Physik: fachlich begründete Reihenfolge, Vorwissen, Grundstoff und Vertiefung, vollständige inhaltliche Prüfung und passende Wiener Alltagsbezüge.
 - [ ] Jedes Kapitel: Lernziele, kurze Erklärungen, passende Darstellungen, angeleitete Interaktion, aussagekräftige Übungen, Zusammenfassung und Verständnischeck.
-- [ ] Zwei Lernwege: schrittweise Neues lernen und gezielt Prüfungsstoff wiederholen.
-- [ ] Lehrkräfte können Kapitel auswählen und eine wieder aufrufbare Stoffliste mit Lernzielen teilen und drucken.
+- [x] Zwei Lernwege: schrittweise Neues lernen und gezielt Prüfungsstoff wiederholen.
+- [x] Lehrkräfte können Kapitel auswählen und eine wieder aufrufbare Stoffliste mit Lernzielen teilen und drucken.
 - [ ] Lernstand zeigt Können und konkrete Wiederholungsbedarfe; lokale Speicherung wird verständlich erklärt.
 - [ ] Gamifizierung ohne Sperren, Wartezeiten oder Punktkosten für Lernen und Prüfungsübungen.
 - [ ] Jede Quizantwort erhält fachlich passende, widerspruchsfreie Rückmeldung; alle Aufgaben werden ausgewertet.

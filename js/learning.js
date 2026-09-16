@@ -101,6 +101,7 @@ function placePrerequisiteBefore(id, prerequisite){
  $('plan-progress').append(document.createTextNode(entryText(' · '+chapterTitle(byId.get(prerequisite))+' steht jetzt vor '+chapterTitle(byId.get(id))+'.',' · '+chapterTitle(byId.get(prerequisite))+' is now before '+chapterTitle(byId.get(id))+'.')));
 }
 function renderPlan(){
+ $('plan-jump').textContent='Zur Stoffliste · '+chosen.size+' Kapitel';
  $('selected').replaceChildren();let checked=0;
  for(const id of chosen){const t=byId.get(id);const li=element('li');li.append(chapterTitleElement('strong',t),chapterMetadata(t));
  const goals=topicsToLearn(t),ul=element('ul');setMetadataLanguage(ul,!!translatedMetadata(t.id)?.learningGoals?.length);ul.dataset.planGoals='true';goals.forEach(goal=>ul.append(element('li',goal)));li.append(ul);

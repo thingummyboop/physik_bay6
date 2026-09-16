@@ -1,4 +1,4 @@
-// Rebuild after adding or revising translations. Uses the renderer's actual selection rules.
+// Rebuild after revising German chapters, revision numbers or translations. Uses the renderer's actual selection rules.
 const fs=require('node:fs'),path=require('node:path');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 (async()=>{const dom=new JSDOM('<html><body></body></html>',{url:'https://example.test/',runScripts:'outside-only'}),w=dom.window;await new Promise(r=>setImmediate(r));for(const file of ['curriculum','chapter-revisions','renderer'])w.eval(read('js/'+file+'.js'));

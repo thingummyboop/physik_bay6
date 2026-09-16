@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "cc5d0300c659f7f4b15ee39e86783ba11c7a59c6ce9fa2edeb046eb7ebfb7021",
-    "lang/de.json": "fdd9899945a688938bce8f6f6746344515d23980d0848d79a821a6dd615ae72d"
+    "js/curriculum.js": "0c3da6afcd0980bafecf230c170ba1ff33d848eddd4e5ffac09d01505f41f205",
+    "lang/de.json": "a1c39d9722bd0964586e8053aaca53e16f996f3a52b41f312e47f4d6a37ec410"
   },
   "subjects": {
     "physik": {
@@ -2906,10 +2906,11 @@
           "source": "lang/de.json#/dgb8_information",
           "goals": [
             "Du sicherst eine eigene Testdatei, stellst sie an einem getrennten Ziel wieder her und vergleichst die Dateiversionen.",
-            "Du erklärst Risiken von Datensammlung und Überwachung.",
-            "Du bereitest Informationen für Zielgruppen passend auf."
+            "Du unterscheidest erfasste Datenspuren, eine Auswertungsregel und vermutete persönliche Interessen.",
+            "Du bewertest Nutzen, Fehlzuordnungen und den Umfang einer Datensammlung an konkreten Fällen.",
+            "Du erklärst dieselbe Aussage passend zu zwei Zielgruppen, prüfst sie und dokumentierst eine Überarbeitung."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "sec1",
@@ -2923,16 +2924,18 @@
             {
               "id": "sec2",
               "index": 1,
-              "title": "2. Fachw&ouml;rter und Beispiele",
+              "title": "2. Datenspuren, Verknüpfung und vermutete Profile",
               "questions": [
                 "dgb8_information_q2",
+                "dgb8_trace_inference",
+                "dgb8_trace_purpose",
                 "dgb8_information_p2"
               ]
             },
             {
               "id": "sec3",
               "index": 2,
-              "title": "3. Werkstattauftrag",
+              "title": "3. Dieselbe Aussage für zwei Zielgruppen erklären",
               "questions": [
                 "dgb8_information_q3",
                 "dgb8_information_p3"
@@ -2948,7 +2951,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 7,
+          "questionCount": 9,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -5718,48 +5721,53 @@
           "sourcePresent": true,
           "source": "lang/de.json#/bio_2_uebersicht",
           "goals": [
-            "Du erkennst die großen Themen der 2. Klasse.",
-            "Du verbindest Lebensräume, Pflanzen, Zellen und Tiere miteinander.",
-            "Du stellst einfache Fragen, die man beobachten, vergleichen oder nachlesen kann."
+            "Du findest passende Kapitel für deine Lernfrage und erklärst die vorgeschlagene Reihenfolge.",
+            "Du unterscheidest Zelle, Organ, Organismus und Lebensraum an einem Beispiel.",
+            "Du trennst Beobachtungen, Modelle und noch nicht belegte Erklärungen.",
+            "Du planst einen nachvollziehbaren Vergleich und benennst fehlende Belege."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": null,
               "index": 0,
-              "title": "1. Was kommt in der 2. Klasse?",
+              "title": "1. Dein Lernweg durch die 2. Klasse",
               "questions": [
-                "bio_2_uebersicht_s1"
+                "bio_2_uebersicht_s1",
+                "bio2_orientation_levels"
               ]
             },
             {
               "id": null,
               "index": 1,
-              "title": "2. Lebensräume verstehen",
+              "title": "2. Von der Beobachtung zur prüfbaren Frage",
               "questions": [
-                "bio_2_uebersicht_s2"
+                "bio_2_uebersicht_s2",
+                "bio2_orientation_sampling"
               ]
             },
             {
               "id": null,
               "index": 2,
-              "title": "3. Pflanzen, Zellen und kleine Lebewesen verbinden",
+              "title": "3. Einen sinnvollen nächsten Schritt wählen",
               "questions": [
-                "bio_2_uebersicht_s3"
+                "bio_2_uebersicht_s3",
+                "bio2_orientation_compare"
               ]
             },
             {
               "id": null,
               "index": 3,
-              "title": "4. Tiere, Sinne und Körperreaktionen vergleichen",
+              "title": "4. Lernen und Prüfungsstoff planen",
               "questions": [
                 "bio_2_uebersicht_s4",
+                "bio2_orientation_transfer",
                 "bio_2_uebersicht_extra_sinne"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 5,
+          "questionCount": 9,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -5824,72 +5832,6 @@
           ],
           "workshop": false,
           "questionCount": 6,
-          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
-          "factualAndCurriculumApproval": "not-established-by-this-inventory"
-        },
-        {
-          "id": "bio_2_pflanzenorgane_fotosynthese",
-          "title": "🍃 Pflanzenorgane und Fotosynthese",
-          "grade": "6. Schulstufe (2. Kl.)",
-          "gradeLevels": null,
-          "category": "Pflanzen",
-          "available": true,
-          "sourcePresent": true,
-          "source": "lang/de.json#/bio_2_pflanzenorgane_fotosynthese",
-          "goals": [
-            "Du ordnest Pflanzenorganen ihre Aufgaben und Stofftransportwege zu.",
-            "Du unterscheidest Ausgangsstoffe, Produkte und Energiezufuhr der Fotosynthese.",
-            "Du erklärst das Zusammenspiel von Fotosynthese, Zellatmung und Sauerstoffbilanz.",
-            "Du planst einen Vergleich zum Einfluss des Lichts und benennst seine Grenzen.",
-            "Du wertest Pflanzenbeobachtungen aus und unterscheidest Messwerte von nicht belegten Schlussfolgerungen."
-          ],
-          "summaryCount": 3,
-          "sections": [
-            {
-              "id": null,
-              "index": 0,
-              "title": "1. Pflanzenorgane arbeiten zusammen",
-              "questions": [
-                "bio2_pflanze_s1"
-              ]
-            },
-            {
-              "id": null,
-              "index": 1,
-              "title": "2. Das Blatt: Bau und Funktion",
-              "questions": [
-                "bio2_pflanze_s2"
-              ]
-            },
-            {
-              "id": null,
-              "index": 2,
-              "title": "3. Fotosynthese als Stoffumwandlung",
-              "questions": [
-                "bio2_pflanze_s3",
-                "bio_2_pflanzenorgane_extra_fotosynthese"
-              ]
-            },
-            {
-              "id": null,
-              "index": 3,
-              "title": "4. Experimente zu Licht, Wasser und Mineralstoffen",
-              "questions": [
-                "bio2_pflanze_s4",
-                "bio2_pflanze_evidence"
-              ]
-            },
-            {
-              "id": null,
-              "index": 4,
-              "title": "5. Fotosynthese und Zellatmung unterscheiden",
-              "questions": [
-                "bio2_pflanze_s5"
-              ]
-            }
-          ],
-          "workshop": false,
-          "questionCount": 7,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -5961,6 +5903,72 @@
           ],
           "workshop": false,
           "questionCount": 13,
+          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
+          "factualAndCurriculumApproval": "not-established-by-this-inventory"
+        },
+        {
+          "id": "bio_2_pflanzenorgane_fotosynthese",
+          "title": "🍃 Pflanzenorgane und Fotosynthese",
+          "grade": "6. Schulstufe (2. Kl.)",
+          "gradeLevels": null,
+          "category": "Pflanzen",
+          "available": true,
+          "sourcePresent": true,
+          "source": "lang/de.json#/bio_2_pflanzenorgane_fotosynthese",
+          "goals": [
+            "Du ordnest Pflanzenorganen ihre Aufgaben und Stofftransportwege zu.",
+            "Du unterscheidest Ausgangsstoffe, Produkte und Energiezufuhr der Fotosynthese.",
+            "Du erklärst das Zusammenspiel von Fotosynthese, Zellatmung und Sauerstoffbilanz.",
+            "Du planst einen Vergleich zum Einfluss des Lichts und benennst seine Grenzen.",
+            "Du wertest Pflanzenbeobachtungen aus und unterscheidest Messwerte von nicht belegten Schlussfolgerungen."
+          ],
+          "summaryCount": 3,
+          "sections": [
+            {
+              "id": null,
+              "index": 0,
+              "title": "1. Pflanzenorgane arbeiten zusammen",
+              "questions": [
+                "bio2_pflanze_s1"
+              ]
+            },
+            {
+              "id": null,
+              "index": 1,
+              "title": "2. Das Blatt: Bau und Funktion",
+              "questions": [
+                "bio2_pflanze_s2"
+              ]
+            },
+            {
+              "id": null,
+              "index": 2,
+              "title": "3. Fotosynthese als Stoffumwandlung",
+              "questions": [
+                "bio2_pflanze_s3",
+                "bio_2_pflanzenorgane_extra_fotosynthese"
+              ]
+            },
+            {
+              "id": null,
+              "index": 3,
+              "title": "4. Experimente zu Licht, Wasser und Mineralstoffen",
+              "questions": [
+                "bio2_pflanze_s4",
+                "bio2_pflanze_evidence"
+              ]
+            },
+            {
+              "id": null,
+              "index": 4,
+              "title": "5. Fotosynthese und Zellatmung unterscheiden",
+              "questions": [
+                "bio2_pflanze_s5"
+              ]
+            }
+          ],
+          "workshop": false,
+          "questionCount": 7,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

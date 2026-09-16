@@ -1,0 +1,20 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.parse(read('lang/de.json')),id='dgb8_information';
+const keys={dgb8_information_q1:1,dgb8_information_q2:2,dgb8_trace_inference:0,dgb8_trace_purpose:1,dgb8_information_q3:0,dgb8_information_q4:2};
+const sections={dgb8_information_q1:0,dgb8_information_q2:1,dgb8_trace_inference:1,dgb8_trace_purpose:1,dgb8_information_q3:2,dgb8_information_q4:3};
+(async()=>{const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();
+ const lab=d.querySelector('.trace-workshop'),controls=[...lab.querySelectorAll('[data-trace-toggle]')],context=lab.querySelector('[data-trace-context]'),out=lab.querySelector('[data-trace-result]'),before=JSON.stringify(w.localStorage);
+ assert.equal(controls.length,3);assert.equal(w.chapterRevision(id),2);assert.equal(w.currentChapterResult(id,{contentRevision:1,lastPercent:100}).outdated,true);
+ for(let mask=0;mask<8;mask++)for(const expanded of [false,true]){
+  controls.forEach((c,i)=>{c.checked=!!(mask&(1<<i));c.dispatchEvent(new w.Event('change'));});context.open=expanded;
+  const outdoor=(mask&1?2:0)+(mask&2?1:0),creating=(mask&2?1:0)+(mask&4?2:0);
+  assert.equal(Number(lab.querySelector('[data-trace-count="Outdoor"]').textContent),outdoor);assert.equal(Number(lab.querySelector('[data-trace-count="Gestalten"]').textContent),creating);
+  assert.equal([...lab.querySelectorAll('[data-trace-events] tbody tr')].filter(r=>!r.hidden).length,outdoor+creating);
+  if(mask){assert.ok(out.textContent.startsWith((outdoor+creating)+' Ereignisse'));assert.equal(out.textContent.includes('Outdoor'),outdoor>0);assert.equal(out.textContent.includes('Gestalten'),creating>0);assert.match(out.textContent,/kein Beweis/);}else assert.match(out.textContent,/nicht, dass eine Person keine Interessen hat/);
+ }
+ lab.querySelector('[data-trace-reset]').click();assert.ok(controls.every(c=>!c.checked));assert.equal(context.open,false);assert.equal(d.activeElement,controls[0]);assert.equal(JSON.stringify(w.localStorage),before);for(const c of controls)assert.equal(c.getAttribute('aria-describedby'),out.id);
+ const qs=w.currentChapterQuiz.questions;assert.equal(qs.length,6);for(const [i,q]of qs.entries()){assert.equal(q.answers.findIndex(a=>a.correct),keys[q.id]);assert.equal(q.sectionIndex,sections[q.id]);for(let choice=0;choice<3;choice++){w.restartChapterQuiz();qs.forEach((item,n)=>d.querySelector(`input[name="chapter_q_${n}"][value="${i===n?choice:keys[item.id]}"]`).checked=true);w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id];assert.equal(result.lastPercent,choice===keys[q.id]?100:83);assert.deepEqual(result.reviewQuestionIds,choice===keys[q.id]?[]:[q.id]);assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[choice].feedback));}}
+ assert.equal(d.querySelectorAll('[data-trace-tasks] li').length,6);assert.equal(d.querySelectorAll('[data-trace-writing] li').length,5);assert.equal(d.querySelectorAll('[data-restore-steps] li').length,7);
+ const paper=lab.querySelector('template').content;assert.equal(paper.querySelectorAll('[data-trace-events] tbody tr').length,6);assert.equal(paper.querySelectorAll('[data-trace-protocol] tbody tr').length,5);assert.equal(paper.querySelectorAll('button,input,select').length,0);
+ dom.window.close();console.log('PASS: all 16 source/context combinations, independent event/category counts, uncertainty, no stored tracking data, native-control reset/focus, 18 keyed quiz answers, 11 tasks and preserved restore exercise.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

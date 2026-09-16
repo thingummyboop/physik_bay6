@@ -13489,20 +13489,26 @@
         "quizzes": [
           {
             "id": "dgb8_information_q1",
-            "question": "Was ist ein Backup?",
+            "question": "Du legst eine Verknüpfung zu deinem Referat in einen Ordner „Sicherung“. Was ist damit gesichert?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "eine Sicherungskopie wichtiger Daten",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Backup schützt vor Datenverlust."
-              },
-              {
-                "text": "eine Verknüpfung, die nur auf die ursprüngliche Datei verweist",
+                "text": "Eine unabhängig wiederherstellbare Kopie des gesamten Referats.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Eine Verknüpfung enthält nicht die gesicherten Dateiinhalte. Wird das Original unzugänglich, lässt es sich daraus nicht wiederherstellen."
+                "feedback": "Eine Verknüpfung verweist auf die ursprüngliche Datei. Fehlt diese, kann die Verknüpfung den Inhalt nicht ersetzen."
+              },
+              {
+                "text": "Nur ein Verweis auf die Datei; eine inhaltliche Sicherungskopie ist damit noch nicht erstellt.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Prüfe eine tatsächlich kopierte und wiederherstellbare Datei, nicht nur einen Namen oder Verweis."
+              },
+              {
+                "text": "Automatisch jede spätere Version des Referats.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Verknüpfung legt keine Versionsgeschichte an. Dafür braucht es eine geeignete Sicherung und eine Prüfung der wiederhergestellten Version."
               }
             ]
           },
@@ -13512,16 +13518,22 @@
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Daten aus einer Sicherung zurückholen",
+                "text": "Daten aus einer Sicherung an einem geeigneten Ziel wieder verfügbar machen.",
+                "feedback": "Das ist Wiederherstellung. Prüfe danach auch Inhalt und Versionsstand.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Wiederherstellung nutzt das Backup."
+                "pts": 0
               },
               {
-                "text": "nur den Namen der Sicherungsdatei in der Dateiliste sehen",
+                "text": "Nur den Namen der Sicherungsdatei in der Dateiliste sehen.",
+                "feedback": "Ein sichtbarer Name beweist nicht, dass der Inhalt wiederhergestellt und lesbar ist.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Das Wiederfinden ist erst ein Schritt. Kopiere die Sicherung an das Wiederherstellungsziel, öffne sie dort und prüfe ihren Inhalt."
+                "pts": 0
+              },
+              {
+                "text": "Eine Verknüpfung auf eine fehlende Originaldatei öffnen.",
+                "feedback": "Ohne den ursprünglichen Inhalt kann eine Verknüpfung die Datei nicht zurückholen.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -13530,24 +13542,80 @@
       },
       {
         "id": "sec2",
-        "title": "2. Fachw&ouml;rter und Beispiele",
+        "title": "2. Datenspuren, Verknüpfung und vermutete Profile",
         "quizzes": [
           {
             "id": "dgb8_information_q2",
-            "question": "Was ist Tracking?",
+            "question": "Die Modellregel zählt drei Outdoor-Ereignisse zur Kennung T7. Was bedeutet diese Zahl?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Nutzungsverhalten wird verfolgt und ausgewertet",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Tracking erzeugt Datenspuren."
-              },
-              {
-                "text": "Dateien alphabetisch nach ihren Namen sortieren",
+                "text": "Drei Personen nutzen die Kennung.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Sortieren ordnet Dateien. Tracking bezeichnet dagegen das Verfolgen und Auswerten von Nutzungsverhalten."
+                "feedback": "Die Zahl zählt Ereignisse, nicht Personen. Ein Ereignis kann ohne Kenntnis der konkreten Person protokolliert sein."
+              },
+              {
+                "text": "Die Person besitzt drei Outdoor-Produkte.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Seitenaufrufe belegen weder Kauf noch Besitz. Auch die Zuordnung zu genau einer Person ist hier nicht gesichert."
+              },
+              {
+                "text": "Drei ausgewählte Ereignisse wurden der Modellkategorie Outdoor zugeordnet.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Das ist die Zählung nach unserer offengelegten Regel. Ein persönliches Interesse bleibt eine Deutung."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_trace_inference",
+            "question": "Eine Person sucht Wanderschuhe als Geschenk. Was zeigt dieses Beispiel für ein automatisch vermutetes Outdoor-Interesse?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Der gespeicherte Suchbegriff kann stimmen, während die vermutete persönliche Absicht falsch ist.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Daten und Deutung sind zu trennen. Der Anlass der Suche ist aus dem Suchbegriff allein nicht ersichtlich."
+              },
+              {
+                "text": "Jeder gespeicherte Suchbegriff ist dadurch nachweislich falsch.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Suchbegriff wurde tatsächlich verwendet. Fraglich ist die daraus abgeleitete persönliche Zuschreibung."
+              },
+              {
+                "text": "Mehr Treffer zum selben Geschenk beweisen sicher das eigene Hobby.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Wiederholte Suche kann zur selben Geschenkplanung gehören. Häufigkeit allein klärt die Absicht nicht."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_trace_purpose",
+            "question": "Ein Bibliotheksteam möchte beliebte Themen für neue Bücher ermitteln. Welcher Vorschlag passt am besten zum begrenzten Zweck?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Vollständige private Suchverläufe aller Kinder übernehmen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Diese Sammlung wäre viel umfassender als die gestellte Frage. Konkrete Buch- oder Themenwünsche reichen für den beschriebenen Zweck eher aus."
+              },
+              {
+                "text": "Freiwillige Themenwünsche in vorab erklärten Kategorien sammeln und ihre Aussagegrenzen nennen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Angaben passen zur Auswahlfrage. Eine freiwillige Wunschliste ist trotzdem keine repräsentative Aussage über alle Kinder."
+              },
+              {
+                "text": "Genaue Standortverläufe sammeln und daraus automatisch Lieblingsthemen ableiten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Standortverläufe beantworten die Themenwünsche nicht zuverlässig und enthalten für diesen Zweck unnötige Angaben."
               }
             ]
           },
@@ -13557,42 +13625,54 @@
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Zielgruppen brauchen unterschiedliche Sprache und Beispiele",
+                "text": "Weil Vorwissen, Aufgabe und Nutzungssituation unterschiedliche Beispiele und Erklärungen verlangen.",
+                "feedback": "Die Darstellung darf angepasst werden. Kernaussage und wichtige Einschränkungen müssen stimmen.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Zielgruppen haben verschiedene Vorkenntnisse."
+                "pts": 0
               },
               {
-                "text": "weil die fachliche Kernaussage je nach Publikum beliebig geändert werden darf",
+                "text": "Weil man für ein jüngeres Publikum unsichere Vermutungen als bewiesene Tatsachen darstellen sollte.",
+                "feedback": "Eine einfachere Erklärung darf Unsicherheit nicht in falsche Gewissheit verwandeln.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Sprache und Beispiele werden angepasst; die sachliche Aussage muss zutreffend bleiben."
+                "pts": 0
+              },
+              {
+                "text": "Weil Erwachsene immer möglichst viele unerklärte Fachbegriffe benötigen.",
+                "feedback": "Alter allein sagt nicht, welche Fachbegriffe bekannt sind. Erkläre die Begriffe passend zum konkreten Auftrag.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
         ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Backup</strong><br>Kopie wichtiger Daten an einem sicheren zweiten Ort.</div><div class=\"word-ui-card\"><strong>Wiederherstellung</strong><br>Daten aus einer Sicherung zur&uuml;ckholen.</div><div class=\"word-ui-card\"><strong>Tracking</strong><br>Nutzungsverhalten wird verfolgt und ausgewertet.</div><div class=\"word-ui-card\"><strong>Profiling</strong><br>Aus Daten wird ein Bild &uuml;ber Interessen oder Verhalten gebildet.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Backup-Regel</td><td>Schuldateien jede Woche auf zweitem Speicher sichern.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Datenspur</td><td>Suchanfragen, Standort, Klicks, Likes oder K&auml;ufe.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Zielgruppe</td><td>Eine Erkl&auml;rung f&uuml;r Kinder braucht andere Sprache als ein Bericht f&uuml;r Erwachsene.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb8_information_q2}}\n{{QUIZ_dgb8_information_p2}}"
+        "content": "<p><strong>Tracking</strong> bezeichnet das Nachverfolgen von Nutzung, etwa Seitenaufrufen oder Klicks. Bei <strong>Profiling</strong> werden Daten ausgewertet, um beispielsweise Interessen oder Verhalten einzuschätzen. Die gespeicherten Ereignisse und die daraus abgeleitete Aussage sind nicht dasselbe.</p><p>Ein Profil kann für Empfehlungen oder Werbung verwendet werden. Eine Produktsuche beweist aber weder einen Kauf noch, dass die suchende Person das Produkt selbst nutzen will. Ein geteiltes Gerät erschwert die persönliche Zuordnung zusätzlich. Mehr Daten allein beseitigen diese Unsicherheit nicht.</p><div class=\"interactive-zone trace-workshop\" data-core-experiment=\"profile-traces\"><h3>Werkstatt: Aus Spuren wird ein vermutetes Profil</h3><p>Alle Einträge sind erfunden. Die drei Quellen sind im Modell bereits derselben Kennung T7 zugeordnet. Reale Dienste können Daten nicht beliebig voneinander lesen; mögliche Verknüpfungen hängen von Technik, Konten und Datenweitergabe ab. Diese Werkstatt führt kein echtes Tracking aus.</p><p><strong>Unsere offengelegte Regel:</strong> Zähle die Ereignisse jeder Modellkategorie aus den gewählten Quellen. Nenne jede vorkommende Kategorie als vermutetes Interesse. Eine Häufigkeit ist hier keine Wahrscheinlichkeit und kein Beweis für eine persönliche Eigenschaft.</p><fieldset><legend>Welche Quellen soll die Modellregel auswerten?</legend><label><input type=\"checkbox\" data-trace-toggle=\"Suche\"> Suche</label><label><input type=\"checkbox\" data-trace-toggle=\"Shop\"> Shop</label><label><input type=\"checkbox\" data-trace-toggle=\"Video\"> Video</label></fieldset><p>Wähle zuerst nur eine Quelle, dann weitere. Vergleiche, was die Regel daraus macht.</p><p>Die Ereignistabelle lässt sich auf schmalen Bildschirmen seitlich verschieben. Mit der Tastatur: Tabelle mit Tab fokussieren und die Pfeiltasten verwenden.</p><div class=\"trace-table\" tabindex=\"0\" role=\"region\" aria-label=\"Erfundene Datenspuren – seitlich verschiebbare Tabelle\"><table data-trace-events><caption>Erfundene Ereignisse zur Kennung T7</caption><thead><tr><th scope=\"col\">Quelle</th><th scope=\"col\">Gespeicherter Inhalt</th><th scope=\"col\">Modellkategorie</th></tr></thead><tbody><tr data-trace-source=\"Suche\" data-trace-category=\"Outdoor\"><th scope=\"row\">Suche</th><td>Wanderschuhe</td><td>Outdoor</td></tr><tr data-trace-source=\"Suche\" data-trace-category=\"Outdoor\"><th scope=\"row\">Suche</th><td>Wienerwald für ein Referat</td><td>Outdoor</td></tr><tr data-trace-source=\"Shop\" data-trace-category=\"Outdoor\"><th scope=\"row\">Shop</th><td>Wanderschuhe als Produktseite</td><td>Outdoor</td></tr><tr data-trace-source=\"Shop\" data-trace-category=\"Gestalten\"><th scope=\"row\">Shop</th><td>Bastelset als Produktseite</td><td>Gestalten</td></tr><tr data-trace-source=\"Video\" data-trace-category=\"Gestalten\"><th scope=\"row\">Video</th><td>Malen mit Wasserfarben</td><td>Gestalten</td></tr><tr data-trace-source=\"Video\" data-trace-category=\"Gestalten\"><th scope=\"row\">Video</th><td>Papiersterne falten</td><td>Gestalten</td></tr></tbody></table></div><table data-trace-counts><caption>Gezählte Ereignisse, keine persönlichen Eigenschaften</caption><thead><tr><th scope=\"col\">Kategorie</th><th scope=\"col\">Anzahl in der Auswahl</th></tr></thead><tbody><tr><th scope=\"row\">Outdoor</th><td data-trace-count=\"Outdoor\">0</td></tr><tr><th scope=\"row\">Gestalten</th><td data-trace-count=\"Gestalten\">0</td></tr></tbody></table><p data-trace-result role=\"status\"></p><details data-trace-context><summary>Zusatzinformation zum geteilten Tablet</summary><p>Die Kennung T7 gehört in dieser erfundenen Geschichte zu einem geteilten Tablet. Eine Person recherchiert für ein Referat, eine zweite sucht ein Geschenk, eine dritte schaut Bastelanleitungen. Die Auswertung enthält diese Nutzungsabsichten nicht. Die Zusatzinformation stammt aus der Fallbeschreibung, nicht aus einer automatischen Erkennung.</p></details><button type=\"button\" data-trace-reset>Auswahl zurücksetzen</button><template data-worksheet-alternative><div data-trace-paper><h3>Datenspuren auf Papier zusammenführen</h3><table data-trace-events><caption>Erfundene Ereignisse zur Kennung T7</caption><thead><tr><th scope=\"col\">Quelle</th><th scope=\"col\">Gespeicherter Inhalt</th><th scope=\"col\">Modellkategorie</th></tr></thead><tbody><tr data-trace-source=\"Suche\" data-trace-category=\"Outdoor\"><th scope=\"row\">Suche</th><td>Wanderschuhe</td><td>Outdoor</td></tr><tr data-trace-source=\"Suche\" data-trace-category=\"Outdoor\"><th scope=\"row\">Suche</th><td>Wienerwald für ein Referat</td><td>Outdoor</td></tr><tr data-trace-source=\"Shop\" data-trace-category=\"Outdoor\"><th scope=\"row\">Shop</th><td>Wanderschuhe als Produktseite</td><td>Outdoor</td></tr><tr data-trace-source=\"Shop\" data-trace-category=\"Gestalten\"><th scope=\"row\">Shop</th><td>Bastelset als Produktseite</td><td>Gestalten</td></tr><tr data-trace-source=\"Video\" data-trace-category=\"Gestalten\"><th scope=\"row\">Video</th><td>Malen mit Wasserfarben</td><td>Gestalten</td></tr><tr data-trace-source=\"Video\" data-trace-category=\"Gestalten\"><th scope=\"row\">Video</th><td>Papiersterne falten</td><td>Gestalten</td></tr></tbody></table><p>Regel: Zähle pro Kategorie die Ereignisse der gewählten Quellen. Benenne vorkommende Kategorien als vermutete Interessen; bezeichne sie nicht als gesicherte Eigenschaften einer Person.</p><table data-trace-protocol><caption>Zuerst vorhersagen, dann auszählen</caption><thead><tr><th>Quellen</th><th>Outdoor</th><th>Gestalten</th><th>Grenze der Aussage</th></tr></thead><tbody><tr><th scope=\"row\">Keine</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Nur Suche</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Nur Shop</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Suche und Video</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Alle drei</th><td>…</td><td>…</td><td>…</td></tr></tbody></table><p><strong>Zusatzinformation – erst nach deiner ersten Deutung lesen:</strong> Die Kennung T7 gehört in dieser erfundenen Geschichte zu einem geteilten Tablet. Eine Person recherchiert für ein Referat, eine zweite sucht ein Geschenk, eine dritte schaut Bastelanleitungen. Die Auswertung enthält diese Nutzungsabsichten nicht. Die Zusatzinformation stammt aus der Fallbeschreibung, nicht aus einer automatischen Erkennung.</p></div></template></div><h3>Beobachten, erklären, entscheiden</h3><ol data-trace-tasks><li>Sage für nur Suche, nur Shop und alle Quellen die beiden Anzahlen voraus. Prüfe anschließend die Werkstatt und notiere Abweichungen.</li><li>Trenne drei Ebenen: gespeicherte Ereignisse, unsere Zuordnungsregel und vermutete Interessen. Formuliere für jede Ebene einen eigenen Satz.</li><li>Lies die Zusatzinformation. Erkläre, warum die gezählten Ereignisse gleich bleiben, obwohl die Deutung „eine Person mit diesen Interessen“ jetzt besonders problematisch ist.</li><li>Vergleiche Nutzen und Risiko: Eine Empfehlung kann passende Inhalte leichter auffindbar machen. Welche Folgen könnte aber eine falsche Zuordnung für angezeigte Werbung oder Empfehlungen haben?</li><li>Plane für einen erfundenen schulischen Buchwunschzettel: Welche Angaben braucht die Bibliothek für die Auswahl? Welche Angaben wie genauer Standortverlauf oder private Suchhistorie helfen diesem Zweck nicht? Begründe die Begrenzung; sammle keine echten Angaben.</li><li>Erfinde ein anderes mögliches Motiv für eine Produktsuche. Erkläre, welche zusätzliche Information helfen würde, ohne vorschnell immer mehr persönliche Daten zu verlangen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichsauswertung der Datenspuren</summary><p>In der Reihenfolge Outdoor/Gestalten: keine Quelle 0/0, nur Suche 2/0, nur Shop 1/1, Suche und Video 2/2, alle drei 3/3. Die Anzahl zählt Ereignisse im ausgewählten Material, nicht Personen und nicht die Stärke eines Interesses.</p><p>Die Regel macht aus zugeordneten Ereignissen eine Vermutung. Ein Referat, ein Geschenk und die Nutzung durch mehrere Personen liefern Gegenbeispiele zur vorschnellen persönlichen Zuschreibung. Auch mehrere gleichartige Ereignisse beweisen keine Absicht.</p><p>Für eine begrenzte Buchauswahl können etwa gewünschte Themen und Anzahl der Wünsche genügen. Eine private Suchhistorie oder ein genauer Standortverlauf ist dafür nicht nötig. Ob in einem echten Ausleihvorgang zusätzlich ein Bibliothekskonto gebraucht wird, ist eine andere Zweckfrage.</p></details>{{QUIZ_dgb8_information_q2}} {{QUIZ_dgb8_trace_inference}} {{QUIZ_dgb8_trace_purpose}} {{QUIZ_dgb8_information_p2}}"
       },
       {
         "id": "sec3",
-        "title": "3. Werkstattauftrag",
+        "title": "3. Dieselbe Aussage für zwei Zielgruppen erklären",
         "quizzes": [
           {
             "id": "dgb8_information_q3",
-            "question": "Welche Datei sollte besonders gesichert werden?",
+            "question": "Welche Änderung passt zu einer Erklärung für eine neue erste Klasse?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "ein wichtiges Referat kurz vor der Abgabe",
+                "text": "„Datenspur“ mit einer erfundenen Suche erklären und die Grenze der daraus gezogenen Vermutung beibehalten.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Wichtige Arbeit braucht Sicherung."
+                "feedback": "Richtig: Ein vertrautes Beispiel erleichtert das Verstehen, ohne die fachliche Einschränkung zu streichen."
               },
               {
-                "text": "eine absichtlich leere Testdatei allein",
+                "text": "Die Einschränkung streichen und behaupten, die Empfehlung erkenne immer das wahre Interesse.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Eine Testdatei hilft beim Prüfen, ersetzt aber keine Sicherung."
+                "feedback": "Der Text wäre einfacher, aber inhaltlich falsch. Verständlichkeit erlaubt keine unbelegte Gewissheit."
+              },
+              {
+                "text": "Alle einfachen Wörter durch möglichst viele Fachbegriffe ersetzen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mehr Fachbegriffe machen eine Erklärung nicht automatisch genauer oder verständlicher. Entscheidend sind Vorwissen und Auftrag."
               }
             ]
           },
@@ -13602,21 +13682,27 @@
             "practiceOnly": true,
             "answers": [
               {
-                "text": "aus Daten wird ein Bild über Interessen oder Verhalten gebildet",
+                "text": "Aus Daten werden beispielsweise Interessen oder Verhalten eingeschätzt.",
+                "feedback": "Die Einschätzung ist von den erfassten Ereignissen zu unterscheiden und kann falsch sein.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Profiling verbindet Daten."
+                "pts": 0
               },
               {
-                "text": "eine Datei allein nach ihrem Dateinamen in einen Ordner einordnen",
+                "text": "Jeder gespeicherte Klick wird ohne Auswertung nur in zeitlicher Reihenfolge aufbewahrt.",
+                "feedback": "Das beschreibt eine Aufzeichnung. Ein daraus abgeleitetes Interessenbild ist ein zusätzlicher Auswertungsschritt.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Profiling betrifft Schlussfolgerungen über Personen oder Gruppen aus Daten. Eine bloße Dateisortierung beschreibt diesen Vorgang nicht."
+                "pts": 0
+              },
+              {
+                "text": "Eine Sicherungskopie wird an ihrem ursprünglichen Ort wiederhergestellt.",
+                "feedback": "Das ist Wiederherstellung, nicht die Bildung eines Interessenprofils.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
         ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Eine Information f&uuml;r zwei Zielgruppen</h3><ol class=\"word-mini-steps\"><li>W&auml;hle ein digitales Sicherheitsthema, zum Beispiel Backup oder Tracking.</li><li>Schreibe zuerst eine Erkl&auml;rung f&uuml;r Kinder der 1. Klasse in einfacher Sprache.</li><li>Schreibe danach eine Version f&uuml;r Eltern oder Erwachsene mit mehr Fachw&ouml;rtern.</li><li>Vergleiche beide Texte: Was ist gleich? Was ist anders?</li><li>Markiere drei Stellen, an denen du Sprache oder Beispiele an die Zielgruppe angepasst hast.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Beide Texte erkl&auml;ren dasselbe Thema, aber Sprache, Beispiele und Genauigkeit passen zur Zielgruppe.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Backup</td><td>Sicherungsort und Zeitpunkt sind klar</td><td>Wiederherstellung wird mitgedacht</td></tr><tr><td>Datenspuren</td><td>Tracking oder Profiling wird an Beispielen erkl&auml;rt</td><td>Risiken werden nicht verharmlost</td></tr><tr><td>Zielgruppe</td><td>Sprache und Beispiele passen</td><td>Unterschiede sind markiert</td></tr></table>\n{{QUIZ_dgb8_information_q3}}\n{{QUIZ_dgb8_information_p3}}"
+        "content": "<p>Gute Erklärungen passen zu Vorwissen, Aufgabe und Situation. Erwachsene brauchen nicht automatisch mehr Fachwörter, und kurze Texte dürfen wichtige Einschränkungen nicht verlieren. Verwende den Tablet-Fall aus Abschnitt 2 als gemeinsame Grundlage.</p><div class=\"word-task-card\"><h3>Zwei konkrete Aufträge</h3><p><strong>A – Anleitung für eine neue erste Klasse:</strong> Erkläre in etwa 60–90 Wörtern, warum eine Empfehlung nach einer Suche auftauchen kann und warum das noch keinen sicheren Schluss auf persönliche Interessen erlaubt. Führe „Datenspur“ an einem Beispiel ein.</p><p><strong>B – Notiz für ein schulisches Bibliotheksteam:</strong> Erkläre in etwa 90–120 Wörtern, warum für eine Buchwunschaktion keine private Suchhistorie erhoben werden soll. Nenne den Zweck, passende Angaben, eine Grenze der Daten und einen begründeten Vorschlag. Verwende „Profil“ nur mit Erklärung.</p><ol data-trace-writing><li>Notiere vor dem Schreiben die unveränderlichen Kernaussagen: Ereignisse sind Daten; die Regel erzeugt eine Vermutung; geteilte Nutzung und andere Absichten begrenzen die Deutung.</li><li>Schreibe beide Texte als eigene digitale Notiz in einem freigegebenen Werkzeug. Nutze die erfundenen Angaben. Benötigt werden keine privaten Konten, Verläufe oder Namen.</li><li>Markiere zwei Unterschiede in Sprache, Beispiel oder Aufbau. Begründe jeden Unterschied mit dem Auftrag und dem Vorwissen der Zielgruppe.</li><li>Prüfe jeden Text mit drei Suchfragen: Was wurde erfasst? Was wurde daraus vermutet? Was ist nicht belegt? Lasse eine andere Person die Antworten im Text finden oder dokumentiere deine Selbstprüfung.</li><li>Überarbeite eine missverständliche Stelle. Bewahre beide Fassungen auf und notiere die Änderung sowie das Ergebnis der erneuten Prüfung.</li></ol></div><table data-trace-writing-protocol><caption>Überarbeitung nachvollziehbar machen</caption><thead><tr><th>Fassung</th><th>Unklare Stelle</th><th>Änderung</th><th>Erneute Prüfung</th></tr></thead><tbody><tr><th>A</th><td>…</td><td>…</td><td>…</td></tr><tr><th>B</th><td>…</td><td>…</td><td>…</td></tr></tbody></table><p>Ohne Gerät kannst du die Texte auf Papier planen und prüfen. Das Erstellen und Speichern der digitalen Fassungen bleibt dann noch auszuführen.</p>{{QUIZ_dgb8_information_q3}} {{QUIZ_dgb8_information_p3}}"
       },
       {
         "id": "sec4",
@@ -13624,20 +13710,26 @@
         "quizzes": [
           {
             "id": "dgb8_information_q4",
-            "question": "Was gehört zu einem guten Backup-Plan?",
+            "question": "Du hast eine Sicherung angelegt. Welche Prüfung gehört zusätzlich in deinen Backup-Plan?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Was, wo, wann und wie wiederherstellen",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Ein Plan braucht konkrete Schritte."
-              },
-              {
-                "text": "nur den Sicherungsort notieren, ohne Zeitpunkt und Wiederherstellung zu prüfen",
+                "text": "Nur prüfen, ob der Sicherungsordner einen passenden Namen hat.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Der Speicherort allein zeigt nicht, wie aktuell die Sicherung ist und ob sich die Daten daraus nutzen lassen."
+                "feedback": "Ein Ordnername belegt weder den Dateiinhalt noch die Möglichkeit der Wiederherstellung."
+              },
+              {
+                "text": "Die ursprüngliche wichtige Datei sofort löschen, damit die Sicherung zwingend gebraucht wird.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Prüfung darf mit einer eigenen Testdatei und einem getrennten Wiederherstellungsziel erfolgen. Das wichtige Original muss dafür nicht gelöscht werden."
+              },
+              {
+                "text": "Eine eigene Testdatei an einem getrennten Ziel wiederherstellen und den Inhalt mit der erwarteten Version vergleichen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: So prüfst du die Wiederherstellung und den Versionsstand. Sicherungsort und regelmäßige Sicherung gehören weiterhin zum Plan."
               }
             ]
           }
@@ -13648,13 +13740,16 @@
     "chapterQuizTitle": "Verständnischeck: Backups, Datenspuren und klare Erklärungen",
     "learningGoals": [
       "Du sicherst eine eigene Testdatei, stellst sie an einem getrennten Ziel wieder her und vergleichst die Dateiversionen.",
-      "Du erklärst Risiken von Datensammlung und Überwachung.",
-      "Du bereitest Informationen für Zielgruppen passend auf."
+      "Du unterscheidest erfasste Datenspuren, eine Auswertungsregel und vermutete persönliche Interessen.",
+      "Du bewertest Nutzen, Fehlzuordnungen und den Umfang einer Datensammlung an konkreten Fällen.",
+      "Du erklärst dieselbe Aussage passend zu zwei Zielgruppen, prüfst sie und dokumentierst eine Überarbeitung."
     ],
     "summary": [
-      "Ein Backup ist eine Sicherungskopie; zur Planung gehört auch das Wiederherstellen.",
-      "Datenspuren können zusammengeführt und ausgewertet werden.",
-      "Bereite Informationen für die jeweilige Zielgruppe verständlich auf und teile nur benötigte Daten."
+      "Ein Backup enthält eine Sicherungskopie; eine Verknüpfung ersetzt sie nicht. Prüfe die Wiederherstellung mit einer Testdatei.",
+      "Die Profilwerkstatt zählt erfundene Ereignisse. Solche Zählungen beweisen weder Kauf, Besitz noch die Absicht einer Person.",
+      "Geteilte Geräte und unterschiedliche Suchabsichten können persönliche Zuschreibungen unzuverlässig machen.",
+      "Begrenze Datensammlungen auf den erklärten Zweck und benenne die Aussagegrenzen.",
+      "Passe Beispiele und Sprache an Zielgruppe und Auftrag an, ohne wichtige Einschränkungen zu streichen."
     ],
     "prerequisites": [
       "dgb7_information"
@@ -13663,6 +13758,10 @@
       {
         "title": "BSI: Schritt für Schritt zur Datensicherung",
         "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Broschueren/Wegweiser_Checklisten_Flyer/SfS-Anleitung_Datensicherung.html"
+      },
+      {
+        "title": "Saferinternet.at: Datenspuren im Netz (2019)",
+        "url": "https://www.saferinternet.at/news-detail/datenspuren-im-netz-was-die-digitale-welt-ueber-mich-weiss"
       }
     ]
   },
@@ -36775,168 +36874,273 @@
   },
   "bio_2_uebersicht": {
     "title": "🧭 Übersicht 2. Klasse",
-    "subtitle": "Du bekommst einen einfachen Überblick über die großen Biologie-Themen der 2. Klasse: Lebensräume, Pflanzen, Zellen, Pilze, Mikroorganismen, wirbellose Tiere, Sinne und Gehirn.",
+    "subtitle": "Finde deinen Lernweg, formuliere untersuchbare Fragen und unterscheide Beobachtung, Modell und Erklärung.",
     "script": false,
     "chapterQuizTitle": "Kapitelquiz: Verstehen, Untersuchen, Handeln",
     "sections": [
       {
-        "title": "1. Was kommt in der 2. Klasse?",
+        "title": "1. Dein Lernweg durch die 2. Klasse",
         "quizzes": [
           {
             "id": "bio_2_uebersicht_s1",
-            "question": "Welche Themen gehören besonders zur Biologie der 2. Klasse?",
+            "question": "Du möchtest verstehen, wo in einem grünen Blatt Fotosynthese stattfindet. Welcher Weg passt zu dieser Frage?",
             "answers": [
               {
-                "text": "Lebensräume, Pflanzen, Zellen, Pilze, Mikroorganismen, wirbellose Tiere und Sinne.",
+                "text": "Zuerst nur das Kapitel zu Lebensräumen; damit sind alle Vorgänge im Blatt erklärt.",
+                "feedback": "Der Lebensraum erklärt Bedingungen und Beziehungen. Für Vorgänge innerhalb eines Blattes brauchst du auch die Ebene der Zellen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Zuerst Pflanzen- und Tierzellen, danach Pflanzenorgane und Fotosynthese.",
+                "feedback": "Passend: Das Zellkapitel führt unter anderem Chloroplasten ein. Das Pflanzenkapitel verbindet diese Bestandteile mit den Vorgängen im Blatt.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Diese Themen hängen zusammen: Lebewesen leben in Lebensräumen, bestehen aus Zellen und reagieren auf ihre Umwelt."
+                "pts": 0
               },
               {
-                "text": "Nur Planeten, Sterne und Raketen.",
+                "text": "Zuerst alle Kapitelchecks bestehen, bevor ich das Pflanzenkapitel öffne.",
+                "feedback": "Die Kapitel sind frei zugänglich. Vorwissen hilft beim Verstehen, ist aber keine Zugangssperre.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Das gehört eher zu Astronomie und Physik."
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "bio2_orientation_levels",
+            "question": "Welche Zuordnung unterscheidet die Betrachtungsebenen richtig?",
+            "answers": [
+              {
+                "text": "Blatt = Zelle; Blattzelle = Organ; Park = Organismus.",
+                "feedback": "Ein Blatt besteht aus vielen Zellen. Ein Park umfasst viele Lebewesen und Umweltbedingungen.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Nur Rechnen mit Brüchen.",
+                "text": "Blattzelle = Organismus; Baum = Lebensraum; Park = Organ.",
+                "feedback": "Die Blattzelle ist ein Bestandteil des Baums. Baum und Park sind nicht dieselbe Betrachtungsebene.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. In Biologie geht es hier um Lebewesen, Lebensräume und den menschlichen Körper."
+                "pts": 0
+              },
+              {
+                "text": "Blattzelle = Zelle; Blatt = Organ; Baum = Organismus; Park = Lebensraum.",
+                "feedback": "Passend: Die Ebenen bauen aufeinander auf. Eine Beobachtung am ganzen Park erklärt aber nicht automatisch einen Vorgang in einer einzelnen Zelle.",
+                "correct": true,
+                "pts": 0
               }
             ]
           }
         ],
-        "content": "<p>In der 2. Klasse schaust du genauer auf Lebensräume und auf kleine Bausteine des Lebens. Du lernst den Wald und andere Landlebensräume kennen. Du untersuchst Pflanzen, Zellen, Pilze und Mikroorganismen. Außerdem vergleichst du wirbellose Tiere und lernst, wie Sinne, Gehirn und Bewegung zusammenarbeiten.</p><table class=\"bio-data-table\"><tr><th>Themenfeld</th><th>Darum geht es</th></tr><tr><td>Lebensräume</td><td>Lebewesen, Licht, Wasser, Boden und Nahrung wirken zusammen.</td></tr><tr><td>Pflanzen</td><td>Organe, Fotosynthese und Vermehrung erklären, wie Pflanzen leben.</td></tr><tr><td>Zellen</td><td>Pflanzen und Tiere bestehen aus winzigen Bausteinen.</td></tr><tr><td>Pilze und Mikroorganismen</td><td>Sehr kleine oder oft übersehene Lebewesen sind wichtig für Natur, Nahrung und Hygiene.</td></tr><tr><td>Tiere und Mensch</td><td>Wirbellose Tiere, Sinne, Gehirn und Bewegung werden verglichen und erklärt.</td></tr></table><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du erkennst die großen Themen der 2. Klasse.</li><li>Du verbindest Lebensräume, Pflanzen, Zellen und Tiere miteinander.</li><li>Du stellst einfache Fragen, die man beobachten, vergleichen oder nachlesen kann.</li></ul></div><div class=\"remember-box\"><strong>Kernregel:</strong> Biologie wird leichter, wenn du immer fragst: Was lebt hier? Was braucht es? Woran erkenne ich das?</div><div class=\"mini-task\"><strong>Arbeitsauftrag:</strong> Schreibe die fünf Themenfelder in dein Heft. Markiere zwei Themen, die dich interessieren, und formuliere zu jedem Thema eine echte Frage.</div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre die Wörter Lebensraum, Pflanze, Zelle, Pilz und Sinnesorgan in je einem einfachen Satz. Nimm zu jedem Wort ein Beispiel aus deinem Alltag.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Wähle ein Lebewesen aus Wald, Wiese, Küche oder Schulhof. Schreibe auf: Wo lebt es? Was braucht es? Woran erkennst du, dass es ein Lebewesen ist?</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Stell dir vor, du findest im Park ein unbekanntes kleines Tier oder eine unbekannte Pflanze. Beschreibe, welche Beobachtungen du zuerst sicher notieren würdest, bevor du eine Vermutung aufschreibst.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne mindestens vier Themen der 2. Klasse.</li><li><strong>Erkenntnis:</strong> Formuliere eine Frage, die man beobachten oder vergleichen kann.</li><li><strong>Handeln:</strong> Erkläre, warum genaues Hinschauen vorsichtiger ist als schnelles Raten.</li></ul></div>{{QUIZ_bio_2_uebersicht_s1}}"
+        "content": "<p>Diese Übersicht hilft dir beim Einstieg. Du musst die Fachwörter der späteren Kapitel noch nicht beherrschen. Wähle eine Frage, öffne das passende Kapitel und komme bei Bedarf zurück. Die Lehrkraft legt Unterrichtsreihenfolge und Prüfungsstoff fest.</p><p>Für das selbstständige Lernen schlagen wir vor: zuerst Lebensräume vergleichen, dann Zellen kennenlernen und danach Vorgänge in Pflanzen erklären. Das Zellkapitel führt Chloroplasten ein; das anschließende Pflanzenkapitel greift sie bei der Fotosynthese auf. Alle Kapitel bleiben frei zugänglich.</p><ol data-orientation-route><li><a href=\"../index.html#bio_2_oekosysteme\" target=\"_top\" data-learning-chapter=\"bio_2_oekosysteme\">Wald und andere Landlebensräume</a><p>Welche Lebewesen und Bedingungen wirken zusammen?</p></li><li><a href=\"../index.html#bio_2_zellen\" target=\"_top\" data-learning-chapter=\"bio_2_zellen\">Pflanzen- und Tierzellen</a><p>Was zeigt ein Zellmodell, was eine Mikroskopbeobachtung?</p></li><li><a href=\"../index.html#bio_2_pflanzenorgane_fotosynthese\" target=\"_top\" data-learning-chapter=\"bio_2_pflanzenorgane_fotosynthese\">Pflanzenorgane und Fotosynthese</a><p>Wie hängen Blattzellen, Licht und Stoffaufbau zusammen?</p></li><li><a href=\"../index.html#bio_2_pflanzenvermehrung\" target=\"_top\" data-learning-chapter=\"bio_2_pflanzenvermehrung\">Vermehrung von Pflanzen</a><p>Wie entstehen neue Pflanzen?</p></li><li><a href=\"../index.html#bio_2_pilze\" target=\"_top\" data-learning-chapter=\"bio_2_pilze\">Pilze und Symbiosen</a><p>Wie leben Pilze mit anderen Lebewesen zusammen?</p></li><li><a href=\"../index.html#bio_2_mikroorganismen\" target=\"_top\" data-learning-chapter=\"bio_2_mikroorganismen\">Mikroorganismen und Hygiene</a><p>Welche Wirkungen haben kleine Lebewesen im Alltag?</p></li><li><a href=\"../index.html#bio_2_wirbellose\" target=\"_top\" data-learning-chapter=\"bio_2_wirbellose\">Wirbellose Tiere</a><p>Wie vergleiche ich Körpermerkmale und Lebensweise?</p></li><li><a href=\"../index.html#bio_2_sinne_gehirn\" target=\"_top\" data-learning-chapter=\"bio_2_sinne_gehirn\">Sinne und Gehirn</a><p>Wie unterscheiden sich Reiz und Wahrnehmung?</p></li><li><a href=\"../index.html#bio_2_gehirn_bewegung\" target=\"_top\" data-learning-chapter=\"bio_2_gehirn_bewegung\">Gehirn und Bewegung</a><p>Wie hängen Informationen und Bewegung zusammen?</p></li></ol><h3>Vom Kleinen zum Großen</h3><p>Eine Blattzelle ist eine Zelle. Viele Zellen bilden das Organ Blatt. Das Blatt gehört zum Organismus Baum. Der Baum lebt mit anderen Lebewesen und Umweltbedingungen im Lebensraum Park. Jede Ebene erlaubt andere Fragen.</p><div class=\"bio-direct-training\"><h3>Selbst untersuchen und begründen</h3><ol><li>Ordne Blattzelle, Blatt, Baum und Wiener Stadtpark in eine Kette. Formuliere zu zwei verschiedenen Ebenen je eine Frage.</li><li>Wähle eine Frage aus der Kapitelübersicht. Begründe, welches Kapitel hilft und welches Vorwissen du bei Bedarf wiederholen möchtest.</li><li>Erkläre, warum ein Bild vom ganzen Park nicht ausreicht, um die Bestandteile einer Blattzelle zu erkennen.</li></ol></div>{{QUIZ_bio_2_uebersicht_s1}} {{QUIZ_bio2_orientation_levels}}"
       },
       {
-        "title": "2. Lebensräume verstehen",
+        "title": "2. Von der Beobachtung zur prüfbaren Frage",
         "quizzes": [
           {
             "id": "bio_2_uebersicht_s2",
-            "question": "Was hilft dir, einen Lebensraum biologisch zu beschreiben?",
+            "question": "In den erfundenen Parkdaten werden auf Fläche A drei, auf Fläche B fünf Pflanzenformen unterschieden. Welche Aussage ist durch diese Zählung gedeckt?",
             "answers": [
               {
-                "text": "Ich achte auf Lebewesen, unbelebte Faktoren und Beziehungen zwischen ihnen.",
+                "text": "Auf den zwei untersuchten Flächen wurden unterschiedlich viele Pflanzenformen unterschieden.",
+                "feedback": "Passend: Das beschreibt die vorgegebenen Beobachtungen. Ursachen und Aussagen über den ganzen Park brauchen weitere Belege.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. So erkennst du, dass ein Lebensraum aus vielen verbundenen Teilen besteht."
+                "pts": 0
               },
               {
-                "text": "Ich beschreibe nur, ob mir der Ort gefällt.",
+                "text": "Die Beschattung hat sicher den Unterschied verursacht.",
+                "feedback": "Der Datensatz enthält keinen kontrollierten Lichtvergleich. Auch Boden, Pflege, Feuchtigkeit oder Unterschiede bei der Erkennung können eine Rolle spielen.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Eine Meinung kann ein Start sein, aber Biologie braucht Beobachtungen."
+                "pts": 0
               },
               {
-                "text": "Ich schaue nur auf ein einziges Tier.",
+                "text": "Im gesamten Park gibt es genau acht Pflanzenarten.",
+                "feedback": "Die Formen wurden nicht sicher als Arten bestimmt. Außerdem können Formen auf beiden Flächen vorkommen, und zwei Flächen erfassen nicht den gesamten Park.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Ein Lebensraum besteht aus vielen Lebewesen und Umweltbedingungen."
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "bio2_orientation_sampling",
+            "question": "Zwei Gruppen sollen Pflanzenformen vergleichen. Welcher Plan macht ihre Zählungen am ehesten vergleichbar?",
+            "answers": [
+              {
+                "text": "Eine Gruppe sucht zehn Minuten auf 1 m², die andere so lange, bis sie mehr findet.",
+                "feedback": "Unterschiedliche Suchzeiten verändern die Chance, Formen zu finden. Dann lässt sich der Unterschied schlechter einordnen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Jede Gruppe wählt nach der Zählung die Fläche mit dem gewünschten Ergebnis.",
+                "feedback": "Die nachträgliche Auswahl verzerrt den Vergleich. Fläche und Vorgehen werden vor der Beobachtung festgelegt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Beide untersuchen vorher festgelegte gleich große Flächen gleich lang und verwenden dieselben Unterscheidungsmerkmale.",
+                "feedback": "Passend: Gleiche Regeln machen die Daten vergleichbarer. Unterschiede zwischen Standorten und Unsicherheiten müssen trotzdem dokumentiert werden.",
+                "correct": true,
+                "pts": 0
               }
             ]
           }
         ],
-        "content": "<p>Ein Lebensraum ist mehr als ein Ort. Dort gibt es Lebewesen und Bedingungen wie Licht, Wasser, Temperatur und Boden. Im Wald wachsen zum Beispiel Bäume, Moose und Pilze. Dort leben Insekten, Spinnen, Vögel und viele andere Tiere. Sie alle beeinflussen einander.</p><div class=\"bio-check-grid\"><div class=\"bio-check-card\"><strong>Lebewesen</strong>Pflanzen, Tiere, Pilze und Mikroorganismen.</div><div class=\"bio-check-card\"><strong>Bedingungen</strong>Licht, Wasser, Boden, Temperatur und Wind.</div><div class=\"bio-check-card\"><strong>Beziehungen</strong>Nahrung, Schutz, Konkurrenz, Bestäubung und Zersetzung.</div></div><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du beschreibst Lebensräume mit Lebewesen und Umweltbedingungen.</li><li>Du unterscheidest Beobachtung und Vermutung.</li><li>Du begründest einfache Schutzregeln für Lebensräume.</li></ul></div><div class=\"mini-task\"><strong>Arbeitsauftrag:</strong> Zeichne einen kleinen Ausschnitt aus Wald, Wiese, Park oder Schulhof. Beschrifte drei Lebewesen, zwei unbelebte Faktoren und eine Beziehung zwischen Lebewesen.</div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre Lebensraum, belebter Faktor, unbelebter Faktor und Wechselbeziehung. Schreibe jedes Wort mit einem Beispiel auf.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Ordne Beobachtungen in drei Spalten: Lebewesen, Bedingungen, Beziehungen. Nutze kurze Sätze, damit du den Überblick behältst.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Begründe eine einfache Regel für einen Ausflug in den Wald oder Park. Erkläre, welches Lebewesen oder welcher Lebensraum dadurch geschützt wird.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Erkläre, was zu einem Lebensraum gehört.</li><li><strong>Erkenntnis:</strong> Ordne Beispiele in belebte und unbelebte Faktoren.</li><li><strong>Handeln:</strong> Begründe eine Schutzregel mit einer biologischen Beobachtung.</li></ul></div>{{QUIZ_bio_2_uebersicht_s2}}"
+        "content": "<p>„Hier ist es schön“ beschreibt einen Eindruck. „Auf dieser Fläche unterscheiden wir fünf Pflanzenformen“ beschreibt ein Ergebnis mit einer Zählregel. „Der Schatten verursacht den Unterschied“ ist eine Erklärung, die zusätzliche Belege braucht.</p><p><strong>Erfundene Übungsdaten aus einem Wiener Park:</strong> Zwei vorher festgelegte Flächen werden nach derselben Regel untersucht. Als unterschiedliche Pflanzenformen zählen erkennbare Unterschiede an Blattform und Wuchs. Das ist noch keine sichere Artenbestimmung.</p><table data-orientation-observations><caption>Fiktiver Vergleich – keine eigenen Messdaten</caption><thead><tr><th scope=\"col\">Fläche</th><th scope=\"col\">Größe</th><th scope=\"col\">Suchzeit</th><th scope=\"col\">Unterschiedene Formen</th></tr></thead><tbody><tr><th scope=\"row\">A</th><td>1 m²</td><td>10 min</td><td>3</td></tr><tr><th scope=\"row\">B</th><td>1 m²</td><td>10 min</td><td>5</td></tr></tbody></table><p>Eine passende Frage lautet: Unterscheiden wir auf den ausgewählten Flächen unterschiedlich viele Pflanzenformen? Für eine Erklärung wären etwa Licht, Feuchtigkeit, Boden, Pflege und weitere Flächen zu berücksichtigen. Zählen, Bestimmen und Erklären sind verschiedene Arbeitsschritte.</p><div class=\"bio-direct-training\"><h3>Selbst untersuchen und begründen</h3><ol><li>Schreibe zwei Beobachtungssätze mit den Zahlen aus der Tabelle. Formuliere getrennt eine mögliche Erklärung als Vermutung.</li><li>Erkläre, warum du die beiden Zahlen nicht einfach zu acht Arten im gesamten Park addieren darfst.</li><li>Plane einen eigenen Vergleich im Schulhof: Auswahl der Flächen, Größe, Zeit, Unterscheidungsmerkmale und Protokoll. Bleibe auf erlaubten Flächen, beobachte ohne Pflücken oder Fangen und notiere nur tatsächlich Erkanntes.</li></ol></div>{{QUIZ_bio_2_uebersicht_s2}} {{QUIZ_bio2_orientation_sampling}}"
       },
       {
-        "title": "3. Pflanzen, Zellen und kleine Lebewesen verbinden",
+        "title": "3. Einen sinnvollen nächsten Schritt wählen",
         "quizzes": [
           {
             "id": "bio_2_uebersicht_s3",
-            "question": "Warum gehören Pflanzen, Zellen, Pilze und Mikroorganismen zusammen?",
+            "question": "Ein Zellmodell zeigt grüne Körperchen. Was lässt sich daraus allein schließen?",
             "answers": [
               {
-                "text": "Weil sie zeigen, wie Lebewesen aufgebaut sind, Stoffe umwandeln und in Lebensräumen wirken.",
+                "text": "Dass sie im eigenen Mikroskoppräparat schon beobachtet wurden.",
+                "feedback": "Ein Lehrbuchmodell ist keine eigene Mikroskopbeobachtung. Präparat, Vergrößerung und tatsächlich sichtbare Merkmale gehören in ein eigenes Protokoll.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Welche Bestandteile das Modell darstellen soll; für eine eigene Beobachtung braucht es ein untersuchtes Präparat.",
+                "feedback": "Passend: Eine beschriftete Zeichnung vermittelt eine Vorstellung. Sie ersetzt keine Untersuchung des konkreten Präparats.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau. Du verbindest Aufbau, Lebensvorgänge und Bedeutung im Lebensraum."
+                "pts": 0
               },
               {
-                "text": "Weil Pilze eigentlich Pflanzenorgane sind.",
+                "text": "Dass jede Pflanzenzelle dieselbe Zahl grüner Körperchen besitzt.",
+                "feedback": "Die Anzahl in einer schematischen Zeichnung ist keine allgemeine Messung. Verschiedene Pflanzenzellen können unterschiedlich aufgebaut sein.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Pilze sind eigene Lebewesen und keine Pflanzenteile."
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "bio2_orientation_compare",
+            "question": "In der Werkstatt ändern sich beim Blattvergleich gleichzeitig Licht und Temperatur. Welche Schlussfolgerung passt?",
+            "answers": [
+              {
+                "text": "Ein Unterschied lässt sich nicht allein dem Licht zuordnen.",
+                "feedback": "Passend: Mehrere Bedingungen wurden verändert. Ein gezielter Lichtvergleich hält andere wichtige Bedingungen möglichst gleich und verwendet mehrere Pflanzen.",
+                "correct": true,
+                "pts": 0
               },
               {
-                "text": "Weil Mikroorganismen immer gefährlich sind.",
+                "text": "Ein Unterschied muss vom Licht stammen, weil die Fragestellung Licht nennt.",
+                "feedback": "Die Fragestellung legt nicht die Ursache fest. Die tatsächlichen Untersuchungsbedingungen entscheiden, was sich aus Daten folgern lässt.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Manche Mikroorganismen können krank machen, viele sind aber wichtig und nützlich."
+                "pts": 0
+              },
+              {
+                "text": "Die Beobachtungen sind wertlos und sollen gelöscht werden.",
+                "feedback": "Die Beobachtungen können beschrieben werden. Die Grenze betrifft die Ursachenzuordnung; sie gehört ehrlich ins Protokoll.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
         ],
-        "content": "<p>Pflanzen bestehen aus Organen wie Wurzel, Sprossachse, Blatt und Blüte. In ihren Zellen laufen wichtige Vorgänge ab. Bei der Fotosynthese bilden grüne Pflanzenteile Zucker und geben Sauerstoff ab. Pilze und Mikroorganismen sind ebenfalls wichtig: Sie bauen Stoffe ab, helfen bei Lebensmitteln oder können Krankheiten übertragen.</p><table class=\"bio-data-table\"><tr><th>Thema</th><th>Gute Leitfrage</th></tr><tr><td>Pflanzenorgane</td><td>Welche Aufgabe hat Wurzel, Blatt, Blüte oder Sprossachse?</td></tr><tr><td>Zellen</td><td>Welche Teile haben Pflanzen- und Tierzellen gemeinsam?</td></tr><tr><td>Fotosynthese</td><td>Was braucht die Pflanze und was entsteht dabei?</td></tr><tr><td>Pilze</td><td>Wie ernähren sich Pilze und warum sind Zersetzer wichtig?</td></tr><tr><td>Mikroorganismen</td><td>Wo helfen sie und wann brauchen wir Hygiene?</td></tr></table><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du beschreibst wichtige Pflanzenorgane und Zellbestandteile.</li><li>Du erklärst Fotosynthese als wichtigen Vorgang für Pflanzen und andere Lebewesen.</li><li>Du unterscheidest nützliche und problematische Wirkungen von Pilzen und Mikroorganismen.</li></ul></div><div class=\"mini-task\"><strong>Arbeitsauftrag:</strong> Erstelle eine Verbindungskette mit Pfeilen: Blatt → Zelle → Fotosynthese → Zucker und Sauerstoff → Bedeutung für Tiere und Menschen.</div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre Fotosynthese, Zelle, Zellkern, Pilz und Mikroorganismus. Schreibe zu jedem Fachwort ein Beispiel oder eine Aufgabe dazu.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Vergleiche eine Pflanzenzelle und eine Tierzelle. Markiere zuerst Gemeinsamkeiten, dann Unterschiede. Schreibe danach einen kurzen Vergleichssatz.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Erkläre, warum Händewaschen, sauberes Schneidbrett und richtige Lagerung von Lebensmitteln sinnvoll sind. Verwende dabei das Wort Mikroorganismus.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne wichtige Pflanzenorgane, Zellbestandteile und Beispiele für Mikroorganismen.</li><li><strong>Erkenntnis:</strong> Vergleiche Pflanzenzelle und Tierzelle mit zwei Kriterien.</li><li><strong>Handeln:</strong> Begründe eine Hygieneregel mit Mikroorganismen.</li></ul></div>{{QUIZ_bio_2_uebersicht_s3}}"
+        "content": "<p>Eine Frage bestimmt, welche Belege du brauchst. Ein Modell kann einen Aufbau erklären. Eine eigene Beobachtung beschreibt dagegen, was du an einem konkreten Gegenstand unter angegebenen Bedingungen erkannt hast. Für die Ursache eines Unterschieds brauchst du einen passenden Vergleich.</p><div class=\"interactive-zone bio-orientation-lab\" data-core-experiment=\"boundary-cases\"><h3>Werkstatt: Welcher nächste Schritt hilft?</h3><p>Lies zuerst die Ausgangslage und begründe deinen Vorschlag. Wähle danach eine Handlung und vergleiche die Rückmeldung.</p><label for=\"bio-orientation-case\">Untersuchungsfall</label><select id=\"bio-orientation-case\" data-boundary-control><option value=\"0\">Park: Blätter mit Löchern</option><option value=\"1\">Zellen: Zeichnung oder Beobachtung?</option><option value=\"2\">Pflanzen: Licht untersuchen</option></select><article data-boundary-case><h4>Park: Blätter mit Löchern</h4><p>Erfundene Ausgangsbeobachtung: Auf einem Blatt sind drei Löcher sichtbar. Ein Tier wurde nicht beobachtet. Du möchtest den möglichen Ursachen nachgehen.</p><div class=\"orientation-choices\"><button type=\"button\" data-boundary-answer data-feedback=\"Noch nicht belegt: Löcher allein bestimmen weder das Tier noch die Ursache. Beschreibe Form und Lage und suche zusätzliche Belege.\">Festhalten, dass sicher ein bestimmtes Insekt gefressen hat.</button><button type=\"button\" data-boundary-answer data-feedback=\"Passender nächster Schritt: Zusätzliche, nachvollziehbare Beobachtungen und Fachquellen helfen beim Prüfen möglicher Ursachen. Auch dann darf eine offene Ursache offen bleiben.\">Mehrere vorher ausgewählte Blätter beschreiben, Zeitpunkt und sichtbare Spuren notieren und passende Fachquellen vergleichen.</button><button type=\"button\" data-boundary-answer data-feedback=\"Die Auswahl würde die beobachteten Schäden ausblenden. Eine vorher festgelegte Auswahlregel ist für einen Vergleich hilfreicher.\">Nur völlig unbeschädigte Blätter auswählen und daraus auf alle Blätter schließen.</button></div></article><article data-boundary-case><h4>Zellen: Zeichnung oder Beobachtung?</h4><p>Du hast eine beschriftete Zeichnung einer Blattzelle. Eine Mikroskopaufnahme oder ein eigenes Präparat liegen nicht vor. Du möchtest wissen, was du als eigene Beobachtung berichten darfst.</p><div class=\"orientation-choices\"><button type=\"button\" data-boundary-answer data-feedback=\"Die Zeichnung liefert keine eigene Messung an einem Präparat. Kennzeichne die Zahl höchstens als Anzahl der dargestellten Symbole.\">Die Anzahl der gezeichneten grünen Körperchen als eigenen Messwert notieren.</button><button type=\"button\" data-boundary-answer data-feedback=\"Ein ausgewähltes Modell zeigt keine vollständige Vielfalt. Es ersetzt nicht den Vergleich verschiedener Zelltypen.\">Alle Pflanzenzellen mit dieser Zeichnung gleichsetzen.</button><button type=\"button\" data-boundary-answer data-feedback=\"Passender nächster Schritt: Modell und eigener Befund bleiben unterscheidbar. Für eine Untersuchung werden Präparat und tatsächlich erkennbare Merkmale protokolliert.\">Die Darstellung als Modell kennzeichnen und für eine eigene Beobachtung eine angeleitete Mikroskopuntersuchung planen.</button></div></article><article data-boundary-case><h4>Pflanzen: Licht untersuchen</h4><p>Zwei gleich alte Pflanzen stehen entweder am warmen hellen Fenster oder im kühlen dunklen Raum. Nach einer Woche sehen sie unterschiedlich aus. Du möchtest den Einfluss des Lichts untersuchen.</p><div class=\"orientation-choices\"><button type=\"button\" data-boundary-answer data-feedback=\"Passender nächster Schritt: Der neue Vergleich trennt Bedingungen besser. Mehrere Pflanzen helfen, Unterschiede innerhalb einer Gruppe zu erkennen.\">Einen neuen Vergleich mit mehreren ähnlichen Pflanzen und möglichst gleicher Temperatur, Erde und Wasserversorgung planen; nur das Licht gezielt verändern.</button><button type=\"button\" data-boundary-answer data-feedback=\"Licht und Temperatur unterscheiden sich gleichzeitig. Die Beobachtung kann nicht allein das Licht als Ursache belegen.\">Den Unterschied vollständig mit dem Licht erklären.</button><button type=\"button\" data-boundary-answer data-feedback=\"Höhe allein misst keine Fotosyntheserate. Zuerst braucht es eine passende Messfrage und kontrollierte Bedingungen.\">Die kürzere Pflanze als sichere Gewinnerin der Fotosynthese bezeichnen.</button></div></article><p data-boundary-result role=\"status\">Wähle eine Handlung.</p><button type=\"button\" data-boundary-reset>Zurücksetzen</button><template data-worksheet-alternative><div data-orientation-paper><h3>Drei Untersuchungsfälle</h3><section class=\"orientation-paper-case\"><h4>Park: Blätter mit Löchern</h4><p>Erfundene Ausgangsbeobachtung: Auf einem Blatt sind drei Löcher sichtbar. Ein Tier wurde nicht beobachtet. Du möchtest den möglichen Ursachen nachgehen.</p><ol type=\"A\"><li>Festhalten, dass sicher ein bestimmtes Insekt gefressen hat.</li><li>Mehrere vorher ausgewählte Blätter beschreiben, Zeitpunkt und sichtbare Spuren notieren und passende Fachquellen vergleichen.</li><li>Nur völlig unbeschädigte Blätter auswählen und daraus auf alle Blätter schließen.</li></ol><p>Meine Auswahl und Begründung: ____________________________________</p><p>Noch fehlende Belege: ___________________________________________</p></section><section class=\"orientation-paper-case\"><h4>Zellen: Zeichnung oder Beobachtung?</h4><p>Du hast eine beschriftete Zeichnung einer Blattzelle. Eine Mikroskopaufnahme oder ein eigenes Präparat liegen nicht vor. Du möchtest wissen, was du als eigene Beobachtung berichten darfst.</p><ol type=\"A\"><li>Die Anzahl der gezeichneten grünen Körperchen als eigenen Messwert notieren.</li><li>Alle Pflanzenzellen mit dieser Zeichnung gleichsetzen.</li><li>Die Darstellung als Modell kennzeichnen und für eine eigene Beobachtung eine angeleitete Mikroskopuntersuchung planen.</li></ol><p>Meine Auswahl und Begründung: ____________________________________</p><p>Noch fehlende Belege: ___________________________________________</p></section><section class=\"orientation-paper-case\"><h4>Pflanzen: Licht untersuchen</h4><p>Zwei gleich alte Pflanzen stehen entweder am warmen hellen Fenster oder im kühlen dunklen Raum. Nach einer Woche sehen sie unterschiedlich aus. Du möchtest den Einfluss des Lichts untersuchen.</p><ol type=\"A\"><li>Einen neuen Vergleich mit mehreren ähnlichen Pflanzen und möglichst gleicher Temperatur, Erde und Wasserversorgung planen; nur das Licht gezielt verändern.</li><li>Den Unterschied vollständig mit dem Licht erklären.</li><li>Die kürzere Pflanze als sichere Gewinnerin der Fotosynthese bezeichnen.</li></ol><p>Meine Auswahl und Begründung: ____________________________________</p><p>Noch fehlende Belege: ___________________________________________</p></section></div></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zur Werkstatt</summary><p>Park: Blätter mit Löchern: B. Passender nächster Schritt: Zusätzliche, nachvollziehbare Beobachtungen und Fachquellen helfen beim Prüfen möglicher Ursachen. Auch dann darf eine offene Ursache offen bleiben.</p><p>Zellen: Zeichnung oder Beobachtung?: C. Passender nächster Schritt: Modell und eigener Befund bleiben unterscheidbar. Für eine Untersuchung werden Präparat und tatsächlich erkennbare Merkmale protokolliert.</p><p>Pflanzen: Licht untersuchen: A. Passender nächster Schritt: Der neue Vergleich trennt Bedingungen besser. Mehrere Pflanzen helfen, Unterschiede innerhalb einer Gruppe zu erkennen.</p></details><div class=\"bio-direct-training\"><h3>Selbst untersuchen und begründen</h3><ol><li>Bearbeite alle drei Fälle. Schreibe jeweils auf: Was ist gegeben? Was ist noch offen? Was würde der gewählte nächste Schritt klären?</li><li>Wähle eine unpassende Handlung und verbessere sie, ohne Beobachtungen zu erfinden.</li><li>Vergleiche deine Begründung mit der Rückmeldung. Ergänze einen Satz dazu, was auch danach noch nicht sicher beantwortet wäre.</li></ol></div>{{QUIZ_bio_2_uebersicht_s3}} {{QUIZ_bio2_orientation_compare}}"
       },
       {
-        "title": "4. Tiere, Sinne und Körperreaktionen vergleichen",
+        "title": "4. Lernen und Prüfungsstoff planen",
         "quizzes": [
           {
             "id": "bio_2_uebersicht_s4",
-            "question": "Was ist eine sinnvolle biologische Frage zu Tieren oder Sinnen?",
+            "question": "Deine Lehrkraft gibt Zellen und Pflanzenorgane als Prüfungsstoff. Wie nutzt du die Übersicht sinnvoll?",
             "answers": [
               {
-                "text": "Welche Merkmale helfen einem Tier in seinem Lebensraum?",
+                "text": "Ich lerne nur diese Übersicht, weil sie alle Themen erwähnt.",
+                "feedback": "Eine Übersicht zeigt Zusammenhänge und Wege. Erklärungen, Übungen und Lernziele der zugewiesenen Kapitel bleiben nötig.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ich wähle alle Kapitel der zweiten Klasse, auch wenn die Stoffliste etwas anderes sagt.",
+                "feedback": "Mehr Kapitel sind nicht automatisch der passende Prüfungsstoff. Kläre Unklarheiten und verwende die tatsächlich zugewiesenen Lernziele.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ich öffne beide Kapitel, prüfe ihre Lernziele und übe unsichere Inhalte gezielt.",
+                "feedback": "Passend: Die Stoffliste grenzt den Auftrag ab. Die Reihenfolge Zellen vor Pflanzenorganen hilft beim Aufbau des Verständnisses.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Diese Frage lässt sich mit Beobachten, Vergleichen und Fachwissen bearbeiten."
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "bio2_orientation_transfer",
+            "question": "Du hast einen Kapitelcheck richtig beantwortet. Womit prüfst du zusätzlich, ob du den Inhalt anwenden kannst?",
+            "answers": [
+              {
+                "text": "Ich lese nur meine Prozentzahl mehrmals.",
+                "feedback": "Die Prozentzahl fasst diesen Check zusammen. Sie zeigt nicht allein, ob du eine neue Situation selbst erklären kannst.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Welches Tier ist am coolsten?",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Das ist eine Meinung und keine gut untersuchbare biologische Frage."
+                "text": "Ich erkläre ein neues Beispiel mit eigenen Worten und prüfe meine Begründung an passenden Belegen.",
+                "feedback": "Passend: Ein neuer Zusammenhang und eine begründete Erklärung zeigen mehr als das Wiedererkennen einer bekannten Antwort.",
+                "correct": true,
+                "pts": 0
               },
               {
-                "text": "Warum muss ich nie genau hinschauen?",
+                "text": "Ich merke mir nur die Position der richtigen Antwort.",
+                "feedback": "Antwortpositionen sind kein Fachwissen. Entscheidend ist, warum eine Antwort zur Fragestellung und zu den Belegen passt.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Genaues Hinschauen ist eine wichtige Arbeitsweise in Biologie."
+                "pts": 0
               }
             ]
           },
           {
             "id": "bio_2_uebersicht_extra_sinne",
-            "practiceOnly": true,
-            "question": "Warum arbeiten Sinnesorgane und Gehirn zusammen?",
+            "question": "Als Ausgangsinformation gilt: Sinnesorgane nehmen Reize auf; das Gehirn verarbeitet Informationen. Welche Frage führt zu einem passenden nächsten Kapitel?",
             "answers": [
               {
-                "text": "Sinnesorgane nehmen Reize auf, das Gehirn verarbeitet die Informationen.",
+                "text": "Wie beeinflusst der Zusammenhang eines Bildes meine Wahrnehmung?",
+                "feedback": "Passend: Das Kapitel Sinne und Gehirn bietet dazu Vergleiche von Darstellung und Wahrnehmung.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Ohne Verarbeitung wären Reize noch keine bewusste Wahrnehmung."
+                "pts": 0
               },
               {
-                "text": "Das Gehirn nimmt Licht direkt mit Knochen auf.",
+                "text": "Ist jede eigene Wahrnehmung schon eine genaue Messung? Ja, weil ich sie deutlich erlebe.",
+                "feedback": "Eine deutliche Wahrnehmung und eine Messung sind verschiedene Belege. Bedingungen und Messverfahren müssen geprüft werden.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Licht wird zum Beispiel vom Auge aufgenommen."
+                "pts": 0
               },
               {
-                "text": "Sinnesorgane haben nichts mit Reaktionen zu tun.",
+                "text": "Kann ich vom Aussehen einer einzelnen Person auf die Wahrnehmung aller Menschen schließen?",
+                "feedback": "Ein einzelner äußerer Eindruck erlaubt diese Verallgemeinerung nicht. Vergleiche brauchen geeignete Fragen und Belege.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Noch nicht. Reize können zu Reaktionen führen, zum Beispiel zu Bewegung."
+                "pts": 0
               }
-            ]
+            ],
+            "practiceOnly": true
           }
         ],
-        "content": "<p>Bei wirbellosen Tieren vergleichst du Körperbau, Lebensweise und Angepasstheiten. Eine Spinne, ein Regenwurm und ein Käfer sehen sehr verschieden aus, weil sie verschiedene Merkmale und Lebensweisen haben. Beim Menschen untersuchst du Sinne, Gehirn, Bewegung und Gesundheit. Sinnesorgane nehmen Reize auf, das Gehirn verarbeitet Informationen und Muskeln können reagieren.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du vergleichst wirbellose Tiere nach beobachtbaren Merkmalen.</li><li>Du beschreibst Reiz, Sinnesorgan, Gehirn und Reaktion in einfacher Reihenfolge.</li><li>Du begründest, warum Schutz von Sinnesorganen und Gehirn wichtig ist.</li></ul></div><div class=\"remember-box\"><strong>Kernregel:</strong> Vergleichen heißt nicht nur Unterschiede suchen. Du achtest auch auf Gemeinsamkeiten und erklärst, wozu Merkmale passen.</div><div class=\"mini-task\"><strong>Arbeitsauftrag:</strong> Wähle zwei wirbellose Tiere, zum Beispiel Regenwurm und Käfer. Vergleiche Körperbau, Fortbewegung und Lebensraum in einer kleinen Tabelle.</div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre wirbelloses Tier, Merkmal, Reiz, Sinnesorgan, Gehirn und Reaktion. Verwende kurze Sätze und ein Beispiel.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Baue eine Reiz-Reaktions-Kette: Reiz → Sinnesorgan → Nerv → Gehirn → Muskel. Nutze ein Alltagsbeispiel, etwa helles Licht, lautes Geräusch oder heiße Herdplatte.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Begründe eine Schutzregel, zum Beispiel Helm tragen, Ohren vor sehr lauter Musik schützen oder Pausen beim Bildschirm machen. Erkläre, welches Organ geschützt wird.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne Merkmale wirbelloser Tiere und wichtige Sinnesorgane.</li><li><strong>Erkenntnis:</strong> Vergleiche zwei Tiere mit klaren Kriterien.</li><li><strong>Handeln:</strong> Begründe eine Schutzregel für Sinnesorgane oder Gehirn.</li></ul></div>{{QUIZ_bio_2_uebersicht_s4}}\n{{QUIZ_bio_2_uebersicht_extra_sinne}}"
+        "content": "<p>Die Übersicht ersetzt die einzelnen Kapitel nicht. Für Unterricht und Prüfung gelten die von deiner Lehrkraft zugewiesenen Inhalte. Im Bereich „Lernen &amp; Prüfungsstoff“ kannst du die Kapitel auswählen und ordnen. Die Lernziele zeigen dir, was du üben sollst.</p><p>Zum neuen Lernen: Lies die Erklärung, bearbeite die Darstellung oder Werkstatt und formuliere eine eigene Begründung. Zum Wiederholen: Prüfe dein Verständnis im Kapitelcheck und öffne die noch unsicheren Abschnitte. Eine Prozentzahl ist eine Rückmeldung zu diesem Check und keine Schulnote.</p><p>Beispiel für eine neue Frage: Sinnesorgane nehmen Reize auf, das Gehirn verarbeitet Informationen. Wie beeinflusst der Zusammenhang eines Bildes die Wahrnehmung? Das Kapitel <a href=\"../index.html#bio_2_sinne_gehirn\" target=\"_top\" data-learning-chapter=\"bio_2_sinne_gehirn\">Sinne und Gehirn</a> hilft beim Weiterlernen. Eine vorschnelle Behauptung über alle Menschen wäre noch kein Untersuchungsergebnis.</p><table data-orientation-plan><caption>Mein nächster Lernschritt – im Heft ausfüllen</caption><thead><tr><th scope=\"col\">Lernfrage</th><th scope=\"col\">Passendes Kapitel</th><th scope=\"col\">So prüfe ich mein Verständnis</th></tr></thead><tbody><tr><td>Meine Frage: …</td><td>Meine Wahl: …</td><td>Eigenes Beispiel oder Begründung: …</td></tr></tbody></table><div class=\"bio-direct-training\"><h3>Selbst untersuchen und begründen</h3><ol><li>Plane zu einer selbst gewählten Frage einen Lernschritt und begründe die Kapitelwahl. Nutze dazu die Kapitelübersicht aus Abschnitt 1.</li><li>Angenommen, Zellen und Pflanzenorgane sind dein Prüfungsstoff: Lege beide Kapitel in die Stoffliste, ordne sie sinnvoll und wähle ein Lernziel zum Üben. Verändere dabei nicht den tatsächlichen Auftrag deiner Lehrkraft.</li><li>Formuliere nach dem Lernen eine neue Anwendung und eine noch offene Frage. Vergleiche mit einer Mitschülerin oder einem Mitschüler, welche Belege eure Erklärungen stützen.</li></ol></div>{{QUIZ_bio_2_uebersicht_s4}} {{QUIZ_bio2_orientation_transfer}} {{QUIZ_bio_2_uebersicht_extra_sinne}}"
       }
     ],
     "prerequisites": [
       "bio_1_kompass"
     ],
     "summary": [
-      "Die Kapitel verbinden Lebensräume, Pflanzen, Zellen, Pilze, Mikroorganismen und Tiere.",
-      "Bau und Funktion werden auf verschiedenen Ebenen untersucht, von der Zelle bis zum Ökosystem.",
-      "Beobachtung, Vergleich und Modellbildung helfen, biologische Zusammenhänge zu erklären."
+      "Beginne mit einer klaren Lernfrage und nutze die Lernziele der passenden Kapitel.",
+      "Zellen erklären Bestandteile von Organen; ein Lebensraum umfasst Lebewesen und Umweltbedingungen.",
+      "Beobachtungen und Modelle sind unterschiedliche Belege. Eine mögliche Erklärung muss geprüft werden.",
+      "Vergleiche brauchen gemeinsame Regeln; eine Beobachtung an wenigen Beispielen gilt nicht automatisch für alle.",
+      "Die Lehrkraft legt den Prüfungsstoff fest. Kapitelchecks helfen beim Wiederholen, ersetzen aber keine eigene Erklärung."
     ],
     "learningGoals": [
-      "Du erkennst die großen Themen der 2. Klasse.",
-      "Du verbindest Lebensräume, Pflanzen, Zellen und Tiere miteinander.",
-      "Du stellst einfache Fragen, die man beobachten, vergleichen oder nachlesen kann."
+      "Du findest passende Kapitel für deine Lernfrage und erklärst die vorgeschlagene Reihenfolge.",
+      "Du unterscheidest Zelle, Organ, Organismus und Lebensraum an einem Beispiel.",
+      "Du trennst Beobachtungen, Modelle und noch nicht belegte Erklärungen.",
+      "Du planst einen nachvollziehbaren Vergleich und benennst fehlende Belege."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan, Biologie und Umweltbildung – Kompetenzen und 2. Klasse",
+        "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Anlage=1&Gesetzesnummer=20007850&Paragraf="
+      }
     ]
   },
   "bio_2_oekosysteme": {
@@ -37599,7 +37803,8 @@
       ]
     },
     "prerequisites": [
-      "bio_1_bluetenpflanzen"
+      "bio_1_bluetenpflanzen",
+      "bio_2_zellen"
     ],
     "summary": [
       "Pflanzenorgane arbeiten bei Stoffaufnahme, Transport, Fotosynthese und Fortpflanzung zusammen.",

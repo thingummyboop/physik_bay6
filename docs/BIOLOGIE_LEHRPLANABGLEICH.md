@@ -155,3 +155,9 @@ Aktuelle Strukturzählung: 47 direkte und 106 automatisch verarbeitete Trainings
 Gespeicherten Biologie-Lehrplanabschnitt vom Bildungsauftrag bis zu allen vier Klassen erneut gelesen. Für die 2. Klasse: Zellvergleich mit 15 konkreten Aufgaben, eigenen Modellen, Beobachtungsprotokoll und Maßstabsübung ausgearbeitet. Eine begrenzte Zuordnung zu W/E/S-Lerngelegenheiten steht in [BIOLOGIE_ZELLEN.md](BIOLOGIE_ZELLEN.md); tatsächliches Mikroskopieren und vollständige Jahrgangsabdeckung sind nicht nachgewiesen.
 
 Zehn bestehende bewertete Fragen beibehalten, fünf Abschlussfragen zugeordnet, zwei neue Transferfragen: zwölf bewertete Fragen und eine Übung, Revision 2. Drei auswählbare Diagramme mit gemeinsamer Legende, Tabellenvergleich und Papierprotokoll. Aktuelle Strukturzählung nach fünf weiteren direkten Blöcken: 52 direkte und 101 automatisch verarbeitete Trainingsblöcke; 71 automatische Blöcke mit allgemeiner Situationsformulierung, 27 von 39 Biologiekapiteln mit mindestens einem automatischen Block. Diese Struktur ist keine fachliche Abnahme.
+
+## 16.09.2026 – Orientierung vor Fachwissen
+
+Die vier Abschnitte der Übersicht für die 2. Klasse vollständig überarbeitet: neun Kapitelverweise mit begründetem Weg, zwölf konkrete Aufgaben, Beobachtungsdaten mit Grenzen und drei Untersuchungsfälle. Acht bewertete Fragen und eine Übung, Revision 1. Das Zellkapitel steht vor Fotosynthese und ist dort als Vorwissen verknüpft. Die aktuelle RIS-Anlage mit Kompetenzbeschreibungen und Anwendungsbereichen der 2. Klasse gelesen; keine amtlich festgelegte Kapitelreihenfolge behauptet.
+
+Neun Fallentscheidungen, 24 Antwortwege, 18 native Layoutfälle, Kontext beim Kapitelwechsel, 95 STEM-Arbeitsblätter und gezielte Regressionen bestanden. Dreizehn finale Druckseiten gelesen. [Nachweise und Grenzen](BIOLOGIE_ORIENTIERUNG.md). Vollständige Jahrgangs-/Fachabnahme und praktische Unterrichtserprobung bleiben offen.

@@ -1299,3 +1299,27 @@ Voriger Zielturn war Fortschritt: Chemie-Fallwerkstatt, zwölf überarbeitete Fr
 12.000 unabhängige Bilanzprüfungen, 55 gerenderte Zustände, gezielte native Eingabe-/Layoutprüfungen, alle 15 Chemie-Suiten und 95 STEM-Arbeitsblätter bestanden. Druckgrafiken nach Sichtprüfung verkleinert und Lösungstexte zusammengehalten; ausgewählte finale Druckseiten gelesen. Nachweise und Grenzen: [CHEMIE_REAKTIONSBAUKASTEN.md](CHEMIE_REAKTIONSBAUKASTEN.md). Kein neuer vollständiger Suitenlauf oder praktischer Unterrichtsversuch.
 
 Inventar 197 Kapitel, Prioritätsaudit 1616 Frageninstanzen. Änderungen weiter lokal nach ba3f5d9, kein erneuter Push. Übersetzungen zurückgestellt; die fünf priorisierten Fächer und alle übrigen noch offenen Inhalts-, Lehrplan- und Produktanforderungen bleiben im unveränderten Gesamtauftrag.
+
+## 16.09.2026 – Gemeinsame Lern- und Unterrichtswege
+
+Chemie-Zwischenstand auf ausdrücklichen Wunsch als d025576 auf main gesichert; entfernter Stand und saubere Arbeitskopie bestätigt. Danach lokale Weiterarbeit: Sprunglinks zur Stoffliste und zurück zur Kapitelauswahl schließen den langen mobilen Scrollweg. Kapitelanzahl, Tastaturfokus und geteilte Hauptadresse bleiben korrekt. 18 native Kombinationen aus Breite, Design und Modus mit allen 197 Katalogkapiteln bestanden.
+
+Der zuvor gestartete Gesamtlauf endete mit 200/201 bestandenen Suiten. Der einzige Fehler betraf veraltete Suchmetadaten nach einer Kapitelüberarbeitung. Index neu erzeugt; der fehlgeschlagene Test und alle 18 betroffenen Lern-/Stofflisten-Suiten anschließend bestanden. Keine neuen Übersetzungen und kein zweiter Gesamtlauf. Native Lern-, Wiederholungs-, Lehrer- und Empfängerwege ebenfalls erneut bestanden. Alle vier Seiten der fachübergreifenden Stoffliste gelesen; abschließender Export text- und bildidentisch, sechs PDF-Linkziele mit richtigem Kontext geprüft.
+
+Die gemeinsamen Funktionen für zwei Lernwege und teilbare/druckbare Stofflisten sind jetzt im Produktplan als nachgewiesen markiert. Fachliche Vollständigkeit aller Kapitel und die übrigen Produktanforderungen bleiben offen. [Nachweise und Grenzen](LERN_UND_UNTERRICHTSWEGE.md). Diese Änderungen bleiben lokal nach d025576; kein weiterer Push.
+
+## 16.09.2026 – Biologie-Einstieg und Kapitelreihenfolge
+
+Voriger Zielturn war Fortschritt: gemeinsame Lernwege geprüft und mobile Sprunglinks ergänzt. Anschließend die Vorwissensverweise aller fünf priorisierten Fächer geprüft; kein späteres gleichfachliches Kapitel hinterlegt. Die inhaltliche Lektüre zeigte dennoch eine Lücke: Die Biologieübersicht verlangte teilweise noch nicht eingeführtes Jahreswissen. Jetzt vier Orientierungsabschnitte mit neun Kapitelverweisen, zwölf konkreten Aufgaben, drei Untersuchungsfällen und getrennten Papierlösungen. Das Zellkapitel steht vor Fotosynthese und ist dort als Vorwissen angegeben. Persönliche Stofflisten bleiben in ihrer gewählten Reihenfolge.
+
+Acht bewertete Fragen mit 24 unabhängig geprüften Antwortwegen und eine Übung, Revision 1. Native neun Fallentscheidungen, 24 Kapitelantworten, 18 Layoutfälle und ausgewählter Weiterweg über Zellen zur Fotosynthese bestanden. Gezielte bestehende Prüfungen einschließlich 95 STEM-Arbeitsblättern ebenfalls bestanden; kein neuer Gesamtlauf. Druckumbrüche der Fallblöcke nach Sichtprüfung verbessert; alle 13 Seiten des finalen Arbeitsblatts mit Lösungen gelesen. Inventar 197 Kapitel, Prioritätsaudit 1620 Frageninstanzen ohne strukturellen Befund. [Details](BIOLOGIE_ORIENTIERUNG.md).
+
+Lokale Weiterarbeit nach d025576, keine Übersetzungen oder erneuter Push. Die vollständige fachliche und didaktische Abnahme der übrigen Kapitel sowie die weiteren offenen Produktanforderungen bleiben Bestandteil des Gesamtziels.
+
+## 16.09.2026 – Zwischenstand für GitHub: Lernwege, Biologie und DGB
+
+Auf ausdrücklichen Wunsch wird der aktuelle Arbeitsstand einschließlich der zuvor lokalen Lernwege- und Biologieänderungen gesichert. Zusätzlich enthält DGB, 4. Klasse, eine Datenspuren-Werkstatt mit sechs erfundenen Ereignissen, drei wählbaren Quellen und nachvollziehbarer Zählregel. Aufgaben unterscheiden Beobachtung, vermutetes Interesse und mögliche Absichten bei einem geteilten Tablet. Zwei Schreibaufträge übertragen dieselbe Aussage auf unterschiedliche Zielgruppen. Papiermaterial und getrennte Lösungen sind enthalten; die bestehende Wiederherstellungsübung bleibt erhalten. Sechs bewertete Fragen, Kapitelrevision 2.
+
+Gezielte Datenspuren-, DGB-Arbeitsblatt- und Biologieprüfungen vor diesem Zwischenstand erneut bestanden. Vorhandene Browsernachweise umfassen 96 Datenspuren-Zustände und 18 Antwortwege; nach der abschließenden Anpassung der Beschriftungen und Tabellenbedienung nochmals sechs Kombinationen aus Bildschirmbreite und Design geprüft. Die vollständige Sichtprüfung des letzten DGB-Druckexports und dessen ausführliche Dokumentation stehen noch aus. Kein neuer vollständiger Suitenlauf und keine vollständige Produktabnahme.
+
+Übersetzungen bleiben zurückgestellt. Physik, Mathematik, Chemie, Biologie und DGB behalten Vorrang; die übrigen offenen Aufgaben des Gesamtziels bleiben bestehen.

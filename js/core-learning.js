@@ -18,6 +18,10 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  const routeMode=review?'review':routeParams.get('mode')==='teach'?'teach':'learn';
  const overviewQuery=new URLSearchParams({mode:routeMode});
  const chapterAddress=id=>'../index.html#'+(explicitPlan?'topics/template.html?'+new URLSearchParams({topic:id,mode:routeMode,plan:explicitPlan.join(',')}):encodeURIComponent(id));
+ const availableChapters=new Set(Object.values(window.SCIVERSE_CURRICULUM||{}).flatMap(subject=>subject.topics||[]).filter(chapter=>chapter.available!==false).map(chapter=>chapter.id));
+ container.querySelectorAll('a[data-learning-chapter]').forEach(link=>{
+  if(availableChapters.has(link.dataset.learningChapter)){link.href=chapterAddress(link.dataset.learningChapter);link.target='_top';}
+ });
  if(explicitPlan)overviewQuery.set('plan',[...new Set(explicitPlan)].join(','));
  navigation.append(make('h2',review?ui("Dein Wiederholungsweg"):ui("Dein Lernweg")));
  navigation.append(make('p',review?ui("Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte."):ui("Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.")));
@@ -81,6 +85,20 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='profile-traces'){
+   const controls=[...zone.querySelectorAll('[data-trace-toggle]')],rows=[...zone.querySelectorAll('[data-trace-events] tbody tr')],totals=[...zone.querySelectorAll('[data-trace-count]')],result=zone.querySelector('[data-trace-result]');
+   result.id='trace-result-'+experimentIndex;controls.forEach(control=>control.setAttribute('aria-describedby',result.id));
+   const update=()=>{
+    const selected=new Set(controls.filter(control=>control.checked).map(control=>control.dataset.traceToggle));
+    const counts=new Map(totals.map(cell=>[cell.dataset.traceCount,0]));let events=0;
+    for(const row of rows){row.hidden=!selected.has(row.dataset.traceSource);if(!row.hidden){events++;const key=row.dataset.traceCategory;counts.set(key,(counts.get(key)||0)+1);}}
+    totals.forEach(cell=>cell.textContent=String(counts.get(cell.dataset.traceCount)));
+    const categories=[...counts].filter(([,count])=>count>0).map(([category])=>category);
+    result.textContent=events?events+' Ereignisse ausgewählt. Die Modellregel vermutet Interesse an '+categories.join(' und ')+'. Das ist kein Beweis für die Interessen oder Absichten einer bestimmten Person.':'Keine Quellen ausgewählt. Die Regel hat keine Ereignisse für eine Vermutung; das bedeutet nicht, dass eine Person keine Interessen hat.';
+   };
+   controls.forEach(control=>control.addEventListener('change',update));
+   zone.querySelector('[data-trace-reset]').addEventListener('click',()=>{controls.forEach(control=>control.checked=false);zone.querySelector('[data-trace-context]').open=false;update();controls[0].focus();});update();
+  }
   if(type==='boundary-cases'){
    const control=zone.querySelector('[data-boundary-control]'),cases=[...zone.querySelectorAll('[data-boundary-case]')],result=zone.querySelector('[data-boundary-result]');
    const update=()=>{
