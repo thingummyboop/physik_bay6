@@ -168,3 +168,11 @@ Neun Fallentscheidungen, 24 Antwortwege, 18 native Layoutfälle, Kontext beim Ka
 Fünf Abschnitte mit 15 konkreten Aufgaben, eigenem Waldschema, drei Ortskarten, Wegfall und siebenzeiligem Untersuchungsprotokoll ergänzt. Bodenverdichtung fachlich präzisiert. Drei vorhandene Datensätze um gleich skalierte Balken und einblendbare Auswertung erweitert; Artenzahl von Artenzusammensetzung getrennt. Zwölf bewertete Fragen und eine Übung, Revision 2. Grundlagen vor den Aufgaben, fünf separate Vergleichslösungen und vollständige Papierdaten.
 
 Aktuelle RIS-Kompetenzbeschreibungen und Anwendungsbereich für die 2. Klasse unmittelbar gelesen. [Fachquellen, W/E/S-Zuordnung und Nachweise](BIOLOGIE_WALD_UNTERSUCHEN.md). 18 native Modell-/Layoutzustände, 36 Antwortwege und sämtliche 23 Druckseiten geprüft. Keine praktische Naturuntersuchung oder vollständige Fachabnahme behauptet. Aktuelle Strukturzählung: 62 direkte, 92 automatisch verarbeitete Trainingsblöcke; 66 allgemeine Situationsformulierungen und 25 Kapitel mit mindestens einem automatischen Block. Weitere Einzelprüfung bleibt erforderlich.
+
+## Pilze: Aufbau und begründete Fallzuordnung (16.09.2026)
+
+`bio_2_pilze`, Revision 2: fünf Abschnitte mit 15 konkreten Aufgaben, eigenem Pilzschema, erfundenen Keimungs-/Hefedaten und vier interaktiven Beziehungsfällen einschließlich unzureichender Belege. 13 bewertete Fragen, eine punktfreie Übung und fünf getrennte Vergleichslösungen. W: Strukturen/Entwicklung und Austauschmodelle; E: Variablen, Vergleiche, Grenzen und Untersuchungsplanung; S: begründeter Umgang mit Schimmel und unbekannten Funden mit Wiener Fachstelle. Praktische Durchführung und gesamte Fachabnahme bleiben offen. [Inhalte, Quellen und Prüfungen](BIOLOGIE_PILZE_UNTERSUCHEN.md).
+
+## Mikroorganismen: Beziehungen und Übertragungswege (16.09.2026)
+
+`bio_2_mikroorganismen`, Revision 2: 15 konkrete Aufgaben zu Zellaufbau, Symbiose/Parasitismus, Grenzen von Mikrobiomdaten, Infektionswegen, Hygiene sowie Fermentation/Konservierung. Neue Küchenwerkstatt mit Handlungsvorhersagen und expliziten Modellgrenzen; W/E/S über Begriffe, Vergleiche, Planung und begründete Entscheidungen verknüpft. Zwölf bewertete Fragen, eine punktfreie Übung, fünf Vergleichslösungen. Keine praktische Mikroorganismenzucht durchgeführt. [Quellen, Umsetzung und Prüfung](BIOLOGIE_MIKROORGANISMEN.md).

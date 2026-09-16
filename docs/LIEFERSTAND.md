@@ -1359,3 +1359,15 @@ Voriger Zielturn war Fortschritt: DGB8 Handeln mit echter Verschlüsselung, konk
 36 Antwortwege und passende Wiederholungsabschnitte, 18 native Modell-/Layoutzustände sowie alle 23 Druckseiten geprüft. Bestehende STEM-, DGB-, Revisions-, Quizpool- und Syntaxprüfungen bestanden. [Quellen und Prüfgrenzen](BIOLOGIE_WALD_UNTERSUCHEN.md). Inventar 197 Kapitel, Prioritätsaudit 1636 Frageninstanzen ohne Strukturfehler. Kein neuer Gesamtsuitenlauf.
 
 Weitere allgemeine Aufgaben bleiben insbesondere in Biologie zu prüfen; Lehrplan-/Inhaltsabnahme sämtlicher bestehender Fächer und vollständige Produktabnahme bleiben Bestandteil des unveränderten Gesamtziels. Die fünf priorisierten Fächer behalten Vorrang. Änderungen lokal nach 81016aa; keine Übersetzungen, kein erneuter Push.
+
+## 16.09.2026 – Biologie: Pilze untersuchen und Aussagen begründen
+
+Der vorherige Schritt war Fortschritt: Zwischenstand dc9c169 ausdrücklich gewünscht auf main gepusht und Remote-Hash bestätigt. Danach lokale Weiterarbeit an `bio_2_pilze` (Revision 2): 15 konkrete Arbeitsaufträge, eigene Pilzskizze, zwei erfundene Datensätze, vier interaktive Fälle mit belegbarer bzw. unklarer Beziehung, fünf Vergleichslösungen und Wiener Pilzberatung. 13 bewertete Fragen; alte IDs erhalten und Abschnittszuordnungen präzisiert.
+
+16 Werkstattantworten und 39 Quizantworten in DOM und Browser geprüft, 24 responsive Fallzustände, Tastatur/Fokus/Speicher und 22 Druckseiten kontrolliert. Gemeinsame STEM-Arbeitsblätter, Revisionen, vollständige Quizpools und Themensyntax bestanden. Inventar 197 Kapitel, Prioritätsaudit 1.638 Frageninstanzen ohne Strukturfehler. Keine Behauptung einer gesamten Fach-/Produktabnahme. Details: [BIOLOGIE_PILZE_UNTERSUCHEN.md](BIOLOGIE_PILZE_UNTERSUCHEN.md). Übersetzungen zurückgestellt, neue Änderungen nicht gepusht; Gesamtziel bleibt offen.
+
+## 16.09.2026 – Mikroorganismen: nachvollziehbare Untersuchungen und Küchenmodell
+
+Der vorherige Zielturn war Fortschritt: Pilzkapitel überarbeitet und geprüft, Änderungen weiterhin lokal vorhanden. Anschließend `bio_2_mikroorganismen` (Revision 2) mit 15 konkreten Aufgaben, zwei erfundenen Datensätzen, Beziehungs-/Infektionsfällen und einer interaktiven Küchenwerkstatt ausgearbeitet. Alle acht erreichbaren Modellzustände und 40 Übergänge geprüft; zwölf bewertete Fragen mit 36 Antwortwegen, fünf getrennte Lösungen und vollständige Papieralternative.
+
+Browser: 48 Zustands-/Layoutkombinationen, Tastatur/Fokus und unveränderter Werkstattspeicher. Mobile Vergleichstabelle nach Sichtkontrolle als Karten verbessert; finale sechs Layoutvarianten und 22 Druckseiten kontrolliert. Gemeinsame STEM-Arbeitsblätter, Kapitelrevisionen, vollständige Quizpools und 88 Themenskripte bestanden. Inventar 197 Kapitel; Prioritätsaudit 1.640 Frageninstanzen ohne Strukturfehler. [Details](BIOLOGIE_MIKROORGANISMEN.md). Weitere Fachkapitel und Produktabnahme bleiben offen; Übersetzungen zurückgestellt, neue Änderungen nicht gepusht.

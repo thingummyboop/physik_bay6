@@ -255,3 +255,11 @@ Vier mobile Ansichten visuell gelesen. Finale Druckfassung nach Umbruchkorrektur
 ## 16.09.2026 – Wald-Vergleich und Untersuchungsprotokoll
 
 Chromium 151.0.7922.34, Bericht 2026-09-16T16:09:30.641Z: 18 Kombinationen aus drei Erhebungen, drei Breiten und zwei Designs; Tabellen-/Balkenwerte, native Tastatur, Ein-/Ausblenden, Reset/Fokus und unveränderter Speicher geprüft. Alle 36 Quizantwortwege bestanden, keine Seitenfehler. Mobile Ansichten hell/dunkel nach Schriftverbesserung gelesen. Finale Druckfassung vom 2026-09-16T16:13:26.381Z: 23 Seiten; Seite 13 nach vergrößerter Schreibspalte erneut gelesen, 22 übrige bildidentisch mit bereits gelesener Fassung. [Nachweise und Grenzen](BIOLOGIE_WALD_UNTERSUCHEN.md).
+
+## Pilzwerkstatt (16.09.2026)
+
+`browser_fungi_workshop.js`: Chromium 151.0.7922.34, Bericht 2026-09-16T16:29:02.734Z. Alle 16 Fallantworten, 24 Kombinationen aus vier Fällen/drei Breiten/zwei Designs, Tastaturbedienung, Reset/Fokus und 39 native Quizantworten bestanden. Werkstatt verändert keinen lokalen Speicher; keine Seitenfehler. Mobile Werkstatt und Schema hell/dunkel gelesen. Druckfassung 22 Seiten vollständig kontrolliert; finale Textpräzisierung/Export 16:30:59.801Z, Seite 4 neu gelesen, übrige 21 Seiten identisch. [Nachweis und Grenzen](BIOLOGIE_PILZE_UNTERSUCHEN.md).
+
+## Mikroorganismen und Küchenwerkstatt (16.09.2026)
+
+`browser_microbe_kitchen.js`: Bericht 2026-09-16T16:43:53.869Z, Chromium 151.0.7922.34. Alle 40 Modellübergänge, 48 Kombinationen aus acht Zuständen/drei Breiten/zwei Designs und 36 native Quizantwortwege bestanden; Tastatur/Reset/Fokus/Speicher ohne Befund. Nach Sichtprüfung mobile Vergleichskarten ergänzt und sechs Layoutkombinationen einschließlich geöffneter Regeln erneut geprüft (16:45:24.344Z). Finale 22 Druckseiten vollständig angesehen. [Nachweise und Grenzen](BIOLOGIE_MIKROORGANISMEN.md).
