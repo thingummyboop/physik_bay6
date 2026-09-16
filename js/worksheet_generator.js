@@ -422,12 +422,15 @@ function generateWorksheetContent(topicId, topicTitle) {
     }
     else if (topicId === 'math3_2_potenzen_terme') {
         html += `<h2>1. Potenzen berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        let generatedSolutions = '';
         for(let i=0; i<8; i++) {
-            const base = rand(2, 10);
+            const base = rand(2, 10) * (i % 2 ? -1 : 1);
             const exp = rand(2, 4);
-            html += `<div>\\( ${base}^${exp} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+            const writtenBase = base < 0 ? `(${base})` : String(base);
+            html += `<div data-power-generated data-base="${base}" data-exponent="${exp}"><strong>A${i + 1}.</strong> \\( ${writtenBase}^{${exp}} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+            generatedSolutions += `<section class="ws-generated-equation-solution" data-power-answer="${base ** exp}"><h3>Zusatzübung A${i + 1}</h3><p>${exp} gleiche Faktoren ${writtenBase}: ${Array(exp).fill(writtenBase).join(' · ')} = ${base ** exp}.</p></section>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
     }
     else if (topicId === 'math3_3_gleichungen') {
         html += `<h2>1. Lineare Gleichungen lösen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -469,14 +472,23 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math3_6_zuordnungen') {
-        html += `<h2>1. Proportionale Zuordnungen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        html += `<h2>1. Zuordnungen berechnen und beurteilen</h2><p>Alle Angaben sind erfundene Modelle. Berechne den gesuchten Wert und entscheide: direkt proportional, indirekt proportional oder keines von beiden.</p><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">`;
+        let generatedSolutions = '';
         for(let i=0; i<8; i++) {
-            const price = rand(2, 10);
-            const amount1 = rand(2, 5);
-            const amount2 = rand(6, 12);
-            html += `<div>Wenn ${amount1} Stück ${amount1 * price} € kosten,<br>wie viel kosten ${amount2} Stück?<br><br><span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> €</div>`;
+            const kind = ['direct', 'inverse', 'neither'][i % 3], unit = rand(2, 5), x = rand(2, 6), first = rand(2, 4);
+            const fixed = kind === 'inverse' ? 12 * rand(1, 3) : kind === 'neither' ? 5 * rand(1, 3) : 0;
+            const answer = kind === 'inverse' ? fixed / x : unit * x + fixed;
+            const shown = n => new Intl.NumberFormat('de-AT', { maximumFractionDigits:2 }).format(n);
+            const task = kind === 'direct' ? `${first} gleich teure Hefte kosten ${first * unit} Euro, ohne Gebühr oder Rabatt. Was kosten ${x} Hefte?`
+                : kind === 'inverse' ? `2 gleich leistungsfähige Personen brauchen ${fixed / 2} Stunden für eine feste Arbeit. Wie lange brauchen ${x} Personen im Modell ohne Wartezeiten oder Behinderung?`
+                : `${fixed} Euro feste Gebühr plus ${unit} Euro je Heft. Was kostet eine Bestellung von ${x} Heften?`;
+            const calculation = kind === 'direct' ? `${first * unit} : ${first} = ${unit} Euro je Heft. ${x} · ${unit} = ${answer} Euro. Direkt proportional, denn Preis : Anzahl bleibt ${unit}.`
+                : kind === 'inverse' ? `2 · ${fixed / 2} = ${fixed} Personenstunden. ${fixed} : ${x} = ${shown(answer)} Stunden. Indirekt proportional, denn Personenanzahl · Zeit bleibt ${fixed}.`
+                : `${fixed} + ${unit} · ${x} = ${answer} Euro. Keines von beiden: Die positive Grundgebühr verhindert konstante Quotienten; auch das Produkt aus Anzahl und Preis ist nicht konstant.`;
+            html += `<div data-assignment-generated data-kind="${kind}" data-unit="${unit}" data-x="${x}" data-first="${first}" data-fixed="${fixed}"><strong>A${i + 1}.</strong> ${task}<p>Ergebnis und Art: __________________</p><p>Begründung: __________________</p></div>`;
+            generatedSolutions += `<section class="ws-generated-equation-solution" data-assignment-answer="${answer}" data-kind="${kind}"><h3>Zusatzübung A${i + 1}</h3><p>${calculation}</p></section>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
     }
     else if (topicId === 'math3_7_aehnlichkeit') {
         html += `<h2>1. Strahlensätze</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

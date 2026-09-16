@@ -17,5 +17,6 @@ const targets={math3_2_potenzen_terme:['m32_q1','m32_dip1'],math3_11_statistik:[
   }
   assert.equal(found,ids.length,id);assert.equal(w.currentChapterResult(id,{contentRevision:w.chapterRevision(id)-1,passed:true,bestPercent:100}).passed,false);dom.window.close();
  }
- assert.equal(paths,38);console.log('PASS: 38 revised mathematics answer paths across seven real chapter renders, correct percentages, individual feedback and previous revision invalidation.');
+ // The two power questions now each have three plausible options instead of two.
+ assert.equal(paths,40);console.log('PASS: 40 revised mathematics answer paths across seven real chapter renders, correct percentages, individual feedback and previous revision invalidation.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -210,3 +210,26 @@
 .equation3-lab :is(h3,h4) { color:var(--text); }
 [data-equation3-current] { overflow-wrap:anywhere; }
 [data-equation3-tasks] li, [data-equation3-history] li { margin-block:12px; }
+[data-power-static] { margin:1rem 0; }
+[data-power-diagram] { display:block; width:100%; max-width:420px; height:auto; margin:1rem auto; }
+[data-power-static] figcaption { margin-block:12px; }
+.power-lab label { display:block; margin-block:12px; font-weight:600; }
+.power-lab select { display:block; box-sizing:border-box; width:100%; min-width:0; min-height:44px; padding:8px; font:inherit; color:var(--text); background:var(--card-bg); border:1px solid var(--box-border); border-radius:6px; }
+.power-lab button { min-height:44px; white-space:normal; }
+.power-lab :is(button,select):focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+.power-lab h3 { color:var(--text); }
+[data-power-tasks] li { margin-block:12px; }
+[data-assignment-static] { margin:1rem 0; }
+[data-assignment-svg] { display:block; width:100%; max-width:480px; height:auto; margin:1rem auto; }
+:is(.assignment-lab,.assignment-entry) label { display:block; margin-block:12px 6px; font-weight:600; }
+:is(.assignment-lab,.assignment-entry) :is(select,input) { display:block; box-sizing:border-box; width:100%; min-width:0; min-height:44px; padding:8px; font:inherit; color:var(--text); background:var(--card-bg); border:1px solid var(--box-border); border-radius:6px; }
+:is(.assignment-lab,.assignment-entry) button { min-height:44px; max-width:100%; white-space:normal; }
+:is(.assignment-lab,.assignment-entry) :is(button,input,select):focus-visible, .assignment-table-scroll:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+:is(.assignment-lab,.assignment-entry) h3 { color:var(--text); }
+.assignment-verdicts { display:flex; gap:8px; flex-wrap:wrap; }
+.assignment-table-scroll { max-width:100%; overflow-x:auto; margin-block:1rem; }
+[data-assignment-live-table] { border-collapse:collapse; width:100%; min-width:320px; font-size:.95rem; }
+[data-assignment-live-table] :is(th,td) { border:1px solid var(--box-border); padding:8px; text-align:left; }
+[data-assignment-live-table] tr > th:first-child { position:sticky; left:0; z-index:1; background:var(--card-bg); box-shadow:1px 0 var(--box-border); }
+[data-assignment-live-table] tr[data-selected] { outline:2px solid var(--focus); outline-offset:-2px; font-weight:700; }
+[data-assignment-task] li { margin-block:12px; }

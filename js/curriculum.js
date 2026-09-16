@@ -1126,7 +1126,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math3_2_potenzen_terme",
-        "title": "📈 Potenzen und Terme",
+        "title": "📈 Potenzen, Terme und binomische Formeln",
         "grade": "3. Klasse (7. Schulstufe)",
         "category": "Algebra"
       },

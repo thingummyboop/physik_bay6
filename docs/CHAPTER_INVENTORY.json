@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "418956eb18b2618718209a3be4cca92ac2697a4cd82e0d6888dd656cede174e0",
-    "lang/de.json": "a7725d442c5a505037c2e46a98afd8a01d95f78ee7ba019867db598dda18b9e2"
+    "js/curriculum.js": "955437b6e30ee90c910e6c95fe4066c6c052cf4685edaeb9c162820897f201c9",
+    "lang/de.json": "c1f9a6dea0694f213e5e7e7e989249def166e8598774a9150cabc5e5b2eed83a"
   },
   "subjects": {
     "physik": {
@@ -11216,7 +11216,7 @@
         },
         {
           "id": "math3_2_potenzen_terme",
-          "title": "📈 Potenzen und Terme",
+          "title": "📈 Potenzen, Terme und binomische Formeln",
           "grade": "3. Klasse (7. Schulstufe)",
           "gradeLevels": null,
           "category": "Algebra",
@@ -11224,40 +11224,77 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math3_2_potenzen_terme",
           "goals": [
-            "Basis und Exponent einer Potenz unterscheiden.",
-            "Einfache Potenzen berechnen und Produkte gleicher Basis zusammenfassen.",
-            "Terme für Alltagssituationen aufstellen und gleichartige Terme addieren."
+            "Potenzen mit positiven ganzzahligen Exponenten deuten und berechnen.",
+            "Potenzregeln begründen und ihre Voraussetzungen beachten.",
+            "Gleichartige Terme zusammenfassen, ausmultiplizieren, herausheben und zulässig kürzen.",
+            "Die drei binomischen Formeln mit Produkten und Flächen erklären und anwenden.",
+            "Terme in Sachzusammenhängen aufstellen und falsche Regeln durch Gegenbeispiele widerlegen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "Potenzen: Der Multiplikator",
+              "title": "1. Eine Potenz zählt gleiche Faktoren",
               "questions": [
-                "m32_q1"
+                "m32_q1",
+                "m32_sign",
+                "m32_exponent"
               ]
             },
             {
               "id": "m32_rules",
               "index": 1,
-              "title": "Basis, Exponent und Rechenregeln",
+              "title": "2. Potenzregeln verstehen",
               "questions": [
                 "m32_product",
-                "m32_sign"
+                "m32_quotient",
+                "m32_power_power"
               ]
             },
             {
               "id": "sec2",
               "index": 2,
-              "title": "Terme: X als Platzhalter",
+              "title": "3. Gleichartige Terme und Sachsituationen",
               "questions": [
+                "m32_dip1",
+                "m32_collect",
                 "m32_q2"
+              ]
+            },
+            {
+              "id": "m32_distribution",
+              "index": 3,
+              "title": "4. Ausmultiplizieren, Herausheben und Kürzen",
+              "questions": [
+                "m32_expand",
+                "m32_factor",
+                "m32_cancel"
+              ]
+            },
+            {
+              "id": "m32_binomial",
+              "index": 4,
+              "title": "5. Drei binomische Formeln mit Flächen begründen",
+              "questions": [
+                "m32_binomial_plus",
+                "m32_binomial_minus",
+                "m32_binomial_product"
+              ]
+            },
+            {
+              "id": "m32_model",
+              "index": 5,
+              "title": "6. Vermutungen prüfen und Terme anwenden",
+              "questions": [
+                "m32_counterexample",
+                "m32_border",
+                "m32_special_case"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 18,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11400,41 +11437,67 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math3_6_zuordnungen",
           "goals": [
-            "Direkte und indirekte Proportionalität anhand ihrer Bedingungen unterscheiden.",
-            "Direkte Zuordnungen über den Wert einer Einheit berechnen.",
-            "Bei fester Arbeitsmenge eine indirekte Zuordnung im vereinfachten Modell berechnen.",
-            "Tabellen, Rechenvorschriften und Graphen verbinden und unzulässige Eingaben erkennen."
+            "Direkte Proportionalität durch einen konstanten Quotienten begründen.",
+            "Indirekte Proportionalität durch ein konstantes Produkt erklären und ihre Modellannahmen prüfen.",
+            "Zuordnungen mit Grundgebühr sowie andere steigende oder fallende Zuordnungen unterscheiden.",
+            "Wertepaare aus Formeln, Tabellen und Diagrammen bestimmen und mit Einheiten deuten.",
+            "Parameter verändern, sinnvolle Eingabewerte festlegen und Modellgrenzen begründen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "Direkt proportional: gleicher Preis pro Einheit",
+              "title": "1. Direkt proportional: gleicher Preis je Einheit",
               "questions": [
-                "m36_q1"
+                "m36_q1",
+                "m36_dip1",
+                "m36_unit"
               ]
             },
             {
               "id": "sec2",
               "index": 1,
-              "title": "Indirekt proportional: gleichbleibendes Produkt",
+              "title": "2. Indirekt proportional: feste Arbeit aufteilen",
               "questions": [
-                "m36_q2"
+                "m36_q2",
+                "m36_zero",
+                "m36_time"
+              ]
+            },
+            {
+              "id": "m36_limits",
+              "index": 2,
+              "title": "3. Steigend oder fallend reicht nicht",
+              "questions": [
+                "m36_graph",
+                "m36_falling",
+                "m36_fee_zero"
               ]
             },
             {
               "id": "m36_representations",
-              "index": 2,
-              "title": "Tabelle, Rechenvorschrift und Graph verbinden",
+              "index": 3,
+              "title": "4. Tabelle, Rechenvorschrift und Graph verbinden",
               "questions": [
-                "m36_graph",
-                "m36_zero"
+                "m36_point",
+                "m36_difference",
+                "m36_domain"
+              ]
+            },
+            {
+              "id": "m36_workshop",
+              "index": 4,
+              "title": "5. Modelle verändern und beurteilen",
+              "questions": [
+                "m36_work_parameter",
+                "m36_invariant",
+                "m36_assumptions"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 15,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
