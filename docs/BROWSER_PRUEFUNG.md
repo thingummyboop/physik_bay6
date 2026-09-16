@@ -133,3 +133,15 @@ Haustiere: Bericht 2026-09-16T08:20:15.196Z, Chromium 151.0.7922.34. 39 native �
 ## 16.09.2026 – Selektion: Balken und Protokollprüfung
 
 Nativer Bericht 2026-09-16T08:41:58.706Z, Chromium 151.0.7922.34: 121 Eingabekombinationen mit unabhängig berechneten Balkenlängen, 39 Übungsantworten per Tastatur, zwei 92-Prozent-Kapitelchecks mit passender Wiederholung, sechs Breiten-/Designzustände und vier Tabellen bis zum rechten Rand bestanden. Geänderte/ungültige Eingaben und Neustart entfernen die alte Grafik. Keine Seitenfehler. Mobile Grafiken sowie die Seiten 10, 11, 12, 25 und 26 der abschließenden 26-seitigen A4-Ausgabe tatsächlich gerendert und gelesen. Beschriftungen vergrößert, Abstände korrigiert und einzelne Druckaufträge gegen Zeilentrennung geschützt. Keine Sichtprüfung aller Seiten. Details: [BIOLOGIE_SELEKTION_AUFGABEN.md](BIOLOGIE_SELEKTION_AUFGABEN.md).
+
+
+## 16.09.2026 – Skelett: Vorhersagen, Modellgrenzen und Papier
+
+Abschließender nativer Bericht 2026-09-16T09:03:26.246Z, Chromium 151.0.7922.34: 45 Übungsantworten, neun Modellvorhersagen per Tastatur, 18 Modell-/Breiten-/Designzustände, unveränderte Knochenlängen und passende Winkel, Neustart/Fokus und unveränderter Quizspeicher, zugängliches Protokoll, zwei 93-Prozent-Checks mit richtiger Wiederholung sowie getrennte Papierlösungen bestanden. Keine Seitenfehler. Mobile Ansichten sowie finale A4-Seiten 2, 5, 9, 10, 11, 15 und 24 tatsächlich gelesen; insgesamt 24 Seiten mit Lösungen, keine vollständige Sichtprüfung aller Seiten. Umfang: [BIOLOGIE_SKELETT_BEWEGUNG.md](BIOLOGIE_SKELETT_BEWEGUNG.md). Neue Skelettarbeit lokal nach Git-Zwischenstand c428cf6.
+
+
+## 16.09.2026 – Ernährung, Portionsvergleich und Stärkemodell
+
+Abschließender nativer Bericht 2026-09-16T09:24:20.100Z, Chromium 151.0.7922.34: 42 Übungsantworten per Tastatur, 121 Mengenkombinationen über DOM-Eingabeereignisse, zusätzlich native Reglerbedienung mit Pfeiltaste/Home/End und vier Modellauswahlen per Tastatur bestanden. 30 Modell-/Breiten-/Designzustände, zwei Tabellen bis zum rechten Rand, Neustart/Fokus und unveränderte Quizspeicherung sowie zwei 92-Prozent-Kapitelchecks mit passender Wiederholung geprüft. Keine Seitenfehler. Papiererzeugung mit fünf statischen Diagrammen, zwei Protokollen und getrennten Lösungen bestanden.
+
+Die finale mobile Aufnahme-Darstellung und die Rechenhilfe im dunklen Design wurden tatsächlich gelesen. Mengen stehen jetzt in einer Zeile; die vollständige Statusmeldung bleibt für assistive Technik vorhanden, ohne die Erklärung sichtbar zu verdoppeln. Kürzere Auswahltexte vermeiden abgeschnittene Bezeichnungen. Für die Druckfassung wurde die Zeichenlegende vor die Bilder gesetzt, das Diagramm ausdrücklich mit 200 ml A und 500 ml B verknüpft und die Überschrift „Arbeitsauftrag“ beim Folgeinhalt gehalten. Nach der letzten Änderung die Seiten 7, 10, 11, 14, 15, 16 und 27 der 27-seitigen A4-Fassung mit Lösungen gerendert und gelesen. Keine Sichtprüfung aller Druckseiten oder aller Kapitel. Details und Grenzen: [BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md](BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md).

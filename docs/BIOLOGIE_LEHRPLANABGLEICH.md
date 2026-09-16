@@ -127,3 +127,17 @@ Aktuelle Strukturzählung der 39 Biologiekapitel: 26 direkte und 127 automatisch
 15 allgemeine Trainingskarten durch konkrete Aufgaben zu Variation, Zuchtzielen, Modellregeln, Umweltwechsel und Datenauswertung ersetzt. Rechenhilfe mit zwei gemeinsam skalierten Balken und Papieraufgabe ergänzt; Prozentrechnung ausdrücklich erklärt. Fehlerhaftes Modellprotokoll, drei Begründungsaufgaben und neue Transferfrage: insgesamt zwölf bewertete Fragen, Revision 4. Der Lernweg führt vom eigenen Rechnen über Modellprüfung zu belegter Auswertung; erfundene Daten bleiben gekennzeichnet. Fachlicher Bezug und Prüfungen: [BIOLOGIE_SELEKTION_AUFGABEN.md](BIOLOGIE_SELEKTION_AUFGABEN.md).
 
 Aktuelle Strukturzählung: 31 direkte und 122 automatisch verarbeitete Trainingsblöcke in Biologie. 92 automatische Blöcke enthalten noch die allgemeine Situationsformulierung; 31 Kapitel besitzen mindestens einen automatischen Block. Das weist auf weitere Einzelprüfungen hin und ist keine vollständige Qualitäts- oder Lehrplanbewertung.
+
+
+## 16.09.2026 – Skelett und Bewegung: untersuchen und erklären
+
+Alle sechs Abschnitte, 31 Glossareinträge und bisherigen Fragen gelesen. 18 konkrete Aufgaben, dreizeiliges Vorhersageprotokoll und interaktiver Vergleich von Anheben, Halten und kontrolliertem Absenken ergänzt. Knochenlängen bleiben konstant, Muskelzug wird von bloßer Längenänderung unterschieden. Zwei neue Transferfragen, vier überarbeitete Fragen und eine überarbeitete Übung; insgesamt 14 bewertete Fragen, Revision 2. Die Aufgaben sind auch ohne eigene Bewegung bearbeitbar. Quellen, Funktions-/Browser-/Drucknachweise und Grenzen: [BIOLOGIE_SKELETT_BEWEGUNG.md](BIOLOGIE_SKELETT_BEWEGUNG.md).
+
+Aktuell 37 direkte und 116 automatisch verarbeitete Trainingsblöcke in den 39 Biologiekapiteln. 86 automatische Blöcke enthalten noch die allgemeine Situationsformulierung; 30 Kapitel besitzen mindestens einen automatisch verarbeiteten Block. Diese Strukturzählung dient der weiteren Einzelprüfung und ist kein Qualitätsnachweis. Vollständige Kompetenzzuordnung und Gesamtlehrplanabnahme bleiben offen.
+
+
+## 16.09.2026 – Ernährung und Verdauung: begründete Vergleiche
+
+Alle fünf Abschnitte, 27 Glossareinträge und vorhandenen Fragen gelesen. 15 konkrete Aufgaben mit Jausenplanung, Organwegen, Etikettenrechnung und Modellvergleich ersetzen allgemeine Karten. Vier Modellbilder unterscheiden mechanische und chemische Verdauung sowie Aufnahme; spätere Verwertung ist ausdrücklich ein weiterer Vorgang. Zwei Mengenregler mit gemeinsamer Balkenskala unterstützen das Vergleichen von Bezugsmenge und Portionsmenge. 13 bewertete Fragen und eine unbewertete Übung, Revision 2; Quellen und Nachweise: [BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md](BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md).
+
+Aktuelle Strukturzählung: 42 direkte und 111 automatisch verarbeitete Trainingsblöcke in den 39 Biologiekapiteln. 81 automatische Blöcke enthalten noch die allgemeine Situationsformulierung; 29 Kapitel besitzen mindestens einen automatischen Block. Dies ist ein Hinweis auf weitere Einzelprüfungen, keine abgeschlossene Qualitäts- oder Kompetenzbewertung. Gesamter Lehrplanabgleich bleibt offen.

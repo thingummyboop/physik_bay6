@@ -24,6 +24,7 @@
         #ws-content :is(h2,h3,h4,h5,caption,thead) { break-after: avoid; }
         #ws-content :is(h2,h3,h4,h5) { break-inside: avoid; }
         .ws-chapter-material .bio-section-check > strong:first-child { display: block; break-after: avoid; }
+        .ws-chapter-material .bio-training-panel > strong:first-child { display: block; break-after: avoid; }
         .ws-chapter-material .teacher-note > strong:first-child { display: block; break-after: avoid; }
         .ws-chapter-material .teacher-note li { break-inside: avoid; }
         .ws-chapter-material [data-separation-experiment] { break-inside: avoid; }
@@ -71,6 +72,13 @@
 [data-pet-evidence-paper] > li{break-inside:avoid;margin-bottom:12px}
 [data-pet-evidence-paper] > li > p{min-height:12mm;border-bottom:1px dotted #888}
 [data-pet-case]{break-inside:avoid}
+[data-muscle-protocol]{table-layout:fixed}
+[data-muscle-protocol] tbody td{height:20mm}
+[data-muscle-paper] svg{display:block;width:100%;max-width:80mm;height:auto;margin:8mm auto;break-inside:avoid}
+[data-digestion-protocol],[data-drink-paper-table]{table-layout:fixed}
+[data-digestion-protocol] tbody td,[data-drink-paper-table] tbody td{height:20mm}
+[data-digestion-paper] figure{break-inside:avoid;margin:5mm 0}
+:is([data-digestion-paper],[data-drink-paper]) svg{display:block;width:100%;max-width:75mm;height:auto;margin:5mm auto;break-inside:avoid}
 </style>
     <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../js/curriculum.js"></script><script src="../js/worksheet_generator.js?v=1.3"></script>

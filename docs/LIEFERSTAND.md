@@ -1136,3 +1136,24 @@ Alle 186/186 Funktionstestsuiten bestanden; Bericht 2026-09-16T08:26:03.196Z in 
 Der vorige Zielturn war Fortschritt mit ausgearbeiteten Haustieraufgaben und 186/186 bestandenen Funktionstests. Danach Selektion weiterbearbeitet: 15 konkrete Trainingskarten, zwei dynamische Balken mit gemeinsamer Skala, Papierdiagramm mit freien Beschriftungsfeldern und ein fehlerhaftes Modellprotokoll mit drei Aufgaben. Neue bewertete Transferfrage und passende Wiederholung; zwölf bewertete Fragen, Revision 4. Eine Prozent-Erklärung mit Zehner-Kästchen-Beispiel unterstützt den Einstieg in der ersten Klasse.
 
 108 bewertete Antwortwege über Evolution/Selektion/Blütenpflanzen, davon 36 in Selektion, 121 Rechnungen samt Balkengeometrie, 45 erhaltene Kartentexte, 95 STEM-Arbeitsblätter, Haustiere, Physik-Kernmodelle, Titelindex und Lernwege gezielt bestanden. Nativer Browserlauf und ausgewählte Druckseiten geprüft; Nachweise und genaue Grenzen: [BIOLOGIE_SELEKTION_AUFGABEN.md](BIOLOGIE_SELEKTION_AUFGABEN.md). Der vollständige Lauf mit 186/186 vom 2026-09-16T08:26:03.196Z liegt vor den neuen Selektionsänderungen; kein neuer Gesamtlauf. Inventar 197 Kapitel, Prioritätsaudit 1542 Frageninstanzen ohne Strukturfehler. Übersetzungen zurückgestellt, neue Inhalte lokal. Vollständige fachliche, visuelle, Lehrplan- und Produktabnahme bleiben offen.
+
+
+## 16.09.2026 – Skelett und Bewegung
+
+Vorheriger Zielturn war Fortschritt: Der Zwischenstand c428cf6 wurde nach main gepusht und gegen GitHub verifiziert. Danach das Skelettkapitel weiterbearbeitet: 18 konkrete Arbeitsaufträge, Vergleichsmodell mit drei Situationen, Vorhersageprotokoll und Papieralternative. 14 bewertete Fragen, eine Übung und Revision 2; passende Abschnittswiederholung. Bewusste Modellgrenzen, freiwillige Körperbeobachtung und konkrete Gedankenfälle unterstützen selbstständiges Lernen und Unterricht.
+
+42 unabhängig erwartete bewertete Antwortwege, neun Modellantworten und 95 STEM-Arbeitsblätter bestanden; native Browser- und ausgewählte Druckprüfung ebenfalls bestanden. Genauer Umfang: [BIOLOGIE_SKELETT_BEWEGUNG.md](BIOLOGIE_SKELETT_BEWEGUNG.md). Inventar weiterhin 197 Kapitel; struktureller Prioritätsaudit 1544 Frageninstanzen ohne Befund. Neue Skelettänderungen lokal, Übersetzungen zurückgestellt. Vollständige fachliche, visuelle, Lehrplan- und Produktabnahme bleibt offen; der vollständige Funktionstest wird mit seinem tatsächlichen Endergebnis gesondert dokumentiert.
+
+
+## Vollständiger Funktionstest nach der Skelettarbeit
+
+Alle 187/187 Funktionstestsuiten bestanden; Bericht 2026-09-16T09:06:02.513Z in ../functional-test-report.json. Der Lauf umfasst auch die aktuellen Selektions- und Skelettänderungen. Während des Laufs wurden noch die freiwillige Modell-/Körperbeobachtung und ein Papierverweis präzisiert; die betroffenen Skelett- und 95 STEM-Arbeitsblattprüfungen liefen danach zusätzlich erfolgreich, die abschließende native Prüfung und Druckkontrolle erfolgten ebenfalls nach diesen Änderungen. Die vollständige fachliche, visuelle und Lehrplanabnahme folgt daraus nicht. Neue Skelettarbeit bleibt lokal nach c428cf6.
+
+
+## 16.09.2026 – Ernährung und Verdauung
+
+Vorheriger Zielturn war Fortschritt mit Skelettmodell, konkreten Aufgaben und 187/187 bestandenen Funktionstests. Danach Ernährung/Verdauung überarbeitet: 15 konkrete Aufgaben, vierteiliges Stärkemodell, interaktiver Portionsvergleich, 13 bewertete Fragen und eine Übung, Revision 2. Papierfassungen mit Protokollen, fünf Diagrammen und getrennten Lösungen; Alltagsfälle ohne Bewertung realer Mitschüler:innen.
+
+39 unabhängig erwartete bewertete Antwortwege, 121 Rechnungen samt Balkenskala, vier Modellzustände und 95 STEM-Arbeitsblätter bestanden. Skelett, Evolution/Selektion/Blütenpflanzen, Physik-Kernmodelle und Lern-/Stofflistenweg gezielt geprüft. Native Browserprüfung und ausgewählte Druckseiten bestanden; genaue Nachweise: [BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md](BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md). Der vorherige vollständige Lauf mit 187/187 liegt vor diesen Ernährungsänderungen; kein neuer Gesamtlauf.
+
+Inventar weiterhin 197 Kapitel; Prioritätsaudit 1546 Frageninstanzen ohne strukturellen Befund. Skelett und Ernährung sind lokal nach c428cf6 weiterbearbeitet. Übersetzungen bleiben zurückgestellt. Vollständige fachliche, visuelle, Lehrplan- und Produktabnahme aller Fächer bleibt offen.

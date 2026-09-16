@@ -81,6 +81,52 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='digestion-model'){
+   const control=zone.querySelector('[data-digestion-control]'),stages=[...zone.querySelectorAll('[data-digestion-stage]')],status=zone.querySelector('[data-digestion-status]');
+   const update=()=>{
+    const index=Number(control.value);stages.forEach((stage,i)=>{stage.hidden=i!==index;});
+    status.textContent='Bild '+(index+1)+' von '+stages.length+': '+stages[index].querySelector('h4').textContent+'. '+stages[index].querySelector('p').textContent;
+   };
+   control.addEventListener('change',update);zone.querySelector('[data-digestion-reset]').addEventListener('click',()=>{control.value='0';update();control.focus();});update();
+  }
+  if(type==='drink-portions'){
+   const fields=['a','b'].map(key=>zone.querySelector('[data-drink-amount="'+key+'"]')),out=zone.querySelector('[data-drink-result]'),chart=zone.querySelector('[data-drink-chart]');
+   const format=value=>value.toLocaleString('de',{maximumFractionDigits:1});
+   const update=()=>{
+    const volumes=fields.map(field=>Number(field.value)),grams=volumes.map((v,i)=>v*[6,4][i]/100);
+    ['a','b'].forEach((key,i)=>{
+     zone.querySelector('[data-drink-volume="'+key+'"]').textContent=format(volumes[i]);fields[i].setAttribute('aria-valuetext',format(volumes[i])+' Milliliter');
+     chart.querySelector('[data-drink-bar="'+key+'"]').setAttribute('width',260*grams[i]/30);
+     chart.querySelector('[data-drink-label="'+key+'"]').textContent=key.toUpperCase()+': '+format(grams[i])+' g Zucker';
+    });
+    const comparison=grams[0]===grams[1]?'Beide Mengen enthalten gleich viel Zucker.':grams[0]>grams[1]?'Die betrachtete Menge A enthält mehr Zucker.':'Die betrachtete Menge B enthält mehr Zucker.';
+    out.textContent='A: 6 g × '+format(volumes[0]/100)+' = '+format(grams[0])+' g. B: 4 g × '+format(volumes[1]/100)+' = '+format(grams[1])+' g. '+comparison+' Die Angaben je 100 ml bleiben A: 6 g und B: 4 g.';
+    chart.setAttribute('aria-label','Zucker in den betrachteten Mengen: A '+format(grams[0])+' g bei '+volumes[0]+' ml, B '+format(grams[1])+' g bei '+volumes[1]+' ml. Gemeinsame Skala 0 bis 30 g.');
+   };
+   fields.forEach(field=>field.addEventListener('input',update));zone.querySelector('[data-drink-reset]').addEventListener('click',()=>{fields[0].value='200';fields[1].value='500';update();fields[0].focus();});update();
+  }
+  if(type==='muscle-actions'){
+   const action=zone.querySelector('[data-muscle-action]'),prediction=zone.querySelector('[data-muscle-prediction]'),diagram=zone.querySelector('[data-muscle-diagram]'),out=zone.querySelector('[data-muscle-result]'),motion=zone.querySelector('[data-muscle-motion]');
+   out.id='muscle-result-'+experimentIndex;prediction.setAttribute('aria-describedby',out.id);
+   const clear=()=>{out.textContent='Noch nicht geprüft.';delete zone.dataset.muscleState;};
+   const update=()=>{
+    const option=action.selectedOptions[0],start=Number(option.dataset.start),end=Number(option.dataset.end);
+    for(const [part,angle]of [['start',start],['end',end]]){
+     const line=diagram.querySelector('[data-muscle-'+part+']'),radians=angle*Math.PI/180;
+     line.setAttribute('x2',105+105*Math.sin(radians));line.setAttribute('y2',150-105*Math.cos(radians));
+    }
+    motion.textContent='Gelenkwinkel: '+start+'° → '+end+'°. Die Knochenlängen bleiben gleich.';
+    diagram.setAttribute('aria-label','Modell: '+option.textContent+', Winkel von '+start+' auf '+end+' Grad. Knochenlängen bleiben gleich.');
+    prediction.value='';clear();
+   };
+   action.addEventListener('change',update);prediction.addEventListener('change',clear);
+   zone.querySelector('[data-muscle-check]').addEventListener('click',()=>{
+    if(!prediction.value){out.textContent='Wähle zuerst deine Vorhersage zur Muskellänge.';zone.dataset.muscleState='open';return;}
+    const correct=prediction.value===action.selectedOptions[0].dataset.correct;
+    zone.dataset.muscleState=correct?'correct':'review';out.textContent=(correct?'Passend. ':'Vergleiche noch einmal. ')+zone.querySelector('[data-muscle-explanation="'+action.value+'"]').content.textContent;
+   });
+   zone.querySelector('[data-muscle-reset]').addEventListener('click',()=>{action.value='lift';update();action.focus();});update();
+  }
   if(type==='pet-evidence'){
    const rows=[...zone.querySelectorAll('[data-pet-statement]')],out=zone.querySelector('[data-pet-result]');
    for(const [i,row]of rows.entries()){
