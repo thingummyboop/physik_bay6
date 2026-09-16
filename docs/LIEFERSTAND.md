@@ -1251,3 +1251,31 @@ Die neue Induktionswerkstatt vergleicht Magnetpol, Bewegung, Geschwindigkeit und
 Vor dieser Sicherung erneut bestanden: Induktionsprüfung (24 Modellfälle, 72 Klassifikationen, 24 unabhängig erwartete Antwortwege und zehn Transformatorstellungen), Elektromagnetismusprüfung, Wachstumsprüfung und alle 20 Physikarbeitsblätter. Der vorhandene native Induktionsbericht vom 16.09.2026, 12:53:18 UTC dokumentiert zusätzlich Tastatur-, Layout- und Druckexportprüfungen. Die abschließende Sichtprüfung ausgewählter Induktions-PDF-Seiten und die ausführliche Kapiteldokumentation stehen noch aus. Ein realer Unterrichtsversuch wurde nicht durchgeführt.
 
 Inventar: 197 Kapitel, Prioritätsaudit: 1610 Frageninstanzen ohne strukturellen Befund. Kein neuer vollständiger Suitenlauf. Dieser Zwischenstand ist keine vollständige Produktabnahme oder Bestätigung der Veröffentlichung über GitHub Pages. Übersetzungen bleiben zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB bleiben priorisiert.
+
+
+## 16.09.2026 – Elektromagnetismus: Untersuchungsaufträge und alle Fragen
+
+Voriger Zielturn war Fortschritt: Zwischenstand 654367e erfolgreich nach GitHub main gepusht und entfernten Stand verifiziert. Anschließend die offenen ausgewählten Induktions-Druckseiten gelesen und die verbliebenen 16 Fragen verbessert. Alle 27 Fragen mit drei individuellen Antwortmöglichkeiten, elf frühere Abschlussfragen zu passenden Abschnitten verschoben, Revision 5. Zwölf neue Arbeitsaufträge mit vier Papieralternativen und getrennten Lösungen; Leiter-/Erdmagnetfeld, faire Kernvergleiche, Relaiskreise, Kraftwirkung und Energieerhaltung sind ausdrücklich verbunden.
+
+Mobile Sichtprüfung zeigte zu kleine Transformatorwerte. Werte und Windungszahl stehen nun in normal großem Text außerhalb der skalierten Zeichnung. 81 unabhängig erwartete Antwortwege, alle sieben Wiederholungsziele, 24 Induktionsfälle/72 Klassifikationen, zehn Transformatorstellungen, Mobil-/Tastaturprüfung und ausgewählte finale Druckseiten bestanden. Gezielte Regressionen der Physikarbeitsblätter, Lernziele und Stofflisten bestanden; kein neuer vollständiger Suitenlauf. Dokumentation: [PHYSIK_INDUKTION.md](PHYSIK_INDUKTION.md).
+
+Inventar 197 Kapitel; Prioritätsaudit 1610 Frageninstanzen ohne strukturellen Befund. Änderungen dieses Arbeitsschritts lokal nach 654367e, kein erneuter Push. Übersetzungen zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB priorisiert. Praktische Erprobung, verbleibende Modelle/Inhaltslücken sowie die vollständige Lehrplan- und Produktabnahme aller vorhandenen Fächer bleiben Teil des unveränderten Gesamtauftrags.
+
+
+## 16.09.2026 – Motor: zwei Leiterseiten, Polwender und Totpunkt
+
+Voriger Zielturn war Fortschritt: Elektromagnetismusfragen und Untersuchungsaufträge verbessert, mobile Spannungswerte und ausgewählte Druckseiten geprüft. Nun die Lücke zwischen einzelner Leiterkraft und Motor geschlossen: eine veränderbare Spulenansicht mit 64 Zuständen, Strom-/Kraftpfeilen, Polwender, Versorgung und Totpunkten. Vier Arbeitsaufträge, zwei statische Skizzen, acht Papierfälle und drei zusätzliche Verständnisfragen; Kapitelrevision 6 mit insgesamt 30 Fragen. Die Werkstatt vergleicht Momentaufnahmen und behauptet keine berechnete Drehbewegung.
+
+64 Zustände/192 Klassifikationen, alle 90 Kapitelantworten, sieben Wiederholungsziele, native Tastatur-/Mobilprüfung, ausgewählte finale Druckseiten und gezielte Physikregressionen bestanden. Kein neuer vollständiger Suitenlauf. Nachweise und Modellgrenzen: [PHYSIK_MOTOR.md](PHYSIK_MOTOR.md).
+
+Inventar 197 Kapitel, Prioritätsaudit 1613 Frageninstanzen ohne strukturellen Befund. Lokal nach 654367e, kein neuer Push. Übersetzungen zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB priorisiert. Verbleibende Modelle, Inhalts-/Lehrplanlücken, praktische Erprobung und vollständige Produktabnahme aller bestehenden Fächer bleiben im Gesamtauftrag.
+
+## 16.09.2026 – GitHub-Zwischenstand: Elektromagnetismus, Motor und Relais
+
+Auf ausdrücklichen Wunsch wird der aktuelle Stand seit 654367e gesichert. Enthalten sind die oben dokumentierten Verbesserungen an Fragen, Untersuchungsaufträgen und Transformator sowie die Motorwerkstatt und die neue Relaiswerkstatt. Übersetzungen bleiben zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB behalten Vorrang.
+
+Die Relaisdarstellung zeigt zwei elektrisch getrennte Stromkreise und ihre mechanische Kopplung. Steuerkreis, Lastversorgung und eingesetzte beziehungsweise entfernte Lampe ergeben acht untersuchbare Zustände. Zwei zusätzliche Arbeitsaufträge, eine statische Zeichnung, acht Papierfälle und getrennte Lösungen ergänzen die Interaktion. Rückmeldungen unterscheiden geschlossenen Relaiskontakt, geschlossenen Lastkreis und tatsächlich leuchtende Lampe. Das idealisierte Modell berechnet keine Stromstärke, Erwärmung oder Schaltverzögerung. Die 30 bewerteten Fragen und Kapitelrevision 6 bleiben erhalten.
+
+Vor dieser Sicherung erneut bestanden: Relaisprüfung mit acht Zuständen, 24 Entscheidungen und unabhängig aus der Zeichnung rekonstruierten Leitungswegen; Motorprüfung mit 64 Zuständen und 192 Entscheidungen; Induktionsprüfung mit 24 Zuständen und 72 Entscheidungen; Elektromagnetismus-Grundlagen, alle 90 Kapitelantworten sowie alle 20 Physikarbeitsblätter. Syntaxprüfung und struktureller Prioritätsaudit ebenfalls bestanden. Inventar: 197 Kapitel, 1613 Frageninstanzen im Prioritätsaudit ohne Befund.
+
+Der vorhandene native Relaisbericht vom 16.09.2026, 13:39:40 UTC dokumentiert acht Zustände, 24 Entscheidungen, 48 Layoutfälle bei 320/390/1280 px in beiden Designs, Tastaturbedienung und Druckexport. Nach zwei Präzisierungen unbewerteter Erklärungstexte wurde das Arbeitsblatt um 13:42:28 UTC erneut exportiert. Die abschließende erneute Sichtprüfung der dadurch veränderten Druckseiten und die ausführliche Relaisdokumentation stehen noch aus. Kein neuer vollständiger Suitenlauf und keine praktische Unterrichtserprobung. Dieser Zwischenstand ist keine vollständige Produktabnahme oder Bestätigung der Veröffentlichung über GitHub Pages.

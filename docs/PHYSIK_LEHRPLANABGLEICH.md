@@ -95,3 +95,13 @@ Der bisher offene Sonnensystem-Scanner ist durch einen bedienbaren Datenvergleic
 ## 14.09.2026 – Gesamtlauf und unabhängige Saturnkorrektur
 
 Alle 182 vorhandenen Funktionstestsuiten bestanden im vollständigen Lauf; 197 deutsche Kapitel im gemeinsamen Renderer ohne Strukturfehler. Der anschließende Live-Screenshot-Abgleich zeigte dennoch eine falsche Zuordnung von Antwortmarkierung und Rückmeldung bei der Saturn-Quellenübung. Drei Optionen lokal korrigiert; neue, von den gespeicherten Flags unabhängige Erwartungen scheiterten davor und bestanden danach. Vollständige Astronomie-Integrationsprüfung und tatsächlicher Browserlauf erneut erfolgreich. Sieben zentrale Dateien des gepushten Zwischenstands b154b4e auf GitHub Pages verglichen; fünf Browserprüfungen dort ausgeführt. Dies ist keine fachliche Gesamtfreigabe. Details, zeitliche Trennung der Prüfläufe und verbleibender Live-Fehler: [FUNKTIONS_PRUEFUNG_2026-09-14.md](FUNKTIONS_PRUEFUNG_2026-09-14.md). Kein weiterer Push, Übersetzungen weiterhin zurückgestellt.
+
+
+## 16.09.2026 – Induktion und begründete Untersuchungen
+
+Kontrollierter Induktionsvergleich mit getrenntem Modell- und Beobachtungsprotokoll dokumentiert. Zwölf weitere Untersuchungsaufträge zu Leiterfeld, Spule, Relais und Motor ergänzt. 16 verbliebene Auswahlfragen überarbeitet; alle 27 Fragen stehen jetzt in passenden Abschnitten, mit 81 unabhängig geprüften Antwortwegen. Transformatorwerte am Handy lesbar, Papiermaterial und ausgewählte Druckseiten geprüft. Dies stärkt Untersuchen, Begründen und Energiebetrachtungen in der 3. Klasse, erledigt aber keinen vollständigen Fachlehrplanabgleich. Praktische Versuchserprobung, übrige Modelle und Einteilung in Grundstoff/Vertiefung bleiben offen. Einzelheiten: [PHYSIK_INDUKTION.md](PHYSIK_INDUKTION.md).
+
+
+## 16.09.2026 – Vom einzelnen Leiter zum Motor
+
+Das qualitative Motorverständnis wird durch eine bedienbare Spulenansicht mit zwei Kraftwirkungen, winkelabhängiger Stromumkehr und Totpunkten ergänzt. Vergleichsaufträge und drei Fragen unterscheiden Kraftsumme, Drehwirkung und vorhandene Bewegung. 64 Zustände, 192 Entscheidungen, alle 90 Kapitelantworten, native Darstellung und ausgewählte Druckseiten geprüft. Kein vollständiger neuer Fachlehrplanabgleich oder praktischer Motorversuch. Dokumentation: [PHYSIK_MOTOR.md](PHYSIK_MOTOR.md).

@@ -199,3 +199,13 @@ Nach db9fbea wurden die Seiten 2, 4, 5, 6, 7, 8, 9, 19, 20, 21 und 22 der zuletz
 Nativer Abschlussbericht 2026-09-16T12:37:06.534Z, Chromium 151.0.7922.34, `../browser-qa/growth-year3/report.json`: 54 Antworten, 189 Modellzustände, Tastaturbedienung und Eingaben, Neustart/Fokus, wieder geladenes Skript, 18 Layoutzustände, zwei horizontal scrollbare Tabellen mit feststehender erster Spalte und zwei 94-Prozent-Prüfungen mit korrektem Wiederholungsziel bestanden. Keine Seitenfehler. Die mobile Formeltabelle war zunächst zu schmal und wurde nach Sichtprüfung verbessert. Diagramm, Werkstatt und Formeltabelle tatsächlich gelesen.
 
 A4-Ausgabe mit Lösungen: 23 Seiten. Seiten 1, 2, 4, 5, 6, 7, 8, 9, 16, 20, 21, 22 und 23 gerendert und gelesen; nach letzter Korrektur der Rundungszeichen ausschließlich in erzeugten Zusatzlösungen erneut exportiert und die betroffenen Seiten 9, 20 und 21 erneut gelesen. Fehlerhafte Quellenbezeichnungen und ein Bildschirmhinweis im Druck vorher korrigiert. Keine vollständige Druck-, Geräte- oder Screenreaderabnahme. Tabellenformeln rechnerisch und beim Kopieren geprüft, nicht in einem externen Tabellenkalkulationsprogramm ausgeführt. [Detaillierter Nachweis](MATHEMATIK_PROZENT_WACHSTUM.md).
+
+
+## 16.09.2026 – Elektromagnetismus: vollständige Fragenwege und lesbare Werte
+
+Nativer Abschlusslauf 2026-09-16T13:10:24.023Z: 81 Antwortmöglichkeiten aller 27 Fragen, sieben gezielte Wiederholungsziele, 24 Induktionsfälle mit 72 Klassifikationen, zehn Transformatorstellungen und 18 Layoutfälle bestanden. Keine Seitenfehler. Zu kleine SVG-Spannungswerte in normal großen HTML-Text überführt; mobile Ansichten in beiden Designs gelesen. Vier Papieralternativen für die neuen Untersuchungsaufträge ergänzt. Ausgewählte Seiten der 32-seitigen Druckausgabe geprüft; nach Präzisierung eines Relaisauftrags nur dessen Seite geändert und erneut gelesen, übrige ausgewählte Seiten bildidentisch verifiziert. Umfang, Zeitpunkte und Grenzen: [PHYSIK_INDUKTION.md](PHYSIK_INDUKTION.md). Keine vollständige Geräte-, Screenreader-, Praxis- oder Produktabnahme.
+
+
+## 16.09.2026 – Motorwerkstatt und erweiterter Kapitelcheck
+
+Motorbericht 2026-09-16T13:24:24.542Z: 64 Zustände, 192 Klassifikationen, Tastatur, SVG-Grenzen, Neustart und 24 Layoutfälle bestanden. Vollständiger Elektromagnetismus-Quizlauf 2026-09-16T13:26:24.556Z: 90 Antworten und sieben Wiederholungsziele, dazu Induktions-/Transformatorregressionen bestanden. Mobile Motorbilder und dunkle Werkstatt gelesen. Ausgewählte Seiten der finalen 38-seitigen Druckausgabe nach Layout- und Textpräzisierungen geprüft. Details und Grenzen: [PHYSIK_MOTOR.md](PHYSIK_MOTOR.md). Keine reale Geräte-, Screenreader-, Unterrichts- oder Gesamtproduktabnahme.
