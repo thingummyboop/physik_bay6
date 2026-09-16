@@ -3,7 +3,8 @@ const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',out=path.re
 (async()=>{
  fs.mkdirSync(out,{recursive:true});const browser=await chromium.launch({headless:true}),errors=[],results=[];
  try{
-  for(const kind of ['wirbeltiere','selektion']){
+  const kinds=process.env.SCIVERSE_BIOLOGY_CHAPTER?[process.env.SCIVERSE_BIOLOGY_CHAPTER]:['wirbeltiere','selektion'];assert.ok(kinds.every(k=>['wirbeltiere','selektion'].includes(k)));
+  for(const kind of kinds){
    const id='bio_1_'+kind,context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/topics/template.html?topic='+id);
    const zone=page.locator('[data-core-experiment="'+(kind==='wirbeltiere'?'vertebrate-cards':'selection-counts')+'"]');await zone.waitFor();const saved=await page.evaluate(()=>localStorage.getItem('sciverse_chapter_quiz_results'));let states=0;
    if(kind==='wirbeltiere'){
@@ -28,16 +29,17 @@ const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',out=path.re
     await light.fill('6');await dark.fill('9');await dark.press('Enter');
    }
    let answerPaths=0;
-   const correctIndex=id=>({bio_selektion_d1:1,bio_selektion_d2:2,bio_selektion_d4:2,bio_selektion_d5:1}[id]||0);
-   if(kind==='selektion'){
+   const correctIndex=id=>({bio_selektion_d1:1,bio_selektion_d2:2,bio_selektion_d4:2,bio_selektion_d5:1,bio_wirbel_gruppen:2,bio_wirbel_schnabeltier:1}[id]||0);
+   {
     const source=JSON.parse(fs.readFileSync(path.join(__dirname,'../lang/de.json'),'utf8'))[id];
-    for(const q of source.sections.flatMap(s=>s.quizzes).filter(q=>!q.practiceOnly)){
+    for(const q of source.sections.flatMap(s=>s.quizzes).filter(q=>kind==='wirbeltiere'||!q.practiceOnly)){
      const box=page.locator('.practice-box[data-id="'+q.id+'"]');
      for(const [i,answer]of q.answers.entries()){
       const button=box.getByRole('button',{name:answer.text,exact:true});await button.focus();await page.keyboard.press('Enter');assert.equal(await button.evaluate(e=>e.classList.contains('is-correct')),i===correctIndex(q.id));assert.ok((await box.locator('.feedback').innerText()).includes(answer.feedback));answerPaths++;
      }
     }
-    assert.equal(answerPaths,33);for(const input of await zone.locator('input').all())assert.ok((await input.boundingBox()).height>=44);
+    assert.equal(answerPaths,kind==='wirbeltiere'?42:33);for(const input of await zone.locator('input').all())assert.ok((await input.boundingBox()).height>=44);
+    if(kind==='wirbeltiere'){assert.equal(await page.locator('.bio-training-card').count(),15);assert.equal(await page.locator('[data-vertebrate-case]').count(),3);}
    }
    assert.equal(await page.evaluate(()=>localStorage.getItem('sciverse_chapter_quiz_results')),saved);
    const widths=[];for(const width of [320,390,1280])for(const theme of ['light','dark']){
@@ -45,7 +47,8 @@ const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',out=path.re
     if(size.scroll>size.width+1)await page.screenshot({path:path.join(out,kind+'-overflow-'+width+'-'+theme+'.png'),fullPage:true});assert.ok(size.scroll<=size.width+1,kind+' '+JSON.stringify(size));widths.push({width,theme,...size});
    }
    await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.removeAttribute('data-theme'));await zone.screenshot({path:path.join(out,kind+'-model-mobile.png')});
-   const tables=kind==='wirbeltiere'?['data-vertebrate-cards','data-vertebrate-key']:['data-selection-generations','data-selection-repeats','data-selection-comparison'];
+   if(kind==='wirbeltiere'){await page.locator('.vertebrate-group-map').screenshot({path:path.join(out,'nested-groups-mobile.png')});await page.locator('[data-vertebrate-case="b"]').screenshot({path:path.join(out,'platypus-case-mobile.png')});}
+   const tables=kind==='wirbeltiere'?['data-vertebrate-cards','data-vertebrate-key','data-vertebrate-case-protocol']:['data-selection-generations','data-selection-repeats','data-selection-comparison'];
    for(const key of tables){
     const table=page.locator('['+key+']'),parent=table.locator('..'),scrollable=await parent.getAttribute('role')==='region',region=scrollable?parent:table;
     if(scrollable)assert.equal(await region.getAttribute('tabindex'),'0');else{const bounds=await table.boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=391,key+' must fit or have an accessible scroll region');}
@@ -57,15 +60,18 @@ const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',out=path.re
      await region.screenshot({path:path.join(out,key+'-scrolled-mobile.png')});assert.equal(await region.evaluate(e=>document.activeElement===e),true);
     }
    }
-   await page.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();const ids=await page.evaluate(()=>currentChapterQuiz.questions.map(q=>q.id));assert.equal(ids.length,11);
-   const wrong=kind==='wirbeltiere'?'bio_wirbel_s4':'bio_selektion_d6';
-   for(const [i,q]of ids.entries())await page.locator('input[name="chapter_q_'+i+'"][value="'+(q===wrong?1:correctIndex(q))+'"]').check();
-   await page.locator('.chapter-submit-btn').click();const result=await page.evaluate(id=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results'))[id],id);assert.equal(result.lastPercent,91);assert.equal(result.contentRevision,kind==='wirbeltiere'?2:3);assert.deepEqual(result.reviewQuestionIds,[wrong]);
-   await page.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();assert.ok(await page.locator('#learning-section-'+(kind==='wirbeltiere'?3:4)).evaluate(e=>e.contains(document.activeElement)));
-   const paper=await context.newPage();paper.on('pageerror',e=>errors.push(e.message));await paper.goto(base+'/topics/worksheet.html?topic='+id);await paper.waitForFunction(()=>!document.getElementById('ws-print').disabled);assert.equal(await paper.locator('#ws-content>.question-block').count(),11);assert.equal(await paper.locator('#ws-solutions').isVisible(),false);
+   const count=kind==='wirbeltiere'?13:11,attempts=[];
+   for(const [wrong,section]of (kind==='wirbeltiere'?[['bio_wirbel_gruppen',1],['bio_wirbel_d6',3]]:[['bio_selektion_d6',4]])){
+    await page.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();if(attempts.length)await page.locator('[onclick="restartChapterQuiz()"]').click();const ids=await page.evaluate(()=>currentChapterQuiz.questions.map(q=>q.id));assert.equal(ids.length,count);
+    for(const [i,q]of ids.entries())await page.locator('input[name="chapter_q_'+i+'"][value="'+(q===wrong?(correctIndex(q)+1)%3:correctIndex(q))+'"]').check();
+    await page.locator('.chapter-submit-btn').click();const result=await page.evaluate(id=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results'))[id],id);assert.equal(result.lastPercent,kind==='wirbeltiere'?92:91);assert.equal(result.contentRevision,3);assert.deepEqual(result.reviewQuestionIds,[wrong]);attempts.push({wrong,section,result});
+    await page.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();assert.ok(await page.locator('#learning-section-'+section).evaluate(e=>e.contains(document.activeElement)));
+   }
+   const paper=await context.newPage();paper.on('pageerror',e=>errors.push(e.message));await paper.goto(base+'/topics/worksheet.html?topic='+id);await paper.waitForFunction(()=>!document.getElementById('ws-print').disabled);assert.equal(await paper.locator('#ws-content>.question-block').count(),count);assert.equal(await paper.locator('#ws-solutions').isVisible(),false);
+   if(kind==='wirbeltiere'){assert.equal(await paper.locator('.bio-training-card').count(),15);assert.equal(await paper.locator('.ws-glossary-entry').count(),25);assert.equal(await paper.locator('[data-vertebrate-case]').count(),3);assert.equal(await paper.locator('[data-vertebrate-case-protocol] tbody tr').count(),3);}
    await paper.locator('#ws-include-solutions').check();await paper.pdf({path:path.join(out,kind+'.pdf'),format:'A4',printBackground:true,margin:{top:'15mm',bottom:'15mm',left:'15mm',right:'15mm'}});
-   results.push({id,states,answerPaths,widths,result});await context.close();
+   results.push({id,states,answerPaths,widths,attempts});await context.close();
   }
-  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),base,results,pageErrors:errors,scope:'81 native card selections, 121 entered calculations, all 33 selection practice answer paths by keyboard, two 11-question checks with exact section review, keyboard-scrollable tables, invalid input/reset, storage isolation, 12 width/theme states and PDF exports. Visual review is separate. No real biological field experiment.'},null,2)+'\n');console.log('PASS: 81 card combinations, 121 calculations, 33 selection answer paths by keyboard, two 91% checks with targeted review, keyboard table scrolling, 12 width/theme states and both paper exports.');
+  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({createdAt:new Date().toISOString(),browser:browser.version(),base,results,pageErrors:errors,scope:'Only the chapters listed in results were run. Per chapter: native model states, practice answer paths by keyboard, exact section review, keyboard-scrollable tables, reset/storage, six width/theme states and PDF. Vertebrates: 15 concrete cards, nested groups, three transfer cases, 13 assessed questions; selection: 11 assessed questions. Visual review separate; no field experiment.'},null,2)+'\n');console.log('PASS: '+results.map(r=>r.id+': '+r.states+' model states, '+r.answerPaths+' native answer paths, '+r.attempts.length+' checks, six width/theme states and paper').join('; '));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

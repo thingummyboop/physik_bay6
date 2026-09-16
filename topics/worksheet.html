@@ -16,6 +16,7 @@
         #ws-art-material { overflow-wrap: anywhere; } #ws-art-material svg { max-width: 100%; height: auto; } #ws-art-material figure { break-inside: avoid; margin: 1rem 0; } #ws-art-material table { border-collapse: collapse; width: 100%; } #ws-art-material th, #ws-art-material td { border: 1px solid #888; padding: .4rem; text-align: left; }
         .worksheet-reflection { break-inside: avoid; margin-block: 1.2rem; }
         .ws-chapter-material { overflow-wrap: anywhere; }
+        .ws-glossary-entry > strong:first-child { display: block; break-after: avoid; }
         #ws-content table { border-collapse: collapse; width: 100%; font-size: .9rem; overflow-wrap: normal; word-break: normal; }
         #ws-content th, #ws-content td { border: 1px solid #888; padding: .35rem; text-align: left; vertical-align: top; }
         #ws-content th a, #ws-content td a { overflow-wrap: anywhere; }
@@ -34,6 +35,19 @@
         #ws-content [data-configuration-protocol] tr > :first-child { width: 40%; }
         [data-configuration-workshop] li { break-inside: avoid; }
         #ws-content :is([data-selection-generations],[data-selection-repeats]) tbody td { height: 12mm; }
+        #ws-content [data-germination-record] tbody td { height: 12mm; }
+        #ws-content [data-habitat-protocol] tbody td { height: 12mm; }
+        #ws-content [data-habitat-protocol] { table-layout: fixed; }
+        #ws-content [data-habitat-protocol] tr > :first-child { width: 40%; }
+        #ws-content [data-vertebrate-case-protocol] { table-layout: fixed; }
+        #ws-content [data-vertebrate-case-protocol] tr > :first-child { width: 8%; }
+        #ws-content [data-vertebrate-case-protocol] tbody td { height: 20mm; }
+        #ws-content :is([data-vertebrate-nesting-tasks],[data-vertebrate-case-tasks]) li { break-inside: avoid; }
+        #ws-content .vertebrate-group-map{padding:12px;border:2px solid #333;break-inside:avoid}
+        #ws-content .vertebrate-group-map ul{list-style:none;padding-left:12px}
+        #ws-content .vertebrate-group-map li{padding:8px;border:1px solid #666;margin:8px 0}
+        #ws-content :is([data-foodweb-tasks],[data-habitat-decision]) li { break-inside: avoid; }
+        #ws-content :is([data-pollen-tasks],[data-germination-tasks]) li { break-inside: avoid; }
         .ws-section-link { font-size: .85rem; margin-block: .4rem 1rem; }
         .ws-section-link a { display: block; }
         #ws-content p { orphans: 3; widows: 3; }

@@ -81,6 +81,40 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='food-web'){
+   const control=zone.querySelector('[data-foodweb-missing]'),diagram=zone.querySelector('[data-foodweb-diagram]'),out=zone.querySelector('[data-foodweb-result]');
+   const edges=[...diagram.querySelectorAll('[data-foodweb-from]')],names=new Map([...control.options].map(o=>[o.value,o.textContent]));
+   out.id=out.id||'foodweb-result-'+experimentIndex;control.setAttribute('aria-describedby',out.id);
+   const update=()=>{
+    const missing=control.value,active=edges.filter(e=>e.dataset.foodwebFrom!==missing&&e.dataset.foodwebTo!==missing);
+    for(const edge of edges)edge.setAttribute('display',active.includes(edge)?'inline':'none');
+    for(const node of diagram.querySelectorAll('[data-foodweb-node]')){
+     const absent=node.dataset.foodwebNode===missing;node.querySelector('rect').setAttribute('stroke-dasharray',absent?'6 4':'none');node.querySelector('[data-foodweb-node-status]').textContent=absent?'fehlt':'';
+    }
+    out.replaceChildren(make('p',missing==='none'?'Ausgangsnetz: Alle sechs dargestellten Beziehungen sind sichtbar.':names.get(missing)+' fehlt im Gedankenexperiment. '+(edges.length-active.length)+' direkte Nahrungspfeile entfallen.'));
+    if(missing!=='none'){
+     const consumers=edges.filter(e=>e.dataset.foodwebFrom===missing).map(e=>e.dataset.foodwebTo),list=make('ul');
+     for(const consumer of consumers){const remaining=active.filter(e=>e.dataset.foodwebTo===consumer).map(e=>names.get(e.dataset.foodwebFrom));list.append(make('li',names.get(consumer)+' verliert diese Nahrungsquelle. Weiterhin dargestellt: '+(remaining.length?remaining.join(', '):'keine weitere Nahrungsquelle in diesem Ausschnitt')+'.'));}
+     if(consumers.length)out.append(list);else out.append(make('p','Das Ausgangsnetz zeigt kein anderes Lebewesen, das diesen Bestandteil frisst.'));
+     const food=edges.filter(e=>e.dataset.foodwebTo===missing).map(e=>names.get(e.dataset.foodwebFrom));if(food.length)out.append(make('p','Auch diese Beziehungen entfallen: '+food.map(name=>name+' → '+names.get(missing)).join('; ')+'.'));
+     out.append(make('p','Dies zeigt direkte Beziehungen, keine berechneten Bestände. Andere Nahrung und indirekte Folgen sind damit nicht ausgeschlossen.'));
+    }
+    diagram.setAttribute('aria-label',(missing==='none'?'Ausgangsnetz.':names.get(missing)+' fehlt. Sichtbare Nahrungspfeile:')+' '+active.map(e=>names.get(e.dataset.foodwebFrom)+' zu '+names.get(e.dataset.foodwebTo)).join('; ')+'.');
+   };
+   control.addEventListener('change',update);zone.querySelector('[data-foodweb-reset]').addEventListener('click',()=>{control.value='none';update();control.focus();});update();
+  }
+  if(type==='pollen-stages'){
+   const control=zone.querySelector('[data-pollen-stage]'),diagram=zone.querySelector('[data-pollen-diagram]'),out=zone.querySelector('[data-pollen-result]');
+   const descriptions=[...zone.querySelector('[data-pollen-descriptions]').children].map(el=>el.textContent);
+   out.id=out.id||'pollen-result-'+experimentIndex;control.setAttribute('aria-describedby',out.id);
+   const update=()=>{
+    const stage=Number(control.value);
+    for(const [part,visible]of [['grain',stage>=1],['tube',stage>=2],['male',stage===2],['fusion',stage===3]])diagram.querySelector('[data-pollen-part="'+part+'"]').setAttribute('display',visible?'inline':'none');
+    diagram.querySelector('[data-pollen-egg-label]').innerHTML=stage===3?'<tspan x="240">befruchtete </tspan><tspan x="240" dy="22">Eizelle</tspan>':'Eizelle';
+    out.textContent=descriptions[stage];diagram.setAttribute('aria-label',control.selectedOptions[0].textContent+': '+descriptions[stage]);
+   };
+   control.addEventListener('change',update);zone.querySelector('[data-pollen-reset]').addEventListener('click',()=>{control.value='0';update();control.focus();});update();
+  }
   if(type==='chart-baseline'){
    const control=zone.querySelector('[data-chart-baseline]'),plot=zone.querySelector('[data-chart-baseline-plot]'),out=zone.querySelector('[data-chart-baseline-result]');
    const records=[...zone.closest('[data-chart-check]').querySelectorAll('[data-chart-check-data] tbody tr')].map(row=>({name:row.cells[0].textContent,total:Number(row.cells[1].textContent),yes:Number(row.cells[2].textContent)}));
