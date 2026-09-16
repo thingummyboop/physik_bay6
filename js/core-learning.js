@@ -81,6 +81,29 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='pet-evidence'){
+   const rows=[...zone.querySelectorAll('[data-pet-statement]')],out=zone.querySelector('[data-pet-result]');
+   for(const [i,row]of rows.entries()){
+    const select=row.querySelector('select'),feedback=row.querySelector('[data-pet-feedback]');
+    feedback.id='pet-feedback-'+experimentIndex+'-'+i;select.setAttribute('aria-describedby',feedback.id);
+    select.setAttribute('aria-label','Zuordnung: '+row.querySelector('p').textContent);
+    select.addEventListener('change',()=>{feedback.textContent='';delete row.dataset.petState;out.textContent='Auswahl geändert. Prüfe deine Zuordnungen erneut.';});
+   }
+   zone.querySelector('[data-pet-check]').addEventListener('click',()=>{
+    let correct=0,missing=0;
+    for(const row of rows){
+     const value=row.querySelector('select').value,feedback=row.querySelector('[data-pet-feedback]');
+     if(!value){missing++;row.dataset.petState='open';feedback.textContent='Noch offen: Wähle eine Zuordnung.';}
+     else if(value===row.dataset.petCorrect){correct++;row.dataset.petState='correct';feedback.textContent='Passend: '+row.querySelector('[data-pet-explanation]').content.textContent;}
+     else{row.dataset.petState='review';feedback.textContent='Prüfe noch einmal: '+row.querySelector('[data-pet-hint]').content.textContent;}
+    }
+    out.textContent=correct+' von '+rows.length+' Zuordnungen passen. '+missing+' noch offen. Lies die Begründungen bei den Aussagen.';
+   });
+   zone.querySelector('[data-pet-reset]').addEventListener('click',()=>{
+    for(const row of rows){row.querySelector('select').value='';row.querySelector('[data-pet-feedback]').textContent='';delete row.dataset.petState;}
+    out.textContent='Noch nicht geprüft.';rows[0].querySelector('select').focus();
+   });
+  }
   if(type==='food-web'){
    const control=zone.querySelector('[data-foodweb-missing]'),diagram=zone.querySelector('[data-foodweb-diagram]'),out=zone.querySelector('[data-foodweb-result]');
    const edges=[...diagram.querySelectorAll('[data-foodweb-from]')],names=new Map([...control.options].map(o=>[o.value,o.textContent]));
@@ -182,19 +205,33 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
   }
   if(type==='selection-counts'){
    const fields=[zone.querySelector('[data-selection-light]'),zone.querySelector('[data-selection-dark]')],out=zone.querySelector('[data-selection-result]');
+   const plot=zone.querySelector('[data-selection-plot]');
+   const clearPlot=()=>{if(plot)plot.setAttribute('hidden','');};
+   const drawPlot=(light,dark,share)=>{
+    if(!plot)return;plot.removeAttribute('hidden');
+    for(const [row,multiplier]of [['search',1],['offspring',2]]){
+     const lightBar=plot.querySelector('[data-selection-bar="'+row+'-light"]'),darkBar=plot.querySelector('[data-selection-bar="'+row+'-dark"]');
+     lightBar.setAttribute('width',6.5*light*multiplier);darkBar.setAttribute('x',20+6.5*light*multiplier);darkBar.setAttribute('width',6.5*dark*multiplier);
+     plot.querySelector('[data-selection-count-label="'+row+'"]').textContent=multiplier*light+' hell + '+multiplier*dark+' dunkel = '+multiplier*(light+dark);
+     plot.querySelector('[data-selection-share-label="'+row+'"]').textContent='Dunkler Anteil: '+share;
+    }
+    plot.setAttribute('aria-label','Beide Balken auf derselben Anzahlskala von 0 bis 40. Nach der Suche '+light+' helle und '+dark+' dunkle Punkte; nach der Vermehrung '+2*light+' helle und '+2*dark+' dunkle. Dunkler Anteil jeweils '+share+'.');
+   };
    if(!out.id)out.id='selection-result-'+experimentIndex;
    fields.forEach(field=>field.setAttribute('aria-describedby',out.id));
    const calculate=()=>{
+    clearPlot();
     const values=fields.map(field=>/^(?:[0-9]|10)$/.test(field.value.trim())?Number(field.value.trim()):null);
     if(values.includes(null)){out.textContent='Bitte trage für beide Farben eine ganze Anzahl von 0 bis 10 ein. Leer bedeutet nicht null.';return;}
     const [light,dark]=values,total=light+dark;
     if(total===0){out.textContent='Keine Überlebenden: Dieser Durchgang endet. Es gibt keine Nachkommen; bei insgesamt null Punkten ist kein Farbanteil definiert.';return;}
     const share=100*dark/total,number=share.toLocaleString('de',{maximumFractionDigits:1});
+    drawPlot(light,dark,(Math.abs(share-Math.round(share*10)/10)>1e-9?'ca. ':'')+number+' %');
     out.textContent='Aus deinen Eingaben berechnet: Nach der Suche '+total+' Punkte. Nach der Vermehrung '+2*light+' helle und '+2*dark+' dunkle, insgesamt '+2*total+'. Dunkler Anteil vor und nach der Vermehrung: '+(Math.abs(share-Math.round(share*10)/10)>1e-9?'ungefähr ':'')+number+' %. '+(share===50?'Der Anteil entspricht den anfänglichen 50 %.':share>50?'Der Anteil ist gegenüber den anfänglichen 50 % gestiegen.':'Der Anteil ist gegenüber den anfänglichen 50 % gesunken.');
    };
-   fields.forEach(field=>{field.addEventListener('input',()=>{out.textContent='Eingaben geändert. Berechne die Modellwerte erneut.';});field.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();calculate();}});});
+   fields.forEach(field=>{field.addEventListener('input',()=>{clearPlot();out.textContent='Eingaben geändert. Berechne die Modellwerte erneut.';});field.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();calculate();}});});
    zone.querySelector('[data-selection-calculate]').addEventListener('click',calculate);
-   zone.querySelector('[data-selection-reset]').addEventListener('click',()=>{fields.forEach(field=>{field.value='';});out.textContent='Trage beide Anzahlen ein.';fields[0].focus();});
+   zone.querySelector('[data-selection-reset]').addEventListener('click',()=>{fields.forEach(field=>{field.value='';});clearPlot();out.textContent='Trage beide Anzahlen ein.';fields[0].focus();});
   }
   if(type==='moon'){
    const slider=zone.querySelector('#moon-angle'),out=zone.querySelector('#moon-explanation'),bar=zone.querySelector('#moon-lit');

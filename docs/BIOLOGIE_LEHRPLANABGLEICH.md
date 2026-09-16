@@ -111,3 +111,19 @@ Elf bewertete Fragen und eine Übung überarbeitet; alle Fragen ihren Abschnitte
 Alle fünf Abschnitte, 23 Glossareinträge und zwölf Fragen einschließlich der unbewerteten Zusatzübung gelesen. Zehn bewertete Fragen und die Übung überarbeitet, eine passende Frage beibehalten; sechs Abschlussfragen passenden Abschnitten zugeordnet, Revision 2. Eigenes Nahrungsnetz mit sechs wählbaren Zuständen und Papieralternative, vier Modellaufträge, 15 konkrete Trainingskarten, Laub-Fall mit drei Vorschlägen und achtzeiliges Standortprotokoll. Daten, Zählregel und Grenzen von Schlussfolgerungen ausdrücklich getrennt. Bezug zu den erneut gelesenen W/E/S-Beschreibungen und Nachweise: [BIOLOGIE_LEBENSRAEUME.md](BIOLOGIE_LEBENSRAEUME.md).
 
 Bestandsprüfung innerhalb der 39 katalogisierten Biologiekapitel: 16 Trainingsblöcke verwenden den direkten Modus, 137 den automatischen Modus; 107 der automatischen Blöcke enthalten noch die allgemeine Formulierung „Stell dir eine echte Situation vor“. 34 Kapitel enthalten mindestens einen automatisch verarbeiteten Block. Das ist ein Strukturhinweis für die weitere Einzelprüfung, keine Behauptung, alle automatisch verarbeiteten Aufgaben seien falsch oder alle direkten Aufgaben vollständig ausgearbeitet.
+
+
+## 16.09.2026 – Wirbeltier-Vergleiche und Haustierbeurteilung
+
+Der Wirbeltier-Zwischenstand enthält 15 konkrete Aufgaben, verschachtelte Gruppen, drei Vergleichsfälle und 13 bewertete Fragen. Abschließende native Prüfung und ausgewählte Druckseiten nach dem Push geprüft; Umfang: [BIOLOGIE_WIRBELTIERE_AUFGABEN.md](BIOLOGIE_WIRBELTIERE_AUFGABEN.md).
+
+Das Haustier-Kapitel wurde anhand der vollständigen Texte und des tatsächlichen Fragenpools überarbeitet. Zwölf bewertete Fragen, eine Übung, 15 konkrete Trainingskarten, sechs interaktive Aussagezuordnungen, drei erfundene Fälle und 17 Protokollzeilen. Schüler:innen unterscheiden Beobachtung, Deutung und Entscheidung und begründen Planung mit Bedürfnissen und offenen Angaben. Wiener Fachquellen und genaue Nachweise: [BIOLOGIE_HAUSTIERE.md](BIOLOGIE_HAUSTIERE.md). Keine tatsächliche Tierbeobachtung oder Unterrichtserprobung.
+
+Aktuelle Strukturzählung der 39 Biologiekapitel: 26 direkte und 127 automatisch verarbeitete Trainingsblöcke. 97 automatische Blöcke enthalten noch „Stell dir eine echte Situation vor“; 32 Kapitel besitzen mindestens einen automatischen Block. Weitere Einzelprüfung bleibt nötig, unter anderem bei Selektion, Skelett/Bewegung und Ernährung. Das ist keine Qualitätsbewertung allein anhand des Verarbeitungsmodus. Gesamtauftrag und vollständige Lehrplanabnahme bleiben offen.
+
+
+## 16.09.2026 – Selektion: konkrete Lernaufträge und Datenprüfung
+
+15 allgemeine Trainingskarten durch konkrete Aufgaben zu Variation, Zuchtzielen, Modellregeln, Umweltwechsel und Datenauswertung ersetzt. Rechenhilfe mit zwei gemeinsam skalierten Balken und Papieraufgabe ergänzt; Prozentrechnung ausdrücklich erklärt. Fehlerhaftes Modellprotokoll, drei Begründungsaufgaben und neue Transferfrage: insgesamt zwölf bewertete Fragen, Revision 4. Der Lernweg führt vom eigenen Rechnen über Modellprüfung zu belegter Auswertung; erfundene Daten bleiben gekennzeichnet. Fachlicher Bezug und Prüfungen: [BIOLOGIE_SELEKTION_AUFGABEN.md](BIOLOGIE_SELEKTION_AUFGABEN.md).
+
+Aktuelle Strukturzählung: 31 direkte und 122 automatisch verarbeitete Trainingsblöcke in Biologie. 92 automatische Blöcke enthalten noch die allgemeine Situationsformulierung; 31 Kapitel besitzen mindestens einen automatischen Block. Das weist auf weitere Einzelprüfungen hin und ist keine vollständige Qualitäts- oder Lehrplanbewertung.

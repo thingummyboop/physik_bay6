@@ -1117,3 +1117,22 @@ Auf ausdrücklichen Wunsch wird die bisherige Arbeit an Blütenpflanzen, Lebensr
 Unmittelbar vor der Sicherung bestanden die gezielten Tests für Wirbeltiere (81 Merkmalskombinationen, 39 bewertete Antwortwege), Evolution/Selektion/Blütenpflanzen (105 Antwortwege), Lebensräume (33 Antwortwege und sechs Netzzustände) sowie 95 STEM-Arbeitsblätter. Der Wirbeltier-Browserlauf vom 2026-09-16T08:01:07.155Z bestand mit 42 nativen Antwortwegen, zwei Kapitelchecks und sechs Breiten-/Designzuständen; die anschließende Präzisierung der Reptilien-Beschriftung wurde mit den genannten Funktionstests, noch nicht erneut im Browser geprüft. Eine abschließende Sichtprüfung der neuen Wirbeltier-Druckseiten steht aus.
 
 Der letzte vollständige Funktionstest mit 185/185 Suiten vom 14.09.2026 enthält die Pflanzen- und Lebensraumarbeiten, liegt aber vor den neuesten Wirbeltieränderungen. Dieser Zwischenstand ist keine vollständige Fach-, Lehrplan- oder Produktabnahme. Der Gesamtauftrag bleibt offen.
+
+
+## 16.09.2026 – Nach dem Push: Haustiere als begründete Lernaufgabe
+
+Vorheriger Turn war Fortschritt: Commit 87cfc3117cf7a43f4ac44be1288fe07408e43475 auf main gepusht, Remote-SHA bestätigt und Arbeitskopie sauber. Danach die offene Wirbeltier-Browser-/Druckkontrolle abgeschlossen und Haustiere ausgearbeitet: 15 konkrete Trainingskarten, sechs interaktive Aussagezuordnungen, drei erfundene Fälle und 17 Protokollzeilen. Elf bewertete Fragen und eine Übung überarbeitet, eine passende Frage beibehalten; zwölf bewertete Fragen insgesamt, Revision 2. Frühere Abschlussfragen sind passenden Lernabschnitten zugeordnet.
+
+Gezielte Funktions- und Browserprüfungen bestanden. 39 native Übungsantworten, 18 Zuordnungen per Tastatur, mobile Designs, gezielte Wiederholung und Papierausgabe geprüft; Drucküberschriften und Schreibraum verbessert. Quellen, genaue Prüfgrenzen und offene Bild-/Unterrichtsprüfung: [BIOLOGIE_HAUSTIERE.md](BIOLOGIE_HAUSTIERE.md). Der vollständige Testlauf wird separat mit tatsächlichem Ergebnis dokumentiert. Inventar 197 Kapitel, struktureller Prioritätsaudit 1541 Frageninstanzen ohne Befund. Übersetzungen bleiben zurückgestellt; neue Haustieränderungen lokal. Die vollständige Arbeit an allen Fächern und die Produktabnahme bleiben offen.
+
+
+## Vollständiger Funktionstest vom 16.09.2026
+
+Alle 186/186 Funktionstestsuiten bestanden; Bericht 2026-09-16T08:26:03.196Z in ../functional-test-report.json. Der Lauf enthält die aktuellen Wirbeltier- und Haustieränderungen. Während des Laufs wurde nur noch eine Druckregel für die zusammengehaltene Glossarüberschrift ergänzt; die betroffenen 95 STEM-Arbeitsblätter wurden danach zusätzlich erfolgreich geprüft und die betroffenen Druckseiten neu gerendert und gelesen. Diese Evidenz ersetzt keine vollständige fachliche, visuelle oder Lehrplanabnahme. Übersetzungen wurden nicht weiterbearbeitet. Neue Haustierarbeit bleibt lokal nach Commit 87cfc31.
+
+
+## 16.09.2026 – Selektion: Anzahl und Anteil sichtbar unterscheiden
+
+Der vorige Zielturn war Fortschritt mit ausgearbeiteten Haustieraufgaben und 186/186 bestandenen Funktionstests. Danach Selektion weiterbearbeitet: 15 konkrete Trainingskarten, zwei dynamische Balken mit gemeinsamer Skala, Papierdiagramm mit freien Beschriftungsfeldern und ein fehlerhaftes Modellprotokoll mit drei Aufgaben. Neue bewertete Transferfrage und passende Wiederholung; zwölf bewertete Fragen, Revision 4. Eine Prozent-Erklärung mit Zehner-Kästchen-Beispiel unterstützt den Einstieg in der ersten Klasse.
+
+108 bewertete Antwortwege über Evolution/Selektion/Blütenpflanzen, davon 36 in Selektion, 121 Rechnungen samt Balkengeometrie, 45 erhaltene Kartentexte, 95 STEM-Arbeitsblätter, Haustiere, Physik-Kernmodelle, Titelindex und Lernwege gezielt bestanden. Nativer Browserlauf und ausgewählte Druckseiten geprüft; Nachweise und genaue Grenzen: [BIOLOGIE_SELEKTION_AUFGABEN.md](BIOLOGIE_SELEKTION_AUFGABEN.md). Der vollständige Lauf mit 186/186 vom 2026-09-16T08:26:03.196Z liegt vor den neuen Selektionsänderungen; kein neuer Gesamtlauf. Inventar 197 Kapitel, Prioritätsaudit 1542 Frageninstanzen ohne Strukturfehler. Übersetzungen zurückgestellt, neue Inhalte lokal. Vollständige fachliche, visuelle, Lehrplan- und Produktabnahme bleiben offen.

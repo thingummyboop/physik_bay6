@@ -1,0 +1,48 @@
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict'),{chromium}=require('playwright');
+const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',out=path.resolve(process.env.SCIVERSE_BROWSER_REPORT_DIR||path.join(__dirname,'../../browser-qa/pet-welfare')),id='bio_1_haustiere',source=JSON.parse(fs.readFileSync(path.join(__dirname,'../lang/de.json'),'utf8'))[id];
+const correct={bio_haustiere_s1:1,bio_haustiere_s2:2,bio_haustiere_s3:0,bio_haustiere_s4:2,bio_haustiere_s5:1,bio_haustiere_d1:2,bio_haustiere_d2:1,bio_haustiere_d3:0,bio_haustiere_d4:1,bio_haustiere_d5:2,bio_haustiere_d6:1,bio_haustiere_d7:0,bio_1_haustiere_extra_tierwohl:2};
+const kinds={sofa:'observation',visitors:'interpretation',space:'decision',photo:'observation',alone:'interpretation',postpone:'decision'};
+const luminance=color=>color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>v/255).map(v=>v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4)).reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
+(async()=>{
+ fs.mkdirSync(out,{recursive:true});const browser=await chromium.launch({headless:true}),errors=[];
+ try{
+  const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/topics/template.html?topic='+id);await page.waitForFunction(()=>window.currentChapterQuiz?.questions.length===12);assert.equal(await page.locator('.bio-training-card').count(),15);
+  const storage=await page.evaluate(()=>localStorage.getItem('sciverse_chapter_quiz_results'));let paths=0;
+  for(const q of source.sections.flatMap(s=>s.quizzes))for(const [i,answer]of q.answers.entries()){
+   const box=page.locator('.practice-box[data-id="'+q.id+'"]'),button=box.getByRole('button',{name:answer.text,exact:true});await button.focus();await page.keyboard.press('Enter');assert.equal(await button.evaluate(e=>e.classList.contains('is-correct')),i===correct[q.id]);assert.equal(await button.evaluate(e=>e.classList.contains('is-wrong')),i!==correct[q.id]);assert.ok((await box.locator('.feedback').innerText()).includes(answer.feedback));assert.equal(await button.isDisabled(),false);paths++;
+  }
+  assert.equal(paths,39);const zone=page.locator('[data-core-experiment="pet-evidence"]'),check=zone.locator('[data-pet-check]'),reset=zone.locator('[data-pet-reset]'),result=zone.locator('[data-pet-result]');let classificationPaths=0;
+  await check.focus();await page.keyboard.press('Enter');assert.match(await result.innerText(),/0 von 6.*6 noch offen/);
+  for(const [key,kind]of Object.entries(kinds)){
+   const row=zone.locator('[data-pet-statement="'+key+'"]'),select=row.locator('select');
+   for(const [i,category]of ['observation','interpretation','decision'].entries()){
+    await select.focus();await page.keyboard.press('Home');for(let n=0;n<=i;n++)await page.keyboard.press('ArrowDown');assert.equal(await select.inputValue(),category);assert.equal(await row.locator('[data-pet-feedback]').innerText(),'');await check.focus();await page.keyboard.press('Enter');assert.equal(await row.getAttribute('data-pet-state'),category===kind?'correct':'review');assert.match(await row.locator('[data-pet-feedback]').innerText(),category===kind?/^Passend:/ : /^Prüfe noch einmal:/);classificationPaths++;
+   }
+  }
+  for(const [key,kind]of Object.entries(kinds))await zone.locator('[data-pet-statement="'+key+'"] select').selectOption(kind);await check.click();assert.match(await result.innerText(),/6 von 6.*0 noch offen/);
+  const layouts=[];for(const width of [320,390,1280])for(const theme of ['light','dark']){
+   await page.setViewportSize({width,height:900});await page.evaluate(t=>document.documentElement.setAttribute('data-theme',t),theme);
+   await page.waitForFunction(t=>getComputedStyle(document.querySelector('[data-core-experiment="pet-evidence"] p')).color===(t==='dark'?'rgb(224, 224, 224)':'rgb(45, 55, 72)'),theme);
+   const colors=await zone.evaluate(e=>({text:getComputedStyle(e.querySelector('p')).color,background:getComputedStyle(e).backgroundColor})),l=[luminance(colors.text),luminance(colors.background)].sort((a,b)=>b-a),contrast=(l[0]+0.05)/(l[1]+0.05);assert.ok(contrast>=4.5,JSON.stringify(colors));
+   const size=await page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert.ok(size.scroll<=size.width+1,JSON.stringify(size));for(const control of await zone.locator('select,button').all()){const b=await control.boundingBox();assert.ok(b.height>=44&&b.x>=0&&b.x+b.width<=width+1);}layouts.push({theme,...size,contrast});if(width===320)await zone.screenshot({path:path.join(out,'exercise-'+theme+'-320.png')});
+  }
+  await reset.focus();await page.keyboard.press('Enter');assert.equal(await zone.locator('select').first().evaluate(e=>document.activeElement===e),true);assert.deepEqual(await zone.locator('select').evaluateAll(es=>es.map(e=>e.value)),['','','','','','']);assert.equal(await result.innerText(),'Noch nicht geprüft.');assert.equal(await page.evaluate(()=>localStorage.getItem('sciverse_chapter_quiz_results')),storage);
+  await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.documentElement.removeAttribute('data-theme'));await page.locator('[data-pet-cases]').screenshot({path:path.join(out,'cases-mobile.png')});
+  const tables=[];for(const key of ['data-pet-plan-protocol','data-pet-observation-protocol','data-pet-case-protocol']){
+   const table=page.locator('['+key+']'),parent=table.locator('..'),scrollable=await parent.getAttribute('role')==='region',region=scrollable?parent:table;
+   if(scrollable)assert.equal(await region.getAttribute('tabindex'),'0');else{const b=await table.boundingBox();assert.ok(b.x>=0&&b.x+b.width<=391);}
+   await region.screenshot({path:path.join(out,key+'-mobile.png')});
+   if(await region.evaluate(e=>e.scrollWidth>e.clientWidth+1)){
+    await region.focus();await page.keyboard.press('ArrowRight');await page.waitForFunction(e=>e.scrollLeft>0,await region.elementHandle());for(let i=0;i<100&&await region.evaluate(e=>e.scrollLeft<e.scrollWidth-e.clientWidth-1);i++){await page.keyboard.press('ArrowRight');await page.waitForTimeout(60);}await page.waitForFunction(e=>e.scrollLeft>=e.scrollWidth-e.clientWidth-1,await region.elementHandle());assert.equal(await region.evaluate(e=>document.activeElement===e),true);await region.screenshot({path:path.join(out,key+'-scrolled-mobile.png')});
+   }
+   tables.push({key,scrollable});
+  }
+  const attempts=[];for(const [wrong,section]of [['bio_haustiere_d6',1],['bio_haustiere_d3',0]]){
+   await page.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();if(attempts.length)await page.locator('[onclick="restartChapterQuiz()"]').click();const ids=await page.evaluate(()=>currentChapterQuiz.questions.map(q=>q.id));
+   for(const [i,q]of ids.entries())await page.locator('input[name="chapter_q_'+i+'"][value="'+(q===wrong?(correct[q]+1)%3:correct[q])+'"]').check();await page.locator('.chapter-submit-btn').click();const result=await page.evaluate(id=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results'))[id],id);assert.equal(result.lastPercent,92);assert.equal(result.contentRevision,2);assert.deepEqual(result.reviewQuestionIds,[wrong]);attempts.push({wrong,section,result});await page.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();assert.ok(await page.locator('#learning-section-'+section).evaluate(e=>e.contains(document.activeElement)));
+  }
+  const paper=await context.newPage();paper.on('pageerror',e=>errors.push(e.message));await paper.goto(base+'/topics/worksheet.html?topic='+id);await paper.waitForFunction(()=>!document.getElementById('ws-print').disabled);assert.equal(await paper.locator('#ws-content>.question-block').count(),12);assert.equal(await paper.locator('#ws-biology-material .bio-training-card').count(),15);assert.equal(await paper.locator('#ws-biology-material .ws-glossary-entry').count(),25);assert.equal(await paper.locator('#ws-solutions').isVisible(),false);assert.equal(await paper.locator('[data-pet-evidence-paper] > li').count(),6);assert.equal(await paper.locator('[data-pet-case]').count(),3);assert.equal(await paper.locator('#ws-biology-material select, #ws-biology-material button').count(),0);assert.equal(await paper.locator('[data-pet-plan-protocol] tbody tr,[data-pet-observation-protocol] tbody tr,[data-pet-case-protocol] tbody tr').count(),17);
+  await paper.locator('#ws-include-solutions').check();assert.equal(await paper.locator('#ws-solutions').isVisible(),true);await paper.pdf({path:path.join(out,'pet-welfare.pdf'),format:'A4',printBackground:true,margin:{top:'15mm',bottom:'15mm',left:'15mm',right:'15mm'}});
+  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({createdAt:new Date().toISOString(),base,browser:browser.version(),paths,classificationPaths,layouts,tables,attempts,pageErrors:errors,scope:'39 native practice choices, 18 sorting choices by keyboard, empty/change/reset/focus and unchanged quiz storage, six layout/theme states, three accessible tables, two 92% checks with exact review, paper tasks/protocols/glossary/separate solutions. Visual review separate. No actual animal observation or classroom/whole-site approval.'},null,2)+'\n');console.log('PASS: pet welfare: 39 native answers, 18 keyboard classifications, six layouts, three tables, two 92% chapter checks and paper.');await context.close();
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -17,10 +17,13 @@
         .worksheet-reflection { break-inside: avoid; margin-block: 1.2rem; }
         .ws-chapter-material { overflow-wrap: anywhere; }
         .ws-glossary-entry > strong:first-child { display: block; break-after: avoid; }
+        .ws-chapter-material .bio-vocab-box > strong:first-child { display: block; break-after: avoid; }
         #ws-content table { border-collapse: collapse; width: 100%; font-size: .9rem; overflow-wrap: normal; word-break: normal; }
         #ws-content th, #ws-content td { border: 1px solid #888; padding: .35rem; text-align: left; vertical-align: top; }
         #ws-content th a, #ws-content td a { overflow-wrap: anywhere; }
         #ws-content :is(h2,h3,h4,h5,caption,thead) { break-after: avoid; }
+        #ws-content :is(h2,h3,h4,h5) { break-inside: avoid; }
+        .ws-chapter-material .bio-section-check > strong:first-child { display: block; break-after: avoid; }
         .ws-chapter-material .teacher-note > strong:first-child { display: block; break-after: avoid; }
         .ws-chapter-material .teacher-note li { break-inside: avoid; }
         .ws-chapter-material [data-separation-experiment] { break-inside: avoid; }
@@ -35,6 +38,7 @@
         #ws-content [data-configuration-protocol] tr > :first-child { width: 40%; }
         [data-configuration-workshop] li { break-inside: avoid; }
         #ws-content :is([data-selection-generations],[data-selection-repeats]) tbody td { height: 12mm; }
+        #ws-content :is([data-selection-audit-tasks],[data-selection-repeat-workshop]) li { break-inside: avoid; }
         #ws-content [data-germination-record] tbody td { height: 12mm; }
         #ws-content [data-habitat-protocol] tbody td { height: 12mm; }
         #ws-content [data-habitat-protocol] { table-layout: fixed; }
@@ -58,7 +62,16 @@
             body { padding: 0; }
             .no-print { display: none !important; }
         }
-    </style>
+[data-pet-plan-protocol],[data-pet-case-protocol]{table-layout:fixed}
+[data-pet-plan-protocol] td,[data-pet-case-protocol] td{height:20mm}
+[data-pet-case-protocol] th:first-child{width:7%}
+[data-pet-observation-protocol]{table-layout:fixed}
+[data-pet-observation-protocol] th{width:38%}
+[data-pet-observation-protocol] td{height:15mm}
+[data-pet-evidence-paper] > li{break-inside:avoid;margin-bottom:12px}
+[data-pet-evidence-paper] > li > p{min-height:12mm;border-bottom:1px dotted #888}
+[data-pet-case]{break-inside:avoid}
+</style>
     <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../js/curriculum.js"></script><script src="../js/worksheet_generator.js?v=1.3"></script>
 </head>

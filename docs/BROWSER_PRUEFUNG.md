@@ -121,3 +121,15 @@ Abschließender Bericht 2026-09-14T04:05:54.818Z: 36 native Antwortwege, 24 Mode
 Abschließender Bericht 2026-09-14T04:20:16.708Z: 36 native Übungsantworten, 36 Kombinationen aus Netz-Zustand, Breite und Design, Tastaturauswahl und Rücksetzen, drei passende beziehungsweise per Tastatur bis zum rechten Rand bedienbare Tabellen, zwei 91-Prozent-Kapitelversuche mit passendem Wiederholungsfokus. Papierausgabe mit elf Fragen, 15 Trainingskarten, 23 Glossareinträgen, statischem Netz und Protokoll geprüft. Mobile Darstellungen und ausgewählte Seiten der 23-seitigen A4-Ausgabe tatsächlich gelesen; Schreibspalten im Protokoll nach Sichtprüfung verbreitert. Keine gemeldeten Seitenfehler. Umfang und Grenzen: [BIOLOGIE_LEBENSRAEUME.md](BIOLOGIE_LEBENSRAEUME.md).
 
 Separater Quellenabgleich am 14.09.2026: Die veröffentlichte deutsche Kapiteldatei auf GitHub Pages lieferte HTTP 200 und entsprach nach JSON-Auswertung vollständig lang/de.json aus Commit 7c99011. Dies bestätigt die veröffentlichte Kapitelquelle dieses Zwischenstands, nicht alle Skripte, Medien oder Browserwege. Neuere lokale Pflanzen- und Lebensraumänderungen sind darin nicht enthalten.
+
+
+## 16.09.2026 – Wirbeltiere und Haustiere
+
+Wirbeltiere erneut nach der letzten Beschriftungskorrektur geprüft: Bericht 2026-09-16T08:08:21.523Z, 81 Merkmalskombinationen, 42 native Übungsantworten, zwei Kapitelchecks, sechs Breiten-/Designzustände und Papierausgabe. Gruppen, Vergleichsfälle, Protokoll und Lösungen auf ausgewählten Druckseiten tatsächlich gelesen. [Nachweis](BIOLOGIE_WIRBELTIERE_AUFGABEN.md).
+
+Haustiere: Bericht 2026-09-16T08:20:15.196Z, Chromium 151.0.7922.34. 39 native Übungsantworten, 18 Aussagezuordnungen per Tastatur, offene Auswahl/Korrektur/Neustart/Fokus und unveränderter Quizspeicher, sechs Breiten-/Designzustände, drei Tabellen per Tastatur bis zum rechten Rand, zwei 92-Prozent-Kapitelchecks und genaue Wiederholung bestanden. Übungstextkontrast nach abgeschlossenem Designübergang mindestens 9,08:1. Papierfassung und getrennte Lösungen geprüft, ausgewählte mobile Screenshots und A4-Seiten gelesen; Umbrüche und Schreibflächen verbessert. [Umfang und Grenzen](BIOLOGIE_HAUSTIERE.md). Neue Haustierarbeit lokal, keine vollständige Browser-/Produktabnahme.
+
+
+## 16.09.2026 – Selektion: Balken und Protokollprüfung
+
+Nativer Bericht 2026-09-16T08:41:58.706Z, Chromium 151.0.7922.34: 121 Eingabekombinationen mit unabhängig berechneten Balkenlängen, 39 Übungsantworten per Tastatur, zwei 92-Prozent-Kapitelchecks mit passender Wiederholung, sechs Breiten-/Designzustände und vier Tabellen bis zum rechten Rand bestanden. Geänderte/ungültige Eingaben und Neustart entfernen die alte Grafik. Keine Seitenfehler. Mobile Grafiken sowie die Seiten 10, 11, 12, 25 und 26 der abschließenden 26-seitigen A4-Ausgabe tatsächlich gerendert und gelesen. Beschriftungen vergrößert, Abstände korrigiert und einzelne Druckaufträge gegen Zeilentrennung geschützt. Keine Sichtprüfung aller Seiten. Details: [BIOLOGIE_SELEKTION_AUFGABEN.md](BIOLOGIE_SELEKTION_AUFGABEN.md).

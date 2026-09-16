@@ -23,11 +23,11 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
   const practiceIds=data[id].sections.flatMap(s=>s.quizzes||[]).filter(q=>q.practiceOnly).map(q=>q.id);
   assert.ok(!questions.some(q=>practiceIds.includes(q.id)));
   for(let i=1;i<=5;i++)assert.ok(questions.some(q=>q.id===prefix+i));
-  const selectionSections={bio_selektion_d1:1,bio_selektion_d2:2,bio_selektion_d3:0,bio_selektion_d4:2,bio_selektion_d5:3,bio_selektion_d6:4,bio_evolution_d1:0,bio_evolution_d2:1,bio_evolution_d3:2,bio_evolution_d4:3,bio_evolution_d5:4,bio_evolution_d6:4,bio_evolution_d7:4,bio_evolution_d8:4};
+  const selectionSections={bio_selektion_d1:1,bio_selektion_d2:2,bio_selektion_d3:0,bio_selektion_d4:2,bio_selektion_d5:3,bio_selektion_d6:4,bio_selektion_protokoll:2,bio_evolution_d1:0,bio_evolution_d2:1,bio_evolution_d3:2,bio_evolution_d4:3,bio_evolution_d5:4,bio_evolution_d6:4,bio_evolution_d7:4,bio_evolution_d8:4};
   Object.assign(selectionSections,{bio_pflanzen_d1:2,bio_pflanzen_d2:0,bio_pflanzen_d3:4,bio_pflanzen_d4:3,bio_pflanzen_d5:3,bio_pflanzen_d6:4});
-  const correctIndex=q=>({bio_selektion_d1:1,bio_selektion_d2:2,bio_selektion_d4:2,bio_selektion_d5:1,bio_evolution_d1:1,bio_evolution_d2:2,bio_evolution_d3:1,bio_evolution_d4:2,bio_evolution_d6:1,bio_evolution_d8:2,bio_pflanzen_s1:1,bio_pflanzen_s2:2,bio_pflanzen_s4:2,bio_pflanzen_s5:1,bio_pflanzen_d1:1,bio_pflanzen_d3:2,bio_pflanzen_d4:1,bio_pflanzen_d6:2}[q.id]||0);
-  assert.equal(questions.length,kind==='evolution'?13:11);assert.equal(data[id].diplom.questions.length,0);
-  if(kind==='evolution'){
+  const correctIndex=q=>({bio_selektion_protokoll:1,bio_selektion_d1:1,bio_selektion_d2:2,bio_selektion_d4:2,bio_selektion_d5:1,bio_evolution_d1:1,bio_evolution_d2:2,bio_evolution_d3:1,bio_evolution_d4:2,bio_evolution_d6:1,bio_evolution_d8:2,bio_pflanzen_s1:1,bio_pflanzen_s2:2,bio_pflanzen_s4:2,bio_pflanzen_s5:1,bio_pflanzen_d1:1,bio_pflanzen_d3:2,bio_pflanzen_d4:1,bio_pflanzen_d6:2}[q.id]||0);
+  assert.equal(questions.length,kind==='evolution'?13:kind==='selektion'?12:11);assert.equal(data[id].diplom.questions.length,0);
+  if(kind==='evolution'||kind==='selektion'){
    const authored=new JSDOM(data[id].sections.map(s=>s.content).join(''));
    const texts=doc=>[...doc.querySelectorAll('.bio-training-card')].map(e=>e.textContent);
    assert.equal(texts(d).length,15);assert.deepEqual(texts(d),texts(authored.window.document));
@@ -43,27 +43,35 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
     assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));paths++;
    }
   }
-  const revision=kind==='bluetenpflanzen'?2:3;
-  assert.equal(paths,kind==='evolution'?39:33);assert.equal(w.currentChapterResult(id,{contentRevision:revision-1,passed:true,bestPercent:100}).passed,false);assert.equal(w.currentChapterResult(id,{contentRevision:revision,passed:true,bestPercent:100}).passed,true);if(kind==='selektion'){
-   assert.equal(w.currentChapterResult(id,{contentRevision:3,passed:true,bestPercent:100}).passed,true);
+  const revision=kind==='bluetenpflanzen'?2:kind==='selektion'?4:3;
+  assert.equal(paths,kind==='evolution'?39:kind==='selektion'?36:33);assert.equal(w.currentChapterResult(id,{contentRevision:revision-1,passed:true,bestPercent:100}).passed,false);assert.equal(w.currentChapterResult(id,{contentRevision:revision,passed:true,bestPercent:100}).passed,true);if(kind==='selektion'){
+   assert.equal(w.currentChapterResult(id,{contentRevision:4,passed:true,bestPercent:100}).passed,true);
    assert.match(d.querySelector('[data-selection-data-scope]').textContent,/kein Protokoll des Papiermodells/);
    assert.deepEqual([...d.querySelectorAll('[data-selection-comparison] tbody tr')].map(r=>[...r.cells].slice(1,3).map(cell=>Number(cell.textContent))),[[12,8],[9,11],[5,15],[2,18]]);
    w.enhanceCoreLearning(data[id],id,'de');
    const zone=d.querySelector('[data-core-experiment="selection-counts"]'),light=zone.querySelector('[data-selection-light]'),dark=zone.querySelector('[data-selection-dark]'),out=zone.querySelector('[data-selection-result]'),calculate=zone.querySelector('[data-selection-calculate]');
    const before=w.localStorage.getItem('sciverse_chapter_quiz_results');
+   const plot=zone.querySelector('[data-selection-plot]');assert.equal(plot.hasAttribute('hidden'),true);
+   assert.deepEqual([...d.querySelectorAll('[data-selection-audit-table] tbody tr')].map(row=>[...row.cells].slice(1).map(cell=>Number(cell.textContent))),[[10,10,20],[6,9,15],[12,18,30],[14,10,24]]);assert.equal(d.querySelectorAll('[data-selection-audit-tasks] li').length,3);
    for(const field of [light,dark]){assert.ok(field.closest('label'));assert.equal(d.getElementById(field.getAttribute('aria-describedby')),out);}
    for(let a=0;a<=10;a++)for(let b=0;b<=10;b++){
     light.value=a;dark.value=b;calculate.click();
-    if(a+b===0){assert.match(out.textContent,/kein Farbanteil definiert/);continue;}
+    if(a+b===0){assert.match(out.textContent,/kein Farbanteil definiert/);assert.equal(plot.hasAttribute('hidden'),true);continue;}
+    assert.equal(plot.hasAttribute('hidden'),false);
+    const widths=['search-light','search-dark','offspring-light','offspring-dark'].map(key=>Number(plot.querySelector('[data-selection-bar="'+key+'"]').getAttribute('width')));
+    assert.deepEqual(widths,[a*6.5,b*6.5,a*13,b*13]);assert.equal(Number(plot.querySelector('[data-selection-bar="search-dark"]').getAttribute('x')),20+a*6.5);assert.equal(Number(plot.querySelector('[data-selection-bar="offspring-dark"]').getAttribute('x')),20+a*13);
+    assert.equal(plot.querySelector('[data-selection-share-label="search"]').textContent,plot.querySelector('[data-selection-share-label="offspring"]').textContent);assert.ok(plot.getAttribute('aria-label').includes('Anzahlskala von 0 bis 40'));
     assert.ok(out.textContent.includes((a*2)+' helle und '+(b*2)+' dunkle, insgesamt '+((a+b)*2)));
     assert.ok(out.textContent.includes((100*b/(a+b)).toLocaleString('de',{maximumFractionDigits:1})+' %'));
     assert.ok(out.textContent.includes(a===b?'entspricht':b>a?'gestiegen':'gesunken'));
    }
-   for(const value of ['', '11', '-1', '1.5', '0x2', '1e1']){light.value=value;dark.value='5';calculate.click();assert.match(out.textContent,/Bitte trage/);}
+   for(const value of ['', '11', '-1', '1.5', '0x2', '1e1']){light.value=value;dark.value='5';calculate.click();assert.match(out.textContent,/Bitte trage/);assert.equal(plot.hasAttribute('hidden'),true);}
    light.value='6';dark.value='9';light.dispatchEvent(new w.Event('input'));assert.match(out.textContent,/erneut/);light.focus();light.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));assert.equal(d.activeElement,light);assert.match(out.textContent,/12 helle und 18 dunkle, insgesamt 30/);assert.match(out.textContent,/60 %/);
    w.enhanceCoreLearning(data[id],id,'de');assert.equal(light.value,'6');zone.querySelector('[data-selection-reset]').click();assert.equal(light.value,'');assert.equal(dark.value,'');assert.equal(d.activeElement,light);assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),before);
+   assert.equal(plot.hasAttribute('hidden'),true);
+   const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),pw=paper.window;pw.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','worksheet_generator','worksheet'])pw.eval(read('js/'+f+'.js'));await new Promise(r=>setImmediate(r));const material=pw.document.getElementById('ws-biology-material'),solutions=pw.document.getElementById('ws-solutions');assert.equal(material.querySelectorAll('.bio-training-card').length,15);assert.equal(material.querySelectorAll('svg[data-worksheet-static]').length,1);assert.equal(material.querySelectorAll('[data-selection-audit-table] tbody tr').length,4);assert.equal(material.querySelectorAll('[data-selection-audit-tasks] li').length,3);assert.equal(material.querySelector('svg').getAttribute('viewBox'),'0 0 300 440');assert.equal(material.querySelectorAll('input,button,[data-selection-plot]').length,0);assert.ok(material.textContent.includes('Dunkler Anteil: ___ %'));assert.ok(!material.textContent.includes('Die wahre Restzahl heller Punkte ist unbekannt'));assert.ok(solutions.textContent.includes('Die wahre Restzahl heller Punkte ist unbekannt'));assert.equal(solutions.hidden,true);paper.window.close();
   }
   dom.window.close();
  }
- console.log('PASS: evolution, selection and flowering plants: 105 assessed answer paths, independent choices and section mapping, stale revisions, 30 preserved tasks, four pollen stages and 121 selection calculations with keyboard/reset and unchanged model quiz storage.');
+ console.log('PASS: evolution, selection and flowering plants: 108 assessed answer paths, independent choices and section mapping, stale revisions, 45 preserved tasks, four pollen stages and 121 selection calculations with independently scaled bars, keyboard/reset/storage, protocol audit and paper graph/separate solutions.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
