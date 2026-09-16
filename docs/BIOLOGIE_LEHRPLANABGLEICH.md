@@ -141,3 +141,17 @@ Aktuell 37 direkte und 116 automatisch verarbeitete Trainingsblöcke in den 39 B
 Alle fünf Abschnitte, 27 Glossareinträge und vorhandenen Fragen gelesen. 15 konkrete Aufgaben mit Jausenplanung, Organwegen, Etikettenrechnung und Modellvergleich ersetzen allgemeine Karten. Vier Modellbilder unterscheiden mechanische und chemische Verdauung sowie Aufnahme; spätere Verwertung ist ausdrücklich ein weiterer Vorgang. Zwei Mengenregler mit gemeinsamer Balkenskala unterstützen das Vergleichen von Bezugsmenge und Portionsmenge. 13 bewertete Fragen und eine unbewertete Übung, Revision 2; Quellen und Nachweise: [BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md](BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md).
 
 Aktuelle Strukturzählung: 42 direkte und 111 automatisch verarbeitete Trainingsblöcke in den 39 Biologiekapiteln. 81 automatische Blöcke enthalten noch die allgemeine Situationsformulierung; 29 Kapitel besitzen mindestens einen automatischen Block. Dies ist ein Hinweis auf weitere Einzelprüfungen, keine abgeschlossene Qualitäts- oder Kompetenzbewertung. Gesamter Lehrplanabgleich bleibt offen.
+
+
+## 16.09.2026 – Pubertät und Fortpflanzung
+
+15 konkrete Aufgaben, Trennung von Zellen/Vorgängen/Organen, Zyklusschema mit Modellgrenzen, vier erfundene Entscheidungssituationen mit zwölf Begründungen und Quellenvergleich ausgearbeitet. 13 bewertete Fragen und eine Übung; genaue Lernabschnitte und Revision 2. Papierfälle mit Protokoll und getrennten Lösungen. Nachweise und Grenzen: [BIOLOGIE_PUBERTAET_FORTPFLANZUNG.md](BIOLOGIE_PUBERTAET_FORTPFLANZUNG.md).
+
+Aktuelle Strukturzählung: 47 direkte und 106 automatisch verarbeitete Trainingsblöcke. 76 automatische Blöcke enthalten die allgemeine Situationsformulierung; 28 von 39 Biologiekapiteln haben mindestens einen automatischen Block. Das ist ein Hinweis auf weitere Einzelprüfung, keine vollständige Qualitätsbewertung. Fach- und Gesamtlehrplanabnahme weiterhin offen.
+
+
+## 16.09.2026 – Zellen: Modelle und Beobachtungsgrenzen
+
+Gespeicherten Biologie-Lehrplanabschnitt vom Bildungsauftrag bis zu allen vier Klassen erneut gelesen. Für die 2. Klasse: Zellvergleich mit 15 konkreten Aufgaben, eigenen Modellen, Beobachtungsprotokoll und Maßstabsübung ausgearbeitet. Eine begrenzte Zuordnung zu W/E/S-Lerngelegenheiten steht in [BIOLOGIE_ZELLEN.md](BIOLOGIE_ZELLEN.md); tatsächliches Mikroskopieren und vollständige Jahrgangsabdeckung sind nicht nachgewiesen.
+
+Zehn bestehende bewertete Fragen beibehalten, fünf Abschlussfragen zugeordnet, zwei neue Transferfragen: zwölf bewertete Fragen und eine Übung, Revision 2. Drei auswählbare Diagramme mit gemeinsamer Legende, Tabellenvergleich und Papierprotokoll. Aktuelle Strukturzählung nach fünf weiteren direkten Blöcken: 52 direkte und 101 automatisch verarbeitete Trainingsblöcke; 71 automatische Blöcke mit allgemeiner Situationsformulierung, 27 von 39 Biologiekapiteln mit mindestens einem automatischen Block. Diese Struktur ist keine fachliche Abnahme.

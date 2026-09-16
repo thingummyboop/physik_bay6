@@ -145,3 +145,15 @@ Abschließender nativer Bericht 2026-09-16T09:03:26.246Z, Chromium 151.0.7922.34
 Abschließender nativer Bericht 2026-09-16T09:24:20.100Z, Chromium 151.0.7922.34: 42 Übungsantworten per Tastatur, 121 Mengenkombinationen über DOM-Eingabeereignisse, zusätzlich native Reglerbedienung mit Pfeiltaste/Home/End und vier Modellauswahlen per Tastatur bestanden. 30 Modell-/Breiten-/Designzustände, zwei Tabellen bis zum rechten Rand, Neustart/Fokus und unveränderte Quizspeicherung sowie zwei 92-Prozent-Kapitelchecks mit passender Wiederholung geprüft. Keine Seitenfehler. Papiererzeugung mit fünf statischen Diagrammen, zwei Protokollen und getrennten Lösungen bestanden.
 
 Die finale mobile Aufnahme-Darstellung und die Rechenhilfe im dunklen Design wurden tatsächlich gelesen. Mengen stehen jetzt in einer Zeile; die vollständige Statusmeldung bleibt für assistive Technik vorhanden, ohne die Erklärung sichtbar zu verdoppeln. Kürzere Auswahltexte vermeiden abgeschnittene Bezeichnungen. Für die Druckfassung wurde die Zeichenlegende vor die Bilder gesetzt, das Diagramm ausdrücklich mit 200 ml A und 500 ml B verknüpft und die Überschrift „Arbeitsauftrag“ beim Folgeinhalt gehalten. Nach der letzten Änderung die Seiten 7, 10, 11, 14, 15, 16 und 27 der 27-seitigen A4-Fassung mit Lösungen gerendert und gelesen. Keine Sichtprüfung aller Druckseiten oder aller Kapitel. Details und Grenzen: [BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md](BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md).
+
+
+## 16.09.2026 – Pubertät: Entscheidungen, Privatsphäre und Papieraufgaben
+
+Nativer Abschlussbericht 2026-09-16T09:44:00.604Z, Chromium 151.0.7922.34, ../browser-qa/puberty-boundaries/report.json: 42 Übungsantworten, zwölf Fallentscheidungen per Tastatur, 24 Fall-/Breiten-/Designzustände, Neustart/Fokus/Speicher, Protokollzugang und zwei Kapitelchecks mit 92 Prozent und passender Wiederholung bestanden. Keine Seitenfehler. Mobile Foto-/Hilfefälle und Zyklusschema gelesen. Nach letzter Textänderung Seiten 4, 7, 8, 9, 11 und 24 der 24-seitigen A4-Fassung mit Lösungen gerendert und gelesen; nicht alle Druckseiten. Details: [BIOLOGIE_PUBERTAET_FORTPFLANZUNG.md](BIOLOGIE_PUBERTAET_FORTPFLANZUNG.md).
+
+
+## 16.09.2026 – Zellmodelle, Maßstab und breite Tabellen
+
+Native Prüfung abschließend 2026-09-16T09:58:15.437Z, Chromium 151.0.7922.34, ../browser-qa/cell-learning/report.json: 39 Übungsantworten, drei Zellmodelle per Tastatur, 18 Modell-/Breiten-/Designzustände, sechs Skalierungsverhältnisse, drei Tabellen bis zum rechten Rand, Neustart/Fokus/Speicher und zwei 92-Prozent-Prüfungen mit passender Wiederholung bestanden. Keine Seitenfehler.
+
+Mobile Sichtprüfung fand zu schmale Tabellenspalten; ausreichend breite Tabelle und eigene per Tastatur erreichbare Scrollregion umgesetzt. Die bisherige Scrollfunktion des ganzen Interaktionsfelds hatte diese Region verhindert. Die abschließende Prüfung besteht. Modelle und Maßstabsbild gelesen; nach letzter Korrektur Blattansicht erneut gelesen. Finale A4-Fassung: 24 Seiten, davon 4, 10, 13, 14, 15 und 24 gerendert und gelesen. Umfang und Grenzen: [BIOLOGIE_ZELLEN.md](BIOLOGIE_ZELLEN.md).

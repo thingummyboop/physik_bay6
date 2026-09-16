@@ -81,6 +81,18 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='boundary-cases'){
+   const control=zone.querySelector('[data-boundary-control]'),cases=[...zone.querySelectorAll('[data-boundary-case]')],result=zone.querySelector('[data-boundary-result]');
+   const update=()=>{
+    cases.forEach((item,i)=>{item.hidden=i!==Number(control.value);});
+    result.textContent='Wähle eine Handlung.';
+   };
+   for(const item of cases)for(const button of item.querySelectorAll('[data-boundary-answer]')){
+    button.addEventListener('click',()=>{result.textContent=button.dataset.feedback;});
+   }
+   control.addEventListener('change',update);
+   zone.querySelector('[data-boundary-reset]').addEventListener('click',()=>{control.value='0';update();control.focus();});update();
+  }
   if(type==='digestion-model'){
    const control=zone.querySelector('[data-digestion-control]'),stages=[...zone.querySelectorAll('[data-digestion-stage]')],status=zone.querySelector('[data-digestion-status]');
    const update=()=>{

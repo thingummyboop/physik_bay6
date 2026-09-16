@@ -19,14 +19,16 @@ function topicInit(){
   const select=zone.querySelector('[data-cell-kind]'),body=zone.querySelector('[data-cell-rows]');
   const update=()=>{
    const kind=select.value;body.replaceChildren();
-   parts.forEach(([id,name,task])=>{
+   zone.querySelectorAll('[data-cell-view]').forEach(view=>{view.hidden=view.dataset.cellView!==kind;});
+   parts.forEach(([id,name,task],partIndex)=>{
     const present=id==='chloroplasts'?kind==='leaf':['wall','vacuole'].includes(id)?kind!=='animal':true;
     const row=document.createElement('tr');row.dataset.cellPart=id;
-    [name,present?'Ja':'Nein',task].forEach((copy,index)=>{const cell=document.createElement(index===0?'th':'td');if(index===0)cell.scope='row';cell.textContent=copy;row.append(cell);});body.append(row);
+    [(partIndex+1)+'. '+name,present?'Ja':'Nein',task].forEach((copy,index)=>{const cell=document.createElement(index===0?'th':'td');if(index===0)cell.scope='row';cell.textContent=copy;row.append(cell);});body.append(row);
    });
    zone.querySelector('[data-cell-status]').textContent=notes[kind];
   };
-  select.addEventListener('change',update);update();
+  select.addEventListener('change',update);
+  zone.querySelector('[data-cell-reset]')?.addEventListener('click',()=>{select.value='leaf';update();select.focus();});update();
  });
 }
 window.topicInit=topicInit;

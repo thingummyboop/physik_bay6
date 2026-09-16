@@ -6,7 +6,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,10);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,12);
  assert.equal(w.currentChapterResult(id,{passed:true,bestPercent:100}).outdated,true);
  assert.match(d.body.textContent,/400-fach/);assert.match(d.body.textContent,/nicht sicher erkennbar/);
  assert.doesNotMatch(d.body.textContent,/Ein ganzer Wald|Der Schnabel|Wald → Knochen/);
@@ -22,5 +22,5 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   assert.ok(zone.querySelector('[data-cell-status]').textContent.length>40);
  }
  assert.equal(zone.querySelector('[data-cell-status]').getAttribute('role'),'status');
- dom.window.close();console.log('PASS: 10 revised cell questions, microscopy limits and magnification, revision, 7 structures across 3 examples, repeat initialization and control focus.');
+ dom.window.close();console.log('PASS: 12 cell questions, microscopy limits and magnification, revision, 7 structures across 3 examples, repeat initialization and control focus.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

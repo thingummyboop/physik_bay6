@@ -1157,3 +1157,27 @@ Vorheriger Zielturn war Fortschritt mit Skelettmodell, konkreten Aufgaben und 18
 39 unabhängig erwartete bewertete Antwortwege, 121 Rechnungen samt Balkenskala, vier Modellzustände und 95 STEM-Arbeitsblätter bestanden. Skelett, Evolution/Selektion/Blütenpflanzen, Physik-Kernmodelle und Lern-/Stofflistenweg gezielt geprüft. Native Browserprüfung und ausgewählte Druckseiten bestanden; genaue Nachweise: [BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md](BIOLOGIE_ERNAEHRUNG_VERDAUUNG.md). Der vorherige vollständige Lauf mit 187/187 liegt vor diesen Ernährungsänderungen; kein neuer Gesamtlauf.
 
 Inventar weiterhin 197 Kapitel; Prioritätsaudit 1546 Frageninstanzen ohne strukturellen Befund. Skelett und Ernährung sind lokal nach c428cf6 weiterbearbeitet. Übersetzungen bleiben zurückgestellt. Vollständige fachliche, visuelle, Lehrplan- und Produktabnahme aller Fächer bleibt offen.
+
+
+## 16.09.2026 – Pubertätskapitel nach gesichertem Zwischenstand
+
+Vorheriger Turn war Fortschritt: Skelett und Ernährung als e5b4748 auf main zu GitHub übertragen, entfernten Commit und saubere Arbeitskopie bestätigt. Anschließend lokal Pubertät/Fortpflanzung überarbeitet: 15 konkrete Aufgaben, fachliche Begriffstrennung, Zyklusschema, Quellenvergleich und vier interaktive Fälle zu Privatsphäre und Unterstützung. 13 bewertete Fragen und eine unbewertete Übung, Revision 2. Keine persönlichen Angaben verlangt oder in der Fallübung gespeichert.
+
+39 bewertete Antwortwege und zwölf Fallentscheidungen automatisiert, 42 Übungsantworten und zwölf Entscheidungen nativ geprüft. 95 STEM-Arbeitsblätter, Skelett, Ernährung/Verdauung, Physik-Kernmodelle und Lern-/Stofflistenweg bestanden. Native Mobil-/Tastaturprüfung und ausgewählte Druckseiten bestanden; [detaillierter Nachweis](BIOLOGIE_PUBERTAET_FORTPFLANZUNG.md). Kein neuer vollständiger Suitenlauf; 187/187 vom vorherigen Stand ist kein Gesamtnachweis für Ernährung und Pubertät.
+
+Inventar 197 Kapitel; Prioritätsaudit 1548 Frageninstanzen ohne strukturellen Befund. Diese Zählungen beweisen keine fachliche Vollständigkeit. Neue Pubertätsänderungen lokal nach e5b4748. Übersetzungen zurückgestellt. Verbleibende Kapitel, sämtliche priorisierten Fächer und die vollständige Produktabnahme bleiben Teil des unveränderten Auftrags.
+
+
+## 16.09.2026 – Zellkapitel für die 2. Klasse
+
+Vorheriger Zielturn war Fortschritt: Pubertätskapitel mit konkreten Aufgaben, vier Entscheidungen und geprüften Antwortwegen. Anschließend Zellen erweitert: 15 konkrete Aufgaben, eigene Blatt-/Wurzel-/Tierzellmodelle mit gemeinsamer Legende, echtes Papieräquivalent, erfundene Beobachtungsdaten und Maßstabsaufgabe. Zwölf bewertete Fragen und eine Übung, Revision 2. Keine reale Mikroskopie behauptet.
+
+36 unabhängig erwartete bewertete Antwortwege, drei Modellzustände, Maßstab, Papiergrafiken und 95 STEM-Arbeitsblätter bestanden; bestehender Zellvergleich und Pubertät ebenfalls bestanden. Native Mobil-/Tastaturprüfung und ausgewählte Druckseiten geprüft; Details: [BIOLOGIE_ZELLEN.md](BIOLOGIE_ZELLEN.md). Kein neuer vollständiger Suitenlauf. Letzter Gesamtlauf mit 187/187 liegt vor Ernährung, Pubertät und diesen Zelländerungen.
+
+Inventar 197 Kapitel; Prioritätsaudit 1550 Frageninstanzen ohne strukturellen Befund. Pubertäts- und Zelländerungen bleiben lokal nach e5b4748. Übersetzungen zurückgestellt; Priorität Physik, Mathematik, Chemie, Biologie und DGB. Vollständige fachliche, visuelle, Lehrplan- und Produktabnahme weiterhin offen.
+
+## 16.09.2026 – GitHub-Zwischenstand: Pubertät, Zellen und Pflanzenvermehrung
+
+Auf ausdrücklichen Wunsch werden die Änderungen seit e5b4748 als gemeinsamer Zwischenstand gesichert. Die zuvor als lokal beschriebenen Pubertäts- und Zelländerungen sind Teil dieses Commits. Hinzu kommen 15 konkrete Aufgaben, Blütenschemata, Keimdaten mit Tagesauswahl und Papiermaterial zur Pflanzenvermehrung; zwölf bewertete Fragen und eine Übung, Revision 2. [Nachweise und offene Prüfungen](BIOLOGIE_PFLANZENVERMEHRUNG.md).
+
+Vor dem Commit die drei neuen Kapitelprüfungen und die Prüfung der 95 STEM-Arbeitsblätter erneut bestanden. Kein neuer vollständiger Suitenlauf; die abschließende Sichtprüfung ausgewählter PDF-Seiten zur Pflanzenvermehrung bleibt offen. Inventar 197 Kapitel, Prioritätsaudit 1552 Frageninstanzen ohne strukturellen Befund. Der Zwischenstand ist keine vollständige fachliche oder visuelle Abnahme und kein Nachweis der Veröffentlichung über GitHub Pages. Übersetzungen zurückgestellt; Priorität Physik, Mathematik, Chemie, Biologie und DGB unverändert.

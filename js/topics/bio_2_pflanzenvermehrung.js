@@ -1,5 +1,22 @@
 'use strict';
 function topicInit(){
+ document.querySelectorAll('[data-flower-organization]').forEach(zone=>{
+  if(zone.dataset.initialized)return;zone.dataset.initialized='true';
+  const control=zone.querySelector('[data-flower-kind]'),status=zone.querySelector('[data-flower-status]');
+  const explanations={both:'Zwittrige Blüten: Jede gezeichnete Blüte enthält S und F. Die Blüte ist die betrachtete Einheit.',mono:'Einhäusig: Eine Pflanze trägt getrennte S-Blüten und F-Blüten. Keine der gezeichneten Blüten ist zwittrig.',dio:'Zweihäusig: Pflanze A trägt S-Blüten, Pflanze B trägt F-Blüten. Ein einzelner Blütenbefund genügt für diese Verteilung nicht.'};
+  const update=()=>{zone.querySelectorAll('[data-flower-view]').forEach(view=>{view.hidden=view.dataset.flowerView!==control.value;});status.textContent=explanations[control.value];};
+  control.addEventListener('change',update);zone.querySelector('[data-flower-reset]').addEventListener('click',()=>{control.value='both';update();control.focus();});update();
+ });
+ document.querySelectorAll('[data-germination-timeline]').forEach(zone=>{
+  if(zone.dataset.initialized)return;zone.dataset.initialized='true';
+  const control=zone.querySelector('[data-germination-day]'),result=zone.querySelector('[data-germination-result]'),counts=[0,2,6,7,8],chart=zone.querySelector('svg');
+  const marker=document.createElementNS('http://www.w3.org/2000/svg','line');marker.dataset.germinationMarker='';marker.setAttribute('y1','50');marker.setAttribute('y2','220');marker.setAttribute('stroke','#6b21a8');marker.setAttribute('stroke-width','2');marker.setAttribute('stroke-dasharray','2 5');chart.append(marker);
+  const update=()=>{
+   const day=Number(control.value),count=counts[day];marker.setAttribute('x1',String(42+72*day));marker.setAttribute('x2',String(42+72*day));
+   result.textContent='Markiert: Tag '+day+'. Bisher gekeimt: A 0 von 10 = 0 %, B '+count+' von 10 = '+count*10+' %. '+(day===0?'Das ist die Ausgangszählung; eine frühere Zählung liegt nicht vor.':'Seit Tag '+(day-1)+' neu: A 0 Samen, B '+(count-counts[day-1])+' Samen ('+count+' − '+counts[day-1]+'). Die bisher gekeimten Samen werden nicht erneut als neue gezählt.');
+  };
+  control.addEventListener('change',update);zone.querySelector('[data-germination-reset]').addEventListener('click',()=>{control.value='0';update();control.focus();});update();
+ });
  const terms={pollination:'Bestäubung',fertilization:'Befruchtung',development:'Samenentwicklung',dispersal:'Verbreitung',germination:'Keimung'};
  const tasks=[
   ['Ein Pollenkorn gelangt auf die Narbe einer Blüte.','pollination','Die Übertragung von Pollen auf eine Narbe heißt Bestäubung. Dabei ist die Eizelle noch nicht befruchtet.'],
