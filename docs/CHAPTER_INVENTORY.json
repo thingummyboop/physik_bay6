@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "418956eb18b2618718209a3be4cca92ac2697a4cd82e0d6888dd656cede174e0",
-    "lang/de.json": "498a9ebae88a3c17ed579581d706bbd5c19bd605e9a3c1bc223e8aefcf320ead"
+    "lang/de.json": "a7725d442c5a505037c2e46a98afd8a01d95f78ee7ba019867db598dda18b9e2"
   },
   "subjects": {
     "physik": {
@@ -10785,31 +10785,67 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math2_5_var_gleichungen",
           "goals": [
-            "Eine Variable als Platzhalter für einen Zahlenwert verwenden.",
-            "Einfache Gleichungen durch gleiche Umformungen auf beiden Seiten lösen.",
-            "Die Lösung durch Einsetzen kontrollieren."
+            "Variablen, Terme, Gleichungen und Formeln unterscheiden und im Sachzusammenhang deuten.",
+            "Lineare Gleichungen auch mit Brüchen durch Umkehren der Rechenoperationen lösen.",
+            "Erlaubte Umwege von Schritten unterscheiden, die Lösungen verändern oder nicht definiert sind.",
+            "Eine Lösung durch Einsetzen und anhand der erlaubten Werte im Sachzusammenhang prüfen.",
+            "Einfache Formeln für Anzahlen, Anteile und geometrische Größen umformen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "Was ist eine Variable (x)?",
+              "title": "1. Von der Beschreibung zum Term",
               "questions": [
-                "m25_q1"
+                "m25_q1",
+                "m25_term_value",
+                "m25_fraction_term"
               ]
             },
             {
               "id": "sec2",
               "index": 1,
-              "title": "Gleichungen lösen (Waage-Trick)",
+              "title": "2. Die Rechenkette rückwärts gehen",
               "questions": [
-                "m25_q2"
+                "m25_q2",
+                "m25_dip1",
+                "m25_reverse_order"
+              ]
+            },
+            {
+              "id": "sec3",
+              "index": 2,
+              "title": "3. Erlaubter Umweg oder Fehler?",
+              "questions": [
+                "m25_dip2",
+                "m25_valid_detour",
+                "m25_zero_step"
+              ]
+            },
+            {
+              "id": "sec4",
+              "index": 3,
+              "title": "4. Sachaufgaben: Ergebnis und Bedeutung prüfen",
+              "questions": [
+                "m25_fraction_solution",
+                "m25_context_limit",
+                "m25_write_text"
+              ]
+            },
+            {
+              "id": "sec5",
+              "index": 4,
+              "title": "5. Formeln nach der gesuchten Größe umstellen",
+              "questions": [
+                "m25_formula_quantity",
+                "m25_formula_percent",
+                "m25_formula_rectangle"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 2,
+          "questionCount": 15,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11235,40 +11271,74 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math3_3_gleichungen",
           "goals": [
-            "Gleichungen durch gleiche Operationen auf beiden Seiten umformen.",
-            "Einfache lineare Gleichungen in zwei Schritten lösen.",
-            "Eine gefundene Lösung durch Einsetzen überprüfen."
+            "Lineare Gleichungen durch Umformungen lösen, die genau dieselben Lösungen erhalten.",
+            "Klammern auflösen und Gleichungen mit Variablen auf beiden Seiten sowie negativen oder gebrochenen Zahlen bearbeiten.",
+            "Verschiedene gültige Rechenwege vergleichen und jede Lösung in der ursprünglichen Gleichung prüfen.",
+            "Sachaufgaben als Gleichungen formulieren und einfache geometrische Formeln umstellen.",
+            "Eine Lösung, keine Lösung und alle rationalen Zahlen als Lösungen unterscheiden."
           ],
-          "summaryCount": 3,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "Das Waage-Modell",
+              "title": "1. Was muss beim Umformen gleich bleiben?",
               "questions": [
-                "m33_q1"
+                "m33_q1",
+                "m33_q2",
+                "m33_dip1"
               ]
             },
             {
               "id": "sec2",
               "index": 1,
-              "title": "Mal und Geteilt",
+              "title": "2. Klammern und negative Zahlen",
               "questions": [
-                "m33_q2"
+                "m33_twosteps",
+                "m33_expand",
+                "m33_negative"
               ]
             },
             {
               "id": "m33_steps",
               "index": 2,
-              "title": "Zwei Schritte und die Probe",
+              "title": "3. Die Variable steht auf beiden Seiten",
               "questions": [
-                "m33_twosteps",
-                "m33_check"
+                "m33_check",
+                "m33_both",
+                "m33_route"
+              ]
+            },
+            {
+              "id": "m33_fractions",
+              "index": 3,
+              "title": "4. Brüche in der Gleichung",
+              "questions": [
+                "m33_denominator",
+                "m33_fraction"
+              ]
+            },
+            {
+              "id": "m33_context",
+              "index": 4,
+              "title": "5. Sachaufgaben und Formeln",
+              "questions": [
+                "m33_cost_compare",
+                "m33_formula_height"
+              ]
+            },
+            {
+              "id": "m33_solutions",
+              "index": 5,
+              "title": "6. Eigener Rechenweg und besondere Ergebnisse",
+              "questions": [
+                "m33_none",
+                "m33_all"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 15,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

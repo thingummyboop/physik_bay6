@@ -53,7 +53,7 @@ const output=path.resolve(process.env.SCIVERSE_BROWSER_REPORT_DIR||path.join(__d
   assert.equal(saved.lastPercent,92);assert.deepEqual(saved.reviewQuestionIds,['dgb7_produktion_q1']);
   assert.equal(await frame.locator('[data-chapter-review] a').count(),1);
   await frame.locator('#chapter-quiz-result').getByRole('button',{name:'Passenden Abschnitt wiederholen',exact:true}).click();await frame.locator('#learning-section-0').waitFor();
-  await page.waitForFunction(()=>{const d=document.getElementById('game-frame').contentDocument,h=d.querySelector('#learning-section-0 h2'),r=h.getBoundingClientRect();return d.activeElement===h&&r.top>=64&&r.top<160;});
+  await page.waitForFunction(()=>{const f=document.getElementById('game-frame'),d=f.contentDocument,h=d.querySelector('#learning-section-0 h2'),r=h.getBoundingClientRect(),top=f.getBoundingClientRect().top,toolbarBottom=Math.max(...['menu-toggle','zeugnis-btn'].map(id=>document.getElementById(id).getBoundingClientRect().bottom));return d.activeElement===h&&r.top>=0&&r.top<160&&top+r.top>=toolbarBottom;});
   await page.screenshot({path:path.join(output,'mobile-chapter-review.png')});
   checks.push('Mobile chapter: navigation closes, no horizontal page overflow, quiz feedback and targeted review.');
 

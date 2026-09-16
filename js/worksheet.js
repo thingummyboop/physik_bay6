@@ -29,6 +29,11 @@ function renderWorksheetQuestions(topic,content) {
 
 function appendPaperSolutions(topic, content) {
  const entries=[];
+ // Generated practice and its answers must use the same draw, including when reloading.
+ for(const template of content.querySelectorAll('template[data-generated-worksheet-solutions]')){
+  entries.push(...template.content.cloneNode(true).children);
+  template.remove();
+ }
  for(const section of topic.sections||[]){
   const source=document.createElement('div');source.innerHTML=section.content||'';
   for(const details of source.querySelectorAll('details[data-worksheet-solution="true"]')){

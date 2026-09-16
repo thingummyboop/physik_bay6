@@ -25,3 +25,9 @@ Der zuvor in den Fachmatrizen offene aktuelle Quellenvergleich ist für diese f�
 Der Chemieabschnitt wurde zusätzlich vollständig erneut gelesen. Er enthält zehn W/E/S-Kompetenzbeschreibungen und zehn verbindliche Anwendungsbereiche. Deren Aufzählungsreihenfolge ist ausdrücklich nicht chronologisch vorgeschrieben. Die Anforderungen an Untersuchungen einschließlich Synthesen und Analysen bleiben relevant; die bisher dokumentierte offene Synthese-Lerngelegenheit ist durch diesen Quellenvergleich nicht erledigt.
 
 Textgleichheit bestätigt weder die vollständige Umsetzung des Lehrplans noch die fachliche Richtigkeit aller Website-Inhalte, praktische Versuche oder die Produktabnahme. Es wurden keine Schülertexte, Übersetzungen oder Laufzeitfunktionen geändert. Ein erneuter Funktionstest ist für diese Quellenprüfung nicht erforderlich.
+
+## Ergänzung 16.09.2026 – Mathematik
+
+Aktuelle RIS-Anlage und verknüpftes HTML-Dokument NOR40271471 erneut direkt per HTTPS mit HTTP 200 abgerufen. Die Datumsverweise der Metadatenseite nennen 16.09.2026; ihr HTML-Link verweist weiterhin auf NOR40271471. Der normalisierte Mathematikabschnitt bis vor Geometrisches Zeichnen ist mit 61.549 Zeichen exakt gleich zur Grundlage vom 05.09.2026. Die übrigen vier priorisierten Fachabschnitte wurden bei diesem ergänzenden Vergleich nicht erneut verglichen; für sie gilt der oben dokumentierte 14.09.2026.
+
+Die Kompetenzbeschreibungen und Präzisierungen für Variablen und Funktionen der zweiten Klasse wurden erneut gelesen und für die Erweiterung des Gleichungskapitels verwendet. [Umsetzung, konkrete Zuordnung und Prüfgrenzen](MATHEMATIK_GLEICHUNGEN_KLASSE2.md). Rohabrufe und extrahierter Text liegen unter `../lehrplan-2026-09-16.html`, `../lehrplan-metadata-2026-09-16.html` und `../lehrplan-2026-09-16.txt`. Keine vollständige Fachabnahme aus der Quellenübereinstimmung abgeleitet.

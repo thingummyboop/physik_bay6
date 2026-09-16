@@ -431,14 +431,18 @@ function generateWorksheetContent(topicId, topicTitle) {
     }
     else if (topicId === 'math3_3_gleichungen') {
         html += `<h2>1. Lineare Gleichungen lösen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        let generatedSolutions = '';
         for(let i=0; i<8; i++) {
             const a = rand(2, 9);
             const b = rand(1, 20);
-            const x = rand(1, 10);
-            const c = a * x + b;
-            html += `<div>\\( ${a}x + ${b} = ${c} \\)<br><br>\\( x = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            const c = rand(1, a - 1);
+            const x = rand(-10, 10);
+            const d = (a - c) * x + b;
+            const right = `${c}x ${d < 0 ? '- ' + Math.abs(d) : '+ ' + d}`;
+            html += `<div data-generated-equation3 data-a="${a}" data-b="${b}" data-c="${c}" data-d="${d}"><strong>A${i + 1}.</strong> \\( ${a}x + ${b} = ${right} \\)<br><br>\\( x = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            generatedSolutions += `<section class="ws-generated-equation-solution" data-generated-answer="${x}"><h3>Zusatzübung A${i + 1}</h3><p>Auf beiden Seiten ${c}x subtrahieren: ${a - c}x + ${b} = ${d}. Dann ${b} subtrahieren: ${a - c}x = ${d - b}. Durch ${a - c} teilen: x = ${x}.</p><p>Probe: links ${a} · (${x}) + ${b} = ${a * x + b}; rechts ${c} · (${x}) + (${d}) = ${c * x + d}.</p></section>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
     }
     else if (topicId === 'math3_4_flaechensatz') {
         html += `<h2>1. Flächeninhalt berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -668,14 +672,16 @@ function generateWorksheetContent(topicId, topicTitle) {
     }
     else if (topicId === 'math2_5_var_gleichungen') {
         html += '<h2>1. Gleichungen lösen (Nach x auflösen)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
+        let generatedSolutions = '';
         for(let i=0; i<12; i++) {
             const x = rand(2, 20);
             const a = rand(2, 9);
             const b = rand(1, 20);
             const res = a * x + b;
-            html += '<div>\\( ' + a + 'x + ' + b + ' = ' + res + ' \\)<br><br>\\( x = \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:50px;"></span></div>';
+            html += '<div data-generated-equation data-a="' + a + '" data-b="' + b + '" data-result="' + res + '"><strong>A' + (i + 1) + '.</strong> \\( ' + a + 'x + ' + b + ' = ' + res + ' \\)<br><br>\\( x = \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:50px;"></span></div>';
+            generatedSolutions += '<section class="ws-generated-equation-solution" data-generated-answer="' + x + '"><h3>Zusatzübung A' + (i + 1) + '</h3><p>' + a + 'x + ' + b + ' = ' + res + '. Auf beiden Seiten ' + b + ' subtrahieren: ' + a + 'x = ' + (res - b) + '. Durch ' + a + ' teilen: x = ' + x + '.</p><p>Probe: ' + a + ' · ' + x + ' + ' + b + ' = ' + res + '.</p></section>';
         }
-        html += '</div>';
+        html += '</div><template data-generated-worksheet-solutions>' + generatedSolutions + '</template>';
     }
     else if (topicId === 'math2_7_geometrie') {
         html += '<h2>1. Flächeninhalt (Dreieck & Parallelogramm)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';

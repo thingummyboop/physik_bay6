@@ -21870,35 +21870,110 @@
     "criteria": "Verliehen für exzellentes logisches Denken und das Bestehen aller interaktiven Herausforderungen."
   },
   "math2_5_var_gleichungen": {
-    "title": "Variablen und Gleichungen",
-    "subtitle": "Das Rätsel um das mysteriöse 'x' lösen.",
+    "title": "Variablen, Gleichungen und Formeln",
+    "subtitle": "2. Klasse: Rechenwege verstehen, rückwärts lösen und Ergebnisse prüfen.",
+    "script": true,
+    "prerequisites": [
+      "math1_7_gleichungen",
+      "math2_2_brueche",
+      "math1_9_dezimalzahlen"
+    ],
+    "learningGoals": [
+      "Variablen, Terme, Gleichungen und Formeln unterscheiden und im Sachzusammenhang deuten.",
+      "Lineare Gleichungen auch mit Brüchen durch Umkehren der Rechenoperationen lösen.",
+      "Erlaubte Umwege von Schritten unterscheiden, die Lösungen verändern oder nicht definiert sind.",
+      "Eine Lösung durch Einsetzen und anhand der erlaubten Werte im Sachzusammenhang prüfen.",
+      "Einfache Formeln für Anzahlen, Anteile und geometrische Größen umformen."
+    ],
+    "summary": [
+      "3x bedeutet 3 · x. Ein Term beschreibt einen Rechenausdruck; eine Gleichung behauptet, dass zwei Terme gleich viel wert sind.",
+      "Beim Rückwärtsrechnen kehrst du die Reihenfolge und die Operationen um: 2x + 3 = 11 führt über 2x = 8 zu x = 4.",
+      "Gleiche Addition oder Subtraktion auf beiden Seiten erhält die Lösungen. Gleiches Multiplizieren oder Dividieren mit einer Zahl ungleich 0 ebenso.",
+      "Ein erlaubter Umweg ist kein Rechenfehler. Multiplikation mit 0 verliert Informationen; Division durch 0 ist nicht definiert.",
+      "Die Probe setzt in die ursprüngliche Gleichung ein. Danach prüfst du Einheit, erlaubte Werte und die Bedeutung des Ergebnisses.",
+      "C = p · n ergibt n = C/p für p ≠ 0. Ein Viertel von G = 12 cm führt zu G = 48 cm."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Lehrplan der Mittelschule, Mathematik – 2. Klasse, Variablen und Funktionen",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
+    ],
     "sections": [
       {
         "id": "sec1",
-        "title": "Was ist eine Variable (x)?",
-        "content": "<p>Stell dir vor, du hast eine <span style='color:purple'>Mystery Box</span> in deinem Lieblingsspiel. Du weißt nicht, wie viele Coins drin sind.</p><p>Diese unbekannte Box nennen wir in der Mathe einfach <b>x</b>!</p><p>Beispiel: x + 5 = 15. In der Box (x) plus 5 offene Coins sind zusammen 15 Coins.</p><div class='interactive-zone' style='background:#f9f0ff; padding:10px; border-radius:8px;'><h4>📦 Mystery Box Knacker</h4><p>x + 7 = 10</p><label>Was ist x? <input type='number' id='guess_x' style='width:50px;'></label><button onclick='let g=document.getElementById(\"guess_x\").value; if(g==3){document.getElementById(\"x_res\").innerText=\"✅ Richtig! x ist 3.\"; document.getElementById(\"x_res\").style.color=\"green\";}else{document.getElementById(\"x_res\").innerText=\"❌ Falsch, versuch es nochmal!\"; document.getElementById(\"x_res\").style.color=\"red\";}'>Check</button><p id='x_res' style='font-weight:bold;'></p></div>{{QUIZ_m25_q1}}",
+        "title": "1. Von der Beschreibung zum Term",
+        "content": "<p>Eine <strong>Variable</strong> ist ein Platzhalter, meist ein Buchstabe. In einem Term kannst du verschiedene Werte einsetzen. In einer Gleichung suchst du diejenigen Werte, die die Gleichheit erfüllen. Innerhalb derselben Rechnung steht dasselbe x überall für denselben Wert. Die Aufgabe legt fest, welche Werte sinnvoll sind.</p><p><strong>Term:</strong> 3x + 2 ist eine Rechenvorschrift ohne Gleichheitszeichen. <strong>Gleichung:</strong> 3x + 2 = 14 ist eine Aussage, die zum Beispiel für x = 4 wahr ist. Eine <strong>Formel</strong> wie C = p · n beschreibt einen Zusammenhang zwischen Größen; C kann etwa Gesamtkosten, p den Stückpreis und n die Anzahl bezeichnen.</p><table><thead><tr><th>Beschreibung</th><th>Term</th><th>Für x = 4</th></tr></thead><tbody><tr><td>Das Dreifache einer Zahl, dann 2 dazu</td><td>3x + 2</td><td>3 · 4 + 2 = 14</td></tr><tr><td>Erst 2 dazu, dann alles verdreifachen</td><td>3 · (x + 2)</td><td>3 · 6 = 18</td></tr><tr><td>Die Hälfte einer Zahl, dann 3 dazu</td><td>x/2 + 3</td><td>2 + 3 = 5</td></tr></tbody></table><p>Ein Bruchstrich wirkt hier wie eine Klammer: (x + 3)/2 bedeutet, dass die ganze Summe x + 3 geteilt wird. Das ist etwas anderes als x/2 + 3.</p><h3>Selbst bearbeiten</h3><ol data-equation2-tasks><li>Berechne 3x + 2 und 3 · (x + 2) für x = 0, 2 und 5. Erkläre, warum sich die Ergebnisse unterscheiden.</li><li>Schreibe einen Term zu „ein Drittel einer Zahl, dann 2 dazu“ und einen anderen zu „erst 2 dazu, dann die Summe dritteln“. Prüfe beide für x = 9.</li><li>Erfinde einen kurzen Sachtext zu 2n + 4. Lege die Bedeutung und die erlaubten Werte von n fest. Ergänze erst danach eine Gleichung, etwa 2n + 4 = 12.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Terme deuten</summary><p>Für x = 0, 2, 5 ergibt 3x + 2 die Werte 2, 8, 17. 3 · (x + 2) ergibt 6, 12, 21. Im zweiten Term werden auch die zusätzlichen 2 verdreifacht; der Unterschied ist immer 4.</p><p>x/3 + 2 ergibt bei x = 9 den Wert 5; (x + 2)/3 ergibt 11/3.</p><p>Möglicher Text: Ein erfundenes Angebot kostet 4 € Grundbetrag und 2 € je Set. n zählt ganze Sets ab 0. Die Gleichung 2n + 4 = 12 fragt nach einer passenden Anzahl bei genau 12 € Gesamtkosten.</p></details>{{QUIZ_m25_q1}}{{QUIZ_m25_term_value}}{{QUIZ_m25_fraction_term}}",
         "quizzes": [
           {
             "id": "m25_q1",
-            "question": "Was ist eine 'Variable' in der Mathematik meistens?",
+            "question": "Welche Aussage über die Variable x passt?",
             "answers": [
               {
-                "text": "Ein Buchstabe (wie x), der für eine unbekannte Zahl steht.",
+                "text": "x ist ein Platzhalter. In einer Gleichung suchen wir passende Werte; in einem Term können wir verschiedene Werte einsetzen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Eine Variable ist ein Platzhalter für eine unbekannte Zahl."
+                "feedback": "Richtig: Die Aufgabe legt die Bedeutung und die zulässigen Werte fest. Innerhalb derselben Rechnung steht dasselbe x für denselben Wert."
               },
               {
-                "text": "Ein schwieriges Wort für Plusrechnen.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Eine Variable ist kein Rechenzeichen, sondern ein Platzhalter wie x."
-              },
-              {
-                "text": "Eine Zahl, die sich jede Minute ändert.",
+                "text": "x steht immer für dieselbe unbekannte Zahl, auch in ganz verschiedenen Aufgaben.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Der Wert kann wechseln, aber gemeint ist vor allem eine unbekannte Zahl."
+                "feedback": "Innerhalb einer Rechnung muss x gleich verwendet werden. In einer anderen Aufgabe kann x aber etwas anderes und einen anderen Wert bedeuten."
+              },
+              {
+                "text": "x ist nur eine Abkürzung für das Malzeichen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "In 3x ist x eine Variable; 3x ist die Kurzschreibweise für 3 · x. Das Malzeichen und die Variable sind verschieden."
+              }
+            ]
+          },
+          {
+            "id": "m25_term_value",
+            "question": "Welchen Wert hat 3x + 2 für x = 4?",
+            "answers": [
+              {
+                "text": "18",
+                "correct": false,
+                "pts": 0,
+                "feedback": "18 erhältst du bei 3 · (4 + 2). Im gegebenen Term stehen keine solchen Klammern: zuerst 3 · 4, dann +2."
+              },
+              {
+                "text": "14",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 3 · 4 + 2 = 12 + 2 = 14. Die Multiplikation kommt vor der Addition."
+              },
+              {
+                "text": "9",
+                "correct": false,
+                "pts": 0,
+                "feedback": "9 entsteht aus 3 + 4 + 2. In 3x werden 3 und x multipliziert, nicht addiert."
+              }
+            ]
+          },
+          {
+            "id": "m25_fraction_term",
+            "question": "„Die Hälfte einer Zahl, danach 3 dazu.“ Welcher Term beschreibt das?",
+            "answers": [
+              {
+                "text": "(x + 3)/2",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier würdest du auch die hinzugefügte 3 halbieren. Die Beschreibung halbiert zuerst nur x."
+              },
+              {
+                "text": "2x + 3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2x verdoppelt die Zahl. Für die Hälfte brauchst du x : 2."
+              },
+              {
+                "text": "x/2 + 3",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Erst x durch 2 teilen, dann 3 addieren. Für x = 8 erhältst du 4 + 3 = 7."
               }
             ]
           }
@@ -21906,30 +21981,315 @@
       },
       {
         "id": "sec2",
-        "title": "Gleichungen lösen (Waage-Trick)",
-        "content": "<p>Eine Gleichung ist wie eine <b>Waage</b> im Gleichgewicht. Was du auf der linken Seite machst, MUSST du auch rechts machen!</p><p>Aufgabe: <b>2x = 10</b></p><p>Wenn 2 Döner 10€ kosten, was kostet dann 1 Döner? Klar, du teilst beide Seiten durch 2!</p><p><span style='color:blue'>x = 5</span></p><div class='interactive-zone' style='background:#e6ffe6; padding:10px; border-radius:8px;'><h4>⚖️ Waage im Gleichgewicht halten</h4><p>Gleichung: x + 4 = 12</p><p>Um x allein zu haben, musst du die 4 wegbekommen. Wie?</p><button onclick='document.getElementById(\"waage_res\").innerText=\"✅ Genau! Minus 4 auf BEIDEN Seiten. 12 - 4 = 8. Also x = 8.\";'>- 4 rechnen</button> <button onclick='document.getElementById(\"waage_res\").innerText=\"❌ Falsch. Wenn du +4 rechnest, hast du x + 8 = 16. Das hilft nicht.\";'>+ 4 rechnen</button><p id='waage_res' style='font-weight:bold;'></p></div>{{QUIZ_m25_q2}}<p><strong>Probe:</strong> Für x = 5 wird 2x = 10 zu 2 · 5 = 10. Beide Seiten stimmen überein. Durch 0 darfst du keine Gleichung dividieren.</p>",
+        "title": "2. Die Rechenkette rückwärts gehen",
+        "content": "<p>Bei <strong>2x + 3 = 11</strong> wird x zuerst verdoppelt, dann werden 3 addiert. Rückwärts beginnt man mit 11: erst 3 abziehen, dann durch 2 teilen.</p><p><strong>2x + 3 = 11 → 2x = 8 → x = 4.</strong> Jeder Pfeil beschreibt dieselbe Operation auf beiden Seiten: zuerst −3, danach :2. Probe in der ursprünglichen Gleichung: 2 · 4 + 3 = 11.</p><figure><svg data-worksheet-static=\"true\" data-equation2-chain viewBox=\"0 0 360 220\" role=\"img\" aria-label=\"Rechenweg: 4 mal 2 ergibt 8; plus 3 ergibt 11. Rückweg: 11 minus 3 ergibt 8; geteilt durch 2 ergibt 4.\"><rect width=\"360\" height=\"220\" fill=\"white\"/><g fill=\"#172033\" font-family=\"sans-serif\" font-size=\"17\"><text x=\"16\" y=\"26\">Hinweg: erst · 2, dann + 3</text><text x=\"16\" y=\"130\">Rückweg: erst − 3, dann : 2</text></g><rect x=\"16\" y=\"44\" width=\"70\" height=\"48\" rx=\"6\" fill=\"#e3f2fd\" stroke=\"#1765a8\"/><text x=\"51\" y=\"75\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#172033\">4</text><rect x=\"144\" y=\"44\" width=\"70\" height=\"48\" rx=\"6\" fill=\"#e3f2fd\" stroke=\"#1765a8\"/><text x=\"179\" y=\"75\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#172033\">8</text><rect x=\"272\" y=\"44\" width=\"70\" height=\"48\" rx=\"6\" fill=\"#e3f2fd\" stroke=\"#1765a8\"/><text x=\"307\" y=\"75\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#172033\">11</text><rect x=\"16\" y=\"148\" width=\"70\" height=\"48\" rx=\"6\" fill=\"#e3f2fd\" stroke=\"#1765a8\"/><text x=\"51\" y=\"179\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#172033\">11</text><rect x=\"144\" y=\"148\" width=\"70\" height=\"48\" rx=\"6\" fill=\"#e3f2fd\" stroke=\"#1765a8\"/><text x=\"179\" y=\"179\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#172033\">8</text><rect x=\"272\" y=\"148\" width=\"70\" height=\"48\" rx=\"6\" fill=\"#e3f2fd\" stroke=\"#1765a8\"/><text x=\"307\" y=\"179\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#172033\">4</text><path d=\"M 91 73 h 42 l -7 -5 m 7 5 l -7 5\" fill=\"none\" stroke=\"#172033\" stroke-width=\"2\"/><text x=\"112\" y=\"61\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#172033\">· 2</text><path d=\"M 219 73 h 42 l -7 -5 m 7 5 l -7 5\" fill=\"none\" stroke=\"#172033\" stroke-width=\"2\"/><text x=\"240\" y=\"61\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#172033\">+ 3</text><path d=\"M 91 177 h 42 l -7 -5 m 7 5 l -7 5\" fill=\"none\" stroke=\"#172033\" stroke-width=\"2\"/><text x=\"112\" y=\"165\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#172033\">− 3</text><path d=\"M 219 177 h 42 l -7 -5 m 7 5 l -7 5\" fill=\"none\" stroke=\"#172033\" stroke-width=\"2\"/><text x=\"240\" y=\"165\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#172033\">: 2</text></svg><figcaption>Die Lösung 4 läuft vorwärts durch die Rechenkette zu 11. Beim Rückwärtsrechnen werden Reihenfolge und Rechenoperationen umgekehrt.</figcaption></figure><p>Auch Brüche und Dezimalzahlen sind möglich: <strong>x/3 + 2 = 7 → x/3 = 5 → x = 15</strong>. Bei <strong>3x = 7,5</strong> ergibt Teilen durch 3 die Lösung x = 2,5 = 5/2. „Durch 3“ wird mit „mal 3“ rückgängig gemacht und umgekehrt.</p><div class=\"interactive-zone equation2-lab\" data-equation2-probe><h3>Eine Lösung durch Einsetzen prüfen</h3><p>Schätze zuerst oder löse im Heft. Gib deinen Wert als Zahl oder Bruch ein, zum Beispiel 2,5 oder 5/2. Die Übung vergibt keine Punkte.</p><label>Gleichung <select data-equation2-task><option value=\"0\">2x + 3 = 11</option><option value=\"1\">x/3 + 2 = 7</option><option value=\"2\">3x = 7,5</option></select></label><label>Dein Wert für x <input data-equation2-input type=\"text\" inputmode=\"text\" autocomplete=\"off\" aria-describedby=\"equation2-probe-feedback\"></label><button type=\"button\" data-equation2-check>Einsetzen und prüfen</button><button type=\"button\" data-equation2-reset>Neu beginnen</button><p id=\"equation2-probe-feedback\" role=\"status\" aria-atomic=\"true\"></p><template data-worksheet-alternative><p>Löse jede Gleichung zuerst im Heft. Setze deine Lösung anschließend in die ursprüngliche linke Seite ein und vergleiche sie mit der rechten Seite.</p><table data-equation2-probe-paper><thead><tr><th>Gleichung</th><th>Dein x</th><th>Linke Seite bei diesem x</th><th>Gleich?</th></tr></thead><tbody><tr><td>2x + 3 = 11</td><td>______</td><td>____________</td><td>______</td></tr><tr><td>x/3 + 2 = 7</td><td>______</td><td>____________</td><td>______</td></tr><tr><td>3x = 7,5</td><td>______</td><td>____________</td><td>______</td></tr></tbody></table></template></div><h3>Selbst bearbeiten</h3><ol data-equation2-tasks><li>Löse die drei Gleichungen der Einsetzübung. Notiere zu jeder den Rückweg und die Probe.</li><li>Löse 5x − 4 = 21. Erkläre, weshalb der erste Rückwärtsschritt +4 lautet.</li><li>Prüfe den Vorschlag x = 7 für 2x + 3 = 11. Berechne beide Seiten und beschreibe den Fehler beim Rückwärtsrechnen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Rückweg und Probe</summary><p>Die drei Lösungen sind 4, 15 und 2,5 beziehungsweise 5/2. Proben: 2 · 4 + 3 = 11; 15/3 + 2 = 7; 3 · 2,5 = 7,5.</p><p>5x − 4 = 21 → 5x = 25 → x = 5. Die Subtraktion von 4 wird durch Addition von 4 umgekehrt. Probe: 5 · 5 − 4 = 21.</p><p>Für x = 7 ist links 17 und rechts 11. Der falsche Weg (11 + 3) : 2 = 7 addiert nochmals 3, statt die Addition rückgängig zu machen.</p></details>{{QUIZ_m25_q2}}{{QUIZ_m25_dip1}}{{QUIZ_m25_reverse_order}}",
         "quizzes": [
           {
             "id": "m25_q2",
-            "question": "Löse die Gleichung: x - 3 = 7. Was ist x?",
+            "question": "Löse x − 3 = 7. Was ist x?",
             "answers": [
               {
                 "text": "10",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Mit +3 auf beiden Seiten bekommst du x = 10."
+                "feedback": "Richtig: Auf beiden Seiten +3 ergibt x = 10. Probe: 10 − 3 = 7."
               },
               {
                 "text": "4",
                 "correct": false,
-                "pts": 5,
-                "feedback": "4 entsteht durch 7 - 3. Du musst aber -3 mit +3 aufheben."
+                "pts": 0,
+                "feedback": "4 entsteht durch 7 − 3. Du machst hier aber das Subtrahieren von 3 rückgängig: 7 + 3 = 10."
               },
               {
-                "text": "21",
+                "text": "7",
                 "correct": false,
                 "pts": 0,
-                "feedback": "21 entsteht durch Malnehmen. Hier brauchst du +3."
+                "feedback": "7 ist der Wert der rechten Seite. Einsetzen ergibt links 7 − 3 = 4; das ist nicht 7."
+              }
+            ]
+          },
+          {
+            "id": "m25_dip1",
+            "question": "3x = 15. Was ist x?",
+            "answers": [
+              {
+                "text": "5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Teile beide Seiten durch 3. Probe: 3 · 5 = 15."
+              },
+              {
+                "text": "12",
+                "correct": false,
+                "pts": 0,
+                "feedback": "12 entsteht aus 15 − 3. 3x bedeutet aber 3 · x und wird durch Division rückgängig gemacht."
+              },
+              {
+                "text": "45",
+                "correct": false,
+                "pts": 0,
+                "feedback": "45 entsteht aus 15 · 3. Du brauchst die Umkehroperation zur Multiplikation: 15 : 3 = 5."
+              }
+            ]
+          },
+          {
+            "id": "m25_reverse_order",
+            "question": "Bei 2x + 3 = 11 soll zunächst 2x allein stehen. Welcher Schritt erreicht das?",
+            "answers": [
+              {
+                "text": "Beide Seiten durch 2 teilen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Durch 2 auf beiden Seiten ist erlaubt, ergibt aber x + 1,5 = 5,5. Damit steht noch nicht 2x allein."
+              },
+              {
+                "text": "Auf beiden Seiten 3 subtrahieren.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 2x + 3 − 3 = 11 − 3 ergibt 2x = 8; danach durch 2 teilen."
+              },
+              {
+                "text": "Nur rechts 3 subtrahieren.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nur rechts zu ändern ergibt 2x + 3 = 8 und verändert die Lösung. Die 3 muss auf beiden Seiten subtrahiert werden."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec3",
+        "title": "3. Erlaubter Umweg oder Fehler?",
+        "content": "<p>Beim Lösen sollen <strong>genau dieselben x-Werte</strong> erlaubt bleiben. Addiere oder subtrahiere auf beiden Seiten dieselbe Zahl. Multiplizieren und Dividieren auf beiden Seiten erhält die Lösungen, wenn du dieselbe Zahl <strong>ungleich 0</strong> verwendest. Diese Schritte kann man rückgängig machen.</p><p>Ein Waagenbild kann die Gleichheit veranschaulichen. Es ist aber nur ein Modell: Eine Gleichung beschreibt Zahlenwerte, nicht immer echte Gewichte. Außerdem ist nicht jede gleiche Handlung ein brauchbarer Lösungsschritt.</p><p>Beispiel: x + 4 = 12 wird durch +4 auf beiden Seiten zu x + 8 = 16. <strong>Das ist erlaubt, aber ein Umweg.</strong> Die Lösung bleibt 8. Durch Multiplikation mit 0 entsteht dagegen 0 = 0: Das gilt auch für alle anderen x und verliert die ursprüngliche Einschränkung. Durch 0 darfst du gar nicht dividieren.</p><div class=\"interactive-zone equation2-lab\" data-equation2-step><h3>Sechs Umformungen beurteilen</h3><p>Ausgangsgleichung: <strong>x + 4 = 12</strong>. Beurteile den Schritt, bevor du die Erklärung öffnest.</p><label>Vorschlag <select data-equation2-case><option value=\"0\">1. Beide Seiten − 4</option><option value=\"1\">2. Beide Seiten + 4</option><option value=\"2\">3. Nur links − 4</option><option value=\"3\">4. Beide Seiten · 0</option><option value=\"4\">5. Beide Seiten : 0</option><option value=\"5\">6. Beide Seiten : 2</option></select></label><p data-equation2-case-result></p><div class=\"equation2-decisions\"><button type=\"button\" data-equation2-verdict=\"same\">Gleiche Lösung</button><button type=\"button\" data-equation2-verdict=\"changed\">Andere Lösungen</button><button type=\"button\" data-equation2-verdict=\"undefined\">Nicht erlaubte Rechnung</button></div><p data-equation2-step-feedback role=\"status\" aria-atomic=\"true\"></p><button type=\"button\" data-equation2-step-reset>Zur ersten Umformung</button><template data-worksheet-alternative><p>Ausgangsgleichung immer: <strong>x + 4 = 12</strong>. Beurteile jede Zeile: gleiche Lösung wie vorher, andere Lösungen oder nicht erlaubte Rechnung. Begründe mit x = 8 und bei Bedarf einer weiteren Zahl.</p><table data-equation2-case-paper><thead><tr><th>Schritt</th><th>Ergebnis</th><th>Urteil und Begründung</th></tr></thead><tbody><tr><td>Auf beiden Seiten 4 subtrahieren.</td><td>x = 8</td><td>________________</td></tr><tr><td>Auf beiden Seiten 4 addieren.</td><td>x + 8 = 16</td><td>________________</td></tr><tr><td>Nur links 4 subtrahieren.</td><td>x = 12</td><td>________________</td></tr><tr><td>Beide Seiten mit 0 multiplizieren.</td><td>0 = 0</td><td>________________</td></tr><tr><td>Beide Seiten durch 0 dividieren.</td><td>(x + 4) : 0 = 12 : 0</td><td>________________</td></tr><tr><td>Beide Seiten durch 2 dividieren.</td><td>x/2 + 2 = 6</td><td>________________</td></tr></tbody></table></template></div><h3>Selbst bearbeiten</h3><ol data-equation2-tasks><li>Beurteile alle sechs Vorschläge online oder in der Papiertabelle. Unterscheide zwischen „erlaubt“ und „hilft direkt beim Lösen“.</li><li>Zeige mit x = 8, warum „nur links −4“ die ursprüngliche Lösung zerstört. Zeige mit x = 0, warum „beide Seiten mal 0“ zusätzliche Lösungen zulässt.</li><li>Löse x + 10 = 25 auf zwei Wegen: direkt und zuerst mit dem erlaubten Umweg +10 auf beiden Seiten. Vergleiche die Anzahl der Schritte.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Die sechs Umformungen</summary><p>1: gleiche Lösung, direkt x = 8. 2: gleiche Lösung; x + 8 = 16 ergibt ebenfalls x = 8. 3: andere Lösung, denn x = 12 ersetzt x = 8. 4: andere Lösungsmenge; 0 = 0 gilt für alle Zahlen. 5: nicht erlaubte Rechnung; Division durch 0 ist nicht definiert. 6: gleiche Lösung; x/2 + 2 = 6 ergibt x = 8.</p><p>x = 8 erfüllt 8 + 4 = 12, aber nicht 8 = 12. x = 0 erfüllt 0 = 0, aber nicht 0 + 4 = 12.</p><p>Direkt: x + 10 = 25 → x = 15 mit −10. Umweg: x + 10 = 25 → x + 20 = 35 mit +10 → x = 15 mit −20. Beide Wege führen zur selben Lösung.</p></details>{{QUIZ_m25_dip2}}{{QUIZ_m25_valid_detour}}{{QUIZ_m25_zero_step}}",
+        "quizzes": [
+          {
+            "id": "m25_dip2",
+            "question": "Bei x + 10 = 25 soll x in einem Schritt allein stehen. Was tust du auf beiden Seiten?",
+            "answers": [
+              {
+                "text": "10 subtrahieren.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: x + 10 − 10 = 25 − 10, also x = 15."
+              },
+              {
+                "text": "10 addieren.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "+10 auf beiden Seiten ist erlaubt und erhält die Lösung, ergibt aber x + 20 = 35. Es erreicht das gefragte Ziel nicht direkt."
+              },
+              {
+                "text": "Mit 10 multiplizieren.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mit 10 auf beiden Seiten ist erlaubt, ergibt aber 10x + 100 = 250. Die Addition von 10 wird dadurch nicht aufgehoben."
+              }
+            ]
+          },
+          {
+            "id": "m25_valid_detour",
+            "question": "Aus x + 4 = 12 wird durch +4 auf beiden Seiten x + 8 = 16. Wie beurteilst du das?",
+            "answers": [
+              {
+                "text": "Die Lösung ist jetzt x = 16.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "16 ist die rechte Seite, nicht x. Einsetzen von x = 8 ergibt 8 + 8 = 16."
+              },
+              {
+                "text": "Die Rechnung ist verboten, weil x nicht allein steht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Umformung darf ein Umweg sein. Entscheidend ist, dass dieselben x-Werte die Gleichung erfüllen."
+              },
+              {
+                "text": "Der Schritt ist erlaubt; die Lösung bleibt x = 8. Er ist nur ein Umweg.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: In beiden Gleichungen ist x = 8 die Lösung. Ein erlaubter Schritt muss nicht der kürzeste Lösungsweg sein."
+              }
+            ]
+          },
+          {
+            "id": "m25_zero_step",
+            "question": "Warum eignet sich „beide Seiten mal 0“ nicht zum Lösen von x + 4 = 12?",
+            "answers": [
+              {
+                "text": "Weil 12 · 0 nicht berechnet werden kann.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Multiplikation mit 0 ist berechenbar: 12 · 0 = 0. Das Problem ist der Verlust der Einschränkung für x."
+              },
+              {
+                "text": "Weil 0 = 0 auch für andere x gilt und die Information x = 8 verloren geht.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0 = 0 gilt unabhängig von x. Die neue Aussage hat viel mehr Lösungen als die ursprüngliche Gleichung."
+              },
+              {
+                "text": "Weil danach nur x = 0 eine Lösung ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "In 0 = 0 kommt x nicht mehr vor. Daher gilt diese Aussage nicht nur für x = 0, sondern für jeden Wert."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec4",
+        "title": "4. Sachaufgaben: Ergebnis und Bedeutung prüfen",
+        "content": "<p>Gehe in vier Schritten vor: <strong>Variable und Einheit festlegen → Gleichung aufstellen → lösen und Probe → Ergebnis im Text prüfen.</strong> Eine rechnerisch richtige Lösung kann im Sachzusammenhang unzulässig sein.</p><p><strong>Erfundenes Beispiel für eine Wiener Schulwerkstatt:</strong> Ein Materialangebot kostet 4 € Grundbetrag und 2 € je vollständigem Set. n ist die Anzahl der Sets, also eine ganze Zahl ab 0. Die Gesamtkosten in Euro beschreibt C = 4 + 2n.</p><p>Bei genau 12 € lautet die Gleichung 4 + 2n = 12. Rückweg: 2n = 8, also n = 4. Probe: 4 + 2 · 4 = 12. Bei genau 13 € ergibt sich rechnerisch n = 4,5. Da es keine halben Sets gibt, kann man mit diesem Angebot nicht genau 13 € ausgeben. Bei <em>höchstens</em> 13 € sind 4 Sets möglich; sie kosten 12 €.</p><p>Die Preisangaben sind Übungswerte, keine tatsächlichen Angebote. Prüfe bei einem echten Kauf, ob der Grundbetrag und der Preis je Set wirklich unverändert gelten.</p><h3>Selbst bearbeiten</h3><ol data-equation2-tasks><li>Für dasselbe Angebot: Berechne die Kosten für 3 und 6 Sets. Wie viele Sets bekommst du bei genau 20 €? Notiere Gleichung, Lösung und Probe.</li><li>Von einem Band wird ein Drittel verwendet; 2 m kommen aus einer anderen Rolle dazu. Zusammen sind es 7 m. x ist die ursprüngliche Bandlänge in Metern. Stelle die Gleichung auf und löse sie.</li><li>Schreibe einen eigenen Text zu 3x + 2 = 14. Löse die Gleichung und erkläre, was die Lösung in deinem Text bedeutet.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Sachsituationen</summary><p>Drei Sets kosten 10 €, sechs Sets 16 €. 4 + 2n = 20 → 2n = 16 → n = 8. Probe: 4 + 2 · 8 = 20 €.</p><p>x/3 + 2 = 7 → x/3 = 5 → x = 15. Das ursprüngliche Band war 15 m lang; ein Drittel davon sind 5 m, zusammen mit 2 m ergibt das 7 m.</p><p>Möglicher Text: Drei gleich teure Hefte und ein Stift um 2 € kosten 14 €. 3x = 12 → x = 4; ein Heft kostet im erfundenen Beispiel 4 €. Probe: 3 · 4 + 2 = 14.</p></details>{{QUIZ_m25_fraction_solution}}{{QUIZ_m25_context_limit}}{{QUIZ_m25_write_text}}",
+        "quizzes": [
+          {
+            "id": "m25_fraction_solution",
+            "question": "Löse x/3 + 2 = 7.",
+            "answers": [
+              {
+                "text": "5/3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Du hast nach −2 noch einmal durch 3 geteilt. Die ursprüngliche Division durch 3 wird aber mit ·3 rückgängig gemacht."
+              },
+              {
+                "text": "27",
+                "correct": false,
+                "pts": 0,
+                "feedback": "27 ergibt sich aus (7 + 2) · 3. Zuerst musst du die Addition von 2 durch −2 rückgängig machen."
+              },
+              {
+                "text": "15",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: x/3 = 5 und damit x = 15. Probe: 15/3 + 2 = 5 + 2 = 7."
+              }
+            ]
+          },
+          {
+            "id": "m25_context_limit",
+            "question": "Erfundenes Materialangebot: 4 € Grundbetrag plus 2 € je Set. n ist die Anzahl ganzer Sets. Bei höchstens 13 € Budget: Was passt?",
+            "answers": [
+              {
+                "text": "Genau 4,5 Sets kaufen, weil 4 + 2 · 4,5 = 13.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "4,5 löst die Gleichung rechnerisch. Laut Aufgabe gibt es aber nur ganze Sets; 4,5 ist als Anzahl nicht zulässig."
+              },
+              {
+                "text": "Höchstens 4 Sets kaufen; sie kosten 12 €, 1 € bleibt übrig.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Vier Sets kosten 4 + 2 · 4 = 12 €. Fünf kosten 14 € und überschreiten das Budget."
+              },
+              {
+                "text": "5 Sets kaufen, weil man 4,5 aufrundet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Fünf Sets kosten 14 €. Bei einem Budget darf das Aufrunden nicht zu höheren Kosten als erlaubt führen."
+              }
+            ]
+          },
+          {
+            "id": "m25_write_text",
+            "question": "Welcher Text passt zur Gleichung 3x + 2 = 14?",
+            "answers": [
+              {
+                "text": "Drei gleich teure Hefte und ein Stift um 2 € kosten zusammen 14 €. x ist der Preis eines Hefts in Euro.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die drei Hefte kosten 3x Euro, der Stift weitere 2 Euro. Die Preise sind erfundene Übungswerte."
+              },
+              {
+                "text": "Ein Heft um 3 € und zwei gleich teure Stifte kosten 14 €. x ist der Preis eines Stifts in Euro.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre 3 + 2x = 14. Der feste Preis und die Anzahl der unbekannten Preise sind vertauscht."
+              },
+              {
+                "text": "Drei Hefte kosten jeweils x + 2 €. Insgesamt sind es 14 €.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre 3 · (x + 2) = 14. Die zusätzlichen 2 € würden bei jedem Heft und damit dreimal vorkommen."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec5",
+        "title": "5. Formeln nach der gesuchten Größe umstellen",
+        "content": "<p>Eine Formel kannst du auf dieselbe Weise rückwärts lesen. <strong>C = p · n</strong> beschreibt Gesamtkosten C für n gleich teure Stücke bei Stückpreis p, ohne zusätzlichen Grundbetrag. Gesucht ist n: Teile beide Seiten durch p, also <strong>n = C/p</strong>. Bei p = 0 ist diese Division nicht erlaubt. Bei 12 € Gesamtkosten und 3 € je Stück erhältst du 4 Stück.</p><p><strong>Ein Anteil und das Ganze:</strong> Ein Viertel von G ist W, also W = (1/4) · G. Das Ganze ist G = 4W. Sind W = 12 cm, so ist G = 48 cm. Ein Viertel entspricht 25 %.</p><p>Allgemeiner heißt die Formel <strong>W = r · G</strong>, wobei r der Anteil als Zahl ist: 25 % = 25/100 = 0,25. Für r ≠ 0 ergibt sich <strong>G = W/r</strong>. Bei r = 0 und W = 0 lässt sich das Ganze daraus nicht eindeutig bestimmen. Weitere Prozentaufgaben findest du im anschließenden Kapitel <a href=\"template.html?topic=math2_6_prop_prozent\">Proportionen und Prozentrechnung</a>.</p><p><strong>Geometrisches Beispiel:</strong> U = 2 · (a + b) ist der Umfang eines Rechtecks. Halbieren ergibt U/2 = a + b; anschließend a subtrahieren: <strong>b = U/2 − a</strong>. Alle Längen müssen dieselbe Einheit haben. Für ein Rechteck müssen beide Seiten positiv sein.</p><h3>Selbst bearbeiten</h3><ol data-equation2-tasks><li>Stelle C = p · n nach p um. Verwende C = 18 € und n = 6 Stück. Welche Bedingung braucht die Division?</li><li>Ein Viertel einer Bandlänge sind 9 cm. Berechne das Ganze und prüfe. Beschreibe anschließend den Rechenweg, wenn statt eines Viertels die Hälfte gegeben wäre.</li><li>Berechne b bei U = 36 cm und a = 11 cm. Prüfe auch die Angaben U = 20 cm und a = 12 cm: Kann daraus ein Rechteck entstehen? Begründe ohne eine Zeichnung im Maßstab.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Formeln</summary><p>p = C/n für n ≠ 0. 18 € : 6 Stück = 3 € je Stück. Bei null Stücken kann man den Stückpreis aus dieser Division nicht bestimmen.</p><p>G = 4 · 9 cm = 36 cm; ein Viertel davon sind 9 cm. Bei einer gegebenen Hälfte verdoppelt man den Anteil, statt ihn zu vervierfachen.</p><p>b = 36/2 − 11 = 7 cm. Probe: 2 · (11 + 7) = 36 cm. Bei U = 20 cm reichen schon die beiden 12-cm-Seiten nicht in den Umfang: 24 cm > 20 cm. Es gibt kein Rechteck mit diesen Angaben.</p></details>{{QUIZ_m25_formula_quantity}}{{QUIZ_m25_formula_percent}}{{QUIZ_m25_formula_rectangle}}",
+        "quizzes": [
+          {
+            "id": "m25_formula_quantity",
+            "question": "C = p · n beschreibt die Gesamtkosten bei Stückpreis p > 0. Welche Formel berechnet die Anzahl n?",
+            "answers": [
+              {
+                "text": "n = C − p",
+                "correct": false,
+                "pts": 0,
+                "feedback": "C − p zieht den Preis eines Stücks ab. Um die Anzahl gleich teurer Stücke zu erhalten, teilst du den Gesamtpreis durch den Stückpreis."
+              },
+              {
+                "text": "n = C/p",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Beide Seiten durch p teilen. Beispiel: 12 € : 3 € je Stück = 4 Stück."
+              },
+              {
+                "text": "n = p/C",
+                "correct": false,
+                "pts": 0,
+                "feedback": "p/C vertauscht Gesamt- und Stückpreis. Bei 12 € und 3 € je Stück wäre das 1/4 statt 4 Stück."
+              }
+            ]
+          },
+          {
+            "id": "m25_formula_percent",
+            "question": "Ein Viertel einer gesamten Länge G sind 12 cm: (1/4) · G = 12 cm. Wie lang ist G?",
+            "answers": [
+              {
+                "text": "3 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3 cm ist ein Viertel von 12 cm. Hier sind 12 cm bereits der Viertelanteil; gesucht ist das Ganze."
+              },
+              {
+                "text": "16 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei 16 cm wäre ein Viertel 4 cm. Einsetzen zeigt, dass 16 cm nicht passt."
+              },
+              {
+                "text": "48 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Vier Viertel sind 4 · 12 cm = 48 cm. Auch G = 12 cm : (1/4) = 48 cm."
+              }
+            ]
+          },
+          {
+            "id": "m25_formula_rectangle",
+            "question": "Ein Rechteck hat U = 40 cm und a = 12 cm. Aus U = 2 · (a + b) folgt b = U/2 − a. Wie groß ist b?",
+            "answers": [
+              {
+                "text": "8 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 40 cm : 2 − 12 cm = 8 cm. Probe: 2 · (12 + 8) cm = 40 cm."
+              },
+              {
+                "text": "14 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "14 cm entsteht aus (40 − 12) : 2. Im Umfang kommt a aber zweimal vor. Halbieren muss vor dem Abziehen einer Seite erfolgen."
+              },
+              {
+                "text": "28 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "28 cm entsteht aus 40 − 12. Der Umfang enthält jedoch je zwei Seiten a und b."
               }
             ]
           }
@@ -21937,65 +22297,9 @@
       }
     ],
     "diplom": {
-      "title": "🎓 X-Jäger Diplom",
-      "questions": [
-        {
-          "id": "m25_dip1",
-          "question": "3x = 15. Was ist x?",
-          "answers": [
-            {
-              "text": "5",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Teile beide Seiten durch 3: x = 5."
-            },
-            {
-              "text": "12",
-              "correct": false,
-              "pts": 0,
-              "feedback": "12 entsteht durch Subtrahieren. Bei 3x teilst du durch 3."
-            }
-          ]
-        },
-        {
-          "id": "m25_dip2",
-          "question": "x + 10 = 25. Was musst du auf beiden Seiten der Gleichung tun, um x zu finden?",
-          "answers": [
-            {
-              "text": "- 10 rechnen",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Du rechnest -10 auf beiden Seiten, damit x allein bleibt."
-            },
-            {
-              "text": "+ 10 rechnen",
-              "correct": false,
-              "pts": 0,
-              "feedback": "+10 macht den Abstand größer. Du brauchst die Gegenoperation -10."
-            },
-            {
-              "text": "* 10 rechnen",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Mal 10 hebt +10 nicht auf. Die Gegenoperation ist -10."
-            }
-          ]
-        }
-      ]
-    },
-    "prerequisites": [
-      "math1_7_gleichungen"
-    ],
-    "learningGoals": [
-      "Eine Variable als Platzhalter für einen Zahlenwert verwenden.",
-      "Einfache Gleichungen durch gleiche Umformungen auf beiden Seiten lösen.",
-      "Die Lösung durch Einsetzen kontrollieren."
-    ],
-    "summary": [
-      "2x bedeutet 2 · x.",
-      "Die Addition oder Subtraktion derselben Zahl auf beiden Seiten erhält die Gleichheit; ebenso Multiplikation oder Division mit derselben Zahl ungleich 0.",
-      "2x = 10 ergibt x = 5. Die Probe lautet 2 · 5 = 10."
-    ]
+      "title": "Kapitelcheck: Variablen, Gleichungen und Formeln",
+      "questions": []
+    }
   },
   "math2_6_prop_prozent": {
     "title": "Proportionen & Prozent",
@@ -23747,29 +24051,111 @@
     ]
   },
   "math3_3_gleichungen": {
-    "title": "Gleichungen",
-    "subtitle": "Finde das geheimnisvolle X",
+    "title": "Lineare Gleichungen und Formeln",
+    "subtitle": "3. Klasse: begründet umformen, eigene Lösungswege wählen und Ergebnisse deuten.",
+    "script": true,
+    "prerequisites": [
+      "math2_5_var_gleichungen",
+      "math3_1_rationale_zahlen",
+      "math3_2_potenzen_terme"
+    ],
+    "learningGoals": [
+      "Lineare Gleichungen durch Umformungen lösen, die genau dieselben Lösungen erhalten.",
+      "Klammern auflösen und Gleichungen mit Variablen auf beiden Seiten sowie negativen oder gebrochenen Zahlen bearbeiten.",
+      "Verschiedene gültige Rechenwege vergleichen und jede Lösung in der ursprünglichen Gleichung prüfen.",
+      "Sachaufgaben als Gleichungen formulieren und einfache geometrische Formeln umstellen.",
+      "Eine Lösung, keine Lösung und alle rationalen Zahlen als Lösungen unterscheiden."
+    ],
+    "summary": [
+      "Eine Äquivalenzumformung verändert die Lösungsmenge nicht. Auf beiden Seiten darfst du denselben Term addieren oder subtrahieren.",
+      "Multiplizieren oder Dividieren mit derselben festen Zahl ungleich 0 erhält die Lösungen. Division durch 0 ist nicht definiert.",
+      "Löse Klammern mit dem Verteilungsgesetz auf und fasse gleichartige Terme zusammen: 2(x − 3) = 2x − 6.",
+      "3x + 4 = 2x + 9 führt durch −2x und −4 auf beiden Seiten zu x = 5. Andere gültige Wege sind möglich.",
+      "Ein fester Nenner teilt den ganzen Zähler. (x + 2)/3 = 4 wird durch ·3 zu x + 2 = 12.",
+      "In der Probe müssen die Werte beider ursprünglichen Seiten übereinstimmen; bei einer Sachaufgabe kommen Einheiten und erlaubte Werte hinzu.",
+      "Bleibt nach korrekten Umformungen eine wahre Aussage ohne x, passen alle hier zugelassenen rationalen Zahlen. Bei einer falschen Aussage ohne x gibt es keine Lösung."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan – Mathematik, 3. Klasse, Variablen und Funktionen",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
+    ],
     "sections": [
       {
         "id": "sec1",
-        "title": "Das Waage-Modell",
-        "content": "<p>Eine Gleichung ist wie eine Waage. Beide Seiten müssen gleich schwer sein.</p><svg width='100' height='50'><path d='M10,40 L90,40 L50,10 Z' fill='gray'/></svg><p>Wenn du links was wegnimmst, musst du es rechts auch tun!</p><div class='interactive-zone'>x + 5 = 10. Was ist x?<br><input id='gl1' type='number'><button onclick='checkGl()'>Check</button><p id='glFb'></p></div>{{QUIZ_m33_q1}}",
+        "title": "1. Was muss beim Umformen gleich bleiben?",
+        "content": "<p>Eine Gleichung behauptet, dass zwei Terme denselben Wert haben. Die <strong>Lösungsmenge</strong> enthält alle eingesetzten Zahlen, für die diese Aussage stimmt. In diesem Kapitel rechnen wir mit <strong>rationalen Zahlen</strong>: ganzen Zahlen und Brüchen, auch negativen.</p><p>Eine <strong>Äquivalenzumformung</strong> erhält genau dieselben Lösungen. Addiere oder subtrahiere auf beiden Seiten dieselbe Zahl oder denselben Term. Multipliziere oder dividiere beide Seiten mit derselben festen Zahl <strong>ungleich 0</strong>. Ein erlaubter Schritt muss nicht der schnellste sein.</p><p>Zur Wiederholung: <strong>x + 3 = 8 → x = 5</strong> durch −3 auf beiden Seiten. <strong>4x = 20 → x = 5</strong> durch :4. Bei <strong>2x + 1 = 9</strong> führt −1 zu 2x = 8, danach :2 zu x = 4. Probe: 2 · 4 + 1 = 9.</p><p>Eine Waage kann die Gleichheit veranschaulichen. Bei negativen Zahlen und allgemeinen Termen ist sie kein wörtliches Gewichtsmodell. Rechne deshalb mit den Werten und begründe die Operationen.</p><h3>Selbst bearbeiten</h3><ol data-equation3-tasks><li>Löse x + 3 = 8, 4x = 20 und 2x + 1 = 9. Notiere neben jedem Schritt die Operation auf beiden Seiten.</li><li>Führe bei x + 3 = 8 zuerst den Umweg +2 auf beiden Seiten aus. Löse danach weiter und vergleiche mit dem direkten Weg.</li><li>Erkläre den Unterschied: „beide Seiten mit 0 multiplizieren“ und „beide Seiten durch 0 dividieren“. Warum sind das keine allgemein zulässigen Schritte zum Erhalten der Lösungsmenge?</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Umformungen begründen</summary><p>Die Lösungen sind 5, 5 und 4. Proben: 5 + 3 = 8; 4 · 5 = 20; 2 · 4 + 1 = 9.</p><p>x + 3 = 8 → x + 5 = 10 mit +2 → x = 5 mit −5. Der Umweg ist erlaubt und führt zur selben Lösung.</p><p>Multiplikation mit 0 ist berechenbar, kann aber Information verlieren: Aus x = 5 wird 0 = 0, das für alle x gilt. Division durch 0 ist dagegen nicht definiert.</p></details>{{QUIZ_m33_q1}}{{QUIZ_m33_q2}}{{QUIZ_m33_dip1}}",
         "quizzes": [
           {
             "id": "m33_q1",
-            "question": "Wenn ich bei x + 3 = 8 auf beiden Seiten 3 abziehe, was bleibt übrig?",
+            "question": "Bei x + 3 = 8 ziehst du auf beiden Seiten 3 ab. Was erhältst du?",
             "answers": [
               {
                 "text": "x = 5",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Links bleibt x, rechts 8 - 3 = 5."
+                "feedback": "Richtig: x + 3 − 3 = 8 − 3 ergibt x = 5."
               },
               {
                 "text": "x = 11",
                 "correct": false,
-                "pts": 5,
-                "feedback": "x = 11 entsteht durch Addieren. Hier wird auf beiden Seiten 3 abgezogen."
+                "pts": 0,
+                "feedback": "11 entsteht durch Addieren von 3 rechts. Hier wird auf beiden Seiten 3 subtrahiert."
+              },
+              {
+                "text": "x = 8",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nur links zu ändern würde x = 8 ergeben. Die rechte Seite muss ebenfalls um 3 kleiner werden."
+              }
+            ]
+          },
+          {
+            "id": "m33_q2",
+            "question": "Wie löst du 4x = 20?",
+            "answers": [
+              {
+                "text": "Beide Seiten durch 4 teilen: x = 5.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 4x bedeutet 4 · x. 20 : 4 = 5; Probe 4 · 5 = 20."
+              },
+              {
+                "text": "Auf beiden Seiten 4 abziehen: x = 16.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Subtrahieren von 4 ist als Umweg erlaubt, ergibt aber 4x − 4 = 16. Es macht aus 4x nicht x."
+              },
+              {
+                "text": "Beide Seiten mit 4 multiplizieren: x = 80.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Multiplizieren mit 4 ist erlaubt, ergibt aber 16x = 80. Daraus folgt weiterhin x = 5 und nicht x = 80."
+              }
+            ]
+          },
+          {
+            "id": "m33_dip1",
+            "question": "Löse 2x + 1 = 9.",
+            "answers": [
+              {
+                "text": "x = 4",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: −1 ergibt 2x = 8, dann :2 ergibt x = 4."
+              },
+              {
+                "text": "x = 8",
+                "correct": false,
+                "pts": 0,
+                "feedback": "8 ist nach dem ersten Schritt der Wert von 2x. Teile noch durch 2."
+              },
+              {
+                "text": "x = 5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "5 entsteht aus (9 + 1) : 2. Die Addition von 1 wird aber mit −1 rückgängig gemacht."
               }
             ]
           }
@@ -23777,33 +24163,8 @@
       },
       {
         "id": "sec2",
-        "title": "Mal und Geteilt",
-        "content": "<p>Wenn da steht: <b>3x = 12</b> (Drei mal x ist 12). Dann musst du durch 3 teilen, um ein x zu finden!</p>{{QUIZ_m33_q2}}",
-        "quizzes": [
-          {
-            "id": "m33_q2",
-            "question": "Wie löst du 4x = 20?",
-            "answers": [
-              {
-                "text": "Durch 4 teilen. x = 5",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: 4x bedeutet 4 mal x; teile durch 4, dann x = 5."
-              },
-              {
-                "text": "Minus 4 rechnen. x = 16",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Minus 4 passt zu x + 4, nicht zu 4x. Hier musst du teilen."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "m33_steps",
-        "title": "Zwei Schritte und die Probe",
-        "content": "<p>Löse 2x + 1 = 9. Zuerst auf beiden Seiten 1 subtrahieren: 2x = 8. Dann beide Seiten durch 2 dividieren: x = 4. Probe in der ursprünglichen Gleichung: 2 · 4 + 1 = 9.</p><p>Bei 3x − 6 = 15 addierst du zuerst 6: 3x = 21. Danach durch 3 dividieren: x = 7. Probe: 3 · 7 − 6 = 15. Eine Division durch 0 ist nicht definiert.</p>{{QUIZ_m33_twosteps}}{{QUIZ_m33_check}}",
+        "title": "2. Klammern und negative Zahlen",
+        "content": "<p>Das <strong>Verteilungsgesetz</strong> gilt für jeden Summanden in der Klammer: <strong>2(x − 3) = 2x − 6</strong>. Auch die −3 wird mit 2 multipliziert. Bei −2(x − 3) entsteht dagegen −2x + 6, denn ein negatives mal ein negatives Vorzeichen ergibt ein positives Produkt.</p><p>Beispiel: <strong>2(x − 3) = 14 → 2x − 6 = 14 → 2x = 20 → x = 10</strong>. Zuerst den linken Term gleichwertig umschreiben, danach +6 und :2 auf beiden Seiten. Probe: 2 · (10 − 3) = 14.</p><p>Eine Lösung kann negativ sein: <strong>−2x + 5 = 11 → −2x = 6 → x = −3</strong>. Der letzte Schritt teilt durch −2, nicht durch 2. Probe: −2 · (−3) + 5 = 6 + 5 = 11.</p><h3>Selbst bearbeiten</h3><ol data-equation3-tasks><li>Löse 3x − 6 = 15 und 2(x − 3) = 14. Schreibe jeden Schritt auf und prüfe.</li><li>Löse −3x + 2 = 14. Erkläre den Unterschied zwischen dem Vorzeichen des Faktors vor x und dem Vorzeichen der Lösung.</li><li>Eine Schülerin schreibt 2(x − 3) = 2x − 3. Zeige mit x = 5, dass die Terme verschieden sind, und verbessere die Umformung.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Klammern und Vorzeichen</summary><p>3x − 6 = 15 → 3x = 21 → x = 7. Probe: 21 − 6 = 15. Die zweite Gleichung ergibt x = 10; Probe 2 · 7 = 14.</p><p>−3x + 2 = 14 → −3x = 12 → x = −4. Der Faktor −3 und die Lösung −4 sind beide negativ; ihr Produkt ist +12.</p><p>Bei x = 5 ist 2 · (5 − 3) = 4, aber 2 · 5 − 3 = 7. Richtig ist 2x − 6, denn 2 · (−3) = −6.</p></details>{{QUIZ_m33_twosteps}}{{QUIZ_m33_expand}}{{QUIZ_m33_negative}}",
         "quizzes": [
           {
             "id": "m33_twosteps",
@@ -23813,37 +24174,311 @@
                 "text": "x = 7",
                 "correct": true,
                 "pts": 10,
-                "feedback": "+6 auf beiden Seiten ergibt 3x = 21. Durch 3 ergibt x = 7."
+                "feedback": "Richtig: +6 ergibt 3x = 21; :3 ergibt x = 7."
               },
               {
                 "text": "x = 3",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Du musst die −6 durch +6 aufheben. 3 · 3 − 6 wäre nur 3."
+                "feedback": "Du musst −6 durch +6 aufheben. Für x = 3 ergäbe links 3 · 3 − 6 = 3 statt 15."
               },
               {
                 "text": "x = 21",
                 "correct": false,
                 "pts": 0,
-                "feedback": "21 ist der Wert von 3x. Du musst noch durch 3 teilen."
+                "feedback": "21 ist der Wert von 3x nach dem Addieren von 6. Teile noch durch 3."
               }
             ]
           },
           {
+            "id": "m33_expand",
+            "question": "Welcher Term ist für jedes x gleich 2(x − 3)?",
+            "answers": [
+              {
+                "text": "2x − 3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch die −3 in der Klammer wird mit 2 multipliziert. Es entsteht −6."
+              },
+              {
+                "text": "2x − 6",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 2 · x + 2 · (−3) = 2x − 6."
+              },
+              {
+                "text": "2x + 6",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein positives mal ein negatives Vorzeichen bleibt negativ: 2 · (−3) = −6."
+              }
+            ]
+          },
+          {
+            "id": "m33_negative",
+            "question": "Löse −2x + 5 = 11.",
+            "answers": [
+              {
+                "text": "x = 3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei x = 3 ist links −6 + 5 = −1. Nach −5 musst du 6 durch −2 teilen."
+              },
+              {
+                "text": "x = −8",
+                "correct": false,
+                "pts": 0,
+                "feedback": "−8 entsteht, wenn du rechts 5 addierst und dann durch −2 teilst. Die +5 links wird aber mit −5 aufgehoben."
+              },
+              {
+                "text": "x = −3",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: −2x = 6, daher x = −3. Probe: −2 · (−3) + 5 = 11."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m33_steps",
+        "title": "3. Die Variable steht auf beiden Seiten",
+        "content": "<p>Bei <strong>3x + 4 = 2x + 9</strong> darfst du auf beiden Seiten denselben <em>Term</em> abziehen. Subtrahiere 2x: Links bleibt x + 4, rechts 9. Danach −4: x = 5.</p><figure><svg data-equation3-tiles data-worksheet-static=\"true\" viewBox=\"0 0 340 240\" role=\"img\" aria-label=\"Schematische Termplättchen für 3x plus 4 gleich 2x plus 9. Auf jeder Seite werden zwei x-Plättchen gestrichen; übrig bleibt x plus 4 gleich 9.\"><rect width=\"340\" height=\"240\" fill=\"white\"/><g font-family=\"sans-serif\"><text x=\"80\" y=\"24\" text-anchor=\"middle\" font-size=\"18\" fill=\"#172033\">3x + 4</text><text x=\"244\" y=\"24\" text-anchor=\"middle\" font-size=\"18\" fill=\"#172033\">2x + 9</text><g data-equation3-x=\"cancelled\"><rect x=\"20\" y=\"38\" width=\"30\" height=\"32\" rx=\"4\" fill=\"#dbeafe\" stroke=\"#1765a8\"/><text x=\"35\" y=\"60\" text-anchor=\"middle\" font-size=\"20\" fill=\"#172033\">x</text><path d=\"M 18 73 L 52 35\" stroke=\"#a21caf\" stroke-width=\"3\"/></g><g data-equation3-x=\"cancelled\"><rect x=\"62\" y=\"38\" width=\"30\" height=\"32\" rx=\"4\" fill=\"#dbeafe\" stroke=\"#1765a8\"/><text x=\"77\" y=\"60\" text-anchor=\"middle\" font-size=\"20\" fill=\"#172033\">x</text><path d=\"M 60 73 L 94 35\" stroke=\"#a21caf\" stroke-width=\"3\"/></g><g data-equation3-x=\"kept\"><rect x=\"104\" y=\"38\" width=\"30\" height=\"32\" rx=\"4\" fill=\"#dbeafe\" stroke=\"#1765a8\"/><text x=\"119\" y=\"60\" text-anchor=\"middle\" font-size=\"20\" fill=\"#172033\">x</text></g><g data-equation3-x=\"cancelled\"><rect x=\"194\" y=\"38\" width=\"30\" height=\"32\" rx=\"4\" fill=\"#dbeafe\" stroke=\"#1765a8\"/><text x=\"209\" y=\"60\" text-anchor=\"middle\" font-size=\"20\" fill=\"#172033\">x</text><path d=\"M 192 73 L 226 35\" stroke=\"#a21caf\" stroke-width=\"3\"/></g><g data-equation3-x=\"cancelled\"><rect x=\"236\" y=\"38\" width=\"30\" height=\"32\" rx=\"4\" fill=\"#dbeafe\" stroke=\"#1765a8\"/><text x=\"251\" y=\"60\" text-anchor=\"middle\" font-size=\"20\" fill=\"#172033\">x</text><path d=\"M 234 73 L 268 35\" stroke=\"#a21caf\" stroke-width=\"3\"/></g><text x=\"164\" y=\"63\" text-anchor=\"middle\" font-size=\"22\" fill=\"#172033\">=</text><g data-equation3-unit><rect x=\"35\" y=\"90\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"47\" y=\"106\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"85\" y=\"90\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"97\" y=\"106\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"35\" y=\"116\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"47\" y=\"132\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"85\" y=\"116\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"97\" y=\"132\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"190\" y=\"90\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"202\" y=\"106\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"232\" y=\"90\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"244\" y=\"106\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"274\" y=\"90\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"286\" y=\"106\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"190\" y=\"116\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"202\" y=\"132\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"232\" y=\"116\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"244\" y=\"132\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"274\" y=\"116\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"286\" y=\"132\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"190\" y=\"142\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"202\" y=\"158\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"232\" y=\"142\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"244\" y=\"158\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><g data-equation3-unit><rect x=\"274\" y=\"142\" width=\"24\" height=\"22\" fill=\"#fff7d6\" stroke=\"#80551d\"/><text x=\"286\" y=\"158\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">1</text></g><text x=\"170\" y=\"184\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">Auf beiden Seiten −2x: x + 4 = 9</text><text x=\"170\" y=\"218\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172033\">Danach auf beiden Seiten −4: x = 5</text></g></svg><figcaption>Blau steht für denselben Wert x, gelb jeweils für 1. Die vier violetten Striche zeigen das Abziehen von 2x auf jeder Seite. Größen und Farben sind nur Zeichenhilfen; die Plättchen sind keine echten Gewichte.</figcaption></figure><p>Ein anderer Weg ist ebenfalls richtig: <strong>3x + 4 = 2x + 9 → 4 = −x + 9 → −5 = −x → 5 = x</strong>. Hier werden zuerst 3x und dann 9 auf beiden Seiten subtrahiert; zuletzt wird durch −1 geteilt. Die Lösung muss nicht links stehen.</p><p><strong>Probe:</strong> Setze x = 5 in beide ursprünglichen Seiten ein: links 3 · 5 + 4 = 19, rechts 2 · 5 + 9 = 19. Das Prüfen nur des letzten vereinfachten Schritts reicht nicht, um einen früheren Fehler zu entdecken.</p><h3>Selbst bearbeiten</h3><ol data-equation3-tasks><li>Löse 3x + 4 = 2x + 9 auf den beiden beschriebenen Wegen und vergleiche. Welche Operation vermeidet früh negative x-Terme?</li><li>Löse 5x − 2 = 3x + 10. Notiere die Operationen und berechne beide ursprünglichen Seiten für deine Lösung.</li><li>Löse 2(x − 3) = x + 4. Trenne das Auflösen der Klammer vom Umformen auf beiden Seiten.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Beide Seiten</summary><p>Beide Wege ergeben x = 5. Das Subtrahieren von 2x lässt zunächst +x übrig; der Weg über −3x führt zu −x und ist ebenfalls erlaubt.</p><p>−3x ergibt 2x − 2 = 10; +2 ergibt 2x = 12; :2 ergibt x = 6. Probe: links 30 − 2 = 28, rechts 18 + 10 = 28.</p><p>2x − 6 = x + 4 → x − 6 = 4 durch −x → x = 10 durch +6. Probe: links 2 · (10 − 3) = 14, rechts 10 + 4 = 14.</p></details>{{QUIZ_m33_check}}{{QUIZ_m33_both}}{{QUIZ_m33_route}}",
+        "quizzes": [
+          {
             "id": "m33_check",
-            "question": "Wie prüfst du x = 4 für 2x + 1 = 9?",
+            "question": "Wie prüfst du x = 4 für die ursprüngliche Gleichung 2x + 1 = 9?",
             "answers": [
               {
                 "text": "2 · 4 + 1 berechnen und mit 9 vergleichen.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Setze die gefundene Zahl in die ursprüngliche Gleichung ein."
+                "feedback": "Richtig: Die Probe verwendet die ganze ursprüngliche Gleichung. Links und rechts ergeben jeweils 9."
               },
               {
-                "text": "Nur prüfen, ob 4 kleiner als 9 ist.",
+                "text": "Nur prüfen, ob x = 4 im letzten Rechenschritt steht.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Diese Größenordnung reicht nicht. Beide Seiten müssen denselben Wert ergeben."
+                "feedback": "Der letzte Schritt kann aus einer früher fehlerhaft veränderten Gleichung stammen. Prüfe in der ursprünglichen Gleichung."
+              },
+              {
+                "text": "Nur 2 · 4 mit 9 vergleichen und die +1 weglassen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die +1 gehört zur linken Seite. Erst 2 · 4 + 1 ergibt den zu vergleichenden Wert 9."
+              }
+            ]
+          },
+          {
+            "id": "m33_both",
+            "question": "Löse 3x + 4 = 2x + 9.",
+            "answers": [
+              {
+                "text": "x = 13",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nach −2x bleibt x + 4 = 9. Ziehe 4 ab; addiere sie nicht zu 9."
+              },
+              {
+                "text": "x = 5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: −2x ergibt x + 4 = 9; −4 ergibt x = 5. Beide ursprünglichen Seiten haben dann den Wert 19."
+              },
+              {
+                "text": "x = 1",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Für x = 1 ist links 7 und rechts 11. Die Probe zeigt, dass dieser Wert nicht passt."
+              }
+            ]
+          },
+          {
+            "id": "m33_route",
+            "question": "Aus 3x + 4 = 2x + 9 zieht Lea 2x, Amir 3x auf beiden Seiten ab. Welche Beurteilung stimmt?",
+            "answers": [
+              {
+                "text": "Nur Leas Schritt ist erlaubt, weil danach links x steht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Leas Weg ist direkt, aber nicht der einzige gültige Weg. Derselbe Term darf auf beiden Seiten subtrahiert werden."
+              },
+              {
+                "text": "Nur Amirs Schritt ist erlaubt, weil links kein x mehr steht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dass x links verschwindet, ist nicht vorgeschrieben. Leas Umformung erhält die Lösung ebenfalls."
+              },
+              {
+                "text": "Beide Schritte sind erlaubt; die Lösungsmenge bleibt jeweils gleich.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Lea erhält x + 4 = 9, Amir 4 = −x + 9. Beide Gleichungen haben die Lösung x = 5."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m33_fractions",
+        "title": "4. Brüche in der Gleichung",
+        "content": "<p>Ein <strong>fester Nenner</strong> teilt den ganzen Zähler: <strong>(x + 2)/3 = 4</strong>. Multipliziere beide Seiten mit 3. Dann bleibt x + 2 = 12; nach −2 folgt x = 10. Probe: (10 + 2)/3 = 4.</p><p>Du kannst den linken Term auch als <strong>(1/3)x + 2/3</strong> schreiben. Beim Multiplizieren mit 3 wird jeder Summand getroffen: 3 · (1/3)x + 3 · (2/3) = x + 2. Nur einen Summanden zu verändern wäre ein Fehler.</p><p>Zweites Beispiel: <strong>(1/2)x + 1 = 4 → (1/2)x = 3 → x = 6</strong>. Zum Aufheben der Multiplikation mit 1/2 teilst du durch 1/2, also multiplizierst du mit 2. Die Nenner hier sind feste Zahlen ungleich 0; eine Variable im Nenner ist ein anderer Aufgabentyp.</p><h3>Selbst bearbeiten</h3><ol data-equation3-tasks><li>Löse (x + 2)/3 = 4 und (1/2)x + 1 = 4. Prüfe beide Lösungen.</li><li>Löse (x − 1)/4 = 3. Beschreibe, weshalb nach dem Multiplizieren mit 4 noch x − 1 und nicht x − 4 steht.</li><li>Löse (3/4)x − 2 = 4. Gib die Umkehroperation zur Multiplikation mit 3/4 an.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Brüche</summary><p>Die Lösungen sind x = 10 und x = 6. Proben: (10 + 2)/3 = 4; (1/2) · 6 + 1 = 4.</p><p>(x − 1)/4 = 3 → x − 1 = 12 → x = 13. Die Division der ganzen Summe durch 4 wird aufgehoben; die −1 wird dabei nicht neu vervierfacht.</p><p>(3/4)x = 6 → x = 6 : (3/4) = 6 · (4/3) = 8. Probe: (3/4) · 8 − 2 = 6 − 2 = 4.</p></details>{{QUIZ_m33_denominator}}{{QUIZ_m33_fraction}}",
+        "quizzes": [
+          {
+            "id": "m33_denominator",
+            "question": "Du multiplizierst beide Seiten von (x + 2)/3 = 4 mit 3. Was erhältst du?",
+            "answers": [
+              {
+                "text": "x + 6 = 12",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Bruchstrich teilt den gesamten Zähler. Multiplikation mit 3 hebt diese Division auf; der Zähler bleibt x + 2."
+              },
+              {
+                "text": "x + 2 = 12",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 3 · ((x + 2)/3) = x + 2 und 3 · 4 = 12."
+              },
+              {
+                "text": "x + 2 = 4",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch die rechte Seite muss mit 3 multipliziert werden. Sie wird zu 12."
+              }
+            ]
+          },
+          {
+            "id": "m33_fraction",
+            "question": "Löse (1/2)x + 1 = 4.",
+            "answers": [
+              {
+                "text": "x = 1,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nach −1 steht (1/2)x = 3. Du musst die Halbierung rückgängig machen, also verdoppeln statt nochmals halbieren."
+              },
+              {
+                "text": "x = 3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3 ist der Wert von (1/2)x. Der ganze Wert x ist doppelt so groß."
+              },
+              {
+                "text": "x = 6",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Nach −1 und anschließend ·2 erhältst du x = 6. Probe: 3 + 1 = 4."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m33_context",
+        "title": "5. Sachaufgaben und Formeln",
+        "content": "<p><strong>Erfundener Vergleich für ein Schulprojekt in Wien:</strong> Anbieter A verlangt 3 € Grundbetrag und 2 € je Set; Anbieter B 7 € Grundbetrag und 1 € je Set. n zählt ganze Sets ab 0. Wann sind beide gleich teuer?</p><p>Die Gleichung lautet <strong>3 + 2n = 7 + n</strong>. Auf beiden Seiten −n ergibt 3 + n = 7; −3 ergibt n = 4. Probe: A kostet 3 + 2 · 4 = 11 €, B kostet 7 + 4 = 11 €. „Gleich teuer“ bedeutet nicht automatisch „immer günstiger“. Bei anderen Mengen musst du neu vergleichen.</p><p><strong>Formel umstellen:</strong> Für ein Dreieck gilt A = g · h/2. Gesucht ist h. Zuerst beide Seiten mit 2 multiplizieren: 2A = g · h. Dann durch g teilen: <strong>h = 2A/g</strong>, wobei g &gt; 0 die Grundseite ist. Bei A = 24 cm² und g = 8 cm folgt h = 6 cm. Die Einheiten passen: cm² : cm = cm.</p><p>Lege die Variable fest, stelle die Gleichung auf, löse, prüfe und beantworte die ursprüngliche Frage. Prüfe außerdem die Annahmen: Die erfundenen Preise gelten nur im beschriebenen Modell, ohne Mengenrabatt oder weitere Gebühren.</p><h3>Selbst bearbeiten</h3><ol data-equation3-tasks><li>Vergleiche beide Anbieter für 2, 4 und 6 Sets. Schreibe einen Satz darüber, für welche dieser Mengen A beziehungsweise B günstiger ist.</li><li>Für eine rechteckige Tafel gilt U = 2a + 2b. Stelle nach b um und verwende U = 34 cm, a = 10 cm. Prüfe die erhaltene Seite.</li><li>Erfinde eine Sachaufgabe zu 4x + 3 = 2x + 11. Lege die Bedeutung von x und die erlaubten Werte fest; löse und prüfe.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Anwendungen</summary><p>Bei 2 Sets: A 7 €, B 9 €, also A günstiger. Bei 4 Sets: beide 11 €. Bei 6 Sets: A 15 €, B 13 €, also B günstiger.</p><p>U − 2a = 2b → b = (U − 2a)/2 = U/2 − a. b = 17 − 10 = 7 cm. Probe: 2 · 10 + 2 · 7 = 34 cm.</p><p>Möglicher Text: Zwei erfundene Angebote mit Grundbeträgen 3 € beziehungsweise 11 € und Stückpreisen 4 € beziehungsweise 2 € sind bei derselben Anzahl x gleich teuer. −2x und −3 ergibt 2x = 8; x = 4. Beide kosten 19 €. x zählt hier ganze Stücke ab 0.</p></details>{{QUIZ_m33_cost_compare}}{{QUIZ_m33_formula_height}}",
+        "quizzes": [
+          {
+            "id": "m33_cost_compare",
+            "question": "A kostet 3 € Grundbetrag und 2 € je Set, B 7 € Grundbetrag und 1 € je Set. Welche Gleichung beschreibt gleiche Kosten für n Sets?",
+            "answers": [
+              {
+                "text": "3 + 2n = 7 + n",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Jede Seite enthält den einmaligen Grundbetrag und die Kosten je Set mal Anzahl."
+              },
+              {
+                "text": "2n = 7 + n",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier fehlt der Grundbetrag von 3 € bei A. Die Anbieter würden falsch verglichen."
+              },
+              {
+                "text": "3 + 2n = 7n",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei B sind 7 € einmalig fällig. 7n würde stattdessen 7 € je Set bedeuten und den tatsächlichen Stückpreis weglassen."
+              }
+            ]
+          },
+          {
+            "id": "m33_formula_height",
+            "question": "A = g · h/2, mit g > 0. Welche Formel berechnet h?",
+            "answers": [
+              {
+                "text": "h = A/(2g)",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zum Aufheben der Division durch 2 musst du zuerst mit 2 multiplizieren, nicht nochmals durch 2 teilen."
+              },
+              {
+                "text": "h = A · g/2",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zum Aufheben der Multiplikation mit g musst du durch g teilen. Der Faktor g gehört in den Nenner."
+              },
+              {
+                "text": "h = 2A/g",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 2A = g · h; Division durch g ergibt h = 2A/g."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m33_solutions",
+        "title": "6. Eigener Rechenweg und besondere Ergebnisse",
+        "content": "<p>Nicht jede Gleichung hat genau eine Lösung. <strong>2(x + 1) = 2x + 2</strong> wird zu 2x + 2 = 2x + 2 und nach −2x zu <strong>2 = 2</strong>. Diese wahre Aussage hängt nicht mehr von x ab: Jede hier zugelassene rationale Zahl ist eine Lösung.</p><p>Bei <strong>2x + 1 = 2x + 4</strong> bleibt nach −2x dagegen <strong>1 = 4</strong>. Das ist falsch, unabhängig von x. Es gibt keine Lösung. Die Differenz 3 zwischen 1 und 4 ist nicht plötzlich ein gesuchter x-Wert.</p><p>Nutze die Werkstatt für einen eigenen Weg. Bei B, D und E wird vor dem ersten Schritt bereits eine gleichwertige Form ohne Klammern beziehungsweise mit einzelnen Bruchtermen angezeigt. Du kannst die Gleichung auch in der anderen Richtung lösen, sodass x rechts allein steht.</p><div class=\"interactive-zone equation3-lab\" data-equation3-lab><h3>Deinen eigenen Lösungsweg ausprobieren</h3><p>Wähle eine Gleichung und führe dieselbe Operation auf beiden Seiten aus. Du kannst auch einen erlaubten Umweg ausprobieren und jeden Schritt zurücknehmen. Das Modell rechnet mit ganzen Zahlen und Brüchen, speichert nichts und vergibt keine Punkte.</p><label>Aufgabe <select data-equation3-task><option value=\"0\">A: Beide Seiten</option><option value=\"1\">B: Klammer</option><option value=\"2\">C: Negative Lösung</option><option value=\"3\">D: Fester Nenner</option><option value=\"4\">E: Alle Zahlen?</option><option value=\"5\">F: Keine Lösung?</option></select></label><p data-equation3-original></p><p data-equation3-preparation></p><p><strong>Aktueller Stand:</strong> <span data-equation3-current></span></p><label>Operation auf beiden Seiten <select data-equation3-operation><option value=\"add\">Zahl addieren</option><option value=\"subtract\">Zahl abziehen</option><option value=\"addx\">kx addieren</option><option value=\"subtractx\">kx abziehen</option><option value=\"multiply\">mit k malnehmen</option><option value=\"divide\">durch k teilen</option></select></label><label data-equation3-value-label>Zahl k <input data-equation3-value type=\"text\" value=\"1\" autocomplete=\"off\" aria-describedby=\"equation3-input-help equation3-feedback\"></label><p id=\"equation3-input-help\">Beispiele: 2, −3, 0,5 oder 1/3. Bei einem x-Term ist k der Faktor vor x: k = 2 bedeutet 2x.</p><button type=\"button\" data-equation3-apply>Schritt ausführen</button><button type=\"button\" data-equation3-undo disabled>Schritt zurück</button><button type=\"button\" data-equation3-reset>Diese Aufgabe neu beginnen</button><p id=\"equation3-feedback\" role=\"status\" aria-atomic=\"true\"></p><h4>Dein Rechenweg</h4><ol data-equation3-history></ol><template data-worksheet-alternative><p>Wähle eine Gleichung und notiere einen eigenen Lösungsweg. Ein Schritt darf ein Umweg sein, wenn er die Lösungen erhält. Schreibe die Operation auf beiden Seiten auf und prüfe am Ende in der ursprünglichen Gleichung.</p><ol data-equation3-paper-cases><li>A: 3x + 4 = 2x + 9</li><li>B: 2(x − 3) = x + 4; starte nach dem Ausmultiplizieren mit 2x − 6 = x + 4.</li><li>C: −2x + 5 = 11</li><li>D: (x + 2)/3 = 4; zum Zusammenfassen gleichwertig zu (1/3)x + 2/3 = 4.</li><li>E: 2(x + 1) = 2x + 2; starte mit 2x + 2 = 2x + 2.</li><li>F: 2x + 1 = 2x + 4</li></ol><table data-equation3-paper-history><thead><tr><th>Gleichung nach dem Schritt</th><th>Operation auf beiden Seiten</th><th>Warum erlaubt?</th></tr></thead><tbody><tr><td>________________</td><td>________________</td><td>________________</td></tr><tr><td>________________</td><td>________________</td><td>________________</td></tr><tr><td>________________</td><td>________________</td><td>________________</td></tr><tr><td>________________</td><td>________________</td><td>________________</td></tr><tr><td>________________</td><td>________________</td><td>________________</td></tr></tbody></table><p>Probe oder Begründung, weshalb alle beziehungsweise keine rationalen Zahlen passen: ________________________</p></template></div><h3>Selbst bearbeiten</h3><ol data-equation3-tasks><li>Löse A bis D in der Werkstatt oder auf Papier. Vergleiche mindestens zwei gültige Wege für A. Notiere zu jeder Lösung eine Probe in der Ausgangsgleichung.</li><li>Untersuche E und F. Ziehe auf beiden Seiten 2x ab und erkläre die entstandene Aussage ohne x. Prüfe zur Veranschaulichung x = 0 und x = 3 in den Ausgangsgleichungen.</li><li>Versuche bei A eine Multiplikation und eine Division mit 0. Erkläre, warum das Werkzeug diese Schritte nicht als allgemeine Äquivalenzumformungen übernimmt. Nimm anschließend einen erlaubten Umweg mit „Zahl addieren“ und k = 2 und gehe einen Schritt zurück.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Werkstatt und Lösungsmenge</summary><p>A: x = 5, beide ursprünglichen Seiten 19. B: x = 10, beide Seiten 14. C: x = −3, beide Seiten 11. D: x = 10, beide Seiten 4. Ein Weg für A ist −2x, −4; ein anderer −3x, −9, : (−1), dann steht 5 = x.</p><p>E: Nach −2x bleibt 2 = 2, wahr für alle rationalen x. Bei x = 0 ergeben beide ursprünglichen Seiten 2, bei x = 3 beide 8. F: Nach −2x bleibt 1 = 4, deshalb keine Lösung. Bei x = 0 sind die ursprünglichen Seiten 1 und 4; bei x = 3 sind sie 7 und 10. Zwei Proben illustrieren die Ergebnisse; die allgemeine Begründung liefert das Umformen.</p><p>Mal 0 kann die Einschränkung für x verlieren; durch 0 ist nicht definiert. Das Werkzeug übernimmt deshalb keinen dieser beiden Schritte. Bei A ist +2 auf beiden Seiten dagegen erlaubt: 3x + 6 = 2x + 11. „Schritt zurück“ stellt die vorherige Gleichung wieder her.</p></details>{{QUIZ_m33_none}}{{QUIZ_m33_all}}",
+        "quizzes": [
+          {
+            "id": "m33_none",
+            "question": "Aus 2x + 1 = 2x + 4 folgt nach korrektem Umformen 1 = 4. Was bedeutet das?",
+            "answers": [
+              {
+                "text": "Keine rationale Zahl ist eine Lösung.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 1 = 4 ist unabhängig von x falsch. Deshalb kann kein eingesetzter Wert die ursprüngliche Gleichung erfüllen."
+              },
+              {
+                "text": "x = 3, weil 4 − 1 = 3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Differenz der Konstanten ist keine Lösung. x ist durch dieselbe Umformung bereits auf beiden Seiten weggefallen."
+              },
+              {
+                "text": "Jede rationale Zahl ist eine Lösung.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Alle Zahlen wären Lösungen, wenn die verbleibende Aussage wahr wäre, etwa 1 = 1. 1 = 4 ist falsch."
+              }
+            ]
+          },
+          {
+            "id": "m33_all",
+            "question": "Welche Aussage beschreibt die Lösungen von 2(x + 1) = 2x + 2?",
+            "answers": [
+              {
+                "text": "Nur x = 0 passt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "x = 0 passt, ist aber nicht die einzige Lösung. Nach dem Ausmultiplizieren stehen für jedes x dieselben Terme auf beiden Seiten."
+              },
+              {
+                "text": "Jede rationale Zahl passt.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Links wird 2x + 2. Beide Seiten sind damit für jeden rationalen Wert von x gleich."
+              },
+              {
+                "text": "Keine rationale Zahl passt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Gleichung ist kein Widerspruch. Zum Beispiel passt x = 0; allgemein stehen nach dem Ausmultiplizieren identische Terme da."
               }
             ]
           }
@@ -23851,42 +24486,9 @@
       }
     ],
     "diplom": {
-      "title": "🎓 Diplom: Gleichungen",
-      "questions": [
-        {
-          "id": "m33_dip1",
-          "question": "Löse: 2x + 1 = 9",
-          "answers": [
-            {
-              "text": "x = 4",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Erst -1 ergibt 2x = 8, dann durch 2: x = 4."
-            },
-            {
-              "text": "x = 8",
-              "correct": false,
-              "pts": 5,
-              "feedback": "x = 8 vergisst das Teilen durch 2 nach dem Wegnehmen der +1."
-            }
-          ]
-        }
-      ]
-    },
-    "prerequisites": [
-      "math2_5_var_gleichungen",
-      "math3_2_potenzen_terme"
-    ],
-    "learningGoals": [
-      "Gleichungen durch gleiche Operationen auf beiden Seiten umformen.",
-      "Einfache lineare Gleichungen in zwei Schritten lösen.",
-      "Eine gefundene Lösung durch Einsetzen überprüfen."
-    ],
-    "summary": [
-      "Die Gleichheit bleibt erhalten, wenn du auf beiden Seiten dieselbe Zahl addierst oder subtrahierst.",
-      "Beide Seiten dürfen durch dieselbe Zahl ungleich 0 dividiert werden.",
-      "2x + 1 = 9 ergibt zunächst 2x = 8 und dann x = 4. Die Probe lautet 2 · 4 + 1 = 9."
-    ]
+      "title": "Kapitelcheck: Lineare Gleichungen und Formeln",
+      "questions": []
+    }
   },
   "math3_4_flaechensatz": {
     "title": "📐 Flächeninhalte ebener Figuren",

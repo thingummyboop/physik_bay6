@@ -18,6 +18,7 @@
     const TRACK_SELECTION_KEY = "sciverse_learning_radio_disabled_tracks";
     const RADIO_TEXT = {
         de: {
+            region: "Lernradio",
             ready: "Lernradio bereit",
             hint: "Klick auf das violette Radio startet ruhige Lernmusik.",
             on: "Lernmusik ausschalten",
@@ -32,6 +33,7 @@
             keepOne: "Mindestens ein Musikstueck muss aktiv bleiben."
         },
         en: {
+            region: "Learning radio",
             ready: "Learning radio ready",
             hint: "Click the purple radio to start calm study music.",
             on: "Turn study music off",
@@ -160,6 +162,7 @@
     let titleEl;
     let metaEl;
     let panel;
+    let radioSummary;
     let settingsButton;
     let volumeEl;
     let trackDialog;
@@ -278,6 +281,7 @@
     }
 
     function updateLanguageLabels() {
+        if (radioSummary) radioSummary.textContent = radioText("region");
         if (currentIndex < 0 && titleEl) titleEl.textContent = radioText("ready");
         if (currentIndex < 0 && metaEl) metaEl.textContent = radioText("hint");
         if (settingsButton) {
@@ -352,6 +356,8 @@
 
     function renderTrackChoices() {
         if (!trackListEl) return;
+        const focusedIndex = trackListEl.contains(document.activeElement)
+            ? document.activeElement.dataset.trackIndex : undefined;
         const enabledCount = getEnabledTrackIndexes().length;
         trackListEl.innerHTML = TRACKS.map((track, index) => {
             const checked = !disabledTrackKeys.has(trackKey(index));
@@ -369,21 +375,20 @@
         trackListEl.querySelectorAll("input[type='checkbox']").forEach((input) => {
             input.addEventListener("change", handleTrackToggle);
         });
+        if (focusedIndex !== undefined) {
+            const replacement = trackListEl.querySelector(`[data-track-index="${focusedIndex}"]:not(:disabled)`);
+            (replacement || closeDialogButton)?.focus();
+        }
     }
 
     function closeTrackDialog() {
         if (!trackDialog) return;
-        trackDialog.classList.remove("is-open");
-        trackDialog.setAttribute("hidden", "");
-        document.removeEventListener("keydown", handleTrackDialogKeydown);
-        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-            lastFocusedElement.focus();
-        }
+        trackDialog.close();
     }
 
-    function handleTrackDialogKeydown(event) {
-        if (event.key === "Escape") {
-            closeTrackDialog();
+    function restoreTrackDialogFocus() {
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+            lastFocusedElement.focus();
         }
     }
 
@@ -391,9 +396,7 @@
         if (!trackDialog) return;
         lastFocusedElement = document.activeElement;
         renderTrackChoices();
-        trackDialog.removeAttribute("hidden");
-        trackDialog.classList.add("is-open");
-        document.addEventListener("keydown", handleTrackDialogKeydown);
+        trackDialog.showModal();
         const firstInput = trackDialog.querySelector("input[type='checkbox']:not(:disabled)");
         const focusTarget = firstInput || closeDialogButton;
         if (focusTarget) focusTarget.focus();
@@ -408,12 +411,38 @@
     function injectStyles() {
         const style = document.createElement("style");
         style.textContent = `
+            .learning-radio-dock {
+                box-sizing: border-box;
+                flex: 0 0 auto;
+                margin: 12px auto;
+                width: min(100%, 360px);
+                border: 1px solid #7e22ce;
+                border-radius: 12px;
+                background: #250d47;
+                color: #f8f0ff;
+                font: 1rem/1.5 "Segoe UI", sans-serif;
+                text-align: left;
+            }
+            #sidebar .learning-radio-dock { width: calc(100% - 24px); }
+            .learning-radio-dock > summary {
+                cursor: pointer;
+                box-sizing: border-box;
+                min-height: 44px;
+                padding: 10px 14px;
+                color: #f8f0ff;
+                font-weight: 700;
+            }
+            .learning-radio-dock > summary:focus-visible {
+                outline: 3px solid #fbbf24;
+                outline-offset: 2px;
+                border-radius: 12px;
+            }
+            .learning-radio-controls { padding: 0 12px 12px; }
             .learning-radio {
                 align-items: center;
                 background: transparent;
                 border: 0;
                 border-radius: 0;
-                bottom: 18px;
                 box-shadow: none;
                 color: #fff;
                 cursor: pointer;
@@ -421,16 +450,16 @@
                 height: 64px;
                 justify-content: center;
                 padding: 0;
-                position: fixed;
-                right: 18px;
+                position: static;
+                margin: 0 auto;
                 transition: transform 0.18s ease, box-shadow 0.18s ease;
                 width: 76px;
-                z-index: 5000;
             }
             .learning-radio:hover,
             .learning-radio:focus-visible {
                 filter: drop-shadow(0 16px 24px rgba(88, 28, 135, 0.45));
-                outline: none;
+                outline: 3px solid #fbbf24;
+                outline-offset: 2px;
                 transform: translateY(-2px);
             }
             .learning-radio.is-on {
@@ -444,28 +473,14 @@
                 background: rgba(37, 13, 71, 0.94);
                 border: 1px solid rgba(216, 180, 254, 0.65);
                 border-radius: 16px;
-                bottom: 86px;
                 box-shadow: 0 18px 38px rgba(15, 23, 42, 0.34);
                 color: #f8f0ff;
                 font-family: "Segoe UI", sans-serif;
-                max-width: min(320px, calc(100vw - 32px));
-                opacity: 0;
+                box-sizing: border-box;
+                max-width: 100%;
                 padding: 12px;
-                pointer-events: none;
-                position: fixed;
-                right: 18px;
-                transform: translateY(8px);
-                transition: opacity 0.18s ease, transform 0.18s ease;
-                width: 290px;
-                z-index: 4999;
-            }
-            .learning-radio:hover + .learning-radio-panel,
-            .learning-radio:focus-visible + .learning-radio-panel,
-            .learning-radio-panel:hover,
-            .learning-radio-panel:focus-within {
-                opacity: 1;
-                pointer-events: auto;
-                transform: translateY(0);
+                position: static;
+                width: 100%;
             }
             .learning-radio-heading {
                 align-items: start;
@@ -495,12 +510,12 @@
                 display: inline-flex;
                 flex: 0 0 auto;
                 font-size: 1rem;
-                height: 28px;
+                height: 44px;
                 justify-content: center;
                 line-height: 1;
                 padding: 0;
                 transition: background 0.16s ease, transform 0.16s ease;
-                width: 28px;
+                width: 44px;
             }
             .learning-radio-settings:hover,
             .learning-radio-settings:focus-visible {
@@ -511,6 +526,8 @@
             }
             .learning-radio-volume {
                 accent-color: #c084fc;
+                box-sizing: border-box;
+                min-height: 44px;
                 margin: 10px 0 6px;
                 width: 100%;
             }
@@ -536,17 +553,16 @@
                 text-decoration: underline;
             }
             .learning-radio-dialog-backdrop {
-                align-items: center;
-                background: rgba(15, 23, 42, 0.42);
-                display: none;
-                inset: 0;
-                justify-content: center;
-                padding: 18px;
-                position: fixed;
-                z-index: 6000;
+                padding: 0;
+                border: 0;
+                border-radius: 10px;
+                width: min(460px, calc(100% - 36px));
+                max-width: none;
+                max-height: calc(100dvh - 36px);
+                background: #fff;
             }
-            .learning-radio-dialog-backdrop.is-open {
-                display: flex;
+            .learning-radio-dialog-backdrop::backdrop {
+                background: rgba(15, 23, 42, 0.42);
             }
             .learning-radio-dialog {
                 background: #fff;
@@ -588,11 +604,11 @@
                 cursor: pointer;
                 display: inline-flex;
                 font-size: 1.25rem;
-                height: 32px;
+                height: 44px;
                 justify-content: center;
                 line-height: 1;
                 padding: 0 0 2px;
-                width: 32px;
+                width: 44px;
             }
             .learning-radio-dialog-close:hover,
             .learning-radio-dialog-close:focus-visible {
@@ -651,15 +667,11 @@
                 0%, 100% { transform: translateY(0) scale(1); }
                 50% { transform: translateY(-1px) scale(1.035); }
             }
-            @media (max-width: 720px) {
-                .learning-radio {
-                    bottom: 12px;
-                    right: 12px;
-                }
-                .learning-radio-panel {
-                    bottom: 78px;
-                    right: 12px;
-                }
+            @media (prefers-reduced-motion: reduce) {
+                .learning-radio.is-on { animation: none; }
+            }
+            @media print {
+                .learning-radio-dock, .learning-radio-dialog-backdrop { display: none !important; }
             }
         `;
         document.head.appendChild(style);
@@ -697,12 +709,9 @@
 
         panel = document.createElement("aside");
         panel.className = "learning-radio-panel";
-        panel.setAttribute("role", "status");
-        panel.setAttribute("aria-live", "polite");
-        panel.setAttribute("aria-atomic", "true");
         panel.innerHTML = `
             <div class="learning-radio-heading">
-                <span>
+                <span role="status" aria-atomic="true">
                     <strong class="learning-radio-title">${radioText("ready")}</strong>
                     <span class="learning-radio-meta">${radioText("hint")}</span>
                 </span>
@@ -724,11 +733,12 @@
             writeRadioSetting(VOLUME_KEY, String(audio.volume));
         });
 
-        trackDialog = document.createElement("div");
+        trackDialog = document.createElement("dialog");
         trackDialog.className = "learning-radio-dialog-backdrop";
-        trackDialog.setAttribute("hidden", "");
+        trackDialog.setAttribute("aria-labelledby", "learningRadioSettingsTitle");
+        trackDialog.setAttribute("aria-describedby", "learningRadioSettingsIntro");
         trackDialog.innerHTML = `
-            <section class="learning-radio-dialog" role="dialog" aria-modal="true" aria-labelledby="learningRadioSettingsTitle" aria-describedby="learningRadioSettingsIntro">
+            <section class="learning-radio-dialog">
                 <div class="learning-radio-dialog-header">
                     <div>
                         <h2 id="learningRadioSettingsTitle">${radioText("settingsTitle")}</h2>
@@ -743,13 +753,28 @@
         trackDialog.addEventListener("click", (event) => {
             if (event.target === trackDialog) closeTrackDialog();
         });
+        trackDialog.addEventListener("close", restoreTrackDialogFocus);
+        trackDialog.addEventListener("keydown", (event) => {
+            // Escape belongs to this dialog, not to the surrounding navigation.
+            if (event.key === "Escape") event.stopPropagation();
+        });
         trackListEl = trackDialog.querySelector(".learning-radio-track-list");
         trackNoticeEl = trackDialog.querySelector(".learning-radio-track-notice");
         closeDialogButton = trackDialog.querySelector(".learning-radio-dialog-close");
         closeDialogButton.addEventListener("click", closeTrackDialog);
         renderTrackChoices();
 
-        document.body.append(audio, button, panel, trackDialog);
+        const dock = document.createElement("details");
+        dock.className = "learning-radio-dock";
+        radioSummary = document.createElement("summary");
+        const controls = document.createElement("div");
+        controls.className = "learning-radio-controls";
+        controls.append(button, panel);
+        dock.append(radioSummary, controls);
+        const sidebarHeader = document.querySelector("#sidebar .sidebar-header");
+        if (sidebarHeader) sidebarHeader.after(dock);
+        else (document.querySelector(".topic-body, main") || document.body).prepend(dock);
+        document.body.append(audio, trackDialog);
         window.SciverseLearningRadioApplyLanguage = updateLanguageLabels;
         updateLanguageLabels();
     }

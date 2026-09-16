@@ -23,3 +23,9 @@ Aufgaben und Zeichnungen selbst erstellt; keine Buchabbildungen übernommen.
 Native Browserprüfung laut Bericht `../browser-qa/reproduction-learning/report.json`, 2026-09-16T10:09:05.788Z, Chromium 151.0.7922.34: 39 Quizantworten, 25 Zuordnungsentscheidungen, 48 Layoutzustände, Tastaturbedienung und zwei Kapitelchecks mit gezielter Wiederholung bestanden; keine Seitenfehler. Ausgewählte Bildschirmansichten wurden gelesen. Die erzeugte A4-Ausgabe mit Lösungen hat 19 Seiten; die abschließende Sichtprüfung der ausgewählten gerenderten PDF-Seiten ist beim Zwischenstand noch offen. Prüfartefakte liegen außerhalb des Repositorys.
 
 Kein neuer vollständiger Suitenlauf. Reale Unterrichtserprobung, vollständiger Lehrplanabgleich und die Abnahme des Gesamtprodukts bleiben offen. Übersetzungen sind zurückgestellt; die Priorität der fünf vereinbarten Fächer bleibt bestehen.
+
+## Nachprüfung nach dem GitHub-Zwischenstand ea86291
+
+Am 16.09.2026 die gerenderten Seiten 2, 3, 5, 9, 10 und 19 der unveränderten 19-seitigen A4-Ausgabe tatsächlich gelesen: Blütenlegende und drei Schemata, fünf Zuordnungsaufträge, leeres Keimprotokoll, fiktive Daten mit Diagramm und getrennte Vergleichslösungen. Auf diesen Seiten keine abgeschnittenen Diagrammbeschriftungen, Tabellen oder Lösungen festgestellt. Damit ist die oben noch offene ausgewählte Drucksichtprüfung erledigt; keine Behauptung einer vollständigen Sichtprüfung aller Seiten.
+
+Der anschließende vollständige Funktionslauf besteht mit 191/191 Suiten, einschließlich Ernährung, Pubertät, Zellen und Pflanzenvermehrung. Die zuvor im Bildschirmfoto über dem Lerntext liegende Radio-Schaltfläche gehört zur gemeinsamen Oberfläche. Sie ist jetzt in einem aufklappbaren Bereich außerhalb des Lerntextes angeordnet; siehe [Browserprüfung](BROWSER_PRUEFUNG.md). Lehrplan- und Gesamtproduktabnahme bleiben offen.
