@@ -1279,3 +1279,23 @@ Die Relaisdarstellung zeigt zwei elektrisch getrennte Stromkreise und ihre mecha
 Vor dieser Sicherung erneut bestanden: Relaisprüfung mit acht Zuständen, 24 Entscheidungen und unabhängig aus der Zeichnung rekonstruierten Leitungswegen; Motorprüfung mit 64 Zuständen und 192 Entscheidungen; Induktionsprüfung mit 24 Zuständen und 72 Entscheidungen; Elektromagnetismus-Grundlagen, alle 90 Kapitelantworten sowie alle 20 Physikarbeitsblätter. Syntaxprüfung und struktureller Prioritätsaudit ebenfalls bestanden. Inventar: 197 Kapitel, 1613 Frageninstanzen im Prioritätsaudit ohne Befund.
 
 Der vorhandene native Relaisbericht vom 16.09.2026, 13:39:40 UTC dokumentiert acht Zustände, 24 Entscheidungen, 48 Layoutfälle bei 320/390/1280 px in beiden Designs, Tastaturbedienung und Druckexport. Nach zwei Präzisierungen unbewerteter Erklärungstexte wurde das Arbeitsblatt um 13:42:28 UTC erneut exportiert. Die abschließende erneute Sichtprüfung der dadurch veränderten Druckseiten und die ausführliche Relaisdokumentation stehen noch aus. Kein neuer vollständiger Suitenlauf und keine praktische Unterrichtserprobung. Dieser Zwischenstand ist keine vollständige Produktabnahme oder Bestätigung der Veröffentlichung über GitHub Pages.
+
+
+## 16.09.2026 – Chemische Reaktionen: begründet urteilen
+
+Voriger Zielturn war Fortschritt: ba3f5d9 auf main gesichert, entfernten Stand und saubere Arbeitskopie bestätigt. Die anschließende Arbeit ist lokal und wurde nicht erneut gepusht. Die noch offene finale Relais-Drucksichtprüfung ist abgeschlossen und in PHYSIK_RELAIS.md dokumentiert.
+
+Im Chemiekapitel ersetzt eine Werkstatt mit sechs Fallbeschreibungen und zwei Informationsstufen den bloßen Hinweis-Sammler. 36 Einordnungen und 18 Untersuchungsvorschläge mit konkreten Rückmeldungen, vier Fallaufträge und drei Transferaufträge. Alle neun bestehenden Fragen verbessert, drei ergänzt und sämtliche zwölf Fragen passenden Abschnitten zugeordnet; Revision 3. Sechs Papierfälle und getrennte Lösungen einschließlich zuvor fehlender Wasserbildungs-Vergleichsauswertung.
+
+Gezielte Prüfungen, alle 15 Chemie-Suiten, 95 STEM-Arbeitsblätter, native Antwort-/Wiederholungswege, 72 Layoutzustände und ausgewählte finale Druckseiten bestanden. Kein neuer vollständiger Suitenlauf. Details und Grenzen: [CHEMIE_REAKTIONSBELEGE.md](CHEMIE_REAKTIONSBELEGE.md). Inventar 197 Kapitel, Prioritätsaudit 1616 Frageninstanzen ohne strukturellen Befund.
+
+Übersetzungen zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB priorisiert. Reaktionsbaukasten und weitere bestehende Modelle, vollständige Inhalts-/Lehrplanabgleiche, praktische Erprobung sowie die vollständige Produktabnahme aller vorhandenen Fächer bleiben Teil des unveränderten Gesamtauftrags. Diese Einzelverbesserung ist keine vollständige Abnahme.
+
+
+## 16.09.2026 – Reaktionsbaukasten: zählen statt entziffern
+
+Voriger Zielturn war Fortschritt: Chemie-Fallwerkstatt, zwölf überarbeitete Fragen und Relais-Druckprüfung abgeschlossen. Anschließend die dort ausdrücklich offene Lesbarkeit des Reaktionsbaukastens bearbeitet. Einzelne, lesbare Molekülbilder ersetzen die stark verkleinerte Gesamtzeichnung. Nullfälle, fehlende Stoffe, konkrete Atomdifferenzen und kürzbare Vielfache erhalten passende Rückmeldungen. Wasserbildung als Einstieg, danach Peroxidzerlegung und Methanverbrennung. Vier Modellaufträge, drei Papierfälle, zehn statische Zeichnungen und getrennte Lösungen; zwölf bewertete Fragen und Revision 3 unverändert.
+
+12.000 unabhängige Bilanzprüfungen, 55 gerenderte Zustände, gezielte native Eingabe-/Layoutprüfungen, alle 15 Chemie-Suiten und 95 STEM-Arbeitsblätter bestanden. Druckgrafiken nach Sichtprüfung verkleinert und Lösungstexte zusammengehalten; ausgewählte finale Druckseiten gelesen. Nachweise und Grenzen: [CHEMIE_REAKTIONSBAUKASTEN.md](CHEMIE_REAKTIONSBAUKASTEN.md). Kein neuer vollständiger Suitenlauf oder praktischer Unterrichtsversuch.
+
+Inventar 197 Kapitel, Prioritätsaudit 1616 Frageninstanzen. Änderungen weiter lokal nach ba3f5d9, kein erneuter Push. Übersetzungen zurückgestellt; die fünf priorisierten Fächer und alle übrigen noch offenen Inhalts-, Lehrplan- und Produktanforderungen bleiben im unveränderten Gesamtauftrag.

@@ -57,6 +57,10 @@ window.ChemieLabs = (() => {
         document.querySelectorAll('.chem-lab.interactive-zone, .chem-lab').forEach((lab) => {
             if (lab.dataset.chemReady === 'true') return;
             lab.dataset.chemReady = 'true';
+            if (lab.dataset.chemLab === 'evidence-cases') {
+                initEvidenceCases(lab);
+                return;
+            }
             if (lab.dataset.chemLab === 'separation-planner') {
                 initSeparationPlanner(lab);
                 return;
@@ -65,6 +69,66 @@ window.ChemieLabs = (() => {
             bindLab(lab);
             updateChemLab(lab);
         });
+    }
+
+    function initEvidenceCases(lab) {
+        const select = lab.querySelector('[data-evidence-select]');
+        const cards = [...lab.querySelectorAll('[data-evidence-case]')];
+        const verdict = lab.querySelector('.evidence-verdict');
+        const feedback = lab.querySelector('[data-evidence-feedback]');
+        const nextFeedback = lab.querySelector('[data-evidence-next-feedback]');
+        const toggle = lab.querySelector('[data-evidence-toggle]');
+        const choices = [...lab.querySelectorAll('[data-evidence-verdict]')];
+        const nextChoices = [...lab.querySelectorAll('[data-evidence-next]')];
+        const active = () => cards.find(card => card.dataset.evidenceCase === select.value);
+        function clearAnswers() {
+            feedback.textContent = '';
+            nextFeedback.textContent = '';
+            delete feedback.dataset.correct;
+            delete nextFeedback.dataset.correct;
+            [...choices, ...nextChoices].forEach(button => button.setAttribute('aria-pressed', 'false'));
+        }
+        function showCase() {
+            const card = active();
+            cards.forEach(item => {
+                item.hidden = item !== card;
+                item.querySelector('[data-evidence-extra]').hidden = true;
+            });
+            const task = card.querySelector('.evidence-next-task');
+            card.insertBefore(verdict, task);
+            task.append(nextFeedback);
+            toggle.setAttribute('aria-controls', card.querySelector('[data-evidence-extra]').id);
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = 'Zusatzinformation zeigen';
+            clearAnswers();
+        }
+        select.addEventListener('change', showCase);
+        toggle.addEventListener('click', () => {
+            const extra = active().querySelector('[data-evidence-extra]');
+            extra.hidden = !extra.hidden;
+            toggle.setAttribute('aria-expanded', String(!extra.hidden));
+            toggle.textContent = extra.hidden ? 'Zusatzinformation zeigen' : 'Nur erste Beschreibung zeigen';
+            clearAnswers();
+        });
+        choices.forEach(button => button.addEventListener('click', () => {
+            const card = active();
+            const phase = card.querySelector('[data-evidence-extra]').hidden ? 'first' : 'second';
+            const correct = button.dataset.evidenceVerdict === card.dataset[phase];
+            choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+            feedback.dataset.correct = String(correct);
+            feedback.textContent = (correct ? 'Passende Einordnung: ' : 'Prüfe deine Einordnung: ') + card.querySelector('[data-evidence-' + phase + ']').content.textContent;
+        }));
+        nextChoices.forEach(button => button.addEventListener('click', () => {
+            nextChoices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+            nextFeedback.dataset.correct = button.dataset.correct;
+            nextFeedback.textContent = (button.dataset.correct === 'true' ? 'Passender Vergleich: ' : 'Das reicht noch nicht: ') + button.dataset.explain;
+        }));
+        lab.querySelector('[data-evidence-reset]').addEventListener('click', () => {
+            select.selectedIndex = 0;
+            showCase();
+            select.focus();
+        });
+        showCase();
     }
 
     function prepareLab(lab) {
@@ -726,7 +790,7 @@ window.ChemieLabs = (() => {
     function atomSvg(symbol, x, y, radius, fill, textFill = '#0f172a') {
         return `<g>
             <circle cx="${x}" cy="${y}" r="${radius}" fill="${fill}" stroke="#0f172a" stroke-width="1.8"></circle>
-            <text x="${x}" y="${y + 4}" text-anchor="middle" font-size="${radius + 2}" font-weight="900" fill="${textFill}">${symbol}</text>
+            <text x="${x}" y="${y + 4}" text-anchor="middle" font-size="${Math.max(16, radius + 2)}" font-weight="900" fill="${textFill}">${symbol}</text>
         </g>`;
     }
 
@@ -785,36 +849,46 @@ window.ChemieLabs = (() => {
         return atomSvg(plain, 48, 56, 18, '#cbd5e1');
     }
 
-    function moleculeCopies(term, coeff) {
-        if (coeff <= 0) {
-            return '<text x="52" y="76" text-anchor="middle" font-size="12" font-weight="800" fill="#64748b">0 Moleküle</text>';
-        }
-        return Array.from({ length: Math.min(coeff, 9) }, (_, i) => {
-            const col = i % 3;
-            const row = Math.floor(i / 3);
-            return `<g transform="translate(${8 + col * 31} ${35 + row * 24}) scale(0.23)">${moleculeSvg(term.plain)}</g>`;
-        }).join('');
+    // The balance counts each atom sort; molecule counts need not be conserved.
+    function reactionBalance(key, coeffs) {
+        if (!Object.hasOwn(REACTIONS, key)) return null;
+        const reaction = REACTIONS[key];
+        if (!reaction || !coeffs) return null;
+        const terms = [...reaction.left, ...reaction.right];
+        if (terms.some(term => !Number.isInteger(coeffs[term.key]) || coeffs[term.key] < 0 || coeffs[term.key] > 9)) return null;
+        const left = reactionTotals(reaction.left, coeffs);
+        const right = reactionTotals(reaction.right, coeffs);
+        const atoms = [...new Set([...Object.keys(left), ...Object.keys(right)])].sort();
+        const conserved = atoms.every(atom => left[atom] === right[atom]);
+        const positive = terms.every(term => coeffs[term.key] > 0);
+        const balanced = conserved && positive;
+        const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+        const factor = balanced ? terms.map(term => coeffs[term.key]).reduce(gcd) : null;
+        return { left, right, atoms, conserved, balanced, factor,
+            moleculesLeft: reaction.left.reduce((sum, term) => sum + coeffs[term.key], 0),
+            moleculesRight: reaction.right.reduce((sum, term) => sum + coeffs[term.key], 0),
+            missing: terms.filter(term => coeffs[term.key] === 0).map(term => term.plain) };
     }
 
     function updateReactionBuilder(lab) {
-        const reactionKey = lab.dataset.chemReaction || lab.dataset.chemChoice || 'methane';
-        const reaction = REACTIONS[reactionKey] || REACTIONS.methane;
+        const requested = lab.dataset.chemReaction || lab.dataset.chemChoice || 'methane';
+        const reactionKey = Object.hasOwn(REACTIONS, requested) ? requested : 'methane';
+        const reaction = REACTIONS[reactionKey];
         lab.dataset.chemReaction = reactionKey;
-        const coeffs = {
-            a: reactionCoeff(lab, 'a'),
-            b: reactionCoeff(lab, 'b'),
-            c: reactionCoeff(lab, 'c'),
-            d: reactionCoeff(lab, 'd')
-        };
+        const coeffs = Object.fromEntries(['a','b','c','d'].map(key => [key, reactionCoeff(lab, key)]));
         const allTerms = [...reaction.left, ...reaction.right];
-        lab.querySelectorAll('[data-chem-reaction-label]').forEach((label) => {
-            const term = allTerms.find((item) => item.key === label.dataset.chemReactionLabel);
-            label.innerHTML = term ? term.formula : '-';
+        lab.querySelectorAll('[data-chem-reaction-label]').forEach(label => {
+            const term = allTerms.find(item => item.key === label.dataset.chemReactionLabel);
+            label.innerHTML = term ? (reaction.left.includes(term) ? 'Links: ' : 'Rechts: ') + term.formula : '-';
         });
-        lab.querySelectorAll('[data-chem-coeff]').forEach((input) => {
-            const term = allTerms.find((item) => item.key === input.dataset.chemCoeff);
+        lab.querySelectorAll('[data-chem-coeff]').forEach(input => {
+            const term = allTerms.find(item => item.key === input.dataset.chemCoeff);
             input.disabled = !term;
             input.closest('label')?.toggleAttribute('hidden', !term);
+        });
+        lab.querySelectorAll('[data-chem-action]').forEach(button => {
+            if (Object.hasOwn(REACTIONS, button.dataset.chemAction)) button.setAttribute('aria-pressed', String(button.dataset.chemAction === reactionKey));
+            else button.removeAttribute('aria-pressed');
         });
         const status = lab.querySelector('.chem-status');
         if (!status.id) status.id = 'reaction-builder-status-' + [...document.querySelectorAll('.chem-lab')].indexOf(lab);
@@ -825,55 +899,38 @@ window.ChemieLabs = (() => {
             descriptions.add(status.id);
             input.setAttribute('aria-describedby', [...descriptions].join(' '));
         });
-        if (allTerms.some(term => coeffs[term.key] === null)) {
+        const balance = reactionBalance(reactionKey, coeffs);
+        if (!balance) {
             visual(lab, '<p>Die Atombilanz erscheint nach gültigen Eingaben.</p>');
             chemStatus(lab, 'Trage in jedes aktive Feld eine ganze Zahl von 0 bis 9 ein. Leere Felder sind keine Null; Bruchzahlen und Werte außerhalb des Bereichs werden nicht gerundet.');
             return;
         }
-        const leftTotals = reactionTotals(reaction.left, coeffs);
-        const rightTotals = reactionTotals(reaction.right, coeffs);
-        const atoms = Array.from(new Set([...Object.keys(leftTotals), ...Object.keys(rightTotals)])).sort();
-        const balanced = atoms.length > 0 && atoms.every((atom) => leftTotals[atom] === rightTotals[atom]) && allTerms.every((term) => coeffs[term.key] > 0);
-        const equationLeft = reaction.left.map((term) => `${coeffs[term.key]} ${term.formula}`).join(' + ');
-        const equationRight = reaction.right.map((term) => `${coeffs[term.key]} ${term.formula}`).join(' + ');
-        const moleculeCards = (side, terms) => terms.map((term) => {
-            const coeff = coeffs[term.key] || 0;
-            const x = side === 'left' ? 36 + terms.indexOf(term) * 116 : 354 + terms.indexOf(term) * 116;
-            return `<g transform="translate(${x} 42)" opacity="${coeff > 0 ? 1 : 0.42}">
-                <rect width="104" height="118" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"></rect>
-                <rect x="8" y="8" width="34" height="22" rx="7" fill="${coeff > 0 ? '#dbeafe' : '#f1f5f9'}" stroke="#2563eb" stroke-width="2"></rect>
-                <text x="25" y="24" text-anchor="middle" font-size="13" font-weight="900">x${coeff}</text>
-                <text x="72" y="24" text-anchor="middle" font-size="13" font-weight="900">${term.plain}</text>
-                ${moleculeCopies(term, coeff)}
-            </g>`;
+        const {left, right, atoms, balanced, factor, moleculesLeft, moleculesRight, missing} = balance;
+        const equationSide = terms => terms.map(term => coeffs[term.key] + ' ' + term.formula).join(' + ');
+        const names = {CH4:'Methan', O2:'Sauerstoff', CO2:'Kohlenstoffdioxid', H2O:'Wasser', H2:'Wasserstoff', H2O2:'Wasserstoffperoxid'};
+        const cards = terms => terms.map(term => {
+            const count = coeffs[term.key];
+            const composition = Object.entries(term.atoms).map(([atom, number]) => number + ' ' + atom).join(', ');
+            const copies = Array.from({length:count}, () => '<svg data-reaction-molecule="' + term.plain + '" viewBox="0 0 100 100" role="img" aria-label="Ein ' + names[term.plain] + '-Molekül: ' + composition + '">' + moleculeSvg(term.plain) + '</svg>').join('');
+            return '<figure class="reaction-species-card" data-reaction-species="' + term.plain + '"><figcaption><strong>' + names[term.plain] + ' · ' + term.formula + '</strong><br>' + count + (count === 1 ? ' Molekül' : ' Moleküle') + '</figcaption><p>Pro Molekül: ' + composition + '</p><div class="reaction-molecules">' + (copies || '<p>Keine Moleküle dieses Stoffes eingestellt.</p>') + '</div></figure>';
         }).join('');
-        visual(lab, `
-            <div style="max-width:620px;margin:0 auto;text-align:left;">
-                <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:8px;font-size:1.05rem;font-weight:900;color:#0f172a;">
-                    <span>${equationLeft}</span><span style="color:#2563eb;">-></span><span>${equationRight}</span>
-                </div>
-                <svg width="100%" height="300" viewBox="0 0 620 300" style="max-width:620px;height:auto;" role="img" aria-label="Reaktionsgleichung ausgleichen">
-                    <rect x="18" y="22" width="584" height="232" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"></rect>
-                    <text x="160" y="34" text-anchor="middle" font-size="13" font-weight="900">Edukte links</text>
-                    <text x="460" y="34" text-anchor="middle" font-size="13" font-weight="900">Produkte rechts</text>
-                    ${moleculeCards('left', reaction.left)}
-                    ${moleculeCards('right', reaction.right)}
-                    <line x1="292" y1="60" x2="328" y2="60" stroke="#2563eb" stroke-width="5" marker-end="url(#reactionArrow)"></line>
-                    <g transform="translate(222 174)">
-                        <rect width="176" height="58" rx="12" fill="${balanced ? '#dcfce7' : '#fee2e2'}" stroke="${balanced ? '#16a34a' : '#dc2626'}" stroke-width="3"></rect>
-                        <text x="88" y="24" text-anchor="middle" font-size="14" font-weight="900">${balanced ? 'ausgeglichen' : 'noch nicht gleich'}</text>
-                        <text x="88" y="44" text-anchor="middle" font-size="11" fill="#334155">${balanced ? 'Atome bleiben erhalten' : 'links und rechts vergleichen'}</text>
-                    </g>
-                    <defs><marker id="reactionArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563eb"></path></marker></defs>
-                    <text x="310" y="278" text-anchor="middle" font-size="12" font-weight="900" fill="#0f172a">${reaction.hint}</text>
-                </svg>
-                <table class="word-rubric" style="margin-top:10px;">
-                    <tr><th>Atom</th><th>links</th><th>rechts</th><th>passt?</th></tr>
-                    ${atoms.map((atom) => `<tr><td>${atom}</td><td>${leftTotals[atom] || 0}</td><td>${rightTotals[atom] || 0}</td><td>${leftTotals[atom] === rightTotals[atom] ? 'ja' : 'nein'}</td></tr>`).join('')}
-                </table>
-            </div>
-        `);
-        chemStatus(lab, balanced ? 'Richtig ausgeglichen: Von jedem Atom gibt es links und rechts gleich viele.' : 'Noch nicht ausgeglichen: Zähle jede Atomart links und rechts und ändere nur die großen Zahlen vor den Stoffen.');
+        visual(lab, '<div class="reaction-model">'
+            + '<p class="reaction-equation" data-reaction-equation><span>' + equationSide(reaction.left) + '</span><span aria-label="reagieren zu"> → </span><span>' + equationSide(reaction.right) + '</span></p>'
+            + '<div class="reaction-sides"><section data-reaction-side="left"><h4>Links: Ausgangsstoffe</h4><div class="reaction-species">' + cards(reaction.left) + '</div></section><section data-reaction-side="right"><h4>Rechts: Produkte</h4><div class="reaction-species">' + cards(reaction.right) + '</div></section></div>'
+            + '<table class="reaction-balance" data-reaction-balance><caption>Atome jeder Sorte vergleichen</caption><thead><tr><th scope="col">Atom</th><th scope="col">Links</th><th scope="col">Rechts</th><th scope="col">Gleich?</th></tr></thead><tbody>'
+            + atoms.map(atom => '<tr data-reaction-atom="' + atom + '"><th scope="row">' + atom + '</th><td>' + left[atom] + '</td><td>' + right[atom] + '</td><td>' + (left[atom] === right[atom] ? 'ja' : 'nein') + '</td></tr>').join('') + '</tbody></table>'
+            + '<p data-reaction-molecule-totals>Moleküle insgesamt: links <strong>' + moleculesLeft + '</strong>, rechts <strong>' + moleculesRight + '</strong>. Die Molekülzahl muss nicht gleich bleiben.</p>'
+            + '<p class="reaction-model-limit">Die Kreise und Verbindungen sind Zählhilfen. Die Bilder zeigen weder maßstäbliche Größen noch räumliche Molekülformen oder den zeitlichen Reaktionsablauf. Die Karten vergleichen die eingestellten Teilchenzahlen; sie behaupten nicht, dass jede Einstellung eine mögliche Reaktion ergibt.</p></div>');
+        if (balanced) {
+            chemStatus(lab, 'Richtig ausgeglichen: Von jeder Atomsorte gibt es links und rechts gleich viele. ' + (factor === 1 ? 'Die Zahlen stehen im kleinsten ganzzahligen Verhältnis.' : 'Gültiges Vielfaches: Teile alle eingestellten Zahlen durch ' + factor + ', um das kleinste ganzzahlige Verhältnis zu erhalten.'));
+        } else if (moleculesLeft === 0 && moleculesRight === 0) {
+            chemStatus(lab, 'Keine Reaktion dargestellt: Die Nullen ergeben zwar gleiche Atomzahlen, zeigen aber keine Ausgangsstoffe und keine Produkte. Stelle für jeden vorgegebenen Stoff eine positive Anzahl ein.');
+        } else if (missing.length) {
+            chemStatus(lab, 'Noch nicht ausgeglichen: Es fehlen vorgegebene Stoffe (' + missing.join(', ') + '). Stelle für jeden eine positive Anzahl ein und vergleiche die Atome jeder Sorte.');
+        } else {
+            const differences = atoms.filter(atom => left[atom] !== right[atom]).map(atom => atom + ': links ' + left[atom] + ', rechts ' + right[atom]).join('; ');
+            chemStatus(lab, 'Noch nicht ausgeglichen: ' + differences + '. Ändere nur die großen Zahlen vor den Formeln, nicht die Formeln selbst.');
+        }
     }
 
     function updateCombustionLab(lab) {
@@ -1136,5 +1193,5 @@ window.ChemieLabs = (() => {
         reset();
     }
 
-    return { topicInit };
+    return { topicInit, reactionBalance };
 })();

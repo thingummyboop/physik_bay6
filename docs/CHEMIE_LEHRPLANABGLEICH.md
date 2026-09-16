@@ -112,3 +112,17 @@ Die didaktische Verbindung zu einer vorhandenen Syntheseuntersuchung ist damit h
 Gemische trennen, Revision 2: Der bisher sofort lösende Gemischwähler wird zu einer Planungsaufgabe mit vier Zielen, sieben Plänen und fünf Begründungsprinzipien. Passende Alternativen werden anerkannt; Zielerfüllung und Stoffeigenschaft getrennt beurteilt. Ein Papierprotokoll sowie der bestehende Schulversuch verlangen Vorhersage, eigene Beobachtung und Deutung; sichtbare Trennung wird von vollständiger Reinheit und Rückgewinnung abgegrenzt. Keine neuen Versuchsbedingungen. Zwei Transferfragen ergänzt, zwei vorhandene Fragen präzisiert.
 
 Alle 140 Kombinationen, 27 Quizantwortwege, Legacy-Auswahl und Papieraufgaben funktional geprüft. Alle 15 Chemie-Suiten und die 95 STEM-Arbeitsblattprüfungen bestanden. Tatsächliche Browserbedienung, ausgewählte mobile/dunkle Ansichten und Druckseiten geprüft. Quellen, Zeitpunkte und Grenzen: CHEMIE_TRENNPLANUNG.md. Die zuvor ergänzte Synthese-/Analyse-Verknüpfung bleibt erhalten; tatsächliche Schulversuche und Gesamtlehrplanabnahme sind weiter offen.
+
+
+### Beobachtung, Stoffbeleg und Untersuchungsplanung (16.09.2026)
+
+Chemische Reaktionen, Revision 3: Der bloße Hinweis-Sammler ist durch sechs Fallvergleiche mit unterschiedlicher Informationslage ersetzt. Schüler:innen wählen und begründen eine Einordnung, prüfen Zusatzinformationen und beurteilen einen hilfreichen Stoffvergleich. Vier Fallaufträge, drei Transferaufträge, sechs Papierfälle und getrennte Lösungen verbinden Interpretation und Planung mit dem vorhandenen Reaktionsbaukasten und den Schulversuchen. Neun Fragen überarbeitet, drei ergänzt; alle zwölf stehen bei ihren passenden Abschnitten. Die vorhandene Wasserbildungs-Vergleichsauswertung ist jetzt auch als optionale Drucklösung verfügbar.
+
+54 Fallentscheidungen, 36 Kapitelantwortwege, sämtliche 15 Chemie-Suiten, 95 STEM-Arbeitsblätter, native Tastatur-/Wiederholungswege und 72 Layoutzustände bestanden. Ausgewählte finale Druckseiten gelesen. Quellen, Zeitpunkte und Grenzen: [CHEMIE_REAKTIONSBELEGE.md](CHEMIE_REAKTIONSBELEGE.md). Die Fallbeschreibungen sind verfasstes Übungsmaterial; keine tatsächlichen Experimente oder Produktanalysen behauptet. Die vollständige Chemie- und Lehrplanabnahme bleibt offen.
+
+
+### Lesbare Teilchendarstellung und eigenständiges Ausgleichen (16.09.2026)
+
+Der vorhandene Reaktionsbaukasten zeigt nun jedes eingestellte Molekül lesbar, mit benannten Ausgangsstoffen/Produkten, eigener Atombilanz und gesonderter Molekülzählung. Rückmeldungen unterscheiden Nullfälle, fehlende Stoffe, ungleiche Atomzahlen und gültige Vielfache. Einstieg Wasserbildung, danach Peroxidzerlegung und Methanverbrennung. Vier Modellaufträge sowie drei vollständig gezeichnete Papierfälle mit Zähltabellen und getrennten Lösungen ergänzt. Keine neuen bewerteten Fragen oder Versuchsbedingungen.
+
+12.000 unabhängig nachgerechnete Zahlenkombinationen, 55 gerenderte Zustände, sämtliche Chemie-Suiten, 95 STEM-Arbeitsblätter und gezielte native Browser-/Druckprüfungen bestanden. Dies stärkt die Verbindung von Formel-, Teilchen- und Erklärungsebene; es ist keine Durchführung eines chemischen Versuchs oder vollständige Fachabnahme. Nachweise: [CHEMIE_REAKTIONSBAUKASTEN.md](CHEMIE_REAKTIONSBAUKASTEN.md).

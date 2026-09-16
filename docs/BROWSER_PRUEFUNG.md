@@ -209,3 +209,17 @@ Nativer Abschlusslauf 2026-09-16T13:10:24.023Z: 81 Antwortmöglichkeiten aller 2
 ## 16.09.2026 – Motorwerkstatt und erweiterter Kapitelcheck
 
 Motorbericht 2026-09-16T13:24:24.542Z: 64 Zustände, 192 Klassifikationen, Tastatur, SVG-Grenzen, Neustart und 24 Layoutfälle bestanden. Vollständiger Elektromagnetismus-Quizlauf 2026-09-16T13:26:24.556Z: 90 Antworten und sieben Wiederholungsziele, dazu Induktions-/Transformatorregressionen bestanden. Mobile Motorbilder und dunkle Werkstatt gelesen. Ausgewählte Seiten der finalen 38-seitigen Druckausgabe nach Layout- und Textpräzisierungen geprüft. Details und Grenzen: [PHYSIK_MOTOR.md](PHYSIK_MOTOR.md). Keine reale Geräte-, Screenreader-, Unterrichts- oder Gesamtproduktabnahme.
+
+
+## 16.09.2026 – Chemische Reaktionen: Belege beurteilen
+
+Native Fallwerkstatt mit 54 Entscheidungen, alle 36 Antwortwege des Zwölf-Fragen-Kapitels und fünf Wiederholungsziele geprüft. Bericht 2026-09-16T13:59:51.179Z, Chromium 151.0.7922.34: 72 Zustände bei 320/390/1280 px in beiden Designs ohne Seitenüberlauf oder Seitenfehler. Prüfvorbereitung setzt die übrigen Kapitelantworten; die jeweils untersuchte Antwort, Abgabe und Neustart werden über die Oberfläche bedient. Der erste Testversuch wurde korrigiert, weil er bereits abgegebene Antworten ohne Neustart bearbeiten wollte.
+
+Lange Antwortschaltflächen nach Sichtprüfung ohne Vergrößerung beim Überfahren; sechs Layoutzustände erneut geprüft. Finaler A4-Export mit 15-mm-Rändern vom 2026-09-16T14:02:16.182Z, 20 Seiten: 2–5, 10–15, 18–20 gerendert und gelesen. Helle/dunkle mobile Werkstatt ebenfalls gelesen. Quellen, Papieranpassung und Grenzen: [CHEMIE_REAKTIONSBELEGE.md](CHEMIE_REAKTIONSBELEGE.md).
+
+Zusätzlich die offene finale Sichtprüfung der Relaisseiten 5 und 39 abgeschlossen; Seiten 6 und 7 gegenüber der vorher gelesenen Fassung per Hash identisch. [PHYSIK_RELAIS.md](PHYSIK_RELAIS.md). Keine vollständige Browser- oder Geräteabnahme aller Fächer.
+
+
+## 16.09.2026 – Reaktionsbaukasten auf Bildschirm und Papier
+
+Chromium-Bericht 2026-09-16T14:14:14.273Z: 18 Modellzustände, 40 ungültige Eingaben, Fokus/Reset/Speicher und 54 Layoutfälle bei 320/390/1280 px in beiden Designs bestanden. Alle gezeichneten Atomsymbole innerhalb ihrer Grenzen und mindestens 16 CSS-Pixel groß, kein Seitenüberlauf oder Seitenfehler. Nach erster Drucksichtprüfung die spezifische Grafikgröße korrigiert; zehn Druckbreiten und sechs Layoutzustände erneut geprüft. Finale Prüfung mit Pfeiltasten, fertigen hellen/dunklen Textfarben und A4-Export um 14:19:26 UTC. Ausgewählte Modellansichten und Druckseiten 5–9, 22–23 tatsächlich gelesen. Nach letzter Absatzkorrektur 22–23 erneut gelesen und 5–9 bildidentisch verifiziert. [Details und Grenzen](CHEMIE_REAKTIONSBAUKASTEN.md). Kein vollständiger Browserlauf aller Fächer.

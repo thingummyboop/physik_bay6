@@ -105,3 +105,8 @@ Kontrollierter Induktionsvergleich mit getrenntem Modell- und Beobachtungsprotok
 ## 16.09.2026 – Vom einzelnen Leiter zum Motor
 
 Das qualitative Motorverständnis wird durch eine bedienbare Spulenansicht mit zwei Kraftwirkungen, winkelabhängiger Stromumkehr und Totpunkten ergänzt. Vergleichsaufträge und drei Fragen unterscheiden Kraftsumme, Drehwirkung und vorhandene Bewegung. 64 Zustände, 192 Entscheidungen, alle 90 Kapitelantworten, native Darstellung und ausgewählte Druckseiten geprüft. Kein vollständiger neuer Fachlehrplanabgleich oder praktischer Motorversuch. Dokumentation: [PHYSIK_MOTOR.md](PHYSIK_MOTOR.md).
+
+
+### Getrennte Relaiskreise und abschließende Drucksichtprüfung (16.09.2026)
+
+Die im Zwischenstand ba3f5d9 gesicherte Relaiswerkstatt unterscheidet Kontaktstellung, geschlossenen Lastweg und versorgte Lampe in acht Fällen. Zwei Arbeitsaufträge und acht Papierfälle ergänzen das bestehende Material. Elektrische Trennung anhand tatsächlich gezeichneter Leitungswege sowie 24 Entscheidungen und 48 native Layoutzustände geprüft. Die nach zwei Textpräzisierungen noch offenen Druckseiten 5 und 39 sind jetzt erneut gelesen; Seiten 6 und 7 sind gegenüber der bereits gelesenen Fassung bildidentisch. Nachweis und Modellgrenzen: [PHYSIK_RELAIS.md](PHYSIK_RELAIS.md). Keine erneute Veröffentlichung oder vollständige Fachabnahme.

@@ -4,12 +4,12 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=chemie_reaktionen_energie',runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,9);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,12);
  assert.match(d.body.textContent,/0,8 g/);assert.match(d.body.textContent,/Die Zündung überwindet eine Aktivierungsbarriere/);
  w.eval(read('js/topics/chemie_common.js'));w.ChemieLabs.topicInit();
- const evidence=d.querySelector('[data-chem-lab="reaction-evidence"]');for(const box of evidence.querySelectorAll('input')){box.checked=true;box.dispatchEvent(new w.Event('change'));}
- assert.match(evidence.querySelector('.chem-status').textContent,/Anzahl beweist keine Reaktion/);
+ assert.equal(d.querySelectorAll('[data-evidence-case]').length,6);
  const builder=d.querySelector('[data-chem-lab="reaction-builder"]');
+ builder.querySelector('[data-chem-action="methane"]').click();
  for(const [coeffs,correct]of [[[1,1,1,2],false],[[1,2,1,2],true],[[0,0,0,0],false]]){
   for(const [i,key]of ['a','b','c','d'].entries()){const input=builder.querySelector(`[data-chem-coeff="${key}"]`);input.value=coeffs[i];input.dispatchEvent(new w.Event('input'));}
   assert.equal(builder.querySelector('.chem-status').textContent.startsWith('Richtig ausgeglichen'),correct);
@@ -44,5 +44,5 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   }
  }
  assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),priorStorage);
- dom.window.close();console.log('PASS: 9 reaction questions, energy and mass examples, evidence-count caveat, balanced/unbalanced methane rejection of an empty equation, 125 peroxide balances with independently counted diagram atoms, reset and reaction switching.');
+ dom.window.close();console.log('PASS: 12 reaction questions, energy and mass examples, six evidence cases, balanced/unbalanced methane rejection of an empty equation, 125 peroxide balances with independently counted diagram atoms, reset and reaction switching.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

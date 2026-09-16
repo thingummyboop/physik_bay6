@@ -4,6 +4,20 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arbeitsblatt</title>
     <style>
+        .reaction-paper-case { break-inside:avoid; margin:6mm 0; }
+        .reaction-paper-case .reaction-equation { font-weight:700; }
+        .reaction-paper-case .reaction-sides { display:grid; grid-template-columns:1fr 1fr; gap:5mm; }
+        .reaction-paper-case .reaction-species { display:flex; flex-wrap:wrap; gap:3mm; }
+        .reaction-paper-case .reaction-species-card { margin:0; padding:2mm; border:1px solid #777; }
+        .reaction-paper-case .reaction-species-card p { margin-block:2mm; }
+        #ws-content .reaction-paper-case svg { width:26mm; height:26mm; max-width:26mm; display:block; margin:auto; }
+        .reaction-paper-case .reaction-balance { width:100%; border-collapse:collapse; margin-block:3mm; }
+        .reaction-paper-case .reaction-balance th, .reaction-paper-case .reaction-balance td { border:1px solid #777; padding:2mm; text-align:center; }
+        [data-reaction-builder-tasks] li, [data-reaction-level-task] li { break-inside:avoid; margin-bottom:3mm; }
+        .reaction-paper-solution { break-inside:avoid; }
+        .evidence-paper-case { break-inside:avoid; margin:6mm 0; }
+        .evidence-paper-case p { margin-block:3mm; }
+        [data-evidence-tasks] li, [data-reaction-transfer] li { break-inside:avoid; }
         [data-equation2-chain] { display:block; width:100%; max-width:105mm; height:auto; margin:5mm auto; }
         [data-equation2-case-paper], [data-equation2-probe-paper] { width:100%; table-layout:fixed; }
         [data-equation2-case-paper] td, [data-equation2-probe-paper] td { height:12mm; padding:3mm; }
