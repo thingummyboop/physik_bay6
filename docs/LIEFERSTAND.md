@@ -1231,3 +1231,23 @@ Das Zuordnungskapitel enthält jetzt fünf Abschnitte, 15 konkrete Arbeitsauftr�
 Vor dieser Sicherung erneut bestanden: die drei Kapitelprüfungen für Gleichungen, Potenzen und Zuordnungen der 3. Klasse, Mathematikrückmeldungen und die Prüfung der 95 STEM-Arbeitsblätter. Der vorhandene native Zuordnungsbericht vom 16.09.2026, 12:05:24 UTC dokumentiert 45 Quizantworten, 27 Klassifikationsentscheidungen, 63 Modellzustände und 54 Layoutzustände ohne Seitenfehler. Die abschließende Sichtprüfung der zuletzt erzeugten Zuordnungs-PDF-Seiten und die ausführliche Kapiteldokumentation stehen noch aus.
 
 Inventar: 197 Kapitel, Prioritätsaudit: 1596 Frageninstanzen ohne strukturellen Befund. Kein neuer vollständiger Suitenlauf. Dieser Zwischenstand ist keine vollständige Produktabnahme oder Bestätigung der Veröffentlichung über GitHub Pages. Übersetzungen bleiben zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB bleiben priorisiert.
+
+## 16.09.2026 – Wachstumsmodelle und Tabellenkalkulation in der 3. Klasse
+
+Der vorige Turn war Fortschritt: db9fbea erfolgreich nach main gepusht und entfernten Stand verifiziert. Anschließend die noch offene ausgewählte Drucksichtprüfung zur Proportionalität abgeschlossen und dokumentiert: [MATHEMATIK_ZUORDNUNGEN_KLASSE3.md](MATHEMATIK_ZUORDNUNGEN_KLASSE3.md).
+
+Im Lehrplanvergleich eine weitere konkrete Lücke geschlossen: Das Kapitel Prozent/Zinsen behandelt jetzt auch mehrstufige Änderungen, Zinseszins, lineares und prozentuelles Wachstum sowie Abnahme und eine konkrete Tabellenkalkulationsaufgabe. Sechs Abschnitte, 18 Arbeitsaufträge, 18 bewertete Fragen, Revision 2. Veränderbare Werkstatt mit eigenem Diagramm, Wertetabelle und passenden Zellbezügen; vollständige Papieralternativen und acht erzeugte Zusatzaufgaben mit passenden Lösungen. Mobile Formeltabelle nach Sichtprüfung verbessert, Quellenbezeichnungen und Rundungszeichen im Ausdruck korrigiert.
+
+54 Antwortwege, 189 Modellzustände, vier kopierte Tabellenreihen und 32 erzeugte Aufgaben-/Lösungspaare bestanden. Native Prüfung, gezielte Wiederholung, ausgewählte Druckseiten und gezielte Regressionen ebenfalls bestanden. Umfang und Grenzen: [MATHEMATIK_PROZENT_WACHSTUM.md](MATHEMATIK_PROZENT_WACHSTUM.md). Kein neuer vollständiger Suitenlauf und kein Test in einem externen Tabellenkalkulationsprogramm.
+
+Inventar 197 Kapitel; Prioritätsaudit 1607 Frageninstanzen ohne strukturellen Befund. Änderungen dieses Turns bleiben lokal nach db9fbea. Übersetzungen zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB priorisiert. Die verbleibenden Inhalts-, Lehrplan-, praktischen und vollständigen Produktabnahmen aller bestehenden Fächer bleiben Bestandteil des unveränderten Gesamtauftrags.
+
+## 16.09.2026 – GitHub-Zwischenstand: Wachstum und Induktion
+
+Auf ausdrücklichen Wunsch wird der aktuelle Stand nach db9fbea gesichert. Enthalten sind die oben dokumentierten Wachstumsmodelle und die abgeschlossene Dokumentation zur Proportionalität sowie die laufende Erweiterung des Physikkapitels Elektromagnetismus.
+
+Die neue Induktionswerkstatt vergleicht Magnetpol, Bewegung, Geschwindigkeit und offenen beziehungsweise geschlossenen Stromkreis. Papieralternativen und ein eigenes Beobachtungsprotokoll ergänzen das Modell. Die Transformatorbalken verwenden jetzt eine gemeinsame Skala; ein Fehler bei der sichtbaren Aktualisierung der SVG-Spannungstexte ist behoben. Acht Fragen wurden gezielt bearbeitet, davon drei neu; das Kapitel enthält insgesamt 27 Fragen und verwendet Inhaltsrevision 4.
+
+Vor dieser Sicherung erneut bestanden: Induktionsprüfung (24 Modellfälle, 72 Klassifikationen, 24 unabhängig erwartete Antwortwege und zehn Transformatorstellungen), Elektromagnetismusprüfung, Wachstumsprüfung und alle 20 Physikarbeitsblätter. Der vorhandene native Induktionsbericht vom 16.09.2026, 12:53:18 UTC dokumentiert zusätzlich Tastatur-, Layout- und Druckexportprüfungen. Die abschließende Sichtprüfung ausgewählter Induktions-PDF-Seiten und die ausführliche Kapiteldokumentation stehen noch aus. Ein realer Unterrichtsversuch wurde nicht durchgeführt.
+
+Inventar: 197 Kapitel, Prioritätsaudit: 1610 Frageninstanzen ohne strukturellen Befund. Kein neuer vollständiger Suitenlauf. Dieser Zwischenstand ist keine vollständige Produktabnahme oder Bestätigung der Veröffentlichung über GitHub Pages. Übersetzungen bleiben zurückgestellt; Physik, Mathematik, Chemie, Biologie und DGB bleiben priorisiert.

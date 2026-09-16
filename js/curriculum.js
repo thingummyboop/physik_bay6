@@ -1162,7 +1162,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math3_10_prozent_zins",
-        "title": "💰 Prozent- und Zinsrechnung",
+        "title": "💰 Prozent, Zinsen und Wachstum",
         "grade": "3. Klasse (7. Schulstufe)",
         "category": "Arithmetik"
       },

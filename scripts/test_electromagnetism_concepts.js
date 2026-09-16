@@ -4,10 +4,10 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=elektromagnetismus',runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,24);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,27);
  assert.equal(w.currentChapterResult('elektromagnetismus',{contentRevision:1,passed:true,bestPercent:100}).passed,false);
  assert.match(d.body.textContent,/Spannung, auch ohne geschlossenen Laststromkreis/);
- const diploma=data.elektromagnetismus.diplom.questions;
+ const diploma=[...data.elektromagnetismus.sections.flatMap(s=>s.quizzes||[]),...data.elektromagnetismus.diplom.questions];
  assert.match(diploma.find(q=>q.id==='em_d7').answers.find(a=>a.correct).feedback,/Motor/);
  assert.match(diploma.find(q=>q.id==='em_d8').answers.find(a=>a.correct).feedback,/Fluss/);
  w.eval(read('js/topics/elektromagnetismus.js'));w.topicInit();
@@ -28,7 +28,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   for(let choice=0;choice<q.answers.length;choice++){
    w.currentChapterQuiz.questions.forEach((question,i)=>{d.querySelector('input[name="chapter_q_'+i+'"][value="'+(i===index?choice:question.answers.findIndex(a=>a.correct))+'"]').checked=true;});
    w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).elektromagnetismus;
-   assert.equal(result.lastPercent,Math.round(100*(24-(q.answers[choice].correct?0:1))/24));assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
+   assert.equal(result.lastPercent,Math.round(100*(27-(q.answers[choice].correct?0:1))/27));assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
   }
  }
 
@@ -47,7 +47,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   w.changeDirection();
  }
  for(const [turns,volts]of [[2,92],[5,230],[10,460]]){
-  w.updateTransformer(turns);assert.equal(d.getElementById('voltValSec').innerText,volts+'V');
+  w.updateTransformer(turns);assert.equal(d.getElementById('voltValSec').textContent,volts+'V');
   assert.equal(d.querySelectorAll('#coil2 path').length,turns);
   assert.equal(d.querySelectorAll('#coil2 animateMotion').length,0,'Unloaded secondary must not depict flowing current');
   assert.equal(d.getElementById('magneticFlux').style.strokeWidth,'3');
@@ -56,5 +56,5 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  w.updateMagnetField(0);assert.ok([...d.getElementById('fieldLines').children].every(el=>Number(el.style.opacity)===0));
  w.updateMagnetField(60);assert.ok([...d.getElementById('fieldLines').children].every(el=>Number(el.style.opacity)>0));
  w.toggleRelay();assert.equal(d.getElementById('relayBtn').getAttribute('aria-pressed'),'true');w.toggleRelay();assert.equal(d.getElementById('relayBtn').getAttribute('aria-pressed'),'false');
- dom.window.close();console.log('PASS: 24 electromagnetic questions, four reversible pole combinations and nine new answer paths, corrected feedback and revision, three transformer ratios with fixed flux and no unloaded current animation, zero-current field and relay switching.');
+ dom.window.close();console.log('PASS: 27 electromagnetic questions, four reversible pole combinations and nine new answer paths, corrected feedback and revision, three transformer ratios with fixed flux and no unloaded current animation, zero-current field and relay switching.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

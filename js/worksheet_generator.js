@@ -524,13 +524,20 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math3_10_prozent_zins') {
-        html += `<h2>1. Zinsrechnung</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<6; i++) {
-            const K = rand(1, 20) * 1000;
-            const p = rand(1, 5);
-            html += `<div>Kapital K = ${K} €, Zinssatz p = ${p}%<br><br>Jahreszinsen Z = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> €</div>`;
+        const money = n => new Intl.NumberFormat('de-AT', {minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+        let solutions = '';
+        html += `<h2>1. Prozent und Wachstum anwenden</h2><p>Erfundene Rechenmodelle, ohne Steuern, Gebühren oder zusätzliche Zahlungen. Keine Zwischenrundung; Ergebnisse am Ende auf Cent runden. Notiere Rechenweg und Einheit.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">`;
+        for(let i=0; i<8; i++) {
+            const start = rand(1, 10) * 100, rate = rand(1, 5), n = rand(2, 4), kind = i % 4;
+            let prompt, result, calculation;
+            if(kind === 0) {result=start*(1-rate/100);prompt=`${start} Euro mit ${rate} % Rabatt: Berechne den neuen Preis.`;calculation=`${start} · (1 − ${rate}/100) = ${money(result)} Euro. Die Ersparnis wird vom alten Preis abgezogen.`;}
+            else if(kind === 1) {result=start*rate/100*n/12;prompt=`Kapital ${start} Euro, ${rate} % pro Jahr. Berechne die Zinsen für ${n} Monate im einfachen Monatsmodell.`;calculation=`${start} · ${rate}/100 · ${n}/12 ${Math.abs(result-Math.round(result*100)/100)>1e-8?'≈':'='} ${money(result)} Euro Zinsen. Der Jahresbetrag wird zeitanteilig verkleinert.`;}
+            else if(kind === 2) {result=start+n*rate;prompt=`Start ${start} Euro. Je Schritt kommen ${rate} Euro dazu. Berechne den Wert nach ${n} Schritten.`;calculation=`${start} + ${n} · ${rate} = ${money(result)} Euro. Linear: derselbe Betrag je Schritt.`;}
+            else {result=start*(1+rate/100)**n;prompt=`Start ${start} Euro. Je Schritt kommen ${rate} % des aktuellen Wertes dazu. Berechne den Wert nach ${n} Schritten.`;calculation=`${start} · (1 + ${rate}/100)^${n} ${Math.abs(result-Math.round(result*100)/100)>1e-8?'≈':'='} ${money(result)} Euro. Prozentuell: immer derselbe Faktor, bezogen auf den aktuellen Wert.`;}
+            html += `<div data-growth-generated data-kind="${kind}" data-start="${start}" data-rate="${rate}" data-steps="${n}"><strong>A${i+1}.</strong> ${prompt}<p>Ergebnis: __________</p><p>Rechenweg: __________</p></div>`;
+            solutions += `<div class="ws-generated-equation-solution" data-growth-answer="${result}" data-kind="${kind}"><h3>Zusatzübung A${i+1}</h3><p>${calculation}</p></div>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math3_11_statistik') {
         html += `<h2>1. Mittelwert berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

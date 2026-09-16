@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "955437b6e30ee90c910e6c95fe4066c6c052cf4685edaeb9c162820897f201c9",
-    "lang/de.json": "c1f9a6dea0694f213e5e7e7e989249def166e8598774a9150cabc5e5b2eed83a"
+    "js/curriculum.js": "cc5d0300c659f7f4b15ee39e86783ba11c7a59c6ce9fa2edeb046eb7ebfb7021",
+    "lang/de.json": "9f6082ffa509b5dad192be233272928004bdaf0c2bd70bb15b7c2cff06582626"
   },
   "subjects": {
     "physik": {
@@ -925,9 +925,11 @@
             "Magnetische Pole und Feldlinien erklären sowie Materialproben mit einem Magneten untersuchen.",
             "Die Magnetwirkung eines stromdurchflossenen Leiters und einer Spule beschreiben.",
             "Motor und Generator hinsichtlich der Energieumwandlung unterscheiden.",
-            "Relais und Transformator als Anwendungen erklären."
+            "Relais und Transformator als Anwendungen erklären.",
+            "Induktionsversuche durch gezielte Änderung von Bewegung, Tempo und Pol planen und Spannung von Laststrom unterscheiden.",
+            "Modellvorhersagen mit eigenen Beobachtungen vergleichen und Grenzen der Messung benennen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "magnetische_grundlagen",
@@ -974,9 +976,15 @@
             {
               "id": "sec4",
               "index": 5,
-              "title": "6. Induktion & Generator",
+              "title": "6. Induktion untersuchen und Generatoren erklären",
               "questions": [
-                "em_s4_q1"
+                "em_s4_q1",
+                "em_d8",
+                "em_d9",
+                "em_d12",
+                "em_d15",
+                "em_induction_speed",
+                "em_induction_controls"
               ]
             },
             {
@@ -984,12 +992,13 @@
               "index": 6,
               "title": "7. Der Transformator: Spannungs-Wechsel",
               "questions": [
-                "em_s5_q1"
+                "em_s5_q1",
+                "em_trans_power"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 9,
+          "questionCount": 16,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11609,7 +11618,7 @@
         },
         {
           "id": "math3_10_prozent_zins",
-          "title": "💰 Prozent- und Zinsrechnung",
+          "title": "💰 Prozent, Zinsen und Wachstum",
           "grade": "3. Klasse (7. Schulstufe)",
           "gradeLevels": null,
           "category": "Arithmetik",
@@ -11617,41 +11626,77 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math3_10_prozent_zins",
           "goals": [
-            "Grundwert, Prozentwert und Prozentsatz unterscheiden.",
-            "Jahreszinsen bei konstantem Kapital und Zinssatz berechnen.",
-            "Zinsen im einfachen Monatsmodell zeitanteilig bestimmen."
+            "Grundwert, Prozentwert und Prozentsatz berechnen und den Bezug erklären.",
+            "Mehrstufige Änderungen mit Faktoren berechnen und Prozentpunkte unterscheiden.",
+            "Jahres- und Monatszinsen sowie Wiederverzinsung in benannten Modellen berechnen.",
+            "Lineare und konstante prozentuelle Änderung in Tabelle und Diagramm vergleichen.",
+            "Einen Wachstumsvergleich mit relativen und absoluten Zellbezügen in der Tabellenkalkulation erstellen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "m310_sec1",
               "index": 0,
-              "title": "Was sind Prozente?",
+              "title": "Prozentangaben mit ihrem Grundwert verstehen",
               "questions": [
                 "m310_q1",
-                "m310_q2"
+                "m310_q2",
+                "m310_dip1"
+              ]
+            },
+            {
+              "id": "m310_factors",
+              "index": 1,
+              "title": "Änderungsfaktoren und mehrere Schritte",
+              "questions": [
+                "m310_factor",
+                "m310_chain",
+                "m310_points"
               ]
             },
             {
               "id": "m310_sec2",
-              "index": 1,
-              "title": "Jahreszinsen berechnen",
+              "index": 2,
+              "title": "Zinsen: Betrag, Zinssatz und Zeit unterscheiden",
               "questions": [
-                "m310_q3"
+                "m310_q3",
+                "m310_half",
+                "m310_interest"
               ]
             },
             {
-              "id": "m310_months",
-              "index": 2,
-              "title": "Zinsen für einen Teil des Jahres",
+              "id": "m310_compound",
+              "index": 3,
+              "title": "Wiederverzinsung und Grenzen eines Geldmodells",
               "questions": [
-                "m310_half",
-                "m310_interest"
+                "m310_compound_value",
+                "m310_dip2",
+                "m310_limits"
+              ]
+            },
+            {
+              "id": "m310_growth",
+              "index": 4,
+              "title": "Lineare und prozentuelle Änderung vergleichen",
+              "questions": [
+                "m310_linear",
+                "m310_decay",
+                "m310_constant"
+              ]
+            },
+            {
+              "id": "m310_sheet",
+              "index": 5,
+              "title": "In der Tabellenkalkulation untersuchen",
+              "questions": [
+                "m310_copy",
+                "m310_sheet_rate",
+                "m310_model"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 5,
+          "questionCount": 18,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

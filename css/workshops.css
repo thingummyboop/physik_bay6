@@ -233,3 +233,38 @@
 [data-assignment-live-table] tr > th:first-child { position:sticky; left:0; z-index:1; background:var(--card-bg); box-shadow:1px 0 var(--box-border); }
 [data-assignment-live-table] tr[data-selected] { outline:2px solid var(--focus); outline-offset:-2px; font-weight:700; }
 [data-assignment-task] li { margin-block:12px; }
+
+/* Prozent und Wachstum: Modellwerte, Diagramm und Tabellen gemeinsam bedienen. */
+[data-growth-static] svg,.growth-lab svg{display:block;width:100%;max-width:520px;height:auto;margin:12px auto;}
+.growth-entry input,.growth-lab select,.growth-lab input{display:block;width:100%;box-sizing:border-box;min-height:44px;margin:8px 0 14px;color:var(--text-color);background:var(--card-bg);border:1px solid var(--box-border);font:inherit;}
+.growth-lab h3,.growth-entry h3{color:var(--text-color);}
+.growth-lab button,.growth-entry button{min-height:44px;max-width:100%;white-space:normal;}
+.growth-lab :focus-visible,.growth-entry :focus-visible{outline:3px solid var(--focus-color);outline-offset:3px;}
+.growth-table-scroll{max-width:100%;overflow-x:auto;}
+[data-growth-table]{min-width:480px;width:100%;border-collapse:collapse;}
+[data-growth-table] th,[data-growth-table] td{padding:8px;border:1px solid var(--box-border);text-align:left;}
+[data-growth-table] tr>th:first-child{position:sticky;left:0;z-index:1;background:var(--card-bg);box-shadow:1px 0 var(--box-border);}
+[data-growth-table] tr[data-selected]{outline:2px solid var(--focus-color);outline-offset:-2px;font-weight:bold;}
+[data-growth-formula],[data-growth-sheet] code{overflow-wrap:anywhere;}
+[data-growth-task]>li{margin-bottom:12px;}
+[data-growth-sheet]{width:100%;min-width:600px;table-layout:fixed;border-collapse:collapse;}
+[data-growth-sheet] th,[data-growth-sheet] td{padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere;}
+.growth-sheet-scroll{max-width:100%;overflow-x:auto;}
+.growth-sheet-scroll:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px;}
+[data-growth-sheet] th:first-child{width:100px;position:sticky;left:0;background:var(--card-bg);box-shadow:1px 0 var(--box-border);}
+[data-growth-sheet] code{font-size:1rem;}
+
+/* Qualitativer Induktionsvergleich und eigene Beobachtungen. */
+.em-induction-lab h3{color:var(--text-color);}
+.em-induction-lab select{display:block;min-height:44px;max-width:100%;width:100%;font:inherit;margin:8px 0 14px;background:var(--card-bg);color:var(--text-color);border:1px solid var(--box-border);}
+.em-induction-lab button,.em-shake-button{min-height:44px;min-width:44px;max-width:100%;white-space:normal;}
+.em-induction-choices{display:flex;flex-wrap:wrap;gap:8px;}
+.em-induction-lab :focus-visible,.em-shake-button:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px;}
+[data-induction-static] svg,.em-induction-lab svg{display:block;width:100%;max-width:520px;height:auto;margin:12px auto;}
+[data-induction-tasks]>li,[data-induction-experiment]>li,[data-transformer-tasks]>li{margin-bottom:12px;}
+[data-induction-observation]{width:100%;table-layout:fixed;border-collapse:collapse;}
+[data-induction-observation] th,[data-induction-observation] td{padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere;}
+.em-observation-scroll{max-width:100%;overflow-x:auto;}
+.em-observation-scroll:focus-visible{outline:3px solid var(--focus-color);outline-offset:3px;}
+[data-induction-observation]{min-width:600px;}
+[data-induction-observation] tr>th:first-child{position:sticky;left:0;background:var(--card-bg);box-shadow:1px 0 var(--box-border);}

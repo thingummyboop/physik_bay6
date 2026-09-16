@@ -20,7 +20,7 @@ function enhanceElectromagnetismAccessibility() {
     const currentRange = document.getElementById('currentRange');
     if (currentRange) {
         currentRange.setAttribute('aria-label', 'Stromstärke-Regler');
-        currentRange.setAttribute('aria-describedby', 'materialText');
+        currentRange.setAttribute('aria-describedby', document.getElementById('currentFieldStatus') ? 'currentFieldStatus' : 'materialText');
     }
 
     const transRange = document.getElementById('transRange');
@@ -41,6 +41,7 @@ function enhanceElectromagnetismAccessibility() {
 
 function topicInit() {
     initMagnetPoles();
+    initInductionLab();
     if (drainInterval) {
         clearInterval(drainInterval);
         drainInterval = null;
@@ -101,6 +102,9 @@ function updateMagnetField(val) {
     const numericVal = parseInt(val, 10) || 0;
     const arrowLength = 10 + (numericVal * 0.4);
     arrow.setAttribute('d', `M ${200 - arrowLength/2} 75 L ${200 + arrowLength/2} 75`);
+    arrow.style.opacity = numericVal === 0 ? '0' : '1';
+    const status = document.getElementById('currentFieldStatus');
+    if (status) status.textContent = numericVal === 0 ? 'Stromstufe 0: kein durch diesen Leiter erzeugtes Magnetfeld. Andere Magnetfelder sind nicht dargestellt.' : `Relative Stromstufe ${numericVal}: stärkere Stufe bedeutet eine stärkere Feldwirkung im Modell; keine Messung in Ampere oder Tesla.`;
     
     for(let line of lines) {
         line.style.opacity = numericVal === 0 ? 0 : (numericVal / 150) + 0.1;
@@ -199,7 +203,8 @@ function updateTransformer(val) {
     if(!coil2) return;
     
     const windings1 = 5; 
-    const windings2 = parseInt(val, 10) || windings1;
+    const windings2 = Number(val);
+    if (!Number.isInteger(windings2) || windings2 < 1 || windings2 > 10) return;
     const u1 = 230;
     const u2 = Math.round(u1 * (windings2 / windings1));
     
@@ -220,12 +225,13 @@ function updateTransformer(val) {
     
     // Update Secondary Voltage Bar
     if(voltBarSec) {
-        const h = Math.min(windings2 * 15, 100);
+        const h = windings2 * 10;
         voltBarSec.setAttribute('height', h);
         voltBarSec.setAttribute('y', 160 - h);
     }
-    if(voltValSec) voltValSec.innerText = u2 + "V";
+    if(voltValSec) voltValSec.textContent = u2 + "V";
     if (transRange) {
+        transRange.value = String(windings2);
         transRange.setAttribute('aria-valuetext', `${windings2} Windungen sekundär, etwa ${u2} Volt`);
     }
     
@@ -236,17 +242,17 @@ function updateTransformer(val) {
     // Update Description Text
     if(windings2 < windings1) {
         if(txt) {
-            txt.innerText = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
+            txt.textContent = `Abwärtstransformator (${u1}V ➔ ${u2}V)`;
             txt.style.color = "#E91E63";
         }
     } else if(windings2 > windings1) {
         if(txt) {
-            txt.innerText = `Aufwärtstransformator (${u1}V ➔ ${u2}V)`;
+            txt.textContent = `Aufwärtstransformator (${u1}V ➔ ${u2}V)`;
             txt.style.color = "#4CAF50";
         }
     } else {
         if(txt) {
-            txt.innerText = `1:1 Übertragung (${u1}V ➔ ${u2}V)`;
+            txt.textContent = `1:1 Übertragung (${u1}V ➔ ${u2}V)`;
             txt.style.color = "inherit";
         }
     }
@@ -281,4 +287,41 @@ function updateRelay(active) {
 
 function toggleRelay() {
     updateRelay(!relayClosed);
+}
+
+// Qualitative induction: signs are relative to one fixed winding/terminal convention.
+function inductionState(pole, motion, speed, circuit) {
+    if (!['N','S'].includes(pole) || !['rest','in','out'].includes(motion) || !['slow','fast'].includes(speed) || !['open','closed'].includes(circuit)) return null;
+    const sign = motion === 'rest' ? 0 : (pole === 'N' ? 1 : -1) * (motion === 'in' ? 1 : -1);
+    return {sign, level: sign * (speed === 'fast' ? 2 : 1), current: sign !== 0 && circuit === 'closed'};
+}
+
+function inductionSvg(pole, motion, speed, circuit) {
+    const state = inductionState(pole,motion,speed,circuit); if (!state) return '';
+    const toward = motion === 'in', left = pole === 'N' ? 'S' : 'N', x = 180 + 50 * state.level;
+    const colors = {N:'#b91c1c',S:'#1d4ed8'};
+    let svg = '<svg data-induction-svg viewBox="0 0 360 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema: '+pole+'-Pol zur Spule. '+(motion==='rest'?'Magnet ruht.':toward?'Magnet bewegt sich zur Spule.':'Magnet bewegt sich von der Spule weg.')+' Induzierte Spannung '+(state.sign===0?'null':state.sign>0?'positiv':'negativ')+'." style="background:white;font-family:Arial,sans-serif;color:#172033"><text x="26" y="25" font-size="17" fill="#172033">Magnet</text><text x="232" y="25" font-size="17" fill="#172033">Spule</text><rect x="25" y="50" width="55" height="48" fill="'+colors[left]+'"/><rect x="80" y="50" width="55" height="48" fill="'+colors[pole]+'"/><text data-induction-left x="52" y="82" text-anchor="middle" font-size="23" fill="white">'+left+'</text><text data-induction-pole x="108" y="82" text-anchor="middle" font-size="23" fill="white">'+pole+'</text>';
+    for(let i=0;i<6;i++)svg+='<ellipse cx="'+(234+i*15)+'" cy="74" rx="12" ry="36" fill="none" stroke="#92400e" stroke-width="3"/>';
+    if(state.sign)svg+='<path data-induction-motion d="'+(toward?'M151 74H210l-9 -6m9 6l-9 6':'M210 74H151l9 -6m-9 6l9 6')+'" stroke="#172033" stroke-width="3" fill="none"/>';
+    svg+='<text x="180" y="142" text-anchor="middle" font-size="16" fill="#172033">'+(motion==='rest'?'Ruhe: keine Flussänderung':speed==='fast'?'Gleicher Weg, schneller bewegt':'Gleicher Weg, langsam bewegt')+'</text><text x="180" y="176" text-anchor="middle" font-size="17" fill="#172033">Qualitativer Spannungsausschlag</text><path d="M60 220H300" stroke="#172033" fill="none"/>';
+    for(const [pos,label]of [[80,'−'],[180,'0'],[280,'+']])svg+='<path d="M'+pos+' 212V228" stroke="#172033"/><text x="'+pos+'" y="253" text-anchor="middle" font-size="21" fill="#172033">'+label+'</text>';
+    svg+='<path data-induction-pointer data-sign="'+state.sign+'" data-level="'+state.level+'" d="M'+x+' 195V216l-6 -9m6 9l6 -9" stroke="#146885" stroke-width="4" fill="none"/><text x="180" y="290" text-anchor="middle" font-size="16" fill="#172033">Lastkreis '+(circuit==='open'?'offen':'geschlossen')+': '+(state.current?'Strom möglich':'kein Laststrom')+'</text></svg>';
+    return svg;
+}
+
+function initInductionLab() {
+    const lab=document.querySelector('[data-induction-lab]');if(!lab||lab.dataset.bound==='true')return;lab.dataset.bound='true';
+    const pole=lab.querySelector('[data-induction-pole-select]'),motion=lab.querySelector('[data-induction-motion-select]'),speed=lab.querySelector('[data-induction-speed]'),circuit=lab.querySelector('[data-induction-circuit]'),feedback=lab.querySelector('[data-induction-feedback]');
+    const draw=()=>{
+        const s=inductionState(pole.value,motion.value,speed.value,circuit.value); if(!s)return;
+        const text=s.sign===0?'Keine induzierte Spannung: Magnet und Spule ruhen; das Feld bleibt zeitlich unverändert.':(s.sign>0?'Positive':'Negative')+' induzierte Spannung in der festgelegten Anschlussrichtung. '+(speed.value==='fast'?'Schnellere Änderung auf demselben Weg: stärkerer Ausschlag.':'Langsamere Änderung auf demselben Weg: schwächerer Ausschlag.');
+        lab.querySelector('[data-induction-status]').textContent=text+' '+(s.current?'Im geschlossenen Lastkreis ist während der Bewegung Strom möglich.':circuit.value==='open'?'Der Lastkreis ist offen; es fließt kein Laststrom.':'Ohne induzierte Spannung fließt hier auch im geschlossenen Lastkreis kein Strom.');
+        lab.querySelector('[data-induction-plot]').innerHTML=inductionSvg(pole.value,motion.value,speed.value,circuit.value);feedback.textContent='';
+    };
+    for(const select of [pole,motion,speed,circuit])select.addEventListener('change',draw);
+    for(const button of lab.querySelectorAll('[data-induction-verdict]'))button.addEventListener('click',()=>{
+        const s=inductionState(pole.value,motion.value,speed.value,circuit.value),correct=Number(button.dataset.inductionVerdict)===s.sign;
+        feedback.textContent=(correct?'Richtig: ':'Noch nicht: ')+(s.sign===0?'Ein unbewegter Magnet bei unverändertem Feld genügt nicht. Es braucht eine Flussänderung.':'In dieser Anschlussrichtung ist der Ausschlag '+(s.sign>0?'positiv':'negativ')+'. Nur die Bewegungsrichtung oder nur den Pol umzukehren, kehrt das Vorzeichen um. Beides zusammen lässt es gleich.')+' Spannung und Laststrom sind dabei verschiedene Größen.';
+    });
+    lab.querySelector('[data-induction-reset]').addEventListener('click',()=>{pole.value='N';motion.value='rest';speed.value='slow';circuit.value='open';draw();pole.focus();});draw();
 }
