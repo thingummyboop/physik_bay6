@@ -85,6 +85,21 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  document.querySelectorAll('[data-core-experiment]').forEach((zone,experimentIndex)=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
   const type=zone.dataset.coreExperiment;
+  if(type==='media-crop'){
+   const view=zone.querySelector('[data-crop-view]'),caption=zone.querySelector('[data-crop-caption]'),picture=zone.querySelector('[data-crop-image]'),headline=zone.querySelector('[data-crop-headline]'),status=zone.querySelector('[data-crop-status]');
+   const cards=[...picture.querySelectorAll('[data-vote]')],totalYes=cards.filter(card=>card.dataset.vote==='yes').length;
+   const update=()=>{
+    const cropped=view.value==='yes',visible=cards.filter(card=>!cropped||card.dataset.col==='0'),yes=visible.filter(card=>card.dataset.vote==='yes').length,claim=caption.value==='all';
+    picture.setAttribute('viewBox',cropped?'0 0 140 320':'0 0 420 320');
+    picture.querySelector('[data-crop-clip]').setAttribute('width',cropped?'140':'420');
+    picture.setAttribute('aria-label',(cropped?'Ausschnitt':'Gesamtbild')+': '+yes+' Ja-Karten von '+visible.length+' sichtbaren Karten. '+(cropped?'Die übrigen Karten sind außerhalb des Ausschnitts.':'Alle Modellkarten sind sichtbar.'));
+    headline.textContent=claim?'Alle zwölf sind dafür!':yes+' von '+visible.length+' sichtbaren Karten zeigen Ja.';
+    const scope=cropped?'Sie darf nicht auf alle zwölf Stimmen übertragen werden.':'Die erfundenen zwölf Stimmen belegen keine Haltung der ganzen Schule.';
+    const explanation=claim?'Die Überschrift ist falsch: Sie behauptet Zustimmung aller zwölf, obwohl acht Nein-Karten vorhanden sind.':'Die Überschrift beschreibt das sichtbare Bild. '+scope;
+    status.textContent=(cropped?'Ausschnitt':'Gesamtbild')+': '+yes+' von '+visible.length+' sichtbaren Karten sind Ja. Im unveränderten Gesamtbild sind es '+totalYes+' von '+cards.length+'. '+explanation;
+   };
+   view.addEventListener('change',update);caption.addEventListener('change',update);zone.querySelector('[data-crop-reset]').addEventListener('click',()=>{view.value='full';caption.value='careful';update();view.focus();});update();
+  }
   if(type==='profile-traces'){
    const controls=[...zone.querySelectorAll('[data-trace-toggle]')],rows=[...zone.querySelectorAll('[data-trace-events] tbody tr')],totals=[...zone.querySelectorAll('[data-trace-count]')],result=zone.querySelector('[data-trace-result]');
    result.id='trace-result-'+experimentIndex;controls.forEach(control=>control.setAttribute('aria-describedby',result.id));
@@ -103,7 +118,7 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
    const control=zone.querySelector('[data-boundary-control]'),cases=[...zone.querySelectorAll('[data-boundary-case]')],result=zone.querySelector('[data-boundary-result]');
    const update=()=>{
     cases.forEach((item,i)=>{item.hidden=i!==Number(control.value);});
-    result.textContent='Wähle eine Handlung.';
+    result.textContent=zone.dataset.boundaryPrompt||'Wähle eine Handlung.';
    };
    for(const item of cases)for(const button of item.querySelectorAll('[data-boundary-answer]')){
     button.addEventListener('click',()=>{result.textContent=button.dataset.feedback;});

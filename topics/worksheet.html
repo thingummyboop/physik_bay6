@@ -150,7 +150,16 @@
 [data-relay-paper] tr{break-inside:avoid;}
 [data-relay-tasks]>li{margin-bottom:3mm;}
 :is([data-digestion-paper],[data-drink-paper]) svg{display:block;width:100%;max-width:75mm;height:auto;margin:5mm auto;break-inside:avoid}
-        @media print {
+          [data-crop-paper]{display:grid;grid-template-columns:2fr 1fr;gap:5mm;break-inside:avoid}
+          [data-crop-paper] figure{margin:3mm 0}
+          #ws-content [data-crop-paper] svg{width:100%;height:65mm;max-width:none}
+          [data-crop-paper] > p{grid-column:1 / -1}
+          @media print {
+            #ws-content .media-case,
+            #ws-content [data-media-tasks] > li { break-inside:avoid; page-break-inside:avoid; }
+            #ws-content .ai-paper-case,
+            #ws-content .ai-source-card,
+            #ws-content [data-ai-tasks] > li,
             #ws-content .orientation-paper-case,
             #ws-content [data-orientation-route] > li,
             #ws-content .bio-direct-training li { break-inside:avoid; page-break-inside:avoid; }

@@ -1323,3 +1323,21 @@ Auf ausdrücklichen Wunsch wird der aktuelle Arbeitsstand einschließlich der zu
 Gezielte Datenspuren-, DGB-Arbeitsblatt- und Biologieprüfungen vor diesem Zwischenstand erneut bestanden. Vorhandene Browsernachweise umfassen 96 Datenspuren-Zustände und 18 Antwortwege; nach der abschließenden Anpassung der Beschriftungen und Tabellenbedienung nochmals sechs Kombinationen aus Bildschirmbreite und Design geprüft. Die vollständige Sichtprüfung des letzten DGB-Druckexports und dessen ausführliche Dokumentation stehen noch aus. Kein neuer vollständiger Suitenlauf und keine vollständige Produktabnahme.
 
 Übersetzungen bleiben zurückgestellt. Physik, Mathematik, Chemie, Biologie und DGB behalten Vorrang; die übrigen offenen Aufgaben des Gesamtziels bleiben bestehen.
+
+
+## 16.09.2026 – DGB: Quellen prüfen, Auswahl begründen, Rollen verändern
+
+Voriger Turn war Fortschritt: Zwischenstand c1d432a auf Wunsch gepusht und entfernte Revision sowie saubere Arbeitskopie verifiziert. Danach die offene Drucksichtprüfung der Datenspuren-Werkstatt abgeschlossen und dokumentiert. Anschließend das KI-Orientierungskapitel der 4. Klasse neu ausgearbeitet: drei Quellenkarten und interaktive Urteile, stereotype Werbekarte mit Gestaltungsauftrag, zwei nachvollziehbare Auswahlregeln für sechs Schulhofbeiträge sowie eine begründete KI-Einsatzvereinbarung. 16 konkrete Aufgaben, acht bewertete Fragen und drei Übungen; Revision 1.
+
+Gezielte Quellen-, Datenspuren-, DGB-Arbeitsblatt-, Biologie-, Revisions- und Titelauswahlprüfungen bestanden. Native neun Quellenurteile, 24 Kapitelantwortwege und 18 Layoutfälle nach visuellen Verbesserungen erneut bestanden. Alle 13 Druckseiten geprüft. [Details und Grenzen](DGB_KI_QUELLENWERKSTATT.md), [abgeschlossene Datenspuren-Prüfung](DGB_DATENSPUREN.md). Inventar 197 Kapitel; Prioritätsaudit 1626 Frageninstanzen ohne Strukturfehler. Kein neuer vollständiger Suitenlauf.
+
+Lokale Weiterarbeit nach c1d432a, kein erneuter Push. Übersetzungen zurückgestellt. Physik, Mathematik, Chemie, Biologie und DGB bleiben priorisiert. Weitere Lehrplananwendungen und die vollständige Inhalts-/Produktabnahme aller bestehenden Fächer sind weiterhin Bestandteil des Gesamtziels.
+
+
+## 16.09.2026 – DGB: Teilen, Rechte und Mediencheck
+
+Voriger Zielturn war Fortschritt: KI-Orientierung mit Quellenfällen, Gestaltungsaufträgen und Browser-/Drucknachweisen umgesetzt. Anschließend die übrigen DGB-Kapitel der 4. Klasse geprüft; im Kommunikationskapitel fehlte konkretes Material. Jetzt vier ausgearbeitete Abschnitte mit HTTP-Ablaufkarten, Bildausschnitt-Modell, drei Rechtefällen sowie Plattformvergleich und Korrekturauftrag. 16 Aufgaben, acht bewertete Fragen mit plausibleren Alternativen, drei Übungen; Revision 1.
+
+Gezielte neue und bestehende DGB-, Revisions-, Quizpool-, Titel- und Syntaxprüfungen bestanden. Native 24 Darstellungsfälle und 24 Antwortwege nach visuellen und sprachlichen Verbesserungen erneut bestanden. Alle 13 Druckseiten geprüft, Bildvergleich verbessert. [Quellen, Nachweise und Grenzen](DGB_MEDIENKONTEXT.md). Inventar 197 Kapitel, Prioritätsaudit 1630 Frageninstanzen ohne Strukturfehler; kein neuer vollständiger Suitenlauf.
+
+Lokale Weiterarbeit nach c1d432a, kein weiterer Push. Übersetzungen bleiben zurückgestellt. DGB8 Handeln enthält weiterhin allgemeine Definitionen und nicht mit Material ausgestattete Verbraucheraufträge; dieses Kapitel, weitere offene Lehrplananwendungen und die vollständige Inhalts-/Produktabnahme aller bestehenden Fächer bleiben im Gesamtauftrag. Die fünf priorisierten Fächer behalten Vorrang.

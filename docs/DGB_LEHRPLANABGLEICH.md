@@ -152,3 +152,19 @@ Neue eigenständige Leseanwendung mit 18 tatsächlichen Schrift-/Abstands-/Farbk
 Nach dem bestätigten Push von 8415e67 zwei praktische Konfigurationsaufgaben mit acht Protokollzeilen und getrennten Lösungen ergänzt. Systemschrift und Chat-Benachrichtigungen werden mit Ziel, Ausgangswert, passendem Vorher-Nachher-Test, Ausnahmen und kontrollierter Rückkehr bearbeitet. Drei neue Transferfragen; 13 bewertete Fragen, Revision 4. Alle 39 bewerteten Antwortwege und die neuen neun nativen Tastaturantwortwege bestanden; sechs Breiten-/Designzustände ohne Seitenüberlauf, gezielte Wiederholung und gemeinsamer Browser-Lernweg geprüft. Protokollbreiten und Druckumbrüche nach Sichtprüfung verbessert. Nachweise, Quellen und Grenzen: [DGB_SYSTEM_KOMMUNIKATION.md](DGB_SYSTEM_KOMMUNIKATION.md).
 
 Die konkrete Unterrichtserprobung mit Schulgeräten und Kommunikationskonten sowie vollständige Lehrplan-/Produktabnahmen bleiben offen. Keine Übersetzungen und kein weiterer Push. 184 Funktionstestsuiten, kein neuer Gesamtlauf. Inventar 197 Kapitel; Prioritätsaudit 1539 Frageninstanzen ohne Strukturfehler. Der Gesamtauftrag ist weiterhin aktiv.
+
+
+## 16.09.2026 – Datenspuren und KI-Orientierung in der 4. Klasse
+
+Die endgültige Drucksichtprüfung der Datenspuren-Werkstatt ist abgeschlossen: zwölf Seiten, einschließlich bildidentischer zuvor gelesener Seiten. Konkrete Verknüpfung, vorsichtige Deutung und zielgruppengerechte Überarbeitung: [DGB_DATENSPUREN.md](DGB_DATENSPUREN.md). Die bestehende Wiederherstellungsübung bleibt erhalten.
+
+Anschließend dgb8_orientierung vollständig textlich gelesen und seine vier generischen Abschnitte neu ausgearbeitet. Drei Quellenurteile, Werbekarte mit Neugestaltung, sechs Schulhofbeiträge mit zwei Auswahlregeln und eine begründete Einsatzvereinbarung ersetzen die bloßen Aufforderungen. 16 Aufgaben, acht bewertete Fragen, Revision 1. Neun native Urteile, 24 bewertete Antwortwege, 18 Layoutfälle und alle 13 Druckseiten geprüft. [Nachweise und Quellen](DGB_KI_QUELLENWERKSTATT.md).
+
+Die aktuelle RIS-Gesamtfassung vom 16.09.2026 wurde für Orientierung und Information der 4. Klasse direkt geöffnet. Die neuen Materialien liefern konkrete Teilbelege für die dort genannten Kompetenzen; Gesundheit und selbstfahrende Fahrzeuge sowie die vollständige Abnahme aller DGB-Kapitel bleiben offen. Keine Übersetzungen oder weiterer Push.
+
+
+## 16.09.2026 – Kommunikation: Ablauf, Ausschnitt und verantwortlicher Austausch
+
+Dgb8_kommunikation vollständig gelesen und seine vier generischen Abschnitte ersetzt: HTTP-Kartenablauf mit zwei Antwortfällen, interaktives Modell aus zwölf unveränderten Abstimmungskarten, drei Rechtefälle und zwei erfundene Plattformmodelle mit Weitergabe/Korrektur. 16 Aufgaben, acht bewertete Fragen, drei Übungen; Revision 1. Urheberrecht, österreichischer Bildnisschutz und Datenschutz werden getrennt. Ein tatsächlicher Austausch einer eigenen Skizze in einem freigegebenen Bereich ist angeleitet; eine Papierplanung ersetzt die Durchführung nicht.
+
+Aktueller RIS-Kommunikationsabschnitt, RFC/MDN, UrhG § 78, Datenschutzbehörde und CC-BY-Bedingungen direkt geöffnet. 24 native Bild-/Überschrift-/Layoutkombinationen, 24 bewertete Antwortwege sowie alle 13 Druckseiten geprüft. [Nachweise und Grenzen](DGB_MEDIENKONTEXT.md). Vollständige datenschutzrechtliche Abdeckung und praktische Schulplattform-Erprobung bleiben offen. Keine Übersetzungen oder weiterer Push.

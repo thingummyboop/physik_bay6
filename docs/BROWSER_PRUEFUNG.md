@@ -231,3 +231,15 @@ Neue direkte Sprunglinks zwischen Kapitelauswahl und Stoffliste. Native Prüfung
 ## 16.09.2026 – Biologieübersicht als angeleiteter Einstieg
 
 Chromium 151.0.7922.34, Bericht 14:50:05 UTC: neun native Untersuchungsentscheidungen, Reset/Fokus/Speicher, 24 Kapitelantwortwege, 18 Breiten-/Design-/Fallkombinationen und tatsächlicher Kapitelwechsel Übersicht → Zellen mit passendem Weiterlink zur Fotosynthese bestanden. Kein Seitenüberlauf und keine Seitenfehler; mobile Werkstatt in beiden Designs gelesen. Erste Drucksichtprüfung zeigte einen getrennten Fallblock; gezielte Regeln korrigieren die Umbrüche. Finaler Export 14:51:14 UTC, alle 13 Seiten gerendert und gelesen. Fälle vollständig auf Seiten 4 und 5; Aufgaben und Lösungen lesbar. [Details und Grenzen](BIOLOGIE_ORIENTIERUNG.md). Keine realen Park-/Mikroskop-/Pflanzenuntersuchungen oder Gesamtfachabnahme behauptet.
+
+
+## 16.09.2026 – DGB: Datenspuren abgeschlossen, Quellenwerkstatt ergänzt
+
+Datenspuren: nach dem Zwischenstand c1d432a die endgültigen zwölf Druckseiten und die letzten mobilen Bildschirmbilder geprüft. Seiten 4–6 und 12 sind per SHA-256 identisch mit bereits gelesenen Bildern; übrige Seiten direkt gelesen. [Dokumentation](DGB_DATENSPUREN.md).
+
+KI-Orientierung: finaler Lauf von browser_ai_evidence.js am 2026-09-16T15:20:07.251Z mit neun nativen Urteilen, 24 Quizantwortwegen und 18 Layoutfällen bestanden; keine Seitenfehler. Beschriftungsfarbe, native Tastaturbedienung, Fokus/Reset, unveränderter Speicher, 44-Pixel-Schaltflächen und horizontale Tabellenbedienung geprüft. Erste Darstellungsprobleme behoben und anschließend erneut geprüft. Alle 13 Druckseiten der endgültigen Fassung gelesen bzw. mit den bereits gelesenen Seiten bildidentisch nachgewiesen. [Umfang und Grenzen](DGB_KI_QUELLENWERKSTATT.md). Kein vollständiger neuer Gesamtlauf.
+
+
+## 16.09.2026 – DGB: Medienkontext und Bildausschnitt
+
+Finaler Bericht browser_media_context.js vom 2026-09-16T15:35:40.013Z: 24 Kombinationen aus Bild, Überschrift, Breite und Design sowie 24 Kapitelantwortwege bestanden. Native Tastaturbedienung, Fokus/Reset, unveränderter Speicher, Beschriftungsfarbe, Mindestgrößen und kein äußerer Überlauf geprüft. Gesamtbild und Ausschnitt mit unveränderten Karten visuell kontrolliert. Druckvergleich nach erster Sichtprüfung auf gleiche Höhe und nebeneinander gesetzt; finale 13 Seiten gelesen bzw. nach der letzten Frageänderung per SHA-256 identisch nachgewiesen. Seite 7 des letzten Exports erneut gelesen. Keine Seitenfehler. [Details](DGB_MEDIENKONTEXT.md).
