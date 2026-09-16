@@ -14530,179 +14530,345 @@
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Einstieg: Verstehen und ausprobieren",
+        "title": "1. Welche Ebene übernimmt welche Aufgabe?",
+        "content": "\n<p>Du schreibst eine Notiz. Die <strong>Hardware</strong> umfasst Bildschirm, Prozessor, Arbeitsspeicher und Datenspeicher. Das <strong>Betriebssystem</strong> ist Systemsoftware: Es verwaltet unter anderem Programme, Dateien und Zugriffsrechte. Die <strong>Anwendung</strong>, etwa ein Texteditor, bietet dir Funktionen wie Schreiben und Suchen. Sie nutzt dafür Dienste des Betriebssystems.</p>\n<div class=\"word-grid\" data-system-cards><div class=\"word-ui-card\"><strong>Eingabe</strong><p>Dein Finger berührt den Touchscreen (Hardware). Das Betriebssystem verarbeitet die Eingabe und gibt sie an die zuständige App weiter.</p></div><div class=\"word-ui-card\"><strong>Speichern</strong><p>Die App fordert das Speichern an. Das Betriebssystem prüft den Dateizugriff und nutzt über Treiber den Datenspeicher.</p></div><div class=\"word-ui-card\"><strong>Online teilen</strong><p>Eine App kann einen Dienst auf einem anderen Computer ansprechen. Auch dort arbeiten Anwendungen, Betriebssystem und Hardware zusammen.</p></div></div>\n<p>Ein Online-Dienst ist also nicht einfach eine zusätzliche Schicht in jedem Gerät. Lokales Schreiben und Speichern können ohne Internet funktionieren. Ob eine App das unterstützt, hängt von ihrer Bauweise ab.</p>\n<div class=\"word-ui-card\" data-action-case><h3>Fall: Notiz im Zug</h3><p>Eine bereits geladene Notiz-App erlaubt ausdrücklich lokales Bearbeiten und Speichern. Ihre Kopie in einem Online-Konto wird erst bei bestehender Verbindung abgeglichen. Während der Fahrt fällt das Internet aus; Akku und lokaler Speicher funktionieren.</p></div>\n<div class=\"word-task-card\"><h3>Untersuchen statt raten</h3><ol class=\"word-mini-steps\" data-action-tasks><li>Zeichne den Weg „Touchscreen → Betriebssystem → Notiz-App“ und den Speicherauftrag zurück zum Betriebssystem und Datenspeicher. Beschrifte die Aufgaben der drei Ebenen.</li><li>Sage voraus: Was funktioniert im Zug weiter, was muss warten? Begründe es mit den Angaben im Fall.</li><li>Zweiter Fall: Die Verbindung funktioniert, aber der Zugriff auf den gewählten Ordner wird verweigert. Erkläre, welche Rolle Betriebssystem und Berechtigungen haben. Warum beweist die Meldung keinen defekten Speicher?</li><li>Teste mit einem schulisch freigegebenen Texteditor: Schreibe „Übungsnotiz“, speichere lokal, schließe und öffne die Datei wieder. Notiere App und Speicherort. Falls lokales Speichern gesperrt ist, dokumentiere die Sperre und vergleiche mit dem Fall, ohne sie zu umgehen.</li></ol></div>\n<details data-worksheet-solution=\"true\"><summary>Vergleichslösung – erst nach deinem Versuch öffnen</summary><div data-action-solution=\"system\"><p>Im vorgegebenen Fall bleiben Bearbeiten und lokales Speichern möglich; der Online-Abgleich wartet. Die App verarbeitet Text, das Betriebssystem verwaltet den Dateizugriff, Hardware führt Operationen aus und speichert Daten. Verweigerter Zugriff kann eine gewollte Berechtigung sein; daraus folgt kein Hardwaredefekt. Der eigene Gerätetest kann wegen anderer App-Eigenschaften anders ausfallen.</p></div></details>\n{{QUIZ_dgb8_handeln_q3}}\n{{QUIZ_dgb8_system_rights}}\n{{QUIZ_dgb8_handeln_p1}}",
         "quizzes": [
           {
-            "id": "dgb8_handeln_q1",
-            "question": "Was macht Verschlüsselung?",
+            "id": "dgb8_handeln_q3",
+            "question": "Die Notiz-App aus dem Zugfall hat keine Internetverbindung. Was folgt aus den Angaben?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "sie macht Daten für Unbefugte schwer lesbar",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Verschlüsselung schützt vor Mitlesen."
-              },
-              {
-                "text": "sie löscht automatisch alle Daten",
+                "text": "Auch das lokale Speichern muss warten.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Löschen ist nicht der Zweck."
+                "feedback": "Die App unterstützt laut Fall lokales Speichern. Dafür benötigt sie hier keine Verbindung."
+              },
+              {
+                "text": "Lokal bearbeiten und speichern geht weiter; der Online-Abgleich wartet.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Genau: Lokale Funktionen bleiben verfügbar, der Dienst auf dem anderen Computer ist vorerst nicht erreichbar."
+              },
+              {
+                "text": "Die Online-Kopie enthält trotzdem sofort alle Änderungen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ohne Verbindung kann die neue Fassung noch nicht zum Online-Dienst übertragen werden."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_system_rights",
+            "question": "Eine App meldet „Zugriff auf Ordner verweigert“. Welche Erklärung ist zunächst sinnvoll?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Der Datenspeicher ist sicher kaputt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine verweigerte Berechtigung ist kein Nachweis für einen Defekt."
+              },
+              {
+                "text": "Nur der Online-Anbieter kann lokale Ordnerrechte prüfen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Lokale Zugriffsrechte werden vom Betriebssystem verwaltet; ein Online-Anbieter ist dafür nicht zwingend beteiligt."
+              },
+              {
+                "text": "Das Betriebssystem kann den Dateizugriff wegen fehlender Rechte verweigern.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die App nutzt Dienste des Betriebssystems und kann dessen Berechtigungen nicht einfach übergehen."
               }
             ]
           },
           {
             "id": "dgb8_handeln_p1",
-            "question": "Welche Ebene ist eine App?",
+            "question": "Welche Zuordnung passt beim Schreiben?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "ein Programm für eine bestimmte Aufgabe",
+                "text": "Texteditor: Anwendung; Betriebssystem: Systemsoftware; Touchscreen: Hardware.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Eine App erledigt Aufgaben."
+                "pts": 0,
+                "feedback": "Richtig: Textbearbeitung, grundlegende Verwaltung und körperliches Bauteil haben unterschiedliche Aufgaben."
               },
               {
-                "text": "der Akku allein",
+                "text": "Texteditor: Hardware; Betriebssystem: Anwendung; Touchscreen: Systemsoftware.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Der Akku gehört zur Hardware."
+                "feedback": "Der Texteditor ist Software; der Touchscreen ist ein Bauteil."
+              },
+              {
+                "text": "Texteditor: Systemsoftware; Betriebssystem: Hardware; Touchscreen: Anwendung.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Betriebssystem ist Software, der Touchscreen Hardware und der Editor eine Anwendung."
               }
             ]
           }
-        ],
-        "content": "\n<div class=\"word-workshop dgb-workshop\">\n  <div class=\"lesson-goals\"><strong>Das kannst du nach dieser Werkstatt:</strong><ul class=\"step-list\"><li>du unterscheidest Hardware, Systemsoftware, Apps und Online-Dienste</li><li>du erkl&auml;rst Verschl&uuml;sselung als Schutz</li><li>du erkennst digitale Verbraucherfallen und deine Rechte</li></ul></div>\n  <p>Digitale Systeme haben mehrere Ebenen. Hardware ist das Ger&auml;t, Systemsoftware steuert Grundfunktionen, Apps erledigen Aufgaben und Online-Dienste verbinden dich mit Servern.</p>\n  <p>Wer diese Ebenen versteht, kann Probleme besser einordnen. Au&szlig;erdem brauchst du Schutz und Rechte: Verschl&uuml;sselung, sichere Einstellungen, vorsichtige Kaufentscheidungen und Wissen &uuml;ber Konsumentenrechte.</p>\n  <div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Hardwareebene</strong><br>Ger&auml;t und Bauteile.</div><div class=\"word-ui-card\"><strong>Systemebene</strong><br>Betriebssystem und grundlegende Einstellungen.</div><div class=\"word-ui-card\"><strong>App-Ebene</strong><br>Programme f&uuml;r bestimmte Aufgaben.</div><div class=\"word-ui-card\"><strong>Dienstebene</strong><br>Online-Angebote, Konten und Server.</div></div>\n  <div class=\"remember-box\"><strong>Merksatz:</strong> M&uuml;ndig handeln hei&szlig;t: Technik verstehen, Schutz nutzen, Rechte kennen und nicht jede Voreinstellung einfach hinnehmen.</div>\n  <div class=\"word-task-card\"><h3>Mini-Aufgabe 1: Digitale Ebenen zuordnen</h3><ol class=\"word-mini-steps\"><li>W&auml;hle eine digitale Alltagssituation, zum Beispiel eine Nachricht senden.</li><li>Zeichne vier Ebenen: Hardware, System, App, Dienst.</li><li>Ordne konkrete Teile zu: Handy, Betriebssystem, Messenger, Server/Konto.</li><li>Schreibe zu jeder Ebene ein m&ouml;gliches Problem.</li><li>Notiere, wo du selbst etwas einstellen oder sch&uuml;tzen kannst.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du kannst ein digitales Problem einer Ebene zuordnen, statt nur &bdquo;Internet kaputt&ldquo; zu sagen.</div></div>\n  <div class=\"word-path\"><span>lesen</span><b class=\"arrow\">&gt;</b><span>ausprobieren</span><b class=\"arrow\">&gt;</b><span>kontrollieren</span><b class=\"arrow\">&gt;</b><span>verbessern</span></div>\n</div>\n{{QUIZ_dgb8_handeln_q1}}\n{{QUIZ_dgb8_handeln_p1}}"
+        ]
       },
       {
         "id": "sec2",
-        "title": "2. Fachw&ouml;rter und Beispiele",
+        "title": "2. Eine Datei wirklich verschlüsseln",
+        "content": "\n<p><strong>Klartext</strong> ist der lesbare Inhalt. Verschlüsselung macht daraus mithilfe eines Schlüssels verschlüsselte Daten. Zum Entschlüsseln braucht man den passenden Schlüssel. In unserer Werkstatt leitet die Software ihn aus einem Passwort ab. Ein bekanntes oder leicht erratbares Passwort bietet wenig Schutz.</p>\n<p><a href=\"../examples/verschluesselungswerkstatt.html\" target=\"_blank\" rel=\"noopener\" data-encryption-link>Verschlüsselungswerkstatt öffnen – neuer Tab</a>. Sie nutzt echte Browser-Verschlüsselung, benötigt kein Konto und sendet die Eingaben nicht an einen Server. Verwende nur erfundene Notizen und ein Übungspasswort, kein echtes Kontopasswort. Das Verfahren schützt gespeicherte Inhalte; es macht aus dieser Übung keinen verschlüsselten Messenger.</p>\n<div class=\"word-task-card\"><h3>Werkstatt mit Prüfprotokoll</h3><ol class=\"word-mini-steps\" data-action-tasks><li>Schreibe die erfundene Notiz „Treffpunkt Bibliothek, 14 Uhr.“ auf. Verwende als öffentlich bekanntes Übungspasswort „Probe-Wald-2026!“. Sage voraus, ob du die Notiz in der verschlüsselten Datei wiedererkennen wirst.</li><li>Verschlüssle die Notiz und speichere die Datei. Lade die Werkstatt neu, wähle die gespeicherte Datei aus und öffne sie mit demselben Passwort. Vergleiche jedes Zeichen.</li><li>Wiederhole das Öffnen mit einem falschen Passwort. Notiere Vermutung, Beobachtung und Erklärung. Ein zuvor angezeigter Klartext darf dabei nicht als neues Ergebnis stehen bleiben.</li><li>Lade die Originaldatei erneut. Verändere im Eingabefeld nur das erste Zeichen des Wertes „data“ zu einem anderen Buchstaben aus A–Z. Öffne mit dem richtigen Passwort. Notiere den Unterschied zwischen beschädigten Daten und einem falschen Passwort: Kannst du sie allein an der Fehlermeldung unterscheiden?</li><li>Verschlüssle den ursprünglichen Text zweimal mit demselben Passwort. Vergleiche beide Dateien und öffne beide. Erkläre, warum unterschiedliche verschlüsselte Daten nicht automatisch unterschiedliche Klartexte bedeuten.</li><li>Leere alle Arbeitsfelder. Prüfe, ob die gespeicherte Datei im Downloadordner noch vorhanden ist. Erkläre: Verschlüsseln ist nicht Löschen. Entferne nur deine eigene Übungsdatei, wenn du sie nicht mehr brauchst.</li></ol></div>\n<div class=\"word-ui-card\" data-crypto-protocol><strong>Protokoll im Heft</strong><p>Für die drei Öffnungsversuche jeweils: Datei unverändert/verändert – Passwort richtig/falsch – Vermutung – tatsächliches Ergebnis – Erklärung. Ohne Gerät kannst du die Vermutungen ausfüllen. Das ist Vorbereitung; die Kompetenz „Verschlüsselungssoftware einsetzen“ erfordert danach den wirklichen Versuch.</p></div>\n<p>Die Werkstatt erkennt mit AES-GCM auch eine Veränderung der verschlüsselten Daten. Sie verwendet bei jeder Verschlüsselung neue Zufallswerte. Diese dürfen in der Datei stehen; das Passwort bleibt getrennt. Verschlüsselung schützt nicht vor jemandem, der deinen entsperrten Bildschirm liest, oder vor Schadsoftware auf dem Gerät.</p>\n<details data-worksheet-solution=\"true\"><summary>Vergleichslösung – erst nach deinem Versuch öffnen</summary><div data-action-solution=\"crypto\"><p>Unveränderte Datei + richtiges Passwort: ursprüngliche Notiz. Falsches Passwort: kein Klartext. Veränderte Daten + richtiges Passwort: ebenfalls kein Klartext. Die gemeinsame Fehlermeldung erlaubt keine sichere Unterscheidung der beiden Ursachen. Neu erzeugte Zufallswerte führen auch beim selben Text und Passwort zu anderen verschlüsselten Daten. Das Leeren der Felder löscht keine zuvor heruntergeladene Datei. Ein bereits bekanntes Übungspasswort schützt kein Geheimnis.</p></div></details>\n{{QUIZ_dgb8_handeln_q1}}\n{{QUIZ_dgb8_crypto_integrity}}",
         "quizzes": [
           {
-            "id": "dgb8_handeln_q2",
-            "question": "Was ist eine Abo-Falle?",
+            "id": "dgb8_handeln_q1",
+            "question": "Was schützt eine verschlüsselte Datei mit einem geheimen, ausreichend schwer erratbaren Passwort?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "ein kostenpflichtiges Angebot mit schwer erkennbaren Bedingungen",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Abo-Fallen sind oft absichtlich unklar."
-              },
-              {
-                "text": "ein kostenloses Heft ohne Vertrag",
+                "text": "Sie verhindert, dass jemand am geöffneten Bildschirm mitliest.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ein Heft ohne Vertrag ist keine Abo-Falle."
+                "feedback": "Nach dem Entschlüsseln ist der Text am Bildschirm lesbar. Der Geräteschutz bleibt wichtig."
+              },
+              {
+                "text": "Sie erschwert das Lesen der gespeicherten Inhalte ohne den passenden Schlüssel.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Geschützt sind die verschlüsselten Inhalte. Der Schutz hängt auch vom Passwort und Gerät ab."
+              },
+              {
+                "text": "Sie entfernt automatisch alle unverschlüsselten Originale.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Verschlüsselung löscht die Originaldatei nicht automatisch."
               }
             ]
           },
           {
-            "id": "dgb8_handeln_p2",
-            "question": "Was bedeutet informationelle Selbstbestimmung?",
-            "practiceOnly": true,
-            "answers": [
-              {
-                "text": "Menschen sollen über ihre Daten mitentscheiden können",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Es geht um Kontrolle über eigene Daten."
-              },
-              {
-                "text": "alle Daten müssen immer öffentlich sein",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Öffentlichkeit ist nicht automatisch richtig."
-              }
-            ]
-          }
-        ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Verschl&uuml;sselung</strong><br>Daten werden so umgewandelt, dass Unbefugte sie schwer lesen k&ouml;nnen.</div><div class=\"word-ui-card\"><strong>Konsumentenrecht</strong><br>Regeln, die Verbraucherinnen und Verbraucher sch&uuml;tzen.</div><div class=\"word-ui-card\"><strong>Abo-Falle</strong><br>Kostenpflichtiges Angebot, das absichtlich schwer durchschaubar ist.</div><div class=\"word-ui-card\"><strong>informationelle Selbstbestimmung</strong><br>Menschen sollen m&ouml;glichst selbst &uuml;ber ihre Daten entscheiden k&ouml;nnen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Messenger</td><td>Hardware: Handy. System: Betriebssystem. App: Messenger. Dienst: Server und Konto.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Verschl&uuml;sselung</td><td>Nachricht wird unterwegs nicht einfach lesbar.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Abo-Falle</td><td>kleingedruckte Kosten oder schwerer K&uuml;ndigungsweg.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb8_handeln_q2}}\n{{QUIZ_dgb8_handeln_p2}}"
-      },
-      {
-        "id": "sec3",
-        "title": "3. Werkstattauftrag",
-        "quizzes": [
-          {
-            "id": "dgb8_handeln_q3",
-            "question": "Welche Reihenfolge passt zu Systemebenen?",
+            "id": "dgb8_crypto_integrity",
+            "question": "Du änderst ein Zeichen in den verschlüsselten Daten. Das richtige Passwort funktioniert danach nicht. Welche Erklärung passt?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Hardware, Systemsoftware, App, Online-Dienst",
+                "text": "Die Prüfung erkennt veränderte Daten und gibt keinen Klartext frei.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: So kann man digitale Systeme ordnen."
+                "feedback": "Richtig: AES-GCM prüft die Unversehrtheit. Eine Veränderung führt normalerweise zum Abbruch."
               },
               {
-                "text": "Lieblingsessen, Pause, Turnschuh, Wolke",
+                "text": "Jede Änderung verschlüsselter Daten erzeugt nur einen anderen lesbaren Satz.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Diese Begriffe passen nicht zu Systemebenen."
+                "feedback": "Veränderte Daten liefern hier keinen sinnvoll veränderten Satz; die Prüfung schlägt fehl."
+              },
+              {
+                "text": "Eine andere Dateiendung macht die veränderten Daten wieder lesbar.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Umbenennen repariert keine veränderten verschlüsselten Daten. Die Prüfung würde weiterhin fehlschlagen."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec3",
+        "title": "3. Kosten und Verbraucherfallen prüfen",
+        "content": "\n<p>Gestaltung kann Entscheidungen lenken: Ein auffälliger Kaufknopf, vorausgewählte Extras oder Zeitdruck machen eine Entscheidung nicht automatisch passend für dich. Prüfe Preis, Laufzeit, Verlängerung, Kündigung und Anbieter. Ein Schlosszeichen bzw. HTTPS sagt etwas über die Verbindung aus, nicht über die Ehrlichkeit eines Shops.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\" data-action-case><h3>Erfundenes Angebot A: LernPlus</h3><p>Werbung: „Nur 1 € – entscheide dich in 2 Minuten!“</p><p>Bedingungen im Fall: 1 € für den ersten Monat; danach automatisch 9 € je weiterem Monat. Monatlich kündbar vor Beginn des nächsten Monats. Das Extra „Designpaket“ kostet zusätzlich einmalig 4 € und ist vorausgewählt. Keine weiteren Kosten.</p></div><div class=\"word-ui-card\" data-action-case><h3>Erfundenes Angebot B: LernKlar</h3><p>8 € für einen Monat, keine Extras. Zugang endet danach automatisch. Für jeden weiteren Monat musst du neu entscheiden und wieder 8 € bezahlen.</p></div></div>\n<div class=\"word-task-card\"><h3>Entscheidung mit Zahlen und Belegen</h3><ol class=\"word-mini-steps\" data-action-tasks><li>Vergleiche drei vollständig genutzte Monate: A ohne Extra, A mit Extra und B. Schreibe Rechenweg und Gesamtkosten auf; bei A erfolgt vorher keine Kündigung.</li><li>Vergleiche nun nur einen Monat. Bei A kündigst du im Fall rechtzeitig. Welche Bedingungen ändern die Entscheidung? Erkläre, warum „billigster Einstieg“ und „billigste Nutzung“ nicht dasselbe sein müssen.</li><li>Benenne zwei konkrete Gestaltungsmittel bei A und beschreibe ihre mögliche Wirkung. Entwirf eine faire Angebotskarte mit Gesamtpreis, Verlängerung und gleich gut sichtbarer Ablehnung.</li><li>Fall: Eine 13-jährige Person klickt auf einen kostenpflichtigen Dauervertrag. Formuliere einen nächsten Schritt mit einer erziehungsberechtigten Person. Welche Angaben sollten für die Beratung gesichert werden? Beurteile die konkrete Vertragswirksamkeit nicht nur anhand des Klicks.</li></ol></div>\n<p><strong>Österreichischer Rechtsrahmen:</strong> Unter 14-Jährige dürfen insbesondere kleine alltägliche Bargeschäfte selbst tätigen. Für weitergehende Verträge ist grundsätzlich die Zustimmung der gesetzlichen Vertretung nötig. Von 14 bis 18 erweitert sich der Spielraum, etwa beim frei verfügbaren Taschengeld; der Lebensunterhalt darf dabei nicht gefährdet werden. Ein Klick beweist deshalb nicht allein, dass jede Forderung berechtigt ist. Bei einer echten Forderung: Angebot, Bestätigung und Datum sichern, mit der gesetzlichen Vertretung klären und gegebenenfalls AK oder Internet Ombudsstelle um Beratung bitten.</p>\n<p>Verbraucherrechte sind gemeinsame Regeln, keine bloße Frage der Vorsicht Einzelner. Beratung, Beschwerden und gesetzliche Vorgaben können helfen, manipulative Gestaltung zu verändern. Vergleiche als Klassenvorschlag: „Nur besser aufpassen“ und „Extras dürfen nicht heimlich vorausgewählt sein“. Welche Verantwortung haben Kundschaft, Anbieter und Gesetzgebung?</p>\n<details data-worksheet-solution=\"true\"><summary>Vergleichslösung – erst nach deinem Versuch öffnen</summary><div data-action-solution=\"consumer\"><p>Drei Monate: A ohne Extra = 1 + 9 + 9 = 19 €; mit Extra = 23 €; B = 3 × 8 = 24 €. Ein Monat bei rechtzeitiger Kündigung: A 1 € bzw. 5 € mit Extra; B 8 €. A ist im Fall günstiger, verlangt aber Aufmerksamkeit bei Verlängerung und Extra. Zeitdruck und Vorauswahl können ungewollte Ausgaben begünstigen; sie beweisen nicht allein einen Betrug. Für Beratung sind unter anderem Angebot, Kosten-/Laufzeitangaben, Bestätigung und Alter relevant. Keine Kontodaten an unbekannte Forderungssteller schicken.</p></div></details>\n{{QUIZ_dgb8_handeln_q2}}\n{{QUIZ_dgb8_consumer_help}}\n{{QUIZ_dgb8_handeln_p3}}",
+        "quizzes": [
+          {
+            "id": "dgb8_handeln_q2",
+            "question": "Wie viel kostet Angebot A für drei Monate mit dem vorausgewählten Extra, wenn vorher nicht gekündigt wird?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "7 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1 € ist nur der Einstiegspreis. Danach fallen zweimal 9 € an; das Extra kostet einmalig 4 €."
+              },
+              {
+                "text": "19 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "19 € ist der Preis ohne Extra. Mit dem einmaligen Extra kommen 4 € hinzu."
+              },
+              {
+                "text": "23 €",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 1 + 9 + 9 + 4 = 23 €."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_consumer_help",
+            "question": "Eine 13-jährige Person bekommt nach einem Abo-Klick eine Forderung. Was ist ein begründeter nächster Schritt?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Unterlagen sichern und mit der gesetzlichen Vertretung bzw. einer Beratungsstelle prüfen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Alter, Vertragsart, Zustimmung und Bedingungen sind zu prüfen."
+              },
+              {
+                "text": "Sofort zahlen, weil jeder Klick unabhängig vom Alter bindet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Geschäftsfähigkeit und eine gegebenenfalls erforderliche Zustimmung müssen berücksichtigt werden."
+              },
+              {
+                "text": "Die Nachricht löschen, weil unter 18 niemals Verträge möglich sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch Minderjährige können bestimmte Geschäfte tätigen. Löschen vernichtet möglicherweise wichtige Nachweise."
               }
             ]
           },
           {
             "id": "dgb8_handeln_p3",
-            "question": "Was ist ein Warnzeichen bei einem Fake-Shop?",
+            "question": "Ein Shop nutzt HTTPS und zeigt einen auffälligen Countdown. Was lässt sich daraus ableiten?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "fehlendes Impressum und extrem unrealistischer Preis",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Solche Warnzeichen sind verdächtig."
-              },
-              {
-                "text": "klare Adresse und transparente Kosten",
+                "text": "HTTPS beweist, dass das Angebot fair ist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Transparenz ist eher ein gutes Zeichen."
+                "feedback": "HTTPS verschlüsselt die Verbindung und bestätigt nicht die Fairness eines Angebots."
+              },
+              {
+                "text": "Die Verbindung ist geschützt; Anbieter und Bedingungen müssen trotzdem geprüft werden.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Richtig: Verbindungsverschlüsselung ersetzt keine Prüfung der Vertragsbedingungen."
+              },
+              {
+                "text": "Jeder Countdown beweist einen betrügerischen Shop.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zeitdruck ist ein Warnsignal; er allein beweist keinen Betrug."
               }
             ]
           }
-        ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Verbraucherfalle pr&uuml;fen</h3><ol class=\"word-mini-steps\"><li>Nimm ein Beispiel f&uuml;r In-App-Kauf, Abo, Fake-Shop oder Gewinnspiel.</li><li>Suche Warnzeichen: Druck, unklare Kosten, zu gutes Angebot, fehlendes Impressum.</li><li>Schreibe, welche Daten oder welches Geld gef&auml;hrdet sein k&ouml;nnten.</li><li>Formuliere eine sichere Entscheidung: nicht kaufen, erwachsene Hilfe holen, Bedingungen lesen, melden.</li><li>Erkl&auml;re, welches Recht oder welcher Schutzgedanke dahintersteht.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Deine Entscheidung ist begr&uuml;ndet und nennt mindestens zwei Warnzeichen.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Ebenen</td><td>Hardware, System, App und Dienst werden unterschieden</td><td>Beispiele passen</td></tr><tr><td>Schutz</td><td>Verschl&uuml;sselung oder sichere Einstellung wird erkl&auml;rt</td><td>Schutz ist alltagsnah</td></tr><tr><td>Rechte</td><td>Abo, Kauf oder Betrug wird kritisch gepr&uuml;ft</td><td>Warnzeichen sind konkret</td></tr></table>\n{{QUIZ_dgb8_handeln_q3}}\n{{QUIZ_dgb8_handeln_p3}}"
+        ]
       },
       {
         "id": "sec4",
-        "title": "4. Anwenden und selbst pr&uuml;fen",
+        "title": "4. Selbstbestimmt mitreden",
+        "content": "\n<p>Digitale Kommunikation kann gemeinsames Engagement erleichtern: Menschen sammeln Vorschläge, diskutieren Gründe und richten ein Anliegen an Verantwortliche. Reichweite allein bedeutet weder Zustimmung noch eine verbindliche Entscheidung.</p>\n<div class=\"word-ui-card\" data-action-case><h3>Fall: Mehr Schatten am Schulhof in Wien</h3><p>Eine Klasse will zwei schattige Sitzplätze vorschlagen. Drei Kinder wünschen sich einen ruhigen Platz zum Lesen, zwei möchten weiter Ball spielen können. Es gibt noch keine genehmigte Finanzierung. In einem erfundenen Beteiligungsportal sind „öffentlich sichtbar“, „genauer Standort im Beitrag“ und „Benachrichtigung bei jeder Antwort“ voreingestellt. Die Klasse möchte zunächst nur mit ihrer gewählten Vertretung beraten.</p></div>\n<div class=\"word-task-card\"><h3>Beteiligung planen und Einstellungen begründen</h3><ol class=\"word-mini-steps\" data-action-tasks><li>Schreibe einen Entwurf mit 60–90 Wörtern: konkretes Anliegen, Gründe beider Gruppen, ein möglicher Kompromiss und eine offene Frage an die Schulleitung. Behaupte keine bereits zugesagte Finanzierung.</li><li>Wähle für die erste Beratung Empfängerkreis, Standortfreigabe und Benachrichtigungen. Begründe jede Wahl. Welche Voreinstellung passt nicht zum genannten Ziel?</li><li>Prüfe in einer schulisch freigegebenen Plattform die entsprechenden Einstellungen für einen Entwurf. Ändere sie nur, soweit du dazu berechtigt bist, und prüfe die angezeigte Zielgruppe vor dem Teilen. Ohne Zugang zeichnest du eine begründete Einstellungsmaske; notiere, dass dies noch kein Praxistest ist.</li><li>Vergleiche digitale Diskussion und Klassengespräch: Wer kann teilnehmen, wer braucht einen anderen Zugang? Plane, wie Rückmeldungen gesammelt, Minderheitenwünsche erhalten und Ergebnisse zurückgemeldet werden. Veröffentliche nichts ohne die vereinbarte Freigabe.</li></ol></div>\n<details data-worksheet-solution=\"true\"><summary>Vergleichslösung – erst nach deinem Versuch öffnen</summary><div data-action-solution=\"participation\"><p>Ein möglicher Kompromiss trennt ruhigen Schattenbereich und Spielfläche. Die Finanzierung bleibt eine offene Frage. Für die erste Beratung passt ein begrenzter Empfängerkreis; genauer Standort ist dafür nicht nötig. Gebündelte oder abgeschaltete Benachrichtigungen können selbstbestimmtes Arbeiten unterstützen. Die endgültige Wahl hängt vom Bedarf ab. Ein Papierzugang oder Klassengespräch ergänzt den digitalen Kanal. Ein stark geklickter Beitrag ersetzt keine vereinbarte Entscheidungsregel.</p></div></details>\n{{QUIZ_dgb8_handeln_q4}}\n{{QUIZ_dgb8_civic_participation}}\n{{QUIZ_dgb8_handeln_p2}}",
         "quizzes": [
           {
             "id": "dgb8_handeln_q4",
-            "question": "Warum sind Voreinstellungen wichtig?",
+            "question": "Die Klasse will zunächst nur mit ihrer Vertretung beraten. Welche Einstellung passt dazu?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "sie können deine Möglichkeiten und Datenfreigaben lenken",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Einstellungen beeinflussen Handeln."
-              },
-              {
-                "text": "sie sind immer perfekt für alle",
+                "text": "Öffentlich teilen, weil Voreinstellungen immer geprüft sind.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Voreinstellungen passen nicht immer zu allen."
+                "feedback": "Die öffentliche Voreinstellung passt nicht zum beschriebenen Beratungsziel."
+              },
+              {
+                "text": "Genauen Standort einschalten, damit automatisch nur die Vertretung mitliest.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Standortdaten begrenzen nicht automatisch den Empfängerkreis."
+              },
+              {
+                "text": "Empfängerkreis begrenzen und vor dem Teilen die sichtbare Zielgruppe prüfen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Einstellungen sollen dem konkreten Ziel folgen."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_civic_participation",
+            "question": "Was macht den Schulhofbeitrag zu einem sinnvollen Beitrag zur Beteiligung?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Er ersetzt durch möglichst viele Klicks jede weitere Diskussion.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Aufmerksamkeit ist keine gemeinsam vereinbarte Entscheidung."
+              },
+              {
+                "text": "Er nennt ein Anliegen mit Gründen, berücksichtigt andere Wünsche und lädt zu Rückmeldung ein.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Begründung, Rückmeldung und Berücksichtigung unterschiedlicher Interessen unterstützen Beteiligung."
+              },
+              {
+                "text": "Er behauptet eine zugesagte Finanzierung, damit mehr Menschen zustimmen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine erfundene Zusage würde die Diskussion in die Irre führen."
+              }
+            ]
+          },
+          {
+            "id": "dgb8_handeln_p2",
+            "question": "Was bedeutet informationelle Selbstbestimmung im Schulhoffall?",
+            "practiceOnly": true,
+            "answers": [
+              {
+                "text": "Datenfreigaben und Empfängerkreis bewusst passend zum Zweck wählen.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Richtig: Prüfen und bewusst entscheiden hilft, über eigene Daten mitzubestimmen."
+              },
+              {
+                "text": "Ein öffentliches Profil verhindert automatisch jede weitere Datennutzung.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Öffentlich freigegebene Daten können von anderen weiterverwendet werden; die Kontrolle ist begrenzt."
+              },
+              {
+                "text": "Alle Angaben ausfüllen, weil Voreinstellungen bereits die eigene Entscheidung sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Voreinstellung des Anbieters ist noch keine bewusst getroffene eigene Wahl."
               }
             ]
           }
-        ],
-        "content": "\n<p>Zum Schluss sollst du das Thema auf eine neue Situation anwenden. Das ist wichtiger als ein Satz auswendig zu k&ouml;nnen.</p>\n<div class=\"word-check-card\"><h3>Selbstkontrolle</h3><ul class=\"step-list\"><li>Kann ich digitale Systemebenen unterscheiden?</li><li>Kann ich Verschl&uuml;sselung einfach erkl&auml;ren?</li><li>Kann ich Abo-Fallen und Verbraucherrechte beachten?</li></ul></div>\n<div class=\"teacher-note\"><strong>Schreibsatz f&uuml;r dein Heft:</strong> Ich kann dieses Thema anwenden, wenn ich ein eigenes Beispiel erkl&auml;re, eine passende Entscheidung treffe und meine Begr&uuml;ndung mit einem Fachwort st&uuml;tze.</div>\n<div class=\"mini-task\"><strong>Abschlussauftrag:</strong> Schreibe drei S&auml;tze: 1. Was habe ich gelernt? 2. Wo brauche ich es im Alltag? 3. Welche Frage ist noch offen?</div>\n{{QUIZ_dgb8_handeln_q4}}"
+        ]
       }
     ],
     "chapterQuizTitle": "Verständnischeck: Systeme, Verschlüsselung und Verbraucherfallen",
     "learningGoals": [
-      "Du unterscheidest Hardware, Systemsoftware, Apps und Online-Dienste.",
-      "Du erklärst Verschlüsselung als Schutz.",
-      "Du erkennst digitale Verbraucherfallen und deine Rechte."
+      "Du vergleichst Hardware, Betriebssystem und Anwendung anhand ihrer Zusammenarbeit.",
+      "Du verschlüsselst eine Übungsdatei, öffnest sie wieder und prüfst Fehlerfälle.",
+      "Du vergleichst Gesamtkosten, erkennst manipulative Gestaltung und weißt, wo du Hilfe findest.",
+      "Du planst digitale Beteiligung und begründest Datenfreigaben und Einstellungen."
     ],
     "summary": [
-      "Hardware, Betriebssystem, Anwendungen und Online-Dienste erfüllen unterschiedliche Aufgaben.",
-      "Verschlüsselung schützt Inhalte, indem sie diese ohne passenden Schlüssel unlesbar macht.",
-      "Prüfe Einstellungen, Vertragsbedingungen und Gesamtkosten digitaler Angebote, bevor du dich entscheidest."
+      "Anwendungen nutzen Betriebssystemdienste; Hardware führt Operationen aus und speichert Daten. Ein Online-Dienst läuft auf anderen Rechnern.",
+      "Verschlüsselung schützt Inhalte mit einem Schlüssel. Passwort, Originaldateien und geöffnete Geräte benötigen ebenfalls Schutz.",
+      "Preis, Verlängerung, Extras und Kündigung gehören zur Kaufentscheidung. Minderjährige haben abgestufte Geschäftsfähigkeit.",
+      "Digitale Beteiligung braucht begründete Anliegen, passende Zielgruppen und Zugang für unterschiedliche Menschen."
     ],
     "prerequisites": [
       "dgb7_handeln"
+    ],
+    "sources": [
+      {
+        "title": "RIS: Lehrpläne der Mittelschulen – Digitale Grundbildung, 4. Klasse",
+        "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007850"
+      },
+      {
+        "title": "MDN: Schlüsselableitung mit Web Crypto",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveKey"
+      },
+      {
+        "title": "MDN: AES-GCM und Prüfung verschlüsselter Daten",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/AesGcmParams"
+      },
+      {
+        "title": "Arbeiterkammer: Tricks der Online-Händler",
+        "url": "https://www.arbeiterkammer.at/beratung/konsument/HandyundInternet/Internet/Dark_Patterns.html"
+      },
+      {
+        "title": "Arbeiterkammer: Wer Verträge abschließen kann",
+        "url": "https://www.arbeiterkammer.at/beratung/konsument/konsumundeinkauf/kaufundrechte/Wer_Vertraege_abschliessen_kann.html"
+      }
     ]
   },
   "wetter": {
@@ -37478,6 +37644,12 @@
             "question": "Welche Beschreibung erfasst einen Wald als Ökosystem?",
             "answers": [
               {
+                "text": "Nur die Baumarten und ihre Anzahl.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bäume sind ein Teil des Systems. Andere Lebewesen und Umweltbedingungen fehlen in dieser Beschreibung."
+              },
+              {
                 "text": "Lebewesen, unbelebte Umweltbedingungen und ihre Wechselbeziehungen.",
                 "correct": true,
                 "pts": 10,
@@ -37488,17 +37660,35 @@
                 "correct": false,
                 "pts": 0,
                 "feedback": "Die unbelebten Bedingungen gehören ebenfalls dazu und beeinflussen die Lebewesen."
-              },
+              }
+            ]
+          },
+          {
+            "id": "bio2_wald_d5",
+            "question": "In einer Nahrungskette steht: Blatt → Raupe → Singvogel. Was bedeutet der Pfeil hier?",
+            "answers": [
               {
-                "text": "Nur die Baumarten und ihre Anzahl.",
+                "text": "Der Pfeil zeigt, welches Tier seine Nahrung sucht, also vom Jäger zur Beute.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Bäume sind ein Teil des Systems. Andere Lebewesen und Umweltbedingungen fehlen in dieser Beschreibung."
+                "feedback": "In dieser festgelegten Darstellung verläuft der Pfeil gerade umgekehrt: vom gefressenen Material zum Fresser."
+              },
+              {
+                "text": "Alle aufgenommenen Stoffe werden vollständig als Körpermasse weitergegeben.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Teil der Stoffe wird ausgeschieden oder bei der Zellatmung umgebaut; Energie wird auch als Wärme abgegeben."
+              },
+              {
+                "text": "Organische Stoffe und darin enthaltene chemische Energie gelangen von der Nahrung zum Fresser.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Pfeilrichtung ist hier Nahrung zum Fresser. Ein Nahrungsnetz enthält viele miteinander verbundene Ketten."
               }
             ]
           }
         ],
-        "content": "<p>Ein <strong>Ökosystem</strong> besteht aus einem Lebensraum und allen Lebewesen darin. Im Wald wirken belebte Faktoren wie Bäume, Pilze, Insekten und Rehe mit unbelebten Faktoren wie Licht, Wasser, Boden, Temperatur und Wind zusammen. Kein Teil steht allein: Wenn es weniger Licht am Boden gibt, wachsen dort andere Pflanzen als am Waldrand.</p><figure class=\"diagram-box bio-image bio-contain bio-textbook-figure\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Beech_forest_%2848325679011%29.jpg/960px-Beech_forest_%2848325679011%29.jpg\" alt=\"1. Der Wald als Ökosystem\" loading=\"eager\"><figcaption>Bild: <a href='https://commons.wikimedia.org/wiki/File:Beech_forest_(48325679011).jpg' target='_blank' rel='noopener'>Wikimedia Commons</a>, freie Lizenz laut Dateiseite</figcaption></figure><p>Wälder haben Stockwerke: Moosschicht, Krautschicht, Strauchschicht und Baumschicht. Diese Struktur schafft viele kleine Lebensräume. Eine Spinne nutzt andere Stellen als ein Specht, eine Buche andere Bedingungen als Moos.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du erklärst Ökosystem, Stockwerke, belebte und unbelebte Faktoren.</li><li>Du ordnest Beobachtungen im Wald nach Faktoren und Beziehungen.</li><li>Du leitest ab, warum Wald nicht nur Holzlager, sondern Lebensraum ist.</li></ul></div><div class=\"remember-box\"><strong>Kernregel:</strong> Ein Wald ist ein Netz aus Lebewesen, Stoffen, Energie und Bedingungen.</div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Zeichne vier Waldstockwerke ins Heft und schreibe zu jedem Stockwerk zwei Lebewesen oder Bedingungen.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Ökosystem</summary><p>Ein Ökosystem ist die Einheit aus Lebensraum, Lebewesen und ihren Wechselbeziehungen.</p><p><em>Beispiel:</em> Wald, Wiese, Hecke und Teich sind Ökosysteme.</p></details><details class=\"bio-vocab-item\"><summary>belebter Faktor</summary><p>Ein belebter Faktor ist ein Einfluss durch Lebewesen.</p><p><em>Beispiel:</em> Ein Baum spendet Schatten, ein Reh frisst junge Triebe.</p></details><details class=\"bio-vocab-item\"><summary>unbelebter Faktor</summary><p>Ein unbelebter Faktor ist ein Einfluss der unbelebten Umwelt.</p><p><em>Beispiel:</em> Licht, Temperatur, Wasser, Boden und Wind.</p></details><details class=\"bio-vocab-item\"><summary>Stockwerkbau</summary><p>Stockwerkbau beschreibt die Schichtung des Waldes vom Boden bis zu den Baumkronen.</p><p><em>Beispiel:</em> Moosschicht, Krautschicht, Strauchschicht, Baumschicht.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre Ökosystem, belebte Faktoren, unbelebte Faktoren und Stockwerkbau. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Ordne konkrete Waldbeobachtungen in belebte und unbelebte Faktoren. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Begründe, warum man Wege im Wald nicht ohne Grund verlassen sollte. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Erkläre Ökosystem, belebte Faktoren, unbelebte Faktoren und Stockwerkbau.</li><li><strong>Erkenntnis:</strong> Ordne konkrete Waldbeobachtungen in belebte und unbelebte Faktoren.</li><li><strong>Handeln:</strong> Begründe, warum man Wege im Wald nicht ohne Grund verlassen sollte.</li></ul></div>{{QUIZ_bio2_wald_s1}}<h3>Nahrungsketten sind Ausschnitte aus einem Netz</h3><p>Ein Beispiel ist <strong>Blatt → Raupe → Singvogel</strong>. Der Pfeil bedeutet hier: Nahrung beziehungsweise organische Stoffe mit chemischer Energie gelangen zum Fresser. Raupen fressen nicht alle dieselben Pflanzen; Vögel können verschiedene Nahrung nutzen. Mehrere verknüpfte Ketten bilden ein Nahrungsnetz.</p><p>Abgestorbenes Material und Ausscheidungen stehen Zersetzern zur Verfügung. Stoffe können erneut in andere Lebewesen eingebaut werden. Energie wird bei Stoffwechselvorgängen unter anderem als Wärme abgegeben. Stoffkreislauf und Energiefluss sind deshalb nicht dasselbe.</p>"
+        "content": "<p>Ein <strong>Ökosystem</strong> besteht aus einem Lebensraum und allen Lebewesen darin. Im Wald wirken belebte Faktoren wie Bäume, Pilze, Insekten und Rehe mit unbelebten Faktoren wie Licht, Wasser, Boden, Temperatur und Wind zusammen. Kein Teil steht allein: Wenn es weniger Licht am Boden gibt, wachsen dort andere Pflanzen als am Waldrand.</p><p>Wälder haben Stockwerke: Moosschicht, Krautschicht, Strauchschicht und Baumschicht. Diese Struktur schafft viele kleine Lebensräume. Eine Spinne nutzt andere Stellen als ein Specht, eine Buche andere Bedingungen als Moos.</p><figure class=\"forest-profile\" data-worksheet-static=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 390\" role=\"img\" aria-label=\"Waldschema: 1 Baumschicht, 2 Strauchschicht, 3 Krautschicht, 4 Moosschicht, 5 Boden mit Wurzeln. Ein Baum verbindet mehrere Bereiche.\" data-worksheet-static=\"true\"><rect width=\"500\" height=\"390\" fill=\"#f7fbff\"></rect><path d=\"M20 115H480M20 220H480M20 285H480M20 325H480\" stroke=\"#66758a\" stroke-dasharray=\"5 5\"></path><rect x=\"20\" y=\"325\" width=\"460\" height=\"55\" fill=\"#d9ba95\"></rect><path d=\"M126 330V85\" stroke=\"#795031\" stroke-width=\"22\"></path><path d=\"M126 330l-60 35m60-35l60 36m-60-36v46\" stroke=\"#795031\" stroke-width=\"7\"></path><ellipse cx=\"127\" cy=\"66\" rx=\"85\" ry=\"54\" fill=\"#438b50\"></ellipse><path d=\"M221 320V183m0 35l-30-31m30 51l29-39\" stroke=\"#795031\" stroke-width=\"8\"></path><ellipse cx=\"216\" cy=\"185\" rx=\"44\" ry=\"35\" fill=\"#75ad59\"></ellipse><path d=\"M57 319v-58m0 18l-21-10m21 23l21-12\" stroke=\"#327645\" stroke-width=\"7\"></path><path d=\"M26 320q30-26 58 0\" stroke=\"#4b7b31\" stroke-width=\"12\" fill=\"none\"></path><g font-family=\"sans-serif\" font-size=\"24\" fill=\"#172b3a\"><text x=\"290\" y=\"65\">1 Baumschicht</text><text x=\"290\" y=\"180\">2 Sträucher</text><text x=\"290\" y=\"264\">3 Kräuter</text><text x=\"290\" y=\"312\">4 Moose</text><text x=\"290\" y=\"360\">5 Boden</text></g></svg><figcaption>Eigenes Schema, keine Aufnahme eines bestimmten Waldes. Höhen und Abstände sind nicht maßstabsgetreu. Stockwerke können fehlen oder ineinander übergehen; Wurzeln verbinden Pflanzen mit dem Boden.</figcaption></figure><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du erklärst Ökosystem, Stockwerke, belebte und unbelebte Faktoren.</li><li>Du ordnest Beobachtungen im Wald nach Faktoren und Beziehungen.</li><li>Du leitest ab, warum Wald nicht nur Holzlager, sondern Lebensraum ist.</li></ul></div><div class=\"remember-box\"><strong>Kernregel:</strong> Ein Wald ist ein Netz aus Lebewesen, Stoffen, Energie und Bedingungen.</div><div class=\"bio-vocab-box bio-vocab-subtle forest-vocab\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Ökosystem</summary><p>Ein Ökosystem ist die Einheit aus Lebensraum, Lebewesen und ihren Wechselbeziehungen.</p><p><em>Beispiel:</em> Wald, Wiese, Hecke und Teich sind Ökosysteme.</p></details><details class=\"bio-vocab-item\"><summary>belebter Faktor</summary><p>Ein belebter Faktor ist ein Einfluss durch Lebewesen.</p><p><em>Beispiel:</em> Ein Baum spendet Schatten, ein Reh frisst junge Triebe.</p></details><details class=\"bio-vocab-item\"><summary>unbelebter Faktor</summary><p>Ein unbelebter Faktor ist ein Einfluss der unbelebten Umwelt.</p><p><em>Beispiel:</em> Licht, Temperatur, Wasser, Boden und Wind.</p></details><details class=\"bio-vocab-item\"><summary>Stockwerkbau</summary><p>Stockwerkbau beschreibt die Schichtung des Waldes vom Boden bis zu den Baumkronen.</p><p><em>Beispiel:</em> Moosschicht, Krautschicht, Strauchschicht, Baumschicht.</p></details></div></div><h3>Nahrungsketten sind Ausschnitte aus einem Netz</h3><p>Ein Beispiel ist <strong>Blatt → Raupe → Singvogel</strong>. Der Pfeil bedeutet hier: Nahrung beziehungsweise organische Stoffe mit chemischer Energie gelangen zum Fresser. Raupen fressen nicht alle dieselben Pflanzen; Vögel können verschiedene Nahrung nutzen. Mehrere verknüpfte Ketten bilden ein Nahrungsnetz.</p><p>Abgestorbenes Material und Ausscheidungen stehen Zersetzern zur Verfügung. Stoffe können erneut in andere Lebewesen eingebaut werden. Energie wird bei Stoffwechselvorgängen unter anderem als Wärme abgegeben. Stoffkreislauf und Energiefluss sind deshalb nicht dasselbe.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><strong>Arbeitsauftrag</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Einfluss und Bedingung trennen</h4><p>Beobachtungen: Eine Raupe frisst ein Blatt. Unter einer Baumkrone ist es dunkler als auf der Lichtung. Ordne Fraß und Lichtangebot ein. Erkläre, warum ein Lebewesen eine unbelebte Bedingung verändern kann.</p></div><div class=\"bio-training-card\"><h4>Das Waldschema lesen</h4><p>Ordne Baumkrone, Haselstrauch, krautige Pflanze, Moospolster und Wurzeln den Nummern 1–5 zu. Welche Pflanzenteile reichen in mehrere Bereiche? Nenne zwei Grenzen der Zeichnung.</p></div><div class=\"bio-training-card\"><h4>Stoffe und Energie verfolgen</h4><p>Zeichne Blatt → Raupe → Singvogel. Ergänze abgestorbenes Material und Zersetzer. Beschrifte, was die Nahrungspfeile bedeuten. Erkläre, warum Stoffe erneut genutzt werden können, Energie aber nicht im selben Kreislauf zurückkehrt.</p></div></div></div><div class=\"bio-section-check\"><strong>Mein Beleg</strong><p>Lege deine bearbeiteten Aufgaben neben die Vergleichslösung. Markiere einen gut begründeten Satz und ergänze eine noch fehlende Beobachtung oder Grenze.</p></div>{{QUIZ_bio2_wald_s1}}<details data-worksheet-solution=\"true\"><summary>Vergleichslösung</summary><div data-forest-solution=\"0\"><p>Fraß ist ein Einfluss eines Lebewesens; das Lichtangebot ist eine unbelebte Bedingung, die die Baumkrone beeinflusst. Nummern: Baum 1, Strauch 2, Kräuter 3, Moose 4, Boden/Wurzeln 5. Baumstamm und Wurzeln reichen durch mehrere Bereiche. Pfeile der Nahrungskette zeigen Stoffe und chemische Energie zum Fresser. Bei Stoffwechselprozessen wird Energie unter anderem als Wärme abgegeben; sie kehrt nicht als nutzbare Sonnenenergie zur Pflanze zurück.</p></div></details>{{QUIZ_bio2_wald_d5}}"
       },
       {
         "title": "2. Biodiversität: mehr als viele Individuen",
@@ -37535,7 +37725,7 @@
               {
                 "text": "Arten können unter bestimmten Bedingungen teilweise ähnliche Funktionen übernehmen.",
                 "correct": true,
-                "pts": 10,
+                "pts": 0,
                 "feedback": "Das kann die Folgen eines Ausfalls begrenzen. Nicht jede Art ist ersetzbar, und Vielfalt verhindert nicht jede Störung."
               },
               {
@@ -37551,9 +37741,33 @@
                 "feedback": "Auch artenreiche Systeme können stark geschädigt werden. Vielfalt ist keine Garantie gegen Störungen."
               }
             ]
+          },
+          {
+            "id": "bio2_wald_d1",
+            "question": "Zehn Buchen derselben Art werden gezählt. Welche Aussage folgt sicher?",
+            "answers": [
+              {
+                "text": "Es wurden zehn verschiedene Arten nachgewiesen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zehn Individuen derselben Art sind nicht zehn Arten."
+              },
+              {
+                "text": "Alle Buchen sind genetisch identisch.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch innerhalb derselben Art können genetische Unterschiede vorkommen."
+              },
+              {
+                "text": "Es wurden zehn Bäume einer Art erfasst; über die gesamte Biodiversität sagt das allein wenig aus.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Individuenzahl, Artenzahl und genetische Vielfalt sind verschiedene Ebenen. Die Zählung betrifft nur eine davon direkt."
+              }
+            ]
           }
         ],
-        "content": "<p><strong>Biodiversität</strong> bedeutet biologische Vielfalt. Dazu gehören Artenvielfalt, Vielfalt der Lebensräume und Unterschiede innerhalb einer Art. Ein Wald mit alten Bäumen, Totholz, jungen Pflanzen, Lichtungen und feuchten Stellen bietet mehr Lebensmöglichkeiten als eine eintönige Fläche.</p><figure class=\"diagram-box bio-image bio-contain bio-textbook-figure\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Beech_forest_%2848325679011%29.jpg/960px-Beech_forest_%2848325679011%29.jpg\" alt=\"2. Biodiversität macht Lebensräume stabiler\" loading=\"eager\"><figcaption>Bild: <a href='https://commons.wikimedia.org/wiki/File:Beech_forest_(48325679011).jpg' target='_blank' rel='noopener'>Wikimedia Commons</a>, freie Lizenz laut Dateiseite</figcaption></figure><p>Vielfalt kann ein Ökosystem widerstandsfähiger machen. Wenn eine Pflanzenart durch Trockenheit leidet, können andere Arten Nahrung und Schutz bieten. Totholz ist dabei kein Müll: Darin leben Käferlarven, Pilze und viele Zersetzer.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du unterscheidest Artenvielfalt, Strukturvielfalt und genetische Vielfalt.</li><li>Du erkennst auf Bildern oder im Schulumfeld Hinweise auf hohe oder geringe Vielfalt.</li><li>Du begründest, warum Totholz, Hecken und Wildblumenflächen geschützt werden sollen.</li></ul></div><div class=\"bio-check-grid\"><div class=\"bio-check-card\"><strong>Arten</strong>Wie viele verschiedene Lebewesen kommen vor?</div><div class=\"bio-check-card\"><strong>Strukturen</strong>Gibt es Verstecke, Höhen, Totholz, Licht und Schatten?</div><div class=\"bio-check-card\"><strong>Störungen</strong>Was verändert der Mensch?</div></div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Vergleiche Schulhof und Park: Wo findest du mehr Vielfalt? Begründe mit mindestens drei Beobachtungen.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Biodiversität</summary><p>Biodiversität bedeutet biologische Vielfalt auf mehreren Ebenen.</p><p><em>Beispiel:</em> Viele Pflanzenarten, verschiedene Lebensräume und unterschiedliche Individuen.</p></details><details class=\"bio-vocab-item\"><summary>Artenvielfalt</summary><p>Artenvielfalt beschreibt, wie viele verschiedene Arten in einem Gebiet leben.</p><p><em>Beispiel:</em> Mehrere Baumarten, Vogelarten und Pilzarten.</p></details><details class=\"bio-vocab-item\"><summary>Strukturvielfalt</summary><p>Strukturvielfalt bedeutet, dass ein Lebensraum viele unterschiedliche Bereiche bietet.</p><p><em>Beispiel:</em> Totholz, Steine, Hecken, Lichtungen und feuchte Stellen.</p></details><details class=\"bio-vocab-item\"><summary>Totholz</summary><p>Totholz sind abgestorbene Äste oder Stämme, die vielen Lebewesen Nahrung und Wohnung bieten.</p><p><em>Beispiel:</em> Pilze und Käferlarven bauen Holz ab.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre Biodiversität und nenne drei Ebenen der Vielfalt. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Vergleiche zwei Lebensräume mit Kriterien für Vielfalt. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Begründe eine Schutzmaßnahme, die Vielfalt erhöht. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Erkläre Biodiversität und nenne drei Ebenen der Vielfalt.</li><li><strong>Erkenntnis:</strong> Vergleiche zwei Lebensräume mit Kriterien für Vielfalt.</li><li><strong>Handeln:</strong> Begründe eine Schutzmaßnahme, die Vielfalt erhöht.</li></ul></div>{{QUIZ_bio2_wald_s2}}\n{{QUIZ_bio_2_oekosysteme_extra_biodiversitaet}}<p><strong>Individuenzahl ist nicht Artenzahl:</strong> Zwanzig Pflanzen derselben Art sind viele Individuen, aber nur eine nachgewiesene Art. Biodiversität umfasst außerdem genetische Unterschiede innerhalb von Arten und die Vielfalt von Ökosystemen. Eine kurze Artenzählung erfasst daher nur einen Ausschnitt.</p>"
+        "content": "<p><strong>Biodiversität</strong> bedeutet biologische Vielfalt. Dazu gehören Artenvielfalt, Vielfalt der Lebensräume und Unterschiede innerhalb einer Art. Ein Wald mit alten Bäumen, Totholz, jungen Pflanzen, Lichtungen und feuchten Stellen bietet mehr Lebensmöglichkeiten als eine eintönige Fläche.</p><p>Vielfalt kann ein Ökosystem widerstandsfähiger machen. Wenn eine Pflanzenart durch Trockenheit leidet, können andere Arten Nahrung und Schutz bieten. Totholz ist dabei kein Müll: Darin leben Käferlarven, Pilze und viele Zersetzer.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du unterscheidest Artenvielfalt, Strukturvielfalt und genetische Vielfalt.</li><li>Du erkennst auf Bildern oder im Schulumfeld Hinweise auf hohe oder geringe Vielfalt.</li><li>Du begründest, warum Totholz, Hecken und Wildblumenflächen geschützt werden sollen.</li></ul></div><div class=\"bio-check-grid\"><div class=\"bio-check-card\"><strong>Arten: </strong>Wie viele verschiedene Arten wurden nachgewiesen?</div><div class=\"bio-check-card\"><strong>Strukturen: </strong>Gibt es Verstecke, Höhen, Totholz, Licht und Schatten?</div><div class=\"bio-check-card\"><strong>Störungen: </strong>Was verändert der Mensch?</div></div><div class=\"bio-vocab-box bio-vocab-subtle forest-vocab\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Biodiversität</summary><p>Biodiversität bedeutet biologische Vielfalt auf mehreren Ebenen.</p><p><em>Beispiel:</em> Viele Pflanzenarten, verschiedene Lebensräume und unterschiedliche Individuen.</p></details><details class=\"bio-vocab-item\"><summary>Artenvielfalt</summary><p>Artenvielfalt beschreibt, wie viele verschiedene Arten in einem Gebiet leben.</p><p><em>Beispiel:</em> Mehrere Baumarten, Vogelarten und Pilzarten.</p></details><details class=\"bio-vocab-item\"><summary>Strukturvielfalt</summary><p>Strukturvielfalt bedeutet, dass ein Lebensraum viele unterschiedliche Bereiche bietet.</p><p><em>Beispiel:</em> Totholz, Steine, Hecken, Lichtungen und feuchte Stellen.</p></details><details class=\"bio-vocab-item\"><summary>Totholz</summary><p>Totholz sind abgestorbene Äste oder Stämme, die vielen Lebewesen Nahrung und Wohnung bieten.</p><p><em>Beispiel:</em> Pilze und Käferlarven bauen Holz ab.</p></details></div></div><p><strong>Individuenzahl ist nicht Artenzahl:</strong> Zwanzig Pflanzen derselben Art sind viele Individuen, aber nur eine nachgewiesene Art. Biodiversität umfasst außerdem genetische Unterschiede innerhalb von Arten und die Vielfalt von Ökosystemen. Eine kurze Artenzählung erfasst daher nur einen Ausschnitt.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><strong>Arbeitsauftrag</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Individuen und Arten</h4><p>Probe X: acht Buchen. Probe Y: drei Buchen, zwei Eichen und drei Hainbuchen. Bestimme je Probe Individuenzahl und Artenzahl. Welche Aussage über genetische Vielfalt bleibt offen?</p></div><div class=\"bio-training-card\"><h4>Ein Bild reicht nicht</h4><p>Fall: Ein Foto zeigt viele gleich hohe Bäume. Im Schatten sind keine Bodenpflanzen erkennbar. Schreibe eine sichere Bildbeobachtung und zwei zusätzliche Informationen auf, die du zur Beurteilung der Vielfalt brauchst.</p></div><div class=\"bio-training-card\"><h4>Totholz begründet erhalten</h4><p>Eine Betreuungsperson möchte einen liegenden Stamm abseits des Weges entfernen, „weil er nicht mehr lebt“. Antworte mit zwei ökologischen Funktionen. Ergänze, welche örtlichen Sicherheits- und Nutzungsfragen vor einer Entscheidung zu klären sind.</p></div></div></div><div class=\"bio-section-check\"><strong>Mein Beleg</strong><p>Lege deine bearbeiteten Aufgaben neben die Vergleichslösung. Markiere einen gut begründeten Satz und ergänze eine noch fehlende Beobachtung oder Grenze.</p></div>{{QUIZ_bio2_wald_s2}}\n{{QUIZ_bio_2_oekosysteme_extra_biodiversitaet}}<details data-worksheet-solution=\"true\"><summary>Vergleichslösung</summary><div data-forest-solution=\"1\"><p>X: 8 Individuen, 1 Art. Y: 8 Individuen, 3 Arten. Genetische Unterschiede sind dadurch nicht gemessen. Ein Foto zeigt sichtbare Strukturen, nicht alle Arten oder ihre Gene. Totholz kann Nahrung und Lebensraum bieten; Nutzung und Sicherheit müssen am konkreten Ort beurteilt werden.</p></div></details>{{QUIZ_bio2_wald_d1}}"
       },
       {
         "title": "3. Wald, Wiese, Hecke und Stadtpark vergleichen",
@@ -37562,6 +37776,12 @@
             "id": "bio2_wald_s3",
             "question": "Wie vergleichst du zwei Lebensräume nachvollziehbar?",
             "answers": [
+              {
+                "text": "Nur nach der Gesamtzahl der gezählten Pflanzen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Viele Pflanzen können zu wenigen Arten gehören. Gesamtzahl und Artenzahl sind unterschiedliche Größen."
+              },
               {
                 "text": "Mit festgelegten Kriterien wie Licht, Bodenfeuchte, Strukturen und beobachteten Arten.",
                 "correct": true,
@@ -37573,17 +37793,11 @@
                 "correct": false,
                 "pts": 0,
                 "feedback": "Ein Foto hängt auch von Jahreszeit, Blickwinkel und Beleuchtung ab. Grün allein erfasst nicht die Vielfalt."
-              },
-              {
-                "text": "Nur nach der Gesamtzahl der gezählten Pflanzen.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Viele Pflanzen können zu wenigen Arten gehören. Gesamtzahl und Artenzahl sind unterschiedliche Größen."
               }
             ]
           }
         ],
-        "content": "<p>Landlebensräume unterscheiden sich stark. Eine Wiese hat viel Licht und oft viele Kräuter und Insekten. Eine Hecke ist ein Übergang zwischen offenem Gebiet und Gehölz; sie bietet Nistplätze, Beeren, Schatten und Schutz. Ein Stadtpark ist vom Menschen gestaltet, kann aber trotzdem Lebensraum sein.</p><p>Beim Vergleichen geht es nicht um „besser“ oder „schlechter“, sondern um Bedingungen und Angepasstheiten. Kurzes Gras hilft manchen Pflanzen nicht, andere halten Mähen aus. Dichte Hecken schützen Vögel, offene Flächen helfen sonnenliebenden Insekten.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du beschreibst typische Bedingungen verschiedener Landlebensräume.</li><li>Du vergleichst Lebensräume mit Kriterien wie Licht, Feuchtigkeit, Pflege und Verstecke.</li><li>Du formulierst Vorschläge, wie ein Ort tier- und pflanzenfreundlicher wird.</li></ul></div><table class=\"bio-data-table\"><tr><th>Lebensraum</th><th>Typische Bedingungen</th><th>Mögliche Lebewesen</th></tr><tr><td>Wiese</td><td>viel Licht, regelmäßige Mahd</td><td>Gräser, Kräuter, Bienen, Heuschrecken</td></tr><tr><td>Hecke</td><td>Schutz, Blüten, Beeren, Schatten</td><td>Vögel, Spinnen, Käfer, Sträucher</td></tr><tr><td>Stadtpark</td><td>gepflegt, betreten, oft trocken</td><td>Bäume, Tauben, Ameisen, Moose</td></tr></table><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Landlebensraum</summary><p>Ein Landlebensraum ist ein Lebensraum an Land mit bestimmten Bedingungen.</p><p><em>Beispiel:</em> Wald, Wiese, Hecke, Garten, Park.</p></details><details class=\"bio-vocab-item\"><summary>Kriterium</summary><p>Ein Kriterium ist ein Merkmal, nach dem du vergleichst.</p><p><em>Beispiel:</em> Licht, Bodenfeuchte, Pflanzenhöhe, Verstecke.</p></details><details class=\"bio-vocab-item\"><summary>Angepasstheit</summary><p>Angepasstheit bedeutet, dass Merkmale zu Lebensraum und Lebensweise passen.</p><p><em>Beispiel:</em> Dornen schützen, tiefe Wurzeln erreichen Wasser.</p></details><details class=\"bio-vocab-item\"><summary>Pflegeeingriff</summary><p>Ein Pflegeeingriff ist eine menschliche Veränderung zur Nutzung oder Erhaltung.</p><p><em>Beispiel:</em> Mähen, Zurückschneiden, Bewässern.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Nenne Unterschiede zwischen Wald, Wiese, Hecke und Stadtpark. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Vergleiche zwei Orte mit mindestens vier Kriterien. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Entwirf eine realistische Verbesserung für einen Schul- oder Parkbereich. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne Unterschiede zwischen Wald, Wiese, Hecke und Stadtpark.</li><li><strong>Erkenntnis:</strong> Vergleiche zwei Orte mit mindestens vier Kriterien.</li><li><strong>Handeln:</strong> Entwirf eine realistische Verbesserung für einen Schul- oder Parkbereich.</li></ul></div>{{QUIZ_bio2_wald_s3}}"
+        "content": "<p>Landlebensräume unterscheiden sich stark. Eine Wiese hat viel Licht und oft viele Kräuter und Insekten. Eine Hecke ist ein Übergang zwischen offenem Gebiet und Gehölz; sie bietet Nistplätze, Beeren, Schatten und Schutz. Ein Stadtpark ist vom Menschen gestaltet, kann aber trotzdem Lebensraum sein.</p><p>Beim Vergleichen geht es nicht um „besser“ oder „schlechter“, sondern um Bedingungen und Angepasstheiten. Kurzes Gras hilft manchen Pflanzen nicht, andere halten Mähen aus. Dichte Hecken schützen Vögel, offene Flächen helfen sonnenliebenden Insekten.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du beschreibst typische Bedingungen verschiedener Landlebensräume.</li><li>Du vergleichst Lebensräume mit Kriterien wie Licht, Feuchtigkeit, Pflege und Verstecke.</li><li>Du formulierst Vorschläge, wie ein Ort tier- und pflanzenfreundlicher wird.</li></ul></div><table class=\"bio-data-table\"><tbody><tr><th>Lebensraum</th><th>Typische Bedingungen</th><th>Mögliche Lebewesen</th></tr><tr><td>Wiese</td><td>viel Licht, regelmäßige Mahd</td><td>Gräser, Kräuter, Bienen, Heuschrecken</td></tr><tr><td>Hecke</td><td>Schutz, Blüten, Beeren, Schatten</td><td>Vögel, Spinnen, Käfer, Sträucher</td></tr><tr><td>Stadtpark</td><td>gepflegt, betreten, oft trocken</td><td>Bäume, Tauben, Ameisen, Moose</td></tr></tbody></table><div class=\"bio-vocab-box bio-vocab-subtle forest-vocab\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Landlebensraum</summary><p>Ein Landlebensraum ist ein Lebensraum an Land mit bestimmten Bedingungen.</p><p><em>Beispiel:</em> Wald, Wiese, Hecke, Garten, Park.</p></details><details class=\"bio-vocab-item\"><summary>Kriterium</summary><p>Ein Kriterium ist ein Merkmal, nach dem du vergleichst.</p><p><em>Beispiel:</em> Licht, Bodenfeuchte, Pflanzenhöhe, Verstecke.</p></details><details class=\"bio-vocab-item\"><summary>Angepasstheit</summary><p>Angepasstheit bedeutet, dass Merkmale zu Lebensraum und Lebensweise passen.</p><p><em>Beispiel:</em> Dornen schützen, tiefe Wurzeln erreichen Wasser.</p></details><details class=\"bio-vocab-item\"><summary>Pflegeeingriff</summary><p>Ein Pflegeeingriff ist eine menschliche Veränderung zur Nutzung oder Erhaltung.</p><p><em>Beispiel:</em> Mähen, Zurückschneiden, Bewässern.</p></details></div></div><div class=\"forest-sites\"><h3>Drei erfundene Ortskarten im Wiener Schulumfeld</h3><p>Am selben trockenen Vormittag beschrieben; keine echten Messdaten.</p><div class=\"forest-case\"><strong>W – bewaldeter Rand</strong><p>Überwiegend Schatten, Boden an der Oberfläche feucht, Bäume und Sträucher, Laub und liegender Stamm. Ein befestigter Weg führt vorbei.</p></div><div class=\"forest-case\"><strong>O – offene Wiesenfläche</strong><p>Sonnig, Oberfläche trocken, niedrige und höhere krautige Pflanzen mit Blüten. Nur die Randspur wird regelmäßig kurz gemäht.</p></div><div class=\"forest-case\"><strong>P – Parkrasen mit Hecke</strong><p>In der Mitte sonnig und kurz gemäht; an der Hecke schattiger, dort liegt Laub. Der Rasen wird als Spielfläche genutzt. Bodenfeuchte wurde nicht geprüft.</p></div></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><strong>Arbeitsauftrag</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Drei Plätze vergleichen</h4><p>Nutze die drei Ortskarten. Erstelle eine Tabelle mit Licht, Feuchtigkeit, Struktur und Nutzung. Trenne die gemessenen bzw. beobachteten Angaben von Vermutungen über Lebewesen.</p></div><div class=\"bio-training-card\"><h4>Unterschiedliche Ansprüche</h4><p>Eine vorgegebene Schneckenart braucht feuchte Verstecke, eine vorgegebene Insektenart warme, offene Stellen. Welche der drei Ortskarten passt jeweils eher? Begründe mit Daten und nenne eine fehlende Information. Die Aufgabenarten sind keine Bestimmung echter Tiere.</p></div><div class=\"bio-training-card\"><h4>Eine Empfehlung abwägen</h4><p>Die Klasse braucht eine offene Spielfläche und einen ruhigen Naturbeobachtungsplatz. Schlage für die drei Orte eine Kombination vor. Begründe, warum nicht überall dieselbe Gestaltung sinnvoll ist.</p></div></div></div><div class=\"bio-section-check\"><strong>Mein Beleg</strong><p>Lege deine bearbeiteten Aufgaben neben die Vergleichslösung. Markiere einen gut begründeten Satz und ergänze eine noch fehlende Beobachtung oder Grenze.</p></div>{{QUIZ_bio2_wald_s3}}<details data-worksheet-solution=\"true\"><summary>Vergleichslösung</summary><div data-forest-solution=\"2\"><p>W bietet laut Karte feuchte Verstecke, O eher warme offene Stellen. Ob die vorgegebenen Arten dort wirklich leben, bleibt offen. In P unterscheiden sich Hecke und Rasen; fehlende Feuchteangaben dürfen nicht erfunden werden. Eine offene Spielfläche und ein weniger betretenes Beobachtungsstück können verschiedene Zwecke erfüllen.</p></div></details>"
       },
       {
         "title": "4. Menschliche Einflüsse erkennen",
@@ -37611,9 +37825,81 @@
                 "feedback": "Der Begriff bedeutet durch Menschen verursacht, nicht automatisch schädlich."
               }
             ]
+          },
+          {
+            "id": "bio2_wald_d2",
+            "question": "Welche Begründung passt für einen Totholzbereich abseits von Wegen?",
+            "answers": [
+              {
+                "text": "Je mehr Totholz irgendwo liegt, desto besser ist automatisch jeder Lebensraum.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Wirkungen hängen vom Ort und den Arten ab. Eine pauschale Mengenregel reicht nicht."
+              },
+              {
+                "text": "Für die ökologische Wirkung genügt die Holzmenge; Lage und Beschaffenheit spielen keine Rolle.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch Lage, Holzart, Zerfallszustand und Ansprüche der Organismen sind wichtig."
+              },
+              {
+                "text": "Er kann spezialisierten Arten Lebensraum bieten; die Sicherheit und Nutzung des Ortes werden mitgeplant.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Ökologische Funktion und Nutzung des Standorts werden gemeinsam berücksichtigt."
+              }
+            ]
+          },
+          {
+            "id": "bio2_wald_d4",
+            "question": "Was kann Entsiegelung mit anschließender geeigneter Bepflanzung bewirken?",
+            "answers": [
+              {
+                "text": "Sie erhöht automatisch die jährliche Regenmenge über dem ganzen Stadtgebiet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine einzelne entsiegelte Fläche bewirkt nicht automatisch mehr Niederschlag über der gesamten Stadt."
+              },
+              {
+                "text": "Sie kann Versickerung und Lebensraumangebot verbessern, abhängig von Boden und Gestaltung.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Wasser kann eher in unversiegelten Boden gelangen; Pflanzen schaffen zusätzliche Strukturen. Die genaue Wirkung hängt von Bedingungen ab."
+              },
+              {
+                "text": "Sie garantiert, dass die Fläche nie mehr trocken wird.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch unversiegelte Flächen können austrocknen. Trockenheit hängt von mehreren Faktoren ab."
+              }
+            ]
+          },
+          {
+            "id": "bio2_wald_puddle",
+            "question": "Eine Pfütze bleibt in der häufig benutzten Abkürzung stehen. Was kannst du daraus schließen?",
+            "answers": [
+              {
+                "text": "Die Pfütze beweist, dass ausschließlich Betreten die Ursache ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine einzelne Beobachtung trennt verschiedene mögliche Ursachen nicht."
+              },
+              {
+                "text": "Verdichtung scheidet aus, weil verdichteter Boden nie Wasser zurückhält.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Verdichtung kann das Versickern behindern; Wasser kann sich oben stauen."
+              },
+              {
+                "text": "Verdichtung ist eine mögliche Erklärung; Untergrund und Geländeform sind ebenfalls zu prüfen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Beschreibe die Beobachtung und prüfe mehrere Erklärungen."
+              }
+            ]
           }
         ],
-        "content": "<p><strong>Anthropogene Einflüsse</strong> sind Veränderungen durch Menschen. Manche sind geplant und nützlich, andere belasten Lebensräume. Forstwirtschaft liefert Holz, kann aber bei eintönigen Beständen Vielfalt verringern. Wege schützen Boden, zu viel Betreten kann ihn verdichten. Licht, Müll, Hunde, Lärm und Versiegelung verändern Lebensbedingungen.</p><p>Auch Klimawandel beeinflusst Landlebensräume: Hitze, Trockenheit und neue Schädlinge können Bäume schwächen. Gute Biologie beschreibt nicht nur Probleme, sondern prüft Handlungsmöglichkeiten: Mischwald, Totholzbereiche, weniger Versiegelung, heimische Pflanzen und Schutz von Boden.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du erklärst anthropogene Einflüsse und ihre Folgen.</li><li>Du unterscheidest Beobachtung, mögliche Ursache und Folge.</li><li>Du entwickelst Handlungsempfehlungen mit biologischer Begründung.</li></ul></div><div class=\"bio-process-flow\"><span>Einfluss</span><i>→</i><span>Veränderung</span><i>→</i><span>Folge</span><i>→</i><span>Handlung</span></div><div class=\"mini-task\"><strong>Mini-Aufgabe:</strong> Suche einen menschlichen Einfluss in deiner Umgebung. Schreibe als Kette: Einfluss → biologische Folge → Verbesserung.</div><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>anthropogen</summary><p>Anthropogen bedeutet: durch Menschen verursacht.</p><p><em>Beispiel:</em> Müll, Straßenbau, Forstwirtschaft, Licht in der Nacht.</p></details><details class=\"bio-vocab-item\"><summary>Bodenverdichtung</summary><p>Bodenverdichtung entsteht, wenn Boden stark zusammengedrückt wird und weniger Luft und Wasser enthält.</p><p><em>Beispiel:</em> Viele Schritte abseits des Weges können Boden verdichten.</p></details><details class=\"bio-vocab-item\"><summary>Versiegelung</summary><p>Versiegelung bedeutet, dass Boden mit Asphalt, Beton oder Pflaster abgedeckt wird.</p><p><em>Beispiel:</em> Regenwasser versickert schlechter.</p></details><details class=\"bio-vocab-item\"><summary>Mischwald</summary><p>Ein Mischwald enthält mehrere Baumarten und oft mehr Struktur als eine eintönige Plantage.</p><p><em>Beispiel:</em> Buchen, Eichen und Tannen gemeinsam.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Erkläre anthropogene Einflüsse und nenne drei Beispiele. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Ordne bei einem Beispiel Ursache, Beobachtung und Folge. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Begründe eine Handlungsempfehlung für Wald, Wiese oder Park. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Erkläre anthropogene Einflüsse und nenne drei Beispiele.</li><li><strong>Erkenntnis:</strong> Ordne bei einem Beispiel Ursache, Beobachtung und Folge.</li><li><strong>Handeln:</strong> Begründe eine Handlungsempfehlung für Wald, Wiese oder Park.</li></ul></div>{{QUIZ_bio2_wald_s4}}"
+        "content": "<p><strong>Anthropogene Einflüsse</strong> sind Veränderungen durch Menschen. Manche sind geplant und nützlich, andere belasten Lebensräume. Forstwirtschaft liefert Holz, kann aber bei eintönigen Beständen Vielfalt verringern. Wege schützen Boden, zu viel Betreten kann ihn verdichten. Licht, Müll, Hunde, Lärm und Versiegelung verändern Lebensbedingungen.</p><p>Auch Klimawandel beeinflusst Landlebensräume: Hitze, Trockenheit und neue Schädlinge können Bäume schwächen. Gute Biologie beschreibt nicht nur Probleme, sondern prüft Handlungsmöglichkeiten: Mischwald, Totholzbereiche, weniger Versiegelung, heimische Pflanzen und Schutz von Boden.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du erklärst anthropogene Einflüsse und ihre Folgen.</li><li>Du unterscheidest Beobachtung, mögliche Ursache und Folge.</li><li>Du entwickelst Handlungsempfehlungen mit biologischer Begründung.</li></ul></div><div class=\"bio-process-flow\"><span>Einfluss</span><i>→</i><span>Veränderung</span><i>→</i><span>Folge</span><i>→</i><span>Handlung</span></div><div class=\"bio-vocab-box bio-vocab-subtle forest-vocab\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>anthropogen</summary><p>Anthropogen bedeutet: durch Menschen verursacht.</p><p><em>Beispiel:</em> Müll, Straßenbau, Forstwirtschaft, Licht in der Nacht.</p></details><details class=\"bio-vocab-item\"><summary>Bodenverdichtung</summary><p>Bodenverdichtung presst Hohlräume zusammen und behindert den Luft- und Wassertransport.</p><p><em>Beispiel:</em> Viele Schritte abseits des Weges können Boden verdichten.</p></details><details class=\"bio-vocab-item\"><summary>Versiegelung</summary><p>Versiegelung bedeutet, dass Boden mit Asphalt, Beton oder Pflaster abgedeckt wird.</p><p><em>Beispiel:</em> Regenwasser versickert schlechter.</p></details><details class=\"bio-vocab-item\"><summary>Mischwald</summary><p>Ein Mischwald enthält mehrere Baumarten und oft mehr Struktur als eine eintönige Plantage.</p><p><em>Beispiel:</em> Buchen, Eichen und Tannen gemeinsam.</p></details></div></div><div class=\"forest-case\"><h3>Erfundener Wegfall</h3><p>Nach Regen bleibt in einer häufig benutzten Abkürzung eine Pfütze, auf der Wiese daneben nicht. Bodenart und Untergrund sind unbekannt.</p><p><strong>A:</strong> Die Abkürzung sperren und den vorhandenen befestigten Weg nutzen; vorher prüfen, ob er für alle erreichbar ist. <strong>B:</strong> Sofort die ganze Wiese asphaltieren, damit man trockener gehen kann.</p><p>Bodenverdichtung verkleinert oder unterbricht Bodenporen. Wasser kann schlechter versickern und Luft schlechter zirkulieren. Deshalb kann sich Wasser auch an der Oberfläche stauen. „Verdichtet“ bedeutet nicht einfach „enthält immer weniger Wasser“.</p></div><p><a href=\"https://www.wien.gv.at/spezial/waldleitfaden/waldbauliche-grundlagen/totholzmanagement/\" target=\"_blank\" rel=\"noopener\">Stadt Wien: Totholzmanagement</a></p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><strong>Arbeitsauftrag</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Beobachtung oder Ursache?</h4><p>Im Wegfall steht nach Regen Wasser. Nenne die Beobachtung, eine mögliche Erklärung durch Verdichtung und eine andere mögliche Erklärung. Welche Zusatzbeobachtung würde dir helfen?</p></div><div class=\"bio-training-card\"><h4>Zwei Vorschläge prüfen</h4><p>Vergleiche Vorschlag A und B im Wegfall nach Bodenschutz, Zugang und Umsetzbarkeit. Formuliere eine vorläufige Empfehlung mit einer Bedingung. Eine einzelne Pfütze beweist noch keine Ursache.</p></div><div class=\"bio-training-card\"><h4>Wiener Praxis prüfen</h4><p>Lies den verlinkten Wiener Waldleitfaden zum Totholzmanagement. Notiere zwei dort beschriebene Funktionen und vergleiche sie mit deiner Empfehlung aus Abschnitt 2. Ergänze, was die Quelle nicht über den konkreten Schulweg aussagt.</p></div></div></div><div class=\"bio-section-check\"><strong>Mein Beleg</strong><p>Lege deine bearbeiteten Aufgaben neben die Vergleichslösung. Markiere einen gut begründeten Satz und ergänze eine noch fehlende Beobachtung oder Grenze.</p></div>{{QUIZ_bio2_wald_s4}}<details data-worksheet-solution=\"true\"><summary>Vergleichslösung</summary><div data-forest-solution=\"3\"><p>Beobachtung: Wasser bleibt in der Abkürzung stehen. Verdichtung ist eine mögliche Erklärung; auch eine Mulde oder weniger durchlässiger Untergrund kommt infrage. Weitere Termine, Bodeneigenschaften und vergleichbare Stellen helfen. Vorschlag A kann weitere Belastung begrenzen, wenn der andere Weg nutzbar ist; B versiegelt zusätzlich Boden. Die Wiener Quelle beschreibt Funktionen von Totholz, entscheidet aber nicht über Sicherheit an unserem erfundenen Ort.</p></div></details>{{QUIZ_bio2_wald_d2}}{{QUIZ_bio2_wald_d4}}{{QUIZ_bio2_wald_puddle}}"
       },
       {
         "title": "5. Lernstation: Einen Landlebensraum untersuchen",
@@ -37641,136 +37927,59 @@
                 "feedback": "Arten müssen weiterhin unterschieden werden. Vergleichbarer Aufwand ersetzt keine nachvollziehbare Bestimmung."
               }
             ]
+          },
+          {
+            "id": "bio2_wald_d3",
+            "question": "Eine Probefläche enthält mehr Arten als eine andere. Was ist eine angemessene Schlussfolgerung?",
+            "answers": [
+              {
+                "text": "Damit ist die Ursache des Unterschieds eindeutig bewiesen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Zählung allein trennt mögliche Ursachen wie Pflege, Feuchtigkeit und Vorgeschichte nicht sicher."
+              },
+              {
+                "text": "Die artenärmere Fläche ist zu jeder Jahreszeit für alle Tiere wertlos.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Artenzahl einer Probe erlaubt keine solche Aussage über alle Arten und Jahreszeiten."
+              },
+              {
+                "text": "In dieser Erhebung wurden dort mehr Arten gefunden; weitere Flächen und Termine würden die Aussage absichern.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Daten beschreiben die Stichprobe. Ausweitung und Wiederholung helfen, Zufall und zeitliche Unterschiede einzuschätzen."
+              }
+            ]
+          },
+          {
+            "id": "bio2_wald_composition",
+            "question": "Erhebung 3 zeigt jeweils drei Arten. Welche Aussage passt zu den Daten?",
+            "answers": [
+              {
+                "text": "In beiden Flächen wurden dieselben drei Arten gefunden.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "A enthält Art 1, 2, 3; B enthält Art 1, 3, 5. Zwei Arten sind gemeinsam."
+              },
+              {
+                "text": "Die Artenzahl ist gleich, die Artenzusammensetzung unterscheidet sich.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Je drei Arten, aber Art 2 nur in A und Art 5 nur in B."
+              },
+              {
+                "text": "Beide Flächen enthalten auch gleich viele Individuen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "A enthält 11 Individuen, B 9. Artenzahl und Individuenzahl sind verschieden."
+              }
+            ]
           }
         ],
-        "content": "<p>Eine gute Untersuchung beginnt mit einer genauen Frage. Beispiel: „Gibt es auf einer ungemähten Fläche mehr verschiedene Pflanzen als auf einer kurz gemähten Fläche?“ Danach legst du Kriterien fest, beobachtest, zählst und protokollierst. Wichtig ist, dass beide Flächen ähnlich groß sind.</p><p>Die Auswertung beschreibt zuerst die Daten und erklärt danach vorsichtig mögliche Ursachen. Du schreibst nicht: „Ungemähte Wiesen sind immer besser.“ Du schreibst: „In unserer Probefläche fanden wir mehr Pflanzenarten. Das kann daran liegen, dass Blüten stehen bleiben und Insekten Nahrung finden.“</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du kennst Frage, Methode, Daten und Auswertung.</li><li>Du planst eine faire Untersuchung mit Vergleichsflächen.</li><li>Du formulierst Schutzideen auf Basis deiner Daten.</li></ul></div><ol class=\"bio-step-list\"><li>Forschungsfrage ins Heft schreiben.</li><li>Zwei gleich große Probeflächen festlegen.</li><li>Arten oder Merkmale zählen.</li><li>Daten in einer Tabelle notieren.</li><li>Ergebnis und Handlungsidee formulieren.</li></ol><div class=\"bio-vocab-box bio-vocab-subtle\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Forschungsfrage</summary><p>Eine Forschungsfrage ist eine überprüfbare Frage zu einem biologischen Zusammenhang.</p><p><em>Beispiel:</em> Welche Fläche hat mehr Pflanzenarten?</p></details><details class=\"bio-vocab-item\"><summary>Probefläche</summary><p>Eine Probefläche ist ein abgegrenzter Bereich, den du genau untersuchst.</p><p><em>Beispiel:</em> Ein Quadratmeter Wiese.</p></details><details class=\"bio-vocab-item\"><summary>Protokoll</summary><p>Ein Protokoll hält Frage, Methode, Beobachtungen, Daten und Ergebnis fest.</p><p><em>Beispiel:</em> So kann die Klasse deine Untersuchung nachvollziehen.</p></details><details class=\"bio-vocab-item\"><summary>Auswertung</summary><p>Eine Auswertung erklärt, was die Daten zeigen und welche Grenzen sie haben.</p><p><em>Beispiel:</em> Eine kleine Stichprobe gilt nicht automatisch für ganz Wien.</p></details></div></div><div class=\"bio-training-panel\"><strong>Trainiere mit echten Situationen</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Fachwörter üben</h4><p>Nenne die Schritte einer Lebensraum-Untersuchung. Schreibe die passenden Fachwörter auf. Danach erklärst du jedes Wort in einem einfachen Satz. Nutze ein Beispiel aus dem Text, damit die Erklärung nicht nur auswendig klingt.</p></div><div class=\"bio-training-card\"><h4>Schritt für Schritt verstehen</h4><p>Plane eine faire Vergleichsuntersuchung mit Tabelle. Gehe langsam vor: Schaue zuerst genau hin, sammle Hinweise und ordne sie in einer kleinen Tabelle oder Skizze. Dann schreibe einen Satz mit: „Ich erkenne das daran, dass ...“.</p></div><div class=\"bio-training-card\"><h4>Auf eine Situation anwenden</h4><p>Formuliere eine Handlungsidee, die sich aus deinen Daten ergibt. Stell dir eine echte Situation vor, zum Beispiel im Schulhof, zu Hause, beim Arzt, im Wald oder in den Nachrichten. Entscheide, was sinnvoll wäre, und begründe es mit einem Fachwort und einem Hinweis.</p></div></div></div><div class=\"bio-section-check\"><strong>Kompetenzcheck</strong><ul><li><strong>Wissen:</strong> Nenne die Schritte einer Lebensraum-Untersuchung.</li><li><strong>Erkenntnis:</strong> Plane eine faire Vergleichsuntersuchung mit Tabelle.</li><li><strong>Handeln:</strong> Formuliere eine Handlungsidee, die sich aus deinen Daten ergibt.</li></ul></div>{{QUIZ_bio2_wald_s5}}<div class=\"interactive-zone\" data-habitat-sampling><h3>Zwei Probeflächen auswerten</h3><p>Fiktive Daten für eine Schulhof-Untersuchung: A wird häufiger, B seltener gemäht. Pro Termin wurden zwei gleich große Flächen gleich lang untersucht. Gezählt werden eindeutig abgegrenzte Pflanzen; Art 1 bis 5 sind vereinfachte Bezeichnungen. Die Daten sind keine Messung aus einer Wiener Schule.</p><label>Erhebung auswählen <select data-sampling-round><option value=\"0\">Erhebung 1</option><option value=\"1\">Erhebung 2</option><option value=\"2\">Erhebung 3</option></select></label><table><caption>Gezählte Pflanzen je Art</caption><thead><tr><th scope=\"col\">Art</th><th scope=\"col\">Fläche A</th><th scope=\"col\">Fläche B</th></tr></thead><tbody data-sampling-rows></tbody></table><p data-sampling-result role=\"status\" aria-live=\"polite\"></p><p><strong>Auswerten:</strong> Vergleiche Individuenzahl und Artenzahl für alle drei Erhebungen. Ist die Fläche mit mehr Pflanzen immer die mit mehr Arten? Was lässt sich über die Ursache eines Unterschieds noch nicht entscheiden?</p><details><summary>Begründung und Grenzen vergleichen</summary><p>In den ersten beiden Erhebungen hat A mehr Individuen, aber weniger nachgewiesene Arten. In der dritten ist die Artenzahl gleich. Die beobachtete Artenzahl kann sich zwischen Stichproben unterscheiden. Aus den Daten allein folgt nicht, dass die Mahd die einzige Ursache ist: Boden, Licht, Feuchtigkeit und Vorgeschichte könnten ebenfalls verschieden sein. Weitere vergleichbare Flächen und Termine helfen bei der Prüfung.</p></details></div>"
+        "content": "<p>Eine Untersuchung beginnt mit einer genauen Frage: Wie unterscheiden sich die nachgewiesenen Pflanzenarten auf zwei festgelegten Flächen? Verwende dieselbe Flächengröße und Suchdauer, vergleichbare Zeitpunkte und nachvollziehbare Zählregeln. Beobachtungsdaten allein beweisen noch keine Ursache.</p><p>Beschreibe zuerst die Zahlen. Formuliere dann mögliche Erklärungen und alternative Ursachen. „In unserer Probe fanden wir mehr Arten“ ist enger und besser belegt als „seltene Mahd ist überall die einzige Ursache für hohe Vielfalt“.</p><div class=\"bio-overview-box\"><strong>Das soll ich lernen:</strong><ul><li>Du kennst Frage, Methode, Daten und Auswertung.</li><li>Du planst eine faire Untersuchung mit Vergleichsflächen.</li><li>Du formulierst Schutzideen auf Basis deiner Daten.</li></ul></div><ol class=\"bio-step-list\"><li>Forschungsfrage ins Heft schreiben.</li><li>Zwei gleich große Probeflächen festlegen.</li><li>Arten oder Merkmale zählen.</li><li>Daten in einer Tabelle notieren.</li><li>Ergebnis und Handlungsidee formulieren.</li></ol><div class=\"bio-vocab-box bio-vocab-subtle forest-vocab\"><strong>Fachausdrücke:</strong><div class=\"bio-vocab-list\"><details class=\"bio-vocab-item\"><summary>Forschungsfrage</summary><p>Eine Forschungsfrage ist eine überprüfbare Frage zu einem biologischen Zusammenhang.</p><p><em>Beispiel:</em> Welche Fläche hat mehr Pflanzenarten?</p></details><details class=\"bio-vocab-item\"><summary>Probefläche</summary><p>Eine Probefläche ist ein abgegrenzter Bereich, den du genau untersuchst.</p><p><em>Beispiel:</em> Ein Quadratmeter Wiese.</p></details><details class=\"bio-vocab-item\"><summary>Protokoll</summary><p>Ein Protokoll hält Frage, Methode, Beobachtungen, Daten und Ergebnis fest.</p><p><em>Beispiel:</em> So kann die Klasse deine Untersuchung nachvollziehen.</p></details><details class=\"bio-vocab-item\"><summary>Auswertung</summary><p>Eine Auswertung erklärt, was die Daten zeigen und welche Grenzen sie haben.</p><p><em>Beispiel:</em> Eine kleine Stichprobe gilt nicht automatisch für ganz Wien.</p></details></div></div><div class=\"interactive-zone forest-sampling\" data-habitat-sampling=\"\"><h3>Zwei Probeflächen auswerten</h3><p>Fiktive Daten für eine Schulhof-Untersuchung: A wird häufiger, B seltener gemäht. Pro Termin wurden zwei gleich große Flächen gleich lang untersucht. Gezählt werden eindeutig abgegrenzte Pflanzen; Art 1 bis 5 sind vereinfachte Bezeichnungen. Die Daten sind keine Messung aus einer Wiener Schule.</p><label for=\"forest-round\">Erhebung auswählen <select data-sampling-round=\"\" id=\"forest-round\"><option value=\"0\">Erhebung 1</option><option value=\"1\">Erhebung 2</option><option value=\"2\">Erhebung 3</option></select></label><table class=\"bio-compare-table\"><caption>Gezählte Pflanzen je Art</caption><thead><tr><th scope=\"col\">Art</th><th scope=\"col\">Fläche A</th><th scope=\"col\">Fläche B</th></tr></thead><tbody data-sampling-rows=\"\"></tbody></table><p>Balkenvergleich: A ist blau, B braun. Alle Balken verwenden dieselbe Skala von 0 bis 20 gezählten Pflanzen je Art.</p><svg data-sampling-chart=\"\" viewBox=\"0 0 500 350\" role=\"img\" aria-label=\"Vergleich der Pflanzenzahlen je Art\"></svg><button type=\"button\" data-sampling-show=\"\">Auswertung anzeigen</button><button type=\"button\" data-sampling-reset=\"\">Zur ersten Erhebung</button><p data-sampling-result=\"\" role=\"status\" aria-live=\"polite\"></p><p><strong>Auswerten:</strong> Vergleiche Individuenzahl und Artenzahl für alle drei Erhebungen. Ist die Fläche mit mehr Pflanzen immer die mit mehr Arten? Was lässt sich über die Ursache eines Unterschieds noch nicht entscheiden?</p><template data-worksheet-alternative=\"\"><div data-forest-paper=\"\"><p>Fiktive Daten für eine Schulhof-Untersuchung: A wird häufiger, B seltener gemäht. Pro Termin wurden zwei gleich große Flächen gleich lang untersucht. Gezählt werden eindeutig abgegrenzte Pflanzen; Art 1 bis 5 sind vereinfachte Bezeichnungen. Die Daten sind keine Messung aus einer Wiener Schule.</p><table class=\"bio-compare-table forest-paper-data\"><caption>Erhebung 1: gezählte Pflanzen</caption><thead><tr><th scope=\"col\">Art</th><th scope=\"col\">A</th><th scope=\"col\">B</th></tr></thead><tbody><tr><th scope=\"row\">Art 1</th><td>18</td><td>2</td></tr><tr><th scope=\"row\">Art 2</th><td>2</td><td>2</td></tr><tr><th scope=\"row\">Art 3</th><td>0</td><td>2</td></tr><tr><th scope=\"row\">Art 4</th><td>0</td><td>2</td></tr><tr><th scope=\"row\">Art 5</th><td>0</td><td>2</td></tr></tbody></table><table class=\"bio-compare-table forest-paper-data\"><caption>Erhebung 2: gezählte Pflanzen</caption><thead><tr><th scope=\"col\">Art</th><th scope=\"col\">A</th><th scope=\"col\">B</th></tr></thead><tbody><tr><th scope=\"row\">Art 1</th><td>10</td><td>2</td></tr><tr><th scope=\"row\">Art 2</th><td>5</td><td>0</td></tr><tr><th scope=\"row\">Art 3</th><td>0</td><td>3</td></tr><tr><th scope=\"row\">Art 4</th><td>0</td><td>1</td></tr><tr><th scope=\"row\">Art 5</th><td>0</td><td>0</td></tr></tbody></table><table class=\"bio-compare-table forest-paper-data\"><caption>Erhebung 3: gezählte Pflanzen</caption><thead><tr><th scope=\"col\">Art</th><th scope=\"col\">A</th><th scope=\"col\">B</th></tr></thead><tbody><tr><th scope=\"row\">Art 1</th><td>5</td><td>3</td></tr><tr><th scope=\"row\">Art 2</th><td>4</td><td>0</td></tr><tr><th scope=\"row\">Art 3</th><td>2</td><td>2</td></tr><tr><th scope=\"row\">Art 4</th><td>0</td><td>0</td></tr><tr><th scope=\"row\">Art 5</th><td>0</td><td>4</td></tr></tbody></table></div></template></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><strong>Arbeitsauftrag</strong><div class=\"bio-training-grid\"><div class=\"bio-training-card\"><h4>Daten selbst auswerten</h4><p>Berechne zuerst für Erhebung 1 aus den fünf Zeilen Individuenzahl und Artenzahl von A und B. Öffne dann die Auswertung. Wiederhole für Erhebung 2 und 3. Null bedeutet hier nicht nachgewiesen, nicht weltweit ausgestorben.</p></div><div class=\"bio-training-card\"><h4>Gleiche Artenzahl prüfen</h4><p>Vergleiche in Erhebung 3 die tatsächlich gefundenen Arten. Welche kommen in beiden Flächen vor, welche nur in einer? Prüfe die Behauptung: „Gleiche Artenzahl bedeutet dieselben Arten.“</p></div><div class=\"bio-training-card\"><h4>Eine Untersuchung planen</h4><p>Fülle das Protokoll für zwei erlaubte, gleich große Flächen aus. Lege Dauer, Zeitpunkt, Zählregel und Umgang mit unbekannten Pflanzen vorab fest. Führe die Untersuchung nach Absprache durch oder verwende die erfundenen Daten und kennzeichne das. Formuliere Ergebnis, mögliche Erklärung und Grenze getrennt.</p></div></div></div><table class=\"bio-compare-table forest-protocol\"><caption>Untersuchungsprotokoll – eigene Beobachtung oder gekennzeichnete Übungsdaten</caption><tbody><tr><th scope=\"row\">Frage und Vermutung</th><td>________________</td></tr><tr><th scope=\"row\">Orte, Datum, Uhrzeit und Wetter</th><td>________________</td></tr><tr><th scope=\"row\">Größe, Suchdauer und Auswahl der Flächen</th><td>________________</td></tr><tr><th scope=\"row\">Zählregel und unbekannte Pflanzen</th><td>________________</td></tr><tr><th scope=\"row\">Zahlen, Arten bzw. vorläufige Gruppen</th><td>________________</td></tr><tr><th scope=\"row\">Ergebnis und mögliche weitere Ursachen</th><td>________________</td></tr><tr><th scope=\"row\">Grenze, Wiederholung und begründete Maßnahme</th><td>________________</td></tr></tbody></table><p>Unbekannte Pflanzen zunächst mit Skizze als Gruppe U1, U2 … festhalten und nachprüfen; solche Gruppen sind noch keine bestätigten Arten. Bei Gräsern sind einzelne Individuen oft schwer abzugrenzen. Lege daher eine passende Zählregel fest und vergleiche keine unterschiedlich definierten Zählungen. Pflanzen nicht ausreißen; Beobachtungen sind auch vom Weg aus oder anhand der Übungsdaten möglich.</p><div class=\"bio-section-check\"><strong>Mein Beleg</strong><p>Lege deine bearbeiteten Aufgaben neben die Vergleichslösung. Markiere einen gut begründeten Satz und ergänze eine noch fehlende Beobachtung oder Grenze.</p></div>{{QUIZ_bio2_wald_s5}}<details data-worksheet-solution=\"true\"><summary>Vergleichslösung</summary><div data-forest-solution=\"4\"><p>Erhebung 1: A 20 Individuen/2 Arten, B 10/5. Erhebung 2: A 15/2, B 6/3. Erhebung 3: A 11/3, B 9/3. Bei Erhebung 3 gemeinsam: Art 1 und 3; nur A: Art 2; nur B: Art 5. Die beobachteten Unterschiede beweisen nicht, dass die Mahd die einzige Ursache ist. Flächenauswahl, Licht, Boden, Feuchtigkeit und weitere Zeitpunkte sind zu berücksichtigen.</p></div></details>{{QUIZ_bio2_wald_d3}}{{QUIZ_bio2_wald_composition}}"
       }
     ],
-    "diplom": {
-      "title": "Kapitelquiz",
-      "questions": [
-        {
-          "id": "bio2_wald_d1",
-          "question": "Zehn Buchen derselben Art werden gezählt. Welche Aussage folgt sicher?",
-          "answers": [
-            {
-              "text": "Es wurden zehn Bäume einer Art erfasst; über die gesamte Biodiversität sagt das allein wenig aus.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Individuenzahl, Artenzahl und genetische Vielfalt sind verschiedene Ebenen. Die Zählung betrifft nur eine davon direkt."
-            },
-            {
-              "text": "Es wurden zehn verschiedene Arten nachgewiesen.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Zehn Individuen derselben Art sind nicht zehn Arten."
-            },
-            {
-              "text": "Alle Buchen sind genetisch identisch.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Auch innerhalb derselben Art können genetische Unterschiede vorkommen."
-            }
-          ]
-        },
-        {
-          "id": "bio2_wald_d2",
-          "question": "Welche Begründung passt für einen Totholzbereich abseits von Wegen?",
-          "answers": [
-            {
-              "text": "Er kann spezialisierten Arten Lebensraum bieten; die Sicherheit und Nutzung des Ortes werden mitgeplant.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Ökologische Funktion und Nutzung des Standorts werden gemeinsam berücksichtigt."
-            },
-            {
-              "text": "Je mehr Totholz irgendwo liegt, desto besser ist automatisch jeder Lebensraum.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Wirkungen hängen vom Ort und den Arten ab. Eine pauschale Mengenregel reicht nicht."
-            },
-            {
-              "text": "Totholz ersetzt Wasser, Licht und alle lebenden Pflanzen.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Totholz ergänzt andere Lebensraumelemente. Es ersetzt deren Funktionen nicht vollständig."
-            }
-          ]
-        },
-        {
-          "id": "bio2_wald_d3",
-          "question": "Eine Probefläche enthält mehr Arten als eine andere. Was ist eine angemessene Schlussfolgerung?",
-          "answers": [
-            {
-              "text": "In dieser Erhebung wurden dort mehr Arten gefunden; weitere Flächen und Termine würden die Aussage absichern.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Die Daten beschreiben die Stichprobe. Ausweitung und Wiederholung helfen, Zufall und zeitliche Unterschiede einzuschätzen."
-            },
-            {
-              "text": "Damit ist die Ursache des Unterschieds eindeutig bewiesen.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Eine Zählung allein trennt mögliche Ursachen wie Pflege, Feuchtigkeit und Vorgeschichte nicht sicher."
-            },
-            {
-              "text": "Die artenärmere Fläche ist zu jeder Jahreszeit für alle Tiere wertlos.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Artenzahl einer Probe erlaubt keine solche Aussage über alle Arten und Jahreszeiten."
-            }
-          ]
-        },
-        {
-          "id": "bio2_wald_d4",
-          "question": "Was kann Entsiegelung mit anschließender geeigneter Bepflanzung bewirken?",
-          "answers": [
-            {
-              "text": "Sie kann Versickerung und Lebensraumangebot verbessern, abhängig von Boden und Gestaltung.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Wasser kann eher in unversiegelten Boden gelangen; Pflanzen schaffen zusätzliche Strukturen. Die genaue Wirkung hängt von Bedingungen ab."
-            },
-            {
-              "text": "Sie garantiert, dass die Fläche nie mehr trocken wird.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Auch unversiegelte Flächen können austrocknen. Trockenheit hängt von mehreren Faktoren ab."
-            },
-            {
-              "text": "Sie erhöht automatisch die jährliche Regenmenge über dem ganzen Stadtgebiet.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Eine einzelne entsiegelte Fläche bewirkt nicht automatisch mehr Niederschlag über der gesamten Stadt."
-            }
-          ]
-        },
-        {
-          "id": "bio2_wald_d5",
-          "question": "In einer Nahrungskette steht: Blatt → Raupe → Singvogel. Was bedeutet der Pfeil hier?",
-          "answers": [
-            {
-              "text": "Organische Stoffe und darin enthaltene chemische Energie gelangen von der Nahrung zum Fresser.",
-              "correct": true,
-              "pts": 10,
-              "feedback": "Die Pfeilrichtung ist hier Nahrung zum Fresser. Ein Nahrungsnetz enthält viele miteinander verbundene Ketten."
-            },
-            {
-              "text": "Der Pfeil zeigt, welches Tier seine Nahrung sucht, also vom Jäger zur Beute.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "In dieser festgelegten Darstellung verläuft der Pfeil gerade umgekehrt: vom gefressenen Material zum Fresser."
-            },
-            {
-              "text": "Alle aufgenommenen Stoffe werden vollständig als Körpermasse weitergegeben.",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Ein Teil der Stoffe wird ausgeschieden oder bei der Zellatmung umgebaut; Energie wird auch als Wärme abgegeben."
-            }
-          ]
-        }
-      ]
-    },
     "prerequisites": [
       "bio_1_lebensraeume"
     ],
@@ -37789,6 +37998,14 @@
       {
         "title": "Übereinkommen über die biologische Vielfalt: Begriffe Biodiversität und Ökosystem (Englisch)",
         "url": "https://www.cbd.int/convention/articles?a=cbd-02"
+      },
+      {
+        "title": "Stadt Wien: Totholzmanagement",
+        "url": "https://www.wien.gv.at/spezial/waldleitfaden/waldbauliche-grundlagen/totholzmanagement/"
+      },
+      {
+        "title": "BAFU: Bodenverdichtung – Bodenporen und Wassertransport",
+        "url": "https://www.bafu.admin.ch/de/bodenverdichtung"
       }
     ]
   },

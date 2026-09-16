@@ -161,3 +161,10 @@ Zehn bestehende bewertete Fragen beibehalten, fünf Abschlussfragen zugeordnet, 
 Die vier Abschnitte der Übersicht für die 2. Klasse vollständig überarbeitet: neun Kapitelverweise mit begründetem Weg, zwölf konkrete Aufgaben, Beobachtungsdaten mit Grenzen und drei Untersuchungsfälle. Acht bewertete Fragen und eine Übung, Revision 1. Das Zellkapitel steht vor Fotosynthese und ist dort als Vorwissen verknüpft. Die aktuelle RIS-Anlage mit Kompetenzbeschreibungen und Anwendungsbereichen der 2. Klasse gelesen; keine amtlich festgelegte Kapitelreihenfolge behauptet.
 
 Neun Fallentscheidungen, 24 Antwortwege, 18 native Layoutfälle, Kontext beim Kapitelwechsel, 95 STEM-Arbeitsblätter und gezielte Regressionen bestanden. Dreizehn finale Druckseiten gelesen. [Nachweise und Grenzen](BIOLOGIE_ORIENTIERUNG.md). Vollständige Jahrgangs-/Fachabnahme und praktische Unterrichtserprobung bleiben offen.
+
+
+## 16.09.2026 – Wald und Landlebensräume untersuchen
+
+Fünf Abschnitte mit 15 konkreten Aufgaben, eigenem Waldschema, drei Ortskarten, Wegfall und siebenzeiligem Untersuchungsprotokoll ergänzt. Bodenverdichtung fachlich präzisiert. Drei vorhandene Datensätze um gleich skalierte Balken und einblendbare Auswertung erweitert; Artenzahl von Artenzusammensetzung getrennt. Zwölf bewertete Fragen und eine Übung, Revision 2. Grundlagen vor den Aufgaben, fünf separate Vergleichslösungen und vollständige Papierdaten.
+
+Aktuelle RIS-Kompetenzbeschreibungen und Anwendungsbereich für die 2. Klasse unmittelbar gelesen. [Fachquellen, W/E/S-Zuordnung und Nachweise](BIOLOGIE_WALD_UNTERSUCHEN.md). 18 native Modell-/Layoutzustände, 36 Antwortwege und sämtliche 23 Druckseiten geprüft. Keine praktische Naturuntersuchung oder vollständige Fachabnahme behauptet. Aktuelle Strukturzählung: 62 direkte, 92 automatisch verarbeitete Trainingsblöcke; 66 allgemeine Situationsformulierungen und 25 Kapitel mit mindestens einem automatischen Block. Weitere Einzelprüfung bleibt erforderlich.

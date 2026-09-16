@@ -1341,3 +1341,21 @@ Voriger Zielturn war Fortschritt: KI-Orientierung mit Quellenfällen, Gestaltung
 Gezielte neue und bestehende DGB-, Revisions-, Quizpool-, Titel- und Syntaxprüfungen bestanden. Native 24 Darstellungsfälle und 24 Antwortwege nach visuellen und sprachlichen Verbesserungen erneut bestanden. Alle 13 Druckseiten geprüft, Bildvergleich verbessert. [Quellen, Nachweise und Grenzen](DGB_MEDIENKONTEXT.md). Inventar 197 Kapitel, Prioritätsaudit 1630 Frageninstanzen ohne Strukturfehler; kein neuer vollständiger Suitenlauf.
 
 Lokale Weiterarbeit nach c1d432a, kein weiterer Push. Übersetzungen bleiben zurückgestellt. DGB8 Handeln enthält weiterhin allgemeine Definitionen und nicht mit Material ausgestattete Verbraucheraufträge; dieses Kapitel, weitere offene Lehrplananwendungen und die vollständige Inhalts-/Produktabnahme aller bestehenden Fächer bleiben im Gesamtauftrag. Die fünf priorisierten Fächer behalten Vorrang.
+
+
+## 16.09.2026 – DGB: Systemebenen, Verschlüsselung und Verbraucherentscheidungen
+
+Voriger Turn war Fortschritt: Zwischenstand 81016aa auf ausdrücklichen Wunsch nach GitHub gepusht und lokale/entfernte Revision sowie saubere Arbeitskopie verifiziert. Danach DGB8 Handeln neu ausgearbeitet. Echte lokale Verschlüsselungswerkstatt mit Dateiworkflow und Fehlerfällen; definierte Systemfälle, zwei Abo-Angebote mit Rechenwegen sowie Wiener Beteiligungsfall. 18 Arbeitsaufträge, acht bewertete Fragen, drei Übungen und vier separate Vergleichslösungen; Revision 1.
+
+Gezielte Inhalts-, Revisions-, Quizpool-, DGB-Arbeitsblatt- und Syntaxprüfungen bestanden. Browser: unabhängige Kryptografieprüfung beider Richtungen, Dateiworkflow, Fehlerfälle, zwölf Layoutfälle und 24 Quizantwortwege. Finale 14-seitige Druckfassung visuell geprüft. [Quellen und Grenzen](DGB_VERSCHLUESSELUNG.md). Inventar 197 Kapitel, Prioritätsaudit 1634 Frageninstanzen ohne Strukturfehler. Kein neuer Gesamtsuitenlauf.
+
+Die genannten Arbeiten schließen die konkret dokumentierte Materiallücke in DGB8 Handeln. Noch offen bleiben weitere Lehrplananwendungen, die vollständige inhaltliche Abnahme aller bestehenden Fächer sowie die Produktabnahme gemäß MITTELSCHULE_WIEN.md. Physik, Mathematik, Chemie, Biologie und DGB behalten Vorrang; Übersetzungen bleiben zurückgestellt. Neue Änderungen sind lokal, ohne weiteren Push.
+
+
+## 16.09.2026 – Biologie: Wald und Landlebensräume
+
+Voriger Zielturn war Fortschritt: DGB8 Handeln mit echter Verschlüsselung, konkreten Fällen und abgeschlossenen Browser-/Drucknachweisen. Danach die verbleibenden Biologie-Trainingsblöcke anhand der aktuellen Kapitelquelle geprüft und das Waldkapitel ausgearbeitet. 15 konkrete Aufgaben, eigener Querschnitt, drei Ortskarten, Verdichtungsfall, Protokoll und vollständige Papierdaten. Drei vorhandene Erhebungen mit Balkendiagramm und einblendbaren Ergebnissen; zwölf bewertete Fragen, eine Übung, Revision 2.
+
+36 Antwortwege und passende Wiederholungsabschnitte, 18 native Modell-/Layoutzustände sowie alle 23 Druckseiten geprüft. Bestehende STEM-, DGB-, Revisions-, Quizpool- und Syntaxprüfungen bestanden. [Quellen und Prüfgrenzen](BIOLOGIE_WALD_UNTERSUCHEN.md). Inventar 197 Kapitel, Prioritätsaudit 1636 Frageninstanzen ohne Strukturfehler. Kein neuer Gesamtsuitenlauf.
+
+Weitere allgemeine Aufgaben bleiben insbesondere in Biologie zu prüfen; Lehrplan-/Inhaltsabnahme sämtlicher bestehender Fächer und vollständige Produktabnahme bleiben Bestandteil des unveränderten Gesamtziels. Die fünf priorisierten Fächer behalten Vorrang. Änderungen lokal nach 81016aa; keine Übersetzungen, kein erneuter Push.

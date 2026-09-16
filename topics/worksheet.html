@@ -155,6 +155,18 @@
           #ws-content [data-crop-paper] svg{width:100%;height:65mm;max-width:none}
           [data-crop-paper] > p{grid-column:1 / -1}
           @media print {
+            #ws-content .forest-vocab .ws-glossary-entry{break-inside:avoid;page-break-inside:avoid}
+            #ws-content .forest-case,#ws-content .forest-profile,#ws-content .forest-paper-data,
+            #ws-content .forest-protocol tr,#ws-content .ws-paper-solution:has([data-forest-solution]){break-inside:avoid;page-break-inside:avoid}
+            #ws-content .forest-profile svg{height:75mm;width:100%;max-width:125mm}
+            #ws-content .forest-protocol td{height:12mm}
+            #ws-content .forest-protocol{table-layout:fixed}
+            #ws-content .forest-protocol th{width:40%}
+            #ws-content [data-action-case],
+            #ws-content [data-crypto-protocol],
+            #ws-content .ws-paper-solution:has([data-action-solution]),
+            #ws-content [data-system-cards] > div,
+            #ws-content [data-action-tasks] > li { break-inside:avoid; page-break-inside:avoid; }
             #ws-content .media-case,
             #ws-content [data-media-tasks] > li { break-inside:avoid; page-break-inside:avoid; }
             #ws-content .ai-paper-case,

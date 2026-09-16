@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verschlüsselungswerkstatt – SciVerse</title>
+<style>
+:root{color-scheme:light dark;--bg:#f3f6fa;--card:#fff;--text:#21344b;--line:#64748b;--accent:#174ea6}
+@media(prefers-color-scheme:dark){:root{--bg:#14202e;--card:#203247;--text:#f0f4fa;--line:#9aaec6;--accent:#b2d2ff}}
+*{box-sizing:border-box}body{margin:0;padding:20px;font:1rem/1.6 system-ui,sans-serif;color:var(--text);background:var(--bg)}main{max-width:850px;margin:auto}h1{font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.2;overflow-wrap:anywhere}h2{font-size:1.3rem}a{color:var(--accent)}section,aside{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:20px 0}label{display:block;font-weight:650;margin-top:12px}input,textarea,button{font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:6px;min-height:44px}input,textarea{width:100%;padding:9px}textarea{resize:vertical;line-height:1.4}button{padding:9px 14px;margin:10px 6px 0 0;cursor:pointer}button:disabled{opacity:.6;cursor:default}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}code{overflow-wrap:anywhere}#status{border-left:4px solid var(--accent);padding:12px;min-height:76px;background:var(--card)}small{display:block}li{margin:8px 0}input[type=file]{white-space:normal;overflow:hidden}
+@media(max-width:400px){body{padding:12px}section,aside{padding:12px}}
+</style><script src="../js/encryption-workshop.js" defer></script></head>
+<body><main>
+<a href="../index.html#dgb8_handeln" target="_top">Zum Kapitel: Systeme, Verschlüsselung und Verbraucherfallen</a>
+<h1>Eine Notiz verschlüsseln</h1>
+<p>Du benutzt hier echte Verschlüsselung. Verwende ausschließlich erfundene Übungstexte und ein eigenes <strong>Übungspasswort</strong>, zum Beispiel <code>Probe-Wald-2026!</code>. Dieses veröffentlichte Beispiel ist kein geheimes Passwort.</p>
+<p>Die Verarbeitung findet in deinem Browser statt. Diese Werkstatt sendet deine Eingaben nicht an einen Server und speichert sie nicht automatisch. Nur „Datei speichern“ legt eine verschlüsselte Datei ab. Ein Neuladen leert die Arbeitsfelder.</p>
+<noscript><p>Diese Werkstatt benötigt JavaScript. Im Kapitel findest du Aufgaben zur Vorbereitung auf Papier.</p></noscript>
+<p id="status" role="status" aria-live="polite" aria-atomic="true">Bereit. Trage einen erfundenen Text und ein Übungspasswort ein.</p>
+<section aria-labelledby="encrypt-title"><h2 id="encrypt-title">1. Verschlüsseln und speichern</h2>
+<label for="plain">Erfundene Notiz (höchstens 1.000 Zeichen)</label><textarea id="plain" rows="3" maxlength="1000" autocomplete="off" spellcheck="false">Übungsnotiz: Treffpunkt Bibliothek, 14 Uhr.</textarea>
+<label for="encrypt-password">Übungspasswort zum Verschlüsseln</label><input id="encrypt-password" type="password" minlength="8" maxlength="128" autocomplete="off" aria-describedby="password-help"><small id="password-help">8–128 Zeichen; Groß-/Kleinschreibung und Leerzeichen zählen. Verwende kein Passwort eines echten Kontos.</small>
+<button id="encrypt" type="button">Notiz verschlüsseln</button>
+<label for="encrypted">Erzeugte verschlüsselte Daten</label><textarea id="encrypted" rows="5" readonly spellcheck="false"></textarea>
+<button id="download" type="button" disabled>Datei speichern</button><button id="transfer" type="button" disabled>Zum Öffnen übernehmen</button>
+</section>
+<section aria-labelledby="decrypt-title"><h2 id="decrypt-title">2. Datei oder Daten öffnen</h2>
+<label for="file">Gespeicherte Übungsdatei auswählen (maximal 16 KiB)</label><input id="file" type="file" accept=".json,application/json">
+<label for="cipher">Verschlüsselte Daten – einfügen oder verändern</label><textarea id="cipher" rows="5" maxlength="16384" autocomplete="off" spellcheck="false"></textarea>
+<label for="decrypt-password">Übungspasswort zum Öffnen</label><input id="decrypt-password" type="password" minlength="8" maxlength="128" autocomplete="off">
+<button id="decrypt" type="button">Daten entschlüsseln</button>
+<label for="opened">Entschlüsselte Notiz</label><textarea id="opened" rows="3" readonly spellcheck="false"></textarea>
+</section>
+<button id="reset" type="button">Alle Arbeitsfelder leeren</button>
+<aside><h2>Drei Versuche</h2><ol>
+<li>Speichere die verschlüsselte Datei, lade die Seite neu und wähle die Datei wieder aus. Öffne sie mit demselben Passwort. Vergleiche jedes Zeichen mit deiner Notiz.</li>
+<li>Ändere das Passwort im zweiten Bereich. Das Öffnen soll scheitern; ein früheres Ergebnis wird ausgeblendet.</li>
+<li>Lade die unveränderte Datei erneut. Ersetze im Feld „data“ genau den ersten Buchstaben oder die erste Ziffer durch ein anderes Zeichen aus A–Z. Lass Anführungszeichen und Klammern stehen. Öffne mit dem richtigen Passwort. Auch das soll scheitern. Danach kannst du die ursprüngliche Datei wieder laden.</li>
+</ol><p>Notiere für jeden Versuch: Vermutung, Beobachtung, Erklärung. Verschlüssele denselben Text zweimal mit demselben Passwort: Die gespeicherten Daten unterscheiden sich, beide lassen sich öffnen.</p></aside>
+<details><summary>Was schützt die Verschlüsselung – und was nicht?</summary>
+<p>Aus dem Passwort wird ein Schlüssel abgeleitet. AES-GCM verschlüsselt die Notiz und erkennt veränderte verschlüsselte Daten. Ohne passendes Passwort gelingt das Öffnen nicht. Ein kurzes oder bekanntes Passwort lässt sich trotzdem erraten. Verschlüsselung schützt nicht vor Mitlesen am entsperrten Bildschirm oder vor Schadsoftware.</p>
+<p>Die Datei enthält verschlüsselte Daten und öffentliche Zufallswerte, aber weder dein Passwort noch die Notiz im Klartext. Verschlüsseln löscht das Original nicht. „Arbeitsfelder leeren“ entfernt die sichtbaren Eingaben; bereits gespeicherte Dateien bleiben erhalten. Das ist keine zugesicherte sichere Löschung des Gerätespeichers.</p>
+<p>Diese Lernwerkstatt ist kein unabhängig geprüftes Produkt für private Unterlagen. Sie nutzt die Browserfunktion Web Crypto: AES-GCM mit 256-Bit-Schlüssel, 128-Bit-Prüfwert und neuem 96-Bit-Zufallswert pro Verschlüsselung; Schlüsselableitung PBKDF2/SHA-256 mit 600.000 Durchläufen und neuem 128-Bit-Salt.</p>
+<p>Technische Grundlagen: <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveKey">MDN: Schlüsselableitung</a> und <a href="https://developer.mozilla.org/en-US/docs/Web/API/AesGcmParams">AES-GCM</a>.</p>
+</details>
+</main></body></html>

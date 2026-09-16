@@ -243,3 +243,15 @@ KI-Orientierung: finaler Lauf von browser_ai_evidence.js am 2026-09-16T15:20:07.
 ## 16.09.2026 – DGB: Medienkontext und Bildausschnitt
 
 Finaler Bericht browser_media_context.js vom 2026-09-16T15:35:40.013Z: 24 Kombinationen aus Bild, Überschrift, Breite und Design sowie 24 Kapitelantwortwege bestanden. Native Tastaturbedienung, Fokus/Reset, unveränderter Speicher, Beschriftungsfarbe, Mindestgrößen und kein äußerer Überlauf geprüft. Gesamtbild und Ausschnitt mit unveränderten Karten visuell kontrolliert. Druckvergleich nach erster Sichtprüfung auf gleiche Höhe und nebeneinander gesetzt; finale 13 Seiten gelesen bzw. nach der letzten Frageänderung per SHA-256 identisch nachgewiesen. Seite 7 des letzten Exports erneut gelesen. Keine Seitenfehler. [Details](DGB_MEDIENKONTEXT.md).
+
+
+## 16.09.2026 – DGB8 Handeln und Verschlüsselungswerkstatt
+
+Chromium 151.0.7922.34, Bericht 2026-09-16T15:55:18.834Z: echter Ver-/Entschlüsselungsablauf mit Download, Neuladen, Import, Passwort- und Manipulationsfehlern; unabhängiger Node-Abgleich beider Richtungen, Unicode-Grenzen, Importvalidierung, Reset während laufender Schlüsselableitung und fehlende Browserunterstützung geprüft. Zwölf Layoutfälle in 320/390/1280 Pixeln, hell/dunkel, native Tastatur/Fokus, keine zusätzliche Datenspeicherung. 24 native Quizantwortwege bestanden, keine Seitenfehler.
+
+Vier mobile Ansichten visuell gelesen. Finale Druckfassung nach Umbruchkorrektur: 14 Seiten, Export 2026-09-16T15:55:58.918Z. Seiten 3–14 final gelesen, Seiten 1–2 bildidentisch mit bereits gelesener Fassung. Keine Abschneidungen/Überlappungen festgestellt. [Ausführlicher Prüfbericht](DGB_VERSCHLUESSELUNG.md); lokale Artefakte unter ../browser-qa/encryption-workshop.
+
+
+## 16.09.2026 – Wald-Vergleich und Untersuchungsprotokoll
+
+Chromium 151.0.7922.34, Bericht 2026-09-16T16:09:30.641Z: 18 Kombinationen aus drei Erhebungen, drei Breiten und zwei Designs; Tabellen-/Balkenwerte, native Tastatur, Ein-/Ausblenden, Reset/Fokus und unveränderter Speicher geprüft. Alle 36 Quizantwortwege bestanden, keine Seitenfehler. Mobile Ansichten hell/dunkel nach Schriftverbesserung gelesen. Finale Druckfassung vom 2026-09-16T16:13:26.381Z: 23 Seiten; Seite 13 nach vergrößerter Schreibspalte erneut gelesen, 22 übrige bildidentisch mit bereits gelesener Fassung. [Nachweise und Grenzen](BIOLOGIE_WALD_UNTERSUCHEN.md).

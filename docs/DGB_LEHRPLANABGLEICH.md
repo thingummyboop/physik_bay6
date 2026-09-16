@@ -168,3 +168,10 @@ Die aktuelle RIS-Gesamtfassung vom 16.09.2026 wurde für Orientierung und Inform
 Dgb8_kommunikation vollständig gelesen und seine vier generischen Abschnitte ersetzt: HTTP-Kartenablauf mit zwei Antwortfällen, interaktives Modell aus zwölf unveränderten Abstimmungskarten, drei Rechtefälle und zwei erfundene Plattformmodelle mit Weitergabe/Korrektur. 16 Aufgaben, acht bewertete Fragen, drei Übungen; Revision 1. Urheberrecht, österreichischer Bildnisschutz und Datenschutz werden getrennt. Ein tatsächlicher Austausch einer eigenen Skizze in einem freigegebenen Bereich ist angeleitet; eine Papierplanung ersetzt die Durchführung nicht.
 
 Aktueller RIS-Kommunikationsabschnitt, RFC/MDN, UrhG § 78, Datenschutzbehörde und CC-BY-Bedingungen direkt geöffnet. 24 native Bild-/Überschrift-/Layoutkombinationen, 24 bewertete Antwortwege sowie alle 13 Druckseiten geprüft. [Nachweise und Grenzen](DGB_MEDIENKONTEXT.md). Vollständige datenschutzrechtliche Abdeckung und praktische Schulplattform-Erprobung bleiben offen. Keine Übersetzungen oder weiterer Push.
+
+
+## 16.09.2026 – Handeln: Systemebenen, echte Verschlüsselung und Beteiligung
+
+Dgb8_handeln anhand der aktuellen RIS-Fassung neu ausgearbeitet: drei zusammenwirkende Systemebenen, echte Datei-Verschlüsselungswerkstatt mit Fehlerprüfungen, zwei vollständig beschriebene Abo-Angebote und Wiener Schulhofanliegen mit begründeten Einstellungen. 18 Aufgaben, acht bewertete Fragen und drei Übungen; Revision 1. Der Softwareeinsatz ist nun direkt möglich. Papierplanung wird ausdrücklich von ausgeführter Praxis unterschieden. Österreichische Geschäftsfähigkeit und manipulative Gestaltung mit aktuellen AK-Quellen abgeglichen.
+
+Unabhängiger Kryptografieabgleich in beide Richtungen, Dateiworkflow, Fehlerfälle, zwölf Layoutfälle und 24 native Quizantwortwege geprüft. Finale Druckfassung: 14 Seiten visuell geprüft. [Nachweise und Grenzen](DGB_VERSCHLUESSELUNG.md). Weitere Lehrplananwendungen, reale Unterrichtserprobung und die vollständige Fachabnahme bleiben offen. Übersetzungen zurückgestellt; lokale Weiterarbeit nach 81016aa.
