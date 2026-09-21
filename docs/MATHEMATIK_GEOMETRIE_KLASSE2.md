@@ -2,6 +2,28 @@
 
 Stand 21.09.2026. Grundlage ist die gespeicherte RIS-Fassung vom 16.09.2026, Mathematik zweite Klasse, Kompetenzbereich Figuren und Körper, einschließlich aller verpflichtenden und optionalen Präzisierungen. Kein neuer Rechtsquellenabruf. [Quellenstand](LEHRPLAN_QUELLENSTAND.md).
 
+## Aktueller Stand nach den Ergänzungen
+
+Revision 9 enthält neun Abschnitte und 40 Fragen. Die folgenden konkreten Restlücken der ursprünglichen Bestandsaufnahme sind inzwischen ergänzt:
+
+| Präzisierung | Jetzt vorhandener Lernweg |
+| --- | --- |
+| Zahlengeraden, Punkte und Figuren in vier Quadranten | Achsen ausdrücklich als Zahlengeraden benannt; Rechteck ablesen, selbst eintragen und mit Kontrollkoordinaten zeichnen. |
+| Grafisch und rechnerisch verschieben/spiegeln | Drei eigene Koordinatenaufträge, alle Bildpunkte prüfen, Rückverschiebung und Längen-/Winkelvergleich; vollständige Papierlösungen. |
+| Achsensymmetrie und Viereckseigenschaften | Fünf Figuren mit vier festgelegten Achsen, Vermutung vor der Spiegelung, Deckung oder Gegenbeispiel; eigene Falt-/Zeichenaufträge, halbierende Diagonalen ausdrücklich kein Achsensymmetriebeweis. |
+| Kongruenz und eigene SWS-/WSW-Konstruktionen | Zwei Dreiecke mit vertauschter Buchstabenreihenfolge, vollständige Zuordnung, praktische Deckprobe; gegebene Maße und unabhängig nachgerechnete Kontrollwerte. |
+| Strecken-/Winkelsymmetralen anwenden | Drei vollständig gegebene Ortsaufträge mit Schnittpunktbedingungen und begründeten Lösungen. |
+| Sachwinkel und Dreiecksarten | Neigung, Drehfolge, Parallelwinkel; drei eigene Dreieckskonstruktionen mit begründeter Seiten-/Winkeleinordnung. |
+| Besondere Vierecke konstruieren; Flächen begründen | Trapez-/Deltoidkonstruktionen, Sonderfälle und Flächenbegründungen aus dem vorigen Erweiterungsschritt bleiben enthalten und erneut geprüft. |
+
+[Geometrie-Praxis und Prüfbelege](MATHEMATIK_GEOMETRIE_PRAXIS.md) dokumentiert 18 direkte neue Aufgaben, alle 120 Antwortwege, 842 neue Browseransichten sowie alle 50 endgültigen Druckseiten. Die bisherigen 42 Konstruktionszustände, 45 Flächenmodelle und 546 Browseransichten bestehen erneut. Keine Unterrichtserprobung oder vollständige Fachabnahme.
+
+**Nächste Restarbeit:** Die älteren Dreiecks-, Punktspiegelungs-, Verschiebungs- und Prismaansichten einschließlich kleiner SVG-Schriften und Tastaturbedienung gezielt mobil prüfen und verbessern. Ihre bisher teilweise fehlenden Papieralternativen ergänzen. Auch die vier älteren statischen Zeichnungen sind zwar im Druck gelesen, damit aber noch nicht vollständig mobil geprüft. Die übrigen Mathematikbereiche und zehn weiteren Fächer bleiben Bestandteil des Gesamtziels.
+
+## Historische Bestandsaufnahme vor den Erweiterungen
+
+Die nachstehenden Lücken und Prüfzahlen beschreiben den damaligen Befund; für ihren aktuellen Bearbeitungsstand gilt die Tabelle oben.
+
 Bestandsaufnahme vor der anschließend beschriebenen Erweiterung: Direkt gelesen wurden sämtliche Erklärungstexte, Konstruktionen und 26 Fragen einschließlich Antwortalternativen/Rückmeldungen in `math2_7_geometrie`, dessen Lernziele, Zusammenfassung, Voraussetzungen und Konstruktionswerkstatt sowie das vollständige Interaktionsskript. Ergänzend wurden die Flächenerklärungen und Aufgaben in `math3_4_flaechensatz` gelesen. Die Navigation ordnet dessen Einstieg auch der zweiten Klasse zu; die Erweiterungen zu Umkehraufgaben und regelmäßigem Sechseck gehören zur dritten Klasse. Die folgende Tabelle ist ein Arbeitsbefund, keine abgeschlossene Fachabnahme.
 
 | Präzisierung | Tatsächlicher Lernweg | Restarbeit / Aussagegrenze |

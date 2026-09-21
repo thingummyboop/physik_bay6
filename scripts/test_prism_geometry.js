@@ -5,6 +5,15 @@ const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../lang/de.json'),'ut
 const doc=new JSDOM(data.math2_7_geometrie.sections.find(s=>s.id==='sec_prismen').content).window.document;
 const points=el=>el.getAttribute('points').trim().split(/\s+/).map(p=>p.split(',').map(Number));
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-5,`${a} != ${b}`);
+// A visible label must belong to the face actually painted at that point, not an occluded face.
+const inside=(p,ps)=>{let result=false;for(let i=0,j=ps.length-1;i<ps.length;j=i++){const a=ps[i],b=ps[j];if((a[1]>p[1])!==(b[1]>p[1])&&p[0]<(b[0]-a[0])*(p[1]-a[1])/(b[1]-a[1])+a[0])result=!result;}return result;};
+for(const name of ['box','tri','pent']){
+ const scene=doc.querySelector(`[data-prism-scene="${name}"]`),polys=[...scene.querySelectorAll('polygon')];
+ for(const [label,face] of [['G','ground'],['S','side']]){
+  const text=[...scene.querySelectorAll('text')].find(e=>e.textContent===label),position=[Number(text.getAttribute('x')),Number(text.getAttribute('y'))-8];
+  const visible=polys.filter(p=>inside(position,points(p))).at(-1);assert.equal(visible?.getAttribute('data-prism-face'),face,name+' '+label);
+ }
+}
 // Opposite faces of an oblique prism drawing must be exact translations.
 for(const [name,n] of [['box',4],['tri',3],['pent',5]]){
  const scene=doc.querySelector(`[data-prism-scene="${name}"]`),polygons=[...scene.querySelectorAll('polygon')];

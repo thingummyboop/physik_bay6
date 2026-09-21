@@ -1,8 +1,20 @@
 # Lieferstand und nächste Prioritäten
 
-Stand: 21.09.2026. Dieser auf Wunsch gesicherte GitHub-Zwischenstand baut auf `3da37d2` auf und enthält die abschließenden Nacharbeiten zu relativen Häufigkeiten, Viereckskonstruktionen und Flächen sowie die laufende Erweiterung der Geometrie-Praxis. Eine Veröffentlichung dieses Zwischenstands auf Pages ist hier nicht bestätigt. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien; Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB. Die nachfolgenden älteren Einträge beschreiben ihren damaligen Prüf- und Veröffentlichungsstand.
+Stand: 21.09.2026. Dieser Zwischenstand sichert die Nacharbeiten seit `4b934d8` auf ausdrücklichen Nutzerwunsch. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien. Übersetzungen sind zurückgestellt; Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB. Ältere Einträge beschreiben ihren damaligen Prüfstand.
 
-## GitHub-Zwischenstand: laufende Geometrie-Praxis – 21.09.2026
+## Aktueller GitHub-Zwischenstand: Geometrie-Praxis und Modellansichten
+
+Enthalten sind die abgeschlossene Geometrie-Praxis sowie die laufende Überarbeitung der älteren Dreiecks-, Spiegelungs-, Verschiebungs- und Prismenmodelle. Die Modelle haben größere Beschriftungen, angepasste mobile Ansichten und vier neue Papieralternativen mit elf Aufgaben und Lösungen. Bei Prismen wurde die Zeichenreihenfolge der Flächen korrigiert; ein zusätzlicher Test prüft die Zuordnung der sichtbaren Flächenbeschriftungen.
+
+Der abschließende Browserlauf für die älteren Modelle bestand mit 7650 Zuständen einschließlich Tastaturbedienung. Der Arbeitsblattexport mit zwölf erzeugten und unabhängig geprüften Lösungen besteht. Die vollständige Sichtprüfung der 54 endgültigen Druckseiten, ein kleiner Absatzumbruch und die Fortschreibung der Fachmatrix stehen noch aus. Dieser Commit sichert den laufenden Arbeitsstand und ist keine vollständige Produktabnahme. Die unten als lokal bezeichneten älteren Nacharbeiten sind in diesem Zwischenstand enthalten.
+
+## Aktuelle Nacharbeit: Geometrie-Praxis
+
+Der vorherige Turn war Fortschritt: Nutzerwunsch zum Push umgesetzt und Übereinstimmung mit origin/main bestätigt. Geometrie-Praxis der zweiten Klasse ausgearbeitet: eigene Koordinateneingabe, Achsenprüfung an fünf Figuren, SWS/WSW und Kongruenz, Ortsaufträge und Winkelanwendungen. Revision 9 enthält 40 Fragen; alle 120 Antwortwege, 842 neue Browseransichten und alle 50 endgültigen Druckseiten im dokumentierten Umfang geprüft. Die bisherigen 546 Vierecksansichten bestehen erneut. [Geometrie-Praxis und Prüfbelege](MATHEMATIK_GEOMETRIE_PRAXIS.md). Ältere Modellansichten und deren Papieralternativen sowie weitere Fach-/Produktanforderungen bleiben offen. Änderungen lokal nach `4b934d8`, kein erneuter Push.
+
+Die beim Sichern veralteten Tests sind auf die 40 Fragen angepasst und bestehen. Die Druckprüfung deckte unvollständige Geradenangaben und eine getrennte Formel-Erklärung auf; beides korrigiert und erneut geprüft. Inventar und Audit aktualisiert: 198 Kapitel, 1887 Frageninstanzen ohne Strukturfehler.
+
+## Historischer GitHub-Zwischenstand: laufende Geometrie-Praxis – 21.09.2026
 
 Das Geometriekapitel umfasst inzwischen neun Abschnitte, 40 bewertete Fragen und jeweils 14 Lernziele und Zusammenfassungspunkte (Revision 9). Ergänzt wurden eigene Koordinaten- und Symmetrie-Werkstätten sowie Zeichen-, Konstruktions- und Begründungsaufgaben mit Papieralternativen und Lösungen. Die zuvor geprüften Viereckskonstruktionen und die Nacharbeiten zu relativen Häufigkeiten sind ebenfalls enthalten.
 

@@ -421,3 +421,10 @@ Chromium 151.0.7922.34: 37 Modellvorhersagen, alle 54 Abschnittsantwortwege und 
 ## 21.09.2026 – Trapez-/Deltoidkonstruktionen und Vierecksflächen
 
 `browser_quadrilateral_constructions.js` besteht für alle 96 Kapitelantwortwege, Tastatur/Fokus und Wiederholung zur passenden Frage sowie 546 neue Grafikzustände bei 320/390/1280 px in beiden Farbschemata. Die mobilen Trapez-/Deltoid-/Flächenansichten wurden sichtbar gelesen. Die vollständige endgültige Druckfassung hat 39 gelesene Seiten und acht statische Zeichnungen; nach letzter Korrektur waren 33 Rasterseiten bytegleich, sechs wurden erneut gelesen. Alle zwölf endgültigen erzeugten Aufgaben unabhängig nachgerechnet. [Details und Aussagegrenzen](MATHEMATIK_VIERECKSKONSTRUKTIONEN.md). Dies ist keine neue vollständige Layoutprüfung aller älteren Modelle und keine Pages-Abnahme.
+
+
+## Geometrie-Praxis der zweiten Klasse – 21.09.2026
+
+Geometrie-Praxis der zweiten Klasse ausgearbeitet: eigene Koordinateneingabe, Achsenprüfung an fünf Figuren, SWS/WSW und Kongruenz, Ortsaufträge und Winkelanwendungen. Revision 9 enthält 40 Fragen; alle 120 Antwortwege, 842 neue Browseransichten und alle 50 endgültigen Druckseiten im dokumentierten Umfang geprüft. Die bisherigen 546 Vierecksansichten bestehen erneut. [Geometrie-Praxis und Prüfbelege](MATHEMATIK_GEOMETRIE_PRAXIS.md). Ältere Modellansichten und deren Papieralternativen sowie weitere Fach-/Produktanforderungen bleiben offen. Änderungen lokal nach `4b934d8`, kein erneuter Push.
+
+Der eigene Browserlauf prüft Eingaben, Fehler, Tastatur, Zurücksetzen und Beschriftungsgrenzen; 360 Zustände bei drei Breiten in beiden Designs plus 482 Punktkonstellationen bei 320 Pixeln. Die Kapitelprüfung betätigt alle 120 Antwortschaltflächen und prüft den Wiederholungsweg. Beide Läufe erfassen keine Browserfehler. Die 50-seitige endgültige Papierfassung wurde vollständig im dokumentierten Umfang gelesen. Die neuen Nachweise gelten ausdrücklich nicht für sämtliche älteren Geometriemodelle.

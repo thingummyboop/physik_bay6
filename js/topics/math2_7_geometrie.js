@@ -68,7 +68,33 @@ function coordinateDrawingSvg(points,names=['A','B','C','D'],overlay=null,axis=n
     for(const n of [-6,-3,3,6])body+=`<text x="${165+20*n}" y="189" text-anchor="middle">${n}</text><text x="151" y="${172-20*n}" text-anchor="end">${n}</text>`;
     body+='<text x="151" y="189" text-anchor="end">0</text><text x="303" y="158">x</text><text x="175" y="28">y</text></g>';
     const groups=new Map();points.forEach((p,i)=>{if(p){const key=p.join(',');if(!groups.has(key))groups.set(key,{p,names:[]});groups.get(key).names.push(names[i]);}});
-    for(const{p,names:labels}of groups.values()){const[x,y]=project(p),right=p[0]>=0;body+=`<circle cx="${x}" cy="${y}" r="4" fill="#1d4ed8"/><text x="${x+(right?-8:8)}" y="${y+(p[1]<0?26:-12)}" text-anchor="${right?'end':'start'}" fill="#172554" font-size="22">${labels.join(',')}</text>`;}
+    const labelBox=(x,y,text,anchor)=>{const width=text.length*17+4;return {x:x-(anchor==='end'?width:anchor==='middle'?width/2:2),y:y-26,w:width,h:33};};
+    const reserved=[];
+    for(const n of [-6,-3,3,6])reserved.push(labelBox(165+20*n,189,String(n),'middle'),labelBox(151,172-20*n,String(n),'end'));
+    reserved.push(labelBox(151,189,'0','end'),labelBox(303,158,'x','start'),labelBox(175,28,'y','start'));
+    for(const {p} of groups.values()){const [x,y]=project(p);reserved.push({x:x-5,y:y-5,w:10,h:10});}
+    const overlaps=(a,b)=>a.x<b.x+b.w&&b.x<a.x+a.w&&a.y<b.y+b.h&&b.y<a.y+a.h;
+    for(const{p,names:labels}of groups.values()){
+        const[x,y]=project(p);
+        body+=`<circle cx="${x}" cy="${y}" r="4" fill="#1d4ed8"/>`;
+        for(const text of labels){
+        const candidates=[];
+        // Reserve axis values and other point labels, including when pupils enter nearby points.
+        for(const offset of [10,28,46,64,82])for(const dy of [-12,30,8,-34,52])for(const side of (p[0]<0?[-1,1]:[1,-1])){
+            const anchor=side<0?'end':'start',lx=x+side*offset,ly=y+dy,box=labelBox(lx,ly,text,anchor);
+            if(box.x>=3&&box.y>=3&&box.x+box.w<=327&&box.y+box.h<=327&&!reserved.some(r=>overlaps(box,r)))candidates.push({lx,ly,anchor,box});
+        }
+        if(!candidates.length){
+            for(let ly=32;ly<=320;ly+=18)for(let lx=8;lx<=280;lx+=18){
+                const box=labelBox(lx,ly,text,'start');
+                if(box.x+box.w<=327&&!reserved.some(r=>overlaps(box,r)))candidates.push({lx,ly,anchor:'start',box});
+            }
+            candidates.sort((a,b)=>Math.hypot(a.lx-x,a.ly-y)-Math.hypot(b.lx-x,b.ly-y));
+        }
+        const chosen=candidates[0];
+        if(chosen){const{lx,ly,anchor,box}=chosen;reserved.push(box);body+=`<line x1="${x}" y1="${y}" x2="${lx}" y2="${ly-8}" stroke="#64748b" stroke-width="1"/><text x="${lx}" y="${ly}" text-anchor="${anchor}" fill="#172554" font-size="22">${text}</text>`;}
+        }
+    }
     return `<svg class="coordinate-svg" viewBox="0 0 330 330" role="img" aria-label="Koordinatensystem von minus sechs bis sechs. Ein Kästchen entspricht einer Einheit. Die Punktwerte und Aufgaben stehen im begleitenden Text."><rect width="330" height="330" fill="white"/>${body}</svg>`;
 }
 
@@ -204,10 +230,12 @@ function initTranslationExplorer() {
             const status=lab.querySelector('[data-translation-status]');
             status.textContent=`Verschiebung: waagrecht ${dx}, senkrecht ${dy}. `+shifted.map(([x,y],i)=>`${['A','B','C'][i]}′(${x}|${y})`).join(', ')+'. '+(dx===0&&dy===0?'Die Figuren liegen genau aufeinander.':'Form und Größe bleiben gleich.');
             xi.setAttribute('aria-valuetext',dx+' waagrechte Schritte');yi.setAttribute('aria-valuetext',dy+' senkrechte Schritte');
-            const project=points=>points.map(([x,y])=>[180+26*x,180-26*y]);
-            const grid=Array.from({length:11},(_,i)=>i-5).map(n=>`<path d="M${180+26*n} 50 V310 M50 ${180-26*n} H310" stroke="#cbd5e1"/>${n?`<text x="${180+26*n}" y="198" text-anchor="middle">${n}</text><text x="170" y="${184-26*n}" text-anchor="end">${n}</text>`:''}`).join('');
-            const points=project(shifted);
-            lab.querySelector('[data-translation-drawing]').innerHTML=`<svg viewBox="0 0 360 360" role="img" aria-label="${status.textContent}" style="width:100%;max-width:480px;background:white"><g fill="#172554" font-size="12">${grid}<path d="M40 180 H325 M180 325 V35" stroke="#172554" stroke-width="2"/><text x="330" y="176">x</text><text x="188" y="30">y</text><text x="185" y="196">0</text><polygon data-shift-original points="${project(original).map(p=>p.join(',')).join(' ')}" fill="#bfdbfe" fill-opacity="0.6" stroke="#1d4ed8" stroke-width="2"/><polygon data-shift-image points="${points.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#92400e" stroke-width="3" stroke-dasharray="6 4"/>${points.map(([x,y],i)=>`<text x="${x+8}" y="${y-8}">${['A','B','C'][i]}′</text>`).join('')}</g></svg>`;
+            const drawing=lab.querySelector('[data-translation-drawing]');
+            drawing.innerHTML=coordinateDrawingSvg(shifted,['A′','B′','C′'],original);
+            const svg=drawing.querySelector('svg'),image=svg.querySelector('[data-coordinate-polygon]'),source=svg.querySelector('[data-coordinate-image]');
+            image.setAttribute('data-shift-image','');image.setAttribute('fill','none');image.setAttribute('stroke','#9a3412');image.setAttribute('stroke-dasharray','6 4');
+            source.setAttribute('data-shift-original','');source.setAttribute('fill','#bfdbfe');source.setAttribute('fill-opacity','.5');source.setAttribute('stroke','#1d4ed8');source.removeAttribute('stroke-dasharray');
+            source.parentNode.insertBefore(source,image);svg.setAttribute('aria-label',status.textContent);
         };
         [xi,yi].forEach(input=>input.addEventListener('input',update));
         lab.querySelector('[data-shift-reset]').addEventListener('click',()=>{xi.value=0;yi.value=0;update();});update();
@@ -223,9 +251,11 @@ function initReflectionExplorer() {
             const same=x===rx&&y===ry,status=lab.querySelector('[data-reflection-status]');
             status.textContent=`P(${x}|${y}) → P′(${rx}|${ry}), gespiegelt an der ${axis.value}-Achse. `+(same?'P liegt auf der Achse und bleibt fest.':'Beide Punkte haben denselben senkrechten Abstand zur Spiegelachse.');
             xInput.setAttribute('aria-valuetext','x = '+x);yInput.setAttribute('aria-valuetext','y = '+y);
-            const px=180+26*x,py=180-26*y,qx=180+26*rx,qy=180-26*ry;
-            const grid=Array.from({length:11},(_,i)=>i-5).map(n=>`<path d="M${180+26*n} 50 V310 M50 ${180-26*n} H310" stroke="#cbd5e1"/>${n?`<text x="${180+26*n}" y="198" text-anchor="middle">${n}</text><text x="170" y="${184-26*n}" text-anchor="end">${n}</text>`:''}`).join('');
-            lab.querySelector('[data-reflection-drawing]').innerHTML=`<svg viewBox="0 0 360 360" role="img" aria-label="${status.textContent}" style="width:100%;max-width:480px;background:white"><g fill="#172554" font-size="12">${grid}<path d="M40 180 H325 M180 325 V35" stroke="#172554" stroke-width="2"/><path data-mirror-axis d="${axis.value==='y'?'M180 40 V320':'M40 180 H320'}" stroke="#7c3aed" stroke-width="4"/><text x="330" y="176">x</text><text x="188" y="30">y</text><text x="185" y="196">0</text><line x1="${px}" y1="${py}" x2="${qx}" y2="${qy}" stroke="#334155" stroke-dasharray="5 4"/><circle data-original cx="${px}" cy="${py}" r="6" fill="#1d4ed8"/><circle data-image cx="${qx}" cy="${qy}" r="9" fill="none" stroke="#b45309" stroke-width="3"/><text x="${px+12}" y="${py-12}">${same?'P = P′':'P'}</text>${same?'':`<text x="${qx+12}" y="${qy-12}">P′</text>`}</g></svg>`;
+            const drawing=lab.querySelector('[data-reflection-drawing]');drawing.innerHTML=coordinateDrawingSvg([[x,y],[rx,ry]],['P','P′'],null,axis.value);
+            const svg=drawing.querySelector('svg'),circles=svg.querySelectorAll('circle'),original=circles[0];original.setAttribute('data-original','');
+            const image=same?original.cloneNode():circles[1];image.removeAttribute('data-original');image.setAttribute('data-image','');image.setAttribute('r','7');image.setAttribute('fill','none');image.setAttribute('stroke','#9a3412');image.setAttribute('stroke-width','3');if(same)original.after(image);
+            original.insertAdjacentHTML('beforebegin',`<line x1="${165+20*x}" y1="${165-20*y}" x2="${165+20*rx}" y2="${165-20*ry}" stroke="#64748b" stroke-dasharray="5 4"/>`);
+            svg.querySelector('[data-symmetry-axis]').setAttribute('data-mirror-axis','');svg.setAttribute('aria-label',status.textContent);
         };
         [xInput,yInput].forEach(input=>input.addEventListener('input',update));axis.addEventListener('change',update);update();
     });
@@ -254,12 +284,13 @@ function initTriangleExplorer() {
             }
             // AB=c, AC=b, BC=a. Project C onto AB, then derive its altitude.
             const x = (b*b+c*c-a*a)/(2*c), y = Math.sqrt(Math.max(0,b*b-x*x));
-            const points = [[0,0],[c,0],[x,y]].map(([px,py]) => [250+20*px,250-20*py]);
+            const left=Math.min(0,x),right=Math.max(c,x),offset=(330-20*(right-left))/2-20*left,baseline=(290+20*y)/2;
+            const points = [[0,0],[c,0],[x,y]].map(([px,py]) => [offset+20*px,baseline-20*py]);
             const sideType = a===b&&b===c ? 'gleichseitig' : a===b||a===c||b===c ? 'gleichschenklig' : 'ungleichseitig';
             const squareSum = sorted[0]**2 + sorted[1]**2;
             const angleType = squareSum===longest**2 ? 'rechtwinklig' : squareSum>longest**2 ? 'spitzwinklig' : 'stumpfwinklig';
             result.textContent = prefix + `${sorted[0]} + ${sorted[1]} > ${longest}. Ein Dreieck ist möglich: ${sideType} und ${angleType}.`;
-            drawing.innerHTML = `<svg viewBox="0 0 500 290" role="img" aria-label="${result.textContent}" style="width:100%;max-width:600px;background:white"><polygon points="${points.map(p=>p.join(',')).join(' ')}" fill="#dbeafe" stroke="#172554" stroke-width="3"/><g fill="#172554" font-size="15"><text x="238" y="270">A</text><text x="${points[1][0]}" y="270">B</text><text x="${points[2][0]}" y="${points[2][1]-10}">C</text></g></svg>`;
+            drawing.innerHTML = `<svg class="coordinate-svg" viewBox="0 0 330 290" role="img" aria-label="${result.textContent}"><rect width="330" height="290" fill="white"/><polygon points="${points.map(p=>p.join(',')).join(' ')}" fill="#dbeafe" stroke="#172554" stroke-width="3"/><g fill="#172554" font-size="22"><text x="${points[0][0]-12}" y="${baseline+27}" text-anchor="end">A</text><text x="${points[1][0]+12}" y="${baseline+27}">B</text><text x="${points[2][0]}" y="${points[2][1]-14}" text-anchor="middle">C</text></g></svg>`;
         };
         inputs.forEach(input => input.addEventListener('input', update));
         lab.querySelector('[data-triangle-reset]').addEventListener('click', () => {

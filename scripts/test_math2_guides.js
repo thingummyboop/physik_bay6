@@ -16,7 +16,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   assert.ok(!d.body.textContent.includes('{{QUIZ_'),id+' unresolved question');
   for(const p of topic.prerequisites)assert.ok(data[p],p);
   if(id==='math2_7_geometrie'){
-   assert.equal(w.currentChapterQuiz.questions.length,32);
+   assert.equal(w.currentChapterQuiz.questions.length,40);
    const workshop=d.querySelector('[data-language-workshop]');assert.ok(workshop);
    [...workshop.querySelectorAll('select')].forEach((select,i)=>select.value=topic.workshop.items[i].answer);
    [...workshop.querySelectorAll('button')].find(button=>button.textContent==='Zuordnung prüfen').click();assert.match(workshop.textContent,/3 von 3/);
@@ -32,8 +32,8 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
     if(valid){
      const pts=polygon.getAttribute('points').split(' ').map(p=>p.split(',').map(Number));const distance=(i,j)=>Math.hypot(pts[i][0]-pts[j][0],pts[i][1]-pts[j][1])/20;
      assert.ok(Math.abs(distance(0,1)-c)<1e-9);assert.ok(Math.abs(distance(0,2)-b)<1e-9);assert.ok(Math.abs(distance(1,2)-a)<1e-9);
-     assert.ok(pts.every(([x,y])=>x>=0&&x<=500&&y>=0&&y<=290));
-     const semi=(a+b+c)/2,heron=Math.sqrt(semi*(semi-a)*(semi-b)*(semi-c));assert.ok(Math.abs(c*(250-pts[2][1])/40-heron)<1e-8);
+     assert.ok(pts.every(([x,y])=>x>=0&&x<=330&&y>=0&&y<=290));
+     const semi=(a+b+c)/2,heron=Math.sqrt(semi*(semi-a)*(semi-b)*(semi-c));assert.ok(Math.abs(c*(pts[0][1]-pts[2][1])/40-heron)<1e-8);
     }
    }
    const reset=lab.querySelector('button');reset.focus();reset.click();assert.deepEqual(sides.map(input=>input.value),['3','4','5']);assert.match(result.textContent,/rechtwinklig/);assert.equal(d.activeElement,reset);
@@ -42,9 +42,9 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
     xi.value=x;yi.value=y;axis.value=mirror;axis.dispatchEvent(new w.Event('change'));
     const original=reflection.querySelector('[data-original]'),image=reflection.querySelector('[data-image]');
     const px=Number(original.getAttribute('cx')),py=Number(original.getAttribute('cy')),qx=Number(image.getAttribute('cx')),qy=Number(image.getAttribute('cy'));
-    if(mirror==='x'){assert.equal(px,qx);assert.equal((py+qy)/2,180);}else{assert.equal(py,qy);assert.equal((px+qx)/2,180);}
-    assert.equal(px,180+26*x);assert.equal(py,180-26*y);
-    assert.ok([px,py,qx,qy].every(v=>v>=50&&v<=310));
+    if(mirror==='x'){assert.equal(px,qx);assert.equal((py+qy)/2,165);}else{assert.equal(py,qy);assert.equal((px+qx)/2,165);}
+    assert.equal(px,165+20*x);assert.equal(py,165-20*y);
+    assert.ok([px,py,qx,qy].every(v=>v>=65&&v<=265));
     assert.equal(reflection.querySelector('[data-reflection-status]').textContent.includes('bleibt fest'),mirror==='x'?y===0:x===0);
    }
    const shifting=d.querySelector('[data-translation-lab]'),sx=shifting.querySelector('[data-shift-x]'),sy=shifting.querySelector('[data-shift-y]');
@@ -52,8 +52,8 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
    for(let dx=-2;dx<=2;dx++)for(let dy=-2;dy<=2;dy++){
     sx.value=dx;sy.value=dy;sx.dispatchEvent(new w.Event('input'));
     const original=points(shifting.querySelector('[data-shift-original]')),image=points(shifting.querySelector('[data-shift-image]'));
-    for(let i=0;i<3;i++){assert.equal(image[i][0]-original[i][0],26*dx);assert.equal(image[i][1]-original[i][1],dy===0?0:-26*dy);const j=(i+1)%3;assert.equal(Math.hypot(image[i][0]-image[j][0],image[i][1]-image[j][1]),Math.hypot(original[i][0]-original[j][0],original[i][1]-original[j][1]));}
-    assert.ok(image.every(([x,y])=>x>=50&&x<=310&&y>=50&&y<=310));
+    for(let i=0;i<3;i++){assert.equal(image[i][0]-original[i][0],20*dx);assert.equal(image[i][1]-original[i][1],dy===0?0:-20*dy);const j=(i+1)%3;assert.equal(Math.hypot(image[i][0]-image[j][0],image[i][1]-image[j][1]),Math.hypot(original[i][0]-original[j][0],original[i][1]-original[j][1]));}
+    assert.ok(image.every(([x,y])=>x>=65&&x<=265&&y>=65&&y<=265));
    }
    shifting.querySelector('button').click();assert.match(shifting.textContent,/genau aufeinander/);assert.equal(sx.value,'0');assert.equal(sy.value,'0');
    for(const view of ['box','tri','pent','net']){
