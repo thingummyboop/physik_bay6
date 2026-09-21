@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "a8368ede115d2dc299b5afc678a397a7b3891d052cd06b036f9700a0d9d34393",
-    "lang/de.json": "6279e31603a10ae264c66997f8da6e48f61965705441801e982b6c57db183fc3"
+    "js/curriculum.js": "c7ae3dc729330b74be9e59aa15d40315ae6c13f4169083425826680e884e5d89",
+    "lang/de.json": "29b6249247468b37e89d1dcebb9e52d47ed595108c087973330549e55d6955a8"
   },
   "subjects": {
     "physik": {
@@ -10996,7 +10996,7 @@
         },
         {
           "id": "math2_3_dezimalzahlen",
-          "title": "💶 Dezimalzahlen",
+          "title": "💶 Dezimalzahlen und Perioden",
           "grade": "2. Klasse (6. Schulstufe)",
           "gradeLevels": null,
           "category": "Arithmetik",
@@ -11004,40 +11004,77 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math2_3_dezimalzahlen",
           "goals": [
-            "Dezimalzahlen stellenrichtig addieren und subtrahieren.",
-            "Positive Dezimalzahlen auf eine vorgegebene Stelle runden.",
-            "Dezimalzahlen mit 10 und 100 multiplizieren und durch 10 dividieren."
+            "Mit nichtnegativen Dezimalzahlen rechnen und Ergebnisse durch Stellenwerte und Proben erklären.",
+            "Dezimalzahlen unmittelbar auf die verlangte Stelle runden und Näherungen kennzeichnen.",
+            "Brüche durch Division als endliche oder periodische Dezimalzahlen darstellen und die Periode mit Resten begründen.",
+            "Einfache endliche und periodische Dezimalzahlen in vollständig gekürzte Brüche umwandeln.",
+            "Brüche und Dezimalzahlen exakt vergleichen sowie 0,(9) = 1 erklären."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "m23_s1",
               "index": 0,
-              "title": "Plus und Minus mit Komma",
+              "title": "1. Stellenrichtig addieren und subtrahieren",
               "questions": [
                 "m23_q1",
-                "m23_q2"
+                "m23_q2",
+                "m23_dip1"
               ]
             },
             {
               "id": "m23_s2",
               "index": 1,
-              "title": "Runden von Dezimalzahlen",
+              "title": "2. Runden und Näherungen erkennen",
               "questions": [
-                "m23_q3"
+                "m23_q3",
+                "m23_dip2",
+                "m23_direct_round"
               ]
             },
             {
               "id": "m23_s3",
               "index": 2,
-              "title": "Mal und Geteilt mit 10, 100, 1000",
+              "title": "3. Multiplizieren und dividieren mit Dezimalzahlen",
               "questions": [
-                "m23_q4"
+                "m23_q4",
+                "m23_decimal_product",
+                "m23_decimal_quotient"
+              ]
+            },
+            {
+              "id": "m23_period",
+              "index": 3,
+              "title": "4. Vom Bruch zur endlichen oder periodischen Dezimalzahl",
+              "questions": [
+                "m23_repeat_remainder",
+                "m23_period_digits",
+                "m23_terminating"
+              ]
+            },
+            {
+              "id": "m23_back",
+              "index": 4,
+              "title": "5. Von der Dezimalzahl zurück zum Bruch",
+              "questions": [
+                "m23_repeat_fraction",
+                "m23_mixed_fraction",
+                "m23_period_zero"
+              ]
+            },
+            {
+              "id": "m23_exact",
+              "index": 5,
+              "title": "6. Exakt vergleichen, sinnvoll runden",
+              "questions": [
+                "m23_exact_third",
+                "m23_nines",
+                "m23_reduce_end"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 18,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11552,11 +11589,12 @@
           "goals": [
             "Potenzen mit positiven ganzzahligen Exponenten deuten und berechnen.",
             "Potenzregeln begründen und ihre Voraussetzungen beachten.",
+            "Zahlen mit Zehnerpotenzen und in normierter wissenschaftlicher Schreibweise darstellen, vergleichen und Rechneranzeigen deuten.",
             "Gleichartige Terme zusammenfassen, ausmultiplizieren, herausheben und zulässig kürzen.",
             "Die drei binomischen Formeln mit Produkten und Flächen erklären und anwenden.",
             "Terme in Sachzusammenhängen aufstellen und falsche Regeln durch Gegenbeispiele widerlegen."
           ],
-          "summaryCount": 7,
+          "summaryCount": 9,
           "sections": [
             {
               "id": "sec1",
@@ -11579,9 +11617,31 @@
               ]
             },
             {
-              "id": "sec2",
+              "id": "m32_ten",
               "index": 2,
-              "title": "3. Gleichartige Terme und Sachsituationen",
+              "title": "3. Zehnerpotenzen: von Millionen zu Millionsteln",
+              "questions": [
+                "m32_ten_negative",
+                "m32_ten_zero",
+                "m32_ten_scale",
+                "m32_ten_sign"
+              ]
+            },
+            {
+              "id": "m32_scientific",
+              "index": 3,
+              "title": "4. Wissenschaftliche Schreibweise und Größen vergleichen",
+              "questions": [
+                "m32_sci_large",
+                "m32_sci_small",
+                "m32_sci_compare",
+                "m32_sci_display"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 4,
+              "title": "5. Gleichartige Terme und Sachsituationen",
               "questions": [
                 "m32_dip1",
                 "m32_collect",
@@ -11590,8 +11650,8 @@
             },
             {
               "id": "m32_distribution",
-              "index": 3,
-              "title": "4. Ausmultiplizieren, Herausheben und Kürzen",
+              "index": 5,
+              "title": "6. Ausmultiplizieren, Herausheben und Kürzen",
               "questions": [
                 "m32_expand",
                 "m32_factor",
@@ -11600,8 +11660,8 @@
             },
             {
               "id": "m32_binomial",
-              "index": 4,
-              "title": "5. Drei binomische Formeln mit Flächen begründen",
+              "index": 6,
+              "title": "7. Drei binomische Formeln mit Flächen begründen",
               "questions": [
                 "m32_binomial_plus",
                 "m32_binomial_minus",
@@ -11610,8 +11670,8 @@
             },
             {
               "id": "m32_model",
-              "index": 5,
-              "title": "6. Vermutungen prüfen und Terme anwenden",
+              "index": 7,
+              "title": "8. Vermutungen prüfen und Terme anwenden",
               "questions": [
                 "m32_counterexample",
                 "m32_border",
@@ -11620,7 +11680,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 18,
+          "questionCount": 26,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

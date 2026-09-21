@@ -685,3 +685,27 @@
 .round-task summary,.round-optional summary {min-height:44px;cursor:pointer}
 :is(.round-task,.round-lab,.round-optional) :focus-visible {outline:3px solid var(--focus,#b45309);outline-offset:3px}
 .round-optional {max-width:100%;overflow:auto}
+.sci-lab label{display:block;margin-top:.8rem;font-weight:600}
+.sci-lab select,.sci-lab input{display:block;box-sizing:border-box;max-width:100%;width:100%;min-height:44px;font:inherit;padding:.5rem}
+.sci-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}
+.sci-actions button{min-height:44px;white-space:normal}
+.sci-lab :is(input,select,button):focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+.sci-table{border-collapse:collapse;width:100%;margin:1rem 0;table-layout:fixed}
+.sci-table th,.sci-table td{border:1px solid #94a3b8;padding:.5rem;overflow-wrap:anywhere;text-align:left}
+.sci-table caption{text-align:left;font-weight:600;padding:.5rem 0}
+[data-sci-question]{font-weight:700;overflow-wrap:anywhere}
+[data-sci-steps]{overflow-wrap:anywhere}
+[data-sci-steps] .sci-table th:first-child{width:22%}
+[data-sci-steps] .sci-table td{white-space:nowrap;overflow-wrap:normal}
+[data-period-lab],[data-period-back],.decimal-quick{overflow-wrap:anywhere}
+.decimal-lab label,.decimal-quick label{display:block;font-weight:600;margin-top:.75rem}
+.decimal-lab select,.decimal-lab input,.decimal-quick input{display:block;box-sizing:border-box;width:100%;max-width:100%;font:inherit;padding:.5rem;min-height:44px}
+.decimal-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.decimal-actions button,.decimal-quick button{min-height:44px;white-space:normal;margin-top:.5rem}
+.decimal-lab :is(select,input,button):focus-visible,.decimal-quick :is(input,button):focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+.decimal-table{width:100%;border-collapse:collapse;table-layout:fixed;margin:1rem 0}
+.decimal-table th,.decimal-table td{border:1px solid #94a3b8;padding:.4rem;text-align:left;overflow-wrap:anywhere}
+.decimal-table caption{text-align:left;font-weight:600;margin-bottom:.5rem}
+.decimal-number{white-space:nowrap;overflow-wrap:normal}
+[data-period-table] th,[data-period-table] td{white-space:nowrap;overflow-wrap:normal}
+.decimal-written{font-size:1.1rem;padding:1rem;border:1px solid #94a3b8;border-radius:.5rem;white-space:pre;max-width:100%;overflow:auto}

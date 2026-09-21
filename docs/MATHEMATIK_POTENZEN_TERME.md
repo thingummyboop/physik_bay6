@@ -1,5 +1,7 @@
 # Potenzen, Terme und binomische Formeln – 3. Klasse
 
+Ergänzung 21.09.2026: Revision 4 erweitert den Lernweg auf acht Abschnitte um Zehnerpotenzen und wissenschaftliche Schreibweise. 26 bewertete Fragen, 104 interaktive Umwandlungen sowie erweiterte Papieraufgaben und Lösungen. Die bisherigen Formel-/Flächenübungen bleiben erhalten. [Aktuelle Inhalte, Browser- und vollständige Druckprüfung](MATHEMATIK_ZEHNERPOTENZEN.md). Der nachfolgende Bericht beschreibt den früheren Stand von Revision 3.
+
 Stand 16.09.2026, Kapitel `math3_2_potenzen_terme`, 7. Schulstufe, Revision 3. Lokale Weiterarbeit nach bed9a78; die vorausgehende Gleichungsprüfung bleibt ebenfalls lokal.
 
 ## Geschlossene Inhaltslücke

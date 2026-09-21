@@ -430,7 +430,14 @@ function generateWorksheetContent(topicId, topicTitle) {
             html += `<div data-power-generated data-base="${base}" data-exponent="${exp}"><strong>A${i + 1}.</strong> \\( ${writtenBase}^{${exp}} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
             generatedSolutions += `<section class="ws-generated-equation-solution" data-power-answer="${base ** exp}"><h3>Zusatzübung A${i + 1}</h3><p>${exp} gleiche Faktoren ${writtenBase}: ${Array(exp).fill(writtenBase).join(' · ')} = ${base ** exp}.</p></section>`;
         }
-        html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
+        html += '</div><h2>2. Zehnerpotenzen und wissenschaftliche Schreibweise</h2>';
+        for(let i=0;i<4;i++) {
+            const coefficient=[1.2,2.5,4.8,9.6][rand(0,3)]*(i===3?-1:1), exponent=(i%2?-1:1)*rand(2,5), decimal=Number((coefficient*10**exponent).toPrecision(12)).toLocaleString('de-AT',{useGrouping:false,maximumFractionDigits:10}), a=String(coefficient).replace('.',',');
+            const expression=a+' · 10<sup>'+exponent+'</sup>', number=i+9;
+            html += '<p data-sci-generated data-coefficient="'+coefficient+'" data-exponent="'+exponent+'" data-direction="'+(i<2?'decimal':'scientific')+'"><strong>A'+number+'.</strong> '+(i<2?'Schreibe '+expression+' als Dezimalzahl.':'Schreibe '+decimal+' in normierter wissenschaftlicher Schreibweise.')+' __________________</p>';
+            generatedSolutions += '<section class="ws-generated-equation-solution" data-sci-answer="'+Number(decimal.replace(',','.'))+'"><h3>Zusatzübung A'+number+'</h3><p>'+expression+' = '+decimal+'. Der Faktor 10<sup>'+exponent+'</sup> bedeutet '+(exponent>0?'Multiplizieren':'Dividieren')+' mit '+(10**Math.abs(exponent)).toLocaleString('de-AT')+'.</p></section>';
+        }
+        html += '<template data-generated-worksheet-solutions>'+generatedSolutions+'</template>';
     }
     else if (topicId === 'math3_3_gleichungen') {
         html += `<h2>1. Lineare Gleichungen lösen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -683,23 +690,22 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += '</div>';
     }
     else if (topicId === 'math2_3_dezimalzahlen') {
-        html += '<h2>1. Dezimalzahlen multiplizieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
-        for(let i=0; i<8; i++) {
-            const n1 = (rand(10, 500) / 10).toFixed(1).replace('.', ',');
-            const n2 = (rand(2, 20) / 10).toFixed(1).replace('.', ',');
-            html += '<div>' + n1 + ' \\(\\cdot\\) ' + n2 + ' = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>';
+        const decimal = n => n.toLocaleString('de-AT',{useGrouping:false,maximumFractionDigits:3});
+        let solutions = '';
+        html += '<h2>Zusatzübungen: Rechnen und Darstellungen wechseln</h2>';
+        for (let i=0;i<8;i++) {
+            const division=i>=4, first=rand(12,85), second=rand(2,15), answer=division?first:first*second/100;
+            const prompt=division?decimal(first*second/10)+' : '+decimal(second/10):(first/10).toFixed(1).replace('.',',')+' · '+(second/10).toFixed(1).replace('.',',');
+            html += '<p data-decimal-generated data-kind="'+(division?'division':'product')+'" data-first="'+first+'" data-second="'+second+'"><strong>A'+(i+1)+'.</strong> '+prompt+' = __________________</p>';
+            solutions += '<section class="ws-generated-equation-solution" data-decimal-answer="'+answer+'"><h3>Zusatzübung A'+(i+1)+'</h3><p>'+prompt+' = '+(division?decimal(answer):answer.toFixed(2).replace('.',','))+'. '+(division?'Beide Zahlen mit 10 multiplizieren: '+(first*second)+' : '+second+' = '+first+'.':first+' · '+second+' = '+(first*second)+'. Insgesamt zwei Nachkommastellen berücksichtigen.')+'</p></section>';
         }
-        html += '</div>';
-        
-        html += '<h2>2. Dezimalzahlen dividieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
-        for(let i=0; i<8; i++) {
-            const result = rand(2, 50);
-            const n2 = (rand(2, 10) / 10).toFixed(1);
-            const n1 = (result * parseFloat(n2)).toFixed(2).replace('.', ',');
-            const n2Str = n2.replace('.', ',');
-            html += '<div>' + n1 + ' : ' + n2Str + ' = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>';
+        const banks=[[[1,3,'0,(3)'],[2,3,'0,(6)'],[3,11,'0,(27)']],[[1,4,'0,25'],[3,8,'0,375'],[1,8,'0,125']],[[1,3,'0,(3)'],[2,3,'0,(6)'],[1,33,'0,(03)']],[[1,6,'0,1(6)'],[5,6,'0,8(3)'],[1,12,'0,08(3)']]];
+        for(let i=0;i<4;i++){
+            const bank=banks[i], [num,den,written]=bank[rand(0,bank.length-1)], number=i+9;
+            html += '<p data-period-generated data-num="'+num+'" data-den="'+den+'" data-written="'+written+'"><strong>A'+number+'.</strong> '+(i<2?'Schreibe '+num+'/'+den+' als exakte Dezimalzahl. Markiere eine Periode gegebenenfalls mit Klammern.':'Schreibe '+written+' als vollständig gekürzten Bruch.')+' __________________</p>';
+            solutions += '<section class="ws-generated-equation-solution" data-period-generated-answer="'+num+'/'+den+'"><h3>Zusatzübung A'+number+'</h3><p>'+num+'/'+den+' = '+written+'. '+(written.includes('(')?'Die eingeklammerten Ziffern wiederholen sich unbegrenzt.':'Die Division endet mit Rest 0.')+'</p></section>';
         }
-        html += '</div>';
+        html += '<template data-generated-worksheet-solutions>'+solutions+'</template>';
     }
     else if (topicId === 'math2_5_var_gleichungen') {
         html += '<h2>1. Gleichungen lösen (Nach x auflösen)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';

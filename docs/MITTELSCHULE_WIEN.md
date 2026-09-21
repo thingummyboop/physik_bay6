@@ -1,5 +1,9 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Fortschritt 21.09.2026: Dezimalzahlkapitel der zweiten Klasse um periodische Darstellungen und Rückumwandlung ergänzt; bestehende Rechen-/Rundungsübungen erhalten und präzisiert. 60 schrittweise Divisionen, zwölf Rückfälle, alle 54 Antwortwege, 432 Browseransichten und die vollständige 20-seitige Druckfassung im dokumentierten Umfang geprüft. [Inhalte, Nachweise und Grenzen](MATHEMATIK_PERIODISCHE_DEZIMALZAHLEN.md). Änderungen weiterhin lokal nach `a2c72d2`; Gesamtauftrag offen.
+
+Fortschritt 21.09.2026: Der gewünschte Zwischenstand `a2c72d2` mit Funktionen, Drehkörpern und abschließenden Pythagoras-Korrekturen ist auf GitHub gesichert. Danach Zehnerpotenzen und wissenschaftliche Schreibweise ergänzt: 104 Umwandlungen, 78 Kapitelantwortwege, 624 Browseransichten und alle 29 Druckseiten im dokumentierten Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_ZEHNERPOTENZEN.md). Diese neuen Änderungen bleiben lokal; Gesamtauftrag und weitere Facharbeit bleiben offen.
+
 Fortschritt 21.09.2026: Körperkapitel der vierten Klasse um Umkehraufgaben, Masse/Dichte und Hohlkörper ergänzt. 36 Umkehrfälle, 72 Masse-/Dichtefälle, alle 48 Quizantwortwege, 648 Browserlayouts und die 21-seitige Druckfassung im dokumentierten Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_DREHKOERPER_MASSE.md). Lokal nach `e03f3d6`; keine vollständige Fach- oder Produktabnahme.
 
 Fortschritt 21.09.2026: Funktionenkapitel um Darstellungswechsel, Steigungsdreiecke, Eindeutigkeit und Sachgraphen erweitert. 224 Geraden-Rechenfälle, alle 60 Quizantwortwege, 390 Browserlayouts und die 25-seitige Druckfassung im dokumentierten Umfang geprüft. Die vorhandenen Gleichungssysteme bleiben erhalten. [Inhalte und konkrete Nachweise](MATHEMATIK_FUNKTIONS_DARSTELLUNGEN.md). Lokal nach `e03f3d6`; keine vollständige Produktabnahme.

@@ -1074,7 +1074,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math2_3_dezimalzahlen",
-        "title": "💶 Dezimalzahlen",
+        "title": "💶 Dezimalzahlen und Perioden",
         "grade": "2. Klasse (6. Schulstufe)",
         "category": "Arithmetik"
       },

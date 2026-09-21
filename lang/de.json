@@ -22464,13 +22464,13 @@
     ]
   },
   "math2_3_dezimalzahlen": {
-    "title": "Dezimalzahlen",
-    "subtitle": "Rechnen mit Geld & Kommas",
+    "title": "Dezimalzahlen und Perioden",
+    "subtitle": "2. Klasse: genau rechnen, Brüche umwandeln und Näherungen unterscheiden",
     "sections": [
       {
         "id": "m23_s1",
-        "title": "Plus und Minus mit Komma",
-        "content": "<p>Stell dir vor, du hast <span style=\"color:green; font-weight:bold;\">Geld</span>.</p><p>Ein Donut kostet 1,50 €. Ein Eistee kostet 2,30 €.</p><p>Wichtig beim Rechnen: <span style=\"color:red; font-weight:bold;\">Komma unter Komma</span> schreiben!</p><pre style='background:#eee; padding:10px; border-radius:5px;'>  1,50\n+ 2,30\n------\n  3,80</pre><div class='interactive-zone' style='background:#fdf5e6; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid orange;'><p>Du hast 5,00 € und kaufst einen Snack für 2,50 €. Wie viel bleibt übrig?</p><input type='number' step='0.1' id='geld_input' style='padding:5px;'> € <button style='padding:5px 10px; background:orange; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m23_q1}}\n<br>\n{{QUIZ_m23_q2}}",
+        "title": "1. Stellenrichtig addieren und subtrahieren",
+        "content": "<p>In diesem Kapitel festigst du das Rechnen mit Dezimalzahlen und lernst unendliche periodische Darstellungen kennen. Beim Addieren und Subtrahieren gehören <strong>gleiche Stellenwerte untereinander</strong>: Einer zu Einern, Zehntel zu Zehnteln. Angehängte Nullen hinter der letzten Nachkommastelle ändern den Wert nicht: 2,3 = 2,30.</p><p>Erfundener Einkauf für eine Wiener Schulveranstaltung: Ein Snack kostet 1,50 €, ein Getränk 2,30 €. Zusammen sind es 3,80 €. Rechne zuerst mit gleichen Nachkommastellen:</p><pre class=\"decimal-written\">  1,50\n+ 2,30\n------\n  3,80</pre><p>Beim Subtrahieren kann Entbündeln nötig sein: 5,00 − 2,75 = 2,25. Als Centrechnung: 500 − 275 = 225. Die Probe 2,25 + 2,75 = 5,00 bestätigt das Ergebnis. Überschlagen hilft, ein fehlendes Komma zu bemerken.</p><div class=\"interactive-zone decimal-quick\"><p>Du hast 5,00 € und kaufst einen Snack für 2,50 €. Wie viel bleibt übrig?</p><label for=\"geld_input\">Restbetrag in Euro</label><input id=\"geld_input\" type=\"text\" inputmode=\"decimal\"><button type=\"button\">Antwort prüfen</button><template data-worksheet-alternative><div data-decimal-quick-paper><p>5,00 € − 2,50 € = __________ €.</p><p>Rechnung: __________________________</p></div></template></div><h3>Selbst bearbeiten</h3><ol data-decimal-tasks data-assignment-mode=\"direct\"><li>Rechne 3,2 + 1,45 und 5,00 − 2,75. Schreibe gleiche Stellenwerte untereinander und mache bei der Subtraktion die Probe.</li><li>Erkläre, warum 2,3 + 0,45 nicht 2,48 ist.</li><li>Du bezahlst den erfundenen Einkauf um 3,80 € mit 5,00 €. Berechne das Rückgeld.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>3,20 + 1,45 = 4,65; 5,00 − 2,75 = 2,25. Probe: 2,25 + 2,75 = 5,00.</p><p>2,3 = 2,30; 2,30 + 0,45 = 2,75. Zehntel und Hundertstel dürfen nicht wie gleich große Einheiten addiert werden.</p><p>5,00 − 3,80 = 1,20 €. Zur kurzen Übung: 5,00 − 2,50 = 2,50 €.</p></details>{{QUIZ_m23_q1}}{{QUIZ_m23_q2}}{{QUIZ_m23_dip1}}",
         "quizzes": [
           {
             "id": "m23_q1",
@@ -22483,10 +22483,16 @@
                 "feedback": "Richtig: Komma unter Komma: 3,2 + 1,4 = 4,6."
               },
               {
-                "text": "46 (Das Komma fehlt!)",
+                "text": "46",
                 "correct": false,
                 "pts": 0,
                 "feedback": "Das Komma darf nicht verschwinden. 46 ist zehnmal so groß wie 4,6. Rechne gleiche Stellenwerte zusammen: 3 + 1 und 0,2 + 0,4."
+              },
+              {
+                "text": "3,6",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die ganzen Anteile 3 und 1 ergeben bereits 4. Dazu kommen sechs Zehntel."
               }
             ]
           },
@@ -22505,6 +22511,36 @@
                 "correct": false,
                 "pts": 0,
                 "feedback": "Bei den Zehnteln gilt 8 - 1 = 7, nicht 9."
+              },
+              {
+                "text": "7,9",
+                "correct": false,
+                "pts": 0,
+                "feedback": "7,9 entsteht beim Addieren. Hier sollst du 2,1 abziehen."
+              }
+            ]
+          },
+          {
+            "id": "m23_dip1",
+            "question": "Was ist 10,50 € + 4,20 €?",
+            "answers": [
+              {
+                "text": "14,70 €",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 10,50 + 4,20 = 14,70 €."
+              },
+              {
+                "text": "14,00 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Centbeträge 50 ct + 20 ct ergeben 70 ct, nicht 00 ct."
+              },
+              {
+                "text": "15,20 €",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Addiere Euro und Cent stellenrichtig: 10 + 4 = 14 und 50 ct + 20 ct = 70 ct."
               }
             ]
           }
@@ -22512,15 +22548,15 @@
       },
       {
         "id": "m23_s2",
-        "title": "Runden von Dezimalzahlen",
-        "content": "<p>Lege zuerst fest, auf welche Stelle du runden sollst. Bei den hier verwendeten nicht negativen Zahlen entscheidet die <strong>erste Ziffer rechts von dieser Stelle</strong>. Bei 0 bis 4 bleibt die Ziffer an der Rundungsstelle erhalten, bei 5 bis 9 wird sie um 1 erhöht. Ein Übertrag kann weitere Stellen verändern. Die wegfallenden Nachkommastellen werden nicht mehr geschrieben.</p><p>Auf ganze Zahlen: 4,7 ≈ 5 und 12,3 ≈ 12. Auf Zehntel: 4,73 ≈ 4,7, aber 4,78 ≈ 4,8. Bei 9,96 auf Zehntel ergibt der Übertrag 10,0. Das Zeichen ≈ bedeutet „ungefähr gleich“; die gerundete Zahl ersetzt nicht den exakten Ausgangswert.</p><p>Runde unmittelbar auf die verlangte Stelle: 4,49 auf ganze Zahlen wird 4, weil die Zehntelziffer 4 entscheidet. Erst auf 4,5 und dann auf 5 zu runden würde hier ein anderes Ergebnis liefern.</p><ol data-rounding-task><li>Markiere bei 4,49 die Rundungsstelle für ganze Zahlen und die entscheidende Ziffer rechts daneben. Erkläre, warum die letzte Ziffer 9 hier nicht entscheidet.</li><li>Runde 8,24 und 8,25 jeweils auf Zehntel. Beschreibe den Unterschied.</li><li>Erkläre den Übertrag bei 9,96 auf Zehntel mit einer Stellenwerttafel.</li></ol><div class='interactive-zone' style='background:#e6e6fa; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid purple;'><p>Runde 12,3 auf ganze Zahlen:</p><input type='number' id='rund_input' style='padding:5px;'><button style='padding:5px 10px; background:purple; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m23_q3}}",
+        "title": "2. Runden und Näherungen erkennen",
+        "content": "<p>Lege zuerst fest, auf welche Stelle du runden sollst. Bei den hier verwendeten nicht negativen Zahlen entscheidet die <strong>erste Ziffer rechts von dieser Stelle</strong>. Bei 0 bis 4 bleibt die Ziffer an der Rundungsstelle erhalten, bei 5 bis 9 wird sie um 1 erhöht. Ein Übertrag kann weitere Stellen verändern. Die wegfallenden Nachkommastellen werden nicht mehr geschrieben.</p><p>Auf ganze Zahlen: 4,7 ≈ 5 und 12,3 ≈ 12. Auf Zehntel: 4,73 ≈ 4,7, aber 4,78 ≈ 4,8. Bei 9,96 auf Zehntel ergibt der Übertrag 10,0. Das Zeichen ≈ bedeutet „ungefähr gleich“; die gerundete Zahl ersetzt nicht den exakten Ausgangswert.</p><p>Runde unmittelbar auf die verlangte Stelle: 4,49 auf ganze Zahlen wird 4, weil die Zehntelziffer 4 entscheidet. Erst auf 4,5 und dann auf 5 zu runden würde hier ein anderes Ergebnis liefern.</p><div class=\"interactive-zone decimal-quick\"><p>Runde 12,3 auf ganze Zahlen.</p><label for=\"rund_input\">Gerundete ganze Zahl</label><input id=\"rund_input\" type=\"text\" inputmode=\"decimal\"><button type=\"button\">Antwort prüfen</button><template data-worksheet-alternative><div data-decimal-quick-paper><p>Runde 12,3 auf ganze Zahlen: __________.</p><p>Rechnung: __________________________</p></div></template></div><h3>Selbst bearbeiten</h3><ol data-decimal-tasks data-assignment-mode=\"direct\"><li>Runde 4,49 unmittelbar auf ganze Zahlen. Erkläre, warum die letzte Ziffer 9 hier nicht entscheidet.</li><li>Runde 8,24 und 8,25 jeweils auf Zehntel.</li><li>Erkläre den Übertrag beim Runden von 9,96 auf Zehntel.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>4,49 ≈ 4. Die Zehntelziffer 4 entscheidet. Zweimaliges Runden über 4,5 kann ein anderes Ergebnis liefern.</p><p>8,24 ≈ 8,2 und 8,25 ≈ 8,3. Die Hundertstelziffer entscheidet.</p><p>9,96 ≈ 10,0. Neun Zehntel werden um ein Zehntel erhöht; der Übertrag ergibt einen weiteren Einer. Zur kurzen Übung: 12,3 ≈ 12.</p></details>{{QUIZ_m23_q3}}{{QUIZ_m23_dip2}}{{QUIZ_m23_direct_round}}",
         "quizzes": [
           {
             "id": "m23_q3",
             "question": "Runde 8,5 auf ganze Zahlen.",
             "answers": [
               {
-                "text": "9 (Bei 5 wird aufgerundet!)",
+                "text": "9",
                 "correct": true,
                 "pts": 10,
                 "feedback": "Richtig: Bei 5 nach dem Komma rundest du auf: 8,5 wird 9."
@@ -22530,6 +22566,60 @@
                 "correct": false,
                 "pts": 0,
                 "feedback": "Die 5 nach dem Komma rundet auf, daher nicht 8."
+              },
+              {
+                "text": "8,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist der Ausgangswert. Eine ganze gerundete Zahl hat hier keine Nachkommastelle."
+              }
+            ]
+          },
+          {
+            "id": "m23_dip2",
+            "question": "Runde 19,8 auf ganze Zahlen.",
+            "answers": [
+              {
+                "text": "20",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die 8 nach dem Komma rundet 19,8 auf 20."
+              },
+              {
+                "text": "19",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei 8 nach dem Komma wird aufgerundet, also 20."
+              },
+              {
+                "text": "19,80",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine angehängte Null ändert den Wert nicht. Gerundet auf ganze Zahlen ist der Wert 20."
+              }
+            ]
+          },
+          {
+            "id": "m23_direct_round",
+            "question": "Runde 4,49 unmittelbar auf ganze Zahlen.",
+            "answers": [
+              {
+                "text": "5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Zehntelziffer 4 entscheidet. Erst auf 4,5 und dann auf 5 zu runden verändert hier das Ergebnis."
+              },
+              {
+                "text": "4",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Zehntelziffer ist 4; deshalb wird auf 4 abgerundet."
+              },
+              {
+                "text": "4,5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "4,5 wäre die Rundung auf Zehntel, nicht auf ganze Zahlen."
               }
             ]
           }
@@ -22537,15 +22627,15 @@
       },
       {
         "id": "m23_s3",
-        "title": "Mal und Geteilt mit 10, 100, 1000",
-        "content": "<p>Beim Multiplizieren mit 10 wird jeder Stellenwert zehnmal so groß, beim Dividieren durch 10 zehnmal so klein. Das lässt sich als Verschieben des Kommas beschreiben. Für 100 sind es zwei Stellen, für 1000 drei Stellen.</p><p>Bei <span style=\"color:blue; font-weight:bold;\">Mal 10</span> rutscht das Komma um 1 Platz nach <b>rechts</b>. Für positive Zahlen wird der Wert größer; 0 bleibt 0.</p><p>Bei <span style=\"color:red; font-weight:bold;\">Geteilt durch 10</span> rutscht das Komma um 1 Platz nach <b>links</b>. Für positive Zahlen wird der Wert kleiner; 0 bleibt 0.</p><p>Beispiel: 3,45 mal 10 = 34,5.</p><div class='interactive-zone' style='background:#fffacd; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid #b8860b;'><p>Was ist 5,2 mal 100? (Komma 2 Plätze nach rechts!)</p><input type='number' id='komma_input' style='padding:5px;'><button style='padding:5px 10px; background:#b8860b; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m23_q4}}",
+        "title": "3. Multiplizieren und dividieren mit Dezimalzahlen",
+        "content": "<p>Beim Multiplizieren mit 10 wird jeder Stellenwert zehnmal so groß, beim Dividieren durch 10 zehnmal so klein. In der geschriebenen Zahl steht das Komma entsprechend eine Stelle weiter rechts oder links. Für 100 sind es zwei Stellen, für 1 000 drei. Beispiel: 3,45 · 10 = 34,5; 3,45 : 100 = 0,0345.</p><p><strong>Dezimalzahlen multiplizieren:</strong> 1,2 · 0,3 = 12/10 · 3/10 = 36/100 = 0,36. Rechne zunächst 12 · 3 = 36 und berücksichtige insgesamt zwei Nachkommastellen. Die Bruchrechnung erklärt diese Regel. Ein Produkt muss nicht größer als seine Faktoren sein.</p><p><strong>Durch eine Dezimalzahl dividieren:</strong> 4,8 : 0,6 = 48 : 6 = 8. Multipliziere Dividend und Divisor mit derselben Zehnerzahl, bis der Divisor ganzzahlig ist. Der Quotient bleibt gleich. Durch 0 darfst du nicht dividieren. Probe: 8 · 0,6 = 4,8.</p><div class=\"interactive-zone decimal-quick\"><p>Was ist 5,2 · 100?</p><label for=\"komma_input\">Ergebnis</label><input id=\"komma_input\" type=\"text\" inputmode=\"decimal\"><button type=\"button\">Antwort prüfen</button><template data-worksheet-alternative><div data-decimal-quick-paper><p>5,2 · 100 = __________.</p><p>Rechnung: __________________________</p></div></template></div><h3>Selbst bearbeiten</h3><ol data-decimal-tasks data-assignment-mode=\"direct\"><li>Berechne 0,75 · 100 und 7,5 : 100. Begründe die Richtung der Stellenwertänderung.</li><li>Berechne 1,2 · 0,3 und erkläre die zwei Nachkommastellen mithilfe von Brüchen.</li><li>Berechne 4,8 : 0,6. Schreibe eine gleichwertige Rechnung mit ganzzahligem Divisor und prüfe durch Multiplikation.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>75 und 0,075. Multiplizieren mit 100 vergrößert den positiven Wert, Dividieren verkleinert ihn. Kurze Übung: 5,2 · 100 = 520.</p><p>12/10 · 3/10 = 36/100 = 0,36.</p><p>48 : 6 = 8. Probe: 8 · 0,6 = 4,8.</p></details>{{QUIZ_m23_q4}}{{QUIZ_m23_decimal_product}}{{QUIZ_m23_decimal_quotient}}",
         "quizzes": [
           {
             "id": "m23_q4",
             "question": "Was ist 12,5 geteilt durch 10?",
             "answers": [
               {
-                "text": "1,25 (Komma einen nach links)",
+                "text": "1,25",
                 "correct": true,
                 "pts": 10,
                 "feedback": "Richtig: Durch 10 schiebt das Komma eine Stelle nach links: 1,25."
@@ -22555,6 +22645,297 @@
                 "correct": false,
                 "pts": 0,
                 "feedback": "125 wäre mal 10 oder Komma weg. Durch 10 macht die Zahl kleiner."
+              },
+              {
+                "text": "0,125",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre das Ergebnis beim Dividieren durch 100. Durch 10 ist es 1,25."
+              }
+            ]
+          },
+          {
+            "id": "m23_decimal_product",
+            "question": "Was ist 0,4 · 0,3?",
+            "answers": [
+              {
+                "text": "1,2",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Vier Zehntel mal drei Zehntel ergeben zwölf Hundertstel."
+              },
+              {
+                "text": "0,7",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,7 entsteht beim Addieren; hier sollst du multiplizieren."
+              },
+              {
+                "text": "0,12",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 4/10 · 3/10 = 12/100 = 0,12."
+              }
+            ]
+          },
+          {
+            "id": "m23_decimal_quotient",
+            "question": "Welche Rechnung hat denselben Quotienten wie 4,8 : 0,6?",
+            "answers": [
+              {
+                "text": "48 : 6",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Dividend und Divisor werden mit demselben Faktor 10 multipliziert. Der Quotient bleibt 8."
+              },
+              {
+                "text": "48 : 0,6",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier wurde nur der Dividend verzehnfacht. Der Quotient wäre zehnmal so groß."
+              },
+              {
+                "text": "4,8 : 6",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier wurde nur der Divisor verzehnfacht. Der Quotient wäre zehnmal so klein."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m23_period",
+        "title": "4. Vom Bruch zur endlichen oder periodischen Dezimalzahl",
+        "content": "<p>Ein Bruch bedeutet eine Division: <strong>3/4 = 3 : 4 = 0,75</strong>. Bei 1 : 3 endet das Teilen nicht: 10 : 3 ergibt die Ziffer 3 und Rest 1. Wieder 10 : 3 ergibt wieder 3 und Rest 1. Darum gilt exakt <strong>1/3 = 0,333… = 0,(3)</strong>.</p><p>Die <strong>Periode</strong> ist der Ziffernblock, der sich unbegrenzt wiederholt. Ein Periodenstrich über den Ziffern ist üblich; hier verwenden wir für gut lesbare Eingaben Klammern: 0,(27) = 0,272727… . Die Klammern sind hier eine Schreibweise für die Periode, kein Rechenauftrag. Bei <strong>0,1(6) = 0,166666…</strong> ist 1 die Vorperiode und 6 die Periode.</p><table class=\"decimal-table\"><caption>1 : 6 – nach dem Komma weiterteilen</caption><thead><tr><th>Alter Rest</th><th>Rest · 10</th><th>Neue Ziffer</th><th>Neuer Rest</th></tr></thead><tbody><tr><td>1</td><td>10</td><td>1</td><td>4</td></tr><tr><td>4</td><td>40</td><td>6</td><td>4</td></tr></tbody></table><p>Die 4 als Rest kommt wieder: Der nächste Schritt ist wieder 40 : 6 mit Ziffer 6 und Rest 4. Dagegen endet 1 : 8 nach 0,125 mit Rest 0. Bei einem festen positiven ganzzahligen Nenner d gibt es nur die Reste 0 bis d − 1. Die Division muss deshalb enden oder einen Rest wiederholen.</p><div class=\"interactive-zone decimal-lab\" data-period-lab><h3>Den Rest verfolgen</h3><p>Vermute zuerst: Endet die Division? Rechne dann Schritt für Schritt. Ein wiederkehrender Rest startet immer dieselbe Ziffernfolge.</p><label for=\"period-num\">Zähler</label><select id=\"period-num\"><option>0</option><option selected>1</option><option>2</option><option>5</option><option>7</option><option>13</option></select><label for=\"period-den\">Nenner</label><select id=\"period-den\"><option>2</option><option>3</option><option>4</option><option selected>6</option><option>7</option><option>8</option><option>9</option><option>11</option><option>12</option><option>16</option></select><p data-period-start></p><div class=\"decimal-actions\"><button type=\"button\" data-period-next>Nächste Dezimalstelle</button><button type=\"button\" data-period-all>Alle Schritte zeigen</button><button type=\"button\" data-period-reset>Neu beginnen</button></div><div data-period-table></div><p id=\"period-status\" role=\"status\" aria-atomic=\"true\"></p><template data-worksheet-alternative><div data-period-paper><p>Teile 1 durch 8 und 1 durch 6 schriftlich. Notiere in jedem Schritt: bisherigen Rest, Rest mal 10, neue Ziffer und neuen Rest. Stoppe, sobald der Rest 0 ist oder sich wiederholt. Markiere Vorperiode und Periode.</p><table class=\"decimal-table\"><thead><tr><th>Bruch</th><th>Rechenweg mit Resten</th><th>Exaktes Ergebnis</th></tr></thead><tbody><tr><td>1/8</td><td>________________</td><td>________</td></tr><tr><td>1/6</td><td>________________</td><td>________</td></tr></tbody></table></div></template></div><h3>Selbst bearbeiten</h3><ol data-decimal-tasks data-assignment-mode=\"direct\"><li>Schreibe 1/4, 1/3 und 1/6 als exakte Dezimalzahlen. Unterscheide endlich, rein periodisch und gemischt periodisch.</li><li>Schreibe die ersten acht Nachkommastellen von 0,(27) und von 0,1(6). Benenne jeweils die Periode.</li><li>Erkläre anhand der Reste, warum die Division 1 : 6 nach der ersten Ziffer immer wieder eine 6 liefert.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>1/4 = 0,25 ist endlich; 1/3 = 0,(3) ist rein periodisch; 1/6 = 0,1(6) ist gemischt periodisch.</p><p>0,27272727… mit Periode 27; 0,16666666… mit Vorperiode 1 und Periode 6.</p><p>Aus Rest 4 wird 40 : 6 = 6 mit Rest 4. Genau dieser Schritt wiederholt sich. Papierwerkstatt: 1 : 8 liefert nacheinander Ziffern 1, 2, 5 und Reste 2, 4, 0; 1 : 6 liefert Ziffern 1, 6 und Reste 4, 4.</p></details>{{QUIZ_m23_repeat_remainder}}{{QUIZ_m23_period_digits}}{{QUIZ_m23_terminating}}",
+        "quizzes": [
+          {
+            "id": "m23_repeat_remainder",
+            "question": "Bei 1 : 3 erhältst du nach einer Nachkommastelle wieder den Rest 1. Was folgt?",
+            "answers": [
+              {
+                "text": "Der Quotient ist genau 0,3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,3 · 3 = 0,9; es fehlt 0,1. Der Rest ist noch nicht 0."
+              },
+              {
+                "text": "Die Ziffer 3 wiederholt sich unbegrenzt.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Derselbe Rest führt wieder zu derselben nächsten Ziffer und demselben Rest."
+              },
+              {
+                "text": "Die nächste Ziffer muss 1 sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Rest ist nicht die nächste Quotientenziffer. Erst den Rest mit 10 multiplizieren und wieder durch 3 teilen."
+              }
+            ]
+          },
+          {
+            "id": "m23_period_digits",
+            "question": "Was bedeutet 0,1(6) in der hier verwendeten Schreibweise?",
+            "answers": [
+              {
+                "text": "0,161616…",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dafür müsste der ganze Block 16 in Klammern stehen: 0,(16)."
+              },
+              {
+                "text": "0,16",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ohne Fortsetzung wären es nur 16 Hundertstel. Die eingeklammerte Ziffer wiederholt sich unbegrenzt."
+              },
+              {
+                "text": "0,166666…",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die 1 steht nur einmal, danach wiederholt sich die 6."
+              }
+            ]
+          },
+          {
+            "id": "m23_terminating",
+            "question": "Welche Rechnung liefert eine endliche Dezimaldarstellung?",
+            "answers": [
+              {
+                "text": "3 : 8 = 0,375",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Bei der schriftlichen Division wird der Rest nach drei Nachkommastellen 0."
+              },
+              {
+                "text": "1 : 3 = 0,(3)",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Rest wiederholt sich; die Ziffer 3 endet nicht."
+              },
+              {
+                "text": "1 : 6 = 0,1(6)",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nach der 1 wiederholt sich die 6 ohne Ende."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m23_back",
+        "title": "5. Von der Dezimalzahl zurück zum Bruch",
+        "content": "<p data-period-proof><strong>Endliche Dezimalzahl:</strong> 0,125 = 125/1 000 = 1/8. Drei Nachkommastellen bedeuten Tausendstel. 2,5 = 25/10 = 5/2. Ein Bruch kann auch größer als 1 sein.</p><p data-period-proof><strong>Eine rein periodische Zahl:</strong> Setze x = 0,(3). Dann ist 10x = 3,(3). Subtrahiere die beiden Werte: 10x − x = 3, weil die unendlichen Nachkommastellen übereinstimmen. Also 9x = 3 und x = 3/9 = 1/3. Bei zwei Periodenziffern verschiebst du zwei Stellen: Für x = 0,(27) gilt 100x − x = 27, also x = 27/99 = 3/11. Das ist eine Begründung für den Nenner aus Neunen.</p><p data-period-proof><strong>Eine gemischt periodische Zahl:</strong> Für x = 0,1(6) gilt 10x = 1,(6) und 100x = 16,(6). Jetzt haben die Nachkommastellen dieselbe Wiederholung. Subtrahieren ergibt 90x = 15, also x = 15/90 = 1/6. Die einmalige Vorperiode darf nicht zur Periode gemacht werden.</p><p>Beim Kürzen teilst du Zähler und Nenner durch denselben gemeinsamen Teiler. Prüfe bei Bedarf durch Division. Die Schreibweise 0,(03) hat zwei Periodenziffern: 3/99 = 1/33, nicht 3/9.</p><div class=\"interactive-zone decimal-lab\" data-period-back><h3>Eine Dezimalzahl als Bruch schreiben</h3><p>Schreibe den Wert als vollständig gekürzten Bruch. Gib ganze Zahlen ein; der Nenner muss positiv sein.</p><label for=\"period-case\">Aufgabe</label><select id=\"period-case\"><option value=\"0\">0,(3)</option><option value=\"1\">0,(6)</option><option value=\"2\">0,(27)</option><option value=\"3\">0,1(6)</option><option value=\"4\">0,08(3)</option><option value=\"5\">1,(2)</option><option value=\"6\">0,(9)</option><option value=\"7\">0,125</option><option value=\"8\">0,75</option><option value=\"9\">2,5</option><option value=\"10\">0</option><option value=\"11\">2</option></select><label for=\"period-answer-num\">Zähler</label><input id=\"period-answer-num\" type=\"text\" inputmode=\"numeric\"><label for=\"period-answer-den\">Nenner</label><input id=\"period-answer-den\" type=\"text\" inputmode=\"numeric\"><div class=\"decimal-actions\"><button type=\"button\" data-period-check>Antwort prüfen</button><button type=\"button\" data-period-solution>Rechenweg zeigen</button><button type=\"button\" data-period-back-reset>Neu beginnen</button></div><p id=\"period-back-status\" role=\"status\" aria-atomic=\"true\"></p><div data-period-solution-text hidden></div><template data-worksheet-alternative><div data-period-back-paper><p>Schreibe 0,(3), 0,(27), 0,1(6), 0,08(3) und 0,125 als vollständig gekürzte Brüche. Zeige bei einer periodischen Zahl durch Verschieben und Subtrahieren, warum der Bruch passt.</p><p>Dein Rechenweg: __________________________________________</p></div></template></div><h3>Selbst bearbeiten</h3><ol data-decimal-tasks data-assignment-mode=\"direct\"><li>Wandle 0,75 und 2,5 in vollständig gekürzte Brüche um.</li><li>Leite 0,(6) = 2/3 durch Multiplizieren mit 10 und Subtrahieren her.</li><li>Wandle 0,1(6) und 0,(03) in Brüche um. Erkläre, warum du nicht für beide Zahlen denselben Nenner aus Neunen verwenden darfst.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>0,75 = 75/100 = 3/4; 2,5 = 25/10 = 5/2.</p><p>x = 0,(6); 10x = 6,(6); 9x = 6; x = 6/9 = 2/3.</p><p>0,1(6) = 15/90 = 1/6; 0,(03) = 3/99 = 1/33. Die erste Zahl hat eine Vorperiode, die zweite eine zweistellige reine Periode.</p><p>Papierwerkstatt: 0,(3) = 1/3; 0,(27) = 3/11; 0,1(6) = 1/6; 0,08(3) = (83 − 8)/(1 000 − 100) = 75/900 = 1/12; 0,125 = 1/8.</p></details>{{QUIZ_m23_repeat_fraction}}{{QUIZ_m23_mixed_fraction}}{{QUIZ_m23_period_zero}}",
+        "quizzes": [
+          {
+            "id": "m23_repeat_fraction",
+            "question": "Welcher vollständig gekürzte Bruch ist gleich 0,(6)?",
+            "answers": [
+              {
+                "text": "6/10",
+                "correct": false,
+                "pts": 0,
+                "feedback": "6/10 = 0,6 hat nur eine Nachkommastelle."
+              },
+              {
+                "text": "2/3",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0,(6) = 6/9 = 2/3."
+              },
+              {
+                "text": "6/100",
+                "correct": false,
+                "pts": 0,
+                "feedback": "6/100 = 0,06 ist endlich und deutlich kleiner."
+              }
+            ]
+          },
+          {
+            "id": "m23_mixed_fraction",
+            "question": "Welcher Bruch ist gleich 0,1(6)?",
+            "answers": [
+              {
+                "text": "1/6",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 100x − 10x = 15, also 90x = 15 und x = 1/6."
+              },
+              {
+                "text": "16/99",
+                "correct": false,
+                "pts": 0,
+                "feedback": "16/99 = 0,(16) = 0,161616… . Hier gehört nur die 6 zur Periode."
+              },
+              {
+                "text": "16/100",
+                "correct": false,
+                "pts": 0,
+                "feedback": "16/100 = 0,16 ist endlich und nur eine Näherung."
+              }
+            ]
+          },
+          {
+            "id": "m23_period_zero",
+            "question": "Welcher Bruch ist gleich 0,(03)?",
+            "answers": [
+              {
+                "text": "3/9",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Periode hat zwei Ziffern, einschließlich der Null. Deshalb lautet der Nenner zunächst 99."
+              },
+              {
+                "text": "3/100",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3/100 = 0,03 endet. Die Periode 03 wiederholt sich jedoch unbegrenzt."
+              },
+              {
+                "text": "1/33",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0,(03) = 3/99 = 1/33. Die führende Null gehört zur zweistelligen Periode."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m23_exact",
+        "title": "6. Exakt vergleichen, sinnvoll runden",
+        "content": "<p data-period-proof><strong>0,333 ist nicht exakt ein Drittel.</strong> 333/1 000 ist kleiner als 1/3; die Differenz beträgt 1/3 000. Dagegen bedeutet 0,(3) die unbegrenzte Wiederholung und ist exakt 1/3. Schreibe beim Runden das Zeichen ≈: 1/3 ≈ 0,33 auf Hundertstel. Für 1/6 = 0,1666… ergibt sich auf Hundertstel 0,17.</p><p>Vergleiche ohne vorzeitiges Runden: 0,33 &lt; 1/3 &lt; 0,34. Du kannst auch gleiche Nenner verwenden: 99/300 &lt; 100/300 &lt; 102/300. In einer erfundenen Verteilaufgabe soll 1 Liter Saft auf drei gleich große Portionen verteilt werden. Jede Portion ist exakt 1/3 Liter. Drei Portionen zu je 0,33 Liter ergeben nur 0,99 Liter; 0,01 Liter bleibt übrig.</p><p data-period-proof><strong>Ein besonderer Fall:</strong> 0,(9) = 1. Denn für x = 0,(9) gilt 10x = 9,(9) und nach dem Subtrahieren 9x = 9. Das bedeutet nicht, dass die endliche Zahl 0,9 schon 1 ist. Zwischen zwei verschiedenen Dezimaldarstellungen muss nicht immer eine andere Zahl liegen.</p><p data-period-proof><strong>Endet ein Bruch?</strong> Kürze ihn zuerst vollständig. Besteht sein positiver Nenner nur aus Primfaktoren 2 und 5, lässt er sich zu einem Nenner 10, 100, 1 000, … erweitern und besitzt eine endliche Dezimaldarstellung. Beispiel: 3/12 = 1/4 = 25/100. Bleibt ein anderer Primfaktor, ist die Dezimaldarstellung periodisch: 1/6 = 0,1(6). Ganze Zahlen mit Nenner 1 sind ebenfalls endlich. Bei der schriftlichen Division wählen wir die endliche Form, sobald der Rest 0 ist.</p><h3>Selbst bearbeiten</h3><ol data-decimal-tasks data-assignment-mode=\"direct\"><li>Ordne 0,33; 1/3; 0,34 exakt. Runde anschließend 1/3 und 1/6 jeweils auf Hundertstel.</li><li>Teile in der erfundenen Verteilaufgabe einen Liter in drei gleiche Portionen. Vergleiche den exakten Anteil mit 0,33 Liter je Portion und berechne den Rest.</li><li>Untersuche 3/12 und 2/6: Kürze vollständig, gib die Dezimaldarstellung an und begründe endlich oder periodisch. Erkläre zusätzlich den Unterschied zwischen 0,9 und 0,(9).</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>0,33 < 1/3 < 0,34; 1/3 ≈ 0,33 und 1/6 ≈ 0,17.</p><p>Exakt je 1/3 Liter. Bei je 0,33 Liter werden nur 0,99 Liter verteilt; 0,01 Liter bleibt übrig.</p><p>3/12 = 1/4 = 0,25 ist endlich; 2/6 = 1/3 = 0,(3) ist periodisch. Nach dem Kürzen enthält 4 nur den Primfaktor 2, während 3 einen anderen Primfaktor enthält. 0,9 = 9/10 ist kleiner als 1; 0,(9) = 1.</p></details>{{QUIZ_m23_exact_third}}{{QUIZ_m23_nines}}{{QUIZ_m23_reduce_end}}",
+        "quizzes": [
+          {
+            "id": "m23_exact_third",
+            "question": "Was gilt für 1/3 und 0,333?",
+            "answers": [
+              {
+                "text": "0,333 < 1/3; 0,(3) = 1/3.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 0,333 enthält nur drei Dreier. Ein Drittel hat unendlich viele; die Klammer zeigt das an."
+              },
+              {
+                "text": "0,333 = 1/3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Differenz ist 1/3 − 333/1 000 = 1/3 000 und damit größer als 0."
+              },
+              {
+                "text": "0,333 > 1/3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,333 liegt unter einem Drittel. Die nächsten Dezimalstellen eines Drittels sind wieder Dreier."
+              }
+            ]
+          },
+          {
+            "id": "m23_nines",
+            "question": "Was ist der exakte Wert von 0,(9)?",
+            "answers": [
+              {
+                "text": "Eine Zahl mit einem kleinsten positiven Abstand zu 1.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Es bleibt kein positiver Abstand übrig: Bei x = 0,(9) gilt 10x − x = 9, also x = 1."
+              },
+              {
+                "text": "0,9",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,9 hat nur eine Neun. Die Periode setzt sich unbegrenzt fort."
+              },
+              {
+                "text": "1",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 9x = 9 liefert x = 1. Eine Zahl kann zwei verschiedene Dezimaldarstellungen haben."
+              }
+            ]
+          },
+          {
+            "id": "m23_reduce_end",
+            "question": "Warum hat 3/12 eine endliche Dezimaldarstellung?",
+            "answers": [
+              {
+                "text": "Weil jeder Nenner 12 eine endliche Darstellung ergibt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/12 = 0,08(3) ist ein Gegenbeispiel. Zuerst vollständig kürzen."
+              },
+              {
+                "text": "Weil 3/12 = 1/4 = 0,25.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Nach dem Kürzen bleibt Nenner 4 = 2 · 2."
+              },
+              {
+                "text": "Weil der Nenner durch 3 teilbar ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Teilbarkeit durch 3 allein erklärt keine endliche Darstellung. Entscheidend ist der vollständig gekürzte Bruch."
               }
             ]
           }
@@ -22563,57 +22944,33 @@
     ],
     "diplom": {
       "title": "🎓 Komma-Diplom",
-      "questions": [
-        {
-          "id": "m23_dip1",
-          "question": "Was ist 10,50 € + 4,20 €?",
-          "answers": [
-            {
-              "text": "14,70 €",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: 10,50 + 4,20 = 14,70 €."
-            },
-            {
-              "text": "14,00 €",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Die Centbeträge 50 ct + 20 ct ergeben 70 ct, nicht 00 ct."
-            }
-          ]
-        },
-        {
-          "id": "m23_dip2",
-          "question": "Runde 19,8 auf die nächste ganze Zahl.",
-          "answers": [
-            {
-              "text": "20",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Die 8 nach dem Komma rundet 19,8 auf 20."
-            },
-            {
-              "text": "19",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Bei 8 nach dem Komma wird aufgerundet, also 20."
-            }
-          ]
-        }
-      ]
+      "questions": []
     },
     "prerequisites": [
-      "math1_9_dezimalzahlen"
+      "math1_9_dezimalzahlen",
+      "math2_1_teilbarkeit",
+      "math2_2_brueche"
     ],
     "learningGoals": [
-      "Dezimalzahlen stellenrichtig addieren und subtrahieren.",
-      "Positive Dezimalzahlen auf eine vorgegebene Stelle runden.",
-      "Dezimalzahlen mit 10 und 100 multiplizieren und durch 10 dividieren."
+      "Mit nichtnegativen Dezimalzahlen rechnen und Ergebnisse durch Stellenwerte und Proben erklären.",
+      "Dezimalzahlen unmittelbar auf die verlangte Stelle runden und Näherungen kennzeichnen.",
+      "Brüche durch Division als endliche oder periodische Dezimalzahlen darstellen und die Periode mit Resten begründen.",
+      "Einfache endliche und periodische Dezimalzahlen in vollständig gekürzte Brüche umwandeln.",
+      "Brüche und Dezimalzahlen exakt vergleichen sowie 0,(9) = 1 erklären."
     ],
     "summary": [
-      "Bei Addition und Subtraktion stehen gleiche Stellenwerte untereinander.",
-      "Beim Runden entscheidet die erste Ziffer rechts von der Rundungsstelle; ab 5 wird aufgerundet.",
-      "Multiplikation mit 10 macht jeden Stellenwert zehnmal so groß; Division durch 10 macht ihn zehnmal so klein."
+      "Gleiche Stellenwerte untereinander schreiben; beim Dividieren beide Zahlen mit derselben Zehnerzahl multiplizieren. Der Divisor darf nicht 0 sein.",
+      "Runde unmittelbar auf die verlangte Stelle. Die erste Ziffer rechts davon entscheidet. ≈ kennzeichnet einen Näherungswert.",
+      "Rest 0 beendet die Division. Ein wiederkehrender Rest führt zu einer wiederkehrenden Ziffernfolge.",
+      "0,(27) bedeutet 0,272727…; bei 0,1(6) wiederholt sich nur die 6.",
+      "Periodische Dezimalzahlen werden durch passende Zehnervielfache und Subtrahieren in Brüche umgewandelt; anschließend kürzen.",
+      "1/3 = 0,(3), aber 1/3 ≈ 0,33. 0,(9) = 1 ist eine zweite Dezimaldarstellung desselben Wertes."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan – Mathematik, 2. Klasse, Zahlen und Maße",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
     ]
   },
   "math2_4_relative_zahlen": {
@@ -24798,7 +25155,7 @@
   },
   "math3_2_potenzen_terme": {
     "title": "Potenzen, Terme und binomische Formeln",
-    "subtitle": "3. Klasse: Strukturen erkennen, umformen und mit Flächen begründen",
+    "subtitle": "3. Klasse: Zehnerpotenzen, wissenschaftliche Schreibweise und Terme verstehen",
     "sections": [
       {
         "id": "sec1",
@@ -24882,7 +25239,7 @@
       {
         "id": "m32_rules",
         "title": "2. Potenzregeln verstehen",
-        "content": "<p>Bei <strong>gleicher Basis</strong> kannst du die Faktoren zählen: 2³ · 2² enthält fünf Faktoren 2, also 2⁵ = 32. Allgemein: <strong>aᵐ · aⁿ = aᵐ⁺ⁿ</strong> für positive ganze m und n. Die Basis bleibt gleich. Für Summen gilt diese Regel nicht: 2³ + 2² = 8 + 4 = 12.</p><p>Beim Dividieren gleicher Basen werden Faktoren gekürzt: 3⁵ : 3² = 3³ = 27. Für <strong>a ≠ 0 und ganze m ≥ n ≥ 1</strong> gilt aᵐ : aⁿ = aᵐ⁻ⁿ. Bei m = n ergibt der Quotient 1; dazu passt die Erweiterung <strong>a⁰ = 1 für a ≠ 0</strong>. 0⁰ wird hier nicht definiert, und durch 0 darfst du nicht teilen.</p><p>Eine Potenz potenzieren: (2²)³ = 2² · 2² · 2² = 2⁶. Allgemein <strong>(aᵐ)ⁿ = aᵐⁿ</strong>. Ein Produkt potenzieren: (2 · 3)² = (2 · 3)(2 · 3) = 2² · 3². Also <strong>(ab)ⁿ = aⁿbⁿ</strong>. Hier sind die Exponenten positive ganze Zahlen; Regeln für negative Exponenten sind ein späterer Schritt.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Berechne 2³ · 2⁴, 3⁵ : 3² und (2²)³. Nenne jeweils die passende Regel.</li><li>Prüfe (2 · 3)² = 2² · 3². Erkläre anschließend, warum 2³ + 2² nicht 2⁵ ergibt.</li><li>Erkläre mithilfe von 4³ : 4³, warum 4⁰ = 1 sinnvoll ist. Weshalb kann dieselbe Quotientenbegründung nicht für 0⁰ verwendet werden?</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>2³ · 2⁴ = 2⁷ = 128; 3⁵ : 3² = 3³ = 27; (2²)³ = 2⁶ = 64. Beim Produkt Exponenten addieren, beim Quotienten subtrahieren, beim Potenzieren multiplizieren.</p><p>6² = 36 und 4 · 9 = 36. Bei der Summe dagegen: 8 + 4 = 12, während 2⁵ = 32. Die Produktregel ist keine Summenregel.</p><p>4³ : 4³ = 64 : 64 = 1. Über die Exponentendifferenz ergibt sich 4⁰. Bei 0³ : 0³ entstünde die nicht definierte Division 0 : 0.</p></details>{{QUIZ_m32_product}}{{QUIZ_m32_quotient}}{{QUIZ_m32_power_power}}",
+        "content": "<p>Bei <strong>gleicher Basis</strong> kannst du die Faktoren zählen: 2³ · 2² enthält fünf Faktoren 2, also 2⁵ = 32. Allgemein: <strong>aᵐ · aⁿ = aᵐ⁺ⁿ</strong> für positive ganze m und n. Die Basis bleibt gleich. Für Summen gilt diese Regel nicht: 2³ + 2² = 8 + 4 = 12.</p><p>Beim Dividieren gleicher Basen werden Faktoren gekürzt: 3⁵ : 3² = 3³ = 27. Für <strong>a ≠ 0 und ganze m ≥ n ≥ 1</strong> gilt aᵐ : aⁿ = aᵐ⁻ⁿ. Bei m = n ergibt der Quotient 1; dazu passt die Erweiterung <strong>a⁰ = 1 für a ≠ 0</strong>. 0⁰ wird hier nicht definiert, und durch 0 darfst du nicht teilen.</p><p>Eine Potenz potenzieren: (2²)³ = 2² · 2² · 2² = 2⁶. Allgemein <strong>(aᵐ)ⁿ = aᵐⁿ</strong>. Ein Produkt potenzieren: (2 · 3)² = (2 · 3)(2 · 3) = 2² · 3². Also <strong>(ab)ⁿ = aⁿbⁿ</strong>. Hier sind die Exponenten positive ganze Zahlen; Negative Exponenten der Basis 10 folgen im nächsten Abschnitt.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Berechne 2³ · 2⁴, 3⁵ : 3² und (2²)³. Nenne jeweils die passende Regel.</li><li>Prüfe (2 · 3)² = 2² · 3². Erkläre anschließend, warum 2³ + 2² nicht 2⁵ ergibt.</li><li>Erkläre mithilfe von 4³ : 4³, warum 4⁰ = 1 sinnvoll ist. Weshalb kann dieselbe Quotientenbegründung nicht für 0⁰ verwendet werden?</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>2³ · 2⁴ = 2⁷ = 128; 3⁵ : 3² = 3³ = 27; (2²)³ = 2⁶ = 64. Beim Produkt Exponenten addieren, beim Quotienten subtrahieren, beim Potenzieren multiplizieren.</p><p>6² = 36 und 4 · 9 = 36. Bei der Summe dagegen: 8 + 4 = 12, während 2⁵ = 32. Die Produktregel ist keine Summenregel.</p><p>4³ : 4³ = 64 : 64 = 1. Über die Exponentendifferenz ergibt sich 4⁰. Bei 0³ : 0³ entstünde die nicht definierte Division 0 : 0.</p></details>{{QUIZ_m32_product}}{{QUIZ_m32_quotient}}{{QUIZ_m32_power_power}}",
         "quizzes": [
           {
             "id": "m32_product",
@@ -24959,8 +25316,214 @@
         ]
       },
       {
+        "id": "m32_ten",
+        "title": "3. Zehnerpotenzen: von Millionen zu Millionsteln",
+        "content": "<p>Mit der Basis 10 kannst du große und kleine Zahlen übersichtlich schreiben. 10³ = 10 · 10 · 10 = 1 000. Wenn der Exponent um 1 sinkt, wird der Wert durch 10 geteilt. So setzt sich die Reihe über 10⁰ = 1 fort: <strong>10⁻¹ = 1/10 = 0,1; 10⁻² = 1/100 = 0,01; 10⁻³ = 1/1 000 = 0,001.</strong></p><p>Allgemein gilt für positive ganze n: <strong>10⁻ⁿ = 1/10ⁿ</strong>. Der negative Exponent macht aus einer positiven Zehnerpotenz ihren Kehrwert. Er macht die Zahl nicht negativ. Dagegen ist −10³ = −1 000, weil das Minus vor der Potenz steht.</p><table class=\"sci-table\"><caption>Zehnerschritte – zur nächsten Zeile jeweils durch 10 teilen</caption><thead><tr><th>Potenz</th><th>Wert</th><th>Bedeutung</th></tr></thead><tbody><tr><td>10³</td><td>1 000</td><td>Tausend</td></tr><tr><td>10²</td><td>100</td><td>Hundert</td></tr><tr><td>10¹</td><td>10</td><td>Zehn</td></tr><tr><td>10⁰</td><td>1</td><td>Eins</td></tr><tr><td>10⁻¹</td><td>0,1</td><td>ein Zehntel</td></tr><tr><td>10⁻²</td><td>0,01</td><td>ein Hundertstel</td></tr><tr><td>10⁻³</td><td>0,001</td><td>ein Tausendstel</td></tr></tbody></table><p>4,2 · 10³ = 4 200; 4,2 · 10⁻³ = 0,0042. Beim Multiplizieren mit 10³ rücken die Ziffern im Stellenwertsystem drei Stellen zu größeren Stellenwerten; mit 10⁻³ drei Stellen zu kleineren. In der geschriebenen Zahl steht das Komma entsprechend weiter rechts beziehungsweise links. Ergänze bei Bedarf Nullen. Prüfe immer: Muss das Ergebnis größer oder kleiner werden?</p><h3>Selbst bearbeiten</h3><ol data-sci-tasks data-assignment-mode=\"direct\"><li>Schreibe 10⁶, 10⁰ und 10⁻⁶ als gewöhnliche Zahlen. Erkläre den Übergang von 10¹ über 10⁰ zu 10⁻¹.</li><li>Berechne 2,5 · 10⁴, 2,5 · 10⁻⁴ und −2,5 · 10⁻². Erkläre getrennt die Aufgaben der beiden Minuszeichen im letzten Ausdruck.</li><li>Eine Modellzahl ist 4,2 · 10⁻³. Schreibe ihren zehnfachen Wert und ein Zehntel ihres Wertes als Zehnerpotenz und als Dezimalzahl.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>10⁶ = 1 000 000; 10⁰ = 1; 10⁻⁶ = 0,000001. Jeder Schritt zu einem um 1 kleineren Exponenten teilt durch 10: 10 → 1 → 0,1.</p><p>25 000; 0,00025; −0,025. Das Minus vor 2,5 bestimmt das Vorzeichen. Der Exponent −2 bedeutet den Faktor 1/100.</p><p>Zehnfach: 4,2 · 10⁻² = 0,042. Ein Zehntel: 4,2 · 10⁻⁴ = 0,00042.</p></details>{{QUIZ_m32_ten_negative}}{{QUIZ_m32_ten_zero}}{{QUIZ_m32_ten_scale}}{{QUIZ_m32_ten_sign}}",
+        "quizzes": [
+          {
+            "id": "m32_ten_negative",
+            "question": "Welche Zahl ist 10⁻³?",
+            "answers": [
+              {
+                "text": "−1 000",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein negativer Exponent bildet hier den Kehrwert; er macht die Zahl nicht negativ."
+              },
+              {
+                "text": "0,001",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 10⁻³ = 1/10³ = 1/1 000."
+              },
+              {
+                "text": "0,0003",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 3 zählt drei Zehnerschritte, sie ist keine Ziffer im Ergebnis."
+              }
+            ]
+          },
+          {
+            "id": "m32_ten_zero",
+            "question": "Was ist 4,2 · 10⁰?",
+            "answers": [
+              {
+                "text": "0",
+                "correct": false,
+                "pts": 0,
+                "feedback": "10⁰ ist 1 und nicht 0."
+              },
+              {
+                "text": "42",
+                "correct": false,
+                "pts": 0,
+                "feedback": "42 wäre 4,2 · 10¹."
+              },
+              {
+                "text": "4,2",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 10⁰ = 1; Multiplizieren mit 1 ändert die Zahl nicht."
+              }
+            ]
+          },
+          {
+            "id": "m32_ten_scale",
+            "question": "4,2 · 10⁻³ wird mit 10 multipliziert. Was entsteht?",
+            "answers": [
+              {
+                "text": "4,2 · 10⁻²",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Der Exponent steigt um 1. Aus 0,0042 wird 0,042."
+              },
+              {
+                "text": "4,2 · 10⁻⁴",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein kleinerer Exponent würde den Wert durch 10 teilen."
+              },
+              {
+                "text": "42 · 10⁻²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier wurden Vorfaktor und Zehnerpotenz jeweils verzehnfacht. Das wäre insgesamt der Faktor 100."
+              }
+            ]
+          },
+          {
+            "id": "m32_ten_sign",
+            "question": "Was bedeutet −2,5 · 10⁻²?",
+            "answers": [
+              {
+                "text": "0,025",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der negative Exponent liefert den Faktor 0,01. Das Minus vor 2,5 bleibt erhalten."
+              },
+              {
+                "text": "−250",
+                "correct": false,
+                "pts": 0,
+                "feedback": "−250 wäre −2,5 · 10² mit positivem Exponenten."
+              },
+              {
+                "text": "−0,025",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: −2,5 · 0,01 = −0,025. Vorzeichen und Exponent haben unterschiedliche Aufgaben."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m32_scientific",
+        "title": "4. Wissenschaftliche Schreibweise und Größen vergleichen",
+        "content": "<p>In der <strong>normierten wissenschaftlichen Schreibweise</strong> (Gleitkommadarstellung) steht eine Zahl als <strong>a · 10ⁿ</strong>. n ist ganzzahlig und für den Betrag des Vorfaktors gilt <strong>1 ≤ |a| &lt; 10</strong>. Vor dem Komma steht genau eine von null verschiedene Ziffer. Beispiel: 42 000 = 4,2 · 10⁴. Auch 42 · 10³ ist gleich viel, aber nicht normiert.</p><p>Aus 0,00072 wird 7,2 · 10⁻⁴: Der Vorfaktor 7,2 ist 10 000-mal größer als die ursprüngliche Zahl. Die Zehnerpotenz 10⁻⁴ gleicht das aus. Bei negativen Zahlen bleibt das Vorzeichen erhalten: −0,0072 = −7,2 · 10⁻³. <strong>0 schreiben wir als 0</strong>; sie hat keinen Vorfaktor mit 1 ≤ |a| &lt; 10.</p><div class=\"interactive-zone sci-lab\" data-sci-lab><h3>Zehnerschritte selbst übersetzen</h3><p>Wähle eine Zahl und eine Richtung. Löse zuerst selbst und prüfe dann. „Rechenweg zeigen“ hilft beim Nachvollziehen. Deine Eingaben werden nicht gespeichert.</p><label for=\"sci-direction\">Richtung</label><select id=\"sci-direction\"><option value=\"decimal\">Dezimalzahl</option><option value=\"scientific\">Wissenschaftlich</option></select><label for=\"sci-case\">Aufgabennummer</label><select id=\"sci-case\"><option value=\"0\">Zahl 1</option><option value=\"1\">Zahl 2</option><option value=\"2\">Zahl 3</option><option value=\"3\">Zahl 4</option><option value=\"4\">Zahl 5</option><option value=\"5\">Zahl 6</option><option value=\"6\">Zahl 7</option><option value=\"7\">Zahl 8</option><option value=\"8\">Zahl 9</option><option value=\"9\">Zahl 10</option><option value=\"10\">Zahl 11</option><option value=\"11\">Zahl 12</option><option value=\"12\">Zahl 13</option><option value=\"13\">Zahl 14</option><option value=\"14\">Zahl 15</option><option value=\"15\">Zahl 16</option><option value=\"16\">Zahl 17</option><option value=\"17\">Zahl 18</option><option value=\"18\">Zahl 19</option><option value=\"19\">Zahl 20</option><option value=\"20\">Zahl 21</option><option value=\"21\">Zahl 22</option><option value=\"22\">Zahl 23</option><option value=\"23\">Zahl 24</option><option value=\"24\">Zahl 25</option><option value=\"25\">Zahl 26</option><option value=\"26\">Zahl 27</option><option value=\"27\">Zahl 28</option><option value=\"28\">Zahl 29</option><option value=\"29\">Zahl 30</option><option value=\"30\">Zahl 31</option><option value=\"31\">Zahl 32</option><option value=\"32\">Zahl 33</option><option value=\"33\">Zahl 34</option><option value=\"34\">Zahl 35</option><option value=\"35\" selected>Zahl 36</option><option value=\"36\">Zahl 37</option><option value=\"37\">Zahl 38</option><option value=\"38\">Zahl 39</option><option value=\"39\">Zahl 40</option><option value=\"40\">Zahl 41</option><option value=\"41\">Zahl 42</option><option value=\"42\">Zahl 43</option><option value=\"43\">Zahl 44</option><option value=\"44\">Zahl 45</option><option value=\"45\">Zahl 46</option><option value=\"46\">Zahl 47</option><option value=\"47\">Zahl 48</option><option value=\"48\">Zahl 49</option><option value=\"49\">Zahl 50</option><option value=\"50\">Zahl 51</option><option value=\"51\">Zahl 52</option></select><p data-sci-question></p><div data-sci-decimal-field><label for=\"sci-decimal\">Dezimalzahl (Komma oder Punkt, ohne Tausendertrennzeichen)</label><input id=\"sci-decimal\" type=\"text\" inputmode=\"decimal\" autocomplete=\"off\"></div><div data-sci-scientific-fields hidden><label for=\"sci-a\">Vorfaktor a</label><input id=\"sci-a\" type=\"text\" inputmode=\"decimal\" autocomplete=\"off\"><label for=\"sci-n\">Ganzzahliger Exponent n</label><input id=\"sci-n\" type=\"text\" inputmode=\"text\" autocomplete=\"off\"></div><div class=\"sci-actions\"><button type=\"button\" data-sci-check>Antwort prüfen</button><button type=\"button\" data-sci-show>Rechenweg zeigen</button><button type=\"button\" data-sci-reset>Neu beginnen</button></div><p id=\"sci-status\" role=\"status\" aria-atomic=\"true\"></p><div data-sci-steps hidden></div><template data-worksheet-alternative><div data-sci-paper><p>Übersetze ohne Werkstatt: 2,5 · 10³; 2,5 · 10⁻³; −4,2 · 10⁻² jeweils in eine Dezimalzahl. Schreibe umgekehrt 96 000 und 0,000096 normiert. Erkläre, wie sich die Zahl verändert, wenn nur der Exponent um 1 steigt.</p><p>Dein Rechenweg: ___________________________________________</p></div></template></div><p><strong>Vergleichen:</strong> Für positive, normiert geschriebene Zahlen vergleichst du zuerst die Exponenten, dann bei gleichem Exponenten die Vorfaktoren. 9,6 · 10³ = 9 600 ist kleiner als 1,2 · 10⁴ = 12 000. Bei negativen Zahlen ist die Zahl mit dem größeren Betrag kleiner: −12 000 &lt; −9 600. Nicht normierte Zahlen zuerst umschreiben!</p><p><strong>Taschenrechner:</strong> Eine Anzeige wie 3.6E−5 bedeutet 3,6 · 10⁻⁵ = 0,000036. E ersetzt hier „mal 10 hoch“; manche Geräte verwenden dafür EXP oder ×10ˣ. Tasten und Anzeige hängen vom Gerät ab. Kontrolliere das Ergebnis mit einer bekannten Zahl. Eine gerundete Anzeige muss nicht den exakten Wert zeigen.</p><p><strong>Mit Einheiten:</strong> Eine erfundene Messaufgabe nennt eine Folienstärke von 0,000025 m. Das sind 2,5 · 10⁻⁵ m = 0,025 mm, weil 1 m = 1 000 mm. Die Zehnerpotenz allein wechselt keine Einheit: 2,5 · 10⁻⁵ mm wäre eine andere Länge.</p><h3>Selbst bearbeiten</h3><ol data-sci-tasks data-assignment-mode=\"direct\"><li>Schreibe 720 000, 0,00072 und −0,072 normiert. Erkläre, warum 72 · 10⁴ zwar 720 000 ergibt, aber nicht normiert ist.</li><li>Ordne aufsteigend: 9,6 · 10³; 1,2 · 10⁴; 8 · 10³. Erkläre auch, was beim Vergleichen der entsprechenden negativen Zahlen anders ist.</li><li>Übersetze die Anzeige 3.6E−5 in eine Dezimalzahl. Schreibe die Folienstärke 0,000025 m wissenschaftlich in Metern und als Dezimalzahl in Millimetern.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen</summary><p>720 000 = 7,2 · 10⁵; 0,00072 = 7,2 · 10⁻⁴; −0,072 = −7,2 · 10⁻². Bei 72 · 10⁴ liegt der Vorfaktor 72 außerhalb des erlaubten Bereichs.</p><p>8 · 10³ &lt; 9,6 · 10³ &lt; 1,2 · 10⁴. Für die negativen Zahlen kehrt sich die Reihenfolge um: −1,2 · 10⁴ &lt; −9,6 · 10³ &lt; −8 · 10³.</p><p>3.6E−5 = 0,000036. Folie: 2,5 · 10⁻⁵ m = 0,025 mm.</p><p>Papierwerkstatt: 2 500; 0,0025; −0,042; 9,6 · 10⁴; 9,6 · 10⁻⁵. Ein um 1 größerer Exponent multipliziert den Wert mit 10; bei negativen Zahlen wächst dabei der Betrag.</p></details>{{QUIZ_m32_sci_large}}{{QUIZ_m32_sci_small}}{{QUIZ_m32_sci_compare}}{{QUIZ_m32_sci_display}}",
+        "quizzes": [
+          {
+            "id": "m32_sci_large",
+            "question": "Wie lautet 42 000 in normierter wissenschaftlicher Schreibweise?",
+            "answers": [
+              {
+                "text": "42 · 10³",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Wert stimmt, aber 42 liegt nicht zwischen 1 und 10. Diese Schreibweise ist nicht normiert."
+              },
+              {
+                "text": "4,2 · 10⁴",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 4,2 · 10 000 = 42 000 und 1 ≤ 4,2 < 10."
+              },
+              {
+                "text": "4,2 · 10⁻⁴",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ergibt 0,00042. Für 42 000 brauchst du eine positive Hochzahl."
+              }
+            ]
+          },
+          {
+            "id": "m32_sci_small",
+            "question": "Wie lautet 0,00072 in normierter wissenschaftlicher Schreibweise?",
+            "answers": [
+              {
+                "text": "7,2 · 10⁻⁴",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 7,2 wird durch 10 000 geteilt."
+              },
+              {
+                "text": "7,2 · 10⁴",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein positiver Exponent würde 72 000 ergeben."
+              },
+              {
+                "text": "0,72 · 10⁻³",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Wert ist richtig, aber 0,72 ist kleiner als 1 und daher nicht normiert."
+              }
+            ]
+          },
+          {
+            "id": "m32_sci_compare",
+            "question": "Welche positive Zahl ist größer: 9,6 · 10³ oder 1,2 · 10⁴?",
+            "answers": [
+              {
+                "text": "9,6 · 10³, weil 9,6 größer ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Vergleiche zuerst die Zehnerpotenzen. Die Vorfaktoren allein reichen hier nicht."
+              },
+              {
+                "text": "1,2 · 10⁴, weil 12 000 größer als 9 600 ist.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Beide Schreibweisen sind normiert; bei positiven Zahlen entscheidet zunächst der größere Exponent."
+              },
+              {
+                "text": "Beide sind gleich groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Zahlen liegen nah beieinander, sind aber 9 600 und 12 000."
+              }
+            ]
+          },
+          {
+            "id": "m32_sci_display",
+            "question": "Ein Taschenrechner zeigt 3.6E−5. Was ist damit gemeint?",
+            "answers": [
+              {
+                "text": "3,6 − 5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "E kennzeichnet hier die Zehnerpotenz und ist kein Subtraktionszeichen."
+              },
+              {
+                "text": "3,6 · 10⁵",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Minus gehört zum Exponenten: Durch 100 000 teilen, nicht damit multiplizieren."
+              },
+              {
+                "text": "0,000036",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 3.6E−5 steht für 3,6 · 10⁻⁵. Der Punkt ist hier das Dezimalzeichen."
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "sec2",
-        "title": "3. Gleichartige Terme und Sachsituationen",
+        "title": "5. Gleichartige Terme und Sachsituationen",
         "content": "<p>Ein <strong>Term</strong> ist ein Rechenausdruck aus Zahlen, Variablen und Rechenzeichen. In 3x ist 3 der <strong>Koeffizient</strong>. x + x + x = 3x beschreibt drei gleiche Summanden; x · x · x = x³ beschreibt drei gleiche Faktoren.</p><p>Nur gleichartige Terme lassen sich durch Addieren ihrer Koeffizienten zusammenfassen: <strong>4x + 2x = 6x</strong>, aber 4x + 2x² bleibt so stehen. x und x² sind verschieden. Ebenso sind a und b unterschiedliche Variablen. Beispiel: 3a + 2b − a + b = 2a + 3b.</p><p>Erfundenes Einkaufsmodell für ein Wiener Schulprojekt: Fünf Hefte kosten je x Euro, ein Stift kostet 2 Euro. <strong>5x + 2</strong> beschreibt den Gesamtpreis. Bei x = 1,50 kostet der Einkauf 9,50 Euro. Die 5 zählt Hefte, die 2 ist ein einmaliger Preis. Preise oder Stückzahlen dürfen nicht vertauscht werden.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Fasse 4x + 3 + 2x − 1 zusammen. Prüfe mit x = 2.</li><li>Fasse 2a + 3b − a + 4b zusammen. Erkläre, warum du daraus nicht 8ab machen darfst.</li><li>Stelle den Term für fünf Hefte zu je x Euro und einen Stift um 2 Euro auf. Berechne für x = 1,50 und beschreibe, wie sich der Gesamtpreis bei 1 Euro höherem Heftpreis verändert.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>6x + 2. Für x = 2 ergeben Ausgangs- und Endterm jeweils 14.</p><p>a + 7b. Addieren gleichartiger Terme verändert Koeffizienten. Ein Produkt ab würde eine andere Rechenart ausdrücken.</p><p>5x + 2; bei x = 1,50 sind es 9,50 Euro. Ein Euro mehr je Heft erhöht den Gesamtpreis um 5 Euro.</p></details>{{QUIZ_m32_dip1}}{{QUIZ_m32_collect}}{{QUIZ_m32_q2}}",
         "quizzes": [
           {
@@ -25039,7 +25602,7 @@
       },
       {
         "id": "m32_distribution",
-        "title": "4. Ausmultiplizieren, Herausheben und Kürzen",
+        "title": "6. Ausmultiplizieren, Herausheben und Kürzen",
         "content": "<p>Das <strong>Verteilungsgesetz</strong> trifft jeden Summanden: 3(2x − 4) = 6x − 12. Mit negativem Faktor: −2(x − 3) = −2x + 6. Bei zwei Klammern wird jeder Summand der ersten mit jedem der zweiten multipliziert: (x + 2)(x + 3) = x² + 3x + 2x + 6 = x² + 5x + 6.</p><p><strong>Herausheben</strong> geht in die Gegenrichtung: 6x + 9 = 3(2x + 3). Der Faktor 3 steckt in beiden Summanden. Auch 8a² − 4a = 4a(2a − 1). Multipliziere zur Kontrolle wieder aus.</p><p><strong>Kürzen betrifft gemeinsame Faktoren.</strong> (6x²)/(3x) = 2x gilt für x ≠ 0, weil der Nenner sonst 0 wäre. Bei einer Summe musst du alle Summanden berücksichtigen: (6x + 9)/3 = 2x + 3. Aus (x + 3)/x darfst du nicht 3 machen. Bei x = 3 wäre der ursprüngliche Wert 2; zulässig ist 1 + 3/x für x ≠ 0.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Multipliziere 3(2x − 4) und −2(x − 3) aus. Prüfe mit x = 5.</li><li>Hebe einen gemeinsamen Faktor aus 6x + 9 und aus 8a² − 4a heraus. Multipliziere zur Kontrolle wieder aus.</li><li>Vereinfache (6x + 9)/3 sowie (6x²)/(3x). Nenne die Einschränkung für x im zweiten Ausdruck und widerlege die Behauptung (x + 3)/x = 3 mit x = 3.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>6x − 12 und −2x + 6. Bei x = 5 sind die Werte 18 beziehungsweise −4, sowohl vor als auch nach dem Ausmultiplizieren.</p><p>3(2x + 3) und 4a(2a − 1). Zurückmultiplizieren liefert 6x + 9 beziehungsweise 8a² − 4a.</p><p>2x + 3; beziehungsweise 2x mit x ≠ 0. Bei x = 3 ergibt (3 + 3)/3 = 2 und nicht 3. Einzelne Summanden können nicht gegen den Nenner gestrichen werden.</p></details>{{QUIZ_m32_expand}}{{QUIZ_m32_factor}}{{QUIZ_m32_cancel}}",
         "quizzes": [
           {
@@ -25118,7 +25681,7 @@
       },
       {
         "id": "m32_binomial",
-        "title": "5. Drei binomische Formeln mit Flächen begründen",
+        "title": "7. Drei binomische Formeln mit Flächen begründen",
         "content": "<p>Ein <strong>Binom</strong> ist hier eine Summe oder Differenz aus zwei Gliedern. Die Formeln entstehen durch Ausmultiplizieren, nicht durch Raten.</p><h3>Quadrat einer Summe</h3><p>(a + b)² = (a + b)(a + b) = a² + ab + ab + b² = <strong>a² + 2ab + b²</strong>. Ein Quadrat der Seite a + b zerfällt in ein a²-Quadrat, zwei ab-Rechtecke und ein b²-Quadrat. Die beiden gemischten Rechtecke dürfen nicht fehlen.</p><figure data-power-static><svg data-worksheet-static=\"true\" data-power-diagram=\"sum\" viewBox=\"0 0 360 360\" role=\"img\" aria-label=\"Quadrat mit Seite 6+2; Teilflächen 36, zweimal 12 und 4.\" style=\"background:white;font-family:Arial,sans-serif\"><rect data-power-piece=\"a2\" data-area=\"36\" x=\"35\" y=\"35\" width=\"195\" height=\"195\" fill=\"#dbeafe\" stroke=\"#334155\"/><text x=\"132.5\" y=\"137.5\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">36</text><rect data-power-piece=\"ab1\" data-area=\"12\" x=\"230\" y=\"35\" width=\"65\" height=\"195\" fill=\"#fef3c7\" stroke=\"#334155\"/><text x=\"262.5\" y=\"137.5\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">12</text><rect data-power-piece=\"ab2\" data-area=\"12\" x=\"35\" y=\"230\" width=\"195\" height=\"65\" fill=\"#fef3c7\" stroke=\"#334155\"/><text x=\"132.5\" y=\"267.5\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">12</text><rect data-power-piece=\"b2\" data-area=\"4\" x=\"230\" y=\"230\" width=\"65\" height=\"65\" fill=\"#e9d5ff\" stroke=\"#334155\"/><text x=\"262.5\" y=\"267.5\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">4</text><text x=\"132.5\" y=\"24\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">6</text><text x=\"262.5\" y=\"24\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">2</text><text x=\"20\" y=\"137.5\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">6</text><text x=\"20\" y=\"267.5\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">2</text><text x=\"180\" y=\"347\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">64 = 36 + 12 + 12 + 4</text></svg><figcaption>Beispiel a = 6, b = 2: Gesamtfläche 64; Teilflächen 36, 12, 12 und 4. Die Zahlen in den Feldern sind Flächeninhalte, die Randzahlen sind Seitenlängen.</figcaption></figure><h3>Quadrat einer Differenz</h3><p>(a − b)² = (a − b)(a − b) = a² − ab − ab + b² = <strong>a² − 2ab + b²</strong>. Im Quadrat der Seite a entfernst du rechts und unten je einen Streifen der Breite b. Beide ganzen Streifen haben Fläche ab. Ihr gemeinsames Eckquadrat b² wurde dabei doppelt abgezogen und muss einmal zurückgegeben werden.</p><figure data-power-static><svg data-worksheet-static=\"true\" data-power-diagram=\"difference\" viewBox=\"0 0 360 360\" role=\"img\" aria-label=\"Aus Quadrat 6 mal 6 zwei Streifen der Fläche 12 entfernen; Überlappung 4 einmal zurückgeben. Rest 16.\" style=\"background:white;font-family:Arial,sans-serif\"><rect data-power-piece=\"remaining\" data-area=\"16\" x=\"60\" y=\"35\" width=\"160\" height=\"160\" fill=\"#dbeafe\" stroke=\"#334155\"/><text x=\"140\" y=\"120\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">16</text><rect data-power-piece=\"right\" data-area=\"8\" x=\"220\" y=\"35\" width=\"80\" height=\"160\" fill=\"#fee2e2\" stroke=\"#334155\"/><text x=\"260\" y=\"120\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">8</text><rect data-power-piece=\"bottom\" data-area=\"8\" x=\"60\" y=\"195\" width=\"160\" height=\"80\" fill=\"#fee2e2\" stroke=\"#334155\"/><text x=\"140\" y=\"240\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">8</text><rect data-power-piece=\"overlap\" data-area=\"4\" x=\"220\" y=\"195\" width=\"80\" height=\"80\" fill=\"#e9d5ff\" stroke=\"#334155\"/><text x=\"260\" y=\"240\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">4</text><text x=\"180\" y=\"24\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">a = 6</text><text x=\"30\" y=\"155\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">6</text><text x=\"180\" y=\"298\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">Jeder ganze Randstreifen: 12</text><text x=\"180\" y=\"324\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">Überlappung: 4; Rest: 16</text><text x=\"180\" y=\"348\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">36 − 12 − 12 + 4 = 16</text></svg><figcaption>a = 6, b = 2: Jeder ganze Randstreifen besteht aus einem roten Feld 8 und dem violetten Eckfeld 4, also Fläche 12. Die blaue Restfläche ist 36 − 12 − 12 + 4 = 16.</figcaption></figure><h3>Summe mal Differenz</h3><p>(a + b)(a − b) = a² − ab + ab − b² = <strong>a² − b²</strong>. Die gemischten Terme −ab und +ab heben sich auf. Entferne aus dem a²-Quadrat das Eckquadrat b². Drehe den unteren restlichen Streifen und lege ihn rechts an: Es entsteht ein Rechteck mit Breite a + b und Höhe a − b.</p><figure data-power-static><svg data-worksheet-static=\"true\" data-power-diagram=\"product\" viewBox=\"0 0 360 400\" role=\"img\" aria-label=\"Quadratfläche 36 minus Eckquadrat 4; restliche Teile 24 und 8 bilden ein Rechteck 8 mal 4.\" style=\"background:white;font-family:Arial,sans-serif\"><rect data-power-piece=\"top\" data-area=\"24\" x=\"35\" y=\"35\" width=\"144\" height=\"96\" fill=\"#dbeafe\" stroke=\"#334155\"/><text x=\"107\" y=\"88\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">24</text><rect data-power-piece=\"bottom\" data-area=\"8\" x=\"35\" y=\"131\" width=\"96\" height=\"48\" fill=\"#fef3c7\" stroke=\"#334155\"/><text x=\"83\" y=\"160\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">8</text><rect data-power-piece=\"removed\" data-area=\"4\" x=\"131\" y=\"131\" width=\"48\" height=\"48\" fill=\"#e5e7eb\" stroke=\"#334155\"/><text x=\"155\" y=\"160\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">4</text><text x=\"107\" y=\"24\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">a = 6</text><path d=\"M250 65V177L244 166M250 177L256 166\" fill=\"none\" stroke=\"#172554\"/><text x=\"258\" y=\"44\" text-anchor=\"middle\" font-size=\"13\" fill=\"#172554\">Teile umlegen</text><rect data-power-piece=\"newLeft\" data-area=\"24\" x=\"35\" y=\"205\" width=\"144\" height=\"96\" fill=\"#dbeafe\" stroke=\"#334155\"/><text x=\"107\" y=\"258\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">24</text><rect data-power-piece=\"newRight\" data-area=\"8\" x=\"179\" y=\"205\" width=\"48\" height=\"96\" fill=\"#fef3c7\" stroke=\"#334155\"/><text x=\"203\" y=\"258\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">8</text><text x=\"131\" y=\"194\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">a + b = 8</text><text x=\"180\" y=\"370\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">Höhe a − b = 4</text><text x=\"180\" y=\"393\" text-anchor=\"middle\" font-size=\"16\" fill=\"#172554\">36 − 4 = 8 · 4 = 32</text></svg><figcaption>a = 6, b = 2: Das graue Eckquadrat 4 wird entfernt. Blau 24 und Gelb 8 werden ohne Flächenänderung zum Rechteck 8 · 4 = 32 umgelegt.</figcaption></figure><p>Die Flächenbegründungen verwenden nichtnegative Längen; bei den beiden Bildern mit a − b außerdem a ≥ b. Die algebraischen Herleitungen gelten auch für andere rationale Zahlen. Beispiel: (−2 + 3)² = 1 und (−2)² + 2 · (−2) · 3 + 3² = 4 − 12 + 9 = 1.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Wende die erste Formel auf (x + 3)² an. Benenne die beiden Glieder und den gemischten Term.</li><li>Wende die zweite Formel auf (2x − 1)² an. Prüfe mit x = 2.</li><li>Wende die dritte Formel auf (x + 4)(x − 4) an. Prüfe mit x = 5 und erkläre das Verschwinden der gemischten Terme.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>Die Glieder sind x und 3. (x + 3)² = x² + 6x + 9; der gemischte Term ist 2 · x · 3 = 6x.</p><p>(2x − 1)² = 4x² − 4x + 1. Bei x = 2 ergibt die Klammer 3² = 9, die ausmultiplizierte Form 16 − 8 + 1 = 9.</p><p>(x + 4)(x − 4) = x² − 16. Bei x = 5: 9 · 1 = 9 und 25 − 16 = 9. Die Terme −4x und +4x ergeben zusammen 0.</p></details>{{QUIZ_m32_binomial_plus}}{{QUIZ_m32_binomial_minus}}{{QUIZ_m32_binomial_product}}",
         "quizzes": [
           {
@@ -25197,8 +25760,8 @@
       },
       {
         "id": "m32_model",
-        "title": "6. Vermutungen prüfen und Terme anwenden",
-        "content": "<p>Ein passender Zahlenwert beweist keine allgemeine Regel. Zum Beispiel stimmen (a + b)² und a² + b² bei b = 0 überein. Für a = 6, b = 2 erhältst du dagegen 64 und 40. Dieses <strong>Gegenbeispiel</strong> widerlegt die falsche allgemeine Behauptung. Die richtige Formel wird durch Ausmultiplizieren begründet.</p><div class=\"interactive-zone power-lab\" data-power-lab><h3>Flächen und Formeln untersuchen</h3><p>Wähle Seitenlängen und vergleiche die ursprüngliche mit der ausmultiplizierten Form. Prüfe zusätzlich eine typische falsche Regel. Das Modell speichert nichts und vergibt keine Punkte.</p><label>Formel <select data-power-mode><option value=\"sum\">Quadrat einer Summe</option><option value=\"difference\">Quadrat einer Differenz</option><option value=\"product\">Summe mal Differenz</option></select></label><label>a <select data-power-a><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\" selected>6</option><option value=\"7\">7</option><option value=\"8\">8</option></select></label><label>b <select data-power-b><option value=\"0\">0</option><option value=\"1\">1</option><option value=\"2\" selected>2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option></select></label><p><strong>Ursprünglicher Term:</strong> <span data-power-original></span></p><p><strong>Richtig ausmultipliziert:</strong> <span data-power-expanded></span></p><div data-power-model></div><p><strong>Vermutung zum Prüfen:</strong> <span data-power-mistake></span></p><p data-power-comparison></p><p role=\"status\" aria-atomic=\"true\"></p><button type=\"button\" data-power-reset>Auf Anfang zurücksetzen</button><template data-worksheet-alternative><p>Berechne jeden Term zuerst mit Klammern, dann mit der passenden binomischen Formel. Vergleiche auch die falschen Vermutungen: (a + b)² = a² + b², (a − b)² = a² − b² und (a + b)(a − b) = (a − b)². Eine zufällige Übereinstimmung ist kein Beweis. Nutze die drei Flächenbilder aus Abschnitt 5.</p><table data-power-paper><thead><tr><th>Term</th><th>a; b</th><th>Mit Klammern</th><th>Ausmultipliziert</th></tr></thead><tbody><tr><td>(a + b)²</td><td>6; 2</td><td>________</td><td>________</td></tr><tr><td>(a + b)²</td><td>6; 0</td><td>________</td><td>________</td></tr><tr><td>(a + b)²</td><td>2; 6</td><td>________</td><td>________</td></tr><tr><td>(a − b)²</td><td>6; 2</td><td>________</td><td>________</td></tr><tr><td>(a − b)²</td><td>6; 0</td><td>________</td><td>________</td></tr><tr><td>(a − b)²</td><td>2; 6</td><td>________</td><td>________</td></tr><tr><td>(a + b)(a − b)</td><td>6; 2</td><td>________</td><td>________</td></tr><tr><td>(a + b)(a − b)</td><td>6; 0</td><td>________</td><td>________</td></tr><tr><td>(a + b)(a − b)</td><td>2; 6</td><td>________</td><td>________</td></tr></tbody></table><p>Bei welchen Werten passt die falsche Vermutung zufällig? Wann passt das Flächenbild nicht? Begründe: __________________________</p></template></div><p>Erfundener Gestaltungsauftrag: Eine quadratische Zeichnung hat Seitenlänge x cm. Außen kommt auf jeder Seite ein 1 cm breiter Rand dazu. Die gesamte Seitenlänge wächst dadurch um 2 cm. Die zusätzliche Fläche ist <strong>(x + 2)² − x² = 4x + 4</strong> in cm². Für x = 3 sind das 25 − 9 = 16 cm². Das Modell setzt eine quadratische Zeichnung und gleich breite Ränder voraus.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Vergleiche in allen drei Formeln die Werte a = 6, b = 2 und a = 6, b = 0. Berechne auch die jeweils vorgeschlagene falsche Regel. Erkläre, weshalb eine Übereinstimmung bei b = 0 nicht genügt.</li><li>Untersuche a = 2, b = 6. Berechne alle drei ursprünglichen und ausmultiplizierten Terme. Begründe, weshalb die beiden Flächenbilder mit a − b nicht verwendet werden können.</li><li>Berechne die zusätzliche Randfläche für x = 3 cm und x = 5 cm. Leite 4x + 4 aus (x + 2)² − x² her und erkläre, warum die Seitenlänge insgesamt um 2 cm zunimmt.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>Für a = 6, b = 2 ergeben die richtigen Formeln 64, 16 und 32; die falschen Vorschläge 40, 32 und 16. Für b = 0 ergeben alle jeweils 36. Ein Sonderfall kann passen, obwohl eine allgemeine Regel falsch ist. Die Herleitung erfasst alle zugelassenen Zahlen.</p><p>Für a = 2, b = 6: (2 + 6)² = 64; (2 − 6)² = 16; (2 + 6)(2 − 6) = −32. Ausmultipliziert: 4 + 24 + 36 = 64; 4 − 24 + 36 = 16; 4 − 36 = −32. Die Länge a − b wäre −4; eine negative Seitenlänge passt nicht zum Flächenmodell.</p><p>(x + 2)² − x² = x² + 4x + 4 − x² = 4x + 4. Für x = 3 sind es 16 cm², für x = 5 sind es 24 cm². Links und rechts beziehungsweise oben und unten kommen jeweils 1 cm dazu.</p></details>{{QUIZ_m32_counterexample}}{{QUIZ_m32_border}}{{QUIZ_m32_special_case}}",
+        "title": "8. Vermutungen prüfen und Terme anwenden",
+        "content": "<p>Ein passender Zahlenwert beweist keine allgemeine Regel. Zum Beispiel stimmen (a + b)² und a² + b² bei b = 0 überein. Für a = 6, b = 2 erhältst du dagegen 64 und 40. Dieses <strong>Gegenbeispiel</strong> widerlegt die falsche allgemeine Behauptung. Die richtige Formel wird durch Ausmultiplizieren begründet.</p><div class=\"interactive-zone power-lab\" data-power-lab><h3>Flächen und Formeln untersuchen</h3><p>Wähle Seitenlängen und vergleiche die ursprüngliche mit der ausmultiplizierten Form. Prüfe zusätzlich eine typische falsche Regel. Das Modell speichert nichts und vergibt keine Punkte.</p><label>Formel <select data-power-mode><option value=\"sum\">Quadrat einer Summe</option><option value=\"difference\">Quadrat einer Differenz</option><option value=\"product\">Summe mal Differenz</option></select></label><label>a <select data-power-a><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\" selected>6</option><option value=\"7\">7</option><option value=\"8\">8</option></select></label><label>b <select data-power-b><option value=\"0\">0</option><option value=\"1\">1</option><option value=\"2\" selected>2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option></select></label><p><strong>Ursprünglicher Term:</strong> <span data-power-original></span></p><p><strong>Richtig ausmultipliziert:</strong> <span data-power-expanded></span></p><div data-power-model></div><p><strong>Vermutung zum Prüfen:</strong> <span data-power-mistake></span></p><p data-power-comparison></p><p role=\"status\" aria-atomic=\"true\"></p><button type=\"button\" data-power-reset>Auf Anfang zurücksetzen</button><template data-worksheet-alternative><p>Berechne jeden Term zuerst mit Klammern, dann mit der passenden binomischen Formel. Vergleiche auch die falschen Vermutungen: (a + b)² = a² + b², (a − b)² = a² − b² und (a + b)(a − b) = (a − b)². Eine zufällige Übereinstimmung ist kein Beweis. Nutze die drei Flächenbilder aus Abschnitt 7.</p><table data-power-paper><thead><tr><th>Term</th><th>a; b</th><th>Mit Klammern</th><th>Ausmultipliziert</th></tr></thead><tbody><tr><td>(a + b)²</td><td>6; 2</td><td>________</td><td>________</td></tr><tr><td>(a + b)²</td><td>6; 0</td><td>________</td><td>________</td></tr><tr><td>(a + b)²</td><td>2; 6</td><td>________</td><td>________</td></tr><tr><td>(a − b)²</td><td>6; 2</td><td>________</td><td>________</td></tr><tr><td>(a − b)²</td><td>6; 0</td><td>________</td><td>________</td></tr><tr><td>(a − b)²</td><td>2; 6</td><td>________</td><td>________</td></tr><tr><td>(a + b)(a − b)</td><td>6; 2</td><td>________</td><td>________</td></tr><tr><td>(a + b)(a − b)</td><td>6; 0</td><td>________</td><td>________</td></tr><tr><td>(a + b)(a − b)</td><td>2; 6</td><td>________</td><td>________</td></tr></tbody></table><p>Bei welchen Werten passt die falsche Vermutung zufällig? Wann passt das Flächenbild nicht? Begründe: __________________________</p></template></div><p>Erfundener Gestaltungsauftrag: Eine quadratische Zeichnung hat Seitenlänge x cm. Außen kommt auf jeder Seite ein 1 cm breiter Rand dazu. Die gesamte Seitenlänge wächst dadurch um 2 cm. Die zusätzliche Fläche ist <strong>(x + 2)² − x² = 4x + 4</strong> in cm². Für x = 3 sind das 25 − 9 = 16 cm². Das Modell setzt eine quadratische Zeichnung und gleich breite Ränder voraus.</p><h3>Selbst bearbeiten</h3><ol data-power-tasks><li>Vergleiche in allen drei Formeln die Werte a = 6, b = 2 und a = 6, b = 0. Berechne auch die jeweils vorgeschlagene falsche Regel. Erkläre, weshalb eine Übereinstimmung bei b = 0 nicht genügt.</li><li>Untersuche a = 2, b = 6. Berechne alle drei ursprünglichen und ausmultiplizierten Terme. Begründe, weshalb die beiden Flächenbilder mit a − b nicht verwendet werden können.</li><li>Berechne die zusätzliche Randfläche für x = 3 cm und x = 5 cm. Leite 4x + 4 aus (x + 2)² − x² her und erkläre, warum die Seitenlänge insgesamt um 2 cm zunimmt.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen zu den Arbeitsaufträgen</summary><p>Für a = 6, b = 2 ergeben die richtigen Formeln 64, 16 und 32; die falschen Vorschläge 40, 32 und 16. Für b = 0 ergeben alle jeweils 36. Ein Sonderfall kann passen, obwohl eine allgemeine Regel falsch ist. Die Herleitung erfasst alle zugelassenen Zahlen.</p><p>Für a = 2, b = 6: (2 + 6)² = 64; (2 − 6)² = 16; (2 + 6)(2 − 6) = −32. Ausmultipliziert: 4 + 24 + 36 = 64; 4 − 24 + 36 = 16; 4 − 36 = −32. Die Länge a − b wäre −4; eine negative Seitenlänge passt nicht zum Flächenmodell.</p><p>(x + 2)² − x² = x² + 4x + 4 − x² = 4x + 4. Für x = 3 sind es 16 cm², für x = 5 sind es 24 cm². Links und rechts beziehungsweise oben und unten kommen jeweils 1 cm dazu.</p></details>{{QUIZ_m32_counterexample}}{{QUIZ_m32_border}}{{QUIZ_m32_special_case}}",
         "quizzes": [
           {
             "id": "m32_counterexample",
@@ -25286,6 +25849,7 @@
     "learningGoals": [
       "Potenzen mit positiven ganzzahligen Exponenten deuten und berechnen.",
       "Potenzregeln begründen und ihre Voraussetzungen beachten.",
+      "Zahlen mit Zehnerpotenzen und in normierter wissenschaftlicher Schreibweise darstellen, vergleichen und Rechneranzeigen deuten.",
       "Gleichartige Terme zusammenfassen, ausmultiplizieren, herausheben und zulässig kürzen.",
       "Die drei binomischen Formeln mit Produkten und Flächen erklären und anwenden.",
       "Terme in Sachzusammenhängen aufstellen und falsche Regeln durch Gegenbeispiele widerlegen."
@@ -25293,6 +25857,8 @@
     "summary": [
       "aⁿ zählt für positive ganze n gleiche Faktoren a; der Exponent ist kein zusätzlicher Faktor.",
       "Bei gleicher Basis gilt aᵐ · aⁿ = aᵐ⁺ⁿ. Potenzieren einer Potenz multipliziert Exponenten: (aᵐ)ⁿ = aᵐⁿ.",
+      "10⁻ⁿ = 1/10ⁿ für positive ganze n; ein negativer Exponent ist kein negatives Vorzeichen.",
+      "Normierte Schreibweise: a · 10ⁿ mit ganzzahligem n und 1 ≤ |a| < 10. 0 bleibt 0. Bei positiven normierten Zahlen zuerst Exponenten vergleichen.",
       "Gleichartige Terme haben dieselben Variablen mit denselben Exponenten. Ihre Koeffizienten werden addiert.",
       "Ausmultiplizieren und Herausheben sind Gegenrichtungen des Verteilungsgesetzes. Kürzen betrifft Faktoren, nicht einzelne Summanden.",
       "(a + b)² = a² + 2ab + b²; (a − b)² = a² − 2ab + b²; (a + b)(a − b) = a² − b².",
@@ -25302,7 +25868,7 @@
     "script": true,
     "sources": [
       {
-        "title": "RIS: Mittelschullehrplan – Mathematik, 3. Klasse, Variablen und Funktionen",
+        "title": "RIS: Mittelschullehrplan – Mathematik, 3. Klasse, Zahlen sowie Variablen und Funktionen",
         "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
       }
     ]

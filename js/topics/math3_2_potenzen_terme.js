@@ -1,4 +1,27 @@
 'use strict';
+// Build decimal text by moving the decimal position, without floating-point products.
+window.sciverseScientificModel=function(index){
+ if(!Number.isInteger(index)||index<0||index>=52)return null;
+ const coefficient=[-4.2,1,2.5,9.6][Math.floor(index/13)],exponent=index%13-6;
+ const decimal=(n)=>{const source=String(Math.abs(coefficient)),digits=source.replace('.',''),position=source.split('.')[0].length+n;let s=position<=0?'0.'+'0'.repeat(-position)+digits:position>=digits.length?digits+'0'.repeat(position-digits.length):digits.slice(0,position)+'.'+digits.slice(position);if(s.includes('.'))s=s.replace(/0+$/,'').replace(/\.$/,'');return (coefficient<0?'-':'')+s;};
+ const scientific=String(coefficient).replace('.',',').replace('-','−')+' · 10'+String(exponent).split('').map(c=>c==='-'?'⁻':'⁰¹²³⁴⁵⁶⁷⁸⁹'[Number(c)]).join('');
+ const steps=Array.from({length:Math.abs(exponent)+1},(_,i)=>{const n=i*Math.sign(exponent);return {exponent:n,decimal:decimal(n)};});
+ return {coefficient,exponent,decimal:decimal(exponent),scientific,steps};
+};
+window.bindScientificNotation=function(){
+ const lab=document.querySelector('[data-sci-lab]');if(!lab||lab.dataset.bound)return;lab.dataset.bound='true';
+ const get=s=>lab.querySelector(s),direction=get('#sci-direction'),task=get('#sci-case'),answer=get('#sci-decimal'),a=get('#sci-a'),n=get('#sci-n'),status=get('#sci-status'),steps=get('[data-sci-steps]');
+ const display=s=>String(s).replace('.',',').replace('-','−');
+ const parse=(s,integer=false)=>{s=s.trim().replace(/−/g,'-');return (integer?/^[+-]?\d+$/:/^[+-]?\d+(?:[.,]\d+)?$/).test(s)&&Number.isFinite(Number(s.replace(',','.')))?Number(s.replace(',','.')):null;};
+ function clear(){status.textContent='';}
+ function update(){const model=window.sciverseScientificModel(Number(task.value));get('[data-sci-question]').textContent=direction.value==='decimal'?`Schreibe ${model.scientific} als Dezimalzahl.`:`Schreibe ${display(model.decimal)} normiert als a · 10ⁿ.`;get('[data-sci-decimal-field]').hidden=direction.value!=='decimal';get('[data-sci-scientific-fields]').hidden=direction.value!=='scientific';answer.value=a.value=n.value='';steps.hidden=true;steps.replaceChildren();clear();}
+ function check(){const m=window.sciverseScientificModel(Number(task.value));if(direction.value==='decimal'){const v=parse(answer.value);status.textContent=v===null?'Gib eine Dezimalzahl mit Komma oder Punkt ein, ohne Tausendertrennzeichen oder E-Schreibweise.':v===Number(m.decimal)?'Richtig: '+m.scientific+' = '+display(m.decimal)+'.':'Noch nicht. Prüfe Vorzeichen und Richtung: Ein positiver Exponent vergrößert den Betrag, ein negativer verkleinert ihn. Nutze bei Bedarf den Rechenweg.';}else{const av=parse(a.value),nv=parse(n.value,true);status.textContent=av===null||nv===null?'Gib einen Vorfaktor und einen ganzzahligen Exponenten ein.':Math.abs(av)<1||Math.abs(av)>=10?'Der Vorfaktor ist noch nicht normiert: Sein Betrag muss mindestens 1 und kleiner als 10 sein.':av===m.coefficient&&nv===m.exponent?'Richtig: '+display(m.decimal)+' = '+m.scientific+'.':'Noch nicht. Das Vorzeichen bleibt erhalten. Zähle die Zehnerschritte und gleiche die Änderung des Vorfaktors mit der Zehnerpotenz aus.';}}
+ get('[data-sci-show]').addEventListener('click',()=>{const m=window.sciverseScientificModel(Number(task.value));steps.hidden=false;steps.innerHTML='<p>Beginne beim Vorfaktor '+display(m.coefficient)+' · 10⁰. '+(m.exponent>0?'Jeder Schritt multipliziert mit 10.':m.exponent<0?'Jeder Schritt teilt durch 10.':'Der Faktor 10⁰ = 1 verändert nichts.')+'</p><table class="sci-table"><caption>Schritt für Schritt zur Dezimalzahl</caption><thead><tr><th>n</th><th>Zahl</th></tr></thead><tbody>'+m.steps.map(s=>'<tr><td>'+s.exponent+'</td><td>'+display(s.decimal)+'</td></tr>').join('')+'</tbody></table><p>Zurück zur normierten Schreibweise: '+display(m.decimal)+' = '+m.scientific+'. Der Vorfaktor hat genau eine von null verschiedene Ziffer vor dem Komma.</p>';status.textContent='Der Rechenweg ist unter den Schaltflächen geöffnet.';});
+ for(const control of [direction,task])control.addEventListener('change',update);
+ for(const input of [answer,a,n]){input.addEventListener('input',clear);input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();check();}});}
+ get('[data-sci-check]').addEventListener('click',check);
+ get('[data-sci-reset]').addEventListener('click',()=>{direction.value='decimal';task.value='35';update();direction.focus();});update();
+};
 // Keep the original exercise callable in language versions not yet revised.
 window.checkPot=function(){const i=document.getElementById('pot1'),f=document.getElementById('potFb');if(!i||!f)return;f.setAttribute('role','status');const t=i.value.trim();f.textContent=!t||!Number.isFinite(Number(t))?'Gib zuerst eine Hochzahl ein.':Number(t)===4?'Richtig: Vier Faktoren 5 ergeben 5⁴.':'Zähle die Faktoren: 5 · 5 · 5 · 5 enthält viermal die 5.';};
 // Used by the live model and the printable examples. Input text is never executed.
@@ -26,6 +49,7 @@ window.sciversePowerDiagram=function(mode,a,b){
  return `<svg data-power-diagram="${mode}" viewBox="0 0 360 ${height}" role="img" aria-label="${title}" style="background:white;font-family:Arial,sans-serif">${body}</svg>`;
 };
 window.topicInit=function(){
+ window.bindScientificNotation();
  const lab=document.querySelector('[data-power-lab]');if(!lab||lab.dataset.bound)return;lab.dataset.bound='true';
  const mode=lab.querySelector('[data-power-mode]'),aInput=lab.querySelector('[data-power-a]'),bInput=lab.querySelector('[data-power-b]'),diagram=lab.querySelector('[data-power-model]'),feedback=lab.querySelector('[role=status]');
  function update(){
