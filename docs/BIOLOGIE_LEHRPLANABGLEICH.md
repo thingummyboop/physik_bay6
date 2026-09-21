@@ -204,3 +204,7 @@ Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung
 ## 21.09.2026 – Blutweg, Blutbestandteile und Pulsdaten
 
 `bio_3_blut_kreislauf`, Revision 2, verbindet beide Kreisläufe mit der Atmung, Blutbestandteilen, Modellrechnung und gesundheitsbezogenem Handeln. Zwölf direkte Arbeitsaufträge ersetzen die generischen Aufgabenblöcke; 16 Fachbegriffe, elf bewertete Fragen und vier Vergleichslösungen. Geführte Werkstatt mit zehn Stationen und vollständiger Papieralternative. Erfundenes Zahlenmaterial wird ausdrücklich von persönlichen Messungen und gesundheitlicher Bewertung getrennt. [Fachquellen und Kapitelprüfung](BIOLOGIE_BLUT_KREISLAUF.md). Der vollständige Fach- und Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Ausscheidung und Gesundheit
+
+`bio_3_ausscheidung_gesundheit`, Revision 2: Blut- und Harnweg, Ausscheidungsorgane sowie Filtration, Rückresorption und Sekretion getrennt ausgearbeitet. Zwölf konkrete Arbeitsaufträge, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Eine bewusst vereinfachte Rechenwerkstatt verbindet Mengenbilanz mit Konzentrationsvergleich. Wiener Schulalltagsfälle behandeln Wasserzugang, Privatsphäre und passende Hilfe. [Quellen und Kapitelprüfung](BIOLOGIE_AUSSCHEIDUNG_MODELL.md). Vollständiger Fach- und Lehrplanabgleich bleibt offen.

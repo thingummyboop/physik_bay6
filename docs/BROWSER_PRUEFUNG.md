@@ -291,3 +291,7 @@ Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung
 ## 21.09.2026 – Blut und Kreislauf
 
 Chromium 151.0.7922.34, Bericht 06:27:46 UTC: 30 native Werkstattentscheidungen, 33 Quizantwortwege und 66 Layoutzustände bei 320/390/1280 Pixeln in beiden Farbschemata; Tastatur, Fokus, Speicher und Kartenfarben geprüft, keine Browserfehler. Alle 14 mobilen Detailbilder und 20 Druckseiten gelesen. Finaler Druckexport 06:29:43 UTC; nach Textpräzisierungen nur Seiten 7, 19 und 20 verändert und erneut visuell geprüft. DOM-Test nach den Textänderungen erneut bestanden; Browserinteraktionen stammen aus der davor geprüften Fassung. [Details und Grenzen](BIOLOGIE_BLUT_KREISLAUF.md).
+
+## 21.09.2026 – Ausscheidungsmodell und Druckmaterial
+
+Chromium 151.0.7922.34, Bericht 06:46:18 UTC: sechs Modellzustände bei drei Breiten und zwei Farbschemata, insgesamt 36 Layoutfälle. Native Auswahl über Pfeiltasten, Tab und Enter sowie Rücksetzen, Fokus und unveränderter Speicher geprüft; 30 Quizantwortwege bestanden, keine Browserfehler. Alle 14 mobilen Detailbilder und 19 Druckseiten tatsächlich gelesen, zwei Druckseiten zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_AUSSCHEIDUNG_MODELL.md).
