@@ -277,3 +277,17 @@ Der bereits vor dem Zwischenstand `33f906f` erzeugte Browserbericht `2026-09-21T
 ## Wasserlebensräume und Messdaten (21.09.2026)
 
 `browser_water_evidence.js`, Bericht 05:35:07.720Z: zwölf Ansichts-/Resetübergänge, 18 Layoutfälle, Tastatur/Fokus/Speicher und 27 native Quizantwortwege bestanden. Nach größerer Diagrammschrift und korrigierter Tabellenüberschrift 18 finale Layoutfälle um 05:37:46.205Z erneut geprüft. Alle zwölf mobilen Detailansichten gelesen. Finale Druckfassung 16 Seiten: nach zwei Textpräzisierungen Seite 11 erneut gelesen, übrige 15 Seiten bildidentisch; Export 05:38:49.543Z. Letzte Quizformulierungen im DOM geprüft; kein neuer vollständiger Browserquiz- oder Gesamtsuitenlauf. [Details](BIOLOGIE_WASSER_MESSDATEN.md).
+
+## 21.09.2026 – Wassertiere: Sichtprüfung abgeschlossen
+
+Der vorherige Schritt war Fortschritt: angeforderten Zwischenstand `c86f016` auf main gepusht und Remote-Hash sowie saubere Arbeitskopie verifiziert. Danach alle noch offenen mobilen Detailbilder und Druckseiten für Wassertiere/Entwicklung gelesen. Alle 19 Seiten geprüft; Seite 14 zusätzlich höher aufgelöst. Finale Seite 6 enthält die präzisierte Generation-Definition, übrige 18 Seiten bildidentisch. Keine weitere Änderung der Kapitelquelle erforderlich. [Nachweise und Grenzen](BIOLOGIE_WASSERTIERE_ENTWICKLUNG.md). Weitere Kapitel und vollständige Produktabnahme bleiben offen; neue Änderungen lokal ohne erneuten Push.
+
+## 21.09.2026 – Atmung: Messdauer, Stoffwege und Handeln
+
+Nach Abschluss der Wassertier-Sichtprüfung `bio_3_atmung_energie` auf Revision 2 überarbeitet: zwölf konkrete Aufgaben, eigenes Wegschema, drei Tierkarten, vier erfundene Datensätze und drei Entscheidungsfälle. Rechenwerkstatt mit Messdauervergleich, Einfluss eines Zählunterschieds, verständlichen Fehlereingaben und vollständiger Papieralternative. Zehn bewertete Fragen, eine punktfreie Übung, 16 Fachbegriffe und vier getrennte Lösungen.
+
+Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung und 18 Browserzustände bestanden. Dunkle Karten nach Sichtprüfung korrigiert und alle 18 Layoutfälle einschließlich Farben erneut geprüft. Alle zehn mobilen Detailbilder und 19 Druckseiten gelesen. Gemeinsame Material-/Revisions-/Quizpoolprüfungen und Syntax aller 92 Themenskripte bestanden. Inventar 197 Kapitel; Prioritätsaudit 1.654 Frageninstanzen ohne Strukturfehler. [Quellen, Nachweise und Grenzen](BIOLOGIE_ATMUNG_MESSDAUER.md). Weitere Kapitel und vollständige Produktabnahme bleiben offen. Übersetzungen zurückgestellt; neue Änderungen lokal nach `c86f016`, kein weiterer Push.
+
+## 21.09.2026 – Blut und Kreislauf
+
+Chromium 151.0.7922.34, Bericht 06:27:46 UTC: 30 native Werkstattentscheidungen, 33 Quizantwortwege und 66 Layoutzustände bei 320/390/1280 Pixeln in beiden Farbschemata; Tastatur, Fokus, Speicher und Kartenfarben geprüft, keine Browserfehler. Alle 14 mobilen Detailbilder und 20 Druckseiten gelesen. Finaler Druckexport 06:29:43 UTC; nach Textpräzisierungen nur Seiten 7, 19 und 20 verändert und erneut visuell geprüft. DOM-Test nach den Textänderungen erneut bestanden; Browserinteraktionen stammen aus der davor geprüften Fassung. [Details und Grenzen](BIOLOGIE_BLUT_KREISLAUF.md).

@@ -190,3 +190,17 @@ Aktuelle RIS-Kompetenzbeschreibungen und Anwendungsbereich für die 2. Klasse un
 ## Wasserlebensräume: Daten und Bewertung (21.09.2026)
 
 `bio_3_wasser_oekosysteme`, Revision 2: zwölf konkrete Aufgaben, vier Vergleichslösungen, vier Ortskarten und Messwerkstatt mit acht Werten. W: Ökosysteme, Biodiversität, Stoff-/Nahrungsbeziehungen in Teich und Meer; E: Messzeiten/Tiefen, Datenabdeckung und Ursachenprüfung; S: Schutzvorschläge und sachliche Bewertung erfundener Fälle zur Alten Donau. Gespeicherter RIS-Anwendungsbereich der 3. Klasse erneut gelesen. [Fachquellen, Prüfungen und Grenzen](BIOLOGIE_WASSER_MESSDATEN.md). Keine vollständige Fachabnahme.
+
+## 21.09.2026 – Wassertiere: Sichtprüfung abgeschlossen
+
+Der vorherige Schritt war Fortschritt: angeforderten Zwischenstand `c86f016` auf main gepusht und Remote-Hash sowie saubere Arbeitskopie verifiziert. Danach alle noch offenen mobilen Detailbilder und Druckseiten für Wassertiere/Entwicklung gelesen. Alle 19 Seiten geprüft; Seite 14 zusätzlich höher aufgelöst. Finale Seite 6 enthält die präzisierte Generation-Definition, übrige 18 Seiten bildidentisch. Keine weitere Änderung der Kapitelquelle erforderlich. [Nachweise und Grenzen](BIOLOGIE_WASSERTIERE_ENTWICKLUNG.md). Weitere Kapitel und vollständige Produktabnahme bleiben offen; neue Änderungen lokal ohne erneuten Push.
+
+## 21.09.2026 – Atmung: Messdauer, Stoffwege und Handeln
+
+Nach Abschluss der Wassertier-Sichtprüfung `bio_3_atmung_energie` auf Revision 2 überarbeitet: zwölf konkrete Aufgaben, eigenes Wegschema, drei Tierkarten, vier erfundene Datensätze und drei Entscheidungsfälle. Rechenwerkstatt mit Messdauervergleich, Einfluss eines Zählunterschieds, verständlichen Fehlereingaben und vollständiger Papieralternative. Zehn bewertete Fragen, eine punktfreie Übung, 16 Fachbegriffe und vier getrennte Lösungen.
+
+Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung und 18 Browserzustände bestanden. Dunkle Karten nach Sichtprüfung korrigiert und alle 18 Layoutfälle einschließlich Farben erneut geprüft. Alle zehn mobilen Detailbilder und 19 Druckseiten gelesen. Gemeinsame Material-/Revisions-/Quizpoolprüfungen und Syntax aller 92 Themenskripte bestanden. Inventar 197 Kapitel; Prioritätsaudit 1.654 Frageninstanzen ohne Strukturfehler. [Quellen, Nachweise und Grenzen](BIOLOGIE_ATMUNG_MESSDAUER.md). Weitere Kapitel und vollständige Produktabnahme bleiben offen. Übersetzungen zurückgestellt; neue Änderungen lokal nach `c86f016`, kein weiterer Push.
+
+## 21.09.2026 – Blutweg, Blutbestandteile und Pulsdaten
+
+`bio_3_blut_kreislauf`, Revision 2, verbindet beide Kreisläufe mit der Atmung, Blutbestandteilen, Modellrechnung und gesundheitsbezogenem Handeln. Zwölf direkte Arbeitsaufträge ersetzen die generischen Aufgabenblöcke; 16 Fachbegriffe, elf bewertete Fragen und vier Vergleichslösungen. Geführte Werkstatt mit zehn Stationen und vollständiger Papieralternative. Erfundenes Zahlenmaterial wird ausdrücklich von persönlichen Messungen und gesundheitlicher Bewertung getrennt. [Fachquellen und Kapitelprüfung](BIOLOGIE_BLUT_KREISLAUF.md). Der vollständige Fach- und Lehrplanabgleich bleibt offen.
