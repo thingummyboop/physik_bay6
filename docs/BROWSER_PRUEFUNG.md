@@ -395,3 +395,11 @@ Bericht 15:37:13 UTC, Chromium 151.0.7922.34: 104 native Umwandlungen, alle 78 K
 ## 21.09.2026 – Endliche und periodische Dezimaldarstellungen
 
 Bericht 15:53:34 UTC, Chromium 151.0.7922.34: 60 schrittweise bediente Divisionen, zwölf Rückfälle, alle 54 Antwortwege und 432 Layoutfälle ohne Seitenfehler; Tastatur/Fokus/Neustart/Speicher und 94-Prozent-Kapitelcheck mit passendem Wiederholungsabschnitt geprüft. Nach Sichtkorrekturen 15:56:32 UTC erneut alle 432 Zustände: Tabellenbeschriftungen und periodische Zahlenausdrücke passen in eine Zeile, mobile Werkstätten tatsächlich gelesen. Alle 20 endgültigen Druckseiten von 16:00:31 UTC gelesen; veränderte Rasterseiten nach den Druckkorrekturen erneut geprüft, bytegleiche zuvor gelesene Seiten übernommen. Zwölf erzeugte Aufgaben passen zu ihren Lösungen. [Nachweise und Grenzen](MATHEMATIK_PERIODISCHE_DEZIMALZAHLEN.md). Änderungen lokal.
+
+## Römische Zahlen – 21.09.2026
+
+Chromium 151.0.7922.34: 27 Lesebeispiele mit Eingabe und Leseweg, 30 Abschnittsantwortwege, abschließender Kapitelcheck mit gezielter Wiederholung, Tastatur/Fokus/Reset und 162 responsive Ansichten geprüft. Mobile Tabellenköpfe und Rechnungen nach Sichtprüfung verbessert; alle 162 finalen Ansichten bestätigen vollständig passende Zellen. Die 17-seitige finale Druckfassung wurde vollständig visuell gelesen, einschließlich aller Aufgaben und passenden Lösungen. [Inhalte, Prüfbelege und Grenzen](MATHEMATIK_ROEMISCHE_ZAHLEN.md). Keine Gesamtfreigabe oder Prüfung der veröffentlichten Fassung.
+
+## Bruchmodelle – 21.09.2026
+
+Chromium 151.0.7922.34: 28 Modelle mit gleichwertigen Eingaben, alle 54 Abschnittsantwortwege, abschließender Kapitelcheck und gezielte Wiederholung geprüft. 168 Ansichten ohne horizontalen Überlauf; nach Korrektur eines abgeschnittenen Achsenzeichens und der maximalen Grafikbreite alle Modellansichten und 30 statische Figurenansichten nochmals auf Beschriftungsgrenzen/-größen kontrolliert. Alle 21 Druckseiten tatsächlich gelesen und die zwölf exportierten generierten Aufgaben nachgerechnet. [Umfang, Belege und Grenzen](MATHEMATIK_BRUCHMODELLE.md). Keine Gesamtfreigabe oder Veröffentlichung.

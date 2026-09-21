@@ -124,7 +124,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
    assert.equal(w.currentChapterResult(id,{passed:true,bestPercent:100}).passed,false);
   }
   if(id==='math2_2_brueche'){
-   assert.equal(topic.sections.length,5);
+   assert.equal(topic.sections.length,6);
    for(const s of topic.sections.filter(s=>['m22_equivalent','m22_common'].includes(s.id)))for(const q of s.quizzes){assert.ok(d.body.textContent.includes(q.question));assert.equal(q.answers.filter(a=>a.correct).length,1);assert.ok(q.answers.every(a=>a.feedback));}
    w.eval(read('js/topics/math2_2_brueche.js'));w.topicInit();w.topicInit();
    const n=d.getElementById('bruch_common_n'),den=d.getElementById('bruch_common_d'),button=n.closest('.interactive-zone').querySelector('button'),feed=d.getElementById('bruch_common_feedback');

@@ -996,7 +996,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math1_2_nat_zahlen",
-        "title": "🔢 Natürliche Zahlen",
+        "title": "🔢 Natürliche und römische Zahlen",
         "grade": "1. Klasse (5. Schulstufe)",
         "category": "Arithmetik"
       },
@@ -1068,7 +1068,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math2_2_brueche",
-        "title": "🍰 Brüche",
+        "title": "🍕 Bruchrechnen verstehen",
         "grade": "2. Klasse (6. Schulstufe)",
         "category": "Arithmetik"
       },
@@ -1080,7 +1080,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math2_4_relative_zahlen",
-        "title": "➖ Relative Zahlen (Ganze Zahlen)",
+        "title": "➖ Ganze Zahlen und Zahlbereiche",
         "grade": "2. Klasse (6. Schulstufe)",
         "category": "Arithmetik"
       },

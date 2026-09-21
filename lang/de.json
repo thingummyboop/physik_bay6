@@ -16519,13 +16519,13 @@
     ]
   },
   "math1_2_nat_zahlen": {
-    "title": "Natürliche Zahlen",
-    "subtitle": "Alles über Zahlen (Geld, Level, V-Bucks!)",
+    "title": "Natürliche und römische Zahlen",
+    "subtitle": "Stellenwerte verstehen, Zahlen vergleichen und römische Zahlen lesen",
     "sections": [
       {
         "id": "ziffern_und_zahlen",
         "title": "Ziffern und Zahlen",
-        "content": "<p>Stell dir vor, du spielst ein Game. Dein Level ist eine <b>Zahl</b>. Zum Beispiel: Level 12.</p>\n<p>Aus was besteht die Zahl 12? Aus <b>Ziffern</b>! Die Ziffern sind die Bausteine: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.</p>\n<p>Ziffern sind wie einzelne Buchstaben. Zahlen sind wie ganze Wörter.</p>\n<div style=\"background-color: #f0f8ff; padding: 10px; border-radius: 5px;\">\n<b>Beispiel:</b> Du hast 250 V-Bucks.<br>\nDie Zahl ist 250.<br>\nDie Ziffern sind 2, 5 und 0.\n</div>\n<br>\n{{QUIZ_m12_ziffer_zahl}}",
+        "content": "<p>Mit Zahlen beschreiben wir zum Beispiel Anzahlen: 12 Bücher oder 250 Spielpunkte. Zum Aufschreiben einer Zahl verwenden wir <strong>Ziffern</strong>. Im Dezimalsystem gibt es zehn Ziffern: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.</p><p>Die Zahl 250 schreiben wir mit den drei Ziffern 2, 5 und 0. Auch ein einzelnes Zeichen wie 7 kann eine Zahl darstellen. Unterscheide also das Zeichen von dem Wert, den es beschreibt.</p>{{QUIZ_m12_ziffer_zahl}}",
         "quizzes": [
           {
             "question": "Ist 7 eine Ziffer oder eine Zahl?",
@@ -16539,13 +16539,13 @@
               {
                 "text": "Nur Ziffer",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Fast: 7 ist zwar eine Ziffer, steht aber auch für die Zahl sieben."
               },
               {
                 "text": "Nur Zahl",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Nicht ganz: 7 steht für eine Zahl, ist aber auch eine einzelne Ziffer."
               }
             ],
@@ -16556,13 +16556,13 @@
       {
         "id": "stellenwert",
         "title": "Die Stellenwerttafel (H, Z, E)",
-        "content": "<p>Große Zahlen lesen ist easy. Wir teilen sie auf in:</p>\n<ul>\n<li><span style=\"color:green; font-weight:bold;\">Hunderter (H)</span>: Wie 100€-Scheine</li>\n<li><span style=\"color:red; font-weight:bold;\">Zehner (Z)</span>: Wie 10€-Scheine</li>\n<li><span style=\"color:blue; font-weight:bold;\">Einer (E)</span>: Wie 1€-Münzen</li>\n</ul>\n<p>Beispiel für die Zahl <span style=\"color:green\">3</span><span style=\"color:red\">4</span><span style=\"color:blue\">7</span>:</p>\n<table border=\"1\" cellpadding=\"5\" style=\"border-collapse:collapse; text-align:center; margin-bottom:10px;\">\n<tr><th><span style=\"color:green\">H</span></th><th><span style=\"color:red\">Z</span></th><th><span style=\"color:blue\">E</span></th></tr>\n<tr><td><span style=\"color:green\">3</span></td><td><span style=\"color:red\">4</span></td><td><span style=\"color:blue\">7</span></td></tr>\n</table>\n<p>Das heißt: 3 Hunderter, 4 Zehner, 7 Einer. Zusammen: dreihundertsiebenundvierzig.</p>\n<div style=\"background:#fff3cd; padding:10px; border-radius:8px; margin-top:10px;\">\n  <h4>Übung: Finde den Zehner!</h4>\n  <p>Welche Ziffer steht an der <span style=\"color:red\">Zehnerstelle</span> der Zahl <span style=\"color:green\">1</span><span style=\"color:red\">8</span><span style=\"color:blue\">2</span>?</p>\n  <input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" id=\"inputZehner\" aria-label=\"Ziffer an der Zehnerstelle von 182\" style=\"width: 60px; padding: 5px; font-size: 16px;\">\n  <button onclick=\"checkZ()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Prüfen</button>\n  <p id=\"feedZ\" style=\"font-weight: bold; margin-top: 10px;\"></p>\n  \n</div>",
+        "content": "<p>Je zehn Einer werden zu einem Zehner gebündelt, je zehn Zehner zu einem Hunderter. Die Stelle bestimmt den Wert einer Ziffer. H steht für Hunderter, Z für Zehner und E für Einer.</p><table class=\"natural-table\"><caption>Die Zahl 347</caption><thead><tr><th scope=\"col\">H</th><th scope=\"col\">Z</th><th scope=\"col\">E</th></tr></thead><tbody><tr><td>3</td><td>4</td><td>7</td></tr></tbody></table><p>347 = 3 · 100 + 4 · 10 + 7 · 1 = 300 + 40 + 7. Wir lesen: dreihundertsiebenundvierzig.</p><div class=\"interactive-zone natural-lab\"><h3>Finde den Zehner</h3><label for=\"inputZehner\">Welche Ziffer steht an der Zehnerstelle von 182?</label><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" id=\"inputZehner\" aria-label=\"Ziffer an der Zehnerstelle von 182\"><button type=\"button\" onclick=\"checkZ()\">Prüfen</button><p id=\"feedZ\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><template data-worksheet-alternative><div data-natural-paper><p>Welche Ziffer steht an der Zehnerstelle von 182? Welchen Wert hat sie? Begründe mit einer Rechnung.</p><p>Antwort: __________________________________________________</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Vergleichslösung: Zehnerstelle</summary><p>Die Ziffer ist 8. Sie steht für acht Zehner: 8 · 10 = 80.</p></details>",
         "quizzes": []
       },
       {
         "id": "grosse_zahlen_vergleichen",
         "title": "Große Zahlen darstellen, vergleichen und überschlagen",
-        "content": "<p>Die Stellenwerte setzen sich nach links fort: Einer, Zehner, Hunderter, Tausender, Zehntausender, Hunderttausender, Millionen. Jeder Stellenwert ist zehnmal so groß wie der rechts daneben. Bei <strong>405 072</strong> steht die 4 für 400 000, die 5 für 5000, die 7 für 70 und die 2 für 2. Die Nullen halten die Stellen für Zehntausender und Hunderter frei. Wir verwenden hier Leerzeichen zur Gruppierung der Ziffern.</p><table data-large-place-value><caption>405 072 nach Stellenwerten</caption><thead><tr><th>Hunderttausender</th><th>Zehntausender</th><th>Tausender</th><th>Hunderter</th><th>Zehner</th><th>Einer</th></tr></thead><tbody><tr><td>4</td><td>0</td><td>5</td><td>0</td><td>7</td><td>2</td></tr></tbody></table><p>Zum Vergleichen prüfst du zuerst die Anzahl der Ziffern ohne führende Nullen. Bei gleich vielen Ziffern gehst du von links nach rechts bis zur ersten unterschiedlichen Stelle: 405 072 &lt; 450 027, weil die Zehntausenderstelle 0 kleiner als 5 ist. Spätere Ziffern ändern das nicht mehr.</p><h3>Abstände am Zahlenstrahl</h3><p>Gleiche Zahlenunterschiede brauchen gleiche Abstände. Zwischen 4000 und 5000 liegen 1000. Unterteilst du diesen Abschnitt in zehn gleich große Schritte, bedeutet jeder Schritt 100. Die Marke 4300 liegt drei Schritte rechts von 4000. Rechts stehen größere Zahlen. Nenne immer die Schrittweite, bevor du eine Marke abliest.</p><ol data-natural-number-task><li>Zeichne die Stellenwerttafel für 405 072 und 450 027. Schreibe beide als Summe ihrer Stellenwerte und erkläre die Bedeutung der Nullen.</li><li>Ordne 39 950, 40 005, 39 995 und 40 050 von klein nach groß. Begründe einen Vergleich an der ersten unterschiedlichen Stelle.</li><li>Zeichne einen Zahlenstrahl von 4000 bis 5000 mit zehn gleich großen Schritten. Markiere 4300, 4700 und ungefähr 4550. Begründe, warum 4550 zwischen zwei Hundertermarken liegt.</li><li>Zeichne einen zweiten Zahlenstrahl von 4000 bis 5000 mit nur fünf gleich großen Schritten. Erkläre, warum ein Schritt jetzt eine andere Zahl bedeutet, obwohl Anfang und Ende gleich bleiben.</li></ol><h3>Überschlagen ist bewusstes Näherungsrechnen</h3><p>Beim Runden auf Hunderter suchst du den näheren Hunderter. 347 liegt zwischen 300 und 400 und wird zu 300 gerundet. Bei 350 sind die Abstände gleich; nach unserer Rundungsregel wird auf 400 aufgerundet. Schreibe für Näherungen ≈ statt =.</p><p>Eine fiktive Materialbestellung enthält 398 und 207 Teile. Auf Hunderter gerundet ergibt die Überschlagsrechnung 400 + 200 = 600. Genau sind es 398 + 207 = 605. Der Überschlag hilft, einen groben Fehler wie 6005 zu entdecken; er beweist aber nicht, dass ein nahe gelegenes Ergebnis richtig ist.</p><ol data-estimation-task><li>Runde 449, 450 und 451 jeweils direkt auf Hunderter. Zeichne die benachbarten Hunderter und vergleiche die Abstände.</li><li>Überschlage 602 − 198 durch Runden auf Hunderter. Rechne danach genau und vergleiche. Verwende ≈ und = passend.</li><li>Für 398 + 207 schlägt jemand 606 vor. Erkläre, warum der Überschlag 600 diesen kleinen Fehler nicht sicher aufdeckt und welche genaue Kontrolle du brauchst.</li></ol><details data-natural-number-solution><summary>Ergebnisse vergleichen</summary><p>Reihenfolge: 39 950 &lt; 39 995 &lt; 40 005 &lt; 40 050. Bei zehn Schritten beträgt die Schrittweite 100, bei fünf Schritten 200. 4550 liegt mittig zwischen 4500 und 4600. Gerundet auf Hunderter: 449 ≈ 400, 450 ≈ 500, 451 ≈ 500. 602 − 198 ≈ 600 − 200 = 400; genau 404. Für 398 + 207 ist die genaue Summe 605. 606 ist ebenfalls nahe bei 600, aber falsch.</p></details>{{QUIZ_natural_place_zero}}{{QUIZ_natural_numberline}}{{QUIZ_natural_estimate}}",
+        "content": "<p>Die Stellenwerte setzen sich nach links fort: Einer, Zehner, Hunderter, Tausender, Zehntausender, Hunderttausender, Millionen. Jeder Stellenwert ist zehnmal so groß wie der rechts daneben. Bei <strong>405 072</strong> steht die 4 für 400 000, die 5 für 5000, die 7 für 70 und die 2 für 2. Die Nullen halten die Stellen für Zehntausender und Hunderter frei. Wir verwenden hier Leerzeichen zur Gruppierung der Ziffern.</p><table class=\"natural-table\" data-large-place-value><caption>405 072 nach Stellenwerten</caption><thead><tr><th scope=\"col\">HT</th><th scope=\"col\">ZT</th><th scope=\"col\">T</th><th scope=\"col\">H</th><th scope=\"col\">Z</th><th scope=\"col\">E</th></tr></thead><tbody><tr><td>4</td><td>0</td><td>5</td><td>0</td><td>7</td><td>2</td></tr></tbody></table><p>HT = Hunderttausender, ZT = Zehntausender, T = Tausender, H = Hunderter, Z = Zehner, E = Einer.</p><p>Zum Vergleichen prüfst du zuerst die Anzahl der Ziffern ohne führende Nullen. Bei gleich vielen Ziffern gehst du von links nach rechts bis zur ersten unterschiedlichen Stelle: 405 072 &lt; 450 027, weil die Zehntausenderstelle 0 kleiner als 5 ist. Spätere Ziffern ändern das nicht mehr.</p><h3>Abstände am Zahlenstrahl</h3><p>Gleiche Zahlenunterschiede brauchen gleiche Abstände. Zwischen 4000 und 5000 liegen 1000. Unterteilst du diesen Abschnitt in zehn gleich große Schritte, bedeutet jeder Schritt 100. Die Marke 4300 liegt drei Schritte rechts von 4000. Rechts stehen größere Zahlen. Nenne immer die Schrittweite, bevor du eine Marke abliest.</p><ol data-natural-number-task data-assignment-mode=\"direct\"><li>Zeichne die Stellenwerttafel für 405 072 und 450 027. Schreibe beide als Summe ihrer Stellenwerte und erkläre die Bedeutung der Nullen.</li><li>Ordne 39 950, 40 005, 39 995 und 40 050 von klein nach groß. Begründe einen Vergleich an der ersten unterschiedlichen Stelle.</li><li>Zeichne einen Zahlenstrahl von 4000 bis 5000 mit zehn gleich großen Schritten. Markiere 4300, 4700 und ungefähr 4550. Begründe, warum 4550 zwischen zwei Hundertermarken liegt.</li><li>Zeichne einen zweiten Zahlenstrahl von 4000 bis 5000 mit nur fünf gleich großen Schritten. Erkläre, warum ein Schritt jetzt eine andere Zahl bedeutet, obwohl Anfang und Ende gleich bleiben.</li></ol><h3>Überschlagen ist bewusstes Näherungsrechnen</h3><p>Beim Runden auf Hunderter suchst du den näheren Hunderter. 347 liegt zwischen 300 und 400 und wird zu 300 gerundet. Bei 350 sind die Abstände gleich; nach unserer Rundungsregel wird auf 400 aufgerundet. Schreibe für Näherungen ≈ statt =.</p><p>Eine fiktive Materialbestellung enthält 398 und 207 Teile. Auf Hunderter gerundet ergibt die Überschlagsrechnung 400 + 200 = 600. Genau sind es 398 + 207 = 605. Der Überschlag hilft, einen groben Fehler wie 6005 zu entdecken; er beweist aber nicht, dass ein nahe gelegenes Ergebnis richtig ist.</p><ol data-estimation-task data-assignment-mode=\"direct\"><li>Runde 449, 450 und 451 jeweils direkt auf Hunderter. Zeichne die benachbarten Hunderter und vergleiche die Abstände.</li><li>Überschlage 602 − 198 durch Runden auf Hunderter. Rechne danach genau und vergleiche. Verwende ≈ und = passend.</li><li>Für 398 + 207 schlägt jemand 606 vor. Erkläre, warum der Überschlag 600 diesen kleinen Fehler nicht sicher aufdeckt und welche genaue Kontrolle du brauchst.</li></ol><details data-natural-number-solution data-worksheet-solution=\"true\"><summary>Ergebnisse vergleichen</summary><p>405 072 = 400 000 + 5000 + 70 + 2; die Zehntausender- und Hunderterstelle sind unbesetzt. 450 027 = 400 000 + 50 000 + 20 + 7; die Tausender- und Hunderterstelle sind unbesetzt. Die Null hält jeweils den Stellenwert frei.</p><p>Reihenfolge: 39 950 &lt; 39 995 &lt; 40 005 &lt; 40 050. Bei zehn Schritten beträgt die Schrittweite 100, bei fünf Schritten 200. 4550 liegt mittig zwischen 4500 und 4600. Gerundet auf Hunderter: 449 ≈ 400, 450 ≈ 500, 451 ≈ 500. 602 − 198 ≈ 600 − 200 = 400; genau 404. Für 398 + 207 ist die genaue Summe 605. 606 ist ebenfalls nahe bei 600, aber falsch.</p></details>{{QUIZ_natural_place_zero}}{{QUIZ_natural_numberline}}{{QUIZ_natural_estimate}}",
         "quizzes": [
           {
             "id": "natural_place_zero",
@@ -16637,6 +16637,164 @@
             ]
           }
         ]
+      },
+      {
+        "id": "roman_reading",
+        "title": "Römische Zahlen lesen",
+        "quizzes": [
+          {
+            "id": "roman_read_pairs",
+            "question": "Welchen Wert hat XLIX?",
+            "answers": [
+              {
+                "text": "61",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier darfst du nicht alle Zeichen addieren: XL bedeutet 50 − 10 und IX bedeutet 10 − 1."
+              },
+              {
+                "text": "49",
+                "correct": true,
+                "pts": 10,
+                "feedback": "XL = 40 und IX = 9. Zusammen ergibt das 49."
+              },
+              {
+                "text": "41",
+                "correct": false,
+                "pts": 0,
+                "feedback": "XL ist 40, aber IX ist 9, nicht 1. Zusammen sind es 49."
+              }
+            ]
+          },
+          {
+            "id": "roman_year",
+            "question": "Auf einer erfundenen Gedenktafel steht MMXXVI. Welche Jahreszahl ist das?",
+            "answers": [
+              {
+                "text": "2024",
+                "correct": false,
+                "pts": 0,
+                "feedback": "VI bedeutet 5 + 1 = 6. Für 2024 müsste am Ende IV stehen."
+              },
+              {
+                "text": "2226",
+                "correct": false,
+                "pts": 0,
+                "feedback": "XX sind zwei Zehner, also 20, nicht 200."
+              },
+              {
+                "text": "2026",
+                "correct": true,
+                "pts": 10,
+                "feedback": "MM = 2000, XX = 20 und VI = 6. Zusammen: 2026."
+              }
+            ]
+          },
+          {
+            "id": "roman_clock",
+            "question": "Auf einem Zifferblatt steht IIII an der Stelle für vier Uhr. Wie liest du das?",
+            "answers": [
+              {
+                "text": "4; diese Schreibweise kommt auf Uhren vor.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "IIII bedeutet hier 1 + 1 + 1 + 1 = 4. Im Kurzschreibschema unserer Übungen steht dafür IV."
+              },
+              {
+                "text": "6; IIII bedeutet dasselbe wie VI.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "VI bedeutet 6. Vier I ergeben dagegen 4."
+              },
+              {
+                "text": "Das Zifferblatt muss fehlerhaft sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "IIII ist eine tatsächlich verwendete Schreibweise auf Zifferblättern. Unterschiedliche Schreibtraditionen sind nicht automatisch Fehler."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Römische Zahlen begegnen dir etwa auf Zifferblättern, bei Kapitelnummern und in Jahreszahlen an Gebäuden. Sie stellen dieselben Zahlenwerte mit anderen Zeichen dar. Unsere Übungen verwenden die heute gebräuchliche Kurzschreibweise für 1 bis 3999; ältere Inschriften können andere Schreibweisen verwenden.</p><table class=\"natural-table\"><caption>Sieben Zeichen und ihre Werte</caption><thead><tr><th scope=\"col\">Zeichen</th><th scope=\"col\">Wert</th></tr></thead><tbody><tr><th scope=\"row\">I</th><td>1</td></tr><tr><th scope=\"row\">V</th><td>5</td></tr><tr><th scope=\"row\">X</th><td>10</td></tr><tr><th scope=\"row\">L</th><td>50</td></tr><tr><th scope=\"row\">C</th><td>100</td></tr><tr><th scope=\"row\">D</th><td>500</td></tr><tr><th scope=\"row\">M</th><td>1000</td></tr></tbody></table><h3>Erst Gruppen erkennen, dann zusammenzählen</h3><p>Bei gleich großen oder absteigenden Zeichenwerten addierst du: VIII = 5 + 1 + 1 + 1 = 8. XXVI = 10 + 10 + 5 + 1 = 26.</p><p>In sechs festgelegten Paaren steht ein kleineres Zeichen links vor einem größeren. Dann wird sein Wert abgezogen:</p><table class=\"natural-table roman-pairs\"><caption>Die sechs Subtraktionspaare</caption><thead><tr><th scope=\"col\">Paar</th><th scope=\"col\">Rechnung</th><th scope=\"col\">Wert</th></tr></thead><tbody><tr><th scope=\"row\">IV</th><td>5 − 1</td><td>4</td></tr><tr><th scope=\"row\">IX</th><td>10 − 1</td><td>9</td></tr><tr><th scope=\"row\">XL</th><td>50 − 10</td><td>40</td></tr><tr><th scope=\"row\">XC</th><td>100 − 10</td><td>90</td></tr><tr><th scope=\"row\">CD</th><td>500 − 100</td><td>400</td></tr><tr><th scope=\"row\">CM</th><td>1000 − 100</td><td>900</td></tr></tbody></table><p><strong>Beispiel XLIX:</strong> Markiere XL und IX. Lies 40 + 9 = 49. Ziehe nicht wahllos jedes kleinere Zeichen von einem späteren größeren ab. Nach unserem Kurzschreibschema heißt 49 XLIX, nicht IL.</p><p><strong>Beispiel MMXXVI:</strong> 1000 + 1000 + 10 + 10 + 5 + 1 = 2026. Die Jahreszahl auf unserer Beispieltafel ist erfunden; sie gehört zu keinem bestimmten Wiener Gebäude.</p><div class=\"interactive-zone natural-lab\" data-roman-lab><h3>Lesewerkstatt</h3><p>Wähle ein Beispiel. Markiere gedanklich zuerst die Subtraktionspaare und gib dann den gesamten Zahlenwert an.</p><label for=\"roman-case\">Beispiel</label><select id=\"roman-case\"></select><p data-roman-question></p><label for=\"roman-answer\">Zahlenwert in Dezimalschreibweise</label><input id=\"roman-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><div class=\"natural-actions\"><button type=\"button\" data-roman-check>Prüfen</button><button type=\"button\" data-roman-show>Leseweg anzeigen</button><button type=\"button\" data-roman-reset>Zurücksetzen</button></div><p id=\"roman-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><div data-roman-steps hidden></div><template data-worksheet-alternative><div data-roman-paper><p>Lies XIV, XLIX, CDXLIV und MMXXVI. Markiere zuerst die Subtraktionspaare und schreibe jeweils die Summe der Gruppen auf.</p><p>Rechenweg: _________________________________________________</p><p>____________________________________________________________</p></div></template></div><figure><svg class=\"roman-clock\" data-worksheet-static=\"true\" viewBox=\"0 0 300 300\" role=\"img\" aria-labelledby=\"roman-clock-title\"><title id=\"roman-clock-title\">Beispiel eines Zifferblatts ohne Zeiger: I bis XII, bei vier steht IIII.</title><circle cx=\"150\" cy=\"150\" r=\"138\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"150.00\" y=\"49.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">XII</text><text x=\"204.00\" y=\"63.47\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">I</text><text x=\"243.53\" y=\"103.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">II</text><text x=\"258.00\" y=\"157.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">III</text><text x=\"243.53\" y=\"211.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">IIII</text><text x=\"204.00\" y=\"250.53\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">V</text><text x=\"150.00\" y=\"265.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">VI</text><text x=\"96.00\" y=\"250.53\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">VII</text><text x=\"56.47\" y=\"211.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">VIII</text><text x=\"42.00\" y=\"157.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">IX</text><text x=\"56.47\" y=\"103.00\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">X</text><text x=\"96.00\" y=\"63.47\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"22\">XI</text></svg><figcaption>Beispiel eines Zifferblatts ohne Zeiger. Bei vier steht IIII.</figcaption></figure><p>Auf manchen Uhren steht IIII statt IV. Dort addierst du vier Einer. Das ist eine bekannte Schreibtradition, kein Rechenfehler. Unser Schema für die übrigen Übungen verwendet IV.</p><ol data-roman-tasks data-assignment-mode=\"direct\"><li>Lies VI und IV, XI und IX sowie LX und XL. Erkläre jeweils, was die Reihenfolge verändert.</li><li>Eine erfundene Tafel einer Wiener Schule zeigt MCMLXXXVIII. Zerlege die Zahl und lies das Jahr. Lies anschließend MCMXCIX.</li><li>Eine Kapitelübersicht nennt XXXIX, XL und XLI. Lies die Zahlen und prüfe, ob es aufeinanderfolgende Kapitel sind.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Lesen</summary><p>Werkstatt auf Papier: XIV = 10 + 4 = 14; XLIX = 40 + 9 = 49; CDXLIV = 400 + 40 + 4 = 444; MMXXVI = 2000 + 20 + 6 = 2026.</p><p>1. VI = 6, IV = 4; XI = 11, IX = 9; LX = 60, XL = 40. Größer vor kleiner: hier addieren. Bei IV, IX und XL wird der kleinere Wert vom größeren abgezogen.</p><p>2. MCMLXXXVIII = 1000 + 900 + 50 + 30 + 8 = 1988. MCMXCIX = 1000 + 900 + 90 + 9 = 1999.</p><p>3. XXXIX = 39, XL = 40, XLI = 41: Die Kapitel folgen direkt aufeinander.</p></details><details><summary>Freiwillige Vertiefung: selbst römisch schreiben</summary><p>Zerlege in Tausender, Hunderter, Zehner und Einer. In unserem Schema werden I, X, C und M höchstens dreimal unmittelbar wiederholt; V, L und D werden nicht wiederholt. Verwende nur die sechs Subtraktionspaare aus der Tabelle. Beispiel 944 = 900 + 40 + 4 → CM + XL + IV → CMXLIV.</p><p>Schreibe 28 und 94. Vergleiche erst danach: 28 = XXVIII, 94 = XCIV. Das eigene Schreiben ist eine Zusatzübung; im Kapitelcheck geht es um das Lesen und Vergleichen.</p></details>{{QUIZ_roman_read_pairs}}{{QUIZ_roman_year}}{{QUIZ_roman_clock}}"
+      },
+      {
+        "id": "roman_decimal_compare",
+        "title": "Warum wir mit Stellenwerten rechnen",
+        "quizzes": [
+          {
+            "id": "roman_place_value",
+            "question": "Welche Aussage erklärt einen Vorteil des Dezimalsystems?",
+            "answers": [
+              {
+                "text": "Jede Zahl benötigt weniger Zeichen als in römischer Schreibweise.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das gilt nicht immer: 1000 benötigt vier Ziffern, M nur ein Zeichen."
+              },
+              {
+                "text": "Die Ziffer 5 hat unabhängig von ihrer Stelle immer den Wert 5.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "In 50 hat die 5 den Wert 50, in 500 den Wert 500. Die Stelle ist entscheidend."
+              },
+              {
+                "text": "Stellenwerte und die 0 erlauben ein einheitliches Bündeln und schriftliches Rechnen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Jede Stelle ist zehnmal so viel wert wie die rechte Nachbarstelle. Die 0 hält unbesetzte Stellen frei."
+              }
+            ]
+          },
+          {
+            "id": "roman_compare",
+            "question": "Welche der beiden Zahlen XLIX und LI ist größer?",
+            "answers": [
+              {
+                "text": "XLIX, weil die Schreibweise mehr Zeichen hat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Zeichenanzahl genügt bei römischen Zahlen nicht: XLIX = 49 und LI = 51."
+              },
+              {
+                "text": "LI, denn 51 ist größer als 49.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "LI = 50 + 1 = 51; XLIX = 40 + 9 = 49."
+              },
+              {
+                "text": "Beide sind gleich groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Lies die Gruppen einzeln: XLIX ist 49, LI ist 51."
+              }
+            ]
+          },
+          {
+            "id": "roman_zero",
+            "question": "Warum darfst du beim Lesen von 405 die 0 nicht einfach streichen?",
+            "answers": [
+              {
+                "text": "Ohne die 0 steht die 4 an der Zehnerstelle: 45 statt 405.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die 0 hält die Zehnerstelle frei. 405 sind vier Hunderter und fünf Einer."
+              },
+              {
+                "text": "Die 0 erhöht den Zahlenwert immer um zehn.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 0 ist hier kein zusätzliches Zehnerbündel. Sie hält eine Stelle frei."
+              },
+              {
+                "text": "Weil 45 gar keine natürliche Zahl ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "45 ist eine natürliche Zahl, hat aber einen anderen Wert als 405."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Das römische Zeichen V hat den Zeichenwert 5, egal ob es in VI oder XV steht. Die Anordnung entscheidet über das Addieren beziehungsweise bei den sechs Paaren über das Abziehen. Es gibt keine Einer-, Zehner- und Hunderterstellen wie im Dezimalsystem.</p><p>Die Ziffer 5 dagegen hat in 5 den Wert 5, in 50 den Wert 50 und in 500 den Wert 500. Mit nur zehn Ziffern können wir durch immer weitere Stellen beliebig große natürliche Zahlen aufschreiben. Die 0 hält unbesetzte Stellen frei: <strong>405 = 4 · 100 + 0 · 10 + 5</strong>. Ohne diese Null würde 45 entstehen.</p><p>Bei den hier verwendeten sieben römischen Zeichen gibt es kein Zeichen für 0. Die Zahl 405 schreiben wir CDV = 400 + 5; wir setzen kein Zeichen für die fehlenden Zehner ein.</p><h3>Bündeln macht Rechenverfahren übersichtlich</h3><p>Bei 27 + 15 rechnen wir 7 + 5 = 12 Einer = 1 Zehner und 2 Einer. Mit den anderen Zehnern erhalten wir 4 Zehner und 2 Einer, also 42. Genau dieses Bündeln nutzt die schriftliche Addition in Spalten. Die römischen Schreibweisen XXVII und XV enthalten keine gleichartigen Stellenwertspalten; ein spaltenweises Addieren wie mit Dezimalziffern funktioniert dort nicht.</p><h3>Mehr Zeichen heißt nicht immer mehr Wert</h3><p>Im Dezimalsystem ist bei natürlichen Zahlen ohne führende Nullen eine Zahl mit mehr Ziffern größer. Das überträgst du nicht auf römische Schreibweisen: XLIX hat vier Zeichen und bedeutet 49; LI hat zwei Zeichen und bedeutet 51. Auch „Dezimalzahlen brauchen immer weniger Zeichen“ stimmt nicht: 1000 wird römisch M geschrieben, 88 dagegen LXXXVIII. Der Vorteil liegt im einheitlichen Stellenwertsystem und seinen Rechenverfahren.</p><ol data-roman-tasks data-assignment-mode=\"direct\"><li>Vergleiche 45, 405 und 450. Nenne den Wert der Ziffer 4 und der Ziffer 5 in jeder Zahl. Erkläre die Rolle der 0.</li><li>Ordne XXXIX, LI, XLIX und XL von klein nach groß. Begründe mithilfe der Zahlenwerte, nicht mit der Zeichenanzahl.</li><li>Eine Person sagt: „Eine längere römische Schreibweise bedeutet immer eine größere Zahl.“ Widerlege die Aussage mit einem eigenen Zahlenpaar und erkläre einen Vorteil des Dezimalsystems beim Rechnen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen: Zahlensysteme</summary><p>1. 45: 4 hat den Wert 40, 5 den Wert 5. 405: 400 und 5; die 0 hält die Zehnerstelle frei. 450: 400 und 50; die 0 hält die Einerstelle frei.</p><p>2. XXXIX = 39 &lt; XL = 40 &lt; XLIX = 49 &lt; LI = 51.</p><p>3. Zum Beispiel VIII = 8 &lt; X = 10, obwohl VIII mehr Zeichen hat. Stellenwertspalten machen das Bündeln und Übertragen beim schriftlichen Rechnen übersichtlich. Andere passende Gegenbeispiele sind möglich.</p></details>{{QUIZ_roman_place_value}}{{QUIZ_roman_compare}}{{QUIZ_roman_zero}}"
       }
     ],
     "diplom": {
@@ -16701,13 +16859,24 @@
       "Dreistellige Zahlen in Hunderter, Zehner und Einer zerlegen.",
       "Den Wert einer Ziffer aus ihrer Stelle bestimmen.",
       "Größere natürliche Zahlen mit Stellenwerten und Zahlenstrahl darstellen und vergleichen.",
-      "Auf Hunderter runden, überschlagen und die Grenzen einer Näherung erklären."
+      "Auf Hunderter runden, überschlagen und die Grenzen einer Näherung erklären.",
+      "Römische Zahldarstellungen lesen und die sechs gebräuchlichen Subtraktionspaare erkennen.",
+      "Vorteile des dezimalen Stellenwertsystems an Beispielen begründen."
     ],
     "summary": [
       "Mit den zehn Ziffern 0 bis 9 schreiben wir Zahlen im Dezimalsystem.",
       "347 = 3 · 100 + 4 · 10 + 7.",
       "In 182 steht die 8 an der Zehnerstelle und hat den Wert 80.",
-      "Gleiche Zahlenunterschiede benötigen am Zahlenstrahl gleiche Abstände. Ein Überschlag prüft die Größenordnung, ersetzt aber keine genaue Rechnung."
+      "Gleiche Zahlenunterschiede benötigen am Zahlenstrahl gleiche Abstände. Ein Überschlag prüft die Größenordnung, ersetzt aber keine genaue Rechnung.",
+      "Römische Zeichen: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000.",
+      "In der hier geübten Kurzschreibweise werden IV, IX, XL, XC, CD und CM als Differenzen gelesen. XLIX = 40 + 9 = 49.",
+      "Im Dezimalsystem bestimmt die Stelle den Wert einer Ziffer; die 0 hält leere Stellen frei. Bei römischen Zeichen bleiben die Zeichenwerte gleich."
+    ],
+    "sources": [
+      {
+        "title": "SEIKO Museum Ginza: IIII auf Zifferblättern (englisch)",
+        "url": "https://museum.seiko.co.jp/en/knowledge/trivia02/"
+      }
     ]
   },
   "math1_3_add_sub": {
@@ -22200,13 +22369,13 @@
     ]
   },
   "math2_2_brueche": {
-    "title": "Bruchrechnen: Pizzen & Co.",
-    "subtitle": "Teilen wie ein Boss!",
+    "title": "Bruchrechnen verstehen",
+    "subtitle": "Mit Streifen, Flächen und Portionen rechnen",
     "sections": [
       {
         "id": "m22_equivalent",
         "title": "Erweitern und Kürzen",
-        "content": "<p>Ein halbes Ganzes ist genauso viel wie zwei Viertel: <strong>1/2 = 2/4</strong>. Beim Erweitern multiplizierst du Zähler und Nenner mit derselben positiven ganzen Zahl. Das teilt die Stücke feiner ein, ohne den Anteil zu verändern.</p><p>Beim Kürzen dividierst du Zähler und Nenner durch denselben gemeinsamen Teiler: 6/8 = (6 : 2)/(8 : 2) = 3/4. Mit dem ggT kürzt du vollständig. Zähler und Nenner dürfen dabei nicht unabhängig voneinander verändert werden. Ein Nenner darf nie 0 sein.</p>{{QUIZ_m22_expand}}{{QUIZ_m22_reduce}}",
+        "content": "<p>Ein halbes Ganzes ist genauso viel wie zwei Viertel <strong>desselben Ganzen</strong>: 1/2 = 2/4. Beim Erweitern multiplizierst du Zähler und Nenner mit derselben positiven ganzen Zahl. Das teilt die Stücke feiner ein, ohne den Anteil zu verändern.</p><figure class=\"fraction-static\"><svg class=\"fraction-figure\" data-worksheet-static=\"true\" viewBox=\"0 0 420 150\" role=\"img\" aria-labelledby=\"fraction-equivalent-title\"><title id=\"fraction-equivalent-title\">2/3 = 4/6: vier von sechs Teilen bleiben markiert.</title><text x=\"5\" y=\"27\" fill=\"currentColor\" font-size=\"22\">2/3</text><rect x=\"100\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"300\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"350\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><text x=\"5\" y=\"92\" fill=\"currentColor\" font-size=\"22\">4/6</text><rect x=\"100\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"300\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"350\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><line x1=\"100\" x2=\"100\" y1=\"5\" y2=\"37\" stroke=\"#111\" stroke-width=\"3\"/><line x1=\"200\" x2=\"200\" y1=\"5\" y2=\"37\" stroke=\"#111\" stroke-width=\"3\"/><line x1=\"300\" x2=\"300\" y1=\"5\" y2=\"37\" stroke=\"#111\" stroke-width=\"3\"/><line x1=\"400\" x2=\"400\" y1=\"5\" y2=\"37\" stroke=\"#111\" stroke-width=\"3\"/></svg><figcaption>2/3 = 4/6: vier von sechs Teilen bleiben markiert. Alle Streifen stellen ein gleich großes Ganzes dar.</figcaption></figure><p>Im oberen Streifen sind die Drittel bereits halbiert: Jedes ursprüngliche Drittel besteht aus zwei Sechsteln. So werden aus zwei Dritteln vier Sechstel. Der Zahlenwert bleibt gleich.</p><p>Beim Kürzen bündelst du die kleinen Teile wieder: 6/8 = (6 : 2)/(8 : 2) = 3/4. Zähler und Nenner werden durch denselben gemeinsamen Teiler dividiert. Mit dem ggT kürzt du vollständig. Ein Nenner darf nie 0 sein.</p><ol data-fraction-tasks data-assignment-mode=\"direct\"><li>Zeichne zwei gleich lange Streifen: Teile den ersten in drei, den zweiten in sechs gleiche Teile. Markiere 2/3 und 4/6 und erkläre die Gleichheit.</li><li>Kürze 12/18 vollständig. Begründe, warum 6/9 noch nicht vollständig gekürzt ist.</li><li>Die Hälfte eines 12 cm langen Bandes und zwei Viertel eines 20 cm langen Bandes werden abgeschnitten. Berechne beide Längen und erkläre den Unterschied.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. Die markierte Länge beträgt bei beiden Streifen zwei Drittel der gesamten Länge. Jedes Drittel wird halbiert, dadurch verdoppeln sich Zähler und Nenner.</p><p>2. 12/18 = 2/3 (beide durch 6). 6/9 lässt sich noch durch 3 kürzen.</p><p>3. 6 cm und 10 cm. Die Anteile sind gleichwertig, aber die Ganzen verschieden lang.</p></details>{{QUIZ_m22_expand}}{{QUIZ_m22_reduce}}{{QUIZ_m22_same_whole}}",
         "quizzes": [
           {
             "id": "m22_expand",
@@ -22255,47 +22424,107 @@
                 "feedback": "Beim Kürzen müssen Zähler und Nenner durch dieselbe Zahl geteilt werden."
               }
             ]
+          },
+          {
+            "id": "m22_same_whole",
+            "question": "Zwei Streifen zeigen 1/2 und 2/4. Wann kannst du daraus auf dieselbe markierte Länge schließen?",
+            "answers": [
+              {
+                "text": "Immer, unabhängig von der Länge der ganzen Streifen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Zahlenwerte sind gleich. Die markierten Längen sind aber nur bei gleich langen Ganzen gleich."
+              },
+              {
+                "text": "Wenn beide ganzen Streifen gleich lang sind.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "1/2 = 2/4. Bei gleichem Ganzen ist daher auch die markierte Länge gleich."
+              },
+              {
+                "text": "Nur wenn beide Streifen in genau zwei Teile geteilt sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Unterschiedliche Unterteilungen können denselben Anteil zeigen: zwei Viertel sind eine Hälfte."
+              }
+            ]
           }
         ]
       },
       {
         "id": "m22_s1",
-        "title": "Brüche Plus und Minus",
-        "content": "<p>Stell dir vor, du hast <span style=\"color:orange; font-weight:bold;\">Pizzastücke</span>.</p><p>Du kannst sie nur plus oder minus rechnen, wenn die Stücke <b>gleich groß</b> sind!</p><p>Wir brauchen den <span style=\"color:red; font-weight:bold;\">gleichen Nenner</span> (die Zahl unten).</p><div style='text-align:center;'><svg width='100' height='100'><circle cx='50' cy='50' r='40' fill='orange' stroke='black' stroke-width='2'/><line x1='50' y1='10' x2='50' y2='90' stroke='black' stroke-width='2'/></svg></div><p>1/2 Pizza + 1/2 Pizza = 2/2 Pizza = 1 ganze Pizza!</p><div class='interactive-zone' style='background:#e0ffff; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid teal;'><p>Rechne: 1/4 + 2/4 = <input type='number' id='bruch_z' style='width:40px;'> / 4</p><button style='padding:5px 10px; background:teal; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m22_q1}}\n<br>\n{{QUIZ_m22_q2}}",
+        "title": "Gleich große Teile addieren und subtrahieren",
+        "content": "<p>Beim Addieren und Subtrahieren von Anteilen beziehen wir uns auf <strong>gleich große Ganze</strong>. Gleiche Nenner bezeichnen dann gleich große Teile. Wir zählen, wie viele Teile dazukommen oder weggenommen werden.</p><p>3/8 + 2/8 = 5/8: Drei Achtel und zwei Achtel sind fünf Achtel. Beim Subtrahieren gilt 5/7 − 2/7 = 3/7. Der Nenner bleibt gleich, weil sich die Größe eines Teils nicht ändert. Auch 1/2 + 1/2 = 2/2 = 1.</p><figure class=\"fraction-static\"><svg class=\"fraction-figure\" data-worksheet-static=\"true\" viewBox=\"0 0 420 215\" role=\"img\" aria-labelledby=\"fraction-add-title\"><title id=\"fraction-add-title\">Drei Achtel und zwei weitere Achtel ergeben fünf Achtel.</title><text x=\"5\" y=\"27\" fill=\"currentColor\" font-size=\"22\">3/8</text><rect x=\"100\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"137.5\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"175\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"212.5\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"250\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"287.5\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"325\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"362.5\" y=\"5\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><text x=\"5\" y=\"92\" fill=\"currentColor\" font-size=\"22\">2/8</text><rect x=\"100\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"137.5\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"175\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"212.5\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"250\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"287.5\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"325\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"362.5\" y=\"70\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><text x=\"5\" y=\"157\" fill=\"currentColor\" font-size=\"22\">5/8</text><rect x=\"100\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"137.5\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"175\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"212.5\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"287.5\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"325\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"362.5\" y=\"135\" width=\"37.5\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/></svg><figcaption>Drei Achtel und zwei weitere Achtel ergeben fünf Achtel. Alle Streifen stellen ein gleich großes Ganzes dar.</figcaption></figure><div class=\"interactive-zone fraction-quick\"><h3>Selbst rechnen: Viertel</h3><p>1/4 + 2/4 = ?/4</p><label for=\"bruch_z\">Zähler des Ergebnisses mit Nenner 4</label><input id=\"bruch_z\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><button type=\"button\">Prüfen</button><template data-worksheet-alternative><div data-fraction-quick-paper><p>Rechne 1/4 + 2/4. Zeichne einen Streifen aus vier gleich großen Teilen.</p><p>Rechnung: __________________________________________________</p></div></template></div><ol data-fraction-tasks data-assignment-mode=\"direct\"><li>Zeichne 3/8 + 2/8 in einem gemeinsamen Streifen: kennzeichne die ersten drei und die nächsten zwei Achtel unterschiedlich.</li><li>Markiere 5/7 und streiche zwei der sieben gleich großen Teile durch. Welche Länge bleibt?</li><li>Ein ganzes Band wird um 3/8 seiner Länge gekürzt. Welcher Anteil bleibt?</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. Fünf von acht Teilen sind markiert: 5/8. Papierübung: 1/4 + 2/4 = 3/4.</p><p>2. Drei Siebtel bleiben: 5/7 − 2/7 = 3/7.</p><p>3. 1 − 3/8 = 8/8 − 3/8 = 5/8.</p></details>{{QUIZ_m22_q1}}{{QUIZ_m22_q2}}{{QUIZ_m22_dip1}}",
         "quizzes": [
           {
             "id": "m22_q1",
             "question": "Was ist 3/8 + 2/8?",
             "answers": [
               {
-                "text": "5/8 (Nur oben plus rechnen, unten bleibt gleich!)",
+                "text": "5/8",
+                "feedback": "Drei Achtel und zwei Achtel sind fünf Achtel. Die Teilgröße bleibt gleich.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Bei gleichem Nenner addierst du nur die Zähler: 3/8 + 2/8 = 5/8."
+                "pts": 10
               },
               {
-                "text": "5/16 (Falsch! Unten nicht plus rechnen!)",
+                "text": "5/16",
+                "feedback": "Wenn du auch die Nenner addierst, halbierst du hier die Teilgröße. Es bleiben Achtel, keine Sechzehntel.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Der Nenner bleibt 8. Du addierst nicht 8 + 8."
+                "pts": 0
+              },
+              {
+                "text": "6/8",
+                "feedback": "Die Zähler werden addiert: 3 + 2 = 5, nicht multipliziert.",
+                "correct": false,
+                "pts": 0
               }
             ]
           },
           {
             "id": "m22_q2",
-            "question": "Was ist 5/7 - 2/7?",
+            "question": "Was ist 5/7 − 2/7?",
             "answers": [
               {
                 "text": "3/7",
+                "feedback": "Fünf Siebtel minus zwei Siebtel sind drei Siebtel.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Bei gleichem Nenner rechnest du 5 - 2 und behältst /7."
+                "pts": 10
               },
               {
                 "text": "3/0",
+                "feedback": "Die Nenner werden nicht subtrahiert. Ein Nenner 0 ist außerdem nicht erlaubt.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Der Nenner wird nicht 0. Er bleibt 7, also 3/7."
+                "pts": 0
+              },
+              {
+                "text": "7/7",
+                "feedback": "Hier wird weggenommen: 5 − 2 = 3. Du darfst die Zähler nicht addieren.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m22_dip1",
+            "question": "Was ist 2/9 + 5/9?",
+            "answers": [
+              {
+                "text": "7/9",
+                "feedback": "2 + 5 = 7. Beide Summanden zählen Neuntel.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "7/18",
+                "feedback": "Der Nenner bleibt 9. Addieren der Nenner ist hier keine gültige Regel.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "10/9",
+                "feedback": "2 · 5 = 10 gehört nicht zu dieser Addition.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -22304,7 +22533,7 @@
       {
         "id": "m22_common",
         "title": "Unterschiedliche Nenner",
-        "content": "<p>Bei <strong>1/2 + 1/3</strong> sind die Stücke verschieden groß. Wähle einen gemeinsamen Nenner, zum Beispiel das kgV von 2 und 3: 6. Dann gilt 1/2 = 3/6 und 1/3 = 2/6. Jetzt kannst du addieren: 3/6 + 2/6 = <strong>5/6</strong>.</p><p>Beim Subtrahieren geht es ebenso: 3/4 − 1/6 = 9/12 − 2/12 = <strong>7/12</strong>. Ein gemeinsamer Nenner muss nicht der kleinste sein; ein größerer kann ebenfalls funktionieren. Kürze am Ende, wenn möglich.</p><div class=\"interactive-zone\"><h3>Selbst rechnen: 1/2 + 1/4</h3><p>Schreibe zuerst beide Brüche mit dem Nenner 4. Addiere dann die Zähler.</p><label>Zähler des Ergebnisses <input type=\"number\" id=\"bruch_common_n\" step=\"1\"></label><label>Nenner des Ergebnisses <input type=\"number\" id=\"bruch_common_d\" step=\"1\" min=\"1\"></label><button type=\"button\">Prüfen</button></div>{{QUIZ_m22_sum}}{{QUIZ_m22_difference}}",
+        "content": "<p>Bei <strong>1/2 + 1/3</strong> sind die Teilgrößen verschieden. Unterteile dasselbe Ganze in Sechstel: 1/2 = 3/6, 1/3 = 2/6. Zusammen sind das 5/6. Der gemeinsame Nenner macht die Teilstücke vergleichbar.</p><figure class=\"fraction-static\"><svg class=\"fraction-figure\" data-worksheet-static=\"true\" viewBox=\"0 0 420 215\" role=\"img\" aria-labelledby=\"fraction-common-title\"><title id=\"fraction-common-title\">Gemeinsame Sechstel: 1/2 + 1/3 = 3/6 + 2/6 = 5/6.</title><text x=\"5\" y=\"27\" fill=\"currentColor\" font-size=\"22\">1/2</text><rect x=\"100\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"300\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"350\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><text x=\"5\" y=\"92\" fill=\"currentColor\" font-size=\"22\">1/3</text><rect x=\"100\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"250\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"300\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"350\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><text x=\"5\" y=\"157\" fill=\"currentColor\" font-size=\"22\">5/6</text><rect x=\"100\" y=\"135\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"135\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"135\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"135\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"300\" y=\"135\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"350\" y=\"135\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/></svg><figcaption>Gemeinsame Sechstel: 1/2 + 1/3 = 3/6 + 2/6 = 5/6. Alle Streifen stellen ein gleich großes Ganzes dar.</figcaption></figure><p>Das kgV der Nenner liefert den kleinsten gemeinsamen Nenner. Ein größeres gemeinsames Vielfaches geht auch: 1/2 + 1/3 = 6/12 + 4/12 = 10/12 = 5/6.</p><p>Beim Subtrahieren ebenso: <strong>3/4 − 1/6 = 9/12 − 2/12 = 7/12</strong>. Zeichne einen in zwölf Teile geteilten Streifen, markiere neun und streiche zwei davon. In diesem Kapitel wählen wir Subtraktionen mit nichtnegativem Ergebnis.</p><div class=\"interactive-zone fraction-quick\"><h3>Selbst rechnen: verschiedene Nenner</h3><p>Berechne 1/2 + 1/4. Gleichwertige Brüche werden akzeptiert.</p><label for=\"bruch_common_n\">Zähler des Ergebnisses</label><input id=\"bruch_common_n\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"bruch_common_d\">Nenner des Ergebnisses</label><input id=\"bruch_common_d\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><button type=\"button\">Prüfen</button><template data-worksheet-alternative><div data-fraction-quick-paper><p>Zeichne 1/2 + 1/4 mit einem gemeinsamen Nenner. Gib das Ergebnis an.</p><p>Rechnung: __________________________________________________</p></div></template></div><ol data-fraction-tasks data-assignment-mode=\"direct\"><li>Zeichne 1/2 + 1/3 zuerst in Sechsteln und dann in Zwölfteln. Begründe, warum das Ergebnis gleich bleibt.</li><li>Zeichne 3/4 − 1/6 auf einem in zwölf Teile geteilten Streifen. Markiere, was weggenommen wird.</li><li>Berechne 5/6 + 2/3. Zeichne dafür zwei gleich große Ganze. Begründe, warum ein einzelnes Ganzes für die Summe nicht genügt.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. 3/6 + 2/6 = 5/6; 6/12 + 4/12 = 10/12 = 5/6. Papierübung: 1/2 + 1/4 = 3/4.</p><p>2. Von neun Zwölfteln werden zwei weggenommen; sieben bleiben.</p><p>3. 5/6 + 4/6 = 9/6 = 3/2 = 1 1/2. Ein Ganzes und eine Hälfte werden markiert.</p></details>{{QUIZ_m22_sum}}{{QUIZ_m22_difference}}{{QUIZ_m22_common_units}}",
         "quizzes": [
           {
             "id": "m22_sum",
@@ -22353,29 +22582,107 @@
                 "feedback": "Nach dem Erweitern lauten die Zähler 9 und 2. Ihre Differenz ist 7."
               }
             ]
+          },
+          {
+            "id": "m22_common_units",
+            "question": "Warum hilft der Nenner 6 bei 1/2 + 1/3?",
+            "answers": [
+              {
+                "text": "Weil 2 + 3 gleich 6 ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2 + 3 ist 5. Hier geht es um einen gemeinsamen Nenner, nicht um die Summe der Nenner."
+              },
+              {
+                "text": "Weil man nur die Nenner verändern darf.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Beim Erweitern müssen Zähler und Nenner mit demselben Faktor multipliziert werden."
+              },
+              {
+                "text": "Weil beide Anteile dann in gleich großen Sechsteln gezählt werden.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Eine Hälfte sind drei Sechstel, ein Drittel zwei Sechstel. Danach kann man die Anzahlen addieren."
+              }
+            ]
           }
         ]
       },
       {
         "id": "m22_s2",
-        "title": "Brüche Mal rechnen (Multiplizieren)",
-        "content": "<p>Beim <b>Malrechnen</b> ist es ganz einfach!</p><p><span style=\"color:blue; font-weight:bold;\">Zähler mal Zähler</span> (oben) und <span style=\"color:green; font-weight:bold;\">Nenner mal Nenner</span> (unten).</p><div class='interactive-zone' style='background:#fff0f5; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid pink;'><p>Rechne: 1/2 mal 3/4 = <input type='number' id='bruch_m1' style='width:40px;'> / <input type='number' id='bruch_m2' style='width:40px;'></p><button style='padding:5px 10px; background:pink; color:black; border:none; border-radius:4px; cursor:pointer; font-weight:bold;'>Check</button></div>{{QUIZ_m22_q3}}",
+        "title": "Multiplizieren: einen Anteil von einem Anteil nehmen",
+        "content": "<p>„1/2 von 3/4“ bedeutet: Nimm die Hälfte eines Anteils, der bereits drei Viertel des Ganzen ausmacht. Teile das Ganze in zwei Spalten und vier Reihen. Es entstehen acht gleich große Zellen. Die Hälfte von drei Vierteln umfasst drei dieser Zellen: <strong>1/2 · 3/4 = 3/8</strong>.</p><figure class=\"fraction-static\"><svg class=\"fraction-figure\" data-worksheet-static=\"true\" viewBox=\"0 0 320 230\" role=\"img\" aria-labelledby=\"fraction-area-title\"><title id=\"fraction-area-title\">Ein Ganzes in zwei Spalten und vier Reihen. Drei Zellen der linken Spalte sind markiert: die Hälfte von drei Vierteln ist drei Achtel.</title><rect x=\"40\" y=\"15\" width=\"120\" height=\"45\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"160\" y=\"15\" width=\"120\" height=\"45\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"40\" y=\"60\" width=\"120\" height=\"45\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"160\" y=\"60\" width=\"120\" height=\"45\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"40\" y=\"105\" width=\"120\" height=\"45\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"160\" y=\"105\" width=\"120\" height=\"45\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"40\" y=\"150\" width=\"120\" height=\"45\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"160\" y=\"150\" width=\"120\" height=\"45\" fill=\"#fff\" stroke=\"#111\"/><text x=\"40\" y=\"220\" fill=\"currentColor\" font-size=\"22\">3 von 8 Zellen = 3/8</text></svg><figcaption>Das ganze Rechteck ist die Bezugsfläche. Die markierte Fläche zeigt 1/2 von 3/4.</figcaption></figure><p>Allgemein liefert die waagrechte Teilung b Teile, die senkrechte d Teile. Ein Ganzes enthält b · d gleich große Zellen. a Spalten und c Reihen überlappen in a · c Zellen: <strong>a/b · c/d = (a · c)/(b · d)</strong>. Die Nenner sind positiv.</p><p>Bei einem Bruchteil einer Größe geht es genauso: 2/3 von 3/4 L = (3/4 L : 3) · 2 = 1/4 L · 2 = 1/2 L. Du kannst auch erst vervielfachen und danach teilen. Die Einheit bleibt hier Liter.</p><p>Auch Anteile über 1 sind möglich: 3/2 von 3/4 = 9/8. Das Modell benötigt dann mehr als ein Einheitsquadrat. Die dick umrandeten Quadrate zeigen jeweils <strong>ein Ganzes</strong>.</p><div class=\"interactive-zone fraction-model\" data-fraction-model=\"multiply\"><h3>Flächenwerkstatt</h3><p>Wähle eine Rechnung und schätze zuerst das Ergebnis. Berechne dann den Bruch. Vergleiche deinen Weg mit dem Modell; gleichwertige Brüche werden akzeptiert.</p><label for=\"fraction-multiply-case\">Rechnung</label><select id=\"fraction-multiply-case\" data-fraction-case></select><label for=\"fraction-multiply-n\">Zähler des Ergebnisses</label><input id=\"fraction-multiply-n\" data-fraction-n type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"fraction-multiply-d\">Nenner des Ergebnisses</label><input id=\"fraction-multiply-d\" data-fraction-d type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><div class=\"fraction-actions\"><button type=\"button\" data-fraction-check>Prüfen</button><button type=\"button\" data-fraction-show>Modell und Rechenweg anzeigen</button><button type=\"button\" data-fraction-reset>Zurücksetzen</button></div><p data-fraction-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><div data-fraction-view hidden></div><template data-worksheet-alternative><div data-fraction-model-paper><p>Zeichne ein Ganzes in zwei Spalten und vier Reihen. Markiere drei Reihen und die Hälfte davon. Begründe 1/2 · 3/4. Zeichne danach 3/2 · 3/4 mit zwei nebeneinanderliegenden Einheitsquadraten.</p><p>Skizze und Rechnung: __________________________________________</p><p>____________________________________________________________</p></div></template></div><div class=\"interactive-zone fraction-quick\"><h3>Selbst rechnen: Produkt</h3><p>Berechne 1/2 · 3/4.</p><label for=\"bruch_m1\">Zähler des Produkts</label><input id=\"bruch_m1\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"bruch_m2\">Nenner des Produkts</label><input id=\"bruch_m2\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><button type=\"button\">Prüfen</button><template data-worksheet-alternative><div data-fraction-quick-paper><p>Berechne 1/2 · 3/4 und kürze, wenn möglich.</p><p>Rechnung: __________________________________________________</p></div></template></div><ol data-fraction-tasks data-assignment-mode=\"direct\"><li>Zeichne ein Ganzes in drei Spalten und fünf Reihen. Markiere zwei Spalten und vier Reihen; wie groß ist die gemeinsame Fläche?</li><li>Ein Rezept benötigt 3/4 L. Du bereitest 2/3 dieser Menge zu. Berechne die Literzahl auf zwei Wegen.</li><li>Berechne 3/2 · 3/4 und vergleiche das Ergebnis mit 3/4. Erkläre den Unterschied zum Halbieren.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. 2 · 4 = 8 von 3 · 5 = 15 Zellen: 8/15.</p><p>2. (3/4 L : 3) · 2 = 1/2 L; oder (2 · 3)/(3 · 4) L = 6/12 L = 1/2 L.</p><p>3. 9/8 ist größer als 3/4, weil der Faktor 3/2 größer als 1 ist. Beide Papieraufgaben mit 1/2 · 3/4 ergeben 3/8; mit 3/2 · 3/4 werden neun Achtel markiert.</p></details>{{QUIZ_m22_q3}}{{QUIZ_m22_dip2}}{{QUIZ_m22_product_model}}",
         "quizzes": [
           {
             "id": "m22_q3",
-            "question": "Wie rechnet man 2/3 mal 1/5?",
+            "question": "Was ist 2/3 · 1/5?",
             "answers": [
               {
-                "text": "Oben: 2x1=2. Unten: 3x5=15. Also 2/15.",
+                "text": "2/15",
+                "feedback": "Zähler mal Zähler und Nenner mal Nenner: (2 · 1)/(3 · 5) = 2/15.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Beim Multiplizieren rechnest du Zähler mal Zähler und Nenner mal Nenner."
+                "pts": 10
               },
               {
-                "text": "Ich brauche den gleichen Nenner.",
+                "text": "3/8",
+                "feedback": "Die Summe der Zähler und die Summe der Nenner liefern hier nicht das Produkt.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Gleiche Nenner brauchst du beim Addieren, nicht beim Multiplizieren."
+                "pts": 0
+              },
+              {
+                "text": "10/3",
+                "feedback": "10/3 wäre 2/3 : 1/5. Hier wird multipliziert.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m22_dip2",
+            "question": "Welche Darstellung hat den Wert von 3/4 · 2/5?",
+            "answers": [
+              {
+                "text": "6/20",
+                "feedback": "(3 · 2)/(4 · 5) = 6/20 = 3/10. Die Antwort muss hier nicht vollständig gekürzt sein.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "15/8",
+                "feedback": "15/8 entsteht beim Dividieren durch 2/5, nicht beim Multiplizieren.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "5/9",
+                "feedback": "Zähler und Nenner einzeln zu addieren ist keine Produktregel.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m22_product_model",
+            "question": "Ein Ganzes besteht aus 3 Spalten und 5 Reihen. Zwei Spalten und vier Reihen werden markiert. Welcher Anteil liegt in beiden Markierungen?",
+            "answers": [
+              {
+                "text": "6/8",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Überlappung entsteht durch 2 · 4 Zellen, das Ganze besteht aus 3 · 5 Zellen."
+              },
+              {
+                "text": "8/15",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Zwei Spalten mal vier Reihen liefern acht von fünfzehn gleich großen Zellen."
+              },
+              {
+                "text": "2/3",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2/3 beschreibt die zwei Spalten über alle fünf Reihen. Gesucht ist nur der Anteil in vier Reihen."
               }
             ]
           }
@@ -22383,24 +22690,157 @@
       },
       {
         "id": "m22_s3",
-        "title": "Brüche Geteilt rechnen (Dividieren)",
-        "content": "<p>Der Divisor darf nicht 0 sein. Beim Kehrwert werden Zähler und Nenner vertauscht.</p><p>Beim <b>Geteiltrechnen</b> haben wir einen Trick.</p><p>Wir drehen den zweiten Bruch einfach auf den Kopf!</p><p>Aus 1/4 wird 4/1. Dann rechnen wir <span style=\"color:red; font-weight:bold;\">Mal</span> statt Geteilt.</p><p>Beispiel: 1/2 geteilt durch 1/4 wird zu 1/2 mal 4/1 = 4/2 = 2.</p><div class='interactive-zone' style='background:#f5fffa; padding:15px; border-radius:8px; margin: 10px 0; border: 2px solid green;'><p>Rechne: 2/3 geteilt durch 1/2. Aus 1/2 wird 2/1. Was ist dann 2/3 mal 2/1? <input type='number' id='bruch_d1' style='width:40px;'> / <input type='number' id='bruch_d2' style='width:40px;'></p><button style='padding:5px 10px; background:green; color:white; border:none; border-radius:4px; cursor:pointer;'>Check</button></div>{{QUIZ_m22_q4}}",
+        "title": "Dividieren: mit einer Portion messen",
+        "content": "<p>Bei <strong>1/2 L : 1/4 L</strong> fragen wir: Wie oft passt eine Viertelliterportion in einen halben Liter? Zwei Viertel passen hinein. Das Ergebnis ist <strong>2 Portionen</strong>, nicht 2 Liter.</p><p>Die Antwort muss keine ganze Anzahl sein. Bei 2/3 L : 1/2 L unterteilen wir beide Mengen in Sechstel: Der Vorrat umfasst vier Sechstel, eine volle Portion drei Sechstel. Eine volle Portion passt hinein, ein Sechstel Liter bleibt. Dieses verbleibende Sechstel ist <strong>1/3 einer halben Literportion</strong>. Der Quotient ist daher 1 + 1/3 = 4/3.</p><figure class=\"fraction-static\"><svg class=\"fraction-figure\" data-worksheet-static=\"true\" viewBox=\"0 0 420 150\" role=\"img\" aria-labelledby=\"fraction-division-title\"><title id=\"fraction-division-title\">Gleicher Maßstab: 2/3 L sind vier Sechstel; 1/2 L sind drei Sechstel.</title><text x=\"5\" y=\"27\" fill=\"currentColor\" font-size=\"22\">2/3 L</text><rect x=\"100\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"5\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"300\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"350\" y=\"5\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><text x=\"5\" y=\"92\" fill=\"currentColor\" font-size=\"22\">1/2 L</text><rect x=\"100\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"150\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"200\" y=\"70\" width=\"50\" height=\"32\" fill=\"#2563eb\" stroke=\"#111\"/><rect x=\"250\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"300\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/><rect x=\"350\" y=\"70\" width=\"50\" height=\"32\" fill=\"#fff\" stroke=\"#111\"/></svg><figcaption>Gleicher Maßstab: 2/3 L sind vier Sechstel; 1/2 L sind drei Sechstel. Alle Streifen stellen ein gleich großes Ganzes dar.</figcaption></figure><p>Beim gemeinsamen Nenner kürzt sich die Teilgröße im Verhältnis heraus: a/b : c/d = (a · d)/(b · d) : (c · b)/(d · b) = (a · d)/(b · c). Das ist dasselbe wie <strong>a/b · d/c</strong>. So erklärt das Messen die Kehrwertregel. b und d sind positiv; c darf nicht 0 sein.</p><p>Die Probe kehrt die Multiplikation um: 4/3 · 1/2 = 2/3. Durch 0 darfst du nicht dividieren. Dagegen gilt 0 : 1/2 = 0: Ohne Vorrat lässt sich keine positive Portion füllen.</p><div class=\"interactive-zone fraction-model\" data-fraction-model=\"divide\"><h3>Portionenwerkstatt</h3><p>Wähle eine Rechnung und schätze zuerst das Ergebnis. Berechne dann den Bruch. Vergleiche deinen Weg mit dem Modell; gleichwertige Brüche werden akzeptiert.</p><label for=\"fraction-divide-case\">Rechnung</label><select id=\"fraction-divide-case\" data-fraction-case></select><label for=\"fraction-divide-n\">Zähler des Ergebnisses</label><input id=\"fraction-divide-n\" data-fraction-n type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"fraction-divide-d\">Nenner des Ergebnisses</label><input id=\"fraction-divide-d\" data-fraction-d type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><div class=\"fraction-actions\"><button type=\"button\" data-fraction-check>Prüfen</button><button type=\"button\" data-fraction-show>Modell und Rechenweg anzeigen</button><button type=\"button\" data-fraction-reset>Zurücksetzen</button></div><p data-fraction-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><div data-fraction-view hidden></div><template data-worksheet-alternative><div data-fraction-model-paper><p>Zeichne 2/3 L und eine Portion von 1/2 L mit demselben Maßstab in Sechsteln. Bestimme volle Portionen, verbleibende Liter und den Bruchteil einer weiteren Portion. Prüfe durch Multiplikation.</p><p>Skizze und Rechnung: __________________________________________</p><p>____________________________________________________________</p></div></template></div><div class=\"interactive-zone fraction-quick\"><h3>Selbst rechnen: Quotient</h3><p>Berechne 2/3 : 1/2. Gleichwertige Brüche werden akzeptiert.</p><label for=\"bruch_d1\">Zähler des Quotienten</label><input id=\"bruch_d1\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"bruch_d2\">Nenner des Quotienten</label><input id=\"bruch_d2\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\"><button type=\"button\">Prüfen</button><template data-worksheet-alternative><div data-fraction-quick-paper><p>Berechne 2/3 : 1/2 und führe die Multiplikationsprobe aus.</p><p>Rechnung: __________________________________________________</p></div></template></div><ol data-fraction-tasks data-assignment-mode=\"direct\"><li>Aus 3/4 L werden Portionen zu 1/8 L abgemessen. Wie viele volle Portionen erhältst du? Zeichne Achtel und prüfe durch Multiplikation.</li><li>Aus 1/2 L soll eine Portion von 3/4 L gefüllt werden. Welcher Anteil einer vollen Portion ist vorhanden? Unterscheide den Quotienten von der vorhandenen Literzahl.</li><li>Berechne 5/6 : 1/3. Nenne volle Portionen, Rest in Litern und Rest als Bruchteil einer Portion, wenn die Ausgangsgrößen Liter sind.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. 3/4 : 1/8 = 6 Portionen. Probe: 6 · 1/8 L = 3/4 L.</p><p>2. 1/2 : 3/4 = 2/3 einer Portion. Der Vorrat ist 1/2 L; 2/3 ist hier keine Literangabe.</p><p>3. 5/6 : 1/3 = 5/2 = 2 1/2 Portionen. Nach zwei Portionen bleibt 1/6 L, also eine halbe Portion. Beide Papieraufgaben zu 2/3 : 1/2 ergeben 4/3 Portionen: eine volle und ein Drittel einer weiteren; Rest 1/6 L. Probe: 4/3 · 1/2 = 2/3.</p></details>{{QUIZ_m22_q4}}{{QUIZ_m22_div_remainder}}{{QUIZ_m22_div_zero}}",
         "quizzes": [
           {
             "id": "m22_q4",
-            "question": "Was ist 1/5 geteilt durch 2/3?",
+            "question": "Was ist 1/5 : 2/3?",
             "answers": [
               {
-                "text": "1/5 mal 3/2 = 3/10",
+                "text": "3/10",
+                "feedback": "1/5 · 3/2 = 3/10. Probe: 3/10 · 2/3 = 1/5.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Durch einen Bruch teilen heißt mit dem Kehrwert multiplizieren: 1/5 * 3/2."
+                "pts": 10
               },
               {
-                "text": "1/5 mal 2/3 = 2/15",
+                "text": "2/15",
+                "feedback": "Das ist das Produkt der ursprünglichen Brüche. Beim Dividieren brauchst du den Kehrwert des zweiten Bruchs.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Beim Teilen musst du den zweiten Bruch umdrehen: 2/3 wird 3/2."
+                "pts": 0
+              },
+              {
+                "text": "10/3",
+                "feedback": "Hier wurde der erste Bruch umgedreht. Der Kehrwert wird vom Divisor 2/3 gebildet.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m22_div_remainder",
+            "question": "Bei 2/3 L Vorrat und Portionen zu 1/2 L bleibt nach einer vollen Portion 1/6 L. Welcher Anteil einer weiteren Portion ist das?",
+            "answers": [
+              {
+                "text": "1/6 einer Portion",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/6 ist die verbleibende Literzahl. Eine Portion enthält aber nur 1/2 L; relativ dazu ist der Rest ein Drittel."
+              },
+              {
+                "text": "1/2 einer Portion",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Hälfte von 1/2 L wäre 1/4 L. Es bleiben hier 1/6 L."
+              },
+              {
+                "text": "1/3 einer Portion",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Eine Portion besteht aus drei Sechsteln eines Liters. Ein verbleibendes Sechstel ist ein Drittel davon."
+              }
+            ]
+          },
+          {
+            "id": "m22_div_zero",
+            "question": "Welche Rechnung ist erlaubt und richtig?",
+            "answers": [
+              {
+                "text": "1/2 : 0 = 0",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Division durch 0 ist nicht definiert. Multipliziert mit 0 könnte kein Ergebnis wieder 1/2 ergeben."
+              },
+              {
+                "text": "0 : 1/2 = 0",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Null Vorrat geteilt durch eine positive Portionsgröße ergibt null Portionen."
+              },
+              {
+                "text": "0 : 0 = 1",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Division durch 0 ist auch bei einem Zähler von 0 nicht definiert. Die Multiplikationsprobe würde keinen eindeutigen Quotienten festlegen."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m22_rules",
+        "title": "Ergebnisse einschätzen und Rechenwege prüfen",
+        "content": "<p>Für einen <strong>positiven Ausgangswert</strong> gilt: Multiplizieren mit einer Zahl zwischen 0 und 1 verkleinert, mit 1 erhält es den Wert, mit einer Zahl größer als 1 vergrößert es. Dividieren durch eine Zahl zwischen 0 und 1 vergrößert; durch 1 bleibt der Wert gleich; durch eine Zahl größer als 1 wird er kleiner. Beim Ausgangswert 0 bleibt das Ergebnis 0, sofern der Divisor nicht 0 ist.</p><p>Bei gleicher positiver Menge führt die halbe Portionsgröße zur doppelten Portionszahl: 3/4 : 1/2 = 3/2, aber 3/4 : 1/4 = 3. Beim Multiplizieren halbiert ein halbierter Faktor das Produkt, wenn der andere gleich bleibt: 2/3 · 3/4 = 1/2, aber 1/3 · 3/4 = 1/4.</p><h3>Vorrang und Klammern</h3><p>Die bekannten Regeln gelten auch für Brüche: erst Klammern, dann Multiplikation/Division, dann Addition/Subtraktion. Gleichrangige Operationen von links nach rechts. Beispiel: 1/2 + 1/3 · 3/4 = 1/2 + 1/4 = 3/4. Dagegen (1/2 + 1/3) · 3/4 = 5/6 · 3/4 = 5/8.</p><p>Das Verteilungsgesetz erklärt einen zweiten Weg: (1/2 + 1/3) · 3/4 = 1/2 · 3/4 + 1/3 · 3/4 = 3/8 + 1/4 = 5/8. Bei einer Addition dürfen die Summanden, bei einer Multiplikation die Faktoren vertauscht werden. Bei Subtraktionen und Divisionen darfst du die beiden Zahlen im Allgemeinen nicht vertauschen.</p><h3>Schranken und passende Darstellung</h3><p>Weil 0 &lt; 2/5 &lt; 1, liegt 2/5 · 7/8 zwischen 0 und 7/8. Ein Ergebnis von 14/13 wäre damit sofort ausgeschlossen. Genau ist das Produkt 14/40 = 7/20. Ein Überschlag erkennt grobe Fehler, beweist aber kein genaues Ergebnis.</p><p>Für 1/3 + 1/6 ist die Bruchdarstellung praktisch: 2/6 + 1/6 = 1/2. Vorzeitiges Runden auf 0,33 + 0,17 verdeckt die exakten Einzelwerte. Für Preise wie 1,25 € + 0,50 € ist die Dezimalschreibweise oft übersichtlicher: 1,75 €. Wähle eine Darstellung, die die Rechnung und die nötige Genauigkeit unterstützt.</p><ol data-fraction-tasks data-assignment-mode=\"direct\"><li>Berechne 1/2 + 1/3 · 3/4 und (1/2 + 1/3) · 3/4. Erkläre, an welcher Stelle sich die Wege unterscheiden.</li><li>Vergleiche 3/4 : 1/2 und 3/4 : 1/4 ohne zuerst vollständig auszurechnen. Begründe mit der Größe der Portionen und kontrolliere danach.</li><li>Jemand erhält für 2/5 · 7/8 den Wert 14/13. Widerlege das zuerst durch einen Größenvergleich und rechne dann genau.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. Ohne Klammer: 3/4. Mit Klammer: 5/8. Die Summe wird nur im zweiten Fall vor der Multiplikation berechnet.</p><p>2. Halb so große Portionen passen doppelt so oft hinein. Die Quotienten sind 3/2 und 3.</p><p>3. Der Faktor 2/5 liegt zwischen 0 und 1; das Produkt muss kleiner als 7/8 sein. 14/13 ist sogar größer als 1. Richtig: 14/40 = 7/20.</p></details>{{QUIZ_m22_rules_order}}{{QUIZ_m22_rules_change}}{{QUIZ_m22_rules_bounds}}",
+        "quizzes": [
+          {
+            "id": "m22_rules_order",
+            "question": "Was ergibt 1/2 + 1/3 · 3/4 ohne zusätzliche Klammern?",
+            "answers": [
+              {
+                "text": "5/8",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre das Ergebnis mit der Klammer (1/2 + 1/3) · 3/4."
+              },
+              {
+                "text": "1/4",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/4 ist nur das Produkt 1/3 · 3/4. Die 1/2 muss noch addiert werden."
+              },
+              {
+                "text": "3/4",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Zuerst 1/3 · 3/4 = 1/4, dann 1/2 + 1/4 = 3/4."
+              }
+            ]
+          },
+          {
+            "id": "m22_rules_change",
+            "question": "Die Saftmenge bleibt gleich und positiv. Die Größe jeder Portion wird halbiert. Was passiert mit dem Quotienten?",
+            "answers": [
+              {
+                "text": "Er verdoppelt sich.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Halb so große Portionen passen doppelt so oft in dieselbe Menge."
+              },
+              {
+                "text": "Er halbiert sich.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Kleinere Portionen bedeuten mehr Portionen, nicht weniger."
+              },
+              {
+                "text": "Er bleibt gleich.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Vorratsmenge bleibt gleich, die Bezugsgröße einer Portion ändert sich aber."
+              }
+            ]
+          },
+          {
+            "id": "m22_rules_bounds",
+            "question": "Welcher Größenvergleich gilt für 2/5 · 7/8?",
+            "answers": [
+              {
+                "text": "Das Produkt ist größer als 7/8.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Faktor 2/5 liegt zwischen 0 und 1 und verkleinert den positiven Wert 7/8."
+              },
+              {
+                "text": "Das Produkt liegt zwischen 0 und 7/8.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Beide Faktoren sind positiv; Multiplizieren mit 2/5 verkleinert 7/8."
+              },
+              {
+                "text": "Das Produkt muss gleich 0 sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Positive Brüche können ein positives Ergebnis kleiner als 1 haben. Man darf nicht auf ganze Zahlen abrunden."
               }
             ]
           }
@@ -22409,58 +22849,26 @@
     ],
     "diplom": {
       "title": "🎓 Bruch-Diplom",
-      "questions": [
-        {
-          "id": "m22_dip1",
-          "question": "Was ist 2/9 + 5/9?",
-          "answers": [
-            {
-              "text": "7/9",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Gleicher Nenner: 2 + 5 = 7, also 7/9."
-            },
-            {
-              "text": "7/18",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Der Nenner bleibt 9. 7/18 entsteht, wenn man die Nenner fälschlich addiert."
-            }
-          ]
-        },
-        {
-          "id": "m22_dip2",
-          "question": "Was ist 3/4 mal 2/5?",
-          "answers": [
-            {
-              "text": "6/20",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig: Zähler mal Zähler und Nenner mal Nenner ergibt 6/20."
-            },
-            {
-              "text": "15/8",
-              "correct": false,
-              "pts": 5,
-              "feedback": "15/8 vertauscht die Regel. Multipliziere oben mit oben und unten mit unten."
-            }
-          ]
-        }
-      ]
+      "questions": []
     },
     "prerequisites": [
       "math1_8_brueche",
       "math2_1_teilbarkeit"
     ],
     "learningGoals": [
-      "Brüche ohne Wertänderung erweitern und kürzen.",
-      "Ungleichnamige Brüche mit gemeinsamem Nenner addieren und subtrahieren.",
-      "Brüche multiplizieren und durch einen Bruch ungleich 0 dividieren."
+      "Brüche ohne Wertänderung erweitern und kürzen und die Gleichwertigkeit am Bild erklären.",
+      "Ungleichnamige Brüche addieren und subtrahieren und gemeinsame Teilgrößen begründen.",
+      "Brüche als relative Anteile multiplizieren und das Produkt im Flächenmodell deuten.",
+      "Division durch einen Bruch ungleich 0 als Messen und Umkehren der Multiplikation erklären.",
+      "Ergebnisse abschätzen, Änderungen von Faktoren und Divisoren begründen sowie Klammer- und Vorrangregeln anwenden."
     ],
     "summary": [
-      "Erweitern und Kürzen verändern Zähler und Nenner mit demselben Faktor und erhalten den Wert.",
-      "Zum Addieren und Subtrahieren zuerst einen gemeinsamen Nenner herstellen; danach nur die Zähler addieren oder subtrahieren.",
-      "Beim Multiplizieren gilt Zähler mal Zähler und Nenner mal Nenner. Beim Dividieren wird mit dem Kehrwert des zweiten Bruchs multipliziert. Der Divisor darf nicht 0 sein."
+      "Erweitern und Kürzen verändern Zähler und Nenner mit demselben Faktor und erhalten den Wert. Das Ganze bleibt dasselbe.",
+      "Zum Addieren und Subtrahieren zuerst einen gemeinsamen Nenner herstellen; danach gleich große Teile zählen.",
+      "a/b von c/d ist (a · c)/(b · d). Im Flächenmodell werden die Teilungen in beide Richtungen kombiniert. Alle Nenner sind ungleich 0.",
+      "a/b : c/d fragt, wie oft c/d in a/b hineinpasst. Durch einen Bruch ungleich 0 teilen heißt mit seinem Kehrwert multiplizieren.",
+      "Bei positiven Ausgangswerten verkleinert ein Faktor zwischen 0 und 1; ein Divisor zwischen 0 und 1 vergrößert. Der Größenvergleich gilt nicht genauso für den Ausgangswert 0.",
+      "Klammern zuerst, danach Multiplikation und Division, danach Addition und Subtraktion. Gleichrangige Operationen von links nach rechts."
     ]
   },
   "math2_3_dezimalzahlen": {
@@ -22974,13 +23382,13 @@
     ]
   },
   "math2_4_relative_zahlen": {
-    "title": "Ganze Zahlen: unter und über null",
-    "subtitle": "Zahlen ordnen und Veränderungen am Zahlenstrahl erklären.",
+    "title": "Ganze Zahlen und Zahlbereiche",
+    "subtitle": "Ordnen, Nachbarzahlen und Zwischenwerte verstehen",
     "sections": [
       {
         "id": "sec1",
         "title": "Was sind negative Zahlen?",
-        "content": "<p>Die ganzen Zahlen umfassen …, −3, −2, −1, 0, 1, 2, 3, … . Negative Zahlen sind kleiner als null. Auf dem Zahlenstrahl liegen kleinere Zahlen weiter links. Deshalb gilt −5 &lt; −2: −5 liegt weiter links, obwohl 5 größer als 2 ist.</p><p>Bei −5 °C liegt die Temperatur fünf Grad unter 0 °C. Die Zahl 0 ist weder positiv noch negativ. Ein Minuszeichen kann ein Vorzeichen sein, etwa bei −5, oder die Rechenoperation Subtraktion bezeichnen, etwa in 3 − 5.</p><div class=\"mini-task\"><strong>Zeichnen und ordnen:</strong> Zeichne einen Zahlenstrahl von −6 bis 6 mit gleichen Abständen. Markiere −5, −2, 0 und 3. Ordne sie von klein nach groß. Erkläre, warum −5 weiter von null entfernt und trotzdem kleiner als −2 ist.</div>{{QUIZ_m24_q1}}",
+        "content": "<p>Die ganzen Zahlen umfassen …, −3, −2, −1, 0, 1, 2, 3, … . Negative Zahlen sind kleiner als null. Auf dem Zahlenstrahl liegen kleinere Zahlen weiter links. Deshalb gilt −5 &lt; −2: −5 liegt weiter links, obwohl 5 größer als 2 ist.</p><p>Bei −5 °C liegt die Temperatur fünf Grad unter 0 °C. Die Zahl 0 ist weder positiv noch negativ. Ein Minuszeichen kann ein Vorzeichen sein, etwa bei −5, oder die Rechenoperation Subtraktion bezeichnen, etwa in 3 − 5.</p><p>Höhen brauchen einen Bezugspunkt: In einem erfundenen Gebäudemodell liegt das Erdgeschoß bei 0 m, eine Plattform bei +3 m und ein Kellerboden bei −2 m. Das Minus bedeutet hier „unterhalb der festgelegten Höhe 0“, nicht automatisch unter dem Meeresspiegel.</p><figure class=\"number-range-figure\"><svg class=\"number-range-svg\" data-worksheet-static=\"true\" viewBox=\"0 0 350 110\" role=\"img\" aria-labelledby=\"integer-order-title\"><title id=\"integer-order-title\">Gleiche Abstände bedeuten gleiche Zahlenunterschiede: −5 < −2 < 0 < 3.</title><line x1=\"25\" y1=\"55\" x2=\"325\" y2=\"55\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"25\" x2=\"25\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"50\" x2=\"50\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"75\" x2=\"75\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"100\" x2=\"100\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"125\" x2=\"125\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"150\" x2=\"150\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"175\" x2=\"175\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"200\" x2=\"200\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"225\" x2=\"225\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"250\" x2=\"250\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"275\" x2=\"275\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"300\" x2=\"300\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"325\" x2=\"325\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><circle cx=\"50\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"50\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">−5</text><circle cx=\"125\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"125\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">−2</text><circle cx=\"175\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"175\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">0</text><circle cx=\"250\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"250\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">3</text></svg><figcaption>Gleiche Abstände bedeuten gleiche Zahlenunterschiede: −5 < −2 < 0 < 3.</figcaption></figure><ol data-number-range-tasks data-assignment-mode=\"direct\"><li>Zeichne eine Zahlengerade von −6 bis 6. Markiere −5, −2, 0 und 3 und ordne die Zahlen. Erkläre den Unterschied zwischen Größe und Abstand von 0.</li><li>Ordne die erfundenen Höhen −2 m, 0 m und +3 m. Wie groß ist der Höhenunterschied zwischen Kellerboden und Plattform?</li><li>Eine Temperatur steigt von −4 °C auf +2 °C. Um wie viele Grad ist sie gestiegen?</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. −5 < −2 < 0 < 3. −5 liegt weiter links und ist kleiner, obwohl sein Abstand von 0 größer ist.</p><p>2. −2 m < 0 m < +3 m. Von −2 bis 0 sind es 2 m, von 0 bis 3 weitere 3 m: insgesamt 5 m.</p><p>3. Um 6 Grad: vier bis 0 und zwei darüber hinaus.</p></details>{{QUIZ_m24_q1}}{{QUIZ_m24_dip1}}{{QUIZ_m24_reference}}",
         "quizzes": [
           {
             "id": "m24_q1",
@@ -23005,13 +23413,61 @@
                 "feedback": "0 °C und −20 °C sind verschiedene Temperaturen. Die Angabe −20 benennt einen Abstand unter null."
               }
             ]
+          },
+          {
+            "id": "m24_dip1",
+            "question": "Welche Zahl ist am kleinsten?",
+            "answers": [
+              {
+                "text": "-100",
+                "correct": true,
+                "pts": 10,
+                "feedback": "−100 liegt auf dem Zahlenstrahl links von −1 und 0 und ist deshalb am kleinsten."
+              },
+              {
+                "text": "-1",
+                "correct": false,
+                "pts": 0,
+                "feedback": "−1 liegt näher bei null und rechts von −100, also ist es größer als −100."
+              },
+              {
+                "text": "0",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Null ist größer als jede negative Zahl."
+              }
+            ]
+          },
+          {
+            "id": "m24_reference",
+            "question": "Ein erfundener Bauplan setzt das Erdgeschoß auf 0 m. Was bedeutet dort −2 m?",
+            "answers": [
+              {
+                "text": "Zwei Meter unter dem Meeresspiegel, unabhängig vom Plan.",
+                "feedback": "Die Nullhöhe wurde hier am Erdgeschoß festgelegt, nicht am Meeresspiegel.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Zwei Meter unter der im Plan festgelegten Nullhöhe.",
+                "feedback": "Das Vorzeichen bezieht sich auf den gewählten Bezugspunkt: hier das Erdgeschoß.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Eine unmögliche Länge; die Angabe ist bedeutungslos.",
+                "feedback": "Die Höhenlage kann unter dem Bezugspunkt liegen. Der Abstand selbst beträgt positive 2 m.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
           }
         ]
       },
       {
         "id": "sec2",
         "title": "Rechnen mit Minus",
-        "content": "<p>Von 3 aus fünf Schritte nach links führt zu −2: <strong>3 − 5 = −2</strong>. Von −3 aus fünf Schritte nach rechts führt zu 2: <strong>−3 + 5 = 2</strong>. Ein Schritt entspricht hier einer Einheit. Das Modell addiert oder subtrahiert eine nicht negative ganze Zahl; Rechnen mit negativen Summanden wird später erweitert.</p><div class=\"interactive-zone\" data-integer-move><h3>Auf dem Zahlenstrahl bewegen</h3><label for=\"integer-start\">Startzahl (−10 bis 10)</label> <input id=\"integer-start\" type=\"number\" min=\"-10\" max=\"10\" step=\"1\" value=\"3\"><label for=\"integer-direction\">Operation</label> <select id=\"integer-direction\"><option value=\"minus\">Subtrahieren: nach links</option><option value=\"plus\">Addieren: nach rechts</option></select><label for=\"integer-steps\">Schritte (0 bis 10)</label> <input id=\"integer-steps\" type=\"number\" min=\"0\" max=\"10\" step=\"1\" value=\"5\"><button type=\"button\" data-integer-run>Berechnen und Weg zeigen</button><p data-integer-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p data-integer-path></p></div><ol data-integer-tasks><li>Vermute das Ergebnis von 3 − 5 und −3 + 5. Prüfe beide Fälle im Modell und zeichne die Wege auf deinem Zahlenstrahl.</li><li>Starte bei −4 und gehe drei Schritte nach links. Erkläre, warum die Zahl kleiner wird, obwohl ihr Abstand zu null wächst.</li><li>Starte bei 0 und vergleiche vier Schritte nach links mit vier Schritten nach rechts. Was ist gleich, was verschieden?</li><li>Verändere nur die Schrittzahl auf 0. Erkläre, warum der Startwert bei beiden Operationen erhalten bleibt.</li></ol>{{QUIZ_m24_q2}}",
+        "content": "<p>Von 3 aus fünf Schritte nach links führt zu −2: <strong>3 − 5 = −2</strong>. Von −3 aus fünf Schritte nach rechts führt zu 2: <strong>−3 + 5 = 2</strong>. Ein Schritt entspricht hier einer Einheit. Das Modell addiert oder subtrahiert eine nicht negative ganze Zahl; Rechnen mit negativen Summanden wird später erweitert.</p><div class=\"interactive-zone number-range-lab\" data-integer-move><h3>Auf dem Zahlenstrahl bewegen</h3><label for=\"integer-start\">Startzahl (−10 bis 10)</label> <input id=\"integer-start\" type=\"number\" min=\"-10\" max=\"10\" step=\"1\" value=\"3\"><label for=\"integer-direction\">Operation</label> <select id=\"integer-direction\"><option value=\"minus\">Subtrahieren (−)</option><option value=\"plus\">Addieren (+)</option></select><label for=\"integer-steps\">Schritte (0 bis 10)</label> <input id=\"integer-steps\" type=\"number\" min=\"0\" max=\"10\" step=\"1\" value=\"5\"><button type=\"button\" data-integer-run>Berechnen und Weg zeigen</button><p data-integer-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p data-integer-path></p><div data-integer-figure hidden></div><button type=\"button\" data-integer-reset>Zurücksetzen</button><template data-worksheet-alternative><div data-number-range-paper><p>Zeichne die Wege zu 3 − 5, −3 + 5 und −4 − 3. Ein Schritt ist eine Einheit. Markiere jeweils Start, Richtung und Ergebnis.</p><p>Skizze: ___________________________________________________</p></div></template></div><ol data-integer-tasks data-number-range-tasks data-assignment-mode=\"direct\"><li>Vermute das Ergebnis von 3 − 5 und −3 + 5. Prüfe beide Fälle im Modell und zeichne die Wege auf deiner Zahlengeraden.</li><li>Starte bei −4 und gehe drei Schritte nach links. Erkläre, warum die Zahl kleiner wird, obwohl ihr Abstand zu null wächst.</li><li>Starte bei 0 und vergleiche vier Schritte nach links mit vier Schritten nach rechts. Was ist gleich, was verschieden?</li><li>Verändere nur die Schrittzahl auf 0. Erkläre, warum der Startwert bei beiden Operationen erhalten bleibt.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. 3 − 5 = −2; −3 + 5 = 2. Einmal gehst du nach links, einmal nach rechts.</p><p>2. −4 − 3 = −7. −7 liegt weiter links und ist kleiner; sein Abstand von 0 ist 7 statt 4.</p><p>3. Ergebnisse −4 und +4. Beide liegen vier Einheiten von 0 entfernt, aber auf verschiedenen Seiten.</p><p>4. Ohne Schritte ändert sich der Startpunkt nicht: s + 0 = s und s − 0 = s.</p></details>{{QUIZ_m24_q2}}{{QUIZ_m24_dip2}}{{QUIZ_m24_no_steps}}",
         "quizzes": [
           {
             "id": "m24_q2",
@@ -23036,75 +23492,398 @@
                 "feedback": "−13 würde etwa bei −5 − 8 entstehen. Hier startest du bei +5."
               }
             ]
+          },
+          {
+            "id": "m24_dip2",
+            "question": "In einem erfundenen Rechenmodell beträgt der Saldo −15 €. Es kommen 20 € dazu. Welcher Saldo ergibt sich?",
+            "answers": [
+              {
+                "text": "+5€",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die ersten 15 der 20 gleichen den negativen Betrag aus; 5 bleiben positiv: −15 + 20 = 5."
+              },
+              {
+                "text": "-35€",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Hinzufügen von 20 bedeutet Addition. −35 entsteht durch weiteres Abziehen von 20."
+              },
+              {
+                "text": "-5€",
+                "correct": false,
+                "pts": 0,
+                "feedback": "20 ist größer als 15. Du überschreitest null und gelangst zu +5, nicht −5."
+              }
+            ]
+          },
+          {
+            "id": "m24_no_steps",
+            "question": "Du startest bei −4 und subtrahierst 0. Wo landest du?",
+            "answers": [
+              {
+                "text": "Bei 0.",
+                "feedback": "Die 0 ist hier die Schrittzahl. Sie ersetzt nicht den Startwert.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Bei +4.",
+                "feedback": "Ohne Schritte wechselst du nicht auf die andere Seite der Null.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Bei −4.",
+                "feedback": "−4 − 0 = −4. Es gibt keine Bewegung.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m24_domains",
+        "title": "Zahlbereiche: der Wert entscheidet",
+        "content": "<p>Ein Zahlbereich ist eine Menge von Zahlen mit bestimmten Eigenschaften. Wir vergleichen hier drei Bereiche:</p><ul><li><strong>Natürliche Zahlen einschließlich 0:</strong> 0, 1, 2, 3, … . Für diesen Lernweg gehört 0 dazu.</li><li><strong>Ganze Zahlen:</strong> …, −3, −2, −1, 0, 1, 2, 3, … . Auch negative ganze Zahlen sind enthalten.</li><li><strong>Nichtnegative Bruchzahlen:</strong> Zahlen, die als a/b mit einer nichtnegativen ganzen Zahl a und einer positiven ganzen Zahl b geschrieben werden können. Dazu gehören etwa 0, 1/2, 7/4 und 2 = 2/1.</li></ul><p>Diese Bereiche sind keine getrennten Schubladen: <strong>Jede natürliche Zahl gehört zu allen drei genannten Bereichen.</strong> −3 ist ganz, aber weder natürlich noch nichtnegativ. 1/2 ist eine nichtnegative Bruchzahl, aber keine ganze Zahl. Die negativen Brüche werden in der dritten Klasse gemeinsam mit diesen Zahlen als rationale Zahlen behandelt.</p><p>Entscheidend ist der Wert: 6/3 = 2 gehört zu allen drei Bereichen. Dass ein Bruchstrich vorkommt, schließt eine ganze Zahl nicht aus. Ebenso ist 2,0 eine ganze Zahl. Eine Nachkommastelle allein beweist keinen nichtganzen Wert.</p><div class=\"interactive-zone number-range-lab\" data-number-classify><h3>Zu welchen Bereichen gehört der Wert?</h3><label for=\"number-class-case\">Darstellung auswählen</label><select id=\"number-class-case\"></select><fieldset><legend>Markiere alle passenden Bereiche</legend><label class=\"number-range-choice\"><input type=\"checkbox\" value=\"natural\"> Natürliche Zahlen einschließlich 0</label><label class=\"number-range-choice\"><input type=\"checkbox\" value=\"integer\"> Ganze Zahlen</label><label class=\"number-range-choice\"><input type=\"checkbox\" value=\"fraction\"> Nichtnegative Bruchzahlen</label></fieldset><div class=\"number-range-actions\"><button type=\"button\" data-number-class-check>Prüfen</button><button type=\"button\" data-number-class-reset>Zurücksetzen</button></div><p data-number-class-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><template data-worksheet-alternative><div data-number-range-paper><p>Ordne 0, −3, 1/2, 6/3 und 0,5 allen passenden Bereichen zu: natürliche Zahlen einschließlich 0, ganze Zahlen, nichtnegative Bruchzahlen. Begründe anhand des Werts.</p><p>Antwort: __________________________________________________</p></div></template></div><ol data-number-range-tasks data-assignment-mode=\"direct\"><li>Gib eine Zahl an, die zu allen drei Bereichen gehört. Begründe jede Zuordnung.</li><li>Gib eine ganze Zahl an, die keine natürliche Zahl ist, und eine nichtnegative Bruchzahl, die keine ganze Zahl ist.</li><li>Prüfe die Aussage: „Alle ganzen Zahlen sind nichtnegative Bruchzahlen.“ Nenne ein Gegenbeispiel.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. Zum Beispiel 2: natürlich, ganz und 2/1. Auch 0 passt, denn 0 = 0/1.</p><p>2. Zum Beispiel −3 und 1/2.</p><p>3. Falsch: −3 ist ganz, aber negativ. Papierauftrag: 0 und 6/3 gehören zu allen drei Bereichen; −3 nur zu den ganzen Zahlen; 1/2 und 0,5 nur zu den hier betrachteten nichtnegativen Bruchzahlen.</p></details>{{QUIZ_m24_six_thirds}}{{QUIZ_m24_negative_domain}}{{QUIZ_m24_decimal_integer}}",
+        "quizzes": [
+          {
+            "id": "m24_six_thirds",
+            "question": "Zu welchen der drei betrachteten Zahlbereiche gehört 6/3?",
+            "answers": [
+              {
+                "text": "Zu allen drei: natürliche Zahlen einschließlich 0, ganze Zahlen und nichtnegative Bruchzahlen.",
+                "feedback": "6/3 = 2. Entscheidend ist der Wert, nicht der Bruchstrich.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nur zu den nichtnegativen Bruchzahlen.",
+                "feedback": "2 ist auch natürlich und ganz. Ein Bruch kann eine ganze Zahl darstellen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Zu keinem, weil der Bruch noch nicht gekürzt ist.",
+                "feedback": "Kürzen verändert nur die Darstellung, nicht den Zahlenwert oder seine Zugehörigkeit.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m24_negative_domain",
+            "question": "Welche Aussage über −3 stimmt?",
+            "answers": [
+              {
+                "text": "−3 gehört zu den natürlichen Zahlen einschließlich 0.",
+                "feedback": "In diesem Bereich gibt es keine negativen Zahlen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "−3 ist eine nichtnegative Bruchzahl, weil −3 = −3/1.",
+                "feedback": "Die Darstellung als Bruch ändert nichts daran, dass −3 negativ ist.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "−3 ist ganz, gehört aber nicht zu den anderen beiden hier betrachteten Bereichen.",
+                "feedback": "−3 ist eine negative ganze Zahl. Beide anderen betrachteten Bereiche enthalten nur Werte ab 0.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "m24_decimal_integer",
+            "question": "Ist 2,0 eine ganze Zahl?",
+            "answers": [
+              {
+                "text": "Nein, ein Komma schließt das aus.",
+                "feedback": "Das Komma verändert den Wert nicht: 2,0 = 2.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ja, denn 2,0 und 2 haben denselben Wert.",
+                "feedback": "Die Zugehörigkeit hängt vom Wert ab, nicht von der Schreibweise.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nur wenn man sie vorher rundet.",
+                "feedback": "Es ist keine Rundung nötig. Die Darstellungen sind exakt gleichwertig.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m24_neighbors",
+        "title": "Vorgänger und Nachfolger: in welchem Bereich?",
+        "content": "<p>Ein <strong>unmittelbarer Nachfolger</strong> ist die kleinste größere Zahl im betrachteten Bereich. Dazwischen darf keine weitere Zahl dieses Bereichs liegen. Beim unmittelbaren Vorgänger ist es entsprechend die größte kleinere Zahl.</p><p>In den ganzen Zahlen hat −3 den Vorgänger −4 und den Nachfolger −2. Allgemein führen ein Schritt nach links und ein Schritt nach rechts zu n − 1 und n + 1. Es gibt weder eine kleinste noch eine größte ganze Zahl.</p><p>Bei den natürlichen Zahlen einschließlich 0 hat jede Zahl einen Nachfolger. Es gibt keine größte natürliche Zahl. Die 0 ist aber die kleinste; sie hat <strong>innerhalb dieses Bereichs keinen Vorgänger</strong>. −1 ist erst im Bereich der ganzen Zahlen verfügbar.</p><figure class=\"number-range-figure\"><svg class=\"number-range-svg\" data-worksheet-static=\"true\" viewBox=\"0 0 350 110\" role=\"img\" aria-labelledby=\"integer-neighbor-title\"><title id=\"integer-neighbor-title\">In den ganzen Zahlen sind −4 und −2 die unmittelbaren Nachbarn von −3.</title><line x1=\"25\" y1=\"55\" x2=\"325\" y2=\"55\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"25\" x2=\"25\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"85\" x2=\"85\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"145\" x2=\"145\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"205\" x2=\"205\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"265\" x2=\"265\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><line x1=\"325\" x2=\"325\" y1=\"49\" y2=\"61\" stroke=\"currentColor\"/><circle cx=\"85\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"85\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">−4</text><circle cx=\"145\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"145\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">−3</text><circle cx=\"205\" cy=\"55\" r=\"5\" fill=\"#2563eb\" stroke=\"currentColor\"/><text x=\"205\" y=\"30\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"20\">−2</text></svg><figcaption>In den ganzen Zahlen sind −4 und −2 die unmittelbaren Nachbarn von −3.</figcaption></figure><p>Bei nichtnegativen Bruchzahlen ist das anders: Nach 1/2 kommt nicht „sofort“ 3/4. Dazwischen liegt etwa 5/8. Auch zwischen 1/2 und 5/8 liegt wieder ein Bruch. Es gibt deshalb keinen unmittelbar nächsten größeren Bruchwert. Eine positive Bruchzahl hat ebenso keinen unmittelbaren Vorgänger: Zwischen ihr und jedem kleineren nichtnegativen Bruchwert liegt wieder ein Mittelwert. Die 0 ist die kleinste nichtnegative Bruchzahl; sie hat keinen Vorgänger und ebenfalls keinen unmittelbaren Nachfolger.</p><ol data-number-range-tasks data-assignment-mode=\"direct\"><li>Nenne Vorgänger und Nachfolger von −7 und 0 innerhalb der ganzen Zahlen.</li><li>Nenne Vorgänger und Nachfolger von 0 innerhalb der natürlichen Zahlen einschließlich 0. Begründe den Unterschied zur ersten Aufgabe.</li><li>Eine Person nennt 3/4 den unmittelbaren Nachfolger von 1/2 unter den nichtnegativen Bruchzahlen. Widerlege das durch einen Zwischenwert.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. −7: Vorgänger −8, Nachfolger −6. 0: Vorgänger −1, Nachfolger 1.</p><p>2. 0 hat in diesem Bereich keinen Vorgänger. Der Nachfolger ist 1.</p><p>3. 1/2 = 4/8 < 5/8 < 6/8 = 3/4. Damit liegt noch eine Zahl dazwischen.</p></details>{{QUIZ_m24_integer_neighbor}}{{QUIZ_m24_zero_predecessor}}{{QUIZ_m24_fraction_successor}}",
+        "quizzes": [
+          {
+            "id": "m24_integer_neighbor",
+            "question": "Welcher unmittelbare Nachfolger gehört in den ganzen Zahlen zu −3?",
+            "answers": [
+              {
+                "text": "−4",
+                "feedback": "−4 ist der Vorgänger; er liegt eine Einheit links von −3.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "−2",
+                "feedback": "−2 liegt eine Einheit rechts von −3. Keine ganze Zahl liegt dazwischen.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "−2,5",
+                "feedback": "−2,5 liegt zwar zwischen −3 und −2, gehört aber nicht zu den ganzen Zahlen.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m24_zero_predecessor",
+            "question": "Welchen Vorgänger hat 0 innerhalb der natürlichen Zahlen einschließlich 0?",
+            "answers": [
+              {
+                "text": "Keinen.",
+                "feedback": "0 ist in diesem Bereich die kleinste Zahl.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "−1",
+                "feedback": "−1 ist eine ganze Zahl, gehört aber nicht zu den hier betrachteten natürlichen Zahlen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "0",
+                "feedback": "Ein Vorgänger müsste kleiner sein; dieselbe Zahl ist kein Vorgänger.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m24_fraction_successor",
+            "question": "Warum hat 1/2 unter den nichtnegativen Bruchzahlen keinen unmittelbaren Nachfolger?",
+            "answers": [
+              {
+                "text": "Weil 1/2 keine Zahl ist.",
+                "feedback": "1/2 ist eine Zahl. Das Problem liegt nicht an der Schreibweise.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Weil alle größeren Brüche denselben Wert haben.",
+                "feedback": "Zum Beispiel 3/4 und 1 sind verschieden und beide größer als 1/2.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Weil zwischen 1/2 und jedem größeren Bruchwert noch ein weiterer liegt.",
+                "feedback": "Der Mittelwert zweier verschiedener Bruchwerte liegt strikt dazwischen. Es gibt deshalb keine kleinste größere Bruchzahl.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m24_between",
+        "title": "Zwischenwerte finden und weiter unterteilen",
+        "content": "<p>Zwischen 4 und 5 liegt keine ganze Zahl. Unter den nichtnegativen Bruchzahlen liegen dort aber zum Beispiel 9/2 = 4,5 und 17/4 = 4,25. Die Frage „Liegt etwas dazwischen?“ braucht daher den Zahlbereich.</p><p>Für zwei verschiedene nichtnegative Bruchwerte a &lt; b liegt <strong>(a + b) : 2</strong> genau in der Mitte. Beispiel: (1/2 + 3/4) : 2 = (2/4 + 3/4) : 2 = 5/4 : 2 = 5/8. Es gilt 4/8 &lt; 5/8 &lt; 6/8.</p><p>Du kannst die Mitte auch zwischen 1/2 und 5/8 suchen: 9/16 liegt dazwischen. Danach liegt 17/32 zwischen 1/2 und 9/16. Jeder Abstand bleibt positiv, wird aber halbiert. So findest du immer eine weitere Zahl. Der begrenzte Platz auf einem Bildschirm bedeutet nicht, dass es mathematisch keine weitere Zahl gibt.</p><div class=\"interactive-zone number-range-lab\" data-number-between><h3>Immer noch eine Zahl dazwischen</h3><label for=\"number-between-case\">Ausgangsintervall</label><select id=\"number-between-case\"></select><p>Finde selbst einen Bruch strikt zwischen den beiden gewählten Ausgangswerten. Es gibt viele richtige Antworten.</p><label for=\"number-between-n\">Zähler deiner Zwischenzahl</label><input id=\"number-between-n\" type=\"text\" inputmode=\"numeric\"><label for=\"number-between-d\">Positiver Nenner deiner Zwischenzahl</label><input id=\"number-between-d\" type=\"text\" inputmode=\"numeric\"><div class=\"number-range-actions\"><button type=\"button\" data-number-between-check>Meine Zwischenzahl prüfen</button><button type=\"button\" data-number-between-step>Nächste Halbierung zeigen</button><button type=\"button\" data-number-between-reset>Zurücksetzen</button></div><p data-number-between-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><div data-number-between-view></div><ol data-number-between-history></ol><p>Die Grafik vergrößert bei jedem Schritt das neue Intervall. Gleiche Bildbreite bedeutet hier nicht gleiche Zahlenlänge. Das Modell zeigt höchstens sechs Halbierungen; mathematisch kannst du beliebig oft fortsetzen.</p><template data-worksheet-alternative><div data-number-range-paper><p>Finde zwischen 1/2 und 3/4 zuerst den Mittelwert. Finde dann zwischen 1/2 und diesem neuen Wert wieder den Mittelwert. Wiederhole noch einmal. Begründe, warum die Werte verschieden sind und keine kleinste nächste Bruchzahl entsteht.</p><p>Rechnung: __________________________________________________</p></div></template></div><ol data-number-range-tasks data-assignment-mode=\"direct\"><li>Finde drei verschiedene nichtnegative Bruchzahlen zwischen 4 und 5. Gibt es dort auch eine ganze Zahl?</li><li>Finde einen Bruch zwischen 0 und 1/1000. Begründe mit einem gemeinsamen Nenner.</li><li>Warum ist 0,1 nicht die kleinste positive Bruchzahl? Nenne eine kleinere positive Zahl und erkläre, wie du wieder eine kleinere finden könntest.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. Zum Beispiel 17/4, 9/2 und 19/4. Keine ganze Zahl liegt strikt zwischen 4 und 5.</p><p>2. Zum Beispiel 1/2000: 0/2000 < 1/2000 < 2/2000 = 1/1000.</p><p>3. 0,05 = 1/20 ist positiv und kleiner als 0,1. Halbieren eines positiven Bruchs liefert wieder einen kleineren positiven Bruch. Papierauftrag: 5/8, 9/16, 17/32.</p></details>{{QUIZ_m24_between_value}}{{QUIZ_m24_between_whole}}{{QUIZ_m24_midpoint}}",
+        "quizzes": [
+          {
+            "id": "m24_between_value",
+            "question": "Welcher Bruch liegt strikt zwischen 1/2 und 3/4?",
+            "answers": [
+              {
+                "text": "5/8",
+                "feedback": "1/2 = 4/8 und 3/4 = 6/8; 5/8 liegt dazwischen.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "2/4",
+                "feedback": "2/4 ist genau der linke Endpunkt, kein Wert strikt dazwischen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "7/8",
+                "feedback": "7/8 ist größer als 3/4 = 6/8.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m24_between_whole",
+            "question": "Welche Aussage über die Werte strikt zwischen 4 und 5 stimmt?",
+            "answers": [
+              {
+                "text": "Es gibt dort keine Zahl, unabhängig vom Zahlbereich.",
+                "feedback": "Es gibt keine ganze Zahl, aber zum Beispiel die Bruchzahl 9/2.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Es gibt genau eine Bruchzahl: 4,5.",
+                "feedback": "Auch 4,25 und 4,75 liegen dazwischen, und es lassen sich immer weitere finden.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Es gibt keine ganze Zahl, aber unendlich viele nichtnegative Bruchzahlen.",
+                "feedback": "Durch wiederholtes Bilden von Zwischenwerten findest du immer eine neue Bruchzahl.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "m24_midpoint",
+            "question": "Wie findest du zuverlässig eine Bruchzahl zwischen zwei verschiedenen nichtnegativen Bruchwerten a < b?",
+            "answers": [
+              {
+                "text": "Ich nehme immer a + 1.",
+                "feedback": "Bei einem kleinen Abstand kann a + 1 schon rechts von b liegen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ich berechne (a + b) : 2.",
+                "feedback": "Der Mittelwert liegt bei verschiedenen Ausgangswerten strikt dazwischen.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ich verdopple beide Zahlen und nehme die größere.",
+                "feedback": "Das ergibt im Allgemeinen eine Zahl außerhalb des Intervalls.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m24_representations",
+        "title": "Ein Zahlenwert – verschiedene Darstellungen",
+        "content": "<p><strong>1/2 = 2/4 = 50/100 = 0,5 = 0,50</strong>. Diese Darstellungen bezeichnen denselben Zahlenwert und deshalb denselben Punkt auf der Zahlengeraden. Eine andere Schreibweise macht keine neue Zahl. Die 0 am Ende von 0,50 verändert den Wert nicht; die 0 in 0,05 verändert dagegen den Stellenwert der 5.</p><figure class=\"number-range-figure\"><svg class=\"number-range-svg\" data-worksheet-static=\"true\" viewBox=\"0 0 350 110\" role=\"img\" aria-labelledby=\"number-same-point-title\"><title id=\"number-same-point-title\">Ein Punkt in der Mitte zwischen 0 und 1 trägt drei gleichwertige Beschriftungen: 1/2, 2/4 und 0,50.</title><line x1=\"25\" x2=\"325\" y1=\"60\" y2=\"60\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"25\" x2=\"25\" y1=\"54\" y2=\"66\" stroke=\"currentColor\"/><line x1=\"325\" x2=\"325\" y1=\"54\" y2=\"66\" stroke=\"currentColor\"/><circle cx=\"175\" cy=\"60\" r=\"6\" fill=\"#2563eb\"/><text x=\"175\" y=\"30\" text-anchor=\"middle\" font-size=\"20\" fill=\"currentColor\">1/2 = 2/4 = 0,50</text><text x=\"25\" y=\"90\" text-anchor=\"middle\" font-size=\"20\" fill=\"currentColor\">0</text><text x=\"325\" y=\"90\" text-anchor=\"middle\" font-size=\"20\" fill=\"currentColor\">1</text></svg><figcaption>Die drei Beschriftungen gehören zu demselben Punkt.</figcaption></figure><p>Beim Erweitern und Kürzen bleibt der Wert gleich. Wenn du einen nichtnegativen Bruch vollständig kürzt und einen positiven Nenner verwendest, erhältst du eine eindeutige gekürzte Bruchdarstellung. Beispiele: 6/8 wird zu 3/4, 6/3 zu 2/1 und 0/7 zu 0/1.</p><p>Auch periodische Darstellungen gehören dazu: 1/3 = 0,(3). Klammern kennzeichnen hier die sich unendlich wiederholende Ziffer. <strong>0,333 ist nur eine endliche Näherung</strong>, kein exakt gleicher Wert: 1/3 − 333/1000 = 1/3000.</p><p>Aus dem vorigen Kapitel kennst du 0,(9) = 1: Für x = 0,(9) gilt 10x − x = 9, also x = 1. Die endliche Zahl 0,9 ist dagegen kleiner als 1. Deshalb kann auch eine Dezimaldarstellung auf unterschiedliche Weise denselben Wert ausdrücken.</p><ol data-number-range-tasks data-assignment-mode=\"direct\"><li>Fasse gleiche Werte zusammen: 1/2, 0,05, 2/4, 0,50, 5/100. Wie viele verschiedene Punkte brauchst du auf der Zahlengeraden?</li><li>Kürze 6/8, 6/3 und 0/7 vollständig. Ordne die Werte den drei betrachteten Zahlbereichen zu.</li><li>Vergleiche 1/3, 0,(3) und 0,333. Welche sind exakt gleich? Erkläre, warum eine begrenzte Rechneranzeige keinen neuen Zahlenwert beweist.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösungen und Begründungen</summary><p>1. Zwei Punkte: 1/2 = 2/4 = 0,50; 0,05 = 5/100.</p><p>2. 3/4 gehört nur zu den nichtnegativen Bruchzahlen. 2/1 und 0/1 gehören zu allen drei betrachteten Bereichen.</p><p>3. 1/3 = 0,(3) ist größer als 0,333. Eine Anzeige mit endlich vielen Ziffern kann einen gerundeten oder abgeschnittenen Näherungswert zeigen.</p></details>{{QUIZ_m24_same_point}}{{QUIZ_m24_third_exact}}{{QUIZ_m24_decimal_zero}}",
+        "quizzes": [
+          {
+            "id": "m24_same_point",
+            "question": "Wie viele verschiedene Punkte markieren 1/2, 2/4 und 0,50 auf der Zahlengeraden?",
+            "answers": [
+              {
+                "text": "Drei, weil die Zeichen unterschiedlich sind.",
+                "feedback": "Die Schreibweisen unterscheiden sich, ihre Zahlenwerte stimmen überein.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Einen, weil alle drei denselben Wert haben.",
+                "feedback": "Alle drei sind genau eine Hälfte.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Zwei, weil Brüche und Dezimalzahlen nie denselben Punkt haben.",
+                "feedback": "Brüche und Dezimaldarstellungen können exakt denselben Wert ausdrücken.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m24_third_exact",
+            "question": "Welche Aussage stimmt exakt?",
+            "answers": [
+              {
+                "text": "1/3 = 0,(3), aber 0,333 < 1/3.",
+                "feedback": "Die Periode läuft unendlich weiter. Die endliche Zahl 0,333 bleibt um 1/3000 unter 1/3.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "1/3 = 0,333, weil drei Stellen immer genügen.",
+                "feedback": "Eine endliche Stellenzahl macht aus einer Näherung keine exakte Gleichheit.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "0,(3) ist größer als 1/3.",
+                "feedback": "0,(3) ist eine andere exakte Darstellung von 1/3.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "m24_decimal_zero",
+            "question": "Welche Zahl hat denselben Wert wie 0,5?",
+            "answers": [
+              {
+                "text": "0,05",
+                "feedback": "0,05 sind fünf Hundertstel, 0,5 dagegen fünf Zehntel.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "5,0",
+                "feedback": "5,0 hat den Wert 5 und ist zehnmal so groß wie 0,5.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "0,50",
+                "feedback": "Fünf Zehntel sind fünfzig Hundertstel. Eine angehängte Null nach dem Komma ändert hier den Wert nicht.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
           }
         ]
       }
     ],
     "diplom": {
       "title": "🎓 Minus-Meister Diplom",
-      "questions": [
-        {
-          "id": "m24_dip1",
-          "question": "Welche Zahl ist am kleinsten?",
-          "answers": [
-            {
-              "text": "-100",
-              "correct": true,
-              "pts": 5,
-              "feedback": "−100 liegt auf dem Zahlenstrahl links von −1 und 0 und ist deshalb am kleinsten."
-            },
-            {
-              "text": "-1",
-              "correct": false,
-              "pts": 0,
-              "feedback": "−1 liegt näher bei null und rechts von −100, also ist es größer als −100."
-            },
-            {
-              "text": "0",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Null ist größer als jede negative Zahl."
-            }
-          ]
-        },
-        {
-          "id": "m24_dip2",
-          "question": "In einem erfundenen Rechenmodell beträgt der Saldo −15 €. Es kommen 20 € dazu. Welcher Saldo ergibt sich?",
-          "answers": [
-            {
-              "text": "+5€",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Die ersten 15 der 20 gleichen den negativen Betrag aus; 5 bleiben positiv: −15 + 20 = 5."
-            },
-            {
-              "text": "-35€",
-              "correct": false,
-              "pts": 0,
-              "feedback": "Ein Hinzufügen von 20 bedeutet Addition. −35 entsteht durch weiteres Abziehen von 20."
-            },
-            {
-              "text": "-5€",
-              "correct": false,
-              "pts": 0,
-              "feedback": "20 ist größer als 15. Du überschreitest null und gelangst zu +5, nicht −5."
-            }
-          ]
-        }
-      ]
+      "questions": []
     },
     "prerequisites": [
-      "math1_3_add_sub"
+      "math1_3_add_sub",
+      "math2_2_brueche",
+      "math2_3_dezimalzahlen"
     ],
     "learningGoals": [
-      "Negative Zahlen in Temperatur- und Höhenangaben deuten.",
-      "Ganze Zahlen nach ihrer Größe ordnen.",
-      "Einfache Additionen und Subtraktionen mit ganzen Zahlen im Bewegungsmodell ausführen."
+      "Ganze Zahlen in Temperatur-, Höhen- und Saldoangaben deuten und ordnen.",
+      "Eine nichtnegative ganze Zahl auf der Zahlengeraden addieren oder subtrahieren.",
+      "Natürliche Zahlen einschließlich 0, ganze Zahlen und nichtnegative Bruchzahlen vergleichen.",
+      "Vorgänger und Nachfolger innerhalb eines angegebenen Zahlbereichs bestimmen oder ihr Fehlen erklären.",
+      "Zwischen zwei verschiedenen nichtnegativen Bruchzahlen weitere Zahlen finden.",
+      "Den Zahlenwert von seiner Schreibweise unterscheiden und gleichwertige Darstellungen erkennen."
     ],
     "summary": [
-      "Negative Zahlen liegen auf dem Zahlenstrahl links von 0. Weiter links bedeutet kleiner: −100 < −1 < 0.",
-      "3 − 5 = −2: Vom Startwert 3 führen fünf Schritte nach links zu −2.",
-      "−15 + 20 = 5: Zwanzig Schritte nach rechts führen von −15 zu 5."
+      "Ganze Zahlen umfassen …, −2, −1, 0, 1, 2, … . Weiter links auf der Zahlengeraden bedeutet kleiner. 0 ist weder positiv noch negativ.",
+      "Addition einer nichtnegativen ganzen Zahl führt nach rechts, Subtraktion nach links. Bei 0 Schritten bleibt der Wert gleich.",
+      "Wir zählen hier 0 zu den natürlichen Zahlen. Jede natürliche Zahl ist ganz und lässt sich auch als nichtnegativer Bruch schreiben. Negative ganze Zahlen gehören nicht zum Bereich der nichtnegativen Bruchzahlen.",
+      "In den ganzen Zahlen sind n − 1 und n + 1 die unmittelbaren Nachbarn. Innerhalb der natürlichen Zahlen hat 0 keinen Vorgänger.",
+      "Zwischen zwei verschiedenen nichtnegativen Bruchzahlen liegt ihr Mittelwert. Das lässt sich immer wiederholen; es gibt keinen unmittelbar nächsten Bruchwert.",
+      "1/2 = 2/4 = 0,5 = 0,50: verschiedene Schreibweisen, derselbe Punkt auf der Zahlengeraden. Eine endliche Näherung wie 0,333 ist nicht genau 1/3."
     ],
     "script": true
   },

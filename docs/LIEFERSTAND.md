@@ -1,8 +1,22 @@
 # Lieferstand und nächste Prioritäten
 
-Stand: 09.09.2026. Zuletzt wurde Zwischenstand 8276883 auf ausdrücklichen Nutzerwunsch nach origin/main gepusht. Weitere Ergänzungen sind lokal. Die Veröffentlichung dieses Commits auf Pages ist nicht bestätigt. Der Gesamtauftrag bleibt unverändert: vollständiges interaktives Lehrbuch für die Mittelschule Wien einschließlich angebotener Sprachen und geprüfter Veröffentlichung. Die deutsche Fassung ist ein Zwischenmeilenstein, keine neue Definition von fertig.
+Stand: 21.09.2026. Auf ausdrücklichen Nutzerwunsch wird der Zwischenstand nach `e962a5c` mit römischer Zahlschrift, Bruchmodellen und Zahlbereichsvergleichen für GitHub gesichert. Eine Veröffentlichung dieses Zwischenstands auf Pages ist hier nicht bestätigt. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien; Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB.
 
-## Aktuell belegter Stand
+## Zwischenstand für GitHub: Zahlbereiche – 21.09.2026
+
+Das Kapitel „Ganze Zahlen und Zahlbereiche“ umfasst jetzt sechs Abschnitte mit 18 bewerteten Fragen: Zuordnung nach Zahlenwert, Vorgänger/Nachfolger, Zwischenwerte und verschiedene Darstellungen desselben Werts. Drei Werkstätten verbinden Zuordnungen, fortgesetzte Halbierung und Bewegungen auf der Zahlengeraden mit Papieralternativen und passenden Lösungen.
+
+Unmittelbar vor dem Sichern erneut bestanden: römische Zahlen, Bruchmodelle, Zahlbereiche, die bisherigen 462 Rechenwege mit ganzen Zahlen und die Kapitelprüfung der zweiten Klasse. Die Zahlbereichsprüfung umfasst 96 Zuordnungen, 72 Halbierungen und alle 54 Quizantwortwege. Die vorausgegangene native Browserprüfung umfasst 756 Layoutfälle. Die abschließende Drucksichtprüfung ist noch offen: bislang wurden die ersten sechs von 20 Seiten gelesen; ein über die Seiten 5/6 getrennter Erklärungsabsatz soll noch zusammengehalten werden. Die zuletzt gekürzten Auswahltexte benötigen noch eine erneute Sichtkontrolle. Auch die gesonderte Kapiteldokumentation und die abschließende Fortschreibung der Fachmatrix stehen noch aus. Dieser Commit sichert ausdrücklich den laufenden Arbeitsstand; er ist keine vollständige Produktabnahme.
+
+## Aktuelle Ergänzung: Bruchrechnen – 21.09.2026
+
+Die bislang hauptsächlich regelorientierten Abschnitte zu Bruchmultiplikation und -division sind um Flächen-/Portionsmodelle, sachbezogene Begründungen und passende Papieraufträge ergänzt. 28 Modelle, alle 54 Kapitelantwortwege, 168 Browseransichten und 21 Druckseiten im beschriebenen Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_BRUCHMODELLE.md). Der vorherige Zielturn war Fortschritt durch die ergänzte römische Zahlschrift. Zahlbereichsvergleiche und die weiteren fachlichen sowie produktweiten Prüfungen bleiben offen.
+
+## Vorherige Ergänzung: römische Zahlen – 21.09.2026
+
+Das Erstklasskapitel „Natürliche und römische Zahlen“ umfasst nun fünf Abschnitte mit einer Lesewerkstatt, dem Vergleich der Zahlensysteme, zwölf Kapitelcheckfragen und passenden Papieraufgaben/Lösungen. Alle 36 Antwortwege, 27 Lesebeispiele, 162 Browseransichten und 17 Druckseiten im dokumentierten Umfang geprüft. [Nachweise und Grenzen](MATHEMATIK_ROEMISCHE_ZAHLEN.md). Der vorige Zielturn war Fortschritt durch den bestätigten GitHub-Push; dieser Arbeitsschritt ergänzt die nächste konkret belegte Lehrplanlücke. Die nachstehenden älteren Prüfstände sind historische Nachweise.
+
+## Historischer Prüfstand vom 09.09.2026
 
 - 197 verfügbare Kapitel in elf Fächern; alle haben deutsche Lernziele und Zusammenfassungen. Das belegt Struktur, nicht fachliche Vollständigkeit.
 - Aktueller revisionsgeprüfter Metadatenindex: 28 englische, je 26 türkische und serbische sowie je 25 arabische und ukrainische Kapitelübersetzungen. Fehlende oder veraltete Übersetzungen verwenden einen gekennzeichneten deutschen Fallback. Fremdsprachenunterricht enthält außerdem bewusst englische Zielsprachentexte; diese Zählung bewertet nicht deren Unterrichtssprache.

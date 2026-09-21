@@ -187,33 +187,15 @@ function generateWorksheetContent(topicId, topicTitle) {
     }
 
     if (topicId === 'math1_2_nat_zahlen') {
-        html += `<h2>1. Runden von Zahlen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const num = rand(1000, 99999);
-            const places = [10, 100, 1000];
-            const p = places[rand(0, 2)];
-            let pStr = p === 10 ? "Zehner" : (p === 100 ? "Hunderter" : "Tausender");
-            html += `<div>Runde <strong>${num}</strong> auf ${pStr}: <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>2. Vergleichen (&lt;, &gt;, =)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const num1 = rand(1000, 9999);
-            const num2 = rand(0, 5) > 4 ? num1 : num1 + rand(-50, 50);
-            html += `<div>${num1} <span style="display:inline-block; border:1px solid #000; width:20px; height:20px;"></span> ${num2}</div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>3. Addition und Subtraktion</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const n1 = rand(1000, 9000);
-            const n2 = rand(100, 4000);
-            const op = rand(0, 1) === 0 ? '+' : '-';
-            html += `<div>${n1} ${op} ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
-        html += `</div>`;
-    } 
+        const tasks=[],solutions=[];
+        function add(kind,a,b,prompt,answer,reason){const nr=tasks.length+1;tasks.push('<div class="exercise-item" data-natural-generated="'+kind+'" data-first="'+a+'" data-second="'+b+'"><strong>A'+nr+'.</strong> '+prompt+' '+blank(90)+'</div>');solutions.push('<p data-natural-answer="'+answer+'"><strong>A'+nr+'.</strong> '+reason+'</p>');}
+        for(let i=0;i<4;i++){const n=rand(1000,99999),p=[10,100,1000][i%3],place=p===10?'Zehner':p===100?'Hunderter':'Tausender',answer=Math.round(n/p)*p;add('round',n,p,'Runde '+n+' direkt auf '+place+':',answer,n+' ≈ '+answer+' (auf '+place+').');}
+        for(let i=0;i<2;i++){const a=rand(1000,9999),b=rand(0,5)>4?a:a+rand(-50,50),answer=a<b?'&lt;':a>b?'&gt;':'=';add('compare',a,b,'Setze &lt;, &gt; oder = ein: '+a+' … '+b,answer,a+' '+answer+' '+b+'.');}
+        for(let i=0;i<2;i++){let a=rand(1000,9000),b=rand(100,4000);if(i===1&&a<b)[a,b]=[b,a];const sign=i===0?'+':'−',answer=i===0?a+b:a-b;add(i===0?'add':'subtract',a,b,a+' '+sign+' '+b+' =',answer,a+' '+sign+' '+b+' = '+answer+'.');}
+        const banks=[[[14,'XIV','10 + 4'],[19,'XIX','10 + 9'],[24,'XXIV','20 + 4']],[[49,'XLIX','40 + 9'],[94,'XCIV','90 + 4'],[99,'XCIX','90 + 9']],[[444,'CDXLIV','400 + 40 + 4'],[944,'CMXLIV','900 + 40 + 4'],[1492,'MCDXCII','1000 + 400 + 90 + 2']],[[1848,'MDCCCXLVIII','1000 + 500 + 300 + 40 + 8'],[1999,'MCMXCIX','1000 + 900 + 90 + 9'],[2026,'MMXXVI','2000 + 20 + 6']]];
+        for(const bank of banks){const [n,roman,groups]=bank[rand(0,bank.length-1)];add('roman',n,roman,'Lies '+roman+' und notiere auch die Summe der Gruppen:',n,roman+' = '+groups+' = '+n+'.');}
+        html+='<h2>Zusätzliche Aufgaben</h2><p>A1–A4: Runden. A5–A6: Vergleichen. A7–A8: Rechnen. A9–A12: Römische Zahlen lesen.</p>'+grid(tasks,'1fr')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
+    }
     else if (topicId === 'math1_3_add_sub') {
         html += `<h2>1. Addition</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
         for(let i=0; i<10; i++) {
@@ -342,48 +324,25 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math2_2_brueche') {
-        html += `<h2>1. Brüche gleichnamig machen und addieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            let n1 = rand(2, 8);
-            let n2 = rand(2, 8);
-            while (n1 === n2) n2 = rand(2,8);
-            const z1 = rand(1, n1-1);
-            const z2 = rand(1, n2-1);
-            html += `<div>\\(\\frac{${z1}}{${n1}} + \\frac{${z2}}{${n2}}\\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:150px;"></span></div>`;
+        const tasks=[],solutions=[],gcd=(a,b)=>{while(b){const r=a%b;a=b;b=r;}return a;};
+        for(let i=0;i<12;i++){
+            const kind=['add','subtract','multiply','divide'][Math.floor(i/3)],b=rand(2,8),d=rand(2,8);let a=rand(1,b),c=rand(1,d),bb=b,dd=d;
+            if(kind==='subtract'&&a*dd<c*bb)[a,bb,c,dd]=[c,dd,a,bb];
+            const numerator=kind==='add'?a*dd+c*bb:kind==='subtract'?a*dd-c*bb:kind==='multiply'?a*c:a*dd,denominator=kind==='divide'?bb*c:bb*dd,g=gcd(numerator,denominator),answer=(numerator/g)+'/'+(denominator/g),op={add:'+',subtract:'−',multiply:'·',divide:':'}[kind],expression=a+'/'+bb+' '+op+' '+c+'/'+dd;
+            let reason;if(kind==='add'||kind==='subtract')reason=(a*dd)+'/'+(bb*dd)+' '+op+' '+(c*bb)+'/'+(bb*dd);else if(kind==='multiply')reason='('+a+' · '+c+')/('+bb+' · '+dd+')';else reason=a+'/'+bb+' · '+dd+'/'+c;
+            tasks.push('<div class="exercise-item" data-fraction-generated="'+kind+'" data-a="'+a+'" data-b="'+bb+'" data-c="'+c+'" data-d="'+dd+'"><strong>A'+(i+1)+'.</strong> '+expression+' = '+blank(100)+'</div>');
+            solutions.push('<p data-fraction-answer="'+answer+'"><strong>A'+(i+1)+'.</strong> '+expression+' = '+reason+' = '+answer+'.</p>');
         }
-        html += `</div>`;
-        
-        html += `<h2>2. Brüche multiplizieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const n1 = rand(2, 10);
-            const n2 = rand(2, 10);
-            const z1 = rand(1, n1-1) || 1;
-            const z2 = rand(1, n2-1) || 1;
-            html += `<div>\\(\\frac{${z1}}{${n1}} \\cdot \\frac{${z2}}{${n2}}\\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:150px;"></span></div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>3. Brüche dividieren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const n1 = rand(2, 10);
-            const n2 = rand(2, 10);
-            const z1 = rand(1, n1-1) || 1;
-            const z2 = rand(1, n2-1) || 1;
-            html += `<div>\\(\\frac{${z1}}{${n1}} : \\frac{${z2}}{${n2}}\\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:150px;"></span></div>`;
-        }
-        html += `</div>`;
+        html+='<h2>Zusätzliche Bruchrechnungen</h2><p>Schätze zuerst ab. Rechne mit Zwischenschritten und kürze vollständig. A1–A3: Addition, A4–A6: Subtraktion, A7–A9: Multiplikation, A10–A12: Division.</p>'+grid(tasks,'1fr')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math2_4_relative_zahlen') {
-        html += `<h2>1. Addition und Subtraktion mit negativen Zahlen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<16; i++) {
-            const n1 = rand(-50, 50);
-            const n2 = rand(-50, 50);
-            const isAdd = rand(0, 1) === 0;
-            const op = isAdd ? '+' : '-';
-            const n2Str = n2 < 0 ? `(${n2})` : n2;
-            html += `<div>${n1} ${op} ${n2Str} = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-        }
-        html += `</div>`;
+        const tasks=[],solutions=[],gcd=(a,b)=>{while(b){const r=a%b;a=b;b=r;}return a;};
+        function add(kind,a,b,c,d,prompt,result,explanation){const nr=tasks.length+1;tasks.push('<div class="exercise-item" data-number-range-generated="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'" data-d="'+d+'"><strong>A'+nr+'.</strong> '+prompt+' '+blank(120)+'</div>');solutions.push('<p data-number-range-answer="'+result+'"><strong>A'+nr+'.</strong> '+explanation+'</p>');}
+        for(let i=0;i<4;i++){const a=rand(-20,20),n=rand(0,10),plus=i%2===0,result=a+(plus?n:-n);add(plus?'add':'subtract',a,n,0,0,'Rechne '+a+(plus?' + ':' − ')+n+' und beschreibe die Bewegung:',result,a+(plus?' + ':' − ')+n+' = '+result+'. '+n+' Schritte nach '+(plus?'rechts':'links')+'.');}
+        for(let i=0;i<2;i++){const a=rand(-10,10);add('neighbors',a,0,0,0,'Nenne den unmittelbaren Vorgänger und Nachfolger von '+a+' in den ganzen Zahlen:',(a-1)+';'+(a+1),'Vorgänger '+(a-1)+', Nachfolger '+(a+1)+'. Jeweils eine Einheit Abstand.');}
+        for(let i=0;i<4;i++){const b=[2,3,4,5,10][rand(0,4)],a=rand(0,b),c=a+rand(1,3),g=gcd(a+c,2*b),n=(a+c)/g,d=2*b/g;add('between',a,b,c,b,'Finde eine Bruchzahl strikt zwischen '+a+'/'+b+' und '+c+'/'+b+':',n+'/'+d,'Mögliche Antwort: ('+a+'/'+b+' + '+c+'/'+b+') : 2 = '+n+'/'+d+'. Auch andere echte Zwischenwerte sind richtig.');}
+        for(let i=0;i<2;i++){const a=rand(1,9),b=rand(2,10),factor=rand(2,5),g=gcd(a,b),n=a/g,d=b/g;add('equivalent',a*factor,b*factor,0,0,'Kürze '+(a*factor)+'/'+(b*factor)+' vollständig. Ändert sich der Punkt auf der Zahlengeraden?',n+'/'+d,(a*factor)+'/'+(b*factor)+' = '+n+'/'+d+'. Der Zahlenwert und damit der Punkt bleiben gleich.');}
+        html+='<h2>Zusätzliche Aufgaben zu Zahlen und Bereichen</h2><p>A1–A4: Bewegungen. A5–A6: Nachbarn in den ganzen Zahlen. A7–A10: Bruchwerte dazwischen. A11–A12: gleiche Werte.</p>'+grid(tasks,'1fr')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math2_6_prop_prozent') {
         html += `<h2>1. Prozentwert berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

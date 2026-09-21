@@ -1,5 +1,9 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Fortschritt 21.09.2026: Bruchrechnen der zweiten Klasse um geometrische und sachbezogene Begründungen erweitert: 16 Flächenmodelle, zwölf Portionsmodelle, 54 Antwortwege, 168 Browseransichten und alle 21 Druckseiten geprüft. [Umsetzung, Nachweise und Grenzen](MATHEMATIK_BRUCHMODELLE.md). Diese Ergänzungen und die römischen Zahlen bleiben lokal nach `e962a5c`; Gesamtauftrag offen.
+
+Fortschritt 21.09.2026: Zehnerpotenzen und periodische Dezimalzahlen sind auf ausdrücklichen Nutzerwunsch als `e962a5c` auf GitHub gesichert. Anschließend römische Zahlschrift und Stellenwertvergleich in der ersten Klasse ergänzt: 27 Lesefälle, 36 Kapitelantwortwege, 162 Browseransichten und alle 17 Druckseiten geprüft. [Inhalte und Grenzen](MATHEMATIK_ROEMISCHE_ZAHLEN.md). Diese neuen Änderungen bleiben lokal; Gesamtauftrag offen.
+
 Fortschritt 21.09.2026: Dezimalzahlkapitel der zweiten Klasse um periodische Darstellungen und Rückumwandlung ergänzt; bestehende Rechen-/Rundungsübungen erhalten und präzisiert. 60 schrittweise Divisionen, zwölf Rückfälle, alle 54 Antwortwege, 432 Browseransichten und die vollständige 20-seitige Druckfassung im dokumentierten Umfang geprüft. [Inhalte, Nachweise und Grenzen](MATHEMATIK_PERIODISCHE_DEZIMALZAHLEN.md). Änderungen weiterhin lokal nach `a2c72d2`; Gesamtauftrag offen.
 
 Fortschritt 21.09.2026: Der gewünschte Zwischenstand `a2c72d2` mit Funktionen, Drehkörpern und abschließenden Pythagoras-Korrekturen ist auf GitHub gesichert. Danach Zehnerpotenzen und wissenschaftliche Schreibweise ergänzt: 104 Umwandlungen, 78 Kapitelantwortwege, 624 Browseransichten und alle 29 Druckseiten im dokumentierten Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_ZEHNERPOTENZEN.md). Diese neuen Änderungen bleiben lokal; Gesamtauftrag und weitere Facharbeit bleiben offen.

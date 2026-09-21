@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "c7ae3dc729330b74be9e59aa15d40315ae6c13f4169083425826680e884e5d89",
-    "lang/de.json": "29b6249247468b37e89d1dcebb9e52d47ed595108c087973330549e55d6955a8"
+    "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
+    "lang/de.json": "e8572ea108843b63593199a3fd5729461515cb18a64f669347ba5d1332ebf946"
   },
   "subjects": {
     "physik": {
@@ -10123,7 +10123,7 @@
         },
         {
           "id": "math1_2_nat_zahlen",
-          "title": "🔢 Natürliche Zahlen",
+          "title": "🔢 Natürliche und römische Zahlen",
           "grade": "1. Klasse (5. Schulstufe)",
           "gradeLevels": null,
           "category": "Arithmetik",
@@ -10135,9 +10135,11 @@
             "Dreistellige Zahlen in Hunderter, Zehner und Einer zerlegen.",
             "Den Wert einer Ziffer aus ihrer Stelle bestimmen.",
             "Größere natürliche Zahlen mit Stellenwerten und Zahlenstrahl darstellen und vergleichen.",
-            "Auf Hunderter runden, überschlagen und die Grenzen einer Näherung erklären."
+            "Auf Hunderter runden, überschlagen und die Grenzen einer Näherung erklären.",
+            "Römische Zahldarstellungen lesen und die sechs gebräuchlichen Subtraktionspaare erkennen.",
+            "Vorteile des dezimalen Stellenwertsystems an Beispielen begründen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "ziffern_und_zahlen",
@@ -10162,10 +10164,30 @@
                 "natural_numberline",
                 "natural_estimate"
               ]
+            },
+            {
+              "id": "roman_reading",
+              "index": 3,
+              "title": "Römische Zahlen lesen",
+              "questions": [
+                "roman_read_pairs",
+                "roman_year",
+                "roman_clock"
+              ]
+            },
+            {
+              "id": "roman_decimal_compare",
+              "index": 4,
+              "title": "Warum wir mit Stellenwerten rechnen",
+              "questions": [
+                "roman_place_value",
+                "roman_compare",
+                "roman_zero"
+              ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 10,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -10931,7 +10953,7 @@
         },
         {
           "id": "math2_2_brueche",
-          "title": "🍰 Brüche",
+          "title": "🍕 Bruchrechnen verstehen",
           "grade": "2. Klasse (6. Schulstufe)",
           "gradeLevels": null,
           "category": "Arithmetik",
@@ -10939,11 +10961,13 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math2_2_brueche",
           "goals": [
-            "Brüche ohne Wertänderung erweitern und kürzen.",
-            "Ungleichnamige Brüche mit gemeinsamem Nenner addieren und subtrahieren.",
-            "Brüche multiplizieren und durch einen Bruch ungleich 0 dividieren."
+            "Brüche ohne Wertänderung erweitern und kürzen und die Gleichwertigkeit am Bild erklären.",
+            "Ungleichnamige Brüche addieren und subtrahieren und gemeinsame Teilgrößen begründen.",
+            "Brüche als relative Anteile multiplizieren und das Produkt im Flächenmodell deuten.",
+            "Division durch einen Bruch ungleich 0 als Messen und Umkehren der Multiplikation erklären.",
+            "Ergebnisse abschätzen, Änderungen von Faktoren und Divisoren begründen sowie Klammer- und Vorrangregeln anwenden."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "m22_equivalent",
@@ -10951,16 +10975,18 @@
               "title": "Erweitern und Kürzen",
               "questions": [
                 "m22_expand",
-                "m22_reduce"
+                "m22_reduce",
+                "m22_same_whole"
               ]
             },
             {
               "id": "m22_s1",
               "index": 1,
-              "title": "Brüche Plus und Minus",
+              "title": "Gleich große Teile addieren und subtrahieren",
               "questions": [
                 "m22_q1",
-                "m22_q2"
+                "m22_q2",
+                "m22_dip1"
               ]
             },
             {
@@ -10969,28 +10995,43 @@
               "title": "Unterschiedliche Nenner",
               "questions": [
                 "m22_sum",
-                "m22_difference"
+                "m22_difference",
+                "m22_common_units"
               ]
             },
             {
               "id": "m22_s2",
               "index": 3,
-              "title": "Brüche Mal rechnen (Multiplizieren)",
+              "title": "Multiplizieren: einen Anteil von einem Anteil nehmen",
               "questions": [
-                "m22_q3"
+                "m22_q3",
+                "m22_dip2",
+                "m22_product_model"
               ]
             },
             {
               "id": "m22_s3",
               "index": 4,
-              "title": "Brüche Geteilt rechnen (Dividieren)",
+              "title": "Dividieren: mit einer Portion messen",
               "questions": [
-                "m22_q4"
+                "m22_q4",
+                "m22_div_remainder",
+                "m22_div_zero"
+              ]
+            },
+            {
+              "id": "m22_rules",
+              "index": 5,
+              "title": "Ergebnisse einschätzen und Rechenwege prüfen",
+              "questions": [
+                "m22_rules_order",
+                "m22_rules_change",
+                "m22_rules_bounds"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 8,
+          "questionCount": 18,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11080,7 +11121,7 @@
         },
         {
           "id": "math2_4_relative_zahlen",
-          "title": "➖ Relative Zahlen (Ganze Zahlen)",
+          "title": "➖ Ganze Zahlen und Zahlbereiche",
           "grade": "2. Klasse (6. Schulstufe)",
           "gradeLevels": null,
           "category": "Arithmetik",
@@ -11088,18 +11129,23 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math2_4_relative_zahlen",
           "goals": [
-            "Negative Zahlen in Temperatur- und Höhenangaben deuten.",
-            "Ganze Zahlen nach ihrer Größe ordnen.",
-            "Einfache Additionen und Subtraktionen mit ganzen Zahlen im Bewegungsmodell ausführen."
+            "Ganze Zahlen in Temperatur-, Höhen- und Saldoangaben deuten und ordnen.",
+            "Eine nichtnegative ganze Zahl auf der Zahlengeraden addieren oder subtrahieren.",
+            "Natürliche Zahlen einschließlich 0, ganze Zahlen und nichtnegative Bruchzahlen vergleichen.",
+            "Vorgänger und Nachfolger innerhalb eines angegebenen Zahlbereichs bestimmen oder ihr Fehlen erklären.",
+            "Zwischen zwei verschiedenen nichtnegativen Bruchzahlen weitere Zahlen finden.",
+            "Den Zahlenwert von seiner Schreibweise unterscheiden und gleichwertige Darstellungen erkennen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
               "title": "Was sind negative Zahlen?",
               "questions": [
-                "m24_q1"
+                "m24_q1",
+                "m24_dip1",
+                "m24_reference"
               ]
             },
             {
@@ -11107,12 +11153,54 @@
               "index": 1,
               "title": "Rechnen mit Minus",
               "questions": [
-                "m24_q2"
+                "m24_q2",
+                "m24_dip2",
+                "m24_no_steps"
+              ]
+            },
+            {
+              "id": "m24_domains",
+              "index": 2,
+              "title": "Zahlbereiche: der Wert entscheidet",
+              "questions": [
+                "m24_six_thirds",
+                "m24_negative_domain",
+                "m24_decimal_integer"
+              ]
+            },
+            {
+              "id": "m24_neighbors",
+              "index": 3,
+              "title": "Vorgänger und Nachfolger: in welchem Bereich?",
+              "questions": [
+                "m24_integer_neighbor",
+                "m24_zero_predecessor",
+                "m24_fraction_successor"
+              ]
+            },
+            {
+              "id": "m24_between",
+              "index": 4,
+              "title": "Zwischenwerte finden und weiter unterteilen",
+              "questions": [
+                "m24_between_value",
+                "m24_between_whole",
+                "m24_midpoint"
+              ]
+            },
+            {
+              "id": "m24_representations",
+              "index": 5,
+              "title": "Ein Zahlenwert – verschiedene Darstellungen",
+              "questions": [
+                "m24_same_point",
+                "m24_third_exact",
+                "m24_decimal_zero"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 2,
+          "questionCount": 18,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

@@ -82,3 +82,7 @@ math1_4_mult_div enthält nun eine Stellenwerttabelle für 816 : 4 = 204 und dre
 math1_4_mult_div Revision 2 enthält zwei zusätzliche Verständnisfragen: Teilprodukt für drei Zehner bei 286 · 34 und notwendige Nullstelle bei 816 : 4. Die Rückmeldungen unterscheiden einen richtigen Zwischenschritt mit falschem Stellenwert sowie Ergebnisziffer und Endrest. Alte Ergebnisse aus Revision 1 gelten nicht als aktueller Nachweis.
 
 Bestehende Erstklassprüfung um beide Fragen erweitert: 18 ausgewählte Antwortwege im Kapitel einschließlich aller sechs neuen Pfade, richtige Abschnittszuordnung, Rückmeldungen und Revisionswechsel bestanden. Alle elf math1-Kapitel und 95 STEM-Arbeitsblätter geprüft. Quizstruktur nun 1521 Frageninstanzen. Keine Übersetzung oder Veröffentlichung; praktische/visuelle Prüfung bleibt offen.
+
+## Römische Zahlschrift und Stellenwertvergleich ergänzt – 21.09.2026
+
+Das vollständig gelesene Zahlenkapitel ist um einen Leseabschnitt mit 27 interaktiven Beispielen und einen Vergleich der Zahlensysteme erweitert. Lesen gehört zum Grundstoff, Schreiben bleibt freiwillig. Sechs neue begründete Fragen, direkte Aufgaben, Papieralternativen und Lösungen ergänzen die vorhandenen Stellenwert-/Überschlagsübungen. Alle 36 Kapitelantwortwege, 162 Browseransichten und sämtliche 17 Druckseiten im dokumentierten Umfang geprüft. [Inhalte, Nachweise und Grenzen](MATHEMATIK_ROEMISCHE_ZAHLEN.md). Die vollständige Erstklassabnahme bleibt offen.
