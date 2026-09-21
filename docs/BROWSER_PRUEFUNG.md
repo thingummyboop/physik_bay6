@@ -327,3 +327,11 @@ Finaler Browserbericht 09:08:59 UTC: 24 native Bilanzzustände, 36 Layoutfälle 
 ## 21.09.2026 – Genetik: Kombinationen und Merkmalsregeln
 
 Browserbericht 09:24:28 UTC: 27 native Zustände, 36 Layoutfälle und 33 bewertete Quizantwortwege bestanden; keine Browserfehler. Tastatur, Fokus, Rücksetzen, Speicher, Tabellenzellen, Überschriftenbreite und Diagrammbeschriftung geprüft. Drei Wege der zuletzt verbesserten punktfreien Zusatzübung um 09:25:55 UTC zusätzlich bestanden. Alle 14 mobilen Detailbilder und 21 Druckseiten kontrolliert. Finale Druckfassung 09:27:02 UTC: veränderte Seiten 1–5 erneut gelesen, übrige Seiten im Rastervergleich unverändert; Seiten 13, 15 und 16 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_GENETIK_KREUZUNGEN.md).
+
+## 21.09.2026 – Immunsystem: Auswahl und Vermehrung
+
+Browserbericht 09:48:06 UTC: 27 native Rechenzustände, 24 Layoutfälle, 33 bewertete Quizantwortwege und drei Übungswege bestanden. Keine Browserfehler. Tastatur, Fokus, Reset, unveränderter Speicher, Tabellenzellen, Überschriften und Diagrammschrift geprüft. Alle zwölf mobilen Detailbilder gelesen. Präzisierte Skizzen-/Regeltexte danach in sechs Layouts erneut geprüft. Alle 20 Druckseiten kontrolliert. Finale Ausgabe 09:51:19 UTC nach Verbindung einer allein stehenden Papierüberschrift mit ihrem Erklärabsatz: Seiten 6–8 erneut gelesen, übrige Seiten im Rastervergleich unverändert. Seiten 12, 14, 15 und 18 zusätzlich höher aufgelöst kontrolliert. [Details und Grenzen](BIOLOGIE_IMMUNSYSTEM_RESISTENZEN.md).
+
+## 21.09.2026 – Nerven und Hormone: Regelverläufe und Datenauswertung
+
+Browserbericht 10:06:45 UTC: 18 native Modellzustände, 24 Layoutfälle, 33 bewertete Quizantwortwege und drei Übungswege bestanden; keine Browserfehler. Tastatur, Fokus, Reset, Entfernung alter Ergebnisse, unveränderter Speicher, Tabellenzellen und Diagrammschrift geprüft. Alle 16 mobilen Detailbilder gelesen. Präzisierte Nervenzellskizze anschließend in sechs Layouts geprüft. Alle 21 Druckseiten kontrolliert. Finale Ausgabe 10:11:12 UTC nach Korrektur ungünstiger Seitenumbrüche: geänderte Seiten 7, 8, 19, 20 und 21 erneut gelesen, übrige Seiten im Rastervergleich unverändert; Seite 19 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_NERVEN_REGELKREISE.md).
