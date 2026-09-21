@@ -29903,7 +29903,8 @@
     ],
     "prerequisites": [
       "math4_2_pythagoras",
-      "math3_4_flaechensatz"
+      "math3_4_flaechensatz",
+      "math4_kreis_kreisteile"
     ],
     "summary": [
       "Zylinder: V = πr²h, O = 2πr² + 2πrh. Gerader Kegel: V = πr²h/3, O = πr² + πrs.",
@@ -29912,8 +29913,8 @@
     ]
   },
   "math4_7_statistik": {
-    "title": "Statistik: Mitte und Streuung",
-    "subtitle": "Daten sortieren, Kennzahlen vergleichen und Boxplots lesen.",
+    "title": "Daten und Zufall: Tabellen und Wahrscheinlichkeiten",
+    "subtitle": "Kennzahlen vergleichen, Kreuztabellen lesen und zwei Ziehungen untersuchen.",
     "sections": [
       {
         "id": "sec1",
@@ -30065,7 +30066,7 @@
       {
         "id": "m47_lab",
         "title": "Daten verändern und vergleichen",
-        "content": "<p>Die folgenden Zeiten sind erfundene Messwerte in Minuten. Vergleiche zuerst Mittelwert und Median. Ersetze dann den größten Wert durch 60. Begründe, warum sich die beiden Kennzahlen unterschiedlich verändern. Ein ungewöhnlich hoher Wert ist nicht automatisch ein Messfehler.</p><div class=\"interactive-zone\" data-statistics-lab><label for=\"stats_values\">2 bis 20 Werte zwischen 0 und 100 Minuten, getrennt durch Leerzeichen oder Semikolon</label><textarea id=\"stats_values\" rows=\"3\">2 4 6 8 10 12</textarea><p>Dezimalkomma ist erlaubt, z. B. 2,5; 3,5. Keine Namen oder persönlichen Daten nötig.</p><button type=\"button\" data-stats-calculate>Auswerten</button><button type=\"button\" data-stats-preset=\"base\">Ausgangsdaten</button><button type=\"button\" data-stats-preset=\"high\">Größten Wert auf 60 setzen</button><p data-stats-status role=\"status\" aria-live=\"polite\"></p><div data-stats-output></div></div>{{QUIZ_m47_change}}",
+        "content": "<p>Die folgenden Zeiten sind erfundene Messwerte in Minuten. Vergleiche zuerst Mittelwert und Median. Ersetze dann den größten Wert durch 60. Begründe, warum sich die beiden Kennzahlen unterschiedlich verändern. Ein ungewöhnlich hoher Wert ist nicht automatisch ein Messfehler.</p><div class=\"interactive-zone stat4-lab\" data-statistics-lab><label for=\"stats_values\">2 bis 20 Werte zwischen 0 und 100 Minuten, getrennt durch Leerzeichen oder Semikolon</label><textarea id=\"stats_values\" rows=\"3\">2 4 6 8 10 12</textarea><p>Dezimalkomma ist erlaubt, z. B. 2,5; 3,5. Keine Namen oder persönlichen Daten nötig.</p><button type=\"button\" data-stats-calculate>Auswerten</button><button type=\"button\" data-stats-preset=\"base\">Ausgangsdaten</button><button type=\"button\" data-stats-preset=\"high\">Größten Wert auf 60 setzen</button><p data-stats-status role=\"status\" aria-live=\"polite\"></p><div data-stats-output></div><template data-worksheet-alternative><div class=\"stat4-kennzahlen-paper\"><p>Ausgangsdaten in Minuten: 2; 4; 6; 8; 10; 12. Berechne Mittelwert, Median, Spannweite und die fünf Boxplot-Kennzahlen. Zeichne den Boxplot auf einer beschrifteten Minutenachse. Ersetze dann 12 durch 60 und wiederhole die Auswertung auf derselben Skala. Erkläre, welche Kennzahlen sich verändern und warum.</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Kennzahlen vergleichen – Lösung</summary><div data-stat4-kennzahlen-solution><p>Ausgangsdaten: Summe 42 min, Mittelwert 42 : 6 = 7 min, Median (6 + 8) : 2 = 7 min, Spannweite 12 − 2 = 10 min. Boxplot: Minimum 2 min; Q1 = 4 min; Median 7 min; Q3 = 10 min; Maximum 12 min.</p><p>Mit 60 statt 12: Summe 90 min, Mittelwert 90 : 6 = 15 min, Median weiterhin 7 min; Spannweite 60 − 2 = 58 min. Minimum 2 min, Q1 = 4 min und Q3 = 10 min bleiben unverändert; Maximum 60 min. Der Mittelwert berücksichtigt alle Zahlenwerte, der Median bleibt durch die beiden mittleren Positionen 6 und 8 bestimmt. Kein einzelner Modus sticht hervor: alle sechs Werte kommen gleich häufig vor.</p></div></details>{{QUIZ_m47_change}}",
         "quizzes": [
           {
             "id": "m47_change",
@@ -30092,6 +30093,243 @@
             ]
           }
         ]
+      },
+      {
+        "id": "m47_cross",
+        "title": "5. Kreuztabellen ergänzen und Bezugsgrößen wählen",
+        "quizzes": [
+          {
+            "id": "m47_missing",
+            "question": "In einer Kreuztabelle hat Gruppe A insgesamt 12 Personen. 9 antworten mit Ja; alle anderen mit Nein. Wie viele antworten mit Nein?",
+            "answers": [
+              {
+                "text": "9.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "9 ist bereits die Anzahl der Ja-Antworten. Die beiden Felder müssen zusammen 12 ergeben."
+              },
+              {
+                "text": "3.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "12 − 9 = 3. Die Summe der beiden Zellen stimmt mit der Randzahl überein."
+              },
+              {
+                "text": "21.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 9 Personen sind in den 12 bereits enthalten. Addieren würde doppelt zählen."
+              }
+            ]
+          },
+          {
+            "id": "m47_joint",
+            "question": "Von insgesamt 20 Personen gehören 9 zu Gruppe A und antworten mit Ja. Wie groß ist dieser Anteil an allen Befragten?",
+            "answers": [
+              {
+                "text": "9/20 = 45 %.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Der Nenner ist die Gesamtzahl aller Befragten: 20. Die Zelle enthält neun Personen."
+              },
+              {
+                "text": "9/12 = 75 %.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre bei einer Gruppengröße von 12 der Anteil innerhalb von A. Gefragt sind alle 20 Personen."
+              },
+              {
+                "text": "9/11 ≈ 81,82 %.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre bei elf Ja-Antworten der Anteil von A unter den Ja-Antwortenden."
+              }
+            ]
+          },
+          {
+            "id": "m47_reference",
+            "question": "In Gruppe A antworten 9 von 12 Personen mit Ja. Insgesamt gibt es 20 Befragte und 11 Ja-Antworten. Welcher Anteil beantwortet „Wie viele innerhalb von A sagen Ja?“?",
+            "answers": [
+              {
+                "text": "9/20 = 45 %.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "20 umfasst auch Gruppe B. Die gesuchte Bezugsgruppe besteht nur aus A."
+              },
+              {
+                "text": "9/11 ≈ 81,82 %.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "11 umfasst alle Ja-Antwortenden. Das beantwortet eine andere Frage."
+              },
+              {
+                "text": "9/12 = 75 %.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Innerhalb von A sind zwölf Personen die Bezugsgruppe. Davon antworten neun mit Ja."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Eine <strong>Kreuztabelle</strong> verbindet zwei Merkmale. Hier wird jede Person genau einer Gruppe A/B und genau einer Antwort Ja/Nein zugeordnet. Die vier inneren Felder bilden eine <strong>Vierfeldertafel</strong>; am Rand stehen Zeilen- und Spaltensummen. Niemand wird doppelt gezählt. Fehlende Antworten dürften nicht still als Nein eingetragen werden.</p><table class=\"stat4-cross-table\" data-stat4-example><caption>Erfundene Befragung: Teilnahme an einem Angebot</caption><thead><tr><th>Gruppe</th><th>Teilnahme ja</th><th>Teilnahme nein</th><th>Gesamt</th></tr></thead><tbody><tr><th scope=\"row\">A</th><td>9</td><td>3</td><td>12</td></tr><tr><th scope=\"row\">B</th><td>2</td><td>6</td><td>8</td></tr></tbody><tfoot><tr><th scope=\"row\">Gesamt</th><td>11</td><td>9</td><td>20</td></tr></tfoot></table><div class=\"stat4-card\"><h3>Eine Zelle, drei verschiedene Fragen</h3><p>Die Zelle A und Ja enthält 9 Personen. <strong>Anteil an allen:</strong> 9/20 = 45 %. <strong>Anteil Ja innerhalb von A:</strong> 9/12 = 75 %. <strong>Anteil A unter den Ja-Antwortenden:</strong> 9/11 ≈ 81,82 %. Zähler und Nenner müssen zur Frage passen. Eine Prozentzahl ohne Bezugsgruppe ist mehrdeutig.</p><p>Zum Ergänzen nutzt du die Ränder: A/Nein = 12 − 9 = 3. Ja insgesamt = 9 + 2 = 11. Prüfe beide Richtungen: 12 + 8 = 20 und 11 + 9 = 20. Die Summe der vier inneren Zellen ist ebenfalls 20. Addiere nicht nochmals die Randzahlen dazu.</p></div><div class=\"interactive-zone stat4-lab\" data-stat4-cross><h3>Die Bezugsgruppe verändern</h3><p>Wähle Daten und Bezugsgruppe. Berechne zuerst den Anteil für A/Ja und vergleiche anschließend. Die absoluten Anzahlen ändern sich durch einen anderen Nenner nicht.</p><label for=\"stat4-data\">Erfundener Datensatz</label><select id=\"stat4-data\"><option value=\"base\">20 Befragte</option><option value=\"second\">30 Befragte</option><option value=\"empty\">Keine Beobachtungen in A</option></select><label for=\"stat4-base\">Bezugsgruppe für die inneren Zellen</label><select id=\"stat4-base\"><option value=\"all\">Alle Befragten</option><option value=\"row\">Jeweilige Gruppe A oder B</option><option value=\"column\">Jeweilige Antwort Ja oder Nein</option></select><p data-stat4-cross-status role=\"status\"></p><div data-stat4-cross-output></div><button type=\"button\" data-stat4-cross-reset>Ausgangstabelle</button><template data-worksheet-alternative><div class=\"stat4-paper\"><p>Verwende die Tabelle mit 20 Personen. Schreibe dieselben vier Zellen dreimal auf: als Anteil an allen 20, innerhalb ihrer Zeile und innerhalb ihrer Spalte. Notiere immer den Nenner. Welche Anteile ergeben jeweils zusammen 100 %?</p></div></template></div><p>Bei Gesamtbezug ergeben alle vier Anteile zusammen 100 %. Bei Zeilenbezug gilt das für jede Zeile, bei Spaltenbezug für jede Spalte. Gerundete Prozentangaben können sich geringfügig von 100 % unterscheiden. Eine leere Bezugsgruppe hat den Umfang 0; ein Anteil mit Nenner 0 ist nicht berechenbar. Ein Anteil 0 % bei positivem Nenner ist dagegen möglich.</p><p>Eine Befragung zeigt beobachtete Zusammenhänge, keine automatische Ursache. Selbst bei unterschiedlichen Anteilen kann etwa die Zusammensetzung der Gruppen eine Rolle spielen. Die erfundenen Daten rechtfertigen keine Aussage über alle Wiener Schüler:innen.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst darstellen und begründen</h3><ol data-stat4-tasks><li>Erstelle die Vierfeldertafel selbst aus diesen Angaben: 20 Befragte, Gruppe A 12, davon 9 Ja; insgesamt 11 Ja. Ergänze alle übrigen Zellen und Ränder und prüfe die Gesamtsumme auf drei Arten.</li><li>Berechne für die Zelle A/Ja die drei im Text genannten Anteile. Formuliere zu jedem Ergebnis die passende Frage. Vergleiche außerdem den Ja-Anteil innerhalb von A und B.</li><li>Erstelle die absolute Tabelle in einer Tabellenkalkulation. Lege Ja/Nein in B/C und Gruppe A/B in Zeilen 2/3. Berechne D2 = B2+C2, D3 = B3+C3, B4 = B2+B3, C4 = C2+C3 und D4 = D2+D3. Berechne den Anteil B2/$D$4 und formatiere als Prozent. Erkläre den festen Bezug und die Grenze einer Schlussfolgerung über Ursachen.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Kreuztabelle – Anzahlen und Anteile prüfen</summary><div data-stat4-solution><p>Innere Zellen: A/Ja 9, A/Nein 3, B/Ja 2, B/Nein 6. Zeilensummen 12 und 8; Spaltensummen 11 und 9. Gesamt 9+3+2+6 = 12+8 = 11+9 = 20.</p><p>A/Ja: insgesamt 45 %, innerhalb A 75 %, unter den Ja-Antwortenden etwa 81,82 %. Ja innerhalb B: 2/8 = 25 %. Der Unterschied 75 % zu 25 % beschreibt diese befragten Gruppen, beweist aber keine Wirkung der Gruppenzugehörigkeit.</p><p>Gesamtanteile: 45 %, 15 %, 10 %, 30 %. Zeilenanteile: A 75 %/25 %, B 25 %/75 %. Spaltenanteile: Ja 9/11 und 2/11; Nein 3/9 und 6/9. Die jeweiligen Nenner sind 20, die Zeilensumme oder die Spaltensumme. In der Tabellenkalkulation hält $D$4 beim Kopieren den Gesamtumfang fest; die Eingabezelle B2 verändert sich relativ.</p></div></details>{{QUIZ_m47_missing}}{{QUIZ_m47_joint}}{{QUIZ_m47_reference}}"
+      },
+      {
+        "id": "m47_tree",
+        "title": "6. Zwei Schritte im Baumdiagramm",
+        "quizzes": [
+          {
+            "id": "m47_product",
+            "question": "Drei rote und eine blaue gleichartige Kugel werden gemischt. Zweimal wird ohne Hinsehen mit Zurücklegen gezogen. Wie groß ist P(RR)?",
+            "answers": [
+              {
+                "text": "3/4 + 3/4 = 3/2.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3/2 wäre größer als 1. Für das gemeinsame Eintreten entlang dieses Pfads werden die Wahrscheinlichkeiten multipliziert."
+              },
+              {
+                "text": "3/4 · 3/4 = 9/16.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Nach dem Zurücklegen bleibt die zweite Rot-Chance 3/4. Daher 9/16."
+              },
+              {
+                "text": "1/4, weil es vier Farbreihenfolgen gibt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die vier Farbreihenfolgen sind nicht gleich wahrscheinlich. Rot gehört zu drei der vier Kugeln."
+              }
+            ]
+          },
+          {
+            "id": "m47_paths",
+            "question": "Im selben Versuch mit Zurücklegen ist genau eine rote Kugel gesucht. Welche Farbreihenfolgen gehören dazu?",
+            "answers": [
+              {
+                "text": "Nur RB.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Rot kann auch beim zweiten Ziehen kommen. BR gehört ebenfalls zum Ereignis."
+              },
+              {
+                "text": "RR und BB.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "RR hat zwei rote Kugeln und BB keine. Beide passen nicht zu genau einer."
+              },
+              {
+                "text": "RB und BR.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "RB und BR sind verschiedene Reihenfolgen desselben Ereignisses. Ihre Wahrscheinlichkeiten werden addiert."
+              }
+            ]
+          },
+          {
+            "id": "m47_coin_paths",
+            "question": "Eine faire Münze wird zweimal unabhängig geworfen. Wie groß ist die Wahrscheinlichkeit für genau einmal Kopf?",
+            "answers": [
+              {
+                "text": "1/2, denn Kopf–Zahl und Zahl–Kopf haben je 1/4.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Die vier gleich wahrscheinlichen Reihenfolgen sind KK, KZ, ZK und ZZ. Zwei davon passen."
+              },
+              {
+                "text": "1/3, weil null, einmal oder zweimal Kopf möglich ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die drei Anzahlen sind nicht gleich wahrscheinlich. Genau einmal Kopf umfasst zwei Reihenfolgen."
+              },
+              {
+                "text": "1/4, weil nur Kopf–Zahl zählt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch Zahl–Kopf enthält genau einmal Kopf."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Bei zwei Ziehungen spielt die Reihenfolge eine Rolle. Eine erste rote und eine zweite blaue Kugel heißen <strong>RB</strong>; zuerst Blau und danach Rot heißen <strong>BR</strong>. Ein Baumdiagramm zeigt jeden Schritt getrennt. An jedem erreichbaren Knoten ergeben die Wahrscheinlichkeiten der ausgehenden Äste zusammen 1.</p><div class=\"stat4-card\"><h3>Mit Zurücklegen: gleiche Zusammensetzung</h3><p>Im Beutel liegen drei rote und eine blaue gleichartige Kugel. Jede Kugel wird mit derselben Chance gezogen. Nach jeder Ziehung wird die Kugel zurückgelegt und neu gemischt. In diesem Modell ist die Chance für Rot bei beiden Schritten 3/4, für Blau 1/4.</p><figure class=\"stat4-tree-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 480 390\" role=\"img\" aria-label=\"Zweimal Ziehen mit Zurücklegen aus drei roten und einer blauen Kugel. Erster Schritt Rot 3/4, Blau 1/4. Nach jedem ersten Ergebnis gilt wieder Rot 3/4, Blau 1/4.\"><rect width=\"480\" height=\"390\" fill=\"white\"/><g stroke=\"#64748b\" stroke-width=\"2\" fill=\"none\"><path d=\"M30 190L190 105M30 190L190 280M190 105L420 55M190 105L420 155M190 280L420 245M190 280L420 345\"/></g><g fill=\"#111827\" font-size=\"17\" text-anchor=\"middle\"><text x=\"190\" y=\"22\">1. Ziehung</text><text x=\"408\" y=\"22\">2. Ziehung</text><text x=\"93\" y=\"132\">3/4</text><text x=\"93\" y=\"257\">1/4</text><text x=\"305\" y=\"65\">3/4</text><text x=\"305\" y=\"145\">1/4</text><text x=\"305\" y=\"248\">3/4</text><text x=\"305\" y=\"332\">1/4</text></g><circle cx=\"190\" cy=\"105\" r=\"14\" fill=\"#ffedd5\" stroke=\"#64748b\"/><text x=\"190\" y=\"111\" text-anchor=\"middle\" font-size=\"17\" fill=\"#111827\">R</text><circle cx=\"190\" cy=\"280\" r=\"14\" fill=\"#dbeafe\" stroke=\"#64748b\"/><text x=\"190\" y=\"286\" text-anchor=\"middle\" font-size=\"17\" fill=\"#111827\">B</text><circle cx=\"420\" cy=\"55\" r=\"14\" fill=\"#ffedd5\" stroke=\"#64748b\"/><text x=\"420\" y=\"61\" text-anchor=\"middle\" font-size=\"17\" fill=\"#111827\">R</text><circle cx=\"420\" cy=\"155\" r=\"14\" fill=\"#dbeafe\" stroke=\"#64748b\"/><text x=\"420\" y=\"161\" text-anchor=\"middle\" font-size=\"17\" fill=\"#111827\">B</text><circle cx=\"420\" cy=\"245\" r=\"14\" fill=\"#ffedd5\" stroke=\"#64748b\"/><text x=\"420\" y=\"251\" text-anchor=\"middle\" font-size=\"17\" fill=\"#111827\">R</text><circle cx=\"420\" cy=\"345\" r=\"14\" fill=\"#dbeafe\" stroke=\"#64748b\"/><text x=\"420\" y=\"351\" text-anchor=\"middle\" font-size=\"17\" fill=\"#111827\">B</text><circle cx=\"30\" cy=\"190\" r=\"5\" fill=\"#111827\"/><text x=\"8\" y=\"170\" fill=\"#111827\" font-size=\"16\">Start</text><text x=\"20\" y=\"382\" fill=\"#111827\" font-size=\"16\">R = Rot; B = Blau</text></svg><figcaption>Nach dem Zurücklegen ist der Beutel wieder gleich zusammengesetzt. Die vier Farbreihenfolgen heißen RR, RB, BR und BB; sie sind hier nicht gleich wahrscheinlich.</figcaption></figure><p><strong>Entlang eines Pfads multiplizieren:</strong> P(RR) = 3/4 · 3/4 = 9/16. Ebenso P(RB) = 3/16, P(BR) = 3/16, P(BB) = 1/16. Die vier Pfadwahrscheinlichkeiten ergeben zusammen 1. Die Farbpfade sind nicht gleich wahrscheinlich; die 16 geordneten Paare einzelner Kugelkennungen sind es in diesem Modell.</p><p><strong>Passende, sich ausschließende Pfade addieren:</strong> „Genau einmal Rot“ umfasst RB und BR, also 3/16 + 3/16 = 6/16 = 3/8. „Mindestens einmal Rot“ umfasst RR, RB und BR. Kürzer geht es über das Gegenereignis: 1 − P(BB) = 15/16. Genau einmal und mindestens einmal sind verschieden.</p></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst darstellen und begründen</h3><ol data-stat4-tasks><li>Zeichne das Baumdiagramm für drei rote und eine blaue Kugel mit Zurücklegen. Beschrifte jeden Ast und berechne alle vier Pfade. Prüfe, ob ihre Summe 1 ergibt.</li><li>Markiere die Pfade für genau einmal Rot und für mindestens einmal Rot. Berechne beide Ereignisse. Erkläre, warum du entlang eines Pfads multiplizierst, aber die sich ausschließenden passenden Pfade addierst.</li><li>Zeichne ein Baumdiagramm für zwei unabhängige Würfe einer fairen Münze. Bestimme P(zweimal Kopf), P(genau einmal Kopf) und P(mindestens einmal Kopf). Erkläre, warum die drei Anzahlen 0, 1, 2 nicht gleich wahrscheinlich sind.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Baumdiagramm – Pfade und Ereignisse vergleichen</summary><div data-stat4-solution><p>Mit Zurücklegen: RR 9/16, RB 3/16, BR 3/16, BB 1/16. Summe 16/16 = 1. Genau einmal Rot: 6/16 = 3/8 = 37,5 %. Mindestens einmal Rot: 15/16 = 93,75 %.</p><p>Ein Pfad beschreibt zwei gemeinsam eintretende Schritte; verwende beim Multiplizieren die Chance des zweiten Schritts nach dem ersten. Die verschiedenen vollständigen Pfade können nicht gleichzeitig eintreten und werden für ein Ereignis addiert.</p><p>Faire Münze: KK, KZ, ZK, ZZ haben je 1/4. Zweimal Kopf: 1/4. Genau einmal: 2/4 = 1/2. Mindestens einmal: 3/4. Die Anzahl 1 entsteht durch zwei Reihenfolgen, die Anzahlen 0 und 2 jeweils nur durch eine.</p></div></details>{{QUIZ_m47_product}}{{QUIZ_m47_paths}}{{QUIZ_m47_coin_paths}}"
+      },
+      {
+        "id": "m47_without",
+        "title": "7. Mit und ohne Zurücklegen vergleichen",
+        "quizzes": [
+          {
+            "id": "m47_without_branch",
+            "question": "Drei rote und eine blaue Kugel liegen im Beutel. Eine rote Kugel wurde gezogen und nicht zurückgelegt. Wie groß ist nun die Rot-Chance?",
+            "answers": [
+              {
+                "text": "3/4.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3/4 galt vor der ersten Ziehung. Eine rote Kugel fehlt nun."
+              },
+              {
+                "text": "2/3.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Es bleiben zwei rote unter insgesamt drei Kugeln."
+              },
+              {
+                "text": "2/4.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Zähler 2 passt, aber insgesamt bleiben nur drei Kugeln."
+              }
+            ]
+          },
+          {
+            "id": "m47_without_rr",
+            "question": "Aus drei roten und einer blauen Kugel wird zweimal ohne Zurücklegen gezogen. Wie groß ist P(RR)?",
+            "answers": [
+              {
+                "text": "9/16.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "9/16 gilt hier mit Zurücklegen. Ohne Zurücklegen ändert sich die zweite Chance."
+              },
+              {
+                "text": "3/4 + 2/3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die gemeinsame Reihenfolge RR benötigt die Multiplikation, nicht die Addition der Astwahrscheinlichkeiten."
+              },
+              {
+                "text": "3/4 · 2/3 = 1/2.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Zuerst Rot mit 3/4, danach aus zwei roten und einer blauen mit 2/3. Das Produkt ist 6/12 = 1/2."
+              }
+            ]
+          },
+          {
+            "id": "m47_without_atleast",
+            "question": "Aus drei roten und einer blauen Kugel wird zweimal ohne Zurücklegen gezogen. Wie wahrscheinlich ist mindestens einmal Rot?",
+            "answers": [
+              {
+                "text": "Sicher: 1, denn zweimal Blau ist unmöglich.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Es gibt nur eine blaue Kugel und sie wird nicht zurückgelegt. Daher ist BB unmöglich; 1 − P(BB) = 1."
+              },
+              {
+                "text": "3/4.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3/4 beschreibt nur die Rot-Chance beim ersten Ziehen. Gesucht sind beide Ziehungen gemeinsam."
+              },
+              {
+                "text": "15/16.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "15/16 wäre bei Zurücklegen korrekt, weil dann BB möglich wäre."
+              }
+            ]
+          }
+        ],
+        "content": "<p><strong>Ohne Zurücklegen</strong> ändert die erste Ziehung die Zusammensetzung. Bei drei roten und einer blauen Kugel gilt nach Rot: zwei rote, eine blaue, also 2/3 bzw. 1/3. Nach Blau bleiben drei rote und keine blaue, also 1 bzw. 0. Die zweite Wahrscheinlichkeit hängt vom ersten Ergebnis ab.</p><div class=\"stat4-card\"><h3>Die Pfadregel bleibt gültig</h3><p>Du multiplizierst weiterhin entlang eines Pfads, jetzt mit den passenden zweiten Chancen: RR = 3/4 · 2/3 = 1/2; RB = 3/4 · 1/3 = 1/4; BR = 1/4 · 3/3 = 1/4; BB = 1/4 · 0/3 = 0. Summe 1. „Genau einmal Rot“ hat die Wahrscheinlichkeit 1/2. „Mindestens einmal Rot“ ist sicher, weil es nur eine blaue Kugel gibt.</p><p>Die Formel P(R) · P(R) wäre hier falsch: Sie setzt dieselbe passende Rot-Chance für beide Schritte voraus. Benenne immer, ob zurückgelegt wird, und begründe die Nenner. Vier Farbpfade bedeuten auch hier nicht vier gleich wahrscheinliche Ergebnisse.</p></div><div class=\"interactive-zone stat4-lab\" data-stat4-tree><h3>Das Ziehmodell verändern</h3><p>Jede der vier gleichartigen Kugeln ist beim jeweiligen Ziehen gleich wahrscheinlich. Wähle Zusammensetzung, Vorgehen und Ereignis. Berechne zuerst selbst; prüfe danach deinen Prozentwert oder blende die Rechnung zum Vergleichen ein.</p><label for=\"stat4-red\">Zusammensetzung</label><select id=\"stat4-red\"><option value=\"1\">1 rot, 3 blau</option><option value=\"2\">2 rot, 2 blau</option><option value=\"3\" selected>3 rot, 1 blau</option></select><label for=\"stat4-replace\">Vorgehen</label><select id=\"stat4-replace\"><option value=\"yes\">Mit Zurücklegen und neuem Mischen</option><option value=\"no\">Ohne Zurücklegen</option></select><label for=\"stat4-event\">Gesuchtes Ereignis</label><select id=\"stat4-event\"><option value=\"both\">Zweimal Rot</option><option value=\"one\">Genau einmal Rot</option><option value=\"atleast\">Mindestens einmal Rot</option></select><p data-stat4-tree-givens></p><div data-stat4-tree-drawing tabindex=\"0\" role=\"region\" aria-label=\"Baumdiagramm, bei schmaler Ansicht seitlich verschiebbar\"></div><p>R = Rot, B = Blau. Dicke grüne Linien führen zu den gesuchten Pfaden. Auf kleinen Bildschirmen kannst du das Diagramm seitlich verschieben, auch mit den Pfeiltasten, wenn es fokussiert ist.</p><label for=\"stat4-answer\">Meine Wahrscheinlichkeit in Prozent</label><input id=\"stat4-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"stat4-answer-help\"><p id=\"stat4-answer-help\">Gib eine Zahl von 0 bis 100 ohne Prozentzeichen ein. Runde bei Bedarf auf zwei Nachkommastellen; Komma oder Punkt sind möglich.</p><button type=\"button\" data-stat4-check>Ergebnis prüfen</button><button type=\"button\" data-stat4-show>Rechnung vergleichen</button><button type=\"button\" data-stat4-reset>Ausgangsmodell</button><p data-stat4-result role=\"status\" tabindex=\"-1\"></p><div data-stat4-paths></div><template data-worksheet-alternative><div class=\"stat4-paper\"><p>Vergleiche sechs Modelle: 1 rot/3 blau, 2 rot/2 blau und 3 rot/1 blau; jeweils mit und ohne Zurücklegen. Zeichne die Bäume und berechne RR, RB, BR und BB. Bestimme dann zweimal Rot, genau einmal Rot und mindestens einmal Rot. Prüfe jeweils die Summe der vier Pfade.</p></div></template></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst darstellen und begründen</h3><ol data-stat4-tasks><li>Zeichne für drei rote und eine blaue Kugel den Baum ohne Zurücklegen. Erkläre die Astwahrscheinlichkeiten nach Rot und nach Blau und vergleiche P(RR) mit dem Modell mit Zurücklegen.</li><li>Untersuche zwei rote und zwei blaue Kugeln. Berechne in beiden Vorgehensweisen die Wahrscheinlichkeit für genau einmal Rot. Prüfe die Ergebnisse durch Aufzählen der geordneten Paare einzelner Kugeln R1, R2, B1, B2.</li><li>Vergleiche mindestens einmal Rot bei den sechs Modellen aus der Papieraufgabe. Nutze jeweils das Gegenereignis BB. Formuliere, warum eine Modellwahrscheinlichkeit keine bestimmte Reihenfolge bei einer einzelnen Durchführung erzwingt.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Ziehmodelle – vollständige Vergleiche</summary><div data-stat4-solution><p>Mit Zurücklegen, Pfade in der Reihenfolge RR, RB, BR, BB: bei 1 rot 1/16, 3/16, 3/16, 9/16; bei 2 rot 4/16, 4/16, 4/16, 4/16; bei 3 rot 9/16, 3/16, 3/16, 1/16.</p><p>Ohne Zurücklegen: bei 1 rot 0/12, 3/12, 3/12, 6/12; bei 2 rot 2/12, 4/12, 4/12, 2/12; bei 3 rot 6/12, 3/12, 3/12, 0/12. Jede Liste summiert sich zu 1. Von vier verschiedenen Kugeln gibt es ohne Zurücklegen 4 · 3 = 12 gleich wahrscheinliche geordnete Paare, mit Zurücklegen 4 · 4 = 16.</p><p>Zweimal Rot ist jeweils der erste Eintrag. Genau einmal Rot ist die Summe der mittleren beiden: mit Zurücklegen 3/8, 1/2, 3/8; ohne Zurücklegen jeweils 1/2, 2/3, 1/2. Bei zwei roten und zwei blauen gibt es acht gemischtfarbige geordnete Paare: 8/16 mit, 8/12 ohne Zurücklegen.</p><p>Mindestens einmal Rot = 1 − P(BB): mit Zurücklegen 7/16, 3/4, 15/16; ohne Zurücklegen 1/2, 5/6, 1. Ein Ereignis mit Wahrscheinlichkeit zwischen 0 und 1 kann eintreten oder ausbleiben; das Modell legt keinen bestimmten nächsten Farbpfad fest.</p></div></details>{{QUIZ_m47_without_branch}}{{QUIZ_m47_without_rr}}{{QUIZ_m47_without_atleast}}"
       }
     ],
     "diplom": {
@@ -30121,7 +30359,10 @@
       "Arithmetischen Mittelwert, Median und Modus unterscheiden und bestimmen.",
       "Spannweite und Quartile nach einer angegebenen Regel berechnen.",
       "Einen einfachen Boxplot anhand seiner fünf Kennzahlen lesen.",
-      "Den Einfluss veränderter Daten auf Mittelwert und Median erklären."
+      "Den Einfluss veränderter Daten auf Mittelwert und Median erklären.",
+      "Absolute und relative Häufigkeiten in Kreuztabellen ergänzen und ihre Bezugsgruppen erklären.",
+      "Wahrscheinlichkeiten zweistufiger Versuche mit Baumdiagrammen und Pfadregeln berechnen.",
+      "Ziehen mit und ohne Zurücklegen unterscheiden und Ergebnisse auf ihre Modellannahmen beziehen."
     ],
     "prerequisites": [
       "math3_11_statistik"
@@ -30130,12 +30371,19 @@
       "Mittelwert = Summe : Anzahl. Der Median ist die Mitte der sortierten Daten; bei gerader Anzahl werden die zwei mittleren Werte gemittelt.",
       "Der Modus beschreibt die größte Häufigkeit, die Spannweite den Abstand zwischen Maximum und Minimum.",
       "Ein einfacher Boxplot zeigt Minimum, Q1, Median, Q3 und Maximum. Die Quartilregel muss angegeben sein.",
-      "Einzelne extreme Werte beeinflussen den Mittelwert stärker als den Median; keine einzelne Kennzahl beschreibt sämtliche Eigenschaften der Daten."
+      "Einzelne extreme Werte beeinflussen den Mittelwert stärker als den Median; keine einzelne Kennzahl beschreibt sämtliche Eigenschaften der Daten.",
+      "Kreuztabellen: Randzahlen prüfen; für relative Häufigkeiten die passende Gesamt-, Zeilen- oder Spaltensumme wählen.",
+      "Entlang eines Pfads multiplizieren, passende sich ausschließende Pfade addieren. Die zweiten Chancen müssen zum ersten Ergebnis passen.",
+      "Ohne Zurücklegen verändert sich die Zusammensetzung; mit Zurücklegen und Mischen bleibt sie gleich."
     ],
     "sources": [
       {
-        "label": "NIST: Aufbau und Varianten von Boxplots",
+        "title": "NIST: Aufbau und Varianten von Boxplots",
         "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/boxplot.htm"
+      },
+      {
+        "title": "RIS: Mittelschullehrplan, Anlage 1 – Mathematik, 4. Klasse, Daten und Zufall",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
       }
     ]
   },
@@ -65809,5 +66057,431 @@
       ],
       "model": "Mein Projektzeichen nutzt einen Weg mit zwei Punkten. Klein waren zusätzliche Striche nicht mehr erkennbar, deshalb entferne ich sie. Den Namen setze ich mit mehr Buchstabenabstand daneben. Eine Rückmeldung deutete den Weg als Wanderroute; ich prüfe, ob das zur Projektidee passt."
     }
+  },
+  "math4_kreis_kreisteile": {
+    "title": "Kreise und Kreisteile",
+    "subtitle": "Messen, Umfang und Fläche unterscheiden und mit Kreisformen planen.",
+    "learningGoals": [
+      "Radius, Durchmesser, Umfang und Flächeninhalt unterscheiden und π durch Messungen untersuchen.",
+      "Kreisumfang und Kreisfläche berechnen, Einheiten prüfen und sinnvoll runden.",
+      "Bogen, gesamten Rand und Fläche von Halb-, Viertel- und Achtelkreisen bestimmen.",
+      "Aus Umfang oder Fläche den Radius berechnen und durch Einsetzen prüfen.",
+      "Zusammengesetzte Kreisformen modellieren und Ergebnisse für Entscheidungen nutzen."
+    ],
+    "prerequisites": [
+      "math1_5_geo_grundbegriffe",
+      "math3_4_flaechensatz",
+      "math4_1_reelle_zahlen"
+    ],
+    "sections": [
+      {
+        "id": "circle_pi",
+        "title": "1. Kreisgrößen messen und π entdecken",
+        "content": "<p>Eine Kreislinie besteht aus allen Punkten mit demselben Abstand r vom Mittelpunkt M. Dieser Abstand heißt <strong>Radius</strong>. Der <strong>Durchmesser d = 2r</strong> führt durch M und verbindet zwei gegenüberliegende Kreispunkte. Der <strong>Umfang U</strong> ist die Länge der Kreislinie; der Flächeninhalt A beschreibt die Größe der eingeschlossenen Fläche.</p><figure class=\"circle-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 280\" role=\"img\" aria-label=\"Kreis mit Mittelpunkt M, Radius r und Durchmesser d. Der Durchmesser besteht aus zwei Radien.\"><circle cx=\"180\" cy=\"135\" r=\"95\" fill=\"#dbeafe\" stroke=\"#1d4ed8\" stroke-width=\"3\"/><line x1=\"85\" y1=\"135\" x2=\"275\" y2=\"135\" stroke=\"#64748b\" stroke-dasharray=\"5 4\" stroke-width=\"2\"/><line x1=\"180\" y1=\"135\" x2=\"275\" y2=\"135\" stroke=\"#b45309\" stroke-width=\"4\"/><circle cx=\"180\" cy=\"135\" r=\"4\" fill=\"#172033\"/><g fill=\"#172033\" font-size=\"17\" text-anchor=\"middle\"><text x=\"168\" y=\"157\">M</text><text x=\"232\" y=\"122\">r</text><text x=\"180\" y=\"258\">d = 2r</text><text x=\"180\" y=\"25\">Kreislinie: Umfang U</text></g></svg><figcaption>Der Radius verbindet den Mittelpunkt mit der Kreislinie. Ein Durchmesser geht durch den Mittelpunkt von Rand zu Rand. Die Kreisfläche liegt innerhalb der Linie.</figcaption></figure><div class=\"circle-card\"><h3>Wie oft passt der Durchmesser um den Kreis?</h3><p>Miss den Durchmesser eines runden Deckels durch die Mitte. Lege einen Faden einmal eng um seinen Rand, markiere die Länge und miss den Faden gerade. Verwende dieselbe Einheit für U und d. Berechne U : d. Wiederhole mit anderen Größen. Bei idealen Kreisen ist das Verhältnis immer dieselbe Zahl: <strong>π = U/d ≈ 3,14159</strong>. π ist irrational; 3,14 ist eine Näherung.</p><p>Reale Messwerte streuen: Ein Faden kann locker liegen, ein Gegenstand unrund sein oder die Ablesung ungenau. Du musst kein Ergebnis von exakt 3,14 erreichen. Eine Messreihe unterstützt die Vermutung; sie ist kein allgemeiner mathematischer Beweis.</p></div><table class=\"circle-measurements\"><caption>Fiktive Messwerte als Alternative zur eigenen Messung</caption><thead><tr><th>Gegenstand</th><th>d in cm</th><th>U in cm</th></tr></thead><tbody><tr><th>A</th><td>5,0</td><td>15,7</td></tr><tr><th>B</th><td>8,0</td><td>25,2</td></tr><tr><th>C</th><td>12,0</td><td>37,7</td></tr></tbody></table><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst messen, zeichnen und begründen</h3><ol data-circle-tasks><li>Untersuche drei runde Gegenstände oder verwende die fiktive Tabelle. Protokolliere Gegenstand, Durchmesser, Umfang, Einheit und U/d. Markiere, ob die Daten selbst gemessen oder vorgegeben sind.</li><li>Berechne die drei Quotienten aus der Tabelle auf drei Nachkommastellen. Vergleiche sie mit π und erkläre mindestens zwei mögliche Messabweichungen.</li><li>Zeichne mit dem Zirkel einen Kreis mit Radius 3 cm. Zeichne zwei verschiedene Durchmesser und miss sie nach. Erkläre den Unterschied zwischen Kreislinie, Kreisfläche und Flächeninhalt.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Messen und vergleichen – mögliche Lösung</summary><div data-circle-solution><p>Fiktive Quotienten: A 15,7/5 = 3,14; B 25,2/8 = 3,15; C 37,7/12 ≈ 3,142. Die Ergebnisse liegen nahe beieinander und nahe π. Lockerer Faden, ungenau getroffene Mitte oder Ablesung können Abweichungen erklären; eigene Messungen dürfen andere Werte ergeben.</p><p>Bei r = 3 cm sind beide Durchmesser 6 cm lang. Die Kreislinie ist der Rand, die Kreisfläche das zweidimensionale geometrische Objekt und der Flächeninhalt seine Größe in cm².</p></div></details>{{QUIZ_circle_diameter}}{{QUIZ_circle_ratio}}{{QUIZ_circle_pi_exact}}",
+        "quizzes": [
+          {
+            "id": "circle_diameter",
+            "question": "Ein Kreis hat Durchmesser 10 cm. Wie groß ist sein Radius?",
+            "answers": [
+              {
+                "text": "20 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Durchmesser ist doppelt so groß wie der Radius, nicht umgekehrt."
+              },
+              {
+                "text": "5 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "r = d/2 = 10/2 = 5 cm."
+              },
+              {
+                "text": "10 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "10 cm ist der gesamte Durchmesser aus zwei Radien."
+              }
+            ]
+          },
+          {
+            "id": "circle_ratio",
+            "question": "Was ist bei allen idealen Kreisen gleich?",
+            "answers": [
+              {
+                "text": "U + d.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Summe wächst mit der Kreisgröße."
+              },
+              {
+                "text": "U − d.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch die Differenz wächst mit der Kreisgröße."
+              },
+              {
+                "text": "Das Verhältnis U/d.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "U/d ist unabhängig von der Größe stets π."
+              }
+            ]
+          },
+          {
+            "id": "circle_pi_exact",
+            "question": "Welche Aussage über π ist richtig?",
+            "answers": [
+              {
+                "text": "π ≈ 3,14; die Dezimaldarstellung endet nicht.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "3,14 ist nur eine gerundete Näherung der irrationalen Zahl π."
+              },
+              {
+                "text": "π ist genau 3,14.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das Gleichheitszeichen würde eine exakte Zahl behaupten. Verwende ≈."
+              },
+              {
+                "text": "Jeder Kreis hat seinen eigenen Wert für π.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Messwerte können streuen. Für ideale Kreise ist das Verhältnis U/d immer gleich."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "circle_formulas",
+        "title": "2. Umfang und Fläche berechnen",
+        "content": "<p>Aus π = U/d folgt <strong>U = πd = 2πr</strong>. Für r = 4 cm ist U = 8π cm ≈ 25,13 cm. Der Kreisumfang ist eine Länge, deshalb steht cm und nicht cm².</p><div class=\"circle-card\"><h3>Warum A = πr²?</h3><p>Teile einen Kreis in viele schmale, gleich große Sektoren. Lege sie abwechselnd mit der Spitze nach oben und unten. Es entsteht eine annähernd rechteckige Form: Ihre Höhe nähert sich r; die lange Seite nähert sich dem halben Umfang U/2 = πr. Daher nähert sich ihr Flächeninhalt πr · r = πr². Je feiner die Sektoren, desto kleiner sind die Zacken am Rand. Das endliche ausgeschnittene Bild ist noch kein genaues Rechteck.</p><p>Für r = 4 cm gilt <strong>A = 16π cm² ≈ 50,27 cm²</strong>. Verwende die π-Taste und runde erst das Endergebnis. Schreib zunächst auch den exakten Ausdruck mit π auf.</p></div><p>Wird der Radius verdoppelt, verdoppelt sich U; A vervierfacht sich. Verwechsle die beiden Größen nicht: Für ein Band am Rand brauchst du die Länge U, für Papier zum Abdecken die Fläche A.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst messen, zeichnen und begründen</h3><ol data-circle-tasks><li>Zeichne einen Kreis, unterteile ihn in 16 gleich große Sektoren und ordne ausgeschnittene Sektoren abwechselnd an. Beschreibe, warum Höhe und lange Seite näherungsweise r und πr sind.</li><li>Berechne U und A für r = 3 cm und für d = 10 cm, zuerst mit π, danach auf zwei Nachkommastellen. Prüfe die Einheiten und vergleiche mit einer groben Schätzung π ≈ 3.</li><li>Vergleiche Kreise mit Radien 2 cm und 6 cm. Bestimme, um welchen Faktor Umfang und Fläche größer werden, und begründe die verschiedenen Faktoren.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Kreisformeln – Vergleichslösung</summary><div data-circle-solution><p>Bei einer endlichen Sektorzerlegung bleiben wellige Ränder; mit mehr schmalen Sektoren nähert sich die Anordnung einem Rechteck mit Höhe r und Länge πr. Der Flächeninhalt des Kreises bleibt beim Umlegen erhalten.</p><p>r = 3 cm: U = 6π cm ≈ 18,85 cm, A = 9π cm² ≈ 28,27 cm². d = 10 cm bedeutet r = 5 cm: U = 10π cm ≈ 31,42 cm, A = 25π cm² ≈ 78,54 cm². Mit π ≈ 3 erhältst du als grobe Schätzwerte 18/27 bzw. 30/75 in den jeweiligen Einheiten.</p><p>Von 2 cm auf 6 cm wächst r um Faktor 3. U wächst ebenfalls um Faktor 3, A um Faktor 9. Allgemein: bei Längenfaktor k gilt U′ = kU und A′ = k²A.</p></div></details>{{QUIZ_circle_u}}{{QUIZ_circle_a}}{{QUIZ_circle_scale}}",
+        "quizzes": [
+          {
+            "id": "circle_u",
+            "question": "Ein Kreis hat Radius 4 cm. Wie groß ist sein Umfang?",
+            "answers": [
+              {
+                "text": "4π cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "πr ist nur der halbe Umfang. Der ganze Umfang ist 2πr."
+              },
+              {
+                "text": "8π cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "U = 2π · 4 cm = 8π cm."
+              },
+              {
+                "text": "16π cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "16π cm² ist hier der Flächeninhalt, nicht der Umfang."
+              }
+            ]
+          },
+          {
+            "id": "circle_a",
+            "question": "Ein Kreis hat Durchmesser 6 cm. Wie groß ist sein Flächeninhalt?",
+            "answers": [
+              {
+                "text": "6π cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Du brauchst πr². Der Radius beträgt 3 cm."
+              },
+              {
+                "text": "36π cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier wurde der Durchmesser statt des Radius quadriert."
+              },
+              {
+                "text": "9π cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "r = 3 cm, also A = π · 3² cm² = 9π cm²."
+              }
+            ]
+          },
+          {
+            "id": "circle_scale",
+            "question": "Der Radius verdreifacht sich. Was geschieht mit dem Flächeninhalt?",
+            "answers": [
+              {
+                "text": "Er wird neunmal so groß.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "In A = πr² wird auch der Faktor 3 quadriert: 3² = 9."
+              },
+              {
+                "text": "Er wird dreimal so groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das gilt für den Umfang. Die Fläche wächst mit dem Quadrat."
+              },
+              {
+                "text": "Er wird sechsmal so groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Verdopplung im Umfang 2πr ist kein Flächenfaktor."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "circle_parts",
+        "title": "3. Halbkreis, Viertelkreis und Achtelkreis",
+        "content": "<p>Ein Halbkreis hat 180°, ein Viertelkreis 90° und ein Achtelkreis 45° Mittelpunktswinkel. Bei gleichem Radius haben Bogenlänge und Fläche denselben Anteil am ganzen Kreis: 1/2, 1/4 bzw. 1/8. So ist bei r = 4 cm der Viertelkreisbogen 8π/4 = 2π cm lang und seine Fläche 16π/4 = 4π cm² groß.</p><div class=\"circle-card\"><h3>Bogen ist nicht gesamter Rand</h3><p>Bei jedem dieser echten Kreisteile begrenzen zusätzlich zwei Radien die Fläche. Daher gilt <strong>gesamter Rand = Bogenlänge + 2r</strong>. Beim Halbkreis bilden die beiden Radien gemeinsam den Durchmesser. Beim Viertelkreis mit r = 4 cm beträgt der gesamte Rand also 2π + 8 cm ≈ 14,28 cm. Beim ganzen Kreis besteht der Rand nur aus der Kreislinie; addiere dort keine Radien.</p><p>Für einen Sektor mit Winkel α zwischen 0° und 360° kannst du als Erweiterung den Anteil α/360° verwenden. Ein Kreissegment ist anders begrenzt: von einer Sehne und einem Bogen. Die Sektorformeln mit zwei Radien beschreiben ein Segment nicht unmittelbar.</p></div><div class=\"interactive-zone circle-lab\" data-circle-lab><h3>Kreis und Kreisteile vergleichen</h3><p>Wähle Radius, Kreisteil und gesuchte Größe. Berechne sie zuerst selbst. Der blaue Bogen und die orangefarbenen geraden Randstücke ergeben zusammen den gesamten Rand.</p><label for=\"circle-radius\">Radius r in cm</label><input id=\"circle-radius\" type=\"range\" min=\"1\" max=\"8\" step=\"1\" value=\"4\"><p data-circle-radius-text></p><label for=\"circle-part\">Kreisteil</label><select id=\"circle-part\"><option value=\"1\">Ganzer Kreis (360°)</option><option value=\"2\">Halbkreis (180°)</option><option value=\"4\" selected>Viertelkreis (90°)</option><option value=\"8\">Achtelkreis (45°)</option></select><label for=\"circle-quantity\">Gesucht</label><select id=\"circle-quantity\"><option value=\"arc\">Bogenlänge</option><option value=\"perimeter\">Gesamter Rand</option><option value=\"area\">Flächeninhalt</option></select><div data-circle-drawing tabindex=\"0\" role=\"region\" aria-label=\"Kreisteil, bei schmaler Ansicht seitlich verschiebbar\"></div><p>Der blaue Bogen ist gekrümmt; gerade Randstücke sind orange. Beim ganzen Kreis gibt es keine geraden Randstücke. Auf schmalen Bildschirmen kannst du die Zeichnung seitlich verschieben, auch mit den Pfeiltasten, wenn sie fokussiert ist.</p><label for=\"circle-answer\">Mein Ergebnis</label><input id=\"circle-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"circle-answer-help\"><p id=\"circle-answer-help\" data-circle-help></p><button type=\"button\" data-circle-check>Ergebnis prüfen</button><button type=\"button\" data-circle-show>Rechnung vergleichen</button><button type=\"button\" data-circle-reset>Ausgangsmodell</button><p data-circle-status role=\"status\" tabindex=\"-1\"></p><div data-circle-calculation></div><template data-worksheet-alternative><div class=\"circle-paper\"><p>Vergleiche bei r = 4 cm den ganzen Kreis, Halbkreis, Viertelkreis und Achtelkreis. Zeichne die vier Figuren und markiere Bogen und gerade Randstücke verschieden. Berechne für jede Figur Bogenlänge, gesamten Rand und Fläche, jeweils exakt mit π und näherungsweise auf zwei Nachkommastellen.</p></div></template></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst messen, zeichnen und begründen</h3><ol data-circle-tasks><li>Bearbeite die vier Fälle der Papieraufgabe. Erkläre insbesondere, warum ein Viertelkreis nicht halb so viel gesamten Rand wie ein Halbkreis hat.</li><li>Vergleiche beim Viertelkreis r = 2 cm und r = 6 cm. Zeige an Bogen, gesamtem Rand und Fläche, welche Größen mit Faktor 3 und welche mit Faktor 9 wachsen.</li><li>Zeichne zu r = 4 cm einen Sektor mit 45° und den zugehörigen Kreisbogen. Ergänze die Sehne zwischen den Bogenenden. Markiere Sektor und Segment unterschiedlich und beschreibe ihre Ränder.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Kreisteile – Vergleichslösung</summary><div data-circle-solution><p>r = 4 cm: ganzer Kreis: Bogen und Rand 8π cm ≈ 25,13 cm, Fläche 16π cm² ≈ 50,27 cm². Halbkreis: Bogen 4π cm ≈ 12,57 cm, Rand 4π + 8 cm ≈ 20,57 cm, Fläche 8π cm² ≈ 25,13 cm². Viertelkreis: Bogen 2π cm ≈ 6,28 cm, Rand 2π + 8 cm ≈ 14,28 cm, Fläche 4π cm² ≈ 12,57 cm². Achtelkreis: Bogen π cm ≈ 3,14 cm, Rand π + 8 cm ≈ 11,14 cm, Fläche 2π cm² ≈ 6,28 cm².</p><p>Die Bogenanteile ändern sich mit dem Winkel, die beiden Radien gehören aber bei jedem dieser echten Kreisteile zum Rand. Ein Viertelkreis hat halb so viel Bogen wie ein Halbkreis, aber dieselbe zusätzliche Randlänge 2r.</p><p>Bei gleicher Winkelgröße und Radiusfaktor 3 wachsen Bogen und ganzer Rand um Faktor 3, die Fläche um Faktor 9. Der Sektor wird von zwei Radien und dem Bogen begrenzt, das Segment von der Sehne und dem Bogen.</p></div></details>{{QUIZ_circle_half}}{{QUIZ_circle_eighth}}{{QUIZ_circle_full_edge}}",
+        "quizzes": [
+          {
+            "id": "circle_half",
+            "question": "Ein Halbkreis hat Radius 4 cm. Wie lang ist sein gesamter Rand?",
+            "answers": [
+              {
+                "text": "4π + 8 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Zum halben Kreisumfang 4π kommen die beiden Radien, zusammen 8 cm."
+              },
+              {
+                "text": "4π cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist nur der Bogen; die gerade Durchmesserseite fehlt."
+              },
+              {
+                "text": "8π cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "8π ist der Umfang des ganzen Kreises."
+              }
+            ]
+          },
+          {
+            "id": "circle_eighth",
+            "question": "Welchen Flächeninhalt hat ein Achtelkreis mit Radius 4 cm?",
+            "answers": [
+              {
+                "text": "2π cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Zahlenwert passt, aber Fläche wird in cm² angegeben."
+              },
+              {
+                "text": "π cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "π cm ist hier die Bogenlänge. Die Fläche ist ein Achtel von 16π cm²."
+              },
+              {
+                "text": "2π cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "A = π · 4² / 8 cm² = 2π cm²."
+              }
+            ]
+          },
+          {
+            "id": "circle_full_edge",
+            "question": "Wann wird zum Kreisbogen kein zusätzliches 2r addiert?",
+            "answers": [
+              {
+                "text": "Beim Halbkreis.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Halbkreisrand enthält einen Durchmesser, also 2r."
+              },
+              {
+                "text": "Beim ganzen Kreis.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Der ganze Kreis wird nur durch die Kreislinie begrenzt."
+              },
+              {
+                "text": "Beim Viertelkreis.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Viertelkreis hat zwei Radien als gerade Randstücke."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "circle_inverse",
+        "title": "4. Aus Umfang oder Fläche den Radius bestimmen",
+        "content": "<p>Bei einer Umkehraufgabe ist die Kreisgröße bekannt und der Radius gesucht. Schreibe zuerst die passende Formel auf und stelle sie um.</p><div class=\"circle-card\"><p><strong>Aus dem Umfang:</strong> U = 2πr → r = U/(2π). Bei U = 18π cm folgt r = 9 cm und d = 18 cm.</p><p><strong>Aus der Fläche:</strong> A = πr² → r² = A/π → r = √(A/π). Für A = 25π cm² ist r = 5 cm. Als Länge kommt nur die nichtnegative Wurzel infrage. Prüfe durch Einsetzen in die Ausgangsformel.</p><p><strong>Bei einem Viertelkreis:</strong> A = πr²/4 → r = √(4A/π). Ist A = 9π cm², erhältst du r = 6 cm. Der Viertelkreis belegt bei gleichem Radius nur ein Viertel der Fläche; vergrößere zuerst auf den ganzen Kreis.</p></div><p>Steht die Angabe als gerundete Dezimalzahl da, ist auch dein Ergebnis eine Näherung. Zum Beispiel ergibt U = 20 cm den Radius r = 10/π cm ≈ 3,18 cm. Prüfe mit dem ungerundeten Rechnerwert; vorzeitiges Runden verfälscht die Probe.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst messen, zeichnen und begründen</h3><ol data-circle-tasks><li>Bestimme Radius und Durchmesser zu U = 12π cm. Wiederhole die Berechnung für U = 20 cm auf zwei Nachkommastellen und setze den ungerundeten Wert zur Probe ein.</li><li>Eine Kreisfläche ist 49π cm² groß. Bestimme r und U. Erkläre, warum √(49π) allein nicht die gesuchte Radiusberechnung ist.</li><li>Ein Viertelkreis hat Fläche 9π cm². Bestimme r und seinen gesamten Rand. Vergleiche mit einem ganzen Kreis derselben Fläche.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Umkehraufgaben – Vergleichslösung</summary><div data-circle-solution><p>U = 12π cm: r = 6 cm und d = 12 cm. U = 20 cm: r = 10/π cm ≈ 3,18 cm und d = 20/π cm ≈ 6,37 cm. Probe mit ungerundetem r: 2π · (10/π) = 20.</p><p>A = 49π cm²: erst durch π teilen, dann die nichtnegative Wurzel: r = √49 cm = 7 cm; U = 14π cm ≈ 43,98 cm.</p><p>Viertelkreis A = 9π cm²: r = 6 cm. Bogen 3π cm, gesamter Rand 3π + 12 cm ≈ 21,42 cm. Ein ganzer Kreis mit derselben Fläche hat r = 3 cm und U = 6π cm ≈ 18,85 cm. Gleiche Fläche verlangt nicht gleichen Rand.</p></div></details>{{QUIZ_circle_inverse_u}}{{QUIZ_circle_inverse_a}}{{QUIZ_circle_inverse_quarter}}",
+        "quizzes": [
+          {
+            "id": "circle_inverse_u",
+            "question": "Ein Kreisumfang beträgt 12π cm. Welcher Radius passt?",
+            "answers": [
+              {
+                "text": "12 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "12 cm ist hier der Durchmesser. Teile den Umfang durch 2π."
+              },
+              {
+                "text": "6 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "r = 12π/(2π) cm = 6 cm."
+              },
+              {
+                "text": "24 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Radius entsteht durch Teilen, nicht durch Verdoppeln."
+              }
+            ]
+          },
+          {
+            "id": "circle_inverse_a",
+            "question": "Ein Kreis hat Fläche 16π cm². Wie erhältst du seinen Radius?",
+            "answers": [
+              {
+                "text": "16π : 2π = 8 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2πr ist die Umfangsformel. Hier ist eine Fläche gegeben."
+              },
+              {
+                "text": "√(16π) cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "In A = πr² muss zuerst durch π geteilt werden."
+              },
+              {
+                "text": "√(16π/π) cm = 4 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Nach dem Teilen durch π ist r² = 16 cm²; als Länge ist r = 4 cm."
+              }
+            ]
+          },
+          {
+            "id": "circle_inverse_quarter",
+            "question": "Ein Viertelkreis hat Fläche 9π cm². Welcher Radius passt?",
+            "answers": [
+              {
+                "text": "6 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "A = πr²/4; daher r² = 36 cm² und r = 6 cm."
+              },
+              {
+                "text": "3 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3 cm würde zur gleichen Fläche eines ganzen Kreises passen."
+              },
+              {
+                "text": "12 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Nach dem Vervierfachen der Fläche muss noch die Quadratwurzel gezogen werden."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "circle_context",
+        "title": "5. Zusammengesetzte Formen und Entscheidungen",
+        "content": "<p>Ein fiktives Schulbeet besteht aus einem Rechteck von 8 m Länge und 4 m Breite. An eine 4-m-Seite schließt ein Halbkreis an. Zeichne zuerst die Form und markiere den <strong>äußeren Rand</strong>.</p><figure class=\"circle-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 210\" role=\"img\" aria-label=\"Rechteck 8 Meter mal 4 Meter, rechts ein Halbkreis mit Durchmesser 4 Meter. Die gemeinsame Linie ist innen.\"><path d=\"M60 60 H220 A40 40 0 0 1 220 140 H60 Z\" fill=\"#dbeafe\" stroke=\"#1d4ed8\" stroke-width=\"3\"/><line x1=\"220\" y1=\"60\" x2=\"220\" y2=\"140\" stroke=\"#b45309\" stroke-dasharray=\"5 4\" stroke-width=\"2\"/><g fill=\"#172033\" font-size=\"17\" text-anchor=\"middle\"><text x=\"140\" y=\"43\">8 m</text><text x=\"35\" y=\"107\">4 m</text><text x=\"180\" y=\"185\">Gestrichelt: gemeinsame Innenlinie</text></g></svg><figcaption>Fiktive Beetform. Die gemeinsame Durchmesserlinie gehört nicht zum äußeren Rand.</figcaption></figure><p>Der Halbkreis hat d = 4 m, also r = 2 m. Die Fläche setzt sich ohne Überlappung zusammen: A = 8 · 4 + π · 2²/2 = 32 + 2π m² ≈ 38,28 m². Zum Außenrand gehören zwei Rechtecklängen, eine Rechteckbreite und der Halbkreisbogen: U = 8 + 8 + 4 + 2π = 20 + 2π m ≈ 26,28 m. Die gemeinsame Linie im Inneren wird nicht mitgezählt.</p><p>Für eine Entscheidung genügt manchmal gewöhnliches Runden nicht: Randband wird im fiktiven Angebot nur in ganzen Metern verkauft. Für 26,28 m Bedarf brauchst du mindestens 27 m. Ein Preis von 6 Euro je Meter ist hier eine erfundene Rechenannahme; Materialverlust wird im Modell nicht berücksichtigt.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst messen, zeichnen und begründen</h3><ol data-circle-tasks><li>Zeichne das Beet im Maßstab 1 : 100. Beschrifte Radius, Durchmesser und Außenrand. Berechne Fläche und Rand selbst und erkläre, welche Linie nicht zum Rand gehört.</li><li>Berechne die mindestens nötige Bestellmenge an Randband in ganzen Metern und den Gesamtpreis zum fiktiven Preis von 6 Euro/m. Erkläre den Unterschied zwischen 26,28 auf ganze Zahlen runden und auf ausreichenden Bedarf aufrunden.</li><li>Entwirf eine zweite Form aus einem Rechteck und einem Halbkreis. Wähle passende Maße, schreibe einen vollständigen Arbeitsauftrag und eine Vergleichslösung. Tausche die Aufgabe mit einer anderen Person und überprüfe Einheiten, gemeinsame Innenlinien und Modellannahmen.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Beet und Bestellung – Vergleichslösung</summary><div data-circle-solution><p>Im Maßstab 1 : 100 wird das Rechteck 8 cm × 4 cm gezeichnet, der Halbkreis hat Radius 2 cm. In Wirklichkeit: A = 32 + 2π m² ≈ 38,28 m²; U = 20 + 2π m ≈ 26,28 m. Die gemeinsame 4-m-Linie liegt innen und wird nicht nochmals als Rand addiert.</p><p>26 m wären zu kurz. Mindestens 27 m Randband kosten im Modell 27 · 6 = 162 Euro. Die Mehrlänge beträgt etwa 0,72 m. Für eine echte Bestellung wären unter anderem Anschlüsse und Verluste zu klären.</p><p>Eigene Entwürfe haben mehrere richtige Lösungen. Prüfe, dass die Halbkreis-Durchmesserseite genau zur Rechteckseite passt, Flächen ohne Überlappung addiert werden und nur der Außenrand gezählt wird.</p></div></details>{{QUIZ_circle_inner}}{{QUIZ_circle_order}}{{QUIZ_circle_area_unit}}",
+        "quizzes": [
+          {
+            "id": "circle_inner",
+            "question": "Warum zählt die gemeinsame Durchmesserlinie des Beets nicht zum Außenrand?",
+            "answers": [
+              {
+                "text": "Weil sie kürzer als die anderen Seiten ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ihre Lage, nicht ihre Länge entscheidet."
+              },
+              {
+                "text": "Weil sie zwischen zwei zusammenhängenden Teilflächen im Inneren liegt.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Der Außenrand trennt das ganze Beet von seiner Umgebung. Die gemeinsame Linie tut das nicht."
+              },
+              {
+                "text": "Weil gerade Strecken nie zum Umfang gehören.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gerade Stücke können zum Umfang gehören, etwa die drei äußeren Rechteckseiten."
+              }
+            ]
+          },
+          {
+            "id": "circle_order",
+            "question": "Es werden 26,28 m Band benötigt, verkauft wird nur in ganzen Metern. Wie viel ist mindestens zu bestellen?",
+            "answers": [
+              {
+                "text": "26 m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Normales Runden ergibt hier 26, aber das wäre zu kurz."
+              },
+              {
+                "text": "26,3 m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "26,3 m wäre genug, ist laut Modell jedoch keine kaufbare Menge."
+              },
+              {
+                "text": "27 m.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Die kleinste ganze Meterzahl, die den Bedarf deckt, ist 27."
+              }
+            ]
+          },
+          {
+            "id": "circle_area_unit",
+            "question": "Welche Größe braucht man, um die Beetfläche mit einer dünnen Materialschicht gleicher Dicke zu bedecken?",
+            "answers": [
+              {
+                "text": "Den Flächeninhalt in m².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Die bedeckte Fläche bestimmt bei gleicher Schichtdicke den Materialbedarf."
+              },
+              {
+                "text": "Nur den Umfang in m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Umfang bestimmt etwa Randband, nicht die bedeckte Fläche."
+              },
+              {
+                "text": "Den Durchmesser in m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Durchmesser allein beschreibt die zusammengesetzte Fläche nicht."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": [
+      "d = 2r; bei idealen Kreisen ist U/d = π. Messungen liefern Näherungen.",
+      "U = 2πr = πd ist eine Länge; A = πr² ist ein Flächeninhalt. Erst am Ende runden.",
+      "Bogen und Fläche haben denselben Anteil am ganzen Kreis. Bei echten Sektoren kommen zum Bogen zwei Radien als Rand hinzu.",
+      "r = U/(2π) oder r = √(A/π). Für Kreisteile den Anteil berücksichtigen und das Ergebnis prüfen.",
+      "Gemeinsame Innenlinien zählen nicht zum Außenrand. Bestellmengen müssen den Bedarf decken, auch wenn gewöhnliches Runden einen kleineren Wert liefert."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan, Anlage 1 – Mathematik, Kreise und Kreisteile",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
+    ]
   }
 }

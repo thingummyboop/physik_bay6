@@ -2,7 +2,7 @@ const fs=require('fs'),path=require('path'),assert=require('node:assert/strict')
 const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8'),data=JSON.parse(read('lang/de.json'));
 (async()=>{const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math4_7_statistik',runScripts:'outside-only'}),w=dom.window,d=w.document;
 await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','common','chapter-revisions','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();w.eval(read('js/topics/math4_7_statistik.js'));w.topicInit();
-assert.equal(d.querySelectorAll('[data-core-intro] li').length,4);assert.equal(d.querySelectorAll('#chapter-summary li').length,4);assert.ok(!d.body.textContent.includes('{{QUIZ_'));
+assert.equal(d.querySelectorAll('[data-core-intro] li').length,7);assert.equal(d.querySelectorAll('#chapter-summary li').length,7);assert.ok(!d.body.textContent.includes('{{QUIZ_'));
 for(const q of data.math4_7_statistik.sections.flatMap(s=>s.quizzes)){assert.ok(d.body.textContent.includes(q.question),q.id);assert.equal(q.answers.filter(a=>a.correct).length,1);}
 for(const[raw,expected]of [['2 4 6 8 10 12',[2,4,7,10,12,7]],['12 10 8 6 4 2',[2,4,7,10,12,7]],['1 3 5 7 9',[1,2,5,8,9,5]],['0 100',[0,0,50,100,100,50]],['7 7 7',[7,7,7,7,7,7]],['2,5; 3,5',[2.5,2.5,3,3.5,3.5,3]]]){
 const result=w.calculateStatistics(raw);assert.deepEqual(['min','q1','median','q3','max','mean'].map(k=>result[k]),expected);

@@ -4,6 +4,16 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arbeitsblatt</title>
     <style>
+      @media print {
+        .circle-figure,.circle-paper,.circle-measurements,[data-circle-tasks] li,[data-circle-solution] p {break-inside:avoid;page-break-inside:avoid}
+        .circle-figure svg {display:block;width:85mm;height:auto;margin:auto}
+        .circle-card {border:1px solid #aaa;padding:8px;margin:10px 0}
+        .stat4-tree-figure,.stat4-paper,.stat4-kennzahlen-paper,.stat4-card:has(.stat4-tree-figure),[data-stat4-tasks] li,[data-stat4-solution] p,[data-stat4-kennzahlen-solution] p,.stat4-cross-table,[data-stat4-generated] {break-inside:avoid;page-break-inside:avoid}
+        .stat4-tree-figure svg {display:block;width:105mm;height:auto;margin:auto}
+        .stat4-card {border:1px solid #aaa;padding:8px;margin:10px 0}
+        .stat4-cross-table {width:100%;min-width:0}
+        [data-stat4-generated] {margin:18px 0}
+      }
         @media print{.solid-drawing,.solid-extension-paper,[data-solid-extension-solution] p{break-inside:avoid;page-break-inside:avoid}.solid-drawing svg{display:block;width:65mm;height:auto;margin:auto}.solid-extension-card{border:1px solid #aaa;padding:8px;margin:10px 0}}
         @media print{.area-hex-figure,.area-extension-paper,[data-area-extension-solution] p{break-inside:avoid;page-break-inside:avoid}.area-hex-figure svg{display:block;width:65mm;height:auto;margin:auto}.area-extension-card{border:1px solid #aaa;padding:8px;margin:10px 0}}
         @media print{.dilation-example,.dilation-paper,[data-dilation-solution] p,[data-dilation-plan-solution] p,[data-dilation-tasks] li,[data-dilation-generated]{break-inside:avoid;page-break-inside:avoid}.dilation-example svg{display:block;width:75mm;height:auto;margin:auto}.dilation-card{border:1px solid #aaa;padding:8px;margin:10px 0}[data-dilation-generated]{margin:18px 0}}

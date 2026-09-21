@@ -563,3 +563,58 @@
 .stat3-card{padding:16px;margin:18px 0;border:1px solid var(--box-border);border-radius:10px;background:var(--card-bg);color:var(--text)}.stat3-card h3,.stat3-lab h3{color:var(--text)}.stat3-figure{margin:18px 0}.stat3-figure svg{display:block;width:100%;max-width:360px;height:auto;margin:auto;background:white}.stat3-figure figcaption{margin-top:10px}.stat3-lab label{display:block;margin:14px 0 6px;font-weight:600}.stat3-lab select,.stat3-lab input{box-sizing:border-box;width:100%;max-width:100%;min-height:44px;padding:8px;font:inherit;color:var(--text);background:var(--card-bg);border:1px solid var(--box-border);border-radius:6px}.stat3-lab button{min-height:44px;max-width:100%;white-space:normal;margin:5px;padding:10px 14px}.stat3-lab :focus-visible{outline:3px solid var(--primary);outline-offset:3px}[data-stat3-tasks] li{margin:12px 0}[data-stat3-axis-chart],[data-stat3-chance-plot]{max-width:100%;overflow-x:auto;margin:16px 0}[data-stat3-axis-chart] svg,[data-stat3-chance-plot] svg{display:block;width:100%;min-width:360px;max-width:540px;height:auto;background:white;border:1px solid #94a3b8;border-radius:8px}[data-stat3-chance-table] table{width:100%}[data-stat3-chance-status],[data-stat3-axis-result]{overflow-wrap:anywhere}
 @media screen and (max-width:600px){.stat3-table thead,[data-stat3-chance-table] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.stat3-table,.stat3-table :is(tbody,tr,th,td),[data-stat3-chance-table] table,[data-stat3-chance-table] :is(tbody,tr,th,td){display:block;width:auto;min-width:0}.stat3-table caption,[data-stat3-chance-table] caption{display:block;text-align:left}.stat3-table tr,[data-stat3-chance-table] tr{margin:12px 0;padding:8px;border:1px solid var(--box-border);border-radius:6px}.stat3-table :is(th,td),[data-stat3-chance-table] :is(th,td){padding:4px 0;white-space:normal}[data-stat3-chance-table] td::before{content:attr(data-label) ': ';font-weight:600}}
 @media screen and (max-width:600px){.stat3-table td::before{content:attr(data-label) ': ';font-weight:600}}
+
+/* Kreuztabellen behalten ihre Zeilen-/Spaltenbezüge auch auf schmalen Geräten. */
+.stat4-card {padding:16px;margin:18px 0;border:1px solid var(--box-border);border-radius:10px;background:var(--card-bg);color:var(--text)}
+.circle-card {padding:16px;margin:18px 0;border:1px solid var(--box-border);border-radius:10px;background:var(--card-bg);color:var(--text)}
+.circle-card h3,.circle-lab h3 {color:var(--text)}
+.circle-lab label {display:block;margin:14px 0 6px;font-weight:600}
+.circle-lab input,.circle-lab select {box-sizing:border-box;display:block;width:100%;max-width:100%;min-height:44px;padding:8px;font:inherit;color:var(--text);background:var(--card-bg);border:1px solid var(--box-border);border-radius:6px}
+.circle-lab button {min-height:44px;max-width:100%;white-space:normal;margin:5px;padding:10px 14px}
+.circle-lab :focus-visible,.circle-scroll:focus-visible {outline:3px solid var(--primary);outline-offset:3px}
+.circle-scroll,[data-circle-drawing] {max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--box-border);border-radius:8px}
+[data-circle-drawing] {max-width:480px;margin:16px auto;background:white}
+[data-circle-drawing] svg {display:block;width:100%;min-width:360px;max-width:480px;height:auto}
+.circle-figure {margin:18px 0}
+.circle-figure svg {display:block;width:100%;max-width:360px;height:auto;margin:auto;background:white}
+.circle-figure .circle-scroll svg {min-width:360px}
+.circle-figure figcaption {margin-top:10px}
+.circle-measurements {width:100%;min-width:300px}
+.circle-result-table {width:100%}
+[data-circle-tasks] li {margin:12px 0}
+[data-circle-calculation],[data-circle-status] {overflow-wrap:anywhere}
+@media screen and (max-width:600px) {
+  .circle-result-table thead {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .circle-result-table,.circle-result-table :is(tbody,tr,th,td) {display:block;width:auto;min-width:0}
+  .circle-result-table caption {display:block;text-align:left}
+  .circle-result-table tr {margin:12px 0;padding:8px;border:1px solid var(--box-border);border-radius:6px}
+  .circle-result-table :is(th,td) {padding:4px 0;white-space:normal}
+  .circle-result-table td::before {content:attr(data-label) ': ';font-weight:600}
+}
+.stat4-card h3,.stat4-lab h3 {color:var(--text)}
+[data-stat4-tasks] li {margin:12px 0}
+.stat4-lab label {display:block;margin:14px 0 6px;font-weight:600}
+.stat4-lab select,.stat4-lab input,.stat4-lab textarea {box-sizing:border-box;display:block;width:100%;max-width:100%;min-height:44px;padding:8px;font:inherit;color:var(--text);background:var(--card-bg);border:1px solid var(--box-border);border-radius:6px}
+.stat4-lab button {min-height:44px;max-width:100%;white-space:normal;margin:5px;padding:10px 14px}
+.stat4-lab :focus-visible,.stat4-scroll:focus-visible {outline:3px solid var(--primary);outline-offset:3px}
+.stat4-scroll,[data-stat4-tree-drawing] {max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--box-border);border-radius:8px}
+.stat4-cross-table {width:100%;min-width:430px}
+.stat4-cross-table th,.stat4-cross-table td {white-space:normal;padding:10px}
+.stat4-cross-table caption {text-align:left;padding:10px}
+[data-stat4-tree-drawing] {max-width:600px;margin:16px auto;background:white}
+[data-stat4-tree-drawing] svg {display:block;width:100%;min-width:480px;max-width:600px;height:auto}
+.stat4-tree-figure {margin:18px 0}
+.stat4-tree-figure svg {display:block;width:100%;max-width:480px;height:auto;margin:auto;background:white}
+.stat4-tree-figure .stat4-scroll svg {min-width:480px}
+.stat4-tree-figure figcaption {margin-top:10px}
+[data-stat4-paths],[data-stat4-result],[data-stat4-cross-status] {overflow-wrap:anywhere}
+.stat4-path-table {width:100%}
+.stat4-boxplot svg {min-width:600px;max-width:700px;height:auto;background:white;color:#172033}
+@media screen and (max-width:600px) {
+  .stat4-path-table thead,[data-stats-output] thead {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .stat4-path-table,.stat4-path-table :is(tbody,tr,th,td),[data-stats-output] table,[data-stats-output] :is(tbody,tr,th,td) {display:block;width:auto;min-width:0}
+  .stat4-path-table caption,[data-stats-output] caption {display:block;text-align:left}
+  .stat4-path-table tr,[data-stats-output] tr {margin:12px 0;padding:8px;border:1px solid var(--box-border);border-radius:6px}
+  .stat4-path-table :is(th,td),[data-stats-output] :is(th,td) {padding:4px 0;white-space:normal}
+  .stat4-path-table td::before,[data-stats-output] td::before {content:attr(data-label) ': ';font-weight:600}
+}

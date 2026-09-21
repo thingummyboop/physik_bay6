@@ -624,13 +624,16 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math4_7_statistik') {
-        html += `<h2>1. Wahrscheinlichkeit</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        html += `<h2>Zusatzübungen: ein Zug aus einer Urne</h2><p>Alle Kugeln sind beim Ziehen gleich wahrscheinlich. Es wird jeweils genau einmal gezogen. Berechne den Anteil roter Kugeln zuerst als Bruch und dann als Prozentwert. Runde Prozentwerte bei Bedarf auf zwei Nachkommastellen. Eine Wahrscheinlichkeit sagt nicht voraus, welche einzelne Kugel gezogen wird.</p><div>`;
+        let solutions = '';
         for(let i=0; i<6; i++) {
             const total = rand(10, 50);
             const favorable = rand(1, total - 1);
-            html += `<div>Urne: ${total} Kugeln, davon ${favorable} rot.<br>Wahrscheinlichkeit für rot = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> %</div>`;
+            const percent=100*favorable/total,shown=percent.toLocaleString('de-AT',{maximumFractionDigits:2});
+            html += `<div data-stat4-generated data-total="${total}" data-red="${favorable}"><strong>A${i+1}.</strong> Urne: ${total} Kugeln, davon ${favorable} rot.<p>P(Rot) als Bruch: __________; als Prozentwert: __________ %</p><p>Rechenweg: ____________________________________________________</p></div>`;
+            solutions += `<section class="ws-generated-equation-solution" data-stat4-generated-answer="${percent}"><h3>Zusatzübung A${i+1}</h3><p>P(Rot) = ${favorable}/${total}. Prozentwert: ${favorable} : ${total} · 100 ≈ ${shown} %. ${favorable} günstige Kugeln von insgesamt ${total} gleich wahrscheinlichen Kugeln.</p></section>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math4_8_finanzmathematik') {
         html += `<h2>1. Zinseszins</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

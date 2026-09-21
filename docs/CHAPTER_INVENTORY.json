@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "3d1393e486bc3c29349c1a60c1bad8cbc4592b5e66432cea74b7b48dac2a2bee",
-    "lang/de.json": "171fada4bc7bae2ca4d46c6e6cabbc416dc53f27a3ad43342adef07cb5cef81e"
+    "js/curriculum.js": "a8368ede115d2dc299b5afc678a397a7b3891d052cd06b036f9700a0d9d34393",
+    "lang/de.json": "fb592eee582bc716fbe3de46b2912fad8f65f8ee3fdfc0cda439e6eb9a1fe673"
   },
   "subjects": {
     "physik": {
@@ -10080,8 +10080,8 @@
       ]
     },
     "mathematik": {
-      "chapterCount": 41,
-      "sourceCount": 41,
+      "chapterCount": 42,
+      "sourceCount": 42,
       "chapters": [
         {
           "id": "math1_1_vs_wissen",
@@ -12487,6 +12487,80 @@
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
         {
+          "id": "math4_kreis_kreisteile",
+          "title": "⭕ Kreise und Kreisteile",
+          "grade": "4. Klasse (8. Schulstufe)",
+          "gradeLevels": null,
+          "category": "Geometrie",
+          "available": true,
+          "sourcePresent": true,
+          "source": "lang/de.json#/math4_kreis_kreisteile",
+          "goals": [
+            "Radius, Durchmesser, Umfang und Flächeninhalt unterscheiden und π durch Messungen untersuchen.",
+            "Kreisumfang und Kreisfläche berechnen, Einheiten prüfen und sinnvoll runden.",
+            "Bogen, gesamten Rand und Fläche von Halb-, Viertel- und Achtelkreisen bestimmen.",
+            "Aus Umfang oder Fläche den Radius berechnen und durch Einsetzen prüfen.",
+            "Zusammengesetzte Kreisformen modellieren und Ergebnisse für Entscheidungen nutzen."
+          ],
+          "summaryCount": 5,
+          "sections": [
+            {
+              "id": "circle_pi",
+              "index": 0,
+              "title": "1. Kreisgrößen messen und π entdecken",
+              "questions": [
+                "circle_diameter",
+                "circle_ratio",
+                "circle_pi_exact"
+              ]
+            },
+            {
+              "id": "circle_formulas",
+              "index": 1,
+              "title": "2. Umfang und Fläche berechnen",
+              "questions": [
+                "circle_u",
+                "circle_a",
+                "circle_scale"
+              ]
+            },
+            {
+              "id": "circle_parts",
+              "index": 2,
+              "title": "3. Halbkreis, Viertelkreis und Achtelkreis",
+              "questions": [
+                "circle_half",
+                "circle_eighth",
+                "circle_full_edge"
+              ]
+            },
+            {
+              "id": "circle_inverse",
+              "index": 3,
+              "title": "4. Aus Umfang oder Fläche den Radius bestimmen",
+              "questions": [
+                "circle_inverse_u",
+                "circle_inverse_a",
+                "circle_inverse_quarter"
+              ]
+            },
+            {
+              "id": "circle_context",
+              "index": 4,
+              "title": "5. Zusammengesetzte Formen und Entscheidungen",
+              "questions": [
+                "circle_inner",
+                "circle_order",
+                "circle_area_unit"
+              ]
+            }
+          ],
+          "workshop": false,
+          "questionCount": 15,
+          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
+          "factualAndCurriculumApproval": "not-established-by-this-inventory"
+        },
+        {
           "id": "math4_6_koerper",
           "title": "🔮 Geometrische Körper (Zylinder, Kegel, Kugel)",
           "grade": "4. Klasse (8. Schulstufe)",
@@ -12544,7 +12618,7 @@
         },
         {
           "id": "math4_7_statistik",
-          "title": "📊 Statistik",
+          "title": "📊 Daten und Zufall",
           "grade": "4. Klasse (8. Schulstufe)",
           "gradeLevels": null,
           "category": "Statistik",
@@ -12555,9 +12629,12 @@
             "Arithmetischen Mittelwert, Median und Modus unterscheiden und bestimmen.",
             "Spannweite und Quartile nach einer angegebenen Regel berechnen.",
             "Einen einfachen Boxplot anhand seiner fünf Kennzahlen lesen.",
-            "Den Einfluss veränderter Daten auf Mittelwert und Median erklären."
+            "Den Einfluss veränderter Daten auf Mittelwert und Median erklären.",
+            "Absolute und relative Häufigkeiten in Kreuztabellen ergänzen und ihre Bezugsgruppen erklären.",
+            "Wahrscheinlichkeiten zweistufiger Versuche mit Baumdiagrammen und Pfadregeln berechnen.",
+            "Ziehen mit und ohne Zurücklegen unterscheiden und Ergebnisse auf ihre Modellannahmen beziehen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
@@ -12593,10 +12670,40 @@
               "questions": [
                 "m47_change"
               ]
+            },
+            {
+              "id": "m47_cross",
+              "index": 4,
+              "title": "5. Kreuztabellen ergänzen und Bezugsgrößen wählen",
+              "questions": [
+                "m47_missing",
+                "m47_joint",
+                "m47_reference"
+              ]
+            },
+            {
+              "id": "m47_tree",
+              "index": 5,
+              "title": "6. Zwei Schritte im Baumdiagramm",
+              "questions": [
+                "m47_product",
+                "m47_paths",
+                "m47_coin_paths"
+              ]
+            },
+            {
+              "id": "m47_without",
+              "index": 6,
+              "title": "7. Mit und ohne Zurücklegen vergleichen",
+              "questions": [
+                "m47_without_branch",
+                "m47_without_rr",
+                "m47_without_atleast"
+              ]
             }
           ],
           "workshop": false,
-          "questionCount": 7,
+          "questionCount": 16,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -12715,5 +12822,5 @@
       ]
     }
   },
-  "totalChapters": 197
+  "totalChapters": 198
 }

@@ -1209,6 +1209,12 @@ window.SCIVERSE_CURRICULUM = {
         "category": "Geometrie"
       },
       {
+        "id": "math4_kreis_kreisteile",
+        "title": "⭕ Kreise und Kreisteile",
+        "grade": "4. Klasse (8. Schulstufe)",
+        "category": "Geometrie"
+      },
+      {
         "id": "math4_6_koerper",
         "title": "🔮 Geometrische Körper (Zylinder, Kegel, Kugel)",
         "grade": "4. Klasse (8. Schulstufe)",
@@ -1216,7 +1222,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math4_7_statistik",
-        "title": "📊 Statistik",
+        "title": "📊 Daten und Zufall",
         "grade": "4. Klasse (8. Schulstufe)",
         "category": "Statistik"
       },

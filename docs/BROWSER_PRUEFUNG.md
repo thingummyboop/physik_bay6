@@ -363,3 +363,11 @@ Chromium 151.0.7922.34: 24 Streckungsfälle mit richtigen/falschen/ungültigen E
 ## 21.09.2026 – Statistik und Wahrscheinlichkeit, dritte Klasse
 
 Chromium 151.0.7922.34: zwölf kontrollierte Versuchsgruppen, 24 Modell- und zwölf Skalenansichten, Tastatur, unveränderter Speicher und 43 bewertete Antwortwege bestanden. Zwölf mobile Ansichten tatsächlich gelesen. Eine mitscrollende Legende korrigiert; 24 endgültige Ansichten, zwei Legenden und sechs vollständige Diagrammdetails zusätzlich geprüft. Alle 21 endgültigen Druckseiten einschließlich nebeneinander stehender Skalenvergleiche und zugehöriger Aufgabenlösungen kontrolliert. [Umfang, Zeitpunkte und Grenzen](MATHEMATIK_DATEN_ZUFALL_KLASSE3.md). Keine neue Veröffentlichung oder vollständige Produktabnahme.
+
+## 21.09.2026 – Daten und Zufall, vierte Klasse
+
+Chromium 151.0.7922.34: 18 native Ziehmodelle, 54 Kreuztabellen- und 36 Baumdiagramm-Ansichten, Tastatur/Fokus, unveränderter Speicher und 47 Quizantwortwege bestanden. Nach Sichtprüfung Erklärung der Kreuztabelle aus dem Scrollbereich herausgenommen und Boxplot-Kontrast verbessert; 54 endgültige Tabellenansichten und vollständige Diagrammaufnahmen erneut geprüft. Drei vollständige Papieralternativen, vier optionale Vergleichslösungen und sechs tatsächlich passende erzeugte Urnenlösungen geprüft. Alle 21 endgültigen A4-Seiten gelesen. [Umfang, Zeitpunkte und Grenzen](MATHEMATIK_DATEN_ZUFALL_KLASSE4.md). Lokal nach dem angeforderten GitHub-Zwischenstand `1367d26`, keine erneute Veröffentlichung oder vollständige Produktabnahme.
+
+## 21.09.2026 – Kreise und Kreisteile
+
+Neues Kapitel der vierten Klasse in Chromium 151.0.7922.34: 96 native Rechnungen, 192 Layoutfälle, Tastatur/Fokus, unveränderter Speicher und 45 Quizantwortwege bestanden. Die mobile Sichtprüfung führte zu einer zentrierten Zeichnung und einer externen Beschriftung. Alle 192 endgültigen Layoutfälle zeigen die vollständigen angebotenen Figuren im Anfangsausschnitt; Tastaturverschieben und Rücksetzen geprüft. Alle 18 Druckseiten gelesen; nach einer Textpräzisierung waren 17 gerenderte Seiten bytegleich, die veränderte Seite 6 wurde erneut gelesen. [Nachweise und Grenzen](MATHEMATIK_KREISE.md). Übergreifend: [232-Suiten-Lauf mit gezielter Nachprüfung](FUNKTIONS_PRUEFUNG_2026-09-21.md). Änderungen weiterhin lokal.

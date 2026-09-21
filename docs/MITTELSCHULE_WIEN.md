@@ -1,5 +1,7 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Mathematik-Arbeitsabgleich vom 21.09.2026: Kompetenzbeschreibungen und Präzisierungen aller vier Klassen erneut gelesen, gezielte Bestandsprüfung und konkrete Restlücken dokumentiert. Der dabei fehlende Lernweg zu Kreisen/Kreisteilen ist ergänzt. [Abgleich und nächste Inhaltsarbeit](MATHEMATIK_LEHRPLANABGLEICH.md), [Kreiskapitel](MATHEMATIK_KREISE.md), [vollständiger Funktionslauf mit Nachprüfung](FUNKTIONS_PRUEFUNG_2026-09-21.md). Keine vollständige Fach- oder Produktabnahme.
+
 Browserprüfung vom 16.09.2026: gemeinsame Lern-/Unterrichtswege einschließlich mobiler Sprunglinks, Teilen und Stofflistendruck erneut geprüft. Zwei Funktionspunkte sind unten mit ihrem Nachweis abgehakt; die vollständige Produktabnahme bleibt offen. Umfang und Grenzen: [LERN_UND_UNTERRICHTSWEGE.md](LERN_UND_UNTERRICHTSWEGE.md), weitere Kapitelprüfungen: [BROWSER_PRUEFUNG.md](BROWSER_PRUEFUNG.md).
 
 Aktueller Quellenstand vom 14.09.2026: Die fünf priorisierten Fachlehrpläne wurden erneut direkt aus dem RIS abgerufen und vollständig mit der bisherigen Textgrundlage verglichen. Sie sind unverändert. Nachweis und Grenzen: [LEHRPLAN_QUELLENSTAND.md](LEHRPLAN_QUELLENSTAND.md). Dies erledigt den Quellenvergleich, nicht die noch offenen Inhalts- und Produktabnahmen.
