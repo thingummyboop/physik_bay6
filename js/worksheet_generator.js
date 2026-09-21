@@ -504,18 +504,14 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
     }
     else if (topicId === 'math3_8_pythagoras') {
-        html += `<h2>1. Satz des Pythagoras anwenden</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<6; i++) {
-            const triples = [[3, 4, 5], [6, 8, 10], [5, 12, 13], [9, 12, 15], [8, 15, 17]];
-            const [a, b, c] = triples[rand(0, triples.length - 1)];
-            const isHypotenuse = rand(0, 1) === 0;
-            if (isHypotenuse) {
-                html += `<div>Rechtwinkliges Dreieck: a = ${a}, b = ${b}<br><br>\\( c = \\sqrt{a^2 + b^2} = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-            } else {
-                html += `<div>Rechtwinkliges Dreieck: a = ${a}, c = ${c}<br><br>\\( b = \\sqrt{c^2 - a^2} = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-            }
+        html += '<h2>Zusatzübungen: fehlende Dreiecksseiten</h2><p>Alle Längen sind in cm. a und b sind die Katheten, c ist die Hypotenuse. Skizziere, berechne die gesuchte Seite und prüfe durch Einsetzen.</p>';
+        let solutions='';
+        for(let i=0;i<6;i++){
+            const triples=[[3,4,5],[6,8,10],[5,12,13],[9,12,15],[8,15,17]], [a,b,c]=triples[rand(0,4)],hyp=i%2===0,answer=hyp?c:b;
+            html+=`<div data-pyth-generated data-kind="triangle" data-a="${a}" data-b="${b}" data-c="${c}" data-target="${hyp?'c':'b'}"><strong>A${i+1}.</strong> ${hyp?'a = '+a+' cm, b = '+b+' cm. Gesucht: c.':'a = '+a+' cm, c = '+c+' cm. Gesucht: b.'}<p>Rechenweg und Probe: __________________________________________________</p></div>`;
+            solutions+=`<section class="ws-generated-equation-solution" data-pyth-generated-answer="${answer}"><h3>Zusatzübung A${i+1}</h3><p>${hyp?'c = √('+a+'² + '+b+'²)':'b = √('+c+'² − '+a+'²)'} cm = ${answer} cm. Probe: ${a}² + ${b}² = ${a*a+b*b} = ${c}².</p></section>`;
         }
-        html += `</div>`;
+        html+=`<template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math3_9_koerper') {
         html += `<h2>1. Volumen von Prismen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -553,24 +549,31 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div><template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math4_1_reelle_zahlen') {
-        html += `<h2>1. Rechnen mit Wurzeln</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        html += `<h2>Zusatzübungen: Wurzelregeln und Kubikwurzeln</h2><p>Berechne exakt und zeige einen Zwischenschritt. Prüfe jede Kubikwurzel durch die dritte Potenz.</p>`;
+        let solutions='';
         for(let i=0; i<8; i++) {
-            const squares = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144];
-            const sq1 = squares[rand(0, squares.length - 1)];
-            const sq2 = squares[rand(0, squares.length - 1)];
-            html += `<div>\\( \\sqrt{${sq1}} + \\sqrt{${sq2}} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            const a=rand(2,9),b=rand(2,9),type=i%4,n=type===3?(i===3?-(a**3):a**3):2*a*a;
+            let expression,answer,explanation;
+            if(type===0){expression=`√${a*a} + √${b*b}`;answer=a+b;explanation=`${expression} = ${a} + ${b} = ${answer}. Die beiden Wurzeln werden einzeln berechnet; die Summe wird nicht unter eine Wurzel gezogen.`;}
+            if(type===1){expression=`√${n} · √2`;answer=2*a;explanation=`${expression} = √${n*2} = ${answer}. Die nichtnegativen Radikanden werden multipliziert.`;}
+            if(type===2){expression=`√${n} / √2`;answer=a;explanation=`${expression} = √(${n}/2) = √${a*a} = ${answer}. Der Nenner √2 ist positiv.`;}
+            if(type===3){expression=`³√(${n})`;answer=i===3?-a:a;explanation=`${expression} = ${answer}. Probe: (${answer})³ = ${n}. Die dritte Wurzel hat dasselbe Vorzeichen wie der Radikand.`;}
+            html+=`<div data-root-generated data-kind="${type}" data-a="${a}" data-b="${b}" data-n="${n}"><strong>A${i+1}.</strong> ${expression} = __________<p>Rechenweg / Probe: __________________________________________________</p></div>`;
+            solutions+=`<section class="ws-generated-equation-solution" data-root-generated-answer="${answer}"><h3>Zusatzübung A${i+1}</h3><p>${explanation}</p></section>`;
         }
-        html += `</div>`;
+        html += `<template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math4_2_pythagoras') {
-        html += `<h2>1. Pythagoras im Raum</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<6; i++) {
-            const a = rand(2, 6);
-            const b = rand(2, 6);
-            const c = rand(2, 6);
-            html += `<div>Quader: a = ${a}, b = ${b}, c = ${c}<br><br>Raumdiagonale d = \\( \\sqrt{a^2+b^2+c^2} \\) &approx; <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+        html += '<h2>Zusatzübungen: Raumdiagonale und Pyramidenoberfläche</h2><p>Alle Längen sind in cm. Skizziere das passende rechtwinklige Dreieck und runde erst das Endergebnis auf zwei Nachkommastellen.</p>';
+        let solutions='';const shown=x=>x.toLocaleString('de-AT',{minimumFractionDigits:2,maximumFractionDigits:2});
+        for(let i=0;i<6;i++){
+            const a=2*rand(1,5),b=rand(2,8),h=rand(2,12),kind=i%2===0?'cuboid':'pyramid',answer=kind==='cuboid'?Math.sqrt(a*a+b*b+h*h):a*a+2*a*Math.sqrt(h*h+a*a/4);
+            const task=kind==='cuboid'?'Quader mit a = '+a+' cm, b = '+b+' cm, h = '+h+' cm. Gesucht: Raumdiagonale d.':'Gerade quadratische Pyramide mit Grundkante a = '+a+' cm und Körperhöhe h = '+h+' cm. Gesucht: Oberfläche O.';
+            html+=`<div data-pyth-generated data-kind="${kind}" data-a="${a}" data-b="${b}" data-h="${h}"><strong>A${i+1}.</strong> ${task}<p>Skizze und Rechenweg: __________________________________________________</p></div>`;
+            const solution=kind==='cuboid'?'e² = '+a+'² + '+b+'² = '+(a*a+b*b)+' cm²; d = √('+(a*a+b*b)+' + '+h+'²) cm ≈ '+shown(answer)+' cm.':'hₛ = √('+h+'² + '+(a/2)+'²) cm. O = '+a+'² + 2 · '+a+' · √('+(h*h+a*a/4)+') cm² ≈ '+shown(answer)+' cm². Die Seitenhöhe bleibt bis zur Endrechnung ungerundet.';
+            solutions+=`<section class="ws-generated-equation-solution" data-pyth-generated-answer="${answer}"><h3>Zusatzübung A${i+1}</h3><p>${solution}</p></section>`;
         }
-        html += `</div>`;
+        html+=`<template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math4_3_terme_gleichungen') {
         html += `<h2>1. Binomische Formeln</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

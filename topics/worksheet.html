@@ -5,6 +5,15 @@
     <title>Arbeitsblatt</title>
     <style>
       @media print {
+        .pyth-figure,.pyth-paper,.pyth-task,[data-pyth-solution] p,[data-pyth-generated] {break-inside:avoid;page-break-inside:avoid}
+        .pyth-figure svg {display:block;width:85mm;height:auto;margin:auto}
+        .pyth-proof-pair {display:flex;gap:5mm}.pyth-proof-pair .pyth-figure {flex:1;min-width:0}.pyth-proof-pair svg{width:75mm;max-width:100%}
+        .pyth-task {border:1px solid #aaa;padding:8px;margin:10px 0}
+        [data-pyth-generated] {margin:18px 0}
+        .root-line,.root-paper,.root-card,[data-root-definition],[data-root-tasks] li,[data-root-solution] p,[data-root-generated] {break-inside:avoid;page-break-inside:avoid}
+        [data-root-generated] {margin:18px 0}
+        .root-line svg {display:block;width:110mm;height:auto;margin:auto}
+        .root-card {border:1px solid #aaa;padding:8px;margin:10px 0}
         .circle-figure,.circle-paper,.circle-measurements,[data-circle-tasks] li,[data-circle-solution] p {break-inside:avoid;page-break-inside:avoid}
         .circle-figure svg {display:block;width:85mm;height:auto;margin:auto}
         .circle-card {border:1px solid #aaa;padding:8px;margin:10px 0}

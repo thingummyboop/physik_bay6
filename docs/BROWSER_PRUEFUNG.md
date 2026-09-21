@@ -371,3 +371,7 @@ Chromium 151.0.7922.34: 18 native Ziehmodelle, 54 Kreuztabellen- und 36 Baumdiag
 ## 21.09.2026 – Kreise und Kreisteile
 
 Neues Kapitel der vierten Klasse in Chromium 151.0.7922.34: 96 native Rechnungen, 192 Layoutfälle, Tastatur/Fokus, unveränderter Speicher und 45 Quizantwortwege bestanden. Die mobile Sichtprüfung führte zu einer zentrierten Zeichnung und einer externen Beschriftung. Alle 192 endgültigen Layoutfälle zeigen die vollständigen angebotenen Figuren im Anfangsausschnitt; Tastaturverschieben und Rücksetzen geprüft. Alle 18 Druckseiten gelesen; nach einer Textpräzisierung waren 17 gerenderte Seiten bytegleich, die veränderte Seite 6 wurde erneut gelesen. [Nachweise und Grenzen](MATHEMATIK_KREISE.md). Übergreifend: [232-Suiten-Lauf mit gezielter Nachprüfung](FUNKTIONS_PRUEFUNG_2026-09-21.md). Änderungen weiterhin lokal.
+
+## 21.09.2026 – Wurzeln und Näherungen
+
+Bericht 13:55:53 UTC: 50 native Rundungsfälle, 150 Layoutfälle, Tastatur/Fokus/Speicher und alle 53 Quizantwortwege ohne Browserfehler. Finale Zahlengerade/Einleitung 13:59:28 UTC in sechs Layouts geprüft; größere Beschriftung vollständig im Bild. Alle 19 Seiten der finalen Druckfassung von 13:58:05 UTC gelesen, einschließlich passender Lösungen. Umfang, Korrekturen und Grenzen: [MATHEMATIK_WURZELN_NAEHERUNGEN.md](MATHEMATIK_WURZELN_NAEHERUNGEN.md). Änderungen bleiben lokal.

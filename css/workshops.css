@@ -618,3 +618,38 @@
   .stat4-path-table :is(th,td),[data-stats-output] :is(th,td) {padding:4px 0;white-space:normal}
   .stat4-path-table td::before,[data-stats-output] td::before {content:attr(data-label) ': ';font-weight:600}
 }
+.root-line {margin:1rem 0}
+.root-intro #root1 {width:6rem;max-width:100%;min-height:44px;box-sizing:border-box;font:inherit;color:var(--text);background:var(--card-bg);border:1px solid var(--box-border);border-radius:6px;padding:.5rem}
+.root-line svg {display:block;width:100%;max-width:440px;height:auto;background:#fff;border-radius:8px}
+.root-card {border:1px solid var(--box-border,#9baabd);padding:1rem;margin:1rem 0;border-radius:8px}
+.root-card li {margin:.7rem 0}
+.root-card details {margin-top:1rem}
+.root-controls {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:1rem;margin:1rem 0}
+.root-controls label {display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.root-lab select,.root-lab input {max-width:100%;box-sizing:border-box;font:inherit;padding:.65rem;border:1px solid var(--box-border,#9baabd);border-radius:6px;color:inherit;background:var(--card-bg,#fff)}
+.root-lab>label {display:block;margin:.8rem 0 .4rem}
+.root-buttons {display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.root-lab button {min-height:44px;white-space:normal}
+.root-lab :focus-visible,.root-card summary:focus-visible {outline:3px solid #d2770b;outline-offset:3px}
+.root-lab table {width:100%;border-collapse:collapse;margin:1rem 0}
+.root-lab caption {text-align:left;margin:.4rem 0}
+.root-lab th,.root-lab td {padding:.65rem;border:1px solid var(--box-border,#9baabd);text-align:left;overflow-wrap:anywhere}
+@media(max-width:650px){.root-lab table,.root-lab tbody,.root-lab tr,.root-lab td,.root-lab th{display:block;width:auto}.root-lab thead{display:none}.root-lab tr{border:1px solid var(--box-border,#9baabd);margin:.8rem 0}.root-lab td,.root-lab th{border:0}.root-lab td::before{content:attr(data-label) ': ';font-weight:700}}
+.pyth-figure {margin:1rem 0;min-width:0}
+.pyth-figure svg {display:block;width:100%;max-width:360px;height:auto;margin:auto;background:white;border-radius:8px}
+.pyth-figure figcaption {margin:.6rem 0}
+.pyth-proof-pair {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem}
+.pyth-task {border:1px solid var(--box-border);padding:1rem;border-radius:8px;margin:1rem 0}
+.pyth-task li {margin:.7rem 0}
+.pyth-task summary,.pyth-video summary {min-height:44px;cursor:pointer}
+.pyth-controls {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1rem;margin:1rem 0}
+.pyth-controls label {display:flex;flex-direction:column;gap:.5rem;min-width:0}
+:is(.pyth-intro,[data-pyth-proof],[data-pyth-converse],[data-pyth-space]) input,:is(.pyth-controls) select {max-width:100%;min-width:0;min-height:44px;box-sizing:border-box;font:inherit;color:var(--text);background:var(--card-bg);border:1px solid var(--box-border);padding:.5rem;border-radius:6px}
+:is(.pyth-intro,[data-pyth-proof])>label {display:block;margin:.6rem 0}
+.pyth-buttons {display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.pyth-buttons button {min-height:44px;white-space:normal}
+.pyth-puzzle [role="button"]:focus-visible {outline:3px solid #172b4d;outline-offset:2px;stroke:#172b4d;stroke-width:3px}
+.pyth-puzzle-caption {color:#172b4d;padding:.5rem}
+.pyth-puzzle button {min-height:44px;white-space:normal;max-width:100%;margin:.5rem}
+:is(.pyth-task,.pyth-video,.pyth-intro,[data-pyth-proof],[data-pyth-converse],[data-pyth-space]) :focus-visible {outline:3px solid var(--focus,#b45309);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.pyth-puzzle polygon{transition:none!important}}

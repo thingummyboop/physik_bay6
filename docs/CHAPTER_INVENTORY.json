@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "a8368ede115d2dc299b5afc678a397a7b3891d052cd06b036f9700a0d9d34393",
-    "lang/de.json": "fb592eee582bc716fbe3de46b2912fad8f65f8ee3fdfc0cda439e6eb9a1fe673"
+    "lang/de.json": "8d1eeee64c86fa4ef049ded76af2fd8efc3c7e7311031f2c86690460a9182615"
   },
   "subjects": {
     "physik": {
@@ -12163,9 +12163,12 @@
             "Quadratwurzeln als nichtnegative Zahlen erklären und einfache Wurzeln berechnen.",
             "Rationale und irrationale Zahlen anhand ihrer Darstellung unterscheiden.",
             "Eine Quadratwurzel durch Quadrieren eingrenzen und Näherungen kennzeichnen.",
-            "Das Wurzelzeichen von den Lösungen einer quadratischen Gleichung unterscheiden."
+            "Das Wurzelzeichen von den Lösungen einer quadratischen Gleichung unterscheiden.",
+            "Produkt- und Quotientenregeln für Wurzeln mit ihren Voraussetzungen anwenden.",
+            "Kubikwurzeln berechnen, mit dem Rechner annähern und durch die dritte Potenz prüfen.",
+            "Die Wirkung vorzeitiger Rundung an Umfang und Fläche untersuchen und Genauigkeit begründen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
@@ -12201,10 +12204,41 @@
                 "m41_equation",
                 "m41_sum"
               ]
+            },
+            {
+              "id": "m41_rules",
+              "index": 4,
+              "title": "Wurzelregeln: Produkte und Quotienten",
+              "questions": [
+                "m41_product",
+                "m41_quotient",
+                "m41_domain",
+                "m41_square"
+              ]
+            },
+            {
+              "id": "m41_cubes",
+              "index": 5,
+              "title": "Kubikwurzeln: vom Volumen zur Kante",
+              "questions": [
+                "m41_cube_volume",
+                "m41_cube_negative",
+                "m41_cube_approx"
+              ]
+            },
+            {
+              "id": "m41_rounding",
+              "index": 6,
+              "title": "Rundungsfehler sichtbar machen",
+              "questions": [
+                "m41_early",
+                "m41_area_error",
+                "m41_precision"
+              ]
             }
           ],
           "workshop": false,
-          "questionCount": 7,
+          "questionCount": 17,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -12220,37 +12254,60 @@
           "goals": [
             "Die Hypotenuse im rechtwinkligen Dreieck erkennen.",
             "Die Flächengleichheit a² + b² = c² am Beispiel 3–4–5 nachvollziehen.",
-            "Aus den Katheten die Hypotenuse berechnen."
+            "Aus den Katheten die Hypotenuse berechnen.",
+            "Einen allgemeinen Flächenbeweis mit vier gleichen Dreiecken erklären.",
+            "Mit der Umkehrung und der Dreiecksungleichung drei Seitenlängen beurteilen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
               "title": "Die Formel",
               "questions": [
-                "m38_q1"
+                "m38_q1",
+                "pyth_names"
               ]
             },
             {
               "id": "pyth_puzzle",
               "index": 1,
-              "title": "Das Puzzle: Beweise es selbst!",
+              "title": "Das 3–4–5-Puzzle: ein Beispiel untersuchen",
               "questions": [
                 "pyth_puzzle_1"
               ]
             },
             {
-              "id": "sec2",
+              "id": "pyth_proof",
               "index": 2,
+              "title": "Warum der Satz allgemein gilt",
+              "questions": [
+                "pyth_same_pieces",
+                "pyth_middle_square",
+                "pyth_general"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 3,
               "title": "Die Wurzel ziehen",
               "questions": [
                 "m38_q2"
               ]
+            },
+            {
+              "id": "pyth_converse",
+              "index": 4,
+              "title": "Die Umkehrung: einen rechten Winkel nachweisen",
+              "questions": [
+                "pyth_converse",
+                "pyth_not_right",
+                "pyth_degenerate"
+              ]
             }
           ],
           "workshop": false,
-          "questionCount": 3,
+          "questionCount": 10,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -12266,9 +12323,12 @@
           "goals": [
             "Hypotenuse und Katheten im rechtwinkligen Dreieck zuordnen.",
             "Eine fehlende Hypotenuse oder Kathete berechnen.",
-            "Den Satz auf eine Rechteckdiagonale anwenden und die Voraussetzungen prüfen."
+            "Den Satz auf eine Rechteckdiagonale anwenden und die Voraussetzungen prüfen.",
+            "Hilfsdreiecke in gleichschenkligen Dreiecken und Rauten finden und Flächen berechnen.",
+            "Die Raumdiagonale eines Quaders über zwei rechtwinklige Dreiecke berechnen und eine fehlende Höhe bestimmen.",
+            "Bei geraden quadratischen Pyramiden Körperhöhe, Seitenhöhe und Seitenkante unterscheiden und die Oberfläche berechnen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
@@ -12294,10 +12354,40 @@
                 "m42_leg",
                 "m42_diagonal"
               ]
+            },
+            {
+              "id": "pyth_figures",
+              "index": 3,
+              "title": "Rechtwinklige Dreiecke in ebenen Figuren finden",
+              "questions": [
+                "pyth_isosceles",
+                "pyth_triangle_area",
+                "pyth_rhombus"
+              ]
+            },
+            {
+              "id": "pyth_space",
+              "index": 4,
+              "title": "Im Quader: die Raumdiagonale",
+              "questions": [
+                "pyth_space_triangle",
+                "pyth_space_value",
+                "pyth_space_inverse"
+              ]
+            },
+            {
+              "id": "pyth_pyramid",
+              "index": 5,
+              "title": "Pyramiden: Körperhöhe, Seitenhöhe und Seitenkante",
+              "questions": [
+                "pyth_pyramid_height",
+                "pyth_pyramid_area",
+                "pyth_pyramid_edge"
+              ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 13,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

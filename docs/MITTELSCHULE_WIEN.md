@@ -1,5 +1,7 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Fortschritt 21.09.2026: Wurzelregeln, Kubikwurzeln und Näherungen der vierten Klasse ergänzt; 50 Werkstattfälle, 53 Quizantwortwege und die 19-seitige Druckfassung geprüft. [Inhalte und Nachweise](MATHEMATIK_WURZELN_NAEHERUNGEN.md). Diese Änderungen nach Zwischenstand `f9aa5fa` sind lokal; die Gesamt-Abnahme bleibt offen.
+
 Mathematik-Arbeitsabgleich vom 21.09.2026: Kompetenzbeschreibungen und Präzisierungen aller vier Klassen erneut gelesen, gezielte Bestandsprüfung und konkrete Restlücken dokumentiert. Der dabei fehlende Lernweg zu Kreisen/Kreisteilen ist ergänzt. [Abgleich und nächste Inhaltsarbeit](MATHEMATIK_LEHRPLANABGLEICH.md), [Kreiskapitel](MATHEMATIK_KREISE.md), [vollständiger Funktionslauf mit Nachprüfung](FUNKTIONS_PRUEFUNG_2026-09-21.md). Keine vollständige Fach- oder Produktabnahme.
 
 Browserprüfung vom 16.09.2026: gemeinsame Lern-/Unterrichtswege einschließlich mobiler Sprunglinks, Teilen und Stofflistendruck erneut geprüft. Zwei Funktionspunkte sind unten mit ihrem Nachweis abgehakt; die vollständige Produktabnahme bleibt offen. Umfang und Grenzen: [LERN_UND_UNTERRICHTSWEGE.md](LERN_UND_UNTERRICHTSWEGE.md), weitere Kapitelprüfungen: [BROWSER_PRUEFUNG.md](BROWSER_PRUEFUNG.md).

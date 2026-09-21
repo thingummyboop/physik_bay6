@@ -27142,7 +27142,7 @@
       {
         "id": "sec1",
         "title": "Die Formel",
-        "content": "\n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">🎥 High-Quality Animation: Der visuelle Beweis</h3>\n            <p>Schau dir genau an, wie die Flächen der kleinen Quadrate ($a^2$ und $b^2$) perfekt die Fläche des großen Quadrats ($c^2$) ausfüllen.</p>\n            <video loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                <source src=\"../assets/videos/pythagoras.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video>\n        </div>\n\n<p>Gilt NUR bei Dreiecken mit einem <span style='color:red'>rechten Winkel</span> (90 Grad).</p><p>Die längste Seite heißt <span style='color:red'>Hypotenuse (c)</span>.</p><p>Die Formel: <span style='color:red'>a² + b² = c²</span></p><div class='interactive-zone' style='background:#e8f5e9; padding:10px; border-radius:8px;'><svg width='150' height='150'><polygon points='10,140 130,140 10,50' fill='lightgreen' stroke='black'></polygon><text x='60' y='130'>a=4</text><text x='15' y='95'>b=3</text><text x='70' y='80'>c=?</text><rect x='10' y='130' width='10' height='10' fill='none' stroke='black'></rect></svg><br><input type='number' id='pyth_in' placeholder='Wie lang ist c?'><button onclick='checkPyth()'>Lösen</button><p id='pyth_feedback'></p></div>{{QUIZ_m38_q1}}",
+        "content": "<p>In einem rechtwinkligen Dreieck heißen die beiden Seiten am rechten Winkel <strong>Katheten</strong>. Die gegenüberliegende und längste Seite heißt <strong>Hypotenuse</strong>. Wenn a und b die Katheten und c die Hypotenuse sind, gilt <strong>a² + b² = c²</strong>. Die Quadrate stehen für Flächeninhalte der Seitenquadrate.</p><p>Die Buchstaben sind frei wählbar. Entscheidend ist die Lage zum rechten Winkel: Liegt dieser bei Q, liegt die Seite q gegenüber und ist die Hypotenuse. Dann gilt p² + r² = q². Drehe die Zeichnung: Die Zuordnung bleibt gleich.</p><div class=\"interactive-zone pyth-intro\"><h3>Erstes Rechenbeispiel</h3><figure class=\"pyth-figure\"><svg viewBox=\"0 0 360 230\" role=\"img\" aria-label=\"Rechtwinkliges Dreieck, Katheten 4 cm und 3 cm, gesuchte Hypotenuse c\"><polygon points=\"70,180 270,180 70,30\" fill=\"#dbeafe\" stroke=\"#172b4d\" stroke-width=\"2\"></polygon><path d=\"M70 162H88V180\" fill=\"none\" stroke=\"#172b4d\" stroke-width=\"2\"></path><g fill=\"#172b4d\" font-size=\"22\"><text x=\"125\" y=\"212\">a = 4 cm</text><text x=\"10\" y=\"110\">3 cm</text><text x=\"178\" y=\"90\">c = ?</text></g></svg><figcaption>Alle Längen im Beispiel sind in Zentimetern angegeben. Die Zeichnung ist verkleinert.</figcaption></figure><label for=\"pyth_in\">Hypotenuse c in cm</label><input id=\"pyth_in\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"pyth_feedback\"><button type=\"button\" onclick=\"checkPyth()\">Prüfen</button><p id=\"pyth_feedback\" role=\"status\" aria-live=\"polite\"></p><template data-worksheet-alternative=\"\"><div class=\"pyth-paper\"><p>Zeichne ein rechtwinkliges Dreieck mit Katheten 3 cm und 4 cm. Markiere den rechten Winkel, berechne die Hypotenuse und prüfe das Ergebnis durch Quadrieren.</p></div></template></div>{{QUIZ_m38_q1}}{{QUIZ_pyth_names}}",
         "quizzes": [
           {
             "id": "m38_q1",
@@ -27157,8 +27157,32 @@
               {
                 "text": "14",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "14 ist 6 + 8. Der Satz addiert die Quadrate 36 und 64, nicht die beiden Seitenlängen."
+              }
+            ]
+          },
+          {
+            "id": "pyth_names",
+            "question": "Im Dreieck PQR liegt der rechte Winkel bei Q. Die Seiten p, q und r liegen jeweils gegenüber P, Q und R. Welche Gleichung passt?",
+            "answers": [
+              {
+                "text": "p² + q² = r²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "r liegt nicht gegenüber dem rechten Winkel Q. Die Hypotenuse ist q."
+              },
+              {
+                "text": "p² + r² = q²",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Seite q liegt gegenüber Q und ist deshalb die Hypotenuse, unabhängig von der Lage der Zeichnung."
+              },
+              {
+                "text": "q² + r² = p²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "p liegt gegenüber P. Bei einem rechten Winkel in Q steht q² allein auf einer Seite der Gleichung."
               }
             ]
           }
@@ -27166,8 +27190,8 @@
       },
       {
         "id": "pyth_puzzle",
-        "title": "Das Puzzle: Beweise es selbst!",
-        "content": "\n    <p>Wir behaupten: Die Fläche der beiden kleinen Quadrate (<strong>a²</strong> und <strong>b²</strong>) passt <em>exakt</em> in das große Quadrat (<strong>c²</strong>). Untersuche diese Flächenbeziehung am Beispiel mit Seitenlängen 3 cm, 4 cm und 5 cm. Ein einzelnes Zahlenbeispiel ist noch kein allgemeiner Beweis.</p>\n    <div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px; text-align: center;\">\n        <h3 style=\"color: #2563eb;\">🧩 Das 1cm²-Puzzle</h3>\n        <p style=\"font-size: 1.1em;\">Klicke auf die farbigen Quadrate aus <strong>a²</strong> und <strong>b²</strong>, um sie in das große <strong>c²</strong> wandern zu lassen.</p>\n        <div style=\"position: relative; width: 100%; max-width: 450px; margin: 0 auto; background: white; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;\">\n            <svg id=\"pyth-puzzle-svg\" width=\"100%\" viewBox=\"-20 -40 450 450\" style=\"display: block;\">\n                <!-- Triangle -->\n                <polygon points=\"200,110 320,200 200,200\" fill=\"#e2e8f0\" stroke=\"#475569\" stroke-width=\"2\"/>\n                <text x=\"180\" y=\"160\" font-size=\"18\" fill=\"#475569\" font-weight=\"bold\">a</text>\n                <text x=\"260\" y=\"220\" font-size=\"18\" fill=\"#475569\" font-weight=\"bold\">b</text>\n                <text x=\"265\" y=\"145\" font-size=\"18\" fill=\"#475569\" font-weight=\"bold\">c</text>\n                \n                <!-- c^2 Empty Grid -->\n                <g id=\"pyth-c2-grid\" stroke=\"#cbd5e1\" stroke-width=\"1\" fill=\"none\">\n                    <!-- Generated via JS -->\n                </g>\n\n                <!-- a^2 Grid (9 squares) -->\n                <g id=\"pyth-a2-grid\" stroke=\"#fff\" stroke-width=\"2\">\n                    <!-- Generated via JS -->\n                </g>\n\n                <!-- b^2 Grid (16 squares) -->\n                <g id=\"pyth-b2-grid\" stroke=\"#fff\" stroke-width=\"2\">\n                    <!-- Generated via JS -->\n                </g>\n            </svg>\n            <div id=\"pyth-success-msg\" style=\"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(34, 197, 94, 0.95); color: white; padding: 20px; border-radius: 12px; font-size: 1.5em; font-weight: bold; opacity: 0; pointer-events: none; transition: opacity 0.5s;\">\n                🎉 Beispiel überprüft!<br><span style=\"font-size:0.6em;\">9 + 16 = 25</span>\n            </div>\n        </div>\n        <button onclick=\"resetPythPuzzle()\" style=\"margin-top: 15px; background: #64748b;\">🔄 Puzzle zurücksetzen</button>\n    </div>\n    <p>Ist das nicht verrückt? Obwohl das Dreieck schräg liegt, passen die 9 blauen Quadrate (a²) und die 16 roten Quadrate (b²) genau in die 25 Lücken des großen Quadrats (c²)!</p>\n    <br>\n    {{QUIZ_pyth_puzzle_1}}\n    ",
+        "title": "Das 3–4–5-Puzzle: ein Beispiel untersuchen",
+        "content": "\n    <p>Wir behaupten: Die Fläche der beiden kleinen Quadrate (<strong>a²</strong> und <strong>b²</strong>) passt <em>exakt</em> in das große Quadrat (<strong>c²</strong>). Untersuche diese Flächenbeziehung am Beispiel mit Seitenlängen 3 cm, 4 cm und 5 cm. Ein einzelnes Zahlenbeispiel ist noch kein allgemeiner Beweis.</p>\n    <div class=\"interactive-zone pyth-puzzle\">\n        <h3>25 Flächenteile umlegen</h3>\n        <p style=\"font-size: 1.1em;\">Klicke auf die farbigen Quadrate aus <strong>a²</strong> und <strong>b²</strong>, um sie in das große <strong>c²</strong> wandern zu lassen.</p>\n        <div style=\"position: relative; width: 100%; max-width: 450px; margin: 0 auto; background: white; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;\">\n            <svg id=\"pyth-puzzle-svg\" width=\"100%\" viewBox=\"90 -30 340 370\" style=\"display: block;\" aria-label=\"Flächenpuzzle zum rechtwinkligen Dreieck mit Katheten 3 cm und 4 cm und Hypotenuse 5 cm\">\n                <!-- Triangle -->\n                <polygon points=\"200,110 320,200 200,200\" fill=\"#e2e8f0\" stroke=\"#475569\" stroke-width=\"2\"></polygon>\n                \n                \n                \n                \n                <!-- c^2 Empty Grid -->\n                <g id=\"pyth-c2-grid\" stroke=\"#cbd5e1\" stroke-width=\"1\" fill=\"none\">\n                    <!-- Generated via JS -->\n                </g>\n\n                <!-- a^2 Grid (9 squares) -->\n                <g id=\"pyth-a2-grid\" stroke=\"#fff\" stroke-width=\"2\">\n                    <!-- Generated via JS -->\n                </g>\n\n                <!-- b^2 Grid (16 squares) -->\n                <g id=\"pyth-b2-grid\" stroke=\"#fff\" stroke-width=\"2\">\n                    <!-- Generated via JS -->\n                </g>\n            </svg><p class=\"pyth-puzzle-caption\">a = 3 cm, b = 4 cm, c = 5 cm. Jedes Teil steht für 1 cm². Mit Tab wählst du ein Teil, mit Enter oder Leertaste legst du es um.</p>\n            \n        </div>\n        <button type=\"button\" data-pyth-next=\"\">Nächstes Flächenteil umlegen</button><button onclick=\"resetPythPuzzle()\" style=\"margin-top: 15px; background: #64748b;\" data-pyth-puzzle-reset=\"\">🔄 Puzzle zurücksetzen</button>\n    <div id=\"pyth-success-msg\" role=\"status\" aria-live=\"polite\">0 von 25 Flächenteilen umgelegt.</div><template data-worksheet-alternative=\"\"><div class=\"pyth-paper\"><p>Zeichne auf kariertem Papier Quadrate mit 3 cm, 4 cm und 5 cm Seitenlänge. Teile sie in 1-cm²-Felder. Vergleiche 9 + 16 mit 25 und erkläre, weshalb das nur ein Beispiel und kein allgemeiner Beweis ist.</p></div></template></div>\n    <p>Im Beispiel passen die 9 blauen Quadrate (a²) und die 16 roten Quadrate (b²) genau in die 25 Lücken des großen Quadrats (c²)!</p>\n    <br>\n    {{QUIZ_pyth_puzzle_1}}\n    ",
         "quizzes": [
           {
             "id": "pyth_puzzle_1",
@@ -27196,6 +27220,85 @@
         ]
       },
       {
+        "id": "pyth_proof",
+        "title": "Warum der Satz allgemein gilt",
+        "content": "<p>Nimm vier gleiche rechtwinklige Dreiecke mit <strong>beliebigen Katheten a,b &gt; 0</strong> und Hypotenuse c. Jedes hat den Flächeninhalt ab/2. Lege sie in ein Quadrat mit Seitenlänge a + b.</p><div class=\"pyth-proof-pair\"><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 340 330\" role=\"img\" aria-label=\"Vier gleiche rechtwinklige Dreiecke um das Quadrat c²; a = 3, b = 4\"><rect x=\"50\" y=\"50\" width=\"240\" height=\"240\" fill=\"#fff\" stroke=\"#172b4d\" stroke-width=\"2\"/><polygon data-pyth-square points=\"152.85714285714286,50 290,152.85714285714286 187.14285714285714,290 50,187.14285714285714\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"50,50 152.85714285714286,50 50,187.14285714285714\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"152.85714285714286,50 290,50 290,152.85714285714286\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"290,152.85714285714286 290,290 187.14285714285714,290\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"187.14285714285714,290 50,290 50,187.14285714285714\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><g fill=\"#172b4d\" font-size=\"22\" text-anchor=\"middle\"><text x=\"170\" y=\"30\">a + b</text><text x=\"170\" y=\"178\">c²</text></g></svg><figcaption>Anordnung 1: Vier orange Dreiecke umschließen das blaue Quadrat c². Beispielzeichnung mit a = 3 und b = 4.</figcaption></figure><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 340 330\" role=\"img\" aria-label=\"Dieselben vier Dreiecke neben den Quadraten a² und b²; a = 3, b = 4\"><rect x=\"50\" y=\"50\" width=\"240\" height=\"240\" fill=\"#fff\" stroke=\"#172b4d\" stroke-width=\"2\"/><polygon data-pyth-square points=\"50,50 152.85714285714286,50 152.85714285714286,152.85714285714286 50,152.85714285714286\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"2\"/><polygon data-pyth-square points=\"152.85714285714286,152.85714285714286 290,152.85714285714286 290,290 152.85714285714286,290\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"152.85714285714286,50 290,50 152.85714285714286,152.85714285714286\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"290,50 290,152.85714285714286 152.85714285714286,152.85714285714286\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"50,152.85714285714286 152.85714285714286,152.85714285714286 50,290\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><polygon data-pyth-piece points=\"152.85714285714286,152.85714285714286 152.85714285714286,290 50,290\" fill=\"#fdba74\" stroke=\"#713f12\" stroke-width=\"2\"/><g fill=\"#172b4d\" font-size=\"22\" text-anchor=\"middle\"><text x=\"170\" y=\"30\">a + b</text><text x=\"101.42857142857143\" y=\"109.42857142857143\">a²</text><text x=\"221.42857142857142\" y=\"229.42857142857142\">b²</text></g></svg><figcaption>Anordnung 2: Dieselben vier Dreiecke lassen die blauen Quadrate a² und b² frei. Die äußere Seitenlänge bleibt a + b.</figcaption></figure></div><p>Warum ist die mittlere Figur ein Quadrat? Ihre vier Seiten sind jeweils eine Hypotenuse c. Die beiden spitzen Winkel eines rechtwinkligen Dreiecks ergänzen sich zu 90°. An jeder Ecke der mittleren Figur bleibt von einem gestreckten Winkel deshalb 180° − 90° = 90° übrig. Vier gleich lange Seiten und vier rechte Winkel ergeben ein Quadrat.</p><p>Beide äußeren Quadrate sind gleich groß und enthalten dieselben vier Dreiecke. Also sind ihre <strong>Restflächen gleich groß: c² = a² + b²</strong>. Als Rechnung: c² = (a + b)² − 4 · ab/2 = a² + 2ab + b² − 2ab = a² + b². Der Begründungsgang funktioniert für jedes positive a und b. Die Schieber unten prüfen Beispiele; der allgemeine Beweis steht in der Flächenargumentation.</p><div class=\"interactive-zone pyth-proof-lab\" data-pyth-proof><h3>Flächenbeweis untersuchen</h3><div class=\"pyth-controls\"><label for=\"proof-a\">Kathete a in cm<input id=\"proof-a\" type=\"range\" min=\"1\" max=\"6\" step=\"1\" value=\"3\"></label><label for=\"proof-b\">Kathete b in cm<input id=\"proof-b\" type=\"range\" min=\"1\" max=\"6\" step=\"1\" value=\"4\"></label></div><p data-proof-caption></p><div class=\"pyth-proof-pair\" data-proof-drawings></div><label for=\"proof-answer\">Restfläche c² in cm²</label><input id=\"proof-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"proof-status\"><div class=\"pyth-buttons\"><button type=\"button\" data-proof-check>Prüfen</button><button type=\"button\" data-proof-show>Flächenrechnung anzeigen</button><button type=\"button\" data-proof-reset>Zurücksetzen</button></div><p id=\"proof-status\" role=\"status\" aria-live=\"polite\" tabindex=\"-1\"></p><div data-proof-result></div><template data-worksheet-alternative><div class=\"pyth-paper\"><p>Zeichne beide Anordnungen für a = 2 cm und b = 3 cm. Schneide vier rechtwinklige Dreiecke mit diesen Katheten aus und lege sie in ein 5-cm-Quadrat. Notiere Gesamtfläche, Dreiecksfläche und Restfläche. Erkläre den Schritt von diesen Zahlen zur allgemeinen Flächenbegründung.</p></div></template></div>{{QUIZ_pyth_same_pieces}}{{QUIZ_pyth_middle_square}}{{QUIZ_pyth_general}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Berechne für a = 2 cm und b = 3 cm die Fläche des äußeren Quadrats, die Fläche der vier Dreiecke und die Restfläche c².</li><li>Erkläre mit eigenen Worten, warum die zentrale Figur vier rechte Winkel hat. Weshalb reichen vier gleich lange Seiten nicht aus?</li><li>Zeichne ein rechtwinkliges Dreieck in einer anderen Lage. Verwende die Seitenbezeichnungen u und v für die Katheten und w für die Hypotenuse. Formuliere den Satz.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>(2 + 3)² = 25 cm². Vier Dreiecke: 4 · 2 · 3/2 = 12 cm². Rest: 25 − 12 = 13 cm² = 2² + 3² cm². c = √13 cm ≈ 3,61 cm.</p><p>Die beiden spitzen Winkel summieren sich zu 90°. Zusammen mit dem Innenwinkel der Mitte bilden sie 180°; dieser ist daher 90°. Vier gleich lange Seiten allein könnten auch eine Raute bilden.</p><p>Unabhängig von der Drehung gilt u² + v² = w², wenn w gegenüber dem rechten Winkel liegt.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "pyth_same_pieces",
+            "question": "Warum darf man beim Flächenbeweis die orangefarbenen Dreiecke in beiden Anordnungen weglassen?",
+            "answers": [
+              {
+                "text": "Weil die vier Dreiecke das äußere Quadrat vollständig ausfüllen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zusätzlich zu den Dreiecken bleiben blaue Flächen übrig. Verglichen werden diese Restflächen nach Abziehen derselben vier Dreiecke."
+              },
+              {
+                "text": "Weil die vier Dreiecke jeweils zusammen c² ergeben.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die vier Dreiecke haben zusammen 4 · ab/2 = 2ab. c² ist in der ersten Anordnung die verbleibende Fläche."
+              },
+              {
+                "text": "Weil beide gleich großen äußeren Quadrate dieselben vier Dreiecke enthalten.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Gleicher Gesamtflächeninhalt minus derselbe Flächeninhalt lässt gleich große Restflächen übrig: c² und a² + b²."
+              }
+            ]
+          },
+          {
+            "id": "pyth_middle_square",
+            "question": "Warum ist die mittlere blaue Figur der ersten Anordnung ein Quadrat?",
+            "answers": [
+              {
+                "text": "Alle vier Seiten sind c, und die Innenwinkel sind jeweils 90°.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Jede Seite ist die Hypotenuse eines gleichen Dreiecks. Die beiden spitzen Winkel ergänzen sich zu 90°, deshalb bleibt an der geraden Linie ein Innenwinkel von 90°."
+              },
+              {
+                "text": "Jede Figur mit vier gleich langen Seiten ist automatisch ein Quadrat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Vier gleich lange Seiten genügen für eine Raute. Für ein Quadrat müssen auch die Winkel recht sein."
+              },
+              {
+                "text": "Weil das gewählte Beispiel ganze Seitenlängen hat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ganze Zahlen begründen keine Winkel. Die Begründung gilt für beliebige positive Kathetenlängen."
+              }
+            ]
+          },
+          {
+            "id": "pyth_general",
+            "question": "Welche Aussage ist ein allgemeiner Begründungsschritt und keine bloße Zahlenprobe?",
+            "answers": [
+              {
+                "text": "Für 3, 4 und 5 ist 9 + 16 = 25.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Diese Rechnung prüft nur ein bestimmtes Dreieck."
+              },
+              {
+                "text": "Für beliebige a,b > 0 bleibt nach Abziehen derselben vier Dreiecke auf beiden Seiten dieselbe Fläche.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Flächenzerlegung hängt nicht von einem ausgewählten Zahlenpaar ab. Sie begründet a² + b² = c² für alle rechtwinkligen Dreiecke."
+              },
+              {
+                "text": "Die Zeichnung auf meinem Bildschirm sieht passend aus.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Zeichnung allein kann täuschen. Begründe Seitenlängen, Winkel und Flächen der Teile."
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "sec2",
         "title": "Die Wurzel ziehen",
         "content": "<p>Wenn du c² hast, musst du die <span style='color:red'>Wurzel</span> ziehen.</p><p>Beispiel: c² = 100. Welche Zahl mal sich selbst ist 100?</p><p>Antwort: 10. Also ist <span style='color:red'>c = 10</span>.</p>{{QUIZ_m38_q2}}",
@@ -27213,8 +27316,87 @@
               {
                 "text": "18",
                 "correct": false,
-                "pts": 5,
+                "pts": 0,
                 "feedback": "Halbieren macht das Quadrieren nicht rückgängig. 18² wäre 324; gesucht ist die positive Quadratwurzel."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pyth_converse",
+        "title": "Die Umkehrung: einen rechten Winkel nachweisen",
+        "content": "<p>Der Satz sagt: <em>Wenn ein Dreieck rechtwinklig ist, gilt die Flächengleichung.</em> Die <strong>Umkehrung</strong> sagt: Erfüllen die Seiten eines Dreiecks x² + y² = z², wobei z die längste Seite ist, dann ist der Winkel gegenüber z ein rechter Winkel.</p><ol><li>Alle Längen in derselben Einheit angeben und sortieren: x ≤ y ≤ z.</li><li>Prüfen, ob ein Dreieck möglich ist: x &gt; 0 und x + y &gt; z.</li><li>Die Quadrate vergleichen: x² + y² = z²?</li><li>Nur bei Gleichheit folgt ein rechter Winkel gegenüber z.</li></ol><p>Warum stimmt die Umkehrung? Konstruiere ein rechtwinkliges Dreieck mit Katheten x und y. Nach dem Satz ist seine Hypotenuse √(x² + y²) = z. Es hat also dieselben drei Seiten wie das vorgegebene Dreieck. Nach dem Kongruenzsatz SSS sind die Dreiecke deckungsgleich; deshalb hat auch das vorgegebene Dreieck einen rechten Winkel.</p><p>Beispiel: Für 5 cm, 12 cm und 13 cm ist 25 + 144 = 169. Ein Dreieck mit diesen <strong>exakten</strong> Längen ist rechtwinklig. Gerundete Messwerte liefern dagegen nur eine Prüfung innerhalb ihrer Messgenauigkeit, keinen Nachweis eines exakt rechten Winkels.</p><div class=\"interactive-zone\" data-pyth-converse><h3>Drei Seiten prüfen</h3><p>Gib exakte Modelllängen von mehr als 0 bis 100 cm ein, mit höchstens zwei Nachkommastellen. Die Reihenfolge ist beliebig.</p><div class=\"pyth-controls\"><label for=\"converse-x\">Erste Seite in cm<input id=\"converse-x\" type=\"text\" inputmode=\"decimal\" value=\"3\"></label><label for=\"converse-y\">Zweite Seite in cm<input id=\"converse-y\" type=\"text\" inputmode=\"decimal\" value=\"4\"></label><label for=\"converse-z\">Dritte Seite in cm<input id=\"converse-z\" type=\"text\" inputmode=\"decimal\" value=\"5\"></label></div><div class=\"pyth-buttons\"><button type=\"button\" data-converse-check>Seiten prüfen</button><button type=\"button\" data-converse-reset>Zurücksetzen</button></div><p data-converse-status role=\"status\" aria-live=\"polite\" tabindex=\"-1\"></p><template data-worksheet-alternative><div class=\"pyth-paper\"><p>Prüfe 13, 5, 12; dann 6, 8, 11; dann 2, 3, 5 (jeweils cm). Sortiere, prüfe die Dreiecksungleichung und vergleiche die Quadrate. Unterscheide: rechtwinklig, nicht rechtwinklig, kein Dreieck.</p></div></template></div>{{QUIZ_pyth_converse}}{{QUIZ_pyth_not_right}}{{QUIZ_pyth_degenerate}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Prüfe die drei Längensätze aus der Papieraufgabe. Zeige Dreiecksungleichung und Quadratvergleich.</li><li>Prüfe die exakten Seiten 1,5 cm, 2 cm und 2,5 cm. Welche Seite liegt gegenüber dem rechten Winkel?</li><li>Eine Messung liefert gerundet 3,0 m, 4,0 m und 5,0 m. Erkläre, weshalb diese Angaben allein keinen exakt rechten Winkel beweisen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>5 + 12 > 13 und 25 + 144 = 169: rechtwinklig. 6 + 8 > 11, aber 36 + 64 = 100 ≠ 121: Dreieck, nicht rechtwinklig. 2 + 3 = 5: kein Dreieck.</p><p>1,5 + 2 > 2,5 und 2,25 + 4 = 6,25. Gegenüber der Seite 2,5 cm liegt der rechte Winkel.</p><p>Die tatsächlichen Längen können von den gerundeten Angaben abweichen. Für ein genaues Urteil muss die Messgenauigkeit berücksichtigt werden; der Modellvergleich mit exakt 3, 4 und 5 beweist nicht die exakten realen Maße.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "pyth_converse",
+            "question": "Ein Dreieck hat die Seitenlängen 13 cm, 5 cm und 12 cm. Ist es rechtwinklig?",
+            "answers": [
+              {
+                "text": "Nein, weil 13² + 5² nicht 12² ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die längste Seite ist 13 cm. Deren Quadrat muss allein auf einer Seite stehen."
+              },
+              {
+                "text": "Ja, denn 5² + 12² = 13².",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die zwei kürzeren Seiten ergeben 25 + 144 = 169. Das ist das Quadrat der längsten Seite 13."
+              },
+              {
+                "text": "Ja, weil 13 + 5 größer als 12 ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Dreiecksungleichung hilft zu prüfen, ob ein Dreieck möglich ist. Für einen rechten Winkel brauchst du die Quadrate."
+              }
+            ]
+          },
+          {
+            "id": "pyth_not_right",
+            "question": "Ein Dreieck hat Seiten 6 cm, 8 cm und 11 cm. Was folgt?",
+            "answers": [
+              {
+                "text": "Es ist rechtwinklig, weil die zwei kürzeren Seiten 6 und 8 sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mit Katheten 6 und 8 wäre die Hypotenuse 10, nicht 11."
+              },
+              {
+                "text": "Ein solches Dreieck ist unmöglich.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "6 + 8 > 11: Die Dreiecksungleichung ist erfüllt. Es entsteht ein Dreieck, aber kein rechtwinkliges."
+              },
+              {
+                "text": "Es ist möglich, aber nicht rechtwinklig, denn 36 + 64 ≠ 121.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Seiten erfüllen die Dreiecksungleichung. Der Quadratvergleich mit der längsten Seite schlägt jedoch fehl."
+              }
+            ]
+          },
+          {
+            "id": "pyth_degenerate",
+            "question": "Was sagen die exakten Längen 2 cm, 3 cm und 5 cm über ein Dreieck aus?",
+            "answers": [
+              {
+                "text": "Sie bilden kein Dreieck, weil 2 + 3 = 5 ist.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die beiden kürzeren Seiten müssen zusammen länger als die längste Seite sein. Bei Gleichheit liegen die Strecken auf einer Geraden."
+              },
+              {
+                "text": "Sie bilden ein rechtwinkliges Dreieck, weil 2 + 3 = 5 ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Satz betrifft Quadrate, nicht die Summe der Seiten. Außerdem ist die Dreiecksungleichung hier nicht streng erfüllt."
+              },
+              {
+                "text": "Jede Auswahl von drei positiven Längen bildet ein Dreieck.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine zu lange Seite verhindert das Schließen der Figur. Prüfe zuerst die Dreiecksungleichung."
               }
             ]
           }
@@ -27231,13 +27413,13 @@
             {
               "text": "Nein, nur in rechtwinkligen Dreiecken.",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Nur bei einem rechten Winkel ist die Summe der Kathetenquadrate gleich dem Hypotenusenquadrat."
             },
             {
               "text": "Ja, in allen Dreiecken.",
               "correct": false,
-              "pts": 5,
+              "pts": 0,
               "feedback": "Ohne rechten Winkel gilt diese Gleichung im Allgemeinen nicht. Prüfe zuerst den Winkel und bestimme die gegenüberliegende Seite."
             }
           ]
@@ -27252,12 +27434,16 @@
     "learningGoals": [
       "Die Hypotenuse im rechtwinkligen Dreieck erkennen.",
       "Die Flächengleichheit a² + b² = c² am Beispiel 3–4–5 nachvollziehen.",
-      "Aus den Katheten die Hypotenuse berechnen."
+      "Aus den Katheten die Hypotenuse berechnen.",
+      "Einen allgemeinen Flächenbeweis mit vier gleichen Dreiecken erklären.",
+      "Mit der Umkehrung und der Dreiecksungleichung drei Seitenlängen beurteilen."
     ],
     "summary": [
       "Der Satz gilt für rechtwinklige Dreiecke. c liegt gegenüber dem rechten Winkel; a und b sind die Katheten.",
       "a² + b² = c² beschreibt Flächeninhalte der Seitenquadrate.",
-      "Nach dem Berechnen von c² folgt c = √(a² + b²). Eine Seitenlänge wird mit Längeneinheit angegeben."
+      "Nach dem Berechnen von c² folgt c = √(a² + b²). Eine Seitenlänge wird mit Längeneinheit angegeben.",
+      "Zwei gleich große äußere Quadrate minus dieselben vier Dreiecke lassen gleich große Restflächen: c² = a² + b².",
+      "Umkehrung: Sind x,y,z Dreiecksseiten und ist z die längste, folgt aus x² + y² = z² ein rechter Winkel gegenüber z. Zuerst x + y > z prüfen."
     ]
   },
   "math3_9_koerper": {
@@ -28648,12 +28834,12 @@
   },
   "math4_1_reelle_zahlen": {
     "title": "Wurzeln & Reelle Zahlen",
-    "subtitle": "Knacke den Code der Quadrate!",
+    "subtitle": "Wurzeln verstehen, sicher rechnen und Näherungen beurteilen",
     "sections": [
       {
         "id": "sec1",
         "title": "Was ist eine Wurzel?",
-        "content": "<p>Eine quadratische Fläche hat den Flächeninhalt 25 m². Welche nichtnegative Seitenlänge ergibt beim Quadrieren 25?</p><div class=\"interactive-zone\" style=\"background:#f4f4f4; padding:10px; border-radius:8px;\"><svg width=\"100\" height=\"100\"><rect width=\"100\" height=\"100\" style=\"fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)\"></rect><text x=\"25\" y=\"55\" fill=\"white\" font-size=\"20\">25 m²</text></svg><br><p>Seitenlänge: <input type=\"text\" inputmode=\"decimal\" id=\"root1\" style=\"width:50px;\" aria-label=\"Seitenlänge des Quadrats in Metern\" min=\"0\" step=\"any\"> m <button onclick=\"checkRoot1()\">Prüfen</button></p><p id=\"feedback1\"></p></div><p>Die Wurzel aus 25 ist 5. Ganz einfach!</p>{{QUIZ_m41_q1}}<p data-root-definition=\"\">Für a ≥ 0 bezeichnet √a die nichtnegative Zahl, deren Quadrat a ist. √25 = 5 und √0 = 0. Die Gleichung x² = 25 hat dagegen zwei Lösungen: x = 5 und x = −5. Eine geometrische Länge ist nicht negativ. Eine negative Zahl besitzt keine reelle Quadratwurzel, denn das Quadrat jeder reellen Zahl ist mindestens 0.</p>",
+        "content": "<p>Eine quadratische Fläche hat den Flächeninhalt 25 m². Welche nichtnegative Seitenlänge ergibt beim Quadrieren 25?</p><div class=\"interactive-zone root-intro\"><svg width=\"100\" height=\"100\" role=\"img\" aria-label=\"Quadrat mit einer Fläche von 25 Quadratmetern\"><rect width=\"100\" height=\"100\" style=\"fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)\"></rect><text x=\"25\" y=\"55\" fill=\"white\" font-size=\"20\">25 m²</text></svg><br><p>Seitenlänge: <input type=\"text\" inputmode=\"decimal\" id=\"root1\" aria-label=\"Seitenlänge des Quadrats in Metern\"> m <button onclick=\"checkRoot1()\">Prüfen</button></p><p id=\"feedback1\"></p><template data-worksheet-alternative=\"\"><div class=\"root-paper\"><p>Zeichne ein Quadrat mit beschrifteter Fläche 25 m². Bestimme die wirkliche Seitenlänge und prüfe sie durch Quadrieren. Die Zeichnung muss nicht in Originalgröße sein.</p></div></template></div><p>Die Wurzel aus 25 ist 5: Die Probe 5² = 25 bestätigt die Seitenlänge.</p>{{QUIZ_m41_q1}}<p data-root-definition=\"\">Für a ≥ 0 bezeichnet √a die nichtnegative Zahl, deren Quadrat a ist. √25 = 5 und √0 = 0. Die Gleichung x² = 25 hat dagegen zwei Lösungen: x = 5 und x = −5. Eine geometrische Länge ist nicht negativ. Eine negative Zahl besitzt keine reelle Quadratwurzel, denn das Quadrat jeder reellen Zahl ist mindestens 0.</p>",
         "quizzes": [
           {
             "id": "m41_q1",
@@ -28684,7 +28870,7 @@
       {
         "id": "sec2",
         "title": "Rational oder irrational?",
-        "content": "<p>Eine <strong>rationale Zahl</strong> lässt sich als Bruch a/b mit ganzen Zahlen a und b und b ≠ 0 schreiben. Dazu gehören ganze Zahlen, etwa −3 = −3/1, und 0,75 = 3/4. Ihre Dezimaldarstellung endet oder wird periodisch.</p><p>Auch <strong>1/3 = 0,333…</strong> ist rational: Die Ziffer 3 wiederholt sich endlos. Eine unendliche Dezimaldarstellung allein reicht also nicht aus, um eine Zahl irrational zu nennen.</p><p>Eine <strong>irrationale Zahl</strong> lässt sich nicht als solcher Bruch schreiben. Ihre Dezimaldarstellung ist unendlich und nicht periodisch. Beispiele sind √2 und π. „Irrational“ ist hier ein mathematischer Begriff und bedeutet nicht unlogisch. Rationale und irrationale Zahlen bilden zusammen die <strong>reellen Zahlen</strong>.</p>{{QUIZ_m41_q2}}{{QUIZ_m41_periodic}}",
+        "content": "<p>Eine <strong>rationale Zahl</strong> lässt sich als Bruch a/b mit ganzen Zahlen a und b und b ≠ 0 schreiben. Dazu gehören ganze Zahlen, etwa −3 = −3/1, und 0,75 = 3/4. Ihre Dezimaldarstellung endet oder wird periodisch.</p><p>Auch <strong>1/3 = 0,333…</strong> ist rational: Die Ziffer 3 wiederholt sich endlos. Eine unendliche Dezimaldarstellung allein reicht also nicht aus, um eine Zahl irrational zu nennen.</p><p>Eine <strong>irrationale Zahl</strong> lässt sich nicht als solcher Bruch schreiben. Ihre Dezimaldarstellung ist unendlich und nicht periodisch. Beispiele sind √2 und π. „Irrational“ ist hier ein mathematischer Begriff und bedeutet nicht unlogisch. Rationale und irrationale Zahlen bilden zusammen die <strong>reellen Zahlen</strong>.</p>{{QUIZ_m41_q2}}{{QUIZ_m41_periodic}}<p>Auf der Zahlengeraden gehören auch Stellen wie √2 dazu. Die rationalen Zahlen allein erfassen diese Stelle nicht. Die reellen Zahlen ergänzen die irrationalen Stellen und bilden die vollständige Zahlengerade. Zwischen zwei verschiedenen reellen Zahlen liegen immer weitere rationale und irrationale Zahlen.</p><figure class=\"root-line\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 440 130\" role=\"img\" aria-label=\"Zahlengerade von 1 bis 2. Wurzel 2 liegt ungefähr bei 1,414, links von 1,5.\"><path d=\"M35 65H405 M35 57V73 M220 57V73 M405 57V73\" stroke=\"#243b53\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"188.26\" cy=\"65\" r=\"5\" fill=\"#1664a0\"/><path d=\"M188.26 59V39\" stroke=\"#1664a0\"/><g font-size=\"24\" fill=\"#172b4d\" text-anchor=\"middle\"><text x=\"35\" y=\"98\">1</text><text x=\"220\" y=\"98\">1,5</text><text x=\"405\" y=\"98\">2</text><text x=\"188\" y=\"30\">√2 ≈ 1,414</text></g></svg><figcaption>Die Zahl √2 ist exakt festgelegt; die Position im Bild und die Dezimalangabe sind Näherungen.</figcaption></figure>",
         "quizzes": [
           {
             "id": "m41_q2",
@@ -28739,7 +28925,7 @@
       {
         "id": "m41_approx",
         "title": "Eine Wurzel eingrenzen",
-        "content": "<p>1² = 1 und 2² = 4, also liegt √2 zwischen 1 und 2. Genauer: 1,4² = 1,96 und 1,5² = 2,25. Deshalb gilt <strong>1,4 &lt; √2 &lt; 1,5</strong>. Noch genauer: 1,41² = 1,9881 und 1,42² = 2,0164.</p><p>Auf zwei Nachkommastellen gerundet ist √2 ≈ 1,41. Das Zeichen ≈ bedeutet „ungefähr gleich“. Der Taschenrechner zeigt eine begrenzte Näherung, nicht alle Ziffern.</p><div class=\"interactive-zone\" data-root-estimate><h3>Näherung für √2 untersuchen</h3><label for=\"root_estimate\">Vermutete Wurzel zwischen 1 und 2</label><input id=\"root_estimate\" type=\"range\" min=\"1\" max=\"2\" step=\"0.001\" value=\"1.4\"><p id=\"root_estimate_result\" role=\"status\" aria-live=\"polite\"></p><p>Vergleiche insbesondere 1,414 und 1,415. Keiner der einstellbaren Werte ist exakt √2.</p></div>{{QUIZ_m41_bounds}}{{QUIZ_m41_round}}",
+        "content": "<p>1² = 1 und 2² = 4, also liegt √2 zwischen 1 und 2. Genauer: 1,4² = 1,96 und 1,5² = 2,25. Deshalb gilt <strong>1,4 &lt; √2 &lt; 1,5</strong>. Noch genauer: 1,41² = 1,9881 und 1,42² = 2,0164.</p><p>Auf zwei Nachkommastellen gerundet ist √2 ≈ 1,41. Das Zeichen ≈ bedeutet „ungefähr gleich“. Der Taschenrechner zeigt eine begrenzte Näherung, nicht alle Ziffern.</p><div class=\"interactive-zone\" data-root-estimate=\"\"><h3>Näherung für √2 untersuchen</h3><label for=\"root_estimate\">Vermutete Wurzel zwischen 1 und 2</label><input id=\"root_estimate\" type=\"range\" min=\"1\" max=\"2\" step=\"0.001\" value=\"1.4\"><p id=\"root_estimate_result\" role=\"status\" aria-live=\"polite\"></p><p>Vergleiche insbesondere 1,414 und 1,415. Keiner der einstellbaren Werte ist exakt √2.</p><template data-worksheet-alternative=\"\"><div class=\"root-paper\"><h3>√2 ohne Schieberegler eingrenzen</h3><p>Berechne 1,414² und 1,415². Vergleiche beide mit 2 und schreibe eine Ungleichung für √2 auf.</p></div></template></div>{{QUIZ_m41_bounds}}{{QUIZ_m41_round}}<div class=\"root-card\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-root-tasks=\"\"><li>Berechne 1,414² und 1,415². Begründe daraus eine obere und eine untere Grenze für √2.</li><li>Ordne 1,4; √2; 1,5 und 3/2 auf einer Zahlengeraden. Welche Einträge bezeichnen dieselbe Zahl?</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-root-solution=\"\"><p>1,414² = 1,999396 und 1,415² = 2,002225. Deshalb 1,414 &lt; √2 &lt; 1,415. Die Reihenfolge lautet 1,4 &lt; √2 &lt; 1,5 = 3/2.</p></div></details></div>",
         "quizzes": [
           {
             "id": "m41_bounds",
@@ -28845,6 +29031,267 @@
             ]
           }
         ]
+      },
+      {
+        "id": "m41_rules",
+        "title": "Wurzelregeln: Produkte und Quotienten",
+        "content": "<p>Für <strong>a ≥ 0 und b ≥ 0</strong> gilt <strong>√(a · b) = √a · √b</strong>. Warum? Das Produkt √a · √b ist nichtnegativ und sein Quadrat ist a · b. Es ist daher genau die nichtnegative Quadratwurzel des Produkts.</p><p>Für <strong>a ≥ 0 und b &gt; 0</strong> gilt <strong>√(a/b) = √a / √b</strong>. Der Nenner darf nicht 0 sein. Auch hier bestätigt Quadrieren die Regel.</p><p>Beispiele: √12 · √3 = √36 = 6; √75 / √3 = √25 = 5. Manchmal bleibt eine Wurzel übrig: <strong>√72 = √(36 · 2) = 6√2</strong>. Das ist eine exakte Vereinfachung, keine Rundung.</p><p>Die Voraussetzungen zählen: √((-4) · (-9)) = √36 = 6 ist reell. Die getrennten Quadratwurzeln √(-4) und √(-9) sind es nicht. Außerdem <strong>√(x²) = |x|</strong>: etwa √((-5)²) = 5. Bei Summen gilt weiterhin kein entsprechendes Verteilungsgesetz.</p>{{QUIZ_m41_product}}{{QUIZ_m41_quotient}}{{QUIZ_m41_domain}}{{QUIZ_m41_square}}<div class=\"root-card\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-root-tasks><li>Vereinfache √8 · √2 und √98 / √2 exakt. Zeige jeweils einen Zwischenschritt.</li><li>Ziehe bei √50 einen quadratischen Faktor vor die Wurzel. Prüfe dein Ergebnis durch Quadrieren.</li><li>Prüfe die Behauptung √(16 + 9) = √16 + √9 mit beiden Rechenwegen. Erkläre, weshalb die Produktregel hier nicht passt.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-root-solution><p>√8 · √2 = √16 = 4. √98 / √2 = √49 = 7.</p><p>√50 = √(25 · 2) = 5√2. Die Probe ergibt (5√2)² = 25 · 2 = 50; 5√2 ist nichtnegativ.</p><p>Links steht √25 = 5, rechts 4 + 3 = 7. Unter der Wurzel steht eine Summe, kein Produkt.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "m41_product",
+            "question": "Vereinfache √12 · √3 ohne zu runden.",
+            "answers": [
+              {
+                "text": "√15",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier werden Wurzeln multipliziert. Multipliziere deshalb die Radikanden: 12 · 3."
+              },
+              {
+                "text": "6",
+                "correct": true,
+                "pts": 10,
+                "feedback": "√12 · √3 = √36 = 6. Beide Radikanden sind nichtnegativ."
+              },
+              {
+                "text": "36",
+                "correct": false,
+                "pts": 0,
+                "feedback": "36 ist das Produkt unter der Wurzel. Die Wurzel aus 36 ist 6."
+              }
+            ]
+          },
+          {
+            "id": "m41_quotient",
+            "question": "Was ist √75 / √3?",
+            "answers": [
+              {
+                "text": "√72",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Beim Teilen werden die Radikanden geteilt, nicht subtrahiert."
+              },
+              {
+                "text": "25",
+                "correct": false,
+                "pts": 0,
+                "feedback": "75 : 3 = 25 steht noch unter der Wurzel."
+              },
+              {
+                "text": "5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "√75 / √3 = √(75/3) = √25 = 5. Der Nenner ist positiv."
+              }
+            ]
+          },
+          {
+            "id": "m41_domain",
+            "question": "Warum darf man √((-4) · (-9)) nicht als √(-4) · √(-9) in den reellen Zahlen berechnen?",
+            "answers": [
+              {
+                "text": "Die einzelnen Quadratwurzeln aus negativen Zahlen sind nicht reell.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Links steht √36 = 6. Rechts wären zwei in den reellen Zahlen nicht definierte Quadratwurzeln nötig."
+              },
+              {
+                "text": "Das Produkt (-4) · (-9) ist negativ.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zwei negative Faktoren ergeben das positive Produkt 36. Die Schwierigkeit liegt bei den einzelnen Wurzeln."
+              },
+              {
+                "text": "Die Produktregel gilt nur für ganze Quadratwurzeln.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Regel gilt für alle nichtnegativen reellen Radikanden, auch für irrationale Wurzeln."
+              }
+            ]
+          },
+          {
+            "id": "m41_square",
+            "question": "Für x = −5: Welchen Wert hat √(x²)?",
+            "answers": [
+              {
+                "text": "−5",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zuerst ist x² = 25. Das Wurzelzeichen wählt daraus die nichtnegative Zahl."
+              },
+              {
+                "text": "5",
+                "correct": true,
+                "pts": 10,
+                "feedback": "√((-5)²) = √25 = 5. Allgemein gilt √(x²) = |x|."
+              },
+              {
+                "text": "25",
+                "correct": false,
+                "pts": 0,
+                "feedback": "25 ist der Wert von x²; danach muss noch die Quadratwurzel gezogen werden."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m41_cubes",
+        "title": "Kubikwurzeln: vom Volumen zur Kante",
+        "content": "<p>Bei einem Würfel gilt V = a³. Um die Kantenlänge zu finden, brauchst du die <strong>Kubikwurzel oder dritte Wurzel</strong>: a = ³√V. Das bedeutet dreimal denselben Faktor: ³√27 = 3, weil 3 · 3 · 3 = 27. Bei V = 27 cm³ beträgt die Kante 3 cm.</p><p>Die dritte Wurzel ist auch für negative Zahlen reell: <strong>³√(−8) = −2</strong>, denn (−2)³ = −8. Die Gleichung x³ = −8 hat genau diese eine reelle Lösung. Eine geometrische Kantenlänge und ein Volumen sind dagegen nicht negativ.</p><p><strong>Mit dem Taschenrechner:</strong> Suche die Taste ³√ oder verwende die n-te-Wurzel-Funktion mit Index 3. Prüfe den Rechenweg zunächst mit 27: Das Ergebnis muss 3 sein. Für positive Zahlen funktioniert auch die Eingabe 20^(1/3), mit Klammern um 1/3. Bei negativen Zahlen berechnest du zunächst die dritte Wurzel des Betrags und setzt das Minus davor, falls die Potenzfunktion einen Fehler meldet.</p><p>³√20 ≈ 2,7144176. Die Probe mit dem gespeicherten Rechnerwert ergibt näherungsweise 20. Mit der schon auf 2,714 gerundeten Zahl erhältst du 19,990770344. Rechne mit dem gespeicherten Wert weiter und runde erst das gesuchte Endergebnis. Die Anzeige hat nur endlich viele Stellen.</p>{{QUIZ_m41_cube_volume}}{{QUIZ_m41_cube_negative}}{{QUIZ_m41_cube_approx}}<div class=\"root-card\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-root-tasks><li>Ein würfelförmiger Behälter hat im Modell 64 dm³ Innenvolumen. Berechne seine innere Kantenlänge. Vernachlässige die Wandstärke.</li><li>Berechne mit deinem Rechner ³√50 auf drei Nachkommastellen. Prüfe die gerundete Zahl durch die dritte Potenz.</li><li>Löse x³ = −125. Erkläre mit der Probe, weshalb +5 keine zweite Lösung ist.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-root-solution><p>³√64 dm = 4 dm; 4³ dm³ = 64 dm³.</p><p>³√50 ≈ 3,684. Probe: 3,684³ = 49,998717504. Die kleine Abweichung entsteht durch Runden.</p><p>x = −5, denn (−5)³ = −125. Dagegen ist (+5)³ = +125.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "m41_cube_volume",
+            "question": "Ein Würfel hat ein Volumen von 125 cm³. Wie lang ist eine Kante?",
+            "answers": [
+              {
+                "text": "25 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Würfelkante wird dreimal multipliziert: 25³ = 15 625, nicht 125."
+              },
+              {
+                "text": "Ungefähr 11,18 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wäre die Quadratwurzel aus 125. Für ein Würfelvolumen brauchst du die dritte Wurzel."
+              },
+              {
+                "text": "5 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "5 · 5 · 5 = 125. Deshalb ist die Kante ³√125 cm = 5 cm."
+              }
+            ]
+          },
+          {
+            "id": "m41_cube_negative",
+            "question": "Welche reelle Zahl löst x³ = −64?",
+            "answers": [
+              {
+                "text": "−4",
+                "correct": true,
+                "pts": 10,
+                "feedback": "(−4) · (−4) · (−4) = −64. Die dritte Wurzel darf negativ sein."
+              },
+              {
+                "text": "4 und −4",
+                "correct": false,
+                "pts": 0,
+                "feedback": "4³ = 64 und löst diese Gleichung nicht. Bei einer dritten Potenz bleibt das Vorzeichen erhalten."
+              },
+              {
+                "text": "Keine reelle Zahl",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Negative Zahlen haben reelle Kubikwurzeln: Eine negative Zahl dreimal multipliziert ergibt wieder eine negative Zahl."
+              }
+            ]
+          },
+          {
+            "id": "m41_cube_approx",
+            "question": "Ein Würfel hat 20 cm³ Volumen. Ein Rechner zeigt ³√20 ungefähr als 2,7144176. Welche Aussage stimmt?",
+            "answers": [
+              {
+                "text": "Die Kante eines Würfels mit 20 cm³ ist genau 2,714 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die endliche Dezimalangabe ist gerundet: 2,714³ ist nicht exakt 20."
+              },
+              {
+                "text": "2,71 cm ist die auf zwei Nachkommastellen gerundete Kante.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die dritte Nachkommastelle ist 4. Daher lautet die Rundung 2,71 cm."
+              },
+              {
+                "text": "Man muss 20 durch 3 teilen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die dritte Wurzel macht die dritte Potenz rückgängig; durch 3 teilen macht Multiplikation mit 3 rückgängig."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m41_rounding",
+        "title": "Rundungsfehler sichtbar machen",
+        "content": "<p>Ein quadratisches Modellbeet hat exakt 2 m² Fläche. Seine Seite ist a = √2 m und sein Umfang <strong>U = 4√2 m ≈ 5,66 m</strong>. Wer a zuerst auf 1,4 m rundet, bekommt U = 4 · 1,4 m = 5,6 m. Wer 1,41 m verwendet, bekommt 5,64 m. Das sind verschiedene Näherungen desselben Umfangs.</p><p>Die gerundete Seite 1,41 m ergibt beim Quadrieren nur 1,9881 m². Das sind 0,0119 m² weniger als die Vorgabe. <strong>Behalte Wurzeln möglichst exakt oder nutze den gespeicherten Rechnerwert. Runde erst am Schluss auf die geforderte Genauigkeit.</strong> Auch Rechner haben begrenzte Genauigkeit; „ohne Zwischenrundung“ meint hier ohne zusätzliches Runden der Seite.</p><div class=\"interactive-zone root-lab\" data-root-rounding=\"\"><h3>Werkstatt: Seite runden – Umfang vergleichen</h3><p>Die Flächen sind exakte Modellwerte in m². Wähle eine Fläche und die Rundung der Seite. Berechne den angefragten Umfang zuerst selbst auf zwei Nachkommastellen. Vergleiche danach beide Rechenwege und die zurückgerechnete Fläche.</p><div class=\"root-controls\"><label for=\"root-area\">Fläche in m²<select id=\"root-area\"><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"5\">5</option><option value=\"10\">10</option><option value=\"50\">50</option></select></label><label for=\"root-digits\">Nachkommastellen der Seite<select id=\"root-digits\"><option value=\"0\">0</option><option value=\"1\">1</option><option value=\"2\" selected=\"\">2</option><option value=\"3\">3</option><option value=\"4\">4</option></select></label><label for=\"root-method\">Gesuchter Rechenweg<select id=\"root-method\"><option value=\"early\">Mit gerundeter Seite</option><option value=\"late\">Ohne Zwischenrundung</option></select></label></div><label for=\"root-answer\">Umfang in Metern, auf zwei Nachkommastellen</label><input id=\"root-answer\" type=\"text\" inputmode=\"decimal\" autocomplete=\"off\" aria-describedby=\"root-round-status\"><div class=\"root-buttons\"><button type=\"button\" data-root-check=\"\">Prüfen</button><button type=\"button\" data-root-show=\"\">Vergleich anzeigen</button><button type=\"button\" data-root-reset=\"\">Zurücksetzen</button></div><p id=\"root-round-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><div data-root-comparison=\"\"></div><template data-worksheet-alternative=\"\"><div class=\"root-paper\"><h3>Papierwerkstatt: zwei Rechenwege</h3><p>Für A = 2 m² und A = 5 m²: Runde √A einmal auf eine und einmal auf drei Nachkommastellen. Berechne damit jeweils U = 4a und A = a². Vergleiche mit 4√A ohne Zwischenrundung sowie mit der vorgegebenen Fläche. Notiere Rechenweg, Einheit und absolute Abweichung der zurückgerechneten Fläche.</p></div></template></div>{{QUIZ_m41_early}}{{QUIZ_m41_area_error}}{{QUIZ_m41_precision}}<div class=\"root-card\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-root-tasks=\"\"><li>Rechne die Papierwerkstatt für A = 2 m² und A = 5 m² durch. Gib die Umfänge auf zwei, die Flächenabweichungen auf sechs Nachkommastellen an.</li><li>Bei A = 2 m²: Runde die Seite auf vier Nachkommastellen. Vergleiche die auf zwei Nachkommastellen gerundeten Umfänge beider Rechenwege. Beweist ihre Übereinstimmung, dass die gerundete Seite exakt ist?</li><li>Ein Modellquadrat hat exakt 10 m² Fläche. Bestimme seinen Umfang auf zwei Nachkommastellen und erläutere, wann du rundest.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-root-solution=\"\"><p>A = 2: a ≈ 1,4 → U ≈ 5,60 m, a² = 1,96 m², Abweichung 0,040000 m²; a ≈ 1,414 → U ≈ 5,66 m, a² = 1,999396 m², Abweichung 0,000604 m². Ohne Zwischenrundung U ≈ 5,66 m.</p><p>A = 5: a ≈ 2,2 → U ≈ 8,80 m, a² = 4,84 m², Abweichung 0,160000 m²; a ≈ 2,236 → U ≈ 8,94 m, a² = 4,999696 m², Abweichung 0,000304 m². Ohne Zwischenrundung U ≈ 8,94 m.</p><p>Bei A = 2 und a ≈ 1,4142 ergeben beide Umfänge gerundet 5,66 m. Trotzdem ist 1,4142² = 1,99996164 und nicht 2. Gleiche gerundete Endwerte beweisen keine exakten Zwischenwerte.</p><p>U = 4√10 m ≈ 12,65 m. Die Wurzel bleibt im Rechner bis zur Berechnung des Umfangs ungerundet; erst das Endergebnis wird auf zwei Nachkommastellen gerundet.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "m41_early",
+            "question": "Für ein Quadrat gilt A = 2 m² und U = 4√2 m. Welche Rechnung vermeidet eine vorzeitige Rundung?",
+            "answers": [
+              {
+                "text": "Erst √2 auf 1,4 runden, dann mit 4 multiplizieren.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "So rechnest du mit 1,4 statt √2 weiter. Du erhältst 5,6 m statt des auf zwei Nachkommastellen richtigen Werts 5,66 m."
+              },
+              {
+                "text": "√2 immer durch 1,41 ersetzen, weil die Länge genau zwei Dezimalstellen hat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Länge ist irrational und nicht exakt 1,41. Zwei Dezimalstellen sind eine gewählte Genauigkeit."
+              },
+              {
+                "text": "4 · √2 im Rechner berechnen und erst den Umfang runden.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "So erhältst du U ≈ 5,66 m. Der Rechner behält beim Weiterrechnen mehr Stellen als die gerundete Zwischenangabe."
+              }
+            ]
+          },
+          {
+            "id": "m41_area_error",
+            "question": "Für A = 2 m² wurde die Seite auf 1,41 m gerundet. Die Rückrechnung ergibt 1,9881 m². Was erklärt das?",
+            "answers": [
+              {
+                "text": "Die gerundete Seite ist etwas kleiner als die wirkliche Seite.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "1,41 < √2. Beim Quadrieren erhältst du deshalb weniger als 2; die Abweichung beträgt 0,0119 m²."
+              },
+              {
+                "text": "Die Formel A = a² gilt nur bei ganzen Seitenlängen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Formel gilt für jede nichtnegative reelle Seitenlänge. Die Abweichung kommt von der Näherung."
+              },
+              {
+                "text": "Die richtige Fläche muss daher 1,9881 m² statt 2 m² sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Vorgabe ist 2 m². Die Rückrechnung benutzt eine gerundete Seitenlänge und ändert die Vorgabe nicht."
+              }
+            ]
+          },
+          {
+            "id": "m41_precision",
+            "question": "Was folgt aus einer langen Taschenrechneranzeige bei √3?",
+            "answers": [
+              {
+                "text": "Der angezeigte endliche Dezimalwert ist exakt √3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine endliche Dezimalzahl ist rational, √3 ist irrational. Die Anzeige bleibt eine Näherung."
+              },
+              {
+                "text": "Mehr behaltene Stellen können Rundungsfehler verkleinern; die Anzeige bleibt eine Näherung.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Eine feinere Näherung hilft beim Weiterrechnen. Sie macht eine irrationale Zahl aber nicht zu einer exakten endlichen Dezimalzahl."
+              },
+              {
+                "text": "Ein Näherungswert ist zum Rechnen grundsätzlich unbrauchbar.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mit bewusst gewählter Genauigkeit sind Näherungen praktisch nutzbar. Kennzeichne sie und runde möglichst erst am Ende."
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
@@ -28874,7 +29321,10 @@
       "Quadratwurzeln als nichtnegative Zahlen erklären und einfache Wurzeln berechnen.",
       "Rationale und irrationale Zahlen anhand ihrer Darstellung unterscheiden.",
       "Eine Quadratwurzel durch Quadrieren eingrenzen und Näherungen kennzeichnen.",
-      "Das Wurzelzeichen von den Lösungen einer quadratischen Gleichung unterscheiden."
+      "Das Wurzelzeichen von den Lösungen einer quadratischen Gleichung unterscheiden.",
+      "Produkt- und Quotientenregeln für Wurzeln mit ihren Voraussetzungen anwenden.",
+      "Kubikwurzeln berechnen, mit dem Rechner annähern und durch die dritte Potenz prüfen.",
+      "Die Wirkung vorzeitiger Rundung an Umfang und Fläche untersuchen und Genauigkeit begründen."
     ],
     "prerequisites": [
       "math1_8_brueche",
@@ -28885,17 +29335,20 @@
       "√a ist für a ≥ 0 die nichtnegative Zahl mit Quadrat a.",
       "Rationale Zahlen sind Brüche ganzer Zahlen mit Nenner ungleich 0. Ihre Dezimaldarstellung endet oder wird periodisch.",
       "Irrationale Zahlen haben unendliche, nicht periodische Dezimaldarstellungen. Zusammen mit rationalen Zahlen bilden sie die reellen Zahlen.",
-      "√2 ≈ 1,41 ist eine Näherung. x² = 25 hat die Lösungen 5 und −5, während √25 = 5 gilt."
+      "√2 ≈ 1,41 ist eine Näherung. x² = 25 hat die Lösungen 5 und −5, während √25 = 5 gilt.",
+      "√(ab) = √a · √b für a,b ≥ 0; √(a/b) = √a / √b für a ≥ 0, b > 0. √(x²) = |x|. Auf Summen lässt sich die Wurzel nicht verteilen.",
+      "³√a ist die reelle Zahl mit dritter Potenz a, auch bei negativem a. Beim Würfel führt die dritte Wurzel vom Volumen zur Kantenlänge.",
+      "Gerundete Zwischenwerte können das Ergebnis verändern. Möglichst exakt oder mit gespeicherten Rechnerwerten weiterrechnen und erst das Endergebnis runden."
     ]
   },
   "math4_2_pythagoras": {
     "title": "Satz des Pythagoras",
-    "subtitle": "Das Dreieck-Geheimnis der Skater!",
+    "subtitle": "Längen und Flächen in Figuren und Körpern berechnen",
     "sections": [
       {
         "id": "sec1",
         "title": "Das rechtwinklige Dreieck",
-        "content": "<p>Im Rampenmodell steht die Höhe senkrecht auf dem waagrechten Boden: Beide bilden einen rechten Winkel.</p><p>Du baust eine Rampe. Du kennst die Höhe (<span style='color:blue'>a</span>) und die Länge am Boden (<span style='color:green'>b</span>). Wie lang ist die schräge Fahrbahn (<span style='color:red'>c</span>)?</p><p>Die Formel: <span style='color:blue'>a²</span> + <span style='color:green'>b²</span> = <span style='color:red'>c²</span></p><div class='interactive-zone' style='background:#f4f4f4; padding:10px; border-radius:8px;'><svg width='150' height='100'><polygon points='10,90 140,90 10,10' style='fill:lightgrey;stroke:black;stroke-width:2' /><text x='70' y='105' fill='green'>b=4</text><text x='15' y='50' fill='blue'>a=3</text><text x='80' y='45' fill='red'>c=?</text></svg><br><p>Berechne c! (3² + 4² = ?²) <input type='number' id='pyth1' style='width:50px;'><button onclick='checkPyth1()'>Prüfen</button></p><p id='fb_pyth1'></p></div>{{QUIZ_m42_q1}}",
+        "content": "<p>Im Rampenmodell steht die Höhe a senkrecht auf der waagrechten Bodenlänge b. Die schräge Fahrbahn c liegt dem rechten Winkel gegenüber und ist die Hypotenuse. Deshalb gilt <strong>a² + b² = c²</strong>.</p><div class=\"interactive-zone pyth-intro\"><h3>Eine Modellrampe berechnen</h3><figure class=\"pyth-figure\"><svg viewBox=\"0 0 360 230\" role=\"img\" aria-label=\"Modellrampe mit senkrechter Höhe 3 m, waagrechter Länge 4 m und gesuchter schräger Länge c\"><polygon points=\"70,180 270,180 70,30\" fill=\"#dbeafe\" stroke=\"#172b4d\" stroke-width=\"2\"/><path d=\"M70 162H88V180\" stroke=\"#172b4d\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"125\" y=\"213\">b = 4 m</text><text x=\"10\" y=\"110\">3 m</text><text x=\"176\" y=\"90\">c = ?</text></g></svg><figcaption>a = 3 m, b = 4 m. Die Skizze ist verkleinert; der rechte Winkel gehört zum Modell.</figcaption></figure><label for=\"pyth1\">Schräge Länge c in Metern</label><input type=\"text\" inputmode=\"decimal\" id=\"pyth1\" aria-describedby=\"fb_pyth1\"><button type=\"button\" onclick=\"checkPyth1()\">Prüfen</button><p id=\"fb_pyth1\" role=\"status\" aria-live=\"polite\"></p><template data-worksheet-alternative><div class=\"pyth-paper\"><p>Skizziere die Modellrampe mit 3 m Höhe und 4 m waagrechter Länge. Markiere den rechten Winkel und bestimme die schräge Länge.</p></div></template></div>{{QUIZ_m42_q1}}",
         "quizzes": [
           {
             "id": "m42_q1",
@@ -28920,7 +29373,7 @@
       {
         "id": "sec2",
         "title": "Hypotenuse vs Katheten",
-        "content": "<p>Die längste Seite heißt <span style='color:red; font-weight:bold;'>Hypotenuse</span>. Sie liegt immer gegenüber vom rechten Winkel. Die kurzen Seiten heißen <span style='color:blue'>Katheten</span>.</p>{{QUIZ_m42_q2}}",
+        "content": "<p>Die <strong>Hypotenuse</strong> liegt gegenüber dem rechten Winkel. Die beiden <strong>Katheten</strong> schließen diesen Winkel ein. Je nachdem, wo der rechte Winkel liegt, können andere Buchstaben die Hypotenuse bezeichnen. Ordne deshalb die Seiten zuerst in einer Skizze zu, bevor du eine Formel einsetzt.</p>{{QUIZ_m42_q2}}",
         "quizzes": [
           {
             "id": "m42_q2",
@@ -28996,6 +29449,243 @@
             ]
           }
         ]
+      },
+      {
+        "id": "pyth_figures",
+        "title": "Rechtwinklige Dreiecke in ebenen Figuren finden",
+        "content": "<p>Manchmal musst du das passende rechtwinklige Dreieck erst einzeichnen. Bei einem <strong>gleichschenkligen Dreieck</strong> halbiert die Höhe auf die Grundseite diese Grundseite. Bei Grundseite g = 6 cm und Schenkellänge s = 5 cm hat jedes Teildreieck die Hypotenuse 5 cm und eine Kathete 3 cm.</p><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 280\" role=\"img\" aria-label=\"Gleichschenkliges Dreieck: Grundseite 6 cm, beide Schenkel 5 cm. Die Höhe teilt die Grundseite in zweimal 3 cm.\"><polygon points=\"60,210 300,210 180,50\" fill=\"#e0f2fe\" stroke=\"#172b4d\" stroke-width=\"2\"/><path d=\"M180 50V210 M180 193H197V210\" stroke=\"#9a3412\" stroke-width=\"2\" fill=\"none\"/><g fill=\"#172b4d\" font-size=\"22\" text-anchor=\"middle\"><text x=\"93\" y=\"115\">5 cm</text><text x=\"265\" y=\"115\">5 cm</text><text x=\"120\" y=\"243\">3 cm</text><text x=\"240\" y=\"243\">3 cm</text><text x=\"204\" y=\"145\">h</text></g></svg><figcaption>Zuerst die Grundseite halbieren, dann den Satz im rechtwinkligen Teildreieck anwenden.</figcaption></figure><p>h² = 5² − 3² = 16, also h = 4 cm. Damit ist A = g · h/2 = 6 · 4/2 = 12 cm². Verwende für die Fläche die <strong>senkrechte Höhe</strong>, nicht den schrägen Schenkel.</p><p>Bei einer <strong>Raute</strong> halbieren einander die Diagonalen und stehen senkrecht aufeinander. Die halben Diagonalen sind die Katheten, eine Rautenseite ist die Hypotenuse. Für Diagonalen e = 6 cm und f = 8 cm folgt s = √(3² + 4²) cm = 5 cm. Diese Überlegung gilt nicht für beliebige Vierecke.</p>{{QUIZ_pyth_isosceles}}{{QUIZ_pyth_triangle_area}}{{QUIZ_pyth_rhombus}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Berechne Höhe und Fläche eines gleichschenkligen Dreiecks mit Grundseite 10 cm und Schenkeln 13 cm.</li><li>Eine Raute hat Diagonalen 10 cm und 24 cm. Skizziere ein rechtwinkliges Teildreieck und berechne Seitenlänge und Umfang.</li><li>In einem Koordinatensystem liegen A(1|2) und B(7|10); eine Koordinateneinheit entspricht 1 cm. Zeichne das passende rechtwinklige Dreieck und berechne AB.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>Halbe Grundseite 5 cm. h = √(13² − 5²) = 12 cm; A = 10 · 12/2 = 60 cm².</p><p>Die halben Diagonalen sind 5 cm und 12 cm. s = √(25 + 144) = 13 cm, U = 4 · 13 = 52 cm.</p><p>Waagrechte Differenz 7 − 1 = 6, senkrechte Differenz 10 − 2 = 8. AB = √(6² + 8²) cm = 10 cm.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "pyth_isosceles",
+            "question": "Ein gleichschenkliges Dreieck hat Grundseite 6 cm und Schenkel 5 cm. Wie lang ist seine Höhe auf die Grundseite?",
+            "answers": [
+              {
+                "text": "√(5² − 6²) cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Höhe halbiert hier die Grundseite. In einem der rechtwinkligen Teildreiecke liegt deshalb 3 cm, nicht 6 cm, als Kathete."
+              },
+              {
+                "text": "4 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die halbe Grundseite ist 3 cm. h = √(5² − 3²) = √16 = 4 cm."
+              },
+              {
+                "text": "8 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "8 ist weder √16 noch eine mögliche Höhe bei einem Schenkel von nur 5 cm."
+              }
+            ]
+          },
+          {
+            "id": "pyth_triangle_area",
+            "question": "Das gleichschenklige Dreieck hat Grundseite 6 cm und senkrechte Höhe 4 cm. Wie groß ist seine Fläche?",
+            "answers": [
+              {
+                "text": "24 cm²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Grundseite mal Höhe ergibt die Fläche des passenden Rechtecks. Das Dreieck hat die Hälfte davon."
+              },
+              {
+                "text": "30 cm²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Schenkellänge 5 cm ersetzt nicht die senkrechte Höhe. Außerdem gehört der Faktor 1/2 zur Dreiecksfläche."
+              },
+              {
+                "text": "12 cm²",
+                "correct": true,
+                "pts": 10,
+                "feedback": "A = g · h/2 = 6 · 4/2 = 12 cm²."
+              }
+            ]
+          },
+          {
+            "id": "pyth_rhombus",
+            "question": "Bei einer Raute sind die senkrechten Diagonalen 6 cm und 8 cm lang. Wie lang ist eine Seite?",
+            "answers": [
+              {
+                "text": "5 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Diagonalen halbieren einander. Eine Seite ist die Hypotenuse mit Katheten 3 cm und 4 cm: √(9 + 16) = 5 cm."
+              },
+              {
+                "text": "10 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ergibt sich aus den ganzen Diagonalen. Für das Teildreieck brauchst du ihre Hälften."
+              },
+              {
+                "text": "7 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3 + 4 addiert die Kathetenlängen. Die Seitenlänge ergibt sich aus der Wurzel der Quadratsumme."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pyth_space",
+        "title": "Im Quader: die Raumdiagonale",
+        "content": "<p>Die <strong>Raumdiagonale</strong> verbindet zwei gegenüberliegende Ecken durch das Innere des Quaders. Zeichne zuerst die Bodendiagonale e. Für Grundkanten a und b gilt e² = a² + b². Die Höhe h steht auf der Grundfläche senkrecht und damit auch auf e. Das zweite rechtwinklige Dreieck hat die Katheten e und h sowie die Hypotenuse d.</p><div class=\"pyth-proof-pair\"><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 380 310\" role=\"img\" aria-label=\"Quader in Schrägansicht. Die Bodendiagonale e verläuft von A nach C, die Raumdiagonale d von A nach G. CG ist die Höhe h.\"><path d=\"M45 230H250L330 170V60H125L45 120V230 M45 120H250L330 60 M250 120V230 M125 60V170L45 230 M125 170H330\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\"/><polygon points=\"45,230 330,170 330,60\" fill=\"#dbeafe\" fill-opacity=\".7\"/><path d=\"M45 230L330 170 M330 170V60 M45 230L330 60\" stroke=\"#174d83\" stroke-width=\"3\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"23\" y=\"257\">A</text><text x=\"340\" y=\"182\">C</text><text x=\"339\" y=\"61\">G</text><text x=\"140\" y=\"260\">a</text><text x=\"300\" y=\"229\">b</text><text x=\"343\" y=\"124\">h</text><text x=\"175\" y=\"218\">e</text><text x=\"178\" y=\"133\">d</text></g></svg><figcaption>Schrägansicht des Quaders. In einer Schrägansicht erscheinen rechte Winkel oft schief. Die Seitenbezeichnungen gehören zu den wirklichen Kanten.</figcaption></figure><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 240\" role=\"img\" aria-label=\"Das rechtwinklige Schnittdreieck ACG: Bodendiagonale e und Höhe h sind Katheten, Raumdiagonale d ist Hypotenuse.\"><polygon points=\"45,175 285,175 285,45\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"2\"/><path d=\"M266 175V156H285\" stroke=\"#172b4d\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"24\" y=\"204\">A</text><text x=\"292\" y=\"204\">C</text><text x=\"291\" y=\"42\">G</text><text x=\"151\" y=\"204\">e</text><text x=\"303\" y=\"113\">h</text><text x=\"140\" y=\"95\">d</text></g></svg><figcaption>Das Schnittdreieck ACG einzeln: Der rechte Winkel liegt bei C.</figcaption></figure></div><p><strong>d² = e² + h² = a² + b² + h²</strong>. Bei a = 3 cm, b = 4 cm, h = 12 cm gilt e = 5 cm und d = √(25 + 144) cm = 13 cm. Für eine fehlende Höhe stellst du um: h = √(d² − a² − b²), sofern die Daten einen Quader mit positiver Höhe zulassen.</p><p>Runde erst das Endergebnis. Du kannst e² direkt weiterverwenden und musst e nicht zuerst als gerundete Dezimalzahl berechnen. Ein dünner gerader Stab kann im idealisierten rechteckigen Innenraum höchstens so lang wie die Raumdiagonale sein. Wandstärke, Stabdicke und Einführen durch eine Öffnung berücksichtigt dieses Modell nicht.</p><div class=\"interactive-zone\" data-pyth-space><h3>Quaderwerkstatt: zwei Dreiecke</h3><div class=\"pyth-controls\"><label for=\"space-a\">Grundkante a in cm<select id=\"space-a\"><option>2</option><option selected>3</option><option>4</option><option>6</option></select></label><label for=\"space-b\">Grundkante b in cm<select id=\"space-b\"><option>2</option><option>3</option><option selected>4</option><option>6</option></select></label><label for=\"space-h\">Höhe h in cm<select id=\"space-h\"><option>2</option><option>6</option><option selected>12</option></select></label></div><p data-space-description></p><label for=\"space-answer\">Raumdiagonale d in cm, auf zwei Nachkommastellen</label><input id=\"space-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"space-status\"><div class=\"pyth-buttons\"><button type=\"button\" data-space-check>Prüfen</button><button type=\"button\" data-space-show>Beide Dreiecke berechnen</button><button type=\"button\" data-space-reset>Zurücksetzen</button></div><p id=\"space-status\" role=\"status\" aria-live=\"polite\" tabindex=\"-1\"></p><div data-space-result></div><template data-worksheet-alternative><div class=\"pyth-paper\"><p>Untersuche Quader mit Kanten (3,4,12), (2,3,6) und (2,2,2) in cm. Skizziere jeweils Bodendiagonale und Raumdiagonale. Berechne e² und d², danach d auf zwei Nachkommastellen.</p></div></template></div>{{QUIZ_pyth_space_triangle}}{{QUIZ_pyth_space_value}}{{QUIZ_pyth_space_inverse}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Bearbeite die drei Quader der Papieraufgabe. Beschrifte beide rechtwinkligen Dreiecke.</li><li>Ein Quader hat Grundkanten 2 cm und 3 cm sowie Raumdiagonale 7 cm. Berechne die Höhe und prüfe sie durch Einsetzen.</li><li>In einem idealisierten rechteckigen Innenraum mit 30 cm, 40 cm und 120 cm soll ein dünner gerader Stab von 125 cm liegen. Beurteile anhand der Raumdiagonale und benenne eine Modellgrenze.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>(3,4,12): e² = 25 cm², d² = 169 cm², d = 13,00 cm. (2,3,6): e² = 13 cm², d² = 49 cm², d = 7,00 cm. (2,2,2): e² = 8 cm², d² = 12 cm², d ≈ 3,46 cm.</p><p>h = √(49 − 4 − 9) cm = 6 cm. Probe: 2² + 3² + 6² = 49 = 7².</p><p>d = √(30² + 40² + 120²) cm = 130 cm. Ein 125-cm-Stab passt im idealisierten Modell. Beispielsweise seine Dicke oder das Einführen durch eine kleine Öffnung kann in der Realität zusätzlich wichtig sein.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "pyth_space_triangle",
+            "question": "Welche Strecken bilden das zweite rechtwinklige Dreieck für die Raumdiagonale eines Quaders?",
+            "answers": [
+              {
+                "text": "Zwei beliebige Raumdiagonalen und eine Kante",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Beliebige Strecken bilden nicht automatisch ein rechtwinkliges Dreieck."
+              },
+              {
+                "text": "Länge, Breite und Höhe direkt als drei Dreiecksseiten",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die drei Kanten stehen räumlich aufeinander; sie bilden so kein geschlossenes Dreieck. Berechne zuerst die Bodendiagonale."
+              },
+              {
+                "text": "Bodendiagonale, senkrechte Höhe und Raumdiagonale",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Bodendiagonale und Höhe stehen senkrecht aufeinander. Die Raumdiagonale ist die Hypotenuse dieses Schnittdreiecks."
+              }
+            ]
+          },
+          {
+            "id": "pyth_space_value",
+            "question": "Ein Quader hat Kanten 3 cm, 4 cm und 12 cm. Wie lang ist seine Raumdiagonale?",
+            "answers": [
+              {
+                "text": "13 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Zuerst e² = 3² + 4² = 25. Dann d² = 25 + 12² = 169, also d = 13 cm."
+              },
+              {
+                "text": "19 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "19 cm ist die Summe der drei Kanten. Die Raumdiagonale ist der direkte Weg durch den Quader."
+              },
+              {
+                "text": "5 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "5 cm ist nur die Bodendiagonale zu 3 cm und 4 cm. Die Höhe 12 cm fehlt noch."
+              }
+            ]
+          },
+          {
+            "id": "pyth_space_inverse",
+            "question": "Ein Quader hat a = 2 cm, b = 3 cm und Raumdiagonale d = 7 cm. Wie hoch ist er?",
+            "answers": [
+              {
+                "text": "√62 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Für die fehlende Höhe werden die beiden anderen Kantenquadrate vom Diagonalenquadrat subtrahiert."
+              },
+              {
+                "text": "6 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "h² = 7² − 2² − 3² = 49 − 4 − 9 = 36, also h = 6 cm."
+              },
+              {
+                "text": "2 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "7 − 2 − 3 = 2 subtrahiert Längen statt Quadrate."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pyth_pyramid",
+        "title": "Pyramiden: Körperhöhe, Seitenhöhe und Seitenkante",
+        "content": "<p>Bei einer <strong>geraden quadratischen Pyramide</strong> steht die Spitze S senkrecht über dem Mittelpunkt M der quadratischen Grundfläche. Verwechsle drei Strecken nicht: Körperhöhe h = SM, Seitenhöhe hₛ von S zur Mitte N einer Grundkante und Seitenkante s von S zu einer Ecke.</p><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 380 290\" role=\"img\" aria-label=\"Gerade quadratische Pyramide im Schrägbild. Spitze S über Grundflächenmittelpunkt M; N ist die Mitte einer Grundkante. SM ist Körperhöhe h, SN die Seitenhöhe hs.\"><path d=\"M50 220H240L330 150H140Z M50 220L190 35L240 220 M190 35L330 150 M190 35L140 150\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\"/><polygon points=\"190,35 190,185 145,220\" fill=\"#dbeafe\"/><path d=\"M190 35V185L145 220L190 35\" stroke=\"#174d83\" stroke-width=\"3\" fill=\"none\"/><g fill=\"#172b4d\" font-size=\"22\"><text x=\"194\" y=\"27\">S</text><text x=\"202\" y=\"186\">M</text><text x=\"127\" y=\"247\">N</text><text x=\"200\" y=\"103\">h</text><text x=\"131\" y=\"127\">hₛ</text><text x=\"186\" y=\"232\">a/2</text><text x=\"68\" y=\"273\">MN = a/2; SN = hₛ</text></g></svg><figcaption>Das Dreieck SMN ist bei M rechtwinklig: h und a/2 sind Katheten, hₛ ist die Hypotenuse. Das Schrägbild ist eine erklärende Skizze.</figcaption></figure><p>Es gilt <strong>hₛ = √(h² + (a/2)²)</strong>. Für a = 6 cm und h = 4 cm folgt hₛ = √(16 + 9) cm = 5 cm. Jede dreieckige Seitenfläche hat den Inhalt a · hₛ/2. Daher <strong>O = a² + 4 · a · hₛ/2</strong> = 36 + 60 = 96 cm².</p><p>Für die Seitenkante s brauchst du statt MN die Strecke vom Mittelpunkt zu einer Ecke: Das ist die halbe Grundflächendiagonale a√2/2. Deshalb s² = h² + a²/2. Im Beispiel ist s = √34 cm ≈ 5,83 cm. Als Kontrolle geht auch s² = hₛ² + (a/2)² = 25 + 9 = 34.</p><p>Diese Formeln setzen eine gerade Pyramide mit quadratischer Grundfläche voraus. Bei einer schiefen Pyramide sind die Seitenhöhen im Allgemeinen verschieden. Zeichne deshalb die zu den gegebenen Daten passende Figur.</p>{{QUIZ_pyth_pyramid_height}}{{QUIZ_pyth_pyramid_area}}{{QUIZ_pyth_pyramid_edge}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Eine gerade quadratische Pyramide hat a = 10 cm und h = 12 cm. Berechne Seitenhöhe und Oberfläche.</li><li>Für dieselbe Pyramide: Bestimme die Seitenkante auf zwei Nachkommastellen auf zwei verschiedenen Rechenwegen.</li><li>Eine gerade quadratische Pyramide hat a = 8 cm und Seitenhöhe hₛ = 5 cm. Berechne die Körperhöhe und erkläre, welche Strecke hier die Hypotenuse ist.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>hₛ = √(12² + 5²) = 13 cm. O = 10² + 4 · 10 · 13/2 = 360 cm².</p><p>s² = 12² + 10²/2 = 144 + 50 = 194; alternativ s² = 13² + 5² = 169 + 25 = 194. Daher s = √194 cm ≈ 13,93 cm.</p><p>h = √(5² − 4²) cm = 3 cm. Im Schnittdreieck aus Körperhöhe, halber Grundkante und Seitenhöhe ist hₛ = 5 cm die Hypotenuse.</p></div></details></div>",
+        "quizzes": [
+          {
+            "id": "pyth_pyramid_height",
+            "question": "Eine gerade quadratische Pyramide hat Grundkante a = 6 cm und Körperhöhe h = 4 cm. Wie lang ist die Seitenhöhe hₛ?",
+            "answers": [
+              {
+                "text": "√52 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Strecke vom Grundflächenmittelpunkt zur Mitte einer Grundkante ist a/2 = 3 cm, nicht die ganze Grundkante 6 cm."
+              },
+              {
+                "text": "5 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "hₛ² = h² + (a/2)² = 16 + 9 = 25, also hₛ = 5 cm."
+              },
+              {
+                "text": "4 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "4 cm ist die senkrechte Körperhöhe. Die schräge Seitenhöhe ist länger."
+              }
+            ]
+          },
+          {
+            "id": "pyth_pyramid_area",
+            "question": "Wie groß ist die Oberfläche dieser Pyramide mit a = 6 cm und Seitenhöhe hₛ = 5 cm?",
+            "answers": [
+              {
+                "text": "84 cm²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "84 entsteht durch Verwendung der Körperhöhe 4 cm für die Seitenflächen. Die Dreieckshöhe in einer Seitenfläche ist aber 5 cm."
+              },
+              {
+                "text": "156 cm²",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Jede dreieckige Seitenfläche hat a · hₛ/2. Der Faktor 1/2 darf nicht fehlen."
+              },
+              {
+                "text": "96 cm²",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Grundfläche 6² = 36 cm². Vier Seitendreiecke: 4 · 6 · 5/2 = 60 cm². Zusammen 96 cm²."
+              }
+            ]
+          },
+          {
+            "id": "pyth_pyramid_edge",
+            "question": "Wie erhältst du die Seitenkante s von der Spitze zu einer Ecke derselben Pyramide?",
+            "answers": [
+              {
+                "text": "s = √(h² + a²/2) = √34 cm",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Vom Mittelpunkt zur Ecke ist es die halbe Quadratdiagonale a√2/2. Ihr Quadrat ist a²/2 = 18; dazu kommt h² = 16."
+              },
+              {
+                "text": "s = hₛ = 5 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Seitenhöhe endet in der Mitte einer Grundkante, die Seitenkante an einer Ecke. Das sind verschiedene Strecken."
+              },
+              {
+                "text": "s = h + a = 10 cm",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Senkrechte Höhe und Grundkante dürfen nicht einfach addiert werden. Suche das rechtwinklige Schnittdreieck."
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
@@ -29028,12 +29718,18 @@
     "learningGoals": [
       "Hypotenuse und Katheten im rechtwinkligen Dreieck zuordnen.",
       "Eine fehlende Hypotenuse oder Kathete berechnen.",
-      "Den Satz auf eine Rechteckdiagonale anwenden und die Voraussetzungen prüfen."
+      "Den Satz auf eine Rechteckdiagonale anwenden und die Voraussetzungen prüfen.",
+      "Hilfsdreiecke in gleichschenkligen Dreiecken und Rauten finden und Flächen berechnen.",
+      "Die Raumdiagonale eines Quaders über zwei rechtwinklige Dreiecke berechnen und eine fehlende Höhe bestimmen.",
+      "Bei geraden quadratischen Pyramiden Körperhöhe, Seitenhöhe und Seitenkante unterscheiden und die Oberfläche berechnen."
     ],
     "summary": [
       "Die Hypotenuse liegt gegenüber dem rechten Winkel. Mit dieser Zuordnung gilt a² + b² = c².",
       "Gesuchte Kathete: a = √(c² − b²). Die Hypotenuse muss länger als jede Kathete sein.",
-      "Eine Rechteckdiagonale bildet mit zwei benachbarten Seiten ein rechtwinkliges Dreieck."
+      "Eine Rechteckdiagonale bildet mit zwei benachbarten Seiten ein rechtwinkliges Dreieck.",
+      "Bei gleichschenkligen Dreiecken halbiert die Höhe die Grundseite; bei Rauten stehen die halben Diagonalen senkrecht aufeinander.",
+      "Quader: d² = a² + b² + h². Die Bodendiagonale und die Höhe bilden das zweite rechtwinklige Dreieck.",
+      "Gerade quadratische Pyramide: hₛ² = h² + (a/2)²; O = a² + 2ahₛ. Für die Seitenkante gilt s² = h² + a²/2."
     ]
   },
   "math4_3_terme_gleichungen": {
