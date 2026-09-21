@@ -1,5 +1,17 @@
 # Lieferstand und nächste Prioritäten
 
+## GitHub-Zwischenstand vom 21.09.2026: schriftliches Rechnen und Verhältnisse
+
+Dieser auf Nutzerwunsch gesicherte Zwischenstand enthält die abgeschlossenen Nacharbeiten an Geometrie-Modellen, Verhältnissen/Proportionen sowie schriftlicher Multiplikation und Division. Die in älteren Einträgen als lokal bezeichneten Änderungen sind damit ebenfalls enthalten.
+
+Zusätzlich enthalten ist die laufende Erweiterung von Addition/Subtraktion: zwei Werkstätten mit Überträgen und schrittweisem Entbündeln, neun Kapitelcheckfragen (Revision 2), Papieralternativen und 20 erzeugte Aufgaben mit Proben. Syntax und bestehende Regressionsprüfungen wurden vor dem Sichern geprüft. Die eigenständige vollständige Prüfung der neuen Werkstätten und aller neuen Antwortwege sowie ihre Browser- und Drucksichtprüfung stehen noch aus. Dieser Stand ist keine vollständige Produktabnahme. Übersetzungen bleiben zurückgestellt; Priorität haben Physik, Mathematik, Chemie, Biologie und DGB.
+
+Fortschritt 21.09.2026: Schriftliche Multiplikation und Division der ersten Klasse um zwei Werkstätten mit 16 Aufgaben und 72 eigenen Rechenschritten erweitert. Überträge, Nullstellen, Teilprodukte und Restumtausch sind sichtbar; gezeigte Schritte werden ausdrücklich unterschieden. Revision 3 mit 20 Fragen; alle 58 Antwortwege, 654 Browserzustände und alle 22 endgültigen Druckseiten im dokumentierten Umfang geprüft. Zwei Papieralternativen, fünf Lösungsgruppen und 20 erzeugte Aufgaben mit Proben. [Inhalte und Nachweise](MATHEMATIK_SCHRIFTLICH_MULT_DIV.md). Nächster konkreter Rechenbereich: mehrstellige Addition/Subtraktion. Änderungen lokal nach `fe188ee`; Gesamtauftrag offen.
+
+Fortschritt 21.09.2026: Verhältnisse und Proportionen der dritten Klasse auf Revision 2 erweitert: begründetes Umformen, acht interaktive Aufgaben mit Probe, Anteilsformeln, Einheiten und Aufteilungen mit Modellgrenzen. Fünf Abschnitte, 13 Fragen, zwei Papieralternativen und zwölf erzeugte Aufgaben mit Lösungen. Alle 39 Antwortwege, 204 Browseransichten und alle 18 Druckseiten im dokumentierten Umfang geprüft; die ältere mobile Tabelle anschließend verbessert, sämtliche Druckseiten unverändert. [Inhalte und Nachweise](MATHEMATIK_VERHAELTNISSE.md). Geometrie-Modellnacharbeit ebenfalls abgeschlossen. Änderungen lokal nach `fe188ee`; der Gesamtauftrag und die übrigen Fachprüfungen bleiben offen.
+
+Fortschritt 21.09.2026: Der angeforderte Zwischenstand `fe188ee` ist auf GitHub gesichert. Danach die Geometrie-Modellnacharbeit abgeschlossen: 7650 Browserzustände, vier neue Papieralternativen mit elf Aufgaben und alle 54 endgültigen Druckseiten im dokumentierten Umfang geprüft. Absatzumbruch und Lösungsüberschriften korrigiert. [Modelle, Papieraufgaben und Nachweise](MATHEMATIK_GEOMETRIE_MODELLE.md). Die neuen Nacharbeiten bleiben lokal; weitere Fach- und Produktanforderungen bleiben offen. Die älteren Einträge beschreiben ihren damaligen Stand.
+
 Stand: 21.09.2026. Dieser Zwischenstand sichert die Nacharbeiten seit `4b934d8` auf ausdrücklichen Nutzerwunsch. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien. Übersetzungen sind zurückgestellt; Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB. Ältere Einträge beschreiben ihren damaligen Prüfstand.
 
 ## Aktueller GitHub-Zwischenstand: Geometrie-Praxis und Modellansichten

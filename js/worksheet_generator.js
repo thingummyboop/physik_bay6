@@ -197,39 +197,25 @@ function generateWorksheetContent(topicId, topicTitle) {
         html+='<h2>Zusätzliche Aufgaben</h2><p>A1–A4: Runden. A5–A6: Vergleichen. A7–A8: Rechnen. A9–A12: Römische Zahlen lesen.</p>'+grid(tasks,'1fr')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math1_3_add_sub') {
-        html += `<h2>1. Addition</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const n1 = rand(100, 9000);
-            const n2 = rand(100, 9000);
-            html += `<div>${n1} + ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
+        html+='<h2>Mehrstellig addieren und subtrahieren</h2><p>Schätze die Größenordnung, rechne auf kariertem Papier und markiere jeden Übertrag oder Tausch. Kontrolliere das genaue Ergebnis mit der Umkehroperation.</p>';let solutions='';
+        for(let i=0;i<20;i++){
+            const add=i<10,kind=add?'add':'subtract',a=add?rand(100,9999):i%3===0?1000:rand(1000,9999),b=add?rand(100,9999):i%5===0?a:rand(1,a),answer=add?a+b:a-b;
+            html+='<div data-column-generated data-kind="'+kind+'" data-a="'+a+'" data-b="'+b+'"><strong>A'+(i+1)+'.</strong> '+a+(add?' + ':' − ')+b+'<p>Überschlag, Ergebnis und Probe: ______________________________</p></div>';
+            solutions+='<section data-column-generated-answer="'+answer+'"><h3>Zusatzaufgabe A'+(i+1)+'</h3><p>'+a+(add?' + ':' − ')+b+' = '+answer+'. Probe: '+answer+(add?' − ':' + ')+b+' = '+a+'.</p></section>';
         }
-        html += `</div>`;
-        
-        html += `<h2>2. Subtraktion</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const n1 = rand(1000, 9000);
-            const n2 = rand(100, n1);
-            html += `<div>${n1} - ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
-        html += `</div>`;
+        html+='<template data-generated-worksheet-solutions>'+solutions+'</template>';
     }
     else if (topicId === 'math1_4_mult_div') {
-        html += `<h2>1. Multiplikation</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const n1 = rand(10, 100);
-            const n2 = rand(2, 20);
-            html += `<div>${n1} \\(\\cdot\\) ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
+        html += '<h2>Schriftlich rechnen und prüfen</h2><p>Schätze zuerst die Größenordnung. Rechne auf kariertem Papier, markiere Überträge oder Reste und schreibe eine Gegenprobe. Bei Division ist ein ganzzahliges Ergebnis mit Rest gesucht.</p>';
+        let solutions='';
+        for(let i=0;i<20;i++){
+            const multiply=i<10,kind=multiply?'multiply':'divide',divisor=rand(2,25),q=[204,306,rand(10,400),0][i%4],remainder=i%3===0?0:rand(1,divisor-1),a=multiply?rand(100,999):divisor*q+remainder,b=multiply?rand(11,99):divisor;
+            const result=multiply?a*b:q,rest=multiply?0:remainder,ones=b%10,tens=b-ones;
+            html+='<div data-written-generated data-kind="'+kind+'" data-a="'+a+'" data-b="'+b+'"><strong>A'+(i+1)+'.</strong> '+a+(multiply?' · ':' : ')+b+'<p>Überschlag, Ergebnis und Probe: ______________________________</p></div>';
+            const solution=multiply?a+' · '+ones+' + '+a+' · '+tens+' = '+a*ones+' + '+a*tens+' = '+result+'. Kontrolle: '+result+' : '+b+' = '+a+'.':result+' Rest '+rest+'. Probe: '+result+' · '+b+' + '+rest+' = '+a+'. Restprüfung: 0 ≤ '+rest+' < '+b+'.';
+            solutions+='<section data-written-generated-answer="'+result+'" data-rest="'+rest+'"><h3>Zusatzaufgabe A'+(i+1)+'</h3><p>'+solution+'</p></section>';
         }
-        html += `</div>`;
-        
-        html += `<h2>2. Division</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<10; i++) {
-            const n2 = rand(2, 20);
-            const result = rand(10, 100);
-            const n1 = n2 * result;
-            html += `<div>${n1} : ${n2} = <span style="display:inline-block; border-bottom:1px dotted #000; width:100px;"></span></div>`;
-        }
-        html += `</div>`;
+        html+='<template data-generated-worksheet-solutions>'+solutions+'</template>';
     }
     else if (topicId === 'math1_7_gleichungen') {
         html += `<h2>1. Einfache Gleichungen (Addition/Subtraktion)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -429,14 +415,19 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math3_5_verhaeltnisse') {
-        html += `<h2>1. Verhältnisse kürzen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const factor = rand(2, 6);
-            const a = rand(2, 9);
-            const b = rand(2, 9);
-            html += `<div>Kürze das Verhältnis \\( ${a * factor} : ${b * factor} \\) = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
+        html += '<h2>Zusatzaufgaben: Verhältnisse und Proportionen</h2><p>Schreibe Rechnung und Probe auf. Kürze Verhältnisse vollständig.</p>';
+        const gcd=(a,b)=>b?gcd(b,a%b):a;let solutions='';
+        for(let i=0;i<12;i++) {
+            const kind=['reduce','numerator','denominator','share'][i%4],a=rand(2,5),b=rand(2,7),factor=rand(2,6),divisor=gcd(a,b),total=(a+b)*factor;
+            let task,answer,calculation;
+            if(kind==='reduce'){task='Kürze '+(a*factor)+' : '+(b*factor)+'.';answer=(a/divisor)+' : '+(b/divisor);calculation='Beide Zahlen durch '+(factor*divisor)+' teilen: '+answer+'.';}
+            else if(kind==='numerator'){task='Löse x : '+(b*factor)+' = '+a+' : '+b+'.';answer=a*factor;calculation=b+'x = '+a+' · '+(b*factor)+' → x = '+answer+'. Probe: '+answer+' : '+(b*factor)+' = '+a+' : '+b+'.';}
+            else if(kind==='denominator'){task='Löse '+(a*factor)+' : x = '+a+' : '+b+'. Nenne den ausgeschlossenen Wert.';answer=b*factor;calculation='x ≠ 0. '+(a*factor)+' · '+b+' = '+a+'x → x = '+answer+'. Probe: '+(a*factor)+' : '+answer+' = '+a+' : '+b+'.';}
+            else {task='Teile '+total+' gleich große Perlen im Verhältnis '+a+' : '+b+'.';answer=(a*factor)+' : '+(b*factor);calculation=(a+b)+' Teile; '+total+' : '+(a+b)+' = '+factor+' Perlen je Teil. Anteile: '+(a*factor)+' und '+(b*factor)+'. Summe '+total+'; Verhältnis '+a+' : '+b+'.';}
+            html+='<div data-ratio-generated data-kind="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-factor="'+factor+'"><strong>A'+(i+1)+'.</strong> '+task+'<p>Rechnung und Probe: __________________________________</p></div>';
+            solutions+='<section data-ratio-generated-answer="'+answer+'"><h3>Zusatzaufgabe A'+(i+1)+'</h3><p>'+calculation+'</p></section>';
         }
-        html += `</div>`;
+        html+='<template data-generated-worksheet-solutions>'+solutions+'</template>';
     }
     else if (topicId === 'math3_6_zuordnungen') {
         html += `<h2>1. Zuordnungen berechnen und beurteilen</h2><p>Alle Angaben sind erfundene Modelle. Berechne den gesuchten Wert und entscheide: direkt proportional, indirekt proportional oder keines von beiden.</p><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">`;

@@ -16886,7 +16886,7 @@
       {
         "id": "schriftlich_add",
         "title": "Schriftlich Plus rechnen (Addition)",
-        "content": "<p>Du kaufst dir Snacks. Ein Döner für 6€ und eine Cola für 2€. Wie viel kostet das? Klar, 8€! (6 + 2 = 8)</p>\n<p>Aber was, wenn die Zahlen riesig sind? Zum Beispiel Punkte in einem Game: <b>134 + 25</b>?</p>\n<p>Dafür nutzen wir <b>schriftliches Rechnen</b>. Wichtig: Schreibe immer <span style=\"color:blue\">Einer</span> unter <span style=\"color:blue\">Einer</span>, <span style=\"color:red\">Zehner</span> unter <span style=\"color:red\">Zehner</span>!</p>\n<div style=\"background:#e8f4f8; padding:15px; border-radius:8px; font-family: monospace; font-size: 24px; width: 120px; text-align: right; margin: 10px 0;\">\n  &nbsp;&nbsp;<span style=\"color:green\">1</span><span style=\"color:red\">3</span><span style=\"color:blue\">4</span><br>\n  +&nbsp;<span style=\"color:red\">2</span><span style=\"color:blue\">5</span><br>\n  <hr style=\"border-top: 2px solid black; margin: 5px 0;\">\n  &nbsp;&nbsp;<span style=\"color:green\">1</span><span style=\"color:red\">5</span><span style=\"color:blue\">9</span>\n</div>\n<p>Wir rechnen von <b>rechts nach links</b> (von <span style=\"color:blue\">blau</span> nach <span style=\"color:green\">grün</span>)!</p>\n<p>1. <span style=\"color:blue\">Einer</span>: 4 + 5 = <span style=\"color:blue\">9</span><br>2. <span style=\"color:red\">Zehner</span>: 3 + 2 = <span style=\"color:red\">5</span><br>3. <span style=\"color:green\">Hunderter</span>: 1 + nix = <span style=\"color:green\">1</span></p>\n<div style=\"background:#eee; padding:10px; border-radius:8px; margin-top:15px;\">\n  <h4>Maschine: Plus-Trainer</h4>\n  <p id=\"addA\" style=\"font-size: 18px; font-weight: bold;\">Rechne: ...</p>\n  <label for=\"addI\">Dein Ergebnis als ganze Zahl:</label><input type=\"text\" inputmode=\"numeric\" id=\"addI\" style=\"width: 80px; padding: 5px; font-size: 16px;\">\n  <button onclick=\"chkA()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Prüfen</button>\n  <button onclick=\"newA()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Neue Aufgabe</button>\n  <p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" id=\"addF\" style=\"font-weight: bold; margin-top: 10px;\"></p>\n  \n</div>{{QUIZ_addsub_alignment}}",
+        "content": "<p>In einem Klassenprojekt gibt es 134 rote und 25 blaue Karten. Wie viele Karten sind es zusammen?</p>\n<p>Schriftliches Rechnen hilft, die Stellenwerte übersichtlich zu ordnen.</p>\n<p>Dafür nutzen wir <b>schriftliches Rechnen</b>. Wichtig: Schreibe immer <span>Einer</span> unter <span>Einer</span>, <span>Zehner</span> unter <span>Zehner</span>!</p>\n<table class=\"column-reference\"><caption>134 + 25 = 159; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>H</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>1</td><td>3</td><td>4</td></tr><tr><th scope=\"row\">+</th><td> </td><td>2</td><td>5</td></tr><tr><th scope=\"row\">Ergebnis</th><td>1</td><td>5</td><td>9</td></tr></tbody></table>\n<p>Wir rechnen von <strong>rechts nach links</strong> und beginnen bei den Einern.</p>\n<p>1. <span>Einer</span>: 4 + 5 = <span>9</span><br>2. <span>Zehner</span>: 3 + 2 = <span>5</span><br>3. <span>Hunderter</span>: 1 + 0 = <span>1</span></p>\n<div class=\"interactive-zone written-lab\">\n  <h4>Addition im Kopf üben</h4>\n  <p id=\"addA\">Rechne: ...</p>\n  <label for=\"addI\">Dein Ergebnis als ganze Zahl:</label><input type=\"text\" inputmode=\"numeric\" id=\"addI\" aria-describedby=\"addF\">\n  <button onclick=\"chkA()\" type=\"button\">Prüfen</button>\n  <button onclick=\"newA()\" type=\"button\">Neue Aufgabe</button>\n  <p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" id=\"addF\"></p>\n  \n<template data-worksheet-alternative=\"\"><div data-column-quick-paper=\"add\"><p>Rechne 27 + 38 und 46 + 19 im Kopf. Erkläre einen Rechenweg und kontrolliere mit der Umkehroperation.</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Kopfrechnen: Papieraufgaben vergleichen</summary><p>27 + 38 = 65; 46 + 19 = 65. Zum Beispiel: 46 + 20 − 1 = 65. Proben: 65 − 38 = 27 und 65 − 19 = 46.</p></details>{{QUIZ_addsub_alignment}}",
         "quizzes": [
           {
             "id": "addsub_alignment",
@@ -16916,8 +16916,8 @@
       },
       {
         "id": "schriftlich_add_uebertrag",
-        "title": "Plus mit Übertrag (Der Merker)",
-        "content": "<p>Was passiert, wenn eine Spalte über 9 geht? Beispiel: <span style=\"color:red\">5</span><span style=\"color:blue\">8</span> + <span style=\"color:red\">3</span><span style=\"color:blue\">6</span>.</p>\n<p>Wir rechnen die <span style=\"color:blue\">Einer</span>: <span style=\"color:blue\">8 + 6 = 14</span>. Wir können keine 14 in die eine Einer-Spalte schreiben!</p>\n<p>Lösung: Wir schreiben die <span style=\"color:blue\">4</span> hin und <b>merken</b> uns den <span style=\"color:red\">1 Zehner</span> (das ist der Übertrag).</p>\n<div style=\"background:#ffe8e8; padding:15px; border-radius:8px; font-family: monospace; font-size: 24px; width: 120px; text-align: right; margin: 10px 0;\">\n  &nbsp;&nbsp;<span style=\"color:red\">5</span><span style=\"color:blue\">8</span><br>\n  +&nbsp;<span style=\"color:red\">3</span><span style=\"color:blue\">6</span><br>\n  &nbsp;<small style=\"color:black\">1</small>&nbsp;<br>\n  <hr style=\"border-top: 2px solid black; margin: 5px 0;\">\n  &nbsp;&nbsp;<span style=\"color:red\">9</span><span style=\"color:blue\">4</span>\n</div>\n<p>1. <span style=\"color:blue\">Einer</span>: 8 + 6 = 14. Schreibe <span style=\"color:blue\">4</span>, merke 1.<br>2. <span style=\"color:red\">Zehner</span>: 5 + 3 + 1 (gemerkt) = <span style=\"color:red\">9</span>.</p>{{QUIZ_addsub_carry}}",
+        "title": "Addition mit Übertrag",
+        "content": "<p>Was passiert, wenn eine Spalte über 9 geht? Beispiel: <span>5</span><span>8</span> + <span>3</span><span>6</span>.</p>\n<p>Wir rechnen die <span>Einer</span>: <span>8 + 6 = 14</span>. Wir können keine 14 in die eine Einer-Spalte schreiben!</p>\n<p>Lösung: Wir schreiben die <span>4</span> hin und <b>merken</b> uns den <span>1 Zehner</span> (das ist der Übertrag).</p>\n<table class=\"column-reference\"><caption>58 + 36 = 94; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>5</td><td>8</td></tr><tr><th scope=\"row\">+</th><td>3</td><td>6</td></tr><tr><th scope=\"row\">Übertrag</th><td>1</td><td></td></tr><tr><th scope=\"row\">Ergebnis</th><td>9</td><td>4</td></tr></tbody></table>\n<p>1. <span>Einer</span>: 8 + 6 = 14. Schreibe <span>4</span>, merke 1.<br>2. <span>Zehner</span>: 5 + 3 + 1 (gemerkt) = <span>9</span>.</p>{{QUIZ_addsub_carry}}<div class=\"interactive-zone written-lab\" data-column-lab=\"add\"><h3>Mehrstellig addieren: selbst Schritt für Schritt</h3><p>Addiere von rechts nach links. Gib zu jeder Stelle die ganze Summe der beiden Ziffern und des Übertrags ein. Die Werkstatt zeigt danach Ergebnisziffer und nächsten Übertrag.</p><p>Schreibe parallel auf Papier. Gezeigte Schritte werden als Hilfe markiert; du kannst jederzeit zurücksetzen.</p><label for=\"column-add-case\">Aufgabe</label><select id=\"column-add-case\"><option value=\"0\">134 + 25</option><option value=\"1\">58 + 36</option><option value=\"2\">597 + 268</option><option value=\"3\">999 + 1</option><option value=\"4\">4095 + 708</option><option value=\"5\">8709 + 1384</option><option value=\"6\">9999 + 999</option><option value=\"7\">0 + 407</option></select><p data-column-progress></p><div data-column-board></div><p data-column-prompt class=\"written-prompt\"></p><label for=\"column-add-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"column-add-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"column-add-status\"><button type=\"button\" data-column-check>Schritt prüfen</button><button type=\"button\" data-column-show>Schritt zeigen</button><p id=\"column-add-status\" data-column-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-column-history></ol></details><button type=\"button\" data-column-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-column-paper=\"add\"><p>Rechne auf kariertem Papier. Schreibe gleiche Stellenwerte untereinander, markiere Überträge und kontrolliere mit Subtraktion.</p><ol><li>Rechne 597 + 268 und 999 + 1 schriftlich. Markiere alle Überträge. Warum bekommt das zweite Ergebnis eine zusätzliche Stelle?</li><li>Rechne 4095 + 708 und 8709 + 1384. Prüfe die Einerstelle und mache jeweils eine Gegenprobe.</li><li>Schätze 9999 + 999 durch 10000 + 1000. Berechne dann genau und erkläre die Abweichung.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Mehrstellige Summen: Lösungen und Begründungen</summary><div data-column-solution><p>597 + 268 = 865; 999 + 1 = 1000. In der zweiten Rechnung wird dreimal gebündelt: zehn Einer, zehn Zehner und zehn Hunderter. Dadurch entsteht ein Tausender. Proben: 865 − 268 = 597 und 1000 − 1 = 999.</p><p>4095 + 708 = 4803; 8709 + 1384 = 10093. Proben: 4803 − 708 = 4095; 10093 − 1384 = 8709.</p><p>9999 + 999 = 10998. Der Überschlag 11000 liegt um 2 darüber: Beide Summanden wurden um 1 erhöht.</p></div></details>{{QUIZ_column_chain}}{{QUIZ_column_carry_in}}{{QUIZ_column_estimate}}",
         "quizzes": [
           {
             "id": "addsub_carry",
@@ -16942,13 +16942,85 @@
                 "pts": 0
               }
             ]
+          },
+          {
+            "id": "column_chain",
+            "question": "Warum hat 999 + 1 das Ergebnis 1000?",
+            "answers": [
+              {
+                "text": "Weil man an jede Zahl beim Addieren von 1 eine Null anhängt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Anhängen einer Null würde mit 10 multiplizieren. Hier entstehen die Nullen durch Bündeln."
+              },
+              {
+                "text": "Weil das Bündeln von den Einern über Zehner und Hunderter bis zum Tausender weitergeht.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "10 Einer werden ein Zehner, 10 Zehner ein Hunderter und 10 Hunderter ein Tausender."
+              },
+              {
+                "text": "Weil nur die Einerstelle gerechnet werden muss.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Übertrag muss an jeder folgenden Stelle mitgerechnet werden."
+              }
+            ]
+          },
+          {
+            "id": "column_carry_in",
+            "question": "Bei 597 + 268 ergeben die Einer 15. Was rechnest du an der Zehnerstelle?",
+            "answers": [
+              {
+                "text": "9 + 6 = 15.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier fehlt der Übertrag aus den Einern."
+              },
+              {
+                "text": "9 + 6 + 5 = 20.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 5 ist die geschriebene Einerziffer. Übertragen wurde 1 Zehner."
+              },
+              {
+                "text": "9 + 6 + 1 = 16.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "16 Zehner werden zu 1 Hunderter und 6 Zehnern."
+              }
+            ]
+          },
+          {
+            "id": "column_estimate",
+            "question": "Der Überschlag zu 9999 + 999 lautet 10000 + 1000 = 11000. Wie liegt er zum genauen Ergebnis?",
+            "answers": [
+              {
+                "text": "Um 2 höher.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Beide Summanden wurden um 1 erhöht. Genau sind es 10998."
+              },
+              {
+                "text": "Er ist genau gleich.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Beim Runden wurden beide Summanden verändert. Ein Überschlag ist hier kein exaktes Ergebnis."
+              },
+              {
+                "text": "Um 2 niedriger.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Beide Zahlen wurden aufgerundet. Der Überschlag liegt daher höher."
+              }
+            ]
           }
         ]
       },
       {
         "id": "schriftlich_sub",
         "title": "Schriftlich Minus rechnen (Subtraktion)",
-        "content": "<p>Jetzt wird abgezogen! Du hast 50€ und kaufst ein Game für 30€. Bleiben 20€. (50 - 30 = 20)</p>\n<p>Schriftlich geht das so: Beispiel <b>87 - 45</b></p>\n<p>Wie beim Plusrechnen: <span style=\"color:blue\">Einer</span> unter <span style=\"color:blue\">Einer</span>, <span style=\"color:red\">Zehner</span> unter <span style=\"color:red\">Zehner</span>.</p>\n<div style=\"background:#e8f8e8; padding:15px; border-radius:8px; font-family: monospace; font-size: 24px; width: 120px; text-align: right; margin: 10px 0;\">\n  &nbsp;&nbsp;<span style=\"color:red\">8</span><span style=\"color:blue\">7</span><br>\n  -&nbsp;<span style=\"color:red\">4</span><span style=\"color:blue\">5</span><br>\n  <hr style=\"border-top: 2px solid black; margin: 5px 0;\">\n  &nbsp;&nbsp;<span style=\"color:red\">4</span><span style=\"color:blue\">2</span>\n</div>\n<p>Wir rechnen wieder von <b>rechts nach links</b>! Wir überlegen: \"Wie viel fehlt von der unteren Zahl zur oberen?\"</p>\n<p>1. <span style=\"color:blue\">Einer</span>: Von 5 bis 7 fehlen <b><span style=\"color:blue\">2</span></b>.<br>2. <span style=\"color:red\">Zehner</span>: Von 4 bis 8 fehlen <b><span style=\"color:red\">4</span></b>.</p>\n<div style=\"background:#eee; padding:10px; border-radius:8px; margin-top:15px;\">\n  <h4>Maschine: Minus-Trainer</h4>\n  <p id=\"subA\" style=\"font-size: 18px; font-weight: bold;\">Rechne: ...</p>\n  <label for=\"subI\">Dein Ergebnis als ganze Zahl:</label><input type=\"text\" inputmode=\"numeric\" id=\"subI\" style=\"width: 80px; padding: 5px; font-size: 16px;\">\n  <button onclick=\"chkS()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Prüfen</button>\n  <button onclick=\"newS()\" style=\"padding: 5px 10px; font-size: 16px; cursor: pointer;\">Neue Aufgabe</button>\n  <p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" id=\"subF\" style=\"font-weight: bold; margin-top: 10px;\"></p>\n  \n</div><p><strong>Gegenprobe:</strong> 42 + 45 = 87. Addiere Ergebnis und abgezogene Zahl: Du erhältst wieder die Ausgangszahl.</p><h3>Wenn die Einer nicht reichen: entbündeln</h3><p>Bei <strong>73 − 48</strong> kannst du nicht 8 Einer von 3 Einern wegnehmen, ohne die Darstellung zu ändern. Tausche einen der 7 Zehner gegen 10 Einer: 73 = 6 Zehner + 13 Einer. Nun rechnest du 13 − 8 = 5 Einer und 6 − 4 = 2 Zehner. Ergebnis: 25. Die Zahl 73 hat ihren Wert beim Tauschen behalten.</p><p>Bei <strong>302 − 178</strong> liegt dazwischen eine Null. Tausche zuerst einen Hunderter: 302 = 2 Hunderter + 10 Zehner + 2 Einer. Tausche dann einen Zehner: 302 = 2 Hunderter + 9 Zehner + 12 Einer. Jetzt: 12 − 8 = 4, 9 − 7 = 2 und 2 − 1 = 1. Ergebnis: 124. Die Gegenprobe 124 + 178 = 302 bestätigt es.</p><p>Das Entbündeln ist ein Verfahren für die schriftliche Subtraktion. Falls ihr in der Klasse ein anderes Verfahren verwendet, vergleicht die Begründung mit eurer Lehrkraft.</p><ol data-regrouping-task><li>Zeichne eine Stellenwerttafel mit Hundertern, Zehnern und Einern. Stelle 302 in den drei beschriebenen Darstellungen dar und erkläre, warum ihr Wert gleich bleibt.</li><li>Eine erfundene Lösung behauptet: „73 − 48 = 35, weil ich in jeder Spalte die kleinere von der größeren Ziffer abziehe.“ Erkläre den Fehler. Prüfe beide Ergebnisse durch Addition.</li><li>Rechne 81 − 46, 400 − 156 und 597 + 268 schriftlich. Markiere jedes Entbündeln oder Bündeln und führe eine Gegenprobe aus.</li><li>In einem erfundenen Klassenprojekt werden von 302 Papierkarten 178 verwendet. Formuliere eine passende Frage, löse sie und schreibe einen Antwortsatz mit Einheit.</li></ol><details data-regrouping-solution><summary>Ergebnisse vergleichen</summary><p>73 − 48 = 25; 25 + 48 = 73, aber 35 + 48 = 83. Weitere Ergebnisse: 35, 244 und 865. Gegenproben: 35 + 46 = 81; 244 + 156 = 400; 865 − 268 = 597. Im Klassenprojekt bleiben 124 Papierkarten übrig.</p></details>{{QUIZ_addsub_zero}}",
+        "content": "<p>Von 87 Karten werden 45 verwendet. Wie viele bleiben übrig? Wir berechnen 87 − 45.</p>\n<p>Schriftlich geht das so: Beispiel <b>87 - 45</b></p>\n<p>Wie beim Plusrechnen: <span>Einer</span> unter <span>Einer</span>, <span>Zehner</span> unter <span>Zehner</span>.</p>\n<table class=\"column-reference\"><caption>87 − 45 = 42; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>8</td><td>7</td></tr><tr><th scope=\"row\">−</th><td>4</td><td>5</td></tr><tr><th scope=\"row\">Ergebnis</th><td>4</td><td>2</td></tr></tbody></table>\n<p>Wir rechnen wieder von <b>rechts nach links</b>! Wir überlegen: \"Wie viel fehlt von der unteren Zahl zur oberen?\"</p>\n<p>1. <span>Einer</span>: Von 5 bis 7 fehlen <b><span>2</span></b>.<br>2. <span>Zehner</span>: Von 4 bis 8 fehlen <b><span>4</span></b>.</p>\n<div class=\"interactive-zone written-lab\">\n  <h4>Subtraktion im Kopf üben</h4>\n  <p id=\"subA\">Rechne: ...</p>\n  <label for=\"subI\">Dein Ergebnis als ganze Zahl:</label><input type=\"text\" inputmode=\"numeric\" id=\"subI\" aria-describedby=\"subF\">\n  <button onclick=\"chkS()\" type=\"button\">Prüfen</button>\n  <button onclick=\"newS()\" type=\"button\">Neue Aufgabe</button>\n  <p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" id=\"subF\"></p>\n  \n<template data-worksheet-alternative=\"\"><div data-column-quick-paper=\"sub\"><p>Rechne 81 − 46 und 94 − 37 im Kopf. Erkläre einen Rechenweg und kontrolliere mit der Umkehroperation.</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Kopfrechnen: Papieraufgaben vergleichen</summary><p>81 − 46 = 35; 94 − 37 = 57. Zum Beispiel: 94 − 40 + 3 = 57. Proben: 35 + 46 = 81 und 57 + 37 = 94.</p></details><p><strong>Gegenprobe:</strong> 42 + 45 = 87. Addiere Ergebnis und abgezogene Zahl: Du erhältst wieder die Ausgangszahl.</p><h3>Wenn die Einer nicht reichen: entbündeln</h3><p>Bei <strong>73 − 48</strong> kannst du nicht 8 Einer von 3 Einern wegnehmen, ohne die Darstellung zu ändern. Tausche einen der 7 Zehner gegen 10 Einer: 73 = 6 Zehner + 13 Einer. Nun rechnest du 13 − 8 = 5 Einer und 6 − 4 = 2 Zehner. Ergebnis: 25. Die Zahl 73 hat ihren Wert beim Tauschen behalten.</p><p>Bei <strong>302 − 178</strong> liegt dazwischen eine Null. Tausche zuerst einen Hunderter: 302 = 2 Hunderter + 10 Zehner + 2 Einer. Tausche dann einen Zehner: 302 = 2 Hunderter + 9 Zehner + 12 Einer. Jetzt: 12 − 8 = 4, 9 − 7 = 2 und 2 − 1 = 1. Ergebnis: 124. Die Gegenprobe 124 + 178 = 302 bestätigt es.</p><p>Das Entbündeln ist ein Verfahren für die schriftliche Subtraktion. Falls ihr in der Klasse ein anderes Verfahren verwendet, vergleicht die Begründung mit eurer Lehrkraft.</p><ol data-regrouping-task=\"\"><li>Zeichne eine Stellenwerttafel mit Hundertern, Zehnern und Einern. Stelle 302 in den drei beschriebenen Darstellungen dar und erkläre, warum ihr Wert gleich bleibt.</li><li>Eine erfundene Lösung behauptet: „73 − 48 = 35, weil ich in jeder Spalte die kleinere von der größeren Ziffer abziehe.“ Erkläre den Fehler. Prüfe beide Ergebnisse durch Addition.</li><li>Rechne 81 − 46, 400 − 156 und 597 + 268 schriftlich. Markiere jedes Entbündeln oder Bündeln und führe eine Gegenprobe aus.</li><li>In einem erfundenen Klassenprojekt werden von 302 Papierkarten 178 verwendet. Formuliere eine passende Frage, löse sie und schreibe einen Antwortsatz mit Einheit.</li></ol><details data-regrouping-solution=\"\" data-worksheet-solution=\"true\"><summary>Ergebnisse vergleichen</summary><p>73 − 48 = 25; 25 + 48 = 73, aber 35 + 48 = 83. Weitere Ergebnisse: 35, 244 und 865. Gegenproben: 35 + 46 = 81; 244 + 156 = 400; 865 − 268 = 597. Im Klassenprojekt bleiben 124 Papierkarten übrig.</p></details>{{QUIZ_addsub_zero}}<div class=\"interactive-zone written-lab\" data-column-lab=\"subtract\"><h3>Mehrstellig subtrahieren: selbst Schritt für Schritt</h3><p>Rechne von rechts nach links. Falls eine Stelle nicht reicht, tausche aus einer größeren Stelle. Gib zuerst die neue Anzahl nach jedem Tausch ein, danach die Differenz an der jeweiligen Stelle. Die Zeile „getauscht“ stellt immer noch die gesamte Ausgangszahl dar.</p><p>Schreibe parallel auf Papier. Gezeigte Schritte werden als Hilfe markiert; du kannst jederzeit zurücksetzen.</p><label for=\"column-subtract-case\">Aufgabe</label><select id=\"column-subtract-case\"><option value=\"0\">73 − 48</option><option value=\"1\">302 − 178</option><option value=\"2\">400 − 156</option><option value=\"3\">1000 − 1</option><option value=\"4\">1000 − 578</option><option value=\"5\">1010 − 909</option><option value=\"6\">507 − 507</option><option value=\"7\">0 − 0</option></select><p data-column-progress></p><div data-column-board></div><p data-column-prompt class=\"written-prompt\"></p><label for=\"column-subtract-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"column-subtract-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"column-subtract-status\"><button type=\"button\" data-column-check>Schritt prüfen</button><button type=\"button\" data-column-show>Schritt zeigen</button><p id=\"column-subtract-status\" data-column-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-column-history></ol></details><button type=\"button\" data-column-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-column-paper=\"subtract\"><p>Rechne auf kariertem Papier. Schreibe gleiche Stellenwerte untereinander, markiere jeden Tausch und kontrolliere mit Addition.</p><ol><li>Stelle 1000 vor und nach jedem Tausch in einer Stellenwerttafel dar. Rechne 1000 − 1 und prüfe durch Addition.</li><li>Rechne 1000 − 578 und 1010 − 909. Erkläre, wann und aus welcher Stelle du jeweils entbündelst.</li><li>Berechne 507 − 507 und 0 − 0. Erkläre die Ergebnisse. Warum passt 178 − 302 noch nicht zu diesem Lernweg mit natürlichen Ergebnissen?</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Mehrstellige Differenzen: Lösungen und Begründungen</summary><div data-column-solution><p>1000 = 1 T + 0 H + 0 Z + 0 E = 0 T + 10 H + 0 Z + 0 E = 0 T + 9 H + 10 Z + 0 E = 0 T + 9 H + 9 Z + 10 E. Daher 1000 − 1 = 999; Probe: 999 + 1 = 1000.</p><p>1000 − 578 = 422; nach derselben Tauschfolge ergibt sich 10 − 8 = 2, 9 − 7 = 2 und 9 − 5 = 4. Bei 1010 − 909 tauschst du zuerst einen Zehner in zehn Einer, später einen Tausender in zehn Hunderter: Ergebnis 101. Proben: 422 + 578 = 1000 und 101 + 909 = 1010.</p><p>507 − 507 = 0 und 0 − 0 = 0. Eine Zahl vollständig abzuziehen lässt nichts übrig. Bei 178 − 302 ist die abgezogene Zahl größer; das Ergebnis ist negativ und gehört noch nicht zu den hier behandelten natürlichen Ergebnissen.</p></div></details>{{QUIZ_column_borrow_chain}}{{QUIZ_column_probe}}{{QUIZ_column_order}}",
         "quizzes": [
           {
             "id": "addsub_zero",
@@ -16973,13 +17045,85 @@
                 "pts": 0
               }
             ]
+          },
+          {
+            "id": "column_borrow_chain",
+            "question": "Welche Darstellung hat nach dem Entbündeln weiterhin den Wert 1000?",
+            "answers": [
+              {
+                "text": "1 Tausender, 9 Hunderter, 9 Zehner und 10 Einer.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Tausender wurde bereits getauscht. Mit ihm zusätzlich wäre der Wert 2000."
+              },
+              {
+                "text": "0 Tausender, 10 Hunderter, 9 Zehner und 10 Einer.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Hunderter wurde zu Zehnern getauscht. Es dürfen nur neun Hunderter bleiben."
+              },
+              {
+                "text": "0 Tausender, 9 Hunderter, 9 Zehner und 10 Einer.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "900 + 90 + 10 = 1000. Der Wert bleibt bei jedem Tausch gleich."
+              }
+            ]
+          },
+          {
+            "id": "column_probe",
+            "question": "Welche Gegenprobe passt zu 1000 − 578 = 422?",
+            "answers": [
+              {
+                "text": "422 − 578 = 1000.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Subtraktion wird durch Addition rückgängig gemacht."
+              },
+              {
+                "text": "422 + 578 = 1000.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Restmenge und abgezogene Menge ergeben wieder die Ausgangsmenge."
+              },
+              {
+                "text": "1000 + 578 = 422.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier wird zur Ausgangsmenge noch etwas addiert. Das prüft die angegebene Differenz nicht."
+              }
+            ]
+          },
+          {
+            "id": "column_order",
+            "question": "Ein Kind berechnet 73 − 48 als 35, indem es je Spalte die kleinere von der größeren Ziffer abzieht. Was ist falsch?",
+            "answers": [
+              {
+                "text": "Die Reihenfolge wird in der Einerstelle vertauscht; nötig ist Entbündeln.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "73 wird zu 6 Zehnern und 13 Einern. Dann 13 − 8 = 5 und 6 − 4 = 2: Ergebnis 25."
+              },
+              {
+                "text": "Bei Subtraktion muss immer die größere Einerziffer oben stehen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist keine Voraussetzung. Du kannst die Darstellung der oberen Zahl durch Entbündeln verändern."
+              },
+              {
+                "text": "Nur die Zehnerstelle ist falsch; die Regel für jede Spalte stimmt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Regel „kleinere von größerer Ziffer“ ignoriert die Reihenfolge und ist kein gültiges Subtraktionsverfahren."
+              }
+            ]
           }
         ]
       }
     ],
     "diplom": {
       "title": "Rechen-Maschine",
-      "description": "Du rechnest Plus und Minus ohne Probleme!",
+      "description": "Prüfe dein Verständnis von Stellenwerten, Überträgen und Gegenproben.",
       "questions": []
     },
     "prerequisites": [
@@ -16988,13 +17132,18 @@
     "learningGoals": [
       "Natürliche Zahlen stellenrichtig untereinander schreiben.",
       "Schriftlich addieren und einen Übertrag erklären.",
-      "Schriftlich subtrahieren und das Ergebnis durch Addition kontrollieren."
+      "Schriftlich subtrahieren und das Ergebnis durch Addition kontrollieren.",
+      "Überträge über mehrere Stellen und das Entbündeln über Nullstellen nachvollziehen.",
+      "Ergebnisse durch Überschlag, Stellenwertvergleich und Gegenprobe beurteilen."
     ],
     "summary": [
       "Beim schriftlichen Rechnen stehen gleiche Stellenwerte untereinander.",
       "14 Einer werden zu 1 Zehner und 4 Einern gebündelt; der Zehner wird übertragen.",
       "87 − 45 = 42. Die Gegenprobe lautet 42 + 45 = 87.",
-      "Beim Entbündeln bleibt der Zahlenwert gleich: 302 = 2 Hunderter + 9 Zehner + 12 Einer."
+      "Beim Entbündeln bleibt der Zahlenwert gleich: 302 = 2 Hunderter + 9 Zehner + 12 Einer.",
+      "Ein Übertrag kann eine weitere Bündelung auslösen: 999 + 1 = 1000.",
+      "Beim Entbündeln über Nullstellen wird schrittweise getauscht; der Wert der oberen Zahl bleibt gleich.",
+      "Eine Gegenprobe kontrolliert das genaue Ergebnis. Ein Überschlag hilft, die Größenordnung einzuschätzen."
     ]
   },
   "math1_4_mult_div": {
@@ -17004,7 +17153,7 @@
       {
         "id": "sec1",
         "title": "1. Multiplikation (Malnehmen)",
-        "content": "<div class='interactive-zone' id='mult-zone'><svg width='200' height='100'><rect x='10' y='10' width='30' height='30' fill='#ffc107'/><rect x='50' y='10' width='30' height='30' fill='#ffc107'/><rect x='90' y='10' width='30' height='30' fill='#ffc107'/><rect x='10' y='50' width='30' height='30' fill='#ffc107'/><rect x='50' y='50' width='30' height='30' fill='#ffc107'/><rect x='90' y='50' width='30' height='30' fill='#ffc107'/></svg><p>2 Reihen à 3 Quadrate = 2 &middot; 3 = 6</p></div><p>Die Multiplikation ist im Grunde eine verkürzte Addition (z. B. 4 + 4 + 4 = 3 &middot; 4). Die Zahlen, die miteinander multipliziert werden, nennt man <strong>Faktoren</strong>. Das Ergebnis ist das <strong>Produkt</strong>. Also: Faktor &middot; Faktor = Produkt.</p>{{QUIZ_math1_4_q1}}{{QUIZ_math1_4_q2}}<h3>Größere Produkte zerlegen</h3><p>Für 24 · 13 zerlegst du 13 in 10 + 3: 24 · 10 = 240 und 24 · 3 = 72. Zusammen 312. Die Teilprodukte gehören zu unterschiedlichen Stellenwerten: Die 1 in 13 steht für einen Zehner. Du rechnest deshalb nicht bloß 24 + 72.</p><p>Zeichne ein Rechteck mit 24 Kästchen in einer und 13 in der anderen Richtung. Teile die Seite mit 13 Kästchen in 10 und 3. Die beiden Teilflächen zeigen 240 + 72 = 312 Kästchen.</p><h3>Schriftlich multiplizieren mit Überträgen</h3><p>Für <strong>286 · 34</strong> zerlegst du den zweiten Faktor in 30 + 4. Du brauchst also 286 · 4 und 286 · 30. Rechne jedes Teilprodukt von rechts nach links.</p><ol data-multiplication-carry><li>6 · 4 = 24 Einer. Schreibe 4 Einer und merke 2 Zehner als Übertrag.</li><li>8 · 4 + 2 = 34 Zehner. Schreibe 4 Zehner und übertrage 3 Hunderter.</li><li>2 · 4 + 3 = 11 Hunderter. Das sind 1 Tausender und 1 Hunderter. Das erste Teilprodukt lautet 1144.</li><li>Für 286 · 30 rechne zunächst 286 · 3 = 858. Weil 30 zehnmal so groß wie 3 ist, ergibt sich 8580. Dieses Teilprodukt steht eine Stelle weiter links; die Einerstelle ist 0.</li><li>Addiere gleiche Stellenwerte: 1144 + 8580 = 9724.</li></ol><table data-written-multiplication><caption>Teilprodukte nach Stellenwert geordnet</caption><thead><tr><th scope=\"col\">Rechnung</th><th scope=\"col\">Tausender</th><th scope=\"col\">Hunderter</th><th scope=\"col\">Zehner</th><th scope=\"col\">Einer</th></tr></thead><tbody><tr><th scope=\"row\">286 · 4</th><td>1</td><td>1</td><td>4</td><td>4</td></tr><tr><th scope=\"row\">286 · 30</th><td>8</td><td>5</td><td>8</td><td>0</td></tr><tr><th scope=\"row\">Summe</th><td>9</td><td>7</td><td>2</td><td>4</td></tr></tbody></table><p>Auch beim Addieren entsteht ein Übertrag: 4 Zehner + 8 Zehner = 12 Zehner, also 2 Zehner und 1 zusätzlicher Hunderter. Ein Überschlag mit 300 · 30 = 9000 zeigt die Größenordnung. Für die genaue Kontrolle eignet sich eine andere Zerlegung: 286 · (40 − 6) = 11440 − 1716 = 9724.</p><ol data-written-multiplication-tasks><li>Rechne 286 · 34 selbst. Markiere Überträge so, dass sie nicht mit den Ergebnisziffern verwechselt werden.</li><li>Rechne 203 · 14. Erkläre, welche Bedeutung die Null in 203 hat und warum das Zehner-Teilprodukt trotzdem eine Null an der Einerstelle bekommt.</li><li>Ein Kind rechnet bei 286 · 34 die Teilprodukte 1144 und 858 und erhält 2002. Beschreibe den Stellenwertfehler und korrigiere die Rechnung.</li><li>Rechne 407 · 26. Prüfe mit der Zerlegung 407 · (20 + 6). Begründe, warum der Überschlag 400 · 25 = 10000 das genaue Ergebnis nur ungefähr kontrolliert.</li></ol><details data-worksheet-solution=\"true\" data-written-multiplication-solution><summary>Ergebnisse und Fehler vergleichen</summary><p>286 · 34 = 9724. 203 · 14 = 812 + 2030 = 2842. Die Null in 203 bezeichnet keine Zehner; die Null am Ende von 2030 entsteht aus der Multiplikation mit 10. 2002 entsteht, wenn 286 · 3 statt 286 · 30 verwendet wird. 407 · 26 = 8140 + 2442 = 10582. Ein Überschlag erkennt grobe Fehler, beweist aber nicht jede einzelne Ziffer.</p></details>{{QUIZ_written_multiplication_place}}",
+        "content": "<div class=\"written-figure\" id=\"mult-zone\"><svg viewBox=\"0 0 200 100\" data-worksheet-static=\"true\" role=\"img\" aria-label=\"Zwei Reihen mit je drei Quadraten.\"><rect x=\"10\" y=\"10\" width=\"30\" height=\"30\" fill=\"#ffc107\"></rect><rect x=\"50\" y=\"10\" width=\"30\" height=\"30\" fill=\"#ffc107\"></rect><rect x=\"90\" y=\"10\" width=\"30\" height=\"30\" fill=\"#ffc107\"></rect><rect x=\"10\" y=\"50\" width=\"30\" height=\"30\" fill=\"#ffc107\"></rect><rect x=\"50\" y=\"50\" width=\"30\" height=\"30\" fill=\"#ffc107\"></rect><rect x=\"90\" y=\"50\" width=\"30\" height=\"30\" fill=\"#ffc107\"></rect></svg><p>2 Reihen à 3 Quadrate = 2 · 3 = 6</p></div><p>Die Multiplikation ist im Grunde eine verkürzte Addition (z. B. 4 + 4 + 4 = 3 · 4). Die Zahlen, die miteinander multipliziert werden, nennt man <strong>Faktoren</strong>. Das Ergebnis ist das <strong>Produkt</strong>. Also: Faktor · Faktor = Produkt.</p>{{QUIZ_math1_4_q1}}{{QUIZ_math1_4_q2}}<h3>Größere Produkte zerlegen</h3><p>Für 24 · 13 zerlegst du 13 in 10 + 3: 24 · 10 = 240 und 24 · 3 = 72. Zusammen 312. Die Teilprodukte gehören zu unterschiedlichen Stellenwerten: Die 1 in 13 steht für einen Zehner. Du rechnest deshalb nicht bloß 24 + 72.</p><p>Zeichne ein Rechteck mit 24 Kästchen in einer und 13 in der anderen Richtung. Teile die Seite mit 13 Kästchen in 10 und 3. Die beiden Teilflächen zeigen 240 + 72 = 312 Kästchen.</p><h3>Schriftlich multiplizieren mit Überträgen</h3><p>Für <strong>286 · 34</strong> zerlegst du den zweiten Faktor in 30 + 4. Du brauchst also 286 · 4 und 286 · 30. Rechne jedes Teilprodukt von rechts nach links.</p><ol data-multiplication-carry=\"\"><li>6 · 4 = 24 Einer. Schreibe 4 Einer und merke 2 Zehner als Übertrag.</li><li>8 · 4 + 2 = 34 Zehner. Schreibe 4 Zehner und übertrage 3 Hunderter.</li><li>2 · 4 + 3 = 11 Hunderter. Das sind 1 Tausender und 1 Hunderter. Das erste Teilprodukt lautet 1144.</li><li>Für 286 · 30 rechne zunächst 286 · 3 = 858. Weil 30 zehnmal so groß wie 3 ist, ergibt sich 8580. Dieses Teilprodukt steht eine Stelle weiter links; die Einerstelle ist 0.</li><li>Addiere gleiche Stellenwerte: 1144 + 8580 = 9724.</li></ol><table data-written-multiplication=\"\" class=\"written-place-table written-static-table\"><caption>Teilprodukte nach Stellenwert geordnet</caption><thead><tr><th scope=\"col\">Rechnung</th><th scope=\"col\">T</th><th scope=\"col\">H</th><th scope=\"col\">Z</th><th scope=\"col\">E</th></tr></thead><tbody><tr><th scope=\"row\" data-label=\"Rechnung\">286 · 4</th><td data-label=\"T\">1</td><td data-label=\"H\">1</td><td data-label=\"Z\">4</td><td data-label=\"E\">4</td></tr><tr><th scope=\"row\" data-label=\"Rechnung\">286 · 30</th><td data-label=\"T\">8</td><td data-label=\"H\">5</td><td data-label=\"Z\">8</td><td data-label=\"E\">0</td></tr><tr><th scope=\"row\" data-label=\"Rechnung\">Summe</th><td data-label=\"T\">9</td><td data-label=\"H\">7</td><td data-label=\"Z\">2</td><td data-label=\"E\">4</td></tr></tbody></table><p class=\"written-legend\">T = Tausender, H = Hunderter, Z = Zehner, E = Einer.</p><p>Auch beim Addieren entsteht ein Übertrag: 4 Zehner + 8 Zehner = 12 Zehner, also 2 Zehner und 1 zusätzlicher Hunderter. Ein Überschlag mit 300 · 30 = 9000 zeigt die Größenordnung. Für die genaue Kontrolle eignet sich eine andere Zerlegung: 286 · (40 − 6) = 11440 − 1716 = 9724.</p><ol data-written-multiplication-tasks=\"\"><li>Rechne 286 · 34 selbst. Markiere Überträge so, dass sie nicht mit den Ergebnisziffern verwechselt werden.</li><li>Rechne 203 · 14. Erkläre, welche Bedeutung die Null in 203 hat und warum das Zehner-Teilprodukt trotzdem eine Null an der Einerstelle bekommt.</li><li>Ein Kind rechnet bei 286 · 34 die Teilprodukte 1144 und 858 und erhält 2002. Beschreibe den Stellenwertfehler und korrigiere die Rechnung.</li><li>Rechne 407 · 26. Prüfe mit der Zerlegung 407 · (20 + 6). Begründe, warum der Überschlag 400 · 25 = 10000 das genaue Ergebnis nur ungefähr kontrolliert.</li></ol><details data-worksheet-solution=\"true\" data-written-multiplication-solution=\"\"><summary>Ergebnisse und Fehler vergleichen</summary><p>286 · 34 = 9724. 203 · 14 = 812 + 2030 = 2842. Die Null in 203 bezeichnet keine Zehner; die Null am Ende von 2030 entsteht aus der Multiplikation mit 10. 2002 entsteht, wenn 286 · 3 statt 286 · 30 verwendet wird. 407 · 26 = 8140 + 2442 = 10582. Ein Überschlag erkennt grobe Fehler, beweist aber nicht jede einzelne Ziffer.</p></details>{{QUIZ_written_multiplication_place}}<div class=\"interactive-zone written-lab\" data-written-lab=\"multiply\"><h3>Multiplikation: selbst Schritt für Schritt rechnen</h3><p>Rechne jede Ziffer von rechts nach links. Gib das Produkt der beiden Ziffern einschließlich des eingehenden Übertrags ein. Die Werkstatt zeigt anschließend, was geschrieben und übertragen wird. Addiere zuletzt die vollständigen Teilprodukte.</p><p>Notiere parallel auf Papier. „Schritt zeigen“ hilft weiter; ein gezeigter Schritt wird ausdrücklich so markiert.</p><label for=\"written-multiply-case\">Aufgabe wählen</label><select id=\"written-multiply-case\"><option value=\"0\">286 · 34</option><option value=\"1\">203 · 14</option><option value=\"2\">407 · 26</option><option value=\"3\">24 · 13</option><option value=\"4\">108 · 205</option><option value=\"5\">240 · 30</option><option value=\"6\">999 · 99</option><option value=\"7\">0 · 17</option></select><p data-written-progress=\"\"></p><div data-written-board=\"\"></div><p data-written-prompt=\"\" class=\"written-prompt\"></p><label for=\"written-multiply-answer\">Dein Zwischenergebnis</label><input id=\"written-multiply-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"written-multiply-status\"><button type=\"button\" data-written-check=\"\">Schritt prüfen</button><button type=\"button\" data-written-show=\"\">Schritt zeigen</button><p id=\"written-multiply-status\" data-written-status=\"\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-written-history=\"\"></ol></details><button type=\"button\" data-written-reset=\"\">Aufgabe zurücksetzen</button><template data-worksheet-alternative=\"\"><div data-written-paper=\"multiply\"><p>Rechne auf kariertem Papier von rechts nach links. Notiere die Überträge neben der jeweiligen Rechnung und schreibe die Teilprodukte stellenrichtig untereinander. Addiere sie und führe eine Gegenprobe aus.</p><ol><li>Rechne 108 · 205. Zeige alle Teilprodukte, auch das Teilprodukt für 0 Zehner.</li><li>Rechne 240 · 30 und 999 · 99. Prüfe durch Zerlegen und durch Überschlag.</li><li>Erkläre an 0 · 17, weshalb jedes Teilprodukt und das Produkt null sind.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Weitere Produkte: Lösungen und Proben</summary><div data-written-extra-solution=\"\"><p>108 · 205 = 108 · 5 + 108 · 0 + 108 · 200 = 540 + 0 + 21600 = 22140. Die mittlere Zeile liefert null; das Teilprodukt für 200 steht zwei Stellen weiter links.</p><p>240 · 30 = 7200. Kontrolle: 24 · 3 = 72, dann mit 100 multiplizieren. 999 · 99 = 8991 + 89910 = 98901; Gegenrechnung: 999 · (100 − 1) = 99900 − 999 = 98901. Der Überschlag 1000 · 100 = 100000 liegt etwas darüber.</p><p>0 · 17 = 0 · 7 + 0 · 10 = 0. Jede Gruppe enthält hier null Elemente.</p></div></details>{{QUIZ_calc_carry}}{{QUIZ_calc_zero_row}}",
         "quizzes": [
           {
             "id": "math1_4_q1",
@@ -17077,13 +17226,61 @@
                 "pts": 0
               }
             ]
+          },
+          {
+            "id": "calc_carry",
+            "question": "Bei 286 · 4 sind nach 6 · 4 = 24 zwei Zehner übertragen. Was rechnest du als Nächstes?",
+            "answers": [
+              {
+                "text": "8 · 4 = 32.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier fehlt der Übertrag von zwei Zehnern."
+              },
+              {
+                "text": "8 · 4 + 2 = 34.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die acht Zehner werden viermal genommen. Dazu kommen die zwei übertragenen Zehner; 34 Zehner sind 3 Hunderter und 4 Zehner."
+              },
+              {
+                "text": "8 · 4 + 4 = 36.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 4 wurde als Einerziffer geschrieben. Übertragen wurden 2 Zehner."
+              }
+            ]
+          },
+          {
+            "id": "calc_zero_row",
+            "question": "Welches Teilprodukt gehört zur Ziffer 2 in 108 · 205?",
+            "answers": [
+              {
+                "text": "216.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "216 ist 108 · 2. Die 2 steht hier aber an der Hunderterstelle."
+              },
+              {
+                "text": "2160.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2160 ist 108 · 20. In 205 gibt es jedoch zwei Hunderter."
+              },
+              {
+                "text": "21600.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "108 · 200 = 21600. Die Null an der Zehnerstelle ändert die Bedeutung der Hunderterziffer nicht."
+              }
+            ]
           }
         ]
       },
       {
         "id": "sec2",
         "title": "2. Division (Teilen)",
-        "content": "<div class='interactive-zone' id='div-zone'><svg width='200' height='60'><circle cx='20' cy='30' r='10' fill='#9c27b0'/><circle cx='50' cy='30' r='10' fill='#9c27b0'/><circle cx='80' cy='30' r='10' fill='#9c27b0'/><line x1='100' y1='10' x2='100' y2='50' stroke='black' stroke-width='2'/><circle cx='120' cy='30' r='10' fill='#9c27b0'/><circle cx='150' cy='30' r='10' fill='#9c27b0'/><circle cx='180' cy='30' r='10' fill='#9c27b0'/></svg><p>6 geteilt in 2 Gruppen = 3 pro Gruppe</p></div><p>Die Division ist die Umkehroperation der Multiplikation. Die Zahl, die geteilt wird, heißt <strong>Dividend</strong>. Die Zahl, durch die man teilt, heißt <strong>Divisor</strong>. Das Ergebnis nennt man <strong>Quotient</strong>. Wichtigste Regel: <strong>Man darf niemals durch Null teilen!</strong></p>{{QUIZ_math1_4_q3}}{{QUIZ_math1_4_q4}}<h3>Division mit Rest</h3><p>23 Karten sollen in Packungen zu je 5 Karten gelegt werden. Vier volle Packungen enthalten 4 · 5 = 20 Karten; 3 bleiben übrig. Wir schreiben <strong>23 : 5 = 4 Rest 3</strong>. Die Gegenprobe lautet <strong>4 · 5 + 3 = 23</strong>. Der Rest ist mindestens 0 und kleiner als der positive Divisor. Bei 5 übrig gebliebenen Karten wäre noch eine volle Packung möglich.</p><p>Bei <strong>254 : 6</strong> helfen Stellenwerte: 25 Zehner geteilt durch 6 ergeben 4 Zehner im Ergebnis, 1 Zehner bleibt. Dieser wird zusammen mit den 4 Einern zu 14 Einern. 14 geteilt durch 6 ergibt 2 Einer, Rest 2. Also 254 : 6 = 42 Rest 2. Probe: 42 · 6 + 2 = 254.</p><table data-division-context><caption>Gleiche Zahlen, unterschiedliche Fragen – erfundene Kartenaufgaben</caption><thead><tr><th>Frage</th><th>Antwort</th><th>Was bedeutet der Rest?</th></tr></thead><tbody><tr><th>Wie viele volle Packungen zu je 5 Karten entstehen aus 23 Karten?</th><td>4 volle Packungen</td><td>3 Karten bleiben einzeln.</td></tr><tr><th>Wie viele Schachteln mit Platz für je 5 Karten braucht man für alle 23 Karten?</th><td>5 Schachteln</td><td>Die 3 übrigen Karten brauchen eine weitere Schachtel.</td></tr><tr><th>23 Karten werden gleichmäßig an 5 Kinder verteilt. Wie viele ganze Karten bekommt jedes?</th><td>4 Karten je Kind</td><td>3 Karten bleiben zunächst unvergeben.</td></tr></tbody></table><ol data-division-remainder-task><li>Lege oder zeichne 23 Plättchen. Bilde Gruppen zu 5 und markiere den Rest. Erkläre den Unterschied zwischen Gruppengröße und Anzahl der Gruppen.</li><li>Rechne 29 : 4, 36 : 6 und 5 : 8 mit ganzzahligem Ergebnis und Rest. Prüfe jedes Mal durch Multiplikation und Addition und kontrolliere die Restgröße.</li><li>Ein Kind schreibt 23 : 5 = 3 Rest 8. Die Gegenprobe 3 · 5 + 8 = 23 stimmt. Erkläre trotzdem, was noch zu tun ist.</li><li>Für 29 Karten stehen Schachteln mit Platz für je 4 Karten bereit. Wie viele volle Schachteln gibt es? Wie viele Schachteln braucht man insgesamt? Schreibe zu beiden Fragen einen Antwortsatz.</li><li>Berechne 32 · 14 durch Zerlegen in zwei Teilprodukte. Erkläre, weshalb 32 · 10 und 32 · 4 gebraucht werden.</li></ol><details data-division-remainder-solution><summary>Ergebnisse vergleichen</summary><p>29 : 4 = 7 Rest 1; 36 : 6 = 6 Rest 0; 5 : 8 = 0 Rest 5. Bei Rest 8 und Divisor 5 kann noch eine volle Gruppe gebildet werden: 4 Rest 3. Für 29 Karten ergeben sich 7 volle Schachteln, aber insgesamt werden 8 benötigt. 32 · 14 = 320 + 128 = 448.</p></details>{{QUIZ_division_remainder_rule}}{{QUIZ_division_boxes}}{{QUIZ_division_zero_quotient}}<h3>Schriftlich dividieren – jede Stelle zählt</h3><p>Bei <strong>816 : 4</strong> beginnst du links bei den Hundertern. Du teilst, notierst die Ergebnisziffer, ziehst das passende Vielfache ab und holst die nächste Ziffer herunter. Der Rest einer Stelle wird dabei in Einheiten der nächsten Stelle umgetauscht.</p><table data-written-division><caption>816 : 4 Schritt für Schritt</caption><thead><tr><th scope=\"col\">Stelle</th><th scope=\"col\">Zu verteilen</th><th scope=\"col\">Ergebnisziffer</th><th scope=\"col\">Abziehen</th><th scope=\"col\">Rest</th></tr></thead><tbody><tr><th scope=\"row\">Hunderter</th><td>8 Hunderter</td><td>2</td><td>2 · 4 = 8 Hunderter</td><td>0 Hunderter</td></tr><tr><th scope=\"row\">Zehner</th><td>1 Zehner</td><td>0</td><td>0 · 4 = 0 Zehner</td><td>1 Zehner</td></tr><tr><th scope=\"row\">Einer</th><td>16 Einer</td><td>4</td><td>4 · 4 = 16 Einer</td><td>0 Einer</td></tr></tbody></table><p>Der eine übrige Zehner wird zu zehn Einern. Mit den sechs Einern aus 816 sind das 16 Einer. Das Ergebnis hat <strong>2 Hunderter, 0 Zehner und 4 Einer: 204</strong>. Die Null darf nicht fehlen. Probe: 204 · 4 = 816; 24 · 4 wäre nur 96.</p><h4>Auch mit zweistelligem Divisor</h4><p>Bei <strong>7344 : 24</strong> sind 7 Tausender zunächst zu wenig für eine ganze Ergebnisziffer an der Tausenderstelle. Beginne deshalb mit 73 Hundertern:</p><ol data-two-digit-division><li>73 : 24 ergibt 3 Rest 1. Schreibe 3 an die Hunderterstelle des Ergebnisses, denn 3 · 24 = 72.</li><li>Mit der nächsten Ziffer 4 werden aus dem Rest 14 Zehner. 14 : 24 ergibt 0 Rest 14. Schreibe die 0 an die Zehnerstelle.</li><li>Hole die letzte 4 herunter: 144 Einer. 144 : 24 = 6. Schreibe 6 an die Einerstelle. Ergebnis: 306; Probe: 306 · 24 = 7344.</li></ol><p><strong>Merke:</strong> Nach der ersten Ergebnisziffer wird für jede weitere heruntergeholte Ziffer eine Ergebnisstelle geschrieben – gegebenenfalls 0. Ein Rest wird erst zum Schluss als Endrest angegeben.</p><ol data-written-division-tasks><li>Decke die Erklärung ab und rechne 816 : 4 schriftlich. Erkläre einer anderen Person, weshalb 24 nicht stimmen kann.</li><li>Rechne 936 : 4. Notiere nach jedem Abziehen den Rest und zeige, welche Zahl durch das Herunterholen entsteht.</li><li>Rechne 7344 : 24. Prüfe jede Ergebnisziffer mit einem passenden Vielfachen von 24.</li><li>Rechne 7350 : 24 mit Rest. Kontrolliere sowohl die Gegenprobe als auch die Bedingung „Rest kleiner als Divisor“.</li><li>Schätze vor dem Rechnen: Liegt 864 : 4 eher bei 20, 200 oder 2000? Rechne dann genau und vergleiche.</li></ol><details data-worksheet-solution=\"true\" data-written-division-solution><summary>Rechenwege vergleichen</summary><p>816 : 4 = 204. Bei 936 : 4 entstehen nacheinander 9, 13 und 16 als zu teilende Zahlen; die Ergebnisziffern sind 2, 3 und 4, also 234. 7344 : 24 = 306. Bei 7350 : 24 ergibt sich 306 Rest 6; Probe: 306 · 24 + 6 = 7350 und 6 &lt; 24. Für 864 : 4 passt die Größenordnung 200; genau sind es 216.</p></details>{{QUIZ_written_division_zero}}",
+        "content": "<div class=\"written-figure\" id=\"div-zone\"><svg viewBox=\"0 0 200 60\" data-worksheet-static=\"true\" role=\"img\" aria-label=\"Sechs Kreise sind auf zwei gleich große Gruppen verteilt.\"><circle cx=\"20\" cy=\"30\" r=\"10\" fill=\"#9c27b0\"></circle><circle cx=\"50\" cy=\"30\" r=\"10\" fill=\"#9c27b0\"></circle><circle cx=\"80\" cy=\"30\" r=\"10\" fill=\"#9c27b0\"></circle><line x1=\"100\" y1=\"10\" x2=\"100\" y2=\"50\" stroke=\"black\" stroke-width=\"2\"></line><circle cx=\"120\" cy=\"30\" r=\"10\" fill=\"#9c27b0\"></circle><circle cx=\"150\" cy=\"30\" r=\"10\" fill=\"#9c27b0\"></circle><circle cx=\"180\" cy=\"30\" r=\"10\" fill=\"#9c27b0\"></circle></svg><p>6 geteilt in 2 Gruppen = 3 pro Gruppe</p></div><p>Die Division ist die Umkehroperation der Multiplikation. Die Zahl, die geteilt wird, heißt <strong>Dividend</strong>. Die Zahl, durch die man teilt, heißt <strong>Divisor</strong>. Das Ergebnis nennt man <strong>Quotient</strong>. Wichtigste Regel: <strong>Man darf niemals durch Null teilen!</strong></p>{{QUIZ_math1_4_q3}}{{QUIZ_math1_4_q4}}<h3>Division mit Rest</h3><p>23 Karten sollen in Packungen zu je 5 Karten gelegt werden. Vier volle Packungen enthalten 4 · 5 = 20 Karten; 3 bleiben übrig. Wir schreiben <strong>23 : 5 = 4 Rest 3</strong>. Die Gegenprobe lautet <strong>4 · 5 + 3 = 23</strong>. Der Rest ist mindestens 0 und kleiner als der positive Divisor. Bei 5 übrig gebliebenen Karten wäre noch eine volle Packung möglich.</p><p>Bei <strong>254 : 6</strong> helfen Stellenwerte: 25 Zehner geteilt durch 6 ergeben 4 Zehner im Ergebnis, 1 Zehner bleibt. Dieser wird zusammen mit den 4 Einern zu 14 Einern. 14 geteilt durch 6 ergibt 2 Einer, Rest 2. Also 254 : 6 = 42 Rest 2. Probe: 42 · 6 + 2 = 254.</p><table data-division-context=\"\" class=\"written-static-table\"><caption>Gleiche Zahlen, unterschiedliche Fragen – erfundene Kartenaufgaben</caption><thead><tr><th>Frage</th><th>Antwort</th><th>Was bedeutet der Rest?</th></tr></thead><tbody><tr><th data-label=\"Frage\">Wie viele volle Packungen zu je 5 Karten entstehen aus 23 Karten?</th><td data-label=\"Antwort\">4 volle Packungen</td><td data-label=\"Was bedeutet der Rest?\">3 Karten bleiben einzeln.</td></tr><tr><th data-label=\"Frage\">Wie viele Schachteln mit Platz für je 5 Karten braucht man für alle 23 Karten?</th><td data-label=\"Antwort\">5 Schachteln</td><td data-label=\"Was bedeutet der Rest?\">Die 3 übrigen Karten brauchen eine weitere Schachtel.</td></tr><tr><th data-label=\"Frage\">23 Karten werden gleichmäßig an 5 Kinder verteilt. Wie viele ganze Karten bekommt jedes?</th><td data-label=\"Antwort\">4 Karten je Kind</td><td data-label=\"Was bedeutet der Rest?\">3 Karten bleiben zunächst unvergeben.</td></tr></tbody></table><ol data-division-remainder-task=\"\"><li>Lege oder zeichne 23 Plättchen. Bilde Gruppen zu 5 und markiere den Rest. Erkläre den Unterschied zwischen Gruppengröße und Anzahl der Gruppen.</li><li>Rechne 29 : 4, 36 : 6 und 5 : 8 mit ganzzahligem Ergebnis und Rest. Prüfe jedes Mal durch Multiplikation und Addition und kontrolliere die Restgröße.</li><li>Ein Kind schreibt 23 : 5 = 3 Rest 8. Die Gegenprobe 3 · 5 + 8 = 23 stimmt. Erkläre trotzdem, was noch zu tun ist.</li><li>Für 29 Karten stehen Schachteln mit Platz für je 4 Karten bereit. Wie viele volle Schachteln gibt es? Wie viele Schachteln braucht man insgesamt? Schreibe zu beiden Fragen einen Antwortsatz.</li><li>Berechne 32 · 14 durch Zerlegen in zwei Teilprodukte. Erkläre, weshalb 32 · 10 und 32 · 4 gebraucht werden.</li></ol><details data-division-remainder-solution=\"\" data-worksheet-solution=\"true\"><summary>Ergebnisse vergleichen</summary><p>29 : 4 = 7 Rest 1; 36 : 6 = 6 Rest 0; 5 : 8 = 0 Rest 5. Bei Rest 8 und Divisor 5 kann noch eine volle Gruppe gebildet werden: 4 Rest 3. Für 29 Karten ergeben sich 7 volle Schachteln, aber insgesamt werden 8 benötigt. 32 · 14 = 320 + 128 = 448.</p></details>{{QUIZ_division_remainder_rule}}{{QUIZ_division_boxes}}{{QUIZ_division_zero_quotient}}<h3>Schriftlich dividieren – jede Stelle zählt</h3><p>Bei <strong>816 : 4</strong> beginnst du links bei den Hundertern. Du teilst, notierst die Ergebnisziffer, ziehst das passende Vielfache ab und holst die nächste Ziffer herunter. Der Rest einer Stelle wird dabei in Einheiten der nächsten Stelle umgetauscht.</p><table data-written-division=\"\" class=\"written-static-table\"><caption>816 : 4 Schritt für Schritt</caption><thead><tr><th scope=\"col\">Stelle</th><th scope=\"col\">Zu verteilen</th><th scope=\"col\">Ergebnisziffer</th><th scope=\"col\">Abziehen</th><th scope=\"col\">Rest</th></tr></thead><tbody><tr><th scope=\"row\" data-label=\"Stelle\">Hunderter</th><td data-label=\"Zu verteilen\">8 Hunderter</td><td data-label=\"Ergebnisziffer\">2</td><td data-label=\"Abziehen\">2 · 4 = 8 Hunderter</td><td data-label=\"Rest\">0 Hunderter</td></tr><tr><th scope=\"row\" data-label=\"Stelle\">Zehner</th><td data-label=\"Zu verteilen\">1 Zehner</td><td data-label=\"Ergebnisziffer\">0</td><td data-label=\"Abziehen\">0 · 4 = 0 Zehner</td><td data-label=\"Rest\">1 Zehner</td></tr><tr><th scope=\"row\" data-label=\"Stelle\">Einer</th><td data-label=\"Zu verteilen\">16 Einer</td><td data-label=\"Ergebnisziffer\">4</td><td data-label=\"Abziehen\">4 · 4 = 16 Einer</td><td data-label=\"Rest\">0 Einer</td></tr></tbody></table><p>Der eine übrige Zehner wird zu zehn Einern. Mit den sechs Einern aus 816 sind das 16 Einer. Das Ergebnis hat <strong>2 Hunderter, 0 Zehner und 4 Einer: 204</strong>. Die Null darf nicht fehlen. Probe: 204 · 4 = 816; 24 · 4 wäre nur 96.</p><h4>Auch mit zweistelligem Divisor</h4><p>Bei <strong>7344 : 24</strong> sind 7 Tausender zunächst zu wenig für eine ganze Ergebnisziffer an der Tausenderstelle. Beginne deshalb mit 73 Hundertern:</p><ol data-two-digit-division=\"\"><li>73 : 24 ergibt 3 Rest 1. Schreibe 3 an die Hunderterstelle des Ergebnisses, denn 3 · 24 = 72.</li><li>Mit der nächsten Ziffer 4 werden aus dem Rest 14 Zehner. 14 : 24 ergibt 0 Rest 14. Schreibe die 0 an die Zehnerstelle.</li><li>Hole die letzte 4 herunter: 144 Einer. 144 : 24 = 6. Schreibe 6 an die Einerstelle. Ergebnis: 306; Probe: 306 · 24 = 7344.</li></ol><p><strong>Merke:</strong> Nach der ersten Ergebnisziffer wird für jede weitere heruntergeholte Ziffer eine Ergebnisstelle geschrieben – gegebenenfalls 0. Ein Rest wird erst zum Schluss als Endrest angegeben.</p><ol data-written-division-tasks=\"\"><li>Decke die Erklärung ab und rechne 816 : 4 schriftlich. Erkläre einer anderen Person, weshalb 24 nicht stimmen kann.</li><li>Rechne 936 : 4. Notiere nach jedem Abziehen den Rest und zeige, welche Zahl durch das Herunterholen entsteht.</li><li>Rechne 7344 : 24. Prüfe jede Ergebnisziffer mit einem passenden Vielfachen von 24.</li><li>Rechne 7350 : 24 mit Rest. Kontrolliere sowohl die Gegenprobe als auch die Bedingung „Rest kleiner als Divisor“.</li><li>Schätze vor dem Rechnen: Liegt 864 : 4 eher bei 20, 200 oder 2000? Rechne dann genau und vergleiche.</li></ol><details data-worksheet-solution=\"true\" data-written-division-solution=\"\"><summary>Rechenwege vergleichen</summary><p>816 : 4 = 204. Bei 936 : 4 entstehen nacheinander 9, 13 und 16 als zu teilende Zahlen; die Ergebnisziffern sind 2, 3 und 4, also 234. 7344 : 24 = 306. Bei 7350 : 24 ergibt sich 306 Rest 6; Probe: 306 · 24 + 6 = 7350 und 6 &lt; 24. Für 864 : 4 passt die Größenordnung 200; genau sind es 216.</p></details>{{QUIZ_written_division_zero}}<div class=\"interactive-zone written-lab\" data-written-lab=\"divide\"><h3>Division: selbst Schritt für Schritt rechnen</h3><p>Beginne links. Gib die größte ganze Anzahl an, wie oft der Divisor in die angezeigte Zahl passt. Nach dem Abziehen wird die nächste Ziffer heruntergeholt. Nach der ersten Ergebnisziffer gehören auch Nullen ins Ergebnis.</p><p>Notiere parallel auf Papier. „Schritt zeigen“ hilft weiter; ein gezeigter Schritt wird ausdrücklich so markiert.</p><label for=\"written-divide-case\">Aufgabe wählen</label><select id=\"written-divide-case\"><option value=\"0\">816 : 4</option><option value=\"1\">936 : 4</option><option value=\"2\">7344 : 24</option><option value=\"3\">7350 : 24</option><option value=\"4\">1005 : 8</option><option value=\"5\">5 : 8</option><option value=\"6\">1001 : 25</option><option value=\"7\">0 : 6</option></select><p data-written-progress=\"\"></p><div data-written-board=\"\"></div><p data-written-prompt=\"\" class=\"written-prompt\"></p><label for=\"written-divide-answer\">Deine nächste Ergebnisziffer</label><input id=\"written-divide-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"written-divide-status\"><button type=\"button\" data-written-check=\"\">Schritt prüfen</button><button type=\"button\" data-written-show=\"\">Schritt zeigen</button><p id=\"written-divide-status\" data-written-status=\"\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-written-history=\"\"></ol></details><button type=\"button\" data-written-reset=\"\">Aufgabe zurücksetzen</button><template data-worksheet-alternative=\"\"><div data-written-paper=\"divide\"><p>Beginne links und notiere zu jeder Ergebnisziffer das abgezogene Vielfache und den Rest. Tausche den Rest zur nächsten Stelle um und hole die nächste Ziffer herunter. Schreibe auch Nullstellen; prüfe Ergebnis und Endrest.</p><ol><li>Rechne 1005 : 8 mit Rest. Notiere die aufeinanderfolgenden Zahlen, in die du 8 teilst.</li><li>Rechne 1001 : 25 mit Rest. Erkläre die Null im Quotienten.</li><li>Vergleiche 5 : 8 und 0 : 6 als ganzzahliges Ergebnis mit Rest. Erkläre den Unterschied zwischen Dividend null und Divisor null.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Weitere Divisionen: Lösungen und Proben</summary><div data-written-extra-solution=\"\"><p>1005 : 8: 10 → Ergebnisziffer 1, Rest 2; nächste Zahl 20 → Ziffer 2, Rest 4; nächste Zahl 45 → Ziffer 5, Rest 5. Ergebnis: 125 Rest 5; Probe: 125 · 8 + 5 = 1005, mit 5 &lt; 8.</p><p>1001 : 25: 100 → Ziffer 4, Rest 0; nächste Zahl 1 → Ziffer 0, Rest 1. Ergebnis: 40 Rest 1. Probe: 40 · 25 + 1 = 1001. Die Null hält die Einerstelle frei.</p><p>5 : 8 = 0 Rest 5; Probe: 0 · 8 + 5 = 5. 0 : 6 = 0 Rest 0; Probe: 0 · 6 + 0 = 0. Ein Dividend null ist erlaubt. Durch null darf dagegen nicht geteilt werden.</p></div></details>{{QUIZ_calc_bring_down}}{{QUIZ_calc_zero_dividend}}",
         "quizzes": [
           {
             "id": "math1_4_q3",
@@ -17222,13 +17419,61 @@
                 "pts": 0
               }
             ]
+          },
+          {
+            "id": "calc_bring_down",
+            "question": "Bei 1005 : 8 bleibt nach 10 : 8 ein Rest von 2. Die nächste Ziffer ist 0. Welche Zahl wird als Nächstes geteilt?",
+            "answers": [
+              {
+                "text": "20.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die zwei übrigen Hunderter werden zu 20 Zehnern; dazu kommen 0 Zehner."
+              },
+              {
+                "text": "2.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Rest wird beim Wechsel zur nächsten Stelle verzehnfacht. Die 0 als nächste Ziffer darfst du nicht einfach übergehen."
+              },
+              {
+                "text": "0.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die heruntergeholte Ziffer steht nicht allein: Der Rest der vorigen Stelle gehört dazu."
+              }
+            ]
+          },
+          {
+            "id": "calc_zero_dividend",
+            "question": "Welche Aussage stimmt?",
+            "answers": [
+              {
+                "text": "0 : 6 und 6 : 0 ergeben beide 0.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0 : 6 ist 0, aber 6 : 0 ist nicht definiert. Dividend und Divisor haben verschiedene Rollen."
+              },
+              {
+                "text": "0 : 6 ist nicht erlaubt, weil eine Null vorkommt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Null darf im Dividend stehen: 0 geteilt auf sechs Gruppen ergibt 0 je Gruppe."
+              },
+              {
+                "text": "0 : 6 = 0; 6 : 0 ist nicht definiert.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Die Gegenprobe 0 · 6 = 0 bestätigt 0 : 6. Es gibt dagegen keine Zahl, die mit 0 multipliziert 6 ergibt."
+              }
+            ]
           }
         ]
       },
       {
         "id": "sec3",
         "title": "3. Rechengesetze und Verbindung der Grundrechenarten",
-        "content": "<div class='interactive-zone' id='dist-zone'><p style='font-family:monospace; font-size:1.2em;'>a &middot; (b + c) = a &middot; b + a &middot; c</p></div><p>Für die Multiplikation gelten ebenfalls das Kommutativ- und Assoziativgesetz. Zusätzlich gibt es das <strong>Distributivgesetz</strong> (Verteilungsgesetz), welches die Multiplikation mit der Addition/Subtraktion verbindet. Außerdem gilt die Regel: <strong>Punkt vor Strich</strong> (Multiplikation und Division werden vor Addition und Subtraktion berechnet).</p>{{QUIZ_math1_4_q5}}{{QUIZ_math1_4_q6}}<p><strong>Klammern zuerst:</strong> 3 · (4 + 5) = 3 · 9 = 27, aber 3 · 4 + 5 = 12 + 5 = 17. Rechenarten derselben Stufe rechnest du ohne zusätzliche Klammern von links nach rechts: 24 : 6 · 2 = 4 · 2 = 8. Multiplikation kommt also nicht grundsätzlich vor Division.</p>",
+        "content": "<div class=\"written-rule\" id=\"dist-zone\"><p>a · (b + c) = a · b + a · c</p></div><p>Vertauschen: 4 · 7 = 7 · 4. Anders zusammenfassen: (2 · 5) · 3 = 2 · (5 · 3). Diese Gesetze gelten für die Multiplikation; bei Division darfst du Klammern nicht beliebig versetzen: (24 : 6) : 2 = 2, aber 24 : (6 : 2) = 8.</p><p>Für die Multiplikation gelten ebenfalls das Kommutativ- und Assoziativgesetz. Zusätzlich gibt es das <strong>Distributivgesetz</strong> (Verteilungsgesetz), welches die Multiplikation mit der Addition/Subtraktion verbindet. Außerdem gilt die Regel: <strong>Punkt vor Strich</strong> (Multiplikation und Division werden vor Addition und Subtraktion berechnet).</p>{{QUIZ_math1_4_q5}}{{QUIZ_math1_4_q6}}<p><strong>Klammern zuerst:</strong> 3 · (4 + 5) = 3 · 9 = 27, aber 3 · 4 + 5 = 12 + 5 = 17. Rechenarten derselben Stufe rechnest du ohne zusätzliche Klammern von links nach rechts: 24 : 6 · 2 = 4 · 2 = 8. Multiplikation kommt also nicht grundsätzlich vor Division.</p>",
         "quizzes": [
           {
             "id": "math1_4_q5",
@@ -17265,10 +17510,10 @@
                 "feedback": "Hier wurden die Zahlen vermutlich nur hintereinander verrechnet. Beachte: Erst 4·5."
               },
               {
-                "text": "12",
+                "text": "20",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Prüfe die Rechnung in zwei Schritten: zuerst 4 · 5, dann 3 zum Produkt addieren. 12 erfüllt diese Reihenfolge nicht."
+                "feedback": "20 ist das Produkt 4 · 5. Danach musst du noch die 3 addieren."
               }
             ]
           }
@@ -17289,10 +17534,10 @@
               "feedback": "Richtig. 15 mal 4 ergibt 60."
             },
             {
-              "text": "50",
+              "text": "45",
               "correct": false,
               "pts": 0,
-              "feedback": "Fast: Du hast wahrscheinlich zu wenig addiert. 15 · 4 bedeutet viermal 15, also 60."
+              "feedback": "45 ergibt sich aus dreimal 15. Für viermal 15 fehlt noch eine Gruppe von 15."
             },
             {
               "text": "19",
@@ -17401,19 +17646,23 @@
       ]
     },
     "prerequisites": [
-      "math1_1_vs_wissen"
+      "math1_3_add_sub"
     ],
     "learningGoals": [
       "Faktoren und Produkt sowie Dividend, Divisor und Quotient benennen.",
       "Multiplikation und Division als Umkehroperationen verwenden.",
       "Punkt-vor-Strich-Regel und Verteilungsgesetz anwenden.",
-      "Eine Division mit Rest prüfen und den Rest passend zur Sachfrage deuten."
+      "Eine Division mit Rest prüfen und den Rest passend zur Sachfrage deuten.",
+      "Schriftliche Multiplikation mit Überträgen und Teilprodukten selbst durchführen.",
+      "Schriftliche Division mit ein- und zweistelligem Divisor durchführen, Nullstellen erklären und jede Rechnung prüfen."
     ],
     "summary": [
       "Faktor · Faktor = Produkt; Dividend : Divisor = Quotient. Durch 0 darf man nicht dividieren.",
       "Bei natürlichen Zahlen lässt sich Multiplikation als wiederholte Addition darstellen.",
       "Klammern haben Vorrang, danach folgen Multiplikation und Division vor Addition und Subtraktion. Das Verteilungsgesetz lautet a · (b + c) = a · b + a · c.",
-      "Bei Division mit Rest gilt: Dividend = ganzzahliges Ergebnis · Divisor + Rest; 0 ≤ Rest < positiver Divisor. Ob eine weitere Schachtel nötig ist, entscheidet die Sachfrage."
+      "Bei Division mit Rest gilt: Dividend = ganzzahliges Ergebnis · Divisor + Rest; 0 ≤ Rest < positiver Divisor. Ob eine weitere Schachtel nötig ist, entscheidet die Sachfrage.",
+      "Beim Multiplizieren gehören Überträge zur nächsten Stelle; Teilprodukte berücksichtigen den Stellenwert jeder Ziffer des zweiten Faktors.",
+      "Beim Dividieren wird ein Rest zur nächsten Stelle umgetauscht. Nach der ersten Ergebnisziffer musst du jede weitere Stelle schreiben, auch eine Null."
     ]
   },
   "math1_5_geo_grundbegriffe": {
@@ -25144,7 +25393,7 @@
       {
         "id": "sec_spiegelung",
         "title": "Koordinaten und Achsenspiegelung",
-        "content": "<p>Die beiden Achsen eines kartesischen Koordinatensystems sind Zahlengeraden, die normal aufeinander stehen. In unserer Zeichnung ist die x-Achse waagrecht und die y-Achse senkrecht. Ihr Schnittpunkt heißt Ursprung O(0|0). Bei P(x|y) liest du zuerst die x-Koordinate, dann die y-Koordinate. Negative x-Werte liegen links, negative y-Werte unterhalb des Ursprungs.</p><p>Bei einer <strong>Achsenspiegelung</strong> liegt der Bildpunkt auf der anderen Seite der Spiegelachse im gleichen senkrechten Abstand. Die Verbindung zwischen Punkt und Bildpunkt steht senkrecht auf der Achse; diese halbiert die Verbindung. Ein Punkt auf der Achse bleibt unverändert.</p><p>Spiegelung an der y-Achse: (x|y) wird zu (−x|y). Spiegelung an der x-Achse: (x|y) wird zu (x|−y). Zum Spiegeln eines Vielecks spiegelst du jeden Eckpunkt und verbindest die Bildpunkte in derselben Reihenfolge. Längen und Winkel bleiben erhalten. Eine Figur ist achsensymmetrisch, wenn die Spiegelung an einer geeigneten Achse sie auf sich selbst abbildet.</p><div class=\"interactive-zone coordinate-lab\" data-reflection-lab=\"\"><h3>Punkt und Spiegelpunkt vergleichen</h3><label>x-Koordinate <input type=\"range\" min=\"-5\" max=\"5\" value=\"3\" data-reflect-x=\"\"></label><label>y-Koordinate <input type=\"range\" min=\"-5\" max=\"5\" value=\"-2\" data-reflect-y=\"\"></label><label>Spiegelachse <select data-reflect-axis=\"\"><option value=\"y\">y-Achse</option><option value=\"x\">x-Achse</option></select></label><div data-reflection-drawing=\"\"></div><p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" data-reflection-status=\"\"></p><p>Verschiebe P auf die gewählte Spiegelachse. Beobachte, wann beide Punkte zusammenfallen. Die gestrichelte Verbindung zeigt den senkrechten Weg zwischen ihnen.</p><template data-worksheet-alternative=\"\"><div data-geometry-model-paper=\"reflection\"><p>Zeichne zwei Koordinatensysteme von −6 bis 6, eine Einheit = 1 cm. Trage jeweils P(3|−2), Q(0|4) und R(−4|0) ein.</p><ol><li>Spiegle alle drei Punkte im ersten System an der y-Achse, im zweiten an der x-Achse. Berechne zuerst die Bildkoordinaten, zeichne dann und vergleiche.</li><li>Verbinde jeden Punkt mit seinem Bildpunkt, sofern sie verschieden sind. Prüfe senkrechte Lage zur Spiegelachse und gleiche Abstände zu ihr. Welche Punkte bleiben bei welcher Spiegelung fest?</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Papieraufgaben: Lösungen und Begründungen</summary><div data-geometry-model-solution=\"reflection\"><p>An der y-Achse: P′(−3|−2), Q′(0|4), R′(4|0). Q bleibt fest. Bei P sind beide Abstände zur Achse 3 Einheiten, bei R je 4; die Verbindungen verlaufen waagrecht und damit senkrecht zur y-Achse.</p><p>An der x-Achse: P′(3|2), Q′(0|−4), R′(−4|0). R bleibt fest. Bei P sind beide Abstände 2 Einheiten, bei Q je 4; die Verbindungen verlaufen senkrecht zur x-Achse. Punkte auf der jeweiligen Achse haben Abstand 0 und bleiben fest.</p></div></details>{{QUIZ_m27_coordinate_order}}{{QUIZ_m27_reflect_y}}{{QUIZ_m27_reflect_fixed}}<h3>Ganze Figuren verschieben</h3><p>Bei einer Verschiebung gehen alle Punkte gleich weit in dieselbe Richtung. Beispiel: 3 nach rechts und 2 nach unten bedeutet (x|y) → (x + 3|y − 2). Wende diese Regel auf jeden Eckpunkt an und verbinde die Bildpunkte in derselben Reihenfolge. Die ursprüngliche Figur und ihr Bild sind kongruent. Die Rückverschiebung ist 3 nach links und 2 nach oben.</p><div class=\"interactive-zone coordinate-lab\" data-translation-lab=\"\"><h3>Ein Dreieck gemeinsam verschieben</h3><p>Ausgangspunkte: A(−2|−1), B(1|−1), C(−2|1). Das ausgefüllte Dreieck ist die Ausgangsfigur; die gestrichelte Umrandung zeigt das verschobene Bild. Negative Schritte führen nach links beziehungsweise unten.</p><label>Waagrechte Schritte <input type=\"range\" min=\"-2\" max=\"2\" step=\"1\" value=\"1\" data-shift-x=\"\"></label><label>Senkrechte Schritte <input type=\"range\" min=\"-2\" max=\"2\" step=\"1\" value=\"1\" data-shift-y=\"\"></label><div data-translation-drawing=\"\"></div><p data-translation-status=\"\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><button type=\"button\" data-shift-reset=\"\">Ohne Verschiebung vergleichen</button><template data-worksheet-alternative=\"\"><div data-geometry-model-paper=\"translation\"><p>Zeichne A(−2|−1), B(1|−1) und C(−2|1) in ein Koordinatensystem von −6 bis 6. Eine Einheit entspricht 1 cm.</p><ol><li>Berechne die Bildpunkte bei einer Verschiebung um 2 nach rechts und 1 nach unten. Zeichne beide Dreiecke mit verschiedenen Linienarten.</li><li>Bestimme eine Rückverschiebung und prüfe sie an allen drei Ecken. Vergleiche Seitenlängen und Winkel der Dreiecke.</li><li>Verschiebe die Ausgangsfigur um 0 waagrecht und 0 senkrecht. Beschreibe das Ergebnis. Erkläre, warum die Bewegung nur einer Ecke im Allgemeinen keine Verschiebung der ganzen Figur ist.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Papieraufgaben: Lösungen und Begründungen</summary><div data-geometry-model-solution=\"translation\"><p>Bildpunkte: A′(0|−2), B′(3|−2), C′(0|0). Rückweg: 2 nach links und 1 nach oben. Das ergibt wieder A(−2|−1), B(1|−1), C(−2|1).</p><p>AB und A′B′ sind jeweils 3 cm lang; AC und A′C′ jeweils 2 cm. Auch die dritte Seite und alle Winkel bleiben gleich; beide Dreiecke haben bei A bzw. A′ einen rechten Winkel. Die gleichen Koordinatenänderungen erhalten alle Abstände zwischen den Ecken.</p><p>Bei 0 und 0 decken sich Ausgangsfigur und Bild. Nur eine Ecke zu bewegen verändert im Allgemeinen Seiten und Winkel; für eine Verschiebung müssen alle Punkte dieselben Schritte machen.</p></div></details>{{QUIZ_m27_shift_point}}{{QUIZ_m27_shift_shape}}<h3>Eine ganze Figur in vier Quadranten</h3><p>Die Achsen teilen die Ebene in vier Quadranten. Rechts oben liegen Punkte mit zwei positiven Koordinaten, links oben mit negativem x und positivem y, links unten mit zwei negativen Koordinaten, rechts unten mit positivem x und negativem y. Punkte auf einer Achse gehören zu keinem Quadranten. Ein Kästchen in den folgenden Zeichnungen entspricht einer Einheit; auf beiden Achsen wird gleich skaliert.</p>\n<figure class=\"coordinate-figure\"><svg data-worksheet-static=\"true\" class=\"coordinate-svg\" viewBox=\"0 0 330 330\" role=\"img\" aria-label=\"Koordinatensystem von minus sechs bis sechs. Ein Kästchen entspricht einer Einheit. Die Punktwerte und Aufgaben stehen im begleitenden Text.\"><rect width=\"330\" height=\"330\" fill=\"white\"></rect><path d=\"M45 45 V285 M45 285 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M65 45 V285 M45 265 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M85 45 V285 M45 245 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M105 45 V285 M45 225 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M125 45 V285 M45 205 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M145 45 V285 M45 185 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M165 45 V285 M45 165 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M185 45 V285 M45 145 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M205 45 V285 M45 125 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M225 45 V285 M45 105 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M245 45 V285 M45 85 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M265 45 V285 M45 65 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M285 45 V285 M45 45 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M30 165 H300 M165 300 V30\" stroke=\"#172554\" stroke-width=\"2\"></path><polygon data-coordinate-polygon=\"\" points=\"105,205 205,205 205,125 105,125\" fill=\"#bfdbfe\" fill-opacity=\".5\" stroke=\"#1d4ed8\" stroke-width=\"2\"></polygon><g fill=\"#172554\" font-size=\"22\"><text x=\"45\" y=\"189\" text-anchor=\"middle\">-6</text><text x=\"151\" y=\"292\" text-anchor=\"end\">-6</text><text x=\"105\" y=\"189\" text-anchor=\"middle\">-3</text><text x=\"151\" y=\"232\" text-anchor=\"end\">-3</text><text x=\"225\" y=\"189\" text-anchor=\"middle\">3</text><text x=\"151\" y=\"112\" text-anchor=\"end\">3</text><text x=\"285\" y=\"189\" text-anchor=\"middle\">6</text><text x=\"151\" y=\"52\" text-anchor=\"end\">6</text><text x=\"151\" y=\"189\" text-anchor=\"end\">0</text><text x=\"303\" y=\"158\">x</text><text x=\"175\" y=\"28\">y</text></g><circle cx=\"105\" cy=\"205\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"105\" y1=\"205\" x2=\"95\" y2=\"227\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"95\" y=\"235\" text-anchor=\"end\" fill=\"#172554\" font-size=\"22\">A</text><circle cx=\"205\" cy=\"205\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"205\" y1=\"205\" x2=\"195\" y2=\"185\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"195\" y=\"193\" text-anchor=\"end\" fill=\"#172554\" font-size=\"22\">B</text><circle cx=\"205\" cy=\"125\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"205\" y1=\"125\" x2=\"215\" y2=\"105\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"215\" y=\"113\" text-anchor=\"start\" fill=\"#172554\" font-size=\"22\">C</text><circle cx=\"105\" cy=\"125\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"105\" y1=\"125\" x2=\"95\" y2=\"105\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"95\" y=\"113\" text-anchor=\"end\" fill=\"#172554\" font-size=\"22\">D</text></svg><figcaption>Rechteck ABCD mit je einer Ecke in jedem Quadranten. Lies die Koordinaten zuerst selbst ab; die folgenden Aufträge nennen sie zur Kontrolle.</figcaption></figure>\n<div class=\"interactive-zone coordinate-lab\" data-coordinate-drawing=\"\"><h3>Eckpunkte selbst eintragen</h3><label for=\"coordinate-task\">Auftrag</label><select id=\"coordinate-task\" data-coordinate-task=\"\"><option value=\"0\">Rechteck zeichnen</option><option value=\"1\">Figur verschieben</option><option value=\"2\">An y spiegeln</option></select><p data-coordinate-instruction=\"\"></p><div data-coordinate-source=\"\"></div><label for=\"coordinate-point\">Eckpunkt</label><select id=\"coordinate-point\" data-coordinate-point=\"\"><option value=\"0\">A / A′</option><option value=\"1\">B / B′</option><option value=\"2\">C / C′</option><option value=\"3\">D / D′</option></select><label for=\"coordinate-x\">x-Koordinate</label><input id=\"coordinate-x\" data-coordinate-x=\"\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"coordinate-y\">y-Koordinate</label><input id=\"coordinate-y\" data-coordinate-y=\"\" inputmode=\"numeric\" autocomplete=\"off\"><p>Ganze Zahlen von −6 bis 6. Wähle jeden Eckpunkt, gib x und y ein und trage ihn mit der Schaltfläche oder Enter ein. Die Zeichnung zeigt deine gespeicherten Eingaben. Prüfe danach die ganze Figur.</p><div class=\"coordinate-actions\"><button type=\"button\" data-coordinate-place=\"\">Punkt eintragen</button><button type=\"button\" data-coordinate-check=\"\">Figur prüfen</button><button type=\"button\" data-coordinate-reset=\"\">Neu beginnen</button></div><p data-coordinate-status=\"\" role=\"status\" aria-atomic=\"true\"></p><h4>Deine eingetragenen Punkte</h4><div data-coordinate-view=\"\"></div><p data-coordinate-values=\"\"></p><template data-worksheet-alternative=\"\"><div data-geometry-paper=\"\"><p>Zeichne auf kariertem Papier A(−3|−2), B(2|−2), C(2|2), D(−3|2). Nutze für jeden der drei folgenden Aufträge ein eigenes Koordinatensystem mit beiden Achsen von −6 bis 6. Eine Einheit ist 1 cm. Beschrifte die ursprünglichen Punkte mit A bis D und die Bildpunkte mit A′ bis D′.</p></div></template></div>\n<ol data-geometry-tasks=\"\" data-assignment-mode=\"direct\"><li>Zeichne das Rechteck mit A(−3|−2), B(2|−2), C(2|2), D(−3|2). Notiere zu jeder Ecke die Vorzeichen und den Quadranten. Berechne waagrechte und senkrechte Seitenlänge. Begründe, warum die Figur ein Rechteck, aber kein Quadrat ist.</li><li>Verschiebe jeden Eckpunkt um 2 Einheiten nach rechts und 1 nach unten. Notiere zuerst alle Bildkoordinaten, zeichne dann. Vergleiche Seiten und rechte Winkel mit der Ausgangsfigur. Gib die Rückverschiebung an und prüfe sie an jeder Ecke.</li><li>Spiegle das ursprüngliche Rechteck an der y-Achse. Berechne und zeichne alle vier Bildpunkte. Ist die y-Achse eine Symmetrieachse dieses Rechtecks? Begründe durch den Vergleich von Ausgangsfigur und Spiegelbild. Prüfe zusätzlich die x-Achse.</li></ol>\n<details data-worksheet-solution=\"true\"><summary>Zeichnungen und Begründungen vergleichen</summary><div data-geometry-solution=\"\"><p>Original: A liegt links unten (III), B rechts unten (IV), C rechts oben (I), D links oben (II). Die waagrechte Seitenlänge ist 2 − (−3) = 5 Einheiten; senkrecht 2 − (−2) = 4. Vier rechte Winkel ergeben ein Rechteck; die verschiedenen Nachbarseiten schließen ein Quadrat aus.</p><p>Verschieben: A′(−1|−3), B′(4|−3), C′(4|1), D′(−1|1). Die Seiten bleiben 5 und 4 Einheiten, die Winkel recht. Rückweg: 2 nach links und 1 nach oben. Beispiel A′: (−1 − 2|−3 + 1) = (−3|−2); entsprechend bei den anderen Ecken.</p><p>Spiegeln an y: A′(3|−2), B′(−2|−2), C′(−2|2), D′(3|2). Die y-Achse ist keine Symmetrieachse der Ausgangsfigur: A′ liegt nicht auf einer ursprünglichen Ecke, beide Rechtecke decken sich nicht. Die x-Achse ist dagegen eine Symmetrieachse: A ↔ D und B ↔ C. Eine weitere ist die senkrechte Gerade durch x = −0,5; diese zusätzliche Achse ist hier kein Eingabefall der Werkstatt.</p></div></details>{{QUIZ_geo_quadrants}}{{QUIZ_geo_translation_reverse}}",
+        "content": "<p>Die beiden Achsen eines kartesischen Koordinatensystems sind Zahlengeraden, die normal aufeinander stehen. In unserer Zeichnung ist die x-Achse waagrecht und die y-Achse senkrecht. Ihr Schnittpunkt heißt Ursprung O(0|0). Bei P(x|y) liest du zuerst die x-Koordinate, dann die y-Koordinate. Negative x-Werte liegen links, negative y-Werte unterhalb des Ursprungs.</p><p>Bei einer <strong>Achsenspiegelung</strong> liegt der Bildpunkt auf der anderen Seite der Spiegelachse im gleichen senkrechten Abstand. Die Verbindung zwischen Punkt und Bildpunkt steht senkrecht auf der Achse; diese halbiert die Verbindung. Ein Punkt auf der Achse bleibt unverändert.</p><p class=\"geometry-reflection-rule\">Spiegelung an der y-Achse: (x|y) wird zu (−x|y). Spiegelung an der x-Achse: (x|y) wird zu (x|−y). Zum Spiegeln eines Vielecks spiegelst du jeden Eckpunkt und verbindest die Bildpunkte in derselben Reihenfolge. Längen und Winkel bleiben erhalten. Eine Figur ist achsensymmetrisch, wenn die Spiegelung an einer geeigneten Achse sie auf sich selbst abbildet.</p><div class=\"interactive-zone coordinate-lab\" data-reflection-lab=\"\"><h3>Punkt und Spiegelpunkt vergleichen</h3><label>x-Koordinate <input type=\"range\" min=\"-5\" max=\"5\" value=\"3\" data-reflect-x=\"\"></label><label>y-Koordinate <input type=\"range\" min=\"-5\" max=\"5\" value=\"-2\" data-reflect-y=\"\"></label><label>Spiegelachse <select data-reflect-axis=\"\"><option value=\"y\">y-Achse</option><option value=\"x\">x-Achse</option></select></label><div data-reflection-drawing=\"\"></div><p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" data-reflection-status=\"\"></p><p>Verschiebe P auf die gewählte Spiegelachse. Beobachte, wann beide Punkte zusammenfallen. Die gestrichelte Verbindung zeigt den senkrechten Weg zwischen ihnen.</p><template data-worksheet-alternative=\"\"><div data-geometry-model-paper=\"reflection\"><p>Zeichne zwei Koordinatensysteme von −6 bis 6, eine Einheit = 1 cm. Trage jeweils P(3|−2), Q(0|4) und R(−4|0) ein.</p><ol><li>Spiegle alle drei Punkte im ersten System an der y-Achse, im zweiten an der x-Achse. Berechne zuerst die Bildkoordinaten, zeichne dann und vergleiche.</li><li>Verbinde jeden Punkt mit seinem Bildpunkt, sofern sie verschieden sind. Prüfe senkrechte Lage zur Spiegelachse und gleiche Abstände zu ihr. Welche Punkte bleiben bei welcher Spiegelung fest?</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Punkte spiegeln: Lösungen zu den Papieraufgaben</summary><div data-geometry-model-solution=\"reflection\"><p>An der y-Achse: P′(−3|−2), Q′(0|4), R′(4|0). Q bleibt fest. Bei P sind beide Abstände zur Achse 3 Einheiten, bei R je 4; die Verbindungen verlaufen waagrecht und damit senkrecht zur y-Achse.</p><p>An der x-Achse: P′(3|2), Q′(0|−4), R′(−4|0). R bleibt fest. Bei P sind beide Abstände 2 Einheiten, bei Q je 4; die Verbindungen verlaufen senkrecht zur x-Achse. Punkte auf der jeweiligen Achse haben Abstand 0 und bleiben fest.</p></div></details>{{QUIZ_m27_coordinate_order}}{{QUIZ_m27_reflect_y}}{{QUIZ_m27_reflect_fixed}}<h3>Ganze Figuren verschieben</h3><p>Bei einer Verschiebung gehen alle Punkte gleich weit in dieselbe Richtung. Beispiel: 3 nach rechts und 2 nach unten bedeutet (x|y) → (x + 3|y − 2). Wende diese Regel auf jeden Eckpunkt an und verbinde die Bildpunkte in derselben Reihenfolge. Die ursprüngliche Figur und ihr Bild sind kongruent. Die Rückverschiebung ist 3 nach links und 2 nach oben.</p><div class=\"interactive-zone coordinate-lab\" data-translation-lab=\"\"><h3>Ein Dreieck gemeinsam verschieben</h3><p>Ausgangspunkte: A(−2|−1), B(1|−1), C(−2|1). Das ausgefüllte Dreieck ist die Ausgangsfigur; die gestrichelte Umrandung zeigt das verschobene Bild. Negative Schritte führen nach links beziehungsweise unten.</p><label>Waagrechte Schritte <input type=\"range\" min=\"-2\" max=\"2\" step=\"1\" value=\"1\" data-shift-x=\"\"></label><label>Senkrechte Schritte <input type=\"range\" min=\"-2\" max=\"2\" step=\"1\" value=\"1\" data-shift-y=\"\"></label><div data-translation-drawing=\"\"></div><p data-translation-status=\"\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><button type=\"button\" data-shift-reset=\"\">Ohne Verschiebung vergleichen</button><template data-worksheet-alternative=\"\"><div data-geometry-model-paper=\"translation\"><p>Zeichne A(−2|−1), B(1|−1) und C(−2|1) in ein Koordinatensystem von −6 bis 6. Eine Einheit entspricht 1 cm.</p><ol><li>Berechne die Bildpunkte bei einer Verschiebung um 2 nach rechts und 1 nach unten. Zeichne beide Dreiecke mit verschiedenen Linienarten.</li><li>Bestimme eine Rückverschiebung und prüfe sie an allen drei Ecken. Vergleiche Seitenlängen und Winkel der Dreiecke.</li><li>Verschiebe die Ausgangsfigur um 0 waagrecht und 0 senkrecht. Beschreibe das Ergebnis. Erkläre, warum die Bewegung nur einer Ecke im Allgemeinen keine Verschiebung der ganzen Figur ist.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Dreieck verschieben: Lösungen zu den Papieraufgaben</summary><div data-geometry-model-solution=\"translation\"><p>Bildpunkte: A′(0|−2), B′(3|−2), C′(0|0). Rückweg: 2 nach links und 1 nach oben. Das ergibt wieder A(−2|−1), B(1|−1), C(−2|1).</p><p>AB und A′B′ sind jeweils 3 cm lang; AC und A′C′ jeweils 2 cm. Auch die dritte Seite und alle Winkel bleiben gleich; beide Dreiecke haben bei A bzw. A′ einen rechten Winkel. Die gleichen Koordinatenänderungen erhalten alle Abstände zwischen den Ecken.</p><p>Bei 0 und 0 decken sich Ausgangsfigur und Bild. Nur eine Ecke zu bewegen verändert im Allgemeinen Seiten und Winkel; für eine Verschiebung müssen alle Punkte dieselben Schritte machen.</p></div></details>{{QUIZ_m27_shift_point}}{{QUIZ_m27_shift_shape}}<h3>Eine ganze Figur in vier Quadranten</h3><p>Die Achsen teilen die Ebene in vier Quadranten. Rechts oben liegen Punkte mit zwei positiven Koordinaten, links oben mit negativem x und positivem y, links unten mit zwei negativen Koordinaten, rechts unten mit positivem x und negativem y. Punkte auf einer Achse gehören zu keinem Quadranten. Ein Kästchen in den folgenden Zeichnungen entspricht einer Einheit; auf beiden Achsen wird gleich skaliert.</p>\n<figure class=\"coordinate-figure\"><svg data-worksheet-static=\"true\" class=\"coordinate-svg\" viewBox=\"0 0 330 330\" role=\"img\" aria-label=\"Koordinatensystem von minus sechs bis sechs. Ein Kästchen entspricht einer Einheit. Die Punktwerte und Aufgaben stehen im begleitenden Text.\"><rect width=\"330\" height=\"330\" fill=\"white\"></rect><path d=\"M45 45 V285 M45 285 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M65 45 V285 M45 265 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M85 45 V285 M45 245 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M105 45 V285 M45 225 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M125 45 V285 M45 205 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M145 45 V285 M45 185 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M165 45 V285 M45 165 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M185 45 V285 M45 145 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M205 45 V285 M45 125 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M225 45 V285 M45 105 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M245 45 V285 M45 85 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M265 45 V285 M45 65 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M285 45 V285 M45 45 H285\" stroke=\"#cbd5e1\" stroke-width=\"1\"></path><path d=\"M30 165 H300 M165 300 V30\" stroke=\"#172554\" stroke-width=\"2\"></path><polygon data-coordinate-polygon=\"\" points=\"105,205 205,205 205,125 105,125\" fill=\"#bfdbfe\" fill-opacity=\".5\" stroke=\"#1d4ed8\" stroke-width=\"2\"></polygon><g fill=\"#172554\" font-size=\"22\"><text x=\"45\" y=\"189\" text-anchor=\"middle\">-6</text><text x=\"151\" y=\"292\" text-anchor=\"end\">-6</text><text x=\"105\" y=\"189\" text-anchor=\"middle\">-3</text><text x=\"151\" y=\"232\" text-anchor=\"end\">-3</text><text x=\"225\" y=\"189\" text-anchor=\"middle\">3</text><text x=\"151\" y=\"112\" text-anchor=\"end\">3</text><text x=\"285\" y=\"189\" text-anchor=\"middle\">6</text><text x=\"151\" y=\"52\" text-anchor=\"end\">6</text><text x=\"151\" y=\"189\" text-anchor=\"end\">0</text><text x=\"303\" y=\"158\">x</text><text x=\"175\" y=\"28\">y</text></g><circle cx=\"105\" cy=\"205\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"105\" y1=\"205\" x2=\"95\" y2=\"227\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"95\" y=\"235\" text-anchor=\"end\" fill=\"#172554\" font-size=\"22\">A</text><circle cx=\"205\" cy=\"205\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"205\" y1=\"205\" x2=\"195\" y2=\"185\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"195\" y=\"193\" text-anchor=\"end\" fill=\"#172554\" font-size=\"22\">B</text><circle cx=\"205\" cy=\"125\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"205\" y1=\"125\" x2=\"215\" y2=\"105\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"215\" y=\"113\" text-anchor=\"start\" fill=\"#172554\" font-size=\"22\">C</text><circle cx=\"105\" cy=\"125\" r=\"4\" fill=\"#1d4ed8\"></circle><line x1=\"105\" y1=\"125\" x2=\"95\" y2=\"105\" stroke=\"#64748b\" stroke-width=\"1\"></line><text x=\"95\" y=\"113\" text-anchor=\"end\" fill=\"#172554\" font-size=\"22\">D</text></svg><figcaption>Rechteck ABCD mit je einer Ecke in jedem Quadranten. Lies die Koordinaten zuerst selbst ab; die folgenden Aufträge nennen sie zur Kontrolle.</figcaption></figure>\n<div class=\"interactive-zone coordinate-lab\" data-coordinate-drawing=\"\"><h3>Eckpunkte selbst eintragen</h3><label for=\"coordinate-task\">Auftrag</label><select id=\"coordinate-task\" data-coordinate-task=\"\"><option value=\"0\">Rechteck zeichnen</option><option value=\"1\">Figur verschieben</option><option value=\"2\">An y spiegeln</option></select><p data-coordinate-instruction=\"\"></p><div data-coordinate-source=\"\"></div><label for=\"coordinate-point\">Eckpunkt</label><select id=\"coordinate-point\" data-coordinate-point=\"\"><option value=\"0\">A / A′</option><option value=\"1\">B / B′</option><option value=\"2\">C / C′</option><option value=\"3\">D / D′</option></select><label for=\"coordinate-x\">x-Koordinate</label><input id=\"coordinate-x\" data-coordinate-x=\"\" inputmode=\"numeric\" autocomplete=\"off\"><label for=\"coordinate-y\">y-Koordinate</label><input id=\"coordinate-y\" data-coordinate-y=\"\" inputmode=\"numeric\" autocomplete=\"off\"><p>Ganze Zahlen von −6 bis 6. Wähle jeden Eckpunkt, gib x und y ein und trage ihn mit der Schaltfläche oder Enter ein. Die Zeichnung zeigt deine gespeicherten Eingaben. Prüfe danach die ganze Figur.</p><div class=\"coordinate-actions\"><button type=\"button\" data-coordinate-place=\"\">Punkt eintragen</button><button type=\"button\" data-coordinate-check=\"\">Figur prüfen</button><button type=\"button\" data-coordinate-reset=\"\">Neu beginnen</button></div><p data-coordinate-status=\"\" role=\"status\" aria-atomic=\"true\"></p><h4>Deine eingetragenen Punkte</h4><div data-coordinate-view=\"\"></div><p data-coordinate-values=\"\"></p><template data-worksheet-alternative=\"\"><div data-geometry-paper=\"\"><p>Zeichne auf kariertem Papier A(−3|−2), B(2|−2), C(2|2), D(−3|2). Nutze für jeden der drei folgenden Aufträge ein eigenes Koordinatensystem mit beiden Achsen von −6 bis 6. Eine Einheit ist 1 cm. Beschrifte die ursprünglichen Punkte mit A bis D und die Bildpunkte mit A′ bis D′.</p></div></template></div>\n<ol data-geometry-tasks=\"\" data-assignment-mode=\"direct\"><li>Zeichne das Rechteck mit A(−3|−2), B(2|−2), C(2|2), D(−3|2). Notiere zu jeder Ecke die Vorzeichen und den Quadranten. Berechne waagrechte und senkrechte Seitenlänge. Begründe, warum die Figur ein Rechteck, aber kein Quadrat ist.</li><li>Verschiebe jeden Eckpunkt um 2 Einheiten nach rechts und 1 nach unten. Notiere zuerst alle Bildkoordinaten, zeichne dann. Vergleiche Seiten und rechte Winkel mit der Ausgangsfigur. Gib die Rückverschiebung an und prüfe sie an jeder Ecke.</li><li>Spiegle das ursprüngliche Rechteck an der y-Achse. Berechne und zeichne alle vier Bildpunkte. Ist die y-Achse eine Symmetrieachse dieses Rechtecks? Begründe durch den Vergleich von Ausgangsfigur und Spiegelbild. Prüfe zusätzlich die x-Achse.</li></ol>\n<details data-worksheet-solution=\"true\"><summary>Zeichnungen und Begründungen vergleichen</summary><div data-geometry-solution=\"\"><p>Original: A liegt links unten (III), B rechts unten (IV), C rechts oben (I), D links oben (II). Die waagrechte Seitenlänge ist 2 − (−3) = 5 Einheiten; senkrecht 2 − (−2) = 4. Vier rechte Winkel ergeben ein Rechteck; die verschiedenen Nachbarseiten schließen ein Quadrat aus.</p><p>Verschieben: A′(−1|−3), B′(4|−3), C′(4|1), D′(−1|1). Die Seiten bleiben 5 und 4 Einheiten, die Winkel recht. Rückweg: 2 nach links und 1 nach oben. Beispiel A′: (−1 − 2|−3 + 1) = (−3|−2); entsprechend bei den anderen Ecken.</p><p>Spiegeln an y: A′(3|−2), B′(−2|−2), C′(−2|2), D′(3|2). Die y-Achse ist keine Symmetrieachse der Ausgangsfigur: A′ liegt nicht auf einer ursprünglichen Ecke, beide Rechtecke decken sich nicht. Die x-Achse ist dagegen eine Symmetrieachse: A ↔ D und B ↔ C. Eine weitere ist die senkrechte Gerade durch x = −0,5; diese zusätzliche Achse ist hier kein Eingabefall der Werkstatt.</p></div></details>{{QUIZ_geo_quadrants}}{{QUIZ_geo_translation_reverse}}",
         "quizzes": [
           {
             "id": "m27_coordinate_order",
@@ -28100,13 +28349,13 @@
     ]
   },
   "math3_5_verhaeltnisse": {
-    "title": "Verhältnisse (Mischen & Teilen)",
-    "subtitle": "Mengen gemeinsam verändern und ein Ganzes aufteilen.",
+    "title": "Verhältnisse und Proportionen",
+    "subtitle": "Mengen vergleichen, aufteilen und unbekannte Werte berechnen.",
     "sections": [
       {
         "id": "sec1",
         "title": "Ein Verhältnis beschreibt zwei Mengen",
-        "content": "<p>In unserem Rechenbeispiel bedeutet <strong>Sirup : Wasser = 1 : 5</strong>: Auf einen gleich großen Volumenteil Sirup kommen fünf Volumenteile Wasser. Die Reihenfolge gehört zur Angabe. 5 : 1 würde eine andere Mischung beschreiben. Für das Mengenmodell addieren wir die Volumina; es ist keine Versuchsanleitung.</p><p>Zusammen sind es <strong>sechs Teile</strong>. Der Sirupanteil an der Gesamtmenge ist daher 1/6, nicht 1/5. Wenn du die Mischung verdoppelst, musst du beide Mengen verdoppeln: 1 : 5 = 2 : 10. Addierst du stattdessen zu beiden Mengen 1, entsteht 2 : 6 = 1 : 3; das Verhältnis hat sich geändert.</p><div class=\"interactive-zone\"><h3>Mischung prüfen</h3><p>Gesucht sind insgesamt 12 Becher im Verhältnis Sirup : Wasser = 1 : 5. Alle Becher haben das gleiche Fassungsvermögen; auch Teile eines Bechers können angegeben werden.</p><label>Becher Sirup: <input type=\"text\" inputmode=\"decimal\" id=\"sirup_in\"></label><label>Becher Wasser: <input type=\"text\" inputmode=\"decimal\" id=\"wasser_in\"></label><button type=\"button\" onclick=\"checkMix()\">Prüfen</button><p id=\"mix_feedback\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p>Nutze Komma oder Punkt und höchstens zwei Nachkommastellen. Kontrolliere immer Verhältnis und Gesamtmenge.</p></div>{{QUIZ_m35_q1}}",
+        "content": "<p>In unserem Rechenbeispiel bedeutet <strong>Sirup : Wasser = 1 : 5</strong>: Auf einen gleich großen Volumenteil Sirup kommen fünf Volumenteile Wasser. Die Reihenfolge gehört zur Angabe. 5 : 1 würde eine andere Mischung beschreiben. Für das Mengenmodell addieren wir die Volumina; es ist keine Versuchsanleitung.</p><p>Zusammen sind es <strong>sechs Teile</strong>. Der Sirupanteil an der Gesamtmenge ist daher 1/6, nicht 1/5. Wenn du die Mischung verdoppelst, musst du beide Mengen verdoppeln: 1 : 5 = 2 : 10. Addierst du stattdessen zu beiden Mengen 1, entsteht 2 : 6 = 1 : 3; das Verhältnis hat sich geändert.</p><div class=\"interactive-zone ratio-lab\"><h3>Mischung prüfen</h3><p>Gesucht sind insgesamt 12 Becher im Verhältnis Sirup : Wasser = 1 : 5. Alle Becher haben das gleiche Fassungsvermögen; auch Teile eines Bechers können angegeben werden.</p><label>Becher Sirup: <input type=\"text\" inputmode=\"decimal\" id=\"sirup_in\"></label><label>Becher Wasser: <input type=\"text\" inputmode=\"decimal\" id=\"wasser_in\"></label><button type=\"button\" onclick=\"checkMix()\">Prüfen</button><p id=\"mix_feedback\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p>Nutze Komma oder Punkt und höchstens zwei Nachkommastellen. Kontrolliere immer Verhältnis und Gesamtmenge.</p><template data-worksheet-alternative=\"\"><div data-ratio-paper=\"mix\"><p>Gesucht sind 12 gleich große Becher im Verhältnis Sirup : Wasser = 1 : 5. Berechne beide Mengen. Zeichne sechs gleich große Teile und kontrolliere Verhältnis und Summe.</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Mischung: Papieraufgabe vergleichen</summary><div data-ratio-extension-solution=\"\"><p>Sechs Teile, jeder 12 : 6 = 2 Becher groß. Sirup: 2 Becher; Wasser: 10 Becher. Summe: 12; Verhältnis: 2 : 10 = 1 : 5.</p></div></details>{{QUIZ_m35_q1}}",
         "quizzes": [
           {
             "id": "m35_q1",
@@ -28168,7 +28417,7 @@
       {
         "id": "m35_compare",
         "title": "Verhältnis und Gesamtmenge gemeinsam prüfen",
-        "content": "<table class=\"word-rubric\" data-ratio-table><caption>Sirup und Wasser in gleich großen Bechern</caption><thead><tr><th>Sirup</th><th>Wasser</th><th>Gesamtmenge</th><th>Sirup : Wasser, gekürzt</th></tr></thead><tbody><tr><td>1</td><td>5</td><td>6</td><td>1 : 5</td></tr><tr><td>2</td><td>10</td><td>12</td><td>1 : 5</td></tr><tr><td>3</td><td>15</td><td>18</td><td>1 : 5</td></tr><tr><td>2</td><td>6</td><td>8</td><td>1 : 3</td></tr></tbody></table><ol class=\"step-list\" data-ratio-task><li>Decke die letzten beiden Spalten ab und berechne sie selbst. Markiere alle Zeilen mit demselben Verhältnis. Erkläre, warum gleiche Verhältnisse nicht gleiche Gesamtmengen bedeuten.</li><li>Zeichne sechs gleich große Kästchen: eines für Sirup, fünf für Wasser. Nutze Beschriftungen oder Muster. Beschrifte jedes Kästchen einmal für 12 Becher und einmal für 3 Becher Gesamtmenge. Welche Mengen erhältst du?</li><li>Eine Person berechnet für 12 Becher im Verhältnis 1 : 5 den Sirup mit 12 : 5. Erkläre den Fehler und schreibe die richtige Rechnung mit der Summe der Teile auf.</li><li>Teile 72 € im Verhältnis 4 : 5. Prüfe die Summe und das gekürzte Verhältnis deiner Anteile.</li><li>Erfinde zwei andere Mengen mit dem Verhältnis 2 : 3. Tausche sie mit einer anderen Person und prüfe beide Kontrollen: Verhältnis und Summe.</li></ol><details data-ratio-solution><summary>Vergleichsauswertung</summary><p>Die ersten drei Zeilen haben das Verhältnis 1 : 5, aber die Gesamtmengen 6, 12 und 18. Bei 12 Bechern ist ein Teil 2 Becher groß: 2 Sirup und 10 Wasser. Bei 3 Bechern ist ein Teil 0,5 Becher groß: 0,5 Sirup und 2,5 Wasser. Die Gesamtmenge muss durch 1 + 5 = 6 geteilt werden. Bei 72 € und 4 : 5 gibt es neun Teile zu je 8 €: 32 € und 40 €. Ihre Summe ist 72 €, ihr Verhältnis 32 : 40 = 4 : 5. Beispiele für 2 : 3 sind 4 : 6 oder 10 : 15; viele weitere sind möglich.</p></details>{{QUIZ_m35_whole}}{{QUIZ_m35_add}}",
+        "content": "<table class=\"word-rubric\" data-ratio-table><caption>Sirup und Wasser in gleich großen Bechern</caption><thead><tr><th>Sirup</th><th>Wasser</th><th>Gesamt<wbr>menge</th><th>Sirup : Wasser, gekürzt</th></tr></thead><tbody><tr><td>1</td><td>5</td><td>6</td><td>1 : 5</td></tr><tr><td>2</td><td>10</td><td>12</td><td>1 : 5</td></tr><tr><td>3</td><td>15</td><td>18</td><td>1 : 5</td></tr><tr><td>2</td><td>6</td><td>8</td><td>1 : 3</td></tr></tbody></table><ol class=\"step-list\" data-ratio-task><li>Decke die letzten beiden Spalten ab und berechne sie selbst. Markiere alle Zeilen mit demselben Verhältnis. Erkläre, warum gleiche Verhältnisse nicht gleiche Gesamtmengen bedeuten.</li><li>Zeichne sechs gleich große Kästchen: eines für Sirup, fünf für Wasser. Nutze Beschriftungen oder Muster. Beschrifte jedes Kästchen einmal für 12 Becher und einmal für 3 Becher Gesamtmenge. Welche Mengen erhältst du?</li><li>Eine Person berechnet für 12 Becher im Verhältnis 1 : 5 den Sirup mit 12 : 5. Erkläre den Fehler und schreibe die richtige Rechnung mit der Summe der Teile auf.</li><li>Teile 72 € im Verhältnis 4 : 5. Prüfe die Summe und das gekürzte Verhältnis deiner Anteile.</li><li>Erfinde zwei andere Mengen mit dem Verhältnis 2 : 3. Tausche sie mit einer anderen Person und prüfe beide Kontrollen: Verhältnis und Summe.</li></ol><details data-ratio-solution data-worksheet-solution=\"true\"><summary>Vergleichsauswertung</summary><p>Die ersten drei Zeilen haben das Verhältnis 1 : 5, aber die Gesamtmengen 6, 12 und 18. Bei 12 Bechern ist ein Teil 2 Becher groß: 2 Sirup und 10 Wasser. Bei 3 Bechern ist ein Teil 0,5 Becher groß: 0,5 Sirup und 2,5 Wasser. Die Gesamtmenge muss durch 1 + 5 = 6 geteilt werden. Bei 72 € und 4 : 5 gibt es neun Teile zu je 8 €: 32 € und 40 €. Ihre Summe ist 72 €, ihr Verhältnis 32 : 40 = 4 : 5. Beispiele für 2 : 3 sind 4 : 6 oder 10 : 15; viele weitere sind möglich.</p></details>{{QUIZ_m35_whole}}{{QUIZ_m35_add}}",
         "quizzes": [
           {
             "id": "m35_whole",
@@ -28219,6 +28468,212 @@
             ]
           }
         ]
+      },
+      {
+        "id": "ratio_equations",
+        "title": "Proportionen aufstellen und umformen",
+        "content": "<p>Eine <strong>Proportion</strong> ist eine Gleichung aus zwei Verhältnissen: a : b = c : d, auch als a/b = c/d geschrieben. Die Nenner b und d müssen ungleich null sein. Bei Mengenvergleichen müssen die Zahlen auf beiden Seiten dieselbe Reihenfolge und passende Einheiten haben.</p><div class=\"ratio-proof\"><p>Multipliziere <strong>beide Seiten mit b · d</strong>: (a/b) · b · d = (c/d) · b · d. Kürzen ergibt <strong>a · d = c · b</strong>. Umgekehrt kannst du bei b ≠ 0 und d ≠ 0 durch b · d teilen. So begründest du das sogenannte Kreuzmultiplizieren.</p></div><p>Beispiel: 3 : 4 = x : 20. Die Produktgleichung lautet 3 · 20 = 4x. Teile durch 4: x = 15. Probe: 3/4 = 15/20. Beide Quotienten sind 0,75. Bei 4 : x = 2 : 3 steht x hingegen im Nenner: 4 · 3 = 2x ergibt x = 6, mit x ≠ 0.</p><div class=\"interactive-zone ratio-lab\" data-ratio-equation-lab><h3>Eine unbekannte Verhältniszahl</h3><p>Stelle zuerst eine Produktgleichung auf. Gib dann deinen Wert für x ein und prüfe ihn. Alle Aufgaben verwenden positive Zahlen; bei x im Nenner gilt zusätzlich x ≠ 0.</p><label for=\"ratio-case\">Aufgabe</label><select id=\"ratio-case\"><option value=\"0\">x : 5 = 3 : 2</option><option value=\"1\">4 : x = 2 : 3</option><option value=\"2\">3 : 4 = x : 20</option><option value=\"3\">2 : 5 = 6 : x</option><option value=\"4\">x : 8 = 3 : 4</option><option value=\"5\">5 : x = 2 : 3</option><option value=\"6\">2 : 3 = x : 12</option><option value=\"7\">3 : 4 = 9 : x</option></select><p class=\"ratio-equation\" data-ratio-equation></p><label for=\"ratio-answer\">Dein Wert für x</label><input id=\"ratio-answer\" type=\"text\" inputmode=\"decimal\" autocomplete=\"off\" aria-describedby=\"ratio-help ratio-result\"><p id=\"ratio-help\">Komma oder Punkt, höchstens zwei Nachkommastellen.</p><button type=\"button\" data-ratio-check>Wert prüfen</button><p id=\"ratio-result\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><button type=\"button\" data-ratio-reveal aria-expanded=\"false\" aria-controls=\"ratio-work\">Rechenweg zeigen</button><div id=\"ratio-work\" hidden></div><button type=\"button\" data-ratio-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-ratio-paper=\"equation\"><p>Schreibe Umformung und Probe zu jeder Aufgabe auf.</p><ol class=\"step-list\" data-ratio-extension-tasks><li>Löse x : 5 = 3 : 2. Notiere die Produktgleichung und prüfe durch Einsetzen.</li><li>Löse 4 : x = 2 : 3. Notiere zuerst, welchen Wert x nicht annehmen darf.</li><li>Löse 3 : 4 = x : 20 und 2 : 5 = 6 : x. Prüfe beide Ergebnisse in der ursprünglichen Proportion.</li><li>Zeige an 0 : 0 und 1 : 1, warum die Produktgleichung 0 · 1 = 0 · 1 allein noch keine gültige Proportion beweist.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Proportionen: Umformungen und Proben</summary><div data-ratio-extension-solution><p>x : 5 = 3 : 2 → 2x = 15 → x = 7,5. Probe: 7,5/5 = 3/2 = 1,5.</p><p>4 : x = 2 : 3, x ≠ 0 → 12 = 2x → x = 6. Probe: 4/6 = 2/3.</p><p>3 : 4 = x : 20 → 60 = 4x → x = 15; Probe: 15/20 = 3/4. 2 : 5 = 6 : x, x ≠ 0 → 2x = 30 → x = 15; Probe: 6/15 = 2/5.</p><p>0 : 0 ist nicht definiert. Die wahre Produktgleichung 0 = 0 ersetzt die notwendige Bedingung für die Nenner nicht.</p></div></details><h3>Vom Aufteilen zur Formel</h3><p>Gesamtmenge G, Verhältnis m : n mit m &gt; 0 und n &gt; 0: Ein Teil ist G/(m + n). Die Anteile sind <strong>A = G · m/(m + n)</strong> und <strong>B = G · n/(m + n)</strong>. Ihre Summe ist G. Wird G verdoppelt und bleibt das Verhältnis gleich, verdoppeln sich A und B. Werden m und n beide verdoppelt, bleiben die Anteile bei festem G gleich: Es wird nur dasselbe Verhältnis anders geschrieben.</p><p>Prüfe selbst mit G = 40, m = 3 und n = 5: A = 15 und B = 25. Mit m = 6 und n = 10 erhältst du dieselben Anteile.</p>{{QUIZ_ratio_cross}}{{QUIZ_ratio_unknown}}{{QUIZ_ratio_zero}}{{QUIZ_ratio_inverse}}{{QUIZ_ratio_formula}}",
+        "quizzes": [
+          {
+            "id": "ratio_cross",
+            "question": "Welche Gleichung folgt aus a : b = c : d, wenn b und d nicht null sind?",
+            "answers": [
+              {
+                "text": "a · b = c · d.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Multipliziere beide Seiten mit b · d. Links bleibt a · d, rechts c · b."
+              },
+              {
+                "text": "a · d = c · b.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Beide Seiten mit b · d multiplizieren: Die jeweiligen Nenner kürzen sich weg."
+              },
+              {
+                "text": "a + d = c + b.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gleiche Quotienten ergeben diese Produktgleichung, keine Summengleichung."
+              }
+            ]
+          },
+          {
+            "id": "ratio_unknown",
+            "question": "Löse 4 : x = 2 : 3. Welcher Wert passt?",
+            "answers": [
+              {
+                "text": "x = 8/3.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei dieser Rechnung wurde x wie ein Zähler behandelt. Aus 4 · 3 = 2 · x folgt x = 6."
+              },
+              {
+                "text": "x = 1,5.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1,5 ist 3 : 2. Du musst auch die 4 berücksichtigen: 12 = 2x."
+              },
+              {
+                "text": "x = 6.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "4 · 3 = 2x, also x = 6. Probe: 4 : 6 = 2 : 3; beide Quotienten sind 2/3."
+              }
+            ]
+          },
+          {
+            "id": "ratio_zero",
+            "question": "Was muss bei a : b = c : d vor dem Umformen gelten?",
+            "answers": [
+              {
+                "text": "b ≠ 0 und d ≠ 0.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Durch null darfst du nicht teilen. Bei unbekannten Nennern müssen auch die berechneten Lösungen diese Bedingung erfüllen."
+              },
+              {
+                "text": "Nur a und c müssen ungleich null sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Nenner b und d dürfen nicht null sein. Zähler dürfen grundsätzlich null sein."
+              },
+              {
+                "text": "Keine Bedingung, denn Produkte sind immer berechenbar.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Produktgleichung kann berechenbar sein, obwohl die ursprünglichen Quotienten wegen Division durch null nicht definiert sind."
+              }
+            ]
+          },
+          {
+            "id": "ratio_inverse",
+            "question": "Aus 2 : 3 = 8 : 12 soll eine neue richtige Proportion entstehen. Was funktioniert?",
+            "answers": [
+              {
+                "text": "Nur links umdrehen: 3 : 2 = 8 : 12.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dann stehen links 1,5 und rechts 2/3. Die Zuordnung ist nicht mehr gleich."
+              },
+              {
+                "text": "Überall 1 addieren: 3 : 4 = 9 : 13.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3 · 13 = 39, aber 4 · 9 = 36. Addition erhält das Verhältnis im Allgemeinen nicht."
+              },
+              {
+                "text": "Beide Verhältnisse umdrehen: 3 : 2 = 12 : 8.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Beide Seiten werden zum Kehrwert; hier sind alle Zahlen ungleich null. Beide Quotienten sind 1,5."
+              }
+            ]
+          },
+          {
+            "id": "ratio_formula",
+            "question": "Eine Gesamtmenge G wird im Verhältnis m : n geteilt, mit m > 0 und n > 0. Welche Formel liefert den ersten Anteil A?",
+            "answers": [
+              {
+                "text": "A = G · m / n.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "m/n vergleicht die beiden Anteile. Für den Anteil am Ganzen brauchst du m/(m+n)."
+              },
+              {
+                "text": "A = G · m / (m + n).",
+                "correct": true,
+                "pts": 10,
+                "feedback": "G/(m+n) ist ein gleich großer Teil; davon gehören m Teile zum ersten Anteil."
+              },
+              {
+                "text": "A = G / (m + n).",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist erst der Wert eines einzigen Teils. Der erste Anteil enthält m solcher Teile."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ratio_context",
+        "title": "Einheiten, mehrere Anteile und Modellgrenzen",
+        "content": "<p>Bei gleichartigen Größen rechnest du zuerst in dieselbe Einheit um: <strong>250 ml : 1 l = 250 ml : 1000 ml = 1 : 4</strong>. Die bloßen Zahlen 250 und 1 beschreiben das Mengenverhältnis nicht. Andere Quotienten haben eine Einheit: 6 € für 3 gleich teure Hefte bedeuten 2 € je Heft. Ohne Gebühr oder Rabatt gilt Preis p = 2 · Anzahl n; p ist der Zahlenwert in Euro.</p><p>Auch drei Gruppen lassen sich aufteilen: Rot : Blau : Grün = 2 : 3 : 5 bedeutet insgesamt zehn gleich große Teile. Jede Gruppe erhält ihren Anteil an diesen zehn Teilen. Ein Verhältnis sagt noch nicht, wie groß die Gesamtmenge ist.</p><figure class=\"ratio-figure\"><svg class=\"ratio-strip\" data-worksheet-static=\"true\" viewBox=\"0 0 330 190\" role=\"img\" aria-label=\"Zehn gleiche Teile: zwei rot, drei blau, fünf grün. Bei 60 Perlen sind das 12 rote, 18 blaue und 30 grüne Perlen.\"><rect width=\"330\" height=\"190\" fill=\"white\"/><rect x=\"15\" y=\"45\" width=\"30\" height=\"48\" fill=\"#fecaca\" stroke=\"#172554\"/><rect x=\"45\" y=\"45\" width=\"30\" height=\"48\" fill=\"#fecaca\" stroke=\"#172554\"/><rect x=\"75\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bfdbfe\" stroke=\"#172554\"/><rect x=\"105\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bfdbfe\" stroke=\"#172554\"/><rect x=\"135\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bfdbfe\" stroke=\"#172554\"/><rect x=\"165\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bbf7d0\" stroke=\"#172554\"/><rect x=\"195\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bbf7d0\" stroke=\"#172554\"/><rect x=\"225\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bbf7d0\" stroke=\"#172554\"/><rect x=\"255\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bbf7d0\" stroke=\"#172554\"/><rect x=\"285\" y=\"45\" width=\"30\" height=\"48\" fill=\"#bbf7d0\" stroke=\"#172554\"/><g fill=\"#172554\" font-size=\"22\" text-anchor=\"middle\"><text x=\"45\" y=\"30\">Rot</text><text x=\"120\" y=\"30\">Blau</text><text x=\"240\" y=\"30\">Grün</text><text x=\"45\" y=\"125\">12</text><text x=\"120\" y=\"125\">18</text><text x=\"240\" y=\"125\">30</text><text x=\"165\" y=\"170\">1 Teil = 6 Perlen</text></g></svg><figcaption>2 : 3 : 5 ergibt zehn Teile; bei 60 Perlen enthält jedes Kästchen sechs Perlen.</figcaption></figure><p><strong>Unteilbare Dinge:</strong> Bei 11 Perlen und dem gekürzten Verhältnis 2 : 3 wäre ein Teil 11/5 = 2,2 Perlen groß. Die errechneten Mengen 4,4 und 6,6 sind keine ganzen Perlen. Unter der Bedingung „alle verteilen, keine teilen“ gibt es keine exakte Lösung. Auf 4 und 7 zu runden erhält zwar die Summe, aber nicht das Verhältnis. Bei Flüssigkeiten können dagegen Teilmengen möglich sein; Messgenauigkeit und das angenommene Addieren der Volumina begrenzen unser Mengenmodell.</p><h3>Selbst rechnen und begründen</h3><ol class=\"step-list\" data-ratio-extension-tasks><li>Vergleiche 250 ml mit 1 l, dann 0,3 kg mit 750 g. Kürze beide Verhältnisse und erkläre die Umrechnung.</li><li>Teile 60 Perlen in Rot : Blau : Grün = 2 : 3 : 5. Zeichne einen Streifen mit zehn gleichen Kästchen. Beschrifte Gruppen und Mengen.</li><li>Prüfe, ob sich 11 unteilbare Perlen vollständig im Verhältnis 2 : 3 verteilen lassen. Erkläre, warum Runden die Vorgaben ändern würde. Vergleiche mit 10 Perlen.</li><li>Für ein fiktives Klassenfest werden Saft und Wasser im Verhältnis 2 : 3 gemischt. 1,5 l Saft sind vorhanden. Stelle 2 : 3 = 1,5 : w auf, berechne Wasser w und die Gesamtmenge. Prüfe beide Werte.</li></ol><details data-worksheet-solution=\"true\"><summary>Einheiten und Aufteilungen vergleichen</summary><div data-ratio-extension-solution><p>250 : 1000 = 1 : 4. 0,3 kg = 300 g, also 300 : 750 = 2 : 5.</p><p>60 : 10 = 6 Perlen je Teil. Rot: 12, Blau: 18, Grün: 30. Summe 60; 12 : 18 : 30 kürzt sich zu 2 : 3 : 5.</p><p>11 Perlen: keine exakte ganzzahlige Aufteilung. 4 : 7 ist nicht 2 : 3, denn 4 · 3 ≠ 7 · 2. 10 Perlen: 4 und 6; Summe 10, Verhältnis 2 : 3.</p><p>2w = 3 · 1,5 = 4,5 → w = 2,25 l Wasser. Gesamtmenge 3,75 l. Probe: 1,5 : 2,25 = 2 : 3; 1,5 + 2,25 = 3,75.</p></div></details><p>Weiterlernen: <a href=\"template.html?topic=math3_6_zuordnungen\">Zuordnungen</a> verbindet diese Rechnungen mit Tabellen und Graphen und unterscheidet direkte von indirekter Proportionalität. Bei indirekter Proportionalität bleibt ein Produkt gleich; ein gleichbleibender Quotient wäre dort das falsche Modell.</p>{{QUIZ_ratio_units}}{{QUIZ_ratio_three}}{{QUIZ_ratio_discrete}}",
+        "quizzes": [
+          {
+            "id": "ratio_units",
+            "question": "250 ml werden mit 1 l verglichen. Wie lautet das gekürzte Verhältnis in dieser Reihenfolge?",
+            "answers": [
+              {
+                "text": "1 : 4.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "1 l = 1000 ml. 250 : 1000 kürzt sich zu 1 : 4."
+              },
+              {
+                "text": "250 : 1.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Diese Zahlen verwenden unterschiedliche Einheiten. Wandle zuerst beide Mengen in dieselbe Einheit um."
+              },
+              {
+                "text": "4 : 1.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist das umgekehrte Verhältnis von 1 l zu 250 ml. Die Reihenfolge gehört zur Angabe."
+              }
+            ]
+          },
+          {
+            "id": "ratio_three",
+            "question": "60 gleich große Perlen werden in Rot : Blau : Grün = 2 : 3 : 5 aufgeteilt. Wie viele sind blau?",
+            "answers": [
+              {
+                "text": "20.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "20 wäre ein Drittel der Gesamtmenge. Die drei Farbgruppen sind hier unterschiedlich groß."
+              },
+              {
+                "text": "30.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "30 Perlen gehören zu den fünf grünen Teilen. Blau hat drei Teile."
+              },
+              {
+                "text": "18.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Zehn Teile entsprechen 60 Perlen, ein Teil also sechs Perlen. Blau erhält 3 · 6 = 18."
+              }
+            ]
+          },
+          {
+            "id": "ratio_discrete",
+            "question": "10 unteilbare Perlen sollen vollständig im Verhältnis 2 : 3 verteilt werden. Ist das exakt möglich?",
+            "answers": [
+              {
+                "text": "Nein, die Gesamtzahl müsste durch 3 teilbar sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Es gibt insgesamt 2 + 3 = 5 Teile. 10 ist durch 5 teilbar; das genügt hier."
+              },
+              {
+                "text": "Ja: 4 und 6 Perlen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Zwei Teile zu je zwei Perlen ergeben vier, drei Teile ergeben sechs. Summe und Verhältnis stimmen."
+              },
+              {
+                "text": "Ja: 5 und 5 Perlen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Damit stimmt zwar die Summe, aber das Verhältnis wäre 1 : 1."
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
@@ -28257,12 +28712,18 @@
       "Verhältnisse als Anzahlen gleich großer Teile deuten.",
       "Eine Gesamtmenge in einem vorgegebenen Verhältnis aufteilen.",
       "Mengenverhältnisse an Mischungen und Aufteilungen überprüfen.",
-      "Teil-zu-Teil-Verhältnisse von Anteilen am Ganzen unterscheiden und Fehler beim Vergrößern erklären."
+      "Teil-zu-Teil-Verhältnisse von Anteilen am Ganzen unterscheiden und Fehler beim Vergrößern erklären.",
+      "Proportionen durch Multiplikation beider Seiten begründet umformen und unbekannte Werte durch Einsetzen prüfen.",
+      "Anteilsformeln aufstellen, ihre Größen deuten und Änderungen der Gesamtmenge erklären.",
+      "Einheiten vereinheitlichen, drei Anteile berechnen und Grenzen bei unteilbaren Mengen erkennen."
     ],
     "summary": [
       "Bei 1 : 5 bestehen insgesamt 6 Teile: ein Teil der ersten und fünf Teile der zweiten Menge.",
       "Teile die Gesamtmenge durch die Summe der Verhältnisanteile und multipliziere den Einzelteil passend.",
-      "40 € im Verhältnis 3 : 5 ergeben 15 € und 25 €. Zusammen bleiben es 40 €."
+      "40 € im Verhältnis 3 : 5 ergeben 15 € und 25 €. Zusammen bleiben es 40 €.",
+      "Bei a/b = c/d mit b ≠ 0 und d ≠ 0 gilt a · d = c · b. Prüfe Lösungen immer in der ursprünglichen Gleichung.",
+      "Für das Verhältnis m : n ist der erste Anteil G · m/(m+n); ein gemeinsamer Faktor in m und n ändert die Anteile nicht.",
+      "Vor Mengenvergleichen Einheiten vereinheitlichen. Bei unteilbaren Dingen muss die Aufteilung ganzzahlig möglich sein."
     ]
   },
   "math3_6_zuordnungen": {

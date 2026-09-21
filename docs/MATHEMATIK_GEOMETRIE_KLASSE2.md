@@ -18,7 +18,7 @@ Revision 9 enthält neun Abschnitte und 40 Fragen. Die folgenden konkreten Restl
 
 [Geometrie-Praxis und Prüfbelege](MATHEMATIK_GEOMETRIE_PRAXIS.md) dokumentiert 18 direkte neue Aufgaben, alle 120 Antwortwege, 842 neue Browseransichten sowie alle 50 endgültigen Druckseiten. Die bisherigen 42 Konstruktionszustände, 45 Flächenmodelle und 546 Browseransichten bestehen erneut. Keine Unterrichtserprobung oder vollständige Fachabnahme.
 
-**Nächste Restarbeit:** Die älteren Dreiecks-, Punktspiegelungs-, Verschiebungs- und Prismaansichten einschließlich kleiner SVG-Schriften und Tastaturbedienung gezielt mobil prüfen und verbessern. Ihre bisher teilweise fehlenden Papieralternativen ergänzen. Auch die vier älteren statischen Zeichnungen sind zwar im Druck gelesen, damit aber noch nicht vollständig mobil geprüft. Die übrigen Mathematikbereiche und zehn weiteren Fächer bleiben Bestandteil des Gesamtziels.
+**Modellnacharbeit abgeschlossen:** Ältere Dreiecks-, Punktspiegelungs-, Verschiebungs- und Prismaansichten sowie die vier Referenzzeichnungen sind überarbeitet. 7650 Browserzustände, vier neue Papieralternativen mit elf Aufgaben und die vollständige 54-seitige Druckfassung im dokumentierten Umfang geprüft. [Nachweise und Grenzen](MATHEMATIK_GEOMETRIE_MODELLE.md). Die übrigen Mathematikbereiche und zehn weiteren Fächer bleiben Bestandteil des Gesamtziels.
 
 ## Historische Bestandsaufnahme vor den Erweiterungen
 

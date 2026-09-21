@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
-    "lang/de.json": "66a508af8e9b0bd35a06735d57ebe024c6c31ca0fd64e3599ed3c6338be42f31"
+    "lang/de.json": "88d8f14d7f2876aacf2cf5c7956d5b4537cf93709bf28feed8e36e93e53bfc1e"
   },
   "subjects": {
     "physik": {
@@ -10203,9 +10203,11 @@
           "goals": [
             "Natürliche Zahlen stellenrichtig untereinander schreiben.",
             "Schriftlich addieren und einen Übertrag erklären.",
-            "Schriftlich subtrahieren und das Ergebnis durch Addition kontrollieren."
+            "Schriftlich subtrahieren und das Ergebnis durch Addition kontrollieren.",
+            "Überträge über mehrere Stellen und das Entbündeln über Nullstellen nachvollziehen.",
+            "Ergebnisse durch Überschlag, Stellenwertvergleich und Gegenprobe beurteilen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "schriftlich_add",
@@ -10218,9 +10220,12 @@
             {
               "id": "schriftlich_add_uebertrag",
               "index": 1,
-              "title": "Plus mit Übertrag (Der Merker)",
+              "title": "Addition mit Übertrag",
               "questions": [
-                "addsub_carry"
+                "addsub_carry",
+                "column_chain",
+                "column_carry_in",
+                "column_estimate"
               ]
             },
             {
@@ -10228,12 +10233,15 @@
               "index": 2,
               "title": "Schriftlich Minus rechnen (Subtraktion)",
               "questions": [
-                "addsub_zero"
+                "addsub_zero",
+                "column_borrow_chain",
+                "column_probe",
+                "column_order"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 3,
+          "questionCount": 9,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -10250,9 +10258,11 @@
             "Faktoren und Produkt sowie Dividend, Divisor und Quotient benennen.",
             "Multiplikation und Division als Umkehroperationen verwenden.",
             "Punkt-vor-Strich-Regel und Verteilungsgesetz anwenden.",
-            "Eine Division mit Rest prüfen und den Rest passend zur Sachfrage deuten."
+            "Eine Division mit Rest prüfen und den Rest passend zur Sachfrage deuten.",
+            "Schriftliche Multiplikation mit Überträgen und Teilprodukten selbst durchführen.",
+            "Schriftliche Division mit ein- und zweistelligem Divisor durchführen, Nullstellen erklären und jede Rechnung prüfen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
@@ -10261,7 +10271,9 @@
               "questions": [
                 "math1_4_q1",
                 "math1_4_q2",
-                "written_multiplication_place"
+                "written_multiplication_place",
+                "calc_carry",
+                "calc_zero_row"
               ]
             },
             {
@@ -10274,7 +10286,9 @@
                 "division_remainder_rule",
                 "division_boxes",
                 "division_zero_quotient",
-                "written_division_zero"
+                "written_division_zero",
+                "calc_bring_down",
+                "calc_zero_dividend"
               ]
             },
             {
@@ -10288,7 +10302,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 11,
+          "questionCount": 15,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11938,9 +11952,12 @@
             "Verhältnisse als Anzahlen gleich großer Teile deuten.",
             "Eine Gesamtmenge in einem vorgegebenen Verhältnis aufteilen.",
             "Mengenverhältnisse an Mischungen und Aufteilungen überprüfen.",
-            "Teil-zu-Teil-Verhältnisse von Anteilen am Ganzen unterscheiden und Fehler beim Vergrößern erklären."
+            "Teil-zu-Teil-Verhältnisse von Anteilen am Ganzen unterscheiden und Fehler beim Vergrößern erklären.",
+            "Proportionen durch Multiplikation beider Seiten begründet umformen und unbekannte Werte durch Einsetzen prüfen.",
+            "Anteilsformeln aufstellen, ihre Größen deuten und Änderungen der Gesamtmenge erklären.",
+            "Einheiten vereinheitlichen, drei Anteile berechnen und Grenzen bei unteilbaren Mengen erkennen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
@@ -11966,10 +11983,32 @@
                 "m35_whole",
                 "m35_add"
               ]
+            },
+            {
+              "id": "ratio_equations",
+              "index": 3,
+              "title": "Proportionen aufstellen und umformen",
+              "questions": [
+                "ratio_cross",
+                "ratio_unknown",
+                "ratio_zero",
+                "ratio_inverse",
+                "ratio_formula"
+              ]
+            },
+            {
+              "id": "ratio_context",
+              "index": 4,
+              "title": "Einheiten, mehrere Anteile und Modellgrenzen",
+              "questions": [
+                "ratio_units",
+                "ratio_three",
+                "ratio_discrete"
+              ]
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 12,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

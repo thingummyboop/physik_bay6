@@ -28,6 +28,8 @@ Die vollständige Druckfassung mit Lösungen umfasst 50 Seiten. Alle Seiten wurd
 
 Lokale Belege außerhalb des Repositorys: `../browser-qa/geometry-practice/report.json`, `final/report.json` und `checked/geometry-solutions.pdf` mit Seitenbildern und Vergleichslisten. Inventar: 198 Kapitel; Strukturprüfung der fünf priorisierten Fächer: 1887 Frageninstanzen, davon 660 Mathematik, ohne gemeldete Strukturfehler. Diese Zahlen sind kein Vollständigkeitsnachweis.
 
-## Verbleibende Arbeit
+## Historischer Reststand vor der Modellnacharbeit
+
+Die nachstehend benannten Modell- und Papierlücken sind inzwischen bearbeitet; aktueller Umfang und Nachweise stehen in [Geometrie-Modelle](MATHEMATIK_GEOMETRIE_MODELLE.md).
 
 Die älteren Dreiecks-, Punktspiegelungs-, Verschiebungs- und Prismaansichten sind gesondert auf kleine Bildschirme, Beschriftungen und Tastaturbedienung zu prüfen bzw. zu verbessern. Die Quellen enthalten dort noch kleine SVG-Schriften; die neuen Browsermatrizen decken diese Ansichten nicht ab. Ältere Werkstätten verweisen in der Papierfassung teilweise auf das Onlinekapitel; eigenständige Papieralternativen bleiben auszuarbeiten. Die neuen Zeichenaufträge und SSS-Werkstatt ergänzen diese, ersetzen aber keine Prüfung aller Angebote. Handzeichnungen werden durch Vorgaben und Vergleichslösungen begleitet, nicht automatisch bewertet. Weitere Mathematikbereiche, die übrigen Fächer und die vollständige Produktabnahme bleiben offen.

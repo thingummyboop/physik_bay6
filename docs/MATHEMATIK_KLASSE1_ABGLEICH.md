@@ -15,7 +15,13 @@ Grundlage: gespeicherter RIS-Lehrplantext vom 05.09.2026, Kompetenzbeschreibunge
 | Daten und Kennzahlen | math2_8_statistik, der ersten Klasse zugeordnet | Listen/Tabelle/Säulen, Minimum/Maximum/Spannweite, Mittelwert/Median mit interaktiven Vergleichen vorhanden. | Eigenständige Datenerhebung und Übertragung verschiedener Darstellungen abschließend prüfen. |
 | Abzählaufgaben/Baumdiagramm | math2_8_statistik/sec_abzaehlen | Sechs Kombinationen in Tabelle und Text-Baumstruktur, eigener Zeichenauftrag, Einschränkungen und zwei geprüfte Fragen ergänzt. | Visuelle und Unterrichtserprobung offen. |
 
-## Nächste Prüfung
+## Aktuelle Ergänzung: Multiplikation und Division
+
+Das Kapitel ist vollständig gelesen und um zwei Werkstätten mit 16 Aufgaben und 72 Rechenschritten erweitert. Alle 58 Antwortwege, 654 Browserzustände und 22 Druckseiten im dokumentierten Umfang geprüft. Die zuvor nur statischen Verfahren werden damit auch interaktiv geübt; Papieraufgaben haben vollständige Vergleichslösungen. [Umfang und Nachweise](MATHEMATIK_SCHRIFTLICH_MULT_DIV.md).
+
+Als Nächstes die mehrstellige Addition/Subtraktion bearbeiten: Erklärungen zum Bündeln/Entbündeln sind vorhanden, die bisherigen Eingaben prüfen jedoch nur Endergebnisse zweistelliger Aufgaben. Nichtnegative Dezimalzahlen und weitere Präzisierungen bleiben gesondert zu prüfen. Die folgende ältere Zusammenfassung beschreibt den damaligen Stand.
+
+## Historische nächste Prüfung
 
 Die zuvor konkret benannten Inhaltslücken zu Rechtecken, Quadern, zusammengesetzten Körpern, Würfelnetzen, Winkeln und Punkt–Gerade sind bearbeitet. Die eigenständige Datenerhebung ist nun angeleitet (siehe Nachtrag). Als nächste inhaltliche Prüfung bleiben die vollständigen schriftlichen Rechenverfahren; hinzu kommen die praktische und visuelle Abnahme. Diese Zusammenfassung ersetzt die überholten ursprünglichen Tabellenbefunde, ohne aus Ergänzungen eine vollständige Lehrplanabdeckung abzuleiten.
 
