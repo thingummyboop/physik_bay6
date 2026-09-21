@@ -232,3 +232,11 @@ Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung
 ## 21.09.2026 – Stadtökologie und Siedlungsräume
 
 `bio_4_siedlungsraeume`, Revision 2: pflanzliche und tierische Kulturfolger, vergleichbare Beobachtungen, Oberflächen-/Lufttemperatur, Wasserwege, Wildtierbeobachtungen und Abfallvermeidung. Drei eigene Schulhofpläne und eine Werkstatt mit 18 Wasserbilanzen verbinden Grünfläche und begrenzten Speicher mit Nutzungsanforderungen. Zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Wiener Bezüge: Pfeilgasse und Schwammstadt-Prinzip; alle Rechendaten sind erfunden. [Quellen und Prüfungen](BIOLOGIE_STADTOEKOLOGIE_SCHULHOF.md). Vollständiger Fach- und Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Kohlenstoffkreislauf und Klimawandel
+
+`bio_4_kohlenstoff_klima`, Revision 2: biologische, ozeanische und geologische Stoffwege; Stoff-/Energieunterscheidung; Vorrat und Nettoänderung; Strahlungsbilanz; biologische Folgen und Handlungsbegründung. Die Werkstatt vergleicht sechs erfundene Eintrags-/Aufnahmereihen über bis zu vier Zeiträume. Zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen mit vollständiger Papieralternative. Historischer Wiener Bezug zu den phänologischen Gärten auf der Donauinsel; Übungsdaten ausdrücklich erfunden. [Quellen, Prüfungen und Grenzen](BIOLOGIE_KOHLENSTOFF_BILANZ.md). Vollständiger Fach- und Lehrplanabgleich bleiben offen.
+
+## 21.09.2026 – Genetik: Vererbung, Variation und begründete Bewertung
+
+`bio_4_genetik_gentechnik`, Revision 2: DNA/Gen/Allel/Chromosom, Weitergabe von Erbanlagen, Genotyp/Phänotyp, Mutation und Neukombination, Umwelteinflüsse, PKU als Beispiel eines genetischen Krankheitsmechanismus sowie Analyse und gentechnische Veränderung. Die neue Werkstatt verbindet neun Elternkombinationen mit drei alternativen Merkmalsregeln. Zwölf konkrete Aufgaben, 16 Begriffe, elf bewertete Fragen und vier Vergleichslösungen. Ein erfundener Wiener Pflanzenvergleich und ein Anwendungsfall verlangen Dateninterpretation, Untersuchungsplanung und begründete Positionen. [Quellen und Prüfungen](BIOLOGIE_GENETIK_KREUZUNGEN.md). Vollständiger Fach- und Lehrplanabgleich bleiben offen.

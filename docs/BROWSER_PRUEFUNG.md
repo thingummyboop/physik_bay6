@@ -319,3 +319,11 @@ Browserbericht 08:18:43 UTC: zwölf native Rechenvergleiche, 36 Zustands-/Layout
 ## 21.09.2026 – Stadtökologie: Schulhof und Wasserrückhalt
 
 Browserbericht 08:41:21 UTC: 18 native Wasserbilanzen, 36 Zustands-/Layoutkombinationen und 30 Quizantwortwege bestanden; keine Browserfehler. Tastatur, Fokus, Rücksetzen, Speicher sowie Tabellenzellen und SVG-Beschriftungen geprüft. Alle 14 mobilen Detailbilder gelesen; dunkle Werkstatt bei 360 Pixeln zusätzlich geprüft. Nach letzter Antwortänderung drei betroffene Wege um 08:45:42 UTC erneut bestanden. Finale 21 Druckseiten vollständig kontrolliert; nach Textkorrekturen geänderte Seiten 4, 12 und 15 erneut gelesen, Seiten 14 und 16 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_STADTOEKOLOGIE_SCHULHOF.md).
+
+## 21.09.2026 – Kohlenstoffbilanz: Vorrat und Änderung
+
+Finaler Browserbericht 09:08:59 UTC: 24 native Bilanzzustände, 36 Layoutfälle und 30 Quizantwortwege bestanden; keine Browserfehler. Tastatur, Fokus, Rücksetzen, unveränderter Speicher, Zellbegrenzungen und Diagrammschrift geprüft. Die Sichtprüfung entdeckte eine fast senkrecht umbrochene mobile Tabellenüberschrift. Nach gezielter Breitenkorrektur gesamte Kapitel-Browserprüfung erneut bestanden; ein zusätzlicher Prüfschritt erkennt zu schmale oder übermäßig hohe Überschriften. Alle 16 mobilen Detailbilder und 20 Druckseiten kontrolliert, Seiten 14/15 zusätzlich höher aufgelöst. Nach erneuter Ausgabe sind sämtliche Druckseiten im Rastervergleich unverändert. [Details und Grenzen](BIOLOGIE_KOHLENSTOFF_BILANZ.md).
+
+## 21.09.2026 – Genetik: Kombinationen und Merkmalsregeln
+
+Browserbericht 09:24:28 UTC: 27 native Zustände, 36 Layoutfälle und 33 bewertete Quizantwortwege bestanden; keine Browserfehler. Tastatur, Fokus, Rücksetzen, Speicher, Tabellenzellen, Überschriftenbreite und Diagrammbeschriftung geprüft. Drei Wege der zuletzt verbesserten punktfreien Zusatzübung um 09:25:55 UTC zusätzlich bestanden. Alle 14 mobilen Detailbilder und 21 Druckseiten kontrolliert. Finale Druckfassung 09:27:02 UTC: veränderte Seiten 1–5 erneut gelesen, übrige Seiten im Rastervergleich unverändert; Seiten 13, 15 und 16 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_GENETIK_KREUZUNGEN.md).
