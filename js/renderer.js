@@ -1552,6 +1552,21 @@ async function renderTopic() {
             checkAnsweredStatus();
         }
 
+        // Fragment targets are created asynchronously, after the browser's initial anchor lookup.
+        const restoreLearningAnchor = () => {
+            const hash = window.location.hash;
+            if (!/^#(?:learning-section-\d+|chapter-summary)$/.test(hash)) return;
+            const afterLayout = window.requestAnimationFrame || (callback => setTimeout(callback, 0));
+            afterLayout(() => {
+                if (window.location.hash !== hash) return;
+                const target = document.getElementById(hash.slice(1));
+                if (!target || !container.contains(target) || target.hidden) return;
+                target.setAttribute('tabindex', '-1');
+                target.focus({ preventScroll: true });
+                target.scrollIntoView?.({ behavior: 'auto', block: 'start' });
+            });
+        };
+
         // Load optional topic script
         if (topic.script !== false) {
             const script = document.createElement('script');
@@ -1565,8 +1580,12 @@ async function renderTopic() {
                         console.error(`Error in topicInit for ${topicId}:`, e);
                     }
                 }
+                restoreLearningAnchor();
             };
+            script.onerror = restoreLearningAnchor;
             document.body.appendChild(script);
+        } else {
+            restoreLearningAnchor();
         }
 
     } catch (e) {
