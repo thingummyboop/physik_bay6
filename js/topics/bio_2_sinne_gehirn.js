@@ -2,15 +2,18 @@
 function topicInit(){
  document.querySelectorAll('[data-contrast-lab]').forEach(zone=>{
   if(zone.dataset.initialized)return;zone.dataset.initialized='true';
-  const toggle=zone.querySelector('[data-contrast-toggle]'),status=zone.querySelector('[data-contrast-status]');let equal=false;
-  toggle.addEventListener('click',()=>{
-   equal=!equal;
-   zone.querySelector('[data-contrast-background="left"]').setAttribute('fill',equal?'#bbbbbb':'#222222');
-   zone.querySelector('[data-contrast-background="right"]').setAttribute('fill',equal?'#bbbbbb':'#eeeeee');
-   toggle.setAttribute('aria-pressed',String(equal));toggle.textContent=equal?'Unterschiedliche Hintergründe zeigen':'Hintergründe angleichen';
-   zone.querySelector('svg').setAttribute('aria-label',equal?'Zwei gleich graue innere Quadrate vor gleichen Hintergründen.':'Zwei gleich graue innere Quadrate vor einem dunklen und einem hellen Hintergrund.');
-   status.textContent=equal?'Die Hintergründe sind jetzt gleich. Die inneren Quadrate wurden nicht verändert: Beide haben weiterhin denselben Grauwert.':'Die Hintergründe sind wieder verschieden. Die inneren Quadrate behalten denselben Grauwert. Vergleiche, ob sich dein Eindruck verändert.';
-  });
+  const status=zone.querySelector('[data-contrast-status]'),buttons=[...zone.querySelectorAll('[data-contrast-mode]')];
+  const modes={original:{left:'#222222',right:'#eeeeee',description:'A: links dunkler Hintergrund, rechts heller Hintergrund'},swapped:{left:'#eeeeee',right:'#222222',description:'B: links heller Hintergrund, rechts dunkler Hintergrund'},equal:{left:'#bbbbbb',right:'#bbbbbb',description:'C: beide Hintergründe gleich'}};
+  const show=mode=>{
+   const setting=modes[mode];
+   zone.querySelector('[data-contrast-background="left"]').setAttribute('fill',setting.left);
+   zone.querySelector('[data-contrast-background="right"]').setAttribute('fill',setting.right);
+   buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.contrastMode===mode)));
+   zone.querySelector('svg').setAttribute('aria-label',`Darstellung ${setting.description}. Die beiden inneren Quadrate behalten denselben vorgegebenen Grauwert.`);
+   status.textContent=`Darstellung ${setting.description}. Grauwert, Größe und Position der inneren Quadrate wurden nicht verändert. Notiere deinen Eindruck.`;
+  };
+  buttons.forEach(button=>button.addEventListener('click',()=>show(button.dataset.contrastMode)));
+  zone.querySelector('[data-contrast-reset]').addEventListener('click',()=>{show('original');buttons[0].focus();});
  });
 }
 window.topicInit=topicInit;

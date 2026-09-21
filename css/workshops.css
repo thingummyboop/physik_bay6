@@ -131,7 +131,14 @@
 [data-invertebrate-key] button{min-height:44px;padding:8px 12px;font:inherit}
 
 [data-contrast-lab] svg{display:block;width:100%;max-width:600px;height:auto;margin:16px auto}
-[data-contrast-lab] button{min-height:44px;padding:8px 12px;font:inherit}
+[data-contrast-lab] button{min-height:44px;height:auto;max-width:100%;padding:10px 12px;margin:6px 0;font:inherit;white-space:normal;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px}
+[data-contrast-lab] button[aria-pressed="true"]{border:3px solid var(--primary);font-weight:700;text-decoration:underline}
+[data-contrast-lab] button:hover{transform:none}[data-contrast-lab] summary{min-height:44px;padding:10px 0;cursor:pointer}
+.senses-controls{display:flex;flex-wrap:wrap;gap:8px}
+.senses-pathway{max-width:520px;margin:18px auto}.senses-pathway svg{display:block;width:100%;height:auto}.senses-pathway figcaption{font-size:.95rem;line-height:1.6;margin:10px 0}
+.senses-material{padding:16px;margin:18px 0;border:1px solid var(--box-border);border-radius:10px;background:var(--card-bg)}.senses-material h3{margin-top:0}
+.senses-data,.senses-protocol{width:100%;table-layout:fixed;border-collapse:collapse}.senses-data :is(th,td),.senses-protocol :is(th,td){padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere;vertical-align:top}.senses-protocol td{height:50px}
+@media screen and (max-width:600px){:is(.senses-data,.senses-protocol),:is(.senses-data,.senses-protocol) :is(tbody,tr,th,td){display:block;width:auto}:is(.senses-data,.senses-protocol) thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}:is(.senses-data,.senses-protocol) tr{margin:12px 0;border:1px solid var(--box-border);border-radius:8px;overflow:hidden}:is(.senses-data,.senses-protocol) th[scope="row"]{background:var(--card-bg);border:0;padding:12px}:is(.senses-data,.senses-protocol) td{border:0;border-top:1px solid var(--box-border);padding:12px;overflow-wrap:normal;height:auto}:is(.senses-data,.senses-protocol) td::before{content:attr(data-label) ": ";font-weight:700}}
 [data-contrast-lab] :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 [data-cladogram-rotation] svg { display: block; width: 100%; max-width: 680px; height: auto; }
 [data-cladogram-rotation] .tree-controls { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -395,3 +402,16 @@
 .forest-sampling button{margin:10px 8px 0 0}.forest-sampling button:hover{transform:none}
 .forest-sampling table{width:100%;min-width:0;table-layout:fixed}
 .forest-protocol th{width:48%}.forest-protocol td{height:48px}
+.invertebrate-profile{margin:18px 0}.invertebrate-profile svg{display:block;width:100%;max-width:560px;height:auto;margin:12px auto}.invertebrate-profile figcaption{font-size:.95rem;line-height:1.6}
+[data-invertebrate-key] label{display:block;font-weight:700;color:var(--text);margin:14px 0}
+[data-invertebrate-key] select{display:block;width:100%;max-width:100%;font:inherit;min-height:44px;margin-top:6px;padding:8px}
+[data-invertebrate-key] button{font:inherit;min-height:44px;height:auto;max-width:100%;white-space:normal;padding:10px}
+[data-invertebrate-key] li{margin-bottom:12px}
+.invertebrate-data,.invertebrate-paper-table{width:100%;table-layout:fixed;border-collapse:collapse}.invertebrate-data th,.invertebrate-data td,.invertebrate-paper-table th,.invertebrate-paper-table td{padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere}
+.movement-pathway{max-width:540px;margin:18px auto}.movement-pathway svg{display:block;width:100%;height:auto}.movement-pathway figcaption{font-size:.95rem;line-height:1.6;margin:10px 0}
+.movement-material{padding:16px;margin:18px 0;border:1px solid var(--box-border);border-radius:10px;background:var(--card-bg)}.movement-material :is(h3,h4){margin-top:0}
+[data-movement-lab] label{color:var(--text)}[data-movement-lab] select{display:block;width:100%;max-width:100%;min-height:44px;font:inherit;padding:8px;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px}
+[data-movement-lab] fieldset{min-width:0;padding:12px;border:1px solid var(--box-border)}[data-movement-lab] fieldset label{display:flex;align-items:center;gap:10px;min-height:44px;margin:10px 0}[data-movement-lab] input[type=radio]{width:20px;height:20px;flex-shrink:0}
+[data-movement-lab] button{min-height:44px;height:auto;max-width:100%;padding:10px 12px;margin:6px 0;font:inherit;white-space:normal;color:var(--text);background:var(--card-bg);border:2px solid var(--box-border);border-radius:6px}[data-movement-lab] button:hover{transform:none}[data-movement-lab] :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.movement-data,.movement-plan{width:100%;table-layout:fixed;border-collapse:collapse}.movement-data :is(th,td),.movement-plan :is(th,td){padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere;vertical-align:top}.movement-plan td{height:50px}
+@media screen and (max-width:600px){:is(.movement-data,.movement-plan),:is(.movement-data,.movement-plan) :is(tbody,tr,th,td){display:block;width:auto}:is(.movement-data,.movement-plan) thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}:is(.movement-data,.movement-plan) tr{margin:12px 0;border:1px solid var(--box-border);border-radius:8px;overflow:hidden}:is(.movement-data,.movement-plan) th[scope="row"]{background:var(--card-bg);border:0;padding:12px}:is(.movement-data,.movement-plan) td{border:0;border-top:1px solid var(--box-border);padding:12px;overflow-wrap:normal;height:auto}:is(.movement-data,.movement-plan) td::before{content:attr(data-label) ": ";font-weight:700}}

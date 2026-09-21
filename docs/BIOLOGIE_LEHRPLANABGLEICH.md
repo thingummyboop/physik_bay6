@@ -176,3 +176,11 @@ Aktuelle RIS-Kompetenzbeschreibungen und Anwendungsbereich für die 2. Klasse un
 ## Mikroorganismen: Beziehungen und Übertragungswege (16.09.2026)
 
 `bio_2_mikroorganismen`, Revision 2: 15 konkrete Aufgaben zu Zellaufbau, Symbiose/Parasitismus, Grenzen von Mikrobiomdaten, Infektionswegen, Hygiene sowie Fermentation/Konservierung. Neue Küchenwerkstatt mit Handlungsvorhersagen und expliziten Modellgrenzen; W/E/S über Begriffe, Vergleiche, Planung und begründete Entscheidungen verknüpft. Zwölf bewertete Fragen, eine punktfreie Übung, fünf Vergleichslösungen. Keine praktische Mikroorganismenzucht durchgeführt. [Quellen, Umsetzung und Prüfung](BIOLOGIE_MIKROORGANISMEN.md).
+
+## Wirbellose Landtiere: Merkmale und Untersuchung (16.09.2026)
+
+`bio_2_wirbellose`, Revision 2: 15 konkrete Aufgaben zu Tiergruppen und erwachsenem Insektenbauplan, Grenzen bei Larven, Daten mit zwei gleichzeitig veränderten Bedingungen, ökologischen Rollen und schonender Beobachtung. W: Struktur-/Funktionsvergleich; E: Merkmalsauswahl, Daten und Vergleichsplanung; S: begründete Entscheidungen bei Unsicherheit und im Schulgarten. Anwendungsbereich der 2. Klasse im bereits am selben Tag gespeicherten RIS-Text erneut gelesen; zusätzlicher Web-Abruf fehlgeschlagen. Keine praktische Tieruntersuchung oder vollständige Fachabnahme behauptet. [Inhalte, Quellen und Prüfungen](BIOLOGIE_WIRBELLOSE_BESTIMMEN.md).
+
+## Sinne, Gehirn und Wahrnehmung (Umsetzung 16.09., Prüfung abgeschlossen 21.09.2026)
+
+`bio_2_sinne_gehirn`, Revision 2: Reizaufnahme/Verarbeitung anhand einer Straßenbahnglocke, Licht- und Signalweg, Schallübertragung/Gleichgewicht, erfundene Geschmacksdaten sowie kontrollierter Grauflächenvergleich. 15 konkrete Aufgaben verbinden W/E/S; persönlicher Seheindruck wird nicht bewertet. Papieralternative mit drei Vergleichsbildern und Protokoll. Gespeicherten RIS-Anwendungsbereich der 2. Klasse zur Rolle der Sinnesorgane und des Gehirns erneut gelesen; keine erneute Online-Gesamtprüfung am 21.09. [Quellen und Nachweise](BIOLOGIE_SINNE_WAHRNEHMUNG.md). Vollständige Fachabnahme bleibt offen.

@@ -263,3 +263,11 @@ Chromium 151.0.7922.34, Bericht 2026-09-16T16:09:30.641Z: 18 Kombinationen aus d
 ## Mikroorganismen und Küchenwerkstatt (16.09.2026)
 
 `browser_microbe_kitchen.js`: Bericht 2026-09-16T16:43:53.869Z, Chromium 151.0.7922.34. Alle 40 Modellübergänge, 48 Kombinationen aus acht Zuständen/drei Breiten/zwei Designs und 36 native Quizantwortwege bestanden; Tastatur/Reset/Fokus/Speicher ohne Befund. Nach Sichtprüfung mobile Vergleichskarten ergänzt und sechs Layoutkombinationen einschließlich geöffneter Regeln erneut geprüft (16:45:24.344Z). Finale 22 Druckseiten vollständig angesehen. [Nachweise und Grenzen](BIOLOGIE_MIKROORGANISMEN.md).
+
+## 16.09.2026 – Wirbellose: Filter, Quiz und Papieraufgaben
+
+`browser_invertebrate_key.js`, Bericht 17:03:57.981Z, Chromium 151.0.7922.34: alle 45 Filterkombinationen, 24 Layoutzustände (vier Fälle × drei Breiten × zwei Designs), Tastatur/Fokus/Reset und unveränderter Werkstattspeicher; 36 native Quizantwortwege. Keine Seitenfehler oder äußeren Überläufe. Mobile Filter-, Daten- und Diagrammansichten tatsächlich angesehen. Alle 20 Druckseiten gelesen, Glossarumbruch korrigiert; finaler Export 17:05:28.904Z mit zwei erneut gelesenen und 18 per SHA-256 unveränderten Seiten. Seite 14 zusätzlich höher aufgelöst geprüft. [Nachweise und Grenzen](BIOLOGIE_WIRBELLOSE_BESTIMMEN.md). Kein neuer Gesamtsuitenlauf.
+
+## Sinne und Wahrnehmung – abgeschlossen am 21.09.2026
+
+Browserbericht vom 16.09.2026, 17:16:05.948Z: zwölf native Grauflächenübergänge, 18 Layoutzustände, Tastatur/Fokus/Reset/Speicher sowie 36 Quizantwortwege bestanden. Nach mobiler Tabellenkorrektur sechs finale Layoutvarianten mit offener Erklärung am 16.09., 17:16:53.426Z geprüft. Keine Seitenfehler oder äußeren Überläufe. Die Sichtprüfung der finalen 21 Druckseiten wurde am 21.09. vervollständigt; Seiten 16 und 20 zusätzlich höher aufgelöst gelesen. Kein neuer Gesamtsuitenlauf oder erneut behaupteter Quellenabruf. [Details und Grenzen](BIOLOGIE_SINNE_WAHRNEHMUNG.md).
