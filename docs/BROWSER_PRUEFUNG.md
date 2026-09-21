@@ -295,3 +295,11 @@ Chromium 151.0.7922.34, Bericht 06:27:46 UTC: 30 native Werkstattentscheidungen,
 ## 21.09.2026 – Ausscheidungsmodell und Druckmaterial
 
 Chromium 151.0.7922.34, Bericht 06:46:18 UTC: sechs Modellzustände bei drei Breiten und zwei Farbschemata, insgesamt 36 Layoutfälle. Native Auswahl über Pfeiltasten, Tab und Enter sowie Rücksetzen, Fokus und unveränderter Speicher geprüft; 30 Quizantwortwege bestanden, keine Browserfehler. Alle 14 mobilen Detailbilder und 19 Druckseiten tatsächlich gelesen, zwei Druckseiten zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_AUSSCHEIDUNG_MODELL.md).
+
+## 21.09.2026 – Geologie: Abschluss der Kapitelprüfung
+
+25 Zustand-/Prozessentscheidungen, 42 Browserzustände und 30 Quizantwortwege bestanden; sechs finale Langverlauf-Layouts zusätzlich geprüft. Mobile Detailbilder und finale 22-seitige Druckfassung vollständig kontrolliert, geänderte Seiten erneut gelesen. [Umfang, Zeitpunkte und Grenzen](BIOLOGIE_GEOLOGIE_GESTEINSWEGE.md).
+
+## 21.09.2026 – Boden: Vergleichswerkstatt
+
+32 native Vergleiche, 30 Zustands-/Layoutkombinationen bei drei Breiten und beiden Farbschemata sowie alle 30 Quizantwortwege bestanden. Tastatur, Fokus, Rücksetzen, Speicher und Entfernen alter Ergebnisse geprüft. Alle 18 mobilen Detailbilder, zusätzlich das dunkle Stoffwegschema bei 320 Pixeln, und sämtliche 20 Druckseiten gelesen. [Nachweise und Grenzen](BIOLOGIE_BODEN_VERGLEICHE.md).

@@ -208,3 +208,11 @@ Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung
 ## 21.09.2026 – Ausscheidung und Gesundheit
 
 `bio_3_ausscheidung_gesundheit`, Revision 2: Blut- und Harnweg, Ausscheidungsorgane sowie Filtration, Rückresorption und Sekretion getrennt ausgearbeitet. Zwölf konkrete Arbeitsaufträge, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Eine bewusst vereinfachte Rechenwerkstatt verbindet Mengenbilanz mit Konzentrationsvergleich. Wiener Schulalltagsfälle behandeln Wasserzugang, Privatsphäre und passende Hilfe. [Quellen und Kapitelprüfung](BIOLOGIE_AUSSCHEIDUNG_MODELL.md). Vollständiger Fach- und Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Geologie: Wege und Lebensräume
+
+`bio_3_geologie_lebensraeume`, Revision 2: mehrere Gesteinswege, vier Plattenskizzen, Wienerwald-Standorte, kontrollierte Bodenmessungen und Rohstoffentscheidungen. Zwölf direkte Aufgaben, zehn bewertete Fragen, 16 Begriffe und vier Lösungen. [Quellen und Prüfungen](BIOLOGIE_GEOLOGIE_GESTEINSWEGE.md). Der vollständige Fachabgleich bleibt offen.
+
+## 21.09.2026 – Boden, Mikroorganismen und Pflanzen
+
+`bio_3_boden_mikroorganismen`, Revision 2: Bodenprofil, Rollen von Bodenlebewesen, Stoffwege, Wurzelatmung und getrennte Belastungen durch Verdichtung/Versiegelung. Vergleichswerkstatt mit 32 Auswahlkombinationen und ausdrücklich erfundenen Laubdaten; zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Wiener Schwammstadt-Bezug und fiktive Schulhofplanung mit Nutzungsbedingungen. [Quellen und Kapitelprüfung](BIOLOGIE_BODEN_VERGLEICHE.md). Der vollständige Lehrplanabgleich bleibt offen.
