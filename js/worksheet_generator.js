@@ -360,7 +360,7 @@ function generateWorksheetContent(topicId, topicTitle) {
         function add(kind,a,b,c,d,prompt,value,reason){const i=tasks.length+1;tasks.push('<div class="exercise-item" data-relative-generated="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'" data-d="'+d+'"><strong>A'+i+'.</strong> '+prompt+' '+blank(100)+'</div>');solutions.push('<p data-relative-answer="'+value+'"><strong>A'+i+'.</strong> '+reason+'</p>');}
         for(let i=0;i<3;i++){const total=[10,20,25,40][rand(0,3)],count=rand(0,total),percent=count/total*100;add('share',count,total,0,0,count+' von '+total+' gültigen Antworten nennen die Bibliothek. Gib Bruch und Prozentanteil an.',percent,count+'/'+total+' = '+fmt(percent)+' %. Der Nenner sind alle '+total+' gültigen Antworten.');}
         for(let i=0;i<3;i++){const count=rand(0,20),angle=count*18,length=count/2;add('diagram',count,20,10,0,count+' von 20 Stimmen gehören zu A. Berechne den Kreiswinkel und die Länge im 10-cm-Prozentstreifen.',angle+';'+length,count+'/20 · 360° = '+angle+'°; '+count+'/20 · 10 cm = '+fmt(length)+' cm.');}
-        for(let i=0;i<3;i++){const a=rand(0,12),b=rand(0,8),percent=(a+b)*5;add('pooled',a,12,b,8,'A: '+a+' Bibliotheksstimmen bei 12 Antworten. B: '+b+' bei 8 Antworten. Bestimme den Bibliotheksanteil insgesamt.',percent,'('+a+' + '+b+') / (12 + 8) = '+(a+b)+'/20 = '+percent+' %. Die Anzahlen werden addiert, nicht die Prozentwerte ungewichtet gemittelt.');}
+        for(let i=0;i<3;i++){const a=rand(0,12),b=rand(0,8),percent=(a+b)*5;add('pooled',a,12,b,8,'A: '+a+' '+(a===1?'Bibliotheksstimme':'Bibliotheksstimmen')+' bei 12 Antworten. B: '+b+' bei 8 Antworten. Bestimme den Bibliotheksanteil insgesamt.',percent,'('+a+' + '+b+') / (12 + 8) = '+(a+b)+'/20 = '+percent+' %. Die Anzahlen werden addiert, nicht die Prozentwerte ungewichtet gemittelt.');}
         for(let i=0;i<3;i++){const old=[0,10,20,25,40,50][rand(0,5)],next=[10,30,50,60,75,100][rand(0,5)],points=next-old,change=old?(next-old)/old*100:null;add('change',old,next,0,0,'Ein Anteil ändert sich von '+old+' % auf '+next+' %. Gib die Änderung in Prozentpunkten und, falls möglich, relativ zum alten Anteil an.',points+';'+(change===null?'undefined':change),next+' − '+old+' = '+points+' Prozentpunkte. '+(change===null?'Die relative Änderung gegenüber 0 % ist nicht definiert.':'Relative Änderung: ('+next+' − '+old+') / '+old+' · 100 = '+fmt(change)+' %.'));}
         html+='<h2>Zusatzaufgaben: Häufigkeiten und Darstellungen</h2>'+tasks.join('')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
@@ -681,18 +681,13 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += '</div><template data-generated-worksheet-solutions>' + generatedSolutions + '</template>';
     }
     else if (topicId === 'math2_7_geometrie') {
-        html += '<h2>1. Flächeninhalt (Dreieck & Parallelogramm)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
-        for(let i=0; i<5; i++) {
-            const g = rand(4, 20);
-            const h = rand(3, 15);
-            html += '<div><strong>Dreieck:</strong> g = ' + g + ' cm, h = ' + h + ' cm<br><br>A = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> cm²</div>';
-        }
-        for(let i=0; i<5; i++) {
-            const a = rand(4, 20);
-            const h = rand(3, 15);
-            html += '<div><strong>Parallelogramm:</strong> a = ' + a + ' cm, h = ' + h + ' cm<br><br>A = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span> cm²</div>';
-        }
-        html += '</div>';
+        const tasks=[],solutions=[],fmt=n=>n.toLocaleString('de-AT');
+        function add(kind,a,b,c,prompt,value,reason){const n=tasks.length+1;tasks.push('<div data-quad-generated="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'"><strong>A'+n+'.</strong> '+prompt+' '+blank(100)+'</div>');solutions.push('<p data-quad-answer="'+value+'"><strong>A'+n+'.</strong> '+reason+'</p>');}
+        for(const kind of ['triangle','parallelogram'])for(let i=0;i<2;i++){const a=rand(4,20),h=rand(3,15),area=a*h/(kind==='triangle'?2:1);add(kind,a,h,0,(kind==='triangle'?'Dreieck':'Parallelogramm')+': Grundseite '+a+' cm, senkrechte Höhe '+h+' cm. Berechne die Fläche.',area,a+' · '+h+(kind==='triangle'?' / 2':'')+' = '+fmt(area)+' cm².');}
+        for(let i=0;i<3;i++){const a=rand(5,12),c=rand(2,a),h=rand(2,8),area=(a+c)*h/2;add('trapezoid',a,c,h,'Trapez: parallele Seiten '+a+' cm und '+c+' cm, senkrechte Höhe '+h+' cm. Berechne die Fläche und begründe das Halbieren.',area,'('+a+' + '+c+') · '+h+' / 2 = '+fmt(area)+' cm². Zwei kongruente Trapeze bilden ein Parallelogramm mit Grundseite '+(a+c)+' cm.');}
+        for(let i=0;i<3;i++){const e=rand(4,10),f=rand(2,8),u=rand(1,e-1),area=e*f/2;add('kite',e,f,u,'Konvexes Deltoid: AC = '+e+' cm, BD = '+f+' cm, AO = '+u+' cm. AC halbiert BD senkrecht. Berechne OC, beide Dreiecksflächen und die Gesamtfläche.',area,'OC = '+(e-u)+' cm. Teilflächen: '+fmt(f*u/2)+' cm² und '+fmt(f*(e-u)/2)+' cm²; zusammen '+fmt(area)+' cm² = '+e+' · '+f+' / 2.');}
+        for(let i=0;i<2;i++){const e=(i===0?rand(2,3):rand(4,5))*2,f=rand(2,4)*2;add('rhombus',e,f,0,'Konstruiere eine Raute mit Diagonalen '+e+' cm und '+f+' cm. Beschreibe ihre Lage zueinander und berechne die Fläche.',e*f/2,'Zeichne AC = '+e+' cm. Errichte in seinem Mittelpunkt die Senkrechte und trage darauf nach beiden Seiten '+f/2+' cm ab. Verbinde die vier Endpunkte der Reihe nach. Beide Diagonalen halbieren einander senkrecht. A = '+e+' · '+f+' / 2 = '+fmt(e*f/2)+' cm².'+(e===f?' Die Raute ist hier zugleich ein Quadrat.':''));}
+        html+='<h2>Zusatzaufgaben: Konstruieren und Flächen begründen</h2>'+tasks.join('')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math2_8_statistik') {
         html += '<h2>1. Mittelwert (Durchschnitt) berechnen</h2><div style="font-size: 1.2em; line-height: 2;">';

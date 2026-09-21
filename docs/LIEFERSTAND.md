@@ -1,8 +1,26 @@
 # Lieferstand und nächste Prioritäten
 
-Stand: 21.09.2026. Dieser auf Wunsch gesicherte GitHub-Zwischenstand baut auf `3e00d29` auf und enthält die abgeschlossenen Zahlbereichs-Nacharbeiten, Proportionalitätsdarstellungen und Prozentänderungen sowie die laufende Erweiterung der relativen Häufigkeiten. Eine Veröffentlichung dieses Zwischenstands auf Pages ist hier nicht bestätigt. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien; Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB. Die nachfolgenden älteren Einträge beschreiben ihren damaligen Prüf- und Veröffentlichungsstand.
+Stand: 21.09.2026. Dieser auf Wunsch gesicherte GitHub-Zwischenstand baut auf `3da37d2` auf und enthält die abschließenden Nacharbeiten zu relativen Häufigkeiten, Viereckskonstruktionen und Flächen sowie die laufende Erweiterung der Geometrie-Praxis. Eine Veröffentlichung dieses Zwischenstands auf Pages ist hier nicht bestätigt. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien; Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB. Die nachfolgenden älteren Einträge beschreiben ihren damaligen Prüf- und Veröffentlichungsstand.
 
-## GitHub-Zwischenstand: relative Häufigkeiten – 21.09.2026
+## GitHub-Zwischenstand: laufende Geometrie-Praxis – 21.09.2026
+
+Das Geometriekapitel umfasst inzwischen neun Abschnitte, 40 bewertete Fragen und jeweils 14 Lernziele und Zusammenfassungspunkte (Revision 9). Ergänzt wurden eigene Koordinaten- und Symmetrie-Werkstätten sowie Zeichen-, Konstruktions- und Begründungsaufgaben mit Papieralternativen und Lösungen. Die zuvor geprüften Viereckskonstruktionen und die Nacharbeiten zu relativen Häufigkeiten sind ebenfalls enthalten.
+
+Vor dem Sichern bestanden die JavaScript-Syntaxprüfungen und die Materialprüfung für 96 STEM-Arbeitsblätter. Die Vierecksprüfung stoppt aktuell an ihrer veralteten Erwartung von 32 statt 40 Kapitelaufgaben. Die zugehörigen Testdaten, Kapitelinventar und Audit müssen noch auf den erweiterten Umfang gebracht werden. Gestaltung, vollständige Funktionsprüfung und Browser-/Drucksichtprüfung der neuen Koordinaten- und Symmetrie-Werkstätten sind noch offen. Frühere Prüfergebnisse unten beziehen sich jeweils auf den damaligen Umfang. Dieser Zwischenstand ist keine vollständige Produktabnahme.
+
+## Aktuelle Ergänzung: Viereckskonstruktionen und Flächen – 21.09.2026
+
+Der vorige Zielturn war Fortschritt: relative Häufigkeiten abschließend geprüft und die konkreten Geometrie-Restlücken zugeordnet. Danach zwei Abschnitte für Trapez-/Deltoidkonstruktionen und begründete Flächenformeln ergänzt. Das Kapitel hat nun neun Abschnitte und 32 bewertete Fragen. 42 Konstruktionszustände, 45 Flächenmodelle und alle 96 Antwortwege bestehen; der native Browserlauf umfasst 546 neue Ansichten. Alle 39 Druckseiten gelesen, darunter acht statische Zeichnungen. Ein ungünstiger Absatzumbruch und identische zufällige Rautenaufgaben wurden korrigiert; sechs geänderte Druckseiten erneut geprüft. [Vollständiger Kapitelstand](MATHEMATIK_VIERECKSKONSTRUKTIONEN.md).
+
+Bestehende Zweitklass-/Prisma-/Lernweg-/Suchprüfungen bestehen; 96 STEM-Arbeitsblätter nach den letzten Änderungen erneut geprüft. Inventar 198 Kapitel, Prioritätsaudit 1879 Frageninstanzen ohne Strukturfehler. Eigene Koordinaten-, Symmetrie-, Kongruenz- und Anwendungsaufträge sowie weitere Fach-/Produktanforderungen bleiben offen. Neue Änderungen lokal nach `3da37d2`, kein erneuter Push.
+
+## Vorherige Nacharbeit: relative Häufigkeiten und Geometrie-Abgleich – 21.09.2026
+
+Der vorherige Zielturn war Fortschritt: Der gewünschte GitHub-Zwischenstand `3da37d2` wurde gepusht und seine Übereinstimmung mit origin/main bestätigt. Danach die mobile Vergleichstabelle und Beobachtungsansicht sichtbar geprüft sowie die restlichen Druckseiten gelesen. Anteil-/Winkelschreibweise, Tabellenverweis und Singular im Aufgabengenerator korrigiert. Alle 28 endgültigen Druckseiten sind geprüft; 23 Rasterseiten blieben gleich, fünf geänderte Seiten wurden erneut gelesen. Relative-Häufigkeiten-Prüfung und 96 STEM-Arbeitsblätter bestehen nach den Korrekturen. Inventar: 198 Kapitel, Prioritätsaudit: 1873 Frageninstanzen ohne Strukturfehler. [Umfang und Grenzen](MATHEMATIK_RELATIVE_HAEUFIGKEITEN.md).
+
+Den Geometrie-Bereich der zweiten Klasse vollständig gegen seine verpflichtenden und optionalen Präzisierungen zugeordnet. [Konkrete Restlücken](MATHEMATIK_GEOMETRIE_KLASSE2.md): Trapez-/Deltoidkonstruktion, Flächenbegründung für Deltoid/Raute und weitere eigene Zeichen-/Symmetrieaufträge. Diese Lücken sind noch umzusetzen. Änderungen nach `3da37d2` bleiben lokal; kein erneuter Push, Gesamtziel weiterhin offen.
+
+## Historischer GitHub-Zwischenstand: relative Häufigkeiten – 21.09.2026
 
 Das Kapitel umfasst nun sieben Abschnitte mit 21 bewerteten Fragen, 21 direkten Aufgaben, vier Papieralternativen, vier statischen Grafiken, sieben Lösungsabschnitten und zwölf erzeugten Aufgaben mit Lösungen. Neue Werkstätten vergleichen Gruppen mit unterschiedlichen Gesamtzahlen und untersuchen sechs ausdrücklich vorgegebene Beobachtungsreihen. Der Unterschied zwischen relativer Häufigkeit und modellierter Wahrscheinlichkeit wird als Ausblick zur dritten Klasse erklärt.
 

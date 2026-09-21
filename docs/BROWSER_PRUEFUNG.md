@@ -411,3 +411,13 @@ Chromium 151.0.7922.34: 96 Zuordnungswege, 72 Halbierungen, alle 54 Quizantwortw
 ## Proportionalitätsdarstellungen und Prozentänderungen – 21.09.2026
 
 Chromium 151.0.7922.34: 37 Modellvorhersagen, alle 54 Abschnittsantwortwege und 558 responsive Ansichten ohne Seitenfehler. Tastatur, Regler, Enter, Neustart, Fokus und gezielte Wiederholung geprüft. Graphbeschriftungen und Auswahltexte nach Sichtbefund verbessert; mobile Formeltabelle und dunkle Kurvenfarbe in sechs finalen Ansichten nachgeprüft. Alle 22 Druckseiten gelesen; nach letzter Lösungsergänzung 17 Rasterseiten bytegleich, die fünf geänderten erneut gelesen. Zwölf finale Zusatzaufgaben mit Lösungen nachgerechnet. [Konkreter Umfang und Grenzen](MATHEMATIK_PROPORTIONEN_PROZENT.md). Änderungen lokal nach `3e00d29`.
+
+
+## 21.09.2026 – relative Häufigkeiten
+
+`browser_relative_frequencies.js` besteht für neun eingegebene Gruppenvergleiche, alle 63 Antwortwege und 996 Layoutfälle (320/390/1280 px, beide Farbschemata), einschließlich Tastatur, Fokus, Rückmeldungen, Lernstandsrevision und passender Wiederholung. Keine erfassten Browserfehler. Die abschließenden mobilen Vergleichs-/Beobachtungsansichten wurden gelesen. Nach reinen Textkorrekturen alle 28 Druckseiten anhand 23 bytegleicher und fünf erneut gelesener geänderter Rasterseiten geprüft; sämtliche zwölf endgültigen Zusatzaufgaben unabhängig nachgerechnet. [Vollständiger Kapitelnachweis und Grenzen](MATHEMATIK_RELATIVE_HAEUFIGKEITEN.md). Prüfartefakte: `../browser-qa/relative-frequencies/final/` und `checked/`. Keine neue gemeinsame Browserabnahme aller Kapitel oder Prüfung der veröffentlichten Pages-Fassung.
+
+
+## 21.09.2026 – Trapez-/Deltoidkonstruktionen und Vierecksflächen
+
+`browser_quadrilateral_constructions.js` besteht für alle 96 Kapitelantwortwege, Tastatur/Fokus und Wiederholung zur passenden Frage sowie 546 neue Grafikzustände bei 320/390/1280 px in beiden Farbschemata. Die mobilen Trapez-/Deltoid-/Flächenansichten wurden sichtbar gelesen. Die vollständige endgültige Druckfassung hat 39 gelesene Seiten und acht statische Zeichnungen; nach letzter Korrektur waren 33 Rasterseiten bytegleich, sechs wurden erneut gelesen. Alle zwölf endgültigen erzeugten Aufgaben unabhängig nachgerechnet. [Details und Aussagegrenzen](MATHEMATIK_VIERECKSKONSTRUKTIONEN.md). Dies ist keine neue vollständige Layoutprüfung aller älteren Modelle und keine Pages-Abnahme.

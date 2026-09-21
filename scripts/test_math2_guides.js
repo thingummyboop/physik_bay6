@@ -16,7 +16,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   assert.ok(!d.body.textContent.includes('{{QUIZ_'),id+' unresolved question');
   for(const p of topic.prerequisites)assert.ok(data[p],p);
   if(id==='math2_7_geometrie'){
-   assert.equal(w.currentChapterQuiz.questions.length,26);
+   assert.equal(w.currentChapterQuiz.questions.length,32);
    const workshop=d.querySelector('[data-language-workshop]');assert.ok(workshop);
    [...workshop.querySelectorAll('select')].forEach((select,i)=>select.value=topic.workshop.items[i].answer);
    [...workshop.querySelectorAll('button')].find(button=>button.textContent==='Zuordnung prüfen').click();assert.match(workshop.textContent,/3 von 3/);

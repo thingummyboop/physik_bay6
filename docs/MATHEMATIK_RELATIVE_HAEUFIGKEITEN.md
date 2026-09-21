@@ -1,0 +1,38 @@
+# Relative Häufigkeiten – Vergleichen, Darstellen und Deuten
+
+Stand 21.09.2026. `math2_9_relative_haeufigkeit`, zweite Klasse / sechste Schulstufe, Revision 2. Die Erweiterung ist im gewünschten Zwischenstand `3da37d2` enthalten; die hier beschriebenen abschließenden Sprach- und Druckkorrekturen erfolgten danach lokal. Keine vollständige Fach- oder Produktabnahme.
+
+## Grundlage und Umfang
+
+Die sechs bisherigen Abschnitte, zehn Fragen, die Gruppenwerkstatt sowie Kreis-, Streifen- und Baumdarstellung wurden gelesen. Die gespeicherte RIS-Fassung vom 16.09.2026 verlangt für die zweite Klasse relative Häufigkeiten, Darstellungswechsel zwischen Bruch, Dezimalzahl, Prozent, Tabelle und Diagrammen sowie zweistufige Situationen. Einfache Wahrscheinlichkeiten und empirische Schätzungen gehören zur dritten Klasse. Der neue letzte Abschnitt kennzeichnet diesen Übergang ausdrücklich als Ausblick und verlinkt das dortige Kapitel. Kein neuer Rechtsquellenabruf; [Quellenstand](LEHRPLAN_QUELLENSTAND.md).
+
+Sieben Abschnitte, sieben Lernziele und sieben Zusammenfassungspunkte; 21 bewertete Fragen mit je drei Antwortmöglichkeiten, 21 direkte Aufgaben, vier Papieralternativen, vier statische Grafiken und sieben zuschaltbare Vergleichslösungen. Die sechs bisherigen Abschnitts-IDs und zehn Frage-IDs bleiben erhalten. Die bestehende abschließende Gruppenwerkstatt bleibt nutzbar. Revision 1 ist kein aktueller Lernerfolgsnachweis für die Erweiterung.
+
+## Lerngelegenheiten
+
+- Bezugsgruppe und fehlende Antworten: 6 von 20 Personen gegenüber 6 von 18 gültigen Antworten; 0/15 gegenüber dem nicht definierten 0/0. Eigene anonyme Befragung mit genau einer Antwort, klaren Kategorien und gesonderten fehlenden Angaben.
+- Bruch, Dezimalzahl und Prozent vorwärts und rückwärts; Rundung dreier Drittel auf insgesamt 99,9 %. Mehrfachnennungen können zusammen mehr als 100 % der Personen ergeben und sind keine Zerlegung dieser Personen in einen Kreis.
+- Gruppenvergleich mit vier eigenen ganzen Anzahlen von 0 bis 200. Zwei Balkengrafiken zeigen dieselben Angaben als Anzahl und Anteil; beide beginnen bei null. Vergleiche verwenden die ungerundeten Brüche. Fehlende Daten erhalten keinen scheinbaren Null-Prozent-Balken. Die Tabelle nennt Anzahlen und Anteile und wird auf schmalen Handys als beschriftete Zeilen dargestellt.
+- Änderungen in Prozentpunkten gegenüber relativen Änderungen; bei Ausgangsanteil null bleibt die relative Änderung undefiniert. Freiwillige Befragungen belegen ohne zusätzliche Angaben weder eine individuelle Meinungsänderung noch eine Wirkung auf alle Wiener Schulen.
+- Die vorhandene Kreis-/Streifenwerkstatt zeigt alle 21 möglichen Bibliotheksanzahlen unter 20 Antworten. Kleine Segmente erhalten keine überlappenden Buchstaben; genaue Werte stehen in der Online-Tabelle. Die Erklärung verwendet den Anteil als Bruch oder Dezimalzahl für Winkel und Länge. Die Lösungen setzen Prozentangaben und Winkel nicht mehr mit einem Gleichheitszeichen gleich.
+- Der zweistufige Häufigkeitsbaum unterscheidet Anteile innerhalb einer Klasse, gemeinsame Zugehörigkeit unter allen Befragten und den gepoolten Gesamtanteil. Ungleich große Klassen dürfen nicht durch einen ungewichteten Mittelwert ihrer Prozentwerte zusammengefasst werden.
+- Sechs bewusst vorgegebene Beobachtungsreihen mit je 20 Münzergebnissen. Der Regler zeigt Präfix, Kopfanzahl, Anteil und Kurve. Die Reihen sind kein Zufallsgenerator. Eine gestrichelte Linie kennzeichnet 50 % als Modellannahme einer fairen, unabhängig geworfenen Münze. Weder abwechselnde Ergebnisse noch ein erzwungener Ausgleich oder eine bei jedem Wurf nähere Annäherung werden behauptet.
+- Zwölf erzeugte Papieraufgaben mit passenden Lösungen: drei Anteilsrechnungen, drei Winkel-/Streifenrechnungen, drei gepoolte Anteile und drei Änderungen. Alle zwölf konkreten Aufgaben der endgültig geprüften Druckfassung wurden unabhängig nachgerechnet. Die Aufgaben bleiben beim Ein-/Ausblenden von Material und Lösungen unverändert.
+
+## Prüfbelege
+
+`scripts/test_relative_frequencies.js`: 441 Gruppenvergleiche anhand unabhängiger Kreuzprodukte und Balkenlängen; 126 Präfixe anhand separat vorgegebener Ergebnisfolgen. Nullgruppen, Grenzen, ungültige Eingaben, Enter, Fokus, Neustart, Rückmeldungsbereinigung, erneute Initialisierung und unveränderter Speicher geprüft. Alle 63 Antwortwege gegen einen eigenen Lösungsschlüssel, Kapitelcheck mit 100/95 %, Revision und passende Wiederholungsfrage geprüft. Papierstruktur und 48 erzeugte Aufgabenfälle geprüft. Nach den abschließenden Text- und Generatoränderungen erneut bestanden.
+
+Bestehende Prüfungen für Kreis-/Streifengeometrie, Häufigkeitsbäume, Statistikgrundlagen, lokalisierte Quizbedienung, verweigerten Speicher und Zweitklasskapitel bestehen im dokumentierten Arbeitslauf. `test_stem_worksheet_material.js` nach den letzten Änderungen erneut bestanden: 96 Mathematik-/Chemie-/Biologie-Arbeitsblätter im dort erfassten Umfang. Inventar weiterhin 198 Kapitel; Prioritätsaudit 1873 Frageninstanzen ohne Strukturfehler. Kein neuer gemeinsamer Lauf aller Funktionssuiten.
+
+**Sprachtests:** Die fünf vorhandenen Übersetzungen tragen weiterhin ihren tatsächlichen alten Quellenstand. Die produktive Revision 2 verwendet dort den gekennzeichneten aktuellen deutschen Ersatzinhalt; der neue Test prüft diesen Ablauf für alle fünf Sprachen. `scripts/fixtures/relative_frequencies_v1.json` enthält die deutsche Vorgängerversion aus `3e00d29`. Zwei bestehende Tests verwenden sie ausdrücklich für historische übersetzte Diagramm-/Werkstattfälle. Deren Erfolg ist keine Abnahme aktueller Übersetzungen. Keine fremdsprachige Inhaltsdatei wurde geändert.
+
+`scripts/browser_relative_frequencies.js`, Chromium 151.0.7922.34: neun tatsächlich eingegebene Gruppenvergleiche, 63 über Tastatur ausgelöste Antwortwege und 996 Layoutfälle bei 320/390/1280 px in beiden Farbschemata. Kein horizontaler Überlauf; geprüfte Grafiktexte innerhalb ihrer Ansicht und mindestens 12 sichtbare Pixel groß, Eingaben/Schaltflächen mindestens 44 px hoch. Eingabefehler, Regler, Neustart, Fokus, unveränderter Speicher vor dem Quiz und Wiederholung zur passenden Frage geprüft. Keine erfassten Browserfehler. Dieser Lauf liegt vor den abschließenden reinen Sprachkorrekturen.
+
+Die endgültigen mobilen Vergleichs- und Beobachtungsansichten wurden gelesen; Kreis-/Streifen- und Baumansichten im vorangegangenen Prüfschritt. Alle 28 Druckseiten einschließlich Aufgaben und Lösungen gelesen. Nach den abschließenden Korrekturen blieben 23 Rasterseiten bytegleich zur zuvor geprüften Fassung; die fünf geänderten Seiten 5, 10 und 25–27 wurden erneut gelesen. Die letzte Generator-Korrektur verwendet bei einer einzelnen Stimme den Singular. Endgültige Druckdaten: A1 18/25 = 72 %, A2 2/10 = 20 %, A3 8/25 = 32 %; A4/A5 6/20 → 108° und 3 cm, A6 16/20 → 288° und 8 cm; A7 4/20 = 20 %, A8 11/20 = 55 %, A9 8/20 = 40 %; A10 +20 Prozentpunkte/+200 %, A11 +10/+25 %, A12 −15/−60 %. Aufgaben und Lösungspaare stimmen überein.
+
+Interne Prüfartefakte liegen außerhalb des Repositorys unter `../browser-qa/relative-frequencies/final/` (vollständiger Browserbericht und Ansichten) sowie `checked/` (abschließende Druckfassung und Aufgabenbericht). Die lokale Vorschauadresse in der Prüffassung ist keine veröffentlichte Unterrichtsadresse.
+
+## Grenzen
+
+Die Nachweise betreffen den beschriebenen Lernweg und die erfassten Zustände. Vollständige Screenreaderprüfung, Unterrichtserprobung und fachübergreifende Abnahme sind damit nicht bewiesen. Die übrigen Fach- und Produktanforderungen bleiben offen; Übersetzungen bleiben zurückgestellt. Nächste Mathematikarbeit: die im [Geometrie-Abgleich der zweiten Klasse](MATHEMATIK_GEOMETRIE_KLASSE2.md) konkret festgestellten Restlücken schließen.
