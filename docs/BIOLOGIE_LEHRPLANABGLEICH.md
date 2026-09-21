@@ -216,3 +216,11 @@ Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung
 ## 21.09.2026 – Boden, Mikroorganismen und Pflanzen
 
 `bio_3_boden_mikroorganismen`, Revision 2: Bodenprofil, Rollen von Bodenlebewesen, Stoffwege, Wurzelatmung und getrennte Belastungen durch Verdichtung/Versiegelung. Vergleichswerkstatt mit 32 Auswahlkombinationen und ausdrücklich erfundenen Laubdaten; zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Wiener Schwammstadt-Bezug und fiktive Schulhofplanung mit Nutzungsbedingungen. [Quellen und Kapitelprüfung](BIOLOGIE_BODEN_VERGLEICHE.md). Der vollständige Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Fossilien, Zeit und Fundkontext
+
+`bio_3_fossilien_erdgeschichte`, Revision 2: Körperreste/Spuren, Erhaltungswege und Lücken, ausgewählte Zeitanker sowie Schichten und Funddokumentation. Zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Die Werkstatt unterscheidet ursprüngliche Einbettung, Umlagerung und unbekannte Herkunft; der Wiener Museumsbezug ist ohne Besuch bearbeitbar. Alle 19 Druckseiten und mobilen Detailansichten geprüft. [Quellen, Nachweise und Grenzen](BIOLOGIE_FOSSILIEN_SCHICHTEN.md). Der vollständige Fach- und Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Kladogramme: Merkmale und begründete Verwandtschaft
+
+`bio_3_kladogramme`, Revision 2: Homologie/Analogie, Knoten und vollständige Kladen, drei Baumvorschläge sowie vier fiktive Merkmalsdatensätze. Die erhaltene Drehwerkstatt wird durch eine Datenwerkstatt ergänzt, die fehlende Information von widersprechenden Mustern unter einer ausdrücklich begrenzten Modellannahme trennt. Zwölf konkrete Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Eine erfundene Wiener Schulausstellung verbindet Datenauswertung mit verständlicher Darstellung. [Quellen und Prüfungen](BIOLOGIE_KLADOGRAMME_MERKMALE.md). Der vollständige Fach- und Lehrplanabgleich bleibt offen.

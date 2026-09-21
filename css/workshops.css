@@ -140,10 +140,44 @@
 .senses-data,.senses-protocol{width:100%;table-layout:fixed;border-collapse:collapse}.senses-data :is(th,td),.senses-protocol :is(th,td){padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere;vertical-align:top}.senses-protocol td{height:50px}
 @media screen and (max-width:600px){:is(.senses-data,.senses-protocol),:is(.senses-data,.senses-protocol) :is(tbody,tr,th,td){display:block;width:auto}:is(.senses-data,.senses-protocol) thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}:is(.senses-data,.senses-protocol) tr{margin:12px 0;border:1px solid var(--box-border);border-radius:8px;overflow:hidden}:is(.senses-data,.senses-protocol) th[scope="row"]{background:var(--card-bg);border:0;padding:12px}:is(.senses-data,.senses-protocol) td{border:0;border-top:1px solid var(--box-border);padding:12px;overflow-wrap:normal;height:auto}:is(.senses-data,.senses-protocol) td::before{content:attr(data-label) ": ";font-weight:700}}
 [data-contrast-lab] :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-[data-cladogram-rotation] svg { display: block; width: 100%; max-width: 680px; height: auto; }
+[data-cladogram-rotation] svg { display: block; width: 100%; max-width: 360px; height: auto; }
 [data-cladogram-rotation] .tree-controls { display: flex; flex-wrap: wrap; gap: 8px; }
 [data-cladogram-rotation] button { min-height: 44px; max-width: 100%; white-space: normal; }
 [data-cladogram-rotation] button:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.clad-models { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); gap:12px; }
+.farm-fields { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:12px; }
+.farm-card { margin:12px 0; padding:16px; border:1px solid var(--box-border,#bbc8c0); border-radius:12px; background:var(--card-bg,#fff); color:var(--text,#2d3748); }
+.farm-card svg { display:block; width:100%; max-width:340px; height:auto; margin:10px auto; }
+.farm-lab label { display:block; margin:16px 0; font-weight:600; }
+.farm-lab select { display:block; box-sizing:border-box; width:100%; min-height:44px; margin-top:6px; padding:8px; font:inherit; color:var(--text,#2d3748); background:var(--card-bg,#fff); }
+.farm-lab button { min-height:44px; max-width:100%; white-space:normal; margin:6px 0; }
+.farm-lab :is(button,select):focus-visible { outline:3px solid var(--primary,#1565c0); outline-offset:3px; }
+[data-farm-result] { overflow-wrap:anywhere; }
+[data-farm-result]:not(:empty) { margin-top:16px; border-top:1px solid currentColor; padding-top:8px; }
+@media screen and (max-width:600px) {
+    :is(.farm-system,.farm-methods,.farm-data,.farm-shopping) thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+    :is(.farm-system,.farm-methods,.farm-data,.farm-shopping), :is(.farm-system,.farm-methods,.farm-data,.farm-shopping) :is(tbody,tr,th,td) { display:block; width:auto; min-width:0; white-space:normal; overflow-wrap:anywhere; }
+    :is(.farm-system,.farm-methods,.farm-data,.farm-shopping) tr { margin:12px 0; border:1px solid var(--box-border,#bbc8c0); }
+    :is(.farm-system,.farm-methods,.farm-data,.farm-shopping) td::before { content:attr(data-label) ': '; font-weight:700; }
+}
+.clad-card { margin:0; padding:16px; border:1px solid var(--box-border,#bbc8c0); border-radius:12px; background:var(--card-bg,#fff); color:var(--text,#2d3748); }
+.clad-card svg { display:block; width:100%; max-width:320px; height:auto; margin:12px auto 0; }
+.clad-lab label { display:block; margin:16px 0; font-weight:600; }
+.clad-lab select { display:block; box-sizing:border-box; width:100%; min-height:44px; margin-top:6px; padding:8px; font:inherit; color:var(--text,#2d3748); background:var(--card-bg,#fff); }
+.clad-lab .tree-controls { display:flex; flex-wrap:wrap; gap:10px; }
+.clad-lab button { min-height:44px; max-width:100%; white-space:normal; }
+.clad-lab :is(button,select):focus-visible { outline:3px solid var(--primary,#1565c0); outline-offset:3px; }
+[data-clad-result] { overflow-wrap:anywhere; }
+[data-clad-result]:not(:empty) { margin-top:16px; border-top:1px solid currentColor; padding-top:8px; }
+@media screen and (max-width:600px) {
+    :is(.clad-examples,.clad-elements,.clad-cases,.clad-vertebrates) thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+    :is(.clad-examples,.clad-elements,.clad-cases,.clad-vertebrates), :is(.clad-examples,.clad-elements,.clad-cases,.clad-vertebrates) :is(tbody,tr,th,td) { display:block; width:auto; min-width:0; white-space:normal; overflow-wrap:anywhere; }
+    :is(.clad-examples,.clad-elements,.clad-cases,.clad-vertebrates) tr { margin:12px 0; border:1px solid var(--box-border,#bbc8c0); }
+    :is(.clad-examples,.clad-elements,.clad-cases,.clad-vertebrates) td::before { content:attr(data-label) ': '; font-weight:700; }
+    .clad-matrix { min-width:0; width:100%; table-layout:fixed; }
+    .clad-matrix :is(th,td) { padding:8px 3px; min-width:0; overflow-wrap:anywhere; }
+    .clad-matrix th:first-child { width:30%; }
+}
 
 .astronomy-workshop { overflow:visible; }
 .astronomy-workshop label { display:block; font-weight:700; margin:1rem 0 .35rem; }

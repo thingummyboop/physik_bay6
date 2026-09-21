@@ -1,0 +1,39 @@
+# Fossilien: Erhaltung, Zeitmaßstab und Fundkontext
+
+Stand: 21.09.2026. Kapitel `bio_3_fossilien_erdgeschichte`, Revision 2, für die 7. Schulstufe. Voraussetzungen: Evolution sowie Geologie/Lebensräume.
+
+## Ausarbeitung
+
+Vier Abschnitte mit zwölf direkten Arbeitsaufträgen, 16 Fachbegriffen, zehn bewerteten Fragen, einer punktfreien Übung und vier getrennten Vergleichslösungen. Die acht bisherigen bewerteten Frage-IDs bleiben erhalten; zwei neue Fragen prüfen Körperabdrücke und Zeitmaßstab. Der bisherige separate Diplom-Pool ist in den Kapitelpool integriert. Revision 2 kennzeichnet ältere Ergebnisse als veraltet, ohne sie zu löschen.
+
+- Drei eigene Fundskizzen unterscheiden erhaltene Schale, dreizehige Fährte und Blattabdruck. Ein Blattabdruck überliefert eine Körperform; eine Fährte eine Tätigkeit. Beobachtung, begründete Deutung und unbelegte Aussagen werden ausdrücklich getrennt. Die erfundenen Fundkarten sind kein Bestimmungsschlüssel.
+- Eine Tabelle unterscheidet mineralische Erhaltung, Abdrücke/Ausfüllungen und besondere Erhaltungsbedingungen. Ein möglicher Einbettungsweg wird nicht als Pflichtablauf jedes Fossils dargestellt. Aufgaben behandeln Erhaltungslücken, zusätzliche Untersuchungen und Grenzen eines optionalen Knetmodells. Alle Aufgaben sind auch mit den bereitgestellten Karten lösbar.
+- Fünf ausdrücklich ausgewählte, gerundete Zeitanker verbinden Erdgeschichte mit Größenordnungen. Bei 1 cm für 10 Millionen Jahre liegen Erde, alte mikrobielle Belege, Kambrium-Anker, Kreide-Ende und frühe Homo-sapiens-Fossilien 460/350/54/6,6/0,03 cm vom Heute-Ende entfernt. Der letzte Abstand entspricht 0,3 mm. Die Auswahl ist keine vollständige Geschichte des Lebens und keine lineare Abstammungsfolge. Zeitliche Reihenfolge und verzweigte Verwandtschaft werden getrennt erklärt.
+- Ein eigenes Schichtprofil zeigt unten A (vulkanische Asche, 120 Millionen Jahre), darüber B (fossilführend), C (Asche, 100 Millionen Jahre) und D. Das fiktive Modell setzt ungestörte, nicht umgekippte Ablagerung sowie passende Aschedatierungen voraus und lässt Messunsicherheit ausdrücklich weg. Schichtdicken liefern keine Zeitabstände.
+- Die Werkstatt lässt vier Schichten ordnen, eine Fundlage auswählen und eine Altersaussage begründen. Ursprünglich in B eingebettetes Material wird hier auf etwa 100–120 Millionen Jahre eingegrenzt. Ein aus älterem Gestein umgelagertes Fossil ist mindestens etwa 100 Millionen Jahre alt und kann älter als 120 Millionen Jahre sein; eine obere Altersgrenze folgt nicht. Ein loses Stück unbekannter Herkunft kann anhand dieses Profils nicht datiert werden. Die Fundlage verändert die Fossilaussage, nicht die vorgegebene Schichtfolge.
+- Änderungen entfernen alte Rückmeldungen; eine geänderte Fundlage verwirft zusätzlich die bisherige Altersauswahl. Fehlende und doppelte Auswahlen werden erklärt, der Fokus wird passend gesetzt. Rücksetzen stellt den Ausgangszustand wieder her. Die Werkstatt vergibt keine Punkte und speichert nichts. Eine vollständige Papieraufgabe ersetzt die Auswahlfelder im Druck.
+- Zwei erfundene Fundprotokolle, Dokumentationsaufgaben und ein Bezug zum Naturhistorischen Museum Wien verbinden Belege mit ihrer Herkunft. Beobachtung und Rekonstruktion können auch ohne Museumsbesuch an den eigenen Karten verglichen werden. Ein unvollständig dokumentierter Fund wird nicht pauschal als wertlos bezeichnet.
+
+## Prüfungen
+
+- `scripts/test_fossil_context.js`: 256 Schichtauswahlen sowie 216 Kombinationen aus gültiger Reihenfolge, Fundlage und Altersaussage anhand unabhängig festgelegter Erwartungen bestanden. Fehlende/ungültige Eingaben, doppelte Schichten, Fokus, Rücksetzen, Entfernen alter Ergebnisse, doppelte Initialisierung und unveränderter Speicher geprüft. Alle 30 Quizantwortwege, 90 Prozent bei einer falschen Antwort und passende Wiederholungszuordnung bestanden. Tatsächlich dargestellte Zeitwerte, zwölf unverändert gerenderte Arbeitsaufträge, 16 Begriffe, vier Skizzen und getrennte Papierlösungen geprüft. Nach der letzten Skizzenänderung und vor dem Zwischenstand `8aaeff6` erneut bestanden.
+- `scripts/browser_fossil_context.js`: Chromium 151.0.7922.34, Bericht 21.09.2026, 07:40:03 UTC. 24 native Reihenfolgen, neun Fundlagen-/Altersentscheidungen und ein fehlender Eingabefall; 36 Zustands-/Layoutkombinationen bei 320/390/1280 Pixeln und beiden Farbschemata. Seiten- und Ergebnisüberlauf, mindestens 44 Pixel hohe Bedienelemente und Kartenfarben geprüft. Native Tastatur, Fokus, Rücksetzen, Verwerfen alter Ergebnisse und unveränderter Speicher bestanden. Alle 30 Quizantwortwege geprüft; keine Browserfehler.
+- Nach der Verbesserung der dreizehigen Fährte sechs finale Layoutvarianten geprüft, Bericht 07:41:11 UTC; Interaktionslogik unverändert. Finale Skizzen in beiden Farbschemata visuell kontrolliert, dunkle Fundkarten und Schichtprofil zusätzlich bei 320 Pixeln. Alle neun Arten mobiler Detailansichten in beiden Farbschemata gelesen. Die dunkle Werkstatt zusätzlich bei 360 Pixeln frisch aufgenommen und vollständig geprüft.
+- Alle 19 Seiten der finalen Druckfassung gelesen: Lernziele, Skizzen, Tabellen, Arbeitsaufträge, Papierwerkstatt, Quellen, zehn Quizfragen, Antwortbegründungen und vier getrennte Vergleichslösungen. Keine abgeschnittenen Inhalte festgestellt. Die Fußspuren sind im Druck dreizehig erkennbar. Die lokal erzeugte PDF ist ein Prüfarbeitsstand; ihre Links zeigen auf die lokale Vorschau.
+- Inventar und Prioritätsaudit vor dem Zwischenstand `8aaeff6` aktualisiert: 197 Kapitel und 1.667 Frageninstanzen ohne Strukturfehler. Diese Prüfungen belegen keine vollständige Fach- oder Produktabnahme. Die abschließende Sichtprüfung erforderte keine weitere Änderung der Kapitelquelle.
+
+Lokale Browser-/Druckberichte liegen außerhalb des Repositorys unter `../browser-qa/fossils`. Automatische Prüfungen der Werkstatt ersetzen weder eine fachliche Gesamtprüfung aller Kapitel noch eine Erprobung mit einer Schulklasse.
+
+## Quellen und Lehrplanbezug
+
+Die Kapitelquellen wurden für die Ausarbeitung am 21.09.2026 herangezogen und auf die verwendeten Aussagen begrenzt:
+
+- [National Park Service: Body Fossils](https://www.nps.gov/subjects/fossils/body-fossils.htm) und [What is a Fossil?](https://www.nps.gov/subjects/fossils/what-is-a-fossil.htm): Körper-/Spurenfossilien, Körperabdrücke und unterschiedliche Erhaltungswege.
+- [Smithsonian: Dating](https://humanorigins.si.edu/evidence/dating): relative Schichtfolge, Datierung geeigneter Materialien und Eingrenzung zwischen datierten Schichten.
+- [Smithsonian: Early Life on Earth](https://naturalhistory.si.edu/education/teaching-resources/life-science/early-life-earth-animal-origins): sehr alte mikrobielle Belege und frühe Tiergeschichte. Das Kapitel behauptet keinen exakt datierten Beginn des Lebens.
+- [Smithsonian: The Earliest Atmosphere](https://forces.si.edu/atmosphere/02_02_01.html): gerundetes Erdalter von 4,6 Milliarden Jahren.
+- [Smithsonian: Homo sapiens](https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens): frühe Fossilien um 300.000 Jahre; kein behaupteter exakter Entstehungstag einer Art.
+- [Natural History Museum London: Dinosaur extinction](https://www.nhm.ac.uk/discover/dinosaur-extinction.html): Massenaussterben vor rund 66 Millionen Jahren und überlebende Vogellinie.
+- [Naturhistorisches Museum Wien: Museum](https://www.nhm.at/presse/hintergrundinfos/museum): realer regionaler Ausstellungsbezug; keine Öffnungszeiten oder Besuchspreise übernommen.
+
+Die gespeicherte österreichische Lehrplangrundlage nennt für die dritte Klasse die Entstehung von Fossilien und die Geschichte des Lebens auf der Erde. Das Kapitel verbindet diesen Bereich mit Beobachtung, Zeitrechnung, Modellgrenzen und begründeter Interpretation. Die Auswahl der Zeitanker allein beansprucht keine vollständige Behandlung sämtlicher Entwicklungsschritte; der vollständige Fach- und Lehrplanabgleich bleibt offen.

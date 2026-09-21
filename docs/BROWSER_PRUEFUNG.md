@@ -303,3 +303,11 @@ Chromium 151.0.7922.34, Bericht 06:46:18 UTC: sechs Modellzustände bei drei Bre
 ## 21.09.2026 – Boden: Vergleichswerkstatt
 
 32 native Vergleiche, 30 Zustands-/Layoutkombinationen bei drei Breiten und beiden Farbschemata sowie alle 30 Quizantwortwege bestanden. Tastatur, Fokus, Rücksetzen, Speicher und Entfernen alter Ergebnisse geprüft. Alle 18 mobilen Detailbilder, zusätzlich das dunkle Stoffwegschema bei 320 Pixeln, und sämtliche 20 Druckseiten gelesen. [Nachweise und Grenzen](BIOLOGIE_BODEN_VERGLEICHE.md).
+
+## 21.09.2026 – Fossilien: Abschluss der Kapitelprüfung
+
+Browserbericht 07:40:03 UTC: 34 native Entscheidungen, 36 Zustands-/Layoutkombinationen und 30 Quizantwortwege bestanden, keine Browserfehler. Tastatur, Fokus, Rücksetzen und unveränderter Speicher geprüft. Nach der Fußspurkorrektur sechs finale Layoutvarianten und erneuter Druckexport, Bericht 07:41:11 UTC. Die noch offene Sichtprüfung nach Zwischenstand `8aaeff6` abgeschlossen: mobile Detailansichten beider Farbschemata und sämtliche 19 Druckseiten gelesen. Dunkle Werkstatt zusätzlich frisch bei 360 Pixeln aufgenommen und geprüft. Keine weitere Änderung der Kapitelquelle nötig. [Genaue Nachweise und Grenzen](BIOLOGIE_FOSSILIEN_SCHICHTEN.md).
+
+## 21.09.2026 – Kladogramme: Drehung und Merkmalsdaten
+
+Browserbericht 08:04:28 UTC: 64 Modell-/Begründungsentscheidungen, 36 Zustands-/Layoutkombinationen, vier native Drehungen und 30 Quizantwortwege bestanden. Nach visueller Korrektur kleiner Baumbeschriftung und abgeschnittener mobiler Tabellen vollständig erneut geprüft; einzelne Datenzellen werden zusätzlich auf Sichtbarkeit und Überlauf geprüft. Alle zehn mobilen Detailbilder und 19 Druckseiten gelesen. Finale Druckfassung vom 08:06:00 UTC mit korrigierten Quellentiteln; veränderte Seiten 4, 7 und 11 erneut kontrolliert, Seite 4 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_KLADOGRAMME_MERKMALE.md).

@@ -10,7 +10,7 @@ const root = path.join(__dirname, '..'), read = p => fs.readFileSync(path.join(r
     w.fetch = async () => ({ ok: true, json: async () => data });
     for (const file of ['curriculum', 'chapter-revisions', 'common', 'core-learning', 'renderer']) w.eval(read('js/' + file + '.js'));
     await w.renderTopic();
-    assert.equal(d.querySelectorAll('.chapter-question').length, 8);
+    assert.equal(d.querySelectorAll('.chapter-question').length, 10);
     w.eval(read('js/topics/bio_3_kladogramme.js'));
     w.topicInit(); w.topicInit();
     const zone = d.querySelector('[data-cladogram-rotation]');
@@ -37,5 +37,5 @@ const root = path.join(__dirname, '..'), read = p => fs.readFileSync(path.join(r
     assert.equal(zone.querySelector('[data-rotate-root]').getAttribute('aria-pressed'), 'false');
     assert.equal(zone.querySelector('[data-rotate-pair]').getAttribute('aria-pressed'), 'false');
     dom.window.close();
-    console.log('PASS: 8 questions, four tree orientations, unchanged B/C node, reset, focus and idempotent initialization.');
+    console.log('PASS: 10 questions, four tree orientations, unchanged B/C node, reset, focus and idempotent initialization.');
 })().catch(e => { console.error(e); process.exitCode = 1; });
