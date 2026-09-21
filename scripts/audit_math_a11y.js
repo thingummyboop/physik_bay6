@@ -49,7 +49,9 @@ for (const topic of mathTopics) {
     });
   }
 
-  if (hasAtomic && !hasLive) {
+  // role=status supplies implicit aria-live=polite (W3C technique ARIA22).
+  // This source-level heuristic is not a per-element or screen-reader audit.
+  if (hasAtomic && !hasLive && !hasStatusRole) {
     findings.push({
       topic,
       issue: 'atomic_without_live',

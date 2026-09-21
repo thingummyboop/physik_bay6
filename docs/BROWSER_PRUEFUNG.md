@@ -343,3 +343,15 @@ Browserbericht 10:30:43 UTC: 18 native Entscheidungen, 36 Layoutfälle, 33 bewer
 ## 21.09.2026 – Menschheitsentwicklung: Zeitspannen und Vorhersagen
 
 Browserbericht 10:54:18 UTC: 40 native Vorhersagen, 18 Layoutfälle, 33 bewertete und drei punktfreie Antwortwege bestanden, keine Browserfehler. Tastatur, Fokus, Reset, entfernte alte Rückmeldungen, unveränderter Speicher, Tabellenbreiten und SVG-Schrift geprüft. Alle 14 mobilen Detailbilder gelesen. Danach Markierung aus den Artenbeschriftungen entfernt und Werkstattüberschrift im dunklen Schema auf die Textfarbe umgestellt. Ergänzungsbericht 10:55:31 UTC: endgültige Grafik und Überschrift in allen 18 Layoutfällen geprüft; erneute Detailansichten und Desktop-Tabelle kontrolliert. Alle 20 Seiten der Druckfassung vom 10:54:17 UTC gelesen; die nachfolgenden Bildschirmkorrekturen ändern die eigenständige Papieralternative nicht. [Details und Grenzen](BIOLOGIE_MENSCHHEITSENTWICKLUNG.md).
+
+## 21.09.2026 – Biologie-Kompetenzplan: Lernwege und Druck
+
+Browserbericht 11:16:52 UTC: 24 Kurzcheckentscheidungen, 24 bewertete und drei punktfreie Antwortwege, 48 Layoutfälle, acht echte Abschnittssprünge sowie Übernehmen und Teilen der Stoffliste bestanden. Nach Zwischenstand `be546e6` alle sechs zusätzlichen Detailansichten zu richtigen, unsicheren und offenen Kurzaufgaben in beiden Farbschemata gelesen. Alle 20 Druckseiten kontrolliert; Aufgaben, Lösungen und Quellen lesbar. [Umfang und Grenzen](BIOLOGIE_KOMPETENZPLAN_KLASSE4.md).
+
+## 21.09.2026 – Mathematik: Umkehraufgaben und Sechseck
+
+Browserbericht 11:36:07 UTC: 21 Konstruktionszustände, 54 Layoutfälle und 42 bewertete Antwortwege bestanden; keine Browserfehler. Nach Sichtbefund die Maße aus einem abgeschnittenen Auswahltext in einen eigenen Aufgabenabsatz übertragen. Ergänzungsbericht 11:37:19 UTC: 18 Aufgabenansichten und zwölf Konstruktionsansichten; acht finale hochauflösende Detailbilder gelesen. Alle 17 Druckseiten der endgültigen Ausgabe kontrolliert, Seiten 11/12 zusätzlich höher aufgelöst. [Inhalt, Prüfungen und Grenzen](MATHEMATIK_FLAECHEN_KLASSE3.md).
+
+## 21.09.2026 – Mathematik: Körperdarstellung und Masse
+
+Browserbericht 11:51:12 UTC: 27 Massenfälle, 18 Layoutkombinationen, 39 bewertete Antwortwege und Tastatur-/Speicherprüfung bestanden, keine Browserfehler. Nach Sichtbefund Höhenlabel, Eingabedarstellung und Netzgröße korrigiert; sechs ergänzende Layouts mit Pfeiltasten-Scrollen um 11:52:04 UTC geprüft. Alle 18 Druckseiten dieser Fassung gelesen. Netzbreitenbeschriftungen anschließend ohne Kantenüberlagerung in allen drei Flächenauswahlen geprüft (11:54:11 UTC); das betrifft nur die Bildschirmzeichnung. [Details und Grenzen](MATHEMATIK_KOERPER_MASSE.md).

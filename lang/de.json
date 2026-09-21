@@ -25751,11 +25751,13 @@
     "title": "📐 Flächeninhalte ebener Figuren",
     "subtitle": "Flächen durch Zerlegen, Ergänzen und Rechnen bestimmen.",
     "contentLanguage": "de",
-    "script": false,
+    "script": true,
     "learningGoals": [
       "Flächeninhalt und Umfang unterscheiden und passende Einheiten verwenden.",
       "Flächen von Rechteck, Dreieck, Parallelogramm und Trapez berechnen.",
-      "Zusammengesetzte Flächen zerlegen und Ergebnisse prüfen."
+      "Zusammengesetzte Flächen zerlegen und Ergebnisse prüfen.",
+      "Flächenformeln nach einer gesuchten Länge umformen und durch Einsetzen prüfen.",
+      "Ein regelmäßiges Sechseck mit Zirkel und Lineal konstruieren und über sechs Dreiecke berechnen."
     ],
     "prerequisites": [
       "math1_5_geo_grundbegriffe",
@@ -25765,7 +25767,9 @@
     "summary": [
       "Rechteck und Parallelogramm: A = b · h; h ist die senkrechte Höhe.",
       "Dreieck: A = b · h / 2. Trapez: A = (a + b) · h / 2 für die parallelen Seiten a und b.",
-      "Flächen addieren oder abziehen setzt eine passende Zerlegung voraus; 1 m² = 10 000 cm²."
+      "Flächen addieren oder abziehen setzt eine passende Zerlegung voraus; 1 m² = 10 000 cm².",
+      "Umkehraufgaben: Dreieck h = 2 · A / b; Trapez h = 2 · A / (a + b). Einheiten anpassen und Probe machen.",
+      "Regelmäßiges Sechseck: sechs gleiche Seiten und Winkel; Seitenlänge = Umkreisradius. U = 6 · s, A = 6 · s · hₛ / 2."
     ],
     "sections": [
       {
@@ -25987,10 +25991,168 @@
             ]
           }
         ]
+      },
+      {
+        "id": "flaechen_umkehren",
+        "title": "5. Aus einer Fläche eine Länge bestimmen",
+        "content": "<p>Bei einer Umkehraufgabe kennst du den Flächeninhalt und suchst eine Länge. Schreibe zuerst die passende Formel auf. Forme sie mit derselben Rechenoperation auf beiden Seiten um; prüfe die gefundene Länge danach in der ursprünglichen Formel. Alle angegebenen Seitenlängen und Höhen sind positiv.</p>\n<div class=\"area-extension-card\"><h3>Beispiel: Höhe eines Dreiecks</h3><p>A = 30 cm², b = 10 cm. Aus A = b · h / 2 wird durch Multiplikation mit 2: <strong>2 · A = b · h</strong>. Teile durch b: <strong>h = 2 · A / b</strong>. Also h = 60 cm² : 10 cm = 6 cm.</p><p><strong>Probe:</strong> 10 cm · 6 cm / 2 = 30 cm². 3 cm wäre hier zu wenig: Das Teilen durch 2 gehört zur ursprünglichen Flächenformel.</p></div>\n<p>Beim Parallelogramm gilt h = A / b. Beim Trapez folgt aus 2 · A = (a + b) · h die Umkehrformel <strong>h = 2 · A / (a + b)</strong>. Die Klammer umfasst beide parallelen Seiten. Beispiel: A = 40 cm², a = 6 cm, b = 10 cm → h = 80 : 16 = 5 cm. Ein Ergebnis in cm² wäre keine Höhe. Ohne eine passende Grundseitenlänge lässt sich die Höhe aus A allein nicht bestimmen.</p>\n<p>Rechne zuerst in zusammenpassende Einheiten um: Bei A = 0,6 m² und b = 30 cm = 0,3 m ergibt sich die Rechteckhöhe h = 0,6 : 0,3 = 2 m. Teile nicht einfach Zahlen mit verschiedenen Längeneinheiten durcheinander.</p>\n<div class=\"interactive-zone area-extension-lab\" data-area-inverse><h3>Eine unbekannte Höhe prüfen</h3><p>Notiere Formel, Umformung und Probe selbst. Die Eingabe prüft nur deinen Zahlenwert, nicht den ganzen Rechenweg.</p><label for=\"area-inverse-case\">Aufgabe</label><select id=\"area-inverse-case\" aria-describedby=\"area-inverse-givens\"><option value=\"triangle\">Dreieck</option><option value=\"trapezoid\">Trapez</option><option value=\"parallelogram\">Parallelogramm</option></select><p id=\"area-inverse-givens\" data-area-inverse-givens>Dreieck: A = 28 cm², b = 8 cm. Gesucht ist die senkrechte Höhe h.</p><label for=\"area-inverse-value\">Meine Höhe in cm</label><input id=\"area-inverse-value\" inputmode=\"decimal\" autocomplete=\"off\" aria-describedby=\"area-inverse-format\"><p id=\"area-inverse-format\">Nur die Zahl, zum Beispiel 3,5. Komma oder Punkt sind möglich.</p><button type=\"button\" data-area-inverse-check>Höhe prüfen</button><button type=\"button\" data-area-inverse-reset>Neu beginnen</button><div data-area-inverse-result role=\"status\" tabindex=\"-1\"></div><template data-worksheet-alternative><div class=\"area-extension-paper\"><h3>Drei unbekannte Höhen</h3><p>Berechne jeweils h und mache die Einsetzprobe: 1. Dreieck A = 28 cm², b = 8 cm. 2. Trapez A = 30 cm², a = 4 cm, b = 8 cm. 3. Parallelogramm A = 21 cm², b = 6 cm. Schreibe die Umformung auf.</p></div></template></div>\n<div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst zeichnen und begründen</h3><ol data-area-extension-tasks><li>Berechne die Höhe eines Dreiecks mit A = 18 cm² und b = 9 cm. Zeige Umformung und Probe.</li><li>Ein Trapez hat A = 42 cm², a = 5 cm und b = 9 cm. Berechne h und erkläre, warum die Klammer nötig ist.</li><li>Ein Rechteck hat A = 1,2 m² und b = 40 cm. Berechne h in Metern. Finde außerdem zwei verschiedene Rechtecke mit A = 12 cm² und erkläre, warum A allein die Höhe nicht festlegt.</li></ol></div>\n<details data-worksheet-solution=\"true\"><summary>Umkehraufgaben – Rechenwege vergleichen</summary><div data-area-extension-solution><p><strong>Eigene Aufgaben:</strong> Dreieck: h = 2 · 18 : 9 = 4 cm; Probe 9 · 4 : 2 = 18 cm². Trapez: h = 84 : (5 + 9) = 6 cm; Probe 14 · 6 : 2 = 42 cm². Rechteck: 40 cm = 0,4 m; h = 1,2 : 0,4 = 3 m. Beispielsweise 3 cm × 4 cm und 6 cm × 2 cm haben beide 12 cm².</p><p><strong>Bildschirm- und Papierfälle:</strong> Dreieck h = 56 : 8 = 7 cm; Probe 8 · 7 : 2 = 28 cm². Trapez h = 60 : 12 = 5 cm; Probe 12 · 5 : 2 = 30 cm². Parallelogramm h = 21 : 6 = 3,5 cm; Probe 6 · 3,5 = 21 cm².</p></div></details>\n{{QUIZ_area_inverse_triangle}}{{QUIZ_area_inverse_trapezoid}}{{QUIZ_area_inverse_units}}",
+        "quizzes": [
+          {
+            "id": "area_inverse_triangle",
+            "question": "Ein Dreieck hat A = 30 cm² und b = 10 cm. Welche Höhe passt?",
+            "answers": [
+              {
+                "text": "3 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "30 : 10 = 3 wäre die Rechteckhöhe. Beim Dreieck musst du die Fläche zuerst verdoppeln."
+              },
+              {
+                "text": "6 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "h = 2 · A : b = 60 : 10 = 6 cm. Probe: 10 · 6 : 2 = 30 cm²."
+              },
+              {
+                "text": "150 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Fläche und Grundseite werden nicht multipliziert. 2 · A = b · h; deshalb durch b teilen."
+              }
+            ]
+          },
+          {
+            "id": "area_inverse_trapezoid",
+            "question": "Ein Trapez hat A = 40 cm², a = 6 cm und b = 10 cm. Wie findest du h?",
+            "answers": [
+              {
+                "text": "40 : 16 = 2,5 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier fehlt das Verdoppeln der Fläche. Probe: 16 · 2,5 : 2 = 20 cm²."
+              },
+              {
+                "text": "40 : 6 + 10 ≈ 16,67 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Summe der parallelen Seiten steht vollständig im Nenner. Eine Grundseite allein reicht nicht."
+              },
+              {
+                "text": "2 · 40 : (6 + 10) = 5 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "2 · A = (a + b) · h. Durch die positive Summe 16 cm teilen; die Probe ergibt 40 cm²."
+              }
+            ]
+          },
+          {
+            "id": "area_inverse_units",
+            "question": "Ein Rechteck hat A = 0,6 m² und b = 30 cm. Welche Rechnung liefert die Höhe in Metern?",
+            "answers": [
+              {
+                "text": "0,6 : 0,3 = 2 m.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "30 cm = 0,3 m. A : b = 0,6 m² : 0,3 m = 2 m; Probe 0,3 · 2 = 0,6."
+              },
+              {
+                "text": "0,6 : 30 = 0,02 m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zuerst 30 cm in Meter umrechnen. Die Einheiten dürfen in dieser Rechnung nicht vermischt werden."
+              },
+              {
+                "text": "0,6 · 0,3 = 0,18 m.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Für die unbekannte Höhe wird A durch b geteilt. Multiplizieren mit einer Länge ergäbe keine Länge."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sechseck_konstruieren",
+        "title": "6. Ein regelmäßiges Sechseck konstruieren",
+        "content": "<p>Ein <strong>regelmäßiges Vieleck</strong> hat gleich lange Seiten und gleich große Innenwinkel. Beim regelmäßigen Sechseck entstehen sechs gleichseitige Dreiecke, wenn du den Mittelpunkt M mit den Ecken verbindest. Jeder Winkel bei M beträgt 360° : 6 = 60°. In jedem Dreieck sind zwei Seiten Kreisradien; mit 60° bei M ist auch die dritte Seite gleich lang. Deshalb ist die Sechseckseite so lang wie der Umkreisradius.</p><figure class=\"area-hex-figure\"><svg viewBox=\"0 0 360 360\" data-worksheet-static=\"true\" role=\"img\" aria-labelledby=\"area-hex-static-title\"><title id=\"area-hex-static-title\">Regelmäßiges Sechseck mit sechs gleichseitigen Dreiecken</title><circle cx=\"180\" cy=\"180\" r=\"76\" fill=\"none\" stroke=\"#64748b\" stroke-dasharray=\"4 4\"/><polygon points=\"256,180 218,114.18206931238267 142,114.18206931238265 104,180 141.99999999999997,245.81793068761732 218,245.81793068761732\" fill=\"#dbeafe\" stroke=\"#1e40af\" stroke-width=\"2\"/><path d=\"M180 180 L256 180\" stroke=\"#475569\"/><text x=\"278\" y=\"187\" text-anchor=\"middle\" font-size=\"20\" fill=\"#111827\">A</text><path d=\"M180 180 L218 114.18206931238267\" stroke=\"#475569\"/><text x=\"229\" y=\"102.12951042912502\" text-anchor=\"middle\" font-size=\"20\" fill=\"#111827\">B</text><path d=\"M180 180 L142 114.18206931238265\" stroke=\"#475569\"/><text x=\"131.00000000000003\" y=\"102.129510429125\" text-anchor=\"middle\" font-size=\"20\" fill=\"#111827\">C</text><path d=\"M180 180 L104 180\" stroke=\"#475569\"/><text x=\"82\" y=\"187\" text-anchor=\"middle\" font-size=\"20\" fill=\"#111827\">D</text><path d=\"M180 180 L141.99999999999997 245.81793068761732\" stroke=\"#475569\"/><text x=\"130.99999999999994\" y=\"271.87048957087495\" text-anchor=\"middle\" font-size=\"20\" fill=\"#111827\">E</text><path d=\"M180 180 L218 245.81793068761732\" stroke=\"#475569\"/><text x=\"229\" y=\"271.87048957087495\" text-anchor=\"middle\" font-size=\"20\" fill=\"#111827\">F</text><text x=\"163\" y=\"202\" font-size=\"20\" fill=\"#111827\">M</text><path d=\"M180 180 L180 114.182\" stroke=\"#a21caf\" stroke-width=\"3\"/><path d=\"M180 125 L191 125 L191 114.182\" fill=\"none\" stroke=\"#a21caf\"/><text x=\"193\" y=\"150\" font-size=\"20\" fill=\"#86198f\">hₛ</text></svg><figcaption>Seiten AB, BC, CD, DE, EF und FA sind gleich lang wie die Radien MA bis MF. Die sechs gleichseitigen Dreiecke teilen die Fläche ohne Überlappung. hₛ ist die senkrechte Höhe eines dieser Dreiecke zur Sechseckseite.</figcaption></figure>\n<div class=\"area-extension-card\"><h3>Mit Zirkel und Lineal konstruieren</h3><ol data-area-hex-instructions><li>Zeichne einen Kreis um M mit Radius 3 cm. Markiere einen beliebigen Punkt A auf dem Kreis.</li><li>Lass den Zirkel auf 3 cm geöffnet. Setze die Spitze in A und markiere einen Schnittpunkt des Hilfskreises mit dem Ausgangskreis als B.</li><li>Setze die Spitze in B. Einer der beiden Schnittpunkte ist A. Wähle den anderen als C, damit du in derselben Richtung weitergehst.</li><li>Trage mit unveränderter Öffnung nacheinander D, E und F ab. Der nächste Schritt führt zu A zurück.</li><li>Verbinde A–B–C–D–E–F–A mit dem Lineal. Zeichne die Radien von M zu allen Ecken ein.</li><li>Prüfe Seitenlängen und den Schluss bei A. Eine kleine Lücke kann durch Zeichnungenauigkeit entstehen. Stelle den Zirkel nicht unterwegs neu ein; kontrolliere stattdessen die Konstruktion.</li></ol></div>\n<div class=\"interactive-zone area-extension-lab\" data-area-hex><h3>Die Konstruktion Schritt für Schritt</h3><p>Vermute vor jedem Schritt den nächsten Punkt. Der gestrichelte orange Hilfskreis zeigt die unveränderte Zirkelöffnung; der blaue Kreis bleibt stehen. Die Darstellung ersetzt deine eigene Konstruktion nicht und hat auf dem Bildschirm keinen Zentimetermaßstab.</p><label for=\"area-hex-radius\">Kreisradius und Zirkelöffnung</label><select id=\"area-hex-radius\"><option value=\"2\">2 cm</option><option value=\"3\" selected>3 cm</option><option value=\"4\">4 cm</option></select><svg viewBox=\"0 0 360 360\" role=\"img\" aria-label=\"Schrittweise Sechseckkonstruktion\" data-area-hex-svg></svg><p data-area-hex-status role=\"status\"></p><button type=\"button\" data-area-hex-prev>Schritt zurück</button><button type=\"button\" data-area-hex-next>Nächsten Punkt abtragen</button><button type=\"button\" data-area-hex-reset>Neu beginnen</button><p>Vergleiche die drei Radien. Was ändert sich bei den Seitenlängen und dem Umfang? Was bleibt beim Winkel bei M gleich? Begründe, weshalb Radius 2 cm → 4 cm den Flächeninhalt vervierfacht.</p><template data-worksheet-alternative><div class=\"area-extension-paper\"><h3>Zirkelauftrag auf Papier</h3><p>Führe die sechs Konstruktionsschritte oben mit r = 3 cm aus. Beschreibe bei C, welchen der zwei Schnittpunkte du auswählst. Wiederhole mit r = 2 cm und vergleiche Seitenlänge, Umfang und Winkel bei M. Miss am Ausdruck keine Zentimeter ab; die Grafik ist eine Skizze.</p></div></template></div>\n<p><strong>Umfang und Fläche:</strong> Bei Seitenlänge s gilt U = 6 · s. Für die Fläche zerlegst du in sechs Dreiecke: <strong>A = 6 · (s · hₛ / 2)</strong>. hₛ ist der senkrechte Abstand von M zu einer Sechseckseite, nicht der Radius zur Ecke. Bei s = 4 cm und hₛ ≈ 3,46 cm ergibt sich A ≈ 41,52 cm². Die Näherung kommt von der gerundeten Höhe; ein abgemessener Wert hat ebenfalls eine begrenzte Genauigkeit.</p>\n<div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst zeichnen und begründen</h3><ol data-area-extension-tasks><li>Konstruiere ein regelmäßiges Sechseck mit Seitenlänge 3 cm. Beschreibe, wie du die Zirkelöffnung wählst, und berechne den Umfang.</li><li>Ein regelmäßiges Sechseck hat s = 2 cm und hₛ ≈ 1,73 cm. Berechne seine Fläche über sechs Dreiecke und erkläre, weshalb hₛ nicht 2 cm ist.</li><li>Vergleiche zwei regelmäßige Sechsecke mit s = 2 cm und s = 4 cm. Beschreibe den Längen-, Umfangs- und Flächenfaktor. Reicht „sechs gleiche Seiten“ allein als Definition für regelmäßig? Begründe.</li></ol></div>\n<details data-worksheet-solution=\"true\"><summary>Sechseck – Konstruktion und Rechnungen vergleichen</summary><div data-area-extension-solution><p><strong>Konstruktion:</strong> Kreisradius und unveränderte Zirkelöffnung sind 3 cm. Bei C wählst du den Schnittpunkt, der nicht A ist. Nach sechs Schritten schließt die Figur; alle Seiten sind 3 cm, also U = 18 cm. Bei r = 2 cm sind die Seiten 2 cm und U = 12 cm. Jeder Mittelpunktswinkel bleibt 60°.</p><p><strong>Fläche:</strong> 6 · (2 · 1,73 / 2) = 10,38 cm², nur angenähert. Die Höhe führt senkrecht zur Seitenmitte; der Radius führt zur Ecke. Die Höhe ist deshalb kürzer als die schräge Dreiecksseite von 2 cm.</p><p><strong>Vergleich:</strong> Alle Längen einschließlich der Dreieckshöhen verdoppeln sich; U verdoppelt und A vervierfacht sich. 4 · 10,38 = 41,52 cm², mit den angegebenen gerundeten Höhen. Für „regelmäßig“ müssen außerdem alle Innenwinkel gleich groß sein; sie betragen hier 120°.</p></div></details>\n{{QUIZ_area_hexagon_radius}}{{QUIZ_area_hexagon_area}}{{QUIZ_area_hexagon_regular}}",
+        "quizzes": [
+          {
+            "id": "area_hexagon_radius",
+            "question": "Du konstruierst ein regelmäßiges Sechseck in einem Kreis mit Radius 3 cm. Welche Zirkelöffnung brauchst du zum Abtragen der Seiten?",
+            "answers": [
+              {
+                "text": "6 cm, also den Durchmesser.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Mit dem Durchmesser erreichst du vom Startpunkt nur den gegenüberliegenden Kreispunkt. Das ergibt keine sechs Ecken."
+              },
+              {
+                "text": "3 cm, also den Radius.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Beim regelmäßigen Sechseck sind Seitenlänge und Umkreisradius gleich groß. Die Öffnung bleibt 3 cm."
+              },
+              {
+                "text": "1 cm, also ein Sechstel des Durchmessers.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Seiten sind Sehnen, keine Stücke des Durchmessers. Ein Teilen des Durchmessers durch sechs liefert nicht die Seitenlänge."
+              }
+            ]
+          },
+          {
+            "id": "area_hexagon_area",
+            "question": "Ein regelmäßiges Sechseck hat Seitenlänge 4 cm. Der senkrechte Abstand vom Mittelpunkt zu jeder Seite beträgt ungefähr 3,46 cm. Wie groß ist A ungefähr?",
+            "answers": [
+              {
+                "text": "24 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "6 · 4 = 24 cm ist der Umfang. Für die Fläche brauchst du die sechs Dreiecksflächen."
+              },
+              {
+                "text": "83,04 cm².",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier wurden sechs Parallelogrammflächen berechnet. Jede der sechs Dreiecksflächen benötigt noch den Faktor 1/2."
+              },
+              {
+                "text": "41,52 cm².",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Sechs Dreiecke: 6 · (4 · 3,46 / 2) = 41,52 cm². Wegen der gerundeten Höhe ist auch die Fläche nur angenähert."
+              }
+            ]
+          },
+          {
+            "id": "area_hexagon_regular",
+            "question": "Ein Sechseck hat sechs gleich lange Seiten. Was musst du zusätzlich prüfen, bevor du es regelmäßig nennst?",
+            "answers": [
+              {
+                "text": "Ob auch alle Innenwinkel gleich groß sind.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Regelmäßig bedeutet: alle Seiten gleich lang und alle Innenwinkel gleich groß. Beim regelmäßigen Sechseck beträgt jeder Innenwinkel 120°."
+              },
+              {
+                "text": "Nichts; gleiche Seiten genügen immer.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gleiche Seiten allein erzwingen bei einem Sechseck keine gleichen Innenwinkel."
+              },
+              {
+                "text": "Ob eine Seite waagrecht liegt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Lage auf dem Blatt ändert weder Seitenlängen noch Innenwinkel."
+              }
+            ]
+          }
+        ]
       }
     ],
     "workshop": {
-      "title": "5. Einen Grundriss berechnen",
+      "title": "7. Einen Grundriss berechnen",
       "navLabel": "Flächenwerkstatt",
       "instruction": "Ordne die Formeln zu und löse anschließend die Grundrissaufgabe.",
       "categories": [
@@ -26022,7 +26184,13 @@
         "Ich gebe das Ergebnis in m² an und prüfe es mit einem zweiten Weg."
       ],
       "model": "Weg 1: 6 · 4 − 2 · 1 = 24 − 2 = 22 m². Weg 2: In ein Rechteck 6 m × 3 m und ein Rechteck 4 m × 1 m zerlegen: 18 + 4 = 22 m². Beide erfassen dieselbe Fläche ohne die ausgeschnittene Ecke."
-    }
+    },
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan, Anlage 1 – Mathematik, 3. Klasse",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
+    ]
   },
   "math3_5_verhaeltnisse": {
     "title": "Verhältnisse (Mischen & Teilen)",
@@ -26629,8 +26797,8 @@
     "sections": [
       {
         "id": "sec1",
-        "title": "Was ist ähnlich?",
-        "content": "<p>Zwei Figuren sind <strong>ähnlich</strong>, wenn ihre Form übereinstimmt: Entsprechende Winkel sind gleich groß und entsprechende Seitenlängen haben denselben positiven Faktor k. Sie dürfen auch gleich groß sein; dann gilt k = 1. Drehen oder Verschieben verändert die Form nicht.</p><p>Vergleiche bei Rechtecken lange Seite mit langer und kurze mit kurzer Seite. Ein Rechteck mit Seiten 4 cm und 2 cm wird bei k = 2 zu einem Rechteck mit 8 cm und 4 cm. Nur die Breite zu verdoppeln würde die Form verändern.</p><div class=\"interactive-zone\"><h3>Figuren vergleichen</h3><svg viewBox=\"0 0 210 100\" width=\"100%\" style=\"max-width:420px\" role=\"img\" aria-labelledby=\"similar-figures-title\"><title id=\"similar-figures-title\">Rechtecke A, B und C. Seitenlängen stehen in der folgenden Tabelle; Zeichnung nicht in Originalgröße.</title><rect x=\"10\" y=\"20\" width=\"40\" height=\"20\" fill=\"#2563eb\"/><text x=\"10\" y=\"15\">A</text><rect x=\"65\" y=\"20\" width=\"80\" height=\"40\" fill=\"#15803d\"/><text x=\"65\" y=\"15\">B</text><rect x=\"160\" y=\"20\" width=\"30\" height=\"30\" fill=\"#b91c1c\"/><text x=\"160\" y=\"15\">C</text></svg><table data-similar-sides><caption>Seitenlängen der Figuren</caption><thead><tr><th>Figur</th><th>Breite</th><th>Höhe</th></tr></thead><tbody><tr><td>A</td><td>4 cm</td><td>2 cm</td></tr><tr><td>B</td><td>8 cm</td><td>4 cm</td></tr><tr><td>C</td><td>3 cm</td><td>3 cm</td></tr></tbody></table><p>Welche der beiden anderen Figuren ist ähnlich zu A? Bestimme vor dem Auswählen den Faktor für beide Seiten.</p><label for=\"aehn_sel\">Vergleichsfigur</label><select id=\"aehn_sel\"><option value=\"\">Bitte wählen</option><option value=\"green\">Figur B: 8 cm × 4 cm</option><option value=\"red\">Figur C: 3 cm × 3 cm</option></select><button type=\"button\" onclick=\"checkAehn()\">Prüfen</button><p id=\"aehn_feedback\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>{{QUIZ_m37_q1}}",
+        "title": "1. Ähnliche Figuren erkennen",
+        "content": "<p>Zwei Figuren sind <strong>ähnlich</strong>, wenn ihre Form übereinstimmt: Entsprechende Winkel sind gleich groß und entsprechende Seitenlängen haben denselben positiven Faktor k. Sie dürfen auch gleich groß sein; dann gilt k = 1. Drehen oder Verschieben verändert die Form nicht.</p><p>Vergleiche bei Rechtecken lange Seite mit langer und kurze mit kurzer Seite. Ein Rechteck mit Seiten 4 cm und 2 cm wird bei k = 2 zu einem Rechteck mit 8 cm und 4 cm. Nur die Breite zu verdoppeln würde die Form verändern.</p><div class=\"interactive-zone dilation-lab\"><h3>Figuren vergleichen</h3><svg viewBox=\"0 0 210 100\" width=\"100%\" style=\"max-width:420px;background:white\" role=\"img\" aria-labelledby=\"similar-figures-title\"><title id=\"similar-figures-title\">Rechtecke A, B und C. Seitenlängen stehen in der folgenden Tabelle; Zeichnung nicht in Originalgröße.</title><rect x=\"10\" y=\"20\" width=\"40\" height=\"20\" fill=\"#2563eb\"/><text x=\"10\" y=\"15\">A</text><rect x=\"65\" y=\"20\" width=\"80\" height=\"40\" fill=\"#15803d\"/><text x=\"65\" y=\"15\">B</text><rect x=\"160\" y=\"20\" width=\"30\" height=\"30\" fill=\"#b91c1c\"/><text x=\"160\" y=\"15\">C</text></svg><table data-similar-sides><caption>Seitenlängen der Figuren</caption><thead><tr><th>Figur</th><th>Breite</th><th>Höhe</th></tr></thead><tbody><tr><td>A</td><td>4 cm</td><td>2 cm</td></tr><tr><td>B</td><td>8 cm</td><td>4 cm</td></tr><tr><td>C</td><td>3 cm</td><td>3 cm</td></tr></tbody></table><p>Welche der beiden anderen Figuren ist ähnlich zu A? Bestimme vor dem Auswählen den Faktor für beide Seiten.</p><label for=\"aehn_sel\">Vergleichsfigur</label><select id=\"aehn_sel\"><option value=\"\">Bitte wählen</option><option value=\"green\">Figur B: 8 cm × 4 cm</option><option value=\"red\">Figur C: 3 cm × 3 cm</option></select><button type=\"button\" onclick=\"checkAehn()\">Prüfen</button><p id=\"aehn_feedback\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>{{QUIZ_m37_q1}}",
         "quizzes": [
           {
             "id": "m37_q1",
@@ -26659,8 +26827,173 @@
         ]
       },
       {
+        "id": "m37_dilation",
+        "title": "2. Vom Zentrum aus vergrößern und verkleinern",
+        "content": "<p>Eine <strong>zentrische Streckung</strong> hat ein Zentrum Z und einen Faktor k. Hier arbeiten wir mit <strong>k &gt; 0</strong>. Für jeden Punkt P zeichnest du den Strahl von Z durch P und trägst auf diesem Strahl die Bildentfernung <strong>ZP′ = k · ZP</strong> ab. Ein Strahl beginnt bei Z und geht über P hinaus; er ist keine Strecke mit festem Endpunkt.</p><ul><li>k &gt; 1: Die Bildfigur wird größer.</li><li>0 &lt; k &lt; 1: Die Bildfigur wird kleiner.</li><li>k = 1: Jeder Punkt bleibt an seiner Stelle.</li><li>Ein Punkt im Zentrum bleibt bei jedem Faktor dort: k · 0 = 0.</li></ul><p>Verbinde anschließend die Bildpunkte in derselben Reihenfolge. Entsprechende Seiten werden mit k multipliziert; entsprechende Winkel bleiben gleich. Das Zentrum darf außerhalb, innerhalb oder auf der Figur liegen. Es legt die Lage der Bildfigur fest, nicht ihre Form.</p><figure class=\"dilation-example\"><svg viewBox=\"0 0 370 300\" data-worksheet-static=\"true\" role=\"img\" aria-labelledby=\"dilation-example-title\"><title id=\"dilation-example-title\">Dreieck vom Zentrum Z mit Faktor zwei gestreckt</title><path d=\"M35 35V255\" stroke=\"#e2e8f0\"/><path d=\"M69 35V255\" stroke=\"#e2e8f0\"/><path d=\"M103 35V255\" stroke=\"#e2e8f0\"/><path d=\"M137 35V255\" stroke=\"#e2e8f0\"/><path d=\"M171 35V255\" stroke=\"#e2e8f0\"/><path d=\"M205 35V255\" stroke=\"#e2e8f0\"/><path d=\"M239 35V255\" stroke=\"#e2e8f0\"/><path d=\"M273 35V255\" stroke=\"#e2e8f0\"/><path d=\"M307 35V255\" stroke=\"#e2e8f0\"/><path d=\"M35 255H330\" stroke=\"#e2e8f0\"/><path d=\"M35 221H330\" stroke=\"#e2e8f0\"/><path d=\"M35 187H330\" stroke=\"#e2e8f0\"/><path d=\"M35 153H330\" stroke=\"#e2e8f0\"/><path d=\"M35 119H330\" stroke=\"#e2e8f0\"/><path d=\"M35 85H330\" stroke=\"#e2e8f0\"/><path d=\"M35 51H330\" stroke=\"#e2e8f0\"/><path d=\"M35 255H337M35 255V30\" stroke=\"#475569\"/><path d=\"M35 255L307 187M35 255L171 51M35 255L171 187\" stroke=\"#94a3b8\" stroke-dasharray=\"3 3\"/><polygon points=\"103,221 171,221 103,153\" fill=\"#dbeafe\" stroke=\"#1e40af\" stroke-width=\"2\"/><polygon points=\"171,187 307,187 171,51\" fill=\"#ffedd5\" fill-opacity=\"0.35\" stroke=\"#9a3412\" stroke-width=\"3\" stroke-dasharray=\"7 4\"/><g font-size=\"16\" fill=\"#111827\"><text x=\"16\" y=\"274\">Z</text><text x=\"89\" y=\"243\">A</text><text x=\"168\" y=\"243\">B</text><text x=\"87\" y=\"144\">C</text><text x=\"176\" y=\"180\">A′</text><text x=\"311\" y=\"181\">B′</text><text x=\"177\" y=\"48\">C′</text><text x=\"341\" y=\"261\">x</text><text x=\"23\" y=\"23\">y</text></g></svg><figcaption>Ein Kästchen entspricht einer Koordinateneinheit. Z(0|0), A(2|1), B(4|1), C(2|3). Bei k = 2: A′(4|2), B′(8|2), C′(4|6). Die durchgezogene blaue Figur ist das Original, die gestrichelte orange Figur das Bild. Beide liegen auf denselben Strahlen von Z.</figcaption></figure><div class=\"dilation-card\"><h3>Auf Papier konstruieren</h3><ol><li>Zeichne Z und die Eckpunkte der Ausgangsfigur auf kariertes Papier. Wähle beispielsweise die Koordinaten aus der Abbildung.</li><li>Zeichne von Z aus Strahlen durch alle Ecken. Miss die Abstände von Z zu den Ecken.</li><li>Multipliziere jeden Abstand mit demselben Faktor. Bei k = 0,5 halbierst du ihn, bei k = 1,5 nimmst du ihn eineinhalbmal.</li><li>Trage die neuen Abstände auf den Strahlen ab, beschrifte die Bildpunkte und verbinde sie.</li><li>Prüfe Seitenlängen, Winkel und einen Rückweg: Auf eine Verdopplung folgt die Halbierung vom selben Zentrum aus.</li></ol></div><div class=\"interactive-zone dilation-lab\" data-dilation-lab><h3>Wo liegt der Bildpunkt A′?</h3><p>Stelle Figur, Zentrum und Faktor ein. Berechne oder konstruiere A′, bevor du prüfst. Du kannst die Konstruktion auch direkt anzeigen und vergleichen. Ein Punkt wird als (x|y) angegeben; die Zeichnung hat keinen Zentimetermaßstab.</p><label for=\"dilation-shape\">Ausgangsfigur</label><select id=\"dilation-shape\"><option value=\"triangle\">Dreieck</option><option value=\"rectangle\">Rechteck</option></select><label for=\"dilation-center\">Streckzentrum Z</label><select id=\"dilation-center\"><option value=\"origin\">Z(0|0)</option><option value=\"vertex\">Z(2|1), bei A</option><option value=\"outside\">Z(6|4)</option></select><label for=\"dilation-factor\">Faktor k</label><select id=\"dilation-factor\"><option value=\"0.5\">0,5</option><option value=\"1\">1</option><option value=\"1.5\">1,5</option><option value=\"2\" selected>2</option></select><p data-dilation-givens></p><div data-dilation-drawing tabindex=\"0\" role=\"region\" aria-label=\"Koordinatenzeichnung, bei schmaler Ansicht seitlich verschiebbar\"></div><p>Auf kleinen Bildschirmen kannst du die Zeichnung seitlich verschieben, auch mit den Pfeiltasten, wenn sie fokussiert ist.</p><label for=\"dilation-x\">Meine x-Koordinate von A′</label><input id=\"dilation-x\" inputmode=\"text\" aria-describedby=\"dilation-format\"><label for=\"dilation-y\">Meine y-Koordinate von A′</label><input id=\"dilation-y\" inputmode=\"text\" aria-describedby=\"dilation-format\"><p id=\"dilation-format\">Negative Zahlen, null und Dezimalzahlen sind möglich; zum Beispiel −2, 0 oder 1,5. Tippe für negative Zahlen ein Minuszeichen.</p><button type=\"button\" data-dilation-check>Punkt prüfen</button><button type=\"button\" data-dilation-show>Konstruktion anzeigen</button><button type=\"button\" data-dilation-reset>Neu beginnen</button><div data-dilation-result role=\"status\" tabindex=\"-1\"></div><div data-dilation-table></div><template data-worksheet-alternative><div class=\"dilation-paper\"><h3>Vier Streckungen auf Papier</h3><p>Verwende das Dreieck A(2|1), B(4|1), C(2|3). Zeichne und vergleiche: 1. Z(0|0), k = 2. 2. Z(0|0), k = 0,5. 3. Z(2|1), k = 2. 4. Z(6|4), k = 1,5. Notiere die drei Bildpunkte, den Längenfaktor und den Flächenfaktor. Miss nicht am Ausdruck; zeichne ein eigenes Koordinatensystem.</p></div></template></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst konstruieren und begründen</h3><ol data-dilation-tasks><li>Zeichne das Dreieck aus der Abbildung und strecke es von Z(0|0) mit k = 0,5. Begründe die Lage von A′ auf dem Strahl ZA.</li><li>Verwende dasselbe Dreieck, aber Z = A(2|1) und k = 2. Bestimme alle Bildpunkte. Was geschieht mit A und warum?</li><li>Wähle Z(6|4) und k = 1,5. Bestimme zunächst die Änderung von Z zu A in x- und y-Richtung. Multipliziere beide Änderungen mit 1,5 und gehe vom Zentrum aus zur neuen Stelle. Kontrolliere anschließend mit der Zeichnung.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Streckungen – Konstruktionen vergleichen</summary><div data-dilation-solution><p>Bei Z(0|0), k = 0,5: A′(1|0,5), B′(2|0,5), C′(1|1,5). Jeder Abstand von Z ist halb so groß, jeder Punkt bleibt auf demselben Strahl.</p><p>Bei Z(2|1), k = 2: A′(2|1), B′(6|1), C′(2|5). A ist das Zentrum und bleibt fest.</p><p>Bei Z(6|4), k = 1,5: Von Z zu A sind die Änderungen −4 und −3. Eineinhalbmal ergibt −6 und −4,5; vom Zentrum aus folgt A′(0|−0,5). Ebenso B′(3|−0,5), C′(0|2,5). Du darfst bei einem Zentrum außerhalb des Ursprungs nicht einfach alle ursprünglichen Koordinaten mit k multiplizieren.</p><p>Der Papierfall Z(0|0), k = 2 ergibt A′(4|2), B′(8|2), C′(4|6). Die Flächenfaktoren der vier Papierfälle sind 4; 0,25; 4; 2,25.</p></div></details>{{QUIZ_m37_dilation_ray}}{{QUIZ_m37_dilation_center}}",
+        "quizzes": [
+          {
+            "id": "m37_dilation_ray",
+            "question": "Z ist das Streckzentrum. ZA = 6 cm und k = 0,5. Wo liegt A′?",
+            "answers": [
+              {
+                "text": "3 cm von Z entfernt auf demselben Strahl wie A.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "ZA′ = 0,5 · 6 = 3 cm. Bei einem positiven Faktor bleiben Bildpunkte auf demselben Strahl."
+              },
+              {
+                "text": "3 cm von Z entfernt auf der gegenüberliegenden Seite.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein positiver Faktor wechselt nicht auf die andere Seite des Zentrums."
+              },
+              {
+                "text": "12 cm von Z entfernt auf demselben Strahl.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "12 cm gehört zu k = 2. Für k = 0,5 halbierst du den Abstand vom Zentrum."
+              }
+            ]
+          },
+          {
+            "id": "m37_dilation_center",
+            "question": "Ein Eckpunkt A liegt genau im Streckzentrum Z. Was geschieht bei k = 2?",
+            "answers": [
+              {
+                "text": "A wandert zwei Zentimeter nach rechts.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Faktor beschreibt ein Verhältnis von Abständen, keine feste Verschiebung in Zentimetern."
+              },
+              {
+                "text": "A bleibt an derselben Stelle.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "ZA = 0. Deshalb ist auch ZA′ = 2 · 0 = 0; das Zentrum bleibt fest."
+              },
+              {
+                "text": "Die Streckung ist nicht möglich.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Ecke darf im Zentrum liegen. Ihr Abstand zum Zentrum bleibt null."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m37_area",
+        "title": "3. Längenfaktor und Flächenfaktor unterscheiden",
+        "content": "<p>Beim Vergrößern eines Rechtecks ändern sich Breite und Höhe. Aus A = b · h wird A′ = (k · b) · (k · h) = <strong>k² · A</strong>. Beim Dreieck werden Grundseite und zugehörige Höhe ebenfalls mit k multipliziert; der Faktor 1/2 bleibt bestehen. Zerlege weitere Vielecke in Dreiecke: Jede Teilfläche und damit die ganze Fläche erhält den Faktor k². Der Umfang wächst dagegen nur mit k, weil er eine Summe von Längen ist.</p><div class=\"dilation-card\"><h3>Einheiten und Faktoren vergleichen</h3><p>Original: Rechteck 4 cm × 2 cm, U = 12 cm, A = 8 cm². Bei k = 2: 8 cm × 4 cm, U′ = 24 cm, A′ = 32 cm². Bei k = 0,5: 2 cm × 1 cm, U′ = 6 cm, A′ = 2 cm².</p><p>Umgekehrt: Bei A′ : A = 4 suchst du den positiven Längenfaktor, dessen Quadrat 4 ist. Das ist k = 2. Eine Vergrößerung auf 200 % der Seitenlängen bedeutet vierfache Fläche, nicht doppelte Fläche.</p></div><details class=\"dilation-card\"><summary>Vertiefung: ähnliche Körper</summary><p>Bei einem Quader werden drei Kanten mit demselben Faktor multipliziert. Dann gilt V′ = k³ · V. Beispiel: Ein Würfel mit Kante 2 cm hat 8 cm³. Mit k = 2 wird seine Kante 4 cm und sein Volumen 64 cm³, also achtmal so groß. Diese Aussage setzt ähnliche Körper und denselben Faktor für alle Längen voraus.</p></details><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst konstruieren und begründen</h3><ol data-dilation-tasks><li>Ein Dreieck hat b = 6 cm, h = 4 cm. Berechne A und dann b′, h′ und A′ bei k = 1,5. Prüfe den Flächenfaktor.</li><li>Ein Rechteck 8 cm × 6 cm wird mit k = 0,5 verkleinert. Berechne neue Seiten, Umfang und Fläche; trenne die beiden Faktoren.</li><li>Eine ähnliche Bildfigur hat neunmal den Flächeninhalt des Originals. Bestimme den positiven Längenfaktor und erkläre, warum nicht k = 9 gilt.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Faktoren – Rechnungen vergleichen</summary><div data-dilation-solution><p>Dreieck: A = 6 · 4 / 2 = 12 cm². b′ = 9 cm, h′ = 6 cm und A′ = 27 cm². 27 : 12 = 2,25 = 1,5².</p><p>Rechteck: neue Seiten 4 cm und 3 cm, neuer Umfang 14 cm statt 28 cm, neue Fläche 12 cm² statt 48 cm². Längen/Umfang erhalten den Faktor 0,5, Fläche den Faktor 0,25.</p><p>Neunfache Fläche: k = 3, weil 3² = 9. k = 9 würde die Fläche mit 81 multiplizieren.</p></div></details>{{QUIZ_m37_area_factor}}{{QUIZ_m37_area_reverse}}",
+        "quizzes": [
+          {
+            "id": "m37_area_factor",
+            "question": "Ein Rechteck wird in beiden Richtungen mit k = 3 vergrößert. Was geschieht mit seinem Flächeninhalt?",
+            "answers": [
+              {
+                "text": "Er wird dreimal so groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Faktor 3 gilt für jede Länge. Für die Fläche wirken zwei Faktoren 3."
+              },
+              {
+                "text": "Er wird sechsmal so groß.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die beiden Längenfaktoren werden miteinander multipliziert, nicht addiert."
+              },
+              {
+                "text": "Er wird neunmal so groß.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "A′ = (3b) · (3h) = 9 · b · h. Der Flächenfaktor ist k² = 9."
+              }
+            ]
+          },
+          {
+            "id": "m37_area_reverse",
+            "question": "Zwei ähnliche Figuren haben Flächeninhalte 8 cm² und 32 cm². Mit welchem positiven Faktor werden die Längen von der kleinen zur großen Figur multipliziert?",
+            "answers": [
+              {
+                "text": "Mit 4.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "4 ist das Verhältnis der Flächen. Für die Längen suchst du den positiven Faktor, dessen Quadrat 4 ergibt."
+              },
+              {
+                "text": "Mit 2.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "32 : 8 = 4 und 2 · 2 = 4. Deshalb ist der Längenfaktor 2."
+              },
+              {
+                "text": "Mit 16.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Längenfaktor 16 würde einen Flächenfaktor 256 ergeben."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m37_triangles",
+        "title": "4. Dreiecke über Winkel zuordnen",
+        "content": "<p>Bei <strong>Dreiecken</strong> genügt es, zwei Winkelpaare zu vergleichen. Sind sie gleich groß, stimmt wegen der Winkelsumme 180° auch das dritte Paar überein. Solche Dreiecke sind ähnlich. Das nennt man das WW-Kriterium. Bei beliebigen Vierecken reichen gleiche Winkel allein nicht: Alle Rechtecke haben rechte Winkel, aber ein Quadrat ist nicht zu jedem Rechteck ähnlich.</p><div class=\"dilation-card\"><h3>Ecken passend zuordnen</h3><p>Dreieck ABC: A hat 40°, B hat 60°, C hat 80°. Dreieck PQR: P hat 60°, Q hat 80°, R hat 40°. Also A ↔ R, B ↔ P und C ↔ Q. Damit gehört AB zu RP, BC zu PQ und CA zu QR.</p><p>Wenn AB = 4 cm und RP = 6 cm, ist der Faktor von ABC zu RPQ gleich 1,5. Für die entsprechenden Seiten BC und PQ gilt PQ = 1,5 · BC. Der Faktor in der Gegenrichtung wäre 4 : 6 = 2/3.</p></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst konstruieren und begründen</h3><ol data-dilation-tasks><li>Zeichne zwei unterschiedlich große Dreiecke mit Winkeln 40°, 60° und 80°. Ordne die Ecken zu und vergleiche zwei entsprechende Seitenverhältnisse. Berücksichtige deine Zeichengenauigkeit.</li><li>Nutze das Beispiel ABC/PQR. Welche Seite entspricht CA? Schreibe eine Formel für ihre Länge mit CA und dem Faktor 1,5.</li><li>Zeichne ein Quadrat 3 cm × 3 cm und ein Rechteck 6 cm × 3 cm. Beide haben vier rechte Winkel. Begründe mit Seitenverhältnissen, warum daraus keine Ähnlichkeit folgt.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Dreiecke – Zuordnung und Grenzen vergleichen</summary><div data-dilation-solution><p>Die beiden konstruierten Dreiecke sollten nach Zuordnung gleicher Winkel denselben Seitenfaktor zeigen; Messabweichungen sind möglich. Konstruiere zuerst eine Grundseite und die beiden anliegenden Winkel. Ihr Schnittpunkt bestimmt die dritte Ecke.</p><p>CA entspricht QR. QR = 1,5 · CA. Die Zuordnung kommt von C ↔ Q und A ↔ R.</p><p>Beim Quadrat zum Rechteck lauten die beiden Seitenfaktoren 6 : 3 = 2 und 3 : 3 = 1. Sie sind verschieden. Das WW-Kriterium gilt für Dreiecke, nicht allgemein für Vierecke.</p></div></details>{{QUIZ_m37_triangle_angles}}{{QUIZ_m37_triangle_sides}}",
+        "quizzes": [
+          {
+            "id": "m37_triangle_angles",
+            "question": "Dreieck A hat Winkel 50°, 60° und 70°. Dreieck B hat Winkel 70° und 50°. Sind die Dreiecke ähnlich?",
+            "answers": [
+              {
+                "text": "Ja. Der dritte Winkel von B ist 60°; die Winkel lassen sich zuordnen.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "180° − 70° − 50° = 60°. Dreiecke mit paarweise gleichen Winkeln sind ähnlich."
+              },
+              {
+                "text": "Nein. Die Winkel müssen in derselben Reihenfolge genannt sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Nennreihenfolge ist nicht entscheidend. Ordne die Ecken über gleiche Winkel zu."
+              },
+              {
+                "text": "Das kann man nur mit allen sechs Seitenlängen entscheiden.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei Dreiecken reichen zwei passende Winkelpaare, weil die Winkelsumme den dritten Winkel festlegt."
+              }
+            ]
+          },
+          {
+            "id": "m37_triangle_sides",
+            "question": "Zwei ähnliche Dreiecke sind über gleiche Winkel zugeordnet. Eine Seite von 4 cm entspricht 6 cm. Welche Länge entspricht einer weiteren Seite von 10 cm?",
+            "answers": [
+              {
+                "text": "12 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Vergrößerung ist keine Addition von 2 cm. Alle entsprechenden Seiten erhalten denselben Faktor."
+              },
+              {
+                "text": "6,67 cm.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das entspricht der umgekehrten Richtung. Von 4 cm zu 6 cm wird vergrößert."
+              },
+              {
+                "text": "15 cm.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "k = 6 : 4 = 1,5. Deshalb entspricht der 10-cm-Seite eine Seite von 15 cm."
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "sec2",
-        "title": "Der Maßstab",
+        "title": "5. Der Maßstab",
         "content": "<p><strong>Maßstab 1 : n</strong> bedeutet: Einer Längeneinheit im Plan entsprechen n gleiche Längeneinheiten in Wirklichkeit. Schreibe zuerst beide Längen in derselben Einheit. Bei 1 : 100 000 entsprechen 1 cm im Plan also 100 000 cm = 1 km in Wirklichkeit.</p><p><strong>Vom Plan zur Wirklichkeit:</strong> 2,5 cm × 100 000 = 250 000 cm = 2,5 km. <strong>Von der Wirklichkeit zum Plan:</strong> 3 km = 300 000 cm; 300 000 cm : 100 000 = 3 cm im Plan.</p><p>Der Maßstab ist keine Angabe „Zentimeter zu Meter“. 1 : 200 gilt ebenso für 1 mm zu 200 mm. Größere Nenner bedeuten bei gleichem Gegenstand eine kleinere Darstellung. Wird ein Plan nachträglich vergrößert oder verkleinert, gilt der aufgedruckte Zahlenmaßstab nicht mehr unverändert.</p>{{QUIZ_m37_q2}}",
         "quizzes": [
           {
@@ -26691,8 +27024,8 @@
       },
       {
         "id": "m37_plan",
-        "title": "Einen Raumplan erstellen und überprüfen",
-        "content": "<p><strong>Erfundener Übungsraum:</strong> Ein rechteckiger Raum ist 8 m lang und 6 m breit. Eine Türöffnung liegt auf einer der langen Seiten, beginnt 1 m von der linken Ecke und ist 1 m breit. Zeichne die Innenmaße im Maßstab 1 : 200; Wandstärken werden im Modell weggelassen.</p><ol class=\"step-list\" data-scale-task><li>Wandle alle wirklichen Längen in Zentimeter um. Teile durch 200 und zeichne das Rechteck mit der Türöffnung. Beschrifte Plan und Einheiten.</li><li>Rechne deine beiden gezeichneten Raumseiten zurück in Meter. Stimmen 8 m und 6 m? Prüfe auch das Seitenverhältnis.</li><li>Zeichne denselben Raum im Maßstab 1 : 100. Vergleiche den Faktor für beide Seiten. Begründe, warum die beiden Rechtecke ähnlich sind.</li><li>Eine Kopie deines Plans im Maßstab 1 : 200 wird auf 200 % der ursprünglichen Seitenlängen vergrößert. Welcher Zahlenmaßstab gilt nun? Erkläre, warum 1 : 400 hier nicht passt.</li><li>Zeichne ein Rechteck mit Seiten 4 cm und 3 cm, drehe das Blatt und vergleiche mit deinem ersten Raumplan. Hat das Drehen die Ähnlichkeit verändert? Welche Seiten gehören zusammen?</li></ol><details data-scale-solution><summary>Vergleichsauswertung</summary><p>8 m = 800 cm und 6 m = 600 cm. Bei 1 : 200 werden daraus 4 cm und 3 cm. Die Türöffnung beginnt 0,5 cm von der Ecke und ist 0,5 cm breit. Rückrechnung: 4 cm × 200 = 800 cm = 8 m; 3 cm × 200 = 600 cm = 6 m. Bei 1 : 100 sind die Seiten 8 cm und 6 cm: beide doppelt so groß.</p><p>Eine Verdopplung der Planlängen macht aus 1 : 200 den Maßstab 1 : 100. Der wirkliche Raum bleibt gleich groß. Ein gedrehtes Rechteck mit Seiten 4 cm und 3 cm hat dieselbe Form und Größe wie der erste Plan: k = 1. Vergleiche lange mit langer und kurze mit kurzer Seite.</p></details>{{QUIZ_m37_equal}}{{QUIZ_m37_reverse}}",
+        "title": "6. Einen Raumplan erstellen und überprüfen",
+        "content": "<p><strong>Erfundener Übungsraum:</strong> Ein rechteckiger Raum ist 8 m lang und 6 m breit. Eine Türöffnung liegt auf einer der langen Seiten, beginnt 1 m von der linken Ecke und ist 1 m breit. Zeichne die Innenmaße im Maßstab 1 : 200; Wandstärken werden im Modell weggelassen.</p><ol class=\"step-list\" data-scale-task><li>Wandle alle wirklichen Längen in Zentimeter um. Teile durch 200 und zeichne das Rechteck mit der Türöffnung. Beschrifte Plan und Einheiten.</li><li>Rechne deine beiden gezeichneten Raumseiten zurück in Meter. Stimmen 8 m und 6 m? Prüfe auch das Seitenverhältnis.</li><li>Zeichne denselben Raum im Maßstab 1 : 100. Vergleiche den Faktor für beide Seiten. Begründe, warum die beiden Rechtecke ähnlich sind.</li><li>Eine Kopie deines Plans im Maßstab 1 : 200 wird auf 200 % der ursprünglichen Seitenlängen vergrößert. Welcher Zahlenmaßstab gilt nun? Erkläre, warum 1 : 400 hier nicht passt.</li><li>Zeichne ein Rechteck mit Seiten 4 cm und 3 cm, drehe das Blatt und vergleiche mit deinem ersten Raumplan. Hat das Drehen die Ähnlichkeit verändert? Welche Seiten gehören zusammen?</li></ol><details data-scale-solution data-worksheet-solution=\"true\"><summary>Vergleichsauswertung</summary><div data-dilation-plan-solution><p>8 m = 800 cm und 6 m = 600 cm. Bei 1 : 200 werden daraus 4 cm und 3 cm. Die Türöffnung beginnt 0,5 cm von der Ecke und ist 0,5 cm breit. Rückrechnung: 4 cm × 200 = 800 cm = 8 m; 3 cm × 200 = 600 cm = 6 m. Bei 1 : 100 sind die Seiten 8 cm und 6 cm: beide doppelt so groß.</p><p>Eine Verdopplung der Planlängen macht aus 1 : 200 den Maßstab 1 : 100. Der wirkliche Raum bleibt gleich groß. Ein gedrehtes Rechteck mit Seiten 4 cm und 3 cm hat dieselbe Form und Größe wie der erste Plan: k = 1. Vergleiche lange mit langer und kurze mit kurzer Seite.</p></div></details>{{QUIZ_m37_equal}}{{QUIZ_m37_reverse}}",
         "quizzes": [
           {
             "id": "m37_equal",
@@ -26775,18 +27108,31 @@
       ]
     },
     "prerequisites": [
-      "math2_6_prop_prozent"
+      "math2_6_prop_prozent",
+      "math3_4_flaechensatz"
     ],
     "learningGoals": [
       "Ähnliche Figuren anhand gleicher Form und proportionaler Längen erkennen.",
       "Entsprechende Seitenlängen mit einem gemeinsamen Faktor vergleichen.",
       "Mit Maßstäben rechnen und Längeneinheiten umwandeln.",
-      "Einen maßstäblichen Plan zeichnen, zurückrechnen und die Wirkung einer Vergrößerung erklären."
+      "Einen maßstäblichen Plan zeichnen, zurückrechnen und die Wirkung einer Vergrößerung erklären.",
+      "Eine Figur von einem Zentrum aus mit positivem Faktor vergrößern oder verkleinern.",
+      "Längen-, Umfangs- und Flächenfaktor unterscheiden und nutzen.",
+      "Ähnliche Dreiecke über gleiche Winkel erkennen und entsprechende Seiten richtig zuordnen."
     ],
     "summary": [
       "Bei ähnlichen Figuren sind entsprechende Winkel gleich und entsprechende Seitenlängen im gleichen Verhältnis.",
       "Maßstab 1 : n bedeutet: Eine Längeneinheit im Modell entspricht n gleichen Einheiten in Wirklichkeit.",
-      "1 km = 100 000 cm. Zum Umrechnen von Zentimetern in Kilometer dividierst du durch 100 000."
+      "1 km = 100 000 cm. Zum Umrechnen von Zentimetern in Kilometer dividierst du durch 100 000.",
+      "Zentrische Streckung: ZP′ = k · ZP; k ist positiv, das Zentrum bleibt fest.",
+      "Ähnliche Figuren: Längen und Umfang mit k, Flächen mit k².",
+      "Bei Dreiecken reichen zwei gleiche Winkelpaare zum Nachweis der Ähnlichkeit."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan, Anlage 1 – Mathematik, 3. Klasse",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
     ]
   },
   "math3_8_pythagoras": {
@@ -26921,7 +27267,7 @@
       {
         "id": "m39_sec1",
         "title": "Was sind 3D-Körper?",
-        "content": "<p>Geometrische Körper sind dreidimensionale Modelle. Ein realer Gegenstand kann durch einen Körper näherungsweise beschrieben werden: eine Schachtel durch einen Quader, eine Dose durch einen Zylinder. Das Modell lässt Details wie Wandstärke oder abgerundete Kanten je nach Aufgabe weg. Eine Zeichnung des Körpers auf Papier bleibt zweidimensional.</p><div class=\"interactive-zone\" style=\"background:#f0f0f0; padding:10px; border-radius:5px;\"><h3>🎮 Mini-Game: 2D oder 3D?</h3><label for=\"ans_m39_1\">Ist ein echtes Handy als Gegenstand 2D oder 3D?</label><input type=\"text\" id=\"ans_m39_1\" placeholder=\"Tippe 2D oder 3D\"><button onclick=\"check_m39()\">Prüfen</button><p id=\"res_m39_1\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div><p>Hier sind bekannte Körper:</p><ul><li><b>Würfel:</b> Spielwürfel</li><li><b>Zylinder:</b> Cola-Dose</li><li><b>Kugel:</b> Fußball</li></ul><p>Bist du bereit?</p>{{QUIZ_m39_q1}}{{QUIZ_m39_q2}}",
+        "content": "<p>Geometrische Körper sind dreidimensionale Modelle. Ein realer Gegenstand kann durch einen Körper näherungsweise beschrieben werden: eine Schachtel durch einen Quader, eine Dose durch einen Zylinder. Das Modell lässt Details wie Wandstärke oder abgerundete Kanten je nach Aufgabe weg. Eine Zeichnung des Körpers auf Papier bleibt zweidimensional.</p><div class=\"interactive-zone solid-extension-lab\"><h3>Gegenstand und Modell unterscheiden</h3><label for=\"ans_m39_1\">Ist ein echtes Handy als Gegenstand 2D oder 3D?</label><input type=\"text\" id=\"ans_m39_1\" placeholder=\"Tippe 2D oder 3D\"><button onclick=\"check_m39()\">Prüfen</button><p id=\"res_m39_1\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div><p>Hier sind bekannte Körper:</p><ul><li><b>Würfel:</b> Spielwürfel</li><li><b>Zylinder:</b> Cola-Dose</li><li><b>Kugel:</b> Fußball</li></ul>{{QUIZ_m39_q1}}{{QUIZ_m39_q2}}",
         "quizzes": [
           {
             "id": "m39_q1",
@@ -26995,7 +27341,7 @@
       {
         "id": "m39_prisms",
         "title": "3. Gerade Prismen: vom Netz zur Formel",
-        "content": "<p>Ein Prisma hat zwei kongruente, parallele Vielecke als Grund- und Deckfläche. Bei einem <strong>geraden Prisma</strong> stehen die Seitenkanten senkrecht auf der Grundfläche. Seine Seitenflächen sind Rechtecke.</p><p>Schneidest du den Mantel an einer Seitenkante auf und klappst ihn aus, entsteht ein Rechteckstreifen: Seine Breite ist der Umfang u der Grundfläche, seine Höhe die Körperhöhe h. Deshalb gilt M = u · h und <strong>O = 2G + u · h</strong>. Das Volumen ist <strong>V = G · h</strong>.</p><p>Bei einer dreieckigen Grundfläche musst du zwei Höhen auseinanderhalten: Die Dreieckshöhe gehört zur Berechnung von G. Die Körperhöhe ist der senkrechte Abstand zwischen Grund- und Deckfläche.</p><div class=\"interactive-zone\" data-prism-net><h3>Ein Dreiecksprisma und sein Netz</h3><p>Die Grundfläche ist ein rechtwinkliges Dreieck mit Seiten 3 cm, 4 cm und 5 cm. Die Körperhöhe beträgt 6 cm. Wechsle zwischen Körper und Netz und untersuche die beiden Grundflächen und die drei Mantelrechtecke.</p><div role=\"group\" aria-label=\"Darstellung wählen\"><button type=\"button\" data-prism-view=\"solid\" aria-pressed=\"true\">Körper</button><button type=\"button\" data-prism-view=\"net\" aria-pressed=\"false\">Netz</button></div><div role=\"group\" aria-label=\"Flächen untersuchen\"><button type=\"button\" data-prism-part=\"all\" aria-pressed=\"true\">Alle Flächen</button><button type=\"button\" data-prism-part=\"base\" aria-pressed=\"false\">Grund- und Deckfläche</button><button type=\"button\" data-prism-part=\"mantle\" aria-pressed=\"false\">Mantel</button></div><div data-prism-drawing></div><p data-prism-description role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p>Im Netz entsprechen 20 Zeicheneinheiten einem Zentimeter. Das Körperbild ist ein Schrägbild: Längen und Winkel erscheinen dort verzerrt. Die Auswahl hebt Flächen durch dicke Umrandung hervor.</p><p><strong>Zum Nachdenken:</strong> Welcher Teil der Oberfläche fehlt, wenn eine der beiden Dreiecksflächen offen bleibt? Prüfe mit dem Netz: 84 cm² − 6 cm² = 78 cm².</p></div>{{QUIZ_m39_prism_volume}}{{QUIZ_m39_prism_surface}}",
+        "content": "<p>Ein Prisma hat zwei kongruente, parallele Vielecke als Grund- und Deckfläche. Bei einem <strong>geraden Prisma</strong> stehen die Seitenkanten senkrecht auf der Grundfläche. Seine Seitenflächen sind Rechtecke.</p><p>Schneidest du den Mantel an einer Seitenkante auf und klappst ihn aus, entsteht ein Rechteckstreifen: Seine Breite ist der Umfang u der Grundfläche, seine Höhe die Körperhöhe h. Deshalb gilt M = u · h und <strong>O = 2G + u · h</strong>. Das Volumen ist <strong>V = G · h</strong>.</p><p>Bei einer dreieckigen Grundfläche musst du zwei Höhen auseinanderhalten: Die Dreieckshöhe gehört zur Berechnung von G. Die Körperhöhe ist der senkrechte Abstand zwischen Grund- und Deckfläche.</p><div class=\"interactive-zone\" data-prism-net><h3>Ein Dreiecksprisma und sein Netz</h3><p>Die Grundfläche ist ein rechtwinkliges Dreieck mit Seiten 3 cm, 4 cm und 5 cm. Die Körperhöhe beträgt 6 cm. Wechsle zwischen Körper und Netz und untersuche die beiden Grundflächen und die drei Mantelrechtecke.</p><div role=\"group\" aria-label=\"Darstellung wählen\"><button type=\"button\" data-prism-view=\"solid\" aria-pressed=\"true\">Körper</button><button type=\"button\" data-prism-view=\"net\" aria-pressed=\"false\">Netz</button></div><div role=\"group\" aria-label=\"Flächen untersuchen\"><button type=\"button\" data-prism-part=\"all\" aria-pressed=\"true\">Alle Flächen</button><button type=\"button\" data-prism-part=\"base\" aria-pressed=\"false\">Grund- und Deckfläche</button><button type=\"button\" data-prism-part=\"mantle\" aria-pressed=\"false\">Mantel</button></div><div data-prism-drawing tabindex=\"0\" role=\"region\" aria-label=\"Körperzeichnung; bei schmaler Ansicht seitlich verschiebbar\"></div><p>Auf schmalen Bildschirmen kannst du die Zeichnung seitlich verschieben. Mit der Tastatur: Zeichnung fokussieren und die Pfeiltasten verwenden.</p><p data-prism-description role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p>Im Netz entsprechen 20 Zeicheneinheiten einem Zentimeter. Das Körperbild ist ein Schrägbild: Längen und Winkel erscheinen dort verzerrt. Die Auswahl hebt Flächen durch dicke Umrandung hervor.</p><p><strong>Zum Nachdenken:</strong> Welcher Teil der Oberfläche fehlt, wenn eine der beiden Dreiecksflächen offen bleibt? Prüfe mit dem Netz: 84 cm² − 6 cm² = 78 cm².</p></div>{{QUIZ_m39_prism_volume}}{{QUIZ_m39_prism_surface}}",
         "quizzes": [
           {
             "id": "m39_prism_volume",
@@ -27101,6 +27447,140 @@
             ]
           }
         ]
+      },
+      {
+        "id": "m39_oblique",
+        "title": "5. Schrägrisse selbst zeichnen",
+        "content": "<p>Ein Schrägriss stellt einen Körper auf einer ebenen Fläche dar. Wir verwenden hier eine feste Zeichenregel: Die Vorderansicht bleibt unverzerrt; Tiefenkanten werden bei 45° zur Waagrechten mit halber Länge gezeichnet. Das ist eine Darstellungsregel, keine Änderung der Körpermaße. Parallele Körperkanten bleiben im Bild parallel. Verdeckte Kanten zeichnest du gestrichelt. Die Beispiele sind Skizzen; miss am Bildschirm oder Ausdruck keine Zentimeter ab.</p><figure class=\"solid-drawing\"><svg viewBox=\"0 0 360 320\" data-solid-sketch=\"prism\" data-worksheet-static=\"true\" role=\"img\" aria-labelledby=\"solid-prism-sketch-title\"><title id=\"solid-prism-sketch-title\">Schrägriss eines geraden Dreiecksprismas</title><polygon points=\"60,260 150,260 60,140\" fill=\"#dbeafe\" stroke=\"#1e40af\" stroke-width=\"2\"/><polygon points=\"150,260 60,140 123.63961,76.36039 213.63961,196.36039\" fill=\"#fef3c7\" stroke=\"#1e40af\" stroke-width=\"2\"/><path d=\"M60 260L123.63961 196.36039L213.63961 196.36039M123.63961 196.36039L123.63961 76.36039\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><g fill=\"#111827\" font-size=\"18\"><text x=\"86\" y=\"286\">3 cm</text><text x=\"12\" y=\"205\">4 cm</text><text x=\"232\" y=\"224\">h = 6 cm</text></g></svg><figcaption>Vorne liegt ein rechtwinkliges Dreieck mit Katheten 3 cm und 4 cm. Die drei gleich langen Tiefenkanten gehören zur Körperhöhe h = 6 cm; im Schrägriss sind sie parallel, bei 45° und halb so lang gezeichnet. Verdeckte Kanten sind gestrichelt.</figcaption></figure><div class=\"solid-extension-card\"><h3>Ein Dreiecksprisma zeichnen</h3><ol><li>Zeichne vorne ein rechtwinkliges Dreieck mit Katheten 3 cm waagrecht und 4 cm senkrecht. Verbinde die Endpunkte.</li><li>Zeichne von jeder Ecke eine parallele Tiefenstrecke nach rechts oben: 45°, gezeichnete Länge 3 cm für die wirkliche Körperhöhe 6 cm.</li><li>Verbinde die drei hinteren Endpunkte zum kongruenten Dreieck. Markiere verdeckte Kanten gestrichelt.</li><li>Beschrifte mit den wirklichen Maßen. G = 3 · 4 / 2 = 6 cm² und V = 6 · 6 = 36 cm³. Die gezeichneten 3 cm Tiefe gehören nicht in diese Rechnung.</li></ol></div><figure class=\"solid-drawing\"><svg viewBox=\"0 0 360 330\" data-solid-sketch=\"pyramid\" data-worksheet-static=\"true\" role=\"img\" aria-labelledby=\"solid-pyramid-sketch-title\"><title id=\"solid-pyramid-sketch-title\">Schrägriss einer quadratischen Pyramide mit senkrechter Höhe</title><polygon points=\"70,255 220,255 171.5165,78.4835\" fill=\"#dbeafe\" stroke=\"#1e40af\" stroke-width=\"2\"/><polygon points=\"220,255 273.033,201.967 171.5165,78.4835\" fill=\"#fef3c7\" stroke=\"#1e40af\" stroke-width=\"2\"/><path d=\"M70 255L123.033 201.967L273.033 201.967M123.033 201.967L171.5165 78.4835\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><path d=\"M171.5165 78.4835V228.4835\" stroke=\"#a21caf\" stroke-width=\"3\" stroke-dasharray=\"4 3\"/><circle cx=\"171.5165\" cy=\"228.4835\" r=\"3\" fill=\"#a21caf\"/><g fill=\"#111827\" font-size=\"18\"><text x=\"163\" y=\"61\">S</text><text x=\"154\" y=\"247\">M</text><path d=\"M240 125L176 150\" fill=\"none\" stroke=\"#86198f\"/><text x=\"245\" y=\"124\">h = 6 cm</text><text x=\"123\" y=\"283\">6 cm</text></g></svg><figcaption>Die quadratische Grundfläche erscheint als Parallelogramm. Die Spitze S liegt senkrecht über ihrem Mittelpunkt M. Die gestrichelte violette Strecke SM ist die Körperhöhe, nicht eine Seitenkante oder die Höhe eines Seitendreiecks. Auch hier werden Tiefen halbiert bei 45° gezeichnet.</figcaption></figure><div class=\"solid-extension-card\"><h3>Eine quadratische Pyramide zeichnen</h3><ol><li>Zeichne eine vordere Kante von 6 cm. Zeichne von beiden Endpunkten nach rechts oben je 3 cm bei 45°; schließe das Parallelogramm. Es stellt ein Quadrat mit 6 cm Seitenlänge dar.</li><li>Zeichne die beiden Diagonalen der Grundfläche dünn ein. Ihr Schnittpunkt ist M.</li><li>Zeichne von M aus 6 cm senkrecht nach oben zur Spitze S. Verbinde S mit den vier Grundecken. Die Höhe bleibt als Hilfslinie sichtbar.</li><li>Kennzeichne verdeckte Kanten und beschrifte Grundseite und Körperhöhe. Hier gilt V = 6 · 6 · 6 / 3 = 72 cm³.</li></ol></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst bearbeiten</h3><ol data-solid-extension-tasks><li>Zeichne das Dreiecksprisma nach den Schritten und notiere, welche Längen du verkürzt gezeichnet hast. Berechne V mit den wirklichen Maßen.</li><li>Zeichne die quadratische Pyramide. Markiere Körperhöhe, eine Seitenkante und eine Seitendreieckshöhe verschieden. Erkläre, welche davon in die Volumenformel gehört.</li><li>Ein Kind setzt beim Dreiecksprisma die gezeichnete Tiefe 3 cm in V = G · h ein. Berechne das Ergebnis, vergleiche es mit 36 cm³ und beschreibe den Fehler.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Schrägrisse – Merkmale und Rechnungen vergleichen</summary><div data-solid-extension-solution><p>Beim Prisma werden nur die drei Tiefenkanten halbiert gezeichnet; G = 6 cm² und h = 6 cm ergeben 36 cm³. Die falsche Bildmessung liefert 6 · 3 = 18 cm³, also nur die Hälfte. Die Zeichnung verändert die wirkliche Höhe nicht.</p><p>Bei der Pyramide ist SM die senkrechte Körperhöhe. Eine Seitenkante führt von S zu einer Grundecke; die Seitendreieckshöhe führt von S senkrecht zur betreffenden Grundkante innerhalb einer Seitenfläche. Sie verläuft schräg zur Grundflächenebene und ist nicht SM. G = 36 cm² und h = 6 cm ergeben 72 cm³. Prüfe in deiner Zeichnung auch Parallelität, halbe Tiefenlänge und gestrichelte verdeckte Kanten.</p></div></details>{{QUIZ_m39_oblique_depth}}",
+        "quizzes": [
+          {
+            "id": "m39_oblique_depth",
+            "question": "Für einen Schrägriss wird eine 8 cm lange Tiefenkante bei 45° auf die Hälfte verkürzt. Welche Länge verwendest du in der Volumenrechnung?",
+            "answers": [
+              {
+                "text": "4 cm, weil die Linie so lang gezeichnet ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 4 cm gehören nur zur Darstellung. Die Verkürzung verändert den Körper nicht."
+              },
+              {
+                "text": "8 cm, weil die Körperkante unverändert bleibt.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Für das Volumen zählen die wirklichen Körpermaße. Der Schrägriss zeigt die Tiefe nur verkürzt."
+              },
+              {
+                "text": "Etwa 5,66 cm, weil der Winkel 45° beträgt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die gezeichnete Richtung liefert keine neue reale Kantenlänge. Verwende die gegebene Länge 8 cm."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "m39_mass_density",
+        "title": "6. Vom Volumen zur Masse",
+        "content": "<p>Gleich große Körper können unterschiedlich schwer sein. Die <strong>Dichte ρ</strong> (griechisch „Rho“) gibt Masse pro Volumen an: <strong>ρ = m / V</strong>. Die Einheit g/cm³ bedeutet Gramm pro Kubikzentimeter. Für einen vollständig gefüllten Körper aus einem einheitlichen Werkstoff gilt <strong>m = ρ · V</strong>. Bestimme zuerst das geometrische Volumen, dann die Masse.</p><div class=\"solid-extension-card\"><h3>Rechenweg mit erfundenen Werkstoffdaten</h3><p>Ein gerades Dreiecksprisma hat Katheten 3 cm und 4 cm sowie Körperhöhe 6 cm. G = 3 · 4 / 2 = 6 cm², V = 6 · 6 = 36 cm³. Für den erfundenen Werkstoff B mit ρ = 1,2 g/cm³ folgt m = 1,2 · 36 = 43,2 g.</p><p>Umgekehrt ergibt eine Probe mit m = 54 g und V = 20 cm³ die mittlere Dichte ρ = 54 : 20 = 2,7 g/cm³. Die Zahl allein identifiziert keinen Werkstoff eindeutig.</p><p><strong>Einheiten:</strong> 1 cm³ = 0,001 dm³ und 1 g = 0,001 kg. Deshalb ist 1 g/cm³ = 1 kg/dm³. Nutze zusammenpassende Masse- und Volumeneinheiten; 43,2 g = 0,0432 kg.</p></div><div class=\"interactive-zone solid-extension-lab\" data-solid-mass><h3>Eine Modellmasse vorhersagen</h3><p>Alle drei Werkstoffdichten sind erfundene Übungswerte. Der Körper ist vollständig mit einem einheitlichen Werkstoff gefüllt. Berechne G, V und m auf Papier, bevor du prüfst. Die Eingabe bewertet nur den Zahlenwert der Masse.</p><label for=\"solid-mass-body\">Körper</label><select id=\"solid-mass-body\"><option value=\"box\">Quader</option><option value=\"tri\">Dreiecksprisma</option><option value=\"pyramid\">Pyramide</option></select><label for=\"solid-mass-height\">Senkrechte Körperhöhe</label><select id=\"solid-mass-height\"><option value=\"3\">3 cm</option><option value=\"6\" selected>6 cm</option><option value=\"9\">9 cm</option></select><label for=\"solid-mass-material\">Erfundener Werkstoff</label><select id=\"solid-mass-material\"><option value=\"0.5\">A: 0,5 g/cm³</option><option value=\"1.2\" selected>B: 1,2 g/cm³</option><option value=\"2.7\">C: 2,7 g/cm³</option></select><p data-solid-mass-givens></p><label for=\"solid-mass-value\">Meine Masse in Gramm</label><input id=\"solid-mass-value\" inputmode=\"decimal\" aria-describedby=\"solid-mass-format\"><p id=\"solid-mass-format\">Nur die Zahl, zum Beispiel 43,2. Komma oder Punkt sind möglich.</p><button type=\"button\" data-solid-mass-check>Masse prüfen</button><button type=\"button\" data-solid-mass-reset>Neu beginnen</button><div data-solid-mass-result role=\"status\" tabindex=\"-1\"></div><template data-worksheet-alternative><div class=\"solid-extension-paper\"><h3>Drei Modellmassen auf Papier</h3><p>Rechne jeweils G, V und m; verwende nur die angegebenen erfundenen Dichten. 1. Quader: rechteckige Grundfläche 4 cm × 3 cm, h = 6 cm, ρ = 1,2 g/cm³. 2. Gerades Dreiecksprisma: rechtwinklige Grundfläche mit Katheten 3 cm und 4 cm, h = 9 cm, ρ = 2,7 g/cm³. 3. Quadratische Pyramide: Grundkante 4 cm, h = 3 cm, ρ = 0,5 g/cm³.</p></div></template></div><p><strong>Modellgrenzen:</strong> Bei einem hohlen Körper brauchst du das Volumen des Werkstoffs, nicht einfach das äußere Körpervolumen. Bei mehreren Werkstoffen berechnest du die Teilmassen getrennt und addierst sie. Für eine reale Messung benötigst du außerdem passende Geräte und berücksichtigst Ablesegenauigkeit. Verwechsele Dichte nicht mit Gewichtskraft; hier rechnen wir mit Masse in Gramm oder Kilogramm.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst bearbeiten</h3><ol data-solid-extension-tasks><li>Ein voller Quader hat Kanten 4 cm, 3 cm und 5 cm. Rechne seine Masse für den erfundenen Werkstoff A mit 0,5 g/cm³ aus und gib sie auch in kg an.</li><li>Eine quaderförmige Probe hat Kanten 2 cm, 3 cm und 4 cm und eine gemessene Masse von 48 g. Berechne die mittlere Dichte. Beschreibe, welche Messungen du für einen eigenen vollen Quader durchführen würdest.</li><li>Für ein fiktives Modellprojekt sollen ein Prisma und eine Pyramide mit gleicher Grundfläche G = 12 cm² und Höhe h = 6 cm verglichen werden. Beide bestehen voll aus Werkstoff B mit 1,2 g/cm³. Berechne beide Massen und erkläre den Faktor. Würde die Aussage bei verschiedenen Werkstoffen automatisch gelten?</li></ol></div><details data-worksheet-solution=\"true\"><summary>Masse und Dichte – Rechenwege vergleichen</summary><div data-solid-extension-solution><p><strong>Eigene Aufgaben:</strong> V = 4 · 3 · 5 = 60 cm³; m = 0,5 · 60 = 30 g = 0,03 kg. Probe: V = 2 · 3 · 4 = 24 cm³; ρ = 48 : 24 = 2 g/cm³. Miss die drei Kanten mit einem geeigneten Längenmessgerät und die Masse mit einer passenden Waage; notiere Einheiten, Ablesegenauigkeit und Modellgrenzen.</p><p><strong>Vergleich:</strong> Prisma V = 72 cm³, m = 86,4 g; Pyramide V = 24 cm³, m = 28,8 g. Der Massenfaktor 1/3 gilt hier wegen gleicher Dichte. Bei verschiedenen Werkstoffen muss jeweils mit deren Dichte gerechnet werden.</p><p><strong>Papierfälle:</strong> Quader G = 12 cm², V = 72 cm³, m = 86,4 g. Dreiecksprisma G = 6 cm², V = 54 cm³, m = 145,8 g. Quadratische Pyramide G = 16 cm², V = 16 cm³, m = 8 g.</p></div></details>{{QUIZ_m39_mass_prism}}{{QUIZ_m39_density_inverse}}{{QUIZ_m39_mass_hollow}}{{QUIZ_m39_mass_compare}}",
+        "quizzes": [
+          {
+            "id": "m39_mass_prism",
+            "question": "Ein voller Körper hat V = 20 cm³ und eine Dichte von 2,7 g/cm³. Welche Masse ergibt das Modell?",
+            "answers": [
+              {
+                "text": "7,41 g.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "V : ρ ist nicht die Masse. Ein Kubikzentimeter hat hier 2,7 g, daher multiplizierst du mit 20."
+              },
+              {
+                "text": "54 g.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "m = ρ · V = 2,7 · 20 = 54 g. Die cm³ kürzen sich gegen den Nenner der Dichte."
+              },
+              {
+                "text": "22,7 g.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Masse entsteht hier durch Multiplikation. Volumen und Dichte kann man wegen verschiedener Einheiten nicht addieren."
+              }
+            ]
+          },
+          {
+            "id": "m39_density_inverse",
+            "question": "Eine Probe hat m = 54 g und V = 20 cm³. Wie groß ist ihre mittlere Dichte?",
+            "answers": [
+              {
+                "text": "2,7 g/cm³.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "ρ = m : V = 54 : 20 = 2,7 g/cm³. Das sind 2,7 g pro Kubikzentimeter."
+              },
+              {
+                "text": "1080 g/cm³.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "m · V beschreibt keine Masse pro Volumen. Teile die Masse durch das Volumen."
+              },
+              {
+                "text": "0,37 g/cm³.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "20 : 54 vertauscht die Größen. Gesucht sind Gramm pro Kubikzentimeter, nicht Kubikzentimeter pro Gramm."
+              }
+            ]
+          },
+          {
+            "id": "m39_mass_hollow",
+            "question": "Ein voller und ein hohler Modellwürfel haben gleiche Außenmaße und bestehen aus demselben Werkstoff. Was folgt für ihre Massen?",
+            "answers": [
+              {
+                "text": "Sie sind gleich schwer, weil ihr äußeres Volumen gleich ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Werkstoffdichte muss mit dem Werkstoffvolumen multipliziert werden. Der Hohlraum enthält diesen Werkstoff nicht."
+              },
+              {
+                "text": "Der hohle ist schwerer, weil er zusätzlich einen Innenraum hat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der leere Innenraum ersetzt Werkstoff. Für dieses Modell betrachten wir nur die Masse des Werkstoffs."
+              },
+              {
+                "text": "Der hohle enthält weniger Werkstoff und hat eine kleinere Masse.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Bei gleicher Werkstoffdichte bedeutet weniger Werkstoffvolumen eine kleinere Masse. Die Außenmaße allein reichen für die Rechnung nicht."
+              }
+            ]
+          },
+          {
+            "id": "m39_mass_compare",
+            "question": "Prisma und Pyramide haben dieselbe Grundfläche, dieselbe Körperhöhe und bestehen voll aus demselben Werkstoff. Welche Massenbeziehung gilt?",
+            "answers": [
+              {
+                "text": "Die Pyramide hat ein Drittel der Masse des Prismas.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Die Pyramide hat ein Drittel des Volumens. Bei gleicher Dichte ist m = ρ · V ebenfalls ein Drittel."
+              },
+              {
+                "text": "Die Pyramide hat die halbe Masse des Prismas.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Faktor 1/2 gehört zur Dreiecksfläche. Der Volumenfaktor für eine Pyramide ist 1/3."
+              },
+              {
+                "text": "Die Massen sind gleich, weil die Grundflächen gleich sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Auch die Form beeinflusst das Volumen. Gleiche Grundfläche und Höhe machen Prisma und Pyramide nicht gleich groß."
+              }
+            ]
+          }
+        ]
       }
     ],
     "diplom": {
@@ -27158,17 +27638,21 @@
       "Reale Gegenstände durch geometrische Körper modellieren und Modellgrenzen benennen.",
       "Oberfläche und Volumen eines Quaders mit passenden Einheiten berechnen.",
       "Grundflächenhöhe und Körperhöhe unterscheiden und gerade Prismen berechnen.",
-      "Das Volumen einer Pyramide berechnen und mit einem Prisma vergleichen."
+      "Das Volumen einer Pyramide berechnen und mit einem Prisma vergleichen.",
+      "Schrägrisse gerader Prismen und quadratischer Pyramiden nach einer Zeichenregel anfertigen.",
+      "Aus Volumen und Dichte eine Masse sowie aus Masse und Volumen eine Dichte berechnen."
     ],
     "summary": [
       "Eine geometrische Fläche ist zweidimensional, ein Körper dreidimensional. Reale Gegenstände werden durch solche Formen modelliert.",
       "Volumen ist Rauminhalt, etwa in cm³; Oberfläche ist der gesamte äußere Flächeninhalt, etwa in cm².",
       "Für den Quader gilt V = a · b · c, wenn die Kantenlängen in derselben Längeneinheit angegeben sind.",
       "Gerades Prisma: V = G · h; O = 2G + u · h mit dem Grundflächenumfang u.",
-      "Pyramide: V = G · h / 3. h ist die senkrechte Körperhöhe."
+      "Pyramide: V = G · h / 3. h ist die senkrechte Körperhöhe.",
+      "Im Schrägriss verkürzte Kanten behalten ihre wirkliche Länge für die Rechnung.",
+      "Masse m = ρ · V; Dichte ρ = m / V. Bei Hohlkörpern zählt das Werkstoffvolumen."
     ],
     "workshop": {
-      "title": "5. Eine offene Materialkiste planen",
+      "title": "7. Eine offene Materialkiste planen",
       "navLabel": "Körperwerkstatt",
       "instruction": "Ordne die Größen zu. Zeichne danach ein Netz und prüfe deinen Materialbedarf.",
       "categories": [
@@ -27200,7 +27684,13 @@
         "Ich benenne mindestens eine Grenze des Modells."
       ],
       "model": "Boden: 40 · 30 = 1200 cm². Seiten: 2 · 40 · 20 + 2 · 30 · 20 = 2800 cm². Insgesamt 4000 cm² Materialfläche. V = 40 · 30 · 20 = 24 000 cm³ = 24 Liter. Wandstärke verringert bei Außenmaßen den Innenraum. Verschnitt, Verbindungen und Klebelaschen können den Materialbedarf erhöhen."
-    }
+    },
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan, Anlage 1 – Mathematik, 3. Klasse",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
+    ]
   },
   "math3_10_prozent_zins": {
     "title": "Prozent, Zinsen und Wachstum",

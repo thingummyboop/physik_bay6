@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "0c3da6afcd0980bafecf230c170ba1ff33d848eddd4e5ffac09d01505f41f205",
-    "lang/de.json": "45659b38a17ec830696626c8ea5a5a5f7ea2572bbf300f1cb31f8abba6c1f2bc"
+    "lang/de.json": "cefabc9d3b56963ff05878e490641228a9f97f8a362e5635610624ccfd2baa98"
   },
   "subjects": {
     "physik": {
@@ -11336,9 +11336,11 @@
           "goals": [
             "Flächeninhalt und Umfang unterscheiden und passende Einheiten verwenden.",
             "Flächen von Rechteck, Dreieck, Parallelogramm und Trapez berechnen.",
-            "Zusammengesetzte Flächen zerlegen und Ergebnisse prüfen."
+            "Zusammengesetzte Flächen zerlegen und Ergebnisse prüfen.",
+            "Flächenformeln nach einer gesuchten Länge umformen und durch Einsetzen prüfen.",
+            "Ein regelmäßiges Sechseck mit Zirkel und Lineal konstruieren und über sechs Dreiecke berechnen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "section0",
@@ -11375,10 +11377,30 @@
                 "area_figure_q6",
                 "area_figure_q7"
               ]
+            },
+            {
+              "id": "flaechen_umkehren",
+              "index": 4,
+              "title": "5. Aus einer Fläche eine Länge bestimmen",
+              "questions": [
+                "area_inverse_triangle",
+                "area_inverse_trapezoid",
+                "area_inverse_units"
+              ]
+            },
+            {
+              "id": "sechseck_konstruieren",
+              "index": 5,
+              "title": "6. Ein regelmäßiges Sechseck konstruieren",
+              "questions": [
+                "area_hexagon_radius",
+                "area_hexagon_area",
+                "area_hexagon_regular"
+              ]
             }
           ],
           "workshop": true,
-          "questionCount": 8,
+          "questionCount": 14,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11818,30 +11840,60 @@
             "Ähnliche Figuren anhand gleicher Form und proportionaler Längen erkennen.",
             "Entsprechende Seitenlängen mit einem gemeinsamen Faktor vergleichen.",
             "Mit Maßstäben rechnen und Längeneinheiten umwandeln.",
-            "Einen maßstäblichen Plan zeichnen, zurückrechnen und die Wirkung einer Vergrößerung erklären."
+            "Einen maßstäblichen Plan zeichnen, zurückrechnen und die Wirkung einer Vergrößerung erklären.",
+            "Eine Figur von einem Zentrum aus mit positivem Faktor vergrößern oder verkleinern.",
+            "Längen-, Umfangs- und Flächenfaktor unterscheiden und nutzen.",
+            "Ähnliche Dreiecke über gleiche Winkel erkennen und entsprechende Seiten richtig zuordnen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "Was ist ähnlich?",
+              "title": "1. Ähnliche Figuren erkennen",
               "questions": [
                 "m37_q1"
               ]
             },
             {
-              "id": "sec2",
+              "id": "m37_dilation",
               "index": 1,
-              "title": "Der Maßstab",
+              "title": "2. Vom Zentrum aus vergrößern und verkleinern",
+              "questions": [
+                "m37_dilation_ray",
+                "m37_dilation_center"
+              ]
+            },
+            {
+              "id": "m37_area",
+              "index": 2,
+              "title": "3. Längenfaktor und Flächenfaktor unterscheiden",
+              "questions": [
+                "m37_area_factor",
+                "m37_area_reverse"
+              ]
+            },
+            {
+              "id": "m37_triangles",
+              "index": 3,
+              "title": "4. Dreiecke über Winkel zuordnen",
+              "questions": [
+                "m37_triangle_angles",
+                "m37_triangle_sides"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 4,
+              "title": "5. Der Maßstab",
               "questions": [
                 "m37_q2"
               ]
             },
             {
               "id": "m37_plan",
-              "index": 2,
-              "title": "Einen Raumplan erstellen und überprüfen",
+              "index": 5,
+              "title": "6. Einen Raumplan erstellen und überprüfen",
               "questions": [
                 "m37_equal",
                 "m37_reverse"
@@ -11849,7 +11901,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 4,
+          "questionCount": 10,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11866,9 +11918,11 @@
             "Reale Gegenstände durch geometrische Körper modellieren und Modellgrenzen benennen.",
             "Oberfläche und Volumen eines Quaders mit passenden Einheiten berechnen.",
             "Grundflächenhöhe und Körperhöhe unterscheiden und gerade Prismen berechnen.",
-            "Das Volumen einer Pyramide berechnen und mit einem Prisma vergleichen."
+            "Das Volumen einer Pyramide berechnen und mit einem Prisma vergleichen.",
+            "Schrägrisse gerader Prismen und quadratischer Pyramiden nach einer Zeichenregel anfertigen.",
+            "Aus Volumen und Dichte eine Masse sowie aus Masse und Volumen eine Dichte berechnen."
           ],
-          "summaryCount": 5,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "m39_sec1",
@@ -11904,10 +11958,29 @@
                 "m39_pyramid_volume",
                 "m39_pyramid_height"
               ]
+            },
+            {
+              "id": "m39_oblique",
+              "index": 4,
+              "title": "5. Schrägrisse selbst zeichnen",
+              "questions": [
+                "m39_oblique_depth"
+              ]
+            },
+            {
+              "id": "m39_mass_density",
+              "index": 5,
+              "title": "6. Vom Volumen zur Masse",
+              "questions": [
+                "m39_mass_prism",
+                "m39_density_inverse",
+                "m39_mass_hollow",
+                "m39_mass_compare"
+              ]
             }
           ],
           "workshop": true,
-          "questionCount": 7,
+          "questionCount": 12,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

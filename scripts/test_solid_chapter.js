@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('fs');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const read=p=>fs.readFileSync(p,'utf8'),de=JSON.parse(read('lang/de.json'));
 (async()=>{const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math3_9_koerper',runScripts:'outside-only'}),w=dom.window;await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>de});for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();w.eval(read('js/topics/math3_9_koerper.js'));w.topicInit();
-assert.equal(w.currentChapterQuiz.questions.length,9);assert.equal(w.chapterRevision('math3_9_koerper'),2);assert.ok(w.document.querySelector('[data-language-workshop]'));
+assert.equal(w.currentChapterQuiz.questions.length,14);assert.equal(w.chapterRevision('math3_9_koerper'),3);assert.ok(w.document.querySelector('[data-language-workshop]'));
 const z=w.document.querySelector('[data-solid-lab]'),g=z.querySelector('[data-solid-base]'),h=z.querySelector('[data-solid-height]'),status=z.querySelector('[data-solid-status]');
 for(let ground=3;ground<=60;ground+=3)for(let height=1;height<=20;height++){
  g.value=ground;h.value=height;g.dispatchEvent(new w.Event('input'));
@@ -31,4 +31,4 @@ const input=w.document.getElementById('ans_m39_1'),feedback=w.document.getElemen
 assert.equal(w.currentChapterResult('math3_9_koerper',{contentRevision:1,passed:true}).passed,false);
 // Independently verify the worked open-box model against its five individual faces.
 assert.equal(40*30+40*20+40*20+30*20+30*20,4000);assert.equal(40*30*20/1000,24);
-dom.window.close();console.log('PASS: rendered solid chapter, nine questions, 400 prism/pyramid comparisons, reset, input validation and revision invalidation.');})().catch(e=>{console.error(e);process.exitCode=1;});
+dom.window.close();console.log('PASS: rendered solid chapter, fourteen questions, 400 prism/pyramid comparisons, reset, input validation and revision invalidation.');})().catch(e=>{console.error(e);process.exitCode=1;});
