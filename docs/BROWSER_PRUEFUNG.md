@@ -271,3 +271,9 @@ Chromium 151.0.7922.34, Bericht 2026-09-16T16:09:30.641Z: 18 Kombinationen aus d
 ## Sinne und Wahrnehmung – abgeschlossen am 21.09.2026
 
 Browserbericht vom 16.09.2026, 17:16:05.948Z: zwölf native Grauflächenübergänge, 18 Layoutzustände, Tastatur/Fokus/Reset/Speicher sowie 36 Quizantwortwege bestanden. Nach mobiler Tabellenkorrektur sechs finale Layoutvarianten mit offener Erklärung am 16.09., 17:16:53.426Z geprüft. Keine Seitenfehler oder äußeren Überläufe. Die Sichtprüfung der finalen 21 Druckseiten wurde am 21.09. vervollständigt; Seiten 16 und 20 zusätzlich höher aufgelöst gelesen. Kein neuer Gesamtsuitenlauf oder erneut behaupteter Quellenabruf. [Details und Grenzen](BIOLOGIE_SINNE_WAHRNEHMUNG.md).
+## Gehirn und Bewegung – Druckprüfung abgeschlossen am 21.09.2026
+
+Der bereits vor dem Zwischenstand `33f906f` erzeugte Browserbericht `2026-09-21T05:18:09.449Z` wurde erneut gelesen. Alle acht mobilen Detailbilder und sämtliche 21 Druckseiten tatsächlich geprüft; Seiten 14 und 20 zusätzlich in höherer Auflösung. Kein weiterer Export nötig. Der Nachweis umfasst die vier Fallzuordnungen, Darstellung der Übungsdaten und des Bewegungsplans, Tastatur/Fokus/Speicher sowie 36 Quizantwortwege; kein neuer Gesamtsuitenlauf. [Details](BIOLOGIE_GEHIRN_BEWEGUNG.md).
+## Wasserlebensräume und Messdaten (21.09.2026)
+
+`browser_water_evidence.js`, Bericht 05:35:07.720Z: zwölf Ansichts-/Resetübergänge, 18 Layoutfälle, Tastatur/Fokus/Speicher und 27 native Quizantwortwege bestanden. Nach größerer Diagrammschrift und korrigierter Tabellenüberschrift 18 finale Layoutfälle um 05:37:46.205Z erneut geprüft. Alle zwölf mobilen Detailansichten gelesen. Finale Druckfassung 16 Seiten: nach zwei Textpräzisierungen Seite 11 erneut gelesen, übrige 15 Seiten bildidentisch; Export 05:38:49.543Z. Letzte Quizformulierungen im DOM geprüft; kein neuer vollständiger Browserquiz- oder Gesamtsuitenlauf. [Details](BIOLOGIE_WASSER_MESSDATEN.md).

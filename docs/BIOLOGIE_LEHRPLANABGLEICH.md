@@ -184,3 +184,9 @@ Aktuelle RIS-Kompetenzbeschreibungen und Anwendungsbereich für die 2. Klasse un
 ## Sinne, Gehirn und Wahrnehmung (Umsetzung 16.09., Prüfung abgeschlossen 21.09.2026)
 
 `bio_2_sinne_gehirn`, Revision 2: Reizaufnahme/Verarbeitung anhand einer Straßenbahnglocke, Licht- und Signalweg, Schallübertragung/Gleichgewicht, erfundene Geschmacksdaten sowie kontrollierter Grauflächenvergleich. 15 konkrete Aufgaben verbinden W/E/S; persönlicher Seheindruck wird nicht bewertet. Papieralternative mit drei Vergleichsbildern und Protokoll. Gespeicherten RIS-Anwendungsbereich der 2. Klasse zur Rolle der Sinnesorgane und des Gehirns erneut gelesen; keine erneute Online-Gesamtprüfung am 21.09. [Quellen und Nachweise](BIOLOGIE_SINNE_WAHRNEHMUNG.md). Vollständige Fachabnahme bleibt offen.
+## Gehirn und Bewegung (21.09.2026)
+
+`bio_2_gehirn_bewegung`, Revision 2: 15 konkrete Aufgaben und vier interaktive Signalwegfälle. W: Nervensystem, Muskelsteuerung und Reflexmodell; E: Belege, getrennte Auswertung von Dauer/Genauigkeit und Beobachtungsplanung; S: zugänglicher Bewegungsplan ohne körperliche Leistungsbewertung. Gespeicherter RIS-Anwendungsbereich der 2. Klasse erneut gelesen. Browserprüfung und alle 21 Druckseiten kontrolliert. [Inhalte, Fachquellen und Grenzen](BIOLOGIE_GEHIRN_BEWEGUNG.md).
+## Wasserlebensräume: Daten und Bewertung (21.09.2026)
+
+`bio_3_wasser_oekosysteme`, Revision 2: zwölf konkrete Aufgaben, vier Vergleichslösungen, vier Ortskarten und Messwerkstatt mit acht Werten. W: Ökosysteme, Biodiversität, Stoff-/Nahrungsbeziehungen in Teich und Meer; E: Messzeiten/Tiefen, Datenabdeckung und Ursachenprüfung; S: Schutzvorschläge und sachliche Bewertung erfundener Fälle zur Alten Donau. Gespeicherter RIS-Anwendungsbereich der 3. Klasse erneut gelesen. [Fachquellen, Prüfungen und Grenzen](BIOLOGIE_WASSER_MESSDATEN.md). Keine vollständige Fachabnahme.

@@ -1,0 +1,28 @@
+const assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),{JSDOM}=require('jsdom');
+const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const keys={bio_3_wasser_s1:[1,0],bio_3_wasser_d1:[2,0],bio_3_wasser_s2:[0,1],bio_3_wasser_network:[1,1],bio_3_wasser_s3:[2,2],bio_3_wasser_d2:[0,2],bio_3_wasser_difference:[1,2],bio_3_wasser_s4:[2,3],bio_3_wasser_d3:[0,3]};
+(async()=>{
+ const data=JSON.parse(read('lang/de.json')),id='bio_3_wasser_oekosysteme';
+ const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
+ await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();
+ w.eval(read('js/topics/'+id+'.js'));w.topicInit();w.topicInit();
+ const z=d.querySelector('[data-water-lab]'),select=z.querySelector('select'),show=z.querySelector('[data-water-show]'),result=z.querySelector('[data-water-result]'),reset=z.querySelector('[data-water-reset]'),store=JSON.stringify(w.localStorage);
+ const expected={single:[['16:00','9','nicht eingeblendet']],day:[['06:00','4','nicht eingeblendet'],['12:00','7','nicht eingeblendet'],['16:00','9','nicht eingeblendet'],['22:00','6','nicht eingeblendet']],depths:[['06:00','4','2'],['12:00','7','3'],['16:00','9','3'],['22:00','6','2']]};
+ let transitions=0;
+ for(const from of Object.keys(expected))for(const to of [...Object.keys(expected),'reset']){
+  select.value=from;select.dispatchEvent(new w.Event('change'));show.click();assert.equal(result.hidden,false);
+  if(to==='reset')reset.click();else{select.focus();select.value=to;select.dispatchEvent(new w.Event('change'));}
+  const mode=to==='reset'?'single':to;assert.equal(select.value,mode);assert.equal(d.activeElement,select);assert.equal(result.hidden,true);assert.equal(show.getAttribute('aria-expanded'),'false');
+  assert.deepEqual([...z.querySelectorAll('tbody tr')].map(tr=>[...tr.children].map(e=>e.textContent)),expected[mode]);
+  const points=[...z.querySelectorAll('[data-water-point]')];assert.equal(points.length,{single:1,day:4,depths:8}[mode]);
+  const hours=[6,12,16,22],near=[4,7,9,6],deep=[2,3,3,2];for(const point of points){const hour=Number(point.dataset.hour),i=hours.indexOf(hour),value=point.dataset.waterPoint==='near'?near[i]:deep[i];assert.equal(Number(point.getAttribute('cx')),48+(hour-6)*20);assert.equal(Number(point.getAttribute('cy')),248-value*18);}
+  assert.equal(z.querySelectorAll('polyline').length,{single:0,day:1,depths:2}[mode]);if(mode==='depths')assert.equal(z.querySelector('[data-water-line="deep"]').getAttribute('stroke-dasharray'),'8 5');
+  show.focus();show.click();assert.equal(result.hidden,false);assert.equal(d.activeElement,show);assert.match(result.textContent,mode==='single'?/Andere Zeiten/:mode==='day'?/Spannweite 5 mg\/l/:/Unterschied 6 mg\/l/);show.click();assert.equal(result.hidden,true);transitions++;
+ }
+ assert.equal(JSON.stringify(w.localStorage),store);assert.equal(w.chapterRevision(id),2);
+ const qs=w.currentChapterQuiz.questions;assert.equal(qs.length,9);for(const [i,q]of qs.entries()){assert.equal(q.answers.findIndex(a=>a.correct),keys[q.id][0]);assert.equal(q.sectionIndex,keys[q.id][1]);for(let choice=0;choice<3;choice++){w.restartChapterQuiz();qs.forEach((item,n)=>d.querySelector(`input[name="chapter_q_${n}"][value="${i===n?choice:keys[item.id][0]}"]`).checked=true);w.submitChapterQuiz();const r=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id];assert.equal(r.lastPercent,choice===keys[q.id][0]?100:89);assert.deepEqual(r.reviewQuestionIds,choice===keys[q.id][0]?[]:[q.id]);assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[choice].feedback));}}
+ const authored=new JSDOM(data[id].sections.map(s=>s.content).join('')).window.document;
+ assert.deepEqual([...d.querySelectorAll('.bio-training-card')].map(e=>e.textContent),[...authored.querySelectorAll('.bio-training-card')].map(e=>e.textContent));assert.equal(d.querySelectorAll('.bio-training-card').length,12);assert.equal(d.querySelectorAll('.bio-vocab-item').length,16);assert.equal(d.querySelectorAll('[data-water-solution]').length,4);assert.equal(d.querySelectorAll('img').length,0);assert.doesNotMatch(d.body.textContent,/Stell dir eine echte Situation vor/);assert.ok(data[id].sections.flatMap(s=>s.quizzes).filter(q=>q.practiceOnly).every(q=>q.answers.every(a=>a.pts===0)));dom.window.close();
+ const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),pw=paper.window,pd=pw.document;pw.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','chapter-revisions','worksheet_generator','worksheet'])pw.eval(read('js/'+f+'.js'));await new Promise(r=>setImmediate(r));assert.equal(pd.querySelectorAll('[data-water-paper] tbody tr').length,4);assert.equal(pd.querySelectorAll('.water-vocab .ws-glossary-entry').length,16);assert.equal(pd.querySelectorAll('.water-protocol tbody tr').length,5);assert.equal(pd.querySelectorAll('#ws-solutions [data-water-solution]').length,4);assert.equal(pd.querySelectorAll('#ws-biology-material [data-water-solution]').length,0);paper.window.close();
+ console.log(`PASS: ${transitions} transitions, all table values/chart coordinates, reveal/reset/focus/storage, 27 independently keyed answers, 12 direct tasks, 16 terms and complete paper data with four separate solutions.`);
+})().catch(e=>{console.error(e);process.exitCode=1;});
