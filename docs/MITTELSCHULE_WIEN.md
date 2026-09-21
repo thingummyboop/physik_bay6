@@ -1,5 +1,9 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Fortschritt 21.09.2026: Zweitklasskapitel zu Proportionen/Prozenten um grafische Zuordnungen und begründete Prozentänderungen erweitert. 37 Zuordnungsfälle, 50 Prozentänderungen, alle 54 Antwortwege, 558 Browseransichten und 22 Druckseiten im dokumentierten Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_PROPORTIONEN_PROZENT.md). Neue Änderungen bleiben lokal nach `3e00d29`; Gesamtauftrag offen.
+
+Fortschritt 21.09.2026: Gewünschten Zwischenstand `3e00d29` auf GitHub gesichert; danach die offenen Nacharbeiten am Zahlbereichskapitel abgeschlossen. Sechs Abschnitte, 18 bewertete Fragen, drei Werkstätten, 756 Browserfälle und alle 20 endgültigen Druckseiten im dokumentierten Umfang geprüft. [Inhalte, Nachweise und Grenzen](MATHEMATIK_ZAHLBEREICHE.md). Die abschließenden Korrekturen sind lokal; der Gesamtauftrag bleibt offen.
+
 Fortschritt 21.09.2026: Bruchrechnen der zweiten Klasse um geometrische und sachbezogene Begründungen erweitert: 16 Flächenmodelle, zwölf Portionsmodelle, 54 Antwortwege, 168 Browseransichten und alle 21 Druckseiten geprüft. [Umsetzung, Nachweise und Grenzen](MATHEMATIK_BRUCHMODELLE.md). Diese Ergänzungen und die römischen Zahlen bleiben lokal nach `e962a5c`; Gesamtauftrag offen.
 
 Fortschritt 21.09.2026: Zehnerpotenzen und periodische Dezimalzahlen sind auf ausdrücklichen Nutzerwunsch als `e962a5c` auf GitHub gesichert. Anschließend römische Zahlschrift und Stellenwertvergleich in der ersten Klasse ergänzt: 27 Lesefälle, 36 Kapitelantwortwege, 162 Browseransichten und alle 17 Druckseiten geprüft. [Inhalte und Grenzen](MATHEMATIK_ROEMISCHE_ZAHLEN.md). Diese neuen Änderungen bleiben lokal; Gesamtauftrag offen.

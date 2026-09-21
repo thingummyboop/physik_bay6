@@ -17,7 +17,7 @@ function topicInit() {
             return;
         }
         const sign = direction.value === 'plus' ? 1 : -1;
-        status.textContent = `${s} ${sign === 1 ? '+' : '−'} ${n} = ${s + sign * n}. ${n} Schritte nach ${sign === 1 ? 'rechts' : 'links'}.`;
+        status.textContent = `${s} ${sign === 1 ? '+' : '−'} ${n} = ${s + sign * n}. ${n} ${n === 1 ? 'Schritt' : 'Schritte'} nach ${sign === 1 ? 'rechts' : 'links'}.`;
         path.textContent = 'Besuchte Zahlen in zeitlicher Reihenfolge: ' + Array.from({length:n+1},(_,i)=>s+sign*i).join(' → ');
         if(figure){figure.hidden=false;figure.innerHTML=integerMovementSvg(s,n,sign);}
     }

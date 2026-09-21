@@ -338,30 +338,31 @@ function generateWorksheetContent(topicId, topicTitle) {
     else if (topicId === 'math2_4_relative_zahlen') {
         const tasks=[],solutions=[],gcd=(a,b)=>{while(b){const r=a%b;a=b;b=r;}return a;};
         function add(kind,a,b,c,d,prompt,result,explanation){const nr=tasks.length+1;tasks.push('<div class="exercise-item" data-number-range-generated="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'" data-d="'+d+'"><strong>A'+nr+'.</strong> '+prompt+' '+blank(120)+'</div>');solutions.push('<p data-number-range-answer="'+result+'"><strong>A'+nr+'.</strong> '+explanation+'</p>');}
-        for(let i=0;i<4;i++){const a=rand(-20,20),n=rand(0,10),plus=i%2===0,result=a+(plus?n:-n);add(plus?'add':'subtract',a,n,0,0,'Rechne '+a+(plus?' + ':' − ')+n+' und beschreibe die Bewegung:',result,a+(plus?' + ':' − ')+n+' = '+result+'. '+n+' Schritte nach '+(plus?'rechts':'links')+'.');}
+        for(let i=0;i<4;i++){const a=rand(-20,20),n=rand(0,10),plus=i%2===0,result=a+(plus?n:-n);add(plus?'add':'subtract',a,n,0,0,'Rechne '+a+(plus?' + ':' − ')+n+' und beschreibe die Bewegung:',result,a+(plus?' + ':' − ')+n+' = '+result+'. '+n+(n===1?' Schritt nach ':' Schritte nach ')+(plus?'rechts':'links')+'.');}
         for(let i=0;i<2;i++){const a=rand(-10,10);add('neighbors',a,0,0,0,'Nenne den unmittelbaren Vorgänger und Nachfolger von '+a+' in den ganzen Zahlen:',(a-1)+';'+(a+1),'Vorgänger '+(a-1)+', Nachfolger '+(a+1)+'. Jeweils eine Einheit Abstand.');}
         for(let i=0;i<4;i++){const b=[2,3,4,5,10][rand(0,4)],a=rand(0,b),c=a+rand(1,3),g=gcd(a+c,2*b),n=(a+c)/g,d=2*b/g;add('between',a,b,c,b,'Finde eine Bruchzahl strikt zwischen '+a+'/'+b+' und '+c+'/'+b+':',n+'/'+d,'Mögliche Antwort: ('+a+'/'+b+' + '+c+'/'+b+') : 2 = '+n+'/'+d+'. Auch andere echte Zwischenwerte sind richtig.');}
         for(let i=0;i<2;i++){const a=rand(1,9),b=rand(2,10),factor=rand(2,5),g=gcd(a,b),n=a/g,d=b/g;add('equivalent',a*factor,b*factor,0,0,'Kürze '+(a*factor)+'/'+(b*factor)+' vollständig. Ändert sich der Punkt auf der Zahlengeraden?',n+'/'+d,(a*factor)+'/'+(b*factor)+' = '+n+'/'+d+'. Der Zahlenwert und damit der Punkt bleiben gleich.');}
         html+='<h2>Zusätzliche Aufgaben zu Zahlen und Bereichen</h2><p>A1–A4: Bewegungen. A5–A6: Nachbarn in den ganzen Zahlen. A7–A10: Bruchwerte dazwischen. A11–A12: gleiche Werte.</p>'+grid(tasks,'1fr')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math2_6_prop_prozent') {
-        html += `<h2>1. Prozentwert berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const percentages = [5, 10, 15, 20, 25, 30, 40, 50, 75];
-            const p = percentages[rand(0, percentages.length - 1)];
-            const base = rand(1, 20) * 50;
-            html += `<div>${p}% von ${base} = <span style="display:inline-block; border-bottom:1px dotted #000; width:80px;"></span></div>`;
-        }
-        html += `</div>`;
-        
-        html += `<h2>2. Prozentsatz berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<8; i++) {
-            const base = rand(2, 10) * 100;
-            const p = rand(1, 9) * 10;
-            const val = (base * p) / 100;
-            html += `<div>${val} von ${base} sind <span style="display:inline-block; border-bottom:1px dotted #000; width:50px;"></span> %</div>`;
-        }
-        html += `</div>`;
+        const tasks=[],solutions=[],num=n=>n.toLocaleString('de-AT',{maximumFractionDigits:4});
+        function add(kind,a,b,c,prompt,result,explanation){const nr=tasks.length+1;tasks.push('<div class="exercise-item" data-proportion-generated="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'"><strong>A'+nr+'.</strong> '+prompt+' '+blank(100)+'</div>');solutions.push('<p data-proportion-answer="'+result+'"><strong>A'+nr+'.</strong> '+explanation+'</p>');}
+        for(let i=0;i<2;i++){const rate=rand(1,6),x=rand(1,12)/2,y=rate*x;add('direct',rate,x,0,'Stoff kostet '+rate+' € je Meter ohne Grundgebühr. Was kosten '+num(x)+' m? Nenne das Wertepaar (Länge | Preis).',y,num(x)+' · '+rate+' = '+num(y)+' €. Punkt ('+num(x)+' | '+num(y)+'); der Preis je Meter bleibt gleich.');}
+        for(let i=0;i<2;i++){const x=rand(1,6),y=rand(2,12),v=x*y;add('inverse',v,x,0,'Ein leerer '+v+'-L-Tank wird mit konstant '+x+' L/min gefüllt. Wie lange dauert das?',y,v+' : '+x+' = '+y+' min. Probe: '+x+' L/min · '+y+' min = '+v+' L.');}
+        for(let i=0;i<2;i++){const g=rand(2,20)*10,p=[10,20,25,50,150][rand(0,4)],w=g*p/100;add('value',g,p,0,'Wie viel sind '+p+' % von '+g+' L?',w,g+' · '+p+' : 100 = '+num(w)+' L.');}
+        for(let i=0;i<2;i++){const g=rand(2,20)*10,p=[10,20,25,50,150][rand(0,4)],w=g*p/100;add('rate',w,g,0,num(w)+' L sind wie viel Prozent von '+g+' L?',p,num(w)+' : '+g+' · 100 = '+p+' %.');}
+        for(let i=0;i<2;i++){const g=rand(2,20)*10,p=[10,20,25,50][rand(0,3)],w=g*p/100;add('base',w,p,0,num(w)+' L entsprechen '+p+' %. Wie groß ist der Grundwert?',g,num(w)+' · 100 : '+p+' = '+g+' L.');}
+        for(let i=0;i<2;i++){const g=rand(2,20)*10,p=[10,20,25,50][rand(0,3)],sign=i===0?1:-1,change=g*p/100,result=g+sign*change,factor=1+sign*p/100;add('change',g,p,sign,(sign===1?'Erhöhe ':'Verringere ')+g+' L um '+p+' %. Rechne additiv und multiplikativ.',result,g+(sign===1?' + ':' − ')+num(change)+' = '+num(result)+' L; '+g+' · '+num(factor)+' = '+num(result)+' L.');}
+        html+='<h2>Zusatzaufgaben: Zuordnungen und Prozent</h2>'+tasks.join('')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
+    }
+    else if (topicId === 'math2_9_relative_haeufigkeit') {
+        const tasks=[],solutions=[],fmt=n=>n.toLocaleString('de-AT',{maximumFractionDigits:1});
+        function add(kind,a,b,c,d,prompt,value,reason){const i=tasks.length+1;tasks.push('<div class="exercise-item" data-relative-generated="'+kind+'" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'" data-d="'+d+'"><strong>A'+i+'.</strong> '+prompt+' '+blank(100)+'</div>');solutions.push('<p data-relative-answer="'+value+'"><strong>A'+i+'.</strong> '+reason+'</p>');}
+        for(let i=0;i<3;i++){const total=[10,20,25,40][rand(0,3)],count=rand(0,total),percent=count/total*100;add('share',count,total,0,0,count+' von '+total+' gültigen Antworten nennen die Bibliothek. Gib Bruch und Prozentanteil an.',percent,count+'/'+total+' = '+fmt(percent)+' %. Der Nenner sind alle '+total+' gültigen Antworten.');}
+        for(let i=0;i<3;i++){const count=rand(0,20),angle=count*18,length=count/2;add('diagram',count,20,10,0,count+' von 20 Stimmen gehören zu A. Berechne den Kreiswinkel und die Länge im 10-cm-Prozentstreifen.',angle+';'+length,count+'/20 · 360° = '+angle+'°; '+count+'/20 · 10 cm = '+fmt(length)+' cm.');}
+        for(let i=0;i<3;i++){const a=rand(0,12),b=rand(0,8),percent=(a+b)*5;add('pooled',a,12,b,8,'A: '+a+' Bibliotheksstimmen bei 12 Antworten. B: '+b+' bei 8 Antworten. Bestimme den Bibliotheksanteil insgesamt.',percent,'('+a+' + '+b+') / (12 + 8) = '+(a+b)+'/20 = '+percent+' %. Die Anzahlen werden addiert, nicht die Prozentwerte ungewichtet gemittelt.');}
+        for(let i=0;i<3;i++){const old=[0,10,20,25,40,50][rand(0,5)],next=[10,30,50,60,75,100][rand(0,5)],points=next-old,change=old?(next-old)/old*100:null;add('change',old,next,0,0,'Ein Anteil ändert sich von '+old+' % auf '+next+' %. Gib die Änderung in Prozentpunkten und, falls möglich, relativ zum alten Anteil an.',points+';'+(change===null?'undefined':change),next+' − '+old+' = '+points+' Prozentpunkte. '+(change===null?'Die relative Änderung gegenüber 0 % ist nicht definiert.':'Relative Änderung: ('+next+' − '+old+') / '+old+' · 100 = '+fmt(change)+' %.'));}
+        html+='<h2>Zusatzaufgaben: Häufigkeiten und Darstellungen</h2>'+tasks.join('')+'<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math3_1_rationale_zahlen') {
         html += `<h2>1. Multiplikation und Division rationaler Zahlen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

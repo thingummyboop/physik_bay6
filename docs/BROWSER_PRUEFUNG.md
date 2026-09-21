@@ -403,3 +403,11 @@ Chromium 151.0.7922.34: 27 Lesebeispiele mit Eingabe und Leseweg, 30 Abschnittsa
 ## Bruchmodelle – 21.09.2026
 
 Chromium 151.0.7922.34: 28 Modelle mit gleichwertigen Eingaben, alle 54 Abschnittsantwortwege, abschließender Kapitelcheck und gezielte Wiederholung geprüft. 168 Ansichten ohne horizontalen Überlauf; nach Korrektur eines abgeschnittenen Achsenzeichens und der maximalen Grafikbreite alle Modellansichten und 30 statische Figurenansichten nochmals auf Beschriftungsgrenzen/-größen kontrolliert. Alle 21 Druckseiten tatsächlich gelesen und die zwölf exportierten generierten Aufgaben nachgerechnet. [Umfang, Belege und Grenzen](MATHEMATIK_BRUCHMODELLE.md). Keine Gesamtfreigabe oder Veröffentlichung.
+
+## Zahlbereiche – 21.09.2026
+
+Chromium 151.0.7922.34: 96 Zuordnungswege, 72 Halbierungen, alle 54 Quizantwortwege und 756 Layoutfälle; Tastatur, Fokus, Neustart, Eingabegrenzen und passende Wiederholung geprüft. Auswahltexte nach Sichtbefund verkürzt; sechs finale Ansichten bestätigen passende Auswahltexte und Grafikbeschriftungen. Mobile Hell-/Dunkelansicht tatsächlich gelesen. Alle 20 endgültigen Druckseiten gelesen, einschließlich der zwölf nachgerechneten Zusatzaufgaben; nach letzter Korrektur 16 Rasterseiten bytegleich, vier geänderte erneut gelesen. [Umfang und Grenzen](MATHEMATIK_ZAHLBEREICHE.md). Abschließende Korrekturen lokal nach `3e00d29`.
+
+## Proportionalitätsdarstellungen und Prozentänderungen – 21.09.2026
+
+Chromium 151.0.7922.34: 37 Modellvorhersagen, alle 54 Abschnittsantwortwege und 558 responsive Ansichten ohne Seitenfehler. Tastatur, Regler, Enter, Neustart, Fokus und gezielte Wiederholung geprüft. Graphbeschriftungen und Auswahltexte nach Sichtbefund verbessert; mobile Formeltabelle und dunkle Kurvenfarbe in sechs finalen Ansichten nachgeprüft. Alle 22 Druckseiten gelesen; nach letzter Lösungsergänzung 17 Rasterseiten bytegleich, die fünf geänderten erneut gelesen. Zwölf finale Zusatzaufgaben mit Lösungen nachgerechnet. [Konkreter Umfang und Grenzen](MATHEMATIK_PROPORTIONEN_PROZENT.md). Änderungen lokal nach `3e00d29`.

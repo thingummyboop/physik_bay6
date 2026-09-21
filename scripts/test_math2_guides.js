@@ -62,7 +62,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
    }
   }
   if(id==='math2_6_prop_prozent'){
-   assert.equal(topic.sections.length,5);
+   assert.equal(topic.sections.length,6);
    assert.ok(d.body.textContent.includes('5 € Grundgebühr plus 2 € je Heft'));
    w.eval(read('js/topics/math2_6_prop_prozent.js'));w.topicInit();
    const slider=d.getElementById('inverse_people'),out=d.getElementById('inverse_result');

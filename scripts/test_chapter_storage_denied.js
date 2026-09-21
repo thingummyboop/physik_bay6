@@ -6,7 +6,7 @@ const read=p=>fs.readFileSync(p,'utf8'),de=JSON.parse(read('lang/de.json'));
  if(scenario==='property-denied')Object.defineProperty(w,'localStorage',{get:deny});else{w.Storage.prototype.getItem=deny;w.Storage.prototype.setItem=deny;}
  w.fetch=async()=>({ok:true,json:async()=>de});w.HTMLElement.prototype.scrollIntoView=()=>{};
  for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])assert.doesNotThrow(()=>w.eval(read('js/'+f+'.js')),scenario+' '+f);
- await w.renderTopic();assert.equal(w.currentChapterQuiz.questions.length,10);assert.match(w.document.getElementById('topic-title').textContent,/Relative Häufigkeiten/);
+ await w.renderTopic();assert.equal(w.currentChapterQuiz.questions.length,21);assert.match(w.document.getElementById('topic-title').textContent,/Relative Häufigkeiten/);
  const practice=w.document.querySelector('.practice-option');assert.doesNotThrow(()=>w.handlePracticeAnswer(practice,false,'Prüfe die Bezugsgruppe.'));assert.match(practice.closest('.practice-box').querySelector('.feedback').innerText,/Bezugsgruppe/);
  const draft=w.document.querySelector('[data-language-workshop] textarea');draft.value='Mein Entwurf';draft.dispatchEvent(new w.Event('input'));assert.match(draft.closest('[data-language-workshop]').textContent,/Speichern ist hier nicht möglich/);
  w.startChapterQuiz();w.submitChapterQuiz();assert.match(w.document.getElementById('chapter-quiz-result').textContent,/Bitte beantworte/);

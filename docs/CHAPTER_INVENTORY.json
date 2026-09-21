@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
-    "lang/de.json": "e8572ea108843b63593199a3fd5729461515cb18a64f669347ba5d1332ebf946"
+    "lang/de.json": "cdaa3a561a70d71b2856639d377c266fe20c163e9e5ee348655ab41b3a14951b"
   },
   "subjects": {
     "physik": {
@@ -11289,18 +11289,22 @@
           "source": "lang/de.json#/math2_6_prop_prozent",
           "goals": [
             "Direkte und indirekte Proportionalität anhand von Quotient und Produkt unterscheiden.",
-            "Passende proportionale Modelle für Sachaufgaben auswählen und ihre Voraussetzungen benennen.",
-            "Grundwert, Prozentwert und Prozentsatz bestimmen.",
-            "Rabattbetrag und neuen Preis unterscheiden und berechnen."
+            "Zuordnungen als Text, Wertetabelle und Graph deuten und ihre Voraussetzungen prüfen.",
+            "Zwischen Bruch-, Dezimal- und Prozentdarstellung wechseln.",
+            "Grundwert, Prozentwert und Prozentsatz bestimmen und Prozentangaben über 100 deuten.",
+            "Prozentänderungen additiv und mit einem Faktor berechnen und beide Wege begründen.",
+            "Bezugswert, Rundung und Modellgrenzen bei Sachaufgaben prüfen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
               "title": "Direkte Proportionalität",
               "questions": [
-                "m26_q1"
+                "m26_q1",
+                "m26_dip2",
+                "m26_direct_graph"
               ]
             },
             {
@@ -11309,7 +11313,8 @@
               "title": "Indirekte Proportionalität",
               "questions": [
                 "m26_inverse",
-                "m26_product"
+                "m26_product",
+                "m26_inverse_graph"
               ]
             },
             {
@@ -11318,7 +11323,8 @@
               "title": "Passt ein proportionales Modell?",
               "questions": [
                 "m26_fee",
-                "m26_unit"
+                "m26_unit",
+                "m26_falling"
               ]
             },
             {
@@ -11326,7 +11332,9 @@
               "index": 3,
               "title": "Prozent und Rabatt",
               "questions": [
-                "m26_q2"
+                "m26_q2",
+                "m26_dip1",
+                "m26_percent_form"
               ]
             },
             {
@@ -11335,12 +11343,23 @@
               "title": "Grundwert, Prozentwert und Prozentsatz",
               "questions": [
                 "m26_rate",
-                "m26_base"
+                "m26_base",
+                "m26_over_hundred"
+              ]
+            },
+            {
+              "id": "m26_changes",
+              "index": 5,
+              "title": "Prozentänderungen: zwei Rechenwege",
+              "questions": [
+                "m26_factor",
+                "m26_up",
+                "m26_two_changes"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 8,
+          "questionCount": 18,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -11544,9 +11563,10 @@
             "Verschieden große Gruppen mit Anteilen vergleichen.",
             "Prozentpunkte und relative Veränderung unterscheiden sowie Aussagegrenzen erkennen.",
             "Kreisdiagramme und Prozentstreifen lesen und Anteile in Winkel umrechnen.",
-            "Häufigkeiten in einem zweistufigen Baum ordnen und die Bezugsgruppe eines Anteils begründen."
+            "Häufigkeiten in einem zweistufigen Baum ordnen und die Bezugsgruppe eines Anteils begründen.",
+            "Beobachtete relative Häufigkeit von einer Wahrscheinlichkeitsannahme unterscheiden."
           ],
-          "summaryCount": 5,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "relative_basics",
@@ -11564,7 +11584,8 @@
               "title": "2. Anteile umrechnen",
               "questions": [
                 "relative_convert",
-                "relative_reverse"
+                "relative_reverse",
+                "relative_rounding"
               ]
             },
             {
@@ -11572,7 +11593,9 @@
               "index": 2,
               "title": "3. Unterschiedlich große Gruppen vergleichen",
               "questions": [
-                "m28_relative2"
+                "m28_relative2",
+                "relative_same_share",
+                "relative_multiple"
               ]
             },
             {
@@ -11581,7 +11604,8 @@
               "title": "4. Veränderungen richtig beschreiben",
               "questions": [
                 "relative_claim",
-                "relative_points"
+                "relative_points",
+                "relative_change_zero"
               ]
             },
             {
@@ -11589,7 +11613,9 @@
               "index": 4,
               "title": "5. Kreisdiagramm und Prozentstreifen",
               "questions": [
-                "relative_circle_angle"
+                "relative_circle_angle",
+                "relative_strip",
+                "relative_full_circle"
               ]
             },
             {
@@ -11597,12 +11623,24 @@
               "index": 5,
               "title": "6. Häufigkeiten in zwei Stufen ordnen",
               "questions": [
-                "relative_tree_reference"
+                "relative_tree_reference",
+                "relative_tree_weight",
+                "relative_tree_equal"
+              ]
+            },
+            {
+              "id": "relative_observation",
+              "index": 6,
+              "title": "7. Ausblick: Beobachtung und Wahrscheinlichkeit",
+              "questions": [
+                "relative_observed",
+                "relative_next",
+                "relative_model"
               ]
             }
           ],
           "workshop": true,
-          "questionCount": 10,
+          "questionCount": 21,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

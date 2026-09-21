@@ -2,14 +2,17 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),de=JSON.parse(read('lang/de.json'));
+const legacyDe={...de,math2_9_relative_haeufigkeit:JSON.parse(read('scripts/fixtures/relative_frequencies_v1.json'))};
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
 (async()=>{
  for(const lang of ['de','en','sr','tr','uk','ar']){
   const translated=JSON.parse(read('lang/'+lang+'.json'));
   const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_9_relative_haeufigkeit',runScripts:'outside-only'}),w=dom.window;
   await new Promise(r=>setImmediate(r));w.localStorage.setItem('physik_lang',lang);
-  w.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?de:translated});
+  w.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?(lang==='de'?de:legacyDe):translated});
   for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])w.eval(read('js/'+f+'.js'));
+  // Historical translation fixtures stay at revision 1; current production fallback is tested separately.
+  if(lang!=='de')w.SCIVERSE_CHAPTER_REVISIONS.math2_9_relative_haeufigkeit=1;
   await w.renderTopic();assert.equal(w.document.querySelector('[data-content-language-notice]'),null);
   w.eval(read('js/topics/math2_9_relative_haeufigkeit.js'));w.topicInit();w.topicInit();
   const lab=w.document.querySelector('[data-share-diagrams]'),input=lab.querySelector('input');assert.equal(lab.dataset.locale,lang);
@@ -52,10 +55,10 @@ const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
   for(const id of ['relative_circle_angle','relative_tree_reference']){
    const q=w.currentChapterQuiz.questions.find(q=>q.id===id);assert.ok(q,id);assert.equal(q.answers.filter(a=>a.correct).length,1);assert.ok(q.answers.every(a=>a.feedback.length>15));
   }
-  assert.equal(w.chapterRevision('math2_9_relative_haeufigkeit'),1);
+  assert.equal(w.chapterRevision('math2_9_relative_haeufigkeit'),lang==='de'?2:1);
   assert.equal(w.currentChapterResult('math2_9_relative_haeufigkeit',{passed:true,bestPercent:100,contentRevision:0}).passed,false);
-  assert.equal(w.currentChapterResult('math2_9_relative_haeufigkeit',{passed:true,bestPercent:100,contentRevision:1}).passed,true);
-  assert.equal(w.currentChapterQuiz.questions.length,10);dom.window.close();
+  assert.equal(w.currentChapterResult('math2_9_relative_haeufigkeit',{passed:true,bestPercent:100,contentRevision:lang==='de'?2:1}).passed,true);
+  assert.equal(w.currentChapterQuiz.questions.length,lang==='de'?21:10);dom.window.close();
  }
- console.log('PASS: share diagrams in six languages, all 126 count settings, arc geometry, strips, tables, zero/full cases and reset focus; 702 frequency-tree combinations with subgroup and overall denominators.');
+ console.log('PASS: current German and five historical translation diagram fixtures, all 126 count settings, arc geometry, strips, tables, zero/full cases and reset focus; 702 frequency-tree combinations with subgroup and overall denominators.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,8 +1,26 @@
 # Lieferstand und nächste Prioritäten
 
-Stand: 21.09.2026. Auf ausdrücklichen Nutzerwunsch wird der Zwischenstand nach `e962a5c` mit römischer Zahlschrift, Bruchmodellen und Zahlbereichsvergleichen für GitHub gesichert. Eine Veröffentlichung dieses Zwischenstands auf Pages ist hier nicht bestätigt. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien; Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB.
+Stand: 21.09.2026. Dieser auf Wunsch gesicherte GitHub-Zwischenstand baut auf `3e00d29` auf und enthält die abgeschlossenen Zahlbereichs-Nacharbeiten, Proportionalitätsdarstellungen und Prozentänderungen sowie die laufende Erweiterung der relativen Häufigkeiten. Eine Veröffentlichung dieses Zwischenstands auf Pages ist hier nicht bestätigt. Gesamtziel bleibt das vollständige interaktive Lehrbuch für die Mittelschule Wien; Übersetzungen sind ausdrücklich zurückgestellt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB. Die nachfolgenden älteren Einträge beschreiben ihren damaligen Prüf- und Veröffentlichungsstand.
 
-## Zwischenstand für GitHub: Zahlbereiche – 21.09.2026
+## GitHub-Zwischenstand: relative Häufigkeiten – 21.09.2026
+
+Das Kapitel umfasst nun sieben Abschnitte mit 21 bewerteten Fragen, 21 direkten Aufgaben, vier Papieralternativen, vier statischen Grafiken, sieben Lösungsabschnitten und zwölf erzeugten Aufgaben mit Lösungen. Neue Werkstätten vergleichen Gruppen mit unterschiedlichen Gesamtzahlen und untersuchen sechs ausdrücklich vorgegebene Beobachtungsreihen. Der Unterschied zwischen relativer Häufigkeit und modellierter Wahrscheinlichkeit wird als Ausblick zur dritten Klasse erklärt.
+
+Die gezielte Prüfung besteht für 441 Gruppenvergleiche, 126 Zwischenstände und alle 63 Quizantwortwege. Der vorhandene abschließende Browserbericht dokumentiert 996 Layoutfälle bei 320, 390 und 1280 Pixeln in hellem und dunklem Design, Tastaturbedienung und keine erfassten Browserfehler. Die Sprachprüfungen unterscheiden aktuelle deutsche Ersatzinhalte von historischen Übersetzungs-Testdaten; Übersetzungen wurden nicht ergänzt.
+
+Offen bleiben die vollständige abschließende Sichtprüfung der 28 Druckseiten (bislang Seiten 1–6 gelesen), die Sichtkontrolle der zuletzt angepassten mobilen Vergleichstabelle, zwei sprachliche Präzisierungen im Kreisdiagramm-Abschnitt und die gesonderte Kapiteldokumentation einschließlich Fortschreibung der Fachmatrix. Dieser Commit sichert den laufenden Arbeitsstand und ist keine vollständige Produktabnahme.
+
+## Aktuelle Ergänzung: Proportionalitäten und Prozentänderungen – 21.09.2026
+
+Der vorherige Zielturn war Fortschritt: Zahlbereichs-Nacharbeiten und konkrete Folgelücken geprüft. Danach das Kapitel zu Proportionen/Prozenten auf Revision 3 erweitert: sechs Abschnitte, 18 bewertete Fragen, 18 direkte Aufgaben, zwei neue Werkstätten, fünf Papieralternativen, drei Grafiken und zwölf erzeugte Aufgaben mit passenden Lösungen. Texte, Tabellen und Graphen werden verbunden; Prozentänderungen additiv und multiplikativ begründet.
+
+37 Zuordnungsfälle mit 3737 Kurvenpunkten, 50 Prozentänderungen und alle 54 Quizantwortwege bestanden. Native Prüfung mit 558 Ansichten; nach Sichtkorrekturen sechs finale Tabellen-/Graphansichten geprüft. Alle 22 endgültigen Druckseiten gelesen. Die bisherigen Zweitklass-/Rabattprüfungen, 96 STEM-Arbeitsblätter und ergänzende Rückmeldungs-/Suchprüfungen bestehen. Inventar 198 Kapitel; Prioritätsaudit 1862 Frageninstanzen ohne Strukturfehler. [Inhalte, Nachweise und Grenzen](MATHEMATIK_PROPORTIONEN_PROZENT.md). Änderungen lokal nach `3e00d29`, kein weiterer Push. Nächste Mathematikarbeit: relative Häufigkeiten und ihr Übergang zu Wahrscheinlichkeiten; die übrigen Fach- und Produktanforderungen bleiben offen.
+
+## Vorherige Nacharbeit: Zahlbereiche – 21.09.2026
+
+Der vorherige Turn war Fortschritt durch den bestätigten GitHub-Zwischenstand. Danach Auswahltexte und Sprache nachgeprüft, den geteilten Halbierungsabsatz im Druck zusammengehalten und alle 20 endgültigen Druckseiten einschließlich passender Aufgaben/Lösungen gelesen. Zahlbereichs- und Ganzzahlprüfungen bestehen weiterhin; sechs finale Browseransichten ergänzen die vorangegangenen 756 Zustände. [Kapitelumfang und Prüfbelege](MATHEMATIK_ZAHLBEREICHE.md). Das nächste Kapitel zu Proportionen/Prozenten wurde vollständig gelesen und mit der gespeicherten Lehrplanpräzisierung abgeglichen: grafische Vergleiche und additive/multiplikative Prozentänderungen sind konkrete Restlücken. Änderungen lokal nach `3e00d29`, kein weiterer Push. Gesamtauftrag offen.
+
+## Historischer Zwischenstand für GitHub: Zahlbereiche – 21.09.2026
 
 Das Kapitel „Ganze Zahlen und Zahlbereiche“ umfasst jetzt sechs Abschnitte mit 18 bewerteten Fragen: Zuordnung nach Zahlenwert, Vorgänger/Nachfolger, Zwischenwerte und verschiedene Darstellungen desselben Werts. Drei Werkstätten verbinden Zuordnungen, fortgesetzte Halbierung und Bewegungen auf der Zahlengeraden mit Papieralternativen und passenden Lösungen.
 

@@ -1,5 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('fs');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const read=p=>fs.readFileSync(p,'utf8'),de=JSON.parse(read('lang/de.json'));
+const legacyDe={...de,math2_9_relative_haeufigkeit:JSON.parse(read('scripts/fixtures/relative_frequencies_v1.json'))};
 (async()=>{const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_8_statistik',runScripts:'outside-only'}),w=dom.window;await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>de});for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();w.eval(read('js/topics/math2_8_statistik.js'));w.topicInit();
 const sample=[...w.document.querySelectorAll('[data-pencil-sample] td')].map(td=>Number(td.textContent)),ordered=[...sample].sort((a,b)=>a-b);assert.equal(sample.length,8);assert.equal(sample.reduce((a,b)=>a+b,0),120);assert.equal((ordered[3]+ordered[4])/2,15);assert.equal(ordered.at(-1)-ordered[0],6);assert.deepEqual([...new Set(ordered)].map(value=>ordered.filter(x=>x===value).length),[1,2,3,1,1]);assert.equal(w.document.querySelectorAll('[data-measurement-record] tbody tr').length,8);assert.equal(w.document.querySelectorAll('[data-own-data-tasks] li').length,6);
 assert.equal(w.currentChapterQuiz.questions.length,10);const entry=w.SCIVERSE_CURRICULUM.mathematik.topics.find(t=>t.id==='math2_8_statistik');assert.equal(entry.grade,'1. Klasse (5. Schulstufe)');
@@ -31,13 +32,15 @@ const reset=comparison.querySelector('[data-statistics-reset]');reset.focus();re
 const advanced=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_9_relative_haeufigkeit',runScripts:'outside-only'}),aw=advanced.window;
 await new Promise(r=>setImmediate(r));aw.fetch=async()=>({ok:true,json:async()=>de});
 for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])aw.eval(read('js/'+f+'.js'));
-await aw.renderTopic();assert.equal(aw.currentChapterQuiz.questions.length,10);
+await aw.renderTopic();assert.equal(aw.currentChapterQuiz.questions.length,21);
 const baseIds=new Set(w.currentChapterQuiz.questions.map(q=>q.id));assert.ok(aw.currentChapterQuiz.questions.every(q=>!baseIds.has(q.id)));
 const workshop=aw.document.querySelector('[data-language-workshop]');[...workshop.querySelectorAll('select')].forEach((select,i)=>select.value=de.math2_9_relative_haeufigkeit.workshop.items[i].answer);
 [...workshop.querySelectorAll('button')].find(b=>b.textContent==='Zuordnung prüfen').click();assert.match(workshop.textContent,/3 von 3/);
 const en=JSON.parse(read('lang/en.json')),english=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_9_relative_haeufigkeit',runScripts:'outside-only'}),ew=english.window;
-await new Promise(r=>setImmediate(r));ew.localStorage.setItem('physik_lang','en');ew.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?de:en});
+await new Promise(r=>setImmediate(r));ew.localStorage.setItem('physik_lang','en');ew.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?legacyDe:en});
 for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])ew.eval(read('js/'+f+'.js'));
+// Keep the historical language fixture at its own revision; live fallback is covered by test_relative_frequencies.js.
+ew.SCIVERSE_CHAPTER_REVISIONS.math2_9_relative_haeufigkeit=1;
 await ew.renderTopic();assert.equal(ew.document.querySelector('[data-content-language-notice]'),null);assert.equal(ew.currentChapterQuiz.questions.length,10);assert.match(ew.document.getElementById('topic-title').textContent,/Comparing relative frequencies/);
 assert.equal(ew.document.getElementById('sections-container').lang,'en');
 for(const [index,section]of en.math2_9_relative_haeufigkeit.sections.entries())for(const [qi,question]of section.quizzes.entries()){
@@ -50,24 +53,30 @@ const checkEnglish=[...englishWork.querySelectorAll('button')].find(b=>b.textCon
 const englishDraft=englishWork.querySelector('textarea');englishDraft.value='A has 60%; B has 50%.';englishDraft.dispatchEvent(new ew.Event('input'));await new Promise(r=>setTimeout(r,400));assert.match(englishWork.textContent,/Draft saved in this browser/);
 english.window.close();
 const sr=JSON.parse(read('lang/sr.json')),serbian=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_9_relative_haeufigkeit',runScripts:'outside-only'}),sw=serbian.window;
-await new Promise(r=>setImmediate(r));sw.localStorage.setItem('physik_lang','sr');sw.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?de:sr});
+await new Promise(r=>setImmediate(r));sw.localStorage.setItem('physik_lang','sr');sw.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?legacyDe:sr});
 for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])sw.eval(read('js/'+f+'.js'));
+// Keep the historical language fixture at its own revision; live fallback is covered by test_relative_frequencies.js.
+sw.SCIVERSE_CHAPTER_REVISIONS.math2_9_relative_haeufigkeit=1;
 await sw.renderTopic();assert.equal(sw.document.querySelector('[data-content-language-notice]'),null);assert.equal(sw.currentChapterQuiz.questions.length,10);assert.match(sw.document.getElementById('topic-title').textContent,/Poređenje relativnih učestalosti/);
 const serbianWork=sw.document.querySelector('[data-language-workshop]');[...serbianWork.querySelectorAll('select')].forEach((select,i)=>select.value=sr.math2_9_relative_haeufigkeit.workshop.items[i].answer);[...serbianWork.querySelectorAll('button')].find(b=>b.textContent==='Proveri povezivanje').click();assert.match(serbianWork.textContent,/3 od 3/);assert.doesNotMatch(serbianWork.textContent,/Zuordnung|Dein Entwurf|Check matches/);
 for(const [i,section]of sr.math2_9_relative_haeufigkeit.sections.entries())for(const [j,q]of section.quizzes.entries()){const original=de.math2_9_relative_haeufigkeit.sections[i].quizzes[j];assert.equal(q.id,original.id);assert.deepEqual(q.answers.map(a=>a.correct),original.answers.map(a=>a.correct));}
 serbian.window.close();
 const tr=JSON.parse(read('lang/tr.json')),turkish=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_9_relative_haeufigkeit',runScripts:'outside-only'}),tw=turkish.window;
-await new Promise(r=>setImmediate(r));tw.localStorage.setItem('physik_lang','tr');tw.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?de:tr});
+await new Promise(r=>setImmediate(r));tw.localStorage.setItem('physik_lang','tr');tw.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?legacyDe:tr});
 for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])tw.eval(read('js/'+f+'.js'));
+// Keep the historical language fixture at its own revision; live fallback is covered by test_relative_frequencies.js.
+tw.SCIVERSE_CHAPTER_REVISIONS.math2_9_relative_haeufigkeit=1;
 await tw.renderTopic();assert.equal(tw.document.querySelector('[data-content-language-notice]'),null);assert.equal(tw.currentChapterQuiz.questions.length,10);assert.match(tw.document.getElementById('topic-title').textContent,/Göreli sıklıkları karşılaştırma/);
 const turkishWork=tw.document.querySelector('[data-language-workshop]');[...turkishWork.querySelectorAll('select')].forEach((select,i)=>select.value=tr.math2_9_relative_haeufigkeit.workshop.items[i].answer);[...turkishWork.querySelectorAll('button')].find(b=>b.textContent==='Eşleştirmeleri kontrol et').click();assert.match(turkishWork.textContent,/3 eşleştirmeden 3/);assert.doesNotMatch(turkishWork.textContent,/Zuordnung|Dein Entwurf|Check matches/);
 for(const [i,section]of tr.math2_9_relative_haeufigkeit.sections.entries())for(const [j,q]of section.quizzes.entries()){const original=de.math2_9_relative_haeufigkeit.sections[i].quizzes[j];assert.equal(q.id,original.id);assert.deepEqual(q.answers.map(a=>a.correct),original.answers.map(a=>a.correct));}
 turkish.window.close();
 for(const language of ['uk','ar']){
  const translated=JSON.parse(read('lang/'+language+'.json')),localized=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=math2_9_relative_haeufigkeit',runScripts:'outside-only'}),lw=localized.window;
- await new Promise(r=>setImmediate(r));lw.localStorage.setItem('physik_lang',language);lw.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?de:translated});
+ await new Promise(r=>setImmediate(r));lw.localStorage.setItem('physik_lang',language);lw.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?legacyDe:translated});
  for(const f of ['curriculum','chapter-revisions','common','core-learning','language-workshop','renderer'])lw.eval(read('js/'+f+'.js'));
- await lw.renderTopic();assert.equal(lw.document.querySelector('[data-content-language-notice]'),null);assert.equal(lw.currentChapterQuiz.questions.length,10);assert.equal(lw.document.getElementById('topic-title').textContent,translated.math2_9_relative_haeufigkeit.title);
+ // Keep the historical language fixture at its own revision; live fallback is covered by test_relative_frequencies.js.
+lw.SCIVERSE_CHAPTER_REVISIONS.math2_9_relative_haeufigkeit=1;
+await lw.renderTopic();assert.equal(lw.document.querySelector('[data-content-language-notice]'),null);assert.equal(lw.currentChapterQuiz.questions.length,10);assert.equal(lw.document.getElementById('topic-title').textContent,translated.math2_9_relative_haeufigkeit.title);
  assert.equal(lw.document.getElementById('sections-container').lang,language);
  assert.equal(lw.document.getElementById('sections-container').dir,language==='ar'?'rtl':'ltr');
  if(language==='ar'){

@@ -1,0 +1,344 @@
+{
+  "title": "📊 Relative Häufigkeiten vergleichen",
+  "subtitle": "Anzahlen, Anteile und Bezugsgruppen auseinanderhalten.",
+  "contentLanguage": "de",
+  "script": true,
+  "prerequisites": [
+    "math2_8_statistik",
+    "math2_2_brueche",
+    "math2_6_prop_prozent"
+  ],
+  "learningGoals": [
+    "Absolute und relative Häufigkeiten unterscheiden und die Bezugsgruppe angeben.",
+    "Anteile als Bruch, Dezimalzahl und Prozentzahl darstellen.",
+    "Verschieden große Gruppen mit Anteilen vergleichen.",
+    "Prozentpunkte und relative Veränderung unterscheiden sowie Aussagegrenzen erkennen.",
+    "Kreisdiagramme und Prozentstreifen lesen und Anteile in Winkel umrechnen.",
+    "Häufigkeiten in einem zweistufigen Baum ordnen und die Bezugsgruppe eines Anteils begründen."
+  ],
+  "summary": [
+    "Relative Häufigkeit = Anzahl in einer Kategorie / Gesamtzahl der betrachteten Beobachtungen. Die Bezugsgruppe muss genannt sein.",
+    "Gleiche Anteile lassen sich als Bruch, Dezimalzahl oder Prozentzahl schreiben: 1/4 = 0,25 = 25 %.",
+    "Bei unterschiedlich großen Gruppen können mehr Stimmen trotzdem einen kleineren Anteil bedeuten.",
+    "Prozentpunkte messen die Differenz zweier Prozentangaben. Eine Veränderung im Anteil beweist keine Ursache.",
+    "Im Kreis entspricht der Winkel dem Anteil · 360°. Im Prozentstreifen entspricht die Länge dem gleichen Anteil an der Gesamtlänge."
+  ],
+  "sections": [
+    {
+      "id": "relative_basics",
+      "title": "1. Von der Anzahl zum Anteil",
+      "content": "<p>In einer fiktiven Befragung wählen 6 von 12 Personen die Bibliothek. Die <strong>absolute Häufigkeit</strong> ist 6. Die <strong>relative Häufigkeit</strong> beträgt 6/12 = 1/2 = 0,5 = 50 %. Der Nenner beschreibt alle gültigen Antworten, auf die wir uns beziehen.</p><p>Nenne immer die Bezugsgruppe. Von 20 befragten Personen können beispielsweise nur 18 gültig antworten. „Anteil unter allen Befragten“ und „Anteil unter den gültigen Antworten“ verwenden dann unterschiedliche Nenner. Fehlende Antworten dürfen nicht stillschweigend zu einer Kategorie gezählt werden. Bei null Beobachtungen ist kein Anteil bestimmbar.</p>{{QUIZ_m28_relative1}}{{QUIZ_relative_total}}{{QUIZ_relative_zero}}",
+      "quizzes": [
+        {
+          "id": "m28_relative1",
+          "question": "Aufbau Klasse 2: Sechs von zwölf Befragten wählen die Bibliothek. Wie groß ist die relative Häufigkeit?",
+          "answers": [
+            {
+              "text": "6/12 = 1/2 = 50 %.",
+              "feedback": "Die Anzahl der Bibliotheksantworten wird durch die Gesamtzahl der gültigen Antworten geteilt.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "6 %.",
+              "feedback": "6 ist die absolute Anzahl. Für Prozent musst du sie auf die Gesamtzahl 12 beziehen.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "12/6 = 2 = 200 %.",
+              "feedback": "Zähler und Nenner sind vertauscht. Ein Anteil an allen Antworten kann hier nicht größer als 100 % sein.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "relative_total",
+          "question": "Bei einer Befragung antworten 18 Personen gültig, davon wählen 6 den Hof. Zwei weitere Personen geben keine Antwort. Welcher Anteil gilt unter den gültigen Antworten?",
+          "answers": [
+            {
+              "text": "6/18 = 1/3.",
+              "feedback": "Der Nenner muss zur beschriebenen Gruppe passen: 18 gültige Antworten. Die zwei fehlenden Antworten werden gesondert angegeben.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "6/20 = 30 %.",
+              "feedback": "Das ist der Anteil an allen 20 befragten Personen. Gefragt ist nach dem Anteil unter den gültigen Antworten.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "18/6 = 3.",
+              "feedback": "Anzahl der Hofstimmen geteilt durch Gesamtzahl der gültigen Antworten ist gesucht, nicht umgekehrt.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "relative_zero",
+          "question": "Für eine Befragung liegen noch keine Antworten vor. Wie groß ist der Anteil der Hofstimmen?",
+          "answers": [
+            {
+              "text": "Noch nicht bestimmbar.",
+              "feedback": "Anzahl und Gesamtzahl sind null. Die Division 0/0 ist nicht definiert.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "0 %.",
+              "feedback": "0 % ist sinnvoll, wenn es gültige Antworten gibt, aber keine für den Hof. Hier fehlt jede Bezugsmenge.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "100 %.",
+              "feedback": "Es gibt noch keine Antworten. Daraus lässt sich kein Anteil bestimmen.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relative_forms",
+      "title": "2. Anteile umrechnen",
+      "content": "<p>Teile die Anzahl durch die Gesamtzahl und rechne die Dezimalzahl in Prozent um: 5/20 = 0,25 = 25 %. Umgekehrt ergeben 25 % von 20 Antworten genau 0,25 · 20 = 5 Antworten.</p><p>Prozentwerte können gerundet sein: Ein Drittel entspricht ungefähr 33,3 %. Deshalb können gerundete Anteile zusammen etwa 99,9 % statt genau 100 % ergeben. Die ungerundeten Anteile aller vollständigen, nicht überlappenden Kategorien ergeben genau 1.</p>{{QUIZ_relative_convert}}{{QUIZ_relative_reverse}}",
+      "quizzes": [
+        {
+          "id": "relative_convert",
+          "question": "Von 20 gültigen Antworten entfallen 5 auf den Spielraum. Welche Darstellung beschreibt denselben Anteil?",
+          "answers": [
+            {
+              "text": "5/20 = 0,25 = 25 %.",
+              "feedback": "Kürzen ergibt 1/4. Ein Viertel entspricht 0,25 beziehungsweise 25 von 100.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "5/20 = 0,5 = 50 %.",
+              "feedback": "0,5 ist eine Hälfte. Fünf von zwanzig sind nur ein Viertel.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "5/20 = 0,05 = 5 %.",
+              "feedback": "5 % wären 1 von 20. Die Zahl 5 ist hier die Anzahl, nicht bereits ein Prozentwert.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "relative_reverse",
+          "question": "40 % von 30 gültigen Antworten entfallen auf die Bibliothek. Wie viele Stimmen sind das?",
+          "answers": [
+            {
+              "text": "12 Stimmen.",
+              "feedback": "0,4 · 30 = 12. Prüfe rückwärts: 12/30 = 0,4.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "40 Stimmen.",
+              "feedback": "40 % beschreibt einen Anteil. 40 Stimmen wären mehr als die Gesamtzahl 30.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "75 Stimmen.",
+              "feedback": "30 / 0,4 beantwortet eine andere Frage. Hier ist die Gesamtzahl bereits bekannt und wird mit dem Anteil multipliziert.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relative_compare",
+      "title": "3. Unterschiedlich große Gruppen vergleichen",
+      "content": "<p>In Gruppe A wählen 6 von 12, in Gruppe B 8 von 20 Personen die Bibliothek. B hat mehr Stimmen, aber A den größeren Anteil: 50 % gegenüber 40 %. Ein Säulendiagramm mit Anzahlen und eines mit Prozentwerten beantworten unterschiedliche Fragen. Lies deshalb Einheit und Skala, bevor du vergleichst.</p><p>Für einen fairen Vergleich müssen auch Frage und Antwortmöglichkeiten passen. Wenn eine Gruppe mehrere Orte nennen darf und die andere genau einen, lassen sich die Ergebnisse nicht einfach gleich behandeln.</p>{{QUIZ_m28_relative2}}",
+      "quizzes": [
+        {
+          "id": "m28_relative2",
+          "question": "Aufbau Klasse 2: In Gruppe A wählen 6 von 12, in Gruppe B 8 von 20 die Bibliothek. Wo ist ihr Anteil größer?",
+          "answers": [
+            {
+              "text": "In Gruppe A: 50 % gegenüber 40 %.",
+              "feedback": "6/12 = 1/2 und 8/20 = 2/5. Der größere absolute Wert in B bedeutet nicht den größeren Anteil.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "In Gruppe B, weil 8 größer als 6 ist.",
+              "feedback": "Die Gruppen sind unterschiedlich groß. Vergleiche Anteile statt nur Anzahlen.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "In beiden Gruppen gleich, weil beide mehr als fünf Stimmen haben.",
+              "feedback": "Die Grenze von fünf Stimmen sagt nichts über das Verhältnis zur Gruppengröße aus.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relative_change",
+      "title": "4. Veränderungen richtig beschreiben",
+      "content": "<p>Steigt ein Anteil von 20 % auf 30 %, beträgt die Differenz 10 <strong>Prozentpunkte</strong>. Bezogen auf den Ausgangsanteil ist das eine Zunahme um 10/20 = 50 %. Das sind verschiedene Angaben zu derselben Veränderung.</p><p>Eine Befragung beschreibt die eingegangenen Antworten. Ohne Angaben zu Auswahl, Gruppengröße und Erhebungsbedingungen zeigt ein gestiegener Anteil nicht, warum er steigt. Für unsere Aufgaben verwenden wir fiktive Daten und leiten daraus keine tatsächlichen Vorlieben von Wiener Schüler:innen ab.</p>{{QUIZ_relative_claim}}{{QUIZ_relative_points}}",
+      "quizzes": [
+        {
+          "id": "relative_claim",
+          "question": "In zwei freiwilligen Befragungen steigt der Hofanteil von 30 % auf 45 %. Was lässt sich allein daraus folgern?",
+          "answers": [
+            {
+              "text": "Der Anteil in den jeweils eingegangenen Antworten ist gestiegen.",
+              "feedback": "Ohne Angaben zu den Befragten und Bedingungen wissen wir nicht, ob dieselbe Gruppe ihre Meinung geändert hat.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "Genau 15 Personen haben ihre Meinung geändert.",
+              "feedback": "Die Differenz beträgt 15 Prozentpunkte. Die Personenzahlen und individuellen Antworten sind nicht bekannt.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "Der Hof ist nachweislich für alle Schüler:innen attraktiver geworden.",
+              "feedback": "Eine freiwillige Befragung kann unterschiedlich zusammengesetzt sein. Die Daten beweisen weder eine Ursache noch eine Aussage über alle.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        },
+        {
+          "id": "relative_points",
+          "question": "Ein Anteil steigt von 20 % auf 30 %. Wie groß ist die Zunahme in Prozentpunkten?",
+          "answers": [
+            {
+              "text": "10 Prozentpunkte.",
+              "feedback": "30 − 20 = 10 Prozentpunkte. Bezogen auf den alten Anteil entspricht dies einer relativen Zunahme von 50 %.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "50 Prozentpunkte.",
+              "feedback": "50 % ist die relative Zunahme gegenüber 20 %. Die Differenz der beiden Prozentangaben beträgt 10 Prozentpunkte.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "30 Prozentpunkte.",
+              "feedback": "30 % ist der neue Anteil. Für die Zunahme musst du den alten Anteil abziehen.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relative_diagrams",
+      "title": "5. Kreisdiagramm und Prozentstreifen",
+      "content": "<p>Ein ganzer Kreis und ein ganzer Prozentstreifen stehen jeweils für 100 %. Für einen Anteil p berechnest du den Mittelpunktswinkel mit p · 360° und die Streifenlänge mit p · Gesamtlänge. Beispiel: 5 von 20 = 25 %, also 90° und ein Viertel des Streifens.</p><p>In dieser fiktiven Befragung antworten genau 20 Personen. Jede wählt entweder die Bibliothek oder einen anderen Ort. Die beiden Kategorien überschneiden sich nicht und enthalten alle Antworten. Nur dann ergeben ihre Anteile zusammen 100 %.</p><p>Verändere die Bibliotheksstimmen. Stelle zuerst 5, dann 10 und schließlich 15 Stimmen ein. Sage jeweils den Anteil und den Winkel voraus und vergleiche Kreis und Streifen. Was passiert bei 0 und bei 20 Stimmen? Zeichne anschließend auf Papier ein Kreisdiagramm für 7 von 20 Stimmen und kontrolliere es hier.</p><div class=\"interactive-zone\" data-share-diagrams data-locale=\"de\" data-chart-description=\"Zwei Darstellungen derselben Befragung mit 20 Antworten. Die Werte stehen vollständig in der Tabelle.\"><label>Bibliotheksstimmen (von 20) <input type=\"range\" min=\"0\" max=\"20\" step=\"1\" value=\"5\" data-share-count></label><button type=\"button\" data-share-reset>Zurücksetzen</button><p data-share-status aria-live=\"polite\"></p><div data-share-picture></div><table><caption>Zwei Darstellungen derselben Befragung mit 20 Antworten. Die Werte stehen vollständig in der Tabelle.</caption><thead><tr><th scope=\"col\">Kategorie</th><th scope=\"col\">Anzahl</th><th scope=\"col\">Anteil</th><th scope=\"col\">Mittelpunktswinkel</th></tr></thead><tbody><tr data-share-row><th scope=\"row\">A: Bibliothek</th><td></td><td></td><td></td></tr><tr data-share-row><th scope=\"row\">B: Anderer Ort</th><td></td><td></td><td></td></tr></tbody></table></div>{{QUIZ_relative_circle_angle}}",
+      "quizzes": [
+        {
+          "id": "relative_circle_angle",
+          "question": "25 % der Antworten sollen in einem Kreisdiagramm dargestellt werden. Wie groß ist der zugehörige Mittelpunktswinkel?",
+          "answers": [
+            {
+              "text": "90°.",
+              "feedback": "Ein ganzer Kreis hat 360°: Ein Viertel davon sind 90°.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "25°.",
+              "feedback": "25 ist der Prozentwert. Für den Winkel musst du den Anteil mit 360° multiplizieren.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "180°.",
+              "feedback": "180° ist ein Halbkreis und entspricht 50 %, nicht 25 %.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relative_tree",
+      "title": "6. Häufigkeiten in zwei Stufen ordnen",
+      "content": "<p>Ein Häufigkeitsbaum teilt dieselben Personen schrittweise in Gruppen. In unserem fiktiven Beispiel kommen 12 Antworten aus Klasse A und 8 aus Klasse B. In jeder Klasse wählen die Personen entweder die Bibliothek oder einen anderen Ort. An jeder Verzweigung ergeben die Anzahlen der Teilgruppen zusammen die Anzahl davor.</p><p>Bei 6 Bibliotheksstimmen in A und 2 in B gilt: Unter den 12 Personen aus A beträgt der Bibliotheksanteil 6/12 = 50 %. Unter allen 20 Personen gehören 6/20 = 30 % gleichzeitig zu A und zur Bibliotheksgruppe. Insgesamt wählen 8/20 = 40 % die Bibliothek. Der einfache Mittelwert von 50 % und 25 % wäre hier falsch, weil die Klassen verschieden groß sind.</p><p>Verändere die Stimmen in beiden Klassen. Prüfe die Summen an jeder Verzweigung. Stelle in beiden Klassen einen Bibliotheksanteil von 50 % ein. Welche Anzahlen brauchst du? Stelle danach A auf 12 und B auf 0: Warum ergeben sich insgesamt 60 % und nicht 50 %?</p><div class=\"interactive-zone\" data-frequency-tree data-locale=\"de\"><div><label style=\"display:block\">Klasse A – Bibliothek <input data-tree-input type=\"range\" min=\"0\" max=\"12\" step=\"1\" value=\"6\"></label><label style=\"display:block\">Klasse B – Bibliothek <input data-tree-input type=\"range\" min=\"0\" max=\"8\" step=\"1\" value=\"2\"></label><button type=\"button\" data-tree-reset>Zurücksetzen</button></div><ul><li>Alle Antworten: <bdi dir=\"ltr\">20</bdi><ul><li>Klasse A: <bdi dir=\"ltr\">12</bdi><ul><li>Bibliothek: <bdi dir=\"ltr\" data-tree-leaf=\"0\"></bdi></li><li>Anderer Ort: <bdi dir=\"ltr\" data-tree-leaf=\"1\"></bdi></li></ul></li><li>Klasse B: <bdi dir=\"ltr\">8</bdi><ul><li>Bibliothek: <bdi dir=\"ltr\" data-tree-leaf=\"2\"></bdi></li><li>Anderer Ort: <bdi dir=\"ltr\" data-tree-leaf=\"3\"></bdi></li></ul></li></ul></li></ul><div data-tree-status aria-live=\"polite\"><p>Klasse A – Bibliothek<br>Anteil innerhalb der Klasse: <bdi dir=\"ltr\" data-tree-within></bdi><br>Anteil an allen Antworten: <bdi dir=\"ltr\" data-tree-whole></bdi></p><p>Klasse B – Bibliothek<br>Anteil innerhalb der Klasse: <bdi dir=\"ltr\" data-tree-within></bdi><br>Anteil an allen Antworten: <bdi dir=\"ltr\" data-tree-whole></bdi></p><p><strong>Bibliotheksanteil insgesamt: <bdi dir=\"ltr\" data-tree-total></bdi></strong></p></div></div>{{QUIZ_relative_tree_reference}}",
+      "quizzes": [
+        {
+          "id": "relative_tree_reference",
+          "question": "Von 20 Befragten gehören 12 zur Klasse A. Sechs Personen aus A wählen die Bibliothek. Welcher Anteil aller Befragten gehört zu A und wählt die Bibliothek?",
+          "answers": [
+            {
+              "text": "6/20 = 30 %.",
+              "feedback": "Gesucht ist die gemeinsame Zugehörigkeit unter allen 20 Befragten. Die sechs passenden Personen stehen im Zähler.",
+              "correct": true,
+              "pts": 0
+            },
+            {
+              "text": "6/12 = 50 %.",
+              "feedback": "Das ist der Bibliotheksanteil innerhalb von A. Gefragt ist nach dem Anteil an allen Befragten.",
+              "correct": false,
+              "pts": 0
+            },
+            {
+              "text": "12/20 = 60 %.",
+              "feedback": "Das zählt alle Personen aus A. Nur sechs von ihnen wählen die Bibliothek.",
+              "correct": false,
+              "pts": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workshop": {
+    "title": "7. Zwei Gruppen fair vergleichen",
+    "navLabel": "Vergleichswerkstatt",
+    "instruction": "Ordne die Aussagen zu und formuliere anschließend eine begründete Auswertung.",
+    "categories": [
+      "Absolute Häufigkeit",
+      "Relative Häufigkeit",
+      "Differenz in Prozentpunkten"
+    ],
+    "items": [
+      {
+        "text": "In Gruppe A wählen 9 Personen den Hof.",
+        "answer": "Absolute Häufigkeit",
+        "feedback": "9 zählt Personen; es ist noch kein Anteil."
+      },
+      {
+        "text": "In Gruppe A wählen 9 von 15 Personen den Hof: 60 %.",
+        "answer": "Relative Häufigkeit",
+        "feedback": "9/15 bezieht die Stimmenzahl auf die Gruppengröße."
+      },
+      {
+        "text": "Der Hofanteil beträgt in A 60 %, in B 50 %: Abstand 10.",
+        "answer": "Differenz in Prozentpunkten",
+        "feedback": "60 − 50 = 10 Prozentpunkte. Das ist nicht automatisch die relative Zunahme."
+      }
+    ],
+    "writing": "Zwei fiktive Klassen beantworten dieselbe Frage mit genau einer Antwort pro Person. Klasse A: 9 von 15 gültigen Antworten für den Hof; Klasse B: 12 von 24. Berechne die Anteile, vergleiche Anzahl und Anteil und formuliere zwei zutreffende Aussagen. Erkläre außerdem, warum die Ergebnisse nicht automatisch für alle Schulen in Wien gelten.",
+    "rubric": [
+      "Ich nenne beide Gesamtzahlen und berechne 60 % sowie 50 %.",
+      "Ich unterscheide mehr Stimmen von einem größeren Anteil.",
+      "Meine Aussagen bleiben auf die beiden befragten Gruppen begrenzt."
+    ],
+    "model": "A: 9/15 = 60 %. B: 12/24 = 50 %. B hat mehr Hofstimmen (12 gegenüber 9), A aber den größeren Hofanteil (60 % gegenüber 50 %). Der Abstand beträgt 10 Prozentpunkte. Die zwei Gruppen sind keine automatisch repräsentative Auswahl aller Wiener Schüler:innen."
+  }
+}
