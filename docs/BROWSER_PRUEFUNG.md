@@ -375,3 +375,15 @@ Neues Kapitel der vierten Klasse in Chromium 151.0.7922.34: 96 native Rechnungen
 ## 21.09.2026 – Wurzeln und Näherungen
 
 Bericht 13:55:53 UTC: 50 native Rundungsfälle, 150 Layoutfälle, Tastatur/Fokus/Speicher und alle 53 Quizantwortwege ohne Browserfehler. Finale Zahlengerade/Einleitung 13:59:28 UTC in sechs Layouts geprüft; größere Beschriftung vollständig im Bild. Alle 19 Seiten der finalen Druckfassung von 13:58:05 UTC gelesen, einschließlich passender Lösungen. Umfang, Korrekturen und Grenzen: [MATHEMATIK_WURZELN_NAEHERUNGEN.md](MATHEMATIK_WURZELN_NAEHERUNGEN.md). Änderungen bleiben lokal.
+
+## 21.09.2026 – Pythagoras: Beweis, Umkehrung, Figuren und Körper
+
+Bericht 14:23:56 UTC in Chromium 151.0.7922.34: 36 native Beweis- und 48 Quaderfälle, 504 Layoutfälle, sämtliche 69 Quizantwortwege und keine Browserfehler. Sechs endgültige Ansichten nach Vergrößerung des Puzzleausschnitts; beschriftete Beweisfiguren auf Mobilgeräten mindestens ungefähr 12,4 px. Gezielte Nachprüfung 14:33:27 UTC: zusätzlicher vollständiger Tastaturablauf mit 25 Schaltflächenbetätigungen, Fokus auf Neustart nach Abschluss und korrekter Rücksetzung. Alle 15 Grundlagen- und 18 Anwendungsdruckseiten gelesen, veränderte Seiten nach endgültigem Export erneut geprüft. Der Hinweis zu Rundung und Modellgrenzen bleibt zusammen. [Exakter Umfang und Grenzen](MATHEMATIK_PYTHAGORAS.md). Kapitelinhalt im Zwischenstand `e03f3d6` gesichert; abschließende Fokus-/Druckverbesserungen lokal.
+
+## 21.09.2026 – Funktionsdarstellungen und Sachgraphen
+
+Bericht 14:52:43 UTC, Chromium 151.0.7922.34: 56 native Geradenfälle, neun Zeitfälle, 390 Layoutfälle bei 320/390/1280 px in Hell/Dunkel und alle 60 Quizantwortwege ohne Browserfehler. Tastatur, Fokus, Neustart und unveränderter Speicher geprüft. Nach Sichtbefund Achsenzahlen vergrößert und Titel eingerückt; sechs finale Ansichten mit vollständigen Beschriftungen, mindestens ungefähr 12,77 px. Das optionale GeoGebra-Werkzeug wird erst beim Öffnen initialisiert und wurde tatsächlich geöffnet. Präzisierter Zeichenauftrag und neue Rückweg-Rückmeldung separat nativ geprüft. Alle 25 endgültigen Druckseiten gelesen, die sechs zuletzt veränderten Seiten erneut; acht Zusatzaufgaben und Lösungen stimmen überein. [Umfang, Korrekturen und Grenzen](MATHEMATIK_FUNKTIONS_DARSTELLUNGEN.md). Änderungen lokal, kein neuer Push.
+
+## 21.09.2026 – Drehkörper, Umkehraufgaben, Masse und Dichte
+
+Bericht 15:14:50 UTC, Chromium 151.0.7922.34: 36 native Umkehrfälle, 72 Masse-/Dichtefälle, 648 Layoutfälle und alle 48 Quizantwortwege ohne Browserfehler; Tastatur/Fokus/Reset/Speicher geprüft. Die Radiusbeschriftung wurde nach Sichtbefund von der Ellipsenkante nach außen versetzt; sechs endgültige Ansichten vollständig und mindestens ungefähr 13,1 px groß beschriftet. Das optionale 3D-Werkzeug initialisiert beim Öffnen. Zwei Druckabsätze zusammengehalten; alle 21 endgültigen Druckseiten gelesen, davon sieben bytegleich mit bereits gelesenen Vorseiten und 14 erneut gelesen. Acht Zusatzaufgaben passen zu ihren Lösungen. [Umfang und Grenzen](MATHEMATIK_DREHKOERPER_MASSE.md). Änderungen lokal.

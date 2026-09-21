@@ -1,6 +1,10 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
-Fortschritt 21.09.2026: Wurzelregeln, Kubikwurzeln und Näherungen der vierten Klasse ergänzt; 50 Werkstattfälle, 53 Quizantwortwege und die 19-seitige Druckfassung geprüft. [Inhalte und Nachweise](MATHEMATIK_WURZELN_NAEHERUNGEN.md). Diese Änderungen nach Zwischenstand `f9aa5fa` sind lokal; die Gesamt-Abnahme bleibt offen.
+Fortschritt 21.09.2026: Körperkapitel der vierten Klasse um Umkehraufgaben, Masse/Dichte und Hohlkörper ergänzt. 36 Umkehrfälle, 72 Masse-/Dichtefälle, alle 48 Quizantwortwege, 648 Browserlayouts und die 21-seitige Druckfassung im dokumentierten Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_DREHKOERPER_MASSE.md). Lokal nach `e03f3d6`; keine vollständige Fach- oder Produktabnahme.
+
+Fortschritt 21.09.2026: Funktionenkapitel um Darstellungswechsel, Steigungsdreiecke, Eindeutigkeit und Sachgraphen erweitert. 224 Geraden-Rechenfälle, alle 60 Quizantwortwege, 390 Browserlayouts und die 25-seitige Druckfassung im dokumentierten Umfang geprüft. Die vorhandenen Gleichungssysteme bleiben erhalten. [Inhalte und konkrete Nachweise](MATHEMATIK_FUNKTIONS_DARSTELLUNGEN.md). Lokal nach `e03f3d6`; keine vollständige Produktabnahme.
+
+Fortschritt 21.09.2026: Wurzeln und beide erweiterten Pythagoras-Kapitel sind im angeforderten Zwischenstand `e03f3d6` auf GitHub gesichert. Anschließend Pythagoras-Fokus und Druckabsatz korrigiert und die Prüfung abgeschlossen: allgemeiner Beweis, Umkehrung, Figuren und Körper; 69 Antwortwege, 504 Browserlayouts und insgesamt 33 Druckseiten im dokumentierten Umfang geprüft. [Pythagoras-Nachweise](MATHEMATIK_PYTHAGORAS.md), [Wurzeln und Näherungen](MATHEMATIK_WURZELN_NAEHERUNGEN.md). Die abschließenden Verbesserungen bleiben lokal; die Gesamt-Abnahme bleibt offen.
 
 Mathematik-Arbeitsabgleich vom 21.09.2026: Kompetenzbeschreibungen und Präzisierungen aller vier Klassen erneut gelesen, gezielte Bestandsprüfung und konkrete Restlücken dokumentiert. Der dabei fehlende Lernweg zu Kreisen/Kreisteilen ist ergänzt. [Abgleich und nächste Inhaltsarbeit](MATHEMATIK_LEHRPLANABGLEICH.md), [Kreiskapitel](MATHEMATIK_KREISE.md), [vollständiger Funktionslauf mit Nachprüfung](FUNKTIONS_PRUEFUNG_2026-09-21.md). Keine vollständige Fach- oder Produktabnahme.
 

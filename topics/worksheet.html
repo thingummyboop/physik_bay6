@@ -5,11 +5,21 @@
     <title>Arbeitsblatt</title>
     <style>
       @media print {
-        .pyth-figure,.pyth-paper,.pyth-task,[data-pyth-solution] p,[data-pyth-generated] {break-inside:avoid;page-break-inside:avoid}
+        .pyth-figure,.pyth-paper,.pyth-task,[data-pyth-solution] p,[data-pyth-generated],[data-pyth-model-limit] {break-inside:avoid;page-break-inside:avoid}
         .pyth-figure svg {display:block;width:85mm;height:auto;margin:auto}
         .pyth-proof-pair {display:flex;gap:5mm}.pyth-proof-pair .pyth-figure {flex:1;min-width:0}.pyth-proof-pair svg{width:75mm;max-width:100%}
         .pyth-task {border:1px solid #aaa;padding:8px;margin:10px 0}
         [data-pyth-generated] {margin:18px 0}
+        .function-figure,.function-paper,.function-table,[data-function-solution] p,[data-function-generated] {break-inside:avoid;page-break-inside:avoid}
+        .function-figure svg {display:block;width:100mm;max-width:100%;height:auto;margin:auto}
+        .function-table {border-collapse:collapse;width:100%;margin:10px 0}
+        .function-table th,.function-table td {border:1px solid #aaa;padding:5px;text-align:center}
+        .function-task li {margin:10px 0;break-inside:avoid}
+        [data-function-generated] {margin:18px 0}
+        .round-figure,.round-paper,[data-round-solution] p,[data-round-generated],[data-round-example],[data-round-generated-intro] {break-inside:avoid;page-break-inside:avoid}
+        .round-figure svg {display:block;width:85mm;max-width:100%;height:auto;margin:auto}
+        .round-task li {margin:10px 0;break-inside:avoid}
+        [data-round-generated] {margin:18px 0}
         .root-line,.root-paper,.root-card,[data-root-definition],[data-root-tasks] li,[data-root-solution] p,[data-root-generated] {break-inside:avoid;page-break-inside:avoid}
         [data-root-generated] {margin:18px 0}
         .root-line svg {display:block;width:110mm;height:auto;margin:auto}

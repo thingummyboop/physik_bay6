@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "a8368ede115d2dc299b5afc678a397a7b3891d052cd06b036f9700a0d9d34393",
-    "lang/de.json": "8d1eeee64c86fa4ef049ded76af2fd8efc3c7e7311031f2c86690460a9182615"
+    "lang/de.json": "6279e31603a10ae264c66997f8da6e48f61965705441801e982b6c57db183fc3"
   },
   "subjects": {
     "physik": {
@@ -12475,11 +12475,14 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math4_4_funktionen_sys",
           "goals": [
-            "Funktionswerte berechnen sowie Steigung und Achsenabschnitt unterscheiden.",
-            "Die gemeinsame Lösung zweier linearer Gleichungen rechnerisch bestimmen und prüfen.",
-            "Eine, keine und unendlich viele Lösungen grafisch unterscheiden."
+            "Zuordnungen anhand von Tabellen und Graphen auf Eindeutigkeit prüfen.",
+            "Zwischen Sachtext, Gleichung, Wertetabelle und Graph wechseln und den Definitionsbereich beachten.",
+            "Steigung mit einem Steigungsdreieck bestimmen sowie Steigung und Achsenabschnitt im Kontext deuten.",
+            "Sachgraphen ablesen, Änderungen beschreiben und Grenzen linearer Modelle erkennen.",
+            "Lineare Gleichungssysteme grafisch und rechnerisch lösen und beide Gleichungen prüfen.",
+            "Eine, keine und unendlich viele Lösungen unterscheiden."
           ],
-          "summaryCount": 3,
+          "summaryCount": 6,
           "sections": [
             {
               "id": "sec1",
@@ -12490,17 +12493,50 @@
               ]
             },
             {
-              "id": "sec2",
+              "id": "function_representations",
               "index": 1,
+              "title": "Vom Sachtext zur Tabelle, Gleichung und zum Graphen",
+              "questions": [
+                "function_rental_term",
+                "function_rental_table",
+                "function_rental_domain"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 2,
               "title": "Lineare Funktionen zeichnen",
               "questions": [
-                "m44_q2"
+                "m44_q2",
+                "function_slope_ratio",
+                "function_slope_intercept",
+                "function_slope_zero"
+              ]
+            },
+            {
+              "id": "function_real_graph",
+              "index": 3,
+              "title": "Einen Sachgraphen lesen: gehen, warten, zurückgehen",
+              "questions": [
+                "function_walk_pause",
+                "function_walk_return",
+                "function_walk_total"
+              ]
+            },
+            {
+              "id": "function_unique",
+              "index": 4,
+              "title": "Ist jede Zuordnung eine Funktion?",
+              "questions": [
+                "function_unique_table",
+                "function_unique_conflict",
+                "function_unique_circle"
               ]
             },
             {
               "id": "system0",
-              "index": 2,
-              "title": "3. Gleichsetzen: zwei Bedingungen zugleich",
+              "index": 5,
+              "title": "Gleichsetzen: zwei Bedingungen zugleich",
               "questions": [
                 "linear_system_q0",
                 "linear_system_q1"
@@ -12508,8 +12544,8 @@
             },
             {
               "id": "system1",
-              "index": 3,
-              "title": "4. Einsetzen und Addieren",
+              "index": 6,
+              "title": "Einsetzen und Addieren",
               "questions": [
                 "linear_system_q2",
                 "linear_system_q3"
@@ -12517,8 +12553,8 @@
             },
             {
               "id": "system2",
-              "index": 4,
-              "title": "5. Lösungsfälle und Sachaufgaben",
+              "index": 7,
+              "title": "Lösungsfälle und Sachaufgaben",
               "questions": [
                 "linear_system_q4",
                 "linear_system_q5"
@@ -12526,7 +12562,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 8,
+          "questionCount": 20,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -12660,16 +12696,18 @@
           "sourcePresent": true,
           "source": "lang/de.json#/math4_6_koerper",
           "goals": [
-            "Volumen und Oberfläche von geradem Zylinder, geradem Kegel und Kugel berechnen.",
-            "Radius, Durchmesser, senkrechte Höhe und Mantellinie unterscheiden.",
-            "Vergrößerungsfaktoren und Volumeneinheiten sinnvoll anwenden."
+            "Gerade Zylinder und Kegel beschreiben sowie Radius, Durchmesser, Höhe und Mantellinie unterscheiden.",
+            "Volumen und Oberfläche passend zu einem geschlossenen oder offenen Körpermodell berechnen.",
+            "Einfache Umkehraufgaben durch Umstellen lösen, Angaben auf Zulässigkeit prüfen und die Probe durchführen.",
+            "Masse und Dichte mit passenden Einheiten berechnen und Materialvolumen von Hohlräumen unterscheiden.",
+            "Kugeloberfläche und Kugelvolumen berechnen sowie Größenänderungen und Volumeneinheiten erklären."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "1. Zylinder: Kreisflächen und Mantel",
+              "title": "Zylinder: Kreisflächen und Mantel",
               "questions": [
                 "m46_q1"
               ]
@@ -12677,15 +12715,46 @@
             {
               "id": "sec2",
               "index": 1,
-              "title": "2. Kegel: Höhe und Mantellinie",
+              "title": "Kegel: Höhe und Mantellinie",
               "questions": [
                 "m46_q2"
               ]
             },
             {
-              "id": "sphere",
+              "id": "cylinder_inverse",
               "index": 2,
-              "title": "3. Kugel: Oberfläche und Volumen",
+              "title": "Beim Zylinder rückwärts rechnen",
+              "questions": [
+                "round_cylinder_height",
+                "round_cylinder_radius",
+                "round_surface_possible"
+              ]
+            },
+            {
+              "id": "cone_inverse",
+              "index": 3,
+              "title": "Beim Kegel rückwärts rechnen und prüfen",
+              "questions": [
+                "round_cone_height",
+                "round_cone_surface",
+                "round_cone_radius"
+              ]
+            },
+            {
+              "id": "round_mass_density",
+              "index": 4,
+              "title": "Masse und Dichte: Welches Volumen ist Material?",
+              "questions": [
+                "round_mass_units",
+                "round_density",
+                "round_hollow",
+                "round_density_unit"
+              ]
+            },
+            {
+              "id": "sphere",
+              "index": 5,
+              "title": "Kugel: Oberfläche und Volumen",
               "questions": [
                 "sphere_q0",
                 "sphere_q1"
@@ -12693,8 +12762,8 @@
             },
             {
               "id": "scaling",
-              "index": 3,
-              "title": "4. Größen verändern und Einheiten prüfen",
+              "index": 6,
+              "title": "Größen verändern und Einheiten prüfen",
               "questions": [
                 "sphere_q2",
                 "sphere_q3"
@@ -12702,7 +12771,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 6,
+          "questionCount": 16,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

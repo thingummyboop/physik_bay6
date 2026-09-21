@@ -591,17 +591,19 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math4_4_funktionen_sys') {
-        html += `<h2>1. Lineare Gleichungssysteme</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<6; i++) {
-            const x = rand(1, 5);
-            const y = rand(1, 5);
-            const a = rand(1, 3);
-            const b = rand(1, 3);
-            const res1 = a * x + b * y;
-            const res2 = x - y;
-            html += `<div>I: \\( ${a === 1 ? '' : a}x + ${b === 1 ? '' : b}y = ${res1} \\)<br>II: \\( x - y = ${res2} \\)<br><br>x = <span style="display:inline-block; border-bottom:1px dotted #000; width:40px;"></span>, y = <span style="display:inline-block; border-bottom:1px dotted #000; width:40px;"></span></div>`;
+        const answers=[];
+        html += '<h2>Zusatzübungen: Darstellungen und Gleichungssysteme</h2>';
+        for(let i=0;i<2;i++) {
+            const m=rand(-3,3),b=rand(-4,4),x1=-1,x2=3,y1=m*x1+b,y2=m*x2+b;
+            html += '<div data-function-generated data-kind="line" data-m="'+m+'" data-b="'+b+'"><p><strong>A'+(i+1)+'.</strong> Eine Gerade geht durch (−1|'+y1+') und (3|'+y2+'). Bestimme m und b, gib die Gleichung an und prüfe beide Punkte. Zeichne die Gerade und ein Steigungsdreieck.</p><p>Rechnung und Skizze: ____________________________________</p></div>';
+            answers.push('<div data-function-generated-answer data-kind="line" data-m="'+m+'" data-b="'+b+'"><h3>Zusatzübung A'+(i+1)+'</h3><p>Δx = 3 − (−1) = 4; Δy = '+y2+' − ('+y1+') = '+(y2-y1)+'. Daher m = '+(y2-y1)+'/4 = '+m+'. Einsetzen: b = '+y1+' − ('+m+') · (−1) = '+b+'. Gleichung: y = ('+m+') · x + ('+b+'). Probe: ('+m+') · (−1) + ('+b+') = '+y1+' und ('+m+') · 3 + ('+b+') = '+y2+'.</p></div>');
         }
-        html += `</div>`;
+        for(let i=0;i<6;i++) {
+            const x=rand(1,5),y=rand(1,5),a=rand(1,3),b=rand(1,3),res1=a*x+b*y,res2=x-y,n=i+3;
+            html += '<div data-function-generated data-kind="system" data-a="'+a+'" data-b="'+b+'" data-r1="'+res1+'" data-r2="'+res2+'"><p><strong>A'+n+'.</strong> I: '+a+'x + '+b+'y = '+res1+'; II: x − y = '+res2+'. Löse und prüfe beide Gleichungen.</p><p>x = __________; y = __________; Rechenweg: __________________</p></div>';
+            answers.push('<div data-function-generated-answer data-kind="system" data-x="'+x+'" data-y="'+y+'"><h3>Zusatzübung A'+n+'</h3><p>Aus II: x = y + ('+res2+'). In I: '+a+' · (y + ('+res2+')) + '+b+'y = '+res1+'. Daraus '+(a+b)+'y = '+(res1-a*res2)+', also y = '+y+' und x = '+x+'. Probe: '+a+' · '+x+' + '+b+' · '+y+' = '+res1+'; '+x+' − '+y+' = '+res2+'.</p></div>');
+        }
+        html += '<template data-generated-worksheet-solutions>'+answers.join('')+'</template>';
     }
     else if (topicId === 'math4_5_aehnlichkeit') {
         html += `<h2>1. Ähnliche Figuren</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -613,18 +615,20 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div>`;
     }
     else if (topicId === 'math4_6_koerper') {
-        html += `<h2>1. Zylinder und Kegel</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
-        for(let i=0; i<6; i++) {
-            const r = rand(2, 10);
-            const h = rand(5, 15);
-            const isZylinder = rand(0, 1) === 0;
-            if (isZylinder) {
-                html += `<div>Zylinder: r = ${r}, h = ${h}<br>\\( V = \\pi \\cdot r^2 \\cdot h \\approx \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-            } else {
-                html += `<div>Kegel: r = ${r}, h = ${h}<br>\\( V = \\frac{1}{3} \\pi \\cdot r^2 \\cdot h \\approx \\) <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
-            }
+        html += '<h2>Zusatzübungen: Körpermaße, Masse und Dichte</h2><p data-round-generated-intro>Alle Körper sind gerade; Oberflächen schließen die Grundfläche und beim Zylinder den Deckel ein. Längen in cm, Flächen in cm², Volumen in cm³, Massen in g. Kürze π bei Umkehraufgaben; runde sonst erst das Endergebnis auf zwei Nachkommastellen. Zeichne eine Skizze und prüfe deine Rechnung.</p>';
+        const solutions=[],kinds=['volume','volume','height_surface','height_surface','radius','radius','mass','density'];
+        for(let i=0;i<8;i++){
+            const triple=[[3,4,5],[5,12,13],[8,15,17]][rand(0,2)],scale=rand(1,2),[r,h,s]=triple.map(x=>x*scale),cone=i%2===1,kind=kinds[i],rho=[.5,1.2,2.7][rand(0,2)],v=r*r*h/(cone?3:1),o=cone?r*r+r*s:2*r*r+2*r*h,mc=Math.round(v*rho*1e6)/1e6,fmt=x=>x.toLocaleString('de-AT',{maximumFractionDigits:2});
+            let given,answer,unit,explanation;
+            if(kind==='volume'){given='r = '+r+' cm, h = '+h+' cm. Gesucht: V.';answer=v*Math.PI;unit='cm³';explanation='V = π · '+r+'² · '+h+(cone?' / 3':'')+' = '+v+'π cm³ ≈ '+fmt(answer)+' cm³.';}
+            else if(kind==='height_surface'){given='r = '+r+' cm, O = '+o+'π cm². Gesucht: h.';answer=h;unit='cm';explanation=cone?'s = '+o+'/'+r+' − '+r+' = '+s+' cm. h = √('+s+'² − '+r+'²) = '+h+' cm. Probe: '+r+'² + '+r+' · '+s+' = '+o+' (O/π).':'h = ('+o+' − '+(2*r*r)+')/'+(2*r)+' = '+h+' cm. Probe: 2 · '+r+'² + 2 · '+r+' · '+h+' = '+o+' (O/π).';}
+            else if(kind==='radius'){given='h = '+h+' cm, V = '+v+'π cm³. Gesucht: r.';answer=r;unit='cm';explanation='r = √('+(cone?3*v:v)+'/'+h+') = '+r+' cm. Probe: '+r+'² · '+h+(cone?' / 3':'')+' = '+v+' (V/π).';}
+            else if(kind==='mass'){given='Massiver homogener Körper: r = '+r+' cm, h = '+h+' cm, fiktive Dichte ρ = '+fmt(rho)+' g/cm³. Gesucht: m.';answer=mc*Math.PI;unit='g';explanation='V = '+v+'π cm³. m = ρ · V = '+fmt(rho)+' · '+v+'π = '+fmt(mc)+'π g ≈ '+fmt(answer)+' g.';}
+            else{given='Massiver homogener Körper: r = '+r+' cm, h = '+h+' cm, m = '+fmt(mc)+'π g. Gesucht: ρ.';answer=rho;unit='g/cm³';explanation='V = '+v+'π cm³. ρ = m/V = '+fmt(mc)+'π/('+v+'π) = '+fmt(rho)+' g/cm³. Probe: '+fmt(rho)+' · '+v+'π = '+fmt(mc)+'π g.';}
+            html += '<div data-round-generated data-kind="'+kind+'" data-cone="'+cone+'" data-r="'+r+'" data-h="'+h+'" data-rho="'+rho+'"><p><strong>A'+(i+1)+'. '+(cone?'Kegel':'Zylinder')+'.</strong> '+given+'</p><p>Rechnung, Ergebnis und Probe: ______________________________</p></div>';
+            solutions.push('<div data-round-generated-answer="'+answer+'" data-unit="'+unit+'"><h3>Zusatzübung A'+(i+1)+'</h3><p>'+explanation+'</p></div>');
         }
-        html += `</div>`;
+        html += '<template data-generated-worksheet-solutions>'+solutions.join('')+'</template>';
     }
     else if (topicId === 'math4_7_statistik') {
         html += `<h2>Zusatzübungen: ein Zug aus einer Urne</h2><p>Alle Kugeln sind beim Ziehen gleich wahrscheinlich. Es wird jeweils genau einmal gezogen. Berechne den Anteil roter Kugeln zuerst als Bruch und dann als Prozentwert. Runde Prozentwerte bei Bedarf auf zwei Nachkommastellen. Eine Wahrscheinlichkeit sagt nicht voraus, welche einzelne Kugel gezogen wird.</p><div>`;

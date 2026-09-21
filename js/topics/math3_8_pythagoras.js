@@ -98,7 +98,7 @@ function createDraggableSquare(parent, x, y, size, color) {
         pythFilled++;
         
         document.getElementById('pyth-success-msg').textContent=pythFilled===25?'Beispiel überprüft: 9 cm² + 16 cm² = 25 cm². Ein Beispiel allein ist kein allgemeiner Beweis.':pythFilled+' von 25 Flächenteilen umgelegt.';
-        if(pythFilled===25){const nextButton=document.querySelector('[data-pyth-next]');if(nextButton)nextButton.disabled=true;}
+        if(pythFilled===25){const nextButton=document.querySelector('[data-pyth-next]');if(nextButton){const hadFocus=document.activeElement===nextButton;nextButton.disabled=true;if(hadFocus)document.querySelector('[data-pyth-puzzle-reset]')?.focus();}}
     };
     poly.onkeydown=function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();poly.onclick();const next=document.querySelector('#pyth-puzzle-svg [role="button"][tabindex="0"]');if(next)next.focus();else document.querySelector('[data-pyth-puzzle-reset]').focus();}};
     parent.appendChild(poly);

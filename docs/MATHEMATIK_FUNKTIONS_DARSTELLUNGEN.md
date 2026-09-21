@@ -1,0 +1,44 @@
+# Funktionen darstellen und Sachgraphen deuten – 4. Klasse
+
+Stand 21.09.2026. `math4_4_funktionen_sys` ist auf Revision 3 erweitert. Die vorhandenen Gleichungssysteme, ihr eigenes Geradenmodell und das optionale GeoGebra-Werkzeug bleiben erhalten. Die neue Inhalts- und Prüfungsarbeit ist lokal nach dem ausdrücklich gepushten Zwischenstand `e03f3d6`.
+
+## Lehrplanbezug und Inhalte
+
+Das bisherige Kapitel und die Präzisierungen zu funktionalen Zusammenhängen der vierten Klasse wurden vollständig gelesen. Grundlage ist die gespeicherte RIS-Fassung vom 16.09.2026, kein neuer Rechtsquellenabruf. Gefordert sind Darstellungswechsel, Eindeutigkeit, Sachgraphen, Steigungsdreiecke, Parameterdeutung und eine kritische Betrachtung linearer Modelle. Die Formelbilder im Textauszug werden nicht als wörtlich gelesene Formeln ausgegeben. [Quellenstand](LEHRPLAN_QUELLENSTAND.md).
+
+| Anforderung | Konkreter Lernauftrag |
+| --- | --- |
+| Text, Gleichung, Tabelle, Graph verbinden | Fiktiver Radverleih für einen Wiener Ausflug: 4 € Startgebühr und 2 €/h, K = 2t + 4. Tabelle und Zeichenauftrag, Zwischenzeit 2,5 h, Rückweg von Tabelle zu Gleichung und selbst formulierter Sachbeschreibung. Der Tarif ist ausdrücklich erfunden. |
+| Definitionsbereich, Proportionalität und Modellannahmen | Nur 0 bis 4 h, Teilstunden anteilig. Vergleich mit diskreten Anzahlen; negative Mietzeit ist kein erlaubter Sachwert. K = 2t + 4 wird mit P = 2t verglichen. Einzelne Tabellenwerte beweisen keinen Verlauf zwischen oder außerhalb der Werte. |
+| Steigung und Achsenabschnitt bestimmen | Eigene Geradenwerkstatt mit Tabelle, Gleichung und Steigungsdreieck; Δy/Δx mit Δx ≠ 0. Gerade durch (−1|4) und (3|2): m = −0,5, b = 3,5. Positive, negative und Nullsteigung. Einheiten €/h und € im Kostenmodell. Unterschiedliche Achsenskalierung wird ausdrücklich erklärt. |
+| Sachgraphen interpretieren | Entfernung vom Start über Zeit: hinausgehen, warten, zurückkehren auf einem geraden Weg. Werte ablesen, Änderungsraten 60 bzw. −30 m/min, insgesamt 240 m Weg trotz 0 m Endentfernung. Zwischenwerte setzen die modellierte gleichmäßige Bewegung voraus. |
+| Lineares Modell kritisch prüfen | Die Verbindung nur der Endpunkte unterschlägt Ausflug und Pause. Die stückweise lineare Gesamtkurve ist keine einzelne lineare Funktion. Reales Anhalten und schwankendes Tempo bleiben Modellgrenzen. Konstante Entfernung bedeutet ohne die Annahme des geraden Weges nicht zwingend Stillstand. |
+| Eindeutigkeit begründen | Tabelle mit wiederholten Ausgaben, Tabelle mit widersprüchlicher Eingabe, Reparatur durch Änderung einer Eingabe. Kreis mit senkrechter Prüflinie als Gegenbeispiel. Waagrechte/senkrechte Gerade vergleichen; Tabelle zu y = x² mit gleichen Ausgaben bei unterschiedlichen Eingaben. |
+| Gleichungssysteme weiterführen | Gleichsetzen, Einsetzen, Addieren, Probe und ein/kein/unendlich viele Schnittpunkte bleiben erhalten. Eine konkrete Papieralternative ergänzt den bestehenden Systemvergleich. |
+
+Acht Abschnitte, sechs Lernziele und sechs Zusammenfassungspunkte; 20 Abschnittsfragen plus eine Abschlussfrage, insgesamt 21 bewertete Fragen mit 60 Antwortmöglichkeiten. Zwölf direkte Darstellungs-, Rechen- und Begründungsaufträge mit vier optionalen Vergleichslösungen. Vier Papieralternativen für die Kerninteraktionen und drei statische Druckfiguren. Das optionale GeoGebra-Detail wird nicht mitgedruckt; dessen Geradenvergleich ist durch die eigene Werkstatt und den System-Papierauftrag abgedeckt.
+
+## Modelle und Bedienung
+
+Die Geradenwerkstatt bietet sieben Steigungen, vier Achsenabschnitte und zwei Steigungsdreiecke: 56 geometrische Einstellungen. Vier auswählbare gesuchte Stellen ergeben 224 Rechenfälle. Die Tabelle zeigt zusätzlich alle ganzzahligen Stellen von −2 bis 4. Das feste Graphenfenster enthält sämtliche angebotenen Geradenabschnitte und Steigungsdreiecke; der unterschiedliche Maßstab beider Achsen ist benannt. Tabellen und Formeln bieten dieselben Zahlen auch außerhalb der Zeichnung.
+
+Das Wegmodell bietet neun ganzzahlige Zeitpunkte von 0 bis 8 min. Markierung und Hilfslinien unterstützen das Ablesen. Dezimalkomma/-punkt, ungültige Eingaben, Enter, Rückmeldung, Fokus, Löschen bei Änderung und Neustart sind berücksichtigt. Freies Experimentieren verändert keinen Quizlernstand.
+
+GeoGebra wird erst beim Öffnen des optionalen Zusatzwerkzeugs initialisiert. Damit konkurriert dessen Laden nicht mit dem neuen Einstieg; die eigenen Werkstätten benötigen das externe Werkzeug nicht. Wiederholtes Öffnen erzeugt keine zweite Instanz. Die gemeinsame externe Ladeskript-Einbindung anderer Kapitel wurde nicht verändert.
+
+Der Arbeitsblattgenerator ergänzt zwei Geradenaufgaben aus Punktpaaren und bewahrt sechs Gleichungssystemaufgaben. Alle acht erhalten passende optionale Lösungen mit Rechenweg und Probe, aus denselben erzeugten Werten. Ein Ausdruck ohne Lösungsanhang bleibt möglich. Die direkt erklärten Einstiegsbeispiele enthalten ihre Vergleichsrechnung weiterhin im Lernmaterial.
+
+## Prüfungen und Ergebnisse
+
+- `scripts/test_function_representations.js`: 224 Rechenfälle mit Tabellen, gezeichneten Endpunkten und Steigungsquotient; 33 Zeitwerte gegen unabhängige Interpolation der Modellpunkte; neun interaktive Zeitfälle; falsche/ungültige Eingaben, Fokus, Reset, unveränderter Speicher und einmaliges verzögertes Laden des Zusatzwerkzeugs. Alle 60 bewerteten Antwortwege gegen einen festen unabhängigen Antwortschlüssel, tatsächliche Rückmeldungen, Prozentwerte und Wiederholungs-IDs geprüft. Revision 2 bestätigt neue Inhalte nicht. Vollständiges Arbeitsblatt mit vier Papieralternativen, drei Figuren, vier Vergleichslösungen und acht erzeugten Aufgaben/Lösungen; zusätzlich 40 kontrollierte Generatorfälle. Nach den letzten Text- und Bildkorrekturen bestanden.
+- Bestehender Systemtest: 625 Koeffizientenkombinationen in beiden Gleichungen geprüft, außerdem parallele/identische Geraden, Schnittpunkte außerhalb des Fensters und Eingabegrenzen. Der Test erwartet jetzt 20 Abschnittsfragen; seine mathematischen Prüfungen blieben erhalten.
+- `scripts/browser_function_representations.js`, Chromium 151.0.7922.34, Bericht 14:52:43 UTC: 56 native Geradenfälle, neun Zeitfälle, Tastatur-/Reset-/Speicherprüfungen, 390 Layoutfälle bei 320/390/1280 px in Hell/Dunkel sowie alle 60 Quizantwortwege. Keine Browserfehler. Der erste Versuch scheiterte am ungefragt initialisierten externen Werkzeug, das seinen Übersetzungscache in den Speicher schrieb; nach Umstellung auf Initialisierung beim Öffnen bestand derselbe vollständige Lauf.
+- Gezielte abschließende Sicht-/Geometrieprüfung um 14:52:56 UTC: sechs Layouts mit vergrößerten Achsenzahlen, keine abgeschnittenen Beschriftungen, kleinste gemessene Schrift ungefähr 12,77 px. Beim ersten Vergrößerungsversuch standen zwei Achsentitel zu hoch; sie wurden eingerückt und anschließend erneut geprüft. GeoGebra erzeugte beim Öffnen tatsächlich zwei Canvas-Flächen. Der zuletzt präzisierte Zeichenauftrag und die plausiblere falsche Rückwegantwort mit zugehöriger Rückmeldung wurden separat im nativen Browser geprüft; erwarteter Quizwert 95 % mit genau der betroffenen Wiederholungs-ID.
+- Alle 25 Seiten der Druckfassung vollständig gelesen. Nach den letzten Textpräzisierungen erneut exportiert (14:56:10 UTC): 19 gerenderte Seiten bytegleich; die veränderten Seiten 4, 9, 10, 14, 23 und 24 erneut gelesen. Die acht aktuellen Zufallsaufgaben stimmen mit ihren Vergleichslösungen überein. Die PDFs enthalten lokale Vorschauadressen und dienen interner Prüfung, nicht als veröffentlichte Unterrichtsdateien.
+- Bestehende Schnelleingabenprüfung für vier Kapitel, 40 Mathematik-Rückmeldungswege, gemeinsame Prüfung aller 96 STEM-Arbeitsblätter und übersetzte Titelsuche bestanden. Der Suchindex wurde wegen Revision 3 neu erzeugt; keine Übersetzungen ergänzt. Gemeinsamer Renderer: 198/198 Kapitel ohne gemeldete Strukturprobleme. Begrenztes Mathematik-Quellaudit: 42 Kapitel. Inventar 198 Kapitel, Prioritätsprüfung 1.796 Frageninstanzen ohne Strukturfehler.
+
+## Grenzen und nächste Arbeit
+
+Die konkreten Funktionslücken sind im beschriebenen Umfang ergänzt und geprüft. Das ist keine vollständige Fach- oder Produktabnahme und keine Unterrichtserprobung. Die neuen Interaktionen sind bewusst begrenzte Modelle; das externe Zusatzwerkzeug und andere Browser/Endgeräte sind nicht umfassend zertifiziert. Kein erneuter vollständiger Produkt-Suitenlauf in diesem Arbeitsschritt.
+
+Als nächste bereits festgestellte Mathematiklücken bleiben Umkehraufgaben und Masse/Dichte bei Zylinder/Kegel, danach Zehnerpotenzen/Gleitkommadarstellung und die dokumentierten offenen Zahlendarstellungen. [Gesamtabgleich](MATHEMATIK_LEHRPLANABGLEICH.md). Physik, Mathematik, Chemie, Biologie und DGB bleiben priorisiert; Übersetzungen bleiben zurückgestellt. Die übrigen vorhandenen Fächer bleiben im Gesamtauftrag.

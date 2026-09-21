@@ -29532,7 +29532,7 @@
       {
         "id": "pyth_space",
         "title": "Im Quader: die Raumdiagonale",
-        "content": "<p>Die <strong>Raumdiagonale</strong> verbindet zwei gegenüberliegende Ecken durch das Innere des Quaders. Zeichne zuerst die Bodendiagonale e. Für Grundkanten a und b gilt e² = a² + b². Die Höhe h steht auf der Grundfläche senkrecht und damit auch auf e. Das zweite rechtwinklige Dreieck hat die Katheten e und h sowie die Hypotenuse d.</p><div class=\"pyth-proof-pair\"><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 380 310\" role=\"img\" aria-label=\"Quader in Schrägansicht. Die Bodendiagonale e verläuft von A nach C, die Raumdiagonale d von A nach G. CG ist die Höhe h.\"><path d=\"M45 230H250L330 170V60H125L45 120V230 M45 120H250L330 60 M250 120V230 M125 60V170L45 230 M125 170H330\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\"/><polygon points=\"45,230 330,170 330,60\" fill=\"#dbeafe\" fill-opacity=\".7\"/><path d=\"M45 230L330 170 M330 170V60 M45 230L330 60\" stroke=\"#174d83\" stroke-width=\"3\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"23\" y=\"257\">A</text><text x=\"340\" y=\"182\">C</text><text x=\"339\" y=\"61\">G</text><text x=\"140\" y=\"260\">a</text><text x=\"300\" y=\"229\">b</text><text x=\"343\" y=\"124\">h</text><text x=\"175\" y=\"218\">e</text><text x=\"178\" y=\"133\">d</text></g></svg><figcaption>Schrägansicht des Quaders. In einer Schrägansicht erscheinen rechte Winkel oft schief. Die Seitenbezeichnungen gehören zu den wirklichen Kanten.</figcaption></figure><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 240\" role=\"img\" aria-label=\"Das rechtwinklige Schnittdreieck ACG: Bodendiagonale e und Höhe h sind Katheten, Raumdiagonale d ist Hypotenuse.\"><polygon points=\"45,175 285,175 285,45\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"2\"/><path d=\"M266 175V156H285\" stroke=\"#172b4d\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"24\" y=\"204\">A</text><text x=\"292\" y=\"204\">C</text><text x=\"291\" y=\"42\">G</text><text x=\"151\" y=\"204\">e</text><text x=\"303\" y=\"113\">h</text><text x=\"140\" y=\"95\">d</text></g></svg><figcaption>Das Schnittdreieck ACG einzeln: Der rechte Winkel liegt bei C.</figcaption></figure></div><p><strong>d² = e² + h² = a² + b² + h²</strong>. Bei a = 3 cm, b = 4 cm, h = 12 cm gilt e = 5 cm und d = √(25 + 144) cm = 13 cm. Für eine fehlende Höhe stellst du um: h = √(d² − a² − b²), sofern die Daten einen Quader mit positiver Höhe zulassen.</p><p>Runde erst das Endergebnis. Du kannst e² direkt weiterverwenden und musst e nicht zuerst als gerundete Dezimalzahl berechnen. Ein dünner gerader Stab kann im idealisierten rechteckigen Innenraum höchstens so lang wie die Raumdiagonale sein. Wandstärke, Stabdicke und Einführen durch eine Öffnung berücksichtigt dieses Modell nicht.</p><div class=\"interactive-zone\" data-pyth-space><h3>Quaderwerkstatt: zwei Dreiecke</h3><div class=\"pyth-controls\"><label for=\"space-a\">Grundkante a in cm<select id=\"space-a\"><option>2</option><option selected>3</option><option>4</option><option>6</option></select></label><label for=\"space-b\">Grundkante b in cm<select id=\"space-b\"><option>2</option><option>3</option><option selected>4</option><option>6</option></select></label><label for=\"space-h\">Höhe h in cm<select id=\"space-h\"><option>2</option><option>6</option><option selected>12</option></select></label></div><p data-space-description></p><label for=\"space-answer\">Raumdiagonale d in cm, auf zwei Nachkommastellen</label><input id=\"space-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"space-status\"><div class=\"pyth-buttons\"><button type=\"button\" data-space-check>Prüfen</button><button type=\"button\" data-space-show>Beide Dreiecke berechnen</button><button type=\"button\" data-space-reset>Zurücksetzen</button></div><p id=\"space-status\" role=\"status\" aria-live=\"polite\" tabindex=\"-1\"></p><div data-space-result></div><template data-worksheet-alternative><div class=\"pyth-paper\"><p>Untersuche Quader mit Kanten (3,4,12), (2,3,6) und (2,2,2) in cm. Skizziere jeweils Bodendiagonale und Raumdiagonale. Berechne e² und d², danach d auf zwei Nachkommastellen.</p></div></template></div>{{QUIZ_pyth_space_triangle}}{{QUIZ_pyth_space_value}}{{QUIZ_pyth_space_inverse}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Bearbeite die drei Quader der Papieraufgabe. Beschrifte beide rechtwinkligen Dreiecke.</li><li>Ein Quader hat Grundkanten 2 cm und 3 cm sowie Raumdiagonale 7 cm. Berechne die Höhe und prüfe sie durch Einsetzen.</li><li>In einem idealisierten rechteckigen Innenraum mit 30 cm, 40 cm und 120 cm soll ein dünner gerader Stab von 125 cm liegen. Beurteile anhand der Raumdiagonale und benenne eine Modellgrenze.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>(3,4,12): e² = 25 cm², d² = 169 cm², d = 13,00 cm. (2,3,6): e² = 13 cm², d² = 49 cm², d = 7,00 cm. (2,2,2): e² = 8 cm², d² = 12 cm², d ≈ 3,46 cm.</p><p>h = √(49 − 4 − 9) cm = 6 cm. Probe: 2² + 3² + 6² = 49 = 7².</p><p>d = √(30² + 40² + 120²) cm = 130 cm. Ein 125-cm-Stab passt im idealisierten Modell. Beispielsweise seine Dicke oder das Einführen durch eine kleine Öffnung kann in der Realität zusätzlich wichtig sein.</p></div></details></div>",
+        "content": "<p>Die <strong>Raumdiagonale</strong> verbindet zwei gegenüberliegende Ecken durch das Innere des Quaders. Zeichne zuerst die Bodendiagonale e. Für Grundkanten a und b gilt e² = a² + b². Die Höhe h steht auf der Grundfläche senkrecht und damit auch auf e. Das zweite rechtwinklige Dreieck hat die Katheten e und h sowie die Hypotenuse d.</p><div class=\"pyth-proof-pair\"><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 380 310\" role=\"img\" aria-label=\"Quader in Schrägansicht. Die Bodendiagonale e verläuft von A nach C, die Raumdiagonale d von A nach G. CG ist die Höhe h.\"><path d=\"M45 230H250L330 170V60H125L45 120V230 M45 120H250L330 60 M250 120V230 M125 60V170L45 230 M125 170H330\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2\"/><polygon points=\"45,230 330,170 330,60\" fill=\"#dbeafe\" fill-opacity=\".7\"/><path d=\"M45 230L330 170 M330 170V60 M45 230L330 60\" stroke=\"#174d83\" stroke-width=\"3\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"23\" y=\"257\">A</text><text x=\"340\" y=\"182\">C</text><text x=\"339\" y=\"61\">G</text><text x=\"140\" y=\"260\">a</text><text x=\"300\" y=\"229\">b</text><text x=\"343\" y=\"124\">h</text><text x=\"175\" y=\"218\">e</text><text x=\"178\" y=\"133\">d</text></g></svg><figcaption>Schrägansicht des Quaders. In einer Schrägansicht erscheinen rechte Winkel oft schief. Die Seitenbezeichnungen gehören zu den wirklichen Kanten.</figcaption></figure><figure class=\"pyth-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 240\" role=\"img\" aria-label=\"Das rechtwinklige Schnittdreieck ACG: Bodendiagonale e und Höhe h sind Katheten, Raumdiagonale d ist Hypotenuse.\"><polygon points=\"45,175 285,175 285,45\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"2\"/><path d=\"M266 175V156H285\" stroke=\"#172b4d\" fill=\"none\"/><g font-size=\"22\" fill=\"#172b4d\"><text x=\"24\" y=\"204\">A</text><text x=\"292\" y=\"204\">C</text><text x=\"291\" y=\"42\">G</text><text x=\"151\" y=\"204\">e</text><text x=\"303\" y=\"113\">h</text><text x=\"140\" y=\"95\">d</text></g></svg><figcaption>Das Schnittdreieck ACG einzeln: Der rechte Winkel liegt bei C.</figcaption></figure></div><p><strong>d² = e² + h² = a² + b² + h²</strong>. Bei a = 3 cm, b = 4 cm, h = 12 cm gilt e = 5 cm und d = √(25 + 144) cm = 13 cm. Für eine fehlende Höhe stellst du um: h = √(d² − a² − b²), sofern die Daten einen Quader mit positiver Höhe zulassen.</p><p data-pyth-model-limit>Runde erst das Endergebnis. Du kannst e² direkt weiterverwenden und musst e nicht zuerst als gerundete Dezimalzahl berechnen. Ein dünner gerader Stab kann im idealisierten rechteckigen Innenraum höchstens so lang wie die Raumdiagonale sein. Wandstärke, Stabdicke und Einführen durch eine Öffnung berücksichtigt dieses Modell nicht.</p><div class=\"interactive-zone\" data-pyth-space><h3>Quaderwerkstatt: zwei Dreiecke</h3><div class=\"pyth-controls\"><label for=\"space-a\">Grundkante a in cm<select id=\"space-a\"><option>2</option><option selected>3</option><option>4</option><option>6</option></select></label><label for=\"space-b\">Grundkante b in cm<select id=\"space-b\"><option>2</option><option>3</option><option selected>4</option><option>6</option></select></label><label for=\"space-h\">Höhe h in cm<select id=\"space-h\"><option>2</option><option>6</option><option selected>12</option></select></label></div><p data-space-description></p><label for=\"space-answer\">Raumdiagonale d in cm, auf zwei Nachkommastellen</label><input id=\"space-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"space-status\"><div class=\"pyth-buttons\"><button type=\"button\" data-space-check>Prüfen</button><button type=\"button\" data-space-show>Beide Dreiecke berechnen</button><button type=\"button\" data-space-reset>Zurücksetzen</button></div><p id=\"space-status\" role=\"status\" aria-live=\"polite\" tabindex=\"-1\"></p><div data-space-result></div><template data-worksheet-alternative><div class=\"pyth-paper\"><p>Untersuche Quader mit Kanten (3,4,12), (2,3,6) und (2,2,2) in cm. Skizziere jeweils Bodendiagonale und Raumdiagonale. Berechne e² und d², danach d auf zwei Nachkommastellen.</p></div></template></div>{{QUIZ_pyth_space_triangle}}{{QUIZ_pyth_space_value}}{{QUIZ_pyth_space_inverse}}<div class=\"pyth-task\" data-assignment-mode=\"direct\"><h3>Selbst rechnen und begründen</h3><ol data-pyth-tasks><li>Bearbeite die drei Quader der Papieraufgabe. Beschrifte beide rechtwinkligen Dreiecke.</li><li>Ein Quader hat Grundkanten 2 cm und 3 cm sowie Raumdiagonale 7 cm. Berechne die Höhe und prüfe sie durch Einsetzen.</li><li>In einem idealisierten rechteckigen Innenraum mit 30 cm, 40 cm und 120 cm soll ein dünner gerader Stab von 125 cm liegen. Beurteile anhand der Raumdiagonale und benenne eine Modellgrenze.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-pyth-solution><p>(3,4,12): e² = 25 cm², d² = 169 cm², d = 13,00 cm. (2,3,6): e² = 13 cm², d² = 49 cm², d = 7,00 cm. (2,2,2): e² = 8 cm², d² = 12 cm², d ≈ 3,46 cm.</p><p>h = √(49 − 4 − 9) cm = 6 cm. Probe: 2² + 3² + 6² = 49 = 7².</p><p>d = √(30² + 40² + 120²) cm = 130 cm. Ein 125-cm-Stab passt im idealisierten Modell. Beispielsweise seine Dicke oder das Einführen durch eine kleine Öffnung kann in der Realität zusätzlich wichtig sein.</p></div></details></div>",
         "quizzes": [
           {
             "id": "pyth_space_triangle",
@@ -30030,7 +30030,7 @@
       {
         "id": "sec1",
         "title": "Was ist eine Funktion?",
-        "content": "<div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px;\">\n            <h3 style=\"color: #2563eb;\">📐 Interaktives Labor: Funktions-Graphen</h3>\n            <p>Gib links zwei Gleichungen (z.B. y=2x+1 und y=-x+4) ein und schau dir an, wo sie sich schneiden!</p>\n            <div id=\"ggb-funktionen\" style=\"width: 100%; height: 500px; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 8px;\"></div>\n        </div>\n\n<p>Eine Funktion ordnet jedem x aus ihrem Definitionsbereich genau einen y-Wert zu. Bei y = x + 3 wird zu jeder eingegebenen Zahl 3 addiert. Ein und dasselbe x darf dabei nicht zwei verschiedene Funktionswerte erhalten.</p><div class=\"interactive-zone\" style=\"background:#f4f4f4; padding:10px; border-radius:8px;\"><p>Unsere Funktion: <span style=\"color:blue\">y = x + 3</span></p><p>Wenn x = 2 ist, was ist y?</p><input type=\"text\" inputmode=\"decimal\" id=\"func1\" style=\"width:50px;\"> <button onclick=\"checkFunc1()\">Prüfen</button><p id=\"fb_func1\"></p></div>{{QUIZ_m44_q1}}",
+        "content": "<p>Eine Funktion ordnet jedem x aus ihrem Definitionsbereich genau einen y-Wert zu. Bei y = x + 3 wird zu jeder eingegebenen Zahl 3 addiert. Ein und dasselbe x darf dabei nicht zwei verschiedene Funktionswerte erhalten.</p><div class=\"interactive-zone function-lab\"><p>Unsere Funktion: <span>y = x + 3</span></p><p>Wenn x = 2 ist, was ist y?</p><input type=\"text\" inputmode=\"decimal\" id=\"func1\" style=\"width:50px;\"> <button onclick=\"checkFunc1()\">Prüfen</button><p id=\"fb_func1\"></p><template data-worksheet-alternative><div class=\"function-paper\"><p>Berechne zu y = x + 3 den Funktionswert für x = 2. Notiere die Einsetzung. Vergleich: y = 2 + 3 = 5.</p></div></template></div>{{QUIZ_m44_q1}}",
         "quizzes": [
           {
             "id": "m44_q1",
@@ -30053,9 +30053,88 @@
         ]
       },
       {
+        "id": "function_representations",
+        "title": "Vom Sachtext zur Tabelle, Gleichung und zum Graphen",
+        "content": "<p>Ein <strong>fiktiver Radverleih für einen Ausflug in Wien</strong> verlangt 4 € Startgebühr und 2 € je Stunde. Das ist ein erfundenes Rechenmodell, kein aktueller Tarif. Wir nehmen an: Teilstunden werden anteilig verrechnet, die Mietdauer t liegt zwischen 0 und 4 Stunden. K bezeichnet die Kosten in Euro. Aus „2 € je Stunde und einmal 4 €“ wird <strong>K = 2 · t + 4</strong>.</p><table class=\"function-table\"><caption>Wertetabelle zum Modell (ausgewählte Zeiten)</caption><thead><tr><th scope=\"col\">t in h</th><th scope=\"col\">K in €</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>4</td></tr><tr><th scope=\"row\">1</th><td>6</td></tr><tr><th scope=\"row\">2</th><td>8</td></tr><tr><th scope=\"row\">3</th><td>10</td></tr><tr><th scope=\"row\">4</th><td>12</td></tr></tbody></table><p>Auf die waagrechte Achse kommt t in h, auf die senkrechte K in €. Trage (0|4), (1|6), (2|8), (3|10), (4|12) ein. Verbinde sie innerhalb 0 ≤ t ≤ 4 zu einer Strecke, weil das Modell auch Zwischenzeiten erlaubt. Für t = 1,5 gilt beispielsweise K = 7 €. Bei einer Anzahl von Fahrrädern wären dagegen nur ganze nichtnegative Eingaben sinnvoll.</p><p>Umgekehrt liest du aus der Tabelle: pro zusätzlicher Stunde 2 € mehr und bei t = 0 eine Grundgebühr von 4 €. So gelangst du zurück zu Text und Gleichung. <strong>Eine Tabelle allein legt nicht fest, was zwischen oder außerhalb ihrer Werte geschieht.</strong> Hier erlaubt erst die Modellannahme die gerade Verbindung.</p><div class=\"function-task\"><h3>Selbst darstellen und begründen</h3><ol data-function-tasks><li data-assignment-mode=\"direct\">Zeichne den Kostengraphen mit beschrifteten Achsen und Einheiten. Lies die Kosten nach 2,5 h ab und prüfe durch Einsetzen.</li><li data-assignment-mode=\"direct\">Ein anderes Modell liefert die Paare (0|3), (1|6), (2|9), (3|12) und soll linear sein. Finde eine Gleichung und erfinde einen passenden Kostentext mit Einheiten.</li><li data-assignment-mode=\"direct\">Vergleiche K = 2t + 4 mit P = 2t. Ist die erste Zuordnung direkt proportional? Begründe am Startwert und an der Verdoppelung.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-function-solution><p>Nach 2,5 h: K = 2 · 2,5 + 4 = 9 €. Der Punkt (2,5|9) liegt auf der gezeichneten Strecke.</p><p>Zum Beispiel K = 3t + 3: 3 € Startgebühr und 3 € je Stunde, bei einer vereinbarten zulässigen Mietdauer. Die konstante Zunahme liefert die Steigung, der Wert bei 0 die Startgebühr.</p><p>K ist nicht direkt proportional: K(0) = 4 statt 0, K(1) = 6, K(2) = 8 statt 12. P = 2t ist direkt proportional; sein Graph geht durch den Ursprung.</p></div></details></div>{{QUIZ_function_rental_term}}{{QUIZ_function_rental_table}}{{QUIZ_function_rental_domain}}",
+        "quizzes": [
+          {
+            "id": "function_rental_term",
+            "question": "Ein fiktiver Radverleih verlangt 4 € Startgebühr und 2 € je Stunde. Welche Gleichung beschreibt die Kosten K für t Stunden?",
+            "answers": [
+              {
+                "text": "K = 4t + 2",
+                "feedback": "Damit wären 4 € der Stundenpreis und 2 € die Startgebühr. Im Text ist es umgekehrt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "K = 2t + 4",
+                "feedback": "Die Startgebühr wird einmal addiert, der Stundenpreis mit der Zeit multipliziert.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "K = 6t",
+                "feedback": "Die Startgebühr wird nicht in jeder Stunde erneut fällig.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "function_rental_table",
+            "question": "Bei K = 2t + 4: Welcher Punkt gehört zum Graphen, wenn die waagrechte Achse t in h und die senkrechte K in € zeigt?",
+            "answers": [
+              {
+                "text": "(10|3)",
+                "feedback": "Die Reihenfolge ist Zeit zuerst, Kosten danach. Für 3 h ergeben sich 10 €.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "(3|6)",
+                "feedback": "6 € sind nur die zeitabhängigen Kosten. Die Startgebühr fehlt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "(3|10)",
+                "feedback": "K = 2 · 3 + 4 = 10. Der Punkt hat die Koordinaten (Zeit|Kosten).",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "function_rental_domain",
+            "question": "Das Modell K = 2t + 4 gilt nur für Mietzeiten von 0 bis 4 h; auch Teilstunden sind erlaubt. Was folgt?",
+            "answers": [
+              {
+                "text": "(1,5|7) ist erlaubt; eine Gerade außerhalb des Bereichs beweist keine gültigen Mietkosten.",
+                "feedback": "2 · 1,5 + 4 = 7. Der Definitionsbereich gehört zum Sachmodell.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nur ganze Stunden dürfen eingezeichnet werden.",
+                "feedback": "Hier sind Teilstunden ausdrücklich erlaubt; der Graph besteht im Modell aus einer Strecke.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Für −1 h erhält man einen gültigen Mietpreis von 2 €.",
+                "feedback": "Die Rechnung ist möglich, aber eine negative Mietzeit liegt außerhalb des Modells.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "sec2",
         "title": "Lineare Funktionen zeichnen",
-        "content": "<p>Ein Punkt (x|y) beschreibt eine Stelle im Koordinatensystem. Eine lineare Funktion hat die Form y = m · x + b. Wenn x um 1 zunimmt, verändert sich y um m. Der Wert b ist der Funktionswert bei x = 0 und damit der Schnittpunkt mit der y-Achse. Bei y = 2x + 1 liegen beispielsweise (0|1), (1|3) und (2|5) auf der Geraden.</p><p>Für alle reellen x ist der Graph eine Gerade. Bei einer Sachaufgabe kann der Definitionsbereich eingeschränkt sein: Bei ganzen Monaten sind nur passende einzelne Monatswerte sinnvoll. Prüfe daher immer, welche x-Werte im Kontext erlaubt sind.</p>{{QUIZ_m44_q2}}",
+        "content": "<p>Ein Punkt (x|y) beschreibt eine Stelle im Koordinatensystem. Eine lineare Funktion hat die Form y = m · x + b. Wenn x um 1 zunimmt, verändert sich y um m. Der Wert b ist der Funktionswert bei x = 0 und damit der Schnittpunkt mit der y-Achse. Bei y = 2x + 1 liegen beispielsweise (0|1), (1|3) und (2|5) auf der Geraden.</p><p>Für alle reellen x ist der Graph eine Gerade. Bei einer Sachaufgabe kann der Definitionsbereich eingeschränkt sein: Bei ganzen Monaten sind nur passende einzelne Monatswerte sinnvoll. Prüfe daher immer, welche x-Werte im Kontext erlaubt sind.</p>{{QUIZ_m44_q2}}<p>Ein <strong>Steigungsdreieck</strong> verbindet zwei verschiedene Punkte auf der Geraden: zuerst Δx waagrecht, dann Δy senkrecht. Es gilt <strong>m = Δy / Δx</strong> mit Δx ≠ 0. Δ bedeutet Änderung: Endwert minus Anfangswert. Beispiel A(−1|4), B(3|2): Δx = 4, Δy = −2, also m = −0,5. Einsetzen von A liefert 4 = −0,5 · (−1) + b und damit b = 3,5.</p><p>Die Steigung hängt von den <strong>Zahlen und Achseneinheiten</strong> ab, nicht vom Winkel auf dem Bildschirm. Unterschiedliche Achsenskalierungen können dieselbe Funktion steiler oder flacher aussehen lassen. Im Kostenmodell hat m die Einheit €/h und b die Einheit €.</p><div class=\"interactive-zone function-lab\" data-function-line><h3>Geradenwerkstatt: Werte und Steigungsdreieck</h3><p>Verändere m und b. Vergleiche zuerst den Verlauf, berechne anschließend den gesuchten Funktionswert. Das Steigungsdreieck beginnt bei (0|b). Das Fenster zeigt x von −3 bis 5 und y von −12 bis 14; die Achsen haben unterschiedliche Maßstäbe.</p><div class=\"function-controls\"><label>Steigung m<select id=\"function-m\"><option value=\"-2\">-2</option><option value=\"-1\">-1</option><option value=\"-0.5\">-0,5</option><option value=\"0\">0</option><option value=\"0.5\">0,5</option><option value=\"1\">1</option><option value=\"2\" selected>2</option></select></label><label>Achsenabschnitt b<select id=\"function-b\"><option value=\"-2\">-2</option><option value=\"0\">0</option><option value=\"1\" selected>1</option><option value=\"3\">3</option></select></label><label>Waagrechte Änderung Δx<select id=\"function-dx\"><option value=\"1\">1</option><option value=\"2\" selected>2</option></select></label><label>Gesuchte Stelle x<select id=\"function-x\"><option value=\"-2\">-2</option><option value=\"0\">0</option><option value=\"2\" selected>2</option><option value=\"4\">4</option></select></label></div><p data-function-equation></p><figure class=\"function-figure\"><div data-function-drawing></div><figcaption data-function-triangle></figcaption></figure><table class=\"function-table\"><caption>Ausgewählte Punkte der Geraden</caption><thead><tr><th scope=\"col\">x</th><th scope=\"col\">y</th></tr></thead><tbody data-function-table></tbody></table><label for=\"function-answer\" data-function-question></label><input id=\"function-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"function-status\"><div class=\"function-buttons\"><button data-function-check>Antwort prüfen</button><button data-function-show>Rechenweg zeigen</button><button data-function-reset>Zurücksetzen</button></div><p id=\"function-status\" role=\"status\" tabindex=\"-1\"></p><template data-worksheet-alternative><div class=\"function-paper\"><h3>Geradenwerkstatt auf Papier</h3><figure class=\"function-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 480 440\" role=\"img\" aria-label=\"y = 2 · x + 1; Steigungsdreieck mit waagrechter Änderung 2 und senkrechter Änderung 4\"><rect width=\"480\" height=\"440\" fill=\"white\"/><g font-size=\"32\" fill=\"#172b4d\"><path d=\"M52 52V374\" stroke=\"#e0e6ee\"/><text x=\"52\" y=\"404\" text-anchor=\"middle\">-3</text><path d=\"M99.5 52V374\" stroke=\"#e0e6ee\"/><text x=\"99.5\" y=\"404\" text-anchor=\"middle\">-2</text><path d=\"M147 52V374\" stroke=\"#e0e6ee\"/><text x=\"147\" y=\"404\" text-anchor=\"middle\">-1</text><path d=\"M194.5 52V374\" stroke=\"#e0e6ee\"/><text x=\"194.5\" y=\"404\" text-anchor=\"middle\">0</text><path d=\"M242 52V374\" stroke=\"#e0e6ee\"/><text x=\"242\" y=\"404\" text-anchor=\"middle\">1</text><path d=\"M289.5 52V374\" stroke=\"#e0e6ee\"/><text x=\"289.5\" y=\"404\" text-anchor=\"middle\">2</text><path d=\"M337 52V374\" stroke=\"#e0e6ee\"/><text x=\"337\" y=\"404\" text-anchor=\"middle\">3</text><path d=\"M384.5 52V374\" stroke=\"#e0e6ee\"/><text x=\"384.5\" y=\"404\" text-anchor=\"middle\">4</text><path d=\"M432 52V374\" stroke=\"#e0e6ee\"/><text x=\"432\" y=\"404\" text-anchor=\"middle\">5</text><path d=\"M52 374H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"382\" text-anchor=\"end\">-12</text><path d=\"M52 324.46153846153845H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"332.46153846153845\" text-anchor=\"end\">-8</text><path d=\"M52 274.9230769230769H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"282.9230769230769\" text-anchor=\"end\">-4</text><path d=\"M52 225.3846153846154H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"233.3846153846154\" text-anchor=\"end\">0</text><path d=\"M52 175.84615384615384H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"183.84615384615384\" text-anchor=\"end\">4</text><path d=\"M52 126.30769230769232H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"134.30769230769232\" text-anchor=\"end\">8</text><path d=\"M52 76.76923076923077H432\" stroke=\"#e0e6ee\"/><text x=\"48\" y=\"84.76923076923077\" text-anchor=\"end\">12</text><text x=\"447\" y=\"404\">x</text><text x=\"34\" y=\"42\">y</text></g><path d=\"M52 225.3846153846154H432M194.5 52V374\" stroke=\"#596a7d\" stroke-width=\"2\"/><line data-function-line-segment x1=\"52\" y1=\"287.3076923076923\" x2=\"432\" y2=\"89.15384615384613\" stroke=\"#174d83\" stroke-width=\"4\"/><path data-function-slope-triangle d=\"M194.5 213H289.5V163.46153846153845\" fill=\"none\" stroke=\"#9a4800\" stroke-width=\"4\" stroke-dasharray=\"8 4\"/><g fill=\"#9a4800\"><circle cx=\"194.5\" cy=\"213\" r=\"5\"/><circle cx=\"289.5\" cy=\"163.46153846153845\" r=\"5\"/></g></svg><figcaption>y = 2x + 1. Steigungsdreieck: Δx = 2, Δy = 4, m = 4/2 = 2. Die Achsen sind unterschiedlich skaliert.</figcaption></figure><p>Erstelle eine Wertetabelle für x = −2, −1, 0, 1, 2, 3, 4. Zeichne außerdem y = −0,5x + 3. Markiere bei beiden Geraden den Achsenabschnitt und ein Steigungsdreieck mit Δx = 2. Rechne anschließend y für x = 4 aus.</p></div></template></div><div class=\"function-task\"><h3>Selbst darstellen und begründen</h3><ol data-function-tasks><li data-assignment-mode=\"direct\">Erstelle zu y = 2x + 1 und y = −0,5x + 3 Wertetabellen für x = −2, −1, 0, 1, 2, 3, 4. Zeichne die Geraden und Steigungsdreiecke mit Δx = 2.</li><li data-assignment-mode=\"direct\">Finde die Gleichung der Geraden durch (−1|4) und (3|2). Zeichne und erkläre ein Steigungsdreieck.</li><li data-assignment-mode=\"direct\">Wähle m = 0. Ändere b von −2 auf 3. Beschreibe, welche Eigenschaft gleich bleibt und welche sich ändert.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-function-solution><p>Für y = 2x + 1: y-Werte −3, −1, 1, 3, 5, 7, 9; Δx = 2, Δy = 4. Für y = −0,5x + 3: y-Werte 4, 3,5, 3, 2,5, 2, 1,5, 1; Δx = 2, Δy = −1. Bei x = 4 erhältst du 9 bzw. 1.</p><p>m = (2 − 4)/(3 − (−1)) = −0,5; b = 3,5, also y = −0,5x + 3,5. Im Dreieck geht es 4 nach rechts und 2 nach unten.</p><p>Die Gerade bleibt waagrecht mit Steigung 0. Alle Funktionswerte steigen um 5; die Gerade verschiebt sich von y = −2 nach y = 3.</p></div></details></div>{{QUIZ_function_slope_ratio}}{{QUIZ_function_slope_intercept}}{{QUIZ_function_slope_zero}}<details class=\"function-optional\"><summary>Zusatzwerkzeug: freie Graphen mit GeoGebra</summary><div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px;\">\n            <h3 style=\"color: #2563eb;\">📐 Interaktives Labor: Funktions-Graphen</h3>\n            <p>Gib links zwei Gleichungen (z.B. y=2x+1 und y=-x+4) ein und schau dir an, wo sie sich schneiden!</p>\n            <div id=\"ggb-funktionen\" style=\"width: 100%; height: 500px; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 8px;\"></div>\n        <template data-worksheet-alternative><div class=\"function-paper\"><p>Zeichne y = 2x + 1 und y = −x + 4 für x von −2 bis 4. Ermittle den Schnittpunkt und prüfe ihn in beiden Gleichungen. Vergleich: (1|3), denn 2 · 1 + 1 = 3 und −1 + 4 = 3.</p></div></template></div></details>",
         "quizzes": [
           {
             "id": "m44_q2",
@@ -30074,13 +30153,243 @@
                 "feedback": "Die Zahl vor x ist die Steigung. Die addierte Konstante ist der Achsenabschnitt."
               }
             ]
+          },
+          {
+            "id": "function_slope_ratio",
+            "question": "Eine Gerade geht durch A(−1|4) und B(3|2). Wie groß ist ihre Steigung?",
+            "answers": [
+              {
+                "text": "−2",
+                "feedback": "−2 ist die Änderung von y. Sie muss noch durch die Änderung von x, hier 4, geteilt werden.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "2",
+                "feedback": "Eine negative y-Änderung bei positiver x-Änderung ergibt eine negative Steigung.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "−0,5",
+                "feedback": "m = (2 − 4) / (3 − (−1)) = −2/4 = −0,5.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "function_slope_intercept",
+            "question": "Die Gerade durch A(−1|4) und B(3|2) hat m = −0,5. Welches b passt?",
+            "answers": [
+              {
+                "text": "3,5",
+                "feedback": "Setze A ein: 4 = −0,5 · (−1) + b = 0,5 + b, also b = 3,5.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "4",
+                "feedback": "4 ist der y-Wert bei x = −1, nicht bei x = 0.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "−0,5",
+                "feedback": "Das ist die Steigung; b wird durch Einsetzen eines Punktes bestimmt.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "function_slope_zero",
+            "question": "Was beschreibt y = 3?",
+            "answers": [
+              {
+                "text": "Eine senkrechte Gerade bei x = 3.",
+                "feedback": "Bei y = 3 ist die Ausgabe für jedes x gleich. Eine senkrechte Gerade hätte die Gleichung x = 3.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Eine waagrechte Gerade mit Steigung 0.",
+                "feedback": "Für jede Änderung von x bleibt y gleich; Δy/Δx = 0.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Keine Funktion, weil verschiedene x denselben y-Wert haben.",
+                "feedback": "Verschiedene Eingaben dürfen dieselbe Ausgabe besitzen. Verboten sind mehrere Ausgaben für dieselbe Eingabe.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "function_real_graph",
+        "title": "Einen Sachgraphen lesen: gehen, warten, zurückgehen",
+        "content": "<p>Eine Person geht auf einem <strong>geraden Weg</strong> von einem Startpunkt weg, wartet und kehrt auf demselben Weg zurück. Die waagrechte Achse zeigt die Zeit t in Minuten, die senkrechte die <strong>Entfernung s vom Start</strong> in Metern. Es ist eine vereinfachte Modellgeschichte. Die geraden Teilstücke nehmen jeweils gleichbleibendes Tempo an; daraus folgen Zwischenwerte.</p><figure class=\"function-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 480 390\" role=\"img\" aria-label=\"Entfernung vom Start in Metern über Zeit in Minuten: hinaus von 0 bis 2, Pause bis 4, Rückkehr bis 8 Minuten\"><rect width=\"480\" height=\"390\" fill=\"white\"/><g font-size=\"32\" fill=\"#172b4d\"><path d=\"M65 69V300\" stroke=\"#e0e6ee\"/><text x=\"65\" y=\"329\" text-anchor=\"middle\">0</text><path d=\"M153 69V300\" stroke=\"#e0e6ee\"/><text x=\"153\" y=\"329\" text-anchor=\"middle\">2</text><path d=\"M241 69V300\" stroke=\"#e0e6ee\"/><text x=\"241\" y=\"329\" text-anchor=\"middle\">4</text><path d=\"M329 69V300\" stroke=\"#e0e6ee\"/><text x=\"329\" y=\"329\" text-anchor=\"middle\">6</text><path d=\"M417 69V300\" stroke=\"#e0e6ee\"/><text x=\"417\" y=\"329\" text-anchor=\"middle\">8</text><path d=\"M65 300H417\" stroke=\"#e0e6ee\"/><text x=\"56\" y=\"308\" text-anchor=\"end\">0</text><path d=\"M65 250.5H417\" stroke=\"#e0e6ee\"/><text x=\"56\" y=\"258.5\" text-anchor=\"end\">30</text><path d=\"M65 201H417\" stroke=\"#e0e6ee\"/><text x=\"56\" y=\"209\" text-anchor=\"end\">60</text><path d=\"M65 151.5H417\" stroke=\"#e0e6ee\"/><text x=\"56\" y=\"159.5\" text-anchor=\"end\">90</text><path d=\"M65 102H417\" stroke=\"#e0e6ee\"/><text x=\"56\" y=\"110\" text-anchor=\"end\">120</text><text x=\"65\" y=\"44\">s in m</text><text x=\"330\" y=\"366\">t in min</text></g><path d=\"M65 69V300H435\" stroke=\"#596a7d\" stroke-width=\"2\" fill=\"none\"/><polyline data-walk-line points=\"65,300 153,102 241,102 329,201 417,300\" stroke=\"#174d83\" stroke-width=\"4\" fill=\"none\"/></svg><figcaption>Modellpunkte: (0|0), (2|120), (4|120), (6|60), (8|0). Die gesamte Kurve ist keine einzelne Gerade.</figcaption></figure><p>Von 0 bis 2 min wächst s, von 2 bis 4 min bleibt s gleich, danach fällt s. <strong>Ein fallender Entfernungsgraph bedeutet Rückkehr zum Start, keine negative zurückgelegte Weglänge.</strong> Die Entfernung allein zeigt ohne weitere Angaben nicht jede Bewegung: Auf einer Kreisbahn könnte die Entfernung konstant bleiben. Hier ist der gerade Weg Teil der Aufgabenannahme.</p><div class=\"interactive-zone function-lab\" data-function-walk><h3>Werte ablesen und prüfen</h3><label for=\"function-time\">Zeitpunkt t in min</label><input id=\"function-time\" type=\"range\" min=\"0\" max=\"8\" step=\"1\" value=\"5\"><p data-function-time></p><figure class=\"function-figure\"><div data-walk-drawing></div><figcaption>Der markierte Punkt gehört zum gewählten Zeitpunkt. Die gestrichelten Hilfslinien führen zu den Achsen.</figcaption></figure><label for=\"walk-answer\">Welche Entfernung vom Start liest du ab (in m)?</label><input id=\"walk-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"walk-status\"><div class=\"function-buttons\"><button data-walk-check>Antwort prüfen</button><button data-walk-show>Ableseweg zeigen</button><button data-walk-reset>Zurücksetzen</button></div><p id=\"walk-status\" role=\"status\" tabindex=\"-1\"></p><template data-worksheet-alternative><div class=\"function-paper\"><p>Lies aus dem Sachgraphen die Entfernung nach 1, 3, 5 und 7 Minuten ab. Begründe, welche Annahme das Ablesen zwischen den Modellpunkten erlaubt.</p></div></template></div><div class=\"function-task\"><h3>Selbst darstellen und begründen</h3><ol data-function-tasks><li data-assignment-mode=\"direct\">Bearbeite den Papierauftrag für t = 1, 3, 5 und 7 min. Gib alle Werte mit Einheit an.</li><li data-assignment-mode=\"direct\">Berechne die Änderung der Entfernung je Minute für 0 bis 2 min und 4 bis 8 min. Erkläre die Vorzeichen und den gesamten zurückgelegten Weg.</li><li data-assignment-mode=\"direct\">Jemand verbindet nur (0|0) und (8|0) durch eine Gerade und behauptet: „Die Person war immer am Start.“ Erkläre den Modellfehler und nenne eine Grenze der ursprünglichen Darstellung.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-function-solution><p>s(1) = 60 m, s(3) = 120 m, s(5) = 90 m, s(7) = 30 m. Zwischenwerte folgen aus der ausdrücklich angenommenen gleichmäßigen Bewegung in jedem Teilstück.</p><p>Hinaus: (120 − 0)/(2 − 0) = 60 m/min. Zurück: (0 − 120)/(8 − 4) = −30 m/min. Das Minus beschreibt abnehmende Entfernung, der Betrag das Tempo. Gesamter Weg: 120 + 120 = 240 m.</p><p>Die Verbindung der Endpunkte ignoriert Ausflug und Pause. Eine einzige lineare Funktion beschreibt diesen Verlauf nicht. Das Modell glättet reales Anfahren/Anhalten und schwankendes Gehtempo; die eingezeichneten Teilstücke sind Annahmen, keine lückenlose Messung.</p></div></details></div>{{QUIZ_function_walk_pause}}{{QUIZ_function_walk_return}}{{QUIZ_function_walk_total}}",
+        "quizzes": [
+          {
+            "id": "function_walk_pause",
+            "question": "Im dargestellten Modell bleibt die Entfernung vom Start von Minute 2 bis Minute 4 bei 120 m. Was beschreibt dieser Abschnitt?",
+            "answers": [
+              {
+                "text": "Eine Pause: Die Person verändert ihre Position auf dem geraden Weg nicht.",
+                "feedback": "Die Entfernung ist konstant. Im beschriebenen geraden Wegmodell bedeutet das Stillstand.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Die Person geht mit 120 m pro Minute weiter.",
+                "feedback": "120 m ist eine Entfernung, keine Geschwindigkeit. Im waagrechten Abschnitt ist die Änderung 0 m.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Person ist zum Start zurückgekehrt.",
+                "feedback": "Am Start wäre die Entfernung 0 m. Hier bleibt sie bei 120 m.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "function_walk_return",
+            "question": "Von Minute 4 bis Minute 8 fällt die Entfernung von 120 m auf 0 m. Was bedeutet das?",
+            "answers": [
+              {
+                "text": "Die Person legt eine negative Weglänge zurück.",
+                "feedback": "Die Entfernung zum Start nimmt ab; die tatsächlich zurückgelegte Weglänge nimmt beim Gehen weiter zu.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Person geht mit 30 m pro Minute weiter vom Start weg.",
+                "feedback": "30 m pro Minute ist der Betrag der Änderung. Weil die Entfernung abnimmt, geht die Person zum Start hin, nicht weiter davon weg.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Person geht zum Start zurück; ihre Entfernung ändert sich im Modell um −30 m je Minute.",
+                "feedback": "Δs/Δt = (0 − 120)/(8 − 4) = −30 m/min. Der Betrag 30 beschreibt das Tempo auf diesem Abschnitt.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "function_walk_total",
+            "question": "Wie viel Weg legt die Person im gesamten dargestellten Modell zurück?",
+            "answers": [
+              {
+                "text": "0 m",
+                "feedback": "0 m ist die Entfernung vom Start am Ende. Hin- und Rückweg wurden trotzdem gegangen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "240 m",
+                "feedback": "120 m hinaus und 120 m zurück, in der Pause 0 m: insgesamt 240 m.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "120 m",
+                "feedback": "Das ist nur der Hinweg bzw. die größte Entfernung zum Start; der Rückweg fehlt.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "function_unique",
+        "title": "Ist jede Zuordnung eine Funktion?",
+        "content": "<p>Prüfe immer die Richtung der Zuordnung und ihren Definitionsbereich. <strong>Für jedes zulässige x muss genau ein y feststehen.</strong> Verschiedene x dürfen dasselbe y haben. Eine Funktion muss weder eine Gerade noch eine durchgehende Kurve sein.</p><table class=\"function-table\"><caption>Zwei Tabellen: die Eingabe steht jeweils links im Paar</caption><thead><tr><th scope=\"col\">Tabelle A</th><th scope=\"col\">Tabelle B</th></tr></thead><tbody><tr><td>(1|5)</td><td>(1|2)</td></tr><tr><td>(2|5)</td><td>(1|4)</td></tr><tr><td>(3|5)</td><td>(2|6)</td></tr></tbody></table><p>A ist auf {1, 2, 3} eine Funktion. Bei B gehören zur Eingabe 1 zwei verschiedene Ausgaben. Ein doppelt notiertes <em>identisches</em> Paar wäre dagegen kein Widerspruch. Für einen behaupteten größeren Definitionsbereich müssten auch dessen übrige Eingaben zugeordnet sein.</p><figure class=\"function-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 330\" role=\"img\" aria-label=\"Kreis mit Mittelpunkt im Ursprung und Radius 2; bei x gleich 0 liegen Punkte bei y gleich 2 und minus 2\"><rect width=\"360\" height=\"330\" fill=\"white\"/><g stroke=\"#596a7d\" stroke-width=\"2\"><path d=\"M30 165H325M180 25V305\"/></g><circle cx=\"180\" cy=\"165\" r=\"110\" fill=\"none\" stroke=\"#174d83\" stroke-width=\"4\"/><path d=\"M180 25V305\" stroke=\"#9a4800\" stroke-width=\"3\" stroke-dasharray=\"7 5\"/><g fill=\"#9a4800\"><circle cx=\"180\" cy=\"55\" r=\"6\"/><circle cx=\"180\" cy=\"275\" r=\"6\"/></g><g fill=\"#172b4d\" font-size=\"23\"><text x=\"330\" y=\"172\">x</text><text x=\"190\" y=\"28\">y</text><text x=\"220\" y=\"43\">(0|2)</text><text x=\"220\" y=\"308\">(0|−2)</text><text x=\"155\" y=\"191\">0</text></g></svg><figcaption>Ein Kreis als Gegenbeispiel zur Funktion von x nach y. Die gestrichelte Prüflinie ist senkrecht.</figcaption></figure><p>Beim Graphen hilft der <strong>Senkrechte-Linien-Test</strong>: Eine senkrechte Linie darf zu einer zulässigen Eingabe nur einen Punkt des Graphen treffen. Der ganze Kreis verletzt das bei x = 0. Die obere Halbkreislinie allein wäre auf ihrem Bereich dagegen eindeutig.</p><div class=\"function-task\"><h3>Selbst darstellen und begründen</h3><ol data-function-tasks><li data-assignment-mode=\"direct\">Begründe die Entscheidung für Tabelle A und B. Ändere bei B genau eine Eingabe so, dass eine Funktion auf {1, 2, 3} entsteht.</li><li data-assignment-mode=\"direct\">Skizziere eine waagrechte Gerade y = 2 und eine senkrechte Gerade x = 2. Prüfe beide als Zuordnung von x nach y.</li><li data-assignment-mode=\"direct\">Betrachte y = x² für x = −2, −1, 0, 1, 2. Erstelle eine Tabelle und erkläre, warum gleiche y-Werte bei verschiedenen x die Funktion nicht verhindern.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-function-solution><p>A ist eindeutig. Bei B kann etwa (1|4) zu (3|4) geändert werden; nun kommen 1, 2 und 3 jeweils einmal vor. Eine andere mögliche Änderung ist (1|2) zu (3|2).</p><p>y = 2 ist eine Funktion: Jede reelle Eingabe hat die Ausgabe 2. x = 2 ist keine Funktion von x nach y, denn bei x = 2 liegen unendlich viele verschiedene y-Werte.</p><p>Die Ausgaben sind 4, 1, 0, 1, 4. Zu jeder einzelnen Eingabe gehört genau eine Ausgabe. Dass etwa −2 und 2 beide 4 ergeben, ist erlaubt.</p></div></details></div>{{QUIZ_function_unique_table}}{{QUIZ_function_unique_conflict}}{{QUIZ_function_unique_circle}}",
+        "quizzes": [
+          {
+            "id": "function_unique_table",
+            "question": "Tabelle A enthält (1|5), (2|5), (3|5). Beschreibt sie für die Eingaben 1, 2 und 3 eine Funktion?",
+            "answers": [
+              {
+                "text": "Nein, weil der Ausgabewert 5 mehrfach vorkommt.",
+                "feedback": "Mehrere Eingaben dürfen dieselbe Ausgabe haben. Entscheidend ist jede einzelne Eingabe.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ja, zu jeder genannten Eingabe gehört genau eine Ausgabe.",
+                "feedback": "Hier ist die Funktion auf dem Definitionsbereich {1, 2, 3} konstant. Über andere Eingaben sagt die Tabelle nichts.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ja, und sie beweist y = 5 für alle reellen Zahlen.",
+                "feedback": "Für die drei genannten Eingaben gilt y = 5. Weitere Eingaben sind ohne Zusatzannahme nicht festgelegt.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "function_unique_conflict",
+            "question": "Tabelle B enthält (1|2), (1|4), (2|6). Warum ist das keine Funktion von x nach y?",
+            "answers": [
+              {
+                "text": "Zur Eingabe 1 stehen zwei verschiedene Ausgaben 2 und 4.",
+                "feedback": "Dieselbe Eingabe muss eine eindeutige Ausgabe haben.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Die Ausgabe 6 ist größer als die Eingabe 2.",
+                "feedback": "Größere Ausgaben sind erlaubt; die Eindeutigkeit ist das Problem.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Werte wachsen nicht in gleich großen Schritten.",
+                "feedback": "Eine Funktion muss nicht linear sein.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "function_unique_circle",
+            "question": "Der gezeichnete Kreis wird als Zuordnung von x zu y betrachtet. Was zeigt die senkrechte Linie bei x = 0?",
+            "answers": [
+              {
+                "text": "Er ist eine Funktion, weil die Kurve zusammenhängend ist.",
+                "feedback": "Zusammenhang genügt nicht. Bei x = 0 gibt es zwei Ausgaben.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Er ist eine Funktion, weil jeder Kreispunkt zwei Koordinaten hat.",
+                "feedback": "Entscheidend ist, ob dieselbe erste Koordinate zu verschiedenen zweiten gehört.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Er ist keine Funktion von x nach y: Zu x = 0 gehören y = 2 und y = −2.",
+                "feedback": "Eine senkrechte Linie trifft hier zwei Punkte. Das verletzt die Eindeutigkeit.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
           }
         ]
       },
       {
         "id": "system0",
-        "title": "3. Gleichsetzen: zwei Bedingungen zugleich",
-        "content": "<p>Ein lineares Gleichungssystem stellt zwei Bedingungen an dieselben Unbekannten. Betrachte I: y = 2x + 1 und II: y = −x + 4. Am Schnittpunkt sind die y-Werte gleich: 2x + 1 = −x + 4. Addiere x und subtrahiere 1 auf beiden Seiten: 3x = 3, also x = 1. Einsetzen ergibt y = 3. Die Lösung lautet (1|3). Prüfe sie in beiden ursprünglichen Gleichungen.</p><div class=\"interactive-zone\" data-system-lab><h3>Zwei Geraden vergleichen</h3><p>I wird blau und durchgezogen dargestellt, II violett und gestrichelt. Das Fenster zeigt auf beiden Achsen −5 bis 5. Auch ein Schnittpunkt außerhalb des Fensters wird berechnet. Die Zahlenwerte des Ergebnisses werden auf bis zu drei Nachkommastellen gerundet.</p><fieldset><legend>I: y = m₁ · x + b₁</legend><label>m₁ <input data-m1 type=\"number\" min=\"-5\" max=\"5\" step=\"any\" value=\"2\"></label><label>b₁ <input data-b1 type=\"number\" min=\"-10\" max=\"10\" step=\"any\" value=\"1\"></label></fieldset><fieldset><legend>II: y = m₂ · x + b₂</legend><label>m₂ <input data-m2 type=\"number\" min=\"-5\" max=\"5\" step=\"any\" value=\"-1\"></label><label>b₂ <input data-b2 type=\"number\" min=\"-10\" max=\"10\" step=\"any\" value=\"4\"></label></fieldset><button type=\"button\" data-preset=\"one\">Eine Lösung</button><button type=\"button\" data-preset=\"none\">Keine Lösung</button><button type=\"button\" data-preset=\"many\">Unendlich viele Lösungen</button><svg viewBox=\"0 0 460 460\" role=\"img\" aria-label=\"Zwei Geraden im Koordinatensystem\"></svg><p data-status role=\"status\" aria-live=\"polite\"></p><p>Auftrag: Berechne für die Startwerte zunächst den Schnittpunkt. Ändere dann nur m₂ auf 2. Erkläre, warum nun keine Lösung vorhanden ist. Welcher weitere Wert muss geändert werden, damit beide Geraden identisch sind?</p></div>{{QUIZ_linear_system_q0}}{{QUIZ_linear_system_q1}}",
+        "title": "Gleichsetzen: zwei Bedingungen zugleich",
+        "content": "<p>Ein lineares Gleichungssystem stellt zwei Bedingungen an dieselben Unbekannten. Betrachte I: y = 2x + 1 und II: y = −x + 4. Am Schnittpunkt sind die y-Werte gleich: 2x + 1 = −x + 4. Addiere x und subtrahiere 1 auf beiden Seiten: 3x = 3, also x = 1. Einsetzen ergibt y = 3. Die Lösung lautet (1|3). Prüfe sie in beiden ursprünglichen Gleichungen.</p><div class=\"interactive-zone\" data-system-lab><h3>Zwei Geraden vergleichen</h3><p>I wird blau und durchgezogen dargestellt, II violett und gestrichelt. Das Fenster zeigt auf beiden Achsen −5 bis 5. Auch ein Schnittpunkt außerhalb des Fensters wird berechnet. Die Zahlenwerte des Ergebnisses werden auf bis zu drei Nachkommastellen gerundet.</p><fieldset><legend>I: y = m₁ · x + b₁</legend><label>m₁ <input data-m1 type=\"number\" min=\"-5\" max=\"5\" step=\"any\" value=\"2\"></label><label>b₁ <input data-b1 type=\"number\" min=\"-10\" max=\"10\" step=\"any\" value=\"1\"></label></fieldset><fieldset><legend>II: y = m₂ · x + b₂</legend><label>m₂ <input data-m2 type=\"number\" min=\"-5\" max=\"5\" step=\"any\" value=\"-1\"></label><label>b₂ <input data-b2 type=\"number\" min=\"-10\" max=\"10\" step=\"any\" value=\"4\"></label></fieldset><button type=\"button\" data-preset=\"one\">Eine Lösung</button><button type=\"button\" data-preset=\"none\">Keine Lösung</button><button type=\"button\" data-preset=\"many\">Unendlich viele Lösungen</button><svg viewBox=\"0 0 460 460\" role=\"img\" aria-label=\"Zwei Geraden im Koordinatensystem\"></svg><p data-status role=\"status\" aria-live=\"polite\"></p><p>Auftrag: Berechne für die Startwerte zunächst den Schnittpunkt. Ändere dann nur m₂ auf 2. Erkläre, warum nun keine Lösung vorhanden ist. Welcher weitere Wert muss geändert werden, damit beide Geraden identisch sind?</p><template data-worksheet-alternative><div class=\"function-paper\"><h3>Zwei Geraden auf Papier vergleichen</h3><p>Zeichne I: y = 2x + 1 und II: y = −x + 4 in ein Koordinatensystem. Berechne den Schnittpunkt und prüfe beide Gleichungen. Vergleiche danach I mit III: y = 2x + 4 und mit IV: y = 2x + 1. Begründe die Anzahl gemeinsamer Punkte.</p><p>Vergleich: I/II schneiden sich in (1|3); I/III sind parallel und verschieden, I/IV identisch.</p></div></template></div>{{QUIZ_linear_system_q0}}{{QUIZ_linear_system_q1}}",
         "quizzes": [
           {
             "id": "linear_system_q0",
@@ -30089,7 +30398,7 @@
               {
                 "text": "Das Wertepaar erfüllt beide Gleichungen.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "2 · 1 + 1 = 3 und −1 + 4 = 3."
               },
               {
@@ -30113,7 +30422,7 @@
               {
                 "text": "2x + 1 = −x + 4 setzen, x berechnen und y einsetzen.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "Am Schnittpunkt haben beide Funktionen denselben y-Wert. Daraus folgt 3x = 3."
               },
               {
@@ -30134,7 +30443,7 @@
       },
       {
         "id": "system1",
-        "title": "4. Einsetzen und Addieren",
+        "title": "Einsetzen und Addieren",
         "content": "<p>Nicht jede Gleichung steht schon in der Form y = m · x + b. Beispiel: I: 2x + y = 8; II: x − y = 1. Aus II folgt y = x − 1. In I eingesetzt: 2x + (x − 1) = 8, also x = 3 und y = 2. Alternativ addierst du I und II: Die y-Terme heben sich auf und es bleibt 3x = 9. Beide Wege liefern dieselbe Lösung. Achte beim Umformen darauf, auf beiden Seiten dieselbe zulässige Operation auszuführen.</p>{{QUIZ_linear_system_q2}}{{QUIZ_linear_system_q3}}",
         "quizzes": [
           {
@@ -30144,7 +30453,7 @@
               {
                 "text": "3x = 9.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "+y und −y heben sich auf; beide Seiten werden jeweils addiert."
               },
               {
@@ -30168,7 +30477,7 @@
               {
                 "text": "2 · 3 + 2 = 8 und 3 − 2 = 1.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "Beide ursprünglichen Gleichungen werden kontrolliert."
               },
               {
@@ -30189,7 +30498,7 @@
       },
       {
         "id": "system2",
-        "title": "5. Lösungsfälle und Sachaufgaben",
+        "title": "Lösungsfälle und Sachaufgaben",
         "content": "<p>Zwei Geraden können sich einmal schneiden, parallel und verschieden sein oder vollständig zusammenfallen. Im letzten Fall gibt es unendlich viele gemeinsame Punkte. Bei den hier betrachteten Funktionen entscheidet zunächst die Steigung, ob die Geraden parallel sind; bei gleicher Steigung prüfst du zusätzlich den Achsenabschnitt. Bei einer Sachaufgabe musst du die rechnerische Lösung im Kontext deuten. Fiktiver Kostenvergleich: A kostet 3 + 2x Euro, B kostet 9 + 0,5x Euro. Bei x = 4 kosten beide 11 Euro. Ob x sinnvoll ist, hängt von der gezählten oder gemessenen Größe ab.</p>{{QUIZ_linear_system_q4}}{{QUIZ_linear_system_q5}}",
         "quizzes": [
           {
@@ -30199,7 +30508,7 @@
               {
                 "text": "Keine gemeinsame Lösung.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "Gleiche Steigung und verschiedene Achsenabschnitte ergeben parallele Geraden."
               },
               {
@@ -30223,7 +30532,7 @@
               {
                 "text": "Bei x = 4; beide kosten 11 Euro.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "3 + 2x = 9 + 0,5x führt zu 1,5x = 6 und x = 4."
               },
               {
@@ -30267,17 +30576,23 @@
       ]
     },
     "learningGoals": [
-      "Funktionswerte berechnen sowie Steigung und Achsenabschnitt unterscheiden.",
-      "Die gemeinsame Lösung zweier linearer Gleichungen rechnerisch bestimmen und prüfen.",
-      "Eine, keine und unendlich viele Lösungen grafisch unterscheiden."
+      "Zuordnungen anhand von Tabellen und Graphen auf Eindeutigkeit prüfen.",
+      "Zwischen Sachtext, Gleichung, Wertetabelle und Graph wechseln und den Definitionsbereich beachten.",
+      "Steigung mit einem Steigungsdreieck bestimmen sowie Steigung und Achsenabschnitt im Kontext deuten.",
+      "Sachgraphen ablesen, Änderungen beschreiben und Grenzen linearer Modelle erkennen.",
+      "Lineare Gleichungssysteme grafisch und rechnerisch lösen und beide Gleichungen prüfen.",
+      "Eine, keine und unendlich viele Lösungen unterscheiden."
     ],
     "prerequisites": [
       "math4_3_terme_gleichungen"
     ],
     "summary": [
-      "Eine Funktion ordnet jedem erlaubten x genau einen y-Wert zu. Bei y = m · x + b beschreibt m die Steigung und b den y-Achsenabschnitt.",
-      "Eine Lösung eines Gleichungssystems erfüllt beide Gleichungen gleichzeitig. Ein Schnittpunkt liefert ein Wertepaar (x|y).",
-      "Verschiedene Steigungen ergeben bei zwei Geraden genau einen Schnittpunkt. Gleiche Steigungen ergeben parallele oder identische Geraden."
+      "Eine Funktion ordnet jeder zulässigen Eingabe genau eine Ausgabe zu; verschiedene Eingaben dürfen dieselbe Ausgabe haben.",
+      "Text, Tabelle, Gleichung und Graph beschreiben denselben Zusammenhang. Einheiten, Definitionsbereich und Modellannahmen gehören dazu.",
+      "Bei y = m · x + b gilt m = Δy/Δx für Δx ≠ 0; b ist der Wert bei x = 0. Die Zahlen an den Achsen entscheiden, nicht der optische Winkel.",
+      "Ein steigender, waagrechter oder fallender Sachgraph beschreibt Änderungen der dargestellten Größe. Entfernung vom Start und zurückgelegte Weglänge sind verschieden.",
+      "Eine einzige Gerade ist nur passend, wenn die Änderung je Eingabeeinheit konstant ist. Teilstücke oder gekrümmte Verläufe können andere Modelle benötigen.",
+      "Die Lösung eines Gleichungssystems erfüllt beide Bedingungen. Geraden haben einen, keinen oder unendlich viele gemeinsame Punkte."
     ]
   },
   "math4_5_aehnlichkeit": {
@@ -30406,12 +30721,12 @@
   },
   "math4_6_koerper": {
     "title": "🧊 3D Welt: Zylinder, Kegel & Kugel",
-    "subtitle": "Dosen, Eiswaffeln und Fußbälle berechnen!",
+    "subtitle": "Körpermaße, Oberfläche, Volumen, Masse und Dichte untersuchen.",
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Zylinder: Kreisflächen und Mantel",
-        "content": "\n        <div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px;\">\n            <h3 style=\"color: #2563eb;\">📐 Interaktives Labor: 3D Raumgeometrie</h3>\n            <p>Drehe das Koordinatensystem mit der Maus. Nutze die Werkzeuge oben, um Zylinder oder Pyramiden in 3D zu zeichnen!</p>\n            <div id=\"ggb-koerper\" style=\"width: 100%; height: 500px; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 8px;\"></div>\n        </div>\n\n<div class='interactive-zone'><p>Ein gerader Kreiszylinder hat zwei gleich große Kreisflächen. Sein abgewickelter Mantel ist ein Rechteck mit Breite 2 · π · r und Höhe h. <span style='color:red; font-weight:bold;'>Volumen = Grundfläche × Höhe</span>.</p><svg width='100' height='100'><ellipse cx='50' cy='20' rx='30' ry='10' fill='silver'/><ellipse cx='50' cy='80' rx='30' ry='10' fill='gray'/><rect x='20' y='20' width='60' height='60' fill='silver'/></svg><br><input type='number' id='cyl_v' placeholder='V = ?'><button>Tipp</button></div><p>Für die Übung gilt G = 20 cm² und h = 10 cm. Berechne V = G · h. Allgemein gilt V = π · r² · h. Für den geschlossenen Zylinder ergibt sich die Oberfläche O = 2 · π · r² + 2 · π · r · h. Das Modell berücksichtigt Boden und Deckel, aber keine Wandstärke.</p>{{QUIZ_m46_q1}}",
+        "title": "Zylinder: Kreisflächen und Mantel",
+        "content": "<p>Ein <strong>gerader Kreiszylinder</strong> entsteht, wenn ein Rechteck um eine seiner Seiten gedreht wird. Die Achse steht senkrecht auf den Kreisflächen. Der Körper hat zwei gleich große parallele Kreisflächen; sein abgewickelter Mantel ist ein Rechteck mit Breite 2πr und Höhe h.</p><figure class=\"round-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 380 310\" role=\"img\" aria-label=\"Gerader Kreiszylinder mit Radius r und senkrechter Höhe h; schematische Schrägansicht\"><rect width=\"380\" height=\"310\" fill=\"white\"/><g font-size=\"26\" fill=\"#172b4d\"><path d=\"M65 75V230M295 75V230\" stroke=\"#174d83\" stroke-width=\"3\"/><path d=\"M65 75V230Q180 286 295 230V75\" fill=\"#dbeafe\"/><ellipse cx=\"180\" cy=\"230\" rx=\"115\" ry=\"28\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"3\"/><ellipse cx=\"180\" cy=\"75\" rx=\"115\" ry=\"28\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"3\"/><path d=\"M65 75V230M295 75V230\" stroke=\"#174d83\" stroke-width=\"3\"/><path d=\"M325 75V230M319 75H331M319 230H331\" stroke=\"#172b4d\" stroke-width=\"2\"/><text x=\"337\" y=\"159\">h</text><path d=\"M180 230H295\" stroke=\"#9a4800\" stroke-width=\"3\"/><circle cx=\"180\" cy=\"230\" r=\"4\" fill=\"#172b4d\"/><path d=\"M237 235V258\" stroke=\"#172b4d\" fill=\"none\"/><text x=\"230\" y=\"287\">r</text></g></svg><figcaption>Schematische Schrägansicht; der Kreis erscheint als Ellipse. r ist der Radius, h die senkrechte Höhe. Die Zeichnung ist keine maßstäbliche Messvorlage.</figcaption></figure><p><strong>V = G · h = πr²h.</strong> Für einen geschlossenen Zylinder gilt <strong>O = 2πr² + 2πrh</strong>. Das berücksichtigt Boden und Deckel, aber keine Wandstärke. Bei einem oben offenen Modell bleibt nur eine Kreisfläche: O = πr² + 2πrh. Entscheide vor der Rechnung, welche Flächen gebraucht werden.</p><div class=\"interactive-zone round-lab\"><p>Für diese Übung gelten G = 20 cm² und h = 10 cm. Berechne das Volumen V in cm³.</p><input type=\"number\" id=\"cyl_v\" placeholder=\"V in cm³\"><button type=\"button\">Tipp</button><template data-worksheet-alternative><div class=\"round-paper\"><p>G = 20 cm², h = 10 cm. Berechne V = G · h und erläutere die Einheit. Vergleich: V = 200 cm³, denn cm² · cm = cm³.</p></div></template></div>{{QUIZ_m46_q1}}",
         "quizzes": [
           {
             "id": "m46_q1",
@@ -30435,8 +30750,8 @@
       },
       {
         "id": "sec2",
-        "title": "2. Kegel: Höhe und Mantellinie",
-        "content": "<p>Ein gerader Kreiskegel hat bei gleicher Grundfläche G und gleicher senkrechter Höhe h ein Drittel des Zylindervolumens: V = π · r² · h / 3. Die Bedingung gleicher Grundfläche und Höhe ist wichtig.</p><p>Die schräge Mantellinie s ist nicht die Höhe. Für den geraden Kegel gilt s² = r² + h². Seine Mantelfläche ist M = π · r · s; mit der kreisförmigen Grundfläche ergibt sich O = π · r² + π · r · s. Beispiel: r = 3 cm, h = 4 cm und s = 5 cm. Dann ist V = 12π cm³ und O = 24π cm².</p>{{QUIZ_m46_q2}}",
+        "title": "Kegel: Höhe und Mantellinie",
+        "content": "<p>Ein <strong>gerader Kreiskegel</strong> entsteht durch Drehen eines rechtwinkeligen Dreiecks um eine Kathete. Die Spitze liegt senkrecht über dem Mittelpunkt des Grundkreises.</p><figure class=\"round-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 380 310\" role=\"img\" aria-label=\"Gerader Kreiskegel mit Radius r, senkrechter Höhe h und Mantellinie s; schematische Schrägansicht\"><rect width=\"380\" height=\"310\" fill=\"white\"/><g font-size=\"26\" fill=\"#172b4d\"><path d=\"M65 230L180 45L295 230\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"3\"/><ellipse cx=\"180\" cy=\"230\" rx=\"115\" ry=\"28\" fill=\"#dbeafe\" stroke=\"#174d83\" stroke-width=\"3\"/><path d=\"M180 45V230\" stroke=\"#172b4d\" stroke-width=\"2\" stroke-dasharray=\"6 5\"/><text x=\"194\" y=\"142\">h</text><text x=\"275\" y=\"124\">s</text><path d=\"M267 128L249 157\" stroke=\"#172b4d\" fill=\"none\"/><path d=\"M180 230H295\" stroke=\"#9a4800\" stroke-width=\"3\"/><circle cx=\"180\" cy=\"230\" r=\"4\" fill=\"#172b4d\"/><path d=\"M237 235V258\" stroke=\"#172b4d\" fill=\"none\"/><text x=\"230\" y=\"287\">r</text></g></svg><figcaption>Schematische Schrägansicht; der Kreis erscheint als Ellipse. r ist der Radius, h die senkrechte Höhe, s die schräge Mantellinie. Die Zeichnung ist keine maßstäbliche Messvorlage.</figcaption></figure><p>Ein gerader Kreiskegel hat bei gleicher Grundfläche G und gleicher senkrechter Höhe h ein Drittel des Zylindervolumens: V = π · r² · h / 3. Die Bedingung gleicher Grundfläche und Höhe ist wichtig.</p><p>Die schräge Mantellinie s ist nicht die Höhe. Für den geraden Kegel gilt s² = r² + h². Seine Mantelfläche ist M = π · r · s; mit der kreisförmigen Grundfläche ergibt sich O = π · r² + π · r · s. Beispiel: r = 3 cm, h = 4 cm und s = 5 cm. Dann ist V = 12π cm³ und O = 24π cm².</p>{{QUIZ_m46_q2}}",
         "quizzes": [
           {
             "id": "m46_q2",
@@ -30459,9 +30774,270 @@
         ]
       },
       {
+        "id": "cylinder_inverse",
+        "title": "Beim Zylinder rückwärts rechnen",
+        "content": "<p>Notiere zuerst die gesuchte Größe und stelle die Formel um, bevor du Zahlen einsetzt. Für positive Radien und Höhen gilt:</p><ul><li>Aus V = πr²h folgt durch Teilen durch πr²: <strong>h = V/(πr²)</strong>.</li><li>Teilen durch πh liefert r² = V/(πh). Weil ein Radius positiv ist: <strong>r = √(V/(πh))</strong>.</li><li>Beim geschlossenen Zylinder zuerst die zwei Kreisflächen abziehen: O − 2πr² = 2πrh. Dann teilen: <strong>h = (O − 2πr²)/(2πr)</strong>.</li></ul><p>Beispiel: r = 3 cm, V = 45π cm³. Dann h = 45π/(9π) cm = 5 cm. Die Probe ergibt π · 3² · 5 = 45π. Aus O = 48π cm² und r = 3 cm erhältst du ebenfalls h = (48π − 18π)/(6π) cm = 5 cm.</p><p>Für positive Höhe muss beim geschlossenen Zylinder <strong>O &gt; 2πr²</strong> gelten. Bei Gleichheit wäre h = 0; kleinere Oberflächen liefern eine negative Höhe und passen nicht zum Modell. Bei einem oben offenen Körper müsste eine andere Oberflächenformel umgestellt werden. Mit V = 45π ist ein exakter Wert gemeint; kürze π, statt unnötig zu runden.</p><div class=\"round-task\"><h3>Selbst rechnen, prüfen und begründen</h3><ol data-round-tasks><li data-assignment-mode=\"direct\">Berechne r bei V = 80π cm³ und h = 5 cm. Bestimme auch den Durchmesser und prüfe das Volumen.</li><li data-assignment-mode=\"direct\">Ein geschlossener Zylinder hat r = 2 cm und O = 28π cm². Berechne h. Wie hoch wäre ein oben offener Zylinder bei gleichem r und gleicher gesamter Fläche?</li><li data-assignment-mode=\"direct\">Beurteile die Angaben r = 3 cm und O = 12π cm² für einen geschlossenen Zylinder. Erkläre den Widerspruch auch ohne eine negative Höhe auszurechnen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-round-solution><p>r = √(80π/(5π)) = 4 cm, d = 8 cm. Probe: π · 4² · 5 = 80π cm³.</p><p>Geschlossen: h = (28π − 8π)/(4π) = 5 cm. Oben offen: h = (28π − 4π)/(4π) = 6 cm. Das Modell entscheidet, wie viele Kreisflächen abgezogen werden.</p><p>Boden und Deckel allein haben 2π · 3² = 18π cm². 12π cm² reichen dafür nicht aus; ein positiver Mantel würde die Fläche weiter vergrößern.</p></div></details></div>{{QUIZ_round_cylinder_height}}{{QUIZ_round_cylinder_radius}}{{QUIZ_round_surface_possible}}",
+        "quizzes": [
+          {
+            "id": "round_cylinder_height",
+            "question": "Ein Zylinder hat V = 45π cm³ und r = 3 cm. Wie hoch ist er?",
+            "answers": [
+              {
+                "text": "15 cm",
+                "feedback": "Teile durch die gesamte Grundfläche π · 3² = 9π, nicht nur durch πr.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "5 cm",
+                "feedback": "h = V/(πr²) = 45π/(9π) = 5 cm.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "135 cm",
+                "feedback": "Die Grundfläche wird beim Rückwärtsrechnen herausdividiert, nicht multipliziert.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "round_cylinder_radius",
+            "question": "Ein Zylinder hat V = 80π cm³ und h = 5 cm. Wie groß ist sein Radius?",
+            "answers": [
+              {
+                "text": "16 cm",
+                "feedback": "16 cm² ist r². Für die Länge r musst du noch die positive Quadratwurzel ziehen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "8 cm",
+                "feedback": "8 cm ist der Durchmesser. Gesucht ist der Radius.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "4 cm",
+                "feedback": "r² = V/(πh) = 16 cm², daher r = 4 cm.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "round_surface_possible",
+            "question": "Für einen geschlossenen Zylinder sind r = 3 cm und O = 12π cm² angegeben. Ist eine positive Höhe möglich?",
+            "answers": [
+              {
+                "text": "Nein. Schon Boden und Deckel benötigen zusammen 18π cm².",
+                "feedback": "Für h > 0 muss O größer als 2πr² sein. Die Angaben widersprechen dem Modell.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Ja, die Höhe ist 2 cm.",
+                "feedback": "O/(2πr) berücksichtigt Boden und Deckel nicht. Für h = 2 wäre O = 30π cm².",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ja, die Höhe ist −1 cm.",
+                "feedback": "Die Umformung ergibt zwar −1, aber eine negative Körperhöhe ist unzulässig.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cone_inverse",
+        "title": "Beim Kegel rückwärts rechnen und prüfen",
+        "content": "<p>Aus <strong>V = πr²h/3</strong> folgt zuerst 3V = πr²h. Daher <strong>h = 3V/(πr²)</strong> und <strong>r = √(3V/(πh))</strong>. Beispiel V = 12π cm³, r = 3 cm: h = 36π/(9π) cm = 4 cm. Bei r = 3 cm und h = 4 cm ist s = √(3² + 4²) cm = 5 cm.</p><p>Ist die Oberfläche einschließlich Grundfläche und der Radius bekannt, nutze <strong>O = πr² + πrs</strong>. Teile durch πr und ziehe r ab: <strong>s = O/(πr) − r</strong>. Erst danach folgt die senkrechte Höhe <strong>h = √(s² − r²)</strong>. Bei O = 24π cm² und r = 3 cm erhältst du s = 5 cm und h = 4 cm. Probe: 9π + 15π = 24π cm².</p><p>Ein Kegel mit positiver Höhe braucht s &gt; r; entsprechend O &gt; 2πr². Prüfe die Angaben, bevor du eine Wurzel ziehst. Die Oberfläche einer offenen kegelförmigen Hülle ist nur die Mantelfläche. Die Volumenformel allein bestimmt nicht, wie viel Material eine dünne Hülle benötigt.</p><div class=\"interactive-zone round-lab\" data-round-inverse><h3>Werkstatt: eine unbekannte Länge</h3><p>Wähle einen Aufgabentyp und einen Datensatz. Die Angaben sind exakte Vielfache von π. Kürze π, stelle um und prüfe deine Lösung. Die Skizze benennt die Strecken; ihre Bildlängen verraten die Lösung nicht.</p><div class=\"round-controls\"><label>Gesuchte Rechnung<select id=\"round-mode\"><option value=\"cylinder_h\" selected>Zylinder: Höhe aus V und r</option><option value=\"cylinder_r\">Zylinder: Radius aus V und h</option><option value=\"cylinder_surface\">Zylinder: Höhe aus O und r</option><option value=\"cone_h\">Kegel: Höhe aus V und r</option><option value=\"cone_r\">Kegel: Radius aus V und h</option><option value=\"cone_surface\">Kegel: Höhe aus O und r</option></select></label><label>Datensatz<select id=\"round-case\"><option value=\"0\" selected>Datensatz A</option><option value=\"1\">Datensatz B</option><option value=\"2\">Datensatz C</option><option value=\"3\">Datensatz D</option><option value=\"4\">Datensatz E</option><option value=\"5\">Datensatz F</option></select></label></div><p data-round-given></p><figure class=\"round-figure\"><div data-round-drawing></div><figcaption>Schematische Ansicht; nicht maßstäblich.</figcaption></figure><label for=\"round-answer\" data-round-question></label><input id=\"round-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"round-status\"><div class=\"round-buttons\"><button data-round-check>Antwort prüfen</button><button data-round-show>Umformung und Probe zeigen</button><button data-round-reset>Zurücksetzen</button></div><p id=\"round-status\" role=\"status\" tabindex=\"-1\"></p><ol data-round-steps></ol><template data-worksheet-alternative><div class=\"round-paper\"><p>Bearbeite drei Umkehraufgaben mit Skizze, umgestellter Formel und Probe: (1) Zylinder: V = 36π cm³, r = 3 cm, gesucht h. (2) Kegel: V = 100π cm³, h = 12 cm, gesucht r. (3) Kegel: O = 90π cm², r = 5 cm, gesucht h.</p></div></template></div><div class=\"round-task\"><h3>Selbst rechnen, prüfen und begründen</h3><ol data-round-tasks><li data-assignment-mode=\"direct\">Bearbeite die drei Umkehraufgaben: Zylinder V = 36π cm³ und r = 3 cm → h; Kegel V = 100π cm³ und h = 12 cm → r; Kegel O = 90π cm² und r = 5 cm → h.</li><li data-assignment-mode=\"direct\">Ein Kegel hat V = 60π cm³ und h = 5 cm. Berechne r und s. Erkläre, warum s größer als h ist.</li><li data-assignment-mode=\"direct\">Eine Mitschülerin setzt bei r = 3 cm und s = 5 cm die Mantellinie als h in die Volumenformel ein. Berechne ihr Ergebnis und das richtige Volumen; erkläre den Unterschied.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-round-solution><p>Zylinder: h = 36π/(9π) = 4 cm. Kegelradius: r = √(300π/(12π)) = 5 cm. Aus Oberfläche: s = 90π/(5π) − 5 = 13 cm; h = √(169 − 25) = 12 cm. Proben: 9π · 4 = 36π; 25π · 12/3 = 100π; 25π + 5π · 13 = 90π.</p><p>r = √(180π/(5π)) = 6 cm. s = √(6² + 5²) = √61 cm ≈ 7,81 cm. s ist die Hypotenuse im Schnittdreieck, h eine Kathete.</p><p>Falsch: π · 3² · 5/3 = 15π cm³. Richtig ist h = √(5² − 3²) = 4 cm und V = 12π cm³. Die schräge Mantellinie überschätzt die senkrechte Höhe.</p></div></details></div>{{QUIZ_round_cone_height}}{{QUIZ_round_cone_surface}}{{QUIZ_round_cone_radius}}",
+        "quizzes": [
+          {
+            "id": "round_cone_height",
+            "question": "Ein gerader Kegel hat V = 12π cm³ und r = 3 cm. Welche Höhe passt?",
+            "answers": [
+              {
+                "text": "4/3 cm",
+                "feedback": "Das wäre V/(πr²). Beim Kegel muss der Faktor 1/3 durch Multiplikation mit 3 ausgeglichen werden.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "12 cm",
+                "feedback": "Du musst 3V durch die gesamte Grundfläche 9π teilen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "4 cm",
+                "feedback": "h = 3V/(πr²) = 36π/(9π) = 4 cm.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "round_cone_surface",
+            "question": "Ein gerader Kegel hat r = 3 cm und O = 24π cm² einschließlich Grundfläche. Wie erhältst du h?",
+            "answers": [
+              {
+                "text": "Zuerst s = 24π/(3π) − 3 = 5 cm, dann h = √(5² − 3²) = 4 cm.",
+                "feedback": "Die Oberfläche liefert die Mantellinie. Die senkrechte Höhe folgt erst mit Pythagoras.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Direkt h = 24π/(3π) − 3 = 5 cm.",
+                "feedback": "Dieser Ausdruck bestimmt s, nicht h. Die beiden Längen sind verschieden.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "h = 24π/(9π) = 8/3 cm.",
+                "feedback": "O ist eine Fläche. O durch die Grundfläche zu teilen ergibt keine Körperhöhe.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "round_cone_radius",
+            "question": "Ein gerader Kegel hat V = 60π cm³ und h = 5 cm. Welcher Radius folgt?",
+            "answers": [
+              {
+                "text": "√12 cm",
+                "feedback": "Du hast den Faktor 3 der Kegel-Umkehrung vergessen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "6 cm",
+                "feedback": "r = √(3V/(πh)) = √(180π/(5π)) = √36 = 6 cm.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "36 cm",
+                "feedback": "36 cm² ist das Quadrat des Radius. Ziehe noch die positive Quadratwurzel.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "round_mass_density",
+        "title": "Masse und Dichte: Welches Volumen ist Material?",
+        "content": "<p>Für einen homogenen massiven Körper gilt <strong>m = ρ · V</strong>. Dabei ist m die Masse, ρ (rho) die Dichte und V das Materialvolumen. Umgestellt: <strong>ρ = m/V</strong> und <strong>V = m/ρ</strong>. Bei ρ in g/cm³ muss V in cm³ stehen, damit m in g entsteht. Es gilt <strong>1 g/cm³ = 1 kg/dm³ = 1000 kg/m³</strong>, denn 1 dm³ = 1000 cm³ und 1000 g = 1 kg.</p><p data-round-example>Beispiel mit ausdrücklich erfundener Modelldichte: Ein massiver Zylinder hat r = 2 cm, h = 50 mm = 5 cm und ρ = 2,5 g/cm³. V = 20π cm³, also m = 50π g ≈ 157,08 g ≈ 0,157 kg. Die Rundung erfolgt erst am Ende. Ein massiver Kegel mit derselben Grundfläche, Höhe und Dichte hat ein Drittel dieser Masse. Das gilt nicht automatisch für dünne Hüllen.</p><p>Bei einer leeren Dose ist das innere Fassungsvermögen nicht das Volumen des Dosenmaterials. Ein gerades Rohr mit Außenradius R und Innenradius r hat <strong>V<sub>Material</sub> = π(R² − r²)h</strong>. Eine aus Masse und Außenvolumen bestimmte mittlere Dichte kann wegen Hohlräumen oder mehreren Werkstoffen von der Materialdichte abweichen; sie identifiziert einen Stoff nicht eindeutig.</p><div class=\"interactive-zone round-lab\" data-round-mass><h3>Werkstatt: Masse oder Dichte vorhersagen</h3><p>Alle Körper sind massiv und homogen. A, B und C sind fiktive Modellstoffe, keine Stoffbestimmung. Wähle zuerst die gesuchte Größe. Gegebene Massen sind exakte Vielfache von π; kürze bei der Dichteberechnung, statt Zwischenwerte zu runden.</p><div class=\"round-controls\"><label>Körper<select id=\"mass-shape\"><option value=\"cylinder\" selected>Zylinder</option><option value=\"cone\">Kegel</option></select></label><label>Radius r in cm<select id=\"mass-r\"><option value=\"2\">2</option><option value=\"3\" selected>3</option><option value=\"5\">5</option></select></label><label>Höhe h in cm<select id=\"mass-h\"><option value=\"6\" selected>6</option><option value=\"12\">12</option></select></label><label>Modellstoff<select id=\"mass-material\"><option value=\"0\">A</option><option value=\"1\" selected>B</option><option value=\"2\">C</option></select></label><label>Gesuchte Größe<select id=\"mass-target\"><option value=\"mass\" selected>Masse</option><option value=\"density\">Dichte</option></select></label></div><p data-mass-given></p><label for=\"mass-answer\" data-mass-question></label><input id=\"mass-answer\" type=\"text\" inputmode=\"decimal\" aria-describedby=\"mass-status\"><div class=\"round-buttons\"><button data-mass-check>Antwort prüfen</button><button data-mass-show>Rechenweg zeigen</button><button data-mass-reset>Zurücksetzen</button></div><p id=\"mass-status\" role=\"status\" tabindex=\"-1\"></p><ol data-mass-steps></ol><template data-worksheet-alternative><div class=\"round-paper\"><p>Berechne die Masse des Zylinders r = 2 cm, h = 50 mm, ρ = 2,5 g/cm³. Bestimme danach die Dichte eines massiven Kegels mit r = 3 cm, h = 8 cm und m = 48π g. Rechne mit passenden Einheiten und ohne Zwischenrundung.</p></div></template></div><div class=\"round-task\"><h3>Selbst rechnen, prüfen und begründen</h3><ol data-round-tasks><li data-assignment-mode=\"direct\">Berechne die Masse des Zylinders mit r = 2 cm, h = 50 mm und ρ = 2,5 g/cm³ in g und kg. Notiere die Einheitenumrechnung.</li><li data-assignment-mode=\"direct\">Ein massiver Kegel hat r = 3 cm, h = 8 cm und m = 48π g. Berechne die mittlere Dichte und prüfe durch Rückrechnung der Masse.</li><li data-assignment-mode=\"direct\">Ein hohles gerades Rohr hat R = 3 cm, r = 2 cm und h = 10 cm. Verwende die fiktive Materialdichte 2 g/cm³. Berechne die Masse; erkläre, warum das äußere Volumen allein falsch wäre.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleichslösung öffnen</summary><div data-round-solution><p>50 mm = 5 cm. V = 20π cm³, m = 50π g ≈ 157,08 g ≈ 0,157 kg. Exakt in kg: 0,05π kg.</p><p>V = 9π · 8/3 = 24π cm³. ρ = 48π/(24π) = 2 g/cm³. Probe: 2 · 24π = 48π g.</p><p>V_Material = π(9 − 4) · 10 = 50π cm³. m = 2 · 50π = 100π g ≈ 314,16 g. Das äußere Volumen 90π cm³ enthält 40π cm³ Hohlraum; dessen Materialmasse darf nicht mitgezählt werden.</p></div></details></div>{{QUIZ_round_mass_units}}{{QUIZ_round_density}}{{QUIZ_round_hollow}}{{QUIZ_round_density_unit}}",
+        "quizzes": [
+          {
+            "id": "round_mass_units",
+            "question": "Ein massiver Zylinder hat r = 2 cm, h = 50 mm und ρ = 2,5 g/cm³. Welche Masse passt?",
+            "answers": [
+              {
+                "text": "50π g, also ungefähr 157,08 g.",
+                "feedback": "50 mm = 5 cm. V = π · 2² · 5 = 20π cm³; m = 2,5 · 20π = 50π g.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "500π g.",
+                "feedback": "Du hast 50 mm wie 50 cm eingesetzt. Gleiche Längeneinheiten sind nötig.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "8π g.",
+                "feedback": "20π durch 2,5 zu teilen berechnet hier nicht die Masse. Es gilt m = ρ · V.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "round_density",
+            "question": "Ein massiver Kegel hat r = 3 cm, h = 8 cm und m = 48π g. Welche mittlere Dichte ergibt sich?",
+            "answers": [
+              {
+                "text": "6 g/cm³",
+                "feedback": "6 erhältst du aus m/(πh). Dabei fehlt der Faktor r²/3 im Kegelvolumen. Berechne zuerst V = 24π cm³.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "2/3 g/cm³",
+                "feedback": "Das folgt aus dem Zylindervolumen 72π cm³. Der Kegel hat nur 24π cm³.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "2 g/cm³",
+                "feedback": "V = π · 3² · 8/3 = 24π cm³. ρ = 48π/(24π) = 2 g/cm³.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "id": "round_hollow",
+            "question": "Ein Rohr ist innen hohl. Welches Volumen brauchst du für die Masse des Rohrmaterials bei gegebener Materialdichte?",
+            "answers": [
+              {
+                "text": "Das gesamte äußere Zylindervolumen.",
+                "feedback": "Damit würdest du den Hohlraum als Material mitzählen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Äußeres Volumen minus Hohlraumvolumen.",
+                "feedback": "Für ein gleichmäßig hohles gerades Rohr ist V_Material = π(R² − r²)h.",
+                "correct": true,
+                "pts": 10
+              },
+              {
+                "text": "Nur das innere Hohlraumvolumen.",
+                "feedback": "Das ist gerade der Bereich ohne Rohrmaterial.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "round_density_unit",
+            "question": "Welche Einheitengleichheit stimmt?",
+            "answers": [
+              {
+                "text": "1 g/cm³ = 1 kg/m³",
+                "feedback": "1 g/cm³ entspricht 1000 kg/m³. Beachte die kubische Längenumrechnung.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "1 g/cm³ = 1000 kg/dm³",
+                "feedback": "1000 cm³ enthalten bei dieser Dichte 1000 g, also 1 kg.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "1 g/cm³ = 1 kg/dm³",
+                "feedback": "1 dm³ = 1000 cm³ und 1000 g = 1 kg. Beide Faktoren gleichen sich aus.",
+                "correct": true,
+                "pts": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "sphere",
-        "title": "3. Kugel: Oberfläche und Volumen",
-        "content": "<p>Bei einer Kugel haben alle Punkte der Oberfläche denselben Abstand r vom Mittelpunkt. Der Durchmesser d ist 2r. Die Oberfläche berechnest du mit O = 4 · π · r², das Volumen mit V = 4/3 · π · r³. Beispiel r = 3 cm: O = 36π cm² ≈ 113,10 cm² und V = 36π cm³ ≈ 113,10 cm³. Die gleichen Zahlenwerte in diesem besonderen Beispiel bedeuten keine gleichen Größen: Fläche und Volumen haben verschiedene Einheiten.</p><div class=\"interactive-zone\" data-sphere-lab><h3>Radius, Oberfläche und Volumen</h3><p>Die Zeichnung zeigt einen Schnitt durch den Mittelpunkt, nicht die ganze Kugeloberfläche. Vergleiche r = 2 cm und r = 4 cm. Vermute zuerst, wie sich O und V verändern.</p><label>Radius r: <output data-radius-output>3</output> cm<input type=\"range\" min=\"1\" max=\"10\" step=\"1\" value=\"3\" aria-label=\"Kugelradius in Zentimetern\"></label><svg viewBox=\"0 0 260 270\" role=\"img\" aria-label=\"Kugelschnitt\"><circle cx=\"130\" cy=\"130\" r=\"30\" fill=\"#dbeafe\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><line data-radius-line x1=\"130\" y1=\"130\" x2=\"160\" y2=\"130\" stroke=\"#991b1b\" stroke-width=\"3\"/><text data-radius-label x=\"130\" y=\"254\" text-anchor=\"middle\" fill=\"#111827\"></text></svg><p data-status role=\"status\" aria-live=\"polite\"></p></div>{{QUIZ_sphere_q0}}{{QUIZ_sphere_q1}}",
+        "title": "Kugel: Oberfläche und Volumen",
+        "content": "<p>Bei einer Kugel haben alle Punkte der Oberfläche denselben Abstand r vom Mittelpunkt. Der Durchmesser d ist 2r. Die Oberfläche berechnest du mit O = 4 · π · r², das Volumen mit V = 4/3 · π · r³. Beispiel r = 3 cm: O = 36π cm² ≈ 113,10 cm² und V = 36π cm³ ≈ 113,10 cm³. Die gleichen Zahlenwerte in diesem besonderen Beispiel bedeuten keine gleichen Größen: Fläche und Volumen haben verschiedene Einheiten.</p><div class=\"interactive-zone\" data-sphere-lab><h3>Radius, Oberfläche und Volumen</h3><p>Die Zeichnung zeigt einen Schnitt durch den Mittelpunkt, nicht die ganze Kugeloberfläche. Vergleiche r = 2 cm und r = 4 cm. Vermute zuerst, wie sich O und V verändern.</p><label>Radius r: <output data-radius-output>3</output> cm<input type=\"range\" min=\"1\" max=\"10\" step=\"1\" value=\"3\" aria-label=\"Kugelradius in Zentimetern\"></label><svg viewBox=\"0 0 260 270\" role=\"img\" aria-label=\"Kugelschnitt\"><circle cx=\"130\" cy=\"130\" r=\"30\" fill=\"#dbeafe\" stroke=\"#1d4ed8\" stroke-width=\"2\"/><line data-radius-line x1=\"130\" y1=\"130\" x2=\"160\" y2=\"130\" stroke=\"#991b1b\" stroke-width=\"3\"/><text data-radius-label x=\"130\" y=\"254\" text-anchor=\"middle\" fill=\"#111827\"></text></svg><p data-status role=\"status\" aria-live=\"polite\"></p><template data-worksheet-alternative><div class=\"round-paper\"><p>Vergleiche Kugeln mit r = 2 cm und r = 4 cm. Berechne jeweils O = 4πr² und V = 4πr³/3 und bestimme die Faktoren. Vergleich: O = 16π bzw. 64π cm² (Faktor 4), V = 32π/3 bzw. 256π/3 cm³ (Faktor 8).</p></div></template></div>{{QUIZ_sphere_q0}}{{QUIZ_sphere_q1}}",
         "quizzes": [
           {
             "id": "sphere_q0",
@@ -30470,7 +31046,7 @@
               {
                 "text": "5 cm.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "Der Radius ist die Hälfte des Durchmessers."
               },
               {
@@ -30494,7 +31070,7 @@
               {
                 "text": "O = 4 · π · r².",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "Die Oberfläche ist viermal so groß wie die Fläche des mittleren Kreisquerschnitts."
               },
               {
@@ -30515,8 +31091,8 @@
       },
       {
         "id": "scaling",
-        "title": "4. Größen verändern und Einheiten prüfen",
-        "content": "<p>Werden alle Längen eines Körpers verdoppelt, vervierfacht sich die Oberfläche und verachtfacht sich das Volumen. Flächen verändern sich mit dem Quadrat, Volumina mit der dritten Potenz des Längenfaktors. Vor dem Rechnen müssen alle Längen in derselben Einheit stehen. 1 dm³ = 1 Liter und 1 cm³ = 1 Milliliter. Runde erst das Endergebnis und gib immer die Einheit an.</p><p>Transfer: Eine kugelförmige Modellkugel mit Radius 2 cm soll auf Radius 4 cm vergrößert werden. Vergleiche den Bedarf an Oberflächenfarbe und an Füllmaterial. Erkläre, warum die Faktoren verschieden sind. Vernachlässige Wandstärke und Materialverluste.</p>{{QUIZ_sphere_q2}}{{QUIZ_sphere_q3}}",
+        "title": "Größen verändern und Einheiten prüfen",
+        "content": "<p>Werden alle Längen eines Körpers verdoppelt, vervierfacht sich die Oberfläche und verachtfacht sich das Volumen. Flächen verändern sich mit dem Quadrat, Volumina mit der dritten Potenz des Längenfaktors. Vor dem Rechnen müssen alle Längen in derselben Einheit stehen. 1 dm³ = 1 Liter und 1 cm³ = 1 Milliliter. Runde erst das Endergebnis und gib immer die Einheit an.</p><p>Transfer: Eine kugelförmige Modellkugel mit Radius 2 cm soll auf Radius 4 cm vergrößert werden. Vergleiche den Bedarf an Oberflächenfarbe und an Füllmaterial. Erkläre, warum die Faktoren verschieden sind. Vernachlässige Wandstärke und Materialverluste.</p>{{QUIZ_sphere_q2}}{{QUIZ_sphere_q3}}<details class=\"round-optional\"><summary>Zusatzwerkzeug: Körper frei in GeoGebra untersuchen</summary><div class=\"interactive-zone\" style=\"background: #f8fafc; border: 2px solid #3b82f6; border-radius: 12px; padding: 15px;\">\n            <h3 style=\"color: #2563eb;\">📐 Interaktives Labor: 3D Raumgeometrie</h3>\n            <p>Drehe das Koordinatensystem mit der Maus. Nutze die Werkzeuge oben, um Zylinder oder Pyramiden in 3D zu zeichnen!</p>\n            <div id=\"ggb-koerper\" style=\"width: 100%; height: 500px; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 8px;\"></div>\n        </div></details>",
         "quizzes": [
           {
             "id": "sphere_q2",
@@ -30525,7 +31101,7 @@
               {
                 "text": "Es wird achtmal so groß.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "Im Volumen steht r³: 2³ = 8."
               },
               {
@@ -30549,7 +31125,7 @@
               {
                 "text": "1 Liter.",
                 "correct": true,
-                "pts": 0,
+                "pts": 10,
                 "feedback": "1 dm³ = 1000 cm³ = 1 Liter."
               },
               {
@@ -30574,16 +31150,16 @@
       "questions": [
         {
           "id": "m46_dip1",
-          "question": "Formel für Kugelvolumen?",
+          "question": "Welche Formel beschreibt das Kugelvolumen?",
           "answers": [
             {
-              "text": "4/3 * pi * r³",
+              "text": "V = (4/3) · π · r³",
               "correct": true,
-              "pts": 5,
+              "pts": 10,
               "feedback": "Eine Kugel mit Radius r hat das Volumen V = (4/3)πr³. Bei einer Längeneinheit in cm entsteht durch r³ die Volumeneinheit cm³."
             },
             {
-              "text": "pi * r²",
+              "text": "V = π · r²",
               "correct": false,
               "pts": 0,
               "feedback": "πr² ist der Flächeninhalt eines Kreises. Für ein Kugelvolumen brauchst du (4/3)πr³; Fläche und Volumen haben verschiedene Einheiten."
@@ -30593,9 +31169,11 @@
       ]
     },
     "learningGoals": [
-      "Volumen und Oberfläche von geradem Zylinder, geradem Kegel und Kugel berechnen.",
-      "Radius, Durchmesser, senkrechte Höhe und Mantellinie unterscheiden.",
-      "Vergrößerungsfaktoren und Volumeneinheiten sinnvoll anwenden."
+      "Gerade Zylinder und Kegel beschreiben sowie Radius, Durchmesser, Höhe und Mantellinie unterscheiden.",
+      "Volumen und Oberfläche passend zu einem geschlossenen oder offenen Körpermodell berechnen.",
+      "Einfache Umkehraufgaben durch Umstellen lösen, Angaben auf Zulässigkeit prüfen und die Probe durchführen.",
+      "Masse und Dichte mit passenden Einheiten berechnen und Materialvolumen von Hohlräumen unterscheiden.",
+      "Kugeloberfläche und Kugelvolumen berechnen sowie Größenänderungen und Volumeneinheiten erklären."
     ],
     "prerequisites": [
       "math4_2_pythagoras",
@@ -30603,9 +31181,11 @@
       "math4_kreis_kreisteile"
     ],
     "summary": [
-      "Zylinder: V = πr²h, O = 2πr² + 2πrh. Gerader Kegel: V = πr²h/3, O = πr² + πrs.",
-      "Kugel: O = 4πr² und V = 4πr³/3; d = 2r.",
-      "Bei doppelten Längen wird die Oberfläche viermal und das Volumen achtmal so groß. 1 dm³ = 1 Liter."
+      "Zylinder: V = πr²h; geschlossen O = 2πr² + 2πrh. Kegel: V = πr²h/3; O = πr² + πrs mit s² = r² + h².",
+      "Für unbekannte Höhen oder Radien zuerst die Formel umstellen; Radius und Körperhöhe müssen positiv sein. Die Probe verwendet die ursprüngliche Formel.",
+      "Beim Kegel liefert die Oberfläche zuerst die Mantellinie s; h = √(s² − r²) ist die senkrechte Höhe.",
+      "m = ρ · V, ρ = m/V, V = m/ρ. Das Materialvolumen einer Hülle ist nicht ihr Fassungsvermögen. 1 g/cm³ = 1 kg/dm³.",
+      "Kugel: O = 4πr², V = 4πr³/3. Bei doppelten Längen werden Flächen viermal, Volumina achtmal so groß. 1 dm³ = 1 Liter."
     ]
   },
   "math4_7_statistik": {
