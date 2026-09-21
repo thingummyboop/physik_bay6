@@ -224,3 +224,11 @@ Gezielte Inhalts-/Rechenprüfungen, 30 Quizantwortwege, native Tastaturbedienung
 ## 21.09.2026 – Kladogramme: Merkmale und begründete Verwandtschaft
 
 `bio_3_kladogramme`, Revision 2: Homologie/Analogie, Knoten und vollständige Kladen, drei Baumvorschläge sowie vier fiktive Merkmalsdatensätze. Die erhaltene Drehwerkstatt wird durch eine Datenwerkstatt ergänzt, die fehlende Information von widersprechenden Mustern unter einer ausdrücklich begrenzten Modellannahme trennt. Zwölf konkrete Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Eine erfundene Wiener Schulausstellung verbindet Datenauswertung mit verständlicher Darstellung. [Quellen und Prüfungen](BIOLOGIE_KLADOGRAMME_MERKMALE.md). Der vollständige Fach- und Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Landwirtschaft, Ernährung und Biodiversität
+
+`bio_4_landwirtschaft_biodiversitaet`, Revision 2: ökologische Beziehungen, Stoffwege, Bio-Regeln und konventionelle Verfahren, Flächen-/Erntevergleiche sowie eine fiktive Wiener Klassenbestellung. Zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Die Werkstatt trennt Gesamtfläche, Kulturfläche, Prozentbasis und Aussagegrenzen von Artenfunden. Vollständige Papieralternative mit Kontrollwerten für alle verlangten Vergleiche. [Quellen und Kapitelprüfung](BIOLOGIE_LANDWIRTSCHAFT_VERGLEICHE.md). Der vollständige Fach- und Lehrplanabgleich bleibt offen.
+
+## 21.09.2026 – Stadtökologie und Siedlungsräume
+
+`bio_4_siedlungsraeume`, Revision 2: pflanzliche und tierische Kulturfolger, vergleichbare Beobachtungen, Oberflächen-/Lufttemperatur, Wasserwege, Wildtierbeobachtungen und Abfallvermeidung. Drei eigene Schulhofpläne und eine Werkstatt mit 18 Wasserbilanzen verbinden Grünfläche und begrenzten Speicher mit Nutzungsanforderungen. Zwölf direkte Aufgaben, 16 Begriffe, zehn bewertete Fragen und vier Lösungen. Wiener Bezüge: Pfeilgasse und Schwammstadt-Prinzip; alle Rechendaten sind erfunden. [Quellen und Prüfungen](BIOLOGIE_STADTOEKOLOGIE_SCHULHOF.md). Vollständiger Fach- und Lehrplanabgleich bleibt offen.

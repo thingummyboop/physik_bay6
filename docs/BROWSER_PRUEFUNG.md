@@ -311,3 +311,11 @@ Browserbericht 07:40:03 UTC: 34 native Entscheidungen, 36 Zustands-/Layoutkombin
 ## 21.09.2026 – Kladogramme: Drehung und Merkmalsdaten
 
 Browserbericht 08:04:28 UTC: 64 Modell-/Begründungsentscheidungen, 36 Zustands-/Layoutkombinationen, vier native Drehungen und 30 Quizantwortwege bestanden. Nach visueller Korrektur kleiner Baumbeschriftung und abgeschnittener mobiler Tabellen vollständig erneut geprüft; einzelne Datenzellen werden zusätzlich auf Sichtbarkeit und Überlauf geprüft. Alle zehn mobilen Detailbilder und 19 Druckseiten gelesen. Finale Druckfassung vom 08:06:00 UTC mit korrigierten Quellentiteln; veränderte Seiten 4, 7 und 11 erneut kontrolliert, Seite 4 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_KLADOGRAMME_MERKMALE.md).
+
+## 21.09.2026 – Landwirtschaft: Bezugsflächen und Erntevergleiche
+
+Browserbericht 08:18:43 UTC: zwölf native Rechenvergleiche, 36 Zustands-/Layoutkombinationen und 30 Quizantwortwege bestanden; keine Browserfehler. Tastatur, Fokus, Rücksetzen, Speicher und Zellüberlauf geprüft. Alle zwölf mobilen Detailbilder gelesen. Nach letzter Quiztextänderung drei betroffene Antwortwege um 08:19:30 UTC erneut geprüft. Kontrollwerte der Papierlösung ergänzt; gezielter Kapiteltest erneut bestanden. Finale 20-seitige Druckfassung von 08:27:10 UTC vollständig visuell kontrolliert; Seiten 1–18 im Rastervergleich unverändert, Seiten 15 und 20 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_LANDWIRTSCHAFT_VERGLEICHE.md).
+
+## 21.09.2026 – Stadtökologie: Schulhof und Wasserrückhalt
+
+Browserbericht 08:41:21 UTC: 18 native Wasserbilanzen, 36 Zustands-/Layoutkombinationen und 30 Quizantwortwege bestanden; keine Browserfehler. Tastatur, Fokus, Rücksetzen, Speicher sowie Tabellenzellen und SVG-Beschriftungen geprüft. Alle 14 mobilen Detailbilder gelesen; dunkle Werkstatt bei 360 Pixeln zusätzlich geprüft. Nach letzter Antwortänderung drei betroffene Wege um 08:45:42 UTC erneut bestanden. Finale 21 Druckseiten vollständig kontrolliert; nach Textkorrekturen geänderte Seiten 4, 12 und 15 erneut gelesen, Seiten 14 und 16 zusätzlich höher aufgelöst. [Details und Grenzen](BIOLOGIE_STADTOEKOLOGIE_SCHULHOF.md).
