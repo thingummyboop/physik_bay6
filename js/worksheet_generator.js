@@ -491,14 +491,17 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
     }
     else if (topicId === 'math3_7_aehnlichkeit') {
-        html += `<h2>1. Strahlensätze</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        html += `<h2>Zusatzübungen: entsprechende Seiten</h2><p>In jeder Aufgabe sind zwei Figuren ähnlich. Die Seite a der Ausgangsfigur entspricht a′ in der Bildfigur; b entspricht b′. Alle Längen sind in Zentimetern angegeben. Bestimme zuerst den Faktor k von der Ausgangs- zur Bildfigur und dann b′. Zeige deinen Rechenweg und prüfe, ob beide Seitenverhältnisse übereinstimmen.</p><div class="dilation-generated">`;
+        let generatedSolutions = '';
+        const shown = n => new Intl.NumberFormat('de-AT', {maximumFractionDigits:2}).format(n);
         for(let i=0; i<6; i++) {
             const a = rand(2, 6);
             const b = rand(2, 6);
-            const factor = rand(2, 4);
-            html += `<div>Gegeben: \\( a = ${a} \\), \\( a' = ${a * factor} \\), \\( b = ${b} \\)<br><br>\\( b' = \\)<span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            const factor = [0.5,1,1.5,2,3][rand(0,4)];
+            html += `<div data-dilation-generated data-a="${a}" data-image-a="${a*factor}" data-b="${b}"><strong>A${i+1}.</strong> a = ${a} cm, a′ = ${shown(a*factor)} cm, b = ${b} cm.<p>k = __________; b′ = __________ cm</p><p>Rechenweg und Probe: ____________________________________</p></div>`;
+            generatedSolutions += `<section class="ws-generated-equation-solution" data-dilation-generated-answer="${b*factor}"><h3>Zusatzübung A${i+1}</h3><p>k = a′ : a = ${shown(a*factor)} : ${a} = ${shown(factor)}. Damit b′ = ${shown(factor)} · ${b} cm = ${shown(b*factor)} cm. Probe: ${shown(b*factor)} : ${b} = ${shown(factor)}. Beide Seitenverhältnisse sind gleich.</p></section>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${generatedSolutions}</template>`;
     }
     else if (topicId === 'math3_8_pythagoras') {
         html += `<h2>1. Satz des Pythagoras anwenden</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
@@ -540,15 +543,14 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += `</div><template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math3_11_statistik') {
-        html += `<h2>1. Mittelwert berechnen</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;
+        html += `<h2>Zusatzübungen: Mittelwerte mit Einheit</h2><p>Jede Reihe enthält erfundene Buchausleihen an vier geöffneten Tagen. Berechne den Mittelwert in Büchern pro Tag. Auch ein beobachteter Wert 0 zählt als ein Tag mit.</p><div>`;
+        let solutions = '';
         for(let i=0; i<6; i++) {
-            const a = rand(1, 10);
-            const b = rand(1, 10);
-            const c = rand(1, 10);
-            const d = rand(1, 10);
-            html += `<div>Daten: ${a}, ${b}, ${c}, ${d}<br><br>Mittelwert = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span></div>`;
+            const values=Array.from({length:4},()=>rand(0,10)),sum=values.reduce((a,b)=>a+b,0),mean=sum/4,shown=mean.toLocaleString('de-AT');
+            html += `<div data-stat3-generated data-values="${values.join(',')}"><strong>A${i+1}.</strong> Ausgeliehene Bücher: ${values.join(', ')}.<p>Summe: __________; Anzahl der Tage: __________</p><p>Mittelwert: __________ Bücher pro Tag</p></div>`;
+            solutions += `<section class="ws-generated-equation-solution" data-stat3-generated-answer="${mean}"><h3>Zusatzübung A${i+1}</h3><p>(${values.join(' + ')}) : 4 = ${sum} : 4 = ${shown} Bücher pro Tag. Der Mittelwert ist ein rechnerischer Ausgleich, keine Vorgabe für den nächsten Tag.</p></section>`;
         }
-        html += `</div>`;
+        html += `</div><template data-generated-worksheet-solutions>${solutions}</template>`;
     }
     else if (topicId === 'math4_1_reelle_zahlen') {
         html += `<h2>1. Rechnen mit Wurzeln</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">`;

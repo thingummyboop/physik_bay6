@@ -28212,12 +28212,12 @@
     ]
   },
   "math3_11_statistik": {
-    "title": "📊 Statistik & Daten",
-    "subtitle": "K/D Ratios, TikTok Views und Durchschnitte",
+    "title": "Statistik und Wahrscheinlichkeit",
+    "subtitle": "Daten kritisch lesen und Zufallsversuche untersuchen",
     "sections": [
       {
         "id": "m311_sec1",
-        "title": "Daten sammeln und zeigen",
+        "title": "1. Daten sammeln und zeigen",
         "content": "<p>Statistik beschreibt und untersucht Daten. Zuerst braucht man eine Frage, zum Beispiel: Wie viele Bücher werden an jedem geöffneten Schultag ausgeliehen? Notiere, was, wann und in welcher Einheit gezählt wurde.</p><div style=\"text-align:center;\"><svg viewBox=\"0 0 320 220\" role=\"img\" aria-label=\"Erfundene Buchausleihen: Montag 4, Dienstag 7, Mittwoch 2.\" style=\"width:100%;max-width:500px\"><path d=\"M40 15V180H305\" fill=\"none\" stroke=\"currentColor\"></path><text x=\"45\" y=\"12\" fill=\"currentColor\">Anzahl ausgeliehener Bücher</text><text x=\"23\" y=\"184\" fill=\"currentColor\">0</text><text x=\"23\" y=\"104\" fill=\"currentColor\">4</text><text x=\"23\" y=\"24\" fill=\"currentColor\">8</text><path d=\"M36 100H305 M36 20H305\" stroke=\"currentColor\" opacity=\"0.2\"></path><rect x=\"70\" y=\"100\" width=\"40\" height=\"80\" fill=\"blue\"></rect><rect x=\"150\" y=\"40\" width=\"40\" height=\"140\" fill=\"red\"></rect><rect x=\"230\" y=\"140\" width=\"40\" height=\"40\" fill=\"green\"></rect><text x=\"90\" y=\"203\" text-anchor=\"middle\" fill=\"currentColor\">Mo</text><text x=\"170\" y=\"203\" text-anchor=\"middle\" fill=\"currentColor\">Di</text><text x=\"250\" y=\"203\" text-anchor=\"middle\" fill=\"currentColor\">Mi</text></svg><p>Erfundene Daten einer Schulbibliothek: Montag 4, Dienstag 7, Mittwoch 2 ausgeliehene Bücher. Die Skala beginnt bei 0.</p></div><p>Bei gleicher Skala ab null entspricht eine höhere Säule einem größeren Wert. Lies Achsenbeschriftung und Skala, bevor du die Höhen vergleichst.</p>{{QUIZ_m311_q1}}",
         "quizzes": [
           {
@@ -28242,8 +28242,8 @@
       },
       {
         "id": "m311_sec2",
-        "title": "Der Durchschnitt (Mittelwert)",
-        "content": "<p>Der Mittelwert ist ein rechnerischer Ausgleich der Daten. Er muss nicht selbst vorkommen und beschreibt nicht, was für eine einzelne Person normal ist. Wie berechnet man ihn?</p><p><b>1. Alles zusammenrechnen (Plus rechnen).<br>2. Durch die Anzahl teilen.</b></p><div class=\"interactive-zone\" style=\"background:#fff3e0; padding:10px; border-radius:5px;\"><h3>Mittelwert aus zwei Beobachtungen</h3><p>Erfundene Buchausleihen an zwei geöffneten Tagen: 2 Bücher und 4 Bücher. Wie viele Bücher sind das im Mittel pro Tag?</p><label>Mittelwert in Büchern pro Tag: <input type=\"text\" inputmode=\"decimal\" id=\"ans_m311_2\"></label><button type=\"button\" onclick=\"check_m311()\">Prüfen</button><p id=\"res_m311_2\"></p></div>{{QUIZ_m311_q2}}{{QUIZ_m311_q3}}<p data-statistics-terms>Das Maximum ist der größte Wert einer Datenliste, das Minimum der kleinste. Säulendiagramme vergleichen einzelne Häufigkeiten oder Werte. Liniendiagramme verbinden Werte entlang einer geordneten Achse, beispielsweise Messwerte im Zeitverlauf. Das Verbinden darf keinen irreführenden Zusammenhang nahelegen.</p>",
+        "title": "2. Der arithmetische Mittelwert",
+        "content": "<p>Der Mittelwert ist ein rechnerischer Ausgleich der Daten. Er muss nicht selbst vorkommen und beschreibt nicht, was für eine einzelne Person normal ist. Wie berechnet man ihn?</p><p><b>1. Alles zusammenrechnen (Plus rechnen).<br>2. Durch die Anzahl teilen.</b></p><div class=\"interactive-zone stat3-lab\"><h3>Mittelwert aus zwei Beobachtungen</h3><p>Erfundene Buchausleihen an zwei geöffneten Tagen: 2 Bücher und 4 Bücher. Wie viele Bücher sind das im Mittel pro Tag?</p><label>Mittelwert in Büchern pro Tag: <input type=\"text\" inputmode=\"decimal\" id=\"ans_m311_2\"></label><button type=\"button\" onclick=\"check_m311()\">Prüfen</button><p id=\"res_m311_2\"></p></div>{{QUIZ_m311_q2}}{{QUIZ_m311_q3}}<p data-statistics-terms>Das Maximum ist der größte Wert einer Datenliste, das Minimum der kleinste. Säulendiagramme vergleichen einzelne Häufigkeiten oder Werte. Liniendiagramme verbinden Werte entlang einer geordneten Achse, beispielsweise Messwerte im Zeitverlauf. Das Verbinden darf keinen irreführenden Zusammenhang nahelegen.</p>",
         "quizzes": [
           {
             "id": "m311_q2",
@@ -28285,8 +28285,8 @@
       },
       {
         "id": "m311_compare",
-        "title": "Gleicher Mittelwert, verschiedene Daten",
-        "content": "<p>Die folgenden Zahlen sind erfundene Ausleihzahlen an jeweils drei geöffneten Tagen. An jedem Tag wurde gezählt. Eine 0 bedeutet hier: Es wurde kein Buch ausgeliehen. Eine fehlende Beobachtung wäre etwas anderes und dürfte nicht einfach als 0 eingetragen werden.</p><table class=\"word-rubric\" data-mean-comparison><caption>Zwei Datenreihen mit derselben Einheit: Bücher pro Tag</caption><thead><tr><th>Tag</th><th>Reihe A</th><th>Reihe B</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>0</td></tr><tr><td>2</td><td>4</td><td>0</td></tr><tr><td>3</td><td>6</td><td>12</td></tr></tbody></table><ol class=\"step-list\" data-mean-task><li>Berechne für jede Reihe Summe, Anzahl der Beobachtungen und Mittelwert. Zähle die beiden Nullen in B als Beobachtungen mit.</li><li>Bestimme Minimum und Maximum. Berechne als zusätzliche Beschreibung die Spannweite: größter Wert minus kleinster Wert. Vergleiche beide Reihen.</li><li>Zeichne beide Reihen als Säulen nebeneinander. Verwende dieselbe Skala von 0 bis 12 und beschrifte die Tage und Einheiten. Markiere die Höhe des Mittelwerts mit einer waagrechten Linie.</li><li>Beurteile die Aussage: „Beide Reihen haben Mittelwert 4, also wurden jeden Tag 4 Bücher ausgeliehen.“ Formuliere eine Aussage, die von den Daten gedeckt ist, und eine Grenze des Mittelwerts.</li><li>Für den nächsten Tag fehlen die Daten. Darf man 0 eintragen oder sicher 4 vorhersagen? Begründe und notiere, welche Beobachtung du noch brauchst.</li></ol><details data-mean-solution><summary>Vergleichsauswertung</summary><p>A: Summe 12, Anzahl 3, Mittelwert 4. B: Summe ebenfalls 12, Anzahl ebenfalls 3, Mittelwert ebenfalls 4. A hat Minimum 2, Maximum 6 und Spannweite 4. B hat Minimum 0, Maximum 12 und Spannweite 12. Der Mittelwert gleicht die Summe rechnerisch auf drei Tage aus; er ersetzt die Einzelwerte nicht. In B kommt der Wert 4 an keinem Tag vor. Gleiche Mittelwerte beweisen keine gleichen Verteilungen.</p><p>Ein fehlender Wert ist keine gemessene 0. Auch ein Mittelwert 4 garantiert keine bestimmte Ausleihzahl am nächsten Tag. Dafür müsste die neue Ausleihzahl erhoben werden; eine Prognose wäre gesondert als unsichere Schätzung zu kennzeichnen.</p></details>{{QUIZ_m311_zero}}{{QUIZ_m311_equal}}",
+        "title": "3. Gleicher Mittelwert, verschiedene Daten",
+        "content": "<p>Die folgenden Zahlen sind erfundene Ausleihzahlen an jeweils drei geöffneten Tagen. An jedem Tag wurde gezählt. Eine 0 bedeutet hier: Es wurde kein Buch ausgeliehen. Eine fehlende Beobachtung wäre etwas anderes und dürfte nicht einfach als 0 eingetragen werden.</p><table class=\"word-rubric\" data-mean-comparison><caption>Zwei Datenreihen mit derselben Einheit: Bücher pro Tag</caption><thead><tr><th>Tag</th><th>Reihe A</th><th>Reihe B</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>0</td></tr><tr><td>2</td><td>4</td><td>0</td></tr><tr><td>3</td><td>6</td><td>12</td></tr></tbody></table><ol class=\"step-list\" data-mean-task><li>Berechne für jede Reihe Summe, Anzahl der Beobachtungen und Mittelwert. Zähle die beiden Nullen in B als Beobachtungen mit.</li><li>Bestimme Minimum und Maximum. Berechne als zusätzliche Beschreibung die Spannweite: größter Wert minus kleinster Wert. Vergleiche beide Reihen.</li><li>Zeichne beide Reihen als Säulen nebeneinander. Verwende dieselbe Skala von 0 bis 12 und beschrifte die Tage und Einheiten. Markiere die Höhe des Mittelwerts mit einer waagrechten Linie.</li><li>Beurteile die Aussage: „Beide Reihen haben Mittelwert 4, also wurden jeden Tag 4 Bücher ausgeliehen.“ Formuliere eine Aussage, die von den Daten gedeckt ist, und eine Grenze des Mittelwerts.</li><li>Für den nächsten Tag fehlen die Daten. Darf man 0 eintragen oder sicher 4 vorhersagen? Begründe und notiere, welche Beobachtung du noch brauchst.</li></ol><details data-mean-solution data-worksheet-solution=\"true\"><summary>Vergleichsauswertung</summary><div data-stat3-mean-solution><p>A: Summe 12, Anzahl 3, Mittelwert 4. B: Summe ebenfalls 12, Anzahl ebenfalls 3, Mittelwert ebenfalls 4. A hat Minimum 2, Maximum 6 und Spannweite 4. B hat Minimum 0, Maximum 12 und Spannweite 12. Der Mittelwert gleicht die Summe rechnerisch auf drei Tage aus; er ersetzt die Einzelwerte nicht. In B kommt der Wert 4 an keinem Tag vor. Gleiche Mittelwerte beweisen keine gleichen Verteilungen.</p><p>Ein fehlender Wert ist keine gemessene 0. Auch ein Mittelwert 4 garantiert keine bestimmte Ausleihzahl am nächsten Tag. Dafür müsste die neue Ausleihzahl erhoben werden; eine Prognose wäre gesondert als unsichere Schätzung zu kennzeichnen.</p></div></details>{{QUIZ_m311_zero}}{{QUIZ_m311_equal}}",
         "quizzes": [
           {
             "id": "m311_zero",
@@ -28337,6 +28337,243 @@
             ]
           }
         ]
+      },
+      {
+        "id": "m311_diagrams",
+        "title": "4. Diagramme auswählen und kritisch lesen",
+        "quizzes": [
+          {
+            "id": "m311_axis_change",
+            "question": "An Tag A werden 40, an Tag B 50 Bücher ausgeliehen. Wie groß ist die Zunahme bezogen auf Tag A?",
+            "answers": [
+              {
+                "text": "10 %.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "10 ist hier die absolute Zunahme in Büchern. Für Prozent teilst du diese Differenz durch den Ausgangswert 40."
+              },
+              {
+                "text": "25 %.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "(50 − 40) : 40 = 0,25 = 25 %. Die Achsendarstellung ändert diese Rechnung nicht."
+              },
+              {
+                "text": "100 %.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die doppelte sichtbare Säulenhöhe bei einer abgeschnittenen Achse bedeutet keine Verdopplung der Daten."
+              }
+            ]
+          },
+          {
+            "id": "m311_axis_picture",
+            "question": "Ein Säulendiagramm zeigt 40 und 50, seine senkrechte Achse beginnt bei 30. Warum wirkt die zweite Säule doppelt so hoch?",
+            "answers": [
+              {
+                "text": "Weil 50 doppelt so groß wie 40 ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "50 : 40 = 1,25. Die Werte haben das Verhältnis 1,25, nicht 2."
+              },
+              {
+                "text": "Weil sich die Anzahl der Beobachtungen verdoppelt hat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Über die Anzahl der zugrunde liegenden Beobachtungen sagt diese Achsenwahl nichts aus."
+              },
+              {
+                "text": "Weil nur die Strecken von 30 bis 40 und von 30 bis 50 sichtbar sind.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Die gezeichneten Strecken entsprechen 10 und 20. Diese Längen verdoppeln sich, obwohl die Ausleihzahl nur um 25 % steigt."
+              }
+            ]
+          },
+          {
+            "id": "m311_compare_groups",
+            "question": "In Gruppe A wählen 8 von 20 Personen ein Angebot, in Gruppe B 12 von 40. Wo ist der Anteil größer?",
+            "answers": [
+              {
+                "text": "In A: 40 % statt 30 %.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "8 : 20 = 40 %, 12 : 40 = 30 %. Verschieden große Gruppen brauchen passende Bezugsgrößen."
+              },
+              {
+                "text": "In B, weil 12 größer als 8 ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "12 ist die größere absolute Anzahl. Gruppe B hat aber doppelt so viele Personen."
+              },
+              {
+                "text": "Beide haben denselben Anteil.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Quotienten unterscheiden sich: 0,4 und 0,3."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Eine Darstellung hebt bestimmte Aspekte hervor: <strong>Säulen oder Balken</strong> vergleichen Kategorien; eine <strong>Linie</strong> zeigt einen Verlauf entlang einer geordneten Achse, etwa der Zeit. Ein <strong>Kreisdiagramm oder Prozentstreifen</strong> zeigt Anteile an einem angegebenen Ganzen. Die Kategorien müssen dabei das Ganze vollständig und ohne Doppelzählung aufteilen. Eine aussagekräftige Grafik nennt Datenquelle, Zeitraum, untersuchte Gruppe, Einheit und Skala.</p><div class=\"stat3-card\"><h3>Dieselben Werte, andere Wirkung</h3><p>Erfundene Buchausleihen an zwei gleich langen Öffnungstagen: A = 40, B = 50. Die Differenz beträgt 10 Bücher. Bezogen auf A sind das 10 : 40 = 25 % mehr. In beiden Diagrammen bleiben diese Werte gleich.</p><div class=\"stat3-comparison\"><figure class=\"stat3-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 280\" role=\"img\" aria-labelledby=\"stat3-axis-zero\"><title id=\"stat3-axis-zero\">Erfundene Ausleihen: Tag A 40, Tag B 50. Senkrechte Skala von 0 bis 60 Büchern.</title><rect width=\"360\" height=\"280\" fill=\"white\"/><text x=\"25\" y=\"24\" fill=\"#111827\" font-size=\"16\">Ausgeliehene Bücher</text><path d=\"M50 220H335\" stroke=\"#cbd5e1\"/><text x=\"42\" y=\"225\" text-anchor=\"end\" fill=\"#111827\" font-size=\"15\">0</text><path d=\"M50 140H335\" stroke=\"#cbd5e1\"/><text x=\"42\" y=\"145\" text-anchor=\"end\" fill=\"#111827\" font-size=\"15\">30</text><path d=\"M50 60H335\" stroke=\"#cbd5e1\"/><text x=\"42\" y=\"65\" text-anchor=\"end\" fill=\"#111827\" font-size=\"15\">60</text><path d=\"M50 50V220H335\" fill=\"none\" stroke=\"#111827\"/><rect x=\"90\" y=\"113.33333333333333\" width=\"65\" height=\"106.66666666666667\" fill=\"#2563eb\"/><text x=\"122.5\" y=\"105.33333333333333\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">40</text><text x=\"122.5\" y=\"249\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">Tag A</text><rect x=\"220\" y=\"86.66666666666666\" width=\"65\" height=\"133.33333333333334\" fill=\"#a85517\"/><text x=\"252.5\" y=\"78.66666666666666\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">50</text><text x=\"252.5\" y=\"249\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">Tag B</text></svg><figcaption>Dieselben erfundenen Werte 40 und 50; Achsenbeginn 0. Die Säulen beginnen bei null.</figcaption></figure><figure class=\"stat3-figure\"><svg data-worksheet-static=\"true\" viewBox=\"0 0 360 280\" role=\"img\" aria-labelledby=\"stat3-axis-cut\"><title id=\"stat3-axis-cut\">Erfundene Ausleihen: Tag A 40, Tag B 50. Senkrechte Skala von 30 bis 60 Büchern.</title><rect width=\"360\" height=\"280\" fill=\"white\"/><text x=\"25\" y=\"24\" fill=\"#111827\" font-size=\"16\">Ausgeliehene Bücher</text><path d=\"M50 220H335\" stroke=\"#cbd5e1\"/><text x=\"42\" y=\"225\" text-anchor=\"end\" fill=\"#111827\" font-size=\"15\">30</text><path d=\"M50 140H335\" stroke=\"#cbd5e1\"/><text x=\"42\" y=\"145\" text-anchor=\"end\" fill=\"#111827\" font-size=\"15\">45</text><path d=\"M50 60H335\" stroke=\"#cbd5e1\"/><text x=\"42\" y=\"65\" text-anchor=\"end\" fill=\"#111827\" font-size=\"15\">60</text><path d=\"M50 50V220H335\" fill=\"none\" stroke=\"#111827\"/><rect x=\"90\" y=\"166.66666666666666\" width=\"65\" height=\"53.33333333333334\" fill=\"#2563eb\"/><text x=\"122.5\" y=\"158.66666666666666\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">40</text><text x=\"122.5\" y=\"249\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">Tag A</text><rect x=\"220\" y=\"113.33333333333333\" width=\"65\" height=\"106.66666666666667\" fill=\"#a85517\"/><text x=\"252.5\" y=\"105.33333333333333\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">50</text><text x=\"252.5\" y=\"249\" text-anchor=\"middle\" fill=\"#111827\" font-size=\"16\">Tag B</text></svg><figcaption>Dieselben erfundenen Werte 40 und 50; Achsenbeginn 30. Die sichtbaren Säulen beginnen erst bei 30.</figcaption></figure></div><p>Beginnen Säulen bei 30, sind nur Längen für 40 − 30 = 10 und 50 − 30 = 20 sichtbar. Die zweite Säule wirkt doppelt so hoch. Das ist kein Nachweis für doppelt so viele Ausleihen. Für den Vergleich von Säulenlängen verwende eine Nullbasis; eine abweichende Skala muss deutlich erkennbar sein. Eine verkürzte Achse kann Unterschiede betonen, beweist aber allein noch keine Täuschungsabsicht.</p></div><div class=\"interactive-zone stat3-lab\" data-stat3-axis><h3>Skala verändern, Aussage prüfen</h3><label for=\"stat3-baseline\">Beginn der senkrechten Achse</label><select id=\"stat3-baseline\"><option value=\"0\">0 Bücher</option><option value=\"30\">30 Bücher</option></select><div data-stat3-axis-chart></div><p>Auf kleinen Bildschirmen kannst du die Zeichnung seitlich verschieben; mit der Tastatur fokussierst du sie und verwendest die Pfeiltasten.</p><p data-stat3-axis-result role=\"status\"></p><template data-worksheet-alternative><div class=\"stat3-paper\"><p>Vergleiche die beiden abgedruckten Diagramme. Berechne jeweils die dargestellten Säulenlängen in Einheiten der Achse und ihr Verhältnis. Die tatsächlichen Ausleihzahlen bleiben 40 und 50.</p></div></template></div><p>Auch <strong>unterschiedliche Gruppengrößen</strong> können täuschen: 8 von 20 entsprechen 40 %, 12 von 40 dagegen 30 %. Die größere absolute Anzahl muss nicht den größeren Anteil bedeuten. Ein doppelt so hohes <em>und</em> doppelt so breites Bildsymbol hat vierfache Fläche; es kann eine bloße Verdopplung übertreiben. Fehlende Zeiträume oder ungleichmäßige Messabstände können einen Verlauf ebenfalls verzerren.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst untersuchen und begründen</h3><ol data-stat3-tasks><li>Zeichne die Werte 40 und 50 mit einer gemeinsamen Skala ab null. Berechne Differenz und prozentuelle Änderung. Erkläre die abweichende Wirkung der Skala ab 30.</li><li>Wähle und begründe eine Darstellung für: Lieblingssportarten einer Klasse, stündliche Temperaturmessungen und Anteile eines vollständig aufgeteilten Budgets. Nenne jeweils die nötige Beschriftung.</li><li>Vergleiche 8 von 20 mit 12 von 40. Erstelle zwei gleich lange Prozentstreifen und formuliere eine passende Überschrift. Nenne eine Information, die noch fehlt, bevor du auf alle Jugendlichen schließen könntest.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Diagramme – Aussagen vergleichen</summary><div data-stat3-solution><p>Differenz 10 Bücher, Zunahme 25 %. Mit Nullbasis sind die Säulenlängen im Verhältnis 50 : 40 = 1,25; mit Basis 30 ergeben die sichtbaren Teile 20 : 10 = 2. Nur der Bildvergleich verändert sich.</p><p>Sportarten: Säulen/Balken, sofern jede Person eine Kategorie wählt, mit Anzahl und befragter Gruppe. Temperatur: Linie mit Zeit, Temperatur und Messabständen; Verbindungen zwischen Messungen sind eine Annahme. Budget: Kreis/Prozentstreifen mit Gesamtbetrag und Anteilen, die zusammen 100 % ergeben.</p><p>Gruppe A 40 %, Gruppe B 30 %. Geeignete Überschrift: „Anteil der Personen, die das Angebot wählen“. Für Verallgemeinerungen fehlen beispielsweise Auswahlverfahren, Zeitpunkt und Zusammensetzung der Gruppen.</p></div></details>{{QUIZ_m311_axis_change}}{{QUIZ_m311_axis_picture}}{{QUIZ_m311_compare_groups}}"
+      },
+      {
+        "id": "m311_chance",
+        "title": "5. Wahrscheinlichkeiten einfacher Zufallsversuche",
+        "quizzes": [
+          {
+            "id": "m311_laplace",
+            "question": "Ein fairer sechsseitiger Würfel wird einmal geworfen. Wie groß ist die Wahrscheinlichkeit für eine gerade Augenzahl?",
+            "answers": [
+              {
+                "text": "1/6.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/6 gilt für eine bestimmte Augenzahl. Das Ereignis „gerade“ enthält drei Ergebnisse."
+              },
+              {
+                "text": "3/6 = 1/2.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Von sechs gleich wahrscheinlichen Ergebnissen sind 2, 4 und 6 günstig. Deshalb 3/6 = 1/2."
+              },
+              {
+                "text": "Sicher, weil 2, 4 und 6 möglich sind.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Drei andere Ergebnisse sind ungerade. Möglich bedeutet nicht sicher."
+              }
+            ]
+          },
+          {
+            "id": "m311_bag",
+            "question": "In einem Beutel liegen drei rote und eine blaue gleichartige Kugel. Jede Kugel wird mit derselben Chance gezogen. Wie wahrscheinlich ist Rot?",
+            "answers": [
+              {
+                "text": "1/2, weil es zwei Farben gibt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Farben sind nicht gleich wahrscheinlich: Rot gehört zu drei der vier gleich wahrscheinlichen Kugeln."
+              },
+              {
+                "text": "1/4.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/4 ist die Wahrscheinlichkeit für die einzige blaue Kugel."
+              },
+              {
+                "text": "3/4.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Drei günstige Kugeln von insgesamt vier ergeben 3/4 = 75 %."
+              }
+            ]
+          },
+          {
+            "id": "m311_complement",
+            "question": "Ein fairer sechsseitiger Würfel wird einmal geworfen. Wie wahrscheinlich ist „keine 6“?",
+            "answers": [
+              {
+                "text": "5/6.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Die Ergebnisse 1, 2, 3, 4 und 5 gehören zu diesem Ereignis: 5/6 = 1 − 1/6."
+              },
+              {
+                "text": "1/6.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/6 ist die Wahrscheinlichkeit für eine 6. Gesucht ist das Gegenereignis."
+              },
+              {
+                "text": "0, weil eine 6 möglich ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Dass eine 6 möglich ist, macht die anderen Ergebnisse nicht unmöglich."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Bei einem <strong>Zufallsversuch</strong> sind die möglichen Ergebnisse bekannt, das nächste Ergebnis steht aber nicht fest. Ein <strong>Ereignis</strong> umfasst ein oder mehrere Ergebnisse. Beim einmaligen Würfeln ist „4“ ein Ergebnis; „gerade Augenzahl“ umfasst 2, 4 und 6. Die Menge aller möglichen Ergebnisse ist hier {1, 2, 3, 4, 5, 6}.</p><div class=\"stat3-card\"><h3>Zwischen unmöglich und sicher</h3><p>Wahrscheinlichkeiten liegen zwischen 0 und 1, also zwischen 0 % und 100 %. Bei den hier betrachteten endlichen Modellen mit gleich wahrscheinlichen Ergebnissen ist das leere Ereignis unmöglich (0); das Ereignis mit allen Ergebnissen ist sicher (1). Ein fairer Würfel zeigt sicher eine Zahl von 1 bis 6, aber niemals 7. 1/2 = 50 % bedeutet nicht, dass abwechselnd Treffer und Nichttreffer eintreten.</p><p><strong>Laplace-Modell:</strong> Sind alle einzelnen Ergebnisse gleich wahrscheinlich, gilt P(Ereignis) = Anzahl günstiger Ergebnisse : Anzahl aller möglichen Ergebnisse. Beim fairen Würfel: P(6) = 1/6, P(gerade) = 3/6 = 1/2, P(keine 6) = 5/6. Günstig heißt nur „gehört zum untersuchten Ereignis“.</p></div><table class=\"stat3-table\"><caption>Vier ausdrücklich angenommene Modelle</caption><thead><tr><th>Versuch und Annahme</th><th>Ereignis</th><th>Wahrscheinlichkeit</th></tr></thead><tbody><tr><td data-label=\"Versuch und Annahme\">Fairer Würfel, einmal werfen</td><td data-label=\"Ereignis\">6</td><td data-label=\"Wahrscheinlichkeit\">1/6 ≈ 16,7 %</td></tr><tr><td data-label=\"Versuch und Annahme\">Fairer Würfel, einmal werfen</td><td data-label=\"Ereignis\">Gerade Augenzahl</td><td data-label=\"Wahrscheinlichkeit\">3/6 = 50 %</td></tr><tr><td data-label=\"Versuch und Annahme\">Faire Münze, einmal werfen; nur Kopf/Zahl</td><td data-label=\"Ereignis\">Kopf</td><td data-label=\"Wahrscheinlichkeit\">1/2 = 50 %</td></tr><tr><td data-label=\"Versuch und Annahme\">Vier gleichartige Kugeln, drei rot/eine blau; jede Kugel gleich wahrscheinlich</td><td data-label=\"Ereignis\">Rot</td><td data-label=\"Wahrscheinlichkeit\">3/4 = 75 %</td></tr></tbody></table><p>„Zwei mögliche Farben“ ist kein Grund für 50 % je Farbe. Unterscheide die vier Kugeln gedanklich als R1, R2, R3 und B1. Sie sind die gleich wahrscheinlichen Einzelergebnisse. Bei einer gezinkten Münze oder ungleichen Kugeln darfst du Gleichwahrscheinlichkeit nicht ungeprüft voraussetzen. Dann kann eine ausreichend große Beobachtungsreihe beim Schätzen helfen.</p><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst untersuchen und begründen</h3><ol data-stat3-tasks=\"\"><li>Liste beim fairen Würfel die günstigen Ergebnisse für „größer als 4“, „höchstens 4“ und „7“ auf. Berechne die drei Wahrscheinlichkeiten und vergleiche sie.</li><li>Zeichne die vier Kugeln R1, R2, R3 und B1. Erkläre, warum die beiden Farben keine gleich wahrscheinlichen Einzelergebnisse sind. Wie ändert sich P(Rot), wenn eine weitere blaue Kugel dazugelegt wird?</li><li>Eine faire Münze zeigt viermal Kopf. Beurteile: „Nun muss Zahl kommen.“ Begründe mit dem Modell unabhängiger Würfe und trenne Möglichkeit, Wahrscheinlichkeit und Sicherheit.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Wahrscheinlichkeiten – Modelle vergleichen</summary><div data-stat3-solution=\"\"><p>Größer als 4: {5,6}, also 2/6 = 1/3. Höchstens 4: {1,2,3,4}, also 4/6 = 2/3. 7: keine günstigen Ergebnisse, also 0/6 = 0. Die ersten beiden Ereignisse ergänzen sich zu 1.</p><p>Drei rote Kugeln führen zu Rot, nur eine zu Blau. Mit einer zusätzlichen blauen Kugel sind drei von fünf rot: P(Rot) = 3/5 = 60 %.</p><p>Bei unabhängigen fairen Münzwürfen bleibt P(Zahl) = 1/2. Frühere Ergebnisse erzwingen keinen Ausgleich beim nächsten Wurf. Zahl ist möglich, aber nicht sicher.</p></div></details>{{QUIZ_m311_laplace}}{{QUIZ_m311_bag}}{{QUIZ_m311_complement}}"
+      },
+      {
+        "id": "m311_experiments",
+        "title": "6. Beobachten, simulieren und vorsichtig vorhersagen",
+        "quizzes": [
+          {
+            "id": "m311_empirical",
+            "question": "Bei zwölf Würfen wurde dreimal eine 6 beobachtet. Welche relative Häufigkeit wurde beobachtet?",
+            "answers": [
+              {
+                "text": "1/6, weil der Würfel sechs Seiten hat.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1/6 ist die Modellwahrscheinlichkeit eines fairen Würfels. Gefragt ist der Anteil in dieser konkreten Beobachtungsreihe."
+              },
+              {
+                "text": "3/12 = 25 %.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Drei Treffer bei zwölf Versuchen ergeben 3/12 = 1/4 = 25 %."
+              },
+              {
+                "text": "3 %, weil drei Treffer auftraten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die drei Treffer werden auf zwölf Versuche bezogen, nicht auf hundert."
+              }
+            ]
+          },
+          {
+            "id": "m311_prediction",
+            "question": "Im Modell eines fairen Würfels gilt P(6) = 1/6. Was bedeutet das für 60 unabhängige Würfe?",
+            "answers": [
+              {
+                "text": "Es werden garantiert genau zehn Sechsen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "60 · 1/6 = 10 ist ein Erwartungswert, keine feste Vorgabe für eine einzelne Versuchsreihe."
+              },
+              {
+                "text": "Nach fünf Würfen ohne 6 muss eine 6 kommen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Unabhängige Würfe behalten dieselbe Wahrscheinlichkeit. Vorherige Ergebnisse erzwingen keine 6."
+              },
+              {
+                "text": "Zehn Sechsen sind ein Erwartungswert; die wirkliche Anzahl kann abweichen.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Das Modell sagt einen langfristigen Anteil voraus. Einzelne Reihen können mehr oder weniger als zehn Treffer enthalten."
+              }
+            ]
+          },
+          {
+            "id": "m311_estimate",
+            "question": "Eine unbekannte Münze zeigt bei 20 Würfen 14-mal Kopf. Welche Schlussfolgerung ist gerechtfertigt?",
+            "answers": [
+              {
+                "text": "70 % ist die beobachtete relative Häufigkeit und eine unsichere Schätzung für P(Kopf).",
+                "correct": true,
+                "pts": 0,
+                "feedback": "14 : 20 = 70 %. Die Schätzung kann zufällig schwanken; Versuchsdurchführung und weitere Daten sind relevant."
+              },
+              {
+                "text": "P(Kopf) ist damit exakt 70 % bewiesen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine endliche Beobachtungsreihe beweist die Wahrscheinlichkeit nicht exakt."
+              },
+              {
+                "text": "Die nächsten zehn Würfe müssen sechsmal Zahl zeigen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die bisherigen Würfe schreiben die nächsten Ergebnisse nicht vor."
+              }
+            ]
+          }
+        ],
+        "content": "<p>Die <strong>relative Häufigkeit</strong> ist ein beobachteter Anteil: Treffer : Anzahl der Versuche. Sie kann von der Wahrscheinlichkeit eines Modells abweichen. Bei häufigen unabhängigen Wiederholungen unter gleichen Bedingungen werden große Abweichungen typischerweise seltener. Das bedeutet weder eine gleichmäßige Annäherung bei jedem Schritt noch eine Garantie für die nächste Reihe.</p><p>Bei P(6) = 1/6 sind in 60 Würfen rechnerisch 60 · 1/6 = 10 Sechsen zu erwarten. Genau zehn sind nicht vorgeschrieben. Schätzt du eine unbekannte Wahrscheinlichkeit aus Beobachtungen, benenne Umfang, Bedingungen und Unsicherheit. Eine Simulation zeigt Folgen ihrer eingebauten Annahmen; sie beweist nicht, dass ein wirklicher Würfel fair ist.</p><div class=\"interactive-zone stat3-lab\" data-stat3-chance><h3>Ein Modell oft wiederholen</h3><p>Wähle ein Modell. Notiere zuerst die möglichen Ergebnisse und deine erwartete Wahrscheinlichkeit. Starte mehrere Reihen und vergleiche die beobachteten Anteile. Die Simulation verwendet Pseudozufallszahlen, keine echten Würfe.</p><label for=\"stat3-model\">Versuch und Ereignis</label><select id=\"stat3-model\"><option value=\"six\">Fairer Würfel: eine 6</option><option value=\"even\">Fairer Würfel: gerade Zahl</option><option value=\"coin\">Faire Münze: Kopf</option><option value=\"bag\">Beutel: rote Kugel</option></select><p data-stat3-assumptions></p><div class=\"stat3-actions\"><button type=\"button\" data-stat3-run=\"1\">1 Versuch</button><button type=\"button\" data-stat3-run=\"10\">10 Versuche</button><button type=\"button\" data-stat3-run=\"100\">100 Versuche</button><button type=\"button\" data-stat3-reset>Neue Reihe</button></div><p data-stat3-chance-status role=\"status\" tabindex=\"-1\"></p><div data-stat3-chance-plot></div><p>Auf kleinen Bildschirmen kannst du die Zeichnung seitlich verschieben; mit der Tastatur fokussierst du sie und verwendest die Pfeiltasten.</p><p data-stat3-chance-legend>Blau durchgezogen: beobachteter Anteil. Orange gestrichelt: Modellwahrscheinlichkeit. Die waagrechte Skala wächst mit der Reihe; Verbindungslinien zeigen die Folge der Beobachtungen.</p><div data-stat3-chance-table></div><p>Die Werkstatt verändert keine Lernpunkte. Pro Reihe sind höchstens 1 000 Versuche möglich; mit „Neue Reihe“ beginnst du wieder bei null. Ein Modellwechsel beginnt ebenfalls eine neue Reihe.</p><template data-worksheet-alternative><div class=\"stat3-paper\"><h3>Eine vorgegebene Reihe untersuchen</h3><p>Erfundene Würfelergebnisse: 1, 6, 2, 4, 3, 6, 5, 2, 6, 1, 4, 5. Zähle Sechsen nach 4, 8 und 12 Würfen und berechne jeweils ihre relative Häufigkeit. Vergleiche mit 1/6. Die Aufzählung ist ein Übungsdatensatz, kein Beweis für einen fairen Würfel.</p></div></template></div><div class=\"bio-training-panel\" data-assignment-mode=\"direct\"><h3>Selbst untersuchen und begründen</h3><ol data-stat3-tasks><li>Bearbeite die vorgegebene Reihe: 1, 6, 2, 4, 3, 6, 5, 2, 6, 1, 4, 5. Erstelle eine Tabelle mit Versuchszahl, Trefferzahl und relativem Anteil nach 4, 8 und 12 Würfen. Zeichne diese drei Punkte; markiere 1/6 als Vergleichswert.</li><li>Führe in der Simulation drei neue Reihen mit je 100 Versuchen desselben Modells durch. Notiere jeweils die Trefferzahl und relative Häufigkeit. Vergleiche mit der Modellwahrscheinlichkeit; begründe, warum unterschiedliche Ergebnisse keinen Programmfehler beweisen. Alternativ: wirf einen geeigneten Würfel oder eine Münze und protokolliere deine Beobachtungen.</li><li>Plane einen Versuch mit drei roten und einer blauen gleichartigen Kugel. Beschreibe Mischen, Ziehen ohne Hinsehen, Zurücklegen und Protokollieren. Erkläre, warum sich ohne Zurücklegen die Bedingungen ändern und warum eine kleine Stichprobe keinen sicheren nächsten Treffer liefert.</li></ol></div><details data-worksheet-solution=\"true\"><summary>Versuchsreihen – Beobachtung und Modell trennen</summary><div data-stat3-solution><p>Nach 4 Würfen: eine 6, Anteil 1/4 = 25 %. Nach 8: zwei Sechsen, 2/8 = 25 %. Nach 12: drei Sechsen, 3/12 = 25 %. Die Modellwahrscheinlichkeit 1/6 ≈ 16,7 % bleibt davon verschieden. Aus dieser kurzen Reihe folgt weder eine bestimmte nächste Augenzahl noch die exakte Wahrscheinlichkeit eines unbekannten Würfels.</p><p>Bei 100 simulierten Versuchen sind die rechnerischen Erwartungswerte je nach Modell 100/6 ≈ 16,7; 50; 50 oder 75 Treffer. Erwartungswerte müssen nicht ganzzahlig sein; tatsächliche Trefferzahlen sind ganzzahlig. Verschiedene Reihen dürfen verschieden ausfallen. Die relative Häufigkeit muss sich nicht mit jedem Versuch dem Modellwert nähern.</p><p>Beutelversuch: gleiche Form/Größe der Kugeln, gründlich mischen, ohne Hinsehen ziehen, Farbe notieren, Kugel zurücklegen und erneut mischen. So bleibt die Zusammensetzung gleich. Ohne Zurücklegen hängen die späteren Chancen von den bereits gezogenen Kugeln ab; das ist ein anderes Modell.</p></div></details>{{QUIZ_m311_empirical}}{{QUIZ_m311_prediction}}{{QUIZ_m311_estimate}}"
       }
     ],
     "diplom": {
@@ -28381,19 +28618,32 @@
       ]
     },
     "prerequisites": [
-      "math2_8_statistik"
+      "math2_8_statistik",
+      "math2_9_relative_haeufigkeit"
     ],
     "learningGoals": [
       "Daten aus einem beschrifteten Säulendiagramm lesen.",
       "Arithmetischen Mittelwert und Maximum bestimmen.",
       "Säulen- und Liniendiagramme nach ihrer Aussage unterscheiden.",
-      "Datenreihen mit gleichem Mittelwert vergleichen und Nullwerte von fehlenden Beobachtungen unterscheiden."
+      "Datenreihen mit gleichem Mittelwert vergleichen und Nullwerte von fehlenden Beobachtungen unterscheiden.",
+      "Diagrammformen auswählen, Skalen und Bezugsgrößen prüfen und irreführende Darstellungen erkennen.",
+      "Wahrscheinlichkeiten einstufiger Laplace-Versuche mit günstigen und möglichen Ergebnissen berechnen.",
+      "Beobachtete relative Häufigkeiten von Modellwahrscheinlichkeiten unterscheiden und Schätzungen begrenzen."
     ],
     "summary": [
       "Diagramme brauchen Angaben zu dargestellter Größe, Einheiten und Skala.",
       "Mittelwert = Summe : Anzahl; das Maximum ist der größte beobachtete Wert.",
       "Der Mittelwert ist ein rechnerischer Ausgleich und muss nicht selbst vorkommen. Ein Liniendiagramm kann Veränderungen über eine geordnete Zeitachse zeigen.",
-      "Gleicher Mittelwert bedeutet nicht gleiche Einzelwerte. Die Spannweite ist Maximum minus Minimum; fehlende Beobachtungen sind keine Nullwerte."
+      "Gleicher Mittelwert bedeutet nicht gleiche Einzelwerte. Die Spannweite ist Maximum minus Minimum; fehlende Beobachtungen sind keine Nullwerte.",
+      "Darstellungen verändern die Wirkung, nicht die Daten. Prüfe Nullbasis, Gruppengröße, Zeitraum und Einheit.",
+      "Nur bei gleich wahrscheinlichen Einzelergebnissen gilt: Wahrscheinlichkeit = günstige : mögliche Ergebnisse.",
+      "Relative Häufigkeit beschreibt beobachtete Treffer. Modellwahrscheinlichkeit ist keine Garantie für die nächste Versuchsreihe."
+    ],
+    "sources": [
+      {
+        "title": "RIS: Mittelschullehrplan, Anlage 1 – Mathematik, 3. Klasse, Daten und Zufall",
+        "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html"
+      }
     ]
   },
   "math4_1_reelle_zahlen": {

@@ -3,10 +3,10 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
 (async()=>{
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));
- await w.renderTopic();w.eval(read('js/topics/'+id+'.js'));w.topicInit();w.topicInit();assert.equal(w.currentChapterQuiz.questions.length,7);
+ await w.renderTopic();w.eval(read('js/topics/'+id+'.js'));w.topicInit();w.topicInit();assert.equal(w.currentChapterQuiz.questions.length,16);
  let paths=0;for(const [i,q]of w.currentChapterQuiz.questions.entries())if(['m311_zero','m311_equal'].includes(q.id))for(let a=0;a<q.answers.length;a++){
   assert.equal(q.sectionIndex,2);w.currentChapterQuiz.questions.forEach((item,j)=>d.querySelector(`input[name="chapter_q_${j}"][value="${j===i?a:item.answers.findIndex(x=>x.correct)}"]`).checked=true);
-  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[a].correct?100:86);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
+  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[a].correct?100:94);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
  }assert.equal(paths,6);assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);
  const rows=[...d.querySelectorAll('[data-mean-comparison] tbody tr')];assert.equal(rows.length,3);
  const values=[1,2].map(i=>rows.map(r=>Number(r.cells[i].textContent)));assert.deepEqual(values.map(v=>v.reduce((a,b)=>a+b,0)/v.length),[4,4]);assert.deepEqual(values.map(v=>Math.max(...v)-Math.min(...v)),[4,12]);assert.equal(values[1].includes(4),false);

@@ -1168,7 +1168,7 @@ window.SCIVERSE_CURRICULUM = {
       },
       {
         "id": "math3_11_statistik",
-        "title": "📊 Statistik",
+        "title": "📊 Statistik und Wahrscheinlichkeit",
         "grade": "3. Klasse (7. Schulstufe)",
         "category": "Statistik"
       },

@@ -1,0 +1,26 @@
+# Ähnlichkeit, zentrische Streckung und Maßstab
+
+Stand 21.09.2026, Kapitel `math3_7_aehnlichkeit`, 3. Klasse / 7. Schulstufe, Revision 2. Der inhaltliche Ausbau wurde im angeforderten Zwischenstand `7911f29` gesichert. Die nachfolgenden Darstellungs- und Druckverbesserungen sind lokal, noch nicht erneut gepusht.
+
+## Inhalt und Lerngelegenheiten
+
+Das bisherige Kapitel behandelte ähnliche Rechtecke, Maßstabsrechnungen und einen selbst zu zeichnenden Raumplan. Ergänzt wurden Konstruktionen mit positivem Streckfaktor, das Verhältnis von Längen- und Flächenfaktor sowie das WW-Kriterium mit Zuordnung entsprechender Dreiecksseiten. Grundlage für die konkret festgestellten Lücken war die bereits gespeicherte RIS-Fassung vom 16.09.2026, deren Mathematik-Präzisierung für die dritte Klasse gelesen wurde; kein erneuter Abruf der Rechtsquelle behauptet.
+
+Sechs Abschnitte enthalten nun elf bewertete Fragen, neun zusätzliche direkte Aufgaben, eine angeleitete Papierkonstruktion, eine statische Koordinatenzeichnung und drei neue Vergleichslösungen. Die bisherige Raumplanlösung lässt sich ebenfalls getrennt drucken. Die optionale Vertiefung zu ähnlichen Körpern erklärt den Volumenfaktor k³; sie ist nicht Teil der neuen bewerteten Fragen.
+
+Die Werkstatt kombiniert Dreieck/Rechteck, drei Zentren und vier Faktoren zu 24 Fällen. Lernende berechnen zuerst den Bildpunkt A′ oder lassen sich die Konstruktion zum Vergleichen zeigen. Dezimalkomma, Dezimalpunkt, Null und negative Koordinaten sind möglich. Ausgangs- und Bildpunkte, Längenfaktor und Flächenfaktor werden anschließend angezeigt. Die Prüfung bewertet nur den eingegebenen Punkt, nicht die gesamte selbst gezeichnete Konstruktion. Die Zeichnung hat keinen Zentimetermaßstab am Bildschirm; die Papieraufträge verlangen ein eigenes Koordinatensystem.
+
+## Ergebnisse der Prüfung und Korrekturen
+
+- Native Browserprüfung vom 21.09.2026, 12:12:20 UTC, Chromium 151.0.7922.34: alle 24 richtigen und falschen Koordinateneingaben, ungültige Eingaben, Enter, Fokus, Zurücksetzen, freie Lösungseinblendung und unveränderter Lernspeicher geprüft. Die tatsächlich gezeichneten Bildpunkte wurden mit unabhängig berechneten Koordinaten verglichen; Polygonflächen erfüllen den Faktor k².
+- 144 Kombinationen aus Figur, Zentrum, Faktor, 320/390/1280 Pixel Breite und hellem/dunklem Farbschema auf Seitenüberlauf und Beschriftungsgrenzen geprüft. Alle 33 Antwortwege der elf Kapitelquizfragen ergaben die erwarteten 100 bzw. 91 Prozent, passende Wiederholungs-IDs und Rückmeldungen. Keine Browserfehler.
+- Die anschließende Sichtprüfung zeigte eine am Handy verdeckte Tabellenspalte. Die Koordinaten erscheinen dort jetzt als beschriftete Karten. Ergänzend 18 endgültige Tabellenansichten geprüft; sechs hochauflösende mobile Tabellenbilder in beiden Farbschemata gelesen. Die Zeichnung bleibt seitlich verschiebbar und ist per Tastatur erreichbar; ihre Größe am Desktop ist begrenzt.
+- Einzelne Beschriftungshintergründe verdeckten Eckpunkte. Die Platzierung berücksichtigt jetzt sämtliche Punkte und bereits gesetzte Beschriftungen; weiter entfernte Beschriftungen erhalten bei Bedarf eine Verbindungslinie. Alle 24 endgültigen Zustände im Browser ohne überdeckte Punkte und ohne überlappende Beschriftungsfelder geprüft. Sechs vollständige endgültige Konstruktionsbilder gelesen, zusätzlich die statische Zeichnung und den bisherigen Figurenvergleich in beiden Farbschemata.
+- Die bisherigen generierten Druckaufgaben waren nur als „Strahlensätze“ bezeichnet und erklärten weder Zuordnung noch Einheiten. Sie geben jetzt ähnliche Figuren und die Zuordnung a↔a′, b↔b′ ausdrücklich an, verwenden Zentimeter und verlangen Faktor, Seitenlänge und Probe. Der Generator verwendet Faktoren aus 0,5; 1; 1,5; 2; 3. Sechs passende Lösungen mit Rechenweg werden gemeinsam mit den übrigen Lösungen optional gedruckt.
+- Endgültige Druckfassung vom 12:17:13 UTC: alle 18 A4-Seiten gelesen. Enthält sechs Zusatzrechnungen mit den zugehörigen Lösungen, elf Verständnisfragen, Konstruktion, neun neue direkte Aufgaben und vier Vergleichslösungen. Keine abgeschnittenen Inhalte oder überlagerten Diagramme festgestellt. Spätere Änderungen betreffen ausschließlich die Online-Beschriftung. Die lokale Vorschauadresse im internen Prüfdokument ist kein veröffentlichtes Unterrichtsmaterial.
+
+## Reproduzierbare Nachweise und Grenzen
+
+`scripts/test_similarity_scale.js` prüft 33 Antwortwege, 24 Streckungen, Eingaben/Fokus/Reset, veraltete Revisionen, den bisherigen Figurenvergleich, nicht überdeckte Eckpunkte, 30 generierte Rechnungen und die getrennte Druckfreigabe von sechs Lösungen. `scripts/browser_similarity.js` enthält die native Prüfung einschließlich Geometrie, 144 Layoutfällen, 33 Antwortwegen und PDF-Ausgabe. Zusätzliche lokale Darstellungsberichte liegen im Arbeitsverzeichnis `browser-qa/similarity` außerhalb des Repositorys.
+
+Die gemeinsamen Prüfungen für 95 Mathematik-/Chemie-/Biologie-Arbeitsblätter, die allgemeine Arbeitsblattprüfung, Mathematik-Zugänglichkeitsindikatoren und Syntax aller 106 Themenskripte bestanden. Kein vollständiger neuer Suitenlauf und keine Prüfung mit echten Screenreadern oder Schüler:innen. Die Änderungen schließen die hier beschriebenen Lücken; die vollständige Mathematik- und Produktabnahme sowie die übrige Facharbeit bleiben offen. Übersetzungen bleiben zurückgestellt.

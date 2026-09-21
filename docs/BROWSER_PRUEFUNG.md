@@ -355,3 +355,11 @@ Browserbericht 11:36:07 UTC: 21 Konstruktionszustände, 54 Layoutfälle und 42 b
 ## 21.09.2026 – Mathematik: Körperdarstellung und Masse
 
 Browserbericht 11:51:12 UTC: 27 Massenfälle, 18 Layoutkombinationen, 39 bewertete Antwortwege und Tastatur-/Speicherprüfung bestanden, keine Browserfehler. Nach Sichtbefund Höhenlabel, Eingabedarstellung und Netzgröße korrigiert; sechs ergänzende Layouts mit Pfeiltasten-Scrollen um 11:52:04 UTC geprüft. Alle 18 Druckseiten dieser Fassung gelesen. Netzbreitenbeschriftungen anschließend ohne Kantenüberlagerung in allen drei Flächenauswahlen geprüft (11:54:11 UTC); das betrifft nur die Bildschirmzeichnung. [Details und Grenzen](MATHEMATIK_KOERPER_MASSE.md).
+
+## 21.09.2026 – Ähnlichkeit und Maßstab
+
+Chromium 151.0.7922.34: 24 Streckungsfälle mit richtigen/falschen/ungültigen Eingaben, unabhängigen Bildkoordinaten und Flächenverhältnissen; 144 Layoutfälle, Tastaturbedienung und 33 Kapitelquiz-Antwortwege bestanden. Danach mobile Koordinatentabelle und Punktbeschriftungen anhand der Sichtprüfung verbessert. 18 endgültige Tabellenansichten und 24 endgültige Beschriftungszustände ohne verdeckte Punkte oder überlappende Beschriftungsfelder geprüft; sechs mobile Tabellenbilder und sechs vollständige Konstruktionsbilder gelesen. Die statische Konstruktion und der bestehende Figurenvergleich wurden in beiden Farbschemata kontrolliert. Alle 18 Seiten der endgültigen Druckfassung einschließlich sechs erklärter Zusatzaufgaben und Lösungen geprüft. [Detaillierte Nachweise und verbleibende Grenzen](MATHEMATIK_AEHNLICHKEIT.md). Keine vollständige neue Produktabnahme, keine erneute Veröffentlichung.
+
+## 21.09.2026 – Statistik und Wahrscheinlichkeit, dritte Klasse
+
+Chromium 151.0.7922.34: zwölf kontrollierte Versuchsgruppen, 24 Modell- und zwölf Skalenansichten, Tastatur, unveränderter Speicher und 43 bewertete Antwortwege bestanden. Zwölf mobile Ansichten tatsächlich gelesen. Eine mitscrollende Legende korrigiert; 24 endgültige Ansichten, zwei Legenden und sechs vollständige Diagrammdetails zusätzlich geprüft. Alle 21 endgültigen Druckseiten einschließlich nebeneinander stehender Skalenvergleiche und zugehöriger Aufgabenlösungen kontrolliert. [Umfang, Zeitpunkte und Grenzen](MATHEMATIK_DATEN_ZUFALL_KLASSE3.md). Keine neue Veröffentlichung oder vollständige Produktabnahme.
