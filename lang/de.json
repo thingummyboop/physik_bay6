@@ -11308,176 +11308,324 @@
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Einstieg: Verstehen und ausprobieren",
+        "title": "1. Software passend auswählen und bedienen",
+        "content": "<p>Ein passendes Programm hilft bei einer bestimmten Aufgabe. Vergleiche <strong>Funktionen, Bedienbarkeit, Dateiformate und Rechte</strong>, statt nur das vertrauteste Symbol zu wählen. Alle Personen, Anmeldungen, Angebote und Spielregeln dieses Kapitels sind erfundene Unterrichtsmaterialien.</p>\n<h3>Zwei Arbeitsprodukte für einen Tüftelnachmittag</h3><p>Auftrag A: eine lesbare Einladung mit Titel, Termin und Ort. Auftrag B: eine Liste von Anmeldungen mit einer Gesamtzahl, die sich bei geänderten Eingaben neu berechnet. Ein Textprogramm ist für A naheliegend, eine Tabellenkalkulation für B. Manche Programme können beides; entscheidend ist, ob du das benötigte Ergebnis erstellen und prüfen kannst.</p>\n<table class=\"word-rubric\" data-choice-data><caption>Erfundene Anmeldungen – jedes Kind wählt genau einen Workshop</caption><thead><tr><th scope=\"col\">Workshop</th><th scope=\"col\">Anmeldungen</th></tr></thead><tbody><tr><th scope=\"row\">Zeichnen</th><td>6</td></tr><tr><th scope=\"row\">Bauen</th><td>4</td></tr><tr><th scope=\"row\">Forschen</th><td>8</td></tr></tbody></table>\n<p><strong>Freie Software</strong> erlaubt Nutzung für jeden Zweck, das Untersuchen und Verändern des Programms sowie die Weitergabe von Original und Änderungen. Dazu ist der Quellcode zugänglich. „Frei“ bezeichnet diese Freiheiten, „gratis“ den Preis. Lizenzbedingungen sind trotzdem einzuhalten. <a href=\"https://fsfe.org/freesoftware/freesoftware.de.html\">FSFE: die vier Freiheiten</a>.</p>\n<p><strong>Praktisches Beispiel:</strong> LibreOffice ist freie Software und enthält unter anderem Writer für Texte und Calc für Tabellen. Verwendet die schulisch bereitgestellte Installation oder ein anderes freigegebenes Werkzeug. Ihr braucht kein privates Konto und installiert nichts auf verwalteten Geräten. <a href=\"https://www.libreoffice.org/licenses/\">LibreOffice: Lizenzinformationen</a>.</p>\n<div class=\"interactive-zone evidence-workshop\" data-core-experiment=\"boundary-cases\" data-choice-lab=\"software\" data-boundary-prompt=\"Lies den Fall. Wähle eine begründete Entscheidung.\"><h3>Werkzeug und Freiheiten begründen</h3><label for=\"choice-software\">Fall auswählen</label><select id=\"choice-software\" data-boundary-control aria-describedby=\"choice-software-result\"><option value=\"0\">W1: Eine Summe soll mitwachsen</option><option value=\"1\">W2: Kostenlos ist nicht dieselbe Aussage wie frei</option></select><div data-boundary-case><h4>W1: Eine Summe soll mitwachsen</h4><p>Für einen erfundenen Tüftelnachmittag liegen 6 Anmeldungen für Zeichnen, 4 für Bauen und 8 für Forschen vor. Später ändert sich Bauen auf 7. Gesucht ist eine beschriftete Liste, deren Gesamtzahl nach einer Änderung automatisch neu berechnet wird.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: Ein Bild kennt die Zahlen in der Liste nicht. Eine Änderung der Anmeldungen berechnet es nicht neu.\" aria-describedby=\"choice-software-result\">Eine Gesamtzahl als Bild in einen Text einfügen; sie ändert sich dann mit den Anmeldungen.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Richtig: Zellbezüge verknüpfen Eingabewerte und Rechnung. Prüfe zuerst 18 und nach der Änderung 21, statt nur eine Formel einzugeben.\" aria-describedby=\"choice-software-result\">Eine Tabellenkalkulation mit einer Summenformel über die drei Zahlenzellen verwenden und die Änderung prüfen.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Noch nicht: Das kann die erste Gesamtzahl korrekt festhalten. Der verlangte automatische Zusammenhang fehlt aber.\" aria-describedby=\"choice-software-result\">Die Gesamtzahl einmal mit der Hand ausrechnen und als festen Text speichern.</button></div></div><div data-boundary-case hidden><h4>W2: Kostenlos ist nicht dieselbe Aussage wie frei</h4><p>Zwei erfundene Softwarebeschreibungen: A kostet nichts, erlaubt aber weder das Untersuchen und Ändern des Quellcodes noch das Weitergeben. B kostet 12 Euro; der Quellcode ist verfügbar, Nutzung für jeden Zweck, Untersuchung, Änderung und Weitergabe auch geänderter Fassungen sind erlaubt. Beurteile die beschriebenen Freiheiten, ohne etwas zu kaufen.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: Ein Preis von null sagt nichts über die eingeräumten Freiheiten aus. In A fehlen ausdrücklich mehrere davon.\" aria-describedby=\"choice-software-result\">A ist freie Software, weil der Download keinen Geldbetrag kostet.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Der Preis entscheidet nicht darüber, ob man die Software untersuchen, verändern und weitergeben darf.\" aria-describedby=\"choice-software-result\">B kann keine freie Software sein, weil dafür ein Preis genannt wird.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Richtig: Rechte und Preis sind getrennte Merkmale. Bei echten Produkten prüfst du die tatsächliche Lizenz und den Zugang zum Quellcode.\" aria-describedby=\"choice-software-result\">B beschreibt die nötigen Freiheiten; A ist zwar gratis, erfüllt diese Beschreibung freier Software aber nicht.</button></div></div><p id=\"choice-software-result\" data-boundary-result role=\"status\" aria-live=\"polite\"></p><button type=\"button\" data-boundary-reset>Zum ersten Fall</button><template data-worksheet-alternative><div data-choice-paper=\"software\"><div class=\"ai-paper-case\"><h4>W1: Eine Summe soll mitwachsen</h4><p>Für einen erfundenen Tüftelnachmittag liegen 6 Anmeldungen für Zeichnen, 4 für Bauen und 8 für Forschen vor. Später ändert sich Bauen auf 7. Gesucht ist eine beschriftete Liste, deren Gesamtzahl nach einer Änderung automatisch neu berechnet wird.</p><ol><li>Eine Gesamtzahl als Bild in einen Text einfügen; sie ändert sich dann mit den Anmeldungen.</li><li>Eine Tabellenkalkulation mit einer Summenformel über die drei Zahlenzellen verwenden und die Änderung prüfen.</li><li>Die Gesamtzahl einmal mit der Hand ausrechnen und als festen Text speichern.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div><div class=\"ai-paper-case\"><h4>W2: Kostenlos ist nicht dieselbe Aussage wie frei</h4><p>Zwei erfundene Softwarebeschreibungen: A kostet nichts, erlaubt aber weder das Untersuchen und Ändern des Quellcodes noch das Weitergeben. B kostet 12 Euro; der Quellcode ist verfügbar, Nutzung für jeden Zweck, Untersuchung, Änderung und Weitergabe auch geänderter Fassungen sind erlaubt. Beurteile die beschriebenen Freiheiten, ohne etwas zu kaufen.</p><ol><li>A ist freie Software, weil der Download keinen Geldbetrag kostet.</li><li>B kann keine freie Software sein, weil dafür ein Preis genannt wird.</li><li>B beschreibt die nötigen Freiheiten; A ist zwar gratis, erfüllt diese Beschreibung freier Software aber nicht.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div></div></template></div>\n<ol data-choice-tasks=\"software\"><li><strong>Vorbereiten:</strong> Berechne die Gesamtzahl zuerst selbst. Lade die <a href=\"../examples/werkzeugwahl-anmeldungen.csv\" download=\"werkzeugwahl-anmeldungen.csv\" data-choice-download>CSV-Datei mit den Übungsdaten</a> herunter oder übertrage die Tabelle. Notiere für beide Aufträge, welche Funktion du brauchst und weshalb dein gewähltes Werkzeug passt.</li><li><strong>Calc bedienen:</strong> Öffne die CSV-Datei in Calc. Wähle beim Textimport gegebenenfalls UTF-8 und das Semikolon als Trennzeichen. Prüfe vor dem Fortfahren: Überschriften in A1/B1, die drei Zahlen in B2 bis B4. Schreibe in A5 „Gesamt“ und in B5 <code>=B2+B3+B4</code>. Bestätige mit Enter und vergleiche das Ergebnis mit deiner Vorhersage. Eine Formel beginnt mit <code>=</code>.</li><li><strong>Änderung prüfen:</strong> Sage die neue Summe voraus, wenn Bauen von 4 auf 7 steigt. Ändere B3 auf 7 und kontrolliere B5. Speichere als <code>anmeldungen.ods</code>, schließe und öffne diese Datei erneut. Prüfe die Zahl und klicke B5 an: Die Formel muss erhalten sein. CSV speichert keine vollständige Arbeitsmappe mit allen Funktionen und Formatierungen.</li><li><strong>Writer bedienen:</strong> Erstelle ein neues Textdokument mit dem Titel „Tüftelnachmittag“ und dem erfundenen Text „12. Juni 2030, 14:00 Uhr, Werkraum 12. Bringe Papier und einen Stift mit.“ Verwende für den Titel eine Überschriftvorlage. Speichere als <code>einladung.odt</code>, öffne erneut und prüfe Termin und Ort. Ändere den Ort auf Raum 14, speichere und kontrolliere erneut.</li><li><strong>Vergleichen:</strong> Gib beide tatsächlich geöffneten Dateien ab. Notiere je Programm: Aufgabe, verwendete Funktion, beobachtetes Ergebnis und eine Grenze. Zeige, wo du in LibreOffice Lizenzinformationen findest oder öffne die oben verlinkte Herstellerseite. Bei einem anderen Schulprogramm dokumentiere dessen tatsächliche Funktionen und Lizenzangaben; ein anderer Name allein belegt keine gleichen Freiheiten.</li></ol><p data-choice-offline><strong>Ohne passende Programme:</strong> Plane die Schritte auf Papier und berechne die Werte. Kennzeichne das Bedienen, Speichern und erneute Öffnen als „noch nicht ausgeführt“. Eine Bildschirmabbildung ersetzt die eigene bearbeitbare Datei nicht.</p>\n<details data-worksheet-solution=\"true\"><summary>Vergleiche nach deinem Versuch</summary><div data-choice-solution=\"software\"><p><strong>W1: Eine Summe soll mitwachsen:</strong> Vorschlag 2. Zellbezüge verknüpfen Eingabewerte und Rechnung. Prüfe zuerst 18 und nach der Änderung 21, statt nur eine Formel einzugeben.</p><p><strong>W2: Kostenlos ist nicht dieselbe Aussage wie frei:</strong> Vorschlag 3. Rechte und Preis sind getrennte Merkmale. Bei echten Produkten prüfst du die tatsächliche Lizenz und den Zugang zum Quellcode.</p><p>Original: 6 + 4 + 8 = 18. Nach der Änderung: 6 + 7 + 8 = 21. Bei einer festen Zahl 18 fehlt der automatische Zusammenhang. Die Formelleiste und die erneut geöffnete ODS-Datei helfen, Formel und Speicherung zu prüfen. Die Einladung muss nach ihrer Änderung Raum 14 statt Raum 12 nennen. Die Programme lösen unterschiedliche Aufgaben; auch eine Texttabelle kann Zahlen zeigen, berechnet sie aber nicht allein durch ihr Aussehen.</p></div></details>\n<p>Hilfe: <a href=\"https://help.libreoffice.org/latest/de/text/scalc/guide/formulas.html\">LibreOffice: Rechnen mit Formeln</a>. Andere Programme können andere Dialoge und Dateiformate verwenden.</p>{{QUIZ_dgb6_orientierung_q1}}{{QUIZ_dgb6_choice_free}}{{QUIZ_dgb6_orientierung_p1}}",
         "quizzes": [
           {
             "id": "dgb6_orientierung_q1",
-            "question": "Was bedeutet Barrierefreiheit?",
+            "question": "Die Gesamtzahl der Workshop-Anmeldungen soll nach einer Änderung automatisch stimmen. Welches Vorgehen passt?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "möglichst viele Menschen können ein Angebot gut nutzen",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Barrierefreiheit macht Nutzung leichter."
-              },
-              {
-                "text": "eine Webseite hat viele Sperren",
+                "text": "Die Summe einmal berechnen und als unveränderliche Zahl in einem Text speichern.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Sperren sind nicht gemeint."
+                "feedback": "Eine feste Zahl aktualisiert sich nicht aus den Ausgangswerten."
+              },
+              {
+                "text": "Zahlen in Zellen erfassen, eine Summenformel einsetzen und Original sowie Änderung prüfen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Formel verbindet die Eingaben mit dem Ergebnis; der Vergleich mit Vorhersagen prüft die tatsächliche Wirkung."
+              },
+              {
+                "text": "Die drei Zahlen in eine Texttabelle schreiben; die gemeinsame Spalte sorgt von selbst für die Summe.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Tabelle ordnet Werte. Eine Berechnung braucht zusätzlich eine passende Formel oder Rechenfunktion."
+              }
+            ]
+          },
+          {
+            "id": "dgb6_choice_free",
+            "question": "Woran erkennst du freie Software?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Daran, dass für den Download nichts bezahlt werden muss.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gratis beschreibt den Preis und sagt nicht, welche Änderungen oder Weitergaben erlaubt sind."
+              },
+              {
+                "text": "Daran, dass die Oberfläche ohne Anmeldung sichtbar ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein offener Startbildschirm beschreibt einen Zugang, nicht die Rechte an der Software."
+              },
+              {
+                "text": "An den eingeräumten Freiheiten zum Nutzen, Untersuchen, Ändern und Weitergeben; der Quellcode muss dafür zugänglich sein.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Entscheidend sind die Freiheiten und die tatsächlichen Lizenzbedingungen. Ein Preis allein entscheidet das nicht."
               }
             ]
           },
           {
             "id": "dgb6_orientierung_p1",
-            "question": "Warum ist Technik nicht neutral?",
+            "question": "Deine Tabelle zeigt nach einer Änderung weiter die alte Summe. Was prüfst du zuerst?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "weil Menschen Gestaltung und Ziele festlegen",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Angebote werden von Menschen oder Firmen gestaltet."
-              },
-              {
-                "text": "weil alle Geräte immer gleich entscheiden",
+                "text": "Nur die sichtbare Summe direkt auf 21 ändern, ohne ihre Berechnung zu prüfen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Geräte und Angebote unterscheiden sich stark."
+                "feedback": "Damit kann die Anzeige für diesen einen Fall stimmen. Eine nächste Änderung der Ausgangswerte würde weiterhin nicht automatisch berücksichtigt."
+              },
+              {
+                "text": "Ob die Summe eine Formel ist und ob deren Zellbezüge die geänderte Zelle einschließen.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Richtig: Eine feste Zahl oder ein unpassender Bereich kann erklären, weshalb das Ergebnis unverändert bleibt."
+              },
+              {
+                "text": "Die Spalte breiter machen, damit der Formelbereich automatisch alle drei Zeilen einschließt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Spaltenbreite verändert die Darstellung. Welche Zellen gerechnet werden, bestimmen die Bezüge in der Formel."
               }
             ]
           }
-        ],
-        "content": "\n<div class=\"word-workshop dgb-workshop\">\n  <div class=\"lesson-goals\"><strong>Das kannst du nach dieser Werkstatt:</strong><ul class=\"step-list\"><li>du vergleichst digitale Werkzeuge nach Aufgabe</li><li>du erkennst einfache Merkmale von Barrierefreiheit</li><li>du fragst, welche Interessen hinter Medienangeboten stehen</li></ul></div>\n  <p>Digitale Angebote sind gestaltet. Jemand entscheidet, wie eine App aussieht, welche Kn&ouml;pfe gro&szlig; sind und welche Inhalte du zuerst siehst.</p>\n  <p>Darum ist Technik nicht neutral. Ein Angebot kann helfen, ablenken, Geld verdienen oder manche Menschen ausschlie&szlig;en. Du lernst, genauer hinzusehen.</p>\n  <div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Aufgabe</strong><br>Was soll erledigt werden: schreiben, rechnen, zeichnen, suchen, teilen?</div><div class=\"word-ui-card\"><strong>Werkzeugwahl</strong><br>Das passende Programm ist wichtiger als das bekannte Programm.</div><div class=\"word-ui-card\"><strong>Barrierefreiheit</strong><br>Menschen mit verschiedenen Bed&uuml;rfnissen k&ouml;nnen es nutzen.</div><div class=\"word-ui-card\"><strong>Interesse</strong><br>Frage: Wer verdient, wer entscheidet, wer profitiert?</div></div>\n  <div class=\"remember-box\"><strong>Merksatz:</strong> Ein gutes digitales Werkzeug passt zur Aufgabe und ist f&uuml;r m&ouml;glichst viele Menschen gut nutzbar.</div>\n  <div class=\"word-task-card\"><h3>Mini-Aufgabe 1: Zwei Werkzeuge vergleichen</h3><ol class=\"word-mini-steps\"><li>W&auml;hle eine Aufgabe, zum Beispiel: ein Lernplakat erstellen.</li><li>Vergleiche zwei Programme oder Webseiten.</li><li>Pr&uuml;fe: Ist die Schrift gut lesbar? Sind Kn&ouml;pfe verst&auml;ndlich? Kann man Fehler leicht verbessern?</li><li>Entscheide, welches Werkzeug besser passt, und begr&uuml;nde in drei S&auml;tzen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Deine Entscheidung nennt nicht nur deinen Geschmack, sondern konkrete Gr&uuml;nde wie Lesbarkeit, Bedienung und Aufgabe.</div></div>\n  <div class=\"word-path\"><span>lesen</span><b class=\"arrow\">&gt;</b><span>ausprobieren</span><b class=\"arrow\">&gt;</b><span>kontrollieren</span><b class=\"arrow\">&gt;</b><span>verbessern</span></div>\n</div>\n{{QUIZ_dgb6_orientierung_q1}}\n{{QUIZ_dgb6_orientierung_p1}}"
+        ]
       },
       {
         "id": "sec2",
-        "title": "2. Fachw&ouml;rter und Beispiele",
+        "title": "2. Laden und Onlineshop nach Bedarf vergleichen",
+        "content": "<p>Beim Einkauf ändern digitale Angebote unter anderem die Suche, den Vergleich, die Bestellung und die Werbung. Der Gegenstand selbst bleibt häufig körperlich. Auch ein Laden kann digitale Warenverwaltung nutzen: Wir vergleichen hier den <strong>Einkaufsweg</strong>, nicht „Technik vorhanden“ gegen „keine Technik“.</p>\n<div class=\"word-check-card\" data-choice-shop><h3>Was zählt für den Bedarf?</h3><p>Gesamtbetrag, Zeitpunkt, passende Eigenschaften, Erreichbarkeit und benötigte Daten. Eine Hervorhebung kann Aufmerksamkeit lenken, ohne eine bessere Eignung zu belegen. Die folgenden Angebote sind erfunden; die Preise sind keine aktuellen Wiener Marktpreise und es wird nichts bestellt.</p></div>\n<div class=\"interactive-zone evidence-workshop\" data-core-experiment=\"boundary-cases\" data-choice-lab=\"shopping\" data-boundary-prompt=\"Lies den Fall. Wähle eine begründete Entscheidung.\"><h3>Laden, Onlineshop und Hervorhebung vergleichen</h3><label for=\"choice-shopping\">Fall auswählen</label><select id=\"choice-shopping\" data-boundary-control aria-describedby=\"choice-shopping-result\"><option value=\"0\">E1: Eine Mappe für morgen</option><option value=\"1\">E2: Die hervorgehobene Empfehlung</option></select><div data-boundary-case><h4>E1: Eine Mappe für morgen</h4><p>Erfundene Angebote für dieselbe Mappe: Der Laden verlangt 3,50 Euro; die Mappe ist heute vorrätig und der Weg dauert 15 Minuten zu Fuß. Im Onlineshop kostet sie 2,80 Euro plus 2,90 Euro Versand; angegeben sind drei Tage Lieferzeit. Benötigt wird genau eine Mappe morgen. Es wird nichts bestellt.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Richtig: Verglichen werden Gesamtpreis und benötigter Zeitpunkt. Andere Bedürfnisse oder Angebote könnten zu einer anderen Entscheidung führen.\" aria-describedby=\"choice-shopping-result\">Für diesen Bedarf passt der Laden: 3,50 Euro und heute erhältlich; online wären es 5,70 Euro und die angegebene Lieferzeit passt nicht.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Versand gehört hier zum Gesamtbetrag. Außerdem muss die Lieferung zum benötigten Zeitpunkt passen.\" aria-describedby=\"choice-shopping-result\">Online passt besser, weil allein die 2,80 Euro unter dem Ladenpreis liegen.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Noch nicht: Der Eingang einer Bestellung ist nicht die Zustellung der Mappe. Für diese ist im Fall eine Lieferzeit von drei Tagen angegeben.\" aria-describedby=\"choice-shopping-result\">Die Mappe ist morgen verfügbar, weil die digitale Bestellung sofort beim Shop eingehen kann.</button></div></div><div data-boundary-case hidden><h4>E2: Die hervorgehobene Empfehlung</h4><p>Eine erfundene Shopseite zeigt zuerst ein Viererpaket für 9 Euro mit der großen Aufschrift „Beliebt – jetzt sichern!“. Darunter steht die einzelne Mappe für 3,50 Euro, jeweils ohne Versand bei Abholung. Die Person braucht nur eine Mappe. Es gibt keine Angabe, dass das Paket länger hält oder besser passt.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: 9 geteilt durch 4 sind 2,25 Euro pro Stück. Für eine benötigte Mappe wären dennoch 9 statt 3,50 Euro auszugeben.\" aria-describedby=\"choice-shopping-result\">Vier Stück sind immer sparsamer, weil ein niedriger Stückpreis jeden Bedarf erfüllt.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Die Reihenfolge kann ein Angebot sichtbar machen und Verkäufe fördern. Sie beweist keine passende Bedarfsprüfung.\" aria-describedby=\"choice-shopping-result\">Die erste Position beweist, dass der Shop die persönlichen Bedürfnisse vollständig geprüft hat.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Richtig: Ein niedriger Stückpreis und ein hoher Gesamtbetrag können gleichzeitig vorliegen. Werbebotschaft, Beleg und eigener Bedarf sind zu trennen.\" aria-describedby=\"choice-shopping-result\">Den eigenen Bedarf mit Gesamtbetrag und Angaben vergleichen; die Hervorhebung allein begründet keinen Kauf des Pakets.</button></div></div><p id=\"choice-shopping-result\" data-boundary-result role=\"status\" aria-live=\"polite\"></p><button type=\"button\" data-boundary-reset>Zum ersten Fall</button><template data-worksheet-alternative><div data-choice-paper=\"shopping\"><div class=\"ai-paper-case\"><h4>E1: Eine Mappe für morgen</h4><p>Erfundene Angebote für dieselbe Mappe: Der Laden verlangt 3,50 Euro; die Mappe ist heute vorrätig und der Weg dauert 15 Minuten zu Fuß. Im Onlineshop kostet sie 2,80 Euro plus 2,90 Euro Versand; angegeben sind drei Tage Lieferzeit. Benötigt wird genau eine Mappe morgen. Es wird nichts bestellt.</p><ol><li>Für diesen Bedarf passt der Laden: 3,50 Euro und heute erhältlich; online wären es 5,70 Euro und die angegebene Lieferzeit passt nicht.</li><li>Online passt besser, weil allein die 2,80 Euro unter dem Ladenpreis liegen.</li><li>Die Mappe ist morgen verfügbar, weil die digitale Bestellung sofort beim Shop eingehen kann.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div><div class=\"ai-paper-case\"><h4>E2: Die hervorgehobene Empfehlung</h4><p>Eine erfundene Shopseite zeigt zuerst ein Viererpaket für 9 Euro mit der großen Aufschrift „Beliebt – jetzt sichern!“. Darunter steht die einzelne Mappe für 3,50 Euro, jeweils ohne Versand bei Abholung. Die Person braucht nur eine Mappe. Es gibt keine Angabe, dass das Paket länger hält oder besser passt.</p><ol><li>Vier Stück sind immer sparsamer, weil ein niedriger Stückpreis jeden Bedarf erfüllt.</li><li>Die erste Position beweist, dass der Shop die persönlichen Bedürfnisse vollständig geprüft hat.</li><li>Den eigenen Bedarf mit Gesamtbetrag und Angaben vergleichen; die Hervorhebung allein begründet keinen Kauf des Pakets.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div></div></template></div>\n<ol data-choice-tasks=\"shopping\"><li><strong>Belegen:</strong> Schreibe für E1 beide Gesamtbeträge und den frühesten angegebenen Verfügbarkeitszeitpunkt auf. Begründe eine Entscheidung für die Mappe von morgen mit zwei Angaben. Trenne den Warenpreis vom Gesamtbetrag.</li><li><strong>Bedarf ändern:</strong> Nun kann die Person eine Woche warten, kann den Laden aber nicht selbst erreichen. Welche Angabe gewinnt an Bedeutung? Welche Fragen bleiben offen, etwa Hilfe bei der Abholung oder tatsächliche Zustellung? Es darf eine begründete andere Entscheidung entstehen.</li><li><strong>Gestaltung untersuchen:</strong> Berechne in E2 Stückpreis und Gesamtbetrag. Entwirf auf Papier eine sachliche Vergleichskarte, die beide sichtbar zeigt und keine unnötige Eile erzeugt. Benenne das Verkaufsinteresse des Anbieters und das Interesse der Person, nur den tatsächlichen Bedarf zu decken.</li><li><strong>Veränderungen abwägen:</strong> Vergleiche persönliches Nachfragen im Laden mit einer digitalen Bestellung zu anderer Uhrzeit. Benenne je einen Vorteil und eine Hürde für zwei unterschiedliche Bedürfnisse. Für ein Umwelturteil fehlen zum Beispiel Transportwege, Verpackung und Rücksendungen: Nenne benötigte Informationen, statt „online“ oder „Laden“ pauschal als umweltfreundlicher zu bezeichnen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleiche nach deinem Versuch</summary><div data-choice-solution=\"shopping\"><p><strong>E1: Eine Mappe für morgen:</strong> Vorschlag 1. Verglichen werden Gesamtpreis und benötigter Zeitpunkt. Andere Bedürfnisse oder Angebote könnten zu einer anderen Entscheidung führen.</p><p><strong>E2: Die hervorgehobene Empfehlung:</strong> Vorschlag 3. Ein niedriger Stückpreis und ein hoher Gesamtbetrag können gleichzeitig vorliegen. Werbebotschaft, Beleg und eigener Bedarf sind zu trennen.</p><p>E1: 3,50 Euro heute im Laden; 2,80 + 2,90 = 5,70 Euro bei drei Tagen angegebener Lieferzeit. Unterschied 2,20 Euro. Bei verändertem Bedarf können Weg und Zugang wichtiger werden; eine angekündigte Lieferung ist keine selbst beobachtete Zustellung. E2: 9 ÷ 4 = 2,25 Euro pro Mappe, trotzdem insgesamt 9 Euro. Eine neutrale Karte zeigt auch die einzelne Mappe zu 3,50 Euro. Die Fälle reichen für keine allgemeine Umweltbilanz.</p></div></details>\n{{QUIZ_dgb6_orientierung_q2}}{{QUIZ_dgb6_choice_comparison}}{{QUIZ_dgb6_orientierung_p2}}",
         "quizzes": [
           {
             "id": "dgb6_orientierung_q2",
-            "question": "Welche Frage passt zur Werkzeugwahl?",
+            "question": "Eine Mappe kostet online 2,80 Euro plus 2,90 Euro Versand, im Laden 3,50 Euro. Was zeigt der Preisvergleich für genau eine Mappe?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Welches Programm passt zur Aufgabe?",
+                "text": "Online sind insgesamt 5,70 Euro zu zahlen, also 2,20 Euro mehr als im Laden.",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Die Aufgabe entscheidet."
+                "feedback": "Richtig: 2,80 + 2,90 = 5,70; 5,70 − 3,50 = 2,20. Lieferzeit und Zugang sind zusätzlich zu prüfen."
               },
               {
-                "text": "Welches Symbol ist am buntesten?",
+                "text": "Online sind es nur 2,80 Euro, weil Versand nicht zum Vergleich gehört.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Bunt ist nicht automatisch passend."
+                "feedback": "Der Versand ist in diesem Angebot ausdrücklich zu bezahlen und gehört deshalb zum Gesamtbetrag."
+              },
+              {
+                "text": "Online sind es 6,40 Euro, weil zum Ladenpreis noch der Versand kommt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Hier werden Angaben verschiedener Angebote vermischt. Für online gehören 2,80 Euro Warenpreis und 2,90 Euro Versand zusammen."
+              }
+            ]
+          },
+          {
+            "id": "dgb6_choice_comparison",
+            "question": "Welche Aussage über analogen und digitalen Einkauf ist durch unseren Fall gedeckt?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Digitales Bestellen beseitigt bei körperlichen Waren jeden Transport.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine Mappe bleibt ein körperlicher Gegenstand. Der Bestellweg ersetzt ihren Transport nicht."
+              },
+              {
+                "text": "Ein niedriger Online-Warenpreis genügt immer, um das passendere Angebot zu wählen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Versand, Zeit und andere Bedingungen können den Vergleich verändern."
+              },
+              {
+                "text": "Bestellweg, Zugang, Lieferzeit und Gesamtbetrag verändern die Möglichkeiten; welche Lösung passt, hängt vom Bedarf ab.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Der Fall zeigt mehrere Kriterien. Daraus folgt weder „online immer besser“ noch „Laden immer besser“."
               }
             ]
           },
           {
             "id": "dgb6_orientierung_p2",
-            "question": "Was kann bei einem Onlinespiel problematisch sein?",
+            "question": "Ein Viererpaket kostet 9 Euro, eine einzelne Mappe 3,50 Euro. Du brauchst nur eine. Was stimmt?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "pay-to-win kann unfair wirken",
+                "text": "Der Paket-Stückpreis ist niedriger, aber der Gesamtbetrag für das Paket höher.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Bezahlen kann Vorteile bringen."
+                "pts": 0,
+                "feedback": "Richtig: 9 ÷ 4 = 2,25 Euro pro Mappe. Trotzdem sind für das Paket 9 Euro zu bezahlen."
               },
               {
-                "text": "dass es Regeln gibt",
+                "text": "Der niedrigere Stückpreis bedeutet automatisch, dass insgesamt weniger Geld nötig ist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Regeln sind für Spiele normal."
+                "feedback": "Stückpreis und Gesamtbetrag sind verschiedene Größen."
+              },
+              {
+                "text": "Für das ganze Viererpaket werden nur 2,25 Euro bezahlt, weil das der Stückpreis ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "2,25 Euro ist der Preis je Mappe im Paket. Vier solche Mappen ergeben den angegebenen Gesamtbetrag von 9 Euro."
               }
             ]
           }
-        ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Barrierefreiheit</strong><br>Ein Angebot ist so gestaltet, dass viele Menschen es gut nutzen k&ouml;nnen.</div><div class=\"word-ui-card\"><strong>freie Software</strong><br>Software, die man verwenden, untersuchen, weitergeben oder ver&auml;ndern darf, je nach Lizenz.</div><div class=\"word-ui-card\"><strong>pay-to-win</strong><br>In einem Spiel kann man durch Bezahlen leichter gewinnen.</div><div class=\"word-ui-card\"><strong>Medienproduktion</strong><br>Menschen oder Firmen erstellen Medien mit bestimmten Zielen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Lernplakat</td><td>Pr&auml;sentationsprogramm oder Textprogramm kann passen.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Schwache Schrift</td><td>schlechter Kontrast kann eine Barriere sein.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Onlinespiel</td><td>K&auml;ufe k&ouml;nnen beeinflussen, wie fair ein Spiel wirkt.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb6_orientierung_q2}}\n{{QUIZ_dgb6_orientierung_p2}}"
+        ]
       },
       {
         "id": "sec3",
-        "title": "3. Werkstattauftrag",
+        "title": "3. Spielvorteile, Werbung und Interessen prüfen",
+        "content": "<p>Medien entstehen unter bestimmten Bedingungen: Jemand plant, bezahlt, gestaltet, wählt aus und veröffentlicht. Das beeinflusst, was sichtbar wird. Menschen nutzen Medien etwa zur Unterhaltung, zur Information oder für Gemeinschaft; Anbieter können unter anderem mit Werbung, Käufen oder Abos Geld verdienen. Interessen erklären mögliche Anreize, beweisen aber nicht von allein, dass eine Aussage wahr oder falsch ist.</p>\n<p><strong>Free-to-play</strong> bedeutet einen kostenlosen Spieleinstieg. <strong>Pay-to-win</strong> bezeichnet käufliche Vorteile, die Erfolgschancen im Spiel beeinflussen. Ein rein kosmetisches Extra hat im folgenden Modell eine andere Wirkung. Reale Spiele können komplexer sein. Ein als Werbung gekennzeichneter Clip und viele Aufrufe sind noch keine unabhängigen Belege für seine Behauptungen.</p>\n<div class=\"interactive-zone evidence-workshop\" data-core-experiment=\"boundary-cases\" data-choice-lab=\"media\" data-boundary-prompt=\"Lies den Fall. Wähle eine begründete Entscheidung.\"><h3>Spielregeln und Produktionsbedingungen prüfen</h3><label for=\"choice-media\">Fall auswählen</label><select id=\"choice-media\" data-boundary-control aria-describedby=\"choice-media-result\"><option value=\"0\">M1: Farbe oder Spielvorteil?</option><option value=\"1\">M2: Wer bezahlt den Clip?</option></select><div data-boundary-case><h4>M1: Farbe oder Spielvorteil?</h4><p>Erfundenes Spielmodell: Zwei Figuren erreichen ohne Extras je 10 Punkte. Ein käufliches Outfit ändert nur die Farbe. Ein käuflicher Verstärker addiert 5 Punkte zum Rundenergebnis. Die höhere Punktzahl gewinnt; alle anderen Bedingungen bleiben gleich.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: Die beschriebenen Wirkungen sind verschieden. Die Farbe addiert keine Punkte, der Verstärker schon.\" aria-describedby=\"choice-media-result\">Jeder gekaufte Gegenstand verändert die Gewinnchance in diesem Modell gleich stark.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Richtig: Mit Verstärker werden aus 10 Punkten 15. Das ist ein Pay-to-win-Vorteil im beschriebenen Modell, keine Aussage über jedes reale Spiel.\" aria-describedby=\"choice-media-result\">Der Verstärker schafft einen bezahlten Spielvorteil; das Outfit verändert nach diesen Regeln nur die Darstellung.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Noch nicht: Gleiche Ausgangspunkte verhindern den späteren Vorteil nicht. Vergleiche die Ergebnisse nach Anwendung der Regel.\" aria-describedby=\"choice-media-result\">Der Verstärker ist ohne Einfluss, weil beide Figuren vor dem Kauf gleich viele Punkte hatten.</button></div></div><div data-boundary-case hidden><h4>M2: Wer bezahlt den Clip?</h4><p>Ein erfundener Clip ist als Werbung gekennzeichnet. Der Spielehersteller bezahlt die Produktion und stellt einen besonders starken Spielstand bereit. Der Clip zeigt nur gewonnene Runden und behauptet „So leicht gewinnt jede Person!“. Ein eigener Vergleich gewöhnlicher Spielstände fehlt.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Richtig: Bezahlung und Auswahl erklären mögliche Interessen und Bedingungen. Die allgemeine Gewinnbehauptung braucht zusätzliche passende Belege.\" aria-describedby=\"choice-media-result\">Finanzierung, ausgewählte Szenen und fehlenden Vergleich berücksichtigen; die Behauptung ist damit noch nicht belegt.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Eine Kennzeichnung hilft, den Zweck einzuordnen. Ob eine konkrete Aussage stimmt, muss an ihren Belegen geprüft werden.\" aria-describedby=\"choice-media-result\">Die Werbekennzeichnung beweist, dass jede Aussage im Clip falsch sein muss.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Noch nicht: Reichweite beschreibt Verbreitung, nicht die Bedingungen einer typischen Spielrunde.\" aria-describedby=\"choice-media-result\">Viele Aufrufe ersetzen den Vergleich normaler Spielstände.</button></div></div><p id=\"choice-media-result\" data-boundary-result role=\"status\" aria-live=\"polite\"></p><button type=\"button\" data-boundary-reset>Zum ersten Fall</button><template data-worksheet-alternative><div data-choice-paper=\"media\"><div class=\"ai-paper-case\"><h4>M1: Farbe oder Spielvorteil?</h4><p>Erfundenes Spielmodell: Zwei Figuren erreichen ohne Extras je 10 Punkte. Ein käufliches Outfit ändert nur die Farbe. Ein käuflicher Verstärker addiert 5 Punkte zum Rundenergebnis. Die höhere Punktzahl gewinnt; alle anderen Bedingungen bleiben gleich.</p><ol><li>Jeder gekaufte Gegenstand verändert die Gewinnchance in diesem Modell gleich stark.</li><li>Der Verstärker schafft einen bezahlten Spielvorteil; das Outfit verändert nach diesen Regeln nur die Darstellung.</li><li>Der Verstärker ist ohne Einfluss, weil beide Figuren vor dem Kauf gleich viele Punkte hatten.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div><div class=\"ai-paper-case\"><h4>M2: Wer bezahlt den Clip?</h4><p>Ein erfundener Clip ist als Werbung gekennzeichnet. Der Spielehersteller bezahlt die Produktion und stellt einen besonders starken Spielstand bereit. Der Clip zeigt nur gewonnene Runden und behauptet „So leicht gewinnt jede Person!“. Ein eigener Vergleich gewöhnlicher Spielstände fehlt.</p><ol><li>Finanzierung, ausgewählte Szenen und fehlenden Vergleich berücksichtigen; die Behauptung ist damit noch nicht belegt.</li><li>Die Werbekennzeichnung beweist, dass jede Aussage im Clip falsch sein muss.</li><li>Viele Aufrufe ersetzen den Vergleich normaler Spielstände.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div></div></template></div>\n<ol data-choice-tasks=\"media\"><li><strong>Runden vergleichen:</strong> Berechne für M1 drei Runden bei jeweils 10 Grundpunkten pro Figur: keine Extras; Figur A mit Outfit; Figur A mit Verstärker. Notiere jeweils beide Ergebnisse und den Ausgang. Erkläre, welche Regel den Unterschied erzeugt.</li><li><strong>Kaufanreiz erkennen:</strong> Ein weiteres erfundenes Angebot verkauft nur Pakete zu 100 Münzen für 2 Euro. Ein Extra kostet 150 Münzen; anfangs sind keine Münzen vorhanden. Bestimme den nötigen Geldbetrag und das Restguthaben. Erkläre, warum übrige Münzen kein neuer Bedarf sind. Die Rechnung ist eine Übung, keine Kaufaufforderung.</li><li><strong>Medienproduktion untersuchen:</strong> Zeichne zu M2 die Beziehungen Hersteller → Produktion → Veröffentlichung → Publikum. Trage Geld, bereitgestellten Spielstand, ausgewählte Bilder und mögliche Aufmerksamkeit ein. Was möchte jede Seite erreichen? Welche Bedingungen gewöhnlicher Runden müssten für einen fairen Vergleich bekannt sein?</li><li><strong>Selbstbestimmt handeln:</strong> Schreibe eine sachliche Alternative zur Werbeüberschrift, die den gezeigten Sonderfall nennt. Ergänze einen eigenen Plan gegen Kaufdruck, etwa vorher vereinbarte Grenzen, eine Pause vor Entscheidungen oder ein anderes Spiel. Verwende einen erfundenen Fall; niemand muss eigene Ausgaben oder private Spielkonten offenlegen.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleiche nach deinem Versuch</summary><div data-choice-solution=\"media\"><p><strong>M1: Farbe oder Spielvorteil?:</strong> Vorschlag 2. Mit Verstärker werden aus 10 Punkten 15. Das ist ein Pay-to-win-Vorteil im beschriebenen Modell, keine Aussage über jedes reale Spiel.</p><p><strong>M2: Wer bezahlt den Clip?:</strong> Vorschlag 1. Bezahlung und Auswahl erklären mögliche Interessen und Bedingungen. Die allgemeine Gewinnbehauptung braucht zusätzliche passende Belege.</p><p>Ohne Extras: 10 zu 10. Mit Outfit für A: weiterhin 10 zu 10. Mit Verstärker für A: 15 zu 10. Nur im letzten Vergleich verändert die Bezahlung hier den Rundenausgang. Für 150 Münzen sind zwei ganze Pakete nötig: 4 Euro für 200 Münzen, danach 50 übrig. Der proportionale Wert von 150 Münzen wäre 3 Euro, ist aber kein kaufbares Paket im Fall. Eine passende Überschrift wäre „Gewonnene Runden mit bereitgestelltem starken Spielstand“. Ein Vergleich müsste auch verlorene Runden, gleiche Regeln und gewöhnliche Ausgangslagen berücksichtigen.</p></div></details>\n<p>Hintergrund und Hilfe für Familien: <a href=\"https://www.saferinternet.at/news-detail/so-schuetzen-sie-ihre-kinder-vor-versteckten-kosten-in-spiele-apps\">Saferinternet.at: Kosten und Anreize in Spiele-Apps</a>.</p>{{QUIZ_dgb6_orientierung_q3}}{{QUIZ_dgb6_choice_media}}{{QUIZ_dgb6_orientierung_p3}}",
         "quizzes": [
           {
             "id": "dgb6_orientierung_q3",
-            "question": "Welches Beispiel ist eine Barriere?",
+            "question": "Im Spielmodell addiert ein gekaufter Verstärker 5 Punkte, ein Outfit ändert nur die Farbe. Was ist hier Pay-to-win?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "sehr kleine graue Schrift auf hellem Hintergrund",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Das kann schwer lesbar sein."
-              },
-              {
-                "text": "eine klare Überschrift",
+                "text": "Auch das Outfit, weil jeder gekaufte Gegenstand unabhängig von den angegebenen Regeln einen Spielvorteil beweist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Eine klare Überschrift hilft eher."
+                "feedback": "Der Kauf allein legt die Wirkung nicht fest. Im Modell verändert das Outfit nur die Farbe und keine Punkte."
+              },
+              {
+                "text": "Der Verstärker, weil die Bezahlung nach den festgelegten Regeln die Gewinnchance verändert.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Gleiche Grundpunkte können durch das bezahlte Extra zu einem anderen Rundenergebnis führen."
+              },
+              {
+                "text": "Keines von beiden, solange das Spiel zunächst kostenlos geöffnet werden kann.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein kostenloser Einstieg schließt später gekaufte Spielvorteile nicht aus."
+              }
+            ]
+          },
+          {
+            "id": "dgb6_choice_media",
+            "question": "Ein bezahlter Werbeclip zeigt nur Siege mit einem bereitgestellten starken Spielstand. Wie prüfst du „So leicht gewinnt jede Person“?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Finanzierung und Auswahl festhalten und nach vergleichbaren gewöhnlichen Spielrunden suchen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Du unterscheidest Produktionsbedingungen und Zweck von einem Beleg für die allgemeine Aussage."
+              },
+              {
+                "text": "Nur die Zahl der Aufrufe zählen; eine hohe Zahl belegt die Gewinnchance.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Aufrufe zeigen Reichweite und nicht, wie gewöhnliche Spielrunden verlaufen."
+              },
+              {
+                "text": "Den Clip allein wegen der Bezahlung für vollständig erfunden erklären.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bezahlung kann Interessen erklären. Sie widerlegt aber nicht automatisch jede einzelne Aussage."
               }
             ]
           },
           {
             "id": "dgb6_orientierung_p3",
-            "question": "Was sollte man bei kostenlosen Apps fragen?",
+            "question": "Eine Spielwährung wird nur in Paketen zu 100 Münzen für 2 Euro verkauft. Ein Extra kostet 150 Münzen, dein Startguthaben ist null. Was wäre zum Kauf mindestens nötig?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Womit verdient der Anbieter Geld?",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Kostenlose Angebote haben oft trotzdem Interessen."
-              },
-              {
-                "text": "Warum ist mein Bleistift kurz?",
+                "text": "Ein Paket für 2 Euro, weil 150 kleiner als zwei Pakete ist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Der Bleistift hilft hier nicht."
+                "feedback": "100 Münzen reichen nicht für einen Preis von 150 Münzen."
+              },
+              {
+                "text": "Genau 3 Euro, obwohl kein halbes Paket angeboten wird.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "3 Euro entsprechen dem proportionalen Münzwert, aber die beschriebenen Pakete sind nur ganz erhältlich."
+              },
+              {
+                "text": "Zwei Pakete für 4 Euro; danach wären 50 Münzen übrig.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Richtig: 200 − 150 = 50. Ein Restguthaben ist kein Grund, weitere Extras zu brauchen. Hier wird nichts gekauft."
               }
             ]
           }
-        ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barriere-Test</h3><ol class=\"word-mini-steps\"><li>&Ouml;ffne eine Lernseite oder App.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bilder und Bedienung.</li><li>Stelle dir vor: Ein Kind sieht schlecht, h&ouml;rt schlecht oder kann die Maus nicht gut verwenden.</li><li>Notiere drei Verbesserungen, die das Angebot f&uuml;r mehr Menschen nutzbar machen w&uuml;rden.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du hast eine kurze Pr&uuml;fliste und drei konkrete Verbesserungen, nicht nur &bdquo;ist gut&ldquo; oder &bdquo;ist schlecht&ldquo;.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Werkzeugwahl</td><td>Aufgabe und Werkzeug werden verglichen</td><td>Entscheidung ist begr&uuml;ndet</td></tr><tr><td>Barrieren</td><td>mindestens drei Nutzungsprobleme werden gesucht</td><td>Probleme sind konkret beschrieben</td></tr><tr><td>Interessen</td><td>m&ouml;gliche Ziele des Angebots werden benannt</td><td>Information, Werbung oder Verkauf werden unterschieden</td></tr></table>\n{{QUIZ_dgb6_orientierung_q3}}\n{{QUIZ_dgb6_orientierung_p3}}"
+        ]
       },
       {
         "id": "sec4",
-        "title": "4. Anwenden und selbst pr&uuml;fen",
+        "title": "4. Barrieren mit passenden Tests verbessern",
+        "content": "<p><strong>Barrierefreiheit</strong> bedeutet, digitale Angebote so zu gestalten, dass auch Menschen mit Behinderungen sie wahrnehmen, verstehen und bedienen können. Verschiedene Bedürfnisse erfordern verschiedene Zugänge. Klare Sprache, Text zu wichtigen Toninformationen und Tastaturbedienung helfen außerdem in vielen Alltagssituationen. Ein kurzer Test prüft bestimmte Hindernisse, keine vollständige Barrierefreiheit.</p>\n<div data-choice-observations><h3>Vier erfundene Nutzungsbeobachtungen</h3><dl><dt>Sprache</dt><dd>Auf einer Schulkarte steht „Obligatorische Materialakquisition“. Ein Kind versteht nicht, was es mitbringen soll.</dd><dt>Sehen</dt><dd>Nur die Farbe Rot kennzeichnet einen ausgefallenen Termin. Ohne die Farbe ist kein Unterschied erkennbar.</dd><dt>Hören</dt><dd>Der Abgabetermin wird nur gesprochen. Ohne Ton fehlt die Angabe.</dd><dt>Bedienen</dt><dd>Karten lassen sich nur mit der Maus ziehen. Mit der Tastatur kann die Aufgabe nicht abgeschlossen werden.</dd></dl></div>\n<div class=\"interactive-zone evidence-workshop\" data-core-experiment=\"boundary-cases\" data-choice-lab=\"access\" data-boundary-prompt=\"Lies den Fall. Wähle eine begründete Entscheidung.\"><h3>Verbesserung und passender Test</h3><label for=\"choice-access\">Fall auswählen</label><select id=\"choice-access\" data-boundary-control aria-describedby=\"choice-access-result\"><option value=\"0\">B1: Größere Schrift genügt hier nicht</option><option value=\"1\">B2: Eine Aufgabe mit der Tastatur lösen</option></select><div data-boundary-case><h4>B1: Größere Schrift genügt hier nicht</h4><p>Auf einer erfundenen Lernseite wird der Abgabetermin ausschließlich gesprochen. Es gibt weder Untertitel noch eine Textfassung. Eine Schülerin nutzt die Seite ohne Ton. Die Schriftgröße lässt sich bereits verändern.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: Schriftgröße verändert vorhandenen Text. Eine fehlende Textinformation entsteht dadurch nicht.\" aria-describedby=\"choice-access-result\">Die Schrift noch größer stellen, damit der nur gesprochene Termin dadurch sichtbar wird.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Die Hintergrundfarbe stellt den fehlenden Inhalt nicht bereit. Die Barriere betrifft hier den Zugang zur gesprochenen Angabe.\" aria-describedby=\"choice-access-result\">Nur die Hintergrundfarbe ändern und den Termin weiter ausschließlich sprechen.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Richtig: Die Textfassung schafft einen weiteren Zugang zu derselben Information. Der Test passt zum beschriebenen Hindernis.\" aria-describedby=\"choice-access-result\">Den Termin zusätzlich als gut auffindbaren Text anbieten und prüfen, ob er ohne Ton gefunden wird.</button></div></div><div data-boundary-case hidden><h4>B2: Eine Aufgabe mit der Tastatur lösen</h4><p>Eine erfundene Zuordnungsaufgabe funktioniert nur durch Ziehen mit der Maus. Mit Tab sind die Karten nicht erreichbar. Die überarbeitete Fassung bietet beschriftete Auswahlfelder und eine Prüftaste. Wie prüfst du genau diese Änderung?</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Richtig: Du führst die Aufgabe über den benötigten Bedienweg aus. Ein gelungener Test belegt diesen Ablauf, keine vollständige Barrierefreiheit.\" aria-describedby=\"choice-access-result\">Ohne Maus die Auswahlfelder erreichen, eine Zuordnung mit der Tastatur einstellen, prüfen und die Rückmeldung lesen.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Ein Foto zeigt Aussehen, aber nicht Erreichbarkeit, Bedienung oder verständliche Rückmeldung.\" aria-describedby=\"choice-access-result\">Nur feststellen, ob die neuen Auswahlfelder auf einem Bildschirmfoto zu sehen sind.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Noch nicht: Lesbarkeit und Bedienweg sind verschiedene Prüffragen. Beides kann wichtig sein, ersetzt einander aber nicht.\" aria-describedby=\"choice-access-result\">Nur die Schrift vergrößern; die Bedienung ist damit automatisch mitgeprüft.</button></div></div><p id=\"choice-access-result\" data-boundary-result role=\"status\" aria-live=\"polite\"></p><button type=\"button\" data-boundary-reset>Zum ersten Fall</button><template data-worksheet-alternative><div data-choice-paper=\"access\"><div class=\"ai-paper-case\"><h4>B1: Größere Schrift genügt hier nicht</h4><p>Auf einer erfundenen Lernseite wird der Abgabetermin ausschließlich gesprochen. Es gibt weder Untertitel noch eine Textfassung. Eine Schülerin nutzt die Seite ohne Ton. Die Schriftgröße lässt sich bereits verändern.</p><ol><li>Die Schrift noch größer stellen, damit der nur gesprochene Termin dadurch sichtbar wird.</li><li>Nur die Hintergrundfarbe ändern und den Termin weiter ausschließlich sprechen.</li><li>Den Termin zusätzlich als gut auffindbaren Text anbieten und prüfen, ob er ohne Ton gefunden wird.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div><div class=\"ai-paper-case\"><h4>B2: Eine Aufgabe mit der Tastatur lösen</h4><p>Eine erfundene Zuordnungsaufgabe funktioniert nur durch Ziehen mit der Maus. Mit Tab sind die Karten nicht erreichbar. Die überarbeitete Fassung bietet beschriftete Auswahlfelder und eine Prüftaste. Wie prüfst du genau diese Änderung?</p><ol><li>Ohne Maus die Auswahlfelder erreichen, eine Zuordnung mit der Tastatur einstellen, prüfen und die Rückmeldung lesen.</li><li>Nur feststellen, ob die neuen Auswahlfelder auf einem Bildschirmfoto zu sehen sind.</li><li>Nur die Schrift vergrößern; die Bedienung ist damit automatisch mitgeprüft.</li></ol><p>Wähle eine Antwort und begründe sie mit Angaben aus dem Fall. Erkläre auch, warum ein anderer Vorschlag nicht passt.</p></div></div></template></div>\n<ol data-choice-tasks=\"access\"><li><strong>Zuordnen:</strong> Notiere zu jeder Beobachtung die fehlende Information oder Handlung. Schlage eine konkrete Änderung vor. Vermeide Vermutungen über einzelne Mitschüler:innen; die Fälle enthalten bereits die benötigten Beobachtungen.</li><li><strong>Sprache und Farbe verbessern:</strong> Schreibe aus „Obligatorische Materialakquisition“ eine klare Aufforderung mit Papier und Stift. Entwirf für den ausgefallenen Termin eine Textkennzeichnung zusätzlich zur Farbe. Bitte eine andere Person, die beiden Aussagen zu erklären, oder kennzeichne deine eigene Prüfung als Selbstprüfung.</li><li><strong>Tastatur tatsächlich erproben:</strong> Nutze die Fallauswahl dieser Werkstatt ohne Maus: Erreiche sie mit Tab, wechsle mit Pfeiltasten den Fall, erreiche eine Antwort und aktiviere sie mit Enter. Lies die Rückmeldung. Prüfe auch „Zum ersten Fall“. Notiere Browser, Aufgabe und Ergebnis; eine sichtbare Schaltfläche allein ist kein Bediennachweis.</li><li><strong>Übertragen:</strong> Wähle eine schulisch freigegebene Lernseite und eine konkrete Aufgabe. Prüfe einen passenden Zugang, etwa vergrößerte Schrift, Toninformation als Text oder Tastaturbedienung. Notiere die genaue Stelle, das beobachtete Hindernis und eine Verbesserung. Simuliere keine Behinderung und sammle keine Gesundheitsangaben.</li><li><strong>Entscheiden:</strong> Überarbeite deine Einladung aus Abschnitt 1 mit einer passenden Verbesserung. Öffne die gespeicherte Fassung erneut und wiederhole eine Suchaufgabe zu Termin und Ort. Begründe den Nutzen für ein beschriebenes Bedürfnis und benenne, was ungeprüft bleibt. Ohne digitale Ausführung bleibt dieser Schritt als Plan gekennzeichnet.</li></ol><details data-worksheet-solution=\"true\"><summary>Vergleiche nach deinem Versuch</summary><div data-choice-solution=\"access\"><p><strong>B1: Größere Schrift genügt hier nicht:</strong> Vorschlag 3. Die Textfassung schafft einen weiteren Zugang zu derselben Information. Der Test passt zum beschriebenen Hindernis.</p><p><strong>B2: Eine Aufgabe mit der Tastatur lösen:</strong> Vorschlag 1. Du führst die Aufgabe über den benötigten Bedienweg aus. Ein gelungener Test belegt diesen Ablauf, keine vollständige Barrierefreiheit.</p><p>Mögliche Änderungen: „Bringe Papier und einen Stift mit.“; „Termin entfällt“ zusätzlich zur Farbe; Abgabetermin als Text; beschriftete, per Tastatur bedienbare Auswahlfelder statt ausschließlichem Ziehen. Prüfe jeweils die zuvor fehlende Information oder Handlung. Diese Beispiele sind gezielte Verbesserungen und keine Garantie, dass das ganze Angebot für alle Bedürfnisse zugänglich ist.</p></div></details>\n<p><strong>Dein Ergebnis:</strong> zwei überprüfte Dateien, begründete Angebots- und Medienvergleiche sowie ein dokumentierter Nutzungstest. Gestaltung ist eine Entscheidung: Sie kann Zugänge erleichtern, Menschen ausschließen oder Käufe fördern. Prüfe Zweck, Belege und Wirkung gemeinsam.</p><p>Grundlage: <a href=\"https://www.w3.org/WAI/fundamentals/accessibility-intro/\">W3C WAI: Einführung in digitale Barrierefreiheit (Englisch)</a>.</p>{{QUIZ_dgb6_orientierung_q4}}{{QUIZ_dgb6_choice_test}}",
         "quizzes": [
           {
             "id": "dgb6_orientierung_q4",
-            "question": "Was ist eine gute Begründung für ein Werkzeug?",
+            "question": "Eine wichtige Information ist nur als Ton verfügbar. Welche Verbesserung passt für eine Person, die den Ton nicht nutzen kann?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Es passt zur Aufgabe und ist gut bedienbar.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Aufgabe und Bedienung zählen."
-              },
-              {
-                "text": "Alle anderen nutzen es, also muss es immer passen.",
+                "text": "Die Farbe der Abspieltaste ändern, ohne die Information anders anzubieten.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Beliebtheit allein ist kein guter Grund."
+                "feedback": "Eine neue Farbe macht die gesprochene Information nicht auf einem anderen Weg verfügbar."
+              },
+              {
+                "text": "Die vorhandene Überschrift vergrößern, den Termin aber weiter nur sprechen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Überschrift ersetzt den fehlenden Inhalt nicht."
+              },
+              {
+                "text": "Dieselbe wichtige Information zusätzlich als auffindbaren Text bereitstellen und ohne Ton prüfen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die zusätzliche Darstellung beseitigt das konkret beschriebene Hindernis. Andere Barrieren müssen gesondert geprüft werden."
+              }
+            ]
+          },
+          {
+            "id": "dgb6_choice_test",
+            "question": "Was belegt ein erfolgreicher Tastaturtest einer Zuordnungsaufgabe?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Dass der geprüfte Ablauf ohne Maus ausführbar war; andere Barrieren sind damit noch nicht ausgeschlossen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Eine Beobachtung gilt für den tatsächlich geprüften Ablauf und die verwendete Umgebung."
+              },
+              {
+                "text": "Dass jede Seite, jedes Bild und jeder Ton vollständig barrierefrei ist.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Test einer Aufgabe untersucht nicht automatisch alle Inhalte und Zugangswege."
+              },
+              {
+                "text": "Dass keine Person jemals eine andere Unterstützung benötigt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Unterschiedliche Bedürfnisse brauchen unterschiedliche Prüfungen und Lösungen."
               }
             ]
           }
-        ],
-        "content": "\n<p>Zum Schluss sollst du das Thema auf eine neue Situation anwenden. Das ist wichtiger als ein Satz auswendig zu k&ouml;nnen.</p>\n<div class=\"word-check-card\"><h3>Selbstkontrolle</h3><ul class=\"step-list\"><li>Kann ich ein Werkzeug passend zur Aufgabe ausw&auml;hlen?</li><li>Kann ich Barrieren in einer App oder Webseite erkennen?</li><li>Kann ich fragen, welche Interessen hinter einem Angebot stehen?</li></ul></div>\n<div class=\"teacher-note\"><strong>Schreibsatz f&uuml;r dein Heft:</strong> Ich kann dieses Thema anwenden, wenn ich ein eigenes Beispiel erkl&auml;re, eine passende Entscheidung treffe und meine Begr&uuml;ndung mit einem Fachwort st&uuml;tze.</div>\n<div class=\"mini-task\"><strong>Abschlussauftrag:</strong> Schreibe drei S&auml;tze: 1. Was habe ich gelernt? 2. Wo brauche ich es im Alltag? 3. Welche Frage ist noch offen?</div>\n{{QUIZ_dgb6_orientierung_q4}}"
+        ]
       }
     ],
     "chapterQuizTitle": "Verständnischeck: Apps vergleichen und fair nutzen",
     "learningGoals": [
-      "Du vergleichst digitale Werkzeuge nach Aufgabe.",
-      "Du erkennst einfache Merkmale von Barrierefreiheit.",
-      "Du fragst, welche Interessen hinter Medienangeboten stehen."
+      "Du wählst passende Software für Text und Berechnung aus und prüfst selbst erstellte Dateien.",
+      "Du unterscheidest freie Software von einem kostenlosen Angebot.",
+      "Du vergleichst analoge und digitale Einkaufswege anhand eines konkreten Bedarfs.",
+      "Du untersuchst Kaufanreize, Spielregeln und Interessen bei der Medienproduktion.",
+      "Du leitest aus Nutzungsbeobachtungen Verbesserungen ab und überprüfst einen passenden Bedienweg."
     ],
     "summary": [
-      "Wähle digitale Werkzeuge nach der Aufgabe und den Bedürfnissen der Nutzenden aus.",
-      "Gestaltung kann Nutzung erleichtern, Aufmerksamkeit lenken oder Menschen ausschließen.",
-      "Frage bei einem Angebot nach den Interessen der Beteiligten und nach Zugänglichkeit."
+      "Aufgabe, benötigte Funktionen, Zugänglichkeit und Rechte bestimmen eine begründete Werkzeugwahl.",
+      "Ein gespeichertes Ergebnis wird durch erneutes Öffnen geprüft; eine Formel muss zur beabsichtigten Berechnung passen.",
+      "Freie Software gewährt Freiheiten; ein Preis von null allein sagt darüber nichts aus.",
+      "Vergleiche Gesamtbetrag, Zeitpunkt, Zugang und Bedarf. Der digitale Bestellweg ersetzt keinen Warentransport.",
+      "Käufliche Spielvorteile und kosmetische Änderungen haben unterschiedliche Wirkungen. Prüfe auch Geldbetrag und Restguthaben hinter Spielwährungen.",
+      "Finanzierung, Auswahl und Veröffentlichung beeinflussen Medien. Eine Aussage braucht trotzdem passende Belege.",
+      "Eine Verbesserung muss zum beobachteten Hindernis passen. Ein erfolgreicher einzelner Test ist keine vollständige Barrierefreiheitsprüfung."
     ],
     "prerequisites": [
       "dgb5_orientierung"
@@ -13399,7 +13547,7 @@
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Einstieg: Verstehen und ausprobieren",
+        "title": "1. Einen Auftrag in prüfbare Schritte zerlegen",
         "quizzes": [
           {
             "id": "dgb7_produktion_q1",
@@ -13428,71 +13576,58 @@
           },
           {
             "id": "dgb7_produktion_p1",
-            "question": "Was ist Abstraktion?",
+            "question": "Welche Vereinfachung passt zur reinen Materialplanung?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Unwichtiges weglassen und Wichtiges behalten",
+                "text": "Gruppennamen weglassen, Materialnamen und Einheiten behalten.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Abstraktion macht ein Problem handhabbar."
+                "pts": 0,
+                "feedback": "Die Gruppennamen verändern hier keine Menge. Materialname und Einheit machen die Ausgabe verständlich."
               },
               {
-                "text": "alle Angaben weglassen, bis nur eine Zahl bleibt",
+                "text": "Nur Zahlen ausgeben; die Materialnamen erkennt man später an der Höhe der Zahl.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Abstraktion behält die für den Auftrag wichtigen Angaben. Eine Zahl ohne Materialbezug und Einheit genügt nicht."
+                "feedback": "Dieselbe Zahl kann zu verschiedenen Materialien gehören. Die Zuordnung darf nicht verloren gehen."
+              },
+              {
+                "text": "Für jede Gruppe dieselbe Gesamtmenge annehmen, unabhängig von der Gruppenanzahl.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Bedarf pro Gruppe ist gleich. Der Gesamtbedarf hängt aber davon ab, wie viele Gruppen teilnehmen."
               }
             ]
           }
         ],
-        "content": "\n<div class=\"word-workshop dgb-workshop\">\n  <div class=\"lesson-goals\"><strong>Das kannst du nach dieser Werkstatt:</strong><ul class=\"step-list\"><li>du zerlegst Probleme in kleinere Schritte</li><li>du erkennst Muster und vereinfachst sinnvoll</li><li>du pr&uuml;fst Medienprodukte auf Barrierefreiheit</li></ul></div>\n  <p>Computational Thinking bedeutet: Du denkst ein Problem so durch, dass ein Mensch oder Computer es Schritt f&uuml;r Schritt l&ouml;sen kann.</p>\n  <p>Bei Medienprodukten z&auml;hlt nicht nur, ob etwas sch&ouml;n aussieht. Es soll verst&auml;ndlich, fair, zug&auml;nglich und zur Aufgabe passend sein.</p>\n  <div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Zerlegen</strong><br>Ein gro&szlig;es Problem in kleine Teile aufteilen.</div><div class=\"word-ui-card\"><strong>Muster</strong><br>Wiederholungen oder Regeln erkennen.</div><div class=\"word-ui-card\"><strong>Abstraktion</strong><br>Unwichtiges weglassen, Wichtiges behalten.</div><div class=\"word-ui-card\"><strong>Barrierearm</strong><br>M&ouml;glichst gut nutzbar f&uuml;r viele Menschen.</div></div>\n  <div class=\"remember-box\"><strong>Merksatz:</strong> Gute Produktion verbindet Denken und Gestalten: Problem zerlegen, L&ouml;sung bauen, testen, barrierearm verbessern.</div>\n  <div class=\"word-task-card\"><h3>Mini-Aufgabe 1: Problem zerlegen</h3><ol class=\"word-mini-steps\"><li>W&auml;hle ein digitales Produkt, zum Beispiel ein Lernquiz.</li><li>Zerlege es in Bauteile: Thema, Fragen, Antworten, Gestaltung, Test.</li><li>Markiere, welche Teile sich wiederholen.</li><li>Schreibe einen einfachen Ablaufplan.</li><li>Streiche alles, was f&uuml;r die erste Version noch nicht notwendig ist.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du hast aus einer gro&szlig;en Idee kleine machbare Schritte gemacht.</div></div>\n  <div class=\"word-path\"><span>lesen</span><b class=\"arrow\">&gt;</b><span>ausprobieren</span><b class=\"arrow\">&gt;</b><span>kontrollieren</span><b class=\"arrow\">&gt;</b><span>verbessern</span></div>\n</div>\n{{QUIZ_dgb7_produktion_q1}}\n{{QUIZ_dgb7_produktion_p1}}"
+        "content": "\n<p>In diesem Kapitel entwickelst du Lösungen und prüfst, ob sie ihren Zweck erfüllen: einen Materialplan, verständliche Medien und passende Einstellungen. Du brauchst dafür keine privaten Konten.</p>\n<div class=\"word-check-card\" data-production-route><h3>Dein Lernweg</h3><ol><li><strong>Planen und programmieren, Abschnitte 1–2:</strong> Du zerlegst einen Auftrag, änderst einen ausführbaren Materialplan und vergleichst Ergebnisse mit deinen Vorhersagen.</li><li><strong>Gestalten und prüfen, Abschnitte 3–4:</strong> Du verbesserst eine Infokarte, passt eine Leseansicht an und gestaltest dieselben Daten in zwei Medienformen.</li><li><strong>Arbeitsumgebung einrichten, Abschnitt 5:</strong> Du prüfst eine System- und eine Kommunikationseinstellung an passenden Testfällen.</li><li><strong>Übertragen, Abschnitt 6:</strong> Du wendest dein Vorgehen auf einen neuen Materialauftrag an.</li></ol><p>Für eine Wiederholung bearbeitest du zuerst den passenden Abschnitt und danach den Kapitelcheck. Die praktischen Dateien und Protokolle zeigen zusätzlich, was du selbst umgesetzt hast.</p></div>\n<h3>Vom Wunsch zum genauen Auftrag</h3><p><strong>Unser erfundener Klassenworkshop:</strong> Jede Gruppe bekommt 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Geplant werden 0 bis 8 ganze Gruppen. Das Programm soll den Gesamtbedarf mit Materialnamen und Einheiten anzeigen. Ungültige Eingaben sollen eine verständliche Meldung erhalten. Reserven und Kosten gehören noch nicht zum Auftrag.</p>\n<p><strong>Computational Thinking</strong> hilft dir, einen solchen Auftrag systematisch zu lösen. <strong>Zerlegen</strong> heißt hier: Vorgaben erfassen, Eingabe prüfen, Mengen berechnen, Ergebnis ausgeben und testen. Ein <strong>Muster</strong> ist die wiederkehrende Rechnung „Gruppenanzahl mal Bedarf pro Gruppe“. <strong>Abstraktion</strong> behält die dafür nötigen Angaben und lässt etwa Lieblingsfarben weg. Ein <strong>Algorithmus</strong> beschreibt die Lösung in eindeutigen Schritten.</p>\n<div class=\"mini-task\" data-production-plan><strong>Bevor du das Programm öffnest:</strong> Zeichne Kästchen für Eingabeprüfung, Berechnung und Ausgabe. Verbinde sie mit Pfeilen. Wo führt dein Ablauf weiter, wenn jemand 1,5 Gruppen eingibt? Notiere außerdem den erwarteten Papierbedarf für vier Gruppen. Vergleiche deinen Plan in Abschnitt 2 mit dem angegebenen Ablauf.</div>\n<p><strong>Prüfen gehört dazu:</strong> Ein Programm kann gut aussehen und trotzdem falsch rechnen. Umgekehrt macht eine richtige Rechnung die Ausgabe noch nicht verständlich. Halte Erwartung und tatsächliche Beobachtung getrennt fest.</p>\n{{QUIZ_dgb7_produktion_q1}}{{QUIZ_dgb7_produktion_p1}}"
       },
       {
         "id": "sec2",
-        "title": "2. Fachw&ouml;rter und Beispiele",
+        "title": "2. Einen Materialplan programmieren und testen",
         "quizzes": [
           {
-            "id": "dgb7_produktion_q2",
-            "question": "Eine digitale Infokarte hat große Schrift und guten Kontrast. Ist damit ihre vollständige Barrierefreiheit bewiesen?",
-            "practiceOnly": false,
-            "answers": [
-              {
-                "text": "Nein. Auch verständliche Angaben, Bildalternativen und die Bedienung müssen passend zum Produkt geprüft werden.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Lesbarkeit ist ein Teil der Zugänglichkeit. Ein kurzer Test deckt nicht automatisch alle Barrieren ab."
-              },
-              {
-                "text": "Ja. Sobald Text groß genug ist, sind auch alle Bilder und Links zugänglich.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Große Schrift erklärt kein wichtiges Bild und beweist keine Tastaturbedienung."
-              },
-              {
-                "text": "Ja, wenn die Person, die die Karte erstellt hat, alle Angaben sofort findet.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Die erstellende Person kennt den Inhalt bereits. Suchaufgaben anderer Personen können zusätzliche Probleme zeigen; auch das ist noch keine vollständige Abnahme."
-              }
-            ]
-          },
-          {
             "id": "dgb7_produktion_p2",
-            "question": "Was gehört zu Computational Thinking?",
+            "question": "Du ergänzt ein viertes Material in der Liste. Welcher Test ist sinnvoll?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Zerlegen, Muster erkennen, Abstrahieren, Algorithmus entwickeln",
+                "text": "Den Bedarf des neuen Materials für zwei Gruppenanzahlen vorher berechnen und die neue Ausgabe damit vergleichen.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Das sind wichtige Bestandteile."
+                "pts": 0,
+                "feedback": "So prüfst du die neue Zeile gegen eine unabhängige Erwartung und kontrollierst zugleich, ob die vorhandenen Zeilen erhalten bleiben."
               },
               {
-                "text": "das fertige Aussehen kopieren, ohne den Lösungsweg zu prüfen",
+                "text": "Nur prüfen, ob eine vierte Zeile erscheint; ihre Zahl folgt automatisch aus dem Zeilennamen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Ein ähnliches Aussehen erklärt nicht die Berechnung. Zerlegung, gemeinsame Regeln und Tests helfen beim Lösen."
+                "feedback": "Eine vorhandene Zeile kann eine falsche Menge enthalten. Name und Bedarf sind unterschiedliche Angaben."
+              },
+              {
+                "text": "Nur den bisherigen Papierbedarf prüfen, weil alle Materialien dieselbe Zahl erhalten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Jedes Material hat einen eigenen Bedarf pro Gruppe. Die neue Vorgabe muss ebenfalls getestet werden."
               }
             ]
           },
@@ -13545,14 +13680,7 @@
                 "feedback": "Die Änderung betrifft nur den Papier-Eintrag. Der Bleistiftbedarf bleibt bei einem Stück pro Gruppe."
               }
             ]
-          }
-        ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Computational Thinking</strong><br>Probleme mit Zerlegen, Mustererkennen, Abstraktion und Algorithmus l&ouml;sen.</div><div class=\"word-ui-card\"><strong>Abstraktion</strong><br>Vereinfachen, ohne das Wichtigste zu verlieren.</div><div class=\"word-ui-card\"><strong>Barrierearmut</strong><br>Ein Produkt ist f&uuml;r viele Menschen gut zug&auml;nglich.</div><div class=\"word-ui-card\"><strong>Konfiguration</strong><br>Einstellungen eines Programms oder Systems anpassen.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Problem</td><td>Klassenquiz planen: Fragen, Antworten, Punkte, Test.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Muster</td><td>Alle Fragen brauchen Antwortm&ouml;glichkeiten und Feedback.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Barriere</td><td>Video ohne Untertitel ist f&uuml;r manche schwer nutzbar.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb7_produktion_q2}}\n{{QUIZ_dgb7_produktion_p2}}<div data-material-planner><h3>Vom Klassenauftrag zum ausführbaren Materialplaner</h3>\n<p><strong>Fiktiver Auftrag:</strong> Für einen Klassenworkshop bekommt jede Gruppe 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Wir planen den Bedarf für 0 bis 8 ganze Gruppen. Alle Gruppen erhalten dasselbe Paket. Lagerbestand, Reservematerial und Kosten gehören noch nicht zu diesem Modell.</p>\n<table data-material-requirements><caption>Festgelegter Bedarf pro Gruppe</caption><thead><tr><th scope=\"col\">Material</th><th scope=\"col\">Pro Gruppe</th><th scope=\"col\">Einheit</th></tr></thead><tbody><tr><th scope=\"row\">Papier</th><td>2</td><td>Blatt</td></tr><tr><th scope=\"row\">Bleistifte</th><td>1</td><td>Stück</td></tr><tr><th scope=\"row\">Büroklammern</th><td>3</td><td>Stück</td></tr></tbody></table>\n<p><strong>Zerlegen:</strong> Vorgaben sammeln → Gruppenanzahl prüfen → jede Materialmenge berechnen → Tabelle beschriften → Ergebnisse testen. Die Berechnung braucht die Vorgaben und eine gültige Eingabe; eine schön gestaltete Tabelle allein löst den Auftrag noch nicht.</p>\n<p><strong>Muster:</strong> Für jede Materialart gilt „Gruppenanzahl mal Bedarf pro Gruppe“. <strong>Abstraktion:</strong> Gruppennamen und Lieblingsfarben sind für diese reine Mengenrechnung unwichtig. Materialname, Einheit und Bedarf dürfen wir nicht weglassen. Was wichtig ist, hängt vom Auftrag ab.</p>\n<pre>Prüfe: Ist die Gruppenanzahl ganzzahlig und zwischen 0 und 8?\nWenn nein: Erkläre den Eingabefehler.\nSonst:\n  Für jeden Eintrag der Materialliste:\n    Gesamtbedarf = Gruppenanzahl mal Bedarf pro Gruppe\n    Merke Materialname, Gesamtbedarf und Einheit.\n  Zeige die fertige Liste.</pre>\n<p><a href=\"../examples/materialplaner.html\" data-material-open>Materialplaner öffnen</a> · <a href=\"../examples/materialplaner.html\" download=\"materialplaner.html\">HTML-Datei zum Bearbeiten herunterladen</a>. Die Datei enthält das Programm und benötigt kein Konto. Verwende für deine Kopie einen reinen Texteditor und speichere sie mit der Endung <code>.html</code>.</p>\n<p><strong>Im JavaScript-Code:</strong> <code>materialien</code> ist die Liste der Vorgaben. <code>for (const material of liste)</code> besucht jeden Eintrag; <code>gruppen * material.proGruppe</code> berechnet dessen Menge. <code>push</code> hängt einen Ergebnis-Eintrag an. Die Funktion <code>materialbedarf</code> gibt die fertige Liste mit <code>return</code> zurück. Die Eingabeprüfung und die Bildschirmdarstellung sind getrennte Teilaufgaben.</p>\n<ol data-material-tasks><li><strong>Vorhersagen:</strong> Berechne für 0, 1 und 4 Gruppen den Bedarf jeder Materialart auf Papier. Trage erst die erwarteten Mengen in dein Protokoll ein und vergleiche dann mit dem geöffneten Programm.</li>\n<li><strong>Nachvollziehen:</strong> Öffne die heruntergeladene Kopie im Texteditor. Suche nach <code>&lt;script&gt;</code> die Liste <code>const materialien</code> und <code>function materialbedarf</code>. Verfolge bei vier Gruppen den Papier-Eintrag vom Wert 2 bis zur ausgegebenen Menge. Wie oft wird der Schleifenblock für die drei Materialarten ausgeführt? Wie oft bei null Gruppen?</li>\n<li><strong>Gezielt ändern:</strong> Kopiere die Datei unter einem neuen Namen. Ändere nur beim Papier <code>proGruppe: 2</code> zu <code>proGruppe: 3</code>. Sage die Ergebnisse für dieselben drei Testfälle voraus. Speichere, öffne die geänderte Datei im Browser und prüfe den angezeigten Code sowie die Ergebnisse.</li>\n<li><strong>Grenzen prüfen:</strong> Teste zusätzlich 8 Gruppen, eine leere Eingabe, −1, 9 und 1,5 Gruppen. Die gültige Zahl 8 soll berechnet werden; für die anderen Eingaben soll eine Fehlermeldung erscheinen und keine alte Ergebnisliste stehen bleiben. Ein Test mit nur vier Gruppen prüft diese Fälle noch nicht.</li>\n<li><strong>Erweitern:</strong> Füge in einer weiteren Kopie ein viertes Material mit Name, Einheit und Bedarf pro Gruppe hinzu. Übernimm die Struktur eines vorhandenen Listeneintrags und setze das Komma zwischen Einträgen. Warum muss die Schleife dafür nicht viermal neu geschrieben werden? Prüfe die zusätzliche Zeile mit zwei vorher berechneten Fällen.</li>\n<li><strong>Dokumentieren:</strong> Bewahre Original und Änderungen auf. Notiere bei Abweichungen Erwartung, Beobachtung, geänderte Stelle und erneuten Test. Zu zweit wechseln die Rollen Programmieren und Prüfen; allein dokumentierst du deine Selbstprüfung. Abgabe: eigene HTML-Kopie, Testprotokoll und kurze Erklärung von Zerlegen, Muster und Abstraktion am eigenen Programm.</li></ol>\n<p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Testprotokoll zum Materialplaner\" tabindex=\"0\"><table data-material-test-cases><caption>Testprotokoll – alle Mengen jeweils mit Einheit notieren</caption><thead><tr><th scope=\"col\">Gruppen</th><th scope=\"col\">Original erwartet</th><th scope=\"col\">Papieränderung erwartet</th><th scope=\"col\">Tatsächlich / Dateiversion</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">1</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">4</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Eigener Grenzfall</th><td>…</td><td>…</td><td>…</td></tr></tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Führe die Liste von Hand aus und markiere die geplante Änderung im Pseudocode. Das übt die Logik; das Verändern und Ausführen der eigenen Programmdatei bleibt dann noch zu erledigen.</p>\n<details data-worksheet-solution=\"true\"><summary>Erwartungswerte und Denkwege vergleichen</summary><p>Original in der Reihenfolge Papier/Bleistifte/Büroklammern: 0 Gruppen → 0/0/0; 1 Gruppe → 2/1/3; 4 Gruppen → 8/4/12; 8 Gruppen → 16/8/24. Die Einheiten sind Blatt/Stück/Stück. Nach der Papieränderung ergeben sich 0/0/0, 3/1/3, 12/4/12 und 24/8/24. Nur der Papierbedarf ändert sich.</p><p>Der Schleifenblock verarbeitet immer die drei Materialeinträge, auch bei null Gruppen. Dann sind die berechneten Mengen null. Mit einem vierten Material gibt es vier Durchläufe; eine Änderung der Gruppenanzahl verändert die Multiplikation, nicht die Länge dieser Liste. Gruppennamen wegzulassen ist hier sinnvoll; Einheiten wegzulassen macht den Plan unklar.</p><p>Eine falsche Menge kann an einer falschen Vorgabe, einer falschen Rechnung oder der geöffneten Dateiversion liegen. Ein bloßes „funktioniert“ nennt weder die Eingabe noch die erwartete Ausgabe und ist kein nachvollziehbares Testprotokoll.</p></details>\n<p class=\"small\">Zum Nachlesen der verwendeten Schleife: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement\" target=\"_blank\" rel=\"noopener\">MDN: JavaScript-Schleifen (Englisch)</a>.</p>\n{{QUIZ_dgb7_production_abstraction}}{{QUIZ_dgb7_production_code_change}}</div>"
-      },
-      {
-        "id": "sec3",
-        "title": "3. Werkstattauftrag",
-        "quizzes": [
+          },
           {
             "id": "dgb7_produktion_q3",
             "question": "Die Materialliste enthält drei Einträge. Wie oft führt „für jeden Eintrag der Materialliste“ den Schleifenblock bei null Gruppen aus?",
@@ -13577,23 +13705,61 @@
                 "feedback": "Das Programm fasst die Materialeinträge nicht zusammen. Namen und Einheiten bleiben zu jeder Menge erhalten."
               }
             ]
+          }
+        ],
+        "content": "<h3>Vom Klassenauftrag zum ausführbaren Materialplaner</h3>\n<p><strong>Fiktiver Auftrag:</strong> Für einen Klassenworkshop bekommt jede Gruppe 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Wir planen den Bedarf für 0 bis 8 ganze Gruppen. Alle Gruppen erhalten dasselbe Paket. Lagerbestand, Reservematerial und Kosten gehören noch nicht zu diesem Modell.</p>\n<table data-material-requirements><caption>Festgelegter Bedarf pro Gruppe</caption><thead><tr><th scope=\"col\">Material</th><th scope=\"col\">Pro Gruppe</th><th scope=\"col\">Einheit</th></tr></thead><tbody><tr><th scope=\"row\">Papier</th><td>2</td><td>Blatt</td></tr><tr><th scope=\"row\">Bleistifte</th><td>1</td><td>Stück</td></tr><tr><th scope=\"row\">Büroklammern</th><td>3</td><td>Stück</td></tr></tbody></table>\n<p><strong>Zerlegen:</strong> Vorgaben sammeln → Gruppenanzahl prüfen → jede Materialmenge berechnen → Tabelle beschriften → Ergebnisse testen. Die Berechnung braucht die Vorgaben und eine gültige Eingabe; eine schön gestaltete Tabelle allein löst den Auftrag noch nicht.</p>\n<p><strong>Muster:</strong> Für jede Materialart gilt „Gruppenanzahl mal Bedarf pro Gruppe“. <strong>Abstraktion:</strong> Gruppennamen und Lieblingsfarben sind für diese reine Mengenrechnung unwichtig. Materialname, Einheit und Bedarf dürfen wir nicht weglassen. Was wichtig ist, hängt vom Auftrag ab.</p>\n<pre>Prüfe: Ist die Gruppenanzahl ganzzahlig und zwischen 0 und 8?\nWenn nein: Erkläre den Eingabefehler.\nSonst:\n  Für jeden Eintrag der Materialliste:\n    Gesamtbedarf = Gruppenanzahl mal Bedarf pro Gruppe\n    Merke Materialname, Gesamtbedarf und Einheit.\n  Zeige die fertige Liste.</pre>\n<p><a href=\"../examples/materialplaner.html\" data-material-open>Materialplaner öffnen</a> · <a href=\"../examples/materialplaner.html\" download=\"materialplaner.html\">HTML-Datei zum Bearbeiten herunterladen</a>. Die Datei enthält das Programm und benötigt kein Konto. Verwende für deine Kopie einen reinen Texteditor und speichere sie mit der Endung <code>.html</code>.</p>\n<p><strong>Im JavaScript-Code:</strong> <code>materialien</code> ist die Liste der Vorgaben. <code>for (const material of liste)</code> besucht jeden Eintrag; <code>gruppen * material.proGruppe</code> berechnet dessen Menge. <code>push</code> hängt einen Ergebnis-Eintrag an. Die Funktion <code>materialbedarf</code> gibt die fertige Liste mit <code>return</code> zurück. Die Eingabeprüfung und die Bildschirmdarstellung sind getrennte Teilaufgaben.</p>\n<ol data-material-tasks><li><strong>Vorhersagen:</strong> Berechne für 0, 1 und 4 Gruppen den Bedarf jeder Materialart auf Papier. Trage erst die erwarteten Mengen in dein Protokoll ein und vergleiche dann mit dem geöffneten Programm.</li>\n<li><strong>Nachvollziehen:</strong> Öffne die heruntergeladene Kopie im Texteditor. Suche nach <code>&lt;script&gt;</code> die Liste <code>const materialien</code> und <code>function materialbedarf</code>. Verfolge bei vier Gruppen den Papier-Eintrag vom Wert 2 bis zur ausgegebenen Menge. Wie oft wird der Schleifenblock für die drei Materialarten ausgeführt? Wie oft bei null Gruppen?</li>\n<li><strong>Gezielt ändern:</strong> Kopiere die Datei unter einem neuen Namen. Ändere nur beim Papier <code>proGruppe: 2</code> zu <code>proGruppe: 3</code>. Sage die Ergebnisse für dieselben drei Testfälle voraus. Speichere, öffne die geänderte Datei im Browser und prüfe den angezeigten Code sowie die Ergebnisse.</li>\n<li><strong>Grenzen prüfen:</strong> Teste zusätzlich 8 Gruppen, eine leere Eingabe, −1, 9 und 1,5 Gruppen. Die gültige Zahl 8 soll berechnet werden; für die anderen Eingaben soll eine Fehlermeldung erscheinen und keine alte Ergebnisliste stehen bleiben. Ein Test mit nur vier Gruppen prüft diese Fälle noch nicht.</li>\n<li><strong>Erweitern:</strong> Füge in einer weiteren Kopie ein viertes Material mit Name, Einheit und Bedarf pro Gruppe hinzu. Übernimm die Struktur eines vorhandenen Listeneintrags und setze das Komma zwischen Einträgen. Warum muss die Schleife dafür nicht viermal neu geschrieben werden? Prüfe die zusätzliche Zeile mit zwei vorher berechneten Fällen.</li>\n<li><strong>Dokumentieren:</strong> Bewahre Original und Änderungen auf. Notiere bei Abweichungen Erwartung, Beobachtung, geänderte Stelle und erneuten Test. Zu zweit wechseln die Rollen Programmieren und Prüfen; allein dokumentierst du deine Selbstprüfung. Abgabe: eigene HTML-Kopie, Testprotokoll und kurze Erklärung von Zerlegen, Muster und Abstraktion am eigenen Programm.</li></ol>\n<p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Testprotokoll zum Materialplaner\" tabindex=\"0\"><table data-material-test-cases><caption>Testprotokoll – alle Mengen jeweils mit Einheit notieren</caption><thead><tr><th scope=\"col\">Gruppen</th><th scope=\"col\">Original erwartet</th><th scope=\"col\">Papieränderung erwartet</th><th scope=\"col\">Tatsächlich / Dateiversion</th></tr></thead><tbody><tr><th scope=\"row\">0</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">1</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">4</th><td>…</td><td>…</td><td>…</td></tr><tr><th scope=\"row\">Eigener Grenzfall</th><td>…</td><td>…</td><td>…</td></tr></tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Führe die Liste von Hand aus und markiere die geplante Änderung im Pseudocode. Das übt die Logik; das Verändern und Ausführen der eigenen Programmdatei bleibt dann noch zu erledigen.</p>\n<details data-worksheet-solution=\"true\"><summary>Erwartungswerte und Denkwege vergleichen</summary><p>Original in der Reihenfolge Papier/Bleistifte/Büroklammern: 0 Gruppen → 0/0/0; 1 Gruppe → 2/1/3; 4 Gruppen → 8/4/12; 8 Gruppen → 16/8/24. Die Einheiten sind Blatt/Stück/Stück. Nach der Papieränderung ergeben sich 0/0/0, 3/1/3, 12/4/12 und 24/8/24. Nur der Papierbedarf ändert sich.</p><p>Der Schleifenblock verarbeitet immer die drei Materialeinträge, auch bei null Gruppen. Dann sind die berechneten Mengen null. Mit einem vierten Material gibt es vier Durchläufe; eine Änderung der Gruppenanzahl verändert die Multiplikation, nicht die Länge dieser Liste. Gruppennamen wegzulassen ist hier sinnvoll; Einheiten wegzulassen macht den Plan unklar.</p><p>Eine falsche Menge kann an einer falschen Vorgabe, einer falschen Rechnung oder der geöffneten Dateiversion liegen. Ein bloßes „funktioniert“ nennt weder die Eingabe noch die erwartete Ausgabe und ist kein nachvollziehbares Testprotokoll.</p></details>\n<p class=\"small\">Zum Nachlesen der verwendeten Schleife: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement\" target=\"_blank\" rel=\"noopener\">MDN: JavaScript-Schleifen (Englisch)</a>.</p>\n{{QUIZ_dgb7_production_abstraction}}{{QUIZ_dgb7_production_code_change}}</div>\n{{QUIZ_dgb7_produktion_q3}}{{QUIZ_dgb7_produktion_p2}}"
+      },
+      {
+        "id": "sec3",
+        "title": "3. Eine Infokarte verbessern und Leseeinstellungen prüfen",
+        "quizzes": [
+          {
+            "id": "dgb7_produktion_q2",
+            "question": "Eine digitale Infokarte hat große Schrift und guten Kontrast. Ist damit ihre vollständige Barrierefreiheit bewiesen?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Nein. Auch verständliche Angaben, Bildalternativen und die Bedienung müssen passend zum Produkt geprüft werden.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Lesbarkeit ist ein Teil der Zugänglichkeit. Ein kurzer Test deckt nicht automatisch alle Barrieren ab."
+              },
+              {
+                "text": "Ja. Sobald Text groß genug ist, sind auch alle Bilder und Links zugänglich.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Große Schrift erklärt kein wichtiges Bild und beweist keine Tastaturbedienung."
+              },
+              {
+                "text": "Ja, wenn die Person, die die Karte erstellt hat, alle Angaben sofort findet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die erstellende Person kennt den Inhalt bereits. Suchaufgaben anderer Personen können zusätzliche Probleme zeigen; auch das ist noch keine vollständige Abnahme."
+              }
+            ]
           },
           {
             "id": "dgb7_produktion_p3",
-            "question": "Was macht ein Produkt barriereärmer?",
+            "question": "Die Infokarte nennt das zuständige Team nur durch grüne Schrift. Welche Änderung beseitigt dieses konkrete Hindernis?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Untertitel oder gut lesbare Schrift",
+                "text": "Den Teamnamen zusätzlich als Text schreiben und prüfen, ob er auch ohne Farbe verständlich ist.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Solche Hilfen verbessern Nutzung."
+                "pts": 0,
+                "feedback": "Die Information hängt dann nicht mehr allein vom Erkennen der Farbe ab. Der erneute Test prüft genau dieses Hindernis."
               },
               {
-                "text": "nur eine grüne Farbe für die zuständige Gruppe verwenden",
+                "text": "Ein kräftigeres Grün wählen und den Teamnamen weiterhin weglassen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Farbe allein kann eine Information unzugänglich machen. Benenne die Gruppe zusätzlich mit einem verständlichen Text."
+                "feedback": "Auch kräftige Farbe allein erklärt nicht, welches Team gemeint ist. Die Information braucht eine weitere erkennbare Form."
+              },
+              {
+                "text": "Alle Texte größer machen, ohne die Zuständigkeit auszuschreiben.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Größere Schrift kann beim Lesen helfen. Die fehlende Benennung des Teams bleibt aber bestehen."
               }
             ]
           },
@@ -13646,7 +13812,7 @@
             ]
           }
         ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Barrierearmes Medienprodukt testen</h3><ol class=\"word-mini-steps\"><li>Erstelle ein kurzes digitales Produkt: Folie, Audio, Video, Quiz oder Infokarte.</li><li>Pr&uuml;fe Schriftgr&ouml;&szlig;e, Kontrast, Sprache, Bildbeschreibung und Bedienbarkeit.</li><li>Lasse ein Partnerkind eine Sache finden, die unklar ist.</li><li>Verbessere mindestens zwei Stellen.</li><li>Dokumentiere: Was habe ich verbessert und warum?</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Dein Produkt wurde nicht nur erstellt, sondern sichtbar getestet und barriere&auml;rmer gemacht.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>Denken</td><td>Problem ist in kleine Schritte zerlegt</td><td>Ablaufplan ist nachvollziehbar</td></tr><tr><td>Gestaltung</td><td>Produkt passt zur Zielgruppe</td><td>nicht zu voll und gut lesbar</td></tr><tr><td>Barrierearm</td><td>mindestens zwei Verbesserungen wurden gemacht</td><td>Grund ist dokumentiert</td></tr></table>\n{{QUIZ_dgb7_produktion_q3}}\n{{QUIZ_dgb7_produktion_p3}}<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>\n<div class=\"teacher-note\" data-reading-settings-lesson>\n<h3>Einstellungen selbst anpassen und ihre Wirkung prüfen</h3>\n<p><strong>Konfiguration</strong> bedeutet, vorhandene Einstellmöglichkeiten eines Programms zu verändern. Du schreibst dabei nicht den Programmcode um. In der folgenden Leseanwendung kannst du Schriftgröße, Zeilenabstand und Farben einer festen Leseprobe einstellen. Das ändert ihre Darstellung, nicht die Angaben im Text.</p>\n<p><a href=\"../examples/leseansicht.html\" target=\"_blank\" rel=\"noopener\" data-reading-open>Leseansicht öffnen (neuer Tab)</a> · <a href=\"../examples/leseansicht.html\" download=\"leseansicht.html\">Leseansicht als HTML-Datei herunterladen</a>. Die Anwendung funktioniert auch als eigene Dateikopie ohne Konto; dauerhafte Speicherung kann je nach Browser oder Dateiumgebung eingeschränkt sein.</p>\n<ol data-reading-settings-tasks>\n<li><strong>Ziel und Ausgangslage:</strong> Notiere die drei angezeigten Einstellwerte und wähle ein Ziel, etwa größere Buchstaben oder mehr Abstand zwischen Zeilen. Du kannst deine Vorliebe oder einen erfundenen Fall verwenden. Finde in der unveränderten Leseprobe Beginn, Raum und das Material von Team Wasser.</li>\n<li><strong>Gezielt vergleichen:</strong> Sage die Wirkung einer Änderung voraus. Ändere zuerst nur die Schriftgröße und bearbeite dieselben Suchaufgaben. Lasse sie dann stehen und ändere nur den Zeilenabstand. Vergleiche zuletzt die Farbdarstellungen. Beschreibe Beobachtungen und deine Vorliebe getrennt. Schnelleres Finden kann auch daran liegen, dass du den Text schon kennst; dies ist keine Messstudie zur Lesegeschwindigkeit.</li>\n<li><strong>Nutzbarkeit prüfen:</strong> Kontrolliere, ob alle Wörter sichtbar und alle Angaben erreichbar bleiben. Erreiche den Link zur Suchaufgabe mit Tab und öffne ihn mit Enter. Prüfe auch eine schmale Fensteransicht. Größere Schrift darf mehr Platz brauchen; abgeschnittene Inhalte wären dagegen ein Problem.</li>\n<li><strong>Speichern überprüfen:</strong> Speichere deine gewählte Kombination und notiere die Rückmeldung. Stelle die Ausgangsansicht her, lade die gespeicherten Werte und vergleiche mit dem Protokoll. Lade die Seite neu und prüfe erneut. Falls der Browser das Speichern verweigert, notiere genau das; die aktuelle Darstellung kann trotzdem verändert werden. Löschen entfernt nur die gespeicherten Werte dieser Leseanwendung und lässt ihre aktuelle Ansicht stehen.</li>\n<li><strong>Übertragen:</strong> Suche in einem schulisch freigegebenen Programm eine passende Darstellungsoption, etwa Ansichtszoom oder Untertitel. Notiere Programm, Einstellungsweg und Ausgangswert, ändere eine Option und führe eine dazu passende Lese- oder Hörprobe aus. Stelle anschließend den Ausgangswert wieder her. Wenn du dort nichts ändern kannst, dokumentiere die Grenze; die Übertragung bleibt dann noch offen. Die Leseanwendung verändert keine Geräte- oder Kommunikationseinstellungen.</li>\n<li><strong>Begründen:</strong> Wähle eine für dein Ziel hilfreiche Kombination und begründe sie mit einer beobachteten Wirkung. Eine andere Person darf anders wählen. Gib das Protokoll mit Einstellung, Vorhersage, Beobachtung und begründeter Entscheidung ab; private Angaben zu Gesundheit oder Geräten sind nicht erforderlich.</li>\n</ol>\n<div class=\"workshop-table-scroll\"><table class=\"worksheet-table\" data-reading-settings-protocol><caption>Konfigurationsprotokoll – tatsächliche Beobachtungen eintragen</caption><thead><tr><th scope=\"col\">Schritt / Ausgangswert</th><th scope=\"col\">Änderung / Vorhersage</th><th scope=\"col\">Beobachtung / Entscheidung</th></tr></thead><tbody>\n<tr><th scope=\"row\">Schriftgröße</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Zeilenabstand / Farben</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Speichern / erneut öffnen</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Anderes Programm</th><td>……………………</td><td>……………………</td></tr>\n</tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Plane die Einstellschritte und begründe eine erwartete Wirkung. Lass Beobachtungsfelder leer. Das tatsächliche Konfigurieren, Prüfen und Übertragen ist damit noch nicht ausgeführt.</p>\n<details data-worksheet-solution=\"true\" data-reading-settings-solution><summary>Vergleichshinweise zur Auswertung</summary>\n<p>Die Suchangaben bleiben bei jeder Einstellung gleich: Beginn 14:00 Uhr, Werkraum Raum 12, drei leere Becher für Team Wasser. Eine Schriftvergrößerung verändert die Darstellung und kann zusätzliche Zeilen erzeugen; sie ändert den Inhalt nicht. Mehr Zeilenabstand vergrößert den Abstand zwischen Textzeilen. Welche Kombination dir hilft, muss deine eigene Prüfung zeigen.</p>\n<p>Ein nachvollziehbares Protokoll nennt konkrete Werte, z. B. 100 % auf 125 %, und ein tatsächlich beobachtetes Ergebnis. Eine beliebte Farbkombination ist nicht automatisch für alle besser. Speicherung ist erst belegt, wenn die notierten Werte nach dem Laden oder erneuten Öffnen wieder erscheinen; eine Fehlermeldung ist als Fehlermeldung festzuhalten. Eine leere Beobachtung wird nicht durch eine erfundene Messung ersetzt.</p>\n</details>\n<p>Hintergrund für Lehrkräfte: <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html\" target=\"_blank\" rel=\"noopener\">W3C WAI: veränderbare Textabstände</a> und <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/reflow.html\" target=\"_blank\" rel=\"noopener\">Inhalte bei veränderter Ansicht nutzbar halten</a>. Die Werkstatt ist keine vollständige Barrierefreiheitsprüfung.</p>\n</div>\n{{QUIZ_dgb7_settings_scope}}{{QUIZ_dgb7_settings_evidence}}"
+        "content": "<p>Jetzt prüfst du die Ausgabe aus Sicht der Menschen, die sie verwenden. Zuerst gestaltest du eine verständliche Infokarte. Danach untersuchst du in einer fertigen Leseanwendung, wie Einstellungen die Darstellung verändern. <strong>Barrierearm</strong> bedeutet: Hindernisse für die Nutzung werden verringert. Welche Hindernisse bleiben, muss zum jeweiligen Produkt geprüft werden.</p>\n<h3>Zwei Ankündigungen im Vergleich</h3><p>Die folgenden Ankündigungen sind erfundene Übungstexte. Es gibt dazu keinen echten Termin und kein Anmeldeformular.</p><blockquote data-accessible-card=\"A\"><strong>Fassung A</strong><p>Projekttag: morgen, 8 Uhr. Treffpunkt siehe Foto. Die grüne Gruppe bringt das Material mit. Anmeldung: hier.</p></blockquote><blockquote data-accessible-card=\"B\"><strong>Fassung B</strong><p>Projekttag am 12. Juni 2030, Beginn um 8:00 Uhr im Werkraum, Raum 12. Team Pflanzen bringt Papier und Stifte mit. Beschriftung des vorgesehenen Links: „Anmeldeformular zum Projekttag“.</p></blockquote><p>Fassung B benennt Datum, Ort, Team und Material. Ein verständlicher Linktext beschreibt sein Ziel. Wichtige Informationen müssen auch ohne ein Foto verständlich sein. Ob Schrift, Kontrast und Tastaturbedienung funktionieren, lässt sich aus den Texten allein noch nicht beurteilen.</p><ol data-accessibility-product-tasks><li>Markiere in A mindestens drei unklare Angaben. Notiere jeweils, welche Information fehlt und für wen das ein Hindernis sein kann.</li><li>Vergleiche mit B. Benenne genau, welche Textänderung welches Problem löst. Ergänze einen aussagekräftigen Titel.</li><li>Erstelle in einem schulisch freigegebenen Werkzeug eine eigene digitale Infokarte mit diesen fiktiven Angaben. Verwende echte Überschriftenformate. Wenn du ein inhaltlich wichtiges Bild hinzufügst, gib seine Aussage auch als Text wieder.</li><li>Teste die gespeicherte Fassung: Vergrößere die Ansicht und prüfe, ob Informationen abgeschnitten werden. Falls deine Karte Links oder Schaltflächen enthält, versuche sie mit der Tastatur zu erreichen und zu bedienen. Notiere Werkzeug und beobachtetes Ergebnis statt nur „funktioniert“.</li><li>Bitte eine andere Person, Datum, Raum und mitzubringendes Material zu finden, ohne zusätzliche Erklärung. Allein kannst du die Karte später erneut anhand dieser drei Suchaufgaben prüfen. Notiere dabei, dass es eine Selbstprüfung war.</li><li>Verbessere mindestens zwei konkrete Stellen und wiederhole die passenden Prüfungen. Bewahre die alte Fassung zum Vergleich auf. Ein erfolgreicher kurzer Test beweist noch keine vollständige Barrierefreiheit.</li></ol><p class=\"small\" data-worksheet-omit=\"true\">Auf schmalen Bildschirmen kannst du diese Tabelle seitlich scrollen. Mit der Tastatur: Tabelle mit Tab fokussieren, dann die Pfeiltasten verwenden.</p><div class=\"workshop-table-scroll\" role=\"region\" aria-label=\"Änderungen und erneute Prüfung der Infokarte\" tabindex=\"0\"><table data-accessibility-test-log><caption>Änderung und erneute Prüfung dokumentieren</caption><thead><tr><th scope=\"col\">Aufgabe / Prüfschritt</th><th scope=\"col\">Beobachtetes Problem</th><th scope=\"col\">Änderung</th><th scope=\"col\">Ergebnis der erneuten Prüfung</th></tr></thead><tbody><tr><th scope=\"row\">Information finden</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Vergrößerte Ansicht</th><td>________</td><td>________</td><td>________</td></tr><tr><th scope=\"row\">Bedienung, falls vorhanden</th><td>________</td><td>________</td><td>________</td></tr></tbody></table></div><p><small>Grundlagen zu klaren Texten, Überschriften, Linktexten und Bildalternativen: <a href=\"https://www.w3.org/WAI/tips/writing/\" target=\"_blank\" rel=\"noopener\">W3C WAI: Writing for Web Accessibility</a>.</small></p>\n<div class=\"teacher-note\" data-reading-settings-lesson>\n{{QUIZ_dgb7_produktion_q2}}{{QUIZ_dgb7_produktion_p3}}\n<h3>Einstellungen selbst anpassen und ihre Wirkung prüfen</h3>\n<p><strong>Konfiguration</strong> bedeutet, vorhandene Einstellmöglichkeiten eines Programms zu verändern. Du schreibst dabei nicht den Programmcode um. In der folgenden Leseanwendung kannst du Schriftgröße, Zeilenabstand und Farben einer festen Leseprobe einstellen. Das ändert ihre Darstellung, nicht die Angaben im Text.</p>\n<p><a href=\"../examples/leseansicht.html\" target=\"_blank\" rel=\"noopener\" data-reading-open>Leseansicht öffnen (neuer Tab)</a> · <a href=\"../examples/leseansicht.html\" download=\"leseansicht.html\">Leseansicht als HTML-Datei herunterladen</a>. Die Anwendung funktioniert auch als eigene Dateikopie ohne Konto; dauerhafte Speicherung kann je nach Browser oder Dateiumgebung eingeschränkt sein.</p>\n<ol data-reading-settings-tasks>\n<li><strong>Ziel und Ausgangslage:</strong> Notiere die drei angezeigten Einstellwerte und wähle ein Ziel, etwa größere Buchstaben oder mehr Abstand zwischen Zeilen. Du kannst deine Vorliebe oder einen erfundenen Fall verwenden. Finde in der unveränderten Leseprobe Beginn, Raum und das Material von Team Wasser.</li>\n<li><strong>Gezielt vergleichen:</strong> Sage die Wirkung einer Änderung voraus. Ändere zuerst nur die Schriftgröße und bearbeite dieselben Suchaufgaben. Lasse sie dann stehen und ändere nur den Zeilenabstand. Vergleiche zuletzt die Farbdarstellungen. Beschreibe Beobachtungen und deine Vorliebe getrennt. Schnelleres Finden kann auch daran liegen, dass du den Text schon kennst; dies ist keine Messstudie zur Lesegeschwindigkeit.</li>\n<li><strong>Nutzbarkeit prüfen:</strong> Kontrolliere, ob alle Wörter sichtbar und alle Angaben erreichbar bleiben. Erreiche den Link zur Suchaufgabe mit Tab und öffne ihn mit Enter. Prüfe auch eine schmale Fensteransicht. Größere Schrift darf mehr Platz brauchen; abgeschnittene Inhalte wären dagegen ein Problem.</li>\n<li><strong>Speichern überprüfen:</strong> Speichere deine gewählte Kombination und notiere die Rückmeldung. Stelle die Ausgangsansicht her, lade die gespeicherten Werte und vergleiche mit dem Protokoll. Lade die Seite neu und prüfe erneut. Falls der Browser das Speichern verweigert, notiere genau das; die aktuelle Darstellung kann trotzdem verändert werden. Löschen entfernt nur die gespeicherten Werte dieser Leseanwendung und lässt ihre aktuelle Ansicht stehen.</li>\n<li><strong>Übertragen:</strong> Suche in einem schulisch freigegebenen Programm eine passende Darstellungsoption, etwa Ansichtszoom oder Untertitel. Notiere Programm, Einstellungsweg und Ausgangswert, ändere eine Option und führe eine dazu passende Lese- oder Hörprobe aus. Stelle anschließend den Ausgangswert wieder her. Wenn du dort nichts ändern kannst, dokumentiere die Grenze; die Übertragung bleibt dann noch offen. Die Leseanwendung verändert keine Geräte- oder Kommunikationseinstellungen.</li>\n<li><strong>Begründen:</strong> Wähle eine für dein Ziel hilfreiche Kombination und begründe sie mit einer beobachteten Wirkung. Eine andere Person darf anders wählen. Gib das Protokoll mit Einstellung, Vorhersage, Beobachtung und begründeter Entscheidung ab; private Angaben zu Gesundheit oder Geräten sind nicht erforderlich.</li>\n</ol>\n<div class=\"workshop-table-scroll\"><table class=\"worksheet-table\" data-reading-settings-protocol><caption>Konfigurationsprotokoll – tatsächliche Beobachtungen eintragen</caption><thead><tr><th scope=\"col\">Schritt / Ausgangswert</th><th scope=\"col\">Änderung / Vorhersage</th><th scope=\"col\">Beobachtung / Entscheidung</th></tr></thead><tbody>\n<tr><th scope=\"row\">Schriftgröße</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Zeilenabstand / Farben</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Speichern / erneut öffnen</th><td>……………………</td><td>……………………</td></tr>\n<tr><th scope=\"row\">Anderes Programm</th><td>……………………</td><td>……………………</td></tr>\n</tbody></table></div>\n<p><strong>Ohne Gerät:</strong> Plane die Einstellschritte und begründe eine erwartete Wirkung. Lass Beobachtungsfelder leer. Das tatsächliche Konfigurieren, Prüfen und Übertragen ist damit noch nicht ausgeführt.</p>\n<details data-worksheet-solution=\"true\" data-reading-settings-solution><summary>Vergleichshinweise zur Auswertung</summary>\n<p>Die Suchangaben bleiben bei jeder Einstellung gleich: Beginn 14:00 Uhr, Werkraum Raum 12, drei leere Becher für Team Wasser. Eine Schriftvergrößerung verändert die Darstellung und kann zusätzliche Zeilen erzeugen; sie ändert den Inhalt nicht. Mehr Zeilenabstand vergrößert den Abstand zwischen Textzeilen. Welche Kombination dir hilft, muss deine eigene Prüfung zeigen.</p>\n<p>Ein nachvollziehbares Protokoll nennt konkrete Werte, z. B. 100 % auf 125 %, und ein tatsächlich beobachtetes Ergebnis. Eine beliebte Farbkombination ist nicht automatisch für alle besser. Speicherung ist erst belegt, wenn die notierten Werte nach dem Laden oder erneuten Öffnen wieder erscheinen; eine Fehlermeldung ist als Fehlermeldung festzuhalten. Eine leere Beobachtung wird nicht durch eine erfundene Messung ersetzt.</p>\n</details>\n<p>Hintergrund für Lehrkräfte: <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html\" target=\"_blank\" rel=\"noopener\">W3C WAI: veränderbare Textabstände</a> und <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/reflow.html\" target=\"_blank\" rel=\"noopener\">Inhalte bei veränderter Ansicht nutzbar halten</a>. Die Werkstatt ist keine vollständige Barrierefreiheitsprüfung.</p>\n</div>\n{{QUIZ_dgb7_settings_scope}}{{QUIZ_dgb7_settings_evidence}}"
       },
       {
         "id": "sec-media",
@@ -13787,7 +13953,7 @@
       },
       {
         "id": "sec4",
-        "title": "6. Anwenden und selbst prüfen",
+        "title": "6. Übertragen: Einen neuen Auftrag selbst prüfen",
         "quizzes": [
           {
             "id": "dgb7_produktion_q4",
@@ -13815,7 +13981,7 @@
             ]
           }
         ],
-        "content": "\n<p>Zum Schluss sollst du das Thema auf eine neue Situation anwenden. Das ist wichtiger als ein Satz auswendig zu k&ouml;nnen.</p>\n<div class=\"word-check-card\"><h3>Selbstkontrolle</h3><ul class=\"step-list\"><li>Kann ich Computational Thinking an einem Beispiel anwenden?</li><li>Kann ich ein Medienprodukt mit einer Zielgruppe planen?</li><li>Kann ich Barrieren erkennen und verbessern?</li><li>Kann ich die Wirkung einer Einstellung mit einem passenden Vorher-Nachher-Test begründen?</li></ul></div>\n<div class=\"teacher-note\"><strong>Schreibsatz f&uuml;r dein Heft:</strong> Ich kann dieses Thema anwenden, wenn ich ein eigenes Beispiel erkl&auml;re, eine passende Entscheidung treffe und meine Begr&uuml;ndung mit einem Fachwort st&uuml;tze.</div>\n<div class=\"mini-task\"><strong>Abschlussauftrag:</strong> Schreibe drei S&auml;tze: 1. Was habe ich gelernt? 2. Wo brauche ich es im Alltag? 3. Welche Frage ist noch offen?</div>\n{{QUIZ_dgb7_produktion_q4}}"
+        "content": "\n<p>Teste, ob du dein Vorgehen auf einen veränderten Auftrag übertragen kannst. Verwende deine eigenen Dateien und Protokolle aus diesem Kapitel als Belege. Der Kapitelcheck prüft dein Verständnis; er ersetzt nicht das Ausführen deiner Programmänderung oder das Prüfen deiner Medien.</p>\n<div class=\"word-task-card\" data-production-transfer><h3>Neuer Auftrag: Material mit Reserve</h3><p>Eine erfundene Klasse plant <strong>5 Gruppen</strong>. Jede bekommt weiterhin 2 Blatt Papier, 1 Bleistift und 3 Büroklammern. Zusätzlich braucht die ganze Klasse <strong>einmalig 4 Blatt Reservepapier</strong>. Die Reserve gilt nicht je Gruppe. Die anderen Materialien bleiben unverändert.</p><ol><li>Berechne alle drei Gesamtmengen zuerst ohne Programm. Erkläre, an welcher Stelle deiner bisherigen Rechnung die Reserve hinzukommt.</li><li>Zeichne den geänderten Ablauf oder schreibe Pseudocode. Gib auch die erwarteten Mengen für 0 und 1 Gruppe an: Die vier Reserveblätter sollen in diesem neuen Auftrag auch bei null Gruppen bereitliegen.</li><li>Erkläre, weshalb eine Änderung von <code>proGruppe: 2</code> auf <code>proGruppe: 6</code> den Auftrag nicht allgemein löst. Vergleiche die beiden Rechenwege bei einer und bei fünf Gruppen.</li><li>Wenn du die Änderung programmierst, arbeite in einer neuen Kopie. Prüfe alle drei Fälle gegen deine Vorhersagen. Notiere bei einer reinen Papierlösung ausdrücklich, dass der Code noch nicht ausgeführt wurde.</li></ol></div>\n<details data-worksheet-solution=\"true\" data-production-transfer-solution><summary>Reserveauftrag vergleichen</summary><p>Die Papierrechnung lautet <strong>Gruppenanzahl × 2 + 4</strong>. Bei 5 Gruppen sind das 14 Blatt Papier, 5 Bleistifte und 15 Büroklammern. Bei 0 Gruppen: 4 Blatt, 0 Bleistifte, 0 Büroklammern; bei 1 Gruppe: 6 Blatt, 1 Bleistift, 3 Büroklammern. Die Reserve wird nach der Multiplikation nur beim Papier hinzugefügt.</p><p>Mit 6 Blatt pro Gruppe gäbe es bei 5 Gruppen 30 Blatt statt 14. Bei einer Gruppe ergeben beide Rechnungen zufällig 6 Blatt. Ein einziger passender Testfall beweist deshalb noch keine richtige Umsetzung. In einer Programmänderung kann eine eigene Reserveangabe je Material nach der Multiplikation addiert werden; für die beiden anderen Materialien beträgt sie null.</p></details>\n<div class=\"word-check-card\" data-production-evidence><h3>Was kannst du schon zeigen?</h3><ul><li><strong>Programm:</strong> eigene Änderung und vorher berechnete Testfälle, einschließlich einer Eingabegrenze.</li><li><strong>Infokarte:</strong> ursprüngliche Fassung, konkrete Verbesserung und Ergebnis der erneuten Prüfung.</li><li><strong>Medienvergleich:</strong> geöffneter Kurzbeitrag und Infografik mit denselben Daten und einer begründeten Formwahl.</li><li><strong>Einstellungen:</strong> Ausgangswert, Änderung, tatsächliche Wirkung und Rückkehr; ungeprüfte Schritte bleiben gekennzeichnet.</li></ul><p>Wähle einen noch unsicheren Punkt und bearbeite den zugehörigen Abschnitt erneut. Notiere zum Abschluss eine konkrete Verbesserung und die Beobachtung, mit der du ihre Wirkung belegen kannst.</p></div>\n<p><strong>Verbindung zu den anderen DGB-Kapiteln:</strong> „Information“ hilft dir, Quellen und Diagrammaussagen zu prüfen. In „Kommunikation“ führst du Beiträge zu einem gemeinsamen Produkt zusammen und legst passende Freigaben fest. „Orientierung“ liefert Nutzungstests für zugänglichere Entwürfe; „Handeln“ behandelt Geräte, Schutz und Ressourcen.</p>\n{{QUIZ_dgb7_produktion_q4}}"
       }
     ],
     "chapterQuizTitle": "Verständnischeck: Probleme zerlegen und barrierearm gestalten",

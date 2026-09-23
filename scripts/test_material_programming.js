@@ -33,7 +33,7 @@ for(const scenario of scenarios){
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();
  assert.equal(d.querySelector('[data-material-open]').href,'https://example.test/site/examples/materialplaner.html');assert.equal(d.querySelector('a[download="materialplaner.html"]').href,'https://example.test/site/examples/materialplaner.html');
  assert.equal(d.querySelectorAll('[data-material-tasks] > li').length,6);assert.equal(d.querySelectorAll('[data-material-requirements] tbody tr').length,3);assert.equal(d.querySelectorAll('[data-material-test-cases] tbody tr').length,4);
- const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,13);const sections={dgb7_produktion_q1:0,dgb7_produktion_q2:1,dgb7_production_abstraction:1,dgb7_production_code_change:1,dgb7_produktion_q3:2,dgb7_produktion_q4:5,dgb7_settings_scope:2,dgb7_settings_evidence:2,dgb7_media_framing:3,dgb7_media_scope:3,dgb7_config_scope:4,dgb7_config_mute:4,dgb7_config_evidence:4};
+ const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,13);const sections={dgb7_produktion_q1:0,dgb7_produktion_q2:2,dgb7_production_abstraction:1,dgb7_production_code_change:1,dgb7_produktion_q3:1,dgb7_produktion_q4:5,dgb7_settings_scope:2,dgb7_settings_evidence:2,dgb7_media_framing:3,dgb7_media_scope:3,dgb7_config_scope:4,dgb7_config_mute:4,dgb7_config_evidence:4};
  const correctIndex=id=>['dgb7_settings_scope','dgb7_media_scope','dgb7_config_scope'].includes(id)?1:['dgb7_settings_evidence','dgb7_media_framing','dgb7_config_mute'].includes(id)?2:0;
  for(const [i,q] of questions.entries()){
   assert.equal(q.sectionIndex,sections[q.id]);assert.equal(q.answers.length,3);
@@ -44,12 +44,15 @@ for(const scenario of scenarios){
   }
  }
  assert.equal(w.currentChapterResult(id,{contentRevision:3,passed:true,bestPercent:100}).passed,false);assert.equal(w.currentChapterResult(id,{contentRevision:4,passed:true,bestPercent:100}).passed,true);dom.window.close();
+ const practices=data[id].sections.flatMap(s=>s.quizzes||[]).filter(q=>q.practiceOnly);
+ assert.equal(practices.length,3);for(const q of practices){assert.equal(q.answers.length,3);assert.equal(q.answers[0].correct,true);assert.ok(q.answers.every(a=>a.pts===0&&a.feedback.length>50));}
  const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/site/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),pw=paper.window;
  pw.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','worksheet_generator','worksheet'])pw.eval(read('js/'+f+'.js'));await new Promise(r=>setImmediate(r));
  const material=pw.document.getElementById('ws-dgb-material'),solutions=pw.document.getElementById('ws-solutions');
  assert.equal(material.querySelectorAll('[data-material-tasks] > li').length,6);assert.equal(material.querySelectorAll('[data-material-test-cases] tbody tr').length,4);
  assert.ok(material.textContent.includes('Ohne Gerät'));assert.ok(!material.textContent.includes('8/4/12'));assert.ok(solutions.textContent.includes('8/4/12'));assert.equal(solutions.hidden,true);
  assert.equal(material.querySelectorAll('[data-system-settings-tasks]>li').length,3);assert.equal(material.querySelectorAll('[data-communication-settings-tasks]>li').length,3);assert.equal(material.querySelectorAll('[data-configuration-protocol] tbody tr').length,8);assert.ok(!material.querySelector('[data-configuration-solution]'));assert.match(solutions.textContent,/Ein Fall ohne Testnachricht bleibt ungeprüft/);assert.match(material.querySelector('[data-configuration-offline]').textContent,/noch nicht ausgeführt/);
+ assert.equal(material.querySelectorAll('[data-production-transfer] li').length,4);assert.ok(!material.querySelector('[data-production-transfer-solution]'));assert.match(solutions.textContent,/14 Blatt Papier, 5 Bleistifte und 15 Büroklammern/);assert.match(solutions.textContent,/30 Blatt statt 14/);
  assert.equal(pw.document.querySelectorAll('#ws-content>.question-block').length,13);
  assert.equal(material.querySelectorAll('input,button,select,details,template').length,0);paper.window.close();
  console.log('PASS: 27 original/edited/extended material plans, zero and invalid input, stale results, labels/focus/reset, executed source, chapter downloads, all 39 assessed answer paths, revision and separate paper solutions.');
