@@ -297,6 +297,37 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
    });
    zone.querySelector('[data-packet-reset]').addEventListener('click',()=>{received.clear();history=[];render('Neu begonnen. ');});render();
   }
+  if(type==='byte-pattern'){
+   const bits=[...zone.querySelectorAll('[data-byte-weight]')],out=zone.querySelector('[data-byte-result]'),pattern=zone.querySelector('[data-byte-pattern]');
+   const update=()=>{
+    const active=bits.filter(b=>b.getAttribute('aria-pressed')==='true'),sum=active.reduce((n,b)=>n+Number(b.dataset.byteWeight),0);
+    pattern.textContent=bits.map(b=>b.getAttribute('aria-pressed')==='true'?'1':'0').join('');
+    bits.forEach(b=>{const bit=b.getAttribute('aria-pressed')==='true'?'1':'0';b.querySelector('[data-byte-digit]').textContent=bit;b.setAttribute('aria-label','Stellenwert '+b.dataset.byteWeight+', Bit '+bit);b.setAttribute('aria-describedby',out.id);});
+    out.textContent='Als vorzeichenlose Zahl: '+sum+'. Rechnung: '+(active.length?active.map(b=>b.dataset.byteWeight).join(' + '):'0')+' = '+sum+'. Acht Bit bilden ein Byte, auch wenn einige oder alle Bits 0 sind.';
+   };
+   bits.forEach(b=>b.addEventListener('click',()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');update();}));
+   zone.querySelector('[data-byte-reset]').addEventListener('click',()=>{bits.forEach(b=>b.setAttribute('aria-pressed','false'));update();bits[0].focus();});update();
+  }
+  if(type==='file-bytes'){
+   const select=zone.querySelector('[data-file-choice]'),button=zone.querySelector('[data-file-fetch]'),reset=zone.querySelector('[data-file-reset]'),out=zone.querySelector('[data-file-result]'),details=zone.querySelector('[data-file-details]'),text=zone.querySelector('[data-file-text]'),bits=zone.querySelector('[data-file-bits]');
+   let generation=0,controller=null;
+   const clear=()=>{generation++;controller?.abort();controller=null;button.disabled=false;details.hidden=true;text.textContent='';bits.replaceChildren();out.textContent='Noch nicht abgerufen. Sage Inhalt und Bytezahl voraus und starte dann den Abruf.';};
+   select.addEventListener('change',clear);reset.addEventListener('click',()=>{select.selectedIndex=0;clear();select.focus();});
+   button.addEventListener('click',async()=>{
+    clear();const current=generation;controller=new AbortController();const requestController=controller;button.disabled=true;out.textContent='Anfrage läuft. Dein Browser fordert die gewählte Übungsdatei vom Server dieser Webseite an.';
+    let decoding=false;
+    try{
+     const response=await fetch(new URL(select.value,document.baseURI),{cache:'no-store',signal:requestController.signal});
+     if(current!==generation)return;
+     if(!response.ok){out.textContent='Antwort erhalten: HTTP '+response.status+'. Die angeforderte Datei wurde nicht erfolgreich geliefert. Prüfe die gewählte Adresse; aus diesem Status folgt kein Ausfall des gesamten Internets.';return;}
+     const bytes=new Uint8Array(await response.arrayBuffer());if(current!==generation)return;
+     decoding=true;const decoded=new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+     text.textContent=decoded;bytes.forEach(byte=>{const value=make('code',byte.toString(2).padStart(8,'0'));bits.append(value);});details.hidden=false;
+     out.textContent='Antwort erhalten: HTTP '+response.status+'. Dateiinhalt: '+bytes.length+' Byte = '+bytes.length*8+' Bit. Als UTF-8 gelesen: '+Array.from(decoded).length+' Unicode-Codepunkt'+(Array.from(decoded).length===1?'':'e')+'. Bei diesen Beispielen entspricht das der Zahl sichtbarer Zeichen. Gezählt wird der Dateiinhalt, nicht die gesamte übertragene Datenmenge mit Zusatzinformationen.';
+    }catch(error){if(current===generation)out.textContent=decoding?'Die Datei konnte nicht als UTF-8 gelesen werden. Es wird kein veraltetes Ergebnis angezeigt.':'Abruf nicht gelungen. Verbindung, Server oder Zugriff können betroffen sein; eine genaue Ursache ist damit noch nicht nachgewiesen.';}
+    finally{if(current===generation){button.disabled=false;controller=null;}}
+   });clear();
+  }
   if(type==='resource-filter'){
    const active=zone.querySelector('[data-filter-active]'),subject=zone.querySelector('[data-filter-subject]'),logic=zone.querySelector('[data-filter-logic]'),duration=zone.querySelector('[data-filter-duration]'),out=zone.querySelector('[data-filter-result]'),body=zone.querySelector('[data-filter-rows]');
    const order=zone.querySelector('[data-filter-sort]');

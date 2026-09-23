@@ -882,6 +882,16 @@
 [data-information-series] th,[data-information-series] td {padding:.45rem .3rem;text-align:center;}
 [data-choice-observations] dt {font-weight:700;margin-top:.8rem;}
 [data-choice-observations] dd {margin:.2rem 0 .8rem;}
+[data-action-system] ol,[data-info-request-route] ol {padding-left:1.25rem;}
+[data-byte-grid]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.25rem;margin-block:1rem}
+[data-byte-grid] button{margin:0;padding:.6rem .2rem;min-width:0;min-height:72px;font:inherit;line-height:1.3}
+[data-byte-grid] button[aria-pressed="true"]{outline:3px solid var(--focus);outline-offset:-3px}
+[data-byte-digit]{display:block;font-size:1.4rem;font-weight:700}
+[data-byte-pattern]{display:block;font:700 1.25rem monospace;letter-spacing:.08em;overflow-wrap:anywhere;margin-block:.8rem}
+[data-file-bits]{display:flex;gap:.5rem;flex-wrap:wrap}
+[data-file-bits] code{white-space:nowrap;padding:.2rem;border:1px solid var(--box-border)}
+[data-core-experiment="file-bytes"] :is(select,button){max-width:100%;box-sizing:border-box;min-height:44px;font:inherit;margin-block:.35rem}
+[data-core-experiment="file-bytes"] select{width:100%;padding:.5rem;background:var(--card-bg);color:var(--text);border:2px solid var(--box-border)}
 @media screen {
  [data-communication-rights] dt {font-weight:700;margin-top:.8rem;}
  [data-communication-rights] dd {margin:.2rem 0 .8rem;}
