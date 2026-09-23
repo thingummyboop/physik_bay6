@@ -1,48 +1,26 @@
 // Klima-Logik erweitert
 function updateGreenhouseEffect() {
     const co2Range = document.getElementById('co2Range');
-    const val = Number(co2Range?.value || 0);
     if(!co2Range) return;
-    const ppm = Math.round(280 + val * 2);
-    const temp = 15 + (val / 100) * 5;
-    const heatRetention = Math.round(36 + val * 0.52);
-
-    co2Range.setAttribute('aria-valuetext', `${ppm} ppm CO2-Modellwert`);
+    const raw = Number(co2Range.value);
+    const val = Number.isFinite(raw) ? Math.max(0, Math.min(2, Math.round(raw))) : 1;
+    co2Range.value = String(val);
+    const labels = ['weniger Treibhausgase', 'mittlere Einstellung', 'mehr Treibhausgase'];
+    co2Range.setAttribute('aria-valuetext', labels[val]);
     const co2Dots = document.getElementById('co2Dots');
-    const heatArrows = document.getElementById('heatArrows');
-    const tempText = document.getElementById('tempVal');
     const co2Text = document.getElementById('co2LevelText');
-    const retentionText = document.getElementById('heatRetentionText');
-    const greenhouseBlanket = document.getElementById('greenhouseBlanket');
     const heatBackGroup = document.getElementById('heatBackGroup');
     const heatEscapeGroup = document.getElementById('heatEscapeGroup');
-    const surfaceGlow = document.getElementById('surfaceGlow');
-    const heatMeter = document.getElementById('greenhouseMeterFill');
     const status = document.getElementById('greenhouseStatus');
 
     if(co2Dots) {
-        co2Dots.setAttribute('opacity', (0.18 + (val / 100) * 0.82).toFixed(2));
-        co2Dots.setAttribute('transform', `translate(0 ${Math.round((100 - val) / 18)})`);
+        co2Dots.setAttribute('opacity', String([0.35, 0.65, 1][val]));
     }
-    if(heatArrows) heatArrows.setAttribute('stroke-width', 2 + (val / 100) * 6);
-    if(greenhouseBlanket) {
-        greenhouseBlanket.setAttribute('stroke-width', String(18 + val * 0.28));
-        greenhouseBlanket.setAttribute('opacity', String(0.18 + val / 130));
-    }
-    if(heatBackGroup) {
-        heatBackGroup.setAttribute('opacity', String(0.28 + val / 110));
-        heatBackGroup.setAttribute('stroke-width', String(3 + val / 28));
-    }
-    if(heatEscapeGroup) heatEscapeGroup.setAttribute('opacity', String(Math.max(0.18, 0.82 - val / 135)));
-    if(surfaceGlow) {
-        surfaceGlow.setAttribute('opacity', String(0.22 + val / 140));
-        surfaceGlow.setAttribute('fill', val > 70 ? '#f97316' : val > 35 ? '#facc15' : '#86efac');
-    }
-    if(tempText) tempText.innerText = temp.toFixed(1) + " °C";
-    if(co2Text) co2Text.innerText = `${ppm} ppm`;
-    if(retentionText) retentionText.innerText = `${heatRetention}% Wärme bleibt`;
-    if(heatMeter) heatMeter.style.width = `${heatRetention}%`;
-    if(status) status.innerHTML = `<strong>Modell-Erklärung:</strong> Sonnenlicht kommt fast ungehindert zur Erde. Die Erde sendet Wärmestrahlung zurück. Je mehr Treibhausgase im Modell eingestellt sind, desto mehr Wärmestrahlung wird zurück zur Oberfläche gelenkt.`;
+    // These display strengths encode an ordering only, never measured energy shares.
+    if(heatBackGroup) heatBackGroup.setAttribute('opacity', String([0.4, 0.7, 1][val]));
+    if(heatEscapeGroup) heatEscapeGroup.setAttribute('opacity', String([1, 0.7, 0.4][val]));
+    if(co2Text) co2Text.textContent = labels[val];
+    if(status) status.textContent = labels[val] + ': Bei zunächst gleichen Temperaturen vermindern mehr Treibhausgase die Abgabe ins All und verstärken die Abstrahlung zur Oberfläche. Die Erde strahlt weiterhin Energie ins All ab. Ein späteres Strahlungsgleichgewicht und seine Temperatur werden hier nicht berechnet.';
 }
 
 // 3. Klimaarchive
@@ -50,9 +28,9 @@ function showClimateArchive(type) {
     const text = document.getElementById('archiveText');
     if (!text) return;
     const data = {
-        ice: "🧊 <strong>Eisbohrkerne:</strong> Forscher bohren tief ins Inlandeis der Antarktis oder Grönlands. Das Eis hat beim Gefrieren vor Jahrtausenden winzige Luftbläschen eingeschlossen. Daraus lässt sich der alte CO2-Gehalt und die Temperatur ablesen!",
-        tree: "🌳 <strong>Baumringe:</strong> Bäume wachsen jedes Jahr ein Stück. Ein dicker Ring bedeutet, es war ein warmes, nasses Jahr (gute Wachstumsbedingungen). Ein sehr dünner Ring deutet auf Kälte oder Dürre hin.",
-        sediment: "🪨 <strong>Seesedimente:</strong> Am Grund von Seen lagert sich jedes Jahr Schlamm, Staub und Blütenstaub (Pollen) ab. Forschende holen diese Schichten hoch und sehen an den Pollen, welche Pflanzen früher dort gewachsen sind (z.B. wärmeliebende Pflanzen)."
+        ice: "🧊 <strong>Eisbohrkerne:</strong> Eingeschlossene Luftblasen bewahren frühere Luftzusammensetzung. Das Verhältnis verschiedener Wasserisotope im Eis liefert indirekte Hinweise auf frühere Temperaturen. Luft und umgebendes Eis müssen nicht gleich alt sein; Datierung und Vergleichsdaten gehören zur Auswertung.",
+        tree: "🌳 <strong>Baumringe:</strong> Breite und Dichte der Ringe hängen unter anderem von Wasser, Temperatur, Standort und Wachstum ab. Erst Vergleiche vieler Bäume und weiterer Daten helfen, Klimaeinflüsse zu unterscheiden. Ein breiter Ring ist keine genaue Temperaturanzeige.",
+        sediment: "🪨 <strong>Seesedimente:</strong> Pollen und andere Reste in abgelagerten Schichten liefern Hinweise auf frühere Pflanzen und Umweltbedingungen. Forschende datieren und vergleichen die Schichten. Nicht jede sichtbare Schicht entspricht genau einem Jahr; verschiedene Ursachen können ähnliche Befunde erzeugen."
     };
     text.innerHTML = data[type] || "Wähle ein Archiv aus!";
 }
@@ -198,11 +176,10 @@ function topicInit() {
 function enhanceKlimaAccessibility() {
     const co2Range = document.getElementById('co2Range');
     if (co2Range) {
-        if (document.getElementById('tempVal')) co2Range.setAttribute('aria-describedby', 'tempVal');
-        co2Range.setAttribute('aria-valuetext', `${Number(co2Range.value || 0)} Prozent CO2-Modellwert`);
+        co2Range.setAttribute('aria-describedby', 'greenhouseStatus');
     }
 
-    ['tempVal', 'co2LevelText', 'heatRetentionText', 'greenhouseStatus'].forEach(id => {
+    ['greenhouseStatus'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
             el.setAttribute('role', 'status');

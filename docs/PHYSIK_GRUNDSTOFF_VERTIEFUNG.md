@@ -1,5 +1,7 @@
 # Grundstoff und Vertiefung – Physik, 2. Klasse
 
+Fortsetzung: [Grundstoffabgrenzung und Inhaltsabgleich der 3. Klasse](PHYSIK_KLASSE3_ABGLEICH.md), einschließlich Kondensator, Transformator und Drehimpuls als Vertiefungen.
+
 Stand: 23.09.2026, lokale Weiterarbeit nach dem GitHub-Zwischenstand `ab3156e`.
 
 ## Didaktische Entscheidung

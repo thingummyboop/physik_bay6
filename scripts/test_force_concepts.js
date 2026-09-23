@@ -77,5 +77,5 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   assert.equal(d.getElementById('accelLabel').innerText,`${a} m/s²`);
   assert.match(d.getElementById('forceLabText').innerText,/Resultierende Kraft/);
  }
- dom.window.close();console.log('PASS: 33 force questions, nine plane-motion states, four independently recalculated stopping cases and all 33 selected motion/traffic/force-intro/pair/lever/friction answer paths, 17 timed friction states and reset, 17 calculated lever positions including balance, revision migration, force-pair and friction explanations, six net-force cases including zero and negative acceleration, three existing force/mass cases.');
+ dom.window.close();console.log('PASS: 38 force questions, nine plane-motion states, four independently recalculated stopping cases and all 33 selected motion/traffic/force-intro/pair/lever/friction answer paths, 17 timed friction states and reset, 17 calculated lever positions including balance, revision migration, force-pair and friction explanations, six net-force cases including zero and negative acceleration, three existing force/mass cases.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

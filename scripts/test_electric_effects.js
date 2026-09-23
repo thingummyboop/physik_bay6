@@ -17,13 +17,13 @@ const masks={heater:1,bulb:3,led:2,coil:4,coating:8,sun:16};
  }
  w.topicInit();assert.equal(choice.value,'sun');assert.ok(inputs.every(i=>i.checked));lab.querySelector('[data-effect-reset]').click();assert.equal(choice.value,'heater');assert.equal(d.activeElement,choice);assert.ok(inputs.every(i=>!i.checked));choice.value='invalid';choice.dispatchEvent(new w.Event('change'));assert.equal(choice.value,'heater');assert.equal(JSON.stringify(w.localStorage),before);
  const paper=lab.querySelector(':scope > template[data-worksheet-alternative]').content;assert.equal(paper.querySelectorAll('.electric-effect-paper-case').length,6);assert.equal(d.querySelectorAll('[data-electric-effects-steps] li').length,4);assert.equal(d.querySelectorAll('[data-electric-effects-record] tbody tr').length,2);
- const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,28);assert.deepEqual(Array.from(questions,q=>q.id).sort(),Object.keys(keys).sort());assert.equal(questions.find(q=>q.id==='elektrizitaet_s4_q0').sectionIndex,8);assert.equal(questions.find(q=>q.id==='electric_geraet_1').sectionIndex,6);assert.equal(questions.find(q=>q.id==='electric_effects_cause').sectionIndex,7);
+ const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,27);assert.deepEqual(Array.from(questions,q=>q.id).sort(),Object.keys(keys).filter(id=>id!=='elektrizitaet_s4_q0').sort());assert.equal(questions.find(q=>q.id==='elektrizitaet_s4_q0'),undefined);assert.ok(d.querySelector('[data-chapter-section="8"] .practice-box[data-id="elektrizitaet_s4_q0"]'));assert.equal(questions.find(q=>q.id==='electric_geraet_1').sectionIndex,6);assert.equal(questions.find(q=>q.id==='electric_effects_cause').sectionIndex,7);
  assert.equal(w.currentChapterResult('elektrizitaet',{contentRevision:5,passed:true,bestPercent:100}).passed,false);
  for(const [index,q]of questions.entries()){
   assert.equal(q.answers.length,3);assert.equal(q.answers.findIndex(a=>a.correct),keys[q.id]);
   for(let a=0;a<3;a++){
    if(paths)w.restartChapterQuiz();questions.forEach((other,j)=>{d.querySelector(`input[name="chapter_q_${j}"][value="${j===index?a:keys[other.id]}"]`).checked=true;});w.submitChapterQuiz();
-   const r=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet;assert.equal(r.lastPercent,a===keys[q.id]?100:96);assert.equal(r.contentRevision,6);assert.deepEqual(r.reviewQuestionIds,a===keys[q.id]?[]:[q.id]);assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
+   const r=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet;assert.equal(r.lastPercent,a===keys[q.id]?100:96);assert.equal(r.contentRevision,7);assert.deepEqual(r.reviewQuestionIds,a===keys[q.id]?[]:[q.id]);assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
   }
  }
  dom.window.close();console.log(`PASS: ${decisions} effects decisions across all 6 × 32 selections, ${paths} independently keyed chapter answer paths, final extension order, feedback/focus/reset/storage and paper tasks.`);

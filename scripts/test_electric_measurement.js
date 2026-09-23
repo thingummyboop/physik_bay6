@@ -7,7 +7,7 @@ const keys = {electric_evidence_single:1,electric_evidence_double:2,electric_evi
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const s of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+s+'.js'));
  await w.renderTopic();w.eval(read('js/topics/elektrizitaet.js'));w.topicInit();
- assert.equal(w.currentChapterQuiz.questions.length,28);
+ assert.equal(w.currentChapterQuiz.questions.length,27);
  assert.equal(w.currentChapterResult('elektrizitaet',{contentRevision:4,passed:true,bestPercent:100}).passed,false);
  const lab=d.querySelector('[data-electric-evidence]'),get=n=>lab.querySelector('[data-evidence-'+n+']'),before=JSON.stringify(w.localStorage);
  const sets={A:[20,41,59,80],B:[20,30,40,50]};let states=0,decisions=0,paths=0;
@@ -33,7 +33,7 @@ const keys = {electric_evidence_single:1,electric_evidence_double:2,electric_evi
    const restart=[...d.querySelectorAll('button')].find(b=>b.textContent==='Neuen Versuch starten');if(restart)restart.click();
    w.currentChapterQuiz.questions.forEach((q,j)=>d.querySelector(`input[name="chapter_q_${j}"][value="${j===index?a:q.answers.findIndex(x=>x.correct)}"]`).checked=true);
    w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet;
-   assert.equal(result.lastPercent,a===key?100:96);assert.equal(result.contentRevision,6);assert.deepEqual(Array.from(result.reviewQuestionIds),a===key?[]:[id]);assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
+   assert.equal(result.lastPercent,a===key?100:96);assert.equal(result.contentRevision,7);assert.deepEqual(Array.from(result.reviewQuestionIds),a===key?[]:[id]);assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
   }
  }
  dom.window.close();console.log(`PASS: ${states} evidence states, ${decisions} decisions, ${paths} assessment paths, plotted/table values, reset/focus/storage and measurement protocol.`);

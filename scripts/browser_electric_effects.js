@@ -23,11 +23,11 @@ const base=process.env.SCIVERSE_PREVIEW_URL||'http://127.0.0.1:4173',out=path.re
    const box=p.locator('.practice-box[data-id="'+q.id+'"]');
    for(const[i,a]of q.answers.entries()){const button=box.getByRole('button',{name:a.text,exact:true});await button.focus();await button.press('Enter');assert.equal(await button.evaluate(e=>e.classList.contains('is-correct')),i===keys[q.id]);assert.ok((await box.locator('.feedback').innerText()).includes(a.feedback));practicePaths++;}
   }
-  assert.equal(await p.evaluate(()=>JSON.stringify(localStorage)),saved);await p.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();const questions=await p.evaluate(()=>currentChapterQuiz.questions.map(q=>({id:q.id,count:q.answers.length})));assert.equal(questions.length,28);
+  assert.equal(await p.evaluate(()=>JSON.stringify(localStorage)),saved);await p.getByRole('button',{name:'Zum Kapitelcheck',exact:true}).click();const questions=await p.evaluate(()=>currentChapterQuiz.questions.map(q=>({id:q.id,count:q.answers.length})));assert.equal(questions.length,27);
   for(const[index,q]of questions.entries())for(let a=0;a<q.count;a++){
    if(paths)await p.getByRole('button',{name:'Neuen Versuch starten',exact:true}).click();
    await p.evaluate(({index,a,keys})=>currentChapterQuiz.questions.forEach((q,j)=>document.querySelector('input[name="chapter_q_'+j+'"][value="'+(index===j?a:keys[q.id])+'"]').checked=true),{index,a,keys});await p.locator('.chapter-submit-btn').click();
-   const r=await p.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet);assert.equal(r.lastPercent,a===keys[q.id]?100:96);assert.equal(r.contentRevision,6);assert.deepEqual(r.reviewQuestionIds,a===keys[q.id]?[]:[q.id]);paths++;
+   const r=await p.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet);assert.equal(r.lastPercent,a===keys[q.id]?100:96);assert.equal(r.contentRevision,7);assert.deepEqual(r.reviewQuestionIds,a===keys[q.id]?[]:[q.id]);paths++;
   }
   const paper=await browser.newPage();paper.on('pageerror',e=>errors.push(e.message));await paper.goto(base+'/topics/worksheet.html?topic=elektrizitaet');await paper.waitForFunction(()=>!document.querySelector('#ws-print').disabled);
   assert.equal(await paper.locator('[data-electric-effects-paper] .electric-effect-paper-case').count(),6);assert.equal(await paper.locator('[data-electric-effects-steps] li').count(),4);assert.equal(await paper.locator('[data-electric-effects-record] tbody tr').count(),2);assert.equal(await paper.locator('[data-electric-evidence-paper] tbody tr').count(),4);

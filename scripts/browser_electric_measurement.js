@@ -27,7 +27,7 @@ const keys={electric_evidence_single:1,electric_evidence_double:2,electric_evide
   for(const[id,key]of Object.entries(keys))for(let answer=0;answer<3;answer++){
    if(paths)await p.getByRole('button',{name:'Neuen Versuch starten',exact:true}).click();
    await p.evaluate(({id,answer})=>currentChapterQuiz.questions.forEach((q,j)=>document.querySelector('input[name="chapter_q_'+j+'"][value="'+(q.id===id?answer:q.answers.findIndex(a=>a.correct))+'"]').checked=true),{id,answer});
-   await p.locator('.chapter-submit-btn').click();const r=await p.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet);assert.equal(r.lastPercent,answer===key?100:96);assert.equal(r.contentRevision,6);assert.deepEqual(r.reviewQuestionIds,answer===key?[]:[id]);paths++;
+   await p.locator('.chapter-submit-btn').click();const r=await p.evaluate(()=>JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).elektrizitaet);assert.equal(r.lastPercent,answer===key?100:96);assert.equal(r.contentRevision,7);assert.deepEqual(r.reviewQuestionIds,answer===key?[]:[id]);paths++;
   }
   const paper=await browser.newPage();paper.on('pageerror',e=>errors.push(e.message));await paper.goto(base+'/topics/worksheet.html?topic=elektrizitaet');await paper.waitForFunction(()=>!document.querySelector('#ws-print').disabled);
   assert.equal(await paper.locator('[data-electric-evidence-paper] tbody tr').count(),4);assert.equal(await paper.locator('[data-electric-measurement-record] tbody tr').count(),8);assert.equal(await paper.locator('[data-electric-measurement-steps] li').count(),6);assert.equal(await paper.locator('#ws-solutions').isVisible(),false);

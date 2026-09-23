@@ -4,12 +4,18 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arbeitsblatt</title>
     <style>
+      #ws-content [data-klima-greenhouse-paper] svg{display:block;width:85mm;max-width:100%;height:auto;break-inside:avoid}
       #ws-content [data-media-paper] .production-bar-fill{display:block;height:6mm;background:#1765a8;border:1px solid #444;box-sizing:border-box}
       #ws-content [data-media-paper] [data-chart-value="3"] .production-bar-fill{width:75%}
       #ws-content [data-media-paper] [data-chart-value="4"] .production-bar-fill{width:100%}
       #ws-content [data-media-paper] [data-chart-value="1"] .production-bar-fill{width:25%}
       #ws-content [data-media-paper] .production-chart-scale{display:flex;justify-content:space-between}
       @media print {
+        #ws-content [data-thermal-record]{width:100%;table-layout:fixed;border-collapse:collapse}
+        #ws-content [data-thermal-record] :is(th,td){border:1px solid #777;padding:2mm;overflow-wrap:anywhere}
+        #ws-content [data-thermal-record] td{height:13mm}
+        #ws-content [data-thermal-record] tr,#ws-content [data-thermal-steps]>li,#ws-content [data-thermal-transfer]>li{break-inside:avoid;page-break-inside:avoid}
+        #ws-content .screen-only{display:none!important}
         #ws-content [data-force-station],#ws-content [data-force-station-tasks]>li,#ws-content [data-mobility-tasks]>li,#ws-content [data-motor-research-tasks]>li{break-inside:avoid;page-break-inside:avoid}
         #ws-content [data-force-station-protocol] td{height:12mm}
         #ws-content [data-force-station-protocol],#ws-content [data-mobility-options]{width:100%;table-layout:fixed;border-collapse:collapse}

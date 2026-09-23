@@ -1,3 +1,10 @@
+#sections-container [data-klima-greenhouse] svg{max-width:520px;margin:1rem auto}
+#sections-container .thermal-record-scroll{overflow-x:auto;margin:1rem 0;border:1px solid currentColor;border-radius:8px}
+#sections-container [data-thermal-record]{width:100%;min-width:620px;border-collapse:collapse}
+#sections-container [data-thermal-record] :is(th,td){padding:12px;border:1px solid currentColor;text-align:left;vertical-align:top}
+#sections-container [data-thermal-record] caption{padding:10px;text-align:left;font-weight:700}
+#sections-container .thermal-record-scroll:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+@media(max-width:600px){#sections-container [data-klima-greenhouse]{padding:12px}}
 :root {
     --primary: #1765a8;
     --secondary: #FF9800;

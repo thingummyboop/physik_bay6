@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "e791e1784bb33eb2e74e881d8c59c3f29b8e7088c6ec6c60b4e34a8a8388540e",
-    "lang/de.json": "9910d8424904d86f841faa6cd425b477f48f2d3a7af03ea8bb66f34c423e4a40"
+    "js/curriculum.js": "7400be2f9d6155669de854cf9ae415d837c7421cbc0c1608c6968eba95071a81",
+    "lang/de.json": "353f62f1b0b686ea618438687b4cdf6843f21a84f486538d090d889d8a015bad"
   },
   "subjects": {
     "physik": {
@@ -547,19 +547,24 @@
             "Positionen in einer Ebene mit zwei Koordinaten beschreiben und Weg, Tempo und Bewegungsrichtung unterscheiden.",
             "Kräfte an Bewegungsänderungen und Verformungen erkennen.",
             "Trägheit, Reibung und Wechselwirkungskräfte unterscheiden.",
-            "Beschleunigung mit F = m · a berechnen und einen Hebel qualitativ erklären.",
+            "Den Je-desto-Zusammenhang zwischen resultierender Kraft, Masse und Bewegungsänderung beschreiben und ausgewählte Modellfälle mit F = m · a berechnen.",
             "Kräftegleichgewicht an einem Körper von Kraft und Gegenkraft an zwei Körpern unterscheiden.",
             "Reaktions- und Bremsweg unterscheiden und Verkehrsaussagen anhand ihrer Quellen, Annahmen und Grenzen beurteilen.",
-            "Kraftpaare an verbundenen Kraftmessern untersuchen, angegriffene Körper unterscheiden und Messunsicherheiten berücksichtigen."
+            "Kraftpaare an verbundenen Kraftmessern untersuchen, angegriffene Körper unterscheiden und Messunsicherheiten berücksichtigen.",
+            "Kraftwirkungen in einfachen eigenen Versuchen vergleichen, protokollieren und Beobachtung von Erklärung und Messwert unterscheiden.",
+            "Physikalische und weitere Kriterien einer Mobilitätsentscheidung unterscheiden und Wiener Verkehrsinformationen nach Zweck und Aktualität prüfen."
           ],
-          "summaryCount": 7,
+          "summaryCount": 9,
           "sections": [
             {
               "id": "sec0",
               "index": 0,
               "title": "1. Was ist eine Kraft?",
               "questions": [
-                "q_force_intro"
+                "q_force_intro",
+                "force_real_compare",
+                "force_real_evidence",
+                "force_contact_free"
               ]
             },
             {
@@ -596,7 +601,9 @@
               "questions": [
                 "motion_traffic_1",
                 "motion_traffic_2",
-                "motion_traffic_3"
+                "motion_traffic_3",
+                "mobility_criteria",
+                "mobility_source_date"
               ]
             },
             {
@@ -620,7 +627,7 @@
             {
               "id": "sec5",
               "index": 7,
-              "title": "8. Kraft, Masse, Beschleunigung: F = m · a",
+              "title": "8. Kraft, Masse und Bewegungsänderung",
               "questions": [
                 "q_newton2",
                 "force_balance",
@@ -637,138 +644,13 @@
             }
           ],
           "workshop": false,
-          "questionCount": 18,
-          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
-          "factualAndCurriculumApproval": "not-established-by-this-inventory"
-        },
-        {
-          "id": "drehundstatik",
-          "title": "🎡 2. Kräftegleichgewicht und Hebel",
-          "grade": "7. Schulstufe (3. Kl.)",
-          "gradeLevels": null,
-          "category": "Mechanik",
-          "available": true,
-          "sourcePresent": true,
-          "source": "lang/de.json#/drehundstatik",
-          "goals": [
-            "Kippen mithilfe von Schwerpunkt und Standfläche beurteilen.",
-            "Drehmomente bei senkrechter Kraftwirkung berechnen.",
-            "Gleichgewichtsarten und Kreisbewegung unterscheiden."
-          ],
-          "summaryCount": 5,
-          "sections": [
-            {
-              "id": "sec0",
-              "index": 0,
-              "title": "1. Schwerpunkt: Wann kippt etwas?",
-              "questions": [
-                "q1"
-              ]
-            },
-            {
-              "id": "sec1",
-              "index": 1,
-              "title": "2. Drehmoment: Warum die Türklinke außen ist",
-              "questions": [
-                "q2"
-              ]
-            },
-            {
-              "id": "sec2",
-              "index": 2,
-              "title": "3. Gleichgewichtsarten: stabil, labil, indifferent",
-              "questions": [
-                "q3"
-              ]
-            },
-            {
-              "id": "sec3",
-              "index": 3,
-              "title": "4. Kreisbewegung: Warum das Karussell nach außen zieht",
-              "questions": [
-                "q4"
-              ]
-            },
-            {
-              "id": "sec4",
-              "index": 4,
-              "title": "5. Drehimpuls: Die Pirouette",
-              "questions": [
-                "q5"
-              ]
-            }
-          ],
-          "workshop": false,
-          "questionCount": 5,
-          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
-          "factualAndCurriculumApproval": "not-established-by-this-inventory"
-        },
-        {
-          "id": "arbeit",
-          "title": "🏗 3. Mechanische Arbeit",
-          "grade": "7. Schulstufe (3. Kl.)",
-          "gradeLevels": null,
-          "category": "Energie",
-          "available": true,
-          "sourcePresent": true,
-          "source": "lang/de.json#/arbeit",
-          "goals": [
-            "Mechanische Arbeit von körperlicher Anstrengung unterscheiden.",
-            "Hubarbeit und einfache Kraft-Weg-Beziehungen berechnen.",
-            "Energieänderungen durch Heben, Reibung, Verformen und Beschleunigen erklären.",
-            "Positive, negative und verschwindende Arbeit anhand der Kraftrichtung unterscheiden."
-          ],
-          "summaryCount": 5,
-          "sections": [
-            {
-              "id": "sec0",
-              "index": 0,
-              "title": "1. Arbeit oder nur Anstrengung?",
-              "questions": [
-                "q1"
-              ]
-            },
-            {
-              "id": "sec1",
-              "index": 1,
-              "title": "2. Hubarbeit: Etwas nach oben heben",
-              "questions": [
-                "q2"
-              ]
-            },
-            {
-              "id": "sec2",
-              "index": 2,
-              "title": "3. Reibung: Körper erwärmen sich",
-              "questions": [
-                "q3"
-              ]
-            },
-            {
-              "id": "sec3",
-              "index": 3,
-              "title": "4. Goldene Regel der Mechanik",
-              "questions": [
-                "q4"
-              ]
-            },
-            {
-              "id": "sec4",
-              "index": 4,
-              "title": "5. Verformungsarbeit und Beschleunigungsarbeit",
-              "questions": [
-                "q5"
-              ]
-            }
-          ],
-          "workshop": false,
-          "questionCount": 5,
+          "questionCount": 23,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
         {
           "id": "energie",
-          "title": "🔋 4. Energie und ihre Umwandlung",
+          "title": "🔋 2. Energie und ihre Umwandlung",
           "grade": "7. Schulstufe (3. Kl.)",
           "gradeLevels": null,
           "category": "Energie",
@@ -844,7 +726,7 @@
         },
         {
           "id": "elektrizitaet",
-          "title": "⚡ 5. Stromkreis, Spannung und Widerstand",
+          "title": "⚡ 3. Stromkreis, Spannung und Widerstand",
           "grade": "7. Schulstufe (3. Kl.)",
           "gradeLevels": null,
           "category": "Elektrizität und Magnetismus",
@@ -961,7 +843,7 @@
         },
         {
           "id": "elektromagnetismus",
-          "title": "🧲 6. Magnete, Motor und Generator",
+          "title": "🧲 4. Magnete, Motor und Generator",
           "grade": "7. Schulstufe (3. Kl.)",
           "gradeLevels": null,
           "category": "Elektrizität und Magnetismus",
@@ -972,11 +854,12 @@
             "Magnetische Pole und Feldlinien erklären sowie Materialproben mit einem Magneten untersuchen.",
             "Die Magnetwirkung eines stromdurchflossenen Leiters und einer Spule beschreiben.",
             "Motor und Generator hinsichtlich der Energieumwandlung unterscheiden.",
-            "Relais und Transformator als Anwendungen erklären.",
+            "Ein Relais als Anwendung eines Elektromagneten erklären.",
             "Induktionsversuche durch gezielte Änderung von Bewegung, Tempo und Pol planen und Spannung von Laststrom unterscheiden.",
             "Modellvorhersagen mit eigenen Beobachtungen vergleichen und Grenzen der Messung benennen.",
             "Vergleiche an Leiter und Spule planen und Steuerkreis, Lastkreis sowie Energieübertragung unterscheiden.",
-            "Die gemeinsame Drehwirkung zweier Spulenseiten und die Aufgabe des Polwenders anhand eines Modells erklären."
+            "Die gemeinsame Drehwirkung zweier Spulenseiten und die Aufgabe des Polwenders anhand eines Modells erklären.",
+            "Motor- und Generatorbetrieb an einer Wiener Verkehrsanwendung recherchieren und physikalisches Prinzip von zeitabhängigen Projektangaben unterscheiden."
           ],
           "summaryCount": 8,
           "sections": [
@@ -1046,7 +929,9 @@
                 "em_d12",
                 "em_d15",
                 "em_induction_speed",
-                "em_induction_controls"
+                "em_induction_controls",
+                "em_regen_direction",
+                "em_research_evidence"
               ]
             },
             {
@@ -1061,7 +946,134 @@
             }
           ],
           "workshop": false,
-          "questionCount": 30,
+          "questionCount": 32,
+          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
+          "factualAndCurriculumApproval": "not-established-by-this-inventory"
+        },
+        {
+          "id": "arbeit",
+          "title": "🏗 5. Mechanische Arbeit",
+          "grade": "7. Schulstufe (3. Kl.)",
+          "gradeLevels": null,
+          "category": "Energie",
+          "available": true,
+          "sourcePresent": true,
+          "source": "lang/de.json#/arbeit",
+          "goals": [
+            "Mechanische Arbeit von körperlicher Anstrengung unterscheiden.",
+            "Hubarbeit und einfache Kraft-Weg-Beziehungen berechnen.",
+            "Energieänderungen durch Heben, Reibung, Verformen und Beschleunigen erklären.",
+            "Positive, negative und verschwindende Arbeit anhand der Kraftrichtung unterscheiden."
+          ],
+          "summaryCount": 5,
+          "sections": [
+            {
+              "id": "sec0",
+              "index": 0,
+              "title": "1. Arbeit oder nur Anstrengung?",
+              "questions": [
+                "q1"
+              ]
+            },
+            {
+              "id": "sec1",
+              "index": 1,
+              "title": "2. Hubarbeit: Etwas nach oben heben",
+              "questions": [
+                "q2"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 2,
+              "title": "3. Reibung: Körper erwärmen sich",
+              "questions": [
+                "q3"
+              ]
+            },
+            {
+              "id": "sec3",
+              "index": 3,
+              "title": "4. Goldene Regel der Mechanik",
+              "questions": [
+                "q4"
+              ]
+            },
+            {
+              "id": "sec4",
+              "index": 4,
+              "title": "5. Verformungsarbeit und Beschleunigungsarbeit",
+              "questions": [
+                "q5"
+              ]
+            }
+          ],
+          "workshop": false,
+          "questionCount": 5,
+          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
+          "factualAndCurriculumApproval": "not-established-by-this-inventory"
+        },
+        {
+          "id": "drehundstatik",
+          "title": "🎡 6. Kräftegleichgewicht und Hebel",
+          "grade": "7. Schulstufe (3. Kl.)",
+          "gradeLevels": null,
+          "category": "Mechanik",
+          "available": true,
+          "sourcePresent": true,
+          "source": "lang/de.json#/drehundstatik",
+          "goals": [
+            "Kippen mithilfe von Schwerpunkt und Standfläche beurteilen.",
+            "Drehmomente bei senkrechter Kraftwirkung berechnen.",
+            "Gleichgewichtsarten und Kreisbewegung unterscheiden."
+          ],
+          "summaryCount": 4,
+          "sections": [
+            {
+              "id": "sec0",
+              "index": 0,
+              "title": "1. Schwerpunkt: Wann kippt etwas?",
+              "questions": [
+                "q1"
+              ]
+            },
+            {
+              "id": "sec1",
+              "index": 1,
+              "title": "2. Drehmoment: Warum die Türklinke außen ist",
+              "questions": [
+                "q2"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 2,
+              "title": "3. Gleichgewichtsarten: stabil, labil, indifferent",
+              "questions": [
+                "q3"
+              ]
+            },
+            {
+              "id": "sec3",
+              "index": 3,
+              "title": "4. Kreisbewegung: Warum das Karussell nach außen zieht",
+              "questions": [
+                "q4"
+              ]
+            },
+            {
+              "id": "sec4",
+              "index": 4,
+              "title": "5. Drehimpuls: Die Pirouette",
+              "questions": [
+                "q5",
+                "dsh13",
+                "dsh14"
+              ]
+            }
+          ],
+          "workshop": false,
+          "questionCount": 7,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -1078,9 +1090,10 @@
             "Temperatur und Wärmeübertragung unterscheiden.",
             "Wärmeleitung, Strömung und Strahlung an Beispielen zuordnen.",
             "Zustandsänderungen und Wärmeausdehnung mit einem Teilchenmodell erklären.",
-            "Zwei geeignete Thermometer vergleichen, Messwerte protokollieren und Anzeigeauflösung von Messgenauigkeit unterscheiden."
+            "Zwei geeignete Thermometer vergleichen, Messwerte protokollieren und Anzeigeauflösung von Messgenauigkeit unterscheiden.",
+            "Vergleiche zu Wärmeleitung, Strahlungsaufnahme und Strömung planen, durchführen, protokollieren und auf Gebäude und Klima mit benannten Grenzen übertragen."
           ],
-          "summaryCount": 4,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "sec0",
@@ -1105,7 +1118,9 @@
               "index": 2,
               "title": "3. Wärmeleitung und Wärmedämmung",
               "questions": [
-                "q2"
+                "q2",
+                "thermal_conduction_control",
+                "thermal_conduction_inference"
               ]
             },
             {
@@ -1113,7 +1128,8 @@
               "index": 3,
               "title": "4. Wärmestrahlung",
               "questions": [
-                "q3"
+                "q3",
+                "thermal_radiation_evidence"
               ]
             },
             {
@@ -1121,7 +1137,9 @@
               "index": 4,
               "title": "5. Wärmeströmung und Auftrieb",
               "questions": [
-                "q4"
+                "q4",
+                "thermal_convection_control",
+                "thermal_climate_transfer"
               ]
             },
             {
@@ -1142,7 +1160,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 9,
+          "questionCount": 14,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -1237,9 +1255,10 @@
           "goals": [
             "Kurzfristiges Wetter von langfristigen Klimamustern unterscheiden.",
             "Den natürlichen Treibhauseffekt und Klimaeinflussfaktoren erklären.",
-            "Klimadiagramme und Klimaarchive als Informationsquellen einordnen."
+            "Klimadiagramme und Klimaarchive als Informationsquellen einordnen.",
+            "Qualitative Strahlungswege von einer berechneten Temperaturvorhersage unterscheiden und Quellenbelege prüfen."
           ],
-          "summaryCount": 3,
+          "summaryCount": 4,
           "sections": [
             {
               "id": "sec1",
@@ -1254,7 +1273,9 @@
               "index": 1,
               "title": "2. Der Treibhauseffekt",
               "questions": [
-                "klima_s2_q1"
+                "klima_s2_q1",
+                "klima_model_limit",
+                "klima_source_compare"
               ]
             },
             {
@@ -1284,7 +1305,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 6,
+          "questionCount": 8,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

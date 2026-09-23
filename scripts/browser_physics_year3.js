@@ -12,8 +12,8 @@ const data=require('../lang/de.json'),cases=require('./fixtures/physics_year3_ke
    layouts++;
   }
   if(id==='kraft_und_bewegung'){
-   await p.setViewportSize({width:320,height:1000});for(const marker of ['[data-force-station-protocol]','[data-mobility-options]']){const region=p.locator(marker).locator('..');await region.focus();await p.keyboard.press('End');assert.ok(await region.evaluate(e=>e.scrollWidth>e.clientWidth));await p.keyboard.press('ArrowRight');await p.waitForFunction(selector=>document.querySelector(selector).parentElement.scrollLeft>0,marker);}
-   await p.locator('[data-mobility-case]').evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));await p.evaluate(()=>scrollBy(0,-85));await p.screenshot({path:path.join(out,'mobility-320-dark.png'),animations:'disabled'});
+   await p.setViewportSize({width:320,height:1000});for(const marker of ['[data-force-station-protocol]','[data-mobility-options]']){const region=p.locator(marker).locator('..');await region.focus();assert.ok(await region.evaluate(e=>e.scrollWidth>e.clientWidth));await p.keyboard.press('ArrowRight');await p.waitForFunction(selector=>document.querySelector(selector).parentElement.scrollLeft>0,marker);await region.evaluate(e=>{e.blur();e.scrollLeft=0;});}
+   await p.locator('[data-mobility-case]').evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));await p.evaluate(()=>scrollBy(0,-85));await p.waitForFunction(()=>{const r=document.querySelector('[data-mobility-case]').getBoundingClientRect();return r.top>=65&&r.bottom<innerHeight;});await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await p.screenshot({path:path.join(out,'mobility-320-dark.png'),animations:'disabled'});
   }
   const saved=await p.evaluate(()=>JSON.stringify(localStorage));
   for(const [qid,key]of Object.entries({...x.keys,...x.extra})){

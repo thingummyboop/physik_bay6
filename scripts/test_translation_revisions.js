@@ -9,7 +9,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   w.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?de:translated});
   for(const script of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+script+'.js'));
   await w.renderTopic();
-  assert.equal(w.currentChapterQuiz.questions.length,24);
+  assert.equal(w.currentChapterQuiz.questions.length,29);
   assert.ok(w.currentChapterQuiz.questions.some(q=>q.question.includes('Temperatur und Wärme richtig')));
   assert.equal(d.querySelector('#sections-container').lang,'de');assert.equal(d.querySelector('#sections-container').dir,'ltr');
   const notice=d.querySelector('[data-content-language-notice]');assert.ok(notice);assert.equal(notice.lang,language);assert.equal(notice.dir,language==='ar'?'rtl':'ltr');
