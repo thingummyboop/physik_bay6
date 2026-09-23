@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
-    "lang/de.json": "4e5ae9921f15254866a993182347a5abdc994f1e87b0b53292279d5a06d08b74"
+    "lang/de.json": "3c0615baa316984e9914e81bbeb3cb92d6fe9b0cec0a4ec3d4a8b1e7623f602b"
   },
   "subjects": {
     "physik": {
@@ -2381,50 +2381,59 @@
           "sourcePresent": true,
           "source": "lang/de.json#/dgb6_kommunikation",
           "goals": [
-            "Du erklärst Datenpakete vereinfacht.",
-            "Du erkennst Interessen von Social-Media-Angeboten.",
-            "Du prüfst Nachrichten auf Manipulation und Betrug."
+            "Du stellst Paketübertragung durch mehrere Geräte und das Ordnen am Ziel dar.",
+            "Du wählst Kommunikationsmedien nach Zweck, Zielgruppe, Zeit und Zugänglichkeit.",
+            "Du erklärst Social Media sowie Geld-, Daten- und Aufmerksamkeitsinteressen an Fällen.",
+            "Du unterscheidest Nutzungsspuren von unsicheren Profilvermutungen und prüfst den Schutz persönlicher Angaben.",
+            "Du prüfst Phishing unabhängig und unterscheidest Originalquellen von bloßen Kopien.",
+            "Du vergleichst Darstellung und Daten und beschreibst mögliche Wirkungen auf Meinungsbildung und Beteiligung."
           ],
-          "summaryCount": 3,
+          "summaryCount": 8,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "1. Einstieg: Verstehen und ausprobieren",
+              "title": "1. Datenpakete durch Netzwerke verfolgen",
               "questions": [
                 "dgb6_kommunikation_q1",
-                "dgb6_kommunikation_p1"
+                "dgb6_comm_route",
+                "dgb6_kommunikation_p3"
               ]
             },
             {
               "id": "sec2",
               "index": 1,
-              "title": "2. Fachw&ouml;rter und Beispiele",
+              "title": "2. Kommunikationskanäle und Plattforminteressen vergleichen",
               "questions": [
-                "dgb6_kommunikation_q2",
+                "dgb6_comm_medium",
+                "dgb6_comm_ads",
+                "dgb6_comm_inference",
                 "dgb6_kommunikation_p2"
               ]
             },
             {
               "id": "sec3",
               "index": 2,
-              "title": "3. Werkstattauftrag",
+              "title": "3. Phishing erkennen und unabhängig prüfen",
               "questions": [
                 "dgb6_kommunikation_q3",
-                "dgb6_kommunikation_p3"
+                "dgb6_kommunikation_p1"
               ]
             },
             {
               "id": "sec4",
               "index": 3,
-              "title": "4. Anwenden und selbst pr&uuml;fen",
+              "title": "4. Quellen, Darstellung und Wirkung beurteilen",
               "questions": [
-                "dgb6_kommunikation_q4"
+                "dgb6_kommunikation_q2",
+                "dgb6_kommunikation_q4",
+                "dgb6_comm_framing",
+                "dgb6_comm_impact"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 7,
+          "questionCount": 13,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
@@ -2438,17 +2447,18 @@
           "sourcePresent": true,
           "source": "lang/de.json#/dgb6_produktion",
           "goals": [
-            "Du verstehst, dass Programme Daten speichern und verarbeiten.",
-            "Du erstellst und testest einfache Programme oder Medienprodukte.",
-            "Du beachtest Urheberrecht beim Verwenden und Remixen.",
-            "Du verfolgst Variablenwerte schrittweise, findest einen Fehler und prüfst die Korrektur mit mehreren Fällen."
+            "Du erklärst an Variablen und Testantworten, wie Programme Informationen als Zahlen oder Symbole speichern und verarbeiten.",
+            "Du erstellst in der Punktewerkstatt ein eigenes ausführbares Programm und prüfst es mit vorher berechneten Ergebnissen.",
+            "Du unterscheidest Fehler in der Schreibweise von Fehlern im Ablauf und kontrollierst deine Korrekturen.",
+            "Du sicherst einen bearbeitbaren Programmentwurf mit Testprotokoll, Herkunft und Änderungen.",
+            "Du erzeugst und überarbeitest eine Text-/Grafik-/Tonkarte, vergleichst ihre Wirkung und benennst geeignete Wege der Veröffentlichung."
           ],
-          "summaryCount": 3,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec1",
               "index": 0,
-              "title": "1. Einstieg: Verstehen und ausprobieren",
+              "title": "1. Planen, herstellen, testen und verbessern",
               "questions": [
                 "dgb6_produktion_q1",
                 "dgb6_produktion_p1"
@@ -2457,9 +2467,8 @@
             {
               "id": "sec2",
               "index": 1,
-              "title": "2. Fachw&ouml;rter und Beispiele",
+              "title": "2. Informationen als Werte speichern und verarbeiten",
               "questions": [
-                "dgb6_produktion_q2",
                 "dgb6_produktion_p2"
               ]
             },
@@ -2473,25 +2482,39 @@
               ]
             },
             {
-              "id": "sec3",
+              "id": "dgb6_eigenes_programm",
               "index": 3,
-              "title": "4. Werkstattauftrag",
+              "title": "4. Ein eigenes Programm schreiben, testen und sichern",
               "questions": [
+                "dgb6_program_trace",
+                "dgb6_program_syntax",
+                "dgb6_program_save",
+                "dgb6_program_remix"
+              ]
+            },
+            {
+              "id": "sec3",
+              "index": 4,
+              "title": "5. Text, Grafik und Ton gestalten und Rechte prüfen",
+              "questions": [
+                "dgb6_produktion_q2",
                 "dgb6_produktion_q3",
+                "dgb6_media_meaning",
+                "dgb6_media_files",
                 "dgb6_produktion_p3"
               ]
             },
             {
               "id": "sec4",
-              "index": 4,
-              "title": "5. Anwenden und selbst prüfen",
+              "index": 5,
+              "title": "6. Ergebnisse vergleichen und überarbeiten",
               "questions": [
                 "dgb6_produktion_q4"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 9,
+          "questionCount": 15,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

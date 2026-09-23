@@ -18,7 +18,7 @@ Die Ergänzung umfasst zwei interaktive Werkstätten, drei herunterladbare Beisp
 
 Der Browserlauf vom 23.09.2026, 12:00:03 UTC, bestand mit 48 Bytezuständen, 18 echten HTTP-Abrufen, 36 Quizantwortwegen, neun freien Antworten und sechs Ansichten bei 320, 390 und 1280 Pixeln in hellem und dunklem Design. Drei Downloads, Fehlerfälle, Tastaturbedienung und die Trennung zwischen lokaler Kopie und Serveroriginal wurden ebenfalls geprüft; keine erfassten Browserfehler. Die lokale Arbeitskopie wurde automatisiert verändert, nicht in einem nativen Texteditor.
 
-Die abschließende Layoutprüfung um 12:01:42 UTC bestätigt in allen sechs Ansichten mindestens 44 × 44 Pixel große Bit-Schaltflächen ohne horizontalen Seitenüberlauf. Die 19-seitige Lösungsdruckfassung ist erzeugt; Seiten 1–12 sind gesichtet, die Sichtprüfung der Seiten 13–19 bleibt bei diesem Zwischenstand offen. Der aktuelle Gesamtfunktionslauf wird separat im [Funktionsbericht](FUNKTIONS_PRUEFUNG_2026-09-23.md) dokumentiert. Unterrichtserprobung und vollständiger Abgleich aller DGB-Kapitel der 2. Klasse bleiben offen.
+Die abschließende Layoutprüfung um 12:01:42 UTC bestätigt in allen sechs Ansichten mindestens 44 × 44 Pixel große Bit-Schaltflächen ohne horizontalen Seitenüberlauf. Die 19-seitige Lösungsdruckfassung ist vollständig gesichtet. Nach dem GitHub-Zwischenstand 9233290 wurden auch die noch offenen Seiten 13–19 sowie die endgültige mobile Wegedarstellung geprüft; dabei waren keine weiteren Änderungen nötig. Der aktuelle Gesamtfunktionslauf wird separat im [Funktionsbericht](FUNKTIONS_PRUEFUNG_2026-09-23.md) dokumentiert. Unterrichtserprobung und vollständiger Abgleich aller DGB-Kapitel der 2. Klasse bleiben offen.
 
 ## Fachliche Quellen
 

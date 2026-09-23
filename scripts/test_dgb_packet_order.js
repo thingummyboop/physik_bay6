@@ -25,17 +25,9 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  assert.equal(d.querySelectorAll('[data-message-case]').length,2);assert.equal(d.querySelectorAll('[data-source-chain] tbody tr').length,3);
  assert.equal(d.querySelectorAll('[data-phishing-tasks] > li').length,4);assert.equal(d.querySelectorAll('[data-source-tasks] > li').length,5);
  assert.equal(d.querySelectorAll('a[href*=".invalid"]').length,0);
- const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,4);
- assert.deepEqual(Array.from(questions,q=>q.id),[1,2,3,4].map(n=>'dgb6_kommunikation_q'+n));
- for(let i=0;i<4;i++)for(let answer=0;answer<3;answer++){
-  questions.forEach((q,j)=>{d.querySelector('input[name="chapter_q_'+j+'"][value="'+(j===i?answer:0)+'"]').checked=true;});
-  w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).dgb6_kommunikation;
-  assert.equal(result.lastPercent,answer===0?100:75);assert.equal(result.contentRevision,1);
-  if(answer!==0)assert.deepEqual(result.reviewQuestionIds,[questions[i].id]);
-  assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(questions[i].answers[answer].feedback));
- }
- assert.equal(w.currentChapterResult('dgb6_kommunikation',{contentRevision:0,passed:true,bestPercent:100}).passed,false);
- assert.equal(w.currentChapterResult('dgb6_kommunikation',{contentRevision:1,passed:true,bestPercent:100}).passed,true);
+ // Assessment paths and revision migration are covered with independent keys in test_communication_media.js.
+ const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,10);
+ assert.equal(w.chapterRevision('dgb6_kommunikation'),2);
 
  dom.window.close();
  const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/topics/worksheet.html?topic=dgb6_kommunikation',runScripts:'outside-only'}),pw=paper.window;

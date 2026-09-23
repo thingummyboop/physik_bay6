@@ -18,10 +18,7 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  }
  assert.equal(w.localStorage.getItem('physik_score'),scoreBefore);
  step.click();inputs[0].dispatchEvent(new w.Event('change'));assert.equal(trace.rows.length,0);
- assert.equal(w.currentChapterQuiz.questions.length,6);let paths=0;
- for(const [i,q]of w.currentChapterQuiz.questions.entries())if(q.id.startsWith('dgb6_counter_')||['dgb6_produktion_q2','dgb6_produktion_q3'].includes(q.id))for(let a=0;a<q.answers.length;a++){
-  assert.equal(q.sectionIndex,q.id==='dgb6_produktion_q2'?1:q.id==='dgb6_produktion_q3'?3:2);w.currentChapterQuiz.questions.forEach((item,j)=>d.querySelector(`input[name="chapter_q_${j}"][value="${j===i?a:item.answers.findIndex(x=>x.correct)}"]`).checked=true);
-  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[a].correct?100:83);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[a].feedback));paths++;
- }assert.equal(paths,12);assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);dom.window.close();
- console.log('PASS: 16 counter programs with all intermediate states, restart/change/focus, no learning-score mutation, twelve debugging and license answer paths and revision.');
+ assert.equal(w.currentChapterQuiz.questions.length,12);assert.equal(w.currentChapterResult(id,{contentRevision:2,passed:true,bestPercent:100}).outdated,true);dom.window.close();
+
+ console.log('PASS: 16 counter programs with all intermediate states, restart/change/focus, no learning-score mutation, revision migration; independent chapter keys are checked in test_points_workshop.js.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
