@@ -1233,6 +1233,7 @@ function collectChapterQuizQuestions(topic) {
 
     const sectionQuestions = [];
     (topic.sections || []).forEach((section, sectionIndex) => {
+        if (section.level === 'extension' || section.practiceOnly) return;
         (section.quizzes || []).forEach((q, quizIndex) => {
             if (q && q.practiceOnly) return;
             addUnique(sectionQuestions, normalizeQuizQuestion(q, `section_${sectionIndex}`, quizIndex));
@@ -1242,6 +1243,7 @@ function collectChapterQuizQuestions(topic) {
     const topicQuestions = [];
     (topic.quizzes || []).forEach((q, quizIndex) => {
         if (q && q.practiceOnly) return;
+        if ((topic.sections || []).some(section => section.level === 'extension' && String(section.content || '').includes('{{QUIZ_' + q.id + '}}'))) return;
         const normalized = normalizeQuizQuestion(q, 'topic', quizIndex);
         if (normalized) {
             const sectionIndex = (topic.sections || []).findIndex(section => String(section.content || '').includes('{{QUIZ_' + q.id + '}}'));
@@ -1252,6 +1254,7 @@ function collectChapterQuizQuestions(topic) {
 
     const diplomQuestions = [];
     ((topic.diplom && topic.diplom.questions) || []).forEach((q, quizIndex) => {
+        if (q && q.practiceOnly) return;
         addUnique(diplomQuestions, normalizeQuizQuestion(q, 'chapter', quizIndex));
     });
 
@@ -1364,6 +1367,7 @@ function renderChapterQuizCard(topicId, topic, questions) {
         <div class="card chapter-quiz-card" id="chapter-quiz-card">
             <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
             <h2>${escapeHtml(topic.chapterQuizTitle || uiText('Verständnischeck zum Kapitel'))}</h2>
+            ${(topic.sections || []).some(section => section.level === 'extension') ? '<p data-assessment-scope><strong>Grundstoff dieses Lernwegs:</strong> Der Kapitelcheck prüft den Grundstoff. Die gekennzeichneten Vertiefungen sind zusätzliche Lernangebote und zählen nicht zum Ergebnis. Bearbeite auch die praktischen Aufträge im Grundstoff.</p>' : ''}
             <p>${uiText('Hier zählt nur dein Verständnis. Du kannst im Quiz alle Antworten ändern und gibst erst am Ende ab. Ab mehr als 70% gilt das Kapitel als geschafft.')}</p>
             <p>${uiText('Der Check enthält alle vorgesehenen Abschlussfragen dieses Kapitels. Bearbeite die praktischen Lernaufträge zusätzlich.')}</p>
             <div class="chapter-quiz-meta">
@@ -1398,6 +1402,7 @@ function renderChapterQuizPanel(topicId, topic, questions) {
             <div class="chapter-quiz-panel-header">
                 <p class="chapter-quiz-kicker">${uiText('Kapitelquiz')}</p>
                 <h1>${escapeHtml(topic.title || uiText('Kapitelquiz'))}</h1>
+                ${(topic.sections || []).some(section => section.level === 'extension') ? '<p data-assessment-scope><strong>Kapitelcheck zum Grundstoff.</strong> Die zusätzlichen Vertiefungen zählen nicht zu diesem Ergebnis.</p>' : ''}
                 <p>${uiText('Die Lerninhalte sind während des Tests ausgeblendet. Lies genau, wähle deine Antworten und gib erst ab, wenn du fertig bist.')}</p>
             </div>
             <form id="chapter-quiz-form">
@@ -1484,6 +1489,10 @@ async function renderTopic() {
             card.dataset.chapterSection = String(sectionIndex);
             
             let html = `<h2>${section.title}</h2>`;
+            if (section.level === 'extension') {
+                card.dataset.learningLevel = 'extension';
+                html += '<p class="extension-notice"><strong>Vertiefung</strong> · Zusätzlich zum Grundstoff dieses Lernwegs. Diese Übungen zählen nicht zum Kapitelcheck.</p>';
+            }
             let content = section.content;
             const sectionQuizMap = new Map((section.quizzes || []).map(q => [q.id, q]));
 

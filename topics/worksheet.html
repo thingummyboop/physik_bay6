@@ -10,6 +10,12 @@
       #ws-content [data-media-paper] [data-chart-value="1"] .production-bar-fill{width:25%}
       #ws-content [data-media-paper] .production-chart-scale{display:flex;justify-content:space-between}
       @media print {
+        #ws-content [data-force-station],#ws-content [data-force-station-tasks]>li,#ws-content [data-mobility-tasks]>li,#ws-content [data-motor-research-tasks]>li{break-inside:avoid;page-break-inside:avoid}
+        #ws-content [data-force-station-protocol] td{height:12mm}
+        #ws-content [data-force-station-protocol],#ws-content [data-mobility-options]{width:100%;table-layout:fixed;border-collapse:collapse}
+        #ws-content :is([data-force-station-protocol],[data-mobility-options]) :is(th,td){border:1px solid #777;padding:2mm;overflow-wrap:anywhere}
+        #ws-extension-questions{break-before:page;page-break-before:always}
+        #ws-extension-questions>h2,#ws-extension-questions>p{break-after:avoid;page-break-after:avoid}
         #ws-content .handeln-map>div,#ws-content .handeln-example,#ws-content [data-handeln-tasks]>li,#ws-content [data-computer-task]>li,#ws-content [data-help-task]>li{break-inside:avoid;page-break-inside:avoid}
         #ws-content .handeln-map>div,#ws-content .handeln-example{border:1px solid #aaa;padding:8px;margin:12px 0}
         #ws-content [data-help-protocol] td::after{content:"";display:block;height:12mm}

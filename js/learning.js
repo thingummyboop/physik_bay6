@@ -100,11 +100,17 @@ function placePrerequisiteBefore(id, prerequisite){
  target?.focus({preventScroll:true});
  $('plan-progress').append(document.createTextNode(entryText(' · '+chapterTitle(byId.get(prerequisite))+' steht jetzt vor '+chapterTitle(byId.get(id))+'.',' · '+chapterTitle(byId.get(prerequisite))+' is now before '+chapterTitle(byId.get(id))+'.')));
 }
+function appendChapterScope(host,id){
+ const topic=content[id];if(!topic?.sections?.some(section=>section.level==='extension'))return;
+ const notice=element('p','Grundstoff dieses Lernwegs: Die angegebenen Lernziele und praktischen Aufträge gehören zum Grundstoff. Der Kapitelcheck prüft Fragen daraus. Gekennzeichnete Vertiefungen zählen nicht zum Check; zusätzlichen Prüfungsstoff vereinbart ihr mit der Lehrkraft.');notice.lang='de';notice.dataset.assessmentScope='true';host.append(notice);
+ if(topic.extensionGoals?.length){const details=element('details');details.lang='de';details.append(element('summary','Ziele der zusätzlichen Vertiefung'));const list=element('ul');topic.extensionGoals.forEach(goal=>list.append(element('li',goal)));details.append(list);host.append(details);}
+}
 function renderPlan(){
  $('plan-jump').textContent='Zur Stoffliste · '+chosen.size+' Kapitel';
  $('selected').replaceChildren();let checked=0;
  for(const id of chosen){const t=byId.get(id);const li=element('li');li.append(chapterTitleElement('strong',t),chapterMetadata(t));
  const goals=topicsToLearn(t),ul=element('ul');setMetadataLanguage(ul,!!translatedMetadata(t.id)?.learningGoals?.length);ul.dataset.planGoals='true';goals.forEach(goal=>ul.append(element('li',goal)));li.append(ul);
+ appendChapterScope(li,id);
  const address=new URL('../index.html',location.href);address.hash=chapterRoute(id);
  const resource=element('p',undefined,'plan-chapter-link'),link=element('a');link.append(entryElement('span','Online-Kapitel: ','Online chapter: '),chapterTitleElement('bdi',t));link.href=address.href;link.target='_top';resource.append(link);li.append(resource);
 
@@ -215,6 +221,7 @@ function render(){
  matching.forEach(t=>{
   const card=element('article',undefined,'chapter');card.append(chapterMetadata(t),chapterTitleElement('h2',t));
   appendOriginalTitle(card,t);
+  appendChapterScope(card,t.id);
   const translated=translatedMetadata(t.id),subtitle=translated?.subtitle||content[t.id]?.subtitle;if(subtitle){const paragraph=element('p',text(subtitle));paragraph.dataset.chapterSubtitle='true';setMetadataLanguage(paragraph,!!translated?.subtitle);card.append(paragraph);}
   const goals=topicsToLearn(t);if(goals.length){const details=element('details');details.append(entryElement('summary','Das gehört zu diesem Kapitel','What this chapter covers'));const list=element('ul');list.dataset.chapterGoals='true';setMetadataLanguage(list,!!translated?.learningGoals?.length);goals.forEach(g=>list.append(element('li',g)));details.append(list);card.append(details);}
   if(mode!=='teach')card.append(outcomeElement(t.id,'status personal-result'));

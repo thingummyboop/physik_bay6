@@ -50,34 +50,34 @@ window.SCIVERSE_CURRICULUM = {
         "category": "Mechanik"
       },
       {
-        "id": "drehundstatik",
-        "title": "🎡 2. Kräftegleichgewicht und Hebel",
-        "grade": "7. Schulstufe (3. Kl.)",
-        "category": "Mechanik"
-      },
-      {
-        "id": "arbeit",
-        "title": "🏗 3. Mechanische Arbeit",
-        "grade": "7. Schulstufe (3. Kl.)",
-        "category": "Energie"
-      },
-      {
         "id": "energie",
-        "title": "🔋 4. Energie und ihre Umwandlung",
+        "title": "🔋 2. Energie und ihre Umwandlung",
         "grade": "7. Schulstufe (3. Kl.)",
         "category": "Energie"
       },
       {
         "id": "elektrizitaet",
-        "title": "⚡ 5. Stromkreis, Spannung und Widerstand",
+        "title": "⚡ 3. Stromkreis, Spannung und Widerstand",
         "grade": "7. Schulstufe (3. Kl.)",
         "category": "Elektrizität und Magnetismus"
       },
       {
         "id": "elektromagnetismus",
-        "title": "🧲 6. Magnete, Motor und Generator",
+        "title": "🧲 4. Magnete, Motor und Generator",
         "grade": "7. Schulstufe (3. Kl.)",
         "category": "Elektrizität und Magnetismus"
+      },
+      {
+        "id": "arbeit",
+        "title": "🏗 5. Mechanische Arbeit",
+        "grade": "7. Schulstufe (3. Kl.)",
+        "category": "Energie"
+      },
+      {
+        "id": "drehundstatik",
+        "title": "🎡 6. Kräftegleichgewicht und Hebel",
+        "grade": "7. Schulstufe (3. Kl.)",
+        "category": "Mechanik"
       },
       {
         "id": "waermelehre",

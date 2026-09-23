@@ -6,10 +6,10 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));
  await w.renderTopic();w.eval(read('js/topics/linsen_spiegel.js'));w.topicInit();
- assert.equal(w.chapterRevision('linsen_spiegel'),7);
- assert.equal(w.currentChapterResult('linsen_spiegel',{passed:true,bestPercent:100,contentRevision:6}).passed,false);
+ assert.equal(w.chapterRevision('linsen_spiegel'),8);
+ assert.equal(w.currentChapterResult('linsen_spiegel',{passed:true,bestPercent:100,contentRevision:7}).passed,false);
  for(const id of ['q_total','q4','f1','f2','f3','f5','f6','f7','f10','f11','f12','f13','f14','f15']){
-  const q=w.currentChapterQuiz.questions.find(q=>q.id===id);assert.ok(q,id);assert.equal(q.answers.length,3);assert.equal(q.answers.filter(a=>a.correct).length,1);assert.ok(q.answers.every(a=>a.feedback.length>30));
+  const q=data.linsen_spiegel.sections.flatMap(s=>s.quizzes||[]).find(q=>q.id===id);assert.ok(q,id);assert.equal(q.answers.length,3);assert.equal(q.answers.filter(a=>a.correct).length,1);assert.ok(q.answers.every(a=>a.feedback.length>30));
  }
  assert.equal(d.querySelectorAll('[data-lens-investigation] li').length,7);assert.equal(d.querySelectorAll('[data-lens-observation] tbody tr').length,5);assert.equal(d.querySelectorAll('[data-plane-mirror-task] li').length,5);assert.equal(d.querySelectorAll('[data-plane-mirror-protocol] tbody tr').length,3);
  for(const [index,q]of w.currentChapterQuiz.questions.entries()){if(!q.id.startsWith('mirror_virtual_')&&!q.id.startsWith('lens_screen_')&&!q.id.startsWith('lens_eye_'))continue;assert.equal(q.sectionIndex,q.id.startsWith('mirror_virtual_')?0:2);for(let choice=0;choice<q.answers.length;choice++){w.currentChapterQuiz.questions.forEach((item,i)=>d.querySelector('input[name="chapter_q_'+i+'"][value="'+(i===index?choice:item.answers.findIndex(a=>a.correct))+'"]').checked=true);w.submitChapterQuiz();const count=w.currentChapterQuiz.questions.length;assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).linsen_spiegel.lastPercent,Math.round(100*(count-(q.answers[choice].correct?0:1))/count));assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));}}

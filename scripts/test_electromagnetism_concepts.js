@@ -4,7 +4,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=elektromagnetismus',runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,30);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,29);
  assert.equal(w.currentChapterResult('elektromagnetismus',{contentRevision:1,passed:true,bestPercent:100}).passed,false);
  assert.match(d.body.textContent,/Spannung, auch ohne geschlossenen Laststromkreis/);
  const diploma=[...data.elektromagnetismus.sections.flatMap(s=>s.quizzes||[]),...data.elektromagnetismus.diplom.questions];
@@ -56,5 +56,5 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  w.updateMagnetField(0);assert.ok([...d.getElementById('fieldLines').children].every(el=>Number(el.style.opacity)===0));
  w.updateMagnetField(60);assert.ok([...d.getElementById('fieldLines').children].every(el=>Number(el.style.opacity)>0));
  w.toggleRelay();assert.equal(d.getElementById('relayBtn').getAttribute('aria-pressed'),'true');w.toggleRelay();assert.equal(d.getElementById('relayBtn').getAttribute('aria-pressed'),'false');
- dom.window.close();console.log('PASS: 30 electromagnetic questions, four reversible pole combinations and nine new answer paths, corrected feedback and revision, three transformer ratios with fixed flux and no unloaded current animation, zero-current field and relay switching.');
+ dom.window.close();console.log('PASS: 29 core electromagnetic questions, four reversible pole combinations and nine new answer paths, corrected feedback and revision, three transformer ratios with fixed flux and no unloaded current animation, zero-current field and relay switching.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

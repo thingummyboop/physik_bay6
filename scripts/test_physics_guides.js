@@ -1,12 +1,12 @@
 const assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8'),data=JSON.parse(read('lang/de.json')),ctx={window:{}};vm.runInNewContext(read('js/curriculum.js'),ctx);
 (async()=>{for(const t of ctx.window.SCIVERSE_CURRICULUM.physik.topics){const topic=data[t.id],dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/physik_bay6/topics/template.html?topic='+t.id,runScripts:'outside-only'}),w=dom.window,d=w.document;await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});for(const file of ['curriculum','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));await w.renderTopic();
- assert.ok(topic.learningGoals.length>=3,t.id);assert.ok(topic.summary.length>=3,t.id);assert.equal(d.querySelectorAll('[data-core-intro] li').length,topic.learningGoals.length,t.id);assert.equal(d.querySelectorAll('#chapter-summary li').length,topic.summary.length,t.id);
+ assert.ok(topic.learningGoals.length>=3,t.id);assert.ok(topic.summary.length>=3,t.id);assert.equal(d.querySelectorAll('[data-core-intro]>ul>li').length,topic.learningGoals.length,t.id);assert.equal(d.querySelectorAll('#chapter-summary>ul>li').length,topic.summary.length,t.id);
  const catalog=Object.values(ctx.window.SCIVERSE_CURRICULUM).flatMap(s=>s.topics),known=(topic.prerequisites||[]).filter(id=>catalog.some(t=>t.id===id));assert.equal(d.querySelectorAll('[data-core-intro] a').length,known.length,t.id);
  for(const a of d.querySelectorAll('[data-core-intro] a'))assert.ok(catalog.some(t=>a.hash==='#'+encodeURIComponent(t.id)));
  if(t.id==='farben'){
   assert.deepEqual(topic.sections.map(s=>s.id),['sec2','sec3','sec5_mischung','sec1','sec4_itten','sec6_strukturfarben','sec0']);
-  topic.sections.forEach((section,index)=>section.quizzes.forEach(q=>assert.equal(w.currentChapterQuiz.questions.find(item=>item.id===q.id).sectionIndex,index,'Review links follow reordered content')));
+  topic.sections.forEach((section,index)=>section.quizzes.forEach(q=>{const assessed=w.currentChapterQuiz.questions.find(item=>item.id===q.id);if(section.level==='extension'){assert.equal(assessed,undefined);assert.ok(d.querySelector('.practice-box[data-id="'+q.id+'"]'));}else assert.equal(assessed.sectionIndex,index,'Review links follow reordered content');}));
   w.eval(read('js/topics/farben.js'));w.topicInit();
   for(const [kind,label] of [['red','Roter Pulli'],['green','Grünes Blatt'],['black','Schwarzer Stoff'],['white','Weißes Papier']]){
    w.showColorObject(kind);assert.equal(d.getElementById('colorObjectLabel').textContent,label);assert.ok(d.getElementById('colorObjectText').textContent.length>40);

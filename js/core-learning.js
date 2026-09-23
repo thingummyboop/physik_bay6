@@ -24,9 +24,9 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  });
  if(explicitPlan)overviewQuery.set('plan',[...new Set(explicitPlan)].join(','));
  navigation.append(make('h2',review?ui("Dein Wiederholungsweg"):ui("Dein Lernweg")));
- navigation.append(make('p',review?ui("Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte."):ui("Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.")));
+ navigation.append(make('p',review?ui("Prüfe zuerst dein Wissen oder wiederhole gezielt einzelne Abschnitte."):topic.sections?.some(section=>section.level==='extension')?'Arbeite zuerst den Grundstoff durch und nutze die Übungen und praktischen Aufträge. Danach kannst du den Kapitelcheck machen oder eine Vertiefung erkunden.':ui("Arbeite die Abschnitte in Reihenfolge durch. Nutze die Übungen und prüfe dein Verständnis am Ende.")));
  const sections=[...container.children].filter(el=>el.classList.contains('card'));
- const links=make('ol');sections.forEach((card,index)=>{card.id='learning-section-'+index;const heading=card.querySelector('h2');if(!heading)return;const li=make('li'),link=make('a',heading.textContent);link.href='#'+card.id;li.append(link);links.append(li);});navigation.append(links);
+ const links=make('ol');sections.forEach((card,index)=>{card.id='learning-section-'+index;const heading=card.querySelector('h2');if(!heading)return;const li=make('li'),link=make('a',heading.textContent+(card.dataset.learningLevel==='extension'?' · Vertiefung':''));link.href='#'+card.id;li.append(link);links.append(li);});navigation.append(links);
  if(window.currentChapterQuiz?.questions.length){const start=make('button',review?ui("Selbsttest starten"):ui("Zum Kapitelcheck"));start.type='button';start.addEventListener('click',()=>startChapterQuiz());navigation.append(start);}
  const back=make('a',ui("Zur Stoffliste"));back.href='../index.html#topics/learning.html?'+overviewQuery;back.target='_top';back.style.marginLeft='1rem';navigation.append(back);
  const reviewBox=make('div');reviewBox.dataset.chapterReview='true';navigation.append(reviewBox);
@@ -45,6 +45,10 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  if(topic.learningGoals?.length){
   const intro=make('section');intro.className='card';intro.dataset.coreIntro='true';intro.setAttribute('aria-label',ui("Lernziele und Vorwissen"));intro.append(make('h2',ui("Das kannst du danach")));
   const goals=make('ul');topic.learningGoals.forEach(goal=>goals.append(make('li',goal)));intro.append(goals);
+  if(topic.sections?.some(section=>section.level==='extension')){
+   const scope=make('p','Grundstoff dieses Lernwegs: Die Lernziele oben und die praktischen Aufträge gehören zum Grundstoff. Der Kapitelcheck prüft Fragen daraus. Vertiefungen bleiben zusätzlich zugänglich und zählen nicht zum Check; zusätzlichen Prüfungsstoff vereinbart ihr mit der Lehrkraft.');scope.dataset.assessmentScope='true';intro.append(scope);
+   if(topic.extensionGoals?.length){const details=make('details');details.append(make('summary','Zusätzlich entdecken – Ziele der Vertiefung'));const list=make('ul');topic.extensionGoals.forEach(goal=>list.append(make('li',goal)));details.append(list);intro.append(details);}
+  }
   if(topic.prerequisites?.length){
    const p=make('p',ui("Hilfreiches Vorwissen: "));let catalog=window.SCIVERSE_CURRICULUM||{};
    try{catalog=window.parent?.SCIVERSE_CURRICULUM||catalog;}catch{/* Standalone embedding may have a different origin. */}
@@ -58,6 +62,7 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
   container.prepend(intro);
  }
  if(topic.summary?.length){const summary=make('section');summary.className='card';summary.id='chapter-summary';summary.append(make('h2',ui("Kurz wiederholen")));const ul=make('ul');topic.summary.forEach(item=>ul.append(make('li',item)));summary.append(ul);container.insertBefore(summary,container.querySelector('#chapter-quiz-card')?.parentElement||null);const jump=make('a',ui("Zur Zusammenfassung"));jump.href='#chapter-summary';jump.style.marginLeft='1rem';navigation.append(jump);}
+ if(topic.extensionSummary?.length){const details=make('details');details.dataset.extensionSummary='true';details.append(make('summary','Vertiefung wiederholen – zusätzlich zum Kapitelcheck'));const list=make('ul');topic.extensionSummary.forEach(item=>list.append(make('li',item)));details.append(list);container.querySelector('#chapter-summary')?.append(details);}
  if(topic.sources?.length){const card=make('section');card.className='card';const details=make('details');details.append(make('summary',ui("Quellen und weiterführende Informationen")));const ul=make('ul');topic.sources.forEach(source=>{const li=make('li'),a=make('a',source.title);a.href=source.url;a.target='_blank';a.rel='noopener';li.append(a);ul.append(li);});details.append(ul);card.append(details);container.append(card);}
  const subjects=Object.values(window.SCIVERSE_CURRICULUM||{});
  const subject=subjects.find(s=>s.topics?.some(t=>t.id===topicId));

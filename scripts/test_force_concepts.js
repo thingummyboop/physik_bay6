@@ -4,10 +4,10 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=kraft_und_bewegung',runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,33);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,38);
  assert.equal(d.querySelectorAll('[data-force-pair-protocol] tbody tr').length,3);assert.equal(d.querySelectorAll('[data-force-pair-investigation] li').length,5);assert.doesNotMatch(d.body.textContent,/Personen stehen auf Rollbrettern|rutschfesten Socken/);
  assert.match(d.body.textContent,/auf verschiedene Körper/);assert.match(d.body.textContent,/Sie ist nicht immer maximal/);
- for(const revision of [1,2,3,4,5,6,7])assert.equal(w.currentChapterResult('kraft_und_bewegung',{contentRevision:revision,passed:true,bestPercent:100}).passed,false);
+ for(const revision of [1,2,3,4,5,6,7,8])assert.equal(w.currentChapterResult('kraft_und_bewegung',{contentRevision:revision,passed:true,bestPercent:100}).passed,false);
  w.eval(read('js/topics/kraft_und_bewegung.js'));w.topicInit();
  const frictionTime=d.getElementById('frictionTime');assert.equal(frictionTime.step,'0.25');assert.ok(d.querySelector('label[for="frictionTime"]'));
  for(const step of [...Array.from({length:17},(_,i)=>i),4,0,16]){

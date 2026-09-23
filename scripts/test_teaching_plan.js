@@ -1,9 +1,9 @@
 const assert=require('node:assert/strict'),fs=require('fs'),path=require('path');let JSDOM;try{({JSDOM}=require('jsdom'));}catch{({JSDOM}=require('../../qa/node_modules/jsdom'));}
 const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 (async()=>{
- const dom=new JSDOM(read('topics/learning.html'),{url:'https://example.test/topics/learning.html?mode=teach&plan=energie,arbeit',runScripts:'outside-only'}),w=dom.window,d=w.document;
+ const dom=new JSDOM(read('topics/learning.html'),{url:'https://example.test/topics/learning.html?mode=teach&plan=arbeit,energie',runScripts:'outside-only'}),w=dom.window,d=w.document;
  w.eval(read('js/curriculum.js'));w.eval(read('js/chapter-revisions.js'));
- const results={energie:{contentRevision:w.chapterRevision('energie'),lastPercent:87,passed:true,bestPercent:87}};
+ const results={arbeit:{contentRevision:w.chapterRevision('arbeit'),lastPercent:87,passed:true,bestPercent:87}};
  w.localStorage.setItem('sciverse_chapter_quiz_results',JSON.stringify(results));
  w.fetch=async()=>({ok:true,json:async()=>JSON.parse(read('lang/de.json'))});w.eval(read('js/learning.js'));await new Promise(resolve=>setImmediate(resolve));
  assert.equal(d.querySelector('#plan h2').textContent,'Stoffliste für die Klasse');
@@ -13,14 +13,14 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const resource=d.querySelector('#selected>li .plan-chapter-link a');
  const destination=new URL(new URL(resource.href).hash.slice(1),'https://example.test/');
  assert.equal(destination.pathname,'/topics/template.html');
- assert.deepEqual(Object.fromEntries(destination.searchParams),{topic:'energie',mode:'teach',plan:'energie,arbeit'});
+ assert.deepEqual(Object.fromEntries(destination.searchParams),{topic:'arbeit',mode:'teach',plan:'arbeit,energie'});
  assert.equal(resource.target,'_top');assert.ok(!resource.href.includes('87'));
 
- assert.match(d.querySelector('#selected>li .plan-prerequisites').textContent,/Mechanische Arbeit.*erst später eingeplant/);assert.match(d.querySelectorAll('#selected>li')[1].querySelector('.plan-prerequisites').textContent,/Kraft & Bewegung.*nicht in dieser Stoffliste/);assert.deepEqual(JSON.parse(w.localStorage.getItem('sciverse_study_plan')),['energie','arbeit']);
+ assert.match(d.querySelector('#selected>li .plan-prerequisites').textContent,/Energie.*erst später eingeplant/);assert.match(d.querySelectorAll('#selected>li')[1].querySelector('.plan-prerequisites').textContent,/Kraft & Bewegung.*nicht in dieser Stoffliste/);assert.deepEqual(JSON.parse(w.localStorage.getItem('sciverse_study_plan')),['arbeit','energie']);
  assert.ok(d.querySelector('#selected>li ul li'));assert.match(d.querySelector('.chapter .primary').textContent,/ansehen/);
  d.querySelector('[data-mode="review"]').click();assert.match(d.querySelector('#selected .personal-result').textContent,/87 %/);
- d.querySelector('[data-focus-key="plan-move-1-energie"]').click();
- assert.match(d.querySelectorAll('#selected>li')[1].querySelector('.plan-prerequisites').textContent,/Mechanische Arbeit.*davor eingeplant/);
+ d.querySelector('[data-focus-key="plan-move-1-arbeit"]').click();
+ assert.match(d.querySelectorAll('#selected>li')[1].querySelector('.plan-prerequisites').textContent,/Energie.*davor eingeplant/);
  assert.ok(d.querySelector('#plan-progress .personal-result'),'Reorder announcements preserve the print-exclusion wrapper');
  // Inspect actual print rules without pretending JSDOM renders printed pages.
  const style=d.createElement('style');style.textContent=read('css/learning.css');d.head.append(style);

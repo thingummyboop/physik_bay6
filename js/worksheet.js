@@ -5,24 +5,29 @@ function worksheetText(value) {
  return String(value).replace(/&(?:#[0-9]+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi, entity=>{decoder.innerHTML=entity;return decoder.value;});
 }
 function worksheetQuestions(topic) {
- const questions=[...(topic.sections||[]).filter(s=>!s.practiceOnly).flatMap(s=>s.quizzes||[]),...(topic.quizzes||[]),...(topic.diplom?.questions||[])],seen=new Set();
+ const questions=[...(topic.sections||[]).filter(s=>!s.practiceOnly&&s.level!=='extension').flatMap(s=>s.quizzes||[]),...(topic.quizzes||[]).filter(q=>!(topic.sections||[]).some(s=>s.level==='extension'&&String(s.content||'').includes('{{QUIZ_'+q.id+'}}'))),...(topic.diplom?.questions||[])],seen=new Set();
  return questions.filter(q=>{if(q.practiceOnly||!q.question)return false;const key=JSON.stringify([q.question.replace(/^\s*\d+[.)]\s*/,''),q.answers]);if(seen.has(key))return false;seen.add(key);return true;});
 }
 function renderWorksheetQuestions(topic,content) {
  const make=(tag,text)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=worksheetText(text);return el;};
  const questions=worksheetQuestions(topic);
- if(!questions.length){content.append(make('p','Für dieses Kapitel sind noch keine druckbaren Übungsfragen hinterlegt. Nutze die Aufgaben im Lernkapitel.'));return;}
+ const extensionSections=(topic.sections||[]).filter(s=>s.level==='extension');
+ const extra=worksheetQuestions({quizzes:[...extensionSections.flatMap(s=>s.quizzes||[]),...(topic.quizzes||[]).filter(q=>extensionSections.some(s=>String(s.content||'').includes('{{QUIZ_'+q.id+'}}')))].map(q=>({...q,practiceOnly:false}))});
+ if(!questions.length&&!extra.length){content.append(make('p','Für dieses Kapitel sind noch keine druckbaren Übungsfragen hinterlegt. Nutze die Aufgaben im Lernkapitel.'));return;}
  const context=make('p','Bearbeite die Aufgaben mit dem Lernkapitel. Dort findest du die zugehörigen Texte, Abbildungen und interaktiven Modelle. Kreuze bei Auswahlfragen eine Antwort an und begründe deine Wahl.');content.append(context);
  const answers=make('section');answers.id='ws-solutions';answers.hidden=true;answers.append(make('h2','Lösungen und Hinweise'));
- questions.forEach((q,i)=>{
-  const block=make('section');block.className='question-block';block.append(make('h2',(i+1)+'. '+q.question.replace(/^\s*\d+[.)]\s*/,'')));
+ const extension=make('section');extension.id='ws-extension-questions';
+ if(extra.length)extension.append(make('h2','Vertiefung – zusätzliche Übungen'),make('p','Diese Aufgaben zählen nicht zum Kapitelcheck des Grundstoffs. Zusätzlichen Prüfungsstoff vereinbart ihr mit der Lehrkraft.'));
+ [...questions,...extra].forEach((q,i)=>{
+  const isExtra=i>=questions.length,label=isExtra?'V'+(i-questions.length+1):String(i+1);
+  const block=make('section');block.className='question-block';block.append(make('h2',label+'. '+q.question.replace(/^\s*\d+[.)]\s*/,'')));
   const options=make('ul');options.className='worksheet-options';
   (q.answers||[]).forEach(answer=>options.append(make('li','□ '+answer.text)));block.append(options);
-  block.append(make('p','Begründung / Rechenweg:'));for(let n=0;n<2;n++){const line=make('div');line.className='answer-lines';block.append(line);}content.append(block);
-  const solution=make('section');solution.className='question-block';solution.append(make('h3','Aufgabe '+(i+1)));
+  block.append(make('p','Begründung / Rechenweg:'));for(let n=0;n<2;n++){const line=make('div');line.className='answer-lines';block.append(line);}(isExtra?extension:content).append(block);
+  const solution=make('section');solution.className='question-block';solution.append(make('h3','Aufgabe '+label));
   const correct=(q.answers||[]).filter(a=>a.correct);solution.append(make('p',correct.length?correct.map(a=>a.text).join(' / '):'Besprich deinen Lösungsweg mit der Lehrkraft.'));
   for(const answer of correct)if(answer.feedback)solution.append(make('p',answer.feedback));answers.append(solution);
- });content.append(answers);
+ });if(extra.length)content.append(extension);content.append(answers);
  const control=document.getElementById('ws-solution-control');control.hidden=false;
  const checkbox=document.getElementById('ws-include-solutions');checkbox.checked=false;checkbox.onchange=()=>{answers.hidden=!checkbox.checked;};
 }
@@ -111,6 +116,7 @@ function renderChapterWorksheetMaterial(topic,content,topicId,subject) {
  for(const [sectionIndex,section] of (topic.sections||[]).entries()){
   const article=make('article');article.dataset.sourceSection=section.id||'learning-section-'+sectionIndex;
   const header=make('header');header.className='ws-section-header';header.append(make('h3',section.title));
+  if(section.level==='extension')header.append(make('p','Vertiefung · zusätzlich zum Grundstoff, nicht Teil des Kapitelchecks.'));
   const link=make('a','Zum Abschnitt im Onlinekapitel');link.href='template.html?topic='+encodeURIComponent(topicId)+'#learning-section-'+sectionIndex;
   const reference=make('p');reference.className='ws-section-link';reference.append(link,document.createTextNode(link.href));header.append(reference);article.append(header);
   const body=make('div');body.innerHTML=(section.content||'').replace(/\{\{QUIZ_[^}]+\}\}/g,'');
@@ -171,6 +177,7 @@ async function loadWorksheet() {
   const link=document.getElementById('ws-chapter-link');link.href='template.html?topic='+encodeURIComponent(topicId);link.textContent='Zum Lernkapitel: '+title;
   content.replaceChildren();
   if(topic.learningGoals?.length){const heading=document.createElement('h2');heading.textContent='Das übst du';content.append(heading);const list=document.createElement('ul');for(const goal of topic.learningGoals){const li=document.createElement('li');li.textContent=worksheetText(goal);list.append(li);}content.append(list);}
+  if(topic.sections?.some(s=>s.level==='extension')){const scope=document.createElement('p');scope.dataset.assessmentScope='true';scope.textContent='Die Lernziele oben gehören zum Grundstoff dieses Lernwegs. Der Kapitelcheck prüft Fragen daraus; bearbeite auch die praktischen Aufträge. Vertiefungen und V-Aufgaben ergänzen den Grundstoff. Zusätzlichen Prüfungsstoff vereinbart ihr mit der Lehrkraft.';content.append(scope);if(topic.extensionGoals?.length){const heading=document.createElement('h2');heading.textContent='Ziele der Vertiefung';const list=document.createElement('ul');topic.extensionGoals.forEach(goal=>{const li=document.createElement('li');li.textContent=worksheetText(goal);list.append(li);});content.append(heading,list);}}
   if(entry?.[0]==='kunst')renderArtWorksheetMaterial(topic,content);else if(['physik','ernaehrung','musik','deutsch','englisch','dgb','mathematik','chemie','biologie'].includes(entry?.[0]))renderChapterWorksheetMaterial(topic,content,topicId,entry[0]);else renderWorksheetWorkshopMaterial(topic,content);
   const dynamic=typeof generateWorksheetContent==='function'?generateWorksheetContent(topicId,title):null;
   const note=document.getElementById('ws-description');

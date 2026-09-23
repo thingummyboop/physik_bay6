@@ -1,5 +1,8 @@
 # Funktionsprüfung 23.09.2026
 
+23.09.2026, Weiterarbeit nach `ab3156e`: [Grundstoff und Vertiefung in Physik, 2. Klasse](PHYSIK_GRUNDSTOFF_VERTIEFUNG.md) umgesetzt. Vier Kapitel trennen 74 Grundstofffragen von 26 erhaltenen Zusatzübungen; Lernziele, Zusammenfassungen, Checks, gespeicherte Ergebnisse und Lehrer-Stofflisten passen zusammen. Die Zusatzfragen bleiben druckbar (V1 usw.) und besitzen getrennte Lösungen. Native Prüfung: 78 Antwortwege der Zusatzübungen, 24 Ansichten, Tastaturbedienung und geteilte Stoffliste; betroffene Druckseiten gesichtet. Übersetzungen ausgesetzt. Physik der 3./4. Klasse und Gesamtauftrag bleiben offen; neue Änderungen lokal. Frühere Zahlen unten gehören zu den jeweils dokumentierten Zwischenständen. Gesamtlauf 274/276; nach Korrektur zweier Befunde bestanden beide Nachtests und neun Begleitprüfungen. Somit sind alle 276 Suiten mit aktuellem bestandenem Nachweis dokumentiert; Einzelheiten im verlinkten Bericht.
+
+
 23.09.2026: [Physik der 2. Klasse zusammenhängend abgeglichen](PHYSIK_KLASSE2_ABGLEICH.md): neun Kompetenzen und acht Anwendungsbereiche konkreten Tätigkeiten zugeordnet. Kapitelreihenfolge verbessert; Schulweg, Lichtgeschwindigkeit und vollständiger Hörweg ergänzt, drei neue Fragen und getrennte Papierlösungen. Neun neue bewertete und neun freie Browserantwortwege, zwölf Ansichten, Navigation und betroffene Druckseiten geprüft. Optik/Akustik Revision 4. Grundstoff/Vertiefung sowie die übrigen Physikjahrgänge bleiben offen; Übersetzungen ausgesetzt, Änderungen lokal nach `2339b57`.
 
 
