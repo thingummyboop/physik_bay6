@@ -208,6 +208,37 @@ function renderDgbGuide(){
  const word=focusKey(button('Word-Werkstatt öffnen',()=>openChapter('dgb_word_werkstatt')),'dgb-guide-word');word.lang='de';host.append(word);
  const check=element('p');check.append(element('strong','Für Unterricht und Prüfung: '),document.createTextNode('Wähle die vereinbarten Kapitel in deine Stoffliste. Erkläre Begriffe, begründe Entscheidungen und prüfe dich im Kapitelcheck. Für praktische Aufgaben gehören außerdem deine Datei, ein Vergleich oder ein Testprotokoll dazu: Ein Quiz belegt noch keine ausgeführte Zusammenarbeit.'));host.append(check);
 }
+function renderPhysicsGuide(){
+ const host=$('physics-guide');host.hidden=$('subject').value!=='physik';
+ if(host.hidden)return;
+ host.replaceChildren();const summary=element('summary','Physik-Lernweg für die 2.–4. Klasse');summary.dataset.focusKey='physics-guide-toggle';host.append(summary);
+ host.append(element('p','Du lernst Physik, indem du Beobachtungen erklärst, Fragen untersuchst und Entscheidungen begründest. Die folgende Reihenfolge ist ein Vorschlag für diesen Lernweg. Du kannst jedes Kapitel direkt öffnen; deine Lehrkraft legt den Unterrichts- und Prüfungsstoff fest.'));
+ const open=(id,label)=>{const b=focusKey(button(label,()=>openChapter(id)),'physics-guide-open-'+id);b.lang='de';b.setAttribute('aria-label','Kapitel öffnen: '+label);return b;};
+ const foundation=element('div',undefined,'guide-foundation');foundation.append(element('h3','Gemeinsame Grundlage: Messen und Einheiten'),element('p','Übe zuerst das Ablesen und das Protokollieren mit Einheit und Messbedingungen. Greife später beim Rechnen oder Auswerten darauf zurück. Du musst nicht alle Umrechnungen und Geschwindigkeitsaufgaben beherrschen, bevor du mit Licht und Schatten beginnst.'),open('sieinheiten','Messen und Einheiten öffnen'));host.append(foundation);
+ const stages=[
+  {grade:'6',title:'2. Klasse: Licht und Schall untersuchen',focus:'Vom Lichtweg zum Schatten, zu Erde und Mond, zu optischen Bildern und Farben. Anschließend vergleichst du Schallquelle, Übertragungsweg und Ohr.',prior:'Lichtwege aus dem ersten Kapitel helfen dir bei den folgenden Optikthemen. Für Schallgeschwindigkeit und Echo sind Messen und Einheiten hilfreich.',product:'Eine Skizze mit erklärten Lichtwegen, ein eigenes Versuchsprotokoll und eine begründete Entscheidung zur Sichtbarkeit oder zum Lärmschutz.'},
+  {grade:'7',title:'3. Klasse: Kräfte, Energie und Strom verstehen',focus:'Du erklärst zuerst Bewegung und Kräfte, dann Energieumwandlungen. Darauf bauen Stromkreis, Motor und Generator auf. Arbeit und Hebel vertiefen die mechanischen Zusammenhänge.',prior:'Frische Messen und Einheiten auf. Energie kommt vor der genaueren Rechnung zur mechanischen Arbeit; für Elektromagnetismus brauchst du den Stromkreis.',product:'Ein kontrollierter Kraft- oder Stromversuch, eine Energieumwandlungskette und eine begründete Geräte- oder Mobilitätsentscheidung.'},
+  {grade:'8',title:'4. Klasse: Wärme, Klima und Strahlung beurteilen',focus:'Von Temperatur und Wärmeübertragung kommst du zu Wetter, Klima und Klimawandel. Danach untersuchst du Strahlung; zum Abschluss vergleichst du die Energieversorgung.',prior:'Wiederhole Energieumwandlungen für Wärme und Kraftwerke, Lichtwege für Strahlung sowie Motor und Generator für die Stromerzeugung.',product:'Ein ausgewerteter Wärmeversuch, ein Quellenvergleich zum Klima und eine begründete Entscheidung zu Strahlung oder Energieversorgung mit benannten Grenzen.'}
+ ];
+ const grid=element('div',undefined,'guide-stages physics-stages');
+ for(const stage of stages){
+  const card=element('article',undefined,'guide-stage');card.dataset.guideGrade=stage.grade;card.append(element('h3',stage.title),element('p',stage.focus));
+  const list=element('ol',undefined,'guide-chapters');list.setAttribute('aria-label','Empfohlene Kapitelreihenfolge der '+(Number(stage.grade)-4)+'. Klasse');
+  for(const topic of catalog.filter(t=>t.subject==='physik'&&gradeLevels(t).length===1&&gradeLevels(t)[0]===stage.grade)){
+   const item=element('li');item.append(open(topic.id,text(topic.title).replace(/^\S+\s+\d+\.\s*/,'')));list.append(item);
+  }
+  const prior=element('p');prior.append(element('strong','Hilfreiches Vorwissen: '),document.createTextNode(stage.prior));
+  const evidence=element('p');evidence.append(element('strong','Daran zeigst du dein Können: '),document.createTextNode(stage.product));
+  const select=focusKey(button('Kapitel der '+(Number(stage.grade)-4)+'. Klasse anzeigen',()=>{$('grade').value=stage.grade;$('search').value='';render();$('count').focus();}),'physics-guide-'+stage.grade);select.lang='de';select.setAttribute('aria-pressed',String($('grade').value===stage.grade));
+  card.append(list,prior,evidence,select);grid.append(card);
+ }
+ host.append(grid);
+ const scope=element('div',undefined,'guide-scope');scope.append(element('h3','Grundstoff, Vertiefung und Prüfung'),element('p','Die Lernziele der Jahrgangskapitel und die zugehörigen praktischen Aufträge bilden den Grundstoff dieses Lernwegs. In einzelnen Kapiteln sind zusätzliche Abschnitte als Vertiefung gekennzeichnet. Diese Abschnitte zählen nicht zum jeweiligen Kapitelcheck.'));
+ scope.append(element('p','Die beiden folgenden Zusatzkapitel kannst du unabhängig vom Klassenfilter öffnen. Sie haben eigene Übungen und Kapitelchecks; zur vereinbarten Prüfung gehören sie nur, wenn deine Lehrkraft sie auswählt.'));
+ const extras=element('div',undefined,'actions');for(const topic of catalog.filter(t=>t.subject==='physik'&&t.grade==='Vertiefung'))extras.append(open(topic.id,text(topic.title)));scope.append(extras);
+ scope.append(element('p','Für deine Prüfung: Übernimm die vereinbarten Kapitel in die Stoffliste, wiederhole die Erklärungen und bearbeite den Kapitelcheck. Zu Untersuchungen und Beurteilungen gehören zusätzlich deine Protokolle, Quellenbelege und begründeten Antworten. Ein bestandener Quizcheck allein belegt noch keinen selbst durchgeführten Versuch.'));
+ host.append(scope);
+}
 function render(){
  const activeKey=document.activeElement?.dataset.focusKey;
  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));
@@ -227,7 +258,7 @@ function render(){
   if(mode!=='teach')card.append(outcomeElement(t.id,'status personal-result'));
   const actions=element('div',undefined,'actions');actions.lang=preferredLanguage==='en'?'en':'de';actions.append(focusKey(button(entryText(mode==='learn'?'Kapitel lernen':mode==='teach'?'Kapitel ansehen':'Kapitel wiederholen',mode==='learn'?'Learn chapter':mode==='teach'?'View chapter':'Review chapter'),()=>openChapter(t.id),'primary'),'catalog-open-'+t.id));
   const add=focusKey(button(entryText(chosen.has(t.id)?'✓ Im Prüfungsstoff':'Zum Prüfungsstoff',chosen.has(t.id)?'✓ In test material':'Add to test material'),()=>toggle(t.id)),'catalog-toggle-'+t.id);add.setAttribute('aria-pressed',String(chosen.has(t.id)));actions.append(add);card.append(actions);$('chapters').append(card);
- });renderPlan();renderEntryLanguage();renderDgbGuide();
+ });renderPlan();renderEntryLanguage();renderDgbGuide();renderPhysicsGuide();
  if(activeKey){
   const target=[...document.querySelectorAll('[data-focus-key]')].find(b=>b.dataset.focusKey===activeKey);
   if(target)target.focus({preventScroll:true});

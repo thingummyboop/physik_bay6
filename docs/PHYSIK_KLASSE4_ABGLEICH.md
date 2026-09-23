@@ -1,6 +1,10 @@
 # Physik der 4. Klasse: laufender Inhaltsabgleich
 
+Aktualisierung Wetter, 23.09.2026: [Alle 18 Fragen gelesen und zehn ältere Fragen überarbeitet](PHYSIK_WETTER_FRAGEN.md), dazu sichtbare Erklärungen und Aufgaben zu relativer Luftfeuchte sowie Hochdruck mit Nebel. Revision 4; alle 54 bewerteten und 39 freien Antwortwege mit unabhängig festgehaltenen Lösungen geprüft. Zusammen mit Wärmelehre liegen damit neue vollständige Fragenprüfungen für zwei der sechs Jahrgangskapitel vor. Die folgenden älteren Teilstände sind historisch; die übrigen vier Fragenprüfungen und die vollständige Modell-/Bildabnahme bleiben offen.
+
 Stand: 23.09.2026. Dieser Abgleich ist **noch nicht abgeschlossen**. Er betrifft die 8. Schulstufe der österreichischen Mittelschule. Die vollständigen erklärenden Texte und Arbeitsaufträge der sechs Kapitel `waermelehre`, `wetter`, `klima`, `klimawandel`, `strahlung_radioaktivitaet` und `kraftwerke_energieversorgung` wurden gelesen. Die interaktiven Beschriftungen des Klimakapitels wurden zusätzlich im Quellcode und Browser geprüft. Eine neue vollständige Prüfung aller älteren Fragen, Modelle und Abbildungen der sechs Kapitel ist damit nicht belegt.
+
+Aktualisierung nach `5a9c125`: Der [zusammenhängende Lernweg](PHYSIK_LERNWEG.md) ist hinsichtlich Reihenfolge, Voraussetzungen, Grundstoff/Vertiefung und direkter Kapitelzugänge geprüft und auf der Lernseite sichtbar. Alle 29 [Wärmelehre-Fragen](PHYSIK_WAERME_FRAGEN.md) wurden inhaltlich durchgesehen, 13 ältere Fragen verbessert und sämtliche 87 Antwortwege geprüft; Revision 5. Der nachfolgende Bericht enthält historische Teilstände. Die Fragenabnahme der übrigen fünf Kapitel und die vollständige Modell-/Bildprüfung bleiben offen.
 
 Grundlage: [Mittelschullehrplan im RIS](https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html), direkt abgerufen am 23.09.2026 um 15:21:38 UTC. Zehn Kompetenzbeschreibungen und zehn Anwendungsbereiche werden in eigenen Worten zugeordnet. „Vorhanden“ beschreibt eine konkrete Lerngelegenheit und ist keine Aussage über bereits erreichte Schülerkompetenzen.
 

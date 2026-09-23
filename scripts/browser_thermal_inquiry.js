@@ -73,7 +73,7 @@ const out = path.resolve(__dirname, '../../browser-qa/thermal-inquiry');
       await p.locator('.chapter-submit-btn').click();
       const result = await p.evaluate(() => JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')).waermelehre);
       assert.equal(result.lastPercent, a === x.key ? 100 : 97);
-      assert.equal(result.contentRevision, 4);
+      assert.equal(result.contentRevision, 5);
       assert.deepEqual(result.reviewQuestionIds, a === x.key ? [] : [qid]);
       if (a !== x.key) {
         await p.locator('[onclick="reviewChapterSection(' + x.section + ')"]').click();

@@ -2,7 +2,7 @@
 
 Aktuelle didaktische Ergänzung: [Grundstoff und Vertiefung](PHYSIK_GRUNDSTOFF_VERTIEFUNG.md), einschließlich Umfang der Kapitelchecks und Lehrer-Stofflisten.
 
-Aktuelle Teilabgleiche: [2. Klasse, 23.09.2026](PHYSIK_KLASSE2_ABGLEICH.md) und [3. Klasse, 23.09.2026](PHYSIK_KLASSE3_ABGLEICH.md). Die folgende Ausgangsmatrix und ihre offenen Punkte sind historisch; neuere Nachweise stehen in den Ergänzungen und Jahrgangsberichten. Der [Abgleich der 4. Klasse](PHYSIK_KLASSE4_ABGLEICH.md) ist begonnen und dokumentiert vier noch zu schließende Kompetenzlücken.
+Aktuelle Teilabgleiche: [2. Klasse, 23.09.2026](PHYSIK_KLASSE2_ABGLEICH.md), [3. Klasse, 23.09.2026](PHYSIK_KLASSE3_ABGLEICH.md) und [4. Klasse](PHYSIK_KLASSE4_ABGLEICH.md). Die vier zunächst offenen Lerngelegenheiten der 4. Klasse sind inzwischen ergänzt. Die folgende Ausgangsmatrix und ihre offenen Punkte sind historisch; neuere Nachweise stehen in den Ergänzungen und Jahrgangsberichten. Der [jahrgangsübergreifende Lernweg](PHYSIK_LERNWEG.md) dokumentiert Reihenfolge, Vorwissen, Grundstoff und Vertiefung. Die vollständige fachliche und visuelle Prüfung älterer Materialien bleibt offen; der [Fragenabgleich Wärmelehre](PHYSIK_WAERME_FRAGEN.md) ist ein weiterer konkreter Teilschritt.
 
 Stand der Ausgangsmatrix: 08.09.2026. Dies ist eine Arbeitsmatrix, keine fachliche Freigabe und kein Nachweis einer amtlichen Approbation.
 

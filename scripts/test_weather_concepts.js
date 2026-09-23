@@ -27,7 +27,7 @@ for(const [index,q] of w.currentChapterQuiz.questions.entries()){
   assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));checked++;
  }
 }
-assert.equal(checked,51);
+assert.equal(checked,54);
 assert.equal(d.querySelectorAll('[data-rain-comparison] tbody tr').length,2);
 assert.equal(d.querySelectorAll('[data-weather-bulletins] tbody tr').length,3);
 assert.match(d.querySelector('[data-weather-bulletins] caption').textContent,/Vollständig erfundene/);
@@ -36,4 +36,4 @@ for (const value of ['30 mm/h', '5 mm/h', '1 500 L']) assert.ok(d.querySelector(
 assert.equal(d.querySelector('[data-warning-model]').open,false);
 assert.ok(d.querySelector('a[href="template.html?topic=geo_1_naturgefahren"]'));
 assert.doesNotMatch(data.wetter.sections.find(s=>s.id==='sec4').quizzes[0].answers.find(a=>a.correct).text,/immer wieder hochgeschleudert/);
-w.showInstrumentDetailed('hygrometer');assert.match(d.querySelector('#instrumentText').textContent,/nicht 50 % Wasseranteil/);for(const type of ['rain','snow','sleet','hail']){w.showPrecipitation(type);assert.ok(d.querySelector('#precipTextOverlay').textContent.length>30);}assert.match(d.querySelector('#precipTextOverlay').textContent,/nicht auf den Sommer beschränkt/);w.showPrecipitation('sleet');assert.match(d.querySelector('#precipTextOverlay').textContent,/Unterkühlte Wassertröpfchen/);dom.window.close();console.log('PASS: weather render, 18 questions, all 51 answer paths, rainfall units/intensity, fictional warning materials, three circulation states, reset/focus/reinitialization, revision, hygrometer and precipitation descriptions.');})().catch(e=>{console.error(e);process.exitCode=1;});
+w.showInstrumentDetailed('hygrometer');assert.match(d.querySelector('#instrumentText').textContent,/nicht 50 % Wasseranteil/);for(const type of ['rain','snow','sleet','hail']){w.showPrecipitation(type);assert.ok(d.querySelector('#precipTextOverlay').textContent.length>30);}assert.match(d.querySelector('#precipTextOverlay').textContent,/nicht auf den Sommer beschränkt/);w.showPrecipitation('sleet');assert.match(d.querySelector('#precipTextOverlay').textContent,/Unterkühlte Wassertröpfchen/);dom.window.close();console.log('PASS: weather render, 18 questions, all 54 answer paths, rainfall units/intensity, fictional warning materials, three circulation states, reset/focus/reinitialization, revision, hygrometer and precipitation descriptions.');})().catch(e=>{console.error(e);process.exitCode=1;});
