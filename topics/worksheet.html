@@ -5,6 +5,12 @@
     <title>Arbeitsblatt</title>
     <style>
       @media print {
+        #ws-content .production-example,#ws-content .production-medium,#ws-content [data-production-tasks]>li{break-inside:avoid;page-break-inside:avoid}
+        #ws-content .production-example,#ws-content .production-medium{border:1px solid #aaa;padding:8px;margin:12px 0}
+        #ws-content .production-bar-chart{max-width:140mm;margin:10px 0}#ws-content .production-bar-row p{margin:6px 0 2px}#ws-content .production-bar-track{width:100%;border-bottom:1px solid #444}#ws-content .production-bar-fill{display:block;height:6mm;background:#1765a8;border:1px solid #444;box-sizing:border-box}#ws-content .production-chart-scale{display:flex;justify-content:space-between;margin-top:3px}
+        #ws-content [data-sharing-context],#ws-content [data-communication-tasks]>li,#ws-content [data-collaboration-task]>li,#ws-content [data-sharing-paper] table{break-inside:avoid;page-break-inside:avoid}
+        #ws-content [data-information-source],#ws-content [data-information-tasks]>li,#ws-content [data-research-protocol]>article{break-inside:avoid;page-break-inside:avoid}
+        #ws-content [data-research-protocol] li{min-height:13mm;margin-bottom:2mm}
         [data-decimal-paper] li,[data-decimal-solution] p{break-inside:avoid;page-break-inside:avoid}
         .decimal-bridge{display:flex;gap:5mm;margin:12px 0}.decimal-bridge>div{flex:1;min-width:0;border:1px solid #aaa;padding:8px;break-inside:avoid}.decimal-bridge>div>strong,.decimal-bridge>div>span{display:block}.decimal-bridge .inline-frac{display:inline-flex;align-items:center;gap:2px;white-space:nowrap}
         .decimal-calc-grid>div{break-inside:avoid}.decimal-calc-grid pre{font-size:14px;line-height:1.4}

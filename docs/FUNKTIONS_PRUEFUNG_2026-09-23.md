@@ -1,6 +1,6 @@
 # Funktionsprüfung 23.09.2026
 
-Zeitliche Einordnung: Die nach dem folgenden 266-Suiten-Lauf ergänzte [Orientierung der 1. Klasse](DGB_ORIENTIERUNG_KLASSE1.md) wurde gezielt geprüft. Sie bringt die Sammlung auf 267 Suiten; ein neuer vollständiger 267-Suiten-Lauf wird hier nicht behauptet. Der unten beschriebene unveränderte Codezustand gilt für den damaligen Laufabschluss.
+Zeitliche Einordnung: Die nach dem folgenden 266-Suiten-Lauf ergänzte [Orientierung der 1. Klasse](DGB_ORIENTIERUNG_KLASSE1.md) wurde gezielt geprüft. Mit den anschließend ergänzten Kapiteln [Information](DGB_INFORMATION_KLASSE1.md) und [Kommunikation](DGB_KOMMUNIKATION_KLASSE1.md) enthält die Sammlung jetzt 269 Suiten. Alle drei Kapitel wurden gezielt geprüft; ein neuer vollständiger 269-Suiten-Lauf wird hier nicht behauptet. Der unten beschriebene unveränderte Codezustand gilt für den damaligen Laufabschluss.
 
 ## Aktueller Lauf nach 4d50180
 

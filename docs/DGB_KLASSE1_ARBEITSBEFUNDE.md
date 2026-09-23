@@ -1,5 +1,9 @@
 # DGB 1. Klasse – aktuelle Befunde für die Weiterarbeit
 
+Fortschreibung: [Kommunikation, Revision 3](DGB_KOMMUNIKATION_KLASSE1.md), schließt Befund 4 und den Kommunikationsanteil von Befund 7. Kontextbezogene Freigaben, Datenkarte, ein interaktives Rechte-Modell und bessere Fragen ergänzen die erhaltene gemeinsame Dokumentarbeit. Nächste offene Inhalte: Produktion und Handeln.
+
+Fortschreibung nach `f66005e`: [Information, Revision 3](DGB_INFORMATION_KLASSE1.md), schließt Befund 3 und den Informationsanteil von Befund 7. Quellenkarten, Rechercheprotokolle, plausible Antwortalternativen, erhaltene Such-/Dateiaufgaben und vollständige Drucksichtung liegen vor. Nächster Schwerpunkt ist Kommunikation; Produktion und Handeln bleiben ebenfalls offen.
+
 Fortschreibung 23.09.2026: [Orientierung, Revision 3](DGB_ORIENTIERUNG_KLASSE1.md), schließt die unten historischen Befunde 1 und 2 sowie den Orientierungsanteil von Befund 7. Modelle, neue Aufgaben, plausible Antwortalternativen und vollständige Drucksichtung liegen vor. Die Befunde zu den vier anderen Kapiteln bleiben offen.
 
 Stand 23.09.2026, nach `4d50180`. Dieser Bericht ist eine erneute Bestandsaufnahme, keine abgeschlossene Überarbeitung oder Klassenabnahme. Er verhindert, dass die historischen offenen Punkte vom 08.09.2026 ungeprüft als heutiger Arbeitsstand verwendet werden.
@@ -34,6 +38,6 @@ Diese Materialien dürfen bei einer Überarbeitung nicht durch allgemeinere Auff
 
 ## Nächster Arbeitsschritt
 
-Orientierung ist im oben verlinkten Umfang überarbeitet und geprüft. Als Nächstes Information: einen konkreten Quellenvergleich mit überprüfbaren Belegen ergänzen, Fragen und Rückmeldungen verbessern; vorhandene Suchindex-, Personalisierungs- und Dateiwerkstätten erhalten. Anschließend Kommunikation, Produktion und Handeln bearbeiten und alle 24 Lehrplanpunkte gemeinsam zuordnen. Technische Tests ersetzen keine fachliche Prüfung.
+Orientierung, Information und Kommunikation sind im jeweils verlinkten Umfang überarbeitet und geprüft. Als Nächstes Produktion: Medienwirkung anhand eines konkreten Vergleichs untersuchen und die gemeinsame Präsentationsarbeit anleiten; vorhandene Schleifen- und Umfrageaufträge erhalten. Danach Handeln bearbeiten und alle 24 Lehrplanpunkte gemeinsam zuordnen. Technische Tests ersetzen keine fachliche Prüfung.
 
 Die obige Bestandsaufnahme beschreibt die Ausgangslage vor der Orientierungsüberarbeitung; geschlossene Punkte werden in der Fortschreibung benannt. Alle anderen Feststellungen bleiben offen, bis Inhalte und tatsächliche Ausgaben korrigiert und geprüft sind. Übersetzungen bleiben ausgesetzt; der Gesamtauftrag für alle vorhandenen Fächer bleibt unverändert.

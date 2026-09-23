@@ -4,7 +4,7 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/site/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));
- await w.renderTopic();assert.equal(w.currentChapterQuiz.questions.length,5);assert.equal(data[id].script,true);const tally={};for(const row of d.querySelectorAll("[data-survey-records] tbody tr")){const key=row.cells[1].textContent;tally[key]=(tally[key]||0)+1;}assert.deepEqual(tally,{Lesen:3,Radfahren:4,Ballspiel:1});assert.equal(d.querySelectorAll("[data-survey-tasks] li").length,6);
+ await w.renderTopic();assert.equal(w.currentChapterQuiz.questions.length,9);assert.equal(data[id].script,true);const tally={};for(const row of d.querySelectorAll("[data-survey-records] tbody tr")){const key=row.cells[1].textContent;tally[key]=(tally[key]||0)+1;}assert.deepEqual(tally,{Lesen:3,Radfahren:4,Ballspiel:1});assert.equal(d.querySelectorAll("[data-survey-tasks] li").length,6);
  w.eval(read('js/topics/'+id+'.js'));w.topicInit();w.topicInit();
  const survey=d.querySelector('[data-survey-check]'),surveyInputs=[...survey.querySelectorAll('input')],surveyStatus=survey.querySelector('[data-survey-status]'),surveyCheck=survey.querySelector('[data-survey-submit]');
  const storageBefore=w.localStorage.getItem('sciverse_chapter_quiz_results');
@@ -29,7 +29,7 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  const i=w.currentChapterQuiz.questions.findIndex(q=>q.id==='dgb5_loop_scope'),q=w.currentChapterQuiz.questions[i];assert.equal(q.sectionIndex,1);
  for(let choice=0;choice<3;choice++){
   w.currentChapterQuiz.questions.forEach((item,j)=>d.querySelector(`input[name="chapter_q_${j}"][value="${j===i?choice:item.answers.findIndex(a=>a.correct)}"]`).checked=true);
-  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[choice].correct?100:80);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
+  w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[choice].correct?100:89);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
  }
  assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);dom.window.close();
  console.log('PASS: 729 survey tallies, invalid inputs, category/sum distinction, Enter/reset/focus and unchanged quiz storage; every state for 0–6 loop repetitions and three answer paths.');

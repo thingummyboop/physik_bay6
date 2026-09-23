@@ -5225,3 +5225,50 @@ img[data-media-failed="true"] { display: none !important; }
     #sections-container [data-media-day] td:nth-child(2)::before { content:'Ziel'; }
     #sections-container [data-media-day] td:nth-child(3)::before { content:'Beobachtung'; }
 }
+/* Source evidence cards and the first-year information comparison tables. */
+.source-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0;}
+.source-card-grid .word-ui-card{min-width:0;overflow-wrap:anywhere;}
+.source-card-grid blockquote{margin:.75rem 0 0;padding-left:.75rem;border-left:3px solid currentColor;}
+[data-research-protocol] .word-ui-card{margin:1rem 0;overflow-wrap:anywhere;}
+@media screen and (max-width:600px){
+ .source-card-grid{grid-template-columns:minmax(0,1fr);}
+ #sections-container [data-information-table]{display:block;width:100%;}
+ #sections-container [data-information-table] caption{display:block;width:100%;box-sizing:border-box;}
+ #sections-container [data-information-table] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);}
+ #sections-container [data-information-table] :is(tbody,tr,th,td){display:block;width:100%;box-sizing:border-box;overflow-wrap:anywhere;}
+ #sections-container [data-information-table] tbody tr{margin:.75rem 0;border:1px solid currentColor;}
+ #sections-container [data-information-table] tbody :is(th,td)::before{content:attr(data-column) ': ';font-weight:700;}
+}
+/* First-year communication: scoped model controls and narrow comparison tables. */
+.communication-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0;}
+.communication-cards .word-ui-card{min-width:0;overflow-wrap:anywhere;}
+[data-sharing-lab] label{display:block;margin-top:1rem;font-weight:700;}
+[data-sharing-lab] select{width:100%;min-height:44px;padding:8px;border:1px solid currentColor;border-radius:8px;font:inherit;color:var(--text);background:var(--card-bg);}
+[data-sharing-preview]{border:1px solid currentColor;padding:1rem;margin:1rem 0;}
+@media screen and (max-width:600px){
+ .communication-cards{grid-template-columns:minmax(0,1fr);}
+ #sections-container [data-communication-table]{display:block;width:100%;}
+ #sections-container [data-communication-table] caption{display:block;width:100%;box-sizing:border-box;}
+ #sections-container [data-communication-table] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);}
+ #sections-container [data-communication-table] :is(tbody,tr,th,td){display:block;width:100%;box-sizing:border-box;overflow-wrap:anywhere;}
+ #sections-container [data-communication-table] tbody tr{margin:.75rem 0;border:1px solid currentColor;}
+ #sections-container [data-communication-table] tbody :is(th,td)::before{content:attr(data-column) ': ';font-weight:700;}
+}
+.production-example,.production-medium{border:1px solid var(--box-border);border-radius:10px;padding:1rem;margin:1rem 0;}
+[data-production-views] label{display:block;font-weight:700;margin-bottom:.5rem;}
+[data-production-views] select{width:100%;min-height:44px;font:inherit;padding:8px;color:var(--text);background:var(--card-bg);border:1px solid currentColor;border-radius:8px;}
+.production-bar-chart{max-width:600px;margin:1rem 0;}
+.production-bar-row p{margin:.75rem 0 .25rem;}
+.production-bar-track{width:100%;border-bottom:1px solid currentColor;}
+.production-bar-fill{display:block;height:24px;background:var(--primary);border:1px solid currentColor;box-sizing:border-box;}
+.production-chart-scale{display:flex;justify-content:space-between;margin-top:.4rem;}
+.production-data-note{font-size:.95em;}
+@media screen and (max-width:600px){
+ #sections-container [data-production-table]{display:block;width:100%;}
+ #sections-container [data-production-table] caption{display:block;width:100%;box-sizing:border-box;}
+ #sections-container [data-production-table] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);}
+ #sections-container [data-production-table] :is(tbody,tr,th,td){display:block;width:100%;box-sizing:border-box;overflow-wrap:anywhere;}
+ #sections-container [data-production-table] tbody tr{margin:.75rem 0;border:1px solid currentColor;}
+ #sections-container [data-production-table] tbody :is(th,td)::before{content:attr(data-column) ': ';font-weight:700;}
+ #sections-container [data-production-table] input{max-width:100%;box-sizing:border-box;min-height:44px;}
+}

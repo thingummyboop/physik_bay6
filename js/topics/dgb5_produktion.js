@@ -1,4 +1,21 @@
-function topicInit() { initSimpleLoop(); initSurveyCheck(); }
+function topicInit() { initSimpleLoop(); initSurveyCheck(); initProductionViews(); }
+
+function initProductionViews() {
+    const root = document.querySelector('[data-production-views]');
+    if (!root || root.dataset.bound) return;
+    const control = root.querySelector('#production-view');
+    const views = [...root.querySelectorAll('[data-production-view]')];
+    const status = root.querySelector('[data-production-view-status]');
+    const names = { text: 'Text', table: 'Tabelle', chart: 'Balkendiagramm' };
+    const update = () => {
+        views.forEach(view => { view.hidden = view.dataset.productionView !== control.value; });
+        status.textContent = names[control.value] + ' angezeigt. Die Datengrundlage bleibt gleich: acht erfundene Antworten, Lesen 3, Radfahren 4, Ballspiel 1.';
+    };
+    control.addEventListener('change', update);
+    root.querySelector('[data-production-view-reset]').addEventListener('click', () => { control.value = 'text'; update(); control.focus(); });
+    root.dataset.bound = '1';
+    update();
+}
 
 function initSimpleLoop() {
     const root = document.querySelector('[data-simple-loop]');
