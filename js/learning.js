@@ -183,6 +183,25 @@ function renderEntryLanguage(){
  [...$('subject').options].forEach(option=>option.textContent=option.value?(english?subjects[option.value]:subjectNames[option.value]):english?'All subjects':'Alle Fächer');
  [...$('grade').options].forEach(option=>{const grade=Number(option.value);option.textContent=option.value?(english?'Mittelschule year '+(grade-4)+' · school year '+grade:(grade-4)+'. Klasse · '+grade+'. Schulstufe'):english?'All years':'Alle Klassen';});
 }
+function renderDgbGuide(){
+ const host=$('dgb-guide');host.hidden=$('subject').value!=='dgb';
+ if(host.hidden)return;
+ host.replaceChildren();const summary=element('summary','DGB-Lernweg für die 1.–4. Klasse');summary.dataset.focusKey='dgb-guide-toggle';host.append(summary);
+ host.append(element('p','In jeder Klasse verbindest du fünf Bereiche: Orientierung, Information, Kommunikation, Produktion und Handeln. Du verstehst Technik, prüfst Aussagen, arbeitest mit anderen und gestaltest eigene Ergebnisse.'));
+ host.append(element('p','Als Einstieg bietet sich die angezeigte Kapitelreihenfolge an. Vorwissen kannst du gezielt wiederholen; alle Kapitel bleiben frei zugänglich. Deine Lehrkraft legt fest, welche davon zu deinem Unterricht und Prüfungsstoff gehören.'));
+ const stages=[
+  {grade:'5',title:'1. Klasse: Grundlagen anwenden',focus:'Geräte und Dateien verstehen, Quellen vergleichen, Daten gezielt teilen und eindeutige Anleitungen ausführen.',product:'Eine wieder geöffnete Datei, eine begründete Quellenwahl und eine gemeinsam überarbeitete Präsentation mit ausgewerteten Daten.',prior:'Beginne mit „Geräte verstehen“. Für die eigene Präsentation helfen „Suchen und Dateien“ und „Sicher schreiben“.'},
+  {grade:'6',title:'2. Klasse: Daten verarbeiten und Programme testen',focus:'Software nach Bedarf wählen, Daten sortieren und filtern, Übertragung erklären, Nachrichten prüfen und eigene Programme verändern.',product:'Eine nachvollziehbare Datenauswertung, ein getestetes Punkteprogramm und eine überarbeitete Text-, Grafik- und Tonkarte.',prior:'Nutze die Dateiarbeit, Freigaben, Anleitungen und einfachen Schleifen aus der 1. Klasse. Prüfe vor eigenen Medienprodukten die Lizenzangaben in „Daten und Bilder“.'},
+  {grade:'7',title:'3. Klasse: Aussagen hinterfragen und Zugänge verbessern',focus:'KI und vernetzte Geräte untersuchen, Daten und Prognosen begründen, in der Cloud zusammenarbeiten und Barrieren an eigenen Medien erkennen.',product:'Eine Quellenbegründung, ein verändertes Materialprogramm und eine nach konkreten Nutzungsbeobachtungen verbesserte Infokarte.',prior:'Du baust auf Datenarbeit, Programmiertests und Nachrichtenprüfung aus der 2. Klasse auf. Für ein gemeinsames Medienprodukt verbindest du Information, Kommunikation und Produktion.'},
+  {grade:'8',title:'4. Klasse: Projekte entwickeln und Entscheidungen begründen',focus:'KI-Grenzen prüfen, Daten sichern und wiederherstellen, Rechte beim Teilen berücksichtigen und Programme mit verbundenen Bedingungen und verschachtelten Schleifen entwickeln.',product:'Eine geprüfte Wiederherstellung, ein korrigierter Wissensbeitrag und ein Rasterprojekt mit zwei gestalteten Einladungen, Rollenplan und dokumentierten Tests.',prior:'Nutze Quellenkritik, geschützte Zusammenarbeit und Programmierung aus der 3. Klasse. Plane im Projekt Zeit für Zusammenführung, Rückmeldung und erneute Prüfung ein.'}
+ ];
+ const grid=element('div',undefined,'guide-stages');
+ for(const stage of stages){const card=element('article',undefined,'guide-stage');card.dataset.guideGrade=stage.grade;card.append(element('h3',stage.title),element('p',stage.focus));const evidence=element('p');evidence.append(element('strong','Daran zeigst du dein Können: '),document.createTextNode(stage.product));card.append(evidence,element('p',stage.prior));const select=focusKey(button('Kapitel der '+(Number(stage.grade)-4)+'. Klasse anzeigen',()=>{$('grade').value=stage.grade;$('search').value='';render();$('count').focus();}),'dgb-guide-'+stage.grade);select.lang='de';select.setAttribute('aria-pressed',String($('grade').value===stage.grade));card.append(select);grid.append(card);}
+ host.append(grid);
+ const practice=element('p','Zusatz für die 1. und 2. Klasse: In der Word-Werkstatt übst du Textgestaltung, Tabellen und eine kontrollierte PDF-Abgabe. Sie ist ein Übungsangebot; die Fachkapitel bleiben unabhängig davon zugänglich.');host.append(practice);
+ const word=focusKey(button('Word-Werkstatt öffnen',()=>openChapter('dgb_word_werkstatt')),'dgb-guide-word');word.lang='de';host.append(word);
+ const check=element('p');check.append(element('strong','Für Unterricht und Prüfung: '),document.createTextNode('Wähle die vereinbarten Kapitel in deine Stoffliste. Erkläre Begriffe, begründe Entscheidungen und prüfe dich im Kapitelcheck. Für praktische Aufgaben gehören außerdem deine Datei, ein Vergleich oder ein Testprotokoll dazu: Ein Quiz belegt noch keine ausgeführte Zusammenarbeit.'));host.append(check);
+}
 function render(){
  const activeKey=document.activeElement?.dataset.focusKey;
  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));
@@ -201,7 +220,7 @@ function render(){
   if(mode!=='teach')card.append(outcomeElement(t.id,'status personal-result'));
   const actions=element('div',undefined,'actions');actions.lang=preferredLanguage==='en'?'en':'de';actions.append(focusKey(button(entryText(mode==='learn'?'Kapitel lernen':mode==='teach'?'Kapitel ansehen':'Kapitel wiederholen',mode==='learn'?'Learn chapter':mode==='teach'?'View chapter':'Review chapter'),()=>openChapter(t.id),'primary'),'catalog-open-'+t.id));
   const add=focusKey(button(entryText(chosen.has(t.id)?'✓ Im Prüfungsstoff':'Zum Prüfungsstoff',chosen.has(t.id)?'✓ In test material':'Add to test material'),()=>toggle(t.id)),'catalog-toggle-'+t.id);add.setAttribute('aria-pressed',String(chosen.has(t.id)));actions.append(add);card.append(actions);$('chapters').append(card);
- });renderPlan();renderEntryLanguage();
+ });renderPlan();renderEntryLanguage();renderDgbGuide();
  if(activeKey){
   const target=[...document.querySelectorAll('[data-focus-key]')].find(b=>b.dataset.focusKey===activeKey);
   if(target)target.focus({preventScroll:true});

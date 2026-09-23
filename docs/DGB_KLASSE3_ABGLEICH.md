@@ -1,5 +1,7 @@
 # DGB 3. Klasse – zusammenhängender Lehrplanabgleich
 
+Aktuelle Einordnung vom 23.09.2026: Der [gemeinsame Fachabgleich aller vier Klassen](DGB_FACHABGLEICH.md) liegt inzwischen vor. Er ordnet die nachfolgenden historischen Prüfstände und damaligen nächsten Schritte ein; spätere Kapitelarbeiten werden dort mit aktuellen Nachweisen verknüpft.
+
 Stand 23.09.2026, Weiterarbeit nach `624b1e5`. Die 3. Klasse der Mittelschule entspricht hier der 7. Schulstufe (`dgb7_*`). Dieser Abgleich behandelt den aktuellen Inhalt aller fünf Kapitel; er ist keine Abnahme sämtlicher Fächer oder Jahrgänge.
 
 ## Grundlage und Maßstab

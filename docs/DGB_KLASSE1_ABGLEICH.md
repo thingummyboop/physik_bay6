@@ -1,5 +1,7 @@
 # DGB 1. Klasse: zusammenhängender Lehrplanabgleich
 
+Aktuelle Einordnung vom 23.09.2026: Der [gemeinsame Fachabgleich aller vier Klassen](DGB_FACHABGLEICH.md) liegt inzwischen vor. Er ordnet die nachfolgenden historischen Prüfstände und damaligen nächsten Schritte ein; spätere Kapitelarbeiten werden dort mit aktuellen Nachweisen verknüpft.
+
 Stand 23.09.2026, Arbeitsstand nach `3a58ad6`. Gelesen wurden die aktuelle deutsche Kapitelquelle, die fünf Kapitelberichte und der vollständige Erstklassabschnitt der [amtlichen Mittelschul-Lehrplananlage](https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40271471/NOR40271471.html). Die am selben Tag direkt abgerufene Lehrplanpassage umfasst 17 Kompetenzanforderungen und sieben Anwendungsbereiche. Die folgende Matrix ordnet **alle 24 Punkte** konkreten Tätigkeiten zu. Sie belegt bereitgestellte Lerngelegenheiten, keine bereits erworbenen Schülerkompetenzen oder amtliche Approbation.
 
 ## Bestand und Verknüpfung

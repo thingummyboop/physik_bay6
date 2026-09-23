@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
-    "lang/de.json": "82b521cd8d91d835d68451d284ae3a4537558ca5756cc13feedcdd0a315e0a9d"
+    "lang/de.json": "b70e44194be8b6f4ea5cf8255613d3355790e2d2871202c58bf1c6c84d972a6f"
   },
   "subjects": {
     "physik": {
@@ -2160,9 +2160,10 @@
             "Ein Word-Dokument neu anlegen, speichern und wiederfinden.",
             "Text sicher markieren, verschieben, kopieren und formatieren.",
             "Überschriften, Absätze, Listen, Tabellen, Bilder, Seitenzahlen und Kopf-/Fußzeilen verwenden.",
-            "Ein fertiges Dokument als PDF abgeben."
+            "Ein fertiges Dokument als PDF abgeben.",
+            "Formatvorlagen, Inhaltsverzeichnis und Tabellen anhand des tatsächlichen Ergebnisses kontrollieren."
           ],
-          "summaryCount": 3,
+          "summaryCount": 5,
           "sections": [
             {
               "id": "word_sec0",
@@ -2198,13 +2199,18 @@
               "id": "word_sec4",
               "index": 4,
               "title": "5. Absätze: Ausrichtung, Abstand, Listen",
-              "questions": []
+              "questions": [
+                "word_q_absatz"
+              ]
             },
             {
               "id": "word_sec5",
               "index": 5,
               "title": "6. Überschriften und Formatvorlagen",
-              "questions": []
+              "questions": [
+                "word_q_position",
+                "word_q_verzeichnis"
+              ]
             },
             {
               "id": "word_sec6",
@@ -2224,7 +2230,9 @@
               "id": "word_sec8",
               "index": 8,
               "title": "9. Tabellen erstellen und ordnen",
-              "questions": []
+              "questions": [
+                "word_q_tabelle"
+              ]
             },
             {
               "id": "word_sec9",
@@ -2254,7 +2262,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 5,
+          "questionCount": 9,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

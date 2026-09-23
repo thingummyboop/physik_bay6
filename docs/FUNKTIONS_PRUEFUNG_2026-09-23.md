@@ -1,5 +1,13 @@
 # Funktionsprüfung 23.09.2026
 
+DGB-Lernwegübersicht: 273 Suiten vorhanden. Neue Klassenwahl sowie bestehende Lernabläufe, Vorwissensaktionen, Tab-Abgleich, verweigerter Speicher und englische Bedienelemente gezielt geprüft; [gemeinsamer DGB-Bericht](DGB_FACHABGLEICH.md). Kein vollständiger neuer 273-Suiten-Lauf.
+
+Nachfolgende Word-Änderung: 272 Testsuiten vorhanden. Neun Word-Fragen mit allen 27 Antwortwegen, gezielte gemeinsame Prüfungen, Browser und Druckfassung bestanden; Einzelheiten im [Word-Bericht](DGB_WORD_WERKSTATT.md). Kein vollständiger neuer 272-Suiten-Lauf.
+
+## Gesamtprüfung des GitHub-Zwischenstands f9dbb0c
+
+Abgeschlossen 2026-09-23T15:08:25.194Z: **271/271 Testsuiten bestanden**. Seit Start dieses Laufs wurden Produktionsdateien und Funktionstests nicht verändert; der geprüfte Stand wurde währenddessen als `f9dbb0c` auf Nutzerwunsch gesichert. Der Gesamtauftrag bleibt offen. Die nachfolgende Word-Überarbeitung ist in diesem Lauf noch nicht enthalten; spätere gezielte Nachweise werden getrennt dokumentiert. Die älteren Hinweise unten beschreiben den jeweiligen damaligen Stand.
+
 Aktualisierung nach `3a58ad6`: 271 Testsuiten vorhanden. [Handeln der 1. Klasse](DGB_HANDELN_KLASSE1.md) einschließlich vier Problemfällen, sämtlichen Antwortwegen, bewahrten Aufgaben und Druckausgabe gezielt geprüft. Der [Erstklassabgleich](DGB_KLASSE1_ABGLEICH.md) beschreibt die Zuordnung aller 24 Anforderungen. Kein neuer vollständiger 271-Suiten-Lauf; der folgende Gesamtbericht beschreibt weiterhin seinen damaligen Prüfstand.
 
 Aktualisierung nach `3a58ad6`: 270 Testsuiten vorhanden. [Produktion der 1. Klasse](DGB_PRODUKTION_KLASSE1.md) einschließlich Medienvergleich, Schleife, Umfrage, Antworten und Druckausgabe gezielt geprüft; Druckbreitenfehler behoben und nativ nachgemessen. Kein neuer vollständiger 270-Suiten-Lauf. Der folgende Gesamtbericht beschreibt weiterhin den damaligen vollständigen Lauf, nicht automatisch spätere Änderungen.

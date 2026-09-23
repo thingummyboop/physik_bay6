@@ -1,5 +1,7 @@
 # DGB 4. Klasse – aktueller Arbeitsabgleich
 
+Aktuelle Einordnung vom 23.09.2026: Der [gemeinsame Fachabgleich aller vier Klassen](DGB_FACHABGLEICH.md) liegt inzwischen vor. Er ordnet die nachfolgenden historischen Prüfstände und damaligen nächsten Schritte ein; spätere Kapitelarbeiten werden dort mit aktuellen Nachweisen verknüpft.
+
 Stand: 23.09.2026. Geltungsbereich: die fünf vorhandenen DGB-Kapitel der 8. Schulstufe. Dies ersetzt für diese Klasse pauschale historische Lückenbehauptungen, nicht die noch ausstehende Fachabnahme für alle vier Klassen.
 
 ## Grundlage und Maßstab

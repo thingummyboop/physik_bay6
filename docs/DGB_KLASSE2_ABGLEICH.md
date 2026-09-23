@@ -1,5 +1,7 @@
 # DGB 2. Klasse – zusammenhängender Lehrplanabgleich
 
+Aktuelle Einordnung vom 23.09.2026: Der [gemeinsame Fachabgleich aller vier Klassen](DGB_FACHABGLEICH.md) liegt inzwischen vor. Er ordnet die nachfolgenden historischen Prüfstände und damaligen nächsten Schritte ein; spätere Kapitelarbeiten werden dort mit aktuellen Nachweisen verknüpft.
+
 Stand 23.09.2026 nach dem gesicherten Zwischenstand `4d50180`. Die 2. Klasse der Mittelschule entspricht der 6. Schulstufe (`dgb6_*`). Dieser Abgleich betrachtet die aktuellen Inhalte aller fünf Kapitel zusammen. Er prüft konkrete Lerngelegenheiten und ihre Ergebnisse; er ist keine amtliche Approbation und keine Abnahme sämtlicher Jahrgänge oder Fächer.
 
 ## Grundlage und Prüfmaßstab
