@@ -4,7 +4,7 @@ const root=path.join(__dirname,'..'),data=require('../lang/de.json');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 function create(id){const t=data[id];const dom=new JSDOM('<div id="sections-container">'+t.sections.map(s=>'<section class="card">'+s.content+'</section>').join('')+'</div>',{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'});dom.window.eval(read('js/core-learning.js'));dom.window.enhanceCoreLearning(t,id,'de');return dom;}
 for(const id of ['erde_mond_sonne','strahlung_radioaktivitaet','kraftwerke_energieversorgung']){
- const t=data[id];assert.equal(t.sections.length,id==='erde_mond_sonne'?4:5);assert.equal(t.sections.flatMap(s=>s.quizzes).length,id==='strahlung_radioaktivitaet'?12:11);
+ const t=data[id];assert.equal(t.sections.length,id==='erde_mond_sonne'?4:id==='strahlung_radioaktivitaet'?7:5);assert.equal(t.sections.flatMap(s=>s.quizzes).length,id==='strahlung_radioaktivitaet'?18:11);
  t.sections.flatMap(s=>s.quizzes).forEach(q=>{assert.equal(q.answers.filter(a=>a.correct).length,1);q.answers.forEach(a=>assert.ok(a.feedback.length>25));});
  const dom=create(id),d=dom.window.document;assert.ok(d.body.textContent.includes('Kurz wiederholen'));assert.ok(d.querySelector('[aria-label="Lernziele und Vorwissen"]'));assert.ok(d.querySelectorAll('a[rel="noopener"]').length>=2);dom.window.close();
 }
@@ -19,4 +19,4 @@ decay.window.enhanceCoreLearning(data.strahlung_radioaktivitaet,'strahlung_radio
 dd.querySelector('#decay-reset').click();assert.equal(dd.querySelector('#decay-bar').value,200);assert.equal(dd.querySelectorAll('#decay-history tr').length,1);decay.window.close();
 const power=create('kraftwerke_energieversorgung'),pd=power.window.document;
 for(const value of ['electric','chp']){pd.querySelector('#power-mode').value=value;pd.querySelector('#power-mode').dispatchEvent(new power.window.Event('change'));assert.equal([...pd.querySelectorAll('#power-table td')].reduce((sum,x)=>sum+Number(x.textContent),0),100);assert.ok(pd.querySelector('#power-status').textContent.startsWith(value==='chp'?'85':'40'));}power.window.close();
-console.log('PASS: 34 authored questions, chapter metadata, five Moon positions, independent decay steps/reset, re-init and conservation of energy in both plant modes.');
+console.log('PASS: 40 authored questions, chapter metadata, five Moon positions, independent decay steps/reset, re-init and conservation of energy in both plant modes.');

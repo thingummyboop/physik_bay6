@@ -1,4 +1,14 @@
 #sections-container [data-klima-greenhouse] svg{max-width:520px;margin:1rem auto}
+#sections-container .optical-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0;list-style:none}
+#sections-container .optical-slots li{padding:12px 6px;border:2px solid currentColor;border-radius:6px;text-align:center;background:#fff;color:#172033}
+#sections-container .optical-slots li[data-on="true"]{background:#075985;color:#fff}
+#sections-container [data-core-experiment="optical-signal"] label{display:block;margin-top:12px;font-weight:700}
+#sections-container [data-core-experiment="optical-signal"] select{max-width:100%;width:100%;margin:8px 0;padding:10px}
+#sections-container .optical-table-scroll{overflow-x:auto;margin:1rem 0}
+#sections-container .optical-table-scroll:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+#sections-container [data-optical-material-data]{border-collapse:collapse;width:100%;min-width:520px}
+#sections-container [data-optical-material-data] :is(th,td){padding:12px;border:1px solid currentColor;text-align:left}
+@media(max-width:600px){#sections-container .optical-slots{grid-template-columns:repeat(2,minmax(0,1fr))}}
 #sections-container .thermal-record-scroll{overflow-x:auto;margin:1rem 0;border:1px solid currentColor;border-radius:8px}
 #sections-container [data-thermal-record]{width:100%;min-width:620px;border-collapse:collapse}
 #sections-container [data-thermal-record] :is(th,td){padding:12px;border:1px solid currentColor;text-align:left;vertical-align:top}
@@ -4986,6 +4996,13 @@ button.climate-impact-card:hover:not(:disabled) {
 
 [data-theme="dark"] .climate-action-card.correct {
     background: #12351f;
+}
+
+[data-theme="dark"] .climate-fact-card strong,
+[data-theme="dark"] .climate-action-card strong,
+[data-theme="dark"] .climate-impact-card strong,
+[data-theme="dark"] .climate-risk-card strong {
+    color: #7dd3fc;
 }
 
 [data-theme="dark"] .climate-action-card.wrong,

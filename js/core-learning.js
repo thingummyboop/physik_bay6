@@ -391,6 +391,28 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
     }
    };slider.addEventListener('input',update);update();
   }
+  if(type==='optical-signal'){
+   const patterns=['1100','1010','1001'],messages=['start','pause','help'];
+   const pattern=zone.querySelector('#optical-pattern'),path=zone.querySelector('#optical-path'),answer=zone.querySelector('#optical-answer');
+   const status=zone.querySelector('#optical-status'),feedback=zone.querySelector('#optical-feedback');
+   const draw=(id,bits)=>{
+    const list=zone.querySelector(id);list.replaceChildren();
+    [...bits].forEach((bit,i)=>{const item=make('li',`${i+1}: ${bit==='1'?'an (1)':'aus (0)'}`);item.dataset.on=bit==='1'?'true':'false';list.append(item);});
+   };
+   const update=()=>{
+    const bits=patterns[Number(pattern.value)]||patterns[0],blocked=path.value==='blocked';
+    draw('#optical-sent',bits);draw('#optical-received',blocked?'0000':bits);
+    status.textContent=`Gesendet: ${bits}. Empfangen: ${blocked?'0000':bits}. Der Sender hat zwei An-Fenster; ${blocked?'im Modell erreicht kein direktes Signal den Empfänger.':'beim Empfänger sind beide An-Fenster erkennbar.'}`;
+    answer.value='';feedback.textContent='Wähle eine Deutung und prüfe sie.';delete feedback.dataset.correct;
+   };
+   zone.querySelector('#optical-check').addEventListener('click',()=>{
+    if(!answer.value){feedback.textContent='Wähle zuerst eine Deutung aus.';delete feedback.dataset.correct;return;}
+    const blocked=path.value==='blocked',expected=blocked?'none':messages[Number(pattern.value)];
+    const correct=answer.value===expected;feedback.dataset.correct=String(correct);
+    feedback.textContent=correct?(blocked?'Richtig. 0000 ist keinem Befehl zugeordnet. Der Sender kann weiter senden, obwohl kein direktes Signal ankommt.':'Richtig. Das empfangene Muster passt zum vereinbarten Code. Zwei An-Fenster allein legen die Nachricht noch nicht fest.'):(blocked?'Noch nicht. Durch die Karte empfängt der Detektor im Modell 0000. Das ist kein vereinbarter Befehl.':'Noch nicht. Lies die vier empfangenen Fenster von links nach rechts und vergleiche ihre Reihenfolge mit dem Code.');
+   });
+   pattern.addEventListener('change',update);path.addEventListener('change',update);update();
+  }
   if(type==='decay'){
    let remaining=200,step=0,comparisonNumber=0;const history=zone.querySelector('#decay-history'),out=zone.querySelector('#decay-status');
    const record=()=>{const expected=200/2**step;out.textContent=`Nach ${step} Halbwertszeiten: ${remaining} Modellkerne übrig. Erwartungswert: ${Number(expected.toFixed(2)).toLocaleString('de')}.`+(remaining===0?' In diesem Versuch sind alle Ausgangskerne zerfallen. Der Erwartungswert beschreibt den Mittelwert vieler solcher Versuche, keine Bruchteile eines einzelnen Kerns.':'')+(step>=10?' Die zehn Schritte dieses Modellversuchs sind abgeschlossen. Starte mit „Neuer Versuch mit 200 Kernen“ einen Vergleichsversuch.':'');zone.querySelector('#decay-bar').value=remaining;const row=make('tr');[step,remaining,Number(expected.toFixed(2))].forEach(value=>row.append(make('td',value.toLocaleString('de'))));history.append(row);zone.querySelector('#decay-step').disabled=step>=10;};

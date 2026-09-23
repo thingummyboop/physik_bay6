@@ -9,11 +9,11 @@ for(const id of ['erde_mond_sonne','strahlung_radioaktivitaet','kraftwerke_energ
  w.eval(read('js/curriculum.js'));w.eval(read('js/chapter-revisions.js'));w.eval(read('js/common.js'));w.eval(read('js/core-learning.js'));w.eval(read('js/renderer.js'));
  await w.renderTopic();
  assert.ok(w.document.querySelector('#topic-title').textContent.length>5);
- assert.equal(w.document.querySelectorAll('.practice-box').length,id==='strahlung_radioaktivitaet'?12:11);
- assert.equal(w.document.querySelectorAll('.chapter-question').length,id==='strahlung_radioaktivitaet'?12:11);
+ assert.equal(w.document.querySelectorAll('.practice-box').length,id==='strahlung_radioaktivitaet'?18:11);
+ assert.equal(w.document.querySelectorAll('.chapter-question').length,id==='strahlung_radioaktivitaet'?18:11);
  assert.equal(w.document.querySelectorAll('[data-core-navigation]').length,1);
  assert.match(w.document.querySelector('[data-core-navigation]').textContent,/Dein Wiederholungsweg/);
- const experiments={erde_mond_sonne:['moon'],strahlung_radioaktivitaet:['decay'],kraftwerke_energieversorgung:['power','storage']}[id];
+ const experiments={erde_mond_sonne:['moon'],strahlung_radioaktivitaet:['optical-signal','decay'],kraftwerke_energieversorgung:['power','storage']}[id];
  assert.deepEqual([...w.document.querySelectorAll('[data-core-experiment][data-initialized]')].map(e=>e.dataset.coreExperiment),experiments);
  if(id==='erde_mond_sonne'){
   const d=w.document;assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);
@@ -38,13 +38,13 @@ for(const id of ['erde_mond_sonne','strahlung_radioaktivitaet','kraftwerke_energ
   assert.match(d.querySelector('[data-radiation-research-source]').textContent,/13.08.2026/);assert.match(d.body.textContent,/Alle folgenden Zahlen und Proben sind erfunden/);
   let paths=0;
   for(const [index,q]of w.currentChapterQuiz.questions.entries()){
-   if(['rad_signal_reference','rad_signal_limits','rad_complementary_images','rad_research_claim'].includes(q.id))assert.equal(q.sectionIndex,4);
+   if(['rad_signal_reference','rad_signal_limits','rad_complementary_images','rad_research_claim'].includes(q.id))assert.equal(q.sectionIndex,6);
    for(let choice=0;choice<q.answers.length;choice++){
     w.currentChapterQuiz.questions.forEach((item,i)=>d.querySelector('input[name="chapter_q_'+i+'"][value="'+(i===index?choice:item.answers.findIndex(a=>a.correct))+'"]').checked=true);
-    w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[choice].correct?100:92);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));paths++;
+    w.submitChapterQuiz();assert.equal(JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id].lastPercent,q.answers[choice].correct?100:94);assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(q.answers[choice].feedback));paths++;
    }
   }
-  assert.equal(paths,36);
+  assert.equal(paths,54);
  }
  if(id==='kraftwerke_energieversorgung'){
   const d=w.document;
@@ -70,5 +70,5 @@ for(const id of ['erde_mond_sonne','strahlung_radioaktivitaet','kraftwerke_energ
  assert.ok(!w.document.querySelector('#chapter-quiz-launch').disabled);
  dom.window.close();
 }
-console.log('PASS: complete template/renderer/common/core integration for three new chapters, 34 practices/check questions, all 102 answer paths across Earth/Moon, power supply and radiation, decision/research materials, review mode and initialized experiments.');
+console.log('PASS: complete template/renderer/common/core integration for three new chapters, 40 practices/check questions, all 120 answer paths across Earth/Moon, power supply and radiation, decision/research materials, review mode and initialized experiments.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

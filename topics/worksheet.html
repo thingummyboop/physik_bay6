@@ -11,6 +11,11 @@
       #ws-content [data-media-paper] [data-chart-value="1"] .production-bar-fill{width:25%}
       #ws-content [data-media-paper] .production-chart-scale{display:flex;justify-content:space-between}
       @media print {
+        #ws-content [data-optical-risk-task]>p{break-inside:avoid;page-break-inside:avoid}
+        #ws-content [data-optical-station-steps]>li,#ws-content [data-optical-data-tasks]>li,#ws-content [data-optical-risk-tasks]>li,#ws-content [data-optical-signal-tasks]>li,#ws-content [data-optical-material-data]{break-inside:avoid;page-break-inside:avoid}
+        #ws-content [data-optical-material-data]{border-collapse:collapse;width:100%;table-layout:fixed}
+        #ws-content [data-optical-material-data] :is(th,td){padding:2mm;border:1px solid #777;overflow-wrap:anywhere}
+        #ws-content [data-climate-target],#ws-content [data-climate-target-tasks]>li{break-inside:avoid;page-break-inside:avoid}
         #ws-content [data-thermal-record]{width:100%;table-layout:fixed;border-collapse:collapse}
         #ws-content [data-thermal-record] :is(th,td){border:1px solid #777;padding:2mm;overflow-wrap:anywhere}
         #ws-content [data-thermal-record] td{height:13mm}
