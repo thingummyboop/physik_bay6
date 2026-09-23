@@ -16917,7 +16917,7 @@
       {
         "id": "schriftlich_add_uebertrag",
         "title": "Addition mit Übertrag",
-        "content": "<p>Was passiert, wenn eine Spalte über 9 geht? Beispiel: <span>5</span><span>8</span> + <span>3</span><span>6</span>.</p>\n<p>Wir rechnen die <span>Einer</span>: <span>8 + 6 = 14</span>. Wir können keine 14 in die eine Einer-Spalte schreiben!</p>\n<p>Lösung: Wir schreiben die <span>4</span> hin und <b>merken</b> uns den <span>1 Zehner</span> (das ist der Übertrag).</p>\n<table class=\"column-reference\"><caption>58 + 36 = 94; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>5</td><td>8</td></tr><tr><th scope=\"row\">+</th><td>3</td><td>6</td></tr><tr><th scope=\"row\">Übertrag</th><td>1</td><td></td></tr><tr><th scope=\"row\">Ergebnis</th><td>9</td><td>4</td></tr></tbody></table>\n<p>1. <span>Einer</span>: 8 + 6 = 14. Schreibe <span>4</span>, merke 1.<br>2. <span>Zehner</span>: 5 + 3 + 1 (gemerkt) = <span>9</span>.</p>{{QUIZ_addsub_carry}}<div class=\"interactive-zone written-lab\" data-column-lab=\"add\"><h3>Mehrstellig addieren: selbst Schritt für Schritt</h3><p>Addiere von rechts nach links. Gib zu jeder Stelle die ganze Summe der beiden Ziffern und des Übertrags ein. Die Werkstatt zeigt danach Ergebnisziffer und nächsten Übertrag.</p><p>Schreibe parallel auf Papier. Gezeigte Schritte werden als Hilfe markiert; du kannst jederzeit zurücksetzen.</p><label for=\"column-add-case\">Aufgabe</label><select id=\"column-add-case\"><option value=\"0\">134 + 25</option><option value=\"1\">58 + 36</option><option value=\"2\">597 + 268</option><option value=\"3\">999 + 1</option><option value=\"4\">4095 + 708</option><option value=\"5\">8709 + 1384</option><option value=\"6\">9999 + 999</option><option value=\"7\">0 + 407</option></select><p data-column-progress></p><div data-column-board></div><p data-column-prompt class=\"written-prompt\"></p><label for=\"column-add-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"column-add-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"column-add-status\"><button type=\"button\" data-column-check>Schritt prüfen</button><button type=\"button\" data-column-show>Schritt zeigen</button><p id=\"column-add-status\" data-column-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-column-history></ol></details><button type=\"button\" data-column-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-column-paper=\"add\"><p>Rechne auf kariertem Papier. Schreibe gleiche Stellenwerte untereinander, markiere Überträge und kontrolliere mit Subtraktion.</p><ol><li>Rechne 597 + 268 und 999 + 1 schriftlich. Markiere alle Überträge. Warum bekommt das zweite Ergebnis eine zusätzliche Stelle?</li><li>Rechne 4095 + 708 und 8709 + 1384. Prüfe die Einerstelle und mache jeweils eine Gegenprobe.</li><li>Schätze 9999 + 999 durch 10000 + 1000. Berechne dann genau und erkläre die Abweichung.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Mehrstellige Summen: Lösungen und Begründungen</summary><div data-column-solution><p>597 + 268 = 865; 999 + 1 = 1000. In der zweiten Rechnung wird dreimal gebündelt: zehn Einer, zehn Zehner und zehn Hunderter. Dadurch entsteht ein Tausender. Proben: 865 − 268 = 597 und 1000 − 1 = 999.</p><p>4095 + 708 = 4803; 8709 + 1384 = 10093. Proben: 4803 − 708 = 4095; 10093 − 1384 = 8709.</p><p>9999 + 999 = 10998. Der Überschlag 11000 liegt um 2 darüber: Beide Summanden wurden um 1 erhöht.</p></div></details>{{QUIZ_column_chain}}{{QUIZ_column_carry_in}}{{QUIZ_column_estimate}}",
+        "content": "<p>Was passiert, wenn eine Spalte über 9 geht? Beispiel: <span>5</span><span>8</span> + <span>3</span><span>6</span>.</p>\n<p>Wir rechnen die <span>Einer</span>: <span>8 + 6 = 14</span>. Im fertigen Ergebnis steht an jeder Stelle eine Ziffer. Deshalb bündeln wir 10 der 14 Einer zu einem Zehner.</p>\n<p>Lösung: Wir schreiben die <span>4</span> hin und <b>merken</b> uns <span>1 Zehner</span> (das ist der Übertrag).</p>\n<table class=\"column-reference\"><caption>58 + 36 = 94; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>5</td><td>8</td></tr><tr><th scope=\"row\">+</th><td>3</td><td>6</td></tr><tr><th scope=\"row\">Übertrag</th><td>1</td><td></td></tr><tr><th scope=\"row\">Ergebnis</th><td>9</td><td>4</td></tr></tbody></table>\n<p>1. <span>Einer</span>: 8 + 6 = 14. Schreibe <span>4</span>, merke 1.<br>2. <span>Zehner</span>: 5 + 3 + 1 (gemerkt) = <span>9</span>.</p>{{QUIZ_addsub_carry}}<div class=\"interactive-zone written-lab\" data-column-lab=\"add\"><h3>Mehrstellig addieren: selbst Schritt für Schritt</h3><p>Addiere von rechts nach links. Gib zu jeder Stelle die ganze Summe der beiden Ziffern und des Übertrags ein. Die Werkstatt zeigt danach Ergebnisziffer und nächsten Übertrag.</p><p>Schreibe parallel auf Papier. Gezeigte Schritte werden als Hilfe markiert; du kannst jederzeit zurücksetzen.</p><label for=\"column-add-case\">Aufgabe</label><select id=\"column-add-case\"><option value=\"0\">134 + 25</option><option value=\"1\">58 + 36</option><option value=\"2\">597 + 268</option><option value=\"3\">999 + 1</option><option value=\"4\">4095 + 708</option><option value=\"5\">8709 + 1384</option><option value=\"6\">9999 + 999</option><option value=\"7\">0 + 407</option></select><p data-column-progress></p><div data-column-board></div><p data-column-prompt class=\"written-prompt\"></p><label for=\"column-add-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"column-add-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"column-add-status\"><button type=\"button\" data-column-check>Schritt prüfen</button><button type=\"button\" data-column-show>Schritt zeigen</button><p id=\"column-add-status\" data-column-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-column-history></ol></details><button type=\"button\" data-column-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-column-paper=\"add\"><p>Rechne auf kariertem Papier. Schreibe gleiche Stellenwerte untereinander, markiere Überträge und kontrolliere mit Subtraktion.</p><ol><li>Rechne 597 + 268 und 999 + 1 schriftlich. Markiere alle Überträge. Warum bekommt das zweite Ergebnis eine zusätzliche Stelle?</li><li>Rechne 4095 + 708 und 8709 + 1384. Prüfe die Einerstelle und mache jeweils eine Gegenprobe.</li><li>Schätze 9999 + 999 durch 10000 + 1000. Berechne dann genau und erkläre die Abweichung.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Mehrstellige Summen: Lösungen und Begründungen</summary><div data-column-solution><p>597 + 268 = 865; 999 + 1 = 1000. In der zweiten Rechnung wird dreimal gebündelt: zehn Einer, zehn Zehner und zehn Hunderter. Dadurch entsteht ein Tausender. Proben: 865 − 268 = 597 und 1000 − 1 = 999.</p><p>4095 + 708 = 4803; 8709 + 1384 = 10093. Proben: 4803 − 708 = 4095; 10093 − 1384 = 8709.</p><p>9999 + 999 = 10998. Der Überschlag 11000 liegt um 2 darüber: Beide Summanden wurden um 1 erhöht.</p></div></details>{{QUIZ_column_chain}}{{QUIZ_column_carry_in}}{{QUIZ_column_estimate}}",
         "quizzes": [
           {
             "id": "addsub_carry",
@@ -17020,7 +17020,7 @@
       {
         "id": "schriftlich_sub",
         "title": "Schriftlich Minus rechnen (Subtraktion)",
-        "content": "<p>Von 87 Karten werden 45 verwendet. Wie viele bleiben übrig? Wir berechnen 87 − 45.</p>\n<p>Schriftlich geht das so: Beispiel <b>87 - 45</b></p>\n<p>Wie beim Plusrechnen: <span>Einer</span> unter <span>Einer</span>, <span>Zehner</span> unter <span>Zehner</span>.</p>\n<table class=\"column-reference\"><caption>87 − 45 = 42; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>8</td><td>7</td></tr><tr><th scope=\"row\">−</th><td>4</td><td>5</td></tr><tr><th scope=\"row\">Ergebnis</th><td>4</td><td>2</td></tr></tbody></table>\n<p>Wir rechnen wieder von <b>rechts nach links</b>! Wir überlegen: \"Wie viel fehlt von der unteren Zahl zur oberen?\"</p>\n<p>1. <span>Einer</span>: Von 5 bis 7 fehlen <b><span>2</span></b>.<br>2. <span>Zehner</span>: Von 4 bis 8 fehlen <b><span>4</span></b>.</p>\n<div class=\"interactive-zone written-lab\">\n  <h4>Subtraktion im Kopf üben</h4>\n  <p id=\"subA\">Rechne: ...</p>\n  <label for=\"subI\">Dein Ergebnis als ganze Zahl:</label><input type=\"text\" inputmode=\"numeric\" id=\"subI\" aria-describedby=\"subF\">\n  <button onclick=\"chkS()\" type=\"button\">Prüfen</button>\n  <button onclick=\"newS()\" type=\"button\">Neue Aufgabe</button>\n  <p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" id=\"subF\"></p>\n  \n<template data-worksheet-alternative=\"\"><div data-column-quick-paper=\"sub\"><p>Rechne 81 − 46 und 94 − 37 im Kopf. Erkläre einen Rechenweg und kontrolliere mit der Umkehroperation.</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Kopfrechnen: Papieraufgaben vergleichen</summary><p>81 − 46 = 35; 94 − 37 = 57. Zum Beispiel: 94 − 40 + 3 = 57. Proben: 35 + 46 = 81 und 57 + 37 = 94.</p></details><p><strong>Gegenprobe:</strong> 42 + 45 = 87. Addiere Ergebnis und abgezogene Zahl: Du erhältst wieder die Ausgangszahl.</p><h3>Wenn die Einer nicht reichen: entbündeln</h3><p>Bei <strong>73 − 48</strong> kannst du nicht 8 Einer von 3 Einern wegnehmen, ohne die Darstellung zu ändern. Tausche einen der 7 Zehner gegen 10 Einer: 73 = 6 Zehner + 13 Einer. Nun rechnest du 13 − 8 = 5 Einer und 6 − 4 = 2 Zehner. Ergebnis: 25. Die Zahl 73 hat ihren Wert beim Tauschen behalten.</p><p>Bei <strong>302 − 178</strong> liegt dazwischen eine Null. Tausche zuerst einen Hunderter: 302 = 2 Hunderter + 10 Zehner + 2 Einer. Tausche dann einen Zehner: 302 = 2 Hunderter + 9 Zehner + 12 Einer. Jetzt: 12 − 8 = 4, 9 − 7 = 2 und 2 − 1 = 1. Ergebnis: 124. Die Gegenprobe 124 + 178 = 302 bestätigt es.</p><p>Das Entbündeln ist ein Verfahren für die schriftliche Subtraktion. Falls ihr in der Klasse ein anderes Verfahren verwendet, vergleicht die Begründung mit eurer Lehrkraft.</p><ol data-regrouping-task=\"\"><li>Zeichne eine Stellenwerttafel mit Hundertern, Zehnern und Einern. Stelle 302 in den drei beschriebenen Darstellungen dar und erkläre, warum ihr Wert gleich bleibt.</li><li>Eine erfundene Lösung behauptet: „73 − 48 = 35, weil ich in jeder Spalte die kleinere von der größeren Ziffer abziehe.“ Erkläre den Fehler. Prüfe beide Ergebnisse durch Addition.</li><li>Rechne 81 − 46, 400 − 156 und 597 + 268 schriftlich. Markiere jedes Entbündeln oder Bündeln und führe eine Gegenprobe aus.</li><li>In einem erfundenen Klassenprojekt werden von 302 Papierkarten 178 verwendet. Formuliere eine passende Frage, löse sie und schreibe einen Antwortsatz mit Einheit.</li></ol><details data-regrouping-solution=\"\" data-worksheet-solution=\"true\"><summary>Ergebnisse vergleichen</summary><p>73 − 48 = 25; 25 + 48 = 73, aber 35 + 48 = 83. Weitere Ergebnisse: 35, 244 und 865. Gegenproben: 35 + 46 = 81; 244 + 156 = 400; 865 − 268 = 597. Im Klassenprojekt bleiben 124 Papierkarten übrig.</p></details>{{QUIZ_addsub_zero}}<div class=\"interactive-zone written-lab\" data-column-lab=\"subtract\"><h3>Mehrstellig subtrahieren: selbst Schritt für Schritt</h3><p>Rechne von rechts nach links. Falls eine Stelle nicht reicht, tausche aus einer größeren Stelle. Gib zuerst die neue Anzahl nach jedem Tausch ein, danach die Differenz an der jeweiligen Stelle. Die Zeile „getauscht“ stellt immer noch die gesamte Ausgangszahl dar.</p><p>Schreibe parallel auf Papier. Gezeigte Schritte werden als Hilfe markiert; du kannst jederzeit zurücksetzen.</p><label for=\"column-subtract-case\">Aufgabe</label><select id=\"column-subtract-case\"><option value=\"0\">73 − 48</option><option value=\"1\">302 − 178</option><option value=\"2\">400 − 156</option><option value=\"3\">1000 − 1</option><option value=\"4\">1000 − 578</option><option value=\"5\">1010 − 909</option><option value=\"6\">507 − 507</option><option value=\"7\">0 − 0</option></select><p data-column-progress></p><div data-column-board></div><p data-column-prompt class=\"written-prompt\"></p><label for=\"column-subtract-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"column-subtract-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"column-subtract-status\"><button type=\"button\" data-column-check>Schritt prüfen</button><button type=\"button\" data-column-show>Schritt zeigen</button><p id=\"column-subtract-status\" data-column-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-column-history></ol></details><button type=\"button\" data-column-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-column-paper=\"subtract\"><p>Rechne auf kariertem Papier. Schreibe gleiche Stellenwerte untereinander, markiere jeden Tausch und kontrolliere mit Addition.</p><ol><li>Stelle 1000 vor und nach jedem Tausch in einer Stellenwerttafel dar. Rechne 1000 − 1 und prüfe durch Addition.</li><li>Rechne 1000 − 578 und 1010 − 909. Erkläre, wann und aus welcher Stelle du jeweils entbündelst.</li><li>Berechne 507 − 507 und 0 − 0. Erkläre die Ergebnisse. Warum passt 178 − 302 noch nicht zu diesem Lernweg mit natürlichen Ergebnissen?</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Mehrstellige Differenzen: Lösungen und Begründungen</summary><div data-column-solution><p>1000 = 1 T + 0 H + 0 Z + 0 E = 0 T + 10 H + 0 Z + 0 E = 0 T + 9 H + 10 Z + 0 E = 0 T + 9 H + 9 Z + 10 E. Daher 1000 − 1 = 999; Probe: 999 + 1 = 1000.</p><p>1000 − 578 = 422; nach derselben Tauschfolge ergibt sich 10 − 8 = 2, 9 − 7 = 2 und 9 − 5 = 4. Bei 1010 − 909 tauschst du zuerst einen Zehner in zehn Einer, später einen Tausender in zehn Hunderter: Ergebnis 101. Proben: 422 + 578 = 1000 und 101 + 909 = 1010.</p><p>507 − 507 = 0 und 0 − 0 = 0. Eine Zahl vollständig abzuziehen lässt nichts übrig. Bei 178 − 302 ist die abgezogene Zahl größer; das Ergebnis ist negativ und gehört noch nicht zu den hier behandelten natürlichen Ergebnissen.</p></div></details>{{QUIZ_column_borrow_chain}}{{QUIZ_column_probe}}{{QUIZ_column_order}}",
+        "content": "<p>Von 87 Karten werden 45 verwendet. Wie viele bleiben übrig? Wir berechnen 87 − 45.</p>\n<p>Schriftlich geht das so: Beispiel <b>87 - 45</b></p>\n<p>Wie beim Plusrechnen: <span>Einer</span> unter <span>Einer</span>, <span>Zehner</span> unter <span>Zehner</span>.</p>\n<table class=\"column-reference\"><caption>87 − 45 = 42; H Hunderter, Z Zehner, E Einer</caption><thead><tr><th>Zeile</th><th>Z</th><th>E</th></tr></thead><tbody><tr><th scope=\"row\">oben</th><td>8</td><td>7</td></tr><tr><th scope=\"row\">−</th><td>4</td><td>5</td></tr><tr><th scope=\"row\">Ergebnis</th><td>4</td><td>2</td></tr></tbody></table>\n<p>Wir rechnen wieder von <b>rechts nach links</b>! Wir überlegen: \"Wie viel fehlt von der unteren Zahl zur oberen?\"</p>\n<p>1. <span>Einer</span>: Von 5 bis 7 fehlen <b><span>2</span></b>.<br>2. <span>Zehner</span>: Von 4 bis 8 fehlen <b><span>4</span></b>.</p>\n<div class=\"interactive-zone written-lab\">\n  <h4>Subtraktion im Kopf üben</h4>\n  <p id=\"subA\">Rechne: ...</p>\n  <label for=\"subI\">Dein Ergebnis als ganze Zahl:</label><input type=\"text\" inputmode=\"numeric\" id=\"subI\" aria-describedby=\"subF\">\n  <button onclick=\"chkS()\" type=\"button\">Prüfen</button>\n  <button onclick=\"newS()\" type=\"button\">Neue Aufgabe</button>\n  <p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" id=\"subF\"></p>\n  \n<template data-worksheet-alternative=\"\"><div data-column-quick-paper=\"sub\"><p>Rechne 81 − 46 und 94 − 37 im Kopf. Erkläre einen Rechenweg und kontrolliere mit der Umkehroperation.</p></div></template></div><details data-worksheet-solution=\"true\"><summary>Kopfrechnen: Papieraufgaben vergleichen</summary><p>81 − 46 = 35; 94 − 37 = 57. Zum Beispiel: 94 − 40 + 3 = 57. Proben: 35 + 46 = 81 und 57 + 37 = 94.</p></details><p><strong>Gegenprobe:</strong> 42 + 45 = 87. Addiere Ergebnis und abgezogene Zahl: Du erhältst wieder die Ausgangszahl.</p><h3>Wenn die Einer nicht reichen: entbündeln</h3><p>Bei <strong>73 − 48</strong> kannst du nicht 8 Einer von 3 Einern wegnehmen, ohne die Darstellung zu ändern. Tausche einen der 7 Zehner gegen 10 Einer: 73 = 6 Zehner + 13 Einer. Nun rechnest du 13 − 8 = 5 Einer und 6 − 4 = 2 Zehner. Ergebnis: 25. Die Zahl 73 hat ihren Wert beim Tauschen behalten. In einer Hilfszeile darf deshalb „13 Einer“ stehen; im fertigen Ergebnis steht wieder eine Ziffer pro Stelle.</p><p>Bei <strong>302 − 178</strong> liegt dazwischen eine Null. Tausche zuerst einen Hunderter: 302 = 2 Hunderter + 10 Zehner + 2 Einer. Tausche dann einen Zehner: 302 = 2 Hunderter + 9 Zehner + 12 Einer. Jetzt: 12 − 8 = 4, 9 − 7 = 2 und 2 − 1 = 1. Ergebnis: 124. Die Gegenprobe 124 + 178 = 302 bestätigt es.</p><p>Das Entbündeln ist ein Verfahren für die schriftliche Subtraktion. Falls ihr in der Klasse ein anderes Verfahren verwendet, vergleicht die Begründung mit eurer Lehrkraft.</p><ol data-regrouping-task=\"\"><li>Zeichne eine Stellenwerttafel mit Hundertern, Zehnern und Einern. Stelle 302 in den drei beschriebenen Darstellungen dar und erkläre, warum ihr Wert gleich bleibt.</li><li>Eine erfundene Lösung behauptet: „73 − 48 = 35, weil ich in jeder Spalte die kleinere von der größeren Ziffer abziehe.“ Erkläre den Fehler. Prüfe beide Ergebnisse durch Addition.</li><li>Rechne 81 − 46, 400 − 156 und 597 + 268 schriftlich. Markiere jedes Entbündeln oder Bündeln und führe eine Gegenprobe aus.</li><li>In einem erfundenen Klassenprojekt werden von 302 Papierkarten 178 verwendet. Formuliere eine passende Frage, löse sie und schreibe einen Antwortsatz mit Einheit.</li></ol><details data-regrouping-solution=\"\" data-worksheet-solution=\"true\"><summary>Ergebnisse vergleichen</summary><p>73 − 48 = 25; 25 + 48 = 73, aber 35 + 48 = 83. Weitere Ergebnisse: 35, 244 und 865. Gegenproben: 35 + 46 = 81; 244 + 156 = 400; 865 − 268 = 597. Im Klassenprojekt bleiben 124 Papierkarten übrig.</p></details>{{QUIZ_addsub_zero}}<div class=\"interactive-zone written-lab\" data-column-lab=\"subtract\"><h3>Mehrstellig subtrahieren: selbst Schritt für Schritt</h3><p>Rechne von rechts nach links. Falls eine Stelle nicht reicht, tausche aus einer größeren Stelle. Gib zuerst die neue Anzahl nach jedem Tausch ein, danach die Differenz an der jeweiligen Stelle. Die Zeile „getauscht“ stellt immer noch die gesamte Ausgangszahl dar.</p><p>Schreibe parallel auf Papier. Gezeigte Schritte werden als Hilfe markiert; du kannst jederzeit zurücksetzen.</p><label for=\"column-subtract-case\">Aufgabe</label><select id=\"column-subtract-case\"><option value=\"0\">73 − 48</option><option value=\"1\">302 − 178</option><option value=\"2\">400 − 156</option><option value=\"3\">1000 − 1</option><option value=\"4\">1000 − 578</option><option value=\"5\">1010 − 909</option><option value=\"6\">507 − 507</option><option value=\"7\">0 − 0</option></select><p data-column-progress></p><div data-column-board></div><p data-column-prompt class=\"written-prompt\"></p><label for=\"column-subtract-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"column-subtract-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"column-subtract-status\"><button type=\"button\" data-column-check>Schritt prüfen</button><button type=\"button\" data-column-show>Schritt zeigen</button><p id=\"column-subtract-status\" data-column-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-column-history></ol></details><button type=\"button\" data-column-reset>Aufgabe zurücksetzen</button><template data-worksheet-alternative><div data-column-paper=\"subtract\"><p>Rechne auf kariertem Papier. Schreibe gleiche Stellenwerte untereinander, markiere jeden Tausch und kontrolliere mit Addition.</p><ol><li>Stelle 1000 vor und nach jedem Tausch in einer Stellenwerttafel dar. Rechne 1000 − 1 und prüfe durch Addition.</li><li>Rechne 1000 − 578 und 1010 − 909. Erkläre, wann und aus welcher Stelle du jeweils entbündelst.</li><li>Berechne 507 − 507 und 0 − 0. Erkläre die Ergebnisse. Warum passt 178 − 302 noch nicht zu diesem Lernweg mit natürlichen Ergebnissen?</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Mehrstellige Differenzen: Lösungen und Begründungen</summary><div data-column-solution><p>1000 = 1 T + 0 H + 0 Z + 0 E = 0 T + 10 H + 0 Z + 0 E = 0 T + 9 H + 10 Z + 0 E = 0 T + 9 H + 9 Z + 10 E. Daher 1000 − 1 = 999; Probe: 999 + 1 = 1000.</p><p>1000 − 578 = 422; nach derselben Tauschfolge ergibt sich 10 − 8 = 2, 9 − 7 = 2 und 9 − 5 = 4. Bei 1010 − 909 tauschst du zuerst einen Zehner in zehn Einer, später einen Tausender in zehn Hunderter: Ergebnis 101. Proben: 422 + 578 = 1000 und 101 + 909 = 1010.</p><p>507 − 507 = 0 und 0 − 0 = 0. Eine Zahl vollständig abzuziehen lässt nichts übrig. Bei 178 − 302 ist die abgezogene Zahl größer; das Ergebnis ist negativ und gehört noch nicht zu den hier behandelten natürlichen Ergebnissen.</p></div></details>{{QUIZ_column_borrow_chain}}{{QUIZ_column_probe}}{{QUIZ_column_order}}",
         "quizzes": [
           {
             "id": "addsub_zero",
@@ -19959,7 +19959,7 @@
     "title": "9. Dezimalzahlen",
     "subtitle": "Dezimalzahlen verstehen und berechnen; Geldbeträge, Stückpreise und ein Einkaufsbudget vergleichen.",
     "chapterQuizTitle": "Kapitelquiz: Dezimalzahlen",
-    "script": false,
+    "script": true,
     "sections": [
       {
         "id": "m19_s1",
@@ -20042,26 +20042,26 @@
           },
           {
             "id": "m19_s1_p_4",
-            "question": "Welche Alltagssituation nutzt oft Dezimalzahlen?",
+            "question": "Welche Angabe bedeutet 1 Meter und 25 Zentimeter?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Preise, Längen und Messwerte",
+                "text": "1,25 m",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Dezimalzahlen begegnen dir oft im Alltag."
+                "feedback": "Das Komma trennt ganze Meter von kleineren Teilen: 1 m und 25 cm."
               },
               {
-                "text": "Nur Telefonnummern",
+                "text": "125 m",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Eine Telefonnummer ist eine Kennzeichnung; ein Trennzeichen darin macht sie nicht zur Dezimalzahl."
+                "feedback": "125 m sind hundertmal so lang wie 1,25 m. Gemeint sind 1 m und 25 cm."
               },
               {
-                "text": "Nur Überschriften",
+                "text": "1 h 25 min",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Überschriften sind keine typische Größenangabe. Preise und Messwerte enthalten oft Dezimalzahlen."
+                "feedback": "Das ist eine Zeitangabe in zwei Einheiten, keine dezimale Längenangabe."
               }
             ]
           },
@@ -20116,7 +20116,7 @@
             ]
           }
         ],
-        "content": "\n<p>Dezimalzahlen begegnen dir oft bei Preisen, Längen, Massen, Zeiten und Messwerten. Das <strong>Komma</strong> trennt die ganzen Einheiten von den kleineren Teilen.</p>\n<div class=\"decimal-bridge\"><div><strong>3,75 €</strong><span>3 Euro und 75 Cent</span></div><div><strong>1,25 m</strong><span>1 Meter und 25 Zentimeter</span></div><div><strong>0,5 kg</strong><span>ein halbes Kilogramm</span></div></div>\n<table class=\"word-rubric\"><tr><th>Alltag</th><th>Frage</th><th>Mathe-Idee</th></tr><tr><td>Supermarkt</td><td>Was ist billiger?</td><td>Dezimalzahlen vergleichen</td></tr><tr><td>Sport</td><td>Wer war schneller?</td><td>Messwerte ordnen</td></tr><tr><td>Rezept</td><td>Wie viel brauche ich?</td><td>Dezimalzahlen mit Einheiten</td></tr></table>\n<div class=\"remember-box\"><strong>Merke:</strong> Lies zuerst die Einheit. 0,75 € sind 75 Cent, aber 0,75 m sind 75 Zentimeter.</div>\n{{QUIZ_m19_s1_p_1}}\n{{QUIZ_m19_s1_p_2}}\n{{QUIZ_m19_s1_p_3}}\n{{QUIZ_m19_s1_p_4}}\n{{QUIZ_m19_s1_p_5}}\n{{QUIZ_m19_s1_p_6}}"
+        "content": "<p>Dezimalzahlen begegnen dir oft bei Preisen, Längen, Massen, Zeiten und Messwerten. Das <strong>Komma</strong> trennt die ganzen Einheiten von den kleineren Teilen.</p>\n<div class=\"decimal-bridge\"><div><strong>3,75 €</strong><span>3 Euro und 75 Cent</span></div><div><strong>1,25 m</strong><span>1 Meter und 25 Zentimeter</span></div><div><strong>0,5 kg</strong><span>ein halbes Kilogramm</span></div></div>\n<table class=\"word-rubric written-static-table\"><thead><tr><th>Alltag</th><th>Frage</th><th>Mathe-Idee</th></tr></thead><tbody><tr><td data-label=\"Alltag\">Supermarkt</td><td data-label=\"Frage\">Was ist billiger?</td><td data-label=\"Mathe-Idee\">Dezimalzahlen vergleichen</td></tr><tr><td data-label=\"Alltag\">Sport</td><td data-label=\"Frage\">Wer war schneller?</td><td data-label=\"Mathe-Idee\">Messwerte ordnen</td></tr><tr><td data-label=\"Alltag\">Rezept</td><td data-label=\"Frage\">Wie viel brauche ich?</td><td data-label=\"Mathe-Idee\">Dezimalzahlen mit Einheiten</td></tr></tbody></table>\n<div class=\"remember-box\"><strong>Merke:</strong> Lies zuerst die Einheit. 0,75 € sind 75 Cent, aber 0,75 m sind 75 Zentimeter.</div>\n{{QUIZ_m19_s1_p_1}}\n{{QUIZ_m19_s1_p_2}}\n{{QUIZ_m19_s1_p_3}}\n{{QUIZ_m19_s1_p_4}}\n{{QUIZ_m19_s1_p_5}}\n{{QUIZ_m19_s1_p_6}}"
       },
       {
         "id": "m19_s2",
@@ -20273,7 +20273,7 @@
             ]
           }
         ],
-        "content": "\n<p>Eine Dezimalzahl ist wie eine Stellenwerttafel mit kleineren Stellen rechts vom Komma.</p>\n<table class=\"decimal-place-table\"><tr><th>H</th><th>Z</th><th>E</th><th>,</th><th>z</th><th>h</th><th>t</th></tr><tr><td></td><td></td><td>4</td><td>,</td><td>7</td><td>3</td><td>5</td></tr><tr><td colspan=\"7\">4,735 = 4 Ganze + 7 Zehntel + 3 Hundertstel + 5 Tausendstel</td></tr></table>\n<div class=\"decimal-calc-grid\"><div><strong>Mal 10</strong><p>Die Ziffern rücken eine Stelle nach links: 3,4 * 10 = 34.</p></div><div><strong>Durch 10</strong><p>Die Ziffern rücken eine Stelle nach rechts: 56,2 : 10 = 5,62.</p></div></div>\n<div class=\"misconception-box\"><strong>Achtung:</strong> Sage nicht einfach: Das Komma wandert. Besser ist: Die Ziffern rücken in der Stellenwerttafel.</div>\n{{QUIZ_m19_s2_p_1}}\n{{QUIZ_m19_s2_p_2}}\n{{QUIZ_m19_s2_p_3}}\n{{QUIZ_m19_s2_p_4}}\n{{QUIZ_m19_s2_p_5}}\n{{QUIZ_m19_s2_p_6}}"
+        "content": "<p>Eine Dezimalzahl ist wie eine Stellenwerttafel mit kleineren Stellen rechts vom Komma.</p>\n<table class=\"decimal-place-table written-static-table written-place-table\"><thead><tr><th>H</th><th>Z</th><th>E</th><th>,</th><th>z</th><th>h</th><th>t</th></tr></thead><tbody><tr><td></td><td></td><td>4</td><td>,</td><td>7</td><td>3</td><td>5</td></tr><tr><td colspan=\"7\">4,735 = 4 Ganze + 7 Zehntel + 3 Hundertstel + 5 Tausendstel</td></tr></tbody></table>\n<div class=\"decimal-calc-grid\"><div><strong>Mal 10</strong><p>Die Ziffern rücken eine Stelle nach links: 3,4 · 10 = 34.</p></div><div><strong>Durch 10</strong><p>Die Ziffern rücken eine Stelle nach rechts: 56,2 : 10 = 5,62.</p></div></div>\n<div class=\"misconception-box\"><strong>Achtung:</strong> Sage nicht einfach: Das Komma wandert. Besser ist: Die Ziffern rücken in der Stellenwerttafel.</div>\n{{QUIZ_m19_s2_p_1}}\n{{QUIZ_m19_s2_p_2}}\n{{QUIZ_m19_s2_p_3}}\n{{QUIZ_m19_s2_p_4}}\n{{QUIZ_m19_s2_p_5}}\n{{QUIZ_m19_s2_p_6}}"
       },
       {
         "id": "m19_s3",
@@ -20430,7 +20430,7 @@
             ]
           }
         ],
-        "content": "\n<p>Beim Vergleichen schaust du von links nach rechts: zuerst Einer, dann Zehntel, dann Hundertstel. Endnullen nach dem Komma darfst du ergänzen.</p>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> 0,7 und 0,65. Schreibe 0,7 als 0,70. Dann vergleichst du 70 Hundertstel mit 65 Hundertstel. Also: 0,7 &gt; 0,65.</div>\n<table class=\"word-rubric\"><tr><th>Vergleich</th><th>Hilfsschreibweise</th><th>Ergebnis</th></tr><tr><td>3,04 ___ 3,4</td><td>3,04 ___ 3,40</td><td>3,04 &lt; 3,4</td></tr><tr><td>2,50 ___ 2,5</td><td>2,50 ___ 2,50</td><td>2,50 = 2,5</td></tr><tr><td>5,19 ___ 5,2</td><td>5,19 ___ 5,20</td><td>5,19 &lt; 5,2</td></tr></table>\n<div class=\"remember-box\"><strong>Merke:</strong> Eine Null am Ende nach dem Komma verändert den Wert nicht: 4,6 = 4,60.</div>\n{{QUIZ_m19_s3_p_1}}\n{{QUIZ_m19_s3_p_2}}\n{{QUIZ_m19_s3_p_3}}\n{{QUIZ_m19_s3_p_4}}\n{{QUIZ_m19_s3_p_5}}\n{{QUIZ_m19_s3_p_6}}"
+        "content": "<p>Beim Vergleichen schaust du von links nach rechts: zuerst die höchste vorhandene Stelle der ganzen Zahl, dann die weiteren Stellen bis zu Zehnteln, Hundertsteln und so weiter. Endnullen nach dem Komma darfst du ergänzen.</p>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> 0,7 und 0,65. Schreibe 0,7 als 0,70. Dann vergleichst du 70 Hundertstel mit 65 Hundertstel. Also: 0,7 &gt; 0,65.</div>\n<table class=\"word-rubric written-static-table\"><thead><tr><th>Vergleich</th><th>Hilfsschreibweise</th><th>Ergebnis</th></tr></thead><tbody><tr><td data-label=\"Vergleich\">3,04 ___ 3,4</td><td data-label=\"Hilfsschreibweise\">3,04 ___ 3,40</td><td data-label=\"Ergebnis\">3,04 &lt; 3,4</td></tr><tr><td data-label=\"Vergleich\">2,50 ___ 2,5</td><td data-label=\"Hilfsschreibweise\">2,50 ___ 2,50</td><td data-label=\"Ergebnis\">2,50 = 2,5</td></tr><tr><td data-label=\"Vergleich\">5,19 ___ 5,2</td><td data-label=\"Hilfsschreibweise\">5,19 ___ 5,20</td><td data-label=\"Ergebnis\">5,19 &lt; 5,2</td></tr></tbody></table>\n<div class=\"remember-box\"><strong>Merke:</strong> Eine Null am Ende nach dem Komma verändert den Wert nicht: 4,6 = 4,60.</div>\n{{QUIZ_m19_s3_p_1}}\n{{QUIZ_m19_s3_p_2}}\n{{QUIZ_m19_s3_p_3}}\n{{QUIZ_m19_s3_p_4}}\n{{QUIZ_m19_s3_p_5}}\n{{QUIZ_m19_s3_p_6}}"
       },
       {
         "id": "m19_s4",
@@ -20579,15 +20579,15 @@
                 "feedback": "Für eine genaue Abrechnung bleibt die genaue Rechnung nötig. Runden dient hier nur dem Überschlag."
               },
               {
-                "text": "Damit der Preis verschwindet.",
+                "text": "Damit man an der Kasse immer weniger bezahlt.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Runden ersetzt den Preis durch einen Näherungswert. Der Preis verschwindet dadurch nicht."
+                "feedback": "Ein eigener Überschlag ändert den Preis nicht. Beim Runden kann der Näherungswert auch höher liegen."
               }
             ]
           }
         ],
-        "content": "\n<p>Runden hilft, wenn du schnell überschlagen oder eine Zahl einfacher lesen möchtest. Du entscheidest zuerst, auf welche Stelle gerundet wird.</p>\n<table class=\"word-rubric\"><tr><th>Zahl</th><th>Runde auf</th><th>Entscheidende Stelle</th><th>Ergebnis</th></tr><tr><td>4,73</td><td>Ganze</td><td>7</td><td>5</td></tr><tr><td>8,24</td><td>Zehntel</td><td>4</td><td>8,2</td></tr><tr><td>12,486</td><td>Hundertstel</td><td>6</td><td>12,49</td></tr></table>\n<div class=\"math-worked-example\"><strong>Rundungsregel:</strong> 0, 1, 2, 3, 4 bedeutet abrunden. 5, 6, 7, 8, 9 bedeutet aufrunden.</div>\n<div class=\"remember-box\"><strong>Kontrolle:</strong> Überlege, ob das gerundete Ergebnis noch nahe bei der ursprünglichen Zahl liegt.</div>\n{{QUIZ_m19_s4_p_1}}\n{{QUIZ_m19_s4_p_2}}\n{{QUIZ_m19_s4_p_3}}\n{{QUIZ_m19_s4_p_4}}\n{{QUIZ_m19_s4_p_5}}\n{{QUIZ_m19_s4_p_6}}"
+        "content": "<p>Runden hilft, wenn du schnell überschlagen oder eine Zahl einfacher lesen möchtest. Du entscheidest zuerst, auf welche Stelle gerundet wird.</p>\n<table class=\"word-rubric written-static-table\"><thead><tr><th>Zahl</th><th>Runde auf</th><th>Entscheidende Stelle</th><th>Ergebnis</th></tr></thead><tbody><tr><td data-label=\"Zahl\">4,73</td><td data-label=\"Runde auf\">Ganze</td><td data-label=\"Entscheidende Stelle\">7</td><td data-label=\"Ergebnis\">5</td></tr><tr><td data-label=\"Zahl\">8,24</td><td data-label=\"Runde auf\">Zehntel</td><td data-label=\"Entscheidende Stelle\">4</td><td data-label=\"Ergebnis\">8,2</td></tr><tr><td data-label=\"Zahl\">12,486</td><td data-label=\"Runde auf\">Hundertstel</td><td data-label=\"Entscheidende Stelle\">6</td><td data-label=\"Ergebnis\">12,49</td></tr></tbody></table>\n<div class=\"math-worked-example\"><strong>Rundungsregel:</strong> 0, 1, 2, 3, 4 bedeutet abrunden. 5, 6, 7, 8, 9 bedeutet aufrunden.</div>\n<div class=\"remember-box\"><strong>Kontrolle:</strong> Überlege, ob das gerundete Ergebnis noch nahe bei der ursprünglichen Zahl liegt.</div>\n{{QUIZ_m19_s4_p_1}}\n{{QUIZ_m19_s4_p_2}}\n{{QUIZ_m19_s4_p_3}}\n{{QUIZ_m19_s4_p_4}}\n{{QUIZ_m19_s4_p_5}}\n{{QUIZ_m19_s4_p_6}}"
       },
       {
         "id": "m19_s5",
@@ -20744,7 +20744,7 @@
             ]
           }
         ],
-        "content": "\n<p>Dezimalzahlen hängen direkt mit Brüchen zusammen. Besonders einfach sind Nenner 10, 100 und 1000.</p>\n<div class=\"decimal-bridge\"><div><strong><span class=\"inline-frac\"><sup>3</sup>/<sub>10</sub></span></strong><span>0,3</span></div><div><strong><span class=\"inline-frac\"><sup>7</sup>/<sub>100</sub></span></strong><span>0,07</span></div><div><strong><span class=\"inline-frac\"><sup>125</sup>/<sub>1000</sub></span></strong><span>0,125</span></div></div>\n<table class=\"word-rubric\"><tr><th>Dezimalzahl</th><th>In Worten</th><th>Als Bruch</th></tr><tr><td>0,4</td><td>4 Zehntel</td><td><span class=\"inline-frac\"><sup>4</sup>/<sub>10</sub></span></td></tr><tr><td>0,08</td><td>8 Hundertstel</td><td><span class=\"inline-frac\"><sup>8</sup>/<sub>100</sub></span></td></tr><tr><td>2,35</td><td>2 Ganze und 35 Hundertstel</td><td>2 <span class=\"inline-frac\"><sup>35</sup>/<sub>100</sub></span></td></tr></table>\n<div class=\"math-worked-example\"><strong>Hilfswissen:</strong> <span class=\"inline-frac\"><sup>1</sup>/<sub>2</sub></span> = 0,5 und <span class=\"inline-frac\"><sup>3</sup>/<sub>4</sub></span> = 0,75 kommen sehr oft vor.</div>\n{{QUIZ_m19_s5_p_1}}\n{{QUIZ_m19_s5_p_2}}\n{{QUIZ_m19_s5_p_3}}\n{{QUIZ_m19_s5_p_4}}\n{{QUIZ_m19_s5_p_5}}\n{{QUIZ_m19_s5_p_6}}"
+        "content": "<p>Dezimalzahlen hängen direkt mit Brüchen zusammen. Besonders einfach sind Nenner 10, 100 und 1000.</p>\n<div class=\"decimal-bridge\"><div><strong><span class=\"inline-frac\"><sup>3</sup>/<sub>10</sub></span></strong><span>0,3</span></div><div><strong><span class=\"inline-frac\"><sup>7</sup>/<sub>100</sub></span></strong><span>0,07</span></div><div><strong><span class=\"inline-frac\"><sup>125</sup>/<sub>1000</sub></span></strong><span>0,125</span></div></div>\n<table class=\"word-rubric written-static-table\"><thead><tr><th>Dezimalzahl</th><th>In Worten</th><th>Als Bruch</th></tr></thead><tbody><tr><td data-label=\"Dezimalzahl\">0,4</td><td data-label=\"In Worten\">4 Zehntel</td><td data-label=\"Als Bruch\"><span class=\"inline-frac\"><sup>4</sup>/<sub>10</sub></span></td></tr><tr><td data-label=\"Dezimalzahl\">0,08</td><td data-label=\"In Worten\">8 Hundertstel</td><td data-label=\"Als Bruch\"><span class=\"inline-frac\"><sup>8</sup>/<sub>100</sub></span></td></tr><tr><td data-label=\"Dezimalzahl\">2,35</td><td data-label=\"In Worten\">2 Ganze und 35 Hundertstel</td><td data-label=\"Als Bruch\">2 <span class=\"inline-frac\"><sup>35</sup>/<sub>100</sub></span></td></tr></tbody></table>\n<div class=\"math-worked-example\"><strong>Hilfswissen:</strong> <span class=\"inline-frac\"><sup>1</sup>/<sub>2</sub></span> = 0,5 und <span class=\"inline-frac\"><sup>3</sup>/<sub>4</sub></span> = 0,75 kommen sehr oft vor.</div>\n{{QUIZ_m19_s5_p_1}}\n{{QUIZ_m19_s5_p_2}}\n{{QUIZ_m19_s5_p_3}}\n{{QUIZ_m19_s5_p_4}}\n{{QUIZ_m19_s5_p_5}}\n{{QUIZ_m19_s5_p_6}}"
       },
       {
         "id": "m19_s6",
@@ -20899,9 +20899,81 @@
                 "feedback": "3,65 + 1,75 = 5,40. Für 5,30 muss das Ergebnis um 0,10 kleiner sein: 3,55."
               }
             ]
+          },
+          {
+            "id": "decimal_alignment",
+            "question": "Wie richtest du 0,75 + 0,125 stellenrichtig aus?",
+            "answers": [
+              {
+                "text": "0,075 + 0,125.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0,075 ist zehnmal kleiner als 0,75."
+              },
+              {
+                "text": "0,750 + 0,125.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Beide Zahlen haben drei Nachkommastellen; die Endnull verändert 0,75 nicht."
+              },
+              {
+                "text": "0,75 + 1,25.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1,25 ist zehnmal größer als 0,125."
+              }
+            ]
+          },
+          {
+            "id": "decimal_exchange",
+            "question": "Welche Darstellung hat weiterhin den Wert 8,00?",
+            "answers": [
+              {
+                "text": "8 Einer, 9 Zehntel und 10 Hundertstel.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wären 9,00. Ein Einer wurde bereits getauscht."
+              },
+              {
+                "text": "7 Einer, 10 Zehntel und 10 Hundertstel.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das wären 8,10. Ein Zehntel wurde ebenfalls getauscht."
+              },
+              {
+                "text": "7 Einer, 9 Zehntel und 10 Hundertstel.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "7 + 0,9 + 0,10 = 8. Diese Darstellung hilft bei 8 − 3,47."
+              }
+            ]
+          },
+          {
+            "id": "decimal_estimate",
+            "question": "Ein Kind erhält für 4,35 + 2,7 das Ergebnis 70,5. Welche Kontrolle zeigt den groben Fehler?",
+            "answers": [
+              {
+                "text": "Die letzte Ziffer ist 5, also muss alles stimmen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die richtige Endziffer allein sichert die anderen Stellenwerte nicht."
+              },
+              {
+                "text": "Jede Summe muss kleiner als ihre Summanden sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Bei nichtnegativen Zahlen ist die Summe mindestens so groß wie jeder Summand."
+              },
+              {
+                "text": "4 + 3 liegt bei 7; 70,5 ist etwa zehnmal so groß.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Der Überschlag zeigt die falsche Größenordnung. Genau ist die Summe 7,05."
+              }
+            ]
           }
         ],
-        "content": "\n<p>Beim schriftlichen Addieren und Subtrahieren müssen gleiche Stellen untereinander stehen: Einer unter Einer, Zehntel unter Zehntel, Hundertstel unter Hundertstel.</p>\n<div class=\"decimal-calc-grid\"><div><strong>Komma unter Komma</strong><pre>  4,35\n+ 2,70\n------\n  7,05</pre></div><div><strong>Nullen ergänzen</strong><pre>  5,30\n- 1,75\n------\n  3,55</pre></div></div>\n<div class=\"remember-box\"><strong>Merke:</strong> 2,7 darfst du als 2,70 schreiben. Der Wert bleibt gleich, aber das Rechnen wird leichter.</div>\n<div class=\"math-exercise-summary\"><strong>Buchnah üben:</strong> Rechne zuerst ungefähr im Kopf. Danach rechne schriftlich genau und vergleiche mit deinem Überschlag.</div>\n{{QUIZ_m19_s6_p_1}}\n{{QUIZ_m19_s6_p_2}}\n{{QUIZ_m19_s6_p_3}}\n{{QUIZ_m19_s6_p_4}}\n{{QUIZ_m19_s6_p_5}}\n{{QUIZ_m19_s6_p_6}}"
+        "content": "<p>Beim schriftlichen Addieren und Subtrahieren müssen gleiche Stellen untereinander stehen: Einer unter Einer, Zehntel unter Zehntel, Hundertstel unter Hundertstel.</p>\n<div class=\"decimal-calc-grid\"><div><strong>Komma unter Komma</strong><pre>  4,35\n+ 2,70\n------\n  7,05</pre></div><div><strong>Nullen ergänzen</strong><pre>  5,30\n- 1,75\n------\n  3,55</pre></div></div>\n<div class=\"remember-box\"><strong>Merke:</strong> 2,7 darfst du als 2,70 schreiben. Der Wert bleibt gleich, aber das Rechnen wird leichter.</div>\n<div class=\"math-exercise-summary\"><strong>Selbst rechnen:</strong> Rechne zuerst ungefähr im Kopf. Danach rechne schriftlich genau und vergleiche mit deinem Überschlag.</div>\n{{QUIZ_m19_s6_p_1}}\n{{QUIZ_m19_s6_p_2}}\n{{QUIZ_m19_s6_p_3}}\n{{QUIZ_m19_s6_p_4}}\n{{QUIZ_m19_s6_p_5}}\n{{QUIZ_m19_s6_p_6}}<div class=\"interactive-zone written-lab decimal-lab\" data-decimal-lab=\"add\"><h3>Dezimalzahlen schriftlich addieren</h3><p>Richte zuerst die Stellenwerte aus. Gib danach jeweils die ganze Summe aus beiden Ziffern und dem Übertrag ein. Am Ende trägst du das vollständige Ergebnis ein.</p><p>Schreibe parallel auf Papier. Du kannst dir Schritte zeigen lassen; diese werden als Hilfe markiert.</p><label for=\"decimal-add-case\">Aufgabe</label><select id=\"decimal-add-case\"><option value=\"0\">4,35 + 2,7</option><option value=\"1\">0,75 + 0,125</option><option value=\"2\">12,6 + 0,45</option><option value=\"3\">9,99 + 0,01</option><option value=\"4\">3,09 + 12,7</option><option value=\"5\">0 + 0,08</option></select><p data-decimal-progress=\"\"></p><div data-decimal-board=\"\"></div><p class=\"written-prompt\" data-decimal-prompt=\"\" id=\"decimal-add-prompt\"></p><label for=\"decimal-add-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"decimal-add-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"decimal-add-prompt decimal-add-status\"><button type=\"button\" data-decimal-check=\"\">Schritt prüfen</button><button type=\"button\" data-decimal-show=\"\">Schritt zeigen</button><p data-decimal-status=\"\" id=\"decimal-add-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-decimal-history=\"\"></ol></details><button type=\"button\" data-decimal-reset=\"\">Aufgabe zurücksetzen</button><template data-worksheet-alternative=\"\"><div data-decimal-paper=\"add\"><p>Rechne auf kariertem Papier. Zeige die Stellenwerte, Zwischenschritte und eine passende Gegenprobe.</p><ol><li>Rechne 4,35 + 2,7 und 0,75 + 0,125 schriftlich. Schreibe gleiche Stellenwerte untereinander und markiere die Überträge.</li><li>Erkläre 9,99 + 0,01 mit einer Stellenwerttafel. Warum wird aus zehn Hundertsteln ein Zehntel und schließlich ein Einer?</li><li>Ein erfundenes Projekt verwendet 12,6 m und 0,45 m Band. Berechne die Gesamtlänge und kontrolliere durch Subtraktion.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Dezimalzahlen schriftlich addieren: Papierlösungen</summary><div data-decimal-solution=\"\"><p>4,35 + 2,70 = 7,05; 0,750 + 0,125 = 0,875. Zehn Zehntel ergeben einen Einer. Proben: 7,05 − 2,70 = 4,35; 0,875 − 0,125 = 0,750.</p><p>9,99 + 0,01 = 10,00. Es wird von Hundertsteln zu Zehnteln, von Zehnteln zu Einern und von Einern zu Zehnern gebündelt.</p><p>12,60 + 0,45 = 13,05 m. Probe: 13,05 − 0,45 = 12,60 m.</p></div></details><div class=\"interactive-zone written-lab decimal-lab\" data-decimal-lab=\"subtract\"><h3>Dezimalzahlen schriftlich subtrahieren</h3><p>Ergänze zuerst gleich viele Nachkommastellen. Tausche bei Bedarf eine größere Einheit in zehn kleinere. Gib die Anzahl nach jedem Tausch und danach die jeweilige Differenz ein.</p><p>Schreibe parallel auf Papier. Du kannst dir Schritte zeigen lassen; diese werden als Hilfe markiert.</p><label for=\"decimal-subtract-case\">Aufgabe</label><select id=\"decimal-subtract-case\"><option value=\"0\">5,3 − 1,75</option><option value=\"1\">8 − 3,47</option><option value=\"2\">10 − 0,025</option><option value=\"3\">7,04 − 2,9</option><option value=\"4\">1,01 − 0,909</option><option value=\"5\">0,5 − 0,50</option></select><p data-decimal-progress=\"\"></p><div data-decimal-board=\"\"></div><p class=\"written-prompt\" data-decimal-prompt=\"\" id=\"decimal-subtract-prompt\"></p><label for=\"decimal-subtract-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"decimal-subtract-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"decimal-subtract-prompt decimal-subtract-status\"><button type=\"button\" data-decimal-check=\"\">Schritt prüfen</button><button type=\"button\" data-decimal-show=\"\">Schritt zeigen</button><p data-decimal-status=\"\" id=\"decimal-subtract-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-decimal-history=\"\"></ol></details><button type=\"button\" data-decimal-reset=\"\">Aufgabe zurücksetzen</button><template data-worksheet-alternative=\"\"><div data-decimal-paper=\"subtract\"><p>Rechne auf kariertem Papier. Zeige die Stellenwerte, Zwischenschritte und eine passende Gegenprobe.</p><ol><li>Rechne 8 − 3,47 und 10 − 0,025. Notiere die gleichwertige Darstellung nach jedem Tausch und prüfe mit Addition.</li><li>Rechne 7,04 − 2,9 und 1,01 − 0,909. Begründe, welche Nullen du ergänzen darfst.</li><li>Vergleiche 0,5 − 0,50 mit 0,5 − 0,05. Erkläre, warum nur die erste Differenz 0 ist.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Dezimalzahlen schriftlich subtrahieren: Papierlösungen</summary><div data-decimal-solution=\"\"><p>8,00 = 7 Einer + 9 Zehntel + 10 Hundertstel; 8,00 − 3,47 = 4,53. 10,000 = 9 Einer + 9 Zehntel + 9 Hundertstel + 10 Tausendstel; 10,000 − 0,025 = 9,975. Proben: 4,53 + 3,47 = 8 und 9,975 + 0,025 = 10.</p><p>7,04 − 2,90 = 4,14; 1,010 − 0,909 = 0,101. Rechts angehängte Endnullen ändern den Wert nicht. Proben: 4,14 + 2,90 = 7,04; 0,101 + 0,909 = 1,010.</p><p>0,50 − 0,50 = 0; 0,50 − 0,05 = 0,45. Fünf Zehntel sind fünfzig Hundertstel, nicht fünf Hundertstel.</p></div></details>{{QUIZ_decimal_alignment}}{{QUIZ_decimal_exchange}}{{QUIZ_decimal_estimate}}"
       },
       {
         "id": "m19_s7",
@@ -20909,7 +20981,7 @@
         "quizzes": [
           {
             "id": "m19_s7_p_1",
-            "question": "Was ist 2,4 * 3?",
+            "question": "Was ist 2,4 · 3?",
             "practiceOnly": true,
             "answers": [
               {
@@ -20934,14 +21006,14 @@
           },
           {
             "id": "m19_s7_p_2",
-            "question": "Was ist 1,5 * 4?",
+            "question": "Was ist 1,5 · 4?",
             "practiceOnly": true,
             "answers": [
               {
                 "text": "6",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 15 * 4 = 60, eine Nachkommastelle: 6,0."
+                "feedback": "Richtig: 15 · 4 = 60, eine Nachkommastelle: 6,0."
               },
               {
                 "text": "5,4",
@@ -20959,14 +21031,14 @@
           },
           {
             "id": "m19_s7_p_3",
-            "question": "Was ist 0,3 * 0,2?",
+            "question": "Was ist 0,3 · 0,2?",
             "practiceOnly": true,
             "answers": [
               {
                 "text": "0,06",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 3 * 2 = 6 und zusammen gibt es zwei Nachkommastellen."
+                "feedback": "Richtig: 3 · 2 = 6 und zusammen gibt es zwei Nachkommastellen."
               },
               {
                 "text": "0,6",
@@ -20984,14 +21056,14 @@
           },
           {
             "id": "m19_s7_p_4",
-            "question": "Was ist 2,5 * 0,4?",
+            "question": "Was ist 2,5 · 0,4?",
             "practiceOnly": true,
             "answers": [
               {
                 "text": "1",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 25 * 4 = 100, zwei Nachkommastellen: 1,00."
+                "feedback": "Richtig: 25 · 4 = 100, zwei Nachkommastellen: 1,00."
               },
               {
                 "text": "10",
@@ -21009,7 +21081,7 @@
           },
           {
             "id": "m19_s7_p_5",
-            "question": "Warum hat 1,2 * 0,3 zuerst zwei Nachkommastellen?",
+            "question": "Warum hat 1,2 · 0,3 zuerst zwei Nachkommastellen?",
             "practiceOnly": true,
             "answers": [
               {
@@ -21034,7 +21106,7 @@
           },
           {
             "id": "m19_s7_p_6",
-            "question": "Was bedeutet 3 * 1,20 €?",
+            "question": "Was bedeutet 3 · 1,20 €?",
             "practiceOnly": true,
             "answers": [
               {
@@ -21056,9 +21128,57 @@
                 "feedback": "Drei Stück zu etwas über einem Euro kosten etwas über drei Euro, nicht über dreißig Euro."
               }
             ]
+          },
+          {
+            "id": "decimal_product_scale",
+            "question": "Warum ergibt 0,04 · 0,09 genau 0,0036?",
+            "answers": [
+              {
+                "text": "4/100 · 9/100 = 36/10000.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Beide Nenner werden multipliziert. Vier Nachkommastellen ergeben 0,0036."
+              },
+              {
+                "text": "4 · 9 = 36; das Produkt hat immer zwei Nachkommastellen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zwei Nachkommastellen je Faktor ergeben zusammen vier."
+              },
+              {
+                "text": "0,04 + 0,09 = 0,13.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist eine Addition. Gefragt ist ein Produkt."
+              }
+            ]
+          },
+          {
+            "id": "decimal_product_partial",
+            "question": "Welche Teilprodukte brauchst du in der Hilfsrechnung 48 · 21?",
+            "answers": [
+              {
+                "text": "48 und 96.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 2 steht für 20; das zugehörige Teilprodukt ist 960."
+              },
+              {
+                "text": "48 und 960.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "48 · 1 = 48 und 48 · 20 = 960. Zusammen 1008; für 4,8 · 2,1 ergibt das 10,08."
+              },
+              {
+                "text": "480 und 960.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 1 steht an der Einerstelle, ihr Teilprodukt ist 48."
+              }
+            ]
           }
         ],
-        "content": "\n<p>Beim Multiplizieren mit Dezimalzahlen hilft ein sicherer Plan: Erst ohne Komma rechnen, dann die Nachkommastellen zählen und das Komma passend setzen.</p>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> 1,2 * 0,3. Ohne Komma: 12 * 3 = 36. Zusammen haben die Faktoren zwei Nachkommastellen. Ergebnis: 0,36.</div>\n<table class=\"word-rubric\"><tr><th>Aufgabe</th><th>Überschlag</th><th>Ergebnis</th></tr><tr><td>2,4 * 3</td><td>ungefähr 2 * 3</td><td>7,2</td></tr><tr><td>0,25 * 4</td><td>ein Viertel mal 4</td><td>1</td></tr><tr><td>2,5 * 0,4</td><td>ungefähr die Hälfte von 2,5</td><td>1</td></tr></table>\n<div class=\"misconception-box\"><strong>Achtung:</strong> Kontrolliere mit einem Überschlag. Wenn 2,4 * 3 plötzlich 72 ergibt, fehlt das Komma.</div>\n{{QUIZ_m19_s7_p_1}}\n{{QUIZ_m19_s7_p_2}}\n{{QUIZ_m19_s7_p_3}}\n{{QUIZ_m19_s7_p_4}}\n{{QUIZ_m19_s7_p_5}}\n{{QUIZ_m19_s7_p_6}}"
+        "content": "<p>Bei 1,2 · 0,3 gilt: 12/10 · 3/10 = 36/100. Beide Faktoren sind gegenüber 12 und 3 jeweils zehnmal kleiner; ihr Produkt ist hundertmal kleiner. Beim Multiplizieren mit Dezimalzahlen hilft deshalb dieser Plan: Erst ohne Komma rechnen, dann die Nachkommastellen zählen und das Komma passend setzen.</p>\n<div class=\"math-worked-example\"><strong>Beispiel:</strong> 1,2 · 0,3. Ohne Komma: 12 · 3 = 36. Zusammen haben die Faktoren zwei Nachkommastellen. Ergebnis: 0,36.</div>\n<table class=\"word-rubric written-static-table\"><thead><tr><th>Aufgabe</th><th>Überschlag</th><th>Ergebnis</th></tr></thead><tbody><tr><td data-label=\"Aufgabe\">2,4 · 3</td><td data-label=\"Überschlag\">ungefähr 2 · 3</td><td data-label=\"Ergebnis\">7,2</td></tr><tr><td data-label=\"Aufgabe\">0,25 · 4</td><td data-label=\"Überschlag\">ein Viertel mal 4</td><td data-label=\"Ergebnis\">1</td></tr><tr><td data-label=\"Aufgabe\">2,5 · 0,4</td><td data-label=\"Überschlag\">ungefähr die Hälfte von 2,5</td><td data-label=\"Ergebnis\">1</td></tr></tbody></table>\n<div class=\"misconception-box\"><strong>Achtung:</strong> Kontrolliere mit einem Überschlag. Wenn 2,4 · 3 plötzlich 72 ergibt, fehlt das Komma.</div>\n{{QUIZ_m19_s7_p_1}}\n{{QUIZ_m19_s7_p_2}}\n{{QUIZ_m19_s7_p_3}}\n{{QUIZ_m19_s7_p_4}}\n{{QUIZ_m19_s7_p_5}}\n{{QUIZ_m19_s7_p_6}}<div class=\"interactive-zone written-lab decimal-lab\" data-decimal-lab=\"multiply\"><h3>Dezimalzahlen schriftlich multiplizieren</h3><p>Begründe zuerst die Anzahl der Nachkommastellen. Rechne die Hilfsrechnung ohne Komma mit allen Teilprodukten. Setze das Komma erst im vollständigen Ergebnis.</p><p>Schreibe parallel auf Papier. Du kannst dir Schritte zeigen lassen; diese werden als Hilfe markiert.</p><label for=\"decimal-multiply-case\">Aufgabe</label><select id=\"decimal-multiply-case\"><option value=\"0\">1,2 · 0,3</option><option value=\"1\">0,3 · 0,2</option><option value=\"2\">4,8 · 2,1</option><option value=\"3\">2,05 · 6</option><option value=\"4\">0,04 · 0,09</option><option value=\"5\">0 · 1,7</option></select><p data-decimal-progress=\"\"></p><div data-decimal-board=\"\"></div><p class=\"written-prompt\" data-decimal-prompt=\"\" id=\"decimal-multiply-prompt\"></p><label for=\"decimal-multiply-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"decimal-multiply-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"decimal-multiply-prompt decimal-multiply-status\"><button type=\"button\" data-decimal-check=\"\">Schritt prüfen</button><button type=\"button\" data-decimal-show=\"\">Schritt zeigen</button><p data-decimal-status=\"\" id=\"decimal-multiply-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-decimal-history=\"\"></ol></details><button type=\"button\" data-decimal-reset=\"\">Aufgabe zurücksetzen</button><template data-worksheet-alternative=\"\"><div data-decimal-paper=\"multiply\"><p>Rechne auf kariertem Papier. Zeige die Stellenwerte, Zwischenschritte und eine passende Gegenprobe.</p><ol><li>Begründe 0,3 · 0,2 mit Brüchen. Berechne außerdem 0,04 · 0,09 und erkläre die Anzahl der Nachkommastellen.</li><li>Rechne 4,8 · 2,1 schriftlich mit Teilprodukten. Prüfe die Größenordnung durch 5 · 2.</li><li>Rechne 2,05 · 6 und 0 · 1,7. Begründe, warum bei der zweiten Aufgabe keine Division durch 0 als Gegenprobe erlaubt ist.</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Dezimalzahlen schriftlich multiplizieren: Papierlösungen</summary><div data-decimal-solution=\"\"><p>3/10 · 2/10 = 6/100 = 0,06. Außerdem 4/100 · 9/100 = 36/10000 = 0,0036. Die Faktoren wurden jeweils um einen Faktor 100 vergrößert; das Hilfsprodukt wird durch 10000 geteilt.</p><p>48 · 1 = 48; 48 · 20 = 960; 48 + 960 = 1008. Beide ursprünglichen Faktoren haben je eine Nachkommastelle: 10,08. Überschlag 5 · 2 = 10 passt.</p><p>205 · 6 = 1230; 2,05 · 6 = 12,30. Probe: 12,30 : 6 = 2,05. 0 · 1,7 = 0; eine mögliche Probe ist 0 : 1,7 = 0. Division durch 0 ist nicht definiert.</p></div></details>{{QUIZ_decimal_product_scale}}{{QUIZ_decimal_product_partial}}"
       },
       {
         "id": "m19_s8",
@@ -21213,9 +21333,81 @@
                 "feedback": "Das Überschlagen verändert das genaue Ergebnis nicht. Es hilft, grobe Rechen- oder Kommafehler zu erkennen."
               }
             ]
+          },
+          {
+            "id": "decimal_division_rest",
+          "question": "Bei 1 : 8 bleibt nach der Einerstelle ein Einer übrig. Was ist der nächste Schritt?",
+            "answers": [
+              {
+                "text": "Der Rest wird ohne Umtausch als Zehntel 1 weiterverwendet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "1 Einer entspricht 10 Zehnteln, nicht einem Zehntel."
+              },
+              {
+                "text": "Die Rechnung wird mit Ergebnis 0 beendet.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Es ist noch ein Rest vorhanden; er lässt sich in kleineren Einheiten verteilen."
+              },
+              {
+                "text": "1 Einer wird in 10 Zehntel getauscht.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "10 Zehntel : 8 ergibt 1 Zehntel mit Rest 2 Zehnteln."
+              }
+            ]
+          },
+          {
+            "id": "decimal_division_zero",
+            "question": "Warum steht bei 10,05 : 5 = 2,01 eine 0 an der Zehntelstelle?",
+            "answers": [
+              {
+                "text": "Nach den Einern sind 0 Zehntel zu verteilen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "0 : 5 = 0. Danach werden die 5 Hundertstel aufgeteilt."
+              },
+              {
+                "text": "Nullen darf man im Ergebnis beliebig einsetzen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Null hält die Zehntelstelle frei; 2,1 hätte einen anderen Wert."
+              },
+              {
+                "text": "Weil jede Division zwei Nachkommastellen braucht.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Zum Beispiel 3,6 : 4 = 0,9 hat nur eine nötige Nachkommastelle."
+              }
+            ]
+          },
+          {
+            "id": "decimal_zero_rule",
+            "question": "Welche Aussage über 0 : 6 stimmt?",
+            "answers": [
+              {
+                "text": "Das Ergebnis ist kleiner als 0.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "0 verteilt auf sechs Gruppen ergibt in jeder Gruppe 0."
+              },
+              {
+                "text": "Das Ergebnis bleibt 0.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "0 · 6 = 0 bestätigt das Ergebnis. Nicht jede nichtnegative Zahl wird beim Teilen kleiner."
+              },
+              {
+                "text": "Division durch 6 ist hier nicht erlaubt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Der Divisor 6 ist ungleich 0. Diese Division ist erlaubt."
+              }
+            ]
           }
         ],
-        "content": "\n<p>Beim Dividieren von Dezimalzahlen startest du mit einfachen Aufgaben: Dezimalzahl durch eine natürliche Zahl oder durch 10, 100, 1000.</p>\n<div class=\"decimal-calc-grid\"><div><strong>Durch eine natürliche Zahl</strong><p>6,4 : 2 = 3,2</p><p>Denke: 64 Zehntel : 2 = 32 Zehntel.</p></div><div><strong>Durch 10 oder 100</strong><p>7,2 : 10 = 0,72</p><p>3,5 : 100 = 0,035</p></div></div>\n<div class=\"math-worked-example\"><strong>Wenn es nicht sofort aufgeht:</strong> 3,6 : 4 kannst du als 3,60 : 4 rechnen. Die Endnull verändert den Wert nicht.</div>\n<div class=\"remember-box\"><strong>Kontrolle:</strong> Beim Teilen durch eine Zahl größer als 1 wird das Ergebnis kleiner. Dein Ergebnis muss dazu passen.</div>\n{{QUIZ_m19_s8_p_1}}\n{{QUIZ_m19_s8_p_2}}\n{{QUIZ_m19_s8_p_3}}\n{{QUIZ_m19_s8_p_4}}\n{{QUIZ_m19_s8_p_5}}\n{{QUIZ_m19_s8_p_6}}"
+        "content": "<p>Beim Dividieren von Dezimalzahlen startest du mit einfachen Aufgaben: Dezimalzahl durch eine natürliche Zahl oder durch 10, 100, 1000.</p>\n<div class=\"decimal-calc-grid\"><div><strong>Durch eine natürliche Zahl</strong><p>6,4 : 2 = 3,2</p><p>Denke: 64 Zehntel : 2 = 32 Zehntel.</p></div><div><strong>Durch 10 oder 100</strong><p>7,2 : 10 = 0,72</p><p>3,5 : 100 = 0,035</p></div></div>\n<div class=\"math-worked-example\"><strong>Wenn es nicht sofort aufgeht:</strong> 3,6 : 4 kannst du als 3,60 : 4 rechnen. Die Endnull verändert den Wert nicht.</div>\n<div class=\"remember-box\"><strong>Kontrolle:</strong> Beim Teilen einer positiven Zahl durch eine Zahl größer als 1 wird das Ergebnis kleiner. 0 bleibt dagegen 0. Division durch 0 ist nicht erlaubt.</div>\n{{QUIZ_m19_s8_p_1}}\n{{QUIZ_m19_s8_p_2}}\n{{QUIZ_m19_s8_p_3}}\n{{QUIZ_m19_s8_p_4}}\n{{QUIZ_m19_s8_p_5}}\n{{QUIZ_m19_s8_p_6}}<div class=\"interactive-zone written-lab decimal-lab\" data-decimal-lab=\"divide\"><h3>Dezimalzahlen durch natürliche Zahlen dividieren</h3><p>Teile von links nach rechts. Ein Rest wird an der nächsten kleineren Stelle zu zehnmal so vielen Einheiten. Ergänze nötigenfalls Endnullen. Diese Aufgaben ergeben endliche Dezimalzahlen.</p><p>Schreibe parallel auf Papier. Du kannst dir Schritte zeigen lassen; diese werden als Hilfe markiert.</p><label for=\"decimal-divide-case\">Aufgabe</label><select id=\"decimal-divide-case\"><option value=\"0\">6,4 : 2</option><option value=\"1\">3,6 : 4</option><option value=\"2\">1 : 8</option><option value=\"3\">10,05 : 5</option><option value=\"4\">0,75 : 3</option><option value=\"5\">0 : 6</option></select><p data-decimal-progress=\"\"></p><div data-decimal-board=\"\"></div><p class=\"written-prompt\" data-decimal-prompt=\"\" id=\"decimal-divide-prompt\"></p><label for=\"decimal-divide-answer\">Dein Ergebnis für diesen Schritt</label><input id=\"decimal-divide-answer\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" aria-describedby=\"decimal-divide-prompt decimal-divide-status\"><button type=\"button\" data-decimal-check=\"\">Schritt prüfen</button><button type=\"button\" data-decimal-show=\"\">Schritt zeigen</button><p data-decimal-status=\"\" id=\"decimal-divide-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\" tabindex=\"-1\"></p><details><summary>Bisheriger Rechenweg</summary><ol data-decimal-history=\"\"></ol></details><button type=\"button\" data-decimal-reset=\"\">Aufgabe zurücksetzen</button><template data-worksheet-alternative=\"\"><div data-decimal-paper=\"divide\"><p>Rechne auf kariertem Papier. Zeige die Stellenwerte, Zwischenschritte und eine passende Gegenprobe.</p><ol><li>Rechne 1 : 8 schriftlich. Tausche den Rest nacheinander in Zehntel, Hundertstel und Tausendstel. Prüfe mit Multiplikation.</li><li>Rechne 10,05 : 5 und 0,75 : 3. Begründe die Null im ersten Quotienten.</li><li>Rechne 0 : 6 und 3,6 : 4. Prüfe die Behauptung: „Beim Teilen durch eine Zahl größer als 1 wird jede nichtnegative Zahl kleiner.“</li></ol></div></template></div><details data-worksheet-solution=\"true\"><summary>Dezimalzahlen durch natürliche Zahlen dividieren: Papierlösungen</summary><div data-decimal-solution=\"\"><p>1 : 8 = 0,125. Einer: 0, Rest 1; Zehntel: 10 : 8 ergibt 1, Rest 2; Hundertstel: 20 : 8 ergibt 2, Rest 4; Tausendstel: 40 : 8 ergibt 5, Rest 0. Probe: 0,125 · 8 = 1.</p><p>10,05 : 5 = 2,01; 0,75 : 3 = 0,25. Nach den Einern bleiben im ersten Beispiel keine Zehntel zu verteilen; die Zehntelziffer ist 0. Proben: 2,01 · 5 = 10,05; 0,25 · 3 = 0,75.</p><p>0 : 6 = 0; 3,6 : 4 = 0,9. Die Behauptung stimmt für positive Ausgangszahlen, aber nicht für 0: 0 bleibt 0. Proben: 0 · 6 = 0; 0,9 · 4 = 3,6.</p></div></details>{{QUIZ_decimal_division_rest}}{{QUIZ_decimal_division_zero}}{{QUIZ_decimal_zero_rule}}"
       },
       {
         "id": "m19_s9",
@@ -21223,14 +21415,14 @@
         "quizzes": [
           {
             "id": "m19_s9_p_1",
-            "question": "Welche allgemeine Vorrangregel wird bei 2 + 3 * 4 angewendet?",
+            "question": "Welche allgemeine Vorrangregel wird bei 2 + 3 · 4 angewendet?",
             "practiceOnly": true,
             "answers": [
               {
                 "text": "Punktrechnung vor Strichrechnung",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 3 * 4 zuerst, dann + 2."
+                "feedback": "Richtig: 3 · 4 zuerst, dann + 2."
               },
               {
                 "text": "Von rechts nach links",
@@ -21248,14 +21440,14 @@
           },
           {
             "id": "m19_s9_p_2",
-            "question": "Was ist 2 + 3 * 4?",
+            "question": "Was ist 2 + 3 · 4?",
             "practiceOnly": true,
             "answers": [
               {
                 "text": "14",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 3 * 4 = 12, plus 2 = 14."
+                "feedback": "Richtig: 3 · 4 = 12, plus 2 = 14."
               },
               {
                 "text": "20",
@@ -21273,14 +21465,14 @@
           },
           {
             "id": "m19_s9_p_3",
-            "question": "Was ist (2 + 3) * 4?",
+            "question": "Was ist (2 + 3) · 4?",
             "practiceOnly": true,
             "answers": [
               {
                 "text": "20",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: Klammern zuerst: 5 * 4 = 20."
+                "feedback": "Richtig: Klammern zuerst: 5 · 4 = 20."
               },
               {
                 "text": "14",
@@ -21330,7 +21522,7 @@
                 "text": "2,40 €",
                 "correct": true,
                 "pts": 10,
-                "feedback": "Richtig: 6 * 0,40 € = 2,40 €."
+                "feedback": "Richtig: 6 · 0,40 € = 2,40 €."
               },
               {
                 "text": "0,46 €",
@@ -21447,7 +21639,7 @@
             ]
           }
         ],
-        "content": "\n<p>In längeren Aufgaben entscheidest du zuerst: Welche Rechnung passt? Manchmal brauchst du mehrere Rechenschritte.</p>\n<div class=\"math-worked-example\"><strong>Reihenfolge:</strong> Klammern zuerst. Dann Punktrechnung (* und :). Dann Strichrechnung (+ und -). Beispiel: 2 + 3 * 4 = 14, aber (2 + 3) * 4 = 20.</div>\n<p><strong>Verstehe zuerst die Situation:</strong> Was ist bekannt, was wird gesucht? Ein einzelnes Wort bestimmt die Rechenart nicht. „Vier Hefte kosten insgesamt 3,60 €; wie viel kostet eines?“ verlangt 3,60 : 4. „Ein Heft kostet 0,90 €; wie viel kosten vier insgesamt?“ verlangt 4 · 0,90. Zeichne bei Bedarf die vier gleichen Gruppen.</p>\n<div class=\"remember-box\"><strong>Antwortsatz:</strong> Schreibe am Ende eine klare Antwort mit Einheit, zum Beispiel: Die 6 Äpfel kosten 2,40 €.</div>\n{{QUIZ_m19_s9_p_1}}\n{{QUIZ_m19_s9_p_2}}\n{{QUIZ_m19_s9_p_3}}\n{{QUIZ_m19_s9_p_4}}\n{{QUIZ_m19_s9_p_5}}\n{{QUIZ_m19_s9_p_6}}\n<h3>Plane einen Einkauf mit 10 Euro</h3>\n<p>Die folgenden Preise sind frei erfunden. Für ein Gruppenprojekt braucht ihr <strong>genau sechs gleichartige Hefte und zwei Stifte</strong>. Einzelne Hefte und das Viererpaket enthalten dieselbe Heftsorte. Es gibt keine weiteren Kosten.</p>\n<table class=\"word-rubric\" data-budget-prices><caption>Preisliste für die Übung</caption><thead><tr><th scope=\"col\">Artikel</th><th scope=\"col\">Preis</th></tr></thead><tbody><tr data-cents=\"95\" data-count=\"1\"><th scope=\"row\">Ein Heft</th><td>0,95 €</td></tr><tr data-cents=\"360\" data-count=\"4\"><th scope=\"row\">Viererpaket Hefte</th><td>3,60 €</td></tr><tr data-cents=\"125\" data-count=\"1\"><th scope=\"row\">Ein Stift</th><td>1,25 €</td></tr></tbody></table>\n<ol data-budget-tasks>\n<li>Was kostet ein Heft im Viererpaket? Vergleiche den Stückpreis mit dem Einzelpreis. Erkläre, warum du hier dividierst.</li>\n<li>Vergleiche zwei Einkäufe: A sind sechs Einzelhefte und zwei Stifte; B sind ein Viererpaket, zwei Einzelhefte und zwei Stifte. Schreibe für beide zuerst einen Rechenausdruck und rechne dann genau.</li>\n<li>Wähle den günstigeren Einkauf. Wie viel bleibt von 10,00 €? Prüfe dein Ergebnis durch Addition.</li>\n<li>Zwei Viererpakete haben einen niedrigeren Stückpreis als Einzelhefte. Sind sie mit zwei Stiften trotzdem die günstigste Lösung für den Bedarf? Berechne Preis und Anzahl der Hefte und begründe.</li>\n<li>Ein Einkauf wird mit ungefähr 8 € geschätzt. Erkläre, warum ein Budget von genau 8,00 € trotzdem nicht für beide Einkäufe A und B reicht. Entscheide mithilfe der genauen Beträge.</li>\n</ol>\n<details data-worksheet-solution=\"true\" data-budget-solutions><summary>Rechenwege vergleichen</summary>\n<p>1. 3,60 : 4 = 0,90 € pro Heft. Das sind 0,05 € weniger als 0,95 €.</p>\n<p>2. A: 6 · 0,95 + 2 · 1,25 = 5,70 + 2,50 = 8,20 €. B: 3,60 + 2 · 0,95 + 2 · 1,25 = 3,60 + 1,90 + 2,50 = 8,00 €.</p>\n<p>3. B spart 0,20 €. Rückgeld: 10,00 − 8,00 = 2,00 €. Gegenprobe: 8,00 + 2,00 = 10,00 €.</p>\n<p>4. 2 · 3,60 + 2 · 1,25 = 9,70 €. Das ergibt acht Hefte, also zwei mehr als benötigt, und kostet 1,70 € mehr als B. Der günstigere Stückpreis allein entscheidet nicht über die Gesamtausgabe.</p>\n<p>5. Der Überschlag zeigt nur die Größenordnung. A kostet 8,20 € und überschreitet 8,00 € um 0,20 €. B passt genau ins Budget. Eine gerundete Zahl ist keine Garantie, dass das Geld reicht.</p></details>\n{{QUIZ_budget_unit_price}}\n{{QUIZ_budget_total_cost}}\n{{QUIZ_budget_estimate}}"
+        "content": "<p>In längeren Aufgaben entscheidest du zuerst: Welche Rechnung passt? Manchmal brauchst du mehrere Rechenschritte.</p>\n<div class=\"math-worked-example\"><strong>Reihenfolge:</strong> Klammern zuerst. Dann Punktrechnung (· und :). Dann Strichrechnung (+ und -). Beispiel: 2 + 3 · 4 = 14, aber (2 + 3) · 4 = 20.</div>\n<p><strong>Verstehe zuerst die Situation:</strong> Was ist bekannt, was wird gesucht? Ein einzelnes Wort bestimmt die Rechenart nicht. „Vier Hefte kosten insgesamt 3,60 €; wie viel kostet eines?“ verlangt 3,60 : 4. „Ein Heft kostet 0,90 €; wie viel kosten vier insgesamt?“ verlangt 4 · 0,90. Zeichne bei Bedarf die vier gleichen Gruppen.</p>\n<div class=\"remember-box\"><strong>Antwortsatz:</strong> Schreibe am Ende eine klare Antwort mit Einheit, zum Beispiel: Die 6 Äpfel kosten 2,40 €.</div>\n{{QUIZ_m19_s9_p_1}}\n{{QUIZ_m19_s9_p_2}}\n{{QUIZ_m19_s9_p_3}}\n{{QUIZ_m19_s9_p_4}}\n{{QUIZ_m19_s9_p_5}}\n{{QUIZ_m19_s9_p_6}}\n<h3>Plane einen Einkauf mit 10 Euro</h3>\n<p>Die folgenden Preise sind frei erfunden. Für ein Gruppenprojekt braucht ihr <strong>genau sechs gleichartige Hefte und zwei Stifte</strong>. Einzelne Hefte und das Viererpaket enthalten dieselbe Heftsorte. Es gibt keine weiteren Kosten.</p>\n<table class=\"word-rubric written-static-table\" data-budget-prices=\"\"><caption>Preisliste für die Übung</caption><thead><tr><th scope=\"col\">Artikel</th><th scope=\"col\">Preis</th></tr></thead><tbody><tr data-cents=\"95\" data-count=\"1\"><th scope=\"row\" data-label=\"Artikel\">Ein Heft</th><td data-label=\"Preis\">0,95 €</td></tr><tr data-cents=\"360\" data-count=\"4\"><th scope=\"row\" data-label=\"Artikel\">Viererpaket Hefte</th><td data-label=\"Preis\">3,60 €</td></tr><tr data-cents=\"125\" data-count=\"1\"><th scope=\"row\" data-label=\"Artikel\">Ein Stift</th><td data-label=\"Preis\">1,25 €</td></tr></tbody></table>\n<ol data-budget-tasks=\"\">\n<li>Was kostet ein Heft im Viererpaket? Vergleiche den Stückpreis mit dem Einzelpreis. Erkläre, warum du hier dividierst.</li>\n<li>Vergleiche zwei Einkäufe: A sind sechs Einzelhefte und zwei Stifte; B sind ein Viererpaket, zwei Einzelhefte und zwei Stifte. Schreibe für beide zuerst einen Rechenausdruck und rechne dann genau.</li>\n<li>Wähle den günstigeren Einkauf. Wie viel bleibt von 10,00 €? Prüfe dein Ergebnis durch Addition.</li>\n<li>Zwei Viererpakete haben einen niedrigeren Stückpreis als Einzelhefte. Sind sie mit zwei Stiften trotzdem die günstigste Lösung für den Bedarf? Berechne Preis und Anzahl der Hefte und begründe.</li>\n<li>Ein Einkauf wird mit ungefähr 8 € geschätzt. Erkläre, warum ein Budget von genau 8,00 € trotzdem nicht für beide Einkäufe A und B reicht. Entscheide mithilfe der genauen Beträge.</li>\n</ol>\n<details data-worksheet-solution=\"true\" data-budget-solutions=\"\"><summary>Rechenwege vergleichen</summary>\n<p>1. 3,60 : 4 = 0,90 € pro Heft. Das sind 0,05 € weniger als 0,95 €.</p>\n<p>2. A: 6 · 0,95 + 2 · 1,25 = 5,70 + 2,50 = 8,20 €. B: 3,60 + 2 · 0,95 + 2 · 1,25 = 3,60 + 1,90 + 2,50 = 8,00 €.</p>\n<p>3. B spart 0,20 €. Rückgeld: 10,00 − 8,00 = 2,00 €. Gegenprobe: 8,00 + 2,00 = 10,00 €.</p>\n<p>4. 2 · 3,60 + 2 · 1,25 = 9,70 €. Das ergibt acht Hefte, also zwei mehr als benötigt, und kostet 1,70 € mehr als B. Der günstigere Stückpreis allein entscheidet nicht über die Gesamtausgabe.</p>\n<p>5. Der Überschlag zeigt nur die Größenordnung. A kostet 8,20 € und überschreitet 8,00 € um 0,20 €. B passt genau ins Budget. Eine gerundete Zahl ist keine Garantie, dass das Geld reicht.</p></details>\n{{QUIZ_budget_unit_price}}\n{{QUIZ_budget_total_cost}}\n{{QUIZ_budget_estimate}}"
       }
     ],
     "quizzes": [
@@ -21628,7 +21820,7 @@
       },
       {
         "id": "m19_ch_q_8",
-        "question": "Was ist 1,2 * 3?",
+        "question": "Was ist 1,2 · 3?",
         "practiceOnly": false,
         "answers": [
           {
@@ -21653,7 +21845,7 @@
       },
       {
         "id": "m19_ch_q_9",
-        "question": "Was ist 0,4 * 0,5?",
+        "question": "Was ist 0,4 · 0,5?",
         "practiceOnly": false,
         "answers": [
           {
@@ -21754,21 +21946,26 @@
     ],
     "prerequisites": [
       "math1_2_nat_zahlen",
-      "math1_8_brueche"
+      "math1_8_brueche",
+      "math1_3_add_sub",
+      "math1_4_mult_div"
     ],
     "learningGoals": [
       "Dezimalzahlen anhand ihrer Stellenwerte lesen, vergleichen und runden.",
       "Zehntel- und Hundertstelbrüche als Dezimalzahlen schreiben.",
       "Mit Dezimalzahlen rechnen und durch natürliche Zahlen ungleich 0 dividieren.",
       "Sachaufgaben mit passenden Rechenschritten, Einheiten und Antwortsatz lösen.",
-      "Stückpreis und Gesamtkosten unterscheiden und einen Einkauf innerhalb eines Budgets begründen."
+      "Stückpreis und Gesamtkosten unterscheiden und einen Einkauf innerhalb eines Budgets begründen.",
+      "Schriftliche Rechenschritte mit Überträgen, Entbündeln und Restumtausch begründen."
     ],
     "summary": [
       "Rechts vom Komma folgen Zehntel, Hundertstel und Tausendstel. Endnullen verändern den Wert nicht: 2,5 = 2,50.",
       "Beim Runden entscheidet die erste wegfallende Ziffer: ab 5 aufrunden, sonst abrunden.",
       "Bei Addition und Subtraktion stehen gleiche Stellenwerte untereinander; bei Multiplikation bestimmt die gesamte Zahl der Nachkommastellen die Kommasetzung.",
       "Überschlag und Gegenprobe helfen bei der Kontrolle. 6,4 : 2 = 3,2, denn 3,2 · 2 = 6,4.",
-      "Wähle die Rechenart aus der Situation. Vergleiche beim Einkauf Menge und Gesamtpreis; nahe am Budget genügt ein Überschlag nicht."
+      "Wähle die Rechenart aus der Situation. Vergleiche beim Einkauf Menge und Gesamtpreis; nahe am Budget genügt ein Überschlag nicht.",
+      "Eine Einheit lässt sich in zehn Einheiten der nächsten kleineren Stelle tauschen – auch über das Komma hinweg.",
+      "Bei einem Produkt werden die Vergrößerungsfaktoren beider Faktoren zusammen berücksichtigt. Bei Division mit Rest helfen gleichwertige Endnullen."
     ]
   },
   "math1_10_groessen": {

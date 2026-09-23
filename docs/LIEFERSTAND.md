@@ -1,5 +1,11 @@
 # Lieferstand und nächste Prioritäten
 
+Fortschritt 23.09.2026: Dezimalzahlen der ersten Klasse um vier Werkstätten mit 24 Aufgaben und 131 eigenen Rechenschritten erweitert. Revision 4 mit 23 bewerteten Fragen; alle 69 Kapitelantwortwege, 162 freien Übungsantwortwege, 1146 Browserzustände und sämtliche 38 endgültigen Druckseiten im dokumentierten Umfang geprüft. Vier Papieralternativen und Lösungen für alle 100 bisherigen Zusatzaufgaben ergänzt; Druckabstände, Rechenschrift und mobile Tabellen verbessert. [Inhalte und Nachweise](MATHEMATIK_DEZIMAL_RECHENWEGE.md). Änderungen lokal nach `a3df4e9`; übrige Erstklasspräzisierungen, weitere Fachabgleiche und Gesamtauftrag bleiben offen.
+
+
+Fortschritt 21.09.2026: Nach dem angeforderten GitHub-Zwischenstand `a3df4e9` die mehrstellige Addition/Subtraktion abschließend geprüft und die Erklärung zu Hilfsdarstellung und Ergebnisziffer präzisiert. Zwei Werkstätten mit 16 Aufgaben und 66 Rechenschritten; alle 27 Antwortwege, 618 Browserzustände und sämtliche 15 endgültigen Druckseiten im dokumentierten Umfang geprüft. Vier Papieralternativen, fünf Lösungsgruppen und 20 erzeugte Aufgaben mit Proben. [Inhalte und Nachweise](MATHEMATIK_SCHRIFTLICH_ADD_SUB.md). Nächster konkreter Bereich: eigene schriftliche Rechenschritte mit nichtnegativen Dezimalzahlen. Neue Nacharbeiten lokal nach `a3df4e9`; Gesamtauftrag offen. Ältere Einträge beschreiben den damaligen Stand.
+
+
 ## GitHub-Zwischenstand vom 21.09.2026: schriftliches Rechnen und Verhältnisse
 
 Dieser auf Nutzerwunsch gesicherte Zwischenstand enthält die abgeschlossenen Nacharbeiten an Geometrie-Modellen, Verhältnissen/Proportionen sowie schriftlicher Multiplikation und Division. Die in älteren Einträgen als lokal bezeichneten Änderungen sind damit ebenfalls enthalten.

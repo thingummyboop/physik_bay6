@@ -5,6 +5,9 @@
     <title>Arbeitsblatt</title>
     <style>
       @media print {
+        [data-decimal-paper] li,[data-decimal-solution] p{break-inside:avoid;page-break-inside:avoid}
+        .decimal-bridge{display:flex;gap:5mm;margin:12px 0}.decimal-bridge>div{flex:1;min-width:0;border:1px solid #aaa;padding:8px;break-inside:avoid}.decimal-bridge>div>strong,.decimal-bridge>div>span{display:block}.decimal-bridge .inline-frac{display:inline-flex;align-items:center;gap:2px;white-space:nowrap}
+        .decimal-calc-grid>div{break-inside:avoid}.decimal-calc-grid pre{font-size:14px;line-height:1.4}
         .pyth-figure,.pyth-paper,.pyth-task,[data-pyth-solution] p,[data-pyth-generated],[data-pyth-model-limit] {break-inside:avoid;page-break-inside:avoid}
         .pyth-figure svg {display:block;width:85mm;height:auto;margin:auto}
         .pyth-proof-pair {display:flex;gap:5mm}.pyth-proof-pair .pyth-figure {flex:1;min-width:0}.pyth-proof-pair svg{width:75mm;max-width:100%}

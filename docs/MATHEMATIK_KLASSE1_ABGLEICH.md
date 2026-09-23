@@ -15,11 +15,19 @@ Grundlage: gespeicherter RIS-Lehrplantext vom 05.09.2026, Kompetenzbeschreibunge
 | Daten und Kennzahlen | math2_8_statistik, der ersten Klasse zugeordnet | Listen/Tabelle/Säulen, Minimum/Maximum/Spannweite, Mittelwert/Median mit interaktiven Vergleichen vorhanden. | Eigenständige Datenerhebung und Übertragung verschiedener Darstellungen abschließend prüfen. |
 | Abzählaufgaben/Baumdiagramm | math2_8_statistik/sec_abzaehlen | Sechs Kombinationen in Tabelle und Text-Baumstruktur, eigener Zeichenauftrag, Einschränkungen und zwei geprüfte Fragen ergänzt. | Visuelle und Unterrichtserprobung offen. |
 
-## Aktuelle Ergänzung: Multiplikation und Division
+## Aktuelle Ergänzung: Dezimalzahlen
+
+Vier Werkstätten mit 24 Aufgaben und 131 eigenen Rechenschritten verbinden Stellenwertausrichtung, Überträge/Entbündeln, Produkt-Skalierung und Restumtausch. Alle 69 Kapitelantwortwege und 162 freien Übungsantwortwege, 1146 Browserzustände und alle 38 Druckseiten im dokumentierten Umfang geprüft. Vier Papieralternativen und zugeordnete Lösungen für alle 100 Zusatzaufgaben. [Inhalte und Nachweise](MATHEMATIK_DEZIMAL_RECHENWEGE.md). Die dokumentierte Verfahrenslücke ist damit bearbeitet; die vollständige Kompetenzfolge, Transferbreite und übrigen Erstklasspräzisierungen bleiben offen.
+
+## Vorherige Ergänzung: Addition und Subtraktion
+
+Die mehrstelligen Verfahren sind nun mit zwei Werkstätten und 16 Aufgaben ausgearbeitet. Werterhaltung beim Entbündeln, 66 eigene Rechenschritte, alle 27 Antwortwege, 618 Browserzustände und alle 15 Druckseiten im dokumentierten Umfang geprüft. [Inhalte und Nachweise](MATHEMATIK_SCHRIFTLICH_ADD_SUB.md). Die damals festgestellte nächste Lücke zu eigenen schriftlichen Dezimal-Rechenschritten ist inzwischen im oben beschriebenen Umfang bearbeitet. Die übrigen Erstklasspräzisierungen bleiben offen.
+
+## Vorherige Ergänzung: Multiplikation und Division
 
 Das Kapitel ist vollständig gelesen und um zwei Werkstätten mit 16 Aufgaben und 72 Rechenschritten erweitert. Alle 58 Antwortwege, 654 Browserzustände und 22 Druckseiten im dokumentierten Umfang geprüft. Die zuvor nur statischen Verfahren werden damit auch interaktiv geübt; Papieraufgaben haben vollständige Vergleichslösungen. [Umfang und Nachweise](MATHEMATIK_SCHRIFTLICH_MULT_DIV.md).
 
-Als Nächstes die mehrstellige Addition/Subtraktion bearbeiten: Erklärungen zum Bündeln/Entbündeln sind vorhanden, die bisherigen Eingaben prüfen jedoch nur Endergebnisse zweistelliger Aufgaben. Nichtnegative Dezimalzahlen und weitere Präzisierungen bleiben gesondert zu prüfen. Die folgende ältere Zusammenfassung beschreibt den damaligen Stand.
+Die seinerzeit als nächste Arbeit genannte mehrstellige Addition/Subtraktion ist inzwischen im oben dokumentierten Umfang ergänzt und geprüft. Nichtnegative Dezimalzahlen und weitere Präzisierungen bleiben gesondert zu prüfen. Die folgende ältere Zusammenfassung beschreibt den damaligen Stand.
 
 ## Historische nächste Prüfung
 

@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{JSDOM}=require('jsdom');
+const root=path.join(__dirname,'..'),dom=new JSDOM('',{runScripts:'outside-only'}),w=dom.window;w.eval(fs.readFileSync(path.join(root,'js/worksheet_generator.js'),'utf8'));const box=w.document.createElement('div');box.innerHTML=w.generateWorksheetContent('math1_9_dezimalzahlen','Dezimalzahlen');
+const tasks=[...box.querySelectorAll('[data-decimal-generated]')],answers=[...box.querySelector('template').content.querySelectorAll('[data-decimal-generated-answer]')];assert.equal(tasks.length,100);assert.equal(answers.length,100);assert.deepEqual(tasks.map(e=>e.dataset.decimalGenerated),answers.map(e=>e.dataset.decimalGeneratedAnswer));
+const parse=s=>{s=s.trim();if(/^\d+ \d+\/\d+$/.test(s)){const[whole,n,d]=s.split(/[ /]/).map(BigInt);return [whole*d+n,d];}if(/^\d+\/\d+$/.test(s))return s.split('/').map(BigInt);assert.match(s,/^\d+(?:,\d+)?$/);const[a,b='']=s.split(',');return [BigInt(a+b),10n**BigInt(b.length)];};
+const same=(a,b)=>assert.equal(a[0]*b[1],b[0]*a[1]);let arithmetic=0,rounding=0,comparison=0,fractionChains=0;
+for(let i=0;i<100;i++){const id=tasks[i].dataset.decimalGenerated,section=+id.split('.')[0],source=tasks[i].textContent.replace(/^D\d+\.\d+\.\s*/,''),answer=answers[i].querySelector('p').textContent;
+ if([6,7,8].includes(section)){const m=source.match(/^([\d,]+)\s*€?\s*([+−\-·:])\s*([\d,]+)\s*€?\s*=/);assert.ok(m,source);const[a,ad]=parse(m[1]),[b,bd]=parse(m[3]),op=m[2];const expected=op==='+'?[a*bd+b*ad,ad*bd]:['−','-'].includes(op)?[a*bd-b*ad,ad*bd]:op==='·'?[a*b,ad*bd]:[a*bd,ad*b];same(parse(answer.match(/=\s*([\d,]+)/)[1]),expected);arithmetic++;}
+ if(section===4){const m=source.match(/Runde ([\d,]+) auf (Ganze|Zehntel|Hundertstel)/);assert.ok(m);const[n,d]=parse(m[1]),factor={Ganze:1n,Zehntel:10n,Hundertstel:100n}[m[2]],rounded=(n*factor*2n+d)/(2n*d);same(parse(answer.match(/≈\s*([\d,]+)/)[1]),[rounded,factor]);rounding++;}
+ if(section===3&&+id.split('.')[1]<=10){const[a,op,b]=answer.replace(/\.$/,'').split(' '),[an,ad]=parse(a),[bn,bd]=parse(b);assert.equal(op,an*bd<bn*ad?'<':an*bd>bn*ad?'>':'=');const numbers=source.match(/\d+(?:,\d+)?/g);same(parse(a),parse(numbers[0]));same(parse(b),parse(numbers[1]));comparison++;}
+ if(section===5){const parts=answer.replace(/\.$/,'').split(' = ').map(parse);parts.slice(1).forEach(part=>same(parts[0],part));fractionChains++;}
+}
+assert.equal(arithmetic,36);assert.equal(rounding,12);assert.equal(comparison,10);assert.equal(fractionChains,12);
+dom.window.close();console.log('PASS: 100 individually mapped decimal worksheet answers; exact independent verification of 36 arithmetic tasks, 12 rounding tasks, ten comparisons and twelve fraction-equality chains. Remaining context explanations require authored review.');
