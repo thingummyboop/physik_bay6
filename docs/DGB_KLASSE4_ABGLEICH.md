@@ -45,20 +45,20 @@ Nachweis: [Datenspuren](DGB_DATENSPUREN.md), [Wiki-Werkstatt](DGB_WIKI_UEBERARBE
 
 Nachweis: [Medienkontext und Kommunikation](DGB_MEDIENKONTEXT.md).
 
-## Produktion – dgb8_produktion, Revision 3
+## Produktion – dgb8_produktion, Revision 4
 
 | Anforderung | Fundstelle und Lernprodukt | Arbeitsbefund |
 |---|---|---|
 | T: Programme iterativ mit verschachtelten Schleifen und zusammengesetzten Bedingungen entwickeln | sec3 und examples/rasterwerkstatt.html: originale und geänderte HTML-Datei, UND-Bedingung, Grenzfälle und erneuter Test | Konkret ausgearbeitet |
-| G: Darstellungsformen ausprobieren und ihre Wahrnehmungswirkung hinterfragen | mediale Vergleiche in Kommunikation/sec2; Produktionskapitel selbst bietet nur generischen Gestaltungsauftrag | Teilweise: eigene Varianten eines tatsächlich gestalteten Produkts mit gleicher Aussage und dokumentiertem Wahrnehmungsvergleich fehlen als zusammenhängender Produktionsauftrag |
-| I: mit bereitgestellten Medien und Software zielgerichtet kreativ kooperieren | sec3: Rollen im Rasterprojekt wechseln; Kommunikation/sec3: eigene Skizze austauschen | Teilweise: ausführbare Vorlage ist vorhanden, gemeinsames Medienprodukt mit bereitgestelltem Material und überprüfbarer Zusammenführung noch konkretisieren |
+| G: Darstellungsformen ausprobieren und ihre Wahrnehmungswirkung hinterfragen | medienprojekt: zwei selbst gestaltete Einladungen mit identischem Wortlaut, Gewichtung/Schrift/Farbe, Leserfragen und dokumentierter Überarbeitung | Ausgearbeitet; gleiche Aussage im ersten Gestaltungsvergleich und ausdrücklich begrenzte Aussagekraft weniger Rückmeldungen |
+| I: mit bereitgestellten Medien und Software zielgerichtet kreativ kooperieren | medienprojekt und examples/medienprojekt.html: Text-/Grafikmaterial, getrennte Rollenbeiträge, gemeinsame Datei und erneuter Test nach Zusammenführung | Ausgearbeiteter Kooperationsauftrag; tatsächliche Zusammenarbeit wird durch Unterrichtsprodukte belegt, Einzelarbeit ausdrücklich unterschieden |
 | I: einfache Programme/Webanwendungen für eine Aufgabe erstellen | sec3: Rasterregel gezielt ändern, eigene Erweiterung planen, digitale Fassung und Tests abgeben | Ausgearbeitet; nicht nur Ablaufplan oder Multiple Choice |
 | Anwendung Programmdokumentation | sec3: veränderte Stelle, Erwartung, tatsächliches Ergebnis, Fehler und erneuter Test | Ausgearbeitet |
-| Anwendung Projektplanung mit Aufgabenverteilung und Zeitplan | sec3: generischer Teamauftrag mit mindestens drei Schritten und wechselnden Rollen | Teilweise: vollständigen Projektbrief mit Material, Meilensteinen, Abhängigkeiten und Abnahmekriterien bereitstellen |
+| Anwendung Projektplanung mit Aufgabenverteilung und Zeitplan | medienprojekt: Projektbrief, sechs Meilensteine für zweimal 50 Minuten nach der Rasteraufgabe, Rollen/Übergaben, fünf Protokollbereiche und Abnahmekriterien | Konkret ausgearbeitet; bei zusätzlichem Zeitbedarf Termin anpassen, fehlenden Test nicht als erledigt markieren |
 | Anwendung grafische Notationen/Pseudocode | sec1/sec3: eigener Pseudocode, zwei ineinanderliegende Schleifen und Bedingungen nachvollziehen | Pseudocode konkret vorhanden; weitere grafische Notation ist eine mögliche Ergänzung, keine automatisch behauptete Pflicht zu einem zusätzlichen Diagrammformat |
-| Anwendung ästhetischer und technischer Kompetenzen in Medienprojekten | technischer Rasterversuch; Gestaltung lediglich als Teamrolle | Konkrete Lücke: eigene Gestaltung, begründete Variantenwahl und technische Umsetzung zusammenführen |
+| Anwendung ästhetischer und technischer Kompetenzen in Medienprojekten | sec3 plus medienprojekt: eigene Rasterprogrammversionen, zwei gestaltete Plakate, wieder bearbeitbare Arbeitsdatei und geprüfte Exporte | Konkrete Lücke bearbeitet; Gestaltung, Programmierung, Dateitechnik und nachvollziehbare Verbesserung in einer Projektabgabe verbunden |
 
-Nächste inhaltliche Arbeit aus dieser Matrix: ein zusammenhängender Medienprojektauftrag in Produktion, der die genannten Teilbefunde gemeinsam schließt. Bestehenden Rastercode und bereits ausgearbeitete Medienvergleiche weiterverwenden; nicht erneut durch einen bloßen allgemeinen Auftrag ersetzen.
+Der zuvor als nächste Arbeit benannte Medienprojektauftrag ist mit Material, Werkzeug, Teamplan und überprüfbaren Produkten ergänzt. [Inhalte, Datei-/Browser-/Druckprüfung und Grenzen](DGB_MEDIENPROJEKT.md). Die bestehenden Raster-Programmieraufgaben bleiben erhalten.
 
 ## Handeln – dgb8_handeln, Revision 1
 
@@ -75,4 +75,4 @@ Nachweis: [Systeme, Verschlüsselung und Verbraucherfragen](DGB_VERSCHLUESSELUNG
 
 ## Konsequenz für die Fertigstellung
 
-Die Matrix benennt einen konkreten nächsten Ausbau in Produktion sowie begrenzte verbleibende Rechts-/Quellenprüfungen. Sie ist keine Freigabe aller DGB-Jahrgänge und kein Ersatz für Browser-/Drucktests. Die neue Wiki-Werkstatt und die beiden neuen Orientierungsanwendungen sind erledigte Inhaltsschritte. Die älteren Formulierungen „weitere Anwendungen offen“ dürfen nicht ohne diesen aktuellen Abgleich als neue Lücken behandelt werden. Übersetzungen bleiben ausgesetzt; der Gesamtauftrag für alle vorhandenen Fächer bleibt bestehen.
+Die konkrete Produktionslücke ist bearbeitet. Als nächste Arbeit für diese Klassenmatrix bleiben die gezielten Rechts-/Quellenprüfungen in Kommunikation und Handeln. Die Matrix ist keine Freigabe aller DGB-Jahrgänge und kein Ersatz für Browser-/Drucktests. Wiki-Werkstatt, Orientierungsanwendungen und Medienprojekt sind erledigte Inhaltsschritte. Die älteren Formulierungen „weitere Anwendungen offen“ dürfen nicht ohne diesen aktuellen Abgleich als neue Lücken behandelt werden. Übersetzungen bleiben ausgesetzt; der Gesamtauftrag für alle vorhandenen Fächer bleibt bestehen.

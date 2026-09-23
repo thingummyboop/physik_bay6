@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medienprojekt: Raster entdecken – SciVerse</title>
+<style>
+:root{font:1rem/1.6 system-ui,sans-serif;color:#182b46;background:#eef5fb;--surface:#fff;--line:#63748b;--link:#164ea2}*{box-sizing:border-box}
+body{max-width:78rem;margin:auto;padding:1.2rem}.exported{max-width:46rem}h1,h2,h3{line-height:1.25}a{color:var(--link)}header,section,article,fieldset{min-width:0}fieldset,.panel{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:.6rem;background:var(--surface)}legend,label{font-weight:650}label{display:block;margin-top:.8rem}input,textarea,select,button{font:inherit;max-width:100%;min-height:44px;color:inherit}input,textarea,select{width:100%;padding:.55rem;border:1px solid var(--line);border-radius:.3rem;background:var(--surface)}textarea{min-height:6rem;resize:vertical}button{padding:.6rem .85rem;border:1px solid var(--line);border-radius:.4rem;background:var(--surface);cursor:pointer}.actions{display:flex;gap:.65rem;flex-wrap:wrap}.status{min-height:3rem;padding-left:.7rem;border-left:4px solid var(--link)}:focus-visible{outline:3px solid #bd6500;outline-offset:3px}[hidden]{display:none!important}
+.posters{display:grid;gap:1.2rem}.poster{--ink:#172554;--paper:#fff;--accent:#174ea6;--tint:#eaf2ff;--title:2rem;color:var(--ink);background:var(--paper);border:2px solid var(--accent);border-radius:.8rem;padding:1.2rem;overflow-wrap:anywhere}.poster[data-palette="wald"]{--ink:#16352a;--accent:#226344;--tint:#eaf5ed}.poster[data-palette="beere"]{--ink:#482139;--accent:#873460;--tint:#fcecf4}.poster h2{font-size:var(--title);margin:.7rem 0}.poster p{white-space:pre-wrap}.poster .facts{padding:.9rem;background:var(--tint);border-left:5px solid var(--accent)}.poster[data-focus="plan"] .facts{font-size:1.2rem;font-weight:650}.poster[data-focus="plan"] h2{font-size:1.5rem}.poster figure{margin:1rem 0}.poster svg{display:block;width:100%;max-width:16rem;height:auto;margin:0 auto;color:var(--accent)}.poster figcaption{font-size:.9rem}.poster .source{font-size:.8rem}.poster .tag{font-size:.85rem;font-weight:650;letter-spacing:.04em;text-transform:uppercase}.variant-label{font-size:1rem;font-weight:700}.poster .invitation{font-weight:700;color:var(--accent)}
+@media(min-width:850px){.posters,.designs{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 1.2rem}}
+@media(max-width:400px){body{padding:.7rem}fieldset,.panel,.poster{padding:.75rem}}
+@media(prefers-color-scheme:dark){:root{color:#e8effa;background:#142033;--surface:#203048;--line:#a1b0c6;--link:#9ac8ff}.poster{color-scheme:light}}
+@media print{:root{background:white}.editor,.variant-label{display:none!important}body{padding:0;background:white;color:black;max-width:none}.posters{display:block}.poster{break-before:page;box-shadow:none;margin:0 0 1rem}.poster:first-child{break-before:auto}.poster figure{break-inside:avoid}h2,h3{break-after:avoid}}
+</style>
+</head>
+<body><main>
+<header class="editor"><a id="chapter-link" href="../index.html#dgb8_produktion">Zum Produktionskapitel</a><p>Digitale Grundbildung · 4. Klasse</p><h1>Eine Aussage, zwei Gestaltungen</h1>
+<p>Gestaltet im Team eine Einladung für eine neue erste Klasse. Beide Fassungen verwenden dieselben Texte und dieselbe Rastergrafik. Verändert Gewichtung, Titelschrift und Farbe. Untersucht, was zuerst auffällt und welche Angaben eure Leser:innen wiederfinden.</p>
+<p><strong>Übung, keine echte Veranstaltung:</strong> Die Rasterstation findet im erfundenen Projekt am Projekttag von 10:00 bis 10:30 Uhr im Raum 2 statt. Eine Runde dauert etwa 10 Minuten. Material liegt bereit, die Teilnahme ist kostenlos. Diese Angaben bleiben erhalten; Formulierungen dürft ihr verbessern.</p>
+<p>Ohne Konto, ohne automatische Speicherung. „Arbeitsdatei speichern“ lädt eine wieder bearbeitbare HTML-Datei herunter. Öffne diese Datei zum Weiterarbeiten im Browser. „Plakat herunterladen“ speichert nur die ausgewählte Einladung. Es wird nichts veröffentlicht. Nutze erfundene Angaben statt echter Namen.</p>
+<noscript><p>Für Bearbeitung und Download muss JavaScript eingeschaltet sein. Die Arbeitsaufträge stehen auch im Kapitel.</p></noscript></header>
+<section class="editor" aria-labelledby="edit-title"><h2 id="edit-title">Gemeinsame Inhalte zusammenführen</h2><p>Das Textteam liefert den Entwurf; das Prüfteam vergleicht ihn mit dem Projektbrief. Eine Person führt die vereinbarten Beiträge hier zusammen. Beide Vorschauen übernehmen denselben Wortlaut, ohne ihn fachlich zu bewerten.</p>
+<fieldset><legend>Texte für beide Fassungen</legend><div class="fields">
+<div><label for="headline">Überschrift (bis 100 Zeichen)</label><input id="headline" type="text" maxlength="100" value="Raster entdecken">
+<label for="intro">Was können die Besucher:innen ausprobieren?</label><textarea id="intro" maxlength="700">Welche Felder bekommen einen Punkt? Sage ein Muster voraus, ändere eine Regel und prüfe deine Idee an der Rasterstation.</textarea></div>
+<div><label for="facts">Wann, wo, Dauer und Teilnahme</label><textarea id="facts" maxlength="700">Projekttag · 10:00–10:30 Uhr · Raum 2
+Eine Runde dauert etwa 10 Minuten. Material liegt bereit. Die Teilnahme ist kostenlos.</textarea>
+<label for="invitation">Einladung zum Mitmachen</label><input id="invitation" type="text" maxlength="180" value="Komm vorbei und teste deine Vermutung!"></div>
+</div><label for="caption">Grafik erklären: Was bedeutet ein Punkt?</label><textarea id="caption" maxlength="700">Beispiel: 3 Zeilen, 3 Spalten, Grenze 4. Ein Punkt erscheint, wenn Zeile + Spalte höchstens 4 ist UND Zeile und Spalte verschieden sind. Vier von neun Feldern sind markiert.</textarea></fieldset>
+<div class="designs">
+<fieldset><legend>Fassung A gestalten</legend><label for="focus-a">Welche Information hervorheben?</label><select id="focus-a"><option value="idea">Idee und Überschrift</option><option value="plan">Zeit und Teilnahme</option></select><label for="size-a">Titelgröße bei „Idee und Überschrift“</label><select id="size-a"><option value="2">Mittel</option><option value="2.6" selected>Groß</option></select><label for="palette-a">Farbpalette</label><select id="palette-a"><option value="blau">Blau</option><option value="wald">Waldgrün</option><option value="beere">Beere</option></select></fieldset>
+<fieldset><legend>Fassung B gestalten</legend><label for="focus-b">Welche Information hervorheben?</label><select id="focus-b"><option value="idea">Idee und Überschrift</option><option value="plan" selected>Zeit und Teilnahme</option></select><label for="size-b">Titelgröße bei „Idee und Überschrift“</label><select id="size-b"><option value="2" selected>Mittel</option><option value="2.6">Groß</option></select><label for="palette-b">Farbpalette</label><select id="palette-b"><option value="blau">Blau</option><option value="wald">Waldgrün</option><option value="beere">Beere</option></select></fieldset>
+</div>
+<fieldset><legend>Teamprotokoll – gehört zur Arbeitsdatei, nicht zum Plakat</legend><label for="notes">Beiträge, Rückmeldung, Entscheidung und erneuter Test</label><textarea id="notes" maxlength="6000" placeholder="Rollen statt Namen: Wer lieferte welchen Beitrag? Was wurde zusammengeführt? Erste Wahrnehmung bei A/B? Wo fanden Leser:innen Zeit und Kosten? Welche Änderung haben wir warum übernommen? Was ergab der erneute Test?"></textarea></fieldset>
+<div class="actions"><button id="save" type="button">Arbeitsdatei speichern</button><button id="show-preview" type="button">Zur Vorschau</button></div>
+<p id="status" class="status" role="status" aria-live="polite">Texte und Gestaltung werden nur in dieser offenen Arbeitsdatei geändert.</p>
+</section>
+<section aria-labelledby="preview-title"><h2 id="preview-title" class="editor" tabindex="-1">A und B vergleichen</h2><p class="editor">Vorschau für Bildschirm und Plakat. Die hellen Plakatflächen bleiben auch im dunklen Bedienmodus erhalten. Für einen fairen Vergleich zunächst nur die Gewichtung ändern, dann weitere Gestaltungsmittel untersuchen. Es gibt keine automatisch „beste“ Fassung.</p>
+<div class="posters">
+<article class="poster" id="poster-a" aria-label="Einladung Fassung A"><div class="variant-label editor">Fassung A</div><p class="tag">Erfundene Mitmachstation · Übungsentwurf</p><h2 data-copy="headline"></h2><p data-copy="intro"></p><p class="facts" data-copy="facts"></p><figure><div data-graphic></div><figcaption data-copy="caption"></figcaption></figure><p class="invitation" data-copy="invitation"></p><p class="source">Rastergrafik: für diese SciVerse-Übung erstellt. Modellregel aus der Rasterwerkstatt; kein Foto einer echten Veranstaltung.</p></article>
+<article class="poster" id="poster-b" aria-label="Einladung Fassung B"><div class="variant-label editor">Fassung B</div><p class="tag">Erfundene Mitmachstation · Übungsentwurf</p><h2 data-copy="headline"></h2><p data-copy="intro"></p><p class="facts" data-copy="facts"></p><figure><div data-graphic></div><figcaption data-copy="caption"></figcaption></figure><p class="invitation" data-copy="invitation"></p><p class="source">Rastergrafik: für diese SciVerse-Übung erstellt. Modellregel aus der Rasterwerkstatt; kein Foto einer echten Veranstaltung.</p></article>
+</div></section>
+<section class="panel editor" aria-labelledby="export-title"><h2 id="export-title">Ergebnis prüfen und abgeben</h2><ol><li>Zeigt A und B zwei Testpersonen nacheinander, bei der zweiten in umgekehrter Reihenfolge. Ohne Hinweis fragen: „Was fällt dir zuerst auf? Wann und wo ist die Station? Kostet sie etwas?“ Allein: zwei getrennte Lesedurchgänge durchführen und die fehlende Außenperspektive notieren.</li><li>Haltet konkrete Antworten im Teamprotokoll fest. Wenige Rückmeldungen belegen keine Wirkung bei allen Menschen. Verbessert gezielt eine Stelle und testet sie erneut.</li><li>Speichert beide Plakate und die Arbeitsdatei. Öffnet die Downloads in einem neuen Browserfenster, prüft Texte, Grafik und Darstellung bei schmalem Fenster. Ergänzt diesen Test im Protokoll und speichert die Arbeitsdatei erneut.</li></ol>
+<label for="chosen">Welche Fassung herunterladen?</label><select id="chosen"><option value="a">Fassung A</option><option value="b">Fassung B</option></select><div class="actions"><button id="export" type="button">Plakat herunterladen</button></div><p>Ein Plakat enthält keine Bearbeitungsfelder und kein Teamprotokoll. Zum Drucken öffne das heruntergeladene Plakat und verwende die Druckfunktion des Browsers. Vor einer echten Nutzung müssten Datum, Ort und Freigabe geklärt werden.</p></section>
+</main>
+<script>
+'use strict';
+const textFields=['headline','intro','facts','invitation','caption'];
+function render(){
+  for(const field of textFields)for(const target of document.querySelectorAll('[data-copy="'+field+'"]'))target.textContent=document.getElementById(field).value;
+  for(const variant of ['a','b']){
+    const poster=document.getElementById('poster-'+variant);
+    poster.dataset.focus=document.getElementById('focus-'+variant).value;
+    poster.dataset.palette=document.getElementById('palette-'+variant).value;
+    poster.style.setProperty('--title',document.getElementById('size-'+variant).value+'rem');
+  }
+}
+function rasterGraphic(){
+  const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 220 220');svg.setAttribute('role','img');svg.setAttribute('aria-label','Raster mit 3 Zeilen und 3 Spalten. Punkte bei Zeile 1 Spalte 2, Zeile 1 Spalte 3, Zeile 2 Spalte 1 und Zeile 3 Spalte 1.');
+  const element=(tag,attributes,text)=>{const e=document.createElementNS(ns,tag);for(const [key,value]of Object.entries(attributes))e.setAttribute(key,value);if(text!==undefined)e.textContent=text;svg.append(e);return e;};
+  for(let n=1;n<=3;n++){element('text',{x:35+50*n,y:45,'text-anchor':'middle',fill:'currentColor','font-size':16},String(n));element('text',{x:40,y:40+50*n,'text-anchor':'middle',fill:'currentColor','font-size':16},String(n));}
+  for(let row=1;row<=3;row++)for(let col=1;col<=3;col++){
+    element('rect',{x:10+50*col,y:10+50*row,width:50,height:50,fill:'none',stroke:'currentColor'});
+    if(row+col<=4&&row!==col)element('circle',{cx:35+50*col,cy:35+50*row,r:9,fill:'currentColor','data-cell':row+','+col});
+  }
+  return svg;
+}
+function workspaceHTML(){
+  const copy=document.documentElement.cloneNode(true);
+  for(const field of document.querySelectorAll('input,textarea,select')){
+    const target=copy.querySelector('#'+field.id);
+    if(field.tagName==='TEXTAREA')target.textContent=field.value;
+    else if(field.tagName==='SELECT')for(const option of target.options)option.toggleAttribute('selected',option.value===field.value);
+    else target.setAttribute('value',field.value);
+  }
+  copy.querySelector('#status').textContent='Gespeicherte Arbeitsdatei geöffnet. Weitere Änderungen wieder als Arbeitsdatei speichern.';
+  return '<!doctype html>\n'+copy.outerHTML;
+}
+function posterHTML(variant){
+  const output=document.implementation.createHTMLDocument('Rasterstation – Fassung '+variant.toUpperCase());output.documentElement.lang='de';
+  const charset=output.createElement('meta');charset.setAttribute('charset','utf-8');output.head.prepend(charset);
+  const viewport=output.createElement('meta');viewport.name='viewport';viewport.content='width=device-width, initial-scale=1';output.head.append(viewport,document.querySelector('style').cloneNode(true));
+  const main=output.createElement('main'),poster=document.getElementById('poster-'+variant).cloneNode(true);poster.querySelectorAll('.editor').forEach(e=>e.remove());main.append(poster);output.body.className='exported';output.body.append(main);
+  return '<!doctype html>\n'+output.documentElement.outerHTML;
+}
+function download(text,name){
+  const url=URL.createObjectURL(new Blob([text],{type:'text/html;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  document.getElementById('status').textContent='Download angefordert: '+name+'. Öffne die gespeicherte Datei zur Kontrolle. Es wurde nichts veröffentlicht.';
+}
+document.querySelectorAll('[data-graphic]').forEach(target=>target.replaceChildren(rasterGraphic()));
+document.querySelectorAll('input,textarea,select').forEach(input=>input.addEventListener('input',()=>{render();document.getElementById('status').textContent='Arbeitsfassung geändert. Vor dem Schließen erneut speichern.';}));
+document.getElementById('show-preview').addEventListener('click',()=>document.getElementById('preview-title').focus());
+document.getElementById('save').addEventListener('click',()=>download(workspaceHTML(),'rasterstation-arbeitsdatei.html'));
+document.getElementById('export').addEventListener('click',()=>{const variant=document.getElementById('chosen').value;download(posterHTML(variant),'rasterstation-'+variant+'.html');});
+if(location.protocol==='file:')document.getElementById('chapter-link').href='https://thingummyboop.github.io/physik_bay6/index.html#dgb8_produktion';
+render();
+</script>
+</body></html>

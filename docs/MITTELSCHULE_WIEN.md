@@ -1,5 +1,7 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+23.09.2026, Weiterarbeit nach `ceb183e`: DGB-Produktion der 4. Klasse verbindet jetzt die Raster-Programmieraufgabe mit einem konkreten Medienprojekt. Lernende gestalten zwei Einladungen, führen Rollenbeiträge zusammen, vergleichen Leserantworten und speichern überprüfte Dateien. [Projekt, Material und Teilprüfungen](DGB_MEDIENPROJEKT.md). Revision 4 mit neun Fragen. Neue Änderungen lokal; Gesamtauftrag und übrige Fach-/Produktprüfungen bleiben offen.
+
 23.09.2026: DGB-Information der 4. Klasse enthält jetzt eine eigenständige Wiki-Werkstatt mit Quellenvergleich, Überarbeitung, Speichern/Wiederherstellen und lesbarem Export. Revision 3 umfasst acht Fragen. [Inhalte und Teilprüfungen](DGB_WIKI_UEBERARBEITUNG.md), [aktueller Klassenabgleich](DGB_KLASSE4_ABGLEICH.md). Die DGB-Weiterarbeit nach `47c553a` wird auf Nutzerwunsch als GitHub-Zwischenstand gesichert; der Gesamtauftrag bleibt offen.
 
 23.09.2026, Weiterarbeit nach `47c553a`: DGB-Orientierung der 4. Klasse ergänzt die Anwendungen automatisierte Mobilität und vernetzte Gesundheitsdaten mit sechs Fällen, acht weiterführenden Aufträgen, sechs neuen Fragen und Papierlösungen. [Inhalte und abgeschlossene Teilprüfungen](DGB_ASSISTENZ_MOBILITAET_GESUNDHEIT.md). Der Gesamtauftrag bleibt offen; Übersetzungen bleiben auf Nutzerwunsch ausgesetzt.

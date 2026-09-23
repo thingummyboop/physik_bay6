@@ -1,5 +1,7 @@
 # DGB – belegter Arbeitsabgleich
 
+23.09.2026, nach `ceb183e`: Der in der Klassenmatrix benannte Medienprojektauftrag der 4. Klasse ist ergänzt. Bereitgestellte Texte/Grafik, zwei gestaltbare Einladungen, gemeinsame Arbeitsdatei, Teamplan mit Abhängigkeiten, Leser-Test und geprüfte Exporte verbinden Gestaltung und den bestehenden Rastercode. Revision 4 mit neun Fragen; gezielte Funktions-, Browser- und Druckprüfungen bestanden. [Nachweise](DGB_MEDIENPROJEKT.md). Nächster Schritt der Klassenmatrix: verbleibende Rechts-/Quellenprüfungen; vollständiger Gesamtauftrag offen.
+
 23.09.2026: Der [aktuelle Abgleich der 4. Klasse](DGB_KLASSE4_ABGLEICH.md) ordnet den Bestand allen fünf Kompetenzbereichen zu. Mobilitäts-/Gesundheitsfälle und die [Wiki-Überarbeitung](DGB_WIKI_UEBERARBEITUNG.md) sind ausgearbeitet. Nächste konkrete Ergänzung ist ein zusammenhängender Medienprojektauftrag in Produktion; weitere Fachprüfungen bleiben offen.
 
 Stand: 08.09.2026. Nutzerpriorität: deutsche Fassung, Übersetzungen pausiert. Dieser Abgleich ersetzt keine fachliche oder schulische Approbation.

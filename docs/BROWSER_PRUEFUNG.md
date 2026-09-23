@@ -1,5 +1,7 @@
 # Browserprüfung des Lernwegs – 14.09.2026
 
+23.09.2026: Neue Medienwerkstatt mit 144 Gestaltungszuständen in sechs Ansichten, echten Arbeitsdatei-/Plakatdownloads, Offline-Weiterarbeit und erneutem Speichern/Öffnen geprüft. Alle 27 Antwortwege des Produktionskapitels bestanden. Sechs zusätzliche Kapitelansichten, neun Farbkontraste, vollständige 17-seitige Lösungsdruckfassung und zwei endgültige einseitige Plakate geprüft. [Umfang, Druckkorrektur und Grenzen](DGB_MEDIENPROJEKT.md). Lokale Weiterarbeit nach `ceb183e`.
+
 23.09.2026: Die neue Wiki-Werkstatt besteht sechs mobile/Desktop-Ansichten in hell/dunkel, Tastaturbedienung, tatsächliche Downloads, Wiederherstellung und Offline-Nutzung. Das Informationskapitel besteht alle 24 Antwortwege und 96 Zustände der bestehenden Datenspuren-Werkstatt. Die 17-seitige Lösungsdruckfassung und der einseitige Beitragsexport wurden gesichtet. [Prüfumfang und Grenzen](DGB_WIKI_UEBERARBEITUNG.md).
 
 23.09.2026: DGB-Orientierung Revision 2 mit Mobilitäts-/Gesundheitsfällen geprüft: 108 native Entscheidungen in 36 Ansichten; alle 42 Kapitelantwortwege und die vorhandene Quellenwerkstatt erneut bestanden. Endgültige 24-seitige Lösungsdruckfassung vollständig gesichtet. Die mobile Datentabelle zeigt alle drei Spalten gemeinsam. [Umfang und Nachweise](DGB_ASSISTENZ_MOBILITAET_GESUNDHEIT.md). Lokale Weiterarbeit nach `47c553a`.
