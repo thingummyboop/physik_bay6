@@ -17,7 +17,11 @@ for(const id of ids){
   if(d.body.textContent.includes('{{QUIZ_'))report.issues.push({id,error:'Unresolved rendered placeholder'});
   const expected=(topic.sections||[]).reduce((n,s)=>n+[...(s.content||'').matchAll(/\{\{QUIZ_([^}]+)\}\}/g)].length,0),actual=d.querySelectorAll('.practice-question').length;
   if(expected!==actual)report.issues.push({id,error:'Practice question count',expected,actual});
-  for(const [selector,key]of [['[data-core-intro] li','learningGoals'],['#chapter-summary li','summary']])if(topic[key]?.length&&d.querySelectorAll(selector).length!==topic[key].length)report.issues.push({id,error:'Guide count '+key});
+  // Core lists and the separately disclosed extension lists have different scopes.
+  for(const [selector,key]of [['[data-core-intro] > ul > li','learningGoals'],['#chapter-summary > ul > li','summary'],['[data-core-intro] > details > ul > li','extensionGoals'],['[data-extension-summary] > ul > li','extensionSummary']]){
+   const expected=topic[key]||[],actual=[...d.querySelectorAll(selector)].map(li=>li.textContent);
+   if(JSON.stringify(actual)!==JSON.stringify(expected))report.issues.push({id,error:'Guide content '+key,expected,actual});
+  }
   const comparisons=['1,41² < 2 und 1,42² > 2','x < 3 und y > 4'];for(const s of comparisons)if(w.cleanQuestionText(s)!==s)report.issues.push({id,error:'Comparison text damaged'});
   if(w.cleanQuestionText('<strong>Frage</strong><br>mit Text')!=='Frage mit Text')report.issues.push({id,error:'HTML question cleanup'});
   report.rendered++;

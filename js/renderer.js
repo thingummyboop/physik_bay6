@@ -1221,6 +1221,18 @@ function normalizeQuizQuestion(q, source, index) {
     };
 }
 
+function quizReviewSectionIndex(topic, question, fallbackIndex = null) {
+    const sections = topic.sections || [];
+    const eligible = section => section && section.level !== 'extension' && !section.practiceOnly;
+    if (question && Object.prototype.hasOwnProperty.call(question, 'reviewSectionId')) {
+        const id = question.reviewSectionId;
+        if (typeof id !== 'string' || !id.trim()) return null;
+        const matches = sections.map((section, index) => section.id === id ? index : -1).filter(index => index >= 0);
+        return matches.length === 1 && eligible(sections[matches[0]]) ? matches[0] : null;
+    }
+    return Number.isInteger(fallbackIndex) && eligible(sections[fallbackIndex]) ? fallbackIndex : null;
+}
+
 function collectChapterQuizQuestions(topic) {
     const seen = new Set();
     const addUnique = (list, q) => {
@@ -1236,7 +1248,9 @@ function collectChapterQuizQuestions(topic) {
         if (section.level === 'extension' || section.practiceOnly) return;
         (section.quizzes || []).forEach((q, quizIndex) => {
             if (q && q.practiceOnly) return;
-            addUnique(sectionQuestions, normalizeQuizQuestion(q, `section_${sectionIndex}`, quizIndex));
+            const normalized = normalizeQuizQuestion(q, `section_${sectionIndex}`, quizIndex);
+            if (normalized) normalized.sectionIndex = quizReviewSectionIndex(topic, q, sectionIndex);
+            addUnique(sectionQuestions, normalized);
         });
     });
 
@@ -1247,7 +1261,7 @@ function collectChapterQuizQuestions(topic) {
         const normalized = normalizeQuizQuestion(q, 'topic', quizIndex);
         if (normalized) {
             const sectionIndex = (topic.sections || []).findIndex(section => String(section.content || '').includes('{{QUIZ_' + q.id + '}}'));
-            normalized.sectionIndex = sectionIndex >= 0 ? sectionIndex : null;
+            normalized.sectionIndex = quizReviewSectionIndex(topic, q, sectionIndex);
         }
         addUnique(topicQuestions, normalized);
     });
@@ -1255,7 +1269,9 @@ function collectChapterQuizQuestions(topic) {
     const diplomQuestions = [];
     ((topic.diplom && topic.diplom.questions) || []).forEach((q, quizIndex) => {
         if (q && q.practiceOnly) return;
-        addUnique(diplomQuestions, normalizeQuizQuestion(q, 'chapter', quizIndex));
+        const normalized = normalizeQuizQuestion(q, 'chapter', quizIndex);
+        if (normalized) normalized.sectionIndex = quizReviewSectionIndex(topic, q);
+        addUnique(diplomQuestions, normalized);
     });
 
     const combined = [...diplomQuestions, ...sectionQuestions, ...topicQuestions];
@@ -1674,7 +1690,8 @@ function closeChapterQuiz() {
 }
 
 function reviewChapterSection(sectionIndex) {
-    const section = document.querySelector(`[data-chapter-section="${Number(sectionIndex)}"]`);
+    if (!Number.isInteger(sectionIndex) || sectionIndex < 0) return;
+    const section = document.querySelector(`#sections-container > [data-chapter-section="${sectionIndex}"]`);
     if (!section) return;
     closeChapterQuiz();
     const heading = section.querySelector('h2');

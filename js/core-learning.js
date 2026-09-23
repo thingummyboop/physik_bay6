@@ -34,7 +34,9 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
  try{const stored=JSON.parse(localStorage.getItem('sciverse_chapter_quiz_results')||'{}')[topicId];const result=window.currentChapterResult?window.currentChapterResult(topicId,stored):stored;if(result?.reviewQuestionIds?.length){const unknown=new Set(result.reviewQuestionIds),list=make('ul');reviewBox.append(make('h3',ui("Beim letzten Versuch noch unsicher")));
   for(const question of window.currentChapterQuiz?.questions||[]){if(!unknown.has(question.id))continue;const li=make('li',question.question);
    const section=Number.isInteger(question.sectionIndex)?container.querySelector(`[data-chapter-section="${question.sectionIndex}"]`):null;
-   if(section){const link=make('a',ui("Abschnitt wiederholen: ")+(section.querySelector('h2')?.textContent||''));link.href='#'+section.id;li.append(make('br'),link);}
+   if(section){const link=make('a',ui("Abschnitt wiederholen: ")+(section.querySelector('h2')?.textContent||''));link.href='#'+section.id;
+    link.addEventListener('click',event=>{if(event.button||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||typeof window.reviewChapterSection!=='function')return;event.preventDefault();window.reviewChapterSection(question.sectionIndex);});
+    li.append(make('br'),link);}
    else if(topic.summary?.length){const link=make('a',ui("Zusammenfassung wiederholen"));link.href='#chapter-summary';li.append(make('br'),link);}
    list.append(li);}reviewBox.append(list);}}
  catch{/* No usable local result yet. */}

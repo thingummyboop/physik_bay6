@@ -1,5 +1,7 @@
 # Browserprüfung des Lernwegs – 14.09.2026
 
+23.09.2026, 19:04:37 UTC: [Gezielte Wiederholungswege](QUIZ_WIEDERHOLUNGSWEGE.md) für alle 105 Viertklassfragen geprüft: 245 Sprünge aus Auswertungen und 105 aus erneut geladenen Fehlerlisten per Tastatur, 36 Kapitel-/Ansichtskombinationen. Fokus, Stofflisten und gespeicherte Ergebnisse erhalten. Mobiler Überlauf einer Strahlungsfrage behoben; relevante Bildschirmansichten und beide ergänzten Wettertexte im Druck visuell gelesen. Keine vollständige neue Druck- oder Fachabnahme.
+
 23.09.2026, 18:51:35 UTC: [Wetter Revision 4](PHYSIK_WETTER_FRAGEN.md) abschließend in sechs Ansichten geprüft. 39 freie Antworten per Tastatur und 54 bewertete Antwortwege, neue Feuchtetabelle mit Tastatur-Scrollen, keine Browserfehler. Drei relevante Bildschirmansichten und alle 14 betroffenen Druckseiten gelesen; nach letzter Textverbesserung die zwei veränderten Seiten erneut geprüft. 19 Schülerseiten und abgetrennte Lösungen stimmen zusammen. Gesamtumfang und verbleibende Grenzen stehen im Fachbericht.
 
 Abschluss 23.09.2026, 18:36:00 UTC: [Wärmelehre Revision 5](PHYSIK_WAERME_FRAGEN.md) besteht sechs native Ansichten, 42 per Tastatur bediente freie Antworten und alle 87 bewerteten Antwortwege. Keine Browserfehler; zwei relevante Bildschirmansichten und alle 15 von den geänderten Fragen/Lösungen betroffenen Druckseiten gelesen. Die Schülerfassung ist von den Lösungen getrennt. Keine erneute visuelle Abnahme der unveränderten Modell- und Versuchsseiten in diesem Schritt.

@@ -19,8 +19,8 @@ async function page(query,fail=false,math={typesetPromise:async()=>{}}){const do
  assert.equal(w.worksheetText('x < 3 und x > 1'),'x < 3 und x > 1');
  const sampleDom=await page('?topic=waermelehre');const sample=sampleDom.window.document.createElement('div');sampleDom.window.renderWorksheetQuestions({quizzes:[{question:'Pr&uuml;fe &lt;img src=x onerror=alert(1)&gt;',answers:[{text:'Gr&ouml;&szlig;er',correct:true,feedback:'&Uuml;berpr&uuml;ft'}]}]},sample);
  assert.ok(sample.textContent.includes('Prüfe <img src=x onerror=alert(1)>'));assert.ok(sample.textContent.includes('Größer'));assert.equal(sample.querySelector('img'),null);sampleDom.window.close();
- assert.equal(d.querySelector('#ws-print').disabled,false);assert.equal(d.querySelectorAll('#ws-content > .question-block').length,24);
- assert.ok(d.querySelectorAll('.worksheet-options li').length>=42);assert.equal(d.querySelector('#ws-solutions').hidden,true);
+ assert.equal(d.querySelector('#ws-print').disabled,false);assert.equal(d.querySelectorAll('#ws-content > .question-block').length,29);
+ assert.equal(d.querySelectorAll('#ws-content > .question-block .worksheet-options li').length,87);assert.equal(d.querySelector('#ws-solutions').hidden,true);
  const toggle=d.querySelector('#ws-include-solutions');toggle.checked=true;toggle.dispatchEvent(new w.Event('change'));assert.equal(d.querySelector('#ws-solutions').hidden,false);toggle.checked=false;toggle.dispatchEvent(new w.Event('change'));assert.equal(d.querySelector('#ws-solutions').hidden,true);
  assert.match(d.querySelector('#ws-chapter-link').href,/physik_bay6\/topics\/template.html\?topic=waermelehre$/);
  assert.match(d.querySelector('#ws-description').textContent,/bleiben beim Neuladen gleich/);
@@ -42,5 +42,5 @@ async function page(query,fail=false,math={typesetPromise:async()=>{}}){const do
  }
  const dynamic=await page('?topic=math1_8_brueche');assert.equal(dynamic.window.document.querySelector('#ws-print').disabled,false);assert.equal(dynamic.window.document.querySelector('#ws-solution-control').hidden,false);assert.match(dynamic.window.document.querySelector('#ws-description').textContent,/können sich die Übungszahlen ändern/);dynamic.window.close();
  for(const [query,fail,pattern]of [['',false,/Kein Kapitel/],['?topic=unknown',false,/nicht gefunden/],['?topic=waermelehre',true,/nicht geladen/]]){const dom=await page(query,fail);assert.equal(dom.window.document.querySelector('#ws-print').disabled,true);assert.match(dom.window.document.querySelector('#ws-content').textContent,pattern);dom.window.close();}
- console.log('PASS: 24 current worksheet questions with options, solution print toggle, chapter links, comparison symbols, question deduplication, dynamic exercises and missing/failed load states; all art materials, figures, sources, workshop tasks and independent material/solution toggles.');
+ console.log('PASS: 29 current worksheet questions with all 87 options, solution print toggle, chapter links, comparison symbols, question deduplication, dynamic exercises and missing/failed load states; all art materials, figures, sources, workshop tasks and independent material/solution toggles.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
