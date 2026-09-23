@@ -1,5 +1,14 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+Fortschritt 23.09.2026: Die zehn erzeugten Ohm-Papieraufgaben haben jetzt eindeutige Nummern, Rechenhilfe sowie passende Lösungen mit Einheitenumrechnung und Probe. Alle 50 Zahlen-/Aufgabenkombinationen, drei Browserziehungen und die neuen Druckseiten geprüft. Schüler- und Lösungsfassung bleiben getrennt; Aufgaben ändern sich beim Lösungsschalten nicht. [Nachweise](PHYSIK_OHM_PAPIERAUFGABEN.md). Kapitelrevision bleibt 6. Änderungen lokal nach `f601fda`; weitere Grafik-, Fach- und Gesamtprüfungen offen.
+
+
+Fortschritt 23.09.2026: Elektrizität auf Revision 6 erweitert: sechs Fallbeschreibungen zu Stromwirkungen, begründete Mehrfachauswahl, kontrollierter Schulvergleich und Papieraufgaben. Elf alte Fragen präzisiert, vier ergänzt; Kondensator-Vertiefung ans Kapitelende verschoben. Alle 84 Kapitelantwortwege und 84 freien Übungsantwortwege im Browser sowie 192 Werkstatt-Auswahlkombinationen geprüft. Zugehörige Druckseiten gesichtet. [Umfang und Nachweise](PHYSIK_STROMWIRKUNGEN.md). Änderungen lokal nach `f601fda`; nächste belegte Lücke: Lösungen zu den erzeugten Ohm-Papieraufgaben. Gesamtauftrag offen.
+
+
+Fortschritt 23.09.2026: Nach dem gesicherten GitHub-Zwischenstand `f601fda` Elektrizität um einen Vergleich von Modell und ausdrücklich erfundenen Datenreihen erweitert. Schrittweises Aufdecken, Diagramm/Tabelle, begründete Entscheidungen, Papieralternative und eigener Messauftrag mit acht Protokollzeilen. Vier neue Fragen, Revision 5; 48 Browserzustände, 144 Entscheidungen und zwölf neue Kapitelantwortwege bestanden. Zugehörige Druckseiten visuell geprüft. [Umfang und Grenzen](PHYSIK_STROM_MESSDATEN.md). Diese Ergänzung ist lokal; weitere Stromwirkungen, Fachabgleiche und Gesamtauftrag bleiben offen.
+
+
 Fortschritt 23.09.2026: Dezimalzahlen der ersten Klasse um vier Werkstätten mit 24 Aufgaben und 131 eigenen Rechenschritten erweitert. Revision 4 mit 23 bewerteten Fragen; alle 69 Kapitelantwortwege, 162 freien Übungsantwortwege, 1146 Browserzustände und sämtliche 38 endgültigen Druckseiten im dokumentierten Umfang geprüft. Vier Papieralternativen und Lösungen für alle 100 bisherigen Zusatzaufgaben ergänzt; Druckabstände, Rechenschrift und mobile Tabellen verbessert. [Inhalte und Nachweise](MATHEMATIK_DEZIMAL_RECHENWEGE.md). Änderungen lokal nach `a3df4e9`; übrige Erstklasspräzisierungen, weitere Fachabgleiche und Gesamtauftrag bleiben offen.
 
 

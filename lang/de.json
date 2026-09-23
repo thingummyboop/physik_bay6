@@ -3642,19 +3642,25 @@
         "quizzes": [
           {
             "id": "elektrizitaet_s0_q0",
-            "question": "Ein Elektron (-) und ein Proton (+) treffen sich:",
+            "question": "Ein negativ geladenes Elektron und ein positiv geladenes Proton sind nahe beieinander. Welche elektrische Kraft wirkt zwischen ihnen?",
             "answers": [
               {
-                "text": "Sie ziehen sich an",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Richtig: Plus und Minus ziehen sich an."
+                "text": "Sie stoßen sich ab, weil beide elektrisch geladen sind.",
+                "feedback": "Entscheidend sind die Vorzeichen: Ungleichnamige Ladungen ziehen sich an.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Sie stoßen sich ab",
+                "text": "Sie ziehen sich an, weil ihre Ladungen unterschiedliche Vorzeichen haben.",
+                "feedback": "Negative und positive Ladung ziehen sich an. Eine Berührung ist dafür nicht nötig.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Es wirkt erst dann eine elektrische Kraft, wenn sie sich berühren.",
+                "feedback": "Die elektrische Wechselwirkung wirkt auch über einen Abstand.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Gleiche Ladungen stoßen sich ab. Plus und Minus ziehen sich an."
+                "pts": 0
               }
             ]
           },
@@ -3691,43 +3697,49 @@
         "quizzes": [
           {
             "id": "elektrizitaet_s1_q0",
-            "question": "Ein Stück Gummi (z.B. ein Radiergummi):",
+            "question": "Ein trockener Radiergummi wird in einem geeigneten Schul-Stromkreis anstelle eines Metallstücks als Verbindung eingesetzt. Was erwartest du unter üblichen Bedingungen?",
             "answers": [
               {
-                "text": "Isolator (Strom stoppt)",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Richtig: Gummi lässt Strom kaum durch."
+                "text": "Er leitet ähnlich gut wie das Metallstück.",
+                "feedback": "Trockener Gummi ist im Vergleich zu Metall ein sehr schlechter Leiter.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Leiter (Strom fließt)",
+                "text": "Er leitet gut, sobald er beide Leitungsenden berührt.",
+                "feedback": "Kontakt allein reicht nicht: Auch das Material muss Ladung ausreichend gut transportieren können.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Gummi ist ein Isolator. Metall wäre ein Leiter."
+                "pts": 0
+              },
+              {
+                "text": "Er leitet sehr schlecht; die Lampe bleibt im vorgesehenen Versuch aus.",
+                "feedback": "Trockener Gummi wirkt unter diesen Bedingungen als Isolator. Das ist keine Garantie für beliebige Spannungen oder verschmutztes Material.",
+                "correct": true,
+                "pts": 0
               }
             ]
           },
           {
             "id": "elektrizitaet_s1_q1",
-            "question": "Wozu dient die intakte Kunststoffhülle eines Kabels?",
+            "question": "Welche Aufgabe hat die intakte Kunststoffhülle eines Kabels?",
             "answers": [
               {
-                "text": "Sie isoliert die leitenden Adern und verhindert direkten Kontakt.",
+                "text": "Sie trennt die leitenden Adern voneinander und verhindert direkten Kontakt mit ihnen.",
+                "feedback": "Die Hülle isoliert. Bei sichtbarer Beschädigung darf das Kabel nicht weiter benutzt werden.",
                 "correct": true,
-                "pts": 0,
-                "feedback": "Die Hülle trennt Leiter voneinander und von der Umgebung."
+                "pts": 0
               },
               {
-                "text": "Sie macht ein beschädigtes Kabel immer sicher.",
+                "text": "Sie transportiert den Hauptteil des elektrischen Stroms neben dem Metall.",
+                "feedback": "Der vorgesehene Stromweg liegt in den leitenden Adern, nicht in der isolierenden Hülle.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Beschädigte Kabel dürfen nicht benutzt werden."
+                "pts": 0
               },
               {
-                "text": "Sie erhöht absichtlich den Strom durch unsere Hand.",
+                "text": "Sie sorgt dafür, dass im Metall kein elektrischer Strom fließt.",
+                "feedback": "Sie verhindert unerwünschte Kontakte, während der Strom in den Adern fließen kann.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Die Hülle soll den Kontakt zum Leiter verhindern."
+                "pts": 0
               }
             ]
           }
@@ -3740,19 +3752,25 @@
         "quizzes": [
           {
             "id": "elektrizitaet_s2_q0",
-            "question": "Du baust einen Stromkreis, aber ein Kabel in der Mitte ist durchgeschnitten (die Drahtenden berühren sich nicht). Was passiert?",
+            "question": "Eine Batterie versorgt eine einzelne Lampe über einen unverzweigten Stromkreis. Ein Schalter unterbricht den einzigen Stromweg. Was geschieht nach dem Ausschalten?",
             "answers": [
               {
-                "text": "Die Lampe bleibt aus.",
-                "correct": true,
-                "pts": 5,
-                "feedback": "Richtig: Der Kreis ist offen, also bleibt die Lampe aus."
+                "text": "Die Lampe leuchtet dauerhaft weiter, weil eine Leitung noch mit der Batterie verbunden ist.",
+                "feedback": "Für dauerhaften Strom braucht es den vollständigen Hin- und Rückweg.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Die Lampe leuchtet trotzdem.",
+                "text": "Die Lampe erlischt, weil der geschlossene Stromweg fehlt.",
+                "feedback": "Die Unterbrechung verhindert den dauerhaften Strom durch die Lampe.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Die Lampe leuchtet dauerhaft halb so hell, weil nur einer der beiden Wege fehlt.",
+                "feedback": "Hin- und Rückleitung sind gemeinsam nötig. Eine Unterbrechung halbiert die Stromstärke nicht einfach.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Bei einer Lücke gibt es keinen geschlossenen Weg. Die Lampe kann nicht leuchten."
+                "pts": 0
               }
             ]
           },
@@ -3761,40 +3779,46 @@
             "question": "Warum kann ein Heizdraht beim Stromfluss warm werden?",
             "answers": [
               {
-                "text": "Elektrische Energie wird an das Material übertragen und erhöht dessen innere Energie.",
+                "text": "Weil die Stromstärke hinter dem Draht kleiner wird und der fehlende Strom als Wärme übrig bleibt.",
+                "feedback": "Im unverzweigten stationären Stromkreis ist die Stromstärke vor und nach dem Draht gleich. Umgewandelt wird Energie.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Weil allein ein großer Widerstand den Draht auch ohne Energiezufuhr heiß hält.",
+                "feedback": "Ein Widerstand ist keine Energiequelle. Für fortlaufendes Heizen muss Energie zugeführt werden.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Weil elektrische Energie an das Material übertragen wird und dessen innere Energie erhöhen kann.",
+                "feedback": "Die Quelle stellt Energie bereit; der Draht wird wärmer und gibt zugleich Energie an die Umgebung ab.",
                 "correct": true,
-                "pts": 0,
-                "feedback": "Die Energie stammt aus der Energiequelle und wird umgewandelt."
-              },
-              {
-                "text": "Elektronen werden verbraucht und verschwinden vollständig.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Ladung wird im Draht nicht verbraucht."
-              },
-              {
-                "text": "Der Widerstand erzeugt Energie aus dem Nichts.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Widerstand ist keine Energiequelle."
+                "pts": 0
               }
             ]
           },
           {
             "id": "elek_q_parallel",
-            "question": "In welcher Schaltung leuchten alle anderen Lampen weiter, wenn eine Lampe kaputtgeht?",
+            "question": "Zwei geeignete Lampen werden von einer funktionierenden Quelle versorgt. Der Glühfaden von L1 bricht und unterbricht nur ihren Stromweg. Bei welcher Schaltung kann L2 weiterleuchten?",
             "answers": [
               {
-                "text": "In der Parallelschaltung (jede hat ihren eigenen Weg)",
+                "text": "Bei der Parallelschaltung, weil L2 einen weiterhin geschlossenen eigenen Zweig hat.",
+                "feedback": "Nur der Zweig durch L1 ist offen. Der Zweig durch L2 bleibt mit der Quelle verbunden.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: In der Parallelschaltung hat jede Lampe einen eigenen Weg."
+                "pts": 0
               },
               {
-                "text": "In der Reihenschaltung (wie auf einer Schnur)",
+                "text": "Bei der Reihenschaltung, wenn L2 näher am Pluspol liegt.",
+                "feedback": "In der Reihe unterbricht L1 den gemeinsamen Weg. Die Reihenfolge der Lampen ändert das nicht.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Bei der Reihenschaltung ist eine kaputte Lampe wie eine Lücke im ganzen Kreis."
+                "pts": 0
+              },
+              {
+                "text": "Bei beiden Schaltungen, solange nur eine Lampe defekt ist.",
+                "feedback": "In der Reihe reicht eine Unterbrechung aus, um den gemeinsamen Stromweg zu öffnen.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -3910,49 +3934,49 @@
         "quizzes": [
           {
             "id": "elektrizitaet_s3_q0",
-            "question": "Wie wird Ladung im Elektrolyten einer Batterie transportiert?",
+            "question": "Wie wird elektrische Ladung im Elektrolyten einer Batterie transportiert?",
             "answers": [
               {
-                "text": "Durch bewegliche Ionen.",
+                "text": "Durch freie Elektronen wie im Kupferdraht.",
+                "feedback": "Im Elektrolyten übernehmen bewegliche Ionen den Ladungstransport; das unterscheidet ihn vom Metalldraht.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Durch bewegliche positive und negative Ionen.",
+                "feedback": "Ionen tragen elektrische Ladung. Ihre Bewegung ermöglicht den inneren Ladungstransport.",
                 "correct": true,
-                "pts": 0,
-                "feedback": "Geladene Ionen ermöglichen den inneren Ladungstransport."
+                "pts": 0
               },
               {
-                "text": "Der Elektrolyt verhindert jeden Ladungstransport.",
+                "text": "Durch eine Strömung ausschließlich ungeladener Flüssigkeitsteilchen.",
+                "feedback": "Ungeladene Teilchen transportieren dabei keine elektrische Nettoladung. Entscheidend sind die geladenen Ionen.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Ohne inneren Ladungstransport wäre kein dauerhafter Strom möglich."
-              },
-              {
-                "text": "Durch einen leeren Tunnel für alle Elektronen.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Der Elektrolyt ist kein metallischer Elektronenleiter."
+                "pts": 0
               }
             ]
           },
           {
             "id": "elektrizitaet_s3_q1",
-            "question": "Welche Richtung hat die mittlere Elektronenbewegung im äußeren Metallkreis einer Batterie während der Stromabgabe?",
+            "question": "In welche Richtung bewegen sich Elektronen im äußeren Metalldraht bei der Stromabgabe einer Batterie im Mittel?",
             "answers": [
               {
-                "text": "Vom Minuspol zum Pluspol.",
+                "text": "Vom Pluspol zum Minuspol, also in technischer Stromrichtung.",
+                "feedback": "Die technische Stromrichtung ist entgegengesetzt zur mittleren Bewegung der negativen Elektronen vereinbart.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Vom Minuspol bis zur Lampe; danach gibt es keine gerichtete Elektronenbewegung mehr.",
+                "feedback": "Die Lampe verbraucht keine Elektronen. Ladung wird auch im Rückweg transportiert.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Vom Minuspol zum Pluspol, entgegen der technischen Stromrichtung.",
+                "feedback": "Die negativen Elektronen driften im äußeren Metallkreis zum Pluspol. Der technische Strompfeil zeigt andersherum.",
                 "correct": true,
-                "pts": 0,
-                "feedback": "Die technische Stromrichtung ist entgegengesetzt vereinbart."
-              },
-              {
-                "text": "Vom Pluspol zum Minuspol.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Das ist die technische Stromrichtung, nicht die Richtung der Elektronenbewegung."
-              },
-              {
-                "text": "Die Elektronen wechseln ständig zu Protonen.",
-                "correct": false,
-                "pts": 0,
-                "feedback": "Elektronen werden im Draht nicht zu Protonen."
+                "pts": 0
               }
             ]
           }
@@ -3965,59 +3989,130 @@
         "quizzes": [
           {
             "id": "q_ohm",
-            "question": "Was passiert mit der Stromstärke (I), wenn du die Spannung (U) erhöhst, aber der Widerstand gleich bleibt?",
+            "question": "Im Ohm-Modell werden gleichzeitig U von 6 V auf 12 V und R von 50 Ω auf 100 Ω erhöht. Was geschieht mit I?",
             "answers": [
               {
-                "text": "Die Stromstärke wird größer (mehr Elektronen fließen).",
+                "text": "I bleibt 0,12 A, weil U und R im gleichen Verhältnis wachsen.",
+                "feedback": "6 V ÷ 50 Ω und 12 V ÷ 100 Ω ergeben beide 0,12 A. Die Wirkungen der beiden Änderungen gleichen sich hier aus.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Mehr Spannung schiebt bei gleichem Widerstand mehr Strom."
+                "pts": 0
               },
               {
-                "text": "Die Stromstärke wird kleiner.",
+                "text": "I verdoppelt sich auf 0,24 A, weil U doppelt so groß wird.",
+                "feedback": "Das wäre bei unverändertem R richtig. Hier verdoppelt sich aber auch der Widerstand.",
                 "correct": false,
-                "pts": 5,
-                "feedback": "Bei gleichem Widerstand macht mehr Spannung nicht weniger Strom."
+                "pts": 0
+              },
+              {
+                "text": "I halbiert sich auf 0,06 A, weil R doppelt so groß wird.",
+                "feedback": "Das wäre bei unverändertem U richtig. Hier verdoppelt sich aber auch die Spannung.",
+                "correct": false,
+                "pts": 0
               }
             ]
-          }
-        ],
-        "content": "<p>Die Spannung U wird in Volt (V), die Stromstärke I in Ampere (A) und der Widerstand R in Ohm (Ω) angegeben. Stromstärke bedeutet Ladungsmenge pro Zeit. Für einen ohmschen Widerstand bei gleichbleibenden Bedingungen gilt U = R · I, also I = U ÷ R. Bei 6 V und 50 Ω ergibt sich 0,12 A. Eine doppelte Spannung ergibt bei gleichem Widerstand die doppelte Stromstärke. Reale Glühlampen ändern beim Erwärmen ihren Widerstand. Der Rechner verwendet feste Widerstandswerte; die Lampenhelligkeit ist nur eine Anzeige für die berechnete Stromstärke, keine Vorhersage einer echten Lampe.</p><div class=\"interactive-zone\">\n            <h3>⚡ Der Ohm-Rechner</h3>\n            <p>Verändere Spannung und Widerstand. Beobachte, wie hell die Lampe leuchtet!</p>\n            <details class=\"step-reveal\"><summary>Erst schätzen, dann testen</summary><p>Mehr Spannung schiebt stärker. Mehr Widerstand bremst stärker. Die Stromstärke ist I = U ÷ R.</p></details>\n            <label for=\"uRange\">Spannung U in Volt:</label> <input type=\"range\" id=\"uRange\" min=\"1\" max=\"12\" value=\"6\" oninput=\"updateOhm()\"> <span id=\"uVal\">6V</span><br>\n            <label for=\"rRange\">Widerstand R in Ohm:</label> <input type=\"range\" id=\"rRange\" min=\"10\" max=\"100\" value=\"50\" oninput=\"updateOhm()\"> <span id=\"rVal\">50 Ω</span>\n            \n            <div class=\"diagram-box\" style=\"background: #fdfdfd;\">\n                <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n                    <rect x=\"50\" y=\"100\" width=\"200\" height=\"10\" fill=\"#555\"></rect>\n                    <circle id=\"ohmBulb\" cx=\"150\" cy=\"60\" r=\"30\" fill=\"#FFF176\" stroke=\"#FBC02D\" stroke-width=\"2\" style=\"transition: filter 0.3s;\"></circle>\n                    <text id=\"iValText\" x=\"150\" y=\"130\" text-anchor=\"middle\" font-weight=\"bold\" fill=\"#1976D2\">Stromstärke I = 0.12 A</text>\n                </svg>\n            </div>\n            <p id=\"ohmFeedback\" class=\"lab-feedback\">Mittlerer Strom: Verändere U oder R und beobachte die Lampe.</p>\n        </div><h3>Untersuchung: Was verändert die Stromstärke?</h3><p>Der Rechner zeigt ein Modell mit konstantem Widerstand, keine Messung an einer echten Glühlampe. Arbeite am Bildschirm oder rechne auf Papier. Notiere zuerst deine Vorhersage, bevor du den Regler bewegst.</p><table data-ohm-comparison><caption>Drei Modellfälle zum Vergleichen</caption><thead><tr><th>Fall</th><th>Spannung U</th><th>Widerstand R</th><th>Deine Vorhersage für I</th><th>Berechnung und Anzeige</th></tr></thead><tbody><tr><th>A</th><td>6 V</td><td>50 Ω</td><td>…</td><td>…</td></tr><tr><th>B</th><td>12 V</td><td>50 Ω</td><td>…</td><td>…</td></tr><tr><th>C</th><td>6 V</td><td>100 Ω</td><td>…</td><td>…</td></tr></tbody></table><ol data-ohm-task><li>Berechne für A die Stromstärke mit I = U ÷ R. Schreibe Zahl und Einheit auf und vergleiche mit der Anzeige.</li><li>Vergleiche A mit B: Welche Größe bleibt gleich? Sage voraus, wie sich I verändert. Stelle B ein und prüfe deine Vorhersage.</li><li>Stelle zuerst A wieder ein. Verdopple dann nur R für Fall C. Begründe die Änderung von I.</li><li>Bei B und C ändern sich U und R gleichzeitig. Erkläre, warum dieser Vergleich allein nicht zeigt, welchen Einfluss nur die Spannung hat.</li><li>Finde einen weiteren einstellbaren Fall mit derselben Stromstärke wie A. Prüfe deinen Vorschlag rechnerisch und mit den Reglern. Erkläre, warum die Bildschirmhelligkeit keine Messung der Helligkeit einer echten Lampe ersetzt.</li></ol><details data-ohm-solution><summary>Ergebnisse vergleichen</summary><p>A: 0,12 A. B: 0,24 A, also doppelt so viel bei gleichem R. C: 0,06 A, also halb so viel bei gleichem U. B und C unterscheiden sich in beiden Eingangsgrößen. Ein weiterer Fall mit 0,12 A ist 12 V bei 100 Ω. Der Rechner setzt einen konstanten Widerstand voraus; eine echte Glühlampe verändert beim Erwärmen ihren Widerstand und ihre Helligkeit folgt nicht einfach dieser Anzeige.</p></details>{{QUIZ_q_ohm}}"
-      },
-      {
-        "id": "sec4",
-        "title": "7. Vertiefung: Kondensator als Energiespeicher",
-        "quizzes": [
+          },
           {
-            "id": "elektrizitaet_s4_q0",
-            "question": "Welche Aussage zum Kondensator stimmt?",
+            "id": "electric_evidence_single",
+            "question": "Bei 1 V ergibt eine Datenreihe 20 mA. Das passt zu 50 Ω. Was kannst du daraus schließen?",
             "answers": [
               {
-                "text": "Er speichert Energie im elektrischen Feld und kann sie je nach Schaltung schnell abgeben.",
+                "text": "Damit ist bewiesen, dass der Widerstand bei jeder Spannung 50 Ω bleibt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein einzelnes Wertepaar zeigt nicht, wie sich das Bauteil bei anderen Spannungen verhält."
+              },
+              {
+                "text": "Dieses Wertepaar passt; weitere Werte bei anderen Spannungen sind nötig.",
                 "correct": true,
                 "pts": 0,
-                "feedback": "Auch der angeschlossene Widerstand beeinflusst die Entladedauer."
+                "feedback": "Genau: Die Übereinstimmung an einer Stelle ist noch kein Nachweis für einen konstanten Widerstand."
               },
               {
-                "text": "Er erzeugt bei jeder Entladung neue Energie.",
+                "text": "Das Bauteil muss eine Glühlampe sein.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Er gibt zuvor gespeicherte Energie ab."
+                "feedback": "Ein Wertepaar bestimmt die Bauart nicht. Auch andere Bauteile können hier denselben Strom haben."
+              }
+            ]
+          },
+          {
+            "id": "electric_evidence_double",
+            "question": "Ein Bauteil hat bei 2 V eine Stromstärke von 30 mA und bei 4 V von 50 mA. Welche Aussage passt?",
+            "answers": [
+              {
+                "text": "U und I haben sich beide verdoppelt.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Spannung hat sich verdoppelt, die Stromstärke ist aber von 30 auf 50 statt auf 60 mA gestiegen."
               },
               {
-                "text": "Er muss sich unabhängig von der Schaltung immer gleich schnell entladen.",
+                "text": "Die Ladung wird bei 4 V stärker verbraucht.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Die Entladedauer hängt von Kondensator und Schaltung ab."
+                "feedback": "Ladung wird im Bauteil nicht verbraucht. Die Werte beschreiben unterschiedliche Betriebszustände."
+              },
+              {
+                "text": "Der Quotient U ÷ I ist bei 4 V größer; ein konstanter Widerstand beschreibt diese beiden Werte nicht genau.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Bei 2 V und 0,030 A sind es rund 66,7 Ω, bei 4 V und 0,050 A 80 Ω. Die Quotienten sind verschieden."
+              }
+            ]
+          },
+          {
+            "id": "electric_evidence_deviation",
+            "question": "Für eine Übung gilt: Abweichungen bis 2 mA werden als passend zum Modell gewertet. Modell: 40 mA, Beispielwert: 41 mA. Wie urteilst du?",
+            "answers": [
+              {
+                "text": "Der Wert liegt innerhalb der vereinbarten Spanne; das beweist das Modell nicht für alle Fälle.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "1 mA Abweichung ist kleiner als 2 mA. Diese Aufgabenregel ist keine allgemeine Genauigkeitsangabe für echte Messgeräte."
+              },
+              {
+                "text": "Jede Abweichung widerlegt das Modell sofort.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Für diese Übung ist eine Vergleichsspanne vorgegeben. Bei echten Messungen müssen Messunsicherheit und Bedingungen berücksichtigt werden."
+              },
+              {
+                "text": "Alle Strommessgeräte sind auf genau 2 mA genau.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die 2 mA wurden nur für diese erfundene Aufgabe festgelegt. Echte Geräte haben eigene Angaben."
+              }
+            ]
+          },
+          {
+            "id": "electric_evidence_measuring",
+            "question": "Beim angeleiteten Schulversuch sollen Spannung am Bauteil und Stromstärke bestimmt werden. Welche Anordnung ist richtig?",
+            "answers": [
+              {
+                "text": "Beide Messgeräte werden direkt parallel zur Quelle angeschlossen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Ein Strommessgerät darf nicht direkt parallel zur Quelle liegen: Sein kleiner Widerstand kann einen Kurzschluss verursachen."
+              },
+              {
+                "text": "Der Spannungsmesser liegt parallel zum Bauteil, der Strommesser in Reihe im Stromkreis.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Der Spannungsmesser vergleicht die beiden Anschlüsse des Bauteils. Der Strommesser liegt im Stromweg; die Lehrkraft prüft Anschlüsse und Messbereiche."
+              },
+              {
+                "text": "Der Spannungsmesser liegt in Reihe und der Strommesser parallel zum Bauteil.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Damit sind die Rollen vertauscht. Die Lehrkraft prüft den spannungsfreien Aufbau vor dem Einschalten."
               }
             ]
           }
         ],
-        "content": "<p>Ein Kondensator besitzt zwei leitende Flächen, getrennt durch einen Isolator. Beim Laden entsteht ein Überschuss negativer Ladung auf einer Fläche und ein entsprechender Mangel auf der anderen. Energie ist im elektrischen Feld gespeichert. Ein Kondensator kann Energie schnell abgeben, etwa in einem Kamerablitz. Die Entladedauer hängt aber von der gesamten Schaltung ab; sie ist nicht immer kurz. Geräte mit Kondensatoren werden für unsere Aufgaben nicht geöffnet.</p><div class=\"diagram-box\">\n            <svg width=\"340\" height=\"220\" viewBox=\"0 0 340 220\" xmlns=\"http://www.w3.org/2000/svg\">\n                <line x1=\"20\" y1=\"110\" x2=\"80\" y2=\"110\" stroke=\"#555\" stroke-width=\"5\" stroke-linecap=\"round\"></line>\n                <line x1=\"260\" y1=\"110\" x2=\"320\" y2=\"110\" stroke=\"#555\" stroke-width=\"5\" stroke-linecap=\"round\"></line>\n\n                <rect x=\"120\" y=\"50\" width=\"100\" height=\"120\" fill=\"#FFF9C4\" stroke=\"#FBC02D\" stroke-width=\"2\" stroke-dasharray=\"5,5\"></rect>\n                <text x=\"170\" y=\"115\" font-size=\"14\" font-weight=\"bold\" fill=\"#F57F17\" text-anchor=\"middle\">Isolator</text>\n                <text x=\"170\" y=\"135\" font-size=\"12\" fill=\"#F57F17\" text-anchor=\"middle\">(Stoppt Elektronen)</text>\n\n                <rect x=\"80\" y=\"40\" width=\"40\" height=\"140\" rx=\"5\" fill=\"#B0BEC5\" stroke=\"#78909C\" stroke-width=\"3\"></rect>\n                <text x=\"100\" y=\"30\" font-size=\"14\" font-weight=\"bold\" fill=\"#546E7A\" text-anchor=\"middle\">Platte 1</text>\n                <text x=\"100\" y=\"70\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n                <text x=\"100\" y=\"100\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n                <text x=\"100\" y=\"130\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n                <text x=\"100\" y=\"160\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n\n                <rect x=\"220\" y=\"40\" width=\"40\" height=\"140\" rx=\"5\" fill=\"#B0BEC5\" stroke=\"#78909C\" stroke-width=\"3\"></rect>\n                <text x=\"240\" y=\"30\" font-size=\"14\" font-weight=\"bold\" fill=\"#546E7A\" text-anchor=\"middle\">Platte 2</text>\n                <text x=\"240\" y=\"70\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n                <text x=\"240\" y=\"100\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n                <text x=\"240\" y=\"130\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n                <text x=\"240\" y=\"160\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n            </svg>\n            <p>Ein geladener Kondensator: Die Ladungen stehen sich gegenüber, getrennt vom Isolator.</p>\n        </div>{{QUIZ_elektrizitaet_s4_q0}}"
+        "content": "<p>Die Spannung U wird in Volt (V), die Stromstärke I in Ampere (A) und der Widerstand R in Ohm (Ω) angegeben. Stromstärke bedeutet Ladungsmenge pro Zeit. Für einen ohmschen Widerstand bei gleichbleibenden Bedingungen gilt U = R · I, also I = U ÷ R. Bei 6 V und 50 Ω ergibt sich 0,12 A. Eine doppelte Spannung ergibt bei gleichem Widerstand die doppelte Stromstärke. Reale Glühlampen ändern beim Erwärmen ihren Widerstand. Der Rechner verwendet feste Widerstandswerte; die Lampenhelligkeit ist nur eine Anzeige für die berechnete Stromstärke, keine Vorhersage einer echten Lampe.</p><div class=\"interactive-zone\">\n            <h3>⚡ Der Ohm-Rechner</h3>\n            <p>Verändere Spannung und Widerstand. Beobachte, wie hell die Lampe leuchtet!</p>\n            <details class=\"step-reveal\"><summary>Erst schätzen, dann testen</summary><p>Mehr Spannung schiebt stärker. Mehr Widerstand bremst stärker. Die Stromstärke ist I = U ÷ R.</p></details>\n            <label for=\"uRange\">Spannung U in Volt:</label> <input type=\"range\" id=\"uRange\" min=\"1\" max=\"12\" value=\"6\" oninput=\"updateOhm()\"> <span id=\"uVal\">6V</span><br>\n            <label for=\"rRange\">Widerstand R in Ohm:</label> <input type=\"range\" id=\"rRange\" min=\"10\" max=\"100\" value=\"50\" oninput=\"updateOhm()\"> <span id=\"rVal\">50 Ω</span>\n            \n            <div class=\"diagram-box\" style=\"background: #fdfdfd;\">\n                <svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\">\n                    <rect x=\"50\" y=\"100\" width=\"200\" height=\"10\" fill=\"#555\"></rect>\n                    <circle id=\"ohmBulb\" cx=\"150\" cy=\"60\" r=\"30\" fill=\"#FFF176\" stroke=\"#FBC02D\" stroke-width=\"2\" style=\"transition: filter 0.3s;\"></circle>\n                    <text id=\"iValText\" x=\"150\" y=\"130\" text-anchor=\"middle\" font-weight=\"bold\" fill=\"#1976D2\">Stromstärke I = 0.12 A</text>\n                </svg>\n            </div>\n            <p id=\"ohmFeedback\" class=\"lab-feedback\">Mittlerer Strom: Verändere U oder R und beobachte die Lampe.</p>\n        </div><h3>Untersuchung: Was verändert die Stromstärke?</h3><p>Der Rechner zeigt ein Modell mit konstantem Widerstand, keine Messung an einer echten Glühlampe. Arbeite am Bildschirm oder rechne auf Papier. Notiere zuerst deine Vorhersage, bevor du den Regler bewegst.</p><table data-ohm-comparison><caption>Drei Modellfälle zum Vergleichen</caption><thead><tr><th>Fall</th><th>Spannung U</th><th>Widerstand R</th><th>Deine Vorhersage für I</th><th>Berechnung und Anzeige</th></tr></thead><tbody><tr><th>A</th><td>6 V</td><td>50 Ω</td><td>…</td><td>…</td></tr><tr><th>B</th><td>12 V</td><td>50 Ω</td><td>…</td><td>…</td></tr><tr><th>C</th><td>6 V</td><td>100 Ω</td><td>…</td><td>…</td></tr></tbody></table><ol data-ohm-task><li>Berechne für A die Stromstärke mit I = U ÷ R. Schreibe Zahl und Einheit auf und vergleiche mit der Anzeige.</li><li>Vergleiche A mit B: Welche Größe bleibt gleich? Sage voraus, wie sich I verändert. Stelle B ein und prüfe deine Vorhersage.</li><li>Stelle zuerst A wieder ein. Verdopple dann nur R für Fall C. Begründe die Änderung von I.</li><li>Bei B und C ändern sich U und R gleichzeitig. Erkläre, warum dieser Vergleich allein nicht zeigt, welchen Einfluss nur die Spannung hat.</li><li>Finde einen weiteren einstellbaren Fall mit derselben Stromstärke wie A. Prüfe deinen Vorschlag rechnerisch und mit den Reglern. Erkläre, warum die Bildschirmhelligkeit keine Messung der Helligkeit einer echten Lampe ersetzt.</li></ol><details data-ohm-solution><summary>Ergebnisse vergleichen</summary><p>A: 0,12 A. B: 0,24 A, also doppelt so viel bei gleichem R. C: 0,06 A, also halb so viel bei gleichem U. B und C unterscheiden sich in beiden Eingangsgrößen. Ein weiterer Fall mit 0,12 A ist 12 V bei 100 Ω. Der Rechner setzt einen konstanten Widerstand voraus; eine echte Glühlampe verändert beim Erwärmen ihren Widerstand und ihre Helligkeit folgt nicht einfach dieser Anzeige.</p></details>{{QUIZ_q_ohm}}\n<h3>Passt das Modell zu einer Datenreihe?</h3>\n<p>Ein Modell macht Vorhersagen. Erst ein Vergleich mit mehreren Wertepaaren zeigt, wie gut es einen untersuchten Bereich beschreibt. Beim Modell mit konstanten 50 Ω wächst die Stromstärke im gleichen Verhältnis wie die Spannung. Bei einer Glühlampe erwärmt sich der Metallfaden; sein Widerstand steigt. Deshalb lässt sich ihre ganze Kennlinie nicht mit einem einzigen festen Widerstand beschreiben.</p>\n<div class=\"interactive-zone electric-evidence-lab\" data-electric-evidence>\n<h3>Werkstatt: Daten prüfen</h3>\n<p><strong>Die Reihen A und B sind erfundene Übungsdaten, keine echten Messungen.</strong> Vergleiche sie mit dem 50-Ω-Modell. Decke die Werte nacheinander auf und begründe deine Entscheidung mit zwei Wertepaaren.</p>\n<p>Für diese Aufgabe vereinbaren wir: Bis zu 2 mA Abweichung vom Modell gelten als passend. Diese Vergleichsspanne ist frei gewählt; sie ist keine Genauigkeitsangabe für ein Messgerät. 1000 mA = 1 A.</p>\n<label>Datenreihe <select data-evidence-series><option value=\"A\">Reihe A</option><option value=\"B\">Reihe B</option></select></label>\n<label>Aufgedeckte Wertepaare <select data-evidence-count><option value=\"1\">1 Wertepaar</option><option value=\"2\">2 Wertepaare</option><option value=\"3\">3 Wertepaare</option><option value=\"4\">4 Wertepaare</option></select></label>\n<p data-evidence-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p>\n<svg viewBox=\"0 0 360 275\" role=\"img\" data-evidence-chart aria-label=\"Diagramm: Spannung und Stromstärke\"></svg>\n<p>Durchgezogene Linie: 50-Ω-Modell. Kreise: aufgedeckte Übungswerte. Die Tabelle enthält dieselben Zahlen.</p>\n<table class=\"electric-evidence-table\"><caption>Modell und aufgedeckte Übungswerte</caption><thead><tr><th scope=\"col\">U</th><th scope=\"col\">Modell</th><th scope=\"col\">Übungswert</th><th scope=\"col\">Abweichung</th></tr></thead><tbody data-evidence-rows></tbody></table>\n<p>Welche Aussage wird von den bisher sichtbaren Werten gestützt?</p>\n<div class=\"electric-evidence-decisions\"><button type=\"button\" data-evidence-answer=\"fits\">Mit konstanten 50 Ω vereinbar</button><button type=\"button\" data-evidence-answer=\"differs\">Konstante 50 Ω passen nicht zur Reihe</button><button type=\"button\" data-evidence-answer=\"insufficient\">Ein Wertepaar reicht noch nicht</button></div>\n<p data-evidence-feedback role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><button type=\"button\" data-evidence-reset>Vergleich zurücksetzen</button>\n<template data-worksheet-alternative><div data-electric-evidence-paper><h4>Papieraufgabe: Modell und Daten vergleichen</h4>\n<p>Diese Zahlen sind erfundene Übungsdaten. Zum 50-Ω-Modell gelten in dieser Aufgabe Abweichungen bis 2 mA als passend; das ist keine Geräteangabe. 1000 mA = 1 A.</p>\n<table class=\"electric-evidence-table\"><caption>Vier Spannungen, zwei Beispielreihen</caption><thead><tr><th scope=\"col\">U</th><th scope=\"col\">Modell (50 Ω)</th><th scope=\"col\">Reihe A</th><th scope=\"col\">Reihe B</th></tr></thead><tbody><tr><th scope=\"row\">1 V</th><td data-label=\"Modell (50 Ω)\">20 mA</td><td data-label=\"Reihe A\">20 mA</td><td data-label=\"Reihe B\">20 mA</td></tr><tr><th scope=\"row\">2 V</th><td data-label=\"Modell (50 Ω)\">40 mA</td><td data-label=\"Reihe A\">41 mA</td><td data-label=\"Reihe B\">30 mA</td></tr><tr><th scope=\"row\">3 V</th><td data-label=\"Modell (50 Ω)\">60 mA</td><td data-label=\"Reihe A\">59 mA</td><td data-label=\"Reihe B\">40 mA</td></tr><tr><th scope=\"row\">4 V</th><td data-label=\"Modell (50 Ω)\">80 mA</td><td data-label=\"Reihe A\">80 mA</td><td data-label=\"Reihe B\">50 mA</td></tr></tbody></table>\n<ol><li>Decke zunächst alle Zeilen außer 1 V ab. Was kannst du jetzt aussagen, was noch nicht?</li><li>Decke die übrigen Zeilen auf. Berechne für beide Reihen jeweils die Abweichung vom Modell. Welche Reihe ist nach der Aufgabenregel mit 50 Ω vereinbar?</li><li>Vergleiche in Reihe B 2 V mit 4 V: Verdoppelt sich auch I? Berechne R = U ÷ I, nachdem du mA in A umgerechnet hast.</li><li>Eine Person behauptet: „Reihe B beweist, dass eine Glühlampe gemessen wurde.“ Begründe, weshalb die Daten allein diese Behauptung nicht tragen.</li></ol></div></template>\n</div>\n<details data-worksheet-solution=\"true\" data-electric-evidence-solution><summary>Vergleichslösung zur Datenaufgabe</summary><p>Ein Wertepaar passt zu 50 Ω, reicht aber nicht für eine Prüfung über mehrere Spannungen. Reihe A weicht um 0, +1, −1 und 0 mA ab und ist nach der vereinbarten Spanne mit 50 Ω vereinbar. Das beweist keine Gültigkeit außerhalb der geprüften Werte.</p><p>Reihe B weicht um 0, −10, −20 und −30 mA ab. Von 2 V auf 4 V steigt I von 30 auf 50 mA statt auf 60 mA. Die Quotienten betragen rund 66,7 Ω und 80 Ω. Ein steigender Widerstand passt qualitativ zur Erwärmung eines Metallfadens, bestimmt aber nicht eindeutig das Bauteil. Ohne echten Versuch gibt es keine eigenen Messdaten.</p></details>\n<h3>Im Unterricht: eigene Messwerte gewinnen</h3>\n<p><strong>Nur im angeleiteten Schulversuch:</strong> Die Lehrkraft wählt eine geprüfte, strombegrenzte Schul-Kleinspannungsquelle, einen geeigneten Widerstand, eine dazu passende Kleinspannungs-Glühlampe und zwei Messgeräte. Sie legt anhand der Bauteil- und Geräteangaben zulässige Spannungen, Strombegrenzung, Belastung und Messbereiche fest. Die Zahlen aus der Übungswerkstatt sind keine Einstellvorgaben. Niemals an Steckdosen experimentieren; Bauteile können heiß werden.</p>\n<ol data-electric-measurement-steps><li>Notiere deine Vermutung: Wie müsste sich I bei doppeltem U verhalten, wenn R konstant bleibt? Welche Abweichung erwartest du bei der Glühlampe?</li><li>Quelle ausschalten. Der Spannungsmesser wird parallel zum untersuchten Bauteil, der Strommesser in Reihe in den Stromkreis eingebaut. <strong>Den Strommesser niemals direkt parallel zur Quelle anschließen.</strong> Die Lehrkraft prüft Aufbau, Messbuchsen, Gleichstrom-Einstellung und Messbereiche vor dem Einschalten.</li><li>Untersuche zuerst den Widerstand. Verändere nur die Quelleneinstellung in drei freigegebenen Stufen. Lies jedes Mal die tatsächlich am Bauteil gemessene Spannung und die Stromstärke ab, sobald die Anzeigen stabil sind. Notiere auch Schwankungen und den verwendeten Messbereich.</li><li>Wiederhole nach Rückkehr zur ersten Einstellung die erste Messung. Vergleiche die Werte; ändere sie nicht nachträglich, damit sie zum Modell passen.</li><li>Ausschalten und vor dem Umbau abkühlen lassen. Die Lehrkraft setzt die Lampe ein und prüft den Aufbau erneut. Wiederhole die Messfolge innerhalb ihrer eigenen zulässigen Werte. Lampenhelligkeit ersetzt keine Strommessung.</li><li>Zeichne U waagrecht und I senkrecht; beschrifte Achsen und Einheiten. Vergleiche die Wertepaare und R = U ÷ I für U, I ungleich null. Beurteile Abweichungen anhand der Messgeräteangaben, Auflösung, Wiederholung und Erwärmung. Auch Messgeräte beeinflussen den Stromkreis; unser einfaches Modell vernachlässigt diesen Einfluss. Eine auffällige Reihe erfordert zunächst eine Kontrolle des Aufbaus.</li></ol>\n<p>Bauteilangaben: ______. Zulässiger Bereich und Begrenzung: ______. Messgeräte, Bereiche, Auflösung und Genauigkeitsangaben: ______. Beobachtete Bedingungen: ______.</p>\n<table class=\"electric-evidence-table\" data-electric-measurement-record><caption>Eigene Beobachtungen – ohne Geräte bleiben die Felder leer</caption><thead><tr><th scope=\"col\">Bauteil / Stufe</th><th scope=\"col\">U in V</th><th scope=\"col\">I in mA</th><th scope=\"col\">Beobachtung</th></tr></thead><tbody><tr><th scope=\"row\">Widerstand 1</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Widerstand 2</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Widerstand 3</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Widerstand 1 erneut</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Lampe 1</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Lampe 2</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Lampe 3</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr><tr><th scope=\"row\">Lampe 1 erneut</th><td data-label=\"U in V\">______</td><td data-label=\"I in mA\">______</td><td data-label=\"Beobachtung\">______</td></tr></tbody></table>\n<p>Ohne geeignete Geräte bearbeitest du die Papieraufgabe mit den ausdrücklich erfundenen Zahlen. Das ist eine Datenauswertung, kein durchgeführter Versuch.</p>\n<p>Zum Weiterlesen: <a href=\"https://tetfolio.fu-berlin.de/web/1302465\" target=\"_blank\" rel=\"noopener\">Freie Universität Berlin: Kennlinie einer Glühlampe</a>; <a href=\"https://www.leifiphysik.de/elektrizitaetslehre/ohmsches-gesetz-kennlinien/versuche/ohmsches-gesetz-version-b\" target=\"_blank\" rel=\"noopener\">LEIFIphysik: Aufbau einer Strom-Spannungs-Untersuchung</a>.</p>\n{{QUIZ_electric_evidence_single}}{{QUIZ_electric_evidence_double}}{{QUIZ_electric_evidence_deviation}}{{QUIZ_electric_evidence_measuring}}"
       },
       {
         "id": "alltagsgeraet",
-        "title": "8. Elektronik im Alltag: eine Sensorlampe",
+        "title": "7. Elektronik im Alltag: eine Sensorlampe",
         "content": "<p>Eine elektronische Leselampe kann mehr als einen Stromkreis schließen: Ein <strong>Sensor</strong> erfasst Helligkeit und erzeugt ein elektrisches Signal. Eine <strong>Steuerung</strong> verarbeitet dieses Signal zusammen mit der gewählten Betriebsart. Eine <strong>LED</strong> ist die Lichtausgabe. Auch Smartphones verarbeiten Eingaben und Sensorsignale; eine automatische Bildschirmhelligkeit ist ein verwandtes Beispiel.</p>\n<p><strong>Zwei Wege unterscheiden:</strong> Information läuft vom Sensor zur Steuerung und beeinflusst die Ausgabe. Elektrische Energie kommt hier aus dem Akku und versorgt Sensor, Steuerung und LED. Die LED wandelt elektrische Energie in Licht und Wärme um. Der Sensor ist keine Energiequelle für die Leselampe.</p>\n<div class=\"interactive-zone\" data-sensor-lamp><h3>Eine Steuerungsregel untersuchen</h3><p>Vermute vor dem Umschalten: Wann leuchtet die LED? Verändere jeweils nur eine Einstellung.</p>\n<label>Umgebung im Modell <select data-lamp-light><option value=\"bright\">Hell</option><option value=\"dark\">Dunkel</option></select></label>\n<label>Betriebsart <select data-lamp-mode><option value=\"auto\">Automatik</option><option value=\"on\">Dauerlicht</option><option value=\"off\">Aus</option></select></label>\n<label><input type=\"checkbox\" data-lamp-power checked> Akku liefert Energie</label>\n<button type=\"button\" data-lamp-reset>Ausgangslage</button>\n<ol><li><strong>Eingabe:</strong> <span data-lamp-input></span></li><li><strong>Verarbeitung:</strong> <span data-lamp-rule></span></li><li><strong>Ausgabe:</strong> <span data-lamp-output></span></li></ol>\n<p data-lamp-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p>\n<p><strong>Modellgrenzen:</strong> Die Umgebung ist eine vorgegebene Information, keine Messung mit deinem Gerät. Wir berücksichtigen weder den Einfluss des Lampenlichts auf den Sensor noch Schaltschwellen, Verzögerungen, Helligkeitsstufen oder den Ladezustand des Akkus. „LED aus“ bedeutet nicht automatisch, dass ein reales Gerät keine Energie benötigt.</p></div>\n<p><strong>Dein Protokoll:</strong> Erstelle eine Tabelle aus zwei Umgebungen und drei Betriebsarten. Trage für jede Kombination erst deine Vorhersage, dann die beobachtete LED-Ausgabe ein. Prüfe anschließend dieselben Kombinationen ohne Energieversorgung. Formuliere die Automatikregel als „Wenn …, dann …, sonst …“. Erkläre einen Fall, in dem dieselbe Umgebung zu verschiedenen Ausgaben führt.</p>\n{{QUIZ_electric_geraet_1}}{{QUIZ_electric_geraet_2}}\n<h3>Ein Gerät auswählen: Was belegen die Daten?</h3><p><strong>Erfundenes Vergleichsbeispiel, keine realen Angebote:</strong> Für einen Lesebereich werden zwei Lampen verglichen. Die Zahlen gelten nur für den angegebenen Leuchtbetrieb; sie sind keine Messdaten des Modells oben.</p>\n<table><caption>Zwei erfundene Lampen bei gleicher Lichtabgabe</caption><thead><tr><th scope=\"col\">Angabe</th><th scope=\"col\">Lampe A</th><th scope=\"col\">Lampe B</th></tr></thead><tbody>\n<tr><th scope=\"row\">Lichtstrom im Vergleichsbetrieb</th><td>200 Lumen</td><td>200 Lumen</td></tr>\n<tr><th scope=\"row\">Elektrische Leistungsaufnahme im Vergleichsbetrieb</th><td>3 Watt</td><td>2 Watt</td></tr>\n<tr><th scope=\"row\">Akku austauschbar</th><td>Durch Reparaturbetrieb; Ersatzakku angeboten</td><td>Keine Angabe</td></tr>\n<tr><th scope=\"row\">LED-Modul austauschbar</th><td>Durch Reparaturbetrieb; Ersatzmodul angeboten</td><td>Keine Angabe</td></tr>\n<tr><th scope=\"row\">Preis, Lebensdauer, Reparaturkosten, Bereitschaftsbedarf</th><td>Nicht angegeben</td><td>Nicht angegeben</td></tr></tbody></table>\n<p>Lumen beschreibt den Lichtstrom, Watt hier die elektrische Leistungsaufnahme. Bei gleicher Betriebsdauer benötigt B in diesem Vergleich weniger Energie. Für zwei Stunden wären es A: 3 W × 2 h = 6 Wh und B: 2 W × 2 h = 4 Wh. Diese Rechnung umfasst nur den angegebenen Leuchtbetrieb, keine Ladeverluste oder Bereitschaftszeiten. Gleicher Lichtstrom garantiert außerdem noch keine gleich gute Beleuchtung am Buch: Auch die Lichtverteilung und Aufstellung zählen.</p>\n{{QUIZ_electric_geraet_3}}\n<p><strong>Begründete Entscheidung:</strong> Wählt zunächst drei Kriterien, die euch für den Lesebereich wichtig sind. Nennt für beide Lampen einen belegten Vorteil oder einen offenen Punkt. Formuliert eine vorläufige Empfehlung und drei konkrete Rückfragen an den Anbieter. „Keine Angabe“ ist kein Beleg, dass ein Bauteil nicht austauschbar ist. Aus der Tabelle lässt sich keine vollständige Umweltbilanz ableiten.</p>\n<h3>Übertragen auf ein vorhandenes Gerät</h3><p>Untersucht mit der Lehrperson die Anleitung einer vorhandenen elektronischen Lampe oder eines anderen freigegebenen Alltagsgeräts. Das Gerät bleibt geschlossen. Findet eine Eingabe, eine Verarbeitung und eine Ausgabe. Notiert die Energiequelle und zwei Angaben, die für Nutzung oder Reparatur wichtig sind. Trennt wörtlich vorhandene Angaben von euren Vermutungen. Es muss nichts gekauft oder zerlegt werden.</p>\n<p class=\"source-note\">Technischer Hintergrund und freiwillige Vertiefung: <a href=\"https://microbit.org/get-started/features/leds-and-buttons/\" target=\"_blank\" rel=\"noopener noreferrer\">Micro:bit Educational Foundation: Ein- und Ausgaben (Englisch)</a>; <a href=\"https://microbit.org/projects/make-it-code-it/sunlight-sensor/\" target=\"_blank\" rel=\"noopener noreferrer\">Lichtabhängige Steuerung mit micro:bit (Englisch)</a>. Die Leselampe und die Vergleichsdaten hier sind eigene didaktische Beispiele.</p>",
         "quizzes": [
           {
@@ -4096,30 +4191,126 @@
       },
       {
         "id": "sec6",
-        "title": "9. Erklären und überprüfen",
-        "content": "<p>Stelle im Rechner zuerst 6 V und 50 Ω ein. Sage voraus, was bei doppelter Spannung geschieht, und prüfe deine Vermutung. Halte anschließend die Spannung fest und verdopple den Widerstand. Notiere jeweils Einstellung, Vorhersage, Ergebnis und Erklärung.</p><p>Diese Aufgaben finden am Bildschirm statt. Reale Schulversuche werden nur mit den dafür vorgesehenen Kleinspannungsquellen nach Anleitung der Lehrkraft durchgeführt; niemals an Steckdosen. Batteriepole nicht direkt miteinander verbinden.</p>{{QUIZ_electric_transfer_0}}{{QUIZ_electric_transfer_1}}",
+        "title": "8. Stromwirkungen erkennen und prüfen",
+        "content": "<p>Elektrischer Strom kann <strong>Erwärmung, Leuchten, magnetische Wirkungen und chemische Veränderungen</strong> hervorrufen. Mehrere Wirkungen können gemeinsam auftreten. Ein Heizgerät soll wärmen; bei einer Leselampe ist vor allem das Licht erwünscht. Erwärmung kann dort eine zusätzliche, für den Beleuchtungszweck unerwünschte Wirkung sein. Energie verschwindet dabei nicht, sondern wird übertragen und umgewandelt.</p>\n<p>Eine Glühlampe leuchtet wegen ihres heißen Metallfadens. Eine LED erzeugt Licht ohne einen solchen glühenden Faden, kann sich im Betrieb aber ebenfalls erwärmen. Strom durch eine Spule beeinflusst einen Kompass; passende Vorgänge an Elektroden können Stoffe verändern. Eine Beobachtung allein verrät noch nicht sicher ihre Ursache: Auch die Sonne kann etwas erwärmen.</p>\n<div class=\"interactive-zone electric-effects-lab\" data-electric-effects><h3>Werkstatt: Was belegt die Beobachtung?</h3><p>Sechs <strong>erfundene Fallbeschreibungen</strong> zum Auswerten. Wähle alle elektrischen Wirkungen, die durch den jeweiligen Text gestützt sind. Andere Wirkungen können trotzdem auftreten; wir behaupten sie ohne passende Daten nicht.</p>\n<label for=\"electric-effect-case\">Fall auswählen</label><select id=\"electric-effect-case\" data-effect-case><option value=\"heater\">1. Heizbauteil</option><option value=\"bulb\">2. Glühlampe</option><option value=\"led\">3. LED-Modul</option><option value=\"coil\">4. Spule und Kompass</option><option value=\"coating\">5. Metallabscheidung im Demonstrationsprotokoll</option><option value=\"sun\">6. Warme Lampe am Fenster</option></select>\n<article data-effect-card=\"heater\"><h4>1. Heizbauteil</h4><p>In einem vorbereiteten Schulaufbau steigt bei eingeschalteter Versorgung die gemessene Temperatur des Heizbauteils. Nach dem Ausschalten kühlt es bei gleicher Raumtemperatur wieder ab. Ein zweiter Durchgang zeigt denselben Verlauf.</p><p hidden data-effect-explanation>Der Temperaturvergleich bei gleicher Umgebung stützt die elektrische Erwärmung. Die Quelle überträgt Energie; die innere Energie des Bauteils nimmt zunächst zu, und Energie gelangt an die Umgebung. Eine Licht- oder Stoffänderung wurde hier nicht beschrieben.</p></article><article data-effect-card=\"bulb\" hidden><h4>2. Glühlampe</h4><p>Eine Kleinspannungs-Glühlampe leuchtet nach dem Einschalten. Ein geeigneter Temperaturfühler zeigt zugleich eine steigende Temperatur am geprüften Messort. Nach dem Ausschalten erlischt sie und kühlt ab.</p><p hidden data-effect-explanation>Leuchten und gemessene Erwärmung belegen zwei Wirkungen. Der heiße Metallfaden sendet Strahlung aus. Die Lampe wandelt elektrische Energie um; sie verbraucht dabei keine Ladung.</p></article><article data-effect-card=\"led\" hidden><h4>3. LED-Modul</h4><p>Ein geeignetes LED-Modul leuchtet nur bei eingeschalteter Versorgung. Die Temperatur wurde nicht gemessen. Über chemische Veränderungen oder Magnetkräfte liegen keine Beobachtungen vor.</p><p hidden data-effect-explanation>Beschrieben und belegt ist das Leuchten. Auch ein LED-Modul kann sich erwärmen; fehlende Temperaturdaten beweisen weder Erwärmung noch deren Abwesenheit. Eine LED benötigt keinen weißglühenden Metallfaden.</p></article><article data-effect-card=\"coil\" hidden><h4>4. Spule und Kompass</h4><p>Eine fest liegende Spule steht neben einem Kompass. Beim Einschalten der vorgesehenen Stromquelle dreht sich die Nadel. Beim Ausschalten kehrt sie zurück. Der Aufbau wird nicht bewegt; wiederholtes Schalten zeigt denselben Unterschied.</p><p hidden data-effect-explanation>Die kontrollierte Änderung der Kompassrichtung stützt die magnetische Wirkung des Stroms. Eine zusätzliche Erwärmung ist möglich, wurde hier aber nicht untersucht. Magnetkräfte werden beispielsweise in Elektromotoren und Relais genutzt.</p></article><article data-effect-card=\"coating\" hidden><h4>5. Metallabscheidung im Demonstrationsprotokoll</h4><p>Ein vorbereitetes Protokoll beschreibt zwei passende Elektroden in einer dafür gewählten Lösung. Bei eingeschaltetem Strom bildet sich an einer Elektrode ein Metallbelag; die Stoffuntersuchung bestätigt das abgeschiedene Metall. Im gleich langen Vergleich ohne Strom entsteht kein solcher Belag. Dies ist eine Leseaufgabe, keine Versuchsanleitung.</p><p hidden data-effect-explanation>Der bestätigte Metallbelag und der Vergleich ohne Strom stützen eine chemische Wirkung. Gelöste Metallionen können Elektronen aufnehmen und als Metall abgeschieden werden. Eine reine Farbänderung ohne weitere Untersuchung wäre ein schwächerer Nachweis.</p></article><article data-effect-card=\"sun\" hidden><h4>6. Warme Lampe am Fenster</h4><p>Eine vollständig von jeder Stromquelle getrennte Lampe liegt in der Sonne und wird warm. Ein elektrischer Stromkreis ist nicht geschlossen. Es gibt keine weitere Beobachtung.</p><p hidden data-effect-explanation>Die Erwärmung allein belegt keinen elektrischen Strom. Hier wird Energie durch Sonnenstrahlung zugeführt. Beobachtbare Wärme kann also verschiedene Ursachen haben.</p></article>\n<fieldset><legend>Welche Aussagen sind belegt? Mehrfachauswahl ist möglich.</legend><label><input type=\"checkbox\" value=\"heat\" data-effect-choice> <span>Erwärmung</span></label><label><input type=\"checkbox\" value=\"light\" data-effect-choice> <span>Leuchten</span></label><label><input type=\"checkbox\" value=\"magnet\" data-effect-choice> <span>Magnetische Wirkung</span></label><label><input type=\"checkbox\" value=\"chemical\" data-effect-choice> <span>Chemische Veränderung</span></label><label><input type=\"checkbox\" value=\"unsupported\" data-effect-choice> <span>Keine elektrische Ursache belegt</span></label></fieldset>\n<button type=\"button\" data-effect-check>Auswahl prüfen</button><button type=\"button\" data-effect-reset>Neu beginnen</button><p data-effect-feedback role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p>\n<template data-worksheet-alternative><div data-electric-effects-paper><p>Die folgenden Fallbeschreibungen sind erfunden. Ordne begründet zu: Erwärmung, Leuchten, magnetische Wirkung, chemische Veränderung oder keine elektrische Ursache belegt. Mehrere Zuordnungen sind möglich; nicht untersuchte Wirkungen sind dadurch nicht ausgeschlossen.</p><section class=\"electric-effect-paper-case\"><h4>1. Heizbauteil</h4><p>In einem vorbereiteten Schulaufbau steigt bei eingeschalteter Versorgung die gemessene Temperatur des Heizbauteils. Nach dem Ausschalten kühlt es bei gleicher Raumtemperatur wieder ab. Ein zweiter Durchgang zeigt denselben Verlauf.</p><p>Belegte Wirkung(en) und Begründung: ____________________________________</p></section><section class=\"electric-effect-paper-case\"><h4>2. Glühlampe</h4><p>Eine Kleinspannungs-Glühlampe leuchtet nach dem Einschalten. Ein geeigneter Temperaturfühler zeigt zugleich eine steigende Temperatur am geprüften Messort. Nach dem Ausschalten erlischt sie und kühlt ab.</p><p>Belegte Wirkung(en) und Begründung: ____________________________________</p></section><section class=\"electric-effect-paper-case\"><h4>3. LED-Modul</h4><p>Ein geeignetes LED-Modul leuchtet nur bei eingeschalteter Versorgung. Die Temperatur wurde nicht gemessen. Über chemische Veränderungen oder Magnetkräfte liegen keine Beobachtungen vor.</p><p>Belegte Wirkung(en) und Begründung: ____________________________________</p></section><section class=\"electric-effect-paper-case\"><h4>4. Spule und Kompass</h4><p>Eine fest liegende Spule steht neben einem Kompass. Beim Einschalten der vorgesehenen Stromquelle dreht sich die Nadel. Beim Ausschalten kehrt sie zurück. Der Aufbau wird nicht bewegt; wiederholtes Schalten zeigt denselben Unterschied.</p><p>Belegte Wirkung(en) und Begründung: ____________________________________</p></section><section class=\"electric-effect-paper-case\"><h4>5. Metallabscheidung im Demonstrationsprotokoll</h4><p>Ein vorbereitetes Protokoll beschreibt zwei passende Elektroden in einer dafür gewählten Lösung. Bei eingeschaltetem Strom bildet sich an einer Elektrode ein Metallbelag; die Stoffuntersuchung bestätigt das abgeschiedene Metall. Im gleich langen Vergleich ohne Strom entsteht kein solcher Belag. Dies ist eine Leseaufgabe, keine Versuchsanleitung.</p><p>Belegte Wirkung(en) und Begründung: ____________________________________</p></section><section class=\"electric-effect-paper-case\"><h4>6. Warme Lampe am Fenster</h4><p>Eine vollständig von jeder Stromquelle getrennte Lampe liegt in der Sonne und wird warm. Ein elektrischer Stromkreis ist nicht geschlossen. Es gibt keine weitere Beobachtung.</p><p>Belegte Wirkung(en) und Begründung: ____________________________________</p></section><p>Zusatzauftrag: Vergleiche Fall 1 mit Fall 6. Welche Energiequelle ist jeweils beteiligt? Warum reicht „ist warm“ nicht als Beweis für elektrischen Strom?</p></div></template></div>\n<details data-worksheet-solution=\"true\"><summary>Fallbeschreibungen: begründete Zuordnung</summary><div data-electric-effects-solutions><p><strong>1. Heizbauteil:</strong> Erwärmung. Der Temperaturvergleich bei gleicher Umgebung stützt die elektrische Erwärmung. Die Quelle überträgt Energie; die innere Energie des Bauteils nimmt zunächst zu, und Energie gelangt an die Umgebung. Eine Licht- oder Stoffänderung wurde hier nicht beschrieben.</p><p><strong>2. Glühlampe:</strong> Erwärmung und Leuchten. Leuchten und gemessene Erwärmung belegen zwei Wirkungen. Der heiße Metallfaden sendet Strahlung aus. Die Lampe wandelt elektrische Energie um; sie verbraucht dabei keine Ladung.</p><p><strong>3. LED-Modul:</strong> Leuchten. Beschrieben und belegt ist das Leuchten. Auch ein LED-Modul kann sich erwärmen; fehlende Temperaturdaten beweisen weder Erwärmung noch deren Abwesenheit. Eine LED benötigt keinen weißglühenden Metallfaden.</p><p><strong>4. Spule und Kompass:</strong> Magnetische Wirkung. Die kontrollierte Änderung der Kompassrichtung stützt die magnetische Wirkung des Stroms. Eine zusätzliche Erwärmung ist möglich, wurde hier aber nicht untersucht. Magnetkräfte werden beispielsweise in Elektromotoren und Relais genutzt.</p><p><strong>5. Metallabscheidung im Demonstrationsprotokoll:</strong> Chemische Veränderung. Der bestätigte Metallbelag und der Vergleich ohne Strom stützen eine chemische Wirkung. Gelöste Metallionen können Elektronen aufnehmen und als Metall abgeschieden werden. Eine reine Farbänderung ohne weitere Untersuchung wäre ein schwächerer Nachweis.</p><p><strong>6. Warme Lampe am Fenster:</strong> Keine elektrische Ursache belegt. Die Erwärmung allein belegt keinen elektrischen Strom. Hier wird Energie durch Sonnenstrahlung zugeführt. Beobachtbare Wärme kann also verschiedene Ursachen haben.</p></div></details>\n<h3>Eigenen Vergleich planen: Lampe oder Spule</h3><p>Die Lehrkraft wählt ein geeignetes Kleinspannungs-Lampenmodul oder eine dafür vorgesehene Spule mit Kompass und eine passende strombegrenzte Schulquelle. Keine Steckdosenversuche, keine Kurzschlüsse, keine Versuche mit selbstgebauten Heizdrähten. Heiße Teile nicht berühren. Der Chemiefall bleibt hier eine Leseaufgabe.</p>\n<ol data-electric-effects-steps><li>Formuliere eine untersuchbare Frage und deine Vorhersage: etwa „Ändert sich bei unveränderter Lage die Kompassrichtung, wenn der Stromkreis geschlossen wird?“</li><li>Notiere, was gleich bleiben muss: Bauteil, Positionen, Abstand, Umgebung und freigegebene Quelleneinstellung. Lege mit der Lehrkraft Beobachtungszeit und Anzeigegerät fest. Leuchten lässt sich beobachten; für eine Temperaturaussage braucht es einen geeigneten Fühler und einen sicheren Messort.</li><li>Skizziere den geprüften Aufbau. Führe erst nach Freigabe durch die Lehrkraft zwei Vergleiche aus/ an/ aus durch. Verändere nur den Schalterzustand. Bei der Temperaturbeobachtung gleiche Startbedingungen durch Abkühlen abwarten; warme Teile können nach dem Ausschalten noch warm bleiben.</li><li>Protokolliere zuerst nur Beobachtungen, dann deine Deutung. Vergleiche beide Durchgänge und deine Vorhersage. Nenne eine mögliche andere Ursache und erkläre, wie dein Aufbau sie kontrolliert. Ohne Geräte bleibt das Protokoll leer; bearbeite stattdessen die sechs Fallbeschreibungen.</li></ol>\n<table class=\"electric-evidence-table\" data-electric-effects-record><caption>Eigenes Protokoll: Frage, Aufbau, Gerät und Einheit zuvor notieren</caption><thead><tr><th scope=\"col\">Durchgang</th><th scope=\"col\">Vorher: aus</th><th scope=\"col\">Während: an</th><th scope=\"col\">Danach: aus</th></tr></thead><tbody><tr><th scope=\"row\">1</th><td data-label=\"Vorher: aus\">______</td><td data-label=\"Während: an\">______</td><td data-label=\"Danach: aus\">______</td></tr><tr><th scope=\"row\">2</th><td data-label=\"Vorher: aus\">______</td><td data-label=\"Während: an\">______</td><td data-label=\"Danach: aus\">______</td></tr></tbody></table>\n<p>Beobachtung: ______. Deutung mit Belegen: ______. Andere mögliche Ursache: ______. Aussagegrenze: ______.</p>\n<p>Weiterlernen: <a href=\"template.html?topic=elektromagnetismus\">Spulen, Relais und Motoren</a>, <a href=\"template.html?topic=energie\">Energieübertragung und Erhaltung</a> und <a href=\"template.html?topic=chemie_metalle_redox\">chemische Elektronenübertragung</a>. Fachlicher Hintergrund: <a href=\"https://www.leifiphysik.de/elektrizitaetslehre/stromwirkungen/grundwissen/wirkungen-des-elektrischen-stroms\" target=\"_blank\" rel=\"noopener\">LEIFIphysik: Wirkungen des elektrischen Stroms</a>.</p>\n{{QUIZ_electric_effects_multiple}}{{QUIZ_electric_effects_missing}}{{QUIZ_electric_effects_control}}{{QUIZ_electric_effects_cause}}{{QUIZ_electric_transfer_0}}{{QUIZ_electric_transfer_1}}",
         "quizzes": [
           {
-            "id": "electric_transfer_0",
-            "question": "Eine Lampe leuchtet in einem unverzweigten Stromkreis. Was gilt vor und nach der Lampe?",
+            "id": "electric_effects_multiple",
+            "question": "Eine eingeschaltete Glühlampe leuchtet und ihre gemessene Temperatur steigt. Welche Schlussfolgerung passt?",
             "answers": [
               {
-                "text": "Die Stromstärke ist gleich; Energie wird in der Lampe umgewandelt.",
+                "text": "Zwei Wirkungen können gemeinsam auftreten: Leuchten und Erwärmung.",
+                "feedback": "Das gleiche Gerät kann elektrische Energie auf mehrere Arten umwandeln. Eine Einteilung in Wirkungen bedeutet nicht, dass immer nur eine auftritt.",
                 "correct": true,
-                "pts": 0,
-                "feedback": "Ladung wird erhalten; Energie wird beispielsweise in Licht und innere Energie umgewandelt."
+                "pts": 0
               },
               {
-                "text": "Nach der Lampe fließt weniger Strom, weil sie Strom verbraucht.",
+                "text": "Nur das Leuchten ist eine Stromwirkung; die Erwärmung kann nichts damit zu tun haben.",
+                "feedback": "Im beschriebenen kontrollierten Vergleich tritt auch die Erwärmung beim Betrieb auf.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Die Lampe verbraucht keine Ladung."
+                "pts": 0
               },
               {
-                "text": "Vor der Lampe fließen Elektronen, danach nur Protonen.",
+                "text": "Die Lampe verbraucht einen Teil der Ladung, der als Wärme verschwindet.",
+                "feedback": "Umgewandelt wird Energie, nicht elektrische Ladung.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Die Ladungsträger wechseln nicht ihre Teilchenart."
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "electric_effects_missing",
+            "question": "Ein LED-Modul leuchtet. Seine Temperatur wurde nicht untersucht. Welche Aussage wird durch diese Beobachtung gestützt?",
+            "answers": [
+              {
+                "text": "Das LED-Modul bleibt beim Betrieb sicher kalt.",
+                "feedback": "Dazu fehlen Temperaturdaten. Eine nicht untersuchte Wirkung ist nicht automatisch ausgeschlossen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das Modul leuchtet; über seine Erwärmung ist mit diesen Daten noch keine Aussage möglich.",
+                "feedback": "Das trennt beobachtetes Leuchten von einer noch nicht untersuchten Temperaturänderung.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Das Modul muss einen weißglühenden Metallfaden enthalten.",
+                "feedback": "Eine LED erzeugt Licht auf andere Weise als eine Glühlampe. Leuchten allein belegt keinen Glühfaden.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "electric_effects_control",
+            "question": "Du prüfst die magnetische Wirkung einer fest liegenden Spule auf einen Kompass. Welcher Vergleich ist am aussagekräftigsten?",
+            "answers": [
+              {
+                "text": "Strom einschalten und gleichzeitig einen Stabmagneten neben den Kompass legen.",
+                "feedback": "Dann ändern sich zwei mögliche Ursachen. Die Wirkung des Stroms lässt sich nicht getrennt beurteilen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Spule einschalten und den Kompass zugleich an einen anderen Ort tragen.",
+                "feedback": "Auch die neue Lage kann die Nadelrichtung verändern. Halte den Aufbau beim Vergleich fest.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Bei unverändertem Aufbau mehrmals ein- und ausschalten und die Nadelrichtung jeweils notieren.",
+                "feedback": "So wird gezielt der Stromzustand verändert. Wiederholung und unveränderte Lage machen den Vergleich aussagekräftiger.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "electric_effects_cause",
+            "question": "Eine abgesteckte Lampe wird in der Sonne warm. Belegt das einen elektrischen Strom durch die Lampe?",
+            "answers": [
+              {
+                "text": "Nein. Wärme kann auch durch aufgenommene Sonnenstrahlung entstehen.",
+                "feedback": "Eine Wirkung allein beweist ihre Ursache nicht. Hier fehlt der geschlossene Stromkreis, und die Sonne liefert Energie.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Ja. Jeder warme Gegenstand wird durch elektrischen Strom erwärmt.",
+                "feedback": "Auch Strahlung, Reibung oder Kontakt mit einem wärmeren Körper können die Temperatur erhöhen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ja. Eine frühere Stromversorgung lässt dauerhaft Strom durch die abgesteckte Lampe fließen.",
+                "feedback": "Eine normale abgesteckte Lampe besitzt dadurch keinen dauerhaften geschlossenen Stromweg.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "electric_transfer_0",
+            "question": "Eine Lampe leuchtet dauerhaft in einem unverzweigten Stromkreis. Was gilt für die Stromstärke vor und nach der Lampe?",
+            "answers": [
+              {
+                "text": "Nach der Lampe ist sie kleiner, weil die Lampe Strom verbraucht.",
+                "feedback": "Die Lampe wandelt Energie um; elektrische Ladung wird dabei nicht verbraucht.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Nach der Lampe ist sie größer, weil die warmen Elektronen mehr Ladung tragen.",
+                "feedback": "Ein Elektron trägt durch Erwärmung nicht mehr elektrische Ladung. Im stationären unverzweigten Weg bleibt die Stromstärke gleich.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Sie ist gleich; in der Lampe wird elektrische Energie unter anderem in Licht und innere Energie umgewandelt.",
+                "feedback": "Ladung bleibt erhalten. Stromstärke und Energieübertragung sind unterschiedliche Größen.",
+                "correct": true,
+                "pts": 0
               }
             ]
           },
@@ -4148,12 +4339,45 @@
             ]
           }
         ]
+      },
+      {
+        "id": "sec4",
+        "title": "9. Vertiefung: Kondensator als Energiespeicher",
+        "quizzes": [
+          {
+            "id": "elektrizitaet_s4_q0",
+            "question": "Welche Aussage zum Kondensator stimmt?",
+            "answers": [
+              {
+                "text": "Er kann nur dann Energie speichern, wenn dauerhaft Ladung durch seinen Isolator fließt.",
+                "feedback": "Die getrennten Ladungen und ihr elektrisches Feld speichern Energie. Ein leitender Weg durch den Isolator ist dafür nicht nötig.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Er speichert Energie im elektrischen Feld; wie schnell er sie abgibt, hängt auch von der Schaltung ab.",
+                "feedback": "Ein Kondensator kann sich schnell oder langsam entladen. Der angeschlossene Widerstand beeinflusst die Entladedauer.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Er gibt beim Entladen unabhängig von der Schaltung immer gleich schnell Energie ab.",
+                "feedback": "Die Eigenschaften des Kondensators und der übrigen Schaltung bestimmen gemeinsam den Entladevorgang.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ],
+        "content": "<p>Ein Kondensator besitzt zwei leitende Flächen, getrennt durch einen Isolator. Beim Laden entsteht ein Überschuss negativer Ladung auf einer Fläche und ein entsprechender Mangel auf der anderen. Energie ist im elektrischen Feld gespeichert. Ein Kondensator kann Energie schnell abgeben, etwa in einem Kamerablitz. Die Entladedauer hängt aber von der gesamten Schaltung ab; sie ist nicht immer kurz. Geräte mit Kondensatoren werden für unsere Aufgaben nicht geöffnet.</p><div class=\"diagram-box\">\n            <svg width=\"340\" height=\"220\" viewBox=\"0 0 340 220\" xmlns=\"http://www.w3.org/2000/svg\">\n                <line x1=\"20\" y1=\"110\" x2=\"80\" y2=\"110\" stroke=\"#555\" stroke-width=\"5\" stroke-linecap=\"round\"></line>\n                <line x1=\"260\" y1=\"110\" x2=\"320\" y2=\"110\" stroke=\"#555\" stroke-width=\"5\" stroke-linecap=\"round\"></line>\n\n                <rect x=\"120\" y=\"50\" width=\"100\" height=\"120\" fill=\"#FFF9C4\" stroke=\"#FBC02D\" stroke-width=\"2\" stroke-dasharray=\"5,5\"></rect>\n                <text x=\"170\" y=\"115\" font-size=\"14\" font-weight=\"bold\" fill=\"#F57F17\" text-anchor=\"middle\">Isolator</text>\n                <text x=\"170\" y=\"135\" font-size=\"12\" fill=\"#F57F17\" text-anchor=\"middle\">(Stoppt Elektronen)</text>\n\n                <rect x=\"80\" y=\"40\" width=\"40\" height=\"140\" rx=\"5\" fill=\"#B0BEC5\" stroke=\"#78909C\" stroke-width=\"3\"></rect>\n                <text x=\"100\" y=\"30\" font-size=\"14\" font-weight=\"bold\" fill=\"#546E7A\" text-anchor=\"middle\">Platte 1</text>\n                <text x=\"100\" y=\"70\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n                <text x=\"100\" y=\"100\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n                <text x=\"100\" y=\"130\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n                <text x=\"100\" y=\"160\" font-size=\"24\" fill=\"#1976D2\" text-anchor=\"middle\">-</text>\n\n                <rect x=\"220\" y=\"40\" width=\"40\" height=\"140\" rx=\"5\" fill=\"#B0BEC5\" stroke=\"#78909C\" stroke-width=\"3\"></rect>\n                <text x=\"240\" y=\"30\" font-size=\"14\" font-weight=\"bold\" fill=\"#546E7A\" text-anchor=\"middle\">Platte 2</text>\n                <text x=\"240\" y=\"70\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n                <text x=\"240\" y=\"100\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n                <text x=\"240\" y=\"130\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n                <text x=\"240\" y=\"160\" font-size=\"20\" fill=\"#D32F2F\" text-anchor=\"middle\">+</text>\n            </svg>\n            <p>Ein geladener Kondensator: Die Ladungen stehen sich gegenüber, getrennt vom Isolator.</p>\n        </div>{{QUIZ_elektrizitaet_s4_q0}}"
       }
     ],
     "learningGoals": [
       "Ladung, Stromstärke, Spannung und Widerstand unterscheiden.",
       "Einen geschlossenen Stromkreis und die Rolle einer Batterie erklären.",
       "Das Ohmsche Gesetz in passenden Modellaufgaben anwenden.",
+      "Stromwirkungen anhand von Beobachtungen unterscheiden, mehrere Wirkungen erkennen und einen kontrollierten Schulversuch planen.",
+      "Modellwerte und Datenreihen vergleichen, Messungen planen und Grenzen eines konstanten Widerstands begründen.",
       "Isolierung, Schutzleiter, Leitungsschutz und FI nach ihrer Schutzwirkung unterscheiden und Alltagsentscheidungen begründen.",
       "An einem elektronischen Alltagsgerät Eingabe, Verarbeitung, Ausgabe und Energieversorgung unterscheiden und Geräteangaben für eine begründete Auswahl nutzen."
     ],
@@ -4166,8 +4390,10 @@
       "Elektrischer Strom ist gerichteter Ladungstransport; in Metallleitern sind die beweglichen Ladungsträger Elektronen.",
       "Spannung beschreibt Energie pro Ladung, Stromstärke Ladung pro Zeit. Eine Batterie ermöglicht durch chemische Vorgänge eine Spannung.",
       "Für einen ohmschen Widerstand bei unveränderten Bedingungen gilt U = R · I. Ein Kondensator kann elektrische Energie speichern.",
+      "Eine passende Datenreihe stützt ein Modell nur im untersuchten Bereich. Ein einzelnes Wertepaar reicht nicht. Bei echten Messungen zählen Messunsicherheit und Bedingungen; ein warmer Glühfaden hat einen anderen Widerstand als ein kalter.",
       "Isolierung verhindert Berührung, Schutzleiter und Abschaltung wirken im Fehlerfall zusammen. Leitungsschutz reagiert auf Überstrom; ein FI auf eine Differenz der überwachten Ströme. Keine einzelne Maßnahme schützt gegen alle Gefahren.",
-      "Elektronische Geräte verarbeiten Eingangssignale und steuern Ausgaben. Information ersetzt keine Energieversorgung. Eine Geräteauswahl braucht neben Leistungsdaten auch Angaben zu Nutzung und Reparatur."
+      "Elektronische Geräte verarbeiten Eingangssignale und steuern Ausgaben. Information ersetzt keine Energieversorgung. Eine Geräteauswahl braucht neben Leistungsdaten auch Angaben zu Nutzung und Reparatur.",
+      "Erwärmung, Leuchten, magnetische und chemische Wirkungen können gemeinsam auftreten. Beobachtung und Erklärung sind zu trennen: Eine warme Lampe allein beweist keinen elektrischen Strom."
     ],
     "sources": [
       {
@@ -21336,7 +21562,7 @@
           },
           {
             "id": "decimal_division_rest",
-          "question": "Bei 1 : 8 bleibt nach der Einerstelle ein Einer übrig. Was ist der nächste Schritt?",
+            "question": "Bei 1 : 8 bleibt nach der Einerstelle ein Einer übrig. Was ist der nächste Schritt?",
             "answers": [
               {
                 "text": "Der Rest wird ohne Umtausch als Zehntel 1 weiterverwendet.",

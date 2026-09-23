@@ -833,3 +833,26 @@
 .decimal-place-board .decimal-separator{border-left:3px solid currentColor}.decimal-place-board tr>:first-child{width:3rem;font-size:11px}
 .decimal-work{margin:1rem 0}.decimal-work dt{font-weight:600;margin-top:.8rem}.decimal-work dd{margin:.2rem 0;overflow-wrap:anywhere}
 .decimal-lab [data-decimal-history]{padding-left:1.2rem}.decimal-lab [data-decimal-board]{font-variant-numeric:tabular-nums}
+.electric-evidence-lab { text-align:left; }
+.electric-evidence-lab label { display:block; margin:1rem 0; font-weight:600; }
+.electric-evidence-lab select { display:block; width:100%; max-width:28rem; min-height:44px; margin-top:.4rem; color:inherit; background:var(--card-bg,white); border:1px solid currentColor; border-radius:6px; padding:.5rem; font:inherit; }
+.electric-evidence-lab svg { display:block; width:100%; max-width:480px; height:auto; margin:1rem auto; color:inherit; }
+.electric-evidence-decisions { display:grid; gap:.6rem; }
+.electric-evidence-lab button { min-height:44px; white-space:normal; overflow-wrap:anywhere; }
+.electric-evidence-table { width:100%; border-collapse:collapse; margin:1rem 0; }
+.electric-evidence-table caption { text-align:left; font-weight:600; margin-bottom:.5rem; }
+.electric-evidence-table th,.electric-evidence-table td { padding:.5rem; border:1px solid currentColor; text-align:left; }
+@media(max-width:600px) {
+ .electric-evidence-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+ .electric-evidence-table tbody,.electric-evidence-table tr,.electric-evidence-table th,.electric-evidence-table td { display:block; width:auto; }
+ .electric-evidence-table tr { margin-bottom:.8rem; }
+ .electric-evidence-table td::before { content:attr(data-label) ": "; font-weight:600; }
+}
+.electric-effects-lab {text-align:left;}
+.electric-effects-lab select {display:block;width:100%;min-height:44px;padding:.5rem;margin:.5rem 0 1rem;color:inherit;background:var(--card-bg,white);font:inherit;border:1px solid currentColor;border-radius:6px;}
+.electric-effects-lab fieldset {min-width:0;margin:1rem 0;padding:.7rem;border:1px solid currentColor;}
+.electric-effects-lab legend {max-width:100%;font-weight:600;padding:0 .25rem;}
+.electric-effects-lab fieldset label {display:flex;align-items:center;gap:.6rem;min-height:44px;cursor:pointer;}
+.electric-effects-lab input[type="checkbox"] {flex:0 0 auto;width:20px;height:20px;margin:0;}
+.electric-effects-lab button {min-height:44px;max-width:100%;white-space:normal;margin:.25rem;}
+.electric-effects-lab [hidden] {display:none!important;}

@@ -111,6 +111,13 @@
         .header-info { display: flex; justify-content: space-between; margin-bottom: 40px; font-size: 1.2em; }
         .print-btn { padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         .print-btn:hover { background: #059669; }
+        [data-electric-measurement-steps] li, [data-electric-evidence-paper] li, [data-electric-effects-steps] li, .electric-effect-paper-case, [data-electric-effects-solutions] p { break-inside:avoid; page-break-inside:avoid; }
+        .electric-ohm-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .electric-ohm-task { min-width:0; border:1px solid #888; padding:.65rem; }
+        .electric-ohm-task h3 { margin-top:0; }
+        .electric-ohm-task p { overflow-wrap:anywhere; }
+        .electric-ohm-task, [data-ohm-generated-answer] { break-inside:avoid; page-break-inside:avoid; }
+        @media(max-width:600px) { .electric-ohm-grid { grid-template-columns:1fr; } }
         #ws-art-material { overflow-wrap: anywhere; } #ws-art-material svg { max-width: 100%; height: auto; } #ws-art-material figure { break-inside: avoid; margin: 1rem 0; } #ws-art-material table { border-collapse: collapse; width: 100%; } #ws-art-material th, #ws-art-material td { border: 1px solid #888; padding: .4rem; text-align: left; }
         .worksheet-reflection { break-inside: avoid; margin-block: 1.2rem; }
         .ws-chapter-material { overflow-wrap: anywhere; }

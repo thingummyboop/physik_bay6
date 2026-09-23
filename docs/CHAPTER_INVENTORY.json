@@ -2,7 +2,7 @@
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
     "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
-    "lang/de.json": "e364faa93d62ffdc0c56e76e30e2b1fe3dcaa9f8bbd7ccd9e0cae82c15b97986"
+    "lang/de.json": "672423d0de61ce316b59fffa1ad6b719ad65e67bdad1f13bc8f7a838e5f83fc5"
   },
   "subjects": {
     "physik": {
@@ -818,10 +818,12 @@
             "Ladung, Stromstärke, Spannung und Widerstand unterscheiden.",
             "Einen geschlossenen Stromkreis und die Rolle einer Batterie erklären.",
             "Das Ohmsche Gesetz in passenden Modellaufgaben anwenden.",
+            "Stromwirkungen anhand von Beobachtungen unterscheiden, mehrere Wirkungen erkennen und einen kontrollierten Schulversuch planen.",
+            "Modellwerte und Datenreihen vergleichen, Messungen planen und Grenzen eines konstanten Widerstands begründen.",
             "Isolierung, Schutzleiter, Leitungsschutz und FI nach ihrer Schutzwirkung unterscheiden und Alltagsentscheidungen begründen.",
             "An einem elektronischen Alltagsgerät Eingabe, Verarbeitung, Ausgabe und Energieversorgung unterscheiden und Geräteangaben für eine begründete Auswahl nutzen."
           ],
-          "summaryCount": 5,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec0",
@@ -876,21 +878,17 @@
               "index": 5,
               "title": "6. Spannung, Stromstärke und Widerstand",
               "questions": [
-                "q_ohm"
-              ]
-            },
-            {
-              "id": "sec4",
-              "index": 6,
-              "title": "7. Vertiefung: Kondensator als Energiespeicher",
-              "questions": [
-                "elektrizitaet_s4_q0"
+                "q_ohm",
+                "electric_evidence_single",
+                "electric_evidence_double",
+                "electric_evidence_deviation",
+                "electric_evidence_measuring"
               ]
             },
             {
               "id": "alltagsgeraet",
-              "index": 7,
-              "title": "8. Elektronik im Alltag: eine Sensorlampe",
+              "index": 6,
+              "title": "7. Elektronik im Alltag: eine Sensorlampe",
               "questions": [
                 "electric_geraet_1",
                 "electric_geraet_2",
@@ -899,16 +897,28 @@
             },
             {
               "id": "sec6",
-              "index": 8,
-              "title": "9. Erklären und überprüfen",
+              "index": 7,
+              "title": "8. Stromwirkungen erkennen und prüfen",
               "questions": [
+                "electric_effects_multiple",
+                "electric_effects_missing",
+                "electric_effects_control",
+                "electric_effects_cause",
                 "electric_transfer_0",
                 "electric_transfer_1"
+              ]
+            },
+            {
+              "id": "sec4",
+              "index": 8,
+              "title": "9. Vertiefung: Kondensator als Energiespeicher",
+              "questions": [
+                "elektrizitaet_s4_q0"
               ]
             }
           ],
           "workshop": false,
-          "questionCount": 20,
+          "questionCount": 28,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

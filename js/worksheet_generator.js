@@ -692,18 +692,24 @@ function generateWorksheetContent(topicId, topicTitle) {
         html += '</div>';
     }
     else if (topicId === 'elektrizitaet') {
-        html += '<h2>1. Das Ohmsche Gesetz (U = R \\(\\cdot\\) I)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
-        for(let i=0; i<5; i++) {
-            const R = rand(10, 100);
-            const I = rand(1, 10);
-            html += '<div>Geg: R = ' + R + ' \\(\\Omega\\), I = ' + I + ' A<br><br>Ges: U = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> V</div>';
+        const tasks = [], solutions = [], resistances = [20, 25, 50, 100, 200];
+        const fmt = value => Number(value.toFixed(3)).toString().replace('.', ',');
+        for (let index = 0; index < 10; index++) {
+            const id = 'O' + (index + 1), R = resistances[rand(0, 4)], mA = rand(1, 5) * 10;
+            // Draw once: exercise, worked answer and check share the same values.
+            const U = R * mA / 1000, amp = (mA / 1000).toFixed(3).replace('.', ','), unknown = index < 5 ? 'U' : 'I';
+            const given = unknown === 'U' ? `R = ${R} Ω; I = ${mA} mA.` : `U = ${fmt(U)} V; R = ${R} Ω.`;
+            const blankAnswer = unknown === 'U' ? 'U = ______ V' : 'I = ______ A = ______ mA';
+            tasks.push(`<section class="electric-ohm-task" data-ohm-generated="${id}" data-ohm-unknown="${unknown}"><h3>${id}. ${unknown === 'U' ? 'Spannung' : 'Stromstärke'} berechnen</h3><p>${given}</p><p>${blankAnswer}</p><p>Umrechnung / Rechenweg: ____________________</p><p>Probe: ____________________________________</p></section>`);
+            const calculation = unknown === 'U'
+                ? `I = ${mA} mA = ${amp} A. U = R · I = ${R} Ω · ${amp} A = ${fmt(U)} V.`
+                : `I = U ÷ R = ${fmt(U)} V ÷ ${R} Ω = ${amp} A = ${mA} mA.`;
+            const check = unknown === 'U'
+                ? `${fmt(U)} V ÷ ${R} Ω = ${amp} A = ${mA} mA.`
+                : `${R} Ω · ${amp} A = ${fmt(U)} V.`;
+            solutions.push(`<section data-ohm-generated-answer="${id}"><h3>Zusatzaufgabe ${id}</h3><p>${calculation}</p><p>Probe: ${check}</p></section>`);
         }
-        for(let i=0; i<5; i++) {
-            const R = rand(10, 50);
-            const U = R * rand(2, 12);
-            html += '<div>Geg: U = ' + U + ' V, R = ' + R + ' \\(\\Omega\\)<br><br>Ges: I = <span style="display:inline-block; border-bottom:1px dotted #000; width:60px;"></span> A</div>';
-        }
-        html += '</div>';
+        html += '<h2>Zusatzaufgaben: Mit dem Ohm-Modell rechnen</h2><p>Diese Rechenmodelle setzen einen konstanten Widerstand voraus. Sie sind keine Messdaten und keine Einstellvorgaben für einen Versuch. Bei einer echten Glühlampe verändert die Erwärmung den Widerstand.</p><p><strong>Rechenhilfe:</strong> U = R · I; I = U ÷ R. Setze R in Ω und I in A ein, dann erhältst du U in V. 1000 mA = 1 A; zum Umrechnen von mA in A teilst du durch 1000. Beispiel: 20 mA = 0,020 A. Notiere den Rechenweg und prüfe dein Ergebnis durch Rückrechnung.</p><div class="electric-ohm-grid">' + tasks.join('') + '</div><template data-generated-worksheet-solutions>' + solutions.join('') + '</template>';
     }
     else if (topicId === 'kraft_und_bewegung') {
         html += '<h2>1. Geschwindigkeit (v = s : t)</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 1.2em;">';
