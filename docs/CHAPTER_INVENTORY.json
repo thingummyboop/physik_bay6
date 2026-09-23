@@ -1,8 +1,8 @@
 {
   "scope": "Source inventory only: no factual, curriculum, runtime, translation or visual approval.",
   "sourceHashes": {
-    "js/curriculum.js": "b1d6228869fbf10321fe10081dfb7a68f1440300e4ec89ff09dd888668edcefc",
-    "lang/de.json": "b70e44194be8b6f4ea5cf8255613d3355790e2d2871202c58bf1c6c84d972a6f"
+    "js/curriculum.js": "e791e1784bb33eb2e74e881d8c59c3f29b8e7088c6ec6c60b4e34a8a8388540e",
+    "lang/de.json": "9cae67fb82f242325afad15cbf1bc3c40aff011b781574895db2f70f2617bf8f"
   },
   "subjects": {
     "physik": {
@@ -109,9 +109,11 @@
             "Lichtquellen und Schattenbildung mit einem Strahlenmodell erklären.",
             "Mit einer Lochkamera Gegenstands- und Bildpunkte zuordnen und den Einfluss von Gegenstands- und Schirmabstand untersuchen.",
             "Kern- und Halbschatten sowie die Anordnung bei Finsternissen unterscheiden.",
-            "Reflexion und Beugung als unterschiedliche Erscheinungen beschreiben."
+            "Reflexion und Beugung als unterschiedliche Erscheinungen beschreiben.",
+            "Sehen und Gesehenwerden anhand verschiedener Lichtwege unterscheiden und Sichtbarkeit am Schulweg begründen.",
+            "Die endliche Lichtgeschwindigkeit und den Zusammenhang von Weg und Laufzeit an einem einfachen Vergleich erklären."
           ],
-          "summaryCount": 5,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec0",
@@ -120,7 +122,9 @@
               "questions": [
                 "o1_s1_q1",
                 "o1_sehweg_1",
-                "o1_sehweg_2"
+                "o1_sehweg_2",
+                "o1_visibility",
+                "o1_light_time"
               ]
             },
             {
@@ -167,13 +171,206 @@
             }
           ],
           "workshop": false,
-          "questionCount": 10,
+          "questionCount": 12,
+          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
+          "factualAndCurriculumApproval": "not-established-by-this-inventory"
+        },
+        {
+          "id": "erde_mond_sonne",
+          "title": "🌍 2. Erde, Mond und Sonne",
+          "grade": "6. Schulstufe (2. Kl.)",
+          "gradeLevels": null,
+          "category": "Sehen und Hören",
+          "available": true,
+          "sourcePresent": true,
+          "source": "lang/de.json#/erde_mond_sonne",
+          "goals": [
+            "Tag und Nacht mit der Erdrotation erklären.",
+            "Jahreszeiten mit Achsenneigung und Sonnenstand begründen.",
+            "Mondphasen von Finsternissen unterscheiden.",
+            "Lampenmodelle kontrolliert aufbauen, Beobachtung und Blickrichtung protokollieren und Grenzen der Darstellung erklären."
+          ],
+          "summaryCount": 3,
+          "sections": [
+            {
+              "id": "day",
+              "index": 0,
+              "title": "1. Tag und Nacht",
+              "questions": [
+                "ems_day1",
+                "ems_day2"
+              ]
+            },
+            {
+              "id": "seasons",
+              "index": 1,
+              "title": "2. Warum gibt es Jahreszeiten?",
+              "questions": [
+                "ems_season1",
+                "ems_season2",
+                "ems_axis_control",
+                "ems_model_precision"
+              ]
+            },
+            {
+              "id": "phases",
+              "index": 2,
+              "title": "3. Die beleuchtete Mondhälfte",
+              "questions": [
+                "ems_phase1",
+                "ems_phase2",
+                "ems_viewpoint"
+              ]
+            },
+            {
+              "id": "eclipses",
+              "index": 3,
+              "title": "4. Wann entstehen Finsternisse?",
+              "questions": [
+                "ems_eclipse1",
+                "ems_eclipse2"
+              ]
+            }
+          ],
+          "workshop": false,
+          "questionCount": 11,
+          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
+          "factualAndCurriculumApproval": "not-established-by-this-inventory"
+        },
+        {
+          "id": "linsen_spiegel",
+          "title": "🔍 3. Spiegel, Linsen und optische Bilder",
+          "grade": "6. Schulstufe (2. Kl.)",
+          "gradeLevels": null,
+          "category": "Optische Systeme",
+          "available": true,
+          "sourcePresent": true,
+          "source": "lang/de.json#/linsen_spiegel",
+          "goals": [
+            "Einfalls- und Reflexionswinkel zum Lot messen und das Reflexionsgesetz anwenden.",
+            "Brechung mit Brechzahl und Einfallswinkel erklären und die Bedingungen für Totalreflexion nennen.",
+            "Sammel- und Zerstreuungslinsen sowie Hohl- und Wölbspiegel anhand ihrer Lichtwege vergleichen.",
+            "Reale Bildpunkte von virtuellen Rückverlängerungen unterscheiden.",
+            "Erklären, wie das Auge für Nah- und Fernsicht seine Brechkraft anpasst.",
+            "Die Aufgaben von Objektiv, Okular, Hauptspiegel und Fangspiegel in optischen Geräten beschreiben.",
+            "Beugung von Reflexion und Brechung unterscheiden und den Einfluss der Spaltbreite erläutern.",
+            "Das virtuelle Bild am ebenen Spiegel konstruieren und reale Lichtwege von gedachten Rückverlängerungen unterscheiden.",
+            "Bildentstehung mit verschiedenen Linsen untersuchen, eigene Beobachtungen protokollieren und mit einem Strahlenmodell vergleichen.",
+            "Informationen zu optischen Geräten an verlässlichen Quellen prüfen und Nutzen, Grenzen und sichere Verwendung begründen."
+          ],
+          "summaryCount": 9,
+          "sections": [
+            {
+              "id": "sec0",
+              "index": 0,
+              "title": "1. Reflexion: Winkel am Spiegel",
+              "questions": [
+                "q1",
+                "mirror_virtual_position",
+                "mirror_virtual_light",
+                "f1",
+                "f2"
+              ]
+            },
+            {
+              "id": "sec1",
+              "index": 1,
+              "title": "2. Brechung: Licht an einer Materialgrenze",
+              "questions": [
+                "q2",
+                "f3"
+              ]
+            },
+            {
+              "id": "sec4",
+              "index": 2,
+              "title": "3. Sammel- und Zerstreuungslinsen",
+              "questions": [
+                "q3",
+                "lens_screen_image",
+                "lens_eye_comparison",
+                "f4",
+                "f5"
+              ]
+            },
+            {
+              "id": "sec3",
+              "index": 3,
+              "title": "4. Das Auge: Scharf sehen in Nähe und Ferne",
+              "questions": [
+                "q_auge"
+              ]
+            },
+            {
+              "id": "optische_geraete_recherche",
+              "index": 4,
+              "title": "5. Optische Geräte: Quellen prüfen und entscheiden",
+              "questions": [
+                "optics_sources",
+                "optics_resolution",
+                "optics_safety",
+                "optics_vienna"
+              ]
+            },
+            {
+              "id": "sec2",
+              "index": 5,
+              "title": "6. Totalreflexion und Lichtleitung",
+              "questions": [
+                "q_total"
+              ]
+            },
+            {
+              "id": "sec6",
+              "index": 6,
+              "title": "7. Hohl- und Wölbspiegel",
+              "questions": [
+                "q5",
+                "f8",
+                "f9"
+              ]
+            },
+            {
+              "id": "sec7",
+              "index": 7,
+              "title": "8. Das Mikroskop: Objektiv und Okular",
+              "questions": [
+                "linsen_s6_q0",
+                "f10",
+                "f11",
+                "f12"
+              ]
+            },
+            {
+              "id": "sec8",
+              "index": 8,
+              "title": "9. Das Teleskop: Licht sammeln und abbilden",
+              "questions": [
+                "q7",
+                "f13",
+                "f14",
+                "f15"
+              ]
+            },
+            {
+              "id": "sec5",
+              "index": 9,
+              "title": "10. Beugung: Licht als Welle",
+              "questions": [
+                "q4",
+                "f6",
+                "f7"
+              ]
+            }
+          ],
+          "workshop": false,
+          "questionCount": 32,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
         {
           "id": "farben",
-          "title": "🎨 2. Farben und Sehen",
+          "title": "🎨 4. Farben und Sehen",
           "grade": "6. Schulstufe (2. Kl.)",
           "gradeLevels": null,
           "category": "Sehen und Hören",
@@ -251,112 +448,8 @@
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },
         {
-          "id": "linsen_spiegel",
-          "title": "🔍 3. Spiegel, Linsen und optische Bilder",
-          "grade": "6. Schulstufe (2. Kl.)",
-          "gradeLevels": null,
-          "category": "Optische Systeme",
-          "available": true,
-          "sourcePresent": true,
-          "source": "lang/de.json#/linsen_spiegel",
-          "goals": [
-            "Einfalls- und Reflexionswinkel zum Lot messen und das Reflexionsgesetz anwenden.",
-            "Brechung mit Brechzahl und Einfallswinkel erklären und die Bedingungen für Totalreflexion nennen.",
-            "Sammel- und Zerstreuungslinsen sowie Hohl- und Wölbspiegel anhand ihrer Lichtwege vergleichen.",
-            "Reale Bildpunkte von virtuellen Rückverlängerungen unterscheiden.",
-            "Erklären, wie das Auge für Nah- und Fernsicht seine Brechkraft anpasst.",
-            "Die Aufgaben von Objektiv, Okular, Hauptspiegel und Fangspiegel in optischen Geräten beschreiben.",
-            "Beugung von Reflexion und Brechung unterscheiden und den Einfluss der Spaltbreite erläutern.",
-            "Das virtuelle Bild am ebenen Spiegel konstruieren und reale Lichtwege von gedachten Rückverlängerungen unterscheiden.",
-            "Bildentstehung mit verschiedenen Linsen untersuchen, eigene Beobachtungen protokollieren und mit einem Strahlenmodell vergleichen."
-          ],
-          "summaryCount": 8,
-          "sections": [
-            {
-              "id": "sec0",
-              "index": 0,
-              "title": "1. Reflexion: Winkel am Spiegel",
-              "questions": [
-                "q1",
-                "mirror_virtual_position",
-                "mirror_virtual_light"
-              ]
-            },
-            {
-              "id": "sec1",
-              "index": 1,
-              "title": "2. Brechung: Licht an einer Materialgrenze",
-              "questions": [
-                "q2"
-              ]
-            },
-            {
-              "id": "sec4",
-              "index": 2,
-              "title": "3. Sammel- und Zerstreuungslinsen",
-              "questions": [
-                "q3",
-                "lens_screen_image",
-                "lens_eye_comparison"
-              ]
-            },
-            {
-              "id": "sec2",
-              "index": 3,
-              "title": "4. Totalreflexion und Lichtleitung",
-              "questions": [
-                "q_total"
-              ]
-            },
-            {
-              "id": "sec3",
-              "index": 4,
-              "title": "5. Das Auge: Scharf sehen in Nähe und Ferne",
-              "questions": [
-                "q_auge"
-              ]
-            },
-            {
-              "id": "sec6",
-              "index": 5,
-              "title": "6. Hohl- und Wölbspiegel",
-              "questions": [
-                "q5"
-              ]
-            },
-            {
-              "id": "sec7",
-              "index": 6,
-              "title": "7. Das Mikroskop: Objektiv und Okular",
-              "questions": [
-                "linsen_s6_q0"
-              ]
-            },
-            {
-              "id": "sec8",
-              "index": 7,
-              "title": "8. Das Teleskop: Licht sammeln und abbilden",
-              "questions": [
-                "q7"
-              ]
-            },
-            {
-              "id": "sec5",
-              "index": 8,
-              "title": "9. Beugung: Licht als Welle",
-              "questions": [
-                "q4"
-              ]
-            }
-          ],
-          "workshop": false,
-          "questionCount": 13,
-          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
-          "factualAndCurriculumApproval": "not-established-by-this-inventory"
-        },
-        {
           "id": "akustik",
-          "title": "🎶 4. Schall und Hören",
+          "title": "🎶 5. Schall und Hören",
           "grade": "6. Schulstufe (2. Kl.)",
           "gradeLevels": null,
           "category": "Sehen und Hören",
@@ -367,16 +460,18 @@
             "Schallentstehung und die notwendige Rolle eines Mediums erklären.",
             "Frequenz und Amplitude in einer Schwingungsdarstellung unterscheiden.",
             "Echo-Laufzeiten und Resonanz mit einfachen Modellen untersuchen.",
-            "Schutz vor Lärm mit Schallbelastung und Einwirkungsdauer begründen und eine ruhigere Lernumgebung untersuchen und planen."
+            "Schutz vor Lärm mit Schallbelastung und Einwirkungsdauer begründen und eine ruhigere Lernumgebung untersuchen und planen.",
+            "Den Hörweg als Verbindung von Schallquelle, Medium und Empfänger erklären und eine zugängliche Signalgebung begründen."
           ],
-          "summaryCount": 6,
+          "summaryCount": 7,
           "sections": [
             {
               "id": "sec0",
               "index": 0,
               "title": "1. Entstehung: Alles zittert!",
               "questions": [
-                "q1"
+                "q1",
+                "ak_receiver"
               ]
             },
             {
@@ -431,69 +526,7 @@
             }
           ],
           "workshop": false,
-          "questionCount": 9,
-          "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
-          "factualAndCurriculumApproval": "not-established-by-this-inventory"
-        },
-        {
-          "id": "erde_mond_sonne",
-          "title": "🌍 5. Erde, Mond und Sonne",
-          "grade": "6. Schulstufe (2. Kl.)",
-          "gradeLevels": null,
-          "category": "Sehen und Hören",
-          "available": true,
-          "sourcePresent": true,
-          "source": "lang/de.json#/erde_mond_sonne",
-          "goals": [
-            "Tag und Nacht mit der Erdrotation erklären.",
-            "Jahreszeiten mit Achsenneigung und Sonnenstand begründen.",
-            "Mondphasen von Finsternissen unterscheiden.",
-            "Lampenmodelle kontrolliert aufbauen, Beobachtung und Blickrichtung protokollieren und Grenzen der Darstellung erklären."
-          ],
-          "summaryCount": 3,
-          "sections": [
-            {
-              "id": "day",
-              "index": 0,
-              "title": "1. Tag und Nacht",
-              "questions": [
-                "ems_day1",
-                "ems_day2"
-              ]
-            },
-            {
-              "id": "seasons",
-              "index": 1,
-              "title": "2. Warum gibt es Jahreszeiten?",
-              "questions": [
-                "ems_season1",
-                "ems_season2",
-                "ems_axis_control",
-                "ems_model_precision"
-              ]
-            },
-            {
-              "id": "phases",
-              "index": 2,
-              "title": "3. Die beleuchtete Mondhälfte",
-              "questions": [
-                "ems_phase1",
-                "ems_phase2",
-                "ems_viewpoint"
-              ]
-            },
-            {
-              "id": "eclipses",
-              "index": 3,
-              "title": "4. Wann entstehen Finsternisse?",
-              "questions": [
-                "ems_eclipse1",
-                "ems_eclipse2"
-              ]
-            }
-          ],
-          "workshop": false,
-          "questionCount": 11,
+          "questionCount": 10,
           "questionCountScope": "section quizzes only; excludes separately authored final quizzes, generated tasks and workshops",
           "factualAndCurriculumApproval": "not-established-by-this-inventory"
         },

@@ -20,8 +20,8 @@ window.SCIVERSE_CURRICULUM = {
         "category": "Sehen und Hören"
       },
       {
-        "id": "farben",
-        "title": "🎨 2. Farben und Sehen",
+        "id": "erde_mond_sonne",
+        "title": "🌍 2. Erde, Mond und Sonne",
         "grade": "6. Schulstufe (2. Kl.)",
         "category": "Sehen und Hören"
       },
@@ -32,14 +32,14 @@ window.SCIVERSE_CURRICULUM = {
         "category": "Optische Systeme"
       },
       {
-        "id": "akustik",
-        "title": "🎶 4. Schall und Hören",
+        "id": "farben",
+        "title": "🎨 4. Farben und Sehen",
         "grade": "6. Schulstufe (2. Kl.)",
         "category": "Sehen und Hören"
       },
       {
-        "id": "erde_mond_sonne",
-        "title": "🌍 5. Erde, Mond und Sonne",
+        "id": "akustik",
+        "title": "🎶 5. Schall und Hören",
         "grade": "6. Schulstufe (2. Kl.)",
         "category": "Sehen und Hören"
       },
@@ -963,7 +963,10 @@ window.SCIVERSE_CURRICULUM = {
         "id": "musik_2_notation",
         "title": "🎼 Notation und Formen",
         "grade": "5./6. Schulstufe",
-        "gradeLevels": [5, 6],
+        "gradeLevels": [
+          5,
+          6
+        ],
         "category": "Grundlagen"
       },
       {

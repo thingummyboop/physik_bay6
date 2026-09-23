@@ -24,9 +24,33 @@
                 "feedback": "Nicht ganz: Luft kann Schall tragen, aber zuerst muss etwas schwingen."
               }
             ]
+          },
+          {
+            "id": "ak_receiver",
+            "question": "Welche Beschreibung unterscheidet die Übertragung von Schall und die Verarbeitung beim Hören richtig?",
+            "answers": [
+              {
+                "text": "Die Luftteilchen der Klingel fliegen ins Gehirn und lösen dort das Hören aus.",
+                "feedback": "Die Luftteilchen schwingen um ihre Ruhelage. Im Innenohr wird Bewegung in Nervensignale umgewandelt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das Trommelfell erkennt bereits das Klingelzeichen; eine Verarbeitung im Gehirn ist nicht nötig.",
+                "feedback": "Das Trommelfell leitet mechanische Schwingungen weiter. Die bewusste Wahrnehmung benötigt auch die Umwandlung und Verarbeitung der Information.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Schall erreicht das Ohr; nach der Umwandlung im Innenohr werden Nervensignale im Gehirn verarbeitet.",
+                "feedback": "Die physikalische Schallübertragung und die Weitergabe als Nerveninformation sind verschiedene Schritte.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
           }
         ],
-        "content": "<p>Egal ob du sprichst, in die Hände klatschst oder eine Gitarre zupfst – Töne entstehen immer nur durch eines: <strong>Bewegung!</strong> Ein Gegenstand wackelt rasend schnell hin und her. Physiker nennen das <strong>Schwingung</strong>. Wenn deine Stimmbänder im Hals schwingen, entsteht deine Stimme. Lege mal beim Sprechen die Hand an deinen Kehlkopf – du spürst das Zittern!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Die Schallquelle</strong><br>\n            Das Ding, das zittert und den Ton erzeugt, nennt man <strong>Schallquelle</strong>. Das kann das Fell einer Trommel sein, die Saite einer Geige oder das Metallblech einer Stimmgabel.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪛 Die magische Stimmgabel</h3>\n            <p>Klicke auf die Stimmgabel, um sie anzuschlagen:</p>\n            <details class=\"guided-hint\"><summary>Vor dem Klick</summary><p>Lege beim Sprechen zwei Finger an deinen Hals: Du spürst eine Schwingung. Genau so startet Schall.</p></details>\n            <button onclick=\"strikeFork()\">Stimmgabel anschlagen 🔔</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"tuningFork\" style=\"transform-origin: center;\">\n                        <path d=\"M 180 40 L 180 120 Q 200 140 220 120 L 220 40\" fill=\"none\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></path>\n                        <line x1=\"200\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"soundWavesGrp\" style=\"display: none;\">\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0s;\"></circle>\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.5s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.25s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.75s;\"></circle>\n                    </g>\n                </svg>\n                <p id=\"forkText\" style=\"font-weight:bold; color: #718096;\">Die Stimmgabel ruht.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">Quer- und Längswellen vergleichen</h3>\n            <p>Vergleiche die Schwingungsrichtung mit der Ausbreitungsrichtung. Schall in Luft ist eine Längswelle: Die Luftteilchen schwingen näherungsweise entlang der Ausbreitungsrichtung.</p>\n            <video aria-label=\"Vergleich von Quer- und Längswellen\" aria-describedby=\"sound-video-description\" loop=\"\" muted=\"\" playsinline=\"\" style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls=\"\" preload=\"metadata\">\n                \n                <source src=\"../assets/videos/schallwelle.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video><div id=\"sound-video-description\"><p><strong>Inhalt der Animation:</strong> Oben erscheint eine blaue Wellenlinie für eine Querwelle, unten eine Reihe grüner Striche für eine Längswelle. Dicht beieinanderliegende Striche stehen für Verdichtungen, größere Abstände für Verdünnungen.</p><p><strong>So liest du das Modell:</strong> Bei Schall in Luft schwingen die Luftteilchen um ihre Ruhelage vor und zurück. Die Verdichtungen und Verdünnungen breiten sich aus; die Teilchen reisen dabei nicht mit dem Schall von der Quelle bis zu deinem Ohr. Eine Druckwelle kann auch als Kurve gezeichnet werden: Deren Höhe zeigt dann den Druck und nicht eine Auf-und-ab-Bewegung der Luftteilchen.</p><p>Die Animation nennt Licht als Beispiel einer Querwelle. Bei Licht schwingen elektrische und magnetische Felder; es handelt sich nicht um schwingende Luftteilchen. Zum Vergleich der Bewegungsrichtungen kannst du dir eine Welle an einem Seil vorstellen: Das Seil bewegt sich auf und ab, während sich die Welle entlang des Seils ausbreitet.</p><p><strong>Beobachtungsauftrag:</strong> Stelle dir einen markierten Luftteilchen-Punkt vor. Beschreibe seine Bewegung und unterscheide sie von der Bewegung einer Verdichtung. Prüfe danach dieselbe Unterscheidung am Seilmodell.</p></div>\n        </div>\n    \n        {{QUIZ_q1}}\n    "
+        "content": "<p>Egal ob du sprichst, in die Hände klatschst oder eine Gitarre zupfst – Töne entstehen immer nur durch eines: <strong>Bewegung!</strong> Ein Gegenstand wackelt rasend schnell hin und her. Physiker nennen das <strong>Schwingung</strong>. Wenn deine Stimmbänder im Hals schwingen, entsteht deine Stimme. Lege mal beim Sprechen die Hand an deinen Kehlkopf – du spürst das Zittern!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Die Schallquelle</strong><br>\n            Das Ding, das zittert und den Ton erzeugt, nennt man <strong>Schallquelle</strong>. Das kann das Fell einer Trommel sein, die Saite einer Geige oder das Metallblech einer Stimmgabel.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪛 Die magische Stimmgabel</h3>\n            <p>Klicke auf die Stimmgabel, um sie anzuschlagen:</p>\n            <details class=\"guided-hint\"><summary>Vor dem Klick</summary><p>Lege beim Sprechen zwei Finger an deinen Hals: Du spürst eine Schwingung. Genau so startet Schall.</p></details>\n            <button onclick=\"strikeFork()\">Stimmgabel anschlagen 🔔</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <g id=\"tuningFork\" style=\"transform-origin: center;\">\n                        <path d=\"M 180 40 L 180 120 Q 200 140 220 120 L 220 40\" fill=\"none\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></path>\n                        <line x1=\"200\" y1=\"130\" x2=\"200\" y2=\"180\" stroke=\"#718096\" stroke-width=\"12\" stroke-linecap=\"round\"></line>\n                    </g>\n                    <g id=\"soundWavesGrp\" style=\"display: none;\">\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0s;\"></circle>\n                        <circle cx=\"180\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.5s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.25s;\"></circle>\n                        <circle cx=\"220\" cy=\"80\" class=\"anim-wave\" style=\"animation-delay: 0.75s;\"></circle>\n                    </g>\n                </svg>\n                <p id=\"forkText\" style=\"font-weight:bold; color: #718096;\">Die Stimmgabel ruht.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">Quer- und Längswellen vergleichen</h3>\n            <p>Vergleiche die Schwingungsrichtung mit der Ausbreitungsrichtung. Schall in Luft ist eine Längswelle: Die Luftteilchen schwingen näherungsweise entlang der Ausbreitungsrichtung.</p>\n            <video aria-label=\"Vergleich von Quer- und Längswellen\" aria-describedby=\"sound-video-description\" loop=\"\" muted=\"\" playsinline=\"\" style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls=\"\" preload=\"metadata\">\n                \n                <source src=\"../assets/videos/schallwelle.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video><div id=\"sound-video-description\"><p><strong>Inhalt der Animation:</strong> Oben erscheint eine blaue Wellenlinie für eine Querwelle, unten eine Reihe grüner Striche für eine Längswelle. Dicht beieinanderliegende Striche stehen für Verdichtungen, größere Abstände für Verdünnungen.</p><p><strong>So liest du das Modell:</strong> Bei Schall in Luft schwingen die Luftteilchen um ihre Ruhelage vor und zurück. Die Verdichtungen und Verdünnungen breiten sich aus; die Teilchen reisen dabei nicht mit dem Schall von der Quelle bis zu deinem Ohr. Eine Druckwelle kann auch als Kurve gezeichnet werden: Deren Höhe zeigt dann den Druck und nicht eine Auf-und-ab-Bewegung der Luftteilchen.</p><p>Die Animation nennt Licht als Beispiel einer Querwelle. Bei Licht schwingen elektrische und magnetische Felder; es handelt sich nicht um schwingende Luftteilchen. Zum Vergleich der Bewegungsrichtungen kannst du dir eine Welle an einem Seil vorstellen: Das Seil bewegt sich auf und ab, während sich die Welle entlang des Seils ausbreitet.</p><p><strong>Beobachtungsauftrag:</strong> Stelle dir einen markierten Luftteilchen-Punkt vor. Beschreibe seine Bewegung und unterscheide sie von der Bewegung einer Verdichtung. Prüfe danach dieselbe Unterscheidung am Seilmodell.</p></div>\n        </div>\n    \n        {{QUIZ_q1}}\n    <section data-hearing-receiver><h3>Vom Sender zum Empfänger</h3><p>Eine schwingende Schallquelle ist der <strong>Sender</strong>. In Luft breiten sich Druckänderungen aus und erreichen das Ohr als <strong>Empfänger</strong>. Sie bringen das Trommelfell zum Schwingen. Über das Mittelohr wird die Bewegung ins Innenohr übertragen; dort wandeln Sinneszellen sie in elektrische Signale um. Nerven leiten diese zum Gehirn, das sie verarbeitet.</p><p><strong>Übertragen und Erkennen sind verschiedene Schritte:</strong> Dass eine Schallwelle am Ohr ankommt, garantiert noch nicht, dass eine Person ein Signal erkennt. Andere Geräusche, Aufmerksamkeit und das individuelle Hörvermögen spielen mit. Plane deshalb gemeinsame Informationen so, dass sie zusätzlich sichtbar sein können.</p><ol data-hearing-task><li>Zeichne für eine Fahrradklingel die Kette „schwingende Quelle → Luft → Ohr → Verarbeitung“. Kennzeichne, wo Schwingungen und wo Nervensignale übertragen werden. Die Luftteilchen wandern nicht von der Klingel bis zum Gehirn.</li><li>Eine Gruppe will eine Arbeitsphase nur mit einem leisen Klingelzeichen beenden. Manche arbeiten mit Kopfhörern oder können das Signal nicht hören. Entwickle eine zusätzliche sichtbare Mitteilung. Begründe, weshalb lauter klingeln die Zugangsfrage nicht zuverlässig löst.</li><li>Vergleiche mit dem Sehweg: Welches Sinnesorgan empfängt jeweils das Signal? Worin unterscheiden sich Licht und Schall bei der Ausbreitung im Vakuum? Nutze dafür den nächsten Abschnitt. Es ist kein Hörtest und kein lauter Versuch nötig.</li></ol><p>Grundlage, geprüft am 23.09.2026: <a href=\"https://www.gesundheit.gv.at/krankheiten/hno/info/ohr-gehoer.html\" target=\"_blank\" rel=\"noopener noreferrer\">Österreichisches Gesundheitsportal: Ohr und Gehör</a>.</p><details data-worksheet-solution=\"true\" data-hearing-solution><summary>Übertragung und Zugänglichkeit vergleichen</summary><p>Die Klingel regt Schwingungen in der Luft an. Das Ohr empfängt sie; im Innenohr entsteht die Nerveninformation für die Verarbeitung. Als zusätzliche sichtbare Mitteilung eignet sich etwa eine vereinbarte Karte oder eine Textanzeige. Ein stärkeres Schallsignal ist für Menschen mit eingeschränktem Hörvermögen oder verdecktem Signal keine verlässliche gemeinsame Lösung. Licht kann sich im Vakuum ausbreiten, Schall braucht ein Medium.</p></details>{{QUIZ_ak_receiver}}</section>"
       },
       {
         "id": "sec1",
@@ -205,7 +229,7 @@
             ]
           }
         ],
-        "content": "<p>Weißt du noch, wie Lichtteilchen an einem Spiegel wie Flummis abprallen? Schallwellen machen das auch! Wenn du in den Bergen laut rufst, fliegen die Schallwellen los, prallen gegen die harte Felswand und kommen zu dir zurück. Das nennen wir <strong>Echo</strong> (Reflexion von Schall).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Tiere mit Superkräften: Echolot</strong><br>\n            Fledermäuse jagen im Dunkeln. Sie rufen ganz hoch (Ultraschall, so hoch, dass wir Menschen es nicht hören). Der Schall prallt an einer winzigen Mücke ab und wirft ein Echo zurück. Das Ohr der Fledermaus berechnet blitzschnell: Aha, das Echo kommt von rechts und war schnell da – die Mücke ist nah! Das nennt man <strong>Echoortung</strong> (oder Echolot bei U-Booten).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🦇 Die Fledermaus-Jagd</h3>\n            <p>Hilf der Fledermaus, den Falter im Dunkeln zu orten!</p>\n            <button onclick=\"sendEcho()\" id=\"btnEcho\">Ultraschall senden 🔊</button>\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <text x=\"30\" y=\"120\" font-size=\"50\">🦇</text>\n                    <text x=\"320\" y=\"120\" font-size=\"40\">🦋</text>\n                    \n                    <circle id=\"batSignalOut\" cx=\"70\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\" style=\"opacity:0;\"></circle>\n                    <circle id=\"butterflyEchoIn\" cx=\"340\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#4CAF50\" stroke-width=\"3\" style=\"opacity:0;\"></circle>\n                </svg>\n                <p id=\"echoText\" style=\"color: #63b3ed; font-weight: bold;\">Es ist stockdunkel...</p>\n            </div>\n        </div>\n        {{QUIZ_q5}}\n    "
+        "content": "<p>Wie Licht kann auch Schall reflektiert werden. Wenn du in den Bergen laut rufst, fliegen die Schallwellen los, prallen gegen die harte Felswand und kommen zu dir zurück. Das nennen wir <strong>Echo</strong> (Reflexion von Schall).</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Tiere mit Superkräften: Echolot</strong><br>\n            Fledermäuse jagen im Dunkeln. Sie rufen ganz hoch (Ultraschall, so hoch, dass wir Menschen es nicht hören). Der Schall prallt an einer winzigen Mücke ab und wirft ein Echo zurück. Das Nervensystem der Fledermaus wertet die Echos aus: Aha, das Echo kommt von rechts und war schnell da – die Mücke ist nah! Das nennt man <strong>Echoortung</strong> (oder Echolot bei U-Booten).\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🦇 Die Fledermaus-Jagd</h3>\n            <p>Hilf der Fledermaus, den Falter im Dunkeln zu orten!</p>\n            <button onclick=\"sendEcho()\" id=\"btnEcho\">Ultraschall senden 🔊</button>\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\">\n                    <text x=\"30\" y=\"120\" font-size=\"50\">🦇</text>\n                    <text x=\"320\" y=\"120\" font-size=\"40\">🦋</text>\n                    \n                    <circle id=\"batSignalOut\" cx=\"70\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#2196F3\" stroke-width=\"3\" style=\"opacity:0;\"></circle>\n                    <circle id=\"butterflyEchoIn\" cx=\"340\" cy=\"100\" r=\"10\" fill=\"none\" stroke=\"#4CAF50\" stroke-width=\"3\" style=\"opacity:0;\"></circle>\n                </svg>\n                <p id=\"echoText\" style=\"color: #63b3ed; font-weight: bold;\">Es ist stockdunkel...</p>\n            </div>\n        </div>\n        {{QUIZ_q5}}\n    "
       },
       {
         "id": "sec5",
@@ -512,7 +536,8 @@
       "Schallentstehung und die notwendige Rolle eines Mediums erklären.",
       "Frequenz und Amplitude in einer Schwingungsdarstellung unterscheiden.",
       "Echo-Laufzeiten und Resonanz mit einfachen Modellen untersuchen.",
-      "Schutz vor Lärm mit Schallbelastung und Einwirkungsdauer begründen und eine ruhigere Lernumgebung untersuchen und planen."
+      "Schutz vor Lärm mit Schallbelastung und Einwirkungsdauer begründen und eine ruhigere Lernumgebung untersuchen und planen.",
+      "Den Hörweg als Verbindung von Schallquelle, Medium und Empfänger erklären und eine zugängliche Signalgebung begründen."
     ],
     "prerequisites": [
       "sieinheiten"
@@ -523,7 +548,8 @@
       "Ein Echo legt Hin- und Rückweg zurück. Resonanz ist besonders starkes Mitschwingen bei geeigneter Anregungsfrequenz.",
       "Die Oszilloskopkurve zeigt den zeitlichen Verlauf eines Signals, keine Bahn der Luftteilchen.",
       "Resonanz hängt von Anregungsfrequenz, Anregungsstärke und Dämpfung ab; sie führt nicht automatisch zum Bruch.",
-      "Für den Gehörschutz zählen Schallbelastung, Dauer und Wiederholung. Leiser hören, Abstand, ruhige Pausen und geeigneter Gehörschutz wirken an unterschiedlichen Stellen."
+      "Für den Gehörschutz zählen Schallbelastung, Dauer und Wiederholung. Leiser hören, Abstand, ruhige Pausen und geeigneter Gehörschutz wirken an unterschiedlichen Stellen.",
+      "Beim Hören wird Schall vom Ohr aufgenommen und im Innenohr in Nervensignale umgewandelt. Das Gehirn verarbeitet die Information; ein akustisches Signal erreicht nicht alle Menschen gleich gut."
     ],
     "sources": [
       {
@@ -541,6 +567,10 @@
       {
         "title": "WHO: Deafness and hearing loss – Safe listening",
         "url": "https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"
+      },
+      {
+        "title": "Österreichisches Gesundheitsportal: Ohr und Gehör",
+        "url": "https://www.gesundheit.gv.at/krankheiten/hno/info/ohr-gehoer.html"
       }
     ]
   },
@@ -7145,19 +7175,25 @@
         "quizzes": [
           {
             "id": "q1",
-            "question": "Wie nennt man die unsichtbare Hilfslinie, die beim Spiegeln senkrecht auf der Oberfläche steht?",
+            "question": "Ein Lichtstrahl trifft mit 20° zur Spiegeloberfläche ein. Welche Hilfslinie brauchst du, um den Einfallswinkel zum Lot zu bestimmen?",
             "answers": [
               {
-                "text": "Der Ausfallstrahl.",
+                "text": "Eine Linie entlang der Spiegeloberfläche.",
+                "feedback": "An dieser Linie sind bereits 20° gegeben. Der Einfallswinkel wird jedoch zur Senkrechten auf die Oberfläche gemessen.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Noch nicht. Der Ausfallstrahl ist der zurückgehende Lichtstrahl. Miss den Winkel immer zum Lot."
+                "pts": 0
               },
               {
-                "text": "Das Lot.",
+                "text": "Die Senkrechte zur Spiegeloberfläche am Auftreffpunkt.",
+                "feedback": "Das Lot steht senkrecht zur Oberfläche. Hier beträgt der Einfallswinkel zum Lot 90° − 20° = 70°.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Genau. Das Lot ist die senkrechte Hilfslinie am Auftreffpunkt. Zu ihm misst du Einfalls- und Ausfallswinkel."
+                "pts": 0
+              },
+              {
+                "text": "Eine Linie parallel zum einfallenden Strahl.",
+                "feedback": "Eine solche Linie bildet mit dem Strahl 0°. Für das Reflexionsgesetz brauchst du das Lot zur Spiegelfläche.",
+                "correct": false,
+                "pts": 0
               }
             ]
           },
@@ -7165,12 +7201,6 @@
             "id": "mirror_virtual_position",
             "question": "Ein Gegenstandspunkt liegt 10 cm senkrecht vor einem ebenen Spiegel. Wo liegt sein virtuelles Bild?",
             "answers": [
-              {
-                "text": "10 cm senkrecht hinter der Spiegelebene.",
-                "correct": true,
-                "pts": 0,
-                "feedback": "Beim ebenen Spiegel sind Gegenstands- und Bildabstand zur Spiegelebene gleich. Die Abstände werden senkrecht zur Ebene gemessen."
-              },
               {
                 "text": "Auf der Spiegeloberfläche, weil das Licht dort reflektiert wird.",
                 "correct": false,
@@ -7182,6 +7212,12 @@
                 "correct": false,
                 "pts": 0,
                 "feedback": "20 cm wäre hier der Abstand zwischen Gegenstand und virtuellem Bild. Der Bildabstand zur Spiegelebene beträgt 10 cm."
+              },
+              {
+                "text": "10 cm senkrecht hinter der Spiegelebene.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Beim ebenen Spiegel sind Gegenstands- und Bildabstand zur Spiegelebene gleich. Die Abstände werden senkrecht zur Ebene gemessen."
               }
             ]
           },
@@ -7208,9 +7244,57 @@
                 "feedback": "Beim Sehen empfängt das Auge Licht vom Gegenstand über den Spiegel. Es sendet keinen Sehstrahl aus."
               }
             ]
+          },
+          {
+            "id": "f1",
+            "question": "Ein Lichtstrahl trifft mit 30° zum Lot auf einen ebenen Spiegel. Welchen Winkel bildet der reflektierte Strahl mit dem Lot?",
+            "answers": [
+              {
+                "text": "60°.",
+                "feedback": "60° ist hier der Winkel zur Spiegeloberfläche. Die Frage bezieht sich auf das Lot.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "30°.",
+                "feedback": "Einfalls- und Reflexionswinkel sind gleich groß und werden beide zum Lot gemessen.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "15°.",
+                "feedback": "Der Spiegel halbiert den Winkel nicht. Es gilt Einfallswinkel = Reflexionswinkel.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f2",
+            "question": "Ein Strahl trifft einen ebenen Spiegel senkrecht. Was geschieht mit seinem Lichtweg?",
+            "answers": [
+              {
+                "text": "Er läuft entlang der Spiegeloberfläche weiter.",
+                "feedback": "Dazu müsste die Strahlrichtung parallel zur Oberfläche sein. Senkrechter Einfall bedeutet entlang des Lots.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Er wird ohne Richtungsänderung durch den Spiegel geleitet.",
+                "feedback": "Ein Spiegel reflektiert den betrachteten Strahl. Er setzt seinen Weg nicht wie bei einem durchsichtigen Material fort.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Er läuft auf demselben Weg zurück.",
+                "feedback": "Zum Lot beträgt der Einfallswinkel 0°. Auch der Reflexionswinkel ist 0°; die Ausbreitungsrichtung kehrt sich um.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
           }
         ],
-        "content": "\n        \n        <p>An einer glatten Spiegelfläche wird Licht gerichtet zurückgeworfen. Das heißt <strong>Reflexion</strong>. Wir beschreiben den Lichtweg mit Strahlen. Ein Ball, der an einer Wand abprallt, kann als erste Vorstellung helfen; Licht ist jedoch kein kleiner Gummiball.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Das Reflexionsgesetz</strong><br>\n            Um zu messen, wie schräg das Licht auf den Spiegel trifft, zeichnen wir eine gedachte Hilfslinie genau senkrecht (im 90-Grad-Winkel) auf den Spiegel. Diese Linie nennt man das <strong>Lot</strong>. <br>\n            Der Winkel zwischen dem reinkommenden Lichtstrahl und dem Lot heißt <strong>Einfallswinkel</strong>. Das Gesetz der Natur ist super einfach: <strong>Einfallswinkel = Ausfallswinkel!</strong>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 Der Laser-Spiegel</h3>\n            <p>Stelle zuerst 30°, dann 60° zum Lot ein. Sage vor dem Verschieben den Reflexionswinkel voraus. Prüfe danach 0°: In welche Richtung läuft das Licht zurück?</p>\n            <label for=\"angleRange\">Einfallswinkel zum Lot</label><input type=\"range\" id=\"angleRange\" min=\"0\" max=\"70\" step=\"1\" value=\"30\" aria-describedby=\"reflectionStatus\" oninput=\"updateReflection(this.value)\" style=\"width:100%;max-width:320px\"><p id=\"reflectionStatus\" role=\"status\" aria-live=\"polite\">Einfallswinkel 30°; Reflexionswinkel 30°. Beide Winkel werden zum Lot gemessen.</p>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" role=\"img\" aria-label=\"Reflexion an einem waagrechten Spiegel mit senkrechtem Lot\" aria-describedby=\"reflectionStatus\"><defs><marker id=\"reflectionHead\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"4\" markerHeight=\"4\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#172554\"/></marker></defs><text x=\"208\" y=\"28\" fill=\"#172554\" font-size=\"14\">Lot</text>\n                    <rect x=\"50\" y=\"160\" width=\"300\" height=\"10\" fill=\"#a0aec0\" rx=\"2\"></rect>\n                    <line x1=\"50\" y1=\"160\" x2=\"350\" y2=\"160\" stroke=\"#4a5568\" stroke-width=\"3\"></line>\n                    <line x1=\"200\" y1=\"20\" x2=\"200\" y2=\"160\" stroke=\"#cbd5e0\" stroke-width=\"2\" stroke-dasharray=\"6,6\"></line>\n                    <path id=\"rayIn\" d=\"M 140 56.076952 L 200 160\" stroke=\"#1d4ed8\" stroke-width=\"4\" stroke-dasharray=\"8 4\" marker-end=\"url(#reflectionHead)\" stroke-linecap=\"round\"></path>\n                    <path id=\"rayOut\" d=\"M 200 160 L 260 56.076952\" stroke=\"#92400e\" stroke-width=\"2\" marker-end=\"url(#reflectionHead)\" stroke-linecap=\"round\"></path>\n                </svg>\n            </div>\n        </div>\n        <p>Der gestrichelte Strahl läuft zum Spiegel, der durchgezogene vom Spiegel weg. Bei senkrechtem Einfall (0° zum Lot) liegen beide Lichtwege aufeinander. Einfallsstrahl, Lot und reflektierter Strahl liegen in einer Ebene. Ein Winkel von 30° zum Lot entspricht 60° zur Spiegeloberfläche.</p>{{QUIZ_q1}}\n    <h3>Warum erscheint das Bild hinter dem ebenen Spiegel?</h3><p>Von einem beleuchteten Gegenstandspunkt gelangt Licht zum Spiegel und wird zum Auge reflektiert. Das Auge empfängt also Licht <strong>vor</strong> der Spiegelfläche. Verlängert man die reflektierten Strahlen gedanklich geradlinig rückwärts, schneiden sich ihre Verlängerungen hinter dem Spiegel. Dort liegt der scheinbare Ursprung: ein <strong>virtueller Bildpunkt</strong>. Bei einem undurchsichtigen Spiegel läuft dort kein Licht entlang. Deshalb lässt sich dieses Bild hinter dem Spiegel nicht direkt auf einem Schirm auffangen.</p><p>Beim ebenen Spiegel liegt der Bildpunkt genauso weit senkrecht hinter der Spiegelebene wie der Gegenstandspunkt davor. Das Bild ist gleich groß und aufrecht. Die Richtung senkrecht zur Spiegelfläche wird umgekehrt; eine pauschale Aussage „Der Spiegel vertauscht links und rechts“ beschreibt die räumliche Abbildung nicht genau.</p><ol data-plane-mirror-task><li>Zeichne auf kariertes Papier eine senkrechte Linie als Spiegelebene. Markiere davor einen Punkt G. Miss seinen kürzesten Abstand zur Linie, also senkrecht zur Spiegelebene. Setze dahinter den Bildpunkt B im gleichen Abstand.</li><li>Markiere zwei verschiedene Auftreffpunkte auf der Spiegellinie. Verbinde G mit beiden Punkten: Das sind die einfallenden Lichtwege. Zeichne an jedem Auftreffpunkt das Lot.</li><li>Verbinde B gestrichelt mit jedem Auftreffpunkt. Verlängere jede dieser Geraden vom Auftreffpunkt aus auf die Vorderseite des Spiegels und zeichne diesen Teil durchgezogen mit einem Pfeil vom Spiegel weg. Prüfe mit dem Geodreieck: Einfalls- und Reflexionswinkel zum jeweiligen Lot sind gleich.</li><li>Markiere ein Auge auf einem reflektierten Strahl. Verfolge den Weg G → Spiegel → Auge. Zeichne kein Auge hinter den Spiegel und keinen Lichtpfeil auf die gestrichelten Rückverlängerungen.</li><li>Wiederhole die Konstruktion für drei Abstände. Notiere die Modellwerte in der Tabelle und erkläre, welche Aussage geprüft wird. Das sind konstruierte Werte, keine experimentell gemessenen Bildlagen. Übertrage die Aussage auf einen gewöhnlichen ebenen Spiegel: Bewege einen Gegenstand näher heran und beschreibe, wie sich die scheinbare Bildlage verändert.</li></ol><table data-plane-mirror-protocol><caption>Konstruktion am ebenen Spiegel – Abstände senkrecht zur Spiegelebene</caption><thead><tr><th scope=\"col\">Gegenstandsabstand im Modell</th><th scope=\"col\">Konstruierter Bildabstand</th><th scope=\"col\">Abstand Gegenstand–Bild</th></tr></thead><tbody><tr><th scope=\"row\">5 cm</th><td>…</td><td>…</td></tr><tr><th scope=\"row\">10 cm</th><td>…</td><td>…</td></tr><tr><th scope=\"row\">15 cm</th><td>…</td><td>…</td></tr></tbody></table><p><strong>Modellgrenze:</strong> Die Zeichnung ist ein Schnitt durch den Raum und verwendet einen idealen ebenen Spiegel. Ein kleiner realer Spiegel begrenzt, welche Lichtwege das Auge erreichen. Bei einem anderen Beobachtungsort ändern sich die zum Auge gelangenden Strahlen; der Bildpunkt eines feststehenden Gegenstandspunkts bleibt am selben Ort. Hohl- und Wölbspiegel folgen anderen Abbildungsregeln.</p><details data-plane-mirror-solution><summary>Konstruktionswerte vergleichen</summary><p>Bildabstände: 5 cm, 10 cm, 15 cm. Gegenstand–Bild: 10 cm, 20 cm, 30 cm. Beide Abstände zur Spiegelebene sind gleich; Gegenstand und Bild liegen auf entgegengesetzten Seiten. Gleiche Winkelausgänge allein belegen noch keinen ausgeführten Spiegelversuch.</p></details>{{QUIZ_mirror_virtual_position}}{{QUIZ_mirror_virtual_light}}"
+        "content": "\n        \n        <p>An einer glatten Spiegelfläche wird Licht gerichtet zurückgeworfen. Das heißt <strong>Reflexion</strong>. Wir beschreiben den Lichtweg mit Strahlen. Ein Ball, der an einer Wand abprallt, kann als erste Vorstellung helfen; Licht ist jedoch kein kleiner Gummiball.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Das Reflexionsgesetz</strong><br>\n            Um zu messen, wie schräg das Licht auf den Spiegel trifft, zeichnen wir eine gedachte Hilfslinie genau senkrecht (im 90-Grad-Winkel) auf den Spiegel. Diese Linie nennt man das <strong>Lot</strong>. <br>\n            Der Winkel zwischen dem reinkommenden Lichtstrahl und dem Lot heißt <strong>Einfallswinkel</strong>. Das Gesetz der Natur ist super einfach: <strong>Einfallswinkel = Ausfallswinkel!</strong>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🎮 Der Laser-Spiegel</h3>\n            <p>Stelle zuerst 30°, dann 60° zum Lot ein. Sage vor dem Verschieben den Reflexionswinkel voraus. Prüfe danach 0°: In welche Richtung läuft das Licht zurück?</p>\n            <label for=\"angleRange\">Einfallswinkel zum Lot</label><input type=\"range\" id=\"angleRange\" min=\"0\" max=\"70\" step=\"1\" value=\"30\" aria-describedby=\"reflectionStatus\" oninput=\"updateReflection(this.value)\" style=\"width:100%;max-width:320px\"><p id=\"reflectionStatus\" role=\"status\" aria-live=\"polite\">Einfallswinkel 30°; Reflexionswinkel 30°. Beide Winkel werden zum Lot gemessen.</p>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" role=\"img\" aria-label=\"Reflexion an einem waagrechten Spiegel mit senkrechtem Lot\" aria-describedby=\"reflectionStatus\"><defs><marker id=\"reflectionHead\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"4\" markerHeight=\"4\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#172554\"/></marker></defs><text x=\"208\" y=\"28\" fill=\"#172554\" font-size=\"14\">Lot</text>\n                    <rect x=\"50\" y=\"160\" width=\"300\" height=\"10\" fill=\"#a0aec0\" rx=\"2\"></rect>\n                    <line x1=\"50\" y1=\"160\" x2=\"350\" y2=\"160\" stroke=\"#4a5568\" stroke-width=\"3\"></line>\n                    <line x1=\"200\" y1=\"20\" x2=\"200\" y2=\"160\" stroke=\"#cbd5e0\" stroke-width=\"2\" stroke-dasharray=\"6,6\"></line>\n                    <path id=\"rayIn\" d=\"M 140 56.076952 L 200 160\" stroke=\"#1d4ed8\" stroke-width=\"4\" stroke-dasharray=\"8 4\" marker-end=\"url(#reflectionHead)\" stroke-linecap=\"round\"></path>\n                    <path id=\"rayOut\" d=\"M 200 160 L 260 56.076952\" stroke=\"#92400e\" stroke-width=\"2\" marker-end=\"url(#reflectionHead)\" stroke-linecap=\"round\"></path>\n                </svg>\n            </div>\n        </div>\n        <p>Der gestrichelte Strahl läuft zum Spiegel, der durchgezogene vom Spiegel weg. Bei senkrechtem Einfall (0° zum Lot) liegen beide Lichtwege aufeinander. Einfallsstrahl, Lot und reflektierter Strahl liegen in einer Ebene. Ein Winkel von 30° zum Lot entspricht 60° zur Spiegeloberfläche.</p>{{QUIZ_q1}}\n    <h3>Warum erscheint das Bild hinter dem ebenen Spiegel?</h3><p>Von einem beleuchteten Gegenstandspunkt gelangt Licht zum Spiegel und wird zum Auge reflektiert. Das Auge empfängt also Licht <strong>vor</strong> der Spiegelfläche. Verlängert man die reflektierten Strahlen gedanklich geradlinig rückwärts, schneiden sich ihre Verlängerungen hinter dem Spiegel. Dort liegt der scheinbare Ursprung: ein <strong>virtueller Bildpunkt</strong>. Bei einem undurchsichtigen Spiegel läuft dort kein Licht entlang. Deshalb lässt sich dieses Bild hinter dem Spiegel nicht direkt auf einem Schirm auffangen.</p><p>Beim ebenen Spiegel liegt der Bildpunkt genauso weit senkrecht hinter der Spiegelebene wie der Gegenstandspunkt davor. Das Bild ist gleich groß und aufrecht. Die Richtung senkrecht zur Spiegelfläche wird umgekehrt; eine pauschale Aussage „Der Spiegel vertauscht links und rechts“ beschreibt die räumliche Abbildung nicht genau.</p><ol data-plane-mirror-task><li>Zeichne auf kariertes Papier eine senkrechte Linie als Spiegelebene. Markiere davor einen Punkt G. Miss seinen kürzesten Abstand zur Linie, also senkrecht zur Spiegelebene. Setze dahinter den Bildpunkt B im gleichen Abstand.</li><li>Markiere zwei verschiedene Auftreffpunkte auf der Spiegellinie. Verbinde G mit beiden Punkten: Das sind die einfallenden Lichtwege. Zeichne an jedem Auftreffpunkt das Lot.</li><li>Verbinde B gestrichelt mit jedem Auftreffpunkt. Verlängere jede dieser Geraden vom Auftreffpunkt aus auf die Vorderseite des Spiegels und zeichne diesen Teil durchgezogen mit einem Pfeil vom Spiegel weg. Prüfe mit dem Geodreieck: Einfalls- und Reflexionswinkel zum jeweiligen Lot sind gleich.</li><li>Markiere ein Auge auf einem reflektierten Strahl. Verfolge den Weg G → Spiegel → Auge. Zeichne kein Auge hinter den Spiegel und keinen Lichtpfeil auf die gestrichelten Rückverlängerungen.</li><li>Wiederhole die Konstruktion für drei Abstände. Notiere die Modellwerte in der Tabelle und erkläre, welche Aussage geprüft wird. Das sind konstruierte Werte, keine experimentell gemessenen Bildlagen. Übertrage die Aussage auf einen gewöhnlichen ebenen Spiegel: Bewege einen Gegenstand näher heran und beschreibe, wie sich die scheinbare Bildlage verändert.</li></ol><table data-plane-mirror-protocol><caption>Konstruktion am ebenen Spiegel – Abstände senkrecht zur Spiegelebene</caption><thead><tr><th scope=\"col\">Gegenstandsabstand im Modell</th><th scope=\"col\">Konstruierter Bildabstand</th><th scope=\"col\">Abstand Gegenstand–Bild</th></tr></thead><tbody><tr><th scope=\"row\">5 cm</th><td>…</td><td>…</td></tr><tr><th scope=\"row\">10 cm</th><td>…</td><td>…</td></tr><tr><th scope=\"row\">15 cm</th><td>…</td><td>…</td></tr></tbody></table><p><strong>Modellgrenze:</strong> Die Zeichnung ist ein Schnitt durch den Raum und verwendet einen idealen ebenen Spiegel. Ein kleiner realer Spiegel begrenzt, welche Lichtwege das Auge erreichen. Bei einem anderen Beobachtungsort ändern sich die zum Auge gelangenden Strahlen; der Bildpunkt eines feststehenden Gegenstandspunkts bleibt am selben Ort. Hohl- und Wölbspiegel folgen anderen Abbildungsregeln.</p><details data-worksheet-solution=\"true\" data-plane-mirror-solution><summary>Konstruktionswerte vergleichen</summary><p>Bildabstände: 5 cm, 10 cm, 15 cm. Gegenstand–Bild: 10 cm, 20 cm, 30 cm. Beide Abstände zur Spiegelebene sind gleich; Gegenstand und Bild liegen auf entgegengesetzten Seiten. Gleiche Winkelausgänge allein belegen noch keinen ausgeführten Spiegelversuch.</p></details>{{QUIZ_mirror_virtual_position}}{{QUIZ_mirror_virtual_light}}"
       },
       {
         "id": "sec1",
@@ -7218,19 +7302,49 @@
         "quizzes": [
           {
             "id": "q2",
-            "question": "Warum ändert ein Lichtstrahl beim schrägen Übergang von Luft in Wasser seine Richtung?",
+            "question": "Ein Strahl fällt schräg aus Luft in Wasser. Wodurch lässt sich seine Richtungsänderung erklären?",
             "answers": [
               {
-                "text": "Die Ausbreitungsgeschwindigkeit ist in beiden Medien unterschiedlich.",
+                "text": "Die Ausbreitungsgeschwindigkeit unterscheidet sich in Luft und Wasser.",
+                "feedback": "Brechung hängt von den Brechzahlen und vom Einfallswinkel ab. Bei schrägem Eintritt in Wasser wird zum Lot hin gebrochen.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Die Brechung hängt von der Brechzahl und dem Einfallswinkel ab."
+                "pts": 0
               },
               {
-                "text": "Jede Flüssigkeit lenkt Licht immer um denselben Winkel ab.",
+                "text": "Das Wasser reflektiert den ganzen Strahl zurück in die Luft.",
+                "feedback": "Reflexion führt zurück ins Ausgangsmedium. Gefragt ist der Strahl, der ins Wasser eintritt.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Stoff und Einfallswinkel beeinflussen die Richtungsänderung."
+                "pts": 0
+              },
+              {
+                "text": "Die Schwerkraft zieht den Strahl beim Eintritt nach unten.",
+                "feedback": "Im verwendeten Modell entsteht die Richtungsänderung durch den Medienwechsel. Ihre Richtung richtet sich nach der Grenzfläche und dem Lot.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f3",
+            "question": "Ein Lichtstrahl fällt mit 45° zum Lot aus Luft einmal in Wasser und einmal in Beispielglas. Die Brechzahlen sind 1,33 und 1,50. Welcher gebrochene Strahl liegt näher am Lot?",
+            "answers": [
+              {
+                "text": "Der Strahl im Wasser.",
+                "feedback": "Wasser hat in diesem Vergleich die kleinere Brechzahl. Sein Brechungswinkel zum Lot ist größer.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Der Strahl im Beispielglas.",
+                "feedback": "Bei gleichem Einfallswinkel aus Luft ergibt die höhere Brechzahl den kleineren Brechungswinkel zum Lot.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Beide haben denselben Winkel, weil beide Materialien durchsichtig sind.",
+                "feedback": "Durchsichtigkeit allein bestimmt den Winkel nicht. Entscheidend sind die Brechzahlen und der Einfallswinkel.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -7243,19 +7357,25 @@
         "quizzes": [
           {
             "id": "q3",
-            "question": "Welche Linse bündelt im Modell achsennahe parallele Lichtstrahlen in einem reellen Brennpunkt?",
+            "question": "Achsennahe parallele Strahlen sollen hinter einer Linse in Luft tatsächlich zusammentreffen. Welche Wirkung brauchst du?",
             "answers": [
               {
-                "text": "Eine bauchige Sammellinse (Konvex).",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Ja. Eine Konvexlinse bündelt paralleles Licht im Brennpunkt, wie bei einer Lupe."
+                "text": "Eine Zerstreuungslinse erzeugt den gesuchten Schnittpunkt hinter der Linse.",
+                "feedback": "Bei ihr laufen die austretenden Strahlen auseinander. Nur gedachte Rückverlängerungen treffen sich vor der Linse.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Eine nach innen gewölbte Zerstreuungslinse (Konkav).",
+                "text": "Eine ebene Glasscheibe bündelt alle parallelen Strahlen in einem Punkt.",
+                "feedback": "Eine planparallele Scheibe hat nicht die sammelnde Wirkung der hier benötigten Linse.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Eine Zerstreuungslinse lässt achsennahe parallele Strahlen auseinanderlaufen. Nur ihre gedachten Rückverlängerungen treffen sich im virtuellen Brennpunkt."
+                "pts": 0
+              },
+              {
+                "text": "Eine Sammellinse bündelt die Strahlen in einem reellen Brennpunkt.",
+                "feedback": "Im betrachteten Modell treffen sich die austretenden Strahlen tatsächlich hinter der Sammellinse.",
+                "correct": true,
+                "pts": 0
               }
             ]
           },
@@ -7288,16 +7408,16 @@
             "question": "Wie unterscheidet sich das Scharfstellen im Linsenversuch vom Scharfstellen des Auges?",
             "answers": [
               {
-                "text": "Wir verschieben den Schirm; das Auge verändert seine Brechkraft bei fester Netzhautlage.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Im Versuch bleibt die verwendete Linse gleich. Das Auge passt dagegen die Krümmung seiner Linse an."
-              },
-              {
                 "text": "Das Auge verschiebt die Netzhaut wie unseren Kartonschirm.",
                 "correct": false,
                 "pts": 0,
                 "feedback": "Die Netzhaut bleibt an ihrem Ort. Für Nah- und Fernsicht verändert das Auge seine Brechkraft."
+              },
+              {
+                "text": "Wir verschieben den Schirm; das Auge verändert seine Brechkraft bei fester Netzhautlage.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Im Versuch bleibt die verwendete Linse gleich. Das Auge passt dagegen die Krümmung seiner Linse an."
               },
               {
                 "text": "Im Auge entsteht beim Nahsehen kein Bild auf der Netzhaut.",
@@ -7306,13 +7426,195 @@
                 "feedback": "Auch beim scharfen Nahsehen entsteht das Bild auf der Netzhaut. Die stärkere Brechkraft ermöglicht dies."
               }
             ]
+          },
+          {
+            "id": "f4",
+            "question": "Du vergleichst eine beidseitig nach außen und eine beidseitig nach innen gewölbte Glaslinse in Luft. Welche Zuordnung passt?",
+            "answers": [
+              {
+                "text": "Die in der Mitte dünnere Linse sammelt, die in der Mitte dickere zerstreut.",
+                "feedback": "Bei den beschriebenen Glaslinsen in Luft ist es umgekehrt: Die bauchige Linse sammelt paralleles Licht.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Beide sammeln gleich, weil beide aus durchsichtigem Glas bestehen.",
+                "feedback": "Durchsichtigkeit allein bestimmt die Wirkung nicht. Auch die Form der brechenden Flächen ist entscheidend.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die in der Mitte dickere Linse sammelt, die in der Mitte dünnere zerstreut achsennahe parallele Strahlen.",
+                "feedback": "Für diese Glaslinsen in Luft passen Form und Wirkung so zusammen. Entscheidend bleibt die beobachtete Lichtführung.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f5",
+            "question": "Achsennahe parallele Strahlen treffen auf eine Zerstreuungslinse in Luft. Was bedeutet der virtuelle Brennpunkt links vor der Linse?",
+            "answers": [
+              {
+                "text": "Dort schneiden sich die rückwärtigen Verlängerungen der austretenden Strahlen.",
+                "feedback": "Die wirklichen Strahlen laufen hinter der Linse auseinander. Die gestrichelten Linien sind gedachte Verlängerungen.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Dorthin laufen die Strahlen hinter der Linse zurück.",
+                "feedback": "Die virtuellen Verlängerungen sind keine tatsächlichen rückwärts laufenden Lichtstrahlen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Dort treffen sich die austretenden Strahlen tatsächlich.",
+                "feedback": "Ein tatsächlicher Schnittpunkt wäre ein realer Fokus. Bei parallelem Einfall erzeugt diese Linse einen virtuellen Fokus.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
           }
         ],
-        "content": "\n        \n        <p>Wir Menschen nutzen den Trick der Brechung, indem wir Glas in ganz bestimmte, runde Formen schleifen. Diese Glasstücke nennen wir <strong>Linsen</strong>. Mit ihnen können wir Lupen, Brillen und Kameras bauen!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Zwei Formen, zwei Tricks:</strong><br>\n            - <strong>Sammellinse (Konvexlinse):</strong> Sie ist in der Mitte schön dick und bauchig. Sie fängt Lichtstrahlen ein und lenkt sie nach innen, sodass achsennahe parallele Strahlen näherungsweise im <strong>Brennpunkt (Fokus)</strong> zusammentreffen.<br>\n            - <strong>Zerstreuungslinse (Konkavlinse):</strong> Sie ist in der Mitte dünner als am Rand. Sie bricht achsennahe parallele Strahlen so, dass sie hinter der Linse auseinanderlaufen. Das ist eine gerichtete Brechung, keine diffuse Streuung. <br><br>\n            <em>💡 Eine tolle Eselsbrücke: \"Konvex ist der Rücken der Hex (nach außen gewölbt), konkav ist ein tiefer Schafgrab' (nach innen gewölbt wie eine Höhle).\"</em>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔍 Der Linsen-Wechsler</h3>\n            <p>Sage voraus, wie sich die parallelen Strahlen nach der Linse verhalten. Wechsle dann die Linse und vergleiche.</p>\n            <button onclick=\"toggleLens()\">Linse wechseln ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Strahlenmodell einer Linse\" aria-describedby=\"lensText lens-model-description\">\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <path d=\"M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    \n                    <path id=\"lensShape\" d=\"M 200 40 Q 230 120 200 200 Q 170 120 200 40\" fill=\"#bee3f8\" stroke=\"#3182ce\" stroke-width=\"2\" style=\"transition: all 0.5s;\"></path>\n                    \n                    <g id=\"lensRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"rayTopLens\" d=\"M 200 80 L 380 140\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayMidLens\" d=\"M 200 120 L 380 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayBotLens\" d=\"M 200 160 L 380 100\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualLensRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"80\"></line>\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"160\"></line>\n                    </g>\n                    \n                    <circle id=\"focalPointReal\" cx=\"320\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"focalPointVirtual\" cx=\"80\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"lensText\" style=\"font-weight:bold; color:#E91E63;\">Sammellinse: Achsennahe parallele Strahlen treffen sich näherungsweise im rechten Brennpunkt. Danach laufen sie weiter auseinander.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">Strahlenmodell einer Sammellinse</h3>\n            <p>Verfolge die parallelen Strahlen bis zum Brennpunkt und weiter darüber hinaus. Die Animation verwendet das vereinfachte Modell einer dünnen Linse.</p>\n            <video aria-label=\"Parallele Lichtstrahlen an einer Sammellinse\" aria-describedby=\"lens-model-description\" loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/linsen_brechung.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video>\n        </div>\n    \n<p id=\"lens-model-description\">Im Modell knicken die Strahlen in der Linsenmitte ab. Eine echte Linse bricht das Licht an ihren Grenzflächen. Die Zeichnung ist eine Näherung für achsennahe Strahlen. Bei der Zerstreuungslinse schneiden sich nur die gestrichelten rückwärtigen Verlängerungen im linken, virtuellen Brennpunkt. Dorthin läuft hinter der Linse kein Licht zurück; die tatsächlichen Strahlen laufen nach rechts auseinander.</p>        {{QUIZ_q3}}\n    \n<h3>Schulversuch: Wann entsteht ein Bild auf dem Schirm?</h3>\n<p><strong>Unsere Frage:</strong> Wie verändern sich Bildlage und Bildgröße, wenn derselbe Gegenstand näher an eine Sammellinse rückt? Vergleiche anschließend mit einer Zerstreuungslinse. Trenne deine Beobachtungen von der Erklärung durch das Strahlenmodell.</p>\n<p><strong>Material:</strong> Eine von der Lehrkraft bereitgestellte Sammellinse mit ungefähr 10 cm Brennweite, eine Zerstreuungslinse, sichere Linsenhalter, ein weißer Karton als Schirm, Maßband oder Lineal und ein gut erkennbarer beleuchteter Buchstabe, etwa ein F auf einer schulischen LED-Leuchtfläche mit Kleinspannungsversorgung. Die Lehrkraft prüft den Aufbau und die passende Beleuchtung vorab. Bei anderer Brennweite legt sie passende Abstände fest.</p>\n<p><strong>Für diesen Versuch:</strong> Arbeitet im Raum ohne direktes Sonnenlicht, mit der vorgesehenen LED-Beleuchtung. Verwendet keine Sonne, Laser oder Flamme als Lichtquelle. Blickt nicht durch eine Linse in eine Lichtquelle. Stellt die Halter stabil auf.</p>\n<ol data-lens-investigation><li>Stellt Leuchtbuchstabe, Sammellinse und Schirm auf einer Linie und gleicher Höhe auf. Messt den Gegenstandsabstand vom Buchstaben zur Linsenmitte und den Bildabstand von dort zum Schirm. Markiert die Position der Linse.</li><li>Beginnt bei 30 cm Gegenstandsabstand. Sagt die Orientierung des Bildes voraus. Verschiebt nur den Schirm hinter der Linse, bis das F möglichst scharf erkennbar ist. Notiert Abstand, Bildhöhe und Orientierung. Ist keine scharfe Abbildung erkennbar, prüft mit der Lehrkraft Ausrichtung, Beleuchtung und verfügbaren Schirmweg.</li><li>Verändert den Gegenstandsabstand zuerst auf 20 cm, dann auf 15 cm. Die Linse bleibt dieselbe. Sagt jeweils voraus, in welche Richtung ihr den Schirm verschieben müsst, und sucht dann erneut die schärfste Abbildung. Messt immer vom selben Bezugspunkt.</li><li>Wiederholt die Schirmsuche für eine Einstellung. Vergleicht eure Messwerte und nennt mögliche Ursachen für Abweichungen, etwa die Entscheidung, wann das Bild am schärfsten ist. Tragt fehlende Beobachtungen als „nicht erkennbar“ ein; erfindet keine Werte.</li><li>Ersetzt nur die Sammellinse durch die Zerstreuungslinse. Verwendet denselben Leuchtbuchstaben bei 20 cm Abstand und sucht auf dem verfügbaren Schirmweg hinter der Linse. Notiert das Ergebnis. Ein erfolgloser Suchversuch allein beweist noch keine allgemeine Regel.</li><li>Schaltet die Leuchtfläche aus. Betrachtet stattdessen einen auf Papier gedruckten Buchstaben bei normalem Raumlicht: zuerst durch die Sammellinse mit dem Papier deutlich innerhalb ihrer Brennweite, dann durch die Zerstreuungslinse. Beschreibt jeweils Orientierung und scheinbare Größe. Das ist eine andere Beobachtung als ein aufgefangenes Schirmbild.</li><li>Zeichnet für einen scharfen Schirmfall zwei Lichtwege von derselben Spitze des F zum zugehörigen umgekehrten Bildpunkt. Verbindet euren Befund mit dem Modell. Vergleicht zuletzt mit dem Auge: Im Versuch verschiebt ihr den Schirm; das Auge verändert seine Brechkraft bei fester Netzhautlage.</li></ol>\n<table data-lens-observation><caption>Eigene Beobachtungen – leere Felder erst nach dem Versuch ausfüllen</caption><thead><tr><th>Linse und Gegenstandsabstand</th><th>Bild auf Schirm erkennbar?</th><th>Bildabstand</th><th>Bildhöhe und Orientierung</th><th>Unsicherheit oder Besonderheit</th></tr></thead><tbody><tr><th>Sammellinse, 30 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Sammellinse, 20 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Sammellinse, 15 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Wiederholung: … cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Zerstreuungslinse, 20 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr></tbody></table>\n<p><strong>Auswerten:</strong> Ein reelles Bild entsteht, wenn Licht vom selben Gegenstandspunkt tatsächlich im Bildpunkt zusammenläuft; es lässt sich dort auf einem Schirm auffangen. Bei einer einzelnen Zerstreuungslinse und einem realen Gegenstand entsteht ein virtuelles, aufrechtes, verkleinertes Bild. Eine Sammellinse kann bei einem Gegenstand innerhalb der Brennweite als Lupe ein virtuelles, aufrechtes, vergrößertes Bild erzeugen. Virtuelle Bilder sind durch die Linse sichtbar, lassen sich aber nicht an ihrer scheinbaren Bildlage auf einem Schirm auffangen.</p>\n<p><strong>Papieralternative ohne Geräte:</strong> Zeichne eine dünne Sammellinse und eine waagrechte Achse. Verwende den Maßstab 1 cm Zeichnung = 5 cm Modelllänge, markiere die Brennpunkte 2 cm links und rechts und einen 1 cm hohen Gegenstandspfeil zunächst 6 cm links. Zeichne vom Pfeilende einen achsenparallelen Strahl, der hinter der Linse durch den rechten Brennpunkt läuft, und einen geraden Strahl durch die Linsenmitte. Ihr Schnittpunkt ist das Bild des Pfeilendes. Wiederhole für 4 cm und 3 cm Gegenstandsabstand in der Zeichnung. Das sind konstruierte Modellwerte, keine Versuchsmessungen.</p>\n<details data-lens-investigation-solution><summary>Modellvorhersage mit den eigenen Befunden vergleichen</summary><p>Für eine ideale dünne Sammellinse mit genau 10 cm Brennweite ergeben sich bei 30, 20 und 15 cm Gegenstandsabstand Bildabstände von 15, 20 und 30 cm. Die umgekehrten Bilder sind halb so groß, gleich groß und doppelt so groß wie der Gegenstand. Beim Annähern von außerhalb der Brennweite wächst hier der Bildabstand. Reale Messwerte können wegen Linseneigenschaften, Bezugspunkt und Ablesung abweichen. Für den realen Gegenstand liefert die einzelne Zerstreuungslinse kein reelles Schirmbild. Bei den Papierzeichnungen liegen die Bildpunkte 3, 4 und 6 cm rechts der Linse, mit Pfeilhöhen 0,5, 1 und 2 cm unter der Achse.</p></details>\n{{QUIZ_lens_screen_image}}{{QUIZ_lens_eye_comparison}}\n"
+        "content": "\n        \n        <p>Wir Menschen nutzen den Trick der Brechung, indem wir Glas in ganz bestimmte, runde Formen schleifen. Diese Glasstücke nennen wir <strong>Linsen</strong>. Mit ihnen können wir Lupen, Brillen und Kameras bauen!</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Zwei Formen, zwei Tricks:</strong><br>\n            - <strong>Sammellinse (Konvexlinse):</strong> Sie ist in der Mitte schön dick und bauchig. Sie fängt Lichtstrahlen ein und lenkt sie nach innen, sodass achsennahe parallele Strahlen näherungsweise im <strong>Brennpunkt (Fokus)</strong> zusammentreffen.<br>\n            - <strong>Zerstreuungslinse (Konkavlinse):</strong> Sie ist in der Mitte dünner als am Rand. Sie bricht achsennahe parallele Strahlen so, dass sie hinter der Linse auseinanderlaufen. Das ist eine gerichtete Brechung, keine diffuse Streuung. <br><br>\n            <em>💡 Eine tolle Eselsbrücke: \"Konvex ist der Rücken der Hex (nach außen gewölbt), konkav ist ein tiefer Schafgrab' (nach innen gewölbt wie eine Höhle).\"</em>\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🔍 Der Linsen-Wechsler</h3>\n            <p>Sage voraus, wie sich die parallelen Strahlen nach der Linse verhalten. Wechsle dann die Linse und vergleiche.</p>\n            <button onclick=\"toggleLens()\">Linse wechseln ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Strahlenmodell einer Linse\" aria-describedby=\"lensText lens-model-description\">\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <path d=\"M 40 80 L 200 80 M 40 120 L 200 120 M 40 160 L 200 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    \n                    <path id=\"lensShape\" d=\"M 200 40 Q 230 120 200 200 Q 170 120 200 40\" fill=\"#bee3f8\" stroke=\"#3182ce\" stroke-width=\"2\" style=\"transition: all 0.5s;\"></path>\n                    \n                    <g id=\"lensRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"rayTopLens\" d=\"M 200 80 L 380 140\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayMidLens\" d=\"M 200 120 L 380 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"rayBotLens\" d=\"M 200 160 L 380 100\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualLensRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"80\"></line>\n                        <line x1=\"80\" y1=\"120\" x2=\"200\" y2=\"160\"></line>\n                    </g>\n                    \n                    <circle id=\"focalPointReal\" cx=\"320\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"focalPointVirtual\" cx=\"80\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"lensText\" style=\"font-weight:bold; color:#E91E63;\">Sammellinse: Achsennahe parallele Strahlen treffen sich näherungsweise im rechten Brennpunkt. Danach laufen sie weiter auseinander.</p>\n            </div>\n        </div>\n        \n        <div class=\"interactive-zone\" style=\"background: #1e293b; border: 2px solid #64748b; border-radius: 12px; padding: 15px; color: white;\">\n            <h3 style=\"color: #38bdf8;\">Strahlenmodell einer Sammellinse</h3>\n            <p>Verfolge die parallelen Strahlen bis zum Brennpunkt und weiter darüber hinaus. Die Animation verwendet das vereinfachte Modell einer dünnen Linse.</p>\n            <video aria-label=\"Parallele Lichtstrahlen an einer Sammellinse\" aria-describedby=\"lens-model-description\" loop muted playsinline style=\"width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);\" controls preload=\"metadata\">\n                \n                <source src=\"../assets/videos/linsen_brechung.mp4\" type=\"video/mp4\">\n                Dein Browser unterstützt keine Videos.\n            </video>\n        </div>\n    \n<p id=\"lens-model-description\">Im Modell knicken die Strahlen in der Linsenmitte ab. Eine echte Linse bricht das Licht an ihren Grenzflächen. Die Zeichnung ist eine Näherung für achsennahe Strahlen. Bei der Zerstreuungslinse schneiden sich nur die gestrichelten rückwärtigen Verlängerungen im linken, virtuellen Brennpunkt. Dorthin läuft hinter der Linse kein Licht zurück; die tatsächlichen Strahlen laufen nach rechts auseinander.</p>        {{QUIZ_q3}}\n    \n<h3>Schulversuch: Wann entsteht ein Bild auf dem Schirm?</h3>\n<p><strong>Unsere Frage:</strong> Wie verändern sich Bildlage und Bildgröße, wenn derselbe Gegenstand näher an eine Sammellinse rückt? Vergleiche anschließend mit einer Zerstreuungslinse. Trenne deine Beobachtungen von der Erklärung durch das Strahlenmodell.</p>\n<p><strong>Material:</strong> Eine von der Lehrkraft bereitgestellte Sammellinse mit ungefähr 10 cm Brennweite, eine Zerstreuungslinse, sichere Linsenhalter, ein weißer Karton als Schirm, Maßband oder Lineal und ein gut erkennbarer beleuchteter Buchstabe, etwa ein F auf einer schulischen LED-Leuchtfläche mit Kleinspannungsversorgung. Die Lehrkraft prüft den Aufbau und die passende Beleuchtung vorab. Bei anderer Brennweite legt sie passende Abstände fest.</p>\n<p><strong>Für diesen Versuch:</strong> Arbeitet im Raum ohne direktes Sonnenlicht, mit der vorgesehenen LED-Beleuchtung. Verwendet keine Sonne, Laser oder Flamme als Lichtquelle. Blickt nicht durch eine Linse in eine Lichtquelle. Stellt die Halter stabil auf.</p>\n<ol data-lens-investigation><li>Stellt Leuchtbuchstabe, Sammellinse und Schirm auf einer Linie und gleicher Höhe auf. Messt den Gegenstandsabstand vom Buchstaben zur Linsenmitte und den Bildabstand von dort zum Schirm. Markiert die Position der Linse.</li><li>Beginnt bei 30 cm Gegenstandsabstand. Sagt die Orientierung des Bildes voraus. Verschiebt nur den Schirm hinter der Linse, bis das F möglichst scharf erkennbar ist. Notiert Abstand, Bildhöhe und Orientierung. Ist keine scharfe Abbildung erkennbar, prüft mit der Lehrkraft Ausrichtung, Beleuchtung und verfügbaren Schirmweg.</li><li>Verändert den Gegenstandsabstand zuerst auf 20 cm, dann auf 15 cm. Die Linse bleibt dieselbe. Sagt jeweils voraus, in welche Richtung ihr den Schirm verschieben müsst, und sucht dann erneut die schärfste Abbildung. Messt immer vom selben Bezugspunkt.</li><li>Wiederholt die Schirmsuche für eine Einstellung. Vergleicht eure Messwerte und nennt mögliche Ursachen für Abweichungen, etwa die Entscheidung, wann das Bild am schärfsten ist. Tragt fehlende Beobachtungen als „nicht erkennbar“ ein; erfindet keine Werte.</li><li>Ersetzt nur die Sammellinse durch die Zerstreuungslinse. Verwendet denselben Leuchtbuchstaben bei 20 cm Abstand und sucht auf dem verfügbaren Schirmweg hinter der Linse. Notiert das Ergebnis. Ein erfolgloser Suchversuch allein beweist noch keine allgemeine Regel.</li><li>Schaltet die Leuchtfläche aus. Betrachtet stattdessen einen auf Papier gedruckten Buchstaben bei normalem Raumlicht: zuerst durch die Sammellinse mit dem Papier deutlich innerhalb ihrer Brennweite, dann durch die Zerstreuungslinse. Beschreibt jeweils Orientierung und scheinbare Größe. Das ist eine andere Beobachtung als ein aufgefangenes Schirmbild.</li><li>Zeichnet für einen scharfen Schirmfall zwei Lichtwege von derselben Spitze des F zum zugehörigen umgekehrten Bildpunkt. Verbindet euren Befund mit dem Modell. Vergleicht zuletzt mit dem Auge: Im Versuch verschiebt ihr den Schirm; das Auge verändert seine Brechkraft bei fester Netzhautlage.</li></ol>\n<table data-lens-observation><caption>Eigene Beobachtungen – leere Felder erst nach dem Versuch ausfüllen</caption><thead><tr><th>Linse und Gegenstandsabstand</th><th>Bild auf Schirm erkennbar?</th><th>Bildabstand</th><th>Bildhöhe und Orientierung</th><th>Unsicherheit oder Besonderheit</th></tr></thead><tbody><tr><th>Sammellinse, 30 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Sammellinse, 20 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Sammellinse, 15 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Wiederholung: … cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><th>Zerstreuungslinse, 20 cm</th><td>…</td><td>…</td><td>…</td><td>…</td></tr></tbody></table>\n<p><strong>Auswerten:</strong> Ein reelles Bild entsteht, wenn Licht vom selben Gegenstandspunkt tatsächlich im Bildpunkt zusammenläuft; es lässt sich dort auf einem Schirm auffangen. Bei einer einzelnen Zerstreuungslinse und einem realen Gegenstand entsteht ein virtuelles, aufrechtes, verkleinertes Bild. Eine Sammellinse kann bei einem Gegenstand innerhalb der Brennweite als Lupe ein virtuelles, aufrechtes, vergrößertes Bild erzeugen. Virtuelle Bilder sind durch die Linse sichtbar, lassen sich aber nicht an ihrer scheinbaren Bildlage auf einem Schirm auffangen.</p>\n<p><strong>Papieralternative ohne Geräte:</strong> Zeichne eine dünne Sammellinse und eine waagrechte Achse. Verwende den Maßstab 1 cm Zeichnung = 5 cm Modelllänge, markiere die Brennpunkte 2 cm links und rechts und einen 1 cm hohen Gegenstandspfeil zunächst 6 cm links. Zeichne vom Pfeilende einen achsenparallelen Strahl, der hinter der Linse durch den rechten Brennpunkt läuft, und einen geraden Strahl durch die Linsenmitte. Ihr Schnittpunkt ist das Bild des Pfeilendes. Wiederhole für 4 cm und 3 cm Gegenstandsabstand in der Zeichnung. Das sind konstruierte Modellwerte, keine Versuchsmessungen.</p>\n<details data-worksheet-solution=\"true\" data-lens-investigation-solution><summary>Modellvorhersage mit den eigenen Befunden vergleichen</summary><p>Für eine ideale dünne Sammellinse mit genau 10 cm Brennweite ergeben sich bei 30, 20 und 15 cm Gegenstandsabstand Bildabstände von 15, 20 und 30 cm. Die umgekehrten Bilder sind halb so groß, gleich groß und doppelt so groß wie der Gegenstand. Beim Annähern von außerhalb der Brennweite wächst hier der Bildabstand. Reale Messwerte können wegen Linseneigenschaften, Bezugspunkt und Ablesung abweichen. Für den realen Gegenstand liefert die einzelne Zerstreuungslinse kein reelles Schirmbild. Bei den Papierzeichnungen liegen die Bildpunkte 3, 4 und 6 cm rechts der Linse, mit Pfeilhöhen 0,5, 1 und 2 cm unter der Achse.</p></details>\n{{QUIZ_lens_screen_image}}{{QUIZ_lens_eye_comparison}}\n"
+      },
+      {
+        "id": "sec3",
+        "title": "4. Das Auge: Scharf sehen in Nähe und Ferne",
+        "quizzes": [
+          {
+            "id": "q_auge",
+            "question": "Du blickst vom fernen Kirchturm auf einen nahen Text. Was verändert sich beim Scharfstellen eines normalsichtigen Auges?",
+            "answers": [
+              {
+                "text": "Die Netzhaut wird wie der Schirm im Schulversuch nach hinten verschoben.",
+                "feedback": "Die Netzhaut bleibt an ihrem Ort. Die veränderte Brechkraft ermöglicht die Anpassung an die Nähe.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Augenlinse wird stärker gekrümmt und brechkräftiger.",
+                "feedback": "So bleibt das Bild auch für den nahen Gegenstand auf der Netzhaut scharf. Die Netzhaut wird dabei nicht verschoben.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Die Augenlinse wird flacher und dadurch weniger brechkräftig.",
+                "feedback": "Diese Änderung passt zum Wechsel in die Ferne. Für den nahen Text ist eine stärkere Brechkraft erforderlich.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          }
+        ],
+        "content": "<p>Hornhaut und Augenlinse bündeln einfallendes Licht. Auf der Netzhaut entsteht bei scharfem Sehen ein umgekehrtes Bild. Sinneszellen wandeln Licht in Signale um, die im Nervensystem verarbeitet werden. Das Gehirn betrachtet dabei kein kleines Bild wie eine Person vor einem Bildschirm.</p>\n         <p>Für scharfes Sehen muss das Bild auf der Netzhaut entstehen. Die Netzhaut bleibt dabei an ihrem Ort. Für verschiedene Gegenstandsentfernungen verändert das Auge seine Brechkraft.</p>\n         \n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Akkommodation</strong><br>\n            Damit du sowohl das Handy direkt vor deiner Nase als auch den fernen Kirchturm scharf sehen kannst, kann dein Auge die Linse verformen. Beim Nahsehen zieht sich der Ziliarmuskel zusammen. Dadurch lässt die Spannung der Aufhängefasern nach und die elastische Linse wird stärker gekrümmt. Beim Fernsehen entspannt sich der Ziliarmuskel, die Fasern spannen sich und die Linse wird flacher. Diese Anpassung nennt man <strong>Akkommodation</strong>.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>👁️ Der Seh-Simulator</h3>\n            <p>Vergleiche denselben Gegenstand in zwei Entfernungen. Sage voraus, wann eine stärkere Brechkraft nötig ist und wie sich die Bildgröße verändert.</p>\n            <div style=\"display: flex; gap: 10px; justify-content: center; margin-bottom: 15px;\">\n                <button type=\"button\" data-eye-focus=\"near\" aria-pressed=\"false\" onclick=\"focusEye('near')\" style=\"background: #176b35; color: #fff;\">Nah (Buch lesen) 📖</button>\n                <button type=\"button\" data-eye-focus=\"far\" aria-pressed=\"true\" onclick=\"focusEye('far')\" style=\"background: #1765a8; color: #fff;\">Fern (Berge sehen) 🏔️</button>\n            </div>\n            <div class=\"diagram-box\" style=\"background: #f8fafc; overflow: visible;\">\n                <div data-eye-diagram-scroll tabindex=\"0\" role=\"region\" aria-label=\"Augenmodell; auf schmalen Bildschirmen seitlich scrollbar\" style=\"max-width:100%; overflow-x:auto;\"><svg style=\"min-width:400px; display:block; margin:auto;\" width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" role=\"img\" aria-label=\"Vereinfachtes Augenmodell mit Gegenstand, Ersatzlinse und umgekehrtem Netzhautbild\" aria-describedby=\"eyeText eyeModelNote\">\n                    <!-- Eye Sclera (White part) -->\n                    <ellipse cx=\"305\" cy=\"100\" rx=\"65\" ry=\"70\" fill=\"white\" stroke=\"#94a3b8\" stroke-width=\"2\"/><path d=\"M20 100 H375\" stroke=\"#64748b\" stroke-dasharray=\"4 4\"/>\n                    <!-- Retina -->\n                    <path d=\"M355 50 V150\" stroke=\"#be123c\" stroke-width=\"3\"/><text x=\"350\" y=\"168\" text-anchor=\"end\" font-size=\"12\" fill=\"#172554\">Netzhautebene</text>\n                    \n                    <!-- The Lens -->\n                    <ellipse id=\"eyeLens\" cx=\"260\" cy=\"100\" rx=\"10\" ry=\"35\" fill=\"#bbdefb\" stroke=\"#2196F3\" stroke-width=\"2\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></ellipse>\n                    \n                    <!-- Object (e.g. an arrow) -->\n                    <g id=\"eyeObject\" style=\"transition: all 0.5s;\">\n                        <line x1=\"0\" y1=\"100\" x2=\"0\" y2=\"70\" stroke=\"#ef4444\" stroke-width=\"4\" marker-end=\"url(#arrowhead)\"></line>\n                        <text x=\"0\" y=\"125\" text-anchor=\"middle\" font-size=\"12\" fill=\"#b91c1c\">Gegenstand</text>\n                    </g>\n\n                    <!-- Inverted Image on Retina -->\n                    <g id=\"eyeImage\" style=\"transition: all 0.5s;\">\n                        <line x1=\"355\" y1=\"100\" x2=\"355\" y2=\"115\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrowhead)\"></line>\n                        <text x=\"355\" y=\"148\" text-anchor=\"middle\" font-size=\"12\" fill=\"#334155\">Abbild</text>\n                    </g>\n                    \n                    <!-- Rays Group -->\n                    <g id=\"eyeRays\">\n                        <path id=\"rayPathTop\" d=\"\" stroke=\"#fbbf24\" stroke-width=\"1.5\" fill=\"none\" opacity=\"0.6\" style=\"transition: d 0.5s;\"></path>\n                        <path id=\"rayPathBottom\" d=\"\" stroke=\"#fbbf24\" stroke-width=\"1.5\" fill=\"none\" opacity=\"0.6\" style=\"transition: d 0.5s;\"></path>\n                    </g>\n\n                    <defs>\n                        <marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"10\" refY=\"3.5\" orient=\"auto\">\n                            <polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#ef4444\"></polygon>\n                        </marker>\n                    </defs>\n                </svg></div>\n                <p id=\"eyeText\" style=\"font-weight:bold; color: #1e293b; margin-top: 10px;\">Wähle eine Entfernung!</p>\n            </div>\n        </div>\n        <p id=\"eyeModelNote\">Am schmalen Bildschirm kannst du die Grafik seitlich verschieben; mit der Tastatur fokussiere sie und nutze die Pfeiltasten. Vereinfachtes Strahlenmodell: Eine dünne Ersatzlinse fasst die Brechung durch Hornhaut und Augenlinse zusammen. Die Netzhaut wird als feste Ebene dargestellt. Die gezeichnete Linsendicke kennzeichnet nur die stärkere oder schwächere Brechkraft; Form und Abstände sind nicht anatomisch maßstabsgetreu. Zwei Strahlen vom selben Gegenstandspunkt treffen sich im zugehörigen Bildpunkt. Die übrigen Punkte werden entsprechend abgebildet.</p>{{QUIZ_q_auge}}\n    "
+      },
+      {
+        "id": "optische_geraete_recherche",
+        "title": "5. Optische Geräte: Quellen prüfen und entscheiden",
+        "quizzes": [
+          {
+            "id": "optics_sources",
+            "question": "Ein Hersteller erklärt auf einer Verkaufsseite die Auflösung seines Mikroskops. Wie prüfst du diese Aussage sinnvoll?",
+            "answers": [
+              {
+                "text": "Ich verwerfe jede fachliche Aussage, sobald die Seite auch Geräte verkauft.",
+                "feedback": "Ein Verkaufsinteresse verlangt eine kritische Prüfung; es beweist nicht, dass die fachliche Erklärung falsch ist.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ich zähle zwei Händlerseiten als Bestätigung, obwohl beide denselben Herstellertext übernehmen.",
+                "feedback": "Kopierte Texte sind keine unabhängige Bestätigung. Entscheidend sind eigene, nachvollziehbare Belege.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ich vergleiche die konkrete Erklärung mit einer unabhängigen Fachquelle und notiere beide Fundstellen.",
+                "feedback": "Ein nachprüfbarer Vergleich prüft den Inhalt und macht das Verkaufsinteresse sichtbar.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "optics_resolution",
+            "question": "Ein unscharfes Mikroskopbild wird doppelt so groß angezeigt. Zwei nahe Strukturen bleiben zu einem Fleck verschmolzen. Was kannst du begründet sagen?",
+            "answers": [
+              {
+                "text": "Die Darstellung ist größer; die beiden Strukturen sind dadurch noch nicht getrennt aufgelöst.",
+                "feedback": "Vergrößerung und Auflösung sind verschieden. Ein größerer Fleck enthält nicht automatisch zusätzliche Details.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Die Auflösung ist doppelt so gut, weil das Bild doppelt so groß ist.",
+                "feedback": "Die Beobachtung zeigt gerade keine Trennung der Strukturen. Die Bildgröße allein belegt keine höhere Auflösung.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Probe besteht sicher nur aus einer Struktur, weil nur ein Fleck sichtbar ist.",
+                "feedback": "Ein Gerät kann nahe Strukturen zu einem Fleck abbilden. Aus einem unaufgelösten Bild folgt nicht, dass die Probe nur eine Struktur enthält.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "optics_safety",
+            "question": "Jemand möchte mit einem gewöhnlichen Fernglas zur Sonne schauen und davor eine Sonnenfinsternisbrille aufsetzen. Welche Entscheidung ist mit Quelle D begründet?",
+            "answers": [
+              {
+                "text": "Es genügt, nur kurz hinzusehen und das Fernglas anschließend wegzunehmen.",
+                "feedback": "Auch ein kurzer Blick ist keine sichere Lösung. Der vorgeschlagene Aufbau kann schwere Augenschäden verursachen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Den Versuch nicht durchführen: Die Brille vor dem Auge macht das Fernglas dafür nicht sicher.",
+                "feedback": "Optische Geräte bündeln Sonnenlicht. Die NASA warnt ausdrücklich vor dieser Kombination; unser Auftrag arbeitet mit Texten und Bildern.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Es genügt, am Fernglas die kleinste Vergrößerung einzustellen.",
+                "feedback": "Eine kleinere Vergrößerung ersetzt keinen geeigneten Schutz für ein optisches Gerät. Der vorgeschlagene Versuch bleibt ungeeignet.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "optics_vienna",
+            "question": "Quelle A nennt für den Großen Refraktor eine Linsenöffnung von 68 cm. Welche Schlussfolgerung ist durch Angabe und Kapitelmodell gestützt?",
+            "answers": [
+              {
+                "text": "Das Gerät vergrößert immer genau 68-fach, unabhängig vom Okular.",
+                "feedback": "68 cm beschreibt die Öffnung. Die Vergrößerung benötigt weitere Angaben zum optischen Aufbau.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das Licht wird zuerst von einem Hauptspiegel gesammelt, weil das Gerät so groß ist.",
+                "feedback": "Die Größe legt die Bauart nicht fest. Die Quelle nennt einen Refraktor mit einer Linsenöffnung.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das lichtsammelnde Objektiv verwendet Linsen; 68 cm ist ein Öffnungsdurchmesser.",
+                "feedback": "Refraktor bezeichnet ein Linsenteleskop. Zentimeter geben hier eine Länge an, nicht den Vergrößerungsfaktor.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          }
+        ],
+        "content": "\n<p>Womit kannst du Zellen eines Blatts untersuchen, womit weit entfernte Himmelskörper? Ein <strong>Mikroskop</strong> macht kleine Strukturen einer nahen Probe sichtbar. Ein <strong>Teleskop</strong> sammelt Licht von weit entfernten Objekten. Beide bilden Licht ab; sie sind für unterschiedliche Aufgaben gebaut. Die Modelle weiter unten zeigen ihre Lichtwege genauer.</p>\n<p><strong>Vergrößerung</strong> beschreibt, wie groß etwas erscheint. <strong>Auflösung</strong> beschreibt, ob nahe beieinanderliegende Details noch getrennt erkennbar sind. Ein unscharfes Foto größer anzuzeigen macht fehlende Einzelheiten nicht sichtbar. Auch optische Geräte haben Grenzen.</p>\n<h3>Vier Quellenkarten für deinen Vergleich</h3>\n<p>Die Karten sind kurze Zusammenfassungen der verlinkten Quellen, geprüft am 23.09.2026. Sie ersetzen kein eigenes Öffnen und Prüfen der Quellen. Für die Arbeit ohne Internet darfst du die Karten verwenden: Schreibe dann „Kartenvergleich“ statt „eigene Online-Recherche“. Englische Fachwörter: <span lang=\"en\">magnification</span> = Vergrößerung, <span lang=\"en\">resolution</span> = Auflösung.</p>\n<div data-optics-source=\"A\"><h4>A · Ein Gerät in Wien</h4><p><a href=\"https://astro.univie.ac.at/oeffentlichkeitsarbeit/fotogalerie/\" target=\"_blank\" rel=\"noopener noreferrer\">Universität Wien: Fotogalerie der Universitätssternwarte</a></p><p>Die Universität zeigt ihren Großen Refraktor mit einer Linsenöffnung von 68 cm. Sie veröffentlicht auch Himmelsaufnahmen mit Angaben zum verwendeten Instrument. Eine Einrichtung berichtet hier über ihre eigenen Geräte und Beobachtungen. Die Zahl 68 cm beschreibt die Öffnung, keine 68-fache Vergrößerung. Die Galerie allein ist kein Vergleich aller Teleskope.</p></div>\n<div data-optics-source=\"B\"><h4>B · Fachwissen mit Verkaufsinteresse</h4><p><a href=\"https://www.zeiss.com/microscopy/en/l/great-britain/campaigns/2025/know-your-zeiss-objective.html\" target=\"_blank\" rel=\"noopener noreferrer\">ZEISS: Know Your ZEISS Objective (Herstellerinformation, englisch)</a></p><p>Der Mikroskophersteller unterscheidet Vergrößerung von Auflösung: Das Objektiv beeinflusst, welche feinen Details sichtbar werden; Vergrößerung allein beschreibt das nicht. Die Seite bewirbt zugleich eigene Objektive. Sie nennt auch KI-Unterstützung bei ihrer Erstellung. Prüfe die fachliche Aussage an einer weiteren Quelle; weder Werbung noch KI-Hinweis beweisen für sich allein, dass sie falsch ist.</p></div>\n<div data-optics-source=\"C\"><h4>C · Eine unabhängige Erklärung</h4><p><a href=\"https://openstax.org/books/college-physics-2e/pages/27-6-limits-of-resolution-the-rayleigh-criterion\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStax: Limits of Resolution (Lehrbuch, englisch)</a></p><p>Das Physiklehrbuch erklärt mit Bildern von zwei nahen Lichtpunkten, weshalb optische Bilder nicht unbegrenzt feine Details zeigen. Beugung begrenzt die Auflösung; die Öffnung spielt dabei eine Rolle. Auch Abbildungsfehler können das Ergebnis verschlechtern. Du brauchst hier keine Formel: Vergleiche in Abbildung 27.25, wann zwei Punkte noch getrennt sichtbar sind. Das Lehrbuch verkauft keine Mikroskopobjektive.</p></div>\n<div data-optics-source=\"D\"><h4>D · Sicher beobachten</h4><p><a href=\"https://science.nasa.gov/eclipses/safety/\" target=\"_blank\" rel=\"noopener noreferrer\">NASA: Eclipse Viewing Safety (englisch)</a></p><p>Die NASA warnt vor schweren Augenschäden beim Blick auf die Sonne durch ungeschützte optische Geräte. Auch eine Sonnenfinsternisbrille vor dem Auge macht ein gewöhnliches Fernglas oder Teleskop dafür nicht sicher. Für unseren Auftrag gilt: <strong>keine Sonnenbeobachtung und kein Versuch mit gebündeltem Sonnenlicht.</strong> Wir recherchieren an Bildern und Texten.</p></div>\n<h3>Dein Rechercheauftrag</h3>\n<ol data-optics-research-task>\n<li><strong>Frage festlegen:</strong> Wähle „Wie untersuche ich feine Blattstrukturen?“ oder „Wie untersuche ich weit entfernte Himmelskörper?“. Notiere vorab ein geeignetes Gerät und eine Vermutung zu seiner Grenze.</li>\n<li><strong>Quellen öffnen:</strong> Prüfe mindestens zwei der verlinkten Seiten. Vergleiche für die Aussage „mehr Vergrößerung bedeutet immer mehr erkennbare Details“ B und C. Suche auf den Seiten die genannten Abschnitte oder die Abbildung 27.25. Lies D für die Sicherheitsentscheidung.</li>\n<li><strong>Belege festhalten:</strong> Erstelle für jede verwendete Quelle eine Notiz nach dem Muster unten. Trenne eine belegte Aussage, deine Schlussfolgerung und eine noch offene Frage. Fehlt ein Datum, notiere „nicht angegeben“; erfinde keine Angaben.</li>\n<li><strong>Aussage überprüfen:</strong> Eine erfundene Werbung verspricht: „Unser Okular vergrößert doppelt so stark. Deshalb erkennst du garantiert doppelt so feine Einzelheiten.“ Beurteile das Versprechen mit B und C. Benenne jeweils die Textstelle oder Abbildung, die dein Urteil stützt. Welche Angabe oder Beobachtung fehlt für einen fairen Gerätevergleich?</li>\n<li><strong>Wien-Bezug erklären:</strong> Suche in A den Großen Refraktor. Nenne die Einheit seiner Öffnung und erkläre mithilfe dieses Kapitels, ob Linsen oder ein Hauptspiegel das Licht zuerst sammeln. Trenne die Angabe der Galerie von deiner Erklärung mit dem Modell.</li>\n<li><strong>Nutzen und Grenze abwägen:</strong> Entscheide für deine Anfangsfrage. Begründe einen Nutzen, eine Grenze und eine sichere Arbeitsweise. Prüfe außerdem: Können alle in der Gruppe das Ergebnis sehen, etwa über ein gemeinsam betrachtetes Bild? Welche Informationen über Kosten, Verfügbarkeit oder Bedienung fehlen noch? Die Quellenkarten enthalten keine vollständige Kaufberatung.</li>\n<li><strong>Ergebnis austauschen:</strong> Schreibe eine Gerätekarte mit Frage, Gerät, Erklärung, zwei Quellenbelegen und einer offenen Frage. Lass eine andere Person eine deiner Aussagen an der angegebenen Stelle nachprüfen. Verbessere eine unklare Begründung und halte die Änderung fest. Allein: Prüfe deine Karte nach einer Pause erneut an den Quellen.</li>\n</ol>\n<div data-optics-source-protocol><h4>Quellennotiz zum Abschreiben</h4><p>Quelle / verantwortliche Einrichtung: …<br>Titel und Adresse: …<br>Veröffentlichungs- oder Aktualisierungsdatum / mein Abrufdatum: …<br>Textstelle oder Abbildung: …<br>Aussage in eigenen Worten: …<br>Fachliche Zuständigkeit und mögliches Interesse: …<br>Vergleichsquelle und Ergebnis des Vergleichs: …<br>Meine Schlussfolgerung / noch ungeklärt: …</p></div>\n<details data-worksheet-solution=\"true\" data-optics-research-solution><summary>Nach deiner Begründung: Vergleichshinweise</summary><p>Die Gerätewahl hängt von der Frage ab: Für feine Strukturen einer nahen Probe eignet sich ein Mikroskop; für weit entfernte Himmelskörper ein Teleskop. Ein stärker vergrößerndes Okular garantiert keine zusätzlichen aufgelösten Details. B unterscheidet die Begriffe; C erklärt mit den Punktbildern eine physikalische Grenze. Für einen Vergleich fehlen etwa Angaben zur Auflösung des Gesamtsystems, zur Beleuchtung und zur Qualität eines unter gleichen Bedingungen aufgenommenen Bilds.</p><p>A nennt 68 cm als Öffnung. Aus „Refraktor“ und dem Linsenmodell folgt die Zuordnung zum Linsenteleskop. Eine Aussage über die konkrete Vergrößerung benötigt weitere Angaben, etwa das verwendete Okular. D begründet, weshalb die vorgeschlagene Sonnenbeobachtung mit einem gewöhnlichen Fernglas und einer Brille vor dem Auge verworfen werden muss. Die Recherche benötigt keinen solchen Versuch.</p><p>Eine gute Gerätekarte enthält nachvollziehbare Fundstellen und trennt Beleg von Schlussfolgerung. Herstellerwissen darf verwendet werden, wenn Interessen erkennbar bleiben und die betreffende Aussage unabhängig geprüft wird. Zwei Seiten, die nur denselben Werbetext kopieren, sind keine zwei unabhängigen Belege. Eine Quizantwort ersetzt deine eigene Recherche und Überarbeitung nicht.</p></details>\n{{QUIZ_optics_sources}}{{QUIZ_optics_resolution}}{{QUIZ_optics_safety}}{{QUIZ_optics_vienna}}\n"
       },
       {
         "id": "sec2",
-        "title": "4. Totalreflexion und Lichtleitung",
+        "title": "6. Totalreflexion und Lichtleitung",
         "quizzes": [
           {
             "id": "q_total",
@@ -7342,74 +7644,181 @@
         "content": "\n        \n        <p>Beim Übergang von einem Material mit höherer Brechzahl zu einem mit niedrigerer Brechzahl kann Licht vollständig zurückgeworfen werden. Dieser Fall heißt <strong>Totalreflexion</strong>. Dafür muss der Einfallswinkel zum Lot größer als der Grenzwinkel sein.</p>\n        <div class=\"lexikon-box\"><strong>Der Grenzwinkel:</strong> Für Beispielglas mit Brechzahl 1,50 an Luft mit 1,00 beträgt er ungefähr 41,8° zum Lot. Genau am Grenzwinkel verläuft der gebrochene Strahl entlang der Grenze; erst bei größeren Winkeln tritt Totalreflexion auf. „Flach zur Wand“ bedeutet dabei „großer Winkel zum Lot“.</div>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Das Licht im Glasstab</h3>\n            <p>Wir geben die Richtung eines bereits im Glas laufenden Strahls vor. Der Regler misst den Winkel zur Stabachse, nicht zum Wandlot. Vergleiche 20°, 50° und 0°. Negative Werte spiegeln den Lichtweg nach oben.</p>\n            <label for=\"fiberAngle\">Richtung im Glas: Winkel zur Stabachse</label><input type=\"range\" id=\"fiberAngle\" min=\"-60\" max=\"60\" value=\"20\" oninput=\"updateFiber(this.value)\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #0f172a;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" role=\"img\" aria-label=\"Lichtweg im Glasstab und möglicher Austritt in Luft\" aria-describedby=\"fiberStatus fiberModelNote\">\n                    <rect x=\"80\" y=\"70\" width=\"300\" height=\"60\" fill=\"#3b82f6\" opacity=\"0.2\" stroke=\"#60a5fa\" stroke-width=\"2\"></rect>\n                    <circle cx=\"80\" cy=\"100\" r=\"4\" fill=\"#f87171\"/>\n                    <g id=\"raysGroup\"></g>\n                    \n                </svg>\n            </div>\n        </div>\n        <p id=\"fiberStatus\" role=\"status\" aria-live=\"polite\"></p><p id=\"fiberModelNote\">Modell: gerader Glasstab in Luft. Die Einkopplung und die rechte Stirnfläche werden nicht berechnet; dort endet die Zeichnung. Der gestrichelte kurze Strahl zeigt bei teilweiser Reflexion den zurückgeworfenen Anteil. Linienbreiten geben keine Lichtstärken an. Eine echte Glasfaser besitzt einen Mantel mit kleinerer Brechzahl als der Kern; ihr Grenzwinkel hängt von beiden Brechzahlen ab.</p>{{QUIZ_q_total}}\n    "
       },
       {
-        "id": "sec3",
-        "title": "5. Das Auge: Scharf sehen in Nähe und Ferne",
-        "quizzes": [
-          {
-            "id": "q_auge",
-            "question": "Was macht die Augenlinse, damit wir Dinge in der Nähe scharf sehen?",
-            "answers": [
-              {
-                "text": "Sie wird dicker und stärker gekrümmt.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Perfekt. Für nahe Objekte wird die Linse stärker gekrümmt und damit brechkräftiger."
-              },
-              {
-                "text": "Sie wird flacher und dünner.",
-                "correct": false,
-                "pts": 5,
-                "feedback": "Das gilt für Fernsicht. Für Nähe braucht das Auge eine dickere, stärker gekrümmte Linse."
-              }
-            ]
-          }
-        ],
-        "content": "<p>Hornhaut und Augenlinse bündeln einfallendes Licht. Auf der Netzhaut entsteht bei scharfem Sehen ein umgekehrtes Bild. Sinneszellen wandeln Licht in Signale um, die im Nervensystem verarbeitet werden. Das Gehirn betrachtet dabei kein kleines Bild wie eine Person vor einem Bildschirm.</p>\n         <p>Für scharfes Sehen muss das Bild auf der Netzhaut entstehen. Die Netzhaut bleibt dabei an ihrem Ort. Für verschiedene Gegenstandsentfernungen verändert das Auge seine Brechkraft.</p>\n         \n        <div class=\"lexikon-box\">\n            📖 <strong>Das schlaue Wörterbuch: Akkommodation</strong><br>\n            Damit du sowohl das Handy direkt vor deiner Nase als auch den fernen Kirchturm scharf sehen kannst, kann dein Auge die Linse verformen. Beim Nahsehen zieht sich der Ziliarmuskel zusammen. Dadurch lässt die Spannung der Aufhängefasern nach und die elastische Linse wird stärker gekrümmt. Beim Fernsehen entspannt sich der Ziliarmuskel, die Fasern spannen sich und die Linse wird flacher. Diese Anpassung nennt man <strong>Akkommodation</strong>.\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>👁️ Der Seh-Simulator</h3>\n            <p>Vergleiche denselben Gegenstand in zwei Entfernungen. Sage voraus, wann eine stärkere Brechkraft nötig ist und wie sich die Bildgröße verändert.</p>\n            <div style=\"display: flex; gap: 10px; justify-content: center; margin-bottom: 15px;\">\n                <button type=\"button\" data-eye-focus=\"near\" aria-pressed=\"false\" onclick=\"focusEye('near')\" style=\"background: #4CAF50;\">Nah (Buch lesen) 📖</button>\n                <button type=\"button\" data-eye-focus=\"far\" aria-pressed=\"true\" onclick=\"focusEye('far')\" style=\"background: #2196F3;\">Fern (Berge sehen) 🏔️</button>\n            </div>\n            <div class=\"diagram-box\" style=\"background: #f8fafc; overflow: visible;\">\n                <svg width=\"400\" height=\"200\" viewBox=\"0 0 400 200\" role=\"img\" aria-label=\"Vereinfachtes Augenmodell mit Gegenstand, Ersatzlinse und umgekehrtem Netzhautbild\" aria-describedby=\"eyeText eyeModelNote\">\n                    <!-- Eye Sclera (White part) -->\n                    <ellipse cx=\"305\" cy=\"100\" rx=\"65\" ry=\"70\" fill=\"white\" stroke=\"#94a3b8\" stroke-width=\"2\"/><path d=\"M20 100 H375\" stroke=\"#64748b\" stroke-dasharray=\"4 4\"/>\n                    <!-- Retina -->\n                    <path d=\"M355 50 V150\" stroke=\"#be123c\" stroke-width=\"3\"/><text x=\"350\" y=\"168\" text-anchor=\"end\" font-size=\"12\" fill=\"#172554\">Netzhautebene</text>\n                    \n                    <!-- The Lens -->\n                    <ellipse id=\"eyeLens\" cx=\"260\" cy=\"100\" rx=\"10\" ry=\"35\" fill=\"#bbdefb\" stroke=\"#2196F3\" stroke-width=\"2\" style=\"transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\"></ellipse>\n                    \n                    <!-- Object (e.g. an arrow) -->\n                    <g id=\"eyeObject\" style=\"transition: all 0.5s;\">\n                        <line x1=\"0\" y1=\"100\" x2=\"0\" y2=\"70\" stroke=\"#ef4444\" stroke-width=\"4\" marker-end=\"url(#arrowhead)\"></line>\n                        <text x=\"0\" y=\"115\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\">Gegenstand</text>\n                    </g>\n\n                    <!-- Inverted Image on Retina -->\n                    <g id=\"eyeImage\" style=\"transition: all 0.5s;\">\n                        <line x1=\"355\" y1=\"100\" x2=\"355\" y2=\"115\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arrowhead)\"></line>\n                        <text x=\"355\" y=\"135\" text-anchor=\"middle\" font-size=\"8\" fill=\"#64748b\">Abbild</text>\n                    </g>\n                    \n                    <!-- Rays Group -->\n                    <g id=\"eyeRays\">\n                        <path id=\"rayPathTop\" d=\"\" stroke=\"#fbbf24\" stroke-width=\"1.5\" fill=\"none\" opacity=\"0.6\" style=\"transition: d 0.5s;\"></path>\n                        <path id=\"rayPathBottom\" d=\"\" stroke=\"#fbbf24\" stroke-width=\"1.5\" fill=\"none\" opacity=\"0.6\" style=\"transition: d 0.5s;\"></path>\n                    </g>\n\n                    <defs>\n                        <marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"10\" refY=\"3.5\" orient=\"auto\">\n                            <polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#ef4444\"></polygon>\n                        </marker>\n                    </defs>\n                </svg>\n                <p id=\"eyeText\" style=\"font-weight:bold; color: #1e293b; margin-top: 10px;\">Wähle eine Entfernung!</p>\n            </div>\n        </div>\n        <p id=\"eyeModelNote\">Vereinfachtes Strahlenmodell: Eine dünne Ersatzlinse fasst die Brechung durch Hornhaut und Augenlinse zusammen. Die Netzhaut wird als feste Ebene dargestellt. Die gezeichnete Linsendicke kennzeichnet nur die stärkere oder schwächere Brechkraft; Form und Abstände sind nicht anatomisch maßstabsgetreu. Zwei Strahlen vom selben Gegenstandspunkt treffen sich im zugehörigen Bildpunkt. Die übrigen Punkte werden entsprechend abgebildet.</p>{{QUIZ_q_auge}}\n    "
-      },
-      {
         "id": "sec6",
-        "title": "6. Hohl- und Wölbspiegel",
+        "title": "7. Hohl- und Wölbspiegel",
         "quizzes": [
           {
             "id": "q5",
-            "question": "Welcher nach außen gewölbte Spiegel hängt oft an gefährlichen Straßenkreuzungen, weil man damit ein ganz breites Feld sehen kann?",
+            "question": "Ein Verkehrsspiegel soll einen großen Bereich zeigen. Welche Kombination passt zu einem Wölbspiegel?",
             "answers": [
               {
-                "text": "Ein Hohlspiegel (Konkavspiegel).",
+                "text": "Nach innen gewölbt; paralleles Licht wird wie beim Hohlspiegel gebündelt.",
+                "feedback": "Das beschreibt einen Hohlspiegel. Beim Wölbspiegel laufen parallel einfallende Strahlen nach der Reflexion auseinander.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Das wäre der bündelnde Spiegel. Für breites Sichtfeld an Kreuzungen braucht man den nach außen gewölbten Konvexspiegel."
+                "pts": 0
               },
               {
-                "text": "Ein Wölbspiegel (Konvexspiegel).",
+                "text": "Nach außen gewölbt; großes Sichtfeld und verkleinerte virtuelle Bilder.",
+                "feedback": "Der Wölbspiegel hilft beim Überblick. Ein kleines Spiegelbild bedeutet aber nicht, dass ein Fahrzeug tatsächlich weit entfernt ist.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Konvexspiegel geben ein großes Sichtfeld, daher nutzt man sie an Kreuzungen und in Märkten."
+                "pts": 0
+              },
+              {
+                "text": "Ebene Fläche; derselbe Überblick entsteht allein durch einen stärkeren Glanz.",
+                "feedback": "Glanz ändert nicht die geometrische Form. Für die beschriebene Erweiterung des Sichtfelds ist die Wölbung entscheidend.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f8",
+            "question": "Welcher Spiegel kann achsennahe parallele Strahlen vor seiner Fläche in einem reellen Brennpunkt sammeln?",
+            "answers": [
+              {
+                "text": "Ein ebener Spiegel.",
+                "feedback": "Ein ebener Spiegel reflektiert parallele Strahlen wieder parallel; er sammelt sie nicht in einem Brennpunkt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ein Wölbspiegel.",
+                "feedback": "Nach der Reflexion am Wölbspiegel laufen die Strahlen auseinander. Nur Rückverlängerungen ergeben einen virtuellen Brennpunkt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Ein passend geformter Hohlspiegel.",
+                "feedback": "Der konkave Spiegel bündelt durch Reflexion. Eine Sammellinse kann ebenfalls bündeln, arbeitet aber durch Brechung.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f9",
+            "question": "Ein Auto erscheint in einem Wölbspiegel klein. Welche Begründung verhindert einen vorschnellen Schluss über seine Entfernung?",
+            "answers": [
+              {
+                "text": "Der Spiegel verkleinert das virtuelle Bild; die Bildgröße allein zeigt die Entfernung nicht zuverlässig.",
+                "feedback": "Die Form des Spiegels verändert die Abbildung. Ein kleines Bild darf nicht allein als Beleg für ein weit entferntes Auto gelten.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Kleine Bilder entstehen nur, wenn das Auto tatsächlich weit entfernt ist.",
+                "feedback": "Auch die verkleinernde Abbildung des Wölbspiegels beeinflusst die Bildgröße. Die Entfernung ist damit nicht allein bestimmt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das Auto ist im Spiegel kleiner, weil Licht beim Reflektieren langsamer wird.",
+                "feedback": "Die Bildgröße folgt hier aus der Geometrie der reflektierten Strahlen, nicht aus einer verlangsamten Ausbreitung nach der Reflexion.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
         ],
-        "content": "\n        \n        <p>Dicke Glaslinsen sind oft ganz schön schwer! Manchmal nutzen wir deshalb einfach gewölbte Spiegel aus Metall. Sie verhalten sich verblüffend ähnlich wie unsere Linsen.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Der Spiegel-Linsen-Zwilling:</strong><br>\n            - <strong>Hohlspiegel (Konkavspiegel):</strong> Licht fällt in die Vertiefung wie in einen Suppenlöffel. Er verhält sich wie eine Sammellinse! Er bündelt das Licht vor sich in einem echten Brennpunkt.<br>\n            - <strong>Wölbspiegel (Konvexspiegel):</strong> Das Licht prallt auf den runden \"Bauch\" (wie bei einer Christbaumkugel). Er verhält sich wie eine Zerstreuungslinse. Das Licht fächert sich auf und erzeugt für unser Auge einen <strong>virtuellen Brennpunkt</strong>, der scheinbar hinter dem Spiegel liegt!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪞 Das Spiegel-Kabinett</h3>\n            <p>Parallele Strahlen treffen von links auf den Spiegel. Sage voraus, ob die reflektierten Strahlen zusammen- oder auseinanderlaufen. Wechsle dann die Spiegelform.</p>\n            <button onclick=\"toggleMirror()\">Spiegel wenden ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Parallele Strahlen an einem gekrümmten Spiegel\" aria-describedby=\"mirrorText curvedMirrorNote\"><defs><marker id=\"curvedMirrorArrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"4\" markerHeight=\"4\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#172554\"/></marker></defs>\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <g marker-end=\"url(#curvedMirrorArrow)\" id=\"inRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"inRayTop\" d=\"M 40 80 L 255 80\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"inRayMid\" d=\"M 40 120 L 260 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"inRayBot\" d=\"M 40 160 L 255 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <path id=\"mirrorShape\" d=\"M 240 40 Q 280 120 240 200\" fill=\"none\" stroke=\"#a0aec0\" stroke-width=\"8\" stroke-linecap=\"round\" style=\"transition: all 0.5s;\"></path>\n                    <g marker-end=\"url(#curvedMirrorArrow)\" id=\"mirrorRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"mirrorRayTop\" d=\"M 255 80 L 30 200\" stroke=\"#E91E63\" stroke-width=\"3\"></path>\n                        <path id=\"mirrorRayMid\" d=\"M 260 120 L 30 120\" stroke=\"#E91E63\" stroke-width=\"3\"></path>\n                        <path id=\"mirrorRayBot\" d=\"M 255 160 L 30 40\" stroke=\"#E91E63\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualMirrorRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line id=\"vRayTop\" x1=\"300\" y1=\"80\" x2=\"390\" y2=\"120\"></line>\n                        <line id=\"vRayBot\" x1=\"300\" y1=\"160\" x2=\"390\" y2=\"120\"></line>\n                    </g>\n                    <circle id=\"mirrorFocusReal\" cx=\"180\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"mirrorFocusVirtual\" cx=\"390\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"mirrorText\" style=\"font-weight:bold; color:#E91E63;\">Hohlspiegel: Parallele Strahlen werden zum realen Brennpunkt vor dem Spiegel reflektiert.</p>\n            </div>\n        </div>\n        <p id=\"curvedMirrorNote\">Hier verwenden wir einen parabolischen Spiegelquerschnitt und zur Achse paralleles Licht. Deshalb treffen beim Hohlspiegel alle gezeichneten reflektierten Strahlen im Fokus zusammen. Bei einem kugelförmigen Hohlspiegel gilt das nur näherungsweise für achsennahe Strahlen. Gestrichelte Verlängerungen hinter dem Wölbspiegel sind keine tatsächlichen Lichtwege. Spiegel werfen Licht zurück; Linsen lassen Licht hindurch und brechen es.</p>{{QUIZ_q5}}\n    "
+        "content": "\n        \n        <p>Dicke Glaslinsen sind oft ganz schön schwer! Manchmal nutzen wir deshalb einfach gewölbte Spiegel aus Metall. Sie verhalten sich verblüffend ähnlich wie unsere Linsen.</p>\n        <div class=\"lexikon-box\">\n            📖 <strong>Der Spiegel-Linsen-Zwilling:</strong><br>\n            - <strong>Hohlspiegel (Konkavspiegel):</strong> Licht fällt in die Vertiefung wie in einen Suppenlöffel. Er verhält sich wie eine Sammellinse! Er bündelt das Licht vor sich in einem echten Brennpunkt.<br>\n            - <strong>Wölbspiegel (Konvexspiegel):</strong> Das Licht prallt auf den runden \"Bauch\" (wie bei einer Christbaumkugel). Er verhält sich wie eine Zerstreuungslinse. Das Licht fächert sich auf und erzeugt für unser Auge einen <strong>virtuellen Brennpunkt</strong>, der scheinbar hinter dem Spiegel liegt!\n        </div>\n        <div class=\"interactive-zone\">\n            <h3>🪞 Das Spiegel-Kabinett</h3>\n            <p>Parallele Strahlen treffen von links auf den Spiegel. Sage voraus, ob die reflektierten Strahlen zusammen- oder auseinanderlaufen. Wechsle dann die Spiegelform.</p>\n            <button onclick=\"toggleMirror()\">Spiegel wenden ⇄</button>\n            <div class=\"diagram-box\">\n                <svg width=\"400\" height=\"240\" viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Parallele Strahlen an einem gekrümmten Spiegel\" aria-describedby=\"mirrorText curvedMirrorNote\"><defs><marker id=\"curvedMirrorArrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"4\" markerHeight=\"4\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#172554\"/></marker></defs>\n                    <line x1=\"20\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#cbd5e0\" stroke-width=\"1\" stroke-dasharray=\"4,4\"></line>\n                    <g marker-end=\"url(#curvedMirrorArrow)\" id=\"inRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"inRayTop\" d=\"M 40 80 L 255 80\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"inRayMid\" d=\"M 40 120 L 260 120\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                        <path id=\"inRayBot\" d=\"M 40 160 L 255 160\" stroke=\"#f6ad55\" stroke-width=\"3\"></path>\n                    </g>\n                    <path id=\"mirrorShape\" d=\"M 240 40 Q 280 120 240 200\" fill=\"none\" stroke=\"#a0aec0\" stroke-width=\"8\" stroke-linecap=\"round\" style=\"transition: all 0.5s;\"></path>\n                    <g marker-end=\"url(#curvedMirrorArrow)\" id=\"mirrorRays\" style=\"transition: all 0.5s;\">\n                        <path id=\"mirrorRayTop\" d=\"M 255 80 L 30 200\" stroke=\"#E91E63\" stroke-width=\"3\"></path>\n                        <path id=\"mirrorRayMid\" d=\"M 260 120 L 30 120\" stroke=\"#E91E63\" stroke-width=\"3\"></path>\n                        <path id=\"mirrorRayBot\" d=\"M 255 160 L 30 40\" stroke=\"#E91E63\" stroke-width=\"3\"></path>\n                    </g>\n                    <g id=\"virtualMirrorRays\" stroke=\"#a0aec0\" stroke-width=\"2\" stroke-dasharray=\"5,5\" style=\"opacity: 0; transition: opacity 0.5s;\">\n                        <line id=\"vRayTop\" x1=\"300\" y1=\"80\" x2=\"390\" y2=\"120\"></line>\n                        <line id=\"vRayBot\" x1=\"300\" y1=\"160\" x2=\"390\" y2=\"120\"></line>\n                    </g>\n                    <circle id=\"mirrorFocusReal\" cx=\"180\" cy=\"120\" r=\"5\" fill=\"#E91E63\" style=\"transition: all 0.5s;\"></circle>\n                    <circle id=\"mirrorFocusVirtual\" cx=\"390\" cy=\"120\" r=\"5\" fill=\"#3182ce\" style=\"opacity: 0; transition: opacity 0.5s;\"></circle>\n                </svg>\n                <p id=\"mirrorText\" style=\"font-weight:bold; color:#E91E63;\">Hohlspiegel: Parallele Strahlen werden zum realen Brennpunkt vor dem Spiegel reflektiert.</p>\n            </div>\n        </div>\n        <p id=\"curvedMirrorNote\">Hier verwenden wir einen parabolischen Spiegelquerschnitt und zur Achse paralleles Licht. Deshalb treffen beim Hohlspiegel alle gezeichneten reflektierten Strahlen im Fokus zusammen. Bei einem kugelförmigen Hohlspiegel gilt das nur näherungsweise für achsennahe Strahlen. Gestrichelte Verlängerungen hinter dem Wölbspiegel sind keine tatsächlichen Lichtwege. Spiegel werfen Licht zurück; Linsen lassen Licht hindurch und brechen es.</p><p>Ein Wölbspiegel zeigt einen großen Bereich und erzeugt verkleinerte, aufrechte virtuelle Bilder. Deshalb hilft er beim Überblick an unübersichtlichen Stellen. Aus der kleinen Bildgröße allein darfst du nicht schließen, dass ein Fahrzeug weit entfernt ist: Auch die Spiegelform beeinflusst die Abbildung.</p>{{QUIZ_q5}}\n    "
       },
       {
         "id": "sec7",
-        "title": "7. Das Mikroskop: Objektiv und Okular",
+        "title": "8. Das Mikroskop: Objektiv und Okular",
         "quizzes": [
           {
             "id": "linsen_s6_q0",
-            "question": "Welche beiden optischen Baugruppen verwendet das hier dargestellte zusammengesetzte Lichtmikroskop?",
+            "question": "Welche Reihenfolge beschreibt das gezeigte zusammengesetzte Lichtmikroskop?",
             "answers": [
               {
-                "text": "Objektiv und Okular.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Das Objektiv erzeugt ein vergrößertes Zwischenbild, das mit dem Okular betrachtet wird. Beide können aus mehreren Linsen bestehen."
+                "text": "Probe → Okular → reelles Zwischenbild → Objektiv → Auge.",
+                "feedback": "Hier sind Objektiv und Okular vertauscht: Das Objektiv liegt bei der Probe, das Okular beim Auge.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Nur einen ebenen Spiegel ohne Linsen.",
+                "text": "Probe → Objektiv → reelles Zwischenbild → Okular → Auge.",
+                "feedback": "Das Objektiv bildet die Probe ab. Das Okular wird zur Betrachtung dieses Zwischenbilds verwendet.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Probe → ebener Spiegel → Auge; beide Linsen dienen nur der Beleuchtung.",
+                "feedback": "Ein ebener Spiegel ersetzt die Abbildung durch Objektiv und Okular in diesem Mikroskop nicht.",
                 "correct": false,
-                "pts": 0,
-                "feedback": "Das dargestellte System benötigt die abbildenden Baugruppen Objektiv und Okular. Eine einzelne Lupe ist ein anderes, einfacheres optisches System."
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f10",
+            "question": "Welche Aufgabe hat das Objektiv im dargestellten zusammengesetzten Lichtmikroskop?",
+            "answers": [
+              {
+                "text": "Es ist die Lupe unmittelbar am Auge, mit der das Zwischenbild betrachtet wird.",
+                "feedback": "Diese Aufgabe übernimmt das Okular. Objektiv und Okular haben unterschiedliche Aufgaben.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Es dient ausschließlich dazu, die Probe von unten zu beleuchten.",
+                "feedback": "Die Beleuchtung liefert Licht. Das Objektiv bildet die Probe ab; es ist nicht nur eine Lichtquelle.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Es erzeugt aus dem Licht der Probe das reelle Zwischenbild.",
+                "feedback": "Das Objektiv liegt nahe an der Probe. Das Okular dient anschließend zur Betrachtung dieses Zwischenbilds.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f11",
+            "question": "Was bedeutet „reelles Zwischenbild“ im gezeigten Mikroskopmodell?",
+            "answers": [
+              {
+                "text": "Die Strahlen eines Objektpunkts treffen sich nach dem Objektiv tatsächlich in einem Bildpunkt.",
+                "feedback": "Ein reelles Zwischenbild könnte in seiner Ebene auf einem Schirm aufgefangen werden. Das Okular betrachtet dieses Bild.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Nur rückwärtige Verlängerungen der Strahlen schneiden sich dort.",
+                "feedback": "Das beschreibt ein virtuelles Bild. Beim hier gemeinten Zwischenbild treffen sich die tatsächlichen Strahlen.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Probe befindet sich körperlich vergrößert zwischen den Linsen.",
+                "feedback": "Die Probe bleibt an ihrem Ort. Das Zwischenbild entsteht aus Licht; der Gegenstand wird nicht körperlich vergrößert.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f12",
+            "question": "Wie wird das dargestellte Mikroskop für entspanntes Sehen ohne Akkommodation eingestellt?",
+            "answers": [
+              {
+                "text": "Das Zwischenbild muss direkt in der Okularlinse liegen.",
+                "feedback": "Die vordere Brennebene liegt um die Okularbrennweite vor der Linse, nicht in ihr.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das Zwischenbild liegt in der vorderen Brennebene des Okulars.",
+                "feedback": "Dann verlassen die Strahlen jedes Bildpunkts das Okular parallel. Das ist die Einstellung für ein entspanntes Auge im vereinfachten Modell.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Der Abstand zwischen Objektiv und Okular ist grundsätzlich gleichgültig.",
+                "feedback": "Dieser Abstand bestimmt mit, wo das Zwischenbild relativ zum Okular liegt. Er beeinflusst die Einstellung.",
+                "correct": false,
+                "pts": 0
               }
             ]
           }
@@ -7418,23 +7827,101 @@
       },
       {
         "id": "sec8",
-        "title": "8. Das Teleskop: Licht sammeln und abbilden",
+        "title": "9. Das Teleskop: Licht sammeln und abbilden",
         "quizzes": [
           {
             "id": "q7",
-            "question": "Welche zwei Teile nutzt das berühmte Newton-Teleskop (Reflektor), um das Licht in unser Auge zu lenken?",
+            "question": "Wie gelangt Licht im gezeigten Newton-Teleskop zum seitlichen Okular?",
             "answers": [
               {
-                "text": "Einen großen Hauptspiegel und einen kleinen Fangspiegel.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig. Beim Newton-Teleskop sammelt der Hauptspiegel, der Fangspiegel lenkt das Licht zum Okular."
+                "text": "Der ebene Fangspiegel bündelt es; der Hauptspiegel dient nur als Halterung.",
+                "feedback": "Ein ebener Spiegel bündelt parallele Strahlen nicht. Die sammelnde Wirkung kommt vom gekrümmten Hauptspiegel.",
+                "correct": false,
+                "pts": 0
               },
               {
-                "text": "Eine Konkav-Linse und eine Konvex-Linse.",
+                "text": "Zwei ebene Spiegel erzeugen allein den vergrößernden Blick durch das Gerät.",
+                "feedback": "Ebene Spiegel können Lichtwege umlenken, ersetzen aber nicht den sammelnden Hauptspiegel und das Okular.",
                 "correct": false,
-                "pts": 10,
-                "feedback": "Das beschreibt ein Linsensystem. Das Newton-Teleskop ist ein Reflektor mit zwei Spiegeln."
+                "pts": 0
+              },
+              {
+                "text": "Der gekrümmte Hauptspiegel bündelt es; der ebene Fangspiegel lenkt es seitlich um.",
+                "feedback": "Die zwei Spiegel haben verschiedene Aufgaben. Das Okular dient zur Betrachtung des Zwischenbilds.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f13",
+            "question": "Ein Teleskop bündelt das eintreffende Licht zuerst mit einem Objektiv aus Linsen. Welche Bauart ist das?",
+            "answers": [
+              {
+                "text": "Ein Refraktor.",
+                "feedback": "Refraktoren nutzen Brechung an Linsen zum Sammeln des eintreffenden Lichts.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Ein Reflektor.",
+                "feedback": "Ein Reflektor sammelt das Licht mit einem Hauptspiegel. Auch ein Reflektor kann Linsen im Okular haben.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Die Bauart lässt sich erst nach Wahl des Okulars bestimmen.",
+                "feedback": "Die Bauart richtet sich hier nach dem lichtsammelnden Objektiv beziehungsweise Hauptspiegel, nicht allein nach dem Okular.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f14",
+            "question": "Welche Aufgabe hat der kleine ebene Fangspiegel im Newton-Teleskop?",
+            "answers": [
+              {
+                "text": "Er sammelt allein das parallel eintreffende Licht in einem Brennpunkt.",
+                "feedback": "Ein ebener Spiegel bündelt paralleles Licht nicht. Dafür ist im Newton-Teleskop der Hauptspiegel gekrümmt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Er lenkt das bereits vom Hauptspiegel gebündelte Licht seitlich zum Okular.",
+                "feedback": "Der Fangspiegel faltet den Lichtweg. Die sammelnde Wirkung übernimmt der gekrümmte Hauptspiegel.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Er ersetzt das Okular und vergrößert allein den Sehwinkel.",
+                "feedback": "Die Betrachtung des Zwischenbilds übernimmt das Okular. Der ebene Fangspiegel ändert vor allem die Richtung des Lichtwegs.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f15",
+            "question": "Warum eignen sich Hauptspiegel für sehr große astronomische Teleskope?",
+            "answers": [
+              {
+                "text": "Sie erzeugen bei beliebiger Form grundsätzlich ein fehlerfreies Bild.",
+                "feedback": "Auch Spiegel müssen sehr genau geformt und ausgerichtet werden. Spiegelteleskope sind nicht automatisch frei von Abbildungsfehlern.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Sie vergrößern unabhängig von ihrer Öffnung immer stärker als jedes Linsenteleskop.",
+                "feedback": "Die Vergrößerung hängt vom optischen Aufbau ab. Eine große Öffnung verbessert vor allem Lichtsammelvermögen und mögliche Auflösung.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Sie lassen sich von hinten abstützen und vermeiden den Farbfehler durch unterschiedliche Brechung im Objektivglas.",
+                "feedback": "Das sind zwei Vorteile gegenüber großen Linsenobjektiven. Andere Abbildungsfehler und technische Anforderungen bleiben bestehen.",
+                "correct": true,
+                "pts": 0
               }
             ]
           }
@@ -7443,7 +7930,7 @@
       },
       {
         "id": "sec5",
-        "title": "9. Beugung: Licht als Welle",
+        "title": "10. Beugung: Licht als Welle",
         "quizzes": [
           {
             "id": "q4",
@@ -7468,6 +7955,54 @@
                 "pts": 0
               }
             ]
+          },
+          {
+            "id": "f6",
+            "question": "Welche Beobachtung zeigt die Beugung von Licht an einem schmalen Spalt?",
+            "answers": [
+              {
+                "text": "Der Strahl ändert beim Übergang von Luft in Glas seine Richtung.",
+                "feedback": "Das beschreibt Brechung an einer Materialgrenze. Gefragt ist die Ausbreitung an einem Spalt.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Licht breitet sich hinter dem Spalt auch seitlich in den geometrischen Schattenbereich aus.",
+                "feedback": "Das Wellenmodell erklärt diese seitliche Ausbreitung an Öffnungen und Kanten.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Der Strahl wird an einer glatten Fläche zurückgeworfen.",
+                "feedback": "Das ist Reflexion. Beugung zeigt sich unter anderem an schmalen Öffnungen.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "f7",
+            "question": "Du verkleinerst die Breite eines Spalts und lässt die Lichtfarbe gleich. Wie verändert sich die Winkelbreite des zentralen Beugungsmaximums?",
+            "answers": [
+              {
+                "text": "Sie wird kleiner, weil weniger Platz für Licht bleibt.",
+                "feedback": "Die geometrische Öffnung wird kleiner, aber die Beugung verbreitert die Winkelverteilung.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Sie bleibt gleich, weil sich die Lichtfarbe nicht ändert.",
+                "feedback": "Neben der Wellenlänge beeinflusst auch die Spaltbreite das Beugungsmuster.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Sie wird größer.",
+                "feedback": "Bei gleicher Wellenlänge führt ein engerer Spalt zu stärkerer seitlicher Ausbreitung.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
           }
         ],
         "content": "<p>Auf einem Schirm entsteht hinter einem einzelnen schmalen Spalt ein Beugungsmuster. Der helle Bereich in der Mitte heißt <strong>zentrales Maximum</strong>. Seine Winkelbreite nimmt bei gleicher Lichtfarbe zu, wenn der Spalt schmaler wird. Weniger insgesamt durchgelassenes Licht bedeutet deshalb nicht automatisch einen engeren beleuchteten Winkelbereich.</p>\n        <p>Wir dachten bisher, Lichtstrahlen wandern immer nur stur geradeaus. Aber Licht verh&auml;lt sich auch wie eine Welle. An einem sehr engen Spalt zeigt sich das besonders gut.</p>\n        <div class=\"lexikon-box\">\n            <strong>Fachwort: Beugung</strong><br>\n            Wenn eine Welle durch einen engen Spalt geht, breitet sie sich dahinter seitlich aus. Der Spalt wirkt dann fast wie eine neue kleine Lichtquelle. Das ist die Idee von Huygens.\n        </div>\n        <div class=\"interactive-zone slit-lab\" data-slit-lab>\n            <h3>Die Spalt-Maschine</h3>\n            <p>Stelle zuerst eine Vermutung auf. Bewege dann den Regler und beobachte Wellen, Spalt und Schirm.</p>\n            <div class=\"prediction-grid slit-predictions\" role=\"group\" aria-label=\"Vorhersage zur Beugung\">\n                <button type=\"button\" class=\"prediction-btn\" data-slit-prediction=\"spread\" onclick=\"predictSlit('spread')\">Enger Spalt: Licht breitet sich aus</button>\n                <button type=\"button\" class=\"prediction-btn\" data-slit-prediction=\"straight\" onclick=\"predictSlit('straight')\">Enger Spalt: Licht bleibt gerade</button>\n            </div>\n            <p id=\"slitPredictionText\" class=\"slit-prediction-feedback\">Was glaubst du?</p>\n            <div class=\"slit-controls\">\n                <label for=\"slitWidth\">Spaltbreite: <span id=\"slitWidthLabel\">breit</span><input id=\"slitWidth\" type=\"range\" min=\"0\" max=\"100\" value=\"75\" step=\"1\" oninput=\"updateSlitMachine(this.value)\"></label>\n                <div id=\"slitStatus\" class=\"slit-mini-note\">Breiter Spalt: wenig Beugung</div>\n            </div>\n            <div class=\"diagram-box slit-stage\">\n                <svg id=\"slitSvg\" viewBox=\"0 0 540 260\" role=\"img\" aria-labelledby=\"slitTitle slitDesc\">\n                    <title id=\"slitTitle\">Beugung am Spalt</title>\n                    <desc id=\"slitDesc\">Links kommen gerade Wellen an. In der Mitte steht eine Wand mit verstellbarem Spalt. Rechts sieht man, wie stark sich die Welle ausbreitet und wie breit der helle Fleck am Schirm wird.</desc>\n                    <defs>\n                        <clipPath id=\"slitLeftClip\"><rect x=\"28\" y=\"25\" width=\"190\" height=\"210\"></rect></clipPath>\n                        <clipPath id=\"slitRightClip\"><rect x=\"250\" y=\"25\" width=\"230\" height=\"210\"></rect></clipPath>\n                        <filter id=\"slitGlow\" x=\"-35%\" y=\"-35%\" width=\"170%\" height=\"170%\"><feGaussianBlur stdDeviation=\"3\" result=\"blur\"/><feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge></filter>\n                    </defs>\n                    <rect x=\"0\" y=\"0\" width=\"540\" height=\"260\" fill=\"#0f172a\"></rect>\n                    <rect x=\"18\" y=\"18\" width=\"504\" height=\"224\" rx=\"18\" fill=\"#111827\" stroke=\"#334155\" stroke-width=\"2\"></rect>\n                    <text x=\"38\" y=\"42\" class=\"slit-svg-small\">ankommende Wellen</text>\n                    <text x=\"180\" y=\"42\" class=\"slit-svg-label\">Spalt</text>\n                    <text x=\"468\" y=\"42\" class=\"slit-svg-small\">Schirm</text>\n                    <g clip-path=\"url(#slitLeftClip)\">\n                        <line x1=\"-45\" y1=\"56\" x2=\"-45\" y2=\"204\" stroke=\"#60a5fa\" stroke-width=\"5\" stroke-linecap=\"round\" class=\"anim-line\" style=\"animation-delay:0s\"></line>\n                        <line x1=\"-45\" y1=\"56\" x2=\"-45\" y2=\"204\" stroke=\"#60a5fa\" stroke-width=\"5\" stroke-linecap=\"round\" class=\"anim-line\" style=\"animation-delay:-0.66s\"></line>\n                        <line x1=\"-45\" y1=\"56\" x2=\"-45\" y2=\"204\" stroke=\"#60a5fa\" stroke-width=\"5\" stroke-linecap=\"round\" class=\"anim-line\" style=\"animation-delay:-1.33s\"></line>\n                    </g>\n                    <rect id=\"wallTop\" x=\"230\" y=\"20\" width=\"20\" height=\"79.3\" rx=\"4\" fill=\"#94a3b8\" stroke=\"#cbd5e1\" stroke-width=\"2\"></rect>\n                    <rect id=\"wallBot\" x=\"230\" y=\"160.8\" width=\"20\" height=\"69.2\" rx=\"4\" fill=\"#94a3b8\" stroke=\"#cbd5e1\" stroke-width=\"2\"></rect>\n                    <circle cx=\"240\" cy=\"130\" r=\"5\" fill=\"#facc15\" filter=\"url(#slitGlow)\"></circle>\n                    <path id=\"photonBeam\" d=\"M 250 94.3 L 500 94.3 L 500 165.8 L 250 165.8 Z\" fill=\"#38bdf8\" opacity=\"0.19\"></path>\n                    <g id=\"slitWavefronts\" clip-path=\"url(#slitRightClip)\" opacity=\"1\"></g><g id=\"wavesBroad\" clip-path=\"url(#slitRightClip)\" opacity=\"1\" style=\"display: none;\">\n                        <line x1=\"250\" y1=\"78\" x2=\"250\" y2=\"182\" stroke=\"#60a5fa\" stroke-width=\"5\" stroke-linecap=\"round\" class=\"anim-line\" style=\"animation-delay:0s\"></line>\n                        <line x1=\"250\" y1=\"78\" x2=\"250\" y2=\"182\" stroke=\"#60a5fa\" stroke-width=\"5\" stroke-linecap=\"round\" class=\"anim-line\" style=\"animation-delay:-0.66s\"></line>\n                        <line x1=\"250\" y1=\"78\" x2=\"250\" y2=\"182\" stroke=\"#60a5fa\" stroke-width=\"5\" stroke-linecap=\"round\" class=\"anim-line\" style=\"animation-delay:-1.33s\"></line>\n                    </g>\n                    <g id=\"wavesNarrow\" clip-path=\"url(#slitRightClip)\" opacity=\"0\" style=\"display: none;\">\n                        <circle cx=\"240\" cy=\"130\" r=\"8\" fill=\"none\" stroke=\"#facc15\" stroke-width=\"4\" class=\"anim-circle\" style=\"animation-delay:0s\"></circle>\n                        <circle cx=\"240\" cy=\"130\" r=\"8\" fill=\"none\" stroke=\"#facc15\" stroke-width=\"4\" class=\"anim-circle\" style=\"animation-delay:-0.66s\"></circle>\n                        <circle cx=\"240\" cy=\"130\" r=\"8\" fill=\"none\" stroke=\"#facc15\" stroke-width=\"4\" class=\"anim-circle\" style=\"animation-delay:-1.33s\"></circle>\n                    </g>\n                    <rect x=\"498\" y=\"42\" width=\"14\" height=\"176\" rx=\"6\" fill=\"#e5e7eb\" stroke=\"#94a3b8\" stroke-width=\"2\"></rect>\n                    <rect id=\"slitScreenSpot\" x=\"500\" y=\"90.3\" width=\"10\" height=\"79.5\" rx=\"5\" fill=\"#facc15\" opacity=\"0.49\" filter=\"url(#slitGlow)\"></rect>\n                    <text x=\"55\" y=\"226\" class=\"slit-svg-label\">ebene Wellen</text>\n                    <text x=\"272\" y=\"226\" class=\"slit-svg-label\">gebogene Wellen</text>\n                    <text x=\"425\" y=\"226\" class=\"slit-svg-label\">Schirmbild</text>\n                </svg>\n            </div>\n            <p id=\"slitText\" class=\"lab-feedback\">Breiter Spalt: Die Wellenfront bleibt fast gerade. Auf dem Schirm sieht man einen relativ schmalen hellen Streifen.</p>\n            <div class=\"mini-task\"><strong>Mini-Mission:</strong> Stelle den Spalt so eng ein, dass der helle Fleck am Schirm m&ouml;glichst breit wird.</div>\n        </div>\n        {{QUIZ_q4}}\n    "
@@ -7475,350 +8010,7 @@
     ],
     "diplom": {
       "title": "Verständnischeck: Spiegel, Linsen und optische Geräte",
-      "questions": [
-        {
-          "id": "f1",
-          "question": "Ein Lichtstrahl trifft mit 30° zum Lot auf einen ebenen Spiegel. Welchen Winkel bildet der reflektierte Strahl mit dem Lot?",
-          "answers": [
-            {
-              "text": "30°.",
-              "feedback": "Einfalls- und Reflexionswinkel sind gleich groß und werden beide zum Lot gemessen.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "60°.",
-              "feedback": "60° ist hier der Winkel zur Spiegeloberfläche. Die Frage bezieht sich auf das Lot.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "15°.",
-              "feedback": "Der Spiegel halbiert den Winkel nicht. Es gilt Einfallswinkel = Reflexionswinkel.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f2",
-          "question": "Ein Strahl trifft einen ebenen Spiegel senkrecht. Was geschieht mit seinem Lichtweg?",
-          "answers": [
-            {
-              "text": "Er läuft auf demselben Weg zurück.",
-              "feedback": "Zum Lot beträgt der Einfallswinkel 0°. Auch der Reflexionswinkel ist 0°; die Ausbreitungsrichtung kehrt sich um.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Er läuft entlang der Spiegeloberfläche weiter.",
-              "feedback": "Dazu müsste die Strahlrichtung parallel zur Oberfläche sein. Senkrechter Einfall bedeutet entlang des Lots.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Er wird ohne Richtungsänderung durch den Spiegel geleitet.",
-              "feedback": "Ein Spiegel reflektiert den betrachteten Strahl. Er setzt seinen Weg nicht wie bei einem durchsichtigen Material fort.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f3",
-          "question": "Ein Lichtstrahl fällt mit 45° zum Lot aus Luft einmal in Wasser und einmal in Beispielglas. Die Brechzahlen sind 1,33 und 1,50. Welcher gebrochene Strahl liegt näher am Lot?",
-          "answers": [
-            {
-              "text": "Der Strahl im Beispielglas.",
-              "feedback": "Bei gleichem Einfallswinkel aus Luft ergibt die höhere Brechzahl den kleineren Brechungswinkel zum Lot.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Der Strahl im Wasser.",
-              "feedback": "Wasser hat in diesem Vergleich die kleinere Brechzahl. Sein Brechungswinkel zum Lot ist größer.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Beide haben denselben Winkel, weil beide Materialien durchsichtig sind.",
-              "feedback": "Durchsichtigkeit allein bestimmt den Winkel nicht. Entscheidend sind die Brechzahlen und der Einfallswinkel.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f4",
-          "question": "4. Du hältst eine \"Sammellinse\" in der Hand. Wie ist sie geformt?",
-          "answers": [
-            {
-              "text": "Konvex (wie ein bauchiger Hexenrücken, in der Mitte dick).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Korrekt. Eine Sammellinse ist konvex und in der Mitte dicker."
-            },
-            {
-              "text": "Konkav (wie eine Höhle, in der Mitte dünn).",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Nicht ganz. Diese Form beschreibt eine Zerstreuungslinse."
-            }
-          ]
-        },
-        {
-          "id": "f5",
-          "question": "Achsennahe parallele Strahlen treffen auf eine Zerstreuungslinse in Luft. Was bedeutet der virtuelle Brennpunkt links vor der Linse?",
-          "answers": [
-            {
-              "text": "Dort schneiden sich die rückwärtigen Verlängerungen der austretenden Strahlen.",
-              "feedback": "Die wirklichen Strahlen laufen hinter der Linse auseinander. Die gestrichelten Linien sind gedachte Verlängerungen.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Dorthin laufen die Strahlen hinter der Linse zurück.",
-              "feedback": "Die virtuellen Verlängerungen sind keine tatsächlichen rückwärts laufenden Lichtstrahlen.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Dort treffen sich die austretenden Strahlen tatsächlich.",
-              "feedback": "Ein tatsächlicher Schnittpunkt wäre ein realer Fokus. Bei parallelem Einfall erzeugt diese Linse einen virtuellen Fokus.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f6",
-          "question": "Welche Beobachtung zeigt die Beugung von Licht an einem schmalen Spalt?",
-          "answers": [
-            {
-              "text": "Licht breitet sich hinter dem Spalt auch seitlich in den geometrischen Schattenbereich aus.",
-              "feedback": "Das Wellenmodell erklärt diese seitliche Ausbreitung an Öffnungen und Kanten.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Der Strahl ändert beim Übergang von Luft in Glas seine Richtung.",
-              "feedback": "Das beschreibt Brechung an einer Materialgrenze. Gefragt ist die Ausbreitung an einem Spalt.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Der Strahl wird an einer glatten Fläche zurückgeworfen.",
-              "feedback": "Das ist Reflexion. Beugung zeigt sich unter anderem an schmalen Öffnungen.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f7",
-          "question": "Du verkleinerst die Breite eines Spalts und lässt die Lichtfarbe gleich. Wie verändert sich die Winkelbreite des zentralen Beugungsmaximums?",
-          "answers": [
-            {
-              "text": "Sie wird größer.",
-              "feedback": "Bei gleicher Wellenlänge führt ein engerer Spalt zu stärkerer seitlicher Ausbreitung.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Sie wird kleiner, weil weniger Platz für Licht bleibt.",
-              "feedback": "Die geometrische Öffnung wird kleiner, aber die Beugung verbreitert die Winkelverteilung.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Sie bleibt gleich, weil sich die Lichtfarbe nicht ändert.",
-              "feedback": "Neben der Wellenlänge beeinflusst auch die Spaltbreite das Beugungsmuster.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f8",
-          "question": "8. Welcher Spiegel verhält sich genau so wie eine bauchige Sammellinse und erzeugt einen echten Brennpunkt?",
-          "answers": [
-            {
-              "text": "Der Hohlspiegel (Konkavspiegel).",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Richtig. Der Konkavspiegel bündelt und hat einen realen Fokus."
-            },
-            {
-              "text": "Der flache Spiegel im Bad.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Ein flacher Spiegel erzeugt keinen Brennpunkt."
-            }
-          ]
-        },
-        {
-          "id": "f9",
-          "question": "9. In Supermärkten und an Straßenkreuzungen hängen oft Wölbspiegel (Konvexspiegel), um ein weites Sichtfeld zu haben. Wie wirken diese?",
-          "answers": [
-            {
-              "text": "Sie streuen Licht wie eine Zerstreuungslinse, der Fokus liegt scheinbar hinten im Spiegel.",
-              "correct": true,
-              "pts": 5,
-              "feedback": "Genau. Konvexspiegel streuen und vergrößern das Sichtfeld."
-            },
-            {
-              "text": "Sie bündeln Licht.",
-              "correct": false,
-              "pts": 5,
-              "feedback": "Das wäre der Effekt eines Konkavspiegels, nicht eines Wölbspiegels."
-            }
-          ]
-        },
-        {
-          "id": "f10",
-          "question": "Welche Aufgabe hat das Objektiv im dargestellten zusammengesetzten Lichtmikroskop?",
-          "answers": [
-            {
-              "text": "Es erzeugt aus dem Licht der Probe das reelle Zwischenbild.",
-              "feedback": "Das Objektiv liegt nahe an der Probe. Das Okular dient anschließend zur Betrachtung dieses Zwischenbilds.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Es ist die Lupe unmittelbar am Auge, mit der das Zwischenbild betrachtet wird.",
-              "feedback": "Diese Aufgabe übernimmt das Okular. Objektiv und Okular haben unterschiedliche Aufgaben.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Es dient ausschließlich dazu, die Probe von unten zu beleuchten.",
-              "feedback": "Die Beleuchtung liefert Licht. Das Objektiv bildet die Probe ab; es ist nicht nur eine Lichtquelle.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f11",
-          "question": "Was bedeutet „reelles Zwischenbild“ im gezeigten Mikroskopmodell?",
-          "answers": [
-            {
-              "text": "Die Strahlen eines Objektpunkts treffen sich nach dem Objektiv tatsächlich in einem Bildpunkt.",
-              "feedback": "Ein reelles Zwischenbild könnte in seiner Ebene auf einem Schirm aufgefangen werden. Das Okular betrachtet dieses Bild.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Nur rückwärtige Verlängerungen der Strahlen schneiden sich dort.",
-              "feedback": "Das beschreibt ein virtuelles Bild. Beim hier gemeinten Zwischenbild treffen sich die tatsächlichen Strahlen.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Die Probe befindet sich körperlich vergrößert zwischen den Linsen.",
-              "feedback": "Die Probe bleibt an ihrem Ort. Das Zwischenbild entsteht aus Licht; der Gegenstand wird nicht körperlich vergrößert.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f12",
-          "question": "Wie wird das dargestellte Mikroskop für entspanntes Sehen ohne Akkommodation eingestellt?",
-          "answers": [
-            {
-              "text": "Das Zwischenbild liegt in der vorderen Brennebene des Okulars.",
-              "feedback": "Dann verlassen die Strahlen jedes Bildpunkts das Okular parallel. Das ist die Einstellung für ein entspanntes Auge im vereinfachten Modell.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Das Zwischenbild muss direkt in der Okularlinse liegen.",
-              "feedback": "Die vordere Brennebene liegt um die Okularbrennweite vor der Linse, nicht in ihr.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Der Abstand zwischen Objektiv und Okular ist grundsätzlich gleichgültig.",
-              "feedback": "Dieser Abstand bestimmt mit, wo das Zwischenbild relativ zum Okular liegt. Er beeinflusst die Einstellung.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f13",
-          "question": "Ein Teleskop bündelt das eintreffende Licht zuerst mit einem Objektiv aus Linsen. Welche Bauart ist das?",
-          "answers": [
-            {
-              "text": "Ein Refraktor.",
-              "feedback": "Refraktoren nutzen Brechung an Linsen zum Sammeln des eintreffenden Lichts.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Ein Reflektor.",
-              "feedback": "Ein Reflektor sammelt das Licht mit einem Hauptspiegel. Auch ein Reflektor kann Linsen im Okular haben.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Die Bauart lässt sich erst nach Wahl des Okulars bestimmen.",
-              "feedback": "Die Bauart richtet sich hier nach dem lichtsammelnden Objektiv beziehungsweise Hauptspiegel, nicht allein nach dem Okular.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f14",
-          "question": "Welche Aufgabe hat der kleine ebene Fangspiegel im Newton-Teleskop?",
-          "answers": [
-            {
-              "text": "Er lenkt das bereits vom Hauptspiegel gebündelte Licht seitlich zum Okular.",
-              "feedback": "Der Fangspiegel faltet den Lichtweg. Die sammelnde Wirkung übernimmt der gekrümmte Hauptspiegel.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Er sammelt allein das parallel eintreffende Licht in einem Brennpunkt.",
-              "feedback": "Ein ebener Spiegel bündelt paralleles Licht nicht. Dafür ist im Newton-Teleskop der Hauptspiegel gekrümmt.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Er ersetzt das Okular und vergrößert allein den Sehwinkel.",
-              "feedback": "Die Betrachtung des Zwischenbilds übernimmt das Okular. Der ebene Fangspiegel ändert vor allem die Richtung des Lichtwegs.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        },
-        {
-          "id": "f15",
-          "question": "Warum eignen sich Hauptspiegel für sehr große astronomische Teleskope?",
-          "answers": [
-            {
-              "text": "Sie lassen sich von hinten abstützen und vermeiden den Farbfehler durch unterschiedliche Brechung im Objektivglas.",
-              "feedback": "Das sind zwei Vorteile gegenüber großen Linsenobjektiven. Andere Abbildungsfehler und technische Anforderungen bleiben bestehen.",
-              "correct": true,
-              "pts": 0
-            },
-            {
-              "text": "Sie erzeugen bei beliebiger Form grundsätzlich ein fehlerfreies Bild.",
-              "feedback": "Auch Spiegel müssen sehr genau geformt und ausgerichtet werden. Spiegelteleskope sind nicht automatisch frei von Abbildungsfehlern.",
-              "correct": false,
-              "pts": 0
-            },
-            {
-              "text": "Sie vergrößern unabhängig von ihrer Öffnung immer stärker als jedes Linsenteleskop.",
-              "feedback": "Die Vergrößerung hängt vom optischen Aufbau ab. Eine große Öffnung verbessert vor allem Lichtsammelvermögen und mögliche Auflösung.",
-              "correct": false,
-              "pts": 0
-            }
-          ]
-        }
-      ]
+      "questions": []
     },
     "learningGoals": [
       "Einfalls- und Reflexionswinkel zum Lot messen und das Reflexionsgesetz anwenden.",
@@ -7829,7 +8021,8 @@
       "Die Aufgaben von Objektiv, Okular, Hauptspiegel und Fangspiegel in optischen Geräten beschreiben.",
       "Beugung von Reflexion und Brechung unterscheiden und den Einfluss der Spaltbreite erläutern.",
       "Das virtuelle Bild am ebenen Spiegel konstruieren und reale Lichtwege von gedachten Rückverlängerungen unterscheiden.",
-      "Bildentstehung mit verschiedenen Linsen untersuchen, eigene Beobachtungen protokollieren und mit einem Strahlenmodell vergleichen."
+      "Bildentstehung mit verschiedenen Linsen untersuchen, eigene Beobachtungen protokollieren und mit einem Strahlenmodell vergleichen.",
+      "Informationen zu optischen Geräten an verlässlichen Quellen prüfen und Nutzen, Grenzen und sichere Verwendung begründen."
     ],
     "prerequisites": [
       "optik1"
@@ -7842,7 +8035,8 @@
       "Im zusammengesetzten Mikroskop erzeugt das Objektiv ein reelles Zwischenbild, das mit dem Okular betrachtet wird. Für entspanntes Sehen liegt es in der vorderen Brennebene des Okulars.",
       "Ein Refraktor sammelt Licht mit Linsen, ein Reflektor mit einem Hauptspiegel. Beim Newton-Teleskop lenkt ein ebener Fangspiegel das Licht zum seitlichen Okular.",
       "Beugung zeigt die seitliche Ausbreitung von Licht an Öffnungen und Kanten. Bei gleicher Wellenlänge ergibt ein schmalerer Spalt ein breiteres zentrales Beugungsmaximum.",
-      "Reelle Linsenbilder lassen sich auf einem Schirm auffangen. Bei einem realen Gegenstand erzeugt eine einzelne Zerstreuungslinse ein virtuelles Bild; eine Sammellinse wirkt innerhalb der Brennweite als Lupe."
+      "Reelle Linsenbilder lassen sich auf einem Schirm auffangen. Bei einem realen Gegenstand erzeugt eine einzelne Zerstreuungslinse ein virtuelles Bild; eine Sammellinse wirkt innerhalb der Brennweite als Lupe.",
+      "Mehr Vergrößerung garantiert keine höhere Auflösung. Prüfe Geräteversprechen mit unabhängigen Fachquellen und unterscheide Quelle, eigene Schlussfolgerung und offene Frage."
     ],
     "sources": [
       {
@@ -7852,6 +8046,22 @@
       {
         "title": "OpenStax: Physics of the Eye",
         "url": "https://openstax.org/books/college-physics-2e/pages/26-1-physics-of-the-eye"
+      },
+      {
+        "title": "Universität Wien: Fotogalerie der Universitätssternwarte",
+        "url": "https://astro.univie.ac.at/oeffentlichkeitsarbeit/fotogalerie/"
+      },
+      {
+        "title": "ZEISS: Know Your ZEISS Objective (Herstellerinformation, englisch)",
+        "url": "https://www.zeiss.com/microscopy/en/l/great-britain/campaigns/2025/know-your-zeiss-objective.html"
+      },
+      {
+        "title": "OpenStax: Limits of Resolution (Lehrbuch, englisch)",
+        "url": "https://openstax.org/books/college-physics-2e/pages/27-6-limits-of-resolution-the-rayleigh-criterion"
+      },
+      {
+        "title": "NASA: Eclipse Viewing Safety (englisch)",
+        "url": "https://science.nasa.gov/eclipses/safety/"
       }
     ]
   },
@@ -7934,9 +8144,57 @@
                 "pts": 0
               }
             ]
+          },
+          {
+            "id": "o1_visibility",
+            "question": "Du erkennst die Scheinwerfer eines Autos in der Dämmerung. Was folgt daraus für deine eigene Sichtbarkeit?",
+            "answers": [
+              {
+                "text": "Die lenkende Person hat mich sicher bemerkt, weil Sehen immer gegenseitig ist.",
+                "feedback": "Der Lichtweg vom Scheinwerfer zu deinem Auge belegt den Rückweg von deiner Kleidung zum anderen Auge nicht. Auch Aufmerksamkeit spielt eine Rolle.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Licht vom Auto erreicht mein Auge; ob ich erkannt werde, hängt von einem anderen Lichtweg und weiteren Bedingungen ab.",
+                "feedback": "Zum Gesehenwerden muss Licht von dir ins Auge der anderen Person gelangen. Dein eigenes Sehen ist dafür noch kein Nachweis.",
+                "correct": true,
+                "pts": 0
+              },
+              {
+                "text": "Ein Reflektor macht mich auch ohne einfallendes Licht sichtbar.",
+                "feedback": "Ein Reflektor erzeugt kein Licht. Er kann nur Licht zurückwerfen, das ihn erreicht.",
+                "correct": false,
+                "pts": 0
+              }
+            ]
+          },
+          {
+            "id": "o1_light_time",
+            "question": "Zwei Lichtsignale legen im Vakuum 300.000 km und 600.000 km zurück. Du rechnest mit rund 300.000 km pro Sekunde. Welche Aussage passt?",
+            "answers": [
+              {
+                "text": "Beide sind augenblicklich am Ziel, weil Licht sehr schnell ist.",
+                "feedback": "Sehr schnell ist nicht dasselbe wie ohne Laufzeit. Bei diesen großen Entfernungen liegen die Zeiten im Sekundenbereich.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das zweite Signal ist halb so schnell, weil sein Weg doppelt so lang ist.",
+                "feedback": "Beide Signale breiten sich im Vakuum mit derselben Geschwindigkeit aus. Der längere Weg verändert die benötigte Zeit.",
+                "correct": false,
+                "pts": 0
+              },
+              {
+                "text": "Das zweite braucht etwa doppelt so lange; die Geschwindigkeit bleibt gleich.",
+                "feedback": "Bei gleicher Geschwindigkeit braucht der doppelte Weg die doppelte Zeit: ungefähr zwei statt einer Sekunde.",
+                "correct": true,
+                "pts": 0
+              }
+            ]
           }
         ],
-        "content": "\n        <div class=\"lesson-goals\"><strong>Ziel:</strong> Du weißt zuerst, wo Licht herkommt. Danach beobachtest du seinen Weg.</div><p>Licht entsteht in einer <strong>Lichtquelle</strong>. Beispiele sind Sonne, Lampe, Kerze, Handy-Display oder Fahrradlicht. Diese Dinge senden Licht aus. Der Mond ist keine eigene Lichtquelle. Er wirft Sonnenlicht zu uns zurück.</p><h3>Warum sehen wir einen beleuchteten Gegenstand?</h3><p>Eine matte Karte ist keine eigene Lichtquelle. Sie wird sichtbar, wenn Licht von einer Quelle auf sie fällt und ein Teil davon in dein Auge gelangt. Die matte Oberfläche <strong>streut</strong> auftreffendes Licht in verschiedene Richtungen. Das Auge ist dabei der <strong>Empfänger</strong>. Es sendet keine Sehstrahlen aus. Eine selbst leuchtende Lampe kannst du dagegen auch durch Licht sehen, das direkt von ihr ins Auge gelangt.</p><div class=\"interactive-zone\" data-seeing-path><h4>Lichtquelle – Gegenstand – Auge</h4><p>Sage zuerst voraus: Bleibt die Karte beleuchtet, wenn nur der Weg zwischen Karte und Auge versperrt wird? Schalte dann die Blende um. Prüfe anschließend, was sich beim Ausschalten der Lampe ändert.</p><button type=\"button\" data-seeing-lamp aria-pressed=\"true\">Lampe eingeschaltet</button><button type=\"button\" data-seeing-block aria-pressed=\"false\">Blende im Weg</button><button type=\"button\" data-seeing-reset>Ausgangslage</button><svg data-seeing-diagram role=\"img\" aria-label=\"Schema des Lichtwegs von der Lampe über eine matte Karte zum Auge.\" viewBox=\"0 0 480 240\" style=\"width:100%;max-width:36rem;height:auto;background:#f8fafc\"><defs><marker id=\"seeing-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#92400e\"/></marker></defs><g stroke=\"#92400e\" stroke-width=\"3\" fill=\"none\" marker-end=\"url(#seeing-arrow)\"><path data-seeing-incoming d=\"M65 60L205 140\"/><g data-seeing-scattered><path d=\"M215 140L270 50\"/><path d=\"M215 140L295 90\"/><path d=\"M215 140L310 140\"/></g><path data-seeing-arrival d=\"M310 140L400 140\"/></g><circle data-seeing-source cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fbbf24\" stroke=\"#172033\" stroke-width=\"3\"/><rect data-seeing-card x=\"195\" y=\"115\" width=\"20\" height=\"70\" fill=\"#fbbf24\" stroke=\"#172033\" stroke-width=\"3\"/><rect data-seeing-barrier x=\"312\" y=\"110\" width=\"12\" height=\"60\" fill=\"#334155\"/><path d=\"M400 140Q425 115 450 140Q425 165 400 140\" fill=\"white\" stroke=\"#172033\" stroke-width=\"3\"/><circle cx=\"420\" cy=\"140\" r=\"8\" fill=\"#172033\"/><g fill=\"#172033\" font-size=\"16\"><text x=\"20\" y=\"95\">Lampe</text><text x=\"170\" y=\"215\">Karte</text><text x=\"295\" y=\"195\">Blende</text><text x=\"405\" y=\"195\">Auge</text></g></svg><p data-seeing-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p><strong>Modellgrenzen:</strong> Die Pfeile markieren ausgewählte Lichtwege. Licht breitet sich nicht nur entlang dieser wenigen Linien aus. Wir betrachten hier nur das von der Karte kommende Licht und nehmen keine andere Beleuchtung an. Die Zeichnung zeigt die Bauteile auch bei ausgeschalteter Lampe schematisch, damit du den Aufbau lesen kannst.</p></div><p><strong>Dein Protokoll:</strong> Zeichne die vier Kombinationen aus Lampe an/aus und Blende im Weg/freier Weg. Notiere jeweils getrennt: „Karte beleuchtet?“ und „Licht von der Karte im Auge?“. Begründe mit den unterbrochenen oder freien Lichtwegen.</p><p><strong>Alltag:</strong> Ein unbeleuchteter Gegenstand in einem dunklen Raum wird nicht allein dadurch sichtbar, dass du die Augen offen hältst. Zeichne den Lichtweg für eine Deckenlampe, dein Heft und dein Auge. Kennzeichne Quelle, streuenden Gegenstand und Empfänger.</p>{{QUIZ_o1_sehweg_1}}{{QUIZ_o1_sehweg_2}}<div class=\"remember-box\"><strong>Merke:</strong> Erst gibt es eine Lichtquelle. Dann breitet sich Licht aus.</div><p>In Luft oder in einem anderen gleichmäßigen Stoff läuft Licht geradlinig. Wenn ein undurchsichtiger Körper im Weg steht, kommt das Licht dahinter nicht an. Dort entsteht ein <strong>Schattenraum</strong>: ein räumlicher Bereich, den das Licht der betrachteten Quelle nicht erreicht. Fängt ein Schirm diesen Bereich auf, sehen wir darauf das zweidimensionale <strong>Schattenbild</strong>. Die dunkle Fläche in unserer Seitenansicht ist nur ein Schnitt durch den Schattenraum.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Der Schatten-Simulator (Punktlicht)</h3>\n            <p>Bewege das Hindernis:</p>\n            <input type=\"range\" id=\"posRange1\" min=\"50\" max=\"250\" value=\"150\" oninput=\"updateShadow1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <circle cx=\"30\" cy=\"75\" r=\"8\" fill=\"#fff\" style=\"filter: drop-shadow(0 0 10px #fff);\"></circle>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"10\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_1\"></line>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"140\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_2\"></line>\n                    <polygon id=\"shadowArea1\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect id=\"obj1\" x=\"150\" y=\"60\" width=\"20\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        {{QUIZ_o1_s1_q1}}\n    "
+        "content": "\n        <div class=\"lesson-goals\"><strong>Ziel:</strong> Du weißt zuerst, wo Licht herkommt. Danach beobachtest du seinen Weg.</div><p>Licht entsteht in einer <strong>Lichtquelle</strong>. Beispiele sind Sonne, Lampe, Kerze, Handy-Display oder Fahrradlicht. Diese Dinge senden Licht aus. Der Mond ist keine eigene Lichtquelle. Er wirft Sonnenlicht zu uns zurück.</p><h3>Warum sehen wir einen beleuchteten Gegenstand?</h3><p>Eine matte Karte ist keine eigene Lichtquelle. Sie wird sichtbar, wenn Licht von einer Quelle auf sie fällt und ein Teil davon in dein Auge gelangt. Die matte Oberfläche <strong>streut</strong> auftreffendes Licht in verschiedene Richtungen. Das Auge ist dabei der <strong>Empfänger</strong>. Es sendet keine Sehstrahlen aus. Eine selbst leuchtende Lampe kannst du dagegen auch durch Licht sehen, das direkt von ihr ins Auge gelangt.</p><div class=\"interactive-zone\" data-seeing-path><h4>Lichtquelle – Gegenstand – Auge</h4><p>Sage zuerst voraus: Bleibt die Karte beleuchtet, wenn nur der Weg zwischen Karte und Auge versperrt wird? Schalte dann die Blende um. Prüfe anschließend, was sich beim Ausschalten der Lampe ändert.</p><button type=\"button\" data-seeing-lamp aria-pressed=\"true\">Lampe eingeschaltet</button><button type=\"button\" data-seeing-block aria-pressed=\"false\">Blende im Weg</button><button type=\"button\" data-seeing-reset>Ausgangslage</button><svg data-seeing-diagram role=\"img\" aria-label=\"Schema des Lichtwegs von der Lampe über eine matte Karte zum Auge.\" viewBox=\"0 0 480 240\" style=\"width:100%;max-width:36rem;height:auto;background:#f8fafc\"><defs><marker id=\"seeing-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#92400e\"/></marker></defs><g stroke=\"#92400e\" stroke-width=\"3\" fill=\"none\" marker-end=\"url(#seeing-arrow)\"><path data-seeing-incoming d=\"M65 60L205 140\"/><g data-seeing-scattered><path d=\"M215 140L270 50\"/><path d=\"M215 140L295 90\"/><path d=\"M215 140L310 140\"/></g><path data-seeing-arrival d=\"M310 140L400 140\"/></g><circle data-seeing-source cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fbbf24\" stroke=\"#172033\" stroke-width=\"3\"/><rect data-seeing-card x=\"195\" y=\"115\" width=\"20\" height=\"70\" fill=\"#fbbf24\" stroke=\"#172033\" stroke-width=\"3\"/><rect data-seeing-barrier x=\"312\" y=\"110\" width=\"12\" height=\"60\" fill=\"#334155\"/><path d=\"M400 140Q425 115 450 140Q425 165 400 140\" fill=\"white\" stroke=\"#172033\" stroke-width=\"3\"/><circle cx=\"420\" cy=\"140\" r=\"8\" fill=\"#172033\"/><g fill=\"#172033\" font-size=\"16\"><text x=\"20\" y=\"95\">Lampe</text><text x=\"170\" y=\"215\">Karte</text><text x=\"295\" y=\"195\">Blende</text><text x=\"405\" y=\"195\">Auge</text></g></svg><p data-seeing-status role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p><p><strong>Modellgrenzen:</strong> Die Pfeile markieren ausgewählte Lichtwege. Licht breitet sich nicht nur entlang dieser wenigen Linien aus. Wir betrachten hier nur das von der Karte kommende Licht und nehmen keine andere Beleuchtung an. Die Zeichnung zeigt die Bauteile auch bei ausgeschalteter Lampe schematisch, damit du den Aufbau lesen kannst.</p></div><p><strong>Dein Protokoll:</strong> Zeichne die vier Kombinationen aus Lampe an/aus und Blende im Weg/freier Weg. Notiere jeweils getrennt: „Karte beleuchtet?“ und „Licht von der Karte im Auge?“. Begründe mit den unterbrochenen oder freien Lichtwegen.</p><p><strong>Alltag:</strong> Ein unbeleuchteter Gegenstand in einem dunklen Raum wird nicht allein dadurch sichtbar, dass du die Augen offen hältst. Zeichne den Lichtweg für eine Deckenlampe, dein Heft und dein Auge. Kennzeichne Quelle, streuenden Gegenstand und Empfänger.</p>{{QUIZ_o1_sehweg_1}}{{QUIZ_o1_sehweg_2}}<section data-visibility-transfer><h3>Schulweg: Sehen heißt noch nicht gesehen werden</h3>\n<p>Du siehst einen eingeschalteten Scheinwerfer, wenn sein Licht dein Auge erreicht. Damit die lenkende Person dich sieht, muss dagegen Licht von deiner Kleidung oder deinem Reflektor in ihr Auge gelangen. Das sind verschiedene Lichtwege. Helle Kleidung wirft im Allgemeinen mehr auftreffendes Licht zurück als dunkle. Ein Rückstrahler lenkt einfallendes Licht bevorzugt in Richtung seiner Quelle zurück. Deshalb hilft er besonders, wenn Scheinwerfer und beobachtende Person nahe beieinander sind. Er erzeugt kein eigenes Licht.</p>\n<ol data-visibility-task>\n<li><strong>Zwei Lichtwege zeichnen:</strong> Zeichne ein Auto mit Scheinwerfer und lenkender Person sowie eine Person am Gehsteig. Markiere getrennt „Scheinwerfer → Auge am Gehsteig“ und „Scheinwerfer → Kleidung oder Reflektor → Auge im Auto“. Welche Aussage belegt nur der erste Weg?</li>\n<li><strong>Drei Fälle vergleichen:</strong> A: Ein Reflektor wird vom Scheinwerfer getroffen und ist zur Quelle sichtbar. B: Derselbe Reflektor ist durch eine undurchsichtige Tasche verdeckt. C: Es gibt überhaupt kein auftreffendes Licht. Begründe jeweils, welcher Lichtweg möglich oder unterbrochen ist. Leite keine sichere Erkennungsentfernung aus deiner Zeichnung ab.</li>\n<li><strong>Empfehlung erklären:</strong> Lies in der verlinkten ÖAMTC-Quelle den Abschnitt zu heller Kleidung und Reflektoren. Erkläre eine Empfehlung mit deinem Lichtweg. Notiere auch zwei andere Einflussfaktoren, etwa Ausrichtung, Regen, Hindernisse oder Aufmerksamkeit. Die dort genannten Entfernungen sind keine Garantie für deine Situation.</li>\n<li><strong>Entscheiden:</strong> Beurteile die Aussage „Ich sehe das Auto, also hat mich die lenkende Person sicher bemerkt“. Formuliere eine bessere Begründung. Sichtbarkeit hilft, ersetzt aber keine Aufmerksamkeit und keine sichere Beurteilung der Verkehrssituation. Bearbeite die Aufgabe am Tisch; teste sie nicht im Straßenverkehr.</li>\n</ol>\n<p>Quelle, geprüft am 23.09.2026: <a href=\"https://www.oeamtc.at/presse/oeamtc-unfallrisiko-steigt-in-dunkler-jahreszeit-fussgaengerinnen-besonders-gefaehrdet-55662918\" target=\"_blank\" rel=\"noopener noreferrer\">ÖAMTC: Sehen und gesehen werden bei Dunkelheit</a>. Ohne Internet verwendet ihr die Erklärung oben und kennzeichnet dies als Textarbeit.</p>\n<details data-worksheet-solution=\"true\" data-visibility-solution><summary>Lichtwege und Entscheidung vergleichen</summary><p>Der erste Weg belegt, dass Licht vom Scheinwerfer ins Auge der Person am Gehsteig gelangt. Er belegt weder den Rückweg noch, dass die lenkende Person aufmerksam hinsieht. In A kann Licht zum Bereich der Quelle zurückgelangen; tatsächliches Erkennen hängt auch von den Bedingungen ab. In B ist der betrachtete Reflektor verdeckt. In C fehlt das einfallende Licht, das er zurückwerfen könnte. Ein Reflektor ist keine eigene Lichtquelle. Eine begründete Empfehlung berücksichtigt Lichtweg, Anbringung und weitere Sichtbedingungen.</p></details>\n{{QUIZ_o1_visibility}}\n</section>\n<section data-light-speed><h3>Licht ist sehr schnell – aber nicht augenblicklich da</h3><p>Im Vakuum legt Licht in einer Sekunde ungefähr <strong>300.000 Kilometer</strong> zurück. In Luft ist es fast ebenso schnell; in Wasser und Glas langsamer. Im Zimmer ist die Laufzeit so kurz, dass wir sie beim Einschalten einer Lampe nicht bemerken. Das bedeutet nicht, dass Licht keine Zeit braucht.</p><p><strong>Gedankenvergleich:</strong> Ein Lichtsignal legt im Vakuum 300.000 km zurück, ein anderes 600.000 km. Mit der gerundeten Geschwindigkeit braucht das erste etwa eine Sekunde, das zweite etwa zwei Sekunden. Zeichne für beide eine Zeitlinie. Erkläre: Was bleibt gleich, und was verdoppelt sich? Das ist eine Modellrechnung, keine von uns ausgeführte Messung.</p><p>Fachquelle: <a href=\"https://www.ptb.de/cms/presseaktuelles/si-materialien-fuer-schulen/zum-neuen-si/der-meter.html\" target=\"_blank\" rel=\"noopener noreferrer\">PTB: Der Meter und die Lichtgeschwindigkeit</a>. Dort findest du den exakten Wert in Metern pro Sekunde. Für diesen Vergleich genügt der gerundete Kilometerwert.</p>{{QUIZ_o1_light_time}}</section><div class=\"remember-box\"><strong>Merke:</strong> Erst gibt es eine Lichtquelle. Dann breitet sich Licht aus.</div><p>Im Modell sendet eine dauerhaft leuchtende Quelle fortlaufend Licht in viele Richtungen. Ein gezeichneter Lichtstrahl kennzeichnet einen ausgewählten Ausbreitungsweg, keinen festen Stab. In Luft oder in einem anderen gleichmäßigen Stoff läuft Licht geradlinig. Wenn ein undurchsichtiger Körper im Weg steht, kommt das Licht dahinter nicht an. Dort entsteht ein <strong>Schattenraum</strong>: ein räumlicher Bereich, den das Licht der betrachteten Quelle nicht erreicht. Fängt ein Schirm diesen Bereich auf, sehen wir darauf das zweidimensionale <strong>Schattenbild</strong>. Die dunkle Fläche in unserer Seitenansicht ist nur ein Schnitt durch den Schattenraum.</p>\n        <div class=\"interactive-zone\">\n            <h3>🔦 Der Schatten-Simulator (Punktlicht)</h3>\n            <p>Bewege das Hindernis:</p>\n            <input type=\"range\" id=\"posRange1\" min=\"50\" max=\"250\" value=\"150\" oninput=\"updateShadow1()\" style=\"width: 250px;\">\n            <div class=\"diagram-box\" style=\"background: #1a202c;\">\n                <svg width=\"400\" height=\"150\" viewBox=\"0 0 400 150\">\n                    <circle cx=\"30\" cy=\"75\" r=\"8\" fill=\"#fff\" style=\"filter: drop-shadow(0 0 10px #fff);\"></circle>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"10\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_1\"></line>\n                    <line x1=\"30\" y1=\"75\" x2=\"400\" y2=\"140\" stroke=\"rgba(255,255,255,0.2)\" id=\"ray1_2\"></line>\n                    <polygon id=\"shadowArea1\" points=\"\" fill=\"rgba(0,0,0,0.8)\"></polygon>\n                    <rect id=\"obj1\" x=\"150\" y=\"60\" width=\"20\" height=\"30\" fill=\"#4a5568\"></rect>\n                </svg>\n            </div>\n        </div>\n        <p data-shadow-prediction><strong>Vorhersagen und prüfen:</strong> Lass Lichtquelle und Schirm fest stehen. Vermute vor dem Verschieben: Wird das Schattenbild breiter oder schmaler, wenn das Hindernis näher zur Lampe rückt? Zeichne als Begründung die beiden Randstrahlen. Vergleiche anschließend drei Hindernisstellungen und halte deine Beobachtungen fest. Unterscheide in jeder Skizze den räumlichen Schattenbereich hinter dem Hindernis vom flachen Schattenbild auf dem Schirm. Unsere Bildschirmzeichnung zeigt davon nur eine Seitenansicht.</p>{{QUIZ_o1_s1_q1}}\n    "
       },
       {
         "id": "lochkamera",
@@ -8512,7 +8770,9 @@
       "Lichtquellen und Schattenbildung mit einem Strahlenmodell erklären.",
       "Mit einer Lochkamera Gegenstands- und Bildpunkte zuordnen und den Einfluss von Gegenstands- und Schirmabstand untersuchen.",
       "Kern- und Halbschatten sowie die Anordnung bei Finsternissen unterscheiden.",
-      "Reflexion und Beugung als unterschiedliche Erscheinungen beschreiben."
+      "Reflexion und Beugung als unterschiedliche Erscheinungen beschreiben.",
+      "Sehen und Gesehenwerden anhand verschiedener Lichtwege unterscheiden und Sichtbarkeit am Schulweg begründen.",
+      "Die endliche Lichtgeschwindigkeit und den Zusammenhang von Weg und Laufzeit an einem einfachen Vergleich erklären."
     ],
     "prerequisites": [
       "Lichtquelle und beleuchteten Gegenstand im Alltag unterscheiden."
@@ -8522,7 +8782,23 @@
       "In einem gleichmäßigen Medium beschreibt das Strahlenmodell geradlinige Lichtwege.",
       "In der Lochkamera kreuzen sich geradlinige Lichtwege am Loch: Das Bild ist umgekehrt. Bei gleichem Gegenstandsabstand wird es auf einem weiter entfernten Schirm größer.",
       "Bei Kernschatten ist die betrachtete Lichtquelle ganz, bei Halbschatten nur teilweise verdeckt.",
-      "Einfalls- und Reflexionswinkel werden zum Lot gemessen und sind gleich groß; Beugung zeigt die Welleneigenschaften des Lichts."
+      "Einfalls- und Reflexionswinkel werden zum Lot gemessen und sind gleich groß; Beugung zeigt die Welleneigenschaften des Lichts.",
+      "Sehen ist nicht automatisch gegenseitig: Licht vom Scheinwerfer zu deinem Auge ist ein anderer Weg als Licht von deiner Kleidung zum Auge im Auto. Ein Reflektor braucht einfallendes Licht.",
+      "Licht legt im Vakuum rund 300.000 km pro Sekunde zurück. Auch Licht braucht für einen Weg Zeit."
+    ],
+    "sources": [
+      {
+        "title": "ÖAMTC: Sehen und gesehen werden bei Dunkelheit",
+        "url": "https://www.oeamtc.at/presse/oeamtc-unfallrisiko-steigt-in-dunkler-jahreszeit-fussgaengerinnen-besonders-gefaehrdet-55662918"
+      },
+      {
+        "title": "PTB: Der Meter und die Lichtgeschwindigkeit",
+        "url": "https://www.ptb.de/cms/presseaktuelles/si-materialien-fuer-schulen/zum-neuen-si/der-meter.html"
+      },
+      {
+        "title": "Exploratorium: Pinhole Camera",
+        "url": "https://www.exploratorium.edu/snacks/pinhole-camera"
+      }
     ]
   },
   "rechenbeispiele": {

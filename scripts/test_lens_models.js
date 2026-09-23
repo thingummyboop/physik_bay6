@@ -6,8 +6,8 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));
  await w.renderTopic();w.eval(read('js/topics/linsen_spiegel.js'));w.topicInit();
- assert.equal(w.chapterRevision('linsen_spiegel'),6);
- assert.equal(w.currentChapterResult('linsen_spiegel',{passed:true,bestPercent:100,contentRevision:5}).passed,false);
+ assert.equal(w.chapterRevision('linsen_spiegel'),7);
+ assert.equal(w.currentChapterResult('linsen_spiegel',{passed:true,bestPercent:100,contentRevision:6}).passed,false);
  for(const id of ['q_total','q4','f1','f2','f3','f5','f6','f7','f10','f11','f12','f13','f14','f15']){
   const q=w.currentChapterQuiz.questions.find(q=>q.id===id);assert.ok(q,id);assert.equal(q.answers.length,3);assert.equal(q.answers.filter(a=>a.correct).length,1);assert.ok(q.answers.every(a=>a.feedback.length>30));
  }

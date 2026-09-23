@@ -1,6 +1,8 @@
 # Physik: Abdeckungsprüfung für die deutsche Mittelschulfassung
 
-Stand: 08.09.2026. Dies ist eine Arbeitsmatrix, keine fachliche Freigabe und kein Nachweis einer amtlichen Approbation.
+Aktueller Teilabgleich: [2. Klasse, 23.09.2026](PHYSIK_KLASSE2_ABGLEICH.md). Die folgende Ausgangsmatrix und ihre offenen Punkte sind historisch; neuere Nachweise stehen in den Ergänzungen und im Jahrgangsbericht.
+
+Stand der Ausgangsmatrix: 08.09.2026. Dies ist eine Arbeitsmatrix, keine fachliche Freigabe und kein Nachweis einer amtlichen Approbation.
 
 ## Grundlage
 
@@ -125,3 +127,12 @@ Fortschritt 23.09.2026: Elektrizität auf Revision 6 erweitert: sechs Fallbeschr
 ### Ohm-Rechenaufgaben mit Lösungen (23.09.2026)
 
 Fortschritt 23.09.2026: Die zehn erzeugten Ohm-Papieraufgaben haben jetzt eindeutige Nummern, Rechenhilfe sowie passende Lösungen mit Einheitenumrechnung und Probe. Alle 50 Zahlen-/Aufgabenkombinationen, drei Browserziehungen und die neuen Druckseiten geprüft. Schüler- und Lösungsfassung bleiben getrennt; Aufgaben ändern sich beim Lösungsschalten nicht. [Nachweise](PHYSIK_OHM_PAPIERAUFGABEN.md). Kapitelrevision bleibt 6. Änderungen lokal nach `f601fda`; weitere Grafik-, Fach- und Gesamtprüfungen offen.
+
+
+### Optische Geräte recherchieren und Quellen prüfen (23.09.2026)
+
+23.09.2026, lokale Weiterarbeit nach `2339b57`: [Optische Geräte und Quellenarbeit](PHYSIK_OPTISCHE_GERAETE_QUELLEN.md) ergänzt. Linsen → Auge → Gerätevergleich; vier Quellenkarten, sieben Rechercheaufträge, 32 Fragen mit gezielter Abschnittswiederholung. 96 bewertete Browserantworten, zwölf freie Antworten, sechs Ansichten und ausgewählte endgültige Druckseiten geprüft. Augenmodell am Handy lesbarer; alle drei praktischen Vergleichslösungen jetzt in der Lehrerfassung. Revision 7. Fachweiter Physikabgleich und Gesamtauftrag bleiben offen, Übersetzungen ausgesetzt.
+
+### Zusammenhängender Abgleich der 2. Klasse (23.09.2026)
+
+23.09.2026: [Physik der 2. Klasse zusammenhängend abgeglichen](PHYSIK_KLASSE2_ABGLEICH.md): neun Kompetenzen und acht Anwendungsbereiche konkreten Tätigkeiten zugeordnet. Kapitelreihenfolge verbessert; Schulweg, Lichtgeschwindigkeit und vollständiger Hörweg ergänzt, drei neue Fragen und getrennte Papierlösungen. Neun neue bewertete und neun freie Browserantwortwege, zwölf Ansichten, Navigation und betroffene Druckseiten geprüft. Optik/Akustik Revision 4. Grundstoff/Vertiefung sowie die übrigen Physikjahrgänge bleiben offen; Übersetzungen ausgesetzt, Änderungen lokal nach `2339b57`.

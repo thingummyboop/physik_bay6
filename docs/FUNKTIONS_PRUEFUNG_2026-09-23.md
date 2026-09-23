@@ -1,5 +1,11 @@
 # Funktionsprüfung 23.09.2026
 
+23.09.2026: [Physik der 2. Klasse zusammenhängend abgeglichen](PHYSIK_KLASSE2_ABGLEICH.md): neun Kompetenzen und acht Anwendungsbereiche konkreten Tätigkeiten zugeordnet. Kapitelreihenfolge verbessert; Schulweg, Lichtgeschwindigkeit und vollständiger Hörweg ergänzt, drei neue Fragen und getrennte Papierlösungen. Neun neue bewertete und neun freie Browserantwortwege, zwölf Ansichten, Navigation und betroffene Druckseiten geprüft. Optik/Akustik Revision 4. Grundstoff/Vertiefung sowie die übrigen Physikjahrgänge bleiben offen; Übersetzungen ausgesetzt, Änderungen lokal nach `2339b57`.
+
+
+23.09.2026, lokale Weiterarbeit nach `2339b57`: [Optische Geräte und Quellenarbeit](PHYSIK_OPTISCHE_GERAETE_QUELLEN.md) ergänzt. Linsen → Auge → Gerätevergleich; vier Quellenkarten, sieben Rechercheaufträge, 32 Fragen mit gezielter Abschnittswiederholung. 96 bewertete Browserantworten, zwölf freie Antworten, sechs Ansichten und ausgewählte endgültige Druckseiten geprüft. Augenmodell am Handy lesbarer; alle drei praktischen Vergleichslösungen jetzt in der Lehrerfassung. Revision 7. Fachweiter Physikabgleich und Gesamtauftrag bleiben offen, Übersetzungen ausgesetzt.
+
+
 DGB-Lernwegübersicht: 273 Suiten vorhanden. Neue Klassenwahl sowie bestehende Lernabläufe, Vorwissensaktionen, Tab-Abgleich, verweigerter Speicher und englische Bedienelemente gezielt geprüft; [gemeinsamer DGB-Bericht](DGB_FACHABGLEICH.md). Kein vollständiger neuer 273-Suiten-Lauf.
 
 Nachfolgende Word-Änderung: 272 Testsuiten vorhanden. Neun Word-Fragen mit allen 27 Antwortwegen, gezielte gemeinsame Prüfungen, Browser und Druckfassung bestanden; Einzelheiten im [Word-Bericht](DGB_WORD_WERKSTATT.md). Kein vollständiger neuer 272-Suiten-Lauf.

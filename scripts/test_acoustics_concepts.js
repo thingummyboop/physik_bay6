@@ -4,7 +4,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic=akustik',runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(resolve=>setImmediate(resolve));w.fetch=async()=>({ok:true,json:async()=>data});
  for(const file of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+file+'.js'));
- await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,24);
+ await w.renderTopic();assert.equal(d.querySelectorAll('.chapter-question').length,25);
  assert.match(d.body.textContent,/logarithmisches Verhältnis/);assert.match(d.body.textContent,/keine räumliche Flugbahn/);
  assert.doesNotMatch(d.body.textContent,/Mikrofon-Computer|Gesendete Frequenz/);
  assert.equal(w.currentChapterResult('akustik',{contentRevision:1,passed:true,bestPercent:100}).passed,false);
@@ -17,7 +17,7 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   for(let choice=0;choice<q.answers.length;choice++){
    w.currentChapterQuiz.questions.forEach((question,i)=>{d.querySelector(`input[name="chapter_q_${i}"][value="${i===index?choice:question.answers.findIndex(a=>a.correct)}"]`).checked=true;});
    w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results')).akustik;
-   assert.equal(result.lastPercent,Math.round(100*(24-(q.answers[choice].correct?0:1))/24));
+   assert.equal(result.lastPercent,Math.round(100*(25-(q.answers[choice].correct?0:1))/25));
    assert.ok(d.querySelector('#chapter-quiz-result').textContent.includes(q.answers[choice].feedback));
   }
  }
@@ -29,5 +29,5 @@ const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'
   assert.match(d.getElementById('resRange').getAttribute('aria-valuetext'),/Relative Frequenzstufe/);
   if(value===4)assert.match(d.getElementById('resText').innerText,/nicht automatisch/);
  }
- dom.window.close();console.log('PASS: 24 acoustics questions including all nine hearing-protection answer paths, revised concepts and results, six reversible resonance settings, no automatic glass break or fictitious Hertz label.');
+ dom.window.close();console.log('PASS: 25 acoustics questions including all nine hearing-protection answer paths, revised concepts and results, six reversible resonance settings, no automatic glass break or fictitious Hertz label.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
