@@ -32,7 +32,7 @@ Nachweis: [Mobilität/Gesundheit](DGB_ASSISTENZ_MOBILITAET_GESUNDHEIT.md), [ursp
 
 Nachweis: [Datenspuren](DGB_DATENSPUREN.md), [Wiki-Werkstatt](DGB_WIKI_UEBERARBEITUNG.md).
 
-## Kommunikation – dgb8_kommunikation, Revision 1
+## Kommunikation – dgb8_kommunikation, Revision 2
 
 | Anforderung | Fundstelle und Lernprodukt | Arbeitsbefund |
 |---|---|---|
@@ -41,9 +41,9 @@ Nachweis: [Datenspuren](DGB_DATENSPUREN.md), [Wiki-Werkstatt](DGB_WIKI_UEBERARBE
 | G: Unternehmensinteressen bei Social-Media-Auswahl und Welt-/Selbstbild bedenken | sec4: zwei beschriebene Plattformmodelle, Werbeziel/Auswahlregel und begründete Wahl | Ausgearbeitet; keine pauschale Behauptung über reale Anbieter |
 | I: verantwortlich kommunizieren und Rechte beim Austausch berücksichtigen | sec3: drei Rechtefälle, Lizenzhinweis und Austausch einer eigenen Skizze mit vereinbartem Empfängerkreis | Ausgearbeitet; realer Austausch benötigt den freigegebenen schulischen Bereich |
 | Anwendung virale Verbreitung und Handlungsmöglichkeiten | sec4: erste Weitergaberunde berechnen, Abhängigkeit der Quellen erklären, gezielte Korrektur planen | Ausgearbeitet; spätere Überschneidungen/ausbleibende Weitergaben ausdrücklich benannt |
-| Anwendung datenschutzrechtliche Grundlagen DSGVO/DSG | sec3: Rechtsgrundlagen genannt, Zweck, Empfängerkreis und Rechtsgrundlage von Urheber-/Bildnisschutz getrennt | Grundlagen angesprochen; eine vollständige systematische Rechtsprüfung ist damit nicht belegt. Vor Fachabschluss Begriffe, Betroffenenrechte und Hilfswege gezielt gegen aktuelle Primärquellen prüfen |
+| Anwendung datenschutzrechtliche Grundlagen DSGVO/DSG | sec3 und datenschutz_handeln: Grundlagen, acht Rechte mit Voraussetzungen, vier Entscheidungsfälle, Anfrageentwurf und Belegliste für den Beschwerdeweg | Konkret ausgearbeitet; am 23.09.2026 anhand DSB und RIS abgeglichen, Quellen- und Prüfgrenzen im Nachweis |
 
-Nachweis: [Medienkontext und Kommunikation](DGB_MEDIENKONTEXT.md).
+Nachweis: [Medienkontext und Kommunikation](DGB_MEDIENKONTEXT.md), [Datenschutz und Verbraucherrechte](DGB_DATENSCHUTZ_VERBRAUCHERRECHTE.md).
 
 ## Produktion – dgb8_produktion, Revision 4
 
@@ -60,7 +60,7 @@ Nachweis: [Medienkontext und Kommunikation](DGB_MEDIENKONTEXT.md).
 
 Der zuvor als nächste Arbeit benannte Medienprojektauftrag ist mit Material, Werkzeug, Teamplan und überprüfbaren Produkten ergänzt. [Inhalte, Datei-/Browser-/Druckprüfung und Grenzen](DGB_MEDIENPROJEKT.md). Die bestehenden Raster-Programmieraufgaben bleiben erhalten.
 
-## Handeln – dgb8_handeln, Revision 1
+## Handeln – dgb8_handeln, Revision 2
 
 | Anforderung | Fundstelle und Lernprodukt | Arbeitsbefund |
 |---|---|---|
@@ -69,10 +69,10 @@ Der zuvor als nächste Arbeit benannte Medienprojektauftrag ist mit Material, We
 | G: digitale Kommunikation für Beteiligung/Engagement aufzeigen | sec4: begründeter Wiener Schulhofvorschlag, Anliegen/Interessen/Kompromiss, Rückmeldung und ergänzender Papierzugang | Ausgearbeitet; Reichweite nicht mit verbindlicher Entscheidung verwechselt |
 | I: lenkende Konfigurationen reflektieren und Selbstbestimmung sichern | sec4: Öffentlichkeit, genauer Standort und Benachrichtigungen prüfen, erlaubte Einstellungen anpassen | Konkrete Planung und geräteabhängiger Praxisauftrag |
 | Anwendung technische Mittel gegen Betrug/Missbrauch | sec2: Verschlüsselung und Grenzen; sec3: HTTPS nicht als Ehrlichkeitsbeleg; frühere DGB-Kapitel verknüpfen Passwort-/Phishingpraxis | Vorhandene Lerngelegenheiten; keine einzelne Technik als Rundumschutz ausgegeben |
-| Anwendung rechtliche/politische Verbraucherfragen | sec3: zwei vollständige Abo-Angebote, Altersfall, Beratung und Verantwortung von Kundschaft/Anbieter/Gesetzgebung | Konkreter Aufgabenbestand; rechtliche Aktualitätsprüfung vor Gesamtfreigabe weiterhin erforderlich |
+| Anwendung rechtliche/politische Verbraucherfragen | sec3: Abo-Angebote, Altersfall, eigener Zusatzentgeltfall, Beratung und Verantwortung von Kundschaft/Anbieter/Gesetzgebung | Angezeigte Preise und wirksam vereinbarte Extras ausdrücklich getrennt; § 6c KSchG, § 170 ABGB und amtliche Erläuterungen am 23.09.2026 abgeglichen |
 
-Nachweis: [Systeme, Verschlüsselung und Verbraucherfragen](DGB_VERSCHLUESSELUNG.md).
+Nachweis: [Systeme und Verschlüsselung](DGB_VERSCHLUESSELUNG.md), [aktualisierte Verbraucherrechte](DGB_DATENSCHUTZ_VERBRAUCHERRECHTE.md).
 
 ## Konsequenz für die Fertigstellung
 
-Die konkrete Produktionslücke ist bearbeitet. Als nächste Arbeit für diese Klassenmatrix bleiben die gezielten Rechts-/Quellenprüfungen in Kommunikation und Handeln. Die Matrix ist keine Freigabe aller DGB-Jahrgänge und kein Ersatz für Browser-/Drucktests. Wiki-Werkstatt, Orientierungsanwendungen und Medienprojekt sind erledigte Inhaltsschritte. Die älteren Formulierungen „weitere Anwendungen offen“ dürfen nicht ohne diesen aktuellen Abgleich als neue Lücken behandelt werden. Übersetzungen bleiben ausgesetzt; der Gesamtauftrag für alle vorhandenen Fächer bleibt bestehen.
+Die konkreten Lücken zum Medienprojekt und zur Anwendung der Datenschutz-/Verbraucherrechte sind bearbeitet. Alle hier aufgeführten Anforderungen haben nun konkrete Lerngelegenheiten. Die verbleibende Facharbeit betrifft den systematischen Abgleich der übrigen Jahrgänge und die übergreifenden Produktanforderungen; diese Matrix allein beweist keine vollständige fachliche oder technische Gesamtabnahme. Die Matrix ist keine Freigabe aller DGB-Jahrgänge und kein Ersatz für Browser-/Drucktests. Wiki-Werkstatt, Orientierungsanwendungen und Medienprojekt sind erledigte Inhaltsschritte. Die älteren Formulierungen „weitere Anwendungen offen“ dürfen nicht ohne diesen aktuellen Abgleich als neue Lücken behandelt werden. Übersetzungen bleiben ausgesetzt; der Gesamtauftrag für alle vorhandenen Fächer bleibt bestehen.

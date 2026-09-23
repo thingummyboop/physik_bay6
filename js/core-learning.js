@@ -114,6 +114,24 @@ function enhanceCoreLearning(topic,topicId,language,resolveChapter){
    controls.forEach(control=>control.addEventListener('change',update));
    zone.querySelector('[data-trace-reset]').addEventListener('click',()=>{controls.forEach(control=>control.checked=false);zone.querySelector('[data-trace-context]').open=false;update();controls[0].focus();});update();
   }
+  if(type==='recommendation-model'){
+   const controls=[...zone.querySelectorAll('[data-feed-count]')],rule=zone.querySelector('[data-feed-rule]'),list=zone.querySelector('[data-feed-result]'),status=zone.querySelector('[data-feed-status]');
+   const cards=[...zone.querySelectorAll('[data-feed-source]')].map(el=>({id:Number(el.dataset.feedId),category:el.dataset.feedCategory,title:el.querySelector('[data-feed-title]').textContent}));
+   const update=()=>{
+    const counts=Object.fromEntries(controls.map(c=>[c.dataset.feedCount,Number(c.value)]));
+    controls.forEach(c=>{zone.querySelector('[data-feed-value="'+c.dataset.feedCount+'"]').textContent=c.value;c.setAttribute('aria-valuetext',c.value+' Modellklicks');});
+    const sorted=cards.slice().sort((a,b)=>counts[b.category]-counts[a.category]||a.id-b.id);
+    let selected;
+    if(rule.value==='common')selected=cards.slice(0,3);
+    else if(rule.value==='mix'){const seen=new Set();selected=sorted.filter(c=>{if(seen.has(c.category))return false;seen.add(c.category);return true;}).slice(0,3);}
+    else selected=sorted.slice(0,3);
+    list.replaceChildren();selected.forEach(c=>{const li=document.createElement('li');li.dataset.feedSelected=String(c.id);li.textContent='Karte '+c.id+': '+c.title+' — '+c.category+'; Profilpunkte: '+counts[c.category];list.append(li);});
+    const themes=new Set(selected.map(c=>c.category)).size;
+    status.textContent='Sichtbare Karten: '+selected.map(c=>c.id).join(', ')+'. '+themes+' von 3 Themen vertreten. '+(rule.value==='common'?'Die gemeinsame Liste berücksichtigt keine Profilpunkte.':rule.value==='mix'?'Die Mischregel nimmt nur eine Karte pro Thema.':'Die Profilregel bevorzugt höhere Punktzahlen.')+' Die Punkte sind keine Qualitätsbewertung.';
+   };
+   controls.forEach(c=>c.addEventListener('input',update));rule.addEventListener('change',update);
+   zone.querySelector('[data-feed-reset]').addEventListener('click',()=>{controls.forEach((c,i)=>c.value=String([3,1,0][i]));rule.value='profile';update();controls[0].focus();});update();
+  }
   if(type==='boundary-cases'){
    const control=zone.querySelector('[data-boundary-control]'),cases=[...zone.querySelectorAll('[data-boundary-case]')],result=zone.querySelector('[data-boundary-result]');
    const update=()=>{

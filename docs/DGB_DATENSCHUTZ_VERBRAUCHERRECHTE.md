@@ -1,4 +1,4 @@
-# DGB: Datenschutz und Verbraucherrechte – Zwischenstand
+# DGB: Datenschutz und Verbraucherrechte
 
 Stand: 23.09.2026. Dieser Nachweis beschreibt die laufende Ergänzung nach `ceb183e`, keine vollständige Fach- oder Produktabnahme.
 
@@ -18,10 +18,12 @@ Im Arbeitsverlauf am 23.09.2026 wurden folgende Primärquellen für diese Ergän
 
 Der unmittelbare EUR-Lex-Abruf war technisch nicht lesbar. Eine vollständige eigene Prüfung des DSGVO-Originaltextes wird deshalb nicht behauptet; die Erläuterungen stützen sich auf die Datenschutzbehörde und die genannten österreichischen Gesetzestexte. Ältere externe Kapitelverweise wurden nicht sämtlich erneut geprüft.
 
-## Bereits erfolgte Prüfungen und offene Restarbeit
+## Prüfungen und Grenzen
 
 Die gezielten Funktionstests `test_privacy_rights.js`, `test_media_context.js`, `test_dgb_action.js`, `test_dgb_worksheets.js` und `test_translated_title_search.js` bestanden. Die unabhängigen Antwortschlüssel umfassen 33 Antwortwege in Kommunikation und 27 in Handeln.
 
 Der native Browserbericht dokumentiert 72 Fallentscheidungen, alle 60 Quizantwortwege, zwölf Kapitelansichten, Zurücksetzen und Fokusführung ohne Änderung gespeicherter Fortschritte durch die Fallwerkstatt. Nach der Umstellung der Rechteübersicht auf Karten bestanden nochmals zwölf Layoutprüfungen. Die Berichte liegen außerhalb des Repositories unter `../browser-qa/privacy-rights/`.
 
-Die endgültigen Lösungsdruckfassungen umfassen 21 bzw. 15 Seiten. Bisher wurden im Kommunikationskapitel die betroffenen Seiten 6–9, 11, 14–16 und 19 visuell gesichtet. Die Sichtprüfung der verbleibenden betroffenen Druckseiten, insbesondere im Kapitel Handeln, sowie die abschließende Fortschreibung der Klassenmatrix stehen beim Sichern dieses Zwischenstands noch aus. Es gab keinen neuen vollständigen Funktionstestlauf und keine vollständige Prüfung aller Schülerdruckfassungen. Ältere Matrixeinträge beschreiben den dort dokumentierten früheren Stand.
+Nach dem GitHub-Zwischenstand `980c82e` wurde die noch offene Sichtprüfung abgeschlossen. Geprüft sind im Kommunikationskapitel die betroffenen Seiten 6–9, 11, 14–16, 19 und 21 der endgültigen 21-seitigen Lösungsdruckfassung; in Handeln die Seiten 4–7, 10–11 und 13–15 der endgültigen 15-seitigen Fassung. Texte, Falloptionen, neue Fragen, Quellen und getrennte Lösungen sind in diesem Umfang lesbar, ohne abgeschnittene Inhalte oder Überlagerungen. Die Klassenmatrix ist auf die neuen Inhalte fortgeschrieben.
+
+Es gab keinen neuen vollständigen Funktionstestlauf und keine vollständige Prüfung aller Schülerdruckfassungen. Die gezielten Datenschutz-, Medienkontext- und Handeln-Tests bestanden beim Sichern nochmals. Die Ergänzungen sind ein abgegrenzter Inhalts- und Prüfschritt; die Gesamtprüfung aller DGB-Jahrgänge und aller Produktanforderungen bleibt offen.

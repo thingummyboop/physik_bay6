@@ -1,5 +1,9 @@
 # Browserprüfung des Lernwegs – 14.09.2026
 
+23.09.2026: DGB-Handeln der 3. Klasse besteht nach den Druckkorrekturen 108 native Fallentscheidungen, alle 24 bewerteten Antwortwege und sechs Ansichten in hell/dunkel. Tastaturbedienung, Reset/Fokus, unveränderte Werkstatt-Speicherung und tatsächlicher Arbeitsblattexport geprüft. Alle 17 endgültigen Lösungsdruckseiten gesichtet. [Umfang und Grenzen](DGB_GERAETE_SCHUTZ_NACHHALTIGKEIT.md); neue Weiterarbeit bleibt lokal nach `980c82e`.
+
+23.09.2026, nach `980c82e`: Die noch offenen betroffenen Druckseiten der Datenschutz-/Verbraucherrechtsübungen sind gesichtet; der Abgleich der 4. Klasse ist fortgeschrieben. Revision 2 in Kommunikation und Handeln, acht Rechte, vier Datenschutzfälle und die ausdrückliche Trennung angezeigter Preise von berechtigten Zusatzentgelten. [Prüfumfang und Quellen](DGB_DATENSCHUTZ_VERBRAUCHERRECHTE.md). Gesamtauftrag und weitere Jahrgangsprüfungen bleiben offen.
+
 23.09.2026: Neue Medienwerkstatt mit 144 Gestaltungszuständen in sechs Ansichten, echten Arbeitsdatei-/Plakatdownloads, Offline-Weiterarbeit und erneutem Speichern/Öffnen geprüft. Alle 27 Antwortwege des Produktionskapitels bestanden. Sechs zusätzliche Kapitelansichten, neun Farbkontraste, vollständige 17-seitige Lösungsdruckfassung und zwei endgültige einseitige Plakate geprüft. [Umfang, Druckkorrektur und Grenzen](DGB_MEDIENPROJEKT.md). Lokale Weiterarbeit nach `ceb183e`.
 
 23.09.2026: Die neue Wiki-Werkstatt besteht sechs mobile/Desktop-Ansichten in hell/dunkel, Tastaturbedienung, tatsächliche Downloads, Wiederherstellung und Offline-Nutzung. Das Informationskapitel besteht alle 24 Antwortwege und 96 Zustände der bestehenden Datenspuren-Werkstatt. Die 17-seitige Lösungsdruckfassung und der einseitige Beitragsexport wurden gesichtet. [Prüfumfang und Grenzen](DGB_WIKI_UEBERARBEITUNG.md).
