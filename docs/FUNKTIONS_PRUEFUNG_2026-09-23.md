@@ -1,5 +1,9 @@
 # Funktionsprüfung 23.09.2026
 
+Aktualisierung nach `3a58ad6`: 271 Testsuiten vorhanden. [Handeln der 1. Klasse](DGB_HANDELN_KLASSE1.md) einschließlich vier Problemfällen, sämtlichen Antwortwegen, bewahrten Aufgaben und Druckausgabe gezielt geprüft. Der [Erstklassabgleich](DGB_KLASSE1_ABGLEICH.md) beschreibt die Zuordnung aller 24 Anforderungen. Kein neuer vollständiger 271-Suiten-Lauf; der folgende Gesamtbericht beschreibt weiterhin seinen damaligen Prüfstand.
+
+Aktualisierung nach `3a58ad6`: 270 Testsuiten vorhanden. [Produktion der 1. Klasse](DGB_PRODUKTION_KLASSE1.md) einschließlich Medienvergleich, Schleife, Umfrage, Antworten und Druckausgabe gezielt geprüft; Druckbreitenfehler behoben und nativ nachgemessen. Kein neuer vollständiger 270-Suiten-Lauf. Der folgende Gesamtbericht beschreibt weiterhin den damaligen vollständigen Lauf, nicht automatisch spätere Änderungen.
+
 Zeitliche Einordnung: Die nach dem folgenden 266-Suiten-Lauf ergänzte [Orientierung der 1. Klasse](DGB_ORIENTIERUNG_KLASSE1.md) wurde gezielt geprüft. Mit den anschließend ergänzten Kapiteln [Information](DGB_INFORMATION_KLASSE1.md) und [Kommunikation](DGB_KOMMUNIKATION_KLASSE1.md) enthält die Sammlung jetzt 269 Suiten. Alle drei Kapitel wurden gezielt geprüft; ein neuer vollständiger 269-Suiten-Lauf wird hier nicht behauptet. Der unten beschriebene unveränderte Codezustand gilt für den damaligen Laufabschluss.
 
 ## Aktueller Lauf nach 4d50180

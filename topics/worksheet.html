@@ -4,9 +4,18 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arbeitsblatt</title>
     <style>
+      #ws-content [data-media-paper] .production-bar-fill{display:block;height:6mm;background:#1765a8;border:1px solid #444;box-sizing:border-box}
+      #ws-content [data-media-paper] [data-chart-value="3"] .production-bar-fill{width:75%}
+      #ws-content [data-media-paper] [data-chart-value="4"] .production-bar-fill{width:100%}
+      #ws-content [data-media-paper] [data-chart-value="1"] .production-bar-fill{width:25%}
+      #ws-content [data-media-paper] .production-chart-scale{display:flex;justify-content:space-between}
       @media print {
+        #ws-content .handeln-map>div,#ws-content .handeln-example,#ws-content [data-handeln-tasks]>li,#ws-content [data-computer-task]>li,#ws-content [data-help-task]>li{break-inside:avoid;page-break-inside:avoid}
+        #ws-content .handeln-map>div,#ws-content .handeln-example{border:1px solid #aaa;padding:8px;margin:12px 0}
+        #ws-content [data-help-protocol] td::after{content:"";display:block;height:12mm}
         #ws-content .production-example,#ws-content .production-medium,#ws-content [data-production-tasks]>li{break-inside:avoid;page-break-inside:avoid}
         #ws-content .production-example,#ws-content .production-medium{border:1px solid #aaa;padding:8px;margin:12px 0}
+        #ws-content :is([data-media-observation],[data-presentation-protocol]) td::after{content:"";display:block;height:12mm}
         #ws-content .production-bar-chart{max-width:140mm;margin:10px 0}#ws-content .production-bar-row p{margin:6px 0 2px}#ws-content .production-bar-track{width:100%;border-bottom:1px solid #444}#ws-content .production-bar-fill{display:block;height:6mm;background:#1765a8;border:1px solid #444;box-sizing:border-box}#ws-content .production-chart-scale{display:flex;justify-content:space-between;margin-top:3px}
         #ws-content [data-sharing-context],#ws-content [data-communication-tasks]>li,#ws-content [data-collaboration-task]>li,#ws-content [data-sharing-paper] table{break-inside:avoid;page-break-inside:avoid}
         #ws-content [data-information-source],#ws-content [data-information-tasks]>li,#ws-content [data-research-protocol]>article{break-inside:avoid;page-break-inside:avoid}

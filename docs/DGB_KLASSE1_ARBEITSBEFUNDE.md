@@ -1,5 +1,9 @@
 # DGB 1. Klasse – aktuelle Befunde für die Weiterarbeit
 
+Fortschreibung nach `3a58ad6`: [Handeln, Revision 3](DGB_HANDELN_KLASSE1.md), bearbeitet Befund 6 und den verbleibenden Handeln-Anteil von Befund 7. Die fünf Kapitelüberarbeitungen schließen damit die hier dokumentierten inhaltlichen Ausgangsbefunde im jeweils nachgewiesenen Umfang. Der [Erstklassabgleich](DGB_KLASSE1_ABGLEICH.md) ordnet alle 24 Lehrplanpunkte zu. Fachweite Prüfungen und die vollständige Produktabnahme bleiben offen.
+
+Fortschreibung nach `3a58ad6`: [Produktion, Revision 4](DGB_PRODUKTION_KLASSE1.md), schließt Befund 5 und den Produktionsanteil von Befund 7. Konkreter Medienvergleich, gemeinsame Präsentation, erhaltene Schleifen-/Umfrageaufgaben sowie vollständige Drucksichtung liegen vor. Ein dabei entdeckter Fehler der gedruckten Balkenlängen ist behoben. Nächster offener Inhalt: Handeln.
+
 Fortschreibung: [Kommunikation, Revision 3](DGB_KOMMUNIKATION_KLASSE1.md), schließt Befund 4 und den Kommunikationsanteil von Befund 7. Kontextbezogene Freigaben, Datenkarte, ein interaktives Rechte-Modell und bessere Fragen ergänzen die erhaltene gemeinsame Dokumentarbeit. Nächste offene Inhalte: Produktion und Handeln.
 
 Fortschreibung nach `f66005e`: [Information, Revision 3](DGB_INFORMATION_KLASSE1.md), schließt Befund 3 und den Informationsanteil von Befund 7. Quellenkarten, Rechercheprotokolle, plausible Antwortalternativen, erhaltene Such-/Dateiaufgaben und vollständige Drucksichtung liegen vor. Nächster Schwerpunkt ist Kommunikation; Produktion und Handeln bleiben ebenfalls offen.
@@ -38,6 +42,6 @@ Diese Materialien dürfen bei einer Überarbeitung nicht durch allgemeinere Auff
 
 ## Nächster Arbeitsschritt
 
-Orientierung, Information und Kommunikation sind im jeweils verlinkten Umfang überarbeitet und geprüft. Als Nächstes Produktion: Medienwirkung anhand eines konkreten Vergleichs untersuchen und die gemeinsame Präsentationsarbeit anleiten; vorhandene Schleifen- und Umfrageaufträge erhalten. Danach Handeln bearbeiten und alle 24 Lehrplanpunkte gemeinsam zuordnen. Technische Tests ersetzen keine fachliche Prüfung.
+Alle fünf Kapitel sind im jeweils verlinkten Umfang überarbeitet und geprüft; der gemeinsame Erstklassabgleich liegt vor. Als Nächstes werden die Jahrgänge fachweit zusammengeführt und die aktuellen gemeinsamen Funktionsprüfungen ausgeführt. Technische Tests ersetzen keine fachliche Prüfung.
 
 Die obige Bestandsaufnahme beschreibt die Ausgangslage vor der Orientierungsüberarbeitung; geschlossene Punkte werden in der Fortschreibung benannt. Alle anderen Feststellungen bleiben offen, bis Inhalte und tatsächliche Ausgaben korrigiert und geprüft sind. Übersetzungen bleiben ausgesetzt; der Gesamtauftrag für alle vorhandenen Fächer bleibt unverändert.
