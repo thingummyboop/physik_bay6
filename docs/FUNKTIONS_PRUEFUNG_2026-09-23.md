@@ -1,6 +1,18 @@
 # Funktionsprüfung 23.09.2026
 
-## Aktueller Zwischenstand nach c263c4c
+Zeitliche Einordnung: Die nach dem folgenden 266-Suiten-Lauf ergänzte [Orientierung der 1. Klasse](DGB_ORIENTIERUNG_KLASSE1.md) wurde gezielt geprüft. Sie bringt die Sammlung auf 267 Suiten; ein neuer vollständiger 267-Suiten-Lauf wird hier nicht behauptet. Der unten beschriebene unveränderte Codezustand gilt für den damaligen Laufabschluss.
+
+## Aktueller Lauf nach 4d50180
+
+Erneuter vollständiger Lauf abgeschlossen am **2026-09-23T13:12:54.784Z**: **266/266 Funktionstestsuiten bestanden**, keine Fehler oder Zeitüberschreitungen; summierte Laufzeit 636 Sekunden. `node scripts/run_functional_tests.js` erfasste alle vorhandenen `test_*.js`-Dateien, darunter nun auch `test_communication_media.js`, `test_points_workshop.js` und `test_signal_workshop.js`. Der maschinenlesbare Bericht liegt in `../functional-test-report.json`.
+
+Der geprüfte Produktions- und Testcode entspricht dem gesicherten GitHub-Stand `4d50180`. Während des Laufs wurden keine Lerninhalte, Laufzeitdateien oder Funktionstests verändert. Nacharbeiten betreffen Berichte und Inventar. Übersetzungen wurden nicht bearbeitet; vorhandene Sprachprüfungen sind als Teil der Gesamtsammlung mitgelaufen.
+
+Zusätzliche, getrennte Evidenz: [Produktion der 2. Klasse](DGB_PRODUKTION_KLASSE2.md) mit 36 nativen Antwortwegen, vier echten Downloads, drei offline erneut geöffneten HTML-Dateien, geprüfter Tonwiedergabe und sämtlichen 20 endgültigen Druckseiten. Der [Zweitklass-Abgleich](DGB_KLASSE2_ABGLEICH.md) ordnet 32 Lehrplanpunkte konkreten Tätigkeiten zu. Inventar: 198 Kapitel; Prioritätsaudit: 1.980 Frageninstanzen, darunter 238 in DGB, ohne Strukturfehler.
+
+**Prüfgrenze:** Die erneute manuelle [Erstklass-Sichtung](DGB_KLASSE1_ARBEITSBEFUNDE.md) fand trotz bestandener Funktionstests fachliche und didaktische Nacharbeiten, insbesondere eine widersprüchliche Analog-/Digitalrückmeldung und schwache Antwortalternativen. Der Gesamtlauf ist ausdrücklich keine fachliche Gesamtabnahme. Der Gesamtauftrag bleibt offen; die neuen Nachweise sind lokal und wurden nicht erneut gepusht.
+
+## Historischer Lauf um 12:11 UTC
 
 Erneuter vollständiger Lauf abgeschlossen am **2026-09-23T12:11:09.822Z**: **263/263 Funktionstestsuiten bestanden**, ohne Fehler oder Zeitüberschreitungen. Dieser Lauf enthält auch Orientierung, Handeln sowie die neuen Bits-/Dateiwerkstätten der 2. Klasse. Seit Beginn des Laufs wurden keine Produktionsdateien oder Funktionstests verändert; die abschließenden Änderungen betreffen Dokumentation. Die summierte Laufzeit der Suiten beträgt 627 Sekunden.
 

@@ -46,8 +46,8 @@ Die sieben zuvor offenen Druckseiten von [DGB-Information der 2. Klasse](DGB_DAT
 - [bpb: Geschäftsmodelle von Social-Media-Unternehmen](https://www.bpb.de/themen/medien-journalismus/soziale-medien/545978/das-geschaeftsmodell-von-social-media-unternehmen/), gelesen am 23.09.2026; eigene vereinfachte Fälle, keine Übernahme aktueller Produktkonditionen.
 - [Saferinternet.at: Onlineinhalte überprüfen](https://www.saferinternet.at/wie-ueberprueft-man-onlineinhalte), am 23.09.2026 erneut konsultiert.
 
-## Noch offen
+## Fortsetzung nach dem Zwischenstand
 
-Die vollständige Sichtung von `dgb6_produktion` zeigt als nächsten konkreten Arbeitsschritt die bisher weitgehend generischen Einstiegs-/Medienaufträge: Eigene Programmerstellung ist bislang als externer Auftrag formuliert; audiovisuelle bzw. auditive Produktion und Code-Remix mit Rechteangabe benötigen konkretes Material und nachvollziehbare Ergebnisse. Der vorhandene Punktezähler und die Bildlizenzwerkstatt bleiben dabei zu erhalten. Danach sind die fünf Kapitel der 2. Klasse zusammenhängend abzugleichen.
+Die anschließend ausgearbeitete [Produktion der 2. Klasse](DGB_PRODUKTION_KLASSE2.md) enthält jetzt eine tatsächlich ausführbare Programmierwerkstatt und eine Text-/Grafik-/Tonwerkstatt mit gespeicherten Arbeitsdateien, konkretem Remixauftrag und überprüfbaren Ergebnissen. Punktezähler und Bildlizenzkarten bleiben erhalten. Der [zusammenhängende Klassenabgleich](DGB_KLASSE2_ABGLEICH.md) ordnet alle fünf Kapitel dem aktuellen Lehrplan zu. Die zuvor hier genannten konkreten Produktionslücken sind damit bearbeitet; die 1. Klasse und weitere Fach-/Produktprüfungen bleiben offen.
 
 Dies ist eine abgeschlossene Kapitelüberarbeitung, keine vollständige Fach- oder Produktabnahme. Übersetzungen bleiben ausgesetzt; keine weitere Veröffentlichung oder GitHub-Sicherung ohne entsprechenden Auftrag.

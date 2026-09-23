@@ -10178,141 +10178,259 @@
   },
   "dgb5_orientierung": {
     "title": "Geräte verstehen: EVA im Alltag",
-    "subtitle": "EVA-Prinzip und digitales Leben - 5. Schulstufe (1. Klasse)",
-    "script": false,
+    "subtitle": "Geräteabläufe erklären, Darstellungen vergleichen und Medien bewusst nutzen.",
+    "script": true,
     "sections": [
       {
         "id": "sec1",
-        "title": "1. Einstieg: Verstehen und ausprobieren",
+        "title": "1. Eingabe, Verarbeitung und Ausgabe selbst verfolgen",
         "quizzes": [
           {
             "id": "dgb5_orientierung_q1",
-            "question": "Wofür steht das V im EVA-Prinzip?",
+            "question": "Ein Lichtsensor liefert 49. Das Programm prüft „kleiner als 50“. Welcher Teil ist die Verarbeitung?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Verarbeitung",
-                "correct": true,
-                "pts": 10,
-                "feedback": "V steht für Verarbeitung: Das Gerät macht aus Eingaben ein Ergebnis."
-              },
-              {
-                "text": "Verbindung",
+                "text": "Der Sensor liefert den Wert 49.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Verbindung kann vorkommen, ist aber nicht der zweite Schritt im EVA-Prinzip."
+                "feedback": "Das ist die Eingabe. Danach wird nach einer Regel entschieden."
+              },
+              {
+                "text": "Das Programm vergleicht 49 mit 50 und bestimmt den Leuchtzustand.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Der Vergleich und die Entscheidung nach der Regel sind die Verarbeitung."
+              },
+              {
+                "text": "Die Leuchte zeigt den Zustand an.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Das ist die Ausgabe. Die Regel wurde vorher ausgewertet."
+              }
+            ]
+          },
+          {
+            "id": "dgb5_orientierung_q2",
+            "question": "Derselbe Eingabewert 49 wird einmal mit „kleiner als 50“ und einmal mit „kleiner als 30“ verglichen. Was erwartest du?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Bei Grenze 50 an, bei Grenze 30 aus: Die Verarbeitungsregel ändert das Ergebnis.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: 49 < 50 ist wahr, 49 < 30 ist falsch. Eingabe und Regel wirken zusammen."
+              },
+              {
+                "text": "Beide Male an: Derselbe Eingangswert muss unabhängig vom Programm dieselbe Ausgabe ergeben.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Eingabe ist gleich, aber die Regeln unterscheiden sich. Prüfe beide Vergleiche."
+              },
+              {
+                "text": "Beide Male aus: Eine geänderte Regel kann nur mit einem neuen Sensor funktionieren.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Regel lässt sich im Modell ändern, während derselbe Wert benutzt wird."
+              }
+            ]
+          },
+          {
+            "id": "dgb5_orientierung_q3",
+            "question": "Du drückst eine Controllertaste. Das Spiel berechnet einen Sprung und zeigt ihn. Welche Zuordnung passt?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Taste: Ausgabe; Sprung berechnen: Eingabe; Figur zeigen: Verarbeitung.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Taste liefert einen Befehl hinein; sie gibt hier nicht die berechnete Spielreaktion aus."
+              },
+              {
+                "text": "Taste: Eingabe; Sprung berechnen: Ausgabe; Figur zeigen: Verarbeitung.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Berechnen ist Verarbeitung. Die sichtbare Figur ist die Ausgabe."
+              },
+              {
+                "text": "Taste: Eingabe; Sprung berechnen: Verarbeitung; Figur zeigen: Ausgabe.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Befehl erfassen, Spielregel ausführen und Ergebnis anzeigen sind verschiedene Aufgaben."
               }
             ]
           },
           {
             "id": "dgb5_orientierung_p1",
-            "question": "Ein Touch auf dem Bildschirm ist beim EVA-Prinzip meistens ...",
+            "question": "Die Regel lautet: Bei einem Wert kleiner als 50 ist die Modellleuchte an, sonst aus. Was passiert genau bei 50?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "eine Eingabe",
+                "text": "Aus, denn 50 ist nicht kleiner als 50.",
                 "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Du gibst dem Gerät dadurch einen Befehl."
+                "pts": 0,
+                "feedback": "Richtig: Der Gleichheitsfall gehört in dieser Regel zu „sonst“."
               },
               {
-                "text": "eine Ausgabe",
+                "text": "An, denn kleiner bedeutet hier auch gleich.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Eine Ausgabe ist zum Beispiel ein Bild oder Ton, den das Gerät zeigt."
+                "feedback": "„Kleiner als“ schließt den gleichen Wert nicht ein."
+              },
+              {
+                "text": "Das Programm kann einen Wert an der Grenze nicht bearbeiten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Regel beschreibt auch den Grenzwert eindeutig."
               }
             ]
           }
         ],
-        "content": "<div class=\"word-workshop dgb-workshop\">\n  <div class=\"lesson-goals\"><strong>Das kannst du nach dieser Werkstatt:</strong><ul class=\"step-list\"><li>du erklärst Eingabe, Verarbeitung und Ausgabe an einem Gerät</li><li>du unterscheidest digitale und analoge Beispiele</li><li>du beobachtest dein eigenes Medienverhalten</li></ul></div>\n  <p>Digitale Technik ist nicht nur ein Bildschirm. Ein digitales Gerät verarbeitet Informationen als Daten. Damit du Geräte nicht nur benutzt, sondern verstehst, lernst du zuerst das EVA-Prinzip.</p>\n  <p>EVA bedeutet: Eingabe, Verarbeitung, Ausgabe. Du gibst etwas ein, das Gerät verarbeitet es, und danach bekommst du ein Ergebnis. Dieses Muster findest du bei Handy, Tablet, Spielkonsole, Bankomat und vielen Schulgeräten.</p>\n  <div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Eingabe</strong><br>Du tippst, sprichst, klickst, scannst oder bewegst etwas.</div><div class=\"word-ui-card\"><strong>Verarbeitung</strong><br>Das Gerät rechnet, vergleicht, speichert oder sortiert Daten.</div><div class=\"word-ui-card\"><strong>Ausgabe</strong><br>Du siehst ein Bild, hörst Ton oder bekommst eine Meldung.</div><div class=\"word-ui-card\"><strong>Analog oder digital?</strong><br>Analog bildet eine Größe kontinuierlich ab, etwa eine Zeigerstellung. Digital verwendet unterscheidbare Werte oder Zeichen, etwa Zahlen und Bits. Beide können Informationen darstellen und verarbeiten.</div></div>\n  <div class=\"remember-box\"><strong>Merksatz:</strong> Wenn du Eingabe, Verarbeitung und Ausgabe findest, verstehst du ein digitales System viel leichter.</div>\n  <div class=\"word-task-card\"><h3>Mini-Aufgabe 1: Gerät als EVA-Kette zeichnen</h3><ol class=\"word-mini-steps\"><li>Wähle ein digitales Gerät aus deinem Alltag.</li><li>Zeichne drei Kästchen: Eingabe, Verarbeitung, Ausgabe.</li><li>Schreibe in jedes Kästchen ein konkretes Beispiel.</li><li>Markiere mit einer Farbe, welche Teile du anfassen kannst und welche im Gerät verborgen sind.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> In deiner Zeichnung steht nicht nur der Name des Geräts, sondern genau, was eingegeben, verarbeitet und ausgegeben wird.</div></div>\n  <div class=\"word-path\"><span>lesen</span><b class=\"arrow\">&gt;</b><span>ausprobieren</span><b class=\"arrow\">&gt;</b><span>kontrollieren</span><b class=\"arrow\">&gt;</b><span>verbessern</span></div>\n</div>\n{{QUIZ_dgb5_orientierung_q1}}\n{{QUIZ_dgb5_orientierung_p1}}"
+        "content": "<p>Ein digitales Gerät nimmt Informationen auf, verarbeitet Daten nach einem Programm und gibt Ergebnisse aus. <strong>EVA</strong> bedeutet <strong>Eingabe – Verarbeitung – Ausgabe</strong>. Auch ein Sensor kann eine Eingabe liefern; es muss nicht immer jemand eine Taste drücken.</p><div class=\"word-ui-card\"><h3>Eine erfundene automatische Leuchte</h3><p>Ein Helligkeitssensor liefert hier einen bereits digitalisierten Modellwert von 0 (dunkel) bis 100 (hell). Das Programm vergleicht ihn mit einer Grenze. Ist der Wert <strong>kleiner als</strong> die Grenze, soll die Leuchte an sein, sonst aus. Ein Prozessor führt die Programmanweisungen aus; die Leuchte macht das Ergebnis sichtbar.</p><p>Du stellst den Sensorwert selbst ein. Die Webseite misst kein echtes Licht und schaltet keine echte Lampe. Die Zahlen sind keine Lux-Messwerte. Die gewählten Grenzen sind Unterrichtsregeln, keine Empfehlung für eine Beleuchtungsanlage.</p></div>\n<div class=\"interactive-zone\" data-eva-lab><h3>Die drei Schritte einzeln ausführen</h3><label for=\"eva-value\">Vorgegebener Helligkeitswert (ganze Zahl 0–100)</label><input id=\"eva-value\" type=\"number\" min=\"0\" max=\"100\" step=\"1\" value=\"49\" aria-describedby=\"eva-status\"><label for=\"eva-limit\">Regel: an bei Wert kleiner als …</label><select id=\"eva-limit\"><option value=\"30\">30</option><option value=\"50\" selected>50</option><option value=\"70\">70</option></select><div class=\"eva-stage\"><strong>Eingabe</strong><p data-eva-input>Noch nicht ausgeführt.</p></div><div class=\"eva-stage\"><strong>Verarbeitung</strong><p data-eva-process>Noch nicht ausgeführt.</p></div><div class=\"eva-stage\"><strong>Ausgabe</strong><p data-eva-output>Noch nicht ausgeführt.</p></div><button type=\"button\" data-eva-step>1. Eingabe übernehmen</button> <button type=\"button\" data-eva-reset>Ausgangswerte herstellen</button><p id=\"eva-status\" data-eva-status role=\"status\"></p><template data-worksheet-alternative><p>Regel: Leuchte an, wenn der Eingabewert kleiner als die Grenze ist; sonst aus. Führe für jeden Versuch drei Schritte aus: Wert übernehmen, Vergleich prüfen, Ergebnis an/aus angeben.</p><table data-eva-paper><thead><tr><th>Eingabe</th><th>Grenze</th><th>Vergleich wahr/falsch</th><th>Ausgabe</th></tr></thead><tbody><tr><td>10</td><td>50</td><td>________</td><td>________</td></tr><tr><td>49</td><td>50</td><td>________</td><td>________</td></tr><tr><td>50</td><td>50</td><td>________</td><td>________</td></tr><tr><td>80</td><td>50</td><td>________</td><td>________</td></tr><tr><td>49</td><td>30</td><td>________</td><td>________</td></tr></tbody></table></template></div>\n<ol data-orientation-tasks=\"eva\"><li>Sage für die Eingaben 10, 49, 50 und 80 bei Grenze 50 jeweils „an“ oder „aus“ voraus. Notiere deine Begründung vor dem Ausführen.</li><li>Führe bei 49 jeden Schritt aus. Notiere, wann nur die Eingabe vorliegt, wann die Entscheidung getroffen ist und wann sie ausgegeben wird. Vergleiche die anderen drei Versuche mit deiner Vorhersage.</li><li>Lass die Eingabe 49 gleich und ändere die Grenze auf 30. Sage das Ergebnis voraus. Erkläre, weshalb derselbe Sensorwert nun anders verarbeitet wird.</li><li>Zeichne Sensor → Prozessor mit Programm → Leuchte. Schreibe zu jedem Teil seine Aufgabe. Unterscheide die Eingabe 49 von der Regel „kleiner als 50“.</li><li>Übertrage EVA auf ein Spiel: Controllertaste drücken, Spielregel für den Sprung berechnen, Figur auf dem Bildschirm zeigen. Erfinde eine andere Spielregel zur selben Taste und erkläre die mögliche neue Ausgabe.</li><li>Wähle ein vorhandenes Schulgerät oder das beschriebene Modell. Zeichne eine eigene EVA-Kette mit konkretem Vorgang statt nur drei Bauteilnamen. Lass ein Partnerkind sie erklären; allein vergleichst du sie mit dem Modell und notierst eine offene Frage.</li></ol>\n<details data-orientation-solution=\"eva\" data-worksheet-solution=\"true\"><summary>Vergleich: Eingabe, Regel und Ausgabe</summary><p>Bei Grenze 50: 10 → an, 49 → an, 50 → aus, 80 → aus. 50 ist nicht kleiner als 50. Bei Eingabe 49 und Grenze 30 ist der Vergleich falsch, daher aus. Der Sensor liefert den Wert; das Programm vergleicht und entscheidet; die Leuchte zeigt das Ergebnis. Das Bildschirmmodell führt diese Schritte getrennt vor, eine echte Steuerung wiederholt ihren Ablauf häufig automatisch.</p></details><p>Hintergrund: <a href=\"https://microbit.org/get-started/features/inputs-outputs-and-processors/\">micro:bit: Eingaben, Ausgaben und Prozessor (Englisch)</a>.</p>{{QUIZ_dgb5_orientierung_q1}}{{QUIZ_dgb5_orientierung_q2}}{{QUIZ_dgb5_orientierung_q3}}{{QUIZ_dgb5_orientierung_p1}}"
       },
       {
         "id": "sec2",
-        "title": "2. Fachw&ouml;rter und Beispiele",
+        "title": "2. Analoge und digitale Darstellung vergleichen",
         "quizzes": [
           {
-            "id": "dgb5_orientierung_q2",
-            "question": "Warum hilft das EVA-Prinzip beim Verstehen digitaler Geräte?",
+            "id": "dgb5_orientierung_q4",
+            "question": "Bei einem Flüssigkeitsthermometer steht die Säule zwischen zwei Strichen. Ein zweites Gerät zeigt nur ganze Grad als Zahlen. Welche Erklärung passt?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Es zeigt, was hinein geht, was verarbeitet wird und was herauskommt.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Das Prinzip zeigt den Ablauf."
-              },
-              {
-                "text": "Es sagt nur, welche Marke ein Gerät hat.",
+                "text": "Die Skala enthält keine Information, weil sie keinen Bildschirm hat.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Marken helfen nicht beim fachlichen Verstehen."
+                "feedback": "Auch eine Säulenhöhe vermittelt eine Information. Ein Bildschirm ist dafür keine Voraussetzung."
+              },
+              {
+                "text": "Die Säulenhöhe stellt den Wert kontinuierlich dar; die beschriebene Zahlenanzeige verwendet einzelne Stufen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Entscheidend ist hier die Art der Darstellung, nicht „Information vorhanden“ oder „mit Strom“."
+              },
+              {
+                "text": "Die Zahlenanzeige kann deshalb nie einen Messfehler haben.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Eine digitale Anzeige kann trotzdem einen falschen Messwert oder einen gerundeten Wert zeigen."
+              }
+            ]
+          },
+          {
+            "id": "dgb5_representation_round",
+            "question": "Das Modell rundet auf ganze Grad. Es zeigt bei 21,1 °C und 21,4 °C jeweils 21 °C. Was folgt daraus?",
+            "practiceOnly": false,
+            "answers": [
+              {
+                "text": "Verschiedene Ausgangswerte können dieselbe gerundete Anzeige ergeben.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die gewählte Stufe fasst mehrere Ausgangswerte zusammen."
+              },
+              {
+                "text": "Die beiden Ausgangswerte müssen genau gleich sein.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Gleich ist nur die gerundete Anzeige. 21,1 und 21,4 sind unterschiedliche Vorgaben."
+              },
+              {
+                "text": "Die Anzeige speichert automatisch auch jede nicht angezeigte Nachkommastelle.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Aus der sichtbaren Anzeige allein folgt nicht, welche weiteren Werte ein echtes Gerät speichert."
               }
             ]
           },
           {
             "id": "dgb5_orientierung_p2",
-            "question": "Welche Aussage passt zu digital?",
+            "question": "Eine App zeichnet einen Zeiger wie auf einer analogen Uhr. Was kannst du am Bild allein erkennen?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Informationen werden als Daten verarbeitet.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Datenverarbeitung ist der wichtige Punkt."
-              },
-              {
-                "text": "Alles Digitale muss immer einen großen Bildschirm haben.",
+                "text": "Das Gerät muss intern rein analog arbeiten, weil ein Zeiger sichtbar ist.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Auch kleine Geräte ohne großen Bildschirm können digital sein."
+                "feedback": "Auch eine digitale App kann eine Zeigerdarstellung berechnen und zeichnen."
+              },
+              {
+                "text": "Eine gezeichnete Skala kann grundsätzlich keine Information darstellen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Zeigerstellung kann eine Information vermitteln."
+              },
+              {
+                "text": "Die Darstellung sieht analog aus; daraus folgt noch nicht, wie das Gerät intern arbeitet.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Richtig: Die Darstellung auf dem Bildschirm und die interne Verarbeitung sind zu unterscheiden."
               }
             ]
           }
         ],
-        "content": "\n<p>Fachw&ouml;rter helfen dir, genauer zu denken. Lerne sie nicht nur auswendig. Verwende sie in eigenen Beispielen.</p>\n<div class=\"word-grid\"><div class=\"word-ui-card\"><strong>Eingabe</strong><br>Alles, was ein Mensch oder Sensor an ein Ger&auml;t gibt.</div><div class=\"word-ui-card\"><strong>Verarbeitung</strong><br>Das Ger&auml;t nutzt Regeln und Daten, um ein Ergebnis zu bilden.</div><div class=\"word-ui-card\"><strong>Ausgabe</strong><br>Das Ergebnis, das du sehen, h&ouml;ren oder sp&uuml;ren kannst.</div><div class=\"word-ui-card\"><strong>digital</strong><br>Informationen werden als Daten gespeichert oder verarbeitet.</div></div>\n<table class=\"word-rubric\"><tr><th>Beispiel</th><th>So denkst du dar&uuml;ber nach</th><th>Kontrollfrage</th></tr><tr><td>Handyfoto</td><td>Eingabe: Kamera nimmt Licht auf. Verarbeitung: Bild wird berechnet. Ausgabe: Foto erscheint.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Spielcontroller</td><td>Eingabe: Taste wird gedr&uuml;ckt. Verarbeitung: Spiel berechnet die Reaktion. Ausgabe: Figur bewegt sich.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr><tr><td>Papierbuch</td><td>Ein gedrucktes Buch speichert Informationen als Zeichen auf Papier; es ist kein elektronisches Gerät.</td><td>Kann ich es mit eigenen Worten erkl&auml;ren?</td></tr></table>\n<div class=\"word-task-card\"><h3>Mini-Aufgabe 2: Fachw&ouml;rter anwenden</h3><ol class=\"word-mini-steps\"><li>W&auml;hle zwei Fachw&ouml;rter aus der Box.</li><li>Schreibe zu jedem Fachwort eine Erkl&auml;rung in einem einfachen Satz.</li><li>Erg&auml;nze ein Beispiel aus Schule oder Alltag.</li><li>Tausche mit einem Partnerkind und pr&uuml;ft, ob die Beispiele wirklich passen.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Zu jedem Fachwort gibt es eine einfache Erkl&auml;rung und ein eigenes Beispiel.</div></div>\n{{QUIZ_dgb5_orientierung_q2}}\n{{QUIZ_dgb5_orientierung_p2}}"
+        "content": "<p>Eine Information kann unterschiedlich dargestellt werden. Bei einem <strong>Flüssigkeitsthermometer</strong> bildet die Höhe der Säule die Temperatur kontinuierlich ab: Sie kann auch zwischen zwei Skalenstrichen stehen. Das ist eine analoge Darstellung. Eine digitale Temperaturanzeige verwendet einzelne Zahlenwerte, etwa ganze Grad oder Zehntelgrad. In elektronischen digitalen Geräten werden Werte mit unterscheidbaren Zuständen, zum Beispiel Bits, codiert.</p><p>„Analog“ bedeutet nicht „ohne Information“ und „digital“ nicht einfach „mit Bildschirm“. Auch eine analoge Schaltung kann Signale verarbeiten. Eine digitale App kann eine Zeigeranzeige zeichnen. Geräte können analoge und digitale Teile verbinden, etwa einen Sensor mit digitaler Auswertung.</p>\n<div class=\"interactive-zone\" data-representation-lab><h3>Gleiche Vorgabe, unterschiedliche Anzeige</h3><p><strong>Modellgrenze:</strong> Beide Bilder hier werden digital auf deinem Bildschirm erzeugt. Die linke Zeichnung veranschaulicht eine kontinuierliche Skala; sie ist kein echtes analoges Messgerät. Du gibst den Wert in Zehntelgrad-Schritten vor. Wir untersuchen die Darstellung, nicht die Genauigkeit eines Sensors.</p><label for=\"representation-value\">Modelltemperatur von 18,0 bis 24,0 °C (Schritt 0,1 °C)</label><input id=\"representation-value\" type=\"range\" min=\"180\" max=\"240\" step=\"1\" value=\"214\"><p>Vorgegebener Wert: <strong data-representation-source>21,4 °C</strong></p><label for=\"representation-step\">Zahlenanzeige runden auf</label><select id=\"representation-step\"><option value=\"10\">ganze Grad</option><option value=\"1\">Zehntelgrad</option></select><div class=\"orientation-model-grid\"><div><strong>Skalenmodell</strong><svg viewBox=\"0 0 180 275\" role=\"img\" aria-label=\"Skalenmodell von 18 bis 24 Grad Celsius. Der vorgegebene Wert steht zusätzlich im Text.\"><rect x=\"30\" y=\"35\" width=\"25\" height=\"210\" rx=\"5\" fill=\"none\" stroke=\"currentColor\"/><rect data-representation-column x=\"35\" y=\"128\" width=\"15\" height=\"117\" fill=\"#be185d\"/><line data-representation-marker x1=\"25\" x2=\"65\" y1=\"128\" y2=\"128\" stroke=\"currentColor\" stroke-width=\"3\"/><line x1=\"55\" x2=\"75\" y1=\"230\" y2=\"230\" stroke=\"currentColor\"/><text x=\"82\" y=\"236\" font-size=\"17\" fill=\"currentColor\">18 °C</text><line x1=\"55\" x2=\"75\" y1=\"200\" y2=\"200\" stroke=\"currentColor\"/><text x=\"82\" y=\"206\" font-size=\"17\" fill=\"currentColor\">19 °C</text><line x1=\"55\" x2=\"75\" y1=\"170\" y2=\"170\" stroke=\"currentColor\"/><text x=\"82\" y=\"176\" font-size=\"17\" fill=\"currentColor\">20 °C</text><line x1=\"55\" x2=\"75\" y1=\"140\" y2=\"140\" stroke=\"currentColor\"/><text x=\"82\" y=\"146\" font-size=\"17\" fill=\"currentColor\">21 °C</text><line x1=\"55\" x2=\"75\" y1=\"110\" y2=\"110\" stroke=\"currentColor\"/><text x=\"82\" y=\"116\" font-size=\"17\" fill=\"currentColor\">22 °C</text><line x1=\"55\" x2=\"75\" y1=\"80\" y2=\"80\" stroke=\"currentColor\"/><text x=\"82\" y=\"86\" font-size=\"17\" fill=\"currentColor\">23 °C</text><line x1=\"55\" x2=\"75\" y1=\"50\" y2=\"50\" stroke=\"currentColor\"/><text x=\"82\" y=\"56\" font-size=\"17\" fill=\"currentColor\">24 °C</text></svg></div><div><strong>Zahlenanzeige</strong><output data-representation-digital>21 °C</output><p>Die Anzeige verwendet nur die gewählten Stufen. Bei genau einem halben Grad runden wir hier auf.</p></div></div><p data-representation-status role=\"status\"></p><button type=\"button\" data-representation-reset>Auf 21,4 °C zurücksetzen</button><template data-worksheet-alternative><p>Zeichne eine gleichmäßige Skala von 18 bis 24 °C und markiere die drei vorgegebenen Werte. Runde daneben auf ganze Grad; bei genau der Hälfte aufrunden.</p><table data-representation-paper><thead><tr><th>Vorgabe</th><th>Skalenposition</th><th>Ganze Grad</th><th>Zehntelgrad</th></tr></thead><tbody><tr><td>21,1 °C</td><td>________</td><td>________</td><td>________</td></tr><tr><td>21,4 °C</td><td>________</td><td>________</td><td>________</td></tr><tr><td>21,5 °C</td><td>________</td><td>________</td><td>________</td></tr></tbody></table></template></div>\n<ol data-orientation-tasks=\"representation\"><li>Sage für 21,1 °C, 21,4 °C und 21,5 °C jeweils die gerundete ganze Zahl voraus. Stelle die Werte ein und vergleiche Skalenposition und Zahlenanzeige. Mit den Pfeiltasten änderst du den Regler um 0,1 °C.</li><li>Erkläre, warum 21,1 °C und 21,4 °C als ganze Zahl gleich erscheinen können, obwohl die Vorgaben verschieden sind. Ist aus „21 °C“ allein der genaue Ausgangswert bekannt?</li><li>Wechsle zu Zehntelgrad. Welche Unterschiede erkennst du jetzt? Erkläre, warum mehr Anzeigestellen allein keine genauere Messung beweisen.</li><li>Zeichne nebeneinander eine Skala mit Säulenhöhe und eine Zahlenanzeige. Beschrifte die Art der Darstellung. Erkläre dabei, warum auch die Skala Information vermittelt.</li><li>Suche in einem freigegebenen Schulmaterial ein weiteres Paar von Darstellungen, etwa Zeigeruhr und Zahlenanzeige. Beschreibe nur Beobachtbares. Aus dem Aussehen allein kannst du nicht jeden inneren Bauteil ableiten.</li></ol>\n<details data-orientation-solution=\"representation\" data-worksheet-solution=\"true\"><summary>Vergleich: Stufen und Information</summary><p>21,1 °C und 21,4 °C werden hier zu 21 °C gerundet; 21,5 °C wird zu 22 °C. In Zehntelgrad erscheinen 21,1 / 21,4 / 21,5 °C getrennt. Gleiche Rundung bedeutet nicht gleichen Ausgangswert. Eine fehlerhafte Messung kann auch viele Stellen anzeigen. Säulenhöhe, Zeigerstellung und Zahlen können Informationen vermitteln; das sichtbare Bild allein beschreibt nicht die gesamte interne Technik.</p></details><p>Hintergrund für Lehrpersonen: <a href=\"https://www.analog.com/en/resources/glossary/mixed-signal.html\">Analog Devices: analoge und digitale Signale (Englisch)</a>.</p>{{QUIZ_dgb5_orientierung_q4}}{{QUIZ_dgb5_representation_round}}{{QUIZ_dgb5_orientierung_p2}}"
       },
       {
         "id": "sec3",
-        "title": "3. Werkstattauftrag",
+        "title": "3. Mediennutzung nach Ziel und Wirkung beurteilen",
         "quizzes": [
           {
-            "id": "dgb5_orientierung_q3",
-            "question": "Du drückst eine Taste auf dem Controller. Was ist das?",
+            "id": "dgb5_usage_test",
+            "question": "Mika möchte einen Lerntext ohne unnötige Unterbrechungen fertigstellen. Wie lässt sich eine Änderung sinnvoll prüfen?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "Eingabe",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Die Taste gibt dem Spiel ein Signal."
-              },
-              {
-                "text": "Ausgabe",
+                "text": "Nur die gesamte Bildschirmzeit vergleichen; ob der Text fertig ist, spielt keine Rolle.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Die Ausgabe wäre zum Beispiel die Bewegung der Figur."
+                "feedback": "Die Zeit allein sagt nichts darüber, ob das gewünschte Ergebnis erreicht wurde."
+              },
+              {
+                "text": "Alle digitalen Tätigkeiten gleich bewerten, ohne ihren Zweck zu betrachten.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Lernen, Verabreden und Unterhaltung können unterschiedliche Zwecke erfüllen."
+              },
+              {
+                "text": "Bei einem ähnlichen Lernabschnitt unnötige Meldungen pausieren und Textfortschritt sowie Unterbrechungen vergleichen.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Die Änderung passt zum Ziel. Beobachte ihre Wirkung; ein Versuch beweist keine Regel für alle Menschen."
               }
             ]
           },
           {
             "id": "dgb5_orientierung_p3",
-            "question": "Welche Beobachtung ist für Medienverhalten sinnvoll?",
+            "question": "Zwei Kinder nutzen ein Gerät je 15 Minuten. Eines übt Vokabeln, eines verabredet sich. Welche Aussage passt?",
             "practiceOnly": true,
             "answers": [
               {
-                "text": "Ich notiere, wann und warum ich ein Gerät benutze.",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Genau: Das hilft beim Nachdenken über Gewohnheiten."
-              },
-              {
-                "text": "Ich schreibe nur auf, welche Geräte teuer sind.",
+                "text": "Gleiche Dauer bedeutet automatisch denselben Nutzen.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Der Preis ist hier nicht der wichtigste Punkt."
+                "feedback": "Die Tätigkeiten und ihre Ziele unterscheiden sich trotz gleicher Dauer."
+              },
+              {
+                "text": "Für eine Bewertung fehlen Ziel, Ergebnis und Wirkung; die Dauer allein reicht nicht.",
+                "correct": true,
+                "pts": 0,
+                "feedback": "Richtig: Beschreibe Zweck und Ergebnis, bevor du eine passende Veränderung vorschlägst."
+              },
+              {
+                "text": "Nur die Marke des Geräts entscheidet über den Nutzen.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Marke beschreibt weder das Ziel noch die beobachtete Wirkung."
               }
             ]
-          },
+          }
+        ],
+        "content": "<p>Dieselbe Tätigkeit kann zu verschiedenen Zwecken dienen. Unterscheide <strong>Ziel</strong> (was möchte ich erreichen?), <strong>Beobachtung</strong> (was passiert?) und <strong>Bewertung</strong> (hilft es für diesen Zweck?). Die Dauer allein beantwortet diese Fragen nicht. Es gibt hier keine für alle gleiche Bildschirmzeit-Vorgabe.</p><h3>Fünf erfundene Situationen von Mika</h3><p>Du kannst vollständig mit diesem Fall arbeiten. Eine freiwillige eigene Beobachtung braucht keine privaten Nachrichten, Kontodaten oder Bildschirmfotos.</p><table data-media-day=\"\" role=\"table\"><thead role=\"rowgroup\"><tr role=\"row\"><th role=\"columnheader\">Situation</th><th role=\"columnheader\">Ziel</th><th role=\"columnheader\">Beobachtung</th></tr></thead><tbody role=\"rowgroup\"><tr role=\"row\"><td role=\"cell\">Lernplattform, 12 Minuten</td><td role=\"cell\">Drei Aufgaben verstehen</td><td role=\"cell\">Zwei gelöst, eine Frage bleibt offen.</td></tr><tr role=\"row\"><td role=\"cell\">Videoanleitung, 6 Minuten</td><td role=\"cell\">Einen Faltschritt sehen</td><td role=\"cell\">Nach Pausieren und Nachmachen gelingt der Schritt.</td></tr><tr role=\"row\"><td role=\"cell\">Nachrichten, 15 Minuten</td><td role=\"cell\">Treffpunkt klären</td><td role=\"cell\">Viele Antworten, der genaue Ort fehlt weiter.</td></tr><tr role=\"row\"><td role=\"cell\">Text schreiben, 20 Minuten</td><td role=\"cell\">Absatz fertigstellen</td><td role=\"cell\">Vier unnötige Meldungen unterbrechen; der Absatz ist unfertig.</td></tr><tr role=\"row\"><td role=\"cell\">Spiel, 15 Minuten</td><td role=\"cell\">Eine vereinbarte Spielrunde</td><td role=\"cell\">Die Runde endet; Mika beendet das Spiel wie geplant.</td></tr></tbody></table><div class=\"interactive-zone evidence-workshop\" data-core-experiment=\"boundary-cases\" data-orientation-cases=\"\" data-boundary-prompt=\"Lies den Fall und begründe eine Entscheidung.\"><h3>Ziel, Beobachtung und Änderung verbinden</h3><label for=\"orientation-case\">Fall auswählen</label><select id=\"orientation-case\" data-boundary-control=\"\" aria-describedby=\"orientation-case-result\"><option value=\"0\">M1: Eine Änderung passend zum Ziel</option><option value=\"1\">M2: Gleiche Minuten, andere Tätigkeit</option></select><div data-boundary-case=\"\"><h4>M1: Eine Änderung passend zum Ziel</h4><p>Erfundener Lernabschnitt: Mika möchte einen Text fertigstellen. Vier nicht benötigte Gruppenmeldungen unterbrechen das Schreiben. Mika wechselt jeweils zur Nachricht und muss den Satz danach neu lesen. Die Meldungen enthalten nichts Dringendes.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: Helligkeit betrifft die Darstellung, nicht die beschriebenen Gruppenmeldungen.\" aria-describedby=\"orientation-case-result\">Nur die Bildschirmhelligkeit ändern und erwarten, dass dadurch weniger Gruppenmeldungen eintreffen.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Richtig: Die Änderung betrifft die beobachtete Unterbrechung. Prüfe danach das tatsächliche Ergebnis.\" aria-describedby=\"orientation-case-result\">Nicht benötigte Meldungen für einen ähnlichen Lernabschnitt pausieren und beobachten, ob Schreiben und Rückkehr leichter gelingen.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Noch nicht: Dauer ist eine Angabe, aber das Ziel war ein fertiger Text.\" aria-describedby=\"orientation-case-result\">Die ganze Lernzeit nur nach Minuten bewerten; der fertige Text ist kein Ergebnis.</button></div></div><div data-boundary-case=\"\" hidden=\"\"><h4>M2: Gleiche Minuten, andere Tätigkeit</h4><p>Erfundener Vergleich: Sam übt 15 Minuten Wörter und kann danach vier zuvor unsichere Wörter erklären. Toni liest 15 Minuten Nachrichten, um einen Treffpunkt abzusprechen; der Treffpunkt bleibt unklar. Über weitere Nutzung oder die Personen ist nichts bekannt.</p><div class=\"boundary-actions\"><button type=\"button\" data-boundary-answer=\"0\" data-feedback=\"Noch nicht: Die Ziele und beobachteten Ergebnisse unterscheiden sich.\" aria-describedby=\"orientation-case-result\">Beide Tätigkeiten sind gleich hilfreich, weil sie gleich lange dauern.</button><button type=\"button\" data-boundary-answer=\"1\" data-feedback=\"Noch nicht: Zwei kurze Fälle erlauben kein Urteil über das gesamte Verhalten einer Person.\" aria-describedby=\"orientation-case-result\">Sam nutzt Geräte grundsätzlich immer sinnvoll, Toni grundsätzlich nie.</button><button type=\"button\" data-boundary-answer=\"2\" data-feedback=\"Richtig: Beurteile die konkrete Tätigkeit anhand ihres Ziels und der vorhandenen Beobachtung.\" aria-describedby=\"orientation-case-result\">Für diese beiden Versuche ist Sams Lernziel erkennbar erreicht; Toni braucht eine klarere Absprache. Über ihre gesamte Nutzung wissen wir nichts.</button></div></div><p id=\"orientation-case-result\" data-boundary-result=\"\" role=\"status\"></p><button type=\"button\" data-boundary-reset=\"\">Zum ersten Fall</button><template data-worksheet-alternative=\"\"><div data-orientation-case-paper=\"\"><article class=\"ai-paper-case\"><h4>M1: Eine Änderung passend zum Ziel</h4><p>Erfundener Lernabschnitt: Mika möchte einen Text fertigstellen. Vier nicht benötigte Gruppenmeldungen unterbrechen das Schreiben. Mika wechselt jeweils zur Nachricht und muss den Satz danach neu lesen. Die Meldungen enthalten nichts Dringendes.</p><ol><li>Nur die Bildschirmhelligkeit ändern und erwarten, dass dadurch weniger Gruppenmeldungen eintreffen.</li><li>Nicht benötigte Meldungen für einen ähnlichen Lernabschnitt pausieren und beobachten, ob Schreiben und Rückkehr leichter gelingen.</li><li>Die ganze Lernzeit nur nach Minuten bewerten; der fertige Text ist kein Ergebnis.</li></ol><p>Wahl und Begründung: ____________________________________</p></article><article class=\"ai-paper-case\"><h4>M2: Gleiche Minuten, andere Tätigkeit</h4><p>Erfundener Vergleich: Sam übt 15 Minuten Wörter und kann danach vier zuvor unsichere Wörter erklären. Toni liest 15 Minuten Nachrichten, um einen Treffpunkt abzusprechen; der Treffpunkt bleibt unklar. Über weitere Nutzung oder die Personen ist nichts bekannt.</p><ol><li>Beide Tätigkeiten sind gleich hilfreich, weil sie gleich lange dauern.</li><li>Sam nutzt Geräte grundsätzlich immer sinnvoll, Toni grundsätzlich nie.</li><li>Für diese beiden Versuche ist Sams Lernziel erkennbar erreicht; Toni braucht eine klarere Absprache. Über ihre gesamte Nutzung wissen wir nichts.</li></ol><p>Wahl und Begründung: ____________________________________</p></article></div></template></div>\n<ol data-orientation-tasks=\"usage\"><li>Ordne zu jeder der fünf Situationen Ziel und tatsächlich beobachtetes Ergebnis zu. Benenne mindestens einen Nutzen und eine offene Schwierigkeit, ohne Mika als Person zu bewerten.</li><li>Vergleiche die beiden Situationen mit Nachrichten und Spiel: Beide dauern 15 Minuten. Warum reicht diese Zahl nicht für dasselbe Urteil? Formuliere für den unklaren Treffpunkt eine konkrete Rückfrage.</li><li>Wähle für den unterbrochenen Lerntext eine passende kleine Änderung. Schreibe vor dem Versuch auf, was sich dadurch verbessern soll und woran du es erkennen würdest.</li><li>Erprobe eine erlaubte Änderung an einem eigenen kurzen Lernabschnitt, zum Beispiel nicht benötigte Meldungen pausieren. Halte Ziel, Änderung, beobachtetes Ergebnis und einen nächsten Schritt fest. Ohne echte Durchführung kennzeichnest du dein Protokoll als Plan. Niemand muss private Nutzungsdaten abgeben.</li><li>Vergleiche vorher und nachher vorsichtig: War die Aufgabe ähnlich? Gab es weitere Unterschiede? Ein einzelner gelungener Versuch beweist nicht, dass die Änderung für jede Person und jede Aufgabe gleich wirkt.</li></ol>\n<details data-orientation-solution=\"usage\" data-worksheet-solution=\"true\"><summary>Vergleich: passende Veränderungen</summary><p>M1: Vorschlag 2. M2: Vorschlag 3. Beim Faltschritt hilft das gezielte Pausieren und Nachmachen. Bei der Verabredung fehlt trotz vieler Nachrichten der Ort; eine klare Rückfrage passt zum Ziel. Beim Lerntext können pausierte unnötige Meldungen die Unterbrechungen verringern; die tatsächliche Wirkung muss ausprobiert werden. Ein Spiel kann ein vereinbartes Freizeit-Ziel erfüllen. Die Fallangaben erlauben kein Urteil über die ganze Person oder ihre gesamte Nutzung.</p></details>{{QUIZ_dgb5_usage_test}}{{QUIZ_dgb5_orientierung_p3}}"
+      },
+      {
+        "id": "sec4",
+        "title": "4. Medienwandel: vereinbaren, speichern und erreichbar sein",
+        "quizzes": [
           {
             "id": "dgb5_media_access",
             "practiceOnly": false,
@@ -10337,51 +10455,61 @@
                 "feedback": "Schnelle Zustellung garantiert weder Zugang noch sofortige Erreichbarkeit. Eine Antwortpflicht löst das Zugangsproblem nicht."
               }
             ]
-          }
-        ],
-        "content": "\n<p>Arbeite wie in der Word-Werkstatt: Lies zuerst den Auftrag, f&uuml;hre ihn Schritt f&uuml;r Schritt aus und kontrolliere danach dein Ergebnis.</p>\n<div class=\"word-path\"><span>Auftrag lesen</span><b class=\"arrow\">&gt;</b><span>Material vorbereiten</span><b class=\"arrow\">&gt;</b><span>Schritte ausf&uuml;hren</span><b class=\"arrow\">&gt;</b><span>Ergebnis pr&uuml;fen</span></div>\n<div class=\"word-task-card\"><h3>Werkstatt: Medientag beobachten</h3><ol class=\"word-mini-steps\"><li>Notiere f&uuml;nf digitale Situationen eines Tages, zum Beispiel Nachricht schreiben, Video schauen oder Lernplattform verwenden.</li><li>Schreibe zu jeder Situation: Warum habe ich das Ger&auml;t benutzt?</li><li>Entscheide: War die Nutzung hilfreich, notwendig, ablenkend oder nur Gewohnheit?</li><li>Formuliere eine kleine Ver&auml;nderung, die deinen Tag besser machen k&ouml;nnte.</li></ol><div class=\"word-output\"><strong>So kontrollierst du dich:</strong> Du hast eine kurze Liste mit f&uuml;nf Situationen und eine realistische Verbesserungsregel, zum Beispiel eine Pause oder eine feste Lernzeit.</div></div>\n<table class=\"word-rubric\"><tr><th>Bereich</th><th>Das soll sichtbar sein</th><th>Kontrolle</th></tr><tr><td>EVA</td><td>zu einem Ger&auml;t sind alle drei Schritte richtig erkl&auml;rt</td><td>Partnerkind kann die Kette nachvollziehen</td></tr><tr><td>Alltag</td><td>mindestens f&uuml;nf digitale Situationen sind notiert</td><td>jede Situation hat einen Grund</td></tr><tr><td>Nachdenken</td><td>eine kleine sinnvolle Ver&auml;nderung ist formuliert</td><td>sie ist realistisch und nicht zu streng</td></tr></table>\n{{QUIZ_dgb5_orientierung_q3}}\n{{QUIZ_dgb5_orientierung_p3}}<h3>Ein Treffen vereinbaren: Medien verändern den Alltag</h3><p>Die Geschichte der Kommunikation umfasst unter anderem Post, Telegrafie, Telefonie und Internet. Im Technischen Museum Wien zeigt die Ausstellung „medien.welten“, wie Übermittlung und Speicherung von Informationen zusammenhängen. Neue Medien ersetzen ältere nicht überall vollständig: Ein Brief, ein Telefongespräch und eine digitale Nachricht können auch heute unterschiedliche Aufgaben erfüllen.</p><p><strong>Drei erfundene Vergleichsfälle:</strong> In allen Fällen sollen zwei Personen Zeit und Ort eines Treffens vereinbaren. Die Fälle beschreiben ausgewählte Möglichkeiten, keine Lebensgeschichte einer echten Person und keine Behauptung, alle Menschen hätten zu einer bestimmten Zeit dieselbe Ausstattung gehabt.</p><table data-media-change><caption>Gleiches Anliegen mit unterschiedlichen Mitteln</caption><thead><tr><th scope=\"col\">Fall</th><th scope=\"col\">Ablauf</th><th scope=\"col\">Voraussetzungen und Grenzen</th></tr></thead><tbody><tr><th scope=\"row\">A: Brief</th><td>Eine Person schreibt Ort und Zeit auf Papier; die andere erhält den Brief und antwortet ebenfalls schriftlich.</td><td>Adresse und Zustellung sind nötig. Die Antwort ist nicht sofort da. Der Brief kann ohne Bildschirm aufbewahrt und gelesen werden.</td></tr><tr><th scope=\"row\">B: gemeinsames Festnetztelefon im Haushalt</th><td>Eine Person ruft an. Wenn die andere dort erreichbar ist, können beide den Termin unmittelbar besprechen und aufschreiben.</td><td>Ein Anschluss und gleichzeitige Erreichbarkeit sind nötig. Im Beispiel gibt es keine automatische Gesprächsaufzeichnung.</td></tr><tr><th scope=\"row\">C: digitaler Gruppenchat</th><td>Die Personen schreiben Vorschläge und Änderungen in einen gemeinsamen Chat und lesen sie zu unterschiedlichen Zeiten.</td><td>Geeignete Geräte, Zugang und Verbindung sind nötig. Nachrichten können gespeichert und weitergeleitet werden; schnelle Zustellung bedeutet keine sofortige Antwort.</td></tr></tbody></table><ol data-media-change-task><li>Vergleiche für jeden Fall Übermittlung, Speicherung und Erreichbarkeit. Was bleibt als menschliches Anliegen gleich? Welche Arbeitsschritte verändern sich?</li><li>Eine Person kann den Chat nicht nutzen. Plane eine Möglichkeit, sie zuverlässig in die Terminvereinbarung einzubeziehen. Erkläre, wer Änderungen weitergibt und wie sich widersprüchliche Termine vermeiden lassen.</li><li>Formuliere zwei Regeln für Fall C: eine zur Antwortzeit und eine zum Umgang mit Nachrichten anderer Personen. Begründe, warum Technik allein diese Regeln nicht festlegt.</li><li>Wähle einen Gegenstand aus einer seriösen Sammlung oder eine freiwillige Erzählung über frühere Kommunikation. Notiere Quelle und konkretes Beispiel. Unterscheide, was dadurch belegt ist und was du nur vermutest. Niemand muss private Familiengeschichten berichten; nutze alternativ die verlinkte Museumsdarstellung.</li></ol><p><strong>Quelle und Vertiefung:</strong> <a href=\"https://www.technischesmuseum.at/ausstellung/medienwelten\" target=\"_blank\" rel=\"noopener\">Technisches Museum Wien: medien.welten</a>. Ein Museumsbesuch ist für diesen Vergleich nicht nötig.</p><details data-media-change-solution><summary>Vergleichshilfe</summary><p>Alle Fälle dienen einer gemeinsamen Vereinbarung. Brief und Chat hinterlassen im beschriebenen Ablauf eine schriftliche Nachricht; beim Telefonat wird der Termin eigens notiert. Das Telefonat verlangt hier gleichzeitige Erreichbarkeit. Im Chat kann man später antworten, obwohl die Nachricht schon angekommen ist. Eine Person ohne Chat braucht einen vereinbarten anderen Kontaktweg und dieselben aktuellen Informationen. Kein Medium ist für jeden Zweck und jede Person automatisch das beste.</p></details>{{QUIZ_dgb5_media_access}}"
-      },
-      {
-        "id": "sec4",
-        "title": "4. Anwenden und selbst pr&uuml;fen",
-        "quizzes": [
+          },
           {
-            "id": "dgb5_orientierung_q4",
-            "question": "Ein Papierbuch ist in diesem Vergleich eher ...",
+            "id": "dgb5_media_storage",
+            "question": "Im Vergleichsfall Telefon vereinbaren zwei Personen direkt einen Termin; das Gespräch wird nicht aufgezeichnet. Im Chat stehen schriftliche Nachrichten. Was ändert sich?",
             "practiceOnly": false,
             "answers": [
               {
-                "text": "analog",
-                "correct": true,
-                "pts": 10,
-                "feedback": "Richtig: Es verarbeitet keine Daten."
-              },
-              {
-                "text": "digital, weil man es lesen kann",
+                "text": "Eine sofortige Zustellung im Chat beweist, dass alle schon gelesen haben.",
                 "correct": false,
                 "pts": 0,
-                "feedback": "Lesen allein macht ein Ding nicht digital."
+                "feedback": "Zustellung und Lesen sind verschiedene Vorgänge; nicht alle sind sofort erreichbar."
+              },
+              {
+                "text": "Beim Telefonat muss der Termin im Fall eigens festgehalten werden; im Chat bleibt eine Nachricht, die weitergeleitet werden kann.",
+                "correct": true,
+                "pts": 10,
+                "feedback": "Richtig: Speicherung, Weitergabe und Erreichbarkeit verändern Arbeitsschritte und nötige Vereinbarungen."
+              },
+              {
+                "text": "Mit dem Chat sind Absprachen zu Antwortzeit und Weitergabe nicht mehr nötig.",
+                "correct": false,
+                "pts": 0,
+                "feedback": "Die Technik legt passende Antwortzeiten und den erlaubten Umgang mit Nachrichten nicht allein fest."
               }
             ]
           }
         ],
-        "content": "\n<p>Zum Schluss sollst du das Thema auf eine neue Situation anwenden. Das ist wichtiger als ein Satz auswendig zu k&ouml;nnen.</p>\n<div class=\"word-check-card\"><h3>Selbstkontrolle</h3><ul class=\"step-list\"><li>Kann ich an einem neuen Ger&auml;t Eingabe, Verarbeitung und Ausgabe finden?</li><li>Kann ich erkl&auml;ren, warum digital nicht einfach nur &bdquo;mit Bildschirm&ldquo; bedeutet?</li><li>Kann ich eine Gewohnheit bei meiner Mediennutzung erkennen?</li></ul></div>\n<div class=\"teacher-note\"><strong>Schreibsatz f&uuml;r dein Heft:</strong> Ich kann dieses Thema anwenden, wenn ich ein eigenes Beispiel erkl&auml;re, eine passende Entscheidung treffe und meine Begr&uuml;ndung mit einem Fachwort st&uuml;tze.</div>\n<div class=\"mini-task\"><strong>Abschlussauftrag:</strong> Schreibe drei S&auml;tze: 1. Was habe ich gelernt? 2. Wo brauche ich es im Alltag? 3. Welche Frage ist noch offen?</div>\n{{QUIZ_dgb5_orientierung_q4}}"
+        "content": "<h3>Ein Treffen vereinbaren: Medien verändern den Alltag</h3><p>Die Geschichte der Kommunikation umfasst unter anderem Post, Telegrafie, Telefonie und Internet. Im Technischen Museum Wien zeigt die Ausstellung „medien.welten“, wie Übermittlung und Speicherung von Informationen zusammenhängen. Neue Medien ersetzen ältere nicht überall vollständig: Ein Brief, ein Telefongespräch und eine digitale Nachricht können auch heute unterschiedliche Aufgaben erfüllen.</p><p><strong>Drei erfundene Vergleichsfälle:</strong> In allen Fällen sollen zwei Personen Zeit und Ort eines Treffens vereinbaren. Die Fälle beschreiben ausgewählte Möglichkeiten, keine Lebensgeschichte einer echten Person und keine Behauptung, alle Menschen hätten zu einer bestimmten Zeit dieselbe Ausstattung gehabt.</p><table data-media-change=\"\" role=\"table\"><caption>Gleiches Anliegen mit unterschiedlichen Mitteln</caption><thead role=\"rowgroup\"><tr role=\"row\"><th scope=\"col\" role=\"columnheader\">Fall</th><th scope=\"col\" role=\"columnheader\">Ablauf</th><th scope=\"col\" role=\"columnheader\">Voraussetzungen und Grenzen</th></tr></thead><tbody role=\"rowgroup\"><tr role=\"row\"><th scope=\"row\" role=\"rowheader\">A: Brief</th><td role=\"cell\">Eine Person schreibt Ort und Zeit auf Papier; die andere erhält den Brief und antwortet ebenfalls schriftlich.</td><td role=\"cell\">Adresse und Zustellung sind nötig. Die Antwort ist nicht sofort da. Der Brief kann ohne Bildschirm aufbewahrt und gelesen werden.</td></tr><tr role=\"row\"><th scope=\"row\" role=\"rowheader\">B: gemeinsames Festnetztelefon im Haushalt</th><td role=\"cell\">Eine Person ruft an. Wenn die andere dort erreichbar ist, können beide den Termin unmittelbar besprechen und aufschreiben.</td><td role=\"cell\">Ein Anschluss und gleichzeitige Erreichbarkeit sind nötig. Im Beispiel gibt es keine automatische Gesprächsaufzeichnung.</td></tr><tr role=\"row\"><th scope=\"row\" role=\"rowheader\">C: digitaler Gruppenchat</th><td role=\"cell\">Die Personen schreiben Vorschläge und Änderungen in einen gemeinsamen Chat und lesen sie zu unterschiedlichen Zeiten.</td><td role=\"cell\">Geeignete Geräte, Zugang und Verbindung sind nötig. Nachrichten können gespeichert und weitergeleitet werden; schnelle Zustellung bedeutet keine sofortige Antwort.</td></tr></tbody></table><ol data-media-change-task=\"\"><li>Vergleiche für jeden Fall Übermittlung, Speicherung und Erreichbarkeit. Was bleibt als menschliches Anliegen gleich? Welche Arbeitsschritte verändern sich?</li><li>Eine Person kann den Chat nicht nutzen. Plane eine Möglichkeit, sie zuverlässig in die Terminvereinbarung einzubeziehen. Erkläre, wer Änderungen weitergibt und wie sich widersprüchliche Termine vermeiden lassen.</li><li>Formuliere zwei Regeln für Fall C: eine zur Antwortzeit und eine zum Umgang mit Nachrichten anderer Personen. Begründe, warum Technik allein diese Regeln nicht festlegt.</li><li>Wähle einen Gegenstand aus einer seriösen Sammlung oder eine freiwillige Erzählung über frühere Kommunikation. Notiere Quelle und konkretes Beispiel. Unterscheide, was dadurch belegt ist und was du nur vermutest. Niemand muss private Familiengeschichten berichten; nutze alternativ die verlinkte Museumsdarstellung.</li></ol><p><strong>Quelle und Vertiefung:</strong> <a href=\"https://www.technischesmuseum.at/ausstellung/medienwelten\" target=\"_blank\" rel=\"noopener\">Technisches Museum Wien: medien.welten</a>. Ein Museumsbesuch ist für diesen Vergleich nicht nötig.</p><details data-media-change-solution=\"\" data-worksheet-solution=\"true\"><summary>Vergleichshilfe</summary><p>Alle Fälle dienen einer gemeinsamen Vereinbarung. Brief und Chat hinterlassen im beschriebenen Ablauf eine schriftliche Nachricht; beim Telefonat wird der Termin eigens notiert. Das Telefonat verlangt hier gleichzeitige Erreichbarkeit. Im Chat kann man später antworten, obwohl die Nachricht schon angekommen ist. Eine Person ohne Chat braucht einen vereinbarten anderen Kontaktweg und dieselben aktuellen Informationen. Kein Medium ist für jeden Zweck und jede Person automatisch das beste.</p></details>{{QUIZ_dgb5_media_access}}<p><strong>Dein Ergebnis:</strong> eine erklärte EVA-Kette, ein begründeter Darstellungsvergleich, ein Nutzungsplan mit Beobachtung oder gekennzeichneter offener Durchführung und ein Vergleich der drei Kommunikationswege. Nutze diese Ergebnisse zum Wiederholen vor dem Kapitelcheck.</p>{{QUIZ_dgb5_media_storage}}"
       }
     ],
     "chapterQuizTitle": "Verständnischeck: Geräte verstehen: EVA im Alltag",
     "learningGoals": [
-      "Du erklärst Eingabe, Verarbeitung und Ausgabe an einem Gerät.",
-      "Du unterscheidest digitale und analoge Beispiele.",
-      "Du beobachtest dein eigenes Medienverhalten.",
-      "Du vergleichst Kommunikation mit Brief, Telefon und Chat und begründest Veränderungen und Zugangsprobleme."
+      "Du erklärst Eingabe, Verarbeitung und Ausgabe an einer Lichtsteuerung und überträgst den Ablauf auf ein anderes Gerät.",
+      "Du unterscheidest kontinuierliche Darstellung und einzelne digitale Werte an einem Temperaturmodell.",
+      "Du vergleichst Ziel, Ergebnis und Wirkung von Mediennutzung und prüfst eine passende Änderung.",
+      "Du vergleichst Terminvereinbarungen mit Brief, Telefon und Chat einschließlich Speicherung und Zugang."
     ],
     "summary": [
-      "EVA bedeutet Eingabe, Verarbeitung und Ausgabe. Diese Schritte lassen sich an vielen digitalen Geräten unterscheiden.",
-      "Digitale Darstellung verwendet unterscheidbare Werte oder Zeichen, etwa Bits; analoge Darstellung bildet Größen kontinuierlich ab.",
-      "Beobachte, wann und wozu du Medien nutzt, und beschreibe deren Nutzen und Wirkung."
+      "EVA unterscheidet Eingabe, Verarbeitung nach Regeln und Ausgabe. Ein Sensor liefert Eingaben, auch ohne menschlichen Tastendruck.",
+      "Dieselbe Eingabe kann mit einer anderen Regel zu einer anderen Ausgabe führen. Prüfe auch Werte genau an einer Grenze.",
+      "Analoge Darstellung bildet eine Größe kontinuierlich ab; digitale Darstellung verwendet einzelne unterscheidbare Werte. Ein Bildschirm ist kein Unterscheidungskriterium.",
+      "Eine gerundete Anzeige kann verschiedene Ausgangswerte gleich darstellen. Mehr Stellen allein beweisen keine bessere Messgenauigkeit.",
+      "Mediennutzung lässt sich anhand von Ziel, Ergebnis und Wirkung beurteilen. Eine passende Änderung wird ausprobiert und überprüft.",
+      "Brief, Telefon und Chat verändern Übermittlung, Speicherung und Erreichbarkeit. Zugang und gemeinsame Regeln bleiben wichtig."
     ],
     "prerequisites": [],
     "sources": [
+      {
+        "title": "micro:bit: Eingaben, Ausgaben und Prozessor",
+        "url": "https://microbit.org/get-started/features/inputs-outputs-and-processors/"
+      },
+      {
+        "title": "Analog Devices: analoge und digitale Signale",
+        "url": "https://www.analog.com/en/resources/glossary/mixed-signal.html"
+      },
       {
         "title": "Technisches Museum Wien: medien.welten",
         "url": "https://www.technischesmuseum.at/ausstellung/medienwelten"
