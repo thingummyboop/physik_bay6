@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
-const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.parse(read('lang/de.json')),id='dgb7_information';
+const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.parse(read('lang/de.json')),id='dgb7_information',keys=require('./fixtures/dgb7_information_keys.json');
 (async()=>{
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(r=>setImmediate(r));w.fetch=async()=>({ok:true,json:async()=>data});
@@ -19,22 +19,22 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8'),data=JSON.pars
  }
  assert.equal(out.getAttribute('aria-live'),'polite');assert.equal(w.localStorage.getItem('sciverse_chapter_quiz_results'),saved);
  assert.equal(d.querySelectorAll('[data-chart-check-tasks] > li').length,6);
- const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,4);assert.deepEqual(Array.from(questions,q=>q.answers.length),[2,3,3,3]);
+ const questions=w.currentChapterQuiz.questions;assert.equal(questions.length,8);assert.deepEqual(Array.from(questions,q=>q.id),Object.keys(keys));assert.ok(questions.every(q=>q.answers.length===3));
  let paths=0;
  for(let i=0;i<questions.length;i++)for(let answer=0;answer<questions[i].answers.length;answer++){
-  questions.forEach((q,j)=>{d.querySelector('input[name="chapter_q_'+j+'"][value="'+(j===i?answer:0)+'"]').checked=true;});
+  questions.forEach((q,j)=>{d.querySelector('input[name="chapter_q_'+j+'"][value="'+(j===i?answer:keys[q.id])+'"]').checked=true;});
   w.submitChapterQuiz();const result=JSON.parse(w.localStorage.getItem('sciverse_chapter_quiz_results'))[id];
-  assert.equal(result.lastPercent,answer===0?100:75);assert.equal(result.contentRevision,1);
-  if(answer!==0)assert.deepEqual(result.reviewQuestionIds,[questions[i].id]);
+  assert.equal(result.lastPercent,answer===keys[questions[i].id]?100:88);assert.equal(result.contentRevision,2);
+  if(answer!==keys[questions[i].id])assert.deepEqual(result.reviewQuestionIds,[questions[i].id]);
   assert.ok(d.getElementById('chapter-quiz-result').textContent.includes(questions[i].answers[answer].feedback));paths++;
  }
- assert.equal(paths,11);assert.equal(w.currentChapterResult(id,{contentRevision:0,passed:true,bestPercent:100}).passed,false);
- assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,true);dom.window.close();
+ assert.equal(paths,24);assert.equal(w.currentChapterResult(id,{contentRevision:1,passed:true,bestPercent:100}).passed,false);
+ assert.equal(w.currentChapterResult(id,{contentRevision:2,passed:true,bestPercent:100}).passed,true);dom.window.close();
  const paper=new JSDOM(read('topics/worksheet.html'),{url:'https://example.test/topics/worksheet.html?topic='+id,runScripts:'outside-only'}),pw=paper.window;
  pw.fetch=async()=>({ok:true,json:async()=>data});for(const f of ['curriculum','worksheet_generator','worksheet'])pw.eval(read('js/'+f+'.js'));await new Promise(r=>setImmediate(r));
  const material=pw.document.getElementById('ws-dgb-material'),solutions=pw.document.getElementById('ws-solutions');
  assert.equal(material.querySelectorAll('[data-chart-check-data] tbody tr').length,2);assert.equal(material.querySelectorAll('[data-chart-check-tasks] > li').length,6);
  assert.equal(material.querySelectorAll('button,input,select,template,details,svg').length,0);assert.equal(solutions.hidden,true);
  assert.ok(solutions.textContent.includes('44 : 40 = 1,1'));assert.ok(!material.textContent.includes('44 : 40 = 1,1'));paper.window.close();
- console.log('PASS: chart scales and unchanged values, labels/focus, reinitialization, 11 assessed answer paths, revisions and separate worksheet solutions.');
+ console.log('PASS: chart scales and unchanged values, labels/focus, reinitialization, 24 assessed answer paths, revisions and separate worksheet solutions.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
