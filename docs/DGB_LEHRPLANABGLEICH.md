@@ -1,5 +1,7 @@
 # DGB – belegter Arbeitsabgleich
 
+23.09.2026: Der [aktuelle Abgleich der 4. Klasse](DGB_KLASSE4_ABGLEICH.md) ordnet den Bestand allen fünf Kompetenzbereichen zu. Mobilitäts-/Gesundheitsfälle und die [Wiki-Überarbeitung](DGB_WIKI_UEBERARBEITUNG.md) sind ausgearbeitet. Nächste konkrete Ergänzung ist ein zusammenhängender Medienprojektauftrag in Produktion; weitere Fachprüfungen bleiben offen.
+
 Stand: 08.09.2026. Nutzerpriorität: deutsche Fassung, Übersetzungen pausiert. Dieser Abgleich ersetzt keine fachliche oder schulische Approbation.
 
 ## Grundlage und Prüfgrenze
@@ -175,3 +177,9 @@ Aktueller RIS-Kommunikationsabschnitt, RFC/MDN, UrhG § 78, Datenschutzbehörde 
 Dgb8_handeln anhand der aktuellen RIS-Fassung neu ausgearbeitet: drei zusammenwirkende Systemebenen, echte Datei-Verschlüsselungswerkstatt mit Fehlerprüfungen, zwei vollständig beschriebene Abo-Angebote und Wiener Schulhofanliegen mit begründeten Einstellungen. 18 Aufgaben, acht bewertete Fragen und drei Übungen; Revision 1. Der Softwareeinsatz ist nun direkt möglich. Papierplanung wird ausdrücklich von ausgeführter Praxis unterschieden. Österreichische Geschäftsfähigkeit und manipulative Gestaltung mit aktuellen AK-Quellen abgeglichen.
 
 Unabhängiger Kryptografieabgleich in beide Richtungen, Dateiworkflow, Fehlerfälle, zwölf Layoutfälle und 24 native Quizantwortwege geprüft. Finale Druckfassung: 14 Seiten visuell geprüft. [Nachweise und Grenzen](DGB_VERSCHLUESSELUNG.md). Weitere Lehrplananwendungen, reale Unterrichtserprobung und die vollständige Fachabnahme bleiben offen. Übersetzungen zurückgestellt; lokale Weiterarbeit nach 81016aa.
+
+## 23.09.2026 – Orientierung: Mobilität und Gesundheit
+
+Die in den vorherigen Nachträgen noch offenen beiden Anwendungen sind jetzt als eigene Abschnitte in `dgb8_orientierung` ausgearbeitet. Der Orientierungsbereich der 4. Klasse wurde aus der am 23.09.2026 direkt abgerufenen RIS-Fassung erneut gelesen. Zwei Fallwerkstätten verbinden Aufgabenverteilung und Einsatzgrenzen automatisierter Fahrzeuge mit Zuordnung, Aktualität und Fehlermöglichkeiten vernetzter Gesundheitsdaten. Sechs Fälle, acht weiterführende Aufträge, sechs neue Fragen; Revision 2 mit insgesamt 14 bewerteten Fragen. Wiener Planungsbezug, Quellenarbeit und getrennte Papierlösungen sind enthalten.
+
+Alle 18 Fallentscheidungen, 42 Kapitelantwortwege, 108 native Tastaturentscheidungen in 36 Ansichten und die vollständige 24-seitige Lösungsdruckfassung im dokumentierten Umfang geprüft. Die schmale Referenztabelle ist ohne seitliches Verschieben vollständig sichtbar. [Inhalte, Quellen, Tests und Grenzen](DGB_ASSISTENZ_MOBILITAET_GESUNDHEIT.md). Die frühere konkrete Lücke dieser beiden Anwendungen ist damit bearbeitet; die vollständige jahrgangsweise Fachabnahme bleibt offen. Weitere Aufgaben nicht aus historischen Lückenbehauptungen ableiten, ohne den aktuellen Bestand zu prüfen. Änderungen lokal nach `47c553a`, keine Übersetzungen und kein neuer Push.

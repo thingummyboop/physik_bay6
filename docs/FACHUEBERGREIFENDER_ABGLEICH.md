@@ -47,7 +47,7 @@ Gelesener Fachlehrplan: beide Kompetenzbereiche, sämtliche Kompetenzbeschreibun
 1. Haushaltslücken als zusammenhängenden Lernweg ergänzen: Protokoll und Qualitätsvergleich, weitere Küchentechniken. Der vollständige Projekt-Belegsatz wurde ergänzt. Praktische Küchenarbeit wird als angeleitete Unterrichtsaufgabe angeboten; ein Planspiel belegt keine ausgeführte Küchentechnik.
 2. Musik, Deutsch und Englisch als bislang knappste Fächer vollständig gegen die jeweiligen Jahrgangskompetenzen lesen und konkrete Lücken priorisieren. Danach die umfangreicheren Fächer konsolidieren. Vorhandene historische Arbeiten nicht nochmals pauschal ersetzen.
 3. Lehrerunterlagen: Alle sieben Haushalts-Arbeitsblätter übernehmen jetzt auch Abschnittstexte, Tabellen, Quellen und den neuen Etikettenbogen sowie die bisherige Werkstatt. Interaktive Planer bleiben ausdrücklich online; uninitialisierte Tabellen werden nicht als Rechenergebnis ausgegeben. Material und Lösungen lassen sich unabhängig ein-/ausblenden. Die tatsächliche Druckdarstellung bleibt ungeprüft.
-4. Nach stabiler deutscher Abdeckung Übersetzungen vervollständigen, Gesamtfunktion und freigegebene Browser-/Geräte-/Druckabläufe prüfen, veröffentlichen. Der vollständige Gesamtauftrag bleibt aktiv.
+4. Nach stabiler deutscher Abdeckung Gesamtfunktion und Browser-/Geräte-/Druckabläufe prüfen und die fertige Fassung veröffentlichen. Die Übersetzungsarbeit bleibt gemäß späterer Nutzeranweisung ausgesetzt. Vorrang haben Physik, Mathematik, Chemie, Biologie und DGB; der Auftrag für die übrigen vorhandenen Fächer bleibt bestehen.
 
 ### Deutsch – vertiefter Abgleich 08.09.2026
 

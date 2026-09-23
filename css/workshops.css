@@ -416,6 +416,9 @@
 .ai-source-card h3{margin-top:0}
 .evidence-table{max-width:100%;overflow-x:auto}
 .evidence-table table{width:100%;min-width:500px;border-collapse:collapse;font-size:1rem}
+.evidence-table table[data-assistance-reference]{min-width:0;table-layout:fixed}
+.evidence-table [data-assistance-reference] th:first-child{width:20%}
+@media(max-width:400px){.evidence-table [data-assistance-reference] thead th{font-size:.875rem;padding:6px}}
 .evidence-table th,.evidence-table td{padding:8px;border:1px solid var(--box-border);overflow-wrap:anywhere}
 [data-ai-tasks] li{margin-bottom:12px}
 .crop-workshop label{display:block;font-weight:700;margin:12px 0 6px;color:var(--text)}

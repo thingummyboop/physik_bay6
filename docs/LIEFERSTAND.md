@@ -1,5 +1,9 @@
 # Lieferstand und nächste Prioritäten
 
+GitHub-Zwischenstand 23.09.2026 auf Nutzerwunsch: Die Weiterarbeit nach `47c553a` wird gemeinsam gesichert. Enthalten sind die DGB-Fallwerkstätten zu Mobilität und Gesundheit, die neue offline nutzbare Wiki-Werkstatt mit Speichern/Wiederherstellen und lesbarem Export sowie der [aktuelle Abgleich der 4. Klasse](DGB_KLASSE4_ABGLEICH.md). [Wiki-Inhalte und Prüfbelege](DGB_WIKI_UEBERARBEITUNG.md). Die folgenden Angaben „lokal“ beschreiben ihren damaligen Stand. Übersetzungen bleiben ausgesetzt; die vollständige Fach- und Produktabnahme bleibt offen.
+
+Fortschritt 23.09.2026 nach `47c553a`: DGB-Orientierung der 4. Klasse um die zuvor offenen Anwendungen Mobilität und Gesundheit ergänzt. Zwei Fallwerkstätten, acht weiterführende Aufträge, sechs neue Fragen, Revision 2; alle 42 Kapitelantwortwege, 108 native Fallentscheidungen und die vollständige 24-seitige Lösungsdruckfassung im dokumentierten Umfang geprüft. [Inhalte, Quellen und Nachweise](DGB_ASSISTENZ_MOBILITAET_GESUNDHEIT.md). Diese Weiterarbeit bleibt lokal. Übersetzungen ausgesetzt; vollständige Fach- und Produktabnahme weiterhin offen.
+
 ## GitHub-Zwischenstand vom 23.09.2026: Elektrizität und Ohm-Aufgaben
 
 Auf Nutzerwunsch wird die Weiterarbeit nach `f601fda` als Zwischenstand gesichert: Modell-/Datenvergleich, Stromwirkungen, überarbeitete Elektrizitätsfragen (Revision 6) sowie zehn erzeugte Ohm-Aufgaben mit passenden Rechenwegen und Proben. Die unten als lokal beschriebenen Physik-Ergänzungen gehören zu diesem Zwischenstand.

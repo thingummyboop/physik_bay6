@@ -6,11 +6,11 @@ for(const language of ['de','en','tr','sr']){
  const dom=new JSDOM(read('topics/template.html'),{url:'https://example.test/topics/template.html?topic='+id,runScripts:'outside-only'}),w=dom.window,d=w.document;
  await new Promise(r=>setImmediate(r));w.localStorage.setItem('physik_lang',language);w.fetch=async url=>({ok:true,json:async()=>url.includes('/de.json')?data:translated});
  for(const f of ['curriculum','chapter-revisions','common','core-learning','renderer'])w.eval(read('js/'+f+'.js'));await w.renderTopic();
- assert.equal(w.currentChapterQuiz.questions.length,6);assert.equal(d.getElementById('sections-container').lang,'de');
+ assert.equal(w.currentChapterQuiz.questions.length,8);assert.equal(d.getElementById('sections-container').lang,'de');
  assert.equal(d.querySelectorAll('[data-restore-steps] li').length,7);assert.equal(d.querySelectorAll('[data-restore-protocol] tbody tr').length,3);
  assert.deepEqual([...d.querySelectorAll('[data-restore-protocol] tbody tr')].map(r=>r.cells[1].textContent),['Version 2; 15 Uhr','Version 1; 14 Uhr','Version 1; 14 Uhr']);
  assert.ok(d.querySelector('.trace-workshop'));if(language!=='de'){assert.ok(d.querySelector('[data-content-language-notice]'));assert.ok(translated[id].sourceRevision<w.chapterRevision(id));}
  assert.equal(w.currentChapterResult(id,{contentRevision:1,lastPercent:100}).outdated,true);dom.window.close();
 }
-console.log('PASS: 21 complete DGB worksheets, material/solution separation, unchanged seven-step restore exercise and three file versions; current German six-question chapter and explicit fallback for three stale translations. Independent quiz keys are checked in test_profile_traces.js.');
+console.log('PASS: 21 complete DGB worksheets, material/solution separation, unchanged seven-step restore exercise and three file versions; current German eight-question chapter and explicit fallback for three stale translations. Independent quiz keys are checked in test_profile_traces.js.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

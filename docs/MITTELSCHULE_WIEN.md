@@ -1,5 +1,9 @@
 # SciVerse – interaktives Lehrbuch für die Mittelschule Wien
 
+23.09.2026: DGB-Information der 4. Klasse enthält jetzt eine eigenständige Wiki-Werkstatt mit Quellenvergleich, Überarbeitung, Speichern/Wiederherstellen und lesbarem Export. Revision 3 umfasst acht Fragen. [Inhalte und Teilprüfungen](DGB_WIKI_UEBERARBEITUNG.md), [aktueller Klassenabgleich](DGB_KLASSE4_ABGLEICH.md). Die DGB-Weiterarbeit nach `47c553a` wird auf Nutzerwunsch als GitHub-Zwischenstand gesichert; der Gesamtauftrag bleibt offen.
+
+23.09.2026, Weiterarbeit nach `47c553a`: DGB-Orientierung der 4. Klasse ergänzt die Anwendungen automatisierte Mobilität und vernetzte Gesundheitsdaten mit sechs Fällen, acht weiterführenden Aufträgen, sechs neuen Fragen und Papierlösungen. [Inhalte und abgeschlossene Teilprüfungen](DGB_ASSISTENZ_MOBILITAET_GESUNDHEIT.md). Der Gesamtauftrag bleibt offen; Übersetzungen bleiben auf Nutzerwunsch ausgesetzt.
+
 Fortschritt 23.09.2026: Die zehn erzeugten Ohm-Papieraufgaben haben jetzt eindeutige Nummern, Rechenhilfe sowie passende Lösungen mit Einheitenumrechnung und Probe. Alle 50 Zahlen-/Aufgabenkombinationen, drei Browserziehungen und die neuen Druckseiten geprüft. Schüler- und Lösungsfassung bleiben getrennt; Aufgaben ändern sich beim Lösungsschalten nicht. [Nachweise](PHYSIK_OHM_PAPIERAUFGABEN.md). Kapitelrevision bleibt 6. Änderungen lokal nach `f601fda`; weitere Grafik-, Fach- und Gesamtprüfungen offen.
 
 
@@ -72,7 +76,7 @@ Die gemeinsamen Lern- und Unterrichtswege wurden am 16.09.2026 erneut geprüft. 
 - [ ] Gamifizierung ohne Sperren, Wartezeiten oder Punktkosten für Lernen und Prüfungsübungen.
 - [ ] Jede Quizantwort erhält fachlich passende, widerspruchsfreie Rückmeldung; alle Aufgaben werden ausgewertet.
 - [ ] Plausible Fehlvorstellungen statt absurder Antwortalternativen; ausreichende Anwendung und Transfer.
-- [ ] Durchgängiges Deutsch; andere angebotene Sprachen ohne falsche Antworten oder stille Struktur-/Sprachmischung.
+- [ ] Durchgängiges Deutsch mit verständlichen, fachlich passenden Texten und Rückmeldungen. Die Überarbeitung der Übersetzungen ist auf Nutzerwunsch ausgesetzt und kein Abschlusskriterium dieser Arbeitsphase.
 - [ ] Responsive Darstellung, Tastaturbedienung, lesbare Inhalte und Rückmeldungen; vorhandene Fähigkeiten bleiben erhalten.
 - [ ] Vollständige Qualitätsprüfung, funktionierende Vorschau und veröffentlichte, überprüfte Fassung.
 
